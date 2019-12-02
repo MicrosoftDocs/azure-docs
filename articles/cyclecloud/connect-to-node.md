@@ -56,7 +56,7 @@ You can connect to an node via a bastion server by specifying the IP address on
 the command line:
 
 ``` CLI
-$ cyclecloud connect htcondor-master --bastion-host 1.1.1.1
+cyclecloud connect htcondor-master --bastion-host 1.1.1.1
 ```
 
 The above command assumes `cyclecloud` as the username, 22 as the port, and
@@ -79,7 +79,7 @@ following command will create an RDP connection over an SSH tunnel.
 Additionally, it will launch the Microsoft RDP client on OS X and Windows:
 
 ``` CLI
-$ cyclecloud connect windows-execute-1
+cyclecloud connect windows-execute-1
 ```
 
 > [!NOTE] CycleCloud chooses an unused ephemeral port for the tunnel to the

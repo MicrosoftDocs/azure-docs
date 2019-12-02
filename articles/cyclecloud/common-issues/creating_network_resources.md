@@ -22,7 +22,7 @@ In most cases, these errors are due to insufficient privileges for the service p
 
 To add "contributor" to your service principal:
 ```azurecli-interactive
-$> az role assignment create --assignee APP_ID --role Contributor
+az role assignment create --assignee APP_ID --role Contributor
 ```
 
 ## More Info

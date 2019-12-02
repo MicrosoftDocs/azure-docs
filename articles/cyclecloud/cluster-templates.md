@@ -87,9 +87,9 @@ This will create a JSON file containing the parameters for dev and a .properties
 You can now import the template using the parameters file to fill in the missing pieces:
 
 ```azurecli-interactive
-$ cyclecloud import_cluster gridengine-dev -f template.txt -p dev-params.json -c gridengine
+cyclecloud import_cluster gridengine-dev -f template.txt -p dev-params.json -c gridengine
 
-$ cyclecloud import_cluster gridengine-prod -f template.txt -p prod-params.properties -c gridengine
+cyclecloud import_cluster gridengine-prod -f template.txt -p prod-params.properties -c gridengine
 ```
 
 It is also possible to define some or all of the parameters within the cluster template itself:

@@ -18,13 +18,13 @@ When using a marketplace image with CycleCloud, the service principal must have 
 To grant access using the Azure CLI:
 
 ```azurecli-interactive
-$> az vm image accept-terms --urn PUBLISHER:OFFER:SKU:VERSION
+az vm image accept-terms --urn PUBLISHER:OFFER:SKU:VERSION
 ```
 
 or
 
 ```azurecli-interactive
-$> az vm image accept-terms --publisher PUBLISHER --offer OFFER --plan SKU
+az vm image accept-terms --publisher PUBLISHER --offer OFFER --plan SKU
 ```
 
 ## More Information

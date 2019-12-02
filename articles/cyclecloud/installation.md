@@ -39,21 +39,21 @@ The default SSH key used in CycleCloud is */opt/cycle_server/.ssh/cyclecloud.pem
 First, install `wget` if its not already installed. This will be used to fetch the Microsoft signing key.
 
 ```CMD
-$ sudo apt update && sudo apt -y install wget
+sudo apt update && sudo apt -y install wget
 ```
 
 Next, download the Microsoft signing key to Apt's trusted keyring
 
 ```CMD
-$ sudo wget -O /etc/apt/trusted.gpg.d/microsoft.asc https://packages.microsoft.com/keys/microsoft.asc
+sudo wget -O /etc/apt/trusted.gpg.d/microsoft.asc https://packages.microsoft.com/keys/microsoft.asc
 ```
 
 Finally, configure a `cyclecloud.list` file, update the Apt cache, and install cyclecloud.
 
 ```CMD
-$ sudo echo "'deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list"
-$ sudo apt update
-$ sudo apt -y install cyclecloud
+sudo echo "'deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list"
+sudo apt update
+sudo apt -y install cyclecloud
 ```
 
 > [!NOTE]
@@ -64,7 +64,7 @@ $ sudo apt -y install cyclecloud
 First, configure a `cyclecloud.repo` file.
 
 ```CMD
-$ sudo cat > /etc/yum.repos.d/cyclecloud.repo <<EOF
+sudo cat > /etc/yum.repos.d/cyclecloud.repo <<EOF
 [cyclecloud]
 name=cyclecloud
 baseurl=https://packages.microsoft.com/yumrepos/cyclecloud
@@ -76,7 +76,7 @@ EOF
 Finally, install cyclecloud with `yum` or `dnf`.
 
 ```CMD
-$ sudo yum -y install cyclecloud
+sudo yum -y install cyclecloud
 ```
 
 ### Installing from the Microsoft Download center

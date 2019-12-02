@@ -19,7 +19,7 @@ This user exists locally on each VM and should be treated as a service user with
 To connect to a node as `cyclecloud`, run the following command:
 
 ```bash
-$ ssh -i /opt/cycle_server/.ssh/cyclecloud.pem cyclecloud@${NODE-IP-Address}
+ssh -i /opt/cycle_server/.ssh/cyclecloud.pem cyclecloud@${NODE-IP-Address}
 ```
 
 Alternatively, using the CycleCloud CLI:

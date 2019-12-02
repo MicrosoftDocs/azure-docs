@@ -44,12 +44,11 @@ Slurm clusters running in CycleCloud versions 7.8 and later implement an updated
 
 ### Making Cluster Changes
 
-The Slurm cluster deployed in CycleCloud contains a script that facilitates this. After making any changes to the cluster, run the following command as root on the Slurm master node to rebuild the `slurm.conf` and update the nodes in the cluster:
+The Slurm cluster deployed in CycleCloud contains a script that facilitates this. After making any changes to the cluster, run the following command as root (e.g., by running `sudo -i`) on the Slurm master node to rebuild the `slurm.conf` and update the nodes in the cluster:
 
 ``` bash
-$ sudo -i
-# cd /opt/cycle/jetpack/system/bootstrap/slurm
-# ./cyclecloud_slurm.sh scale
+cd /opt/cycle/jetpack/system/bootstrap/slurm
+./cyclecloud_slurm.sh scale
 ```
 
 ### Removing all execute nodes

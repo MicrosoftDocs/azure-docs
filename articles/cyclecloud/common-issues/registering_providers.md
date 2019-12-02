@@ -24,11 +24,11 @@ There are two possible resolutions:
 
 1. Use the Azure CLI to manually register the providers
 ```azurecli-interactive
-$> az provider register --namespace "Microsoft.Compute"
-$> az provider register --namespace "Microsoft.Storage"
-$> az provider register --namespace "Microsoft.Network"
-$> az provider register --namespace "Microsoft.Resources"
-$> az provider register --namespace "Microsoft.Commerce"
+az provider register --namespace "Microsoft.Compute"
+az provider register --namespace "Microsoft.Storage"
+az provider register --namespace "Microsoft.Network"
+az provider register --namespace "Microsoft.Resources"
+az provider register --namespace "Microsoft.Commerce"
 ```
 
 ## More Information

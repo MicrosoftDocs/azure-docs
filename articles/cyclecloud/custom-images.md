@@ -50,13 +50,13 @@ You can use a Marketplace image with an associated pricing plan but the image mu
 To accept a license from the CLI:
 
 ```azurecli-interactive
-$> az vm image accept-terms --urn publisher:offer:sku:version
+az vm image accept-terms --urn publisher:offer:sku:version
 ```
 
 or
 
 ```azurecli-interactive
-$> az vm image accept-terms --publisher PUBLISHER --offer OFFER --plan SKU
+az vm image accept-terms --publisher PUBLISHER --offer OFFER --plan SKU
 ```
 
 ## Create a Custom Image

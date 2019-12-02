@@ -121,7 +121,7 @@ mVa3tFI9HfSz2qjsB1YLRfZYiMR+BzCI9uOyu9bIu2VLUX1fjgIDJ6XYtcOQAJP0
 To bring up an Azure CycleCloud container with a user pre-created, add the following environment variables to the docker run command:
 
 ```azurecli-interactive
-$ docker run -m 4G -p 80:80 -p 443:443 \
+docker run -m 4G -p 80:80 -p 443:443 \
 -e "JAVA_HEAP_SIZE=2048" \
 -e CYCLECLOUD_AUTOCONFIG=true \
 -e CYCLECLOUD_USERNAME=$YOUR-USER-NAME \
