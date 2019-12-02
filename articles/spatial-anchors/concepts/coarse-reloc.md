@@ -490,7 +490,7 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-Azure Spatial Anchors will only track Bluetooth beacons that are on the list. Malicious beacons programmed to have white-listed UUIDs can still negatively impact the quality of the service though. For that reason, you should use beacons only in curated spaces where you can control their deployment.
+Azure Spatial Anchors will only track Bluetooth beacons that are on the list. Malicious beacons programmed to have allow-listed UUIDs can still negatively impact the quality of the service though. For that reason, you should use beacons only in curated spaces where you can control their deployment.
 
 ## Querying with sensor data
 
