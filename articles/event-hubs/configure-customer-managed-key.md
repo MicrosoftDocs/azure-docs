@@ -16,7 +16,7 @@ ms.author: spelluru
 Azure Event Hubs provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Event Hubs relies on Azure Storage to store the data and by default, all the data that is stored with Azure Storage is encrypted using Microsoft-managed keys. 
 
 >[!NOTE]
-> This feature is currently in preview. 
+> This feature is currently in preview. We recommend that you don't use in in a production environment.
 
 ## Overview
 Azure Event Hubs now supports the option of encrypting data at rest with either Microsoft-managed keys or customer-managed keys (Bring Your Own Key – BYOK). This feature enables you to create, rotate, disable, and revoke access to the customer-managed keys that are used for encrypting Azure Event Hubs data at rest.
