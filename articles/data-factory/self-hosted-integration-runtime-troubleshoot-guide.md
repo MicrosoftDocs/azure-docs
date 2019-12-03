@@ -31,17 +31,17 @@ The self-hosted integration runtime can't connect to the Data Factory service (b
     
 2. If the service is running, go on to step 3.
 
-1. If there's no proxy configured on the self-hosted integration runtime (the default setting is for no proxy configuration), run the following PowerShell command on the machine where self-hosted integration runtime is installed:
+1. If there's no proxy configured on the self-hosted integration runtime (which is the default setting), run the following PowerShell command on the machine where self-hosted integration runtime is installed:
             
             ```powershell
             (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
             ```
-            > [!NOTE] 
-            > The service URL may vary, depending on your Data Factory location. You can find the service URL under **ADF UI** > **Connections** > **Integration runtimes** > **Edit Self-hosted IR** > **Nodes** > **View Service URLs**.
+    > [!NOTE] 
+    > The service URL may vary, depending on your Data Factory location. You can find the service URL under **ADF UI** > **Connections** > **Integration runtimes** > **Edit Self-hosted IR** > **Nodes** > **View Service URLs**.
             
-            The following is the expected response:
+    The following is the expected response:
             
-            ![Powershell command response](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+    ![Powershell command response](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
             
 1. If you don't receive the expected response, use one of the following methods as appropriate to your situation:
             
@@ -70,7 +70,7 @@ The self-hosted integration runtime can't connect to the Data Factory service (b
 
         The following is the expected response:
             
-            ![Powershell command response 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+        ![Powershell command response 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
 
         > [!NOTE] 
         > Proxy considerations:
