@@ -26,7 +26,7 @@ The current minor release is 9.6.15. Refer to the [PostgreSQL documentation](htt
 The current minor release is 9.5.19. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.5/static/release-9-5-19.html) to learn about improvements and fixes in this minor release.
 
 ## Managing upgrades
-The PostgreSQL project regularly issues minor releases to fix any reported bugs. Azure Database for PostgreSQL automatically patches servers with the minor releases.
+The PostgreSQL project regularly issues minor releases to fix reported bugs. Azure Database for PostgreSQL automatically patches servers with minor releases during the service's monthly deployments. 
 
 Automatic major version upgrade is not supported. For example, there is not an automatic upgrade from PostgreSQL 9.5 to PostgreSQL 9.6. To upgrade to the next major version, create a [database dump and restore](./howto-migrate-using-dump-and-restore.md) to a server that was created with the new engine version.
 
