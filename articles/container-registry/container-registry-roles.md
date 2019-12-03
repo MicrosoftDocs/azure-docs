@@ -76,7 +76,7 @@ az provider operation show --namespace Microsoft.ContainerRegistry
 To define a custom role, see [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
 > [!IMPORTANT]
-> In a custom role, Azure Container Registry doesn't currently support wildcards such as `MicrosoftContainerRegistry/*` or `Microsoft.ContainerRegistry/registries/*` that grant access to all matching actions. Specify any required action individually in the role.
+> In a custom role, Azure Container Registry doesn't currently support wildcards such as `Microsoft.ContainerRegistry/*` or `Microsoft.ContainerRegistry/registries/*` that grant access to all matching actions. Specify any required action individually in the role.
 
 ## Next steps
 
