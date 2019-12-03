@@ -250,6 +250,7 @@
         "articles/azure-databricks/**/*.md": "https://feedback.azure.com/forums/909463-azure-databricks",
         "articles/azure-functions/**/*.md": "https://feedback.azure.com/forums/355860-azure-functions",
         "articles/azure-government/**/*.md": "https://feedback.azure.com/forums/558487-azure-government",
+        "articles/industry/agriculture/**/*.md": "https://feedback.azure.com/forums/924718-Azure-farmbeats",
         "articles/azure-maps/**/*.md": "https://feedback.azure.com/forums/909172-azure-maps",
         "articles/azure-portal/**/*.md": "https://feedback.azure.com/forums/223579-azure-portal",
         "articles/azure-resource-manager/**/*.md": "https://feedback.azure.com/forums/281804-azure-resource-manager",

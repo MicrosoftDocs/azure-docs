@@ -130,7 +130,7 @@ You can specify the scope of monitoring by a single metric alert in one of three
 - all virtual machines (in one Azure region) in one or more resource groups in a subscription
 - all virtual machines (in one Azure region) in one subscription
 
-Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each virtual machine.
+Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each virtual machine.
 
 ## Typical latency
 
