@@ -73,7 +73,7 @@ After you submit your solution:
 
 If you make changes after your submission is certified, it must go through the certification process again.
 
-If you have questions about policies or requirements in your report, you can engage with the Office Validation Team via [Stack Overflow](https://stackoverflow.com/search?q=appsource). Tag your question with "AppSource".
+If you have general questions about policies, processes, or validation requirements, you can engage with the AppSource validation team via [Stack Overflow](https://stackoverflow.com/search?q=office-store). Tag your question with "Office-Store". Please be aware that the validation team will not be able to discuss individual submission results on Stack Overflow. 
 
 ## See also
 
