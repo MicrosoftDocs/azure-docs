@@ -1124,6 +1124,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|---|
 |ApplicationRuleHit|Application rules hit count|Count|Total|Number of times Application rules were hit|Status, Reason, Protocol|
 |NetworkRuleHit|Network rules hit count|Count|Total|Number of times Network rules were hit|Status, Reason, Protocol|
+|DataProcessed|Data Processed|Bytes|Total|Amount of data traversing the firewall|No Dimensions|
+|FirewallHealthState|Firewall Health State|Percent|Average|Indicates the health of the firewall|Status, Reason|
+|SNATPortUtilization|SNAT Port Utilization|Percent|Average|The percentage of SNAT ports that have been utilized by the firewall|No Dimensions|
 
 ## Microsoft.Network/applicationGateways
 
@@ -1444,7 +1447,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |cpu_limit|CPU limit|Count|Average|CPU limit. Applies to vCore-based databases.|No Dimensions|
 |cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based databases.|No Dimensions|
 |deadlock|Deadlocks|Count|Total|Deadlocks. Not applicable to data warehouses.|No Dimensions|
-|diff_backup_size_bytes|Differential backup storage size|Bytes|Maximum|Cumulative differential backup storage size. Applies to vCore-based databases. Not applicable to Hyperscale databases.|No Dimensions|
+|diff_backup_size_bytes|Differential backup storage size|Bytes|Maximum|Cumulative differential backup storage size. Applies to General Purpose and Business Critical databases. Does not currently apply to Manage instance databases.|No Dimensions|
 |dtu_limit|DTU Limit|Count|Average|DTU Limit. Applies to DTU-based databases.|No Dimensions|
 |dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage. Applies to DTU-based databases.|No Dimensions|
 |dtu_used|DTU used|Count|Average|DTU used. Applies to DTU-based databases.|No Dimensions|
@@ -1453,9 +1456,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |dwu_consumption_percent|DWU percentage|Percent|Maximum|DWU percentage. Applies only to data warehouses.|No Dimensions|
 |dwu_limit|DWU limit|Count|Maximum|DWU limit. Applies only to data warehouses.|No Dimensions|
 |dwu_used|DWU used|Count|Maximum|DWU used. Applies only to data warehouses.|No Dimensions|
-|full_backup_size_bytes|Full backup storage size|Bytes|Maximum|Cumulative full backup storage size. Applies to vCore-based databases. Not applicable to Hyperscale databases.|No Dimensions|
+|full_backup_size_bytes|Full backup storage size|Bytes|Maximum|Cumulative full backup storage size. Applies to General Purpose and Business Critical databases. Does not currently apply to Manage instance databases.|No Dimensions|
 |local_tempdb_usage_percent|Local tempdb percentage|Percent|Average|Local tempdb percentage. Applies only to data warehouses.|No Dimensions|
-|log_backup_size_bytes|Log backup storage size|Bytes|Maximum|Cumulative log backup storage size. Applies to vCore-based databases. Not applicable to Hyperscale databases.|No Dimensions|
+|log_backup_size_bytes|Log backup storage size|Bytes|Maximum|Cumulative log backup storage size. Applies to General Purpose and Business Critical databases. Does not currently apply to Manage instance databases.|No Dimensions|
 |log_write_percent|Log IO percentage|Percent|Average|Log IO percentage. Not applicable to data warehouses.|No Dimensions|
 |physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|No Dimensions|
 |sessions_percent|Sessions percentage|Percent|Average|Sessions percentage. Not applicable to data warehouses.|No Dimensions|
