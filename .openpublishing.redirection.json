@@ -29517,8 +29517,53 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Image-Search/search-the-web.md",
-      "redirect_url": "/azure/cognitive-services/bing-image-search",
+      "redirect_url": "/azure/cognitive-services/Bing-Image-Search/overview",
       "redirect_document_id": false
     },
     {
@@ -29528,7 +29573,7 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Web-Search/search-the-web.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/overview",
       "redirect_document_id": false
     },
     {
