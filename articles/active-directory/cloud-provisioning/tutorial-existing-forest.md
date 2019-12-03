@@ -97,7 +97,7 @@ To verify that the agent is running follow these steps:
 2.  Click **Azure Active Directory**
 3.  Click **Azure AD Connect**
 4.  Select **Manage provisioning (Preview)**
-![](media/how-to-cloud-configure/manage1.png)
+![](media/how-to-configure/manage1.png)
 5.  Click **New Configuration**
 ![](media/tutorial-single-forest/configure1.png)
 7.  On the configuration screen, enter a **Notification email**, move the selector to **Enable** and click **Save**.

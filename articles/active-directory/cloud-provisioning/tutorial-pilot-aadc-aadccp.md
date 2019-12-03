@@ -191,7 +191,7 @@ Use the following steps to configure provisioning:
  2. Click **Azure Active Directory**
  3. Click **Azure AD Connect**
  4. Select **Manage provisioning (Preview)**
- ![](media/how-to-cloud-configure/manage1.png)</br>
+ ![](media/how-to-configure/manage1.png)</br>
  5.  Click **New Configuration**
  ![](media/tutorial-single-forest/configure1.png)</br>
  6.  On the configuration screen, enter a **Notification email**, move the selector to **Enable** and click **Save**.
