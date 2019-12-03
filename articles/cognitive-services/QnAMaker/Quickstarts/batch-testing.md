@@ -19,7 +19,7 @@ Use the QnA Maker batch testing tool to test your knowledge base for expected an
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Either [create a QnA Maker service](create-publish-knowledge-base.md#create-a-new-qna-maker-knowledge-base) or use an existing service which uses the English language for the sample doc used in this quickstart.
+* Either [create a QnA Maker service](create-publish-knowledge-base.md#create-a-new-qna-maker-knowledge-base) or use an existing service, which uses the English language for the sample doc used in this quickstart.
 * Download the [multi-turn sample `.docx` file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Download the [batch testing tool](https://aka.ms/qnamakerbatchtestingtool), extract the executable file from the `.zip` file.
 
@@ -46,7 +46,7 @@ Use the QnA Maker batch testing tool to test your knowledge base for expected an
 ## Save, train, and publish knowledge base
 
 1. Select **Save and train** from the toolbar to save the knowledge base.
-1. Select **Publish** from the toolbar then select **Publish** again to publish the knowledge base. Publishing makes the knowledge base available for queries from a public URL endpoint. Once the publish is completed, save the host URL and endpoint key information shown on the publish page.
+1. Select **Publish** from the toolbar then select **Publish** again to publish the knowledge base. Publishing makes the knowledge base available for queries from a public URL endpoint. When publishing is complete, save the host URL and endpoint key information shown on the **Publish** page.
 
     |Required data| Example|
     |--|--|
@@ -56,17 +56,17 @@ Use the QnA Maker batch testing tool to test your knowledge base for expected an
 
 ## Create batch test file with question IDs
 
-In order to use the batch test tool, create a file named `batch-test-data-1.tsv` with a text editor. The file needs to have the following columns
+In order to use the batch test tool, create a file named `batch-test-data-1.tsv` with a text editor. The file needs to have the following columns separated by a tab.
 
 |TSV input file fields|Notes|Example|
 |--|--|--|
-|KBID|Your KB ID found on the Publish page.|`e906af8d-YYYY-YYYY-YYYY-2c0ea7b1376e` (36 character string shown as part of `POST`) |
+|Knowledge base ID|Your knowledge base ID found on the Publish page.|`e906af8d-YYYY-YYYY-YYYY-2c0ea7b1376e` (36 character string shown as part of `POST`) |
 |Question|The question text a user would enter.|`How do I sign out?`|
-|Metadata tags|optional|`topic:power`|
+|Metadata tags|optional|`topic:power` uses the _key:value_ format|
 |Top parameter|optional|`25`|
 |Expected answer ID|optional|`13`|
 
-For the multi-turn knowledge base, add 3 rows to the file. The first column is your knowledge base ID and the second column should be the following list of questions:
+For this knowledge base, add 3 rows of just the 2 required columns to the file. The first column is your knowledge base ID and the second column should be the following list of questions:
 
 |Column 2 - questions|
 |--|
@@ -90,21 +90,22 @@ The batch test file, when opened in Excel, looks like the following image.
 > [!div class="mx-imgBorder"]
 > ![Input first version of .tsv file from batch test](../media/batch-test/batch-test-1-input.png)
 
-## Run the test against the batch file
+## Test the batch file
 
-Run the batch testing using the following format at the command line with your published host and key, found on the **Settings** page.
-
-The published host includes your resource name. The published key **is not** the same as your QnA Maker resource key.
+Run the batch testing program using the following CLI format at the command line with your published host and key, found on the **Settings** page.
 
 ```console
-batchtesting.exe batch-test-data-1 https://YOUR-RESOURCE-NAME.azurewebsites.net ENDPOINT-KEY out.tsv
+batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.net ENDPOINT-KEY out.tsv
 ```
+
+The published host includes your resource name. The published key **is not** the same as your QnA Maker resource key.
 
 The test completes and generates the `out.tsv` file:
 
 > [!div class="mx-imgBorder"]
 > ![Output first version of .tsv file from batch test](../media/batch-test/batch-test-1-output.png)
 
+The test output of confidence score, in the 4th column, shows the top 3 questions returned a score of 100 as expected because each question is exactly the same as it appears in the knowledge base. The last 3 questions are new wording of the question and do not return 100 as the confidence score. The last question, `What features are in Windows 10?` returns a score of 63. In order to increase the score both for the test, and your users, you need to add more question variations to the knowledge base.
 
 ## Using optional fields in the input batch test file
 
@@ -112,9 +113,9 @@ Use the following chart to understand how to find the field values for optional 
 
 |Column number|Optional column|Data location|
 |--|--|--|
-|3|metadata|Export existing knowledge base for values.|
+|3|metadata|Export existing knowledge base for existing _key:value_ pairs.|
 |4|top|Default value of `25` is recommended.|
-|5|Question and answer set ID|Export existing knowledge base for values.|
+|5|Question and answer set ID|Export existing knowledge base for ID values. Also notice the IDs were returned in the output file.|
 
 ## Add metadata to the knowledge base
 
@@ -125,7 +126,7 @@ Use the following chart to understand how to find the field values for optional 
     |Charge your Surface Pro 4|
     |Check the battery level|
 
-1. Select **Save and train**, then select the **Publish** page, then select the **Publish** button.
+1. Select **Save and train**, then select the **Publish** page, then select the **Publish** button. These actions make the change available to the batch test.
 1. Select the **Settings** page, then select **Export** as a `.xls` file.
 1. Find this downloaded file and open with Excel.
 
@@ -134,15 +135,19 @@ Use the following chart to understand how to find the field values for optional 
     > [!div class="mx-imgBorder"]
     > ![Exported knowledge base with metadata](../media/batch-test/exported-knowledge-base-with-metadata.png)
 
-1. Edit the `batch-test-data-1.tsv` file to add the metadata, top, and qna set ID.
+## Create a second batch test
+
+1. Create a new batch test file to include optional data, `batch-test-data-2.tsv`. Add the 6 rows from the original batch test input file, then add the metadata, top, and QnA set ID for each row. Four of the rows for metadata should be empty but must still use a tab to indicate the column.
 
     > [!div class="mx-imgBorder"]
     > ![Input second version of .tsv file from batch test](../media/batch-test/batch-test-2-input.png)
 
-1. Rerun the batch test with the same command. The output now includes matches.
+1. Re the batch test with the same command, change the filename of the batch to the new filename. The output now includes matches.
 
     > [!div class="mx-imgBorder"]
     > ![Output second version of .tsv file from batch test](../media/batch-test/batch-test-2-output.png)
+
+    This output file can be parsed to validate the test's confidence score and matching question ID in an automated continuous test pipeline.
 
 ## Clean up resources
 
