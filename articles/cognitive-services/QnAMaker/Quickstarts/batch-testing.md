@@ -60,8 +60,8 @@ In order to use the batch test tool, create a file named `batch-test-data-1.tsv`
 
 |TSV input file fields|Notes|Example|
 |--|--|--|
-|Knowledge base ID|Your knowledge base ID found on the Publish page.|`e906af8d-YYYY-YYYY-YYYY-2c0ea7b1376e` (36 character string shown as part of `POST`) |
-|Question|The question text a user would enter.|`How do I sign out?`|
+|Knowledge base ID|Your knowledge base ID found on the Publish page. Test several knowledge bases in the same service at one time in a single file.|`e906af8d-YYYY-YYYY-YYYY-2c0ea7b1376e` (36 character string shown as part of `POST`) |
+|Question|The question text a user would enter. 1,000 character max.|`How do I sign out?`|
 |Metadata tags|optional|`topic:power` uses the _key:value_ format|
 |Top parameter|optional|`25`|
 |Expected answer ID|optional|`13`|
