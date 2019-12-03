@@ -17,7 +17,7 @@ This article explores common troubleshooting methods for self-hosted integration
 
 ### Error message: "Self-hosted integration runtime is unable to connect to cloud service."
 
-    ![Self-Hosted IR connection issue](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
+![Self-Hosted IR connection issue](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
 #### Cause 
 
@@ -27,16 +27,16 @@ The self-hosted integration runtime can't connect to the Data Factory service (b
 
 1. Check whether the integration runtime service is running.
     
-        ![Self-Hosted IR service running status](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
+![Self-Hosted IR service running status](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
     
 2. If the service is running, go on to step 3.
 
 1. If there's no proxy configured on the self-hosted integration runtime (which is the default setting), run the following PowerShell command on the machine where self-hosted integration runtime is installed:
             
-            ```powershell
+        ```powershell
             (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
             ```
-    > [!NOTE] 
+  > [!NOTE] 
     > The service URL may vary, depending on your Data Factory location. You can find the service URL under **ADF UI** > **Connections** > **Integration runtimes** > **Edit Self-hosted IR** > **Nodes** > **View Service URLs**.
             
     The following is the expected response:
@@ -51,7 +51,7 @@ The self-hosted integration runtime can't connect to the Data Factory service (b
 
 1. If "proxy" has been configured on the self-hosted integration runtime, verify that your proxy server can access the service endpoint. For a sample command, see [PowerShell, web requests, and proxies](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
                 
-            ```powershell
+        ```powershell
             $user = $env:username
             $webproxy = (get-itemproperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet
             Settings').ProxyServer
@@ -68,9 +68,9 @@ The self-hosted integration runtime can't connect to the Data Factory service (b
             $string
             ```
 
-        The following is the expected response:
+The following is the expected response:
             
-        ![Powershell command response 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+![Powershell command response 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
 
         > [!NOTE] 
         > Proxy considerations:
@@ -111,7 +111,7 @@ This behavior occurs when nodes can't communicate with each other.
         
 1.	Check whether the error log contains the following:
 
-           ```Error log: Cannot connect to worker manager: net.tcp://xxxxxx:8060/ExternalService.svc/ No DNS entries exist for host azranlcir01r1. No such host is known Exception detail: System.ServiceModel.EndpointNotFoundException: No DNS entries exist for host xxxxx. ---> System.Net.Sockets.SocketException: No such host is known at System.Net.Dns.GetAddrInfo(String name) at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6) at System.Net.Dns.GetHostEntry(String hostNameOrAddress) at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri) --- End of inner exception stack trace --- Server stack trace: at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri)```
+    ```Error log: Cannot connect to worker manager: net.tcp://xxxxxx:8060/ExternalService.svc/ No DNS entries exist for host azranlcir01r1. No such host is known Exception detail: System.ServiceModel.EndpointNotFoundException: No DNS entries exist for host xxxxx. ---> System.Net.Sockets.SocketException: No such host is known at System.Net.Dns.GetAddrInfo(String name) at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6) at System.Net.Dns.GetHostEntry(String hostNameOrAddress) at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri) --- End of inner exception stack trace --- Server stack trace: at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri)```
     
 1. To resolve the issue, try one or both of the following methods:
     - Put all the nodes in the same domain.
