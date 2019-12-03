@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
 
 ---
@@ -34,7 +34,7 @@ The following supported operations can be audited.
 
 |Operation name|	Resource type|
 |----|----|
-||Create or update workbook	|Microsoft.Insights/workbooks|
+|Create or update workbook	|Microsoft.Insights/workbooks|
 |Delete Workbook	|Microsoft.Insights/workbooks|
 |Set Workflow	|Microsoft.Logic/workflows|
 |Delete Workflow	|Microsoft.Logic/workflows|
