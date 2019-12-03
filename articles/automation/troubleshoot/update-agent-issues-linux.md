@@ -61,9 +61,9 @@ The operating system check verifies if the Hybrid Runbook Worker is running one 
 This check ensures that the Log Analytics agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).
 
-### OMS Agent status
+### Log Analytics agent status
 
-This check ensures that the OMS Agent for Linux is running. If the agent isn't running, you can run the following command to attempt to restart it. For more information on troubleshooting the agent, see [Linux Hybrid Runbook worker troubleshooting](hybrid-runbook-worker.md#linux)
+This check ensures that the Log Analytics agent for Linux is running. If the agent isn't running, you can run the following command to attempt to restart it. For more information on troubleshooting the agent, see [Linux Hybrid Runbook worker troubleshooting](hybrid-runbook-worker.md#linux)
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -75,7 +75,7 @@ This check determines if the agent is reporting to multiple workspaces. Multi-ho
 
 ### Hybrid Runbook Worker
 
-This check verifies if the OMS Agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work.
+This check verifies if the Log Analytics agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work.
 
 ### Hybrid Runbook Worker status
 
