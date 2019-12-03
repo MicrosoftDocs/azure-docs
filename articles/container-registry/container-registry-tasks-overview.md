@@ -121,7 +121,7 @@ The following table shows a few examples of supported context locations for ACR 
 | Remote tarball | Files in a compressed archive on a remote webserver. | `http://remoteserver/myapp.tar.gz` |
 
 > [!NOTE]
-> When using a private a Git repo as a context for a task, you need to provide a personal access token (PAT).
+> When using a private Git repo as a context for a task, you need to provide a personal access token (PAT).
 
 ## Image platforms
 
