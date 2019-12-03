@@ -136,7 +136,7 @@ For managed disks you cannot rename them. However, you may rename an unmanaged d
 
 Generation 1 images can only use GPT partitioning on data disks, not OS disks. OS disks must use the MBR partition style.
 
-[Generation 2 images](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) can use GPT partitioning on the OS disk.
+[Generation 2 images](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) can use GPT partitioning on the OS disk as well as the data disks.
 
 **What disk types support snapshots?**
 
