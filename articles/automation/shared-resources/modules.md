@@ -29,6 +29,14 @@ You can use the [New-AzureRmAutomationModule](/powershell/module/azurerm.automat
 New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
 ```
 
+You can also use the same cmdlet to import a module from PowerShell Gallery directly. Make sure to grab **ModuleName** and **ModuleVersion** from [PowerShell Gallery](https://www.powershellgallery.com).
+
+```azurepowershell-interactive
+$moduleName = <ModuleName>
+$moduleVersion = <ModuleVersion>
+New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
+```
+
 ### Azure portal
 
 In the Azure portal, navigate to your Automation Account and select **Modules** under **Shared Resources**. Click **+ Add a module**. Select a **.zip** file that contains your module and click **Ok** to start to import process.
@@ -77,7 +85,7 @@ The following is a listing of cmdlets in the internal `Orchestrator.AssetManagem
 
 ## Add a connection type to your module
 
-You can provide a custom [connection type](../automation-connections.md) for you to use in your Automation Account by adding an optional file to your module. This file is a metadata file specifying an Azure Automation connection type to be used with the module's cmdlets in your Automation Account. To achieve this, you must first know how to author a PowerShell module. For more information on module authoring, see [How to Write a PowerShell Script Module](/powershell/developer/module/how-to-write-a-powershell-script-module).
+You can provide a custom [connection type](../automation-connections.md) for you to use in your Automation Account by adding an optional file to your module. This file is a metadata file specifying an Azure Automation connection type to be used with the module's cmdlets in your Automation Account. To achieve this, you must first know how to author a PowerShell module. For more information on module authoring, see [How to Write a PowerShell Script Module](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
 ![Use a custom connection in the Azure portal](../media/modules/connection-create-new.png)
 

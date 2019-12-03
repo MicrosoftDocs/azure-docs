@@ -22,9 +22,9 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Get and remove accounts from the token cache using MSAL for Java (MSAL4j)
+# Get and remove accounts from the token cache using MSAL for Java
 
-MSAL4J provides an in-memory token cache by default. The in-memory token cache lasts the duration of the application instance.
+MSAL for Java provides an in-memory token cache by default. The in-memory token cache lasts the duration of the application instance.
 
 ## See which accounts are in the cache
 

@@ -18,6 +18,53 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2019-11-25
+
+### Azure Machine Learning SDK for Python v1.0.76
+
++ **Breaking changes**
+  + Azureml-Train-AutoML upgrade issues
+    + Upgrading to azureml-train-automl>=1.0.76 from azureml-train-automl<1.0.76 can cause partial installations, causing some automl imports to fail. To resolve this, you can run the setup script found at https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd. Or if you are using pip directly you can:
+      + "pip install --upgrade azureml-train-automl"
+      + "pip install --ignore-installed azureml-train-automl-client"
+    + or you can uninstall the old version before upgrading
+      + "pip uninstall azureml-train-automl"
+      + "pip install azureml-train-automl"
+
++ **Bug fixes and improvements**
+  + **azureml-automl-runtime**
+    + AutoML will now take into account both true and false classes when calculating averaged scalar metrics for binary classification tasks.
+    + Moved Machine learning and training code in AzureML-AutoML-Core to a new package AzureML-AutoML-Runtime.
+  + **azureml-contrib-dataset**
+    + When calling `to_pandas_dataframe` on a labeled dataset with the download option, you can now specify whether to overwrite existing files or not.
+    + When calling `keep_columns` or `drop_columns` that results in a timeseries, label, or image column being dropped, the corresponding capabilities will be dropped for the dataset as well.
+    + Fixed an issue with pytorch loader for the object detection task.
+  + **azureml-contrib-interpret**
+    + Removed explanation dashboard widget from azureml-contrib-interpret, changed package to reference the new one in interpret_community
+    + Updated version of interpret-community to 0.2.0
+  + **azureml-core**
+    + Improve performance of `workspace.datasets`.
+    + Added the ability to register Azure SQL Database Datastore using username and password authentication
+    + Fix for loading RunConfigurations from relative paths.
+    + When calling `keep_columns` or `drop_columns` that results in a timeseries column being dropped, the corresponding capabilities will be dropped for the dataset as well.
+  + **azureml-interpret**
+    + updated version of interpret-community to 0.2.0
+  + **azureml-pipeline-steps**
+    + Documented supported values for `runconfig_pipeline_params` for azure machine learning pipeline steps.
+  + **azureml-pipeline-core**
+    + Added CLI option to download output in json format for Pipeline commands.
+  + **azureml-train-automl**
+    + Split AzureML-Train-AutoML into 2 packages, an client package AzureML-Train-AutoML-Client and a ML training package AzureML-Train-AutoML-Runtime
+  + **azureml-train-automl-client**
+    + Added a thin client for submitting AutoML experiments without needing to install any machine learning dependencies locally.
+    + Fixed logging of automatically detected lags, rolling window sizes and maximal horizons in the remote runs.
+  + **azureml-train-automl-runtime**
+    + Added a new AutoML package to isolate machine learning and runtime components from the client.
+  + **azureml-contrib-train-rl**
+    + Added reinforcement learning support in SDK.
+    + Added AmlWindowsCompute support in RL SDK. 
+
+ 
 ## 2019-11-11
 
 ### Azure Machine Learning SDK for Python v1.0.74

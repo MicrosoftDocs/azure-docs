@@ -1,12 +1,9 @@
 ---
-title: Back up Windows machines with the Azure Backup MARS agent
+title: Back up Windows machines with the MARS agent
 description: Use the Azure Backup Microsoft Recovery Services (MARS) agent to back up Windows machines.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: dacurwin
+
 ---
 
 # Back up Windows machines with the Azure Backup MARS agent
@@ -32,7 +29,7 @@ The MARS agent is used by Azure Backup to back up files, folders, and system sta
 What you can back up depends on where the agent is installed.
 
 > [!NOTE]
-> The primary method for backing up Azure VMs is by using an Azure Backup extension on the VM. This backs up the entire VM. You might want to install and use the MARS agent alongside the extension if you want to back up specific files and folders on the VM. [Learn more](backup-architecture.md#architecture-direct-backup-of-azure-vms).
+> The primary method for backing up Azure VMs is by using an Azure Backup extension on the VM. This backs up the entire VM. You might want to install and use the MARS agent alongside the extension if you want to back up specific files and folders on the VM. [Learn more](backup-architecture.md#architecture-built-in-azure-vm-backup).
 
 ![Backup process steps](./media/backup-configure-vault/initial-backup-process.png)
 
@@ -227,7 +224,7 @@ You can run an initial backup automatically over the network, or offline. Offlin
 You can control how network bandwidth is used by the MARS agent by enabling network throttling. Throttling is helpful if you need to back up data during work hours but want to control how much bandwidth is used for backup and restore activity.
 
 * Azure Backup network throttling uses [Quality of Service (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) on the local operating system.
-* Network throttling for backup is available on Windows Server 2008 R2 onwards, and Windows 7 onwards. Operating systems should be running the latest service packs.
+* Network throttling for backup is available on Windows Server 2012 onwards, and Windows 8 onwards. Operating systems should be running the latest service packs.
 
 Enable network throttling as follows:
 

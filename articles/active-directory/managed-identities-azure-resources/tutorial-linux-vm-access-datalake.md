@@ -1,5 +1,5 @@
 ---
-title: Use a Linux VM system-assigned managed identity to access Azure Data Lake Store
+title: Tutorial`:` Use a managed identity to access Azure Data Lake Store - Linux - Azure AD
 description: A tutorial that shows you how to use a Linux VM system-assigned managed identity to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 

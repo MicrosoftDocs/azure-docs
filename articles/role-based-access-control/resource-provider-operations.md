@@ -19,7 +19,7 @@ ms.reviewer: bagovind
 ---
 # Azure Resource Manager resource provider operations
 
-This article lists the operations available for each Azure Resource Manager resource provider. These operations can be used in [custom roles](custom-roles.md) to provide granular [role-based access control (RBAC)](overview.md) to resources in Azure. Operation strings have the following format: `{Company}.{ProviderName}/{resourceType}/{action}`
+This article lists the operations available for each Azure Resource Manager resource provider. These operations can be used in [custom roles](custom-roles.md) to provide granular [role-based access control (RBAC)](overview.md) to resources in Azure. Operation strings have the following format: `{Company}.{ProviderName}/{resourceType}/{action}`. For a list of how resource provider namespaces map to Azure services, see [Match resource provider to service](../azure-resource-manager/azure-services-resource-providers.md).
 
 The resource provider operations are always evolving. To get the latest operations, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
@@ -5566,7 +5566,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.StorSimple/managers/devices/deactivate/action | Deactivates a device. |
 > | Action | Microsoft.StorSimple/managers/devices/delete | Deletes the Devices |
 > | Action | Microsoft.StorSimple/managers/devices/disks/read | Lists or gets the Disks |
-> | Action | Microsoft.StorSimple/managers/devices/download/action | Dowload updates for a device. |
+> | Action | Microsoft.StorSimple/managers/devices/download/action | Download updates for a device. |
 > | Action | Microsoft.StorSimple/managers/devices/failover/action | Failover of the device. |
 > | Action | Microsoft.StorSimple/managers/devices/failover/operationResults/read | Lists or gets the Operation Results |
 > | Action | Microsoft.StorSimple/managers/devices/failoverTargets/read | Lists or gets the Failover targets of the devices |
@@ -6232,5 +6232,6 @@ The resource provider operations are always evolving. To get the latest operatio
 
 ## Next steps
 
+- [Match resource provider to service](../azure-resource-manager/azure-services-resource-providers.md)
 - [Custom roles for Azure resources](custom-roles.md)
 - [Built-in roles for Azure resources](built-in-roles.md)

@@ -1,13 +1,8 @@
 ---
-title: Managed identities overview - Azure App Service | Microsoft Docs
-description: Conceptual reference and setup guide for managed identities in Azure App Service and Azure Functions
-services: app-service
+title: Managed identities
+description: Learn how managed identities work in Azure App Service and Azure Functions, how to configure a managed identity and generate a token for a back end resource.
 author: mattchenderson
-manager: cfowler
-editor: ''
 
-ms.service: app-service
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender

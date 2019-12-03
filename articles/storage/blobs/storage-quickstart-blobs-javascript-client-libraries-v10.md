@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create a blob in Azure Storage by using JavaScript and HTML in the browser
-description: Learn to upload, list, and delete blobs using JavaScript in an HTML page.
+title: "Quickstart: Azure Blob storage for JavaScript v10 in the browser"
+description: Learn to upload, list, and delete blobs using JavaScript v10 SDK in an HTML page.
 services: storage
 author: mhopkins-msft
 ms.custom: mvc
@@ -249,7 +249,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-This code calls the ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-) and [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-) functions without using an [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) instance. To keep things simple for this quickstart, this code assumes that your storage account has been created and is enabled. In production code, use an Aborter instance to add timeout functionality.
+This code calls the ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) and [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) functions without using an [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) instance. To keep things simple for this quickstart, this code assumes that your storage account has been created and is enabled. In production code, use an Aborter instance to add timeout functionality.
 
 ### List blobs
 
@@ -285,7 +285,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-This code calls the [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL?view=azure-node-preview#listblobflatsegment-aborter--undefined---string--icontainerlistblobssegmentoptions-) function in a loop to ensure that all segments are retrieved. For each segment, it loops over the list of blob items it contains and updates the **Files** list.
+This code calls the [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) function in a loop to ensure that all segments are retrieved. For each segment, it loops over the list of blob items it contains and updates the **Files** list.
 
 ### Upload blobs
 
@@ -313,7 +313,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-This code connects the **Select and upload files** button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) function for each file you selected. Each call returns a Promise, which is added to a list so that they can all be awaited at once, causing the files to upload in parallel.
+This code connects the **Select and upload files** button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) function for each file you selected. Each call returns a Promise, which is added to a list so that they can all be awaited at once, causing the files to upload in parallel.
 
 ### Delete blobs
 

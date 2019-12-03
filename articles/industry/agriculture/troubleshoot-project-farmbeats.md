@@ -34,7 +34,17 @@ For additional help, write to us at farmbeatssupport@microsoft.com, include depl
 3. In case there are **NO Incoming messages**, contact your device partner.  
 4. In case there are **Incoming messages**, contact farmbeatssupport@microsoft.com with Data hub and Accelerator logs and captured telemetry.
 
-See [Logs section](#collect-logs-manually) of the document to understand how to download Logs.    
+See [Logs section](#collect-logs-manually) of the document to understand how to download Logs.  
+
+### Don't have the Eventhub Connection String
+
+**Corrective action**: Visit the Datahub swagger and follow these steps:
+1. Navigate to Partner API
+2. Click on GET -> Try it Out -> Execute
+3. Make a note of the partner id of the sensor partner you are interested in
+4. Go back to the Partner API and click of GET/{id}
+5. Specify the id from step 3 and click on Execute
+6. The API response should have the EventHub Connection String
 
 ### Device appears offline
 
@@ -248,7 +258,7 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 
 **Meaning**: The Azure AD app registration configuration didn’t happen properly.  
 
-**Corrective action**: ask the IT admin (having tenant read access) to use our [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) for generating creating the Azure AD app registration. This script will automatically take care of the configuration steps as well.
+**Corrective action**: ask the IT admin (having tenant read access) to use our [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) for creating the Azure AD app registration. This script will automatically take care of the configuration steps as well.
 
 **Error**: Could not create new Active Directory Application “dummyname” in this tenant: Another object with the same value for property identifier URIs already exists
 

@@ -21,6 +21,8 @@ Before you get started, make sure to:
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
 
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
+
 ## Open your project in Visual Studio
 
 The first step is to make sure that you have your project open in Visual Studio.
@@ -61,6 +63,7 @@ Before you can initialize a `SpeechRecognizer` object, you need to create a conf
 
 > [!NOTE]
 > This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 ````C#
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");

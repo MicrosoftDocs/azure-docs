@@ -1,12 +1,8 @@
 ---
 title: Onboard a customer to Azure delegated resource management
-description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant. 
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
+description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
 ms.date: 11/7/2019
-ms.topic: overview
-manager: carmonm
+ms.topic: conceptual
 ---
 
 # Onboard a customer to Azure delegated resource management
@@ -334,7 +330,7 @@ az managedservices assignment list
 
 # Delete the registration assignment
 
-az managedservices assignment delete –assignment <id or full resourceId>
+az managedservices assignment delete --assignment <id or full resourceId>
 ```
 
 ## Next steps

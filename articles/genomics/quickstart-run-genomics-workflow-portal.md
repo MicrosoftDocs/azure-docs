@@ -42,6 +42,7 @@ Configure your Genomics account with the following information, as shown in the 
 
 
 You can click Notifications in the top menu bar to monitor the deployment process.
+
 ![Microsoft Genomics Notifications](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Microsoft Genomics Notifications")
 
 

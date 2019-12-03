@@ -1,5 +1,5 @@
 ---
-title: Install the application access panel browser extension - Azure | Microsoft Docs
+title: Install application access panel browser extension - Azure AD
 description: Fix common errors encountered when you install the access panel browser extension.
 services: active-directory
 documentationcenter: ''

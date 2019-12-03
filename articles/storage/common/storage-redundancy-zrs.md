@@ -18,15 +18,15 @@ ms.subservice: common
 
 ## Support coverage and regional availability
 
-ZRS currently supports standard general-purpose v2 and FileStorage storage account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
+ZRS currently supports standard general-purpose v2, FileStorage and BlockBlobStorage storage account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
 
-ZRS is available for block blobs, non-disk page blobs, standard file shares, tables, and queues.
+General-purpose v2 ZRS accounts support block blobs, non-disk page blobs, standard file shares, tables, and queues.
 
 For general-purpose v2 accounts, ZRS is generally available in the following regions:
 
 - Asia Southeast
-- Europe West
 - Europe North
+- Europe West
 - France Central
 - Japan East
 - UK South
@@ -35,7 +35,7 @@ For general-purpose v2 accounts, ZRS is generally available in the following reg
 - US East 2
 - US West 2
 
-For FileStorage accounts (premium file shares), ZRS is generally available in the following regions:
+For FileStorage accounts (premium file shares) and BlockBlobStorage accounts (premium block blobs), ZRS is generally available in the following regions:
 
 - Europe West
 - US East

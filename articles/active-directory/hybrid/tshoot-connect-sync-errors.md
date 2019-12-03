@@ -238,7 +238,7 @@ To resolve this issue do one of the following:
 
  - Remove the Azure AD account (owner) from all admin roles. 
  - **Hard Delete** the Quarantined object in the cloud. 
- - The next sync cycle will take care of soft-matching the on-premise user to the cloud account (since the cloud user is now no longer a global GA). 
+ - The next sync cycle will take care of soft-matching the on-premises user to the cloud account (since the cloud user is now no longer a global GA). 
  - Restore the role memberships for the owner. 
 
 >[!NOTE]

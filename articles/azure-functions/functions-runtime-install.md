@@ -1,12 +1,8 @@
 ---
-title: Azure Functions Runtime Installation | Microsoft Docs
+title: Azure Functions Runtime Installation 
 description: How to Install the Azure Functions Runtime preview 2
-services: functions
 author: apwestgarth
-manager: stefsch
 
-ms.assetid:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
