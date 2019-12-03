@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -104,16 +104,6 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 1. Click **Save** to assign the role.
 
    After a few moments, the user is assigned the Owner role at the subscription scope.
-
-## List number of role assignments
-
-You can have up to **2000** role assignments in each subscription. To help you keep track of these limits, the **Role assignments** tab includes a chart that lists the current number of role assignments.
-
-![Access control - Number of role assignments chart](./media/role-assignments-portal/access-control-role-assignments-chart.png)
-
-If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. You can reduce the number of role assignments by deleting role assignments that are no longer needed or by assigning roles to groups instead of individual users.
-
-![Access control - Add role assignment warning](./media/role-assignments-portal/add-role-assignment-warning.png)
 
 ## Remove a role assignment
 

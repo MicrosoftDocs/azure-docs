@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -76,6 +76,16 @@ To list access for a user, group, service principal, or managed identity, you li
     ![assignments pane](./media/role-assignments-list-portal/check-access-assignments.png)
 
     On this pane, you can see the roles assigned to the selected security principal and the scope. If there are any deny assignments at this scope or inherited to this scope, they will be listed.
+
+## List number of role assignments
+
+You can have up to **2000** role assignments in each subscription. To help you keep track of these limits, the **Role assignments** tab includes a chart that lists the current number of role assignments.
+
+![Access control - Number of role assignments chart](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
+
+If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. You can reduce the number of role assignments by deleting role assignments that are no longer needed or by assigning roles to groups instead of individual users.
+
+![Access control - Add role assignment warning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
 ## Next steps
 
