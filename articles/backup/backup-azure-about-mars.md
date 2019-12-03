@@ -20,7 +20,7 @@ MARS agent supports the following backup scenarios:
 
 MARS agent supports the following restore scenarios:
 
- ![recovery services vault dashboard](./media/backup-try-azure-backup-in-10-mins/restore-scenarios.png)
+![recovery services vault dashboard](./media/backup-try-azure-backup-in-10-mins/restore-scenarios.png)
 
 -	**Recovery destination**: This Server (server on which the backup was originally created).  This is the server on which the backup was originally created.
     -    **Files and folders** : You can browse and choose individual files and folders that you would like to restore.
