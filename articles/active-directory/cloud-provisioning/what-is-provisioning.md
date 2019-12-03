@@ -15,19 +15,20 @@ ms.collection: M365-identity-device-management
 
 # What is identity provisioning?
 
-![cloud provisioning](media/what-is-provisioning/cloud1.png)
-
 Today, businesses, and corporations are becoming more and more a mixture of on-premises and cloud applications.  Users require access to  applications both on-premises and in the cloud. There is need to have a single identity across these various applications (on-premises as well as cloud).
 
 Provisioning is the process of creating an object based on certain conditions, keeping the object upto date and deleting the object when conditions are no longer met. For example, when a new user joins your organization, that user is entered in to the HR system.  At that point, provisioning can create a corresponding user account in the cloud, in Active Directory, and different applications that the user needs access to.  This allows the user to start work and have access to the applications and systems they need on day one. 
 
+![cloud provisioning](media/what-is-provisioning/cloud1.png)
+
 With regard to Azure Active Directory, provisioning can be broken down in to the following key scenarios.  
 
-- **[HR driven provisioning](#hr-driven-provisioning)**  
+- **[HR-driven provisioning](#hr-driven-provisioning)**  
 - **[App provisioning](#app-provisioning)**  
 - **[Directory provisioning](#directory-provisioning)** 
 
-## HR driven provisioning
+## HR-driven provisioning
+
 ![cloud provisioning](media/what-is-provisioning/cloud2.png)
 
 Provisioning from HR to the cloud involves the creation of objects (users, roles, groups, etc.) based on the information that is in your HR system.  
@@ -41,6 +42,7 @@ The most common scenario would be, when a new employee joins your company, they 
 
 
 ## App provisioning
+
 ![cloud provisioning](media/what-is-provisioning/cloud3.png)
 
 App provisioning involves the provisioning of users and roles in the applications the user needs access to.  
@@ -48,6 +50,7 @@ App provisioning involves the provisioning of users and roles in the application
 The most common scenario would be, when a user in Azure AD is provisioned into O365 or Salesforce.
 
 ## Directory provisioning
+
 ![cloud provisioning](media/what-is-provisioning/cloud4.png)
 
 On-premises provisioning involves provisioning from on-premises sources (like Active Directory) to Azure AD.  
