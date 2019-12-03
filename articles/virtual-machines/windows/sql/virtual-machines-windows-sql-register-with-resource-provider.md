@@ -1,5 +1,5 @@
 ---
-title: Register with the the SQL VM resource provider 
+title: Register with the SQL VM resource provider 
 description: Register your Azure SQL Server virtual machine with the SQL VM resource provider to enable features for SQL Server VMs deployed outside of Azure Marketplace, as well as compliance, and improved manageability. 
 services: virtual-machines-windows
 documentationcenter: na
