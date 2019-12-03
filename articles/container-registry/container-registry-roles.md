@@ -84,4 +84,4 @@ To define a custom role, see [Steps to create a custom role](../role-based-acces
 
 * Learn about [authentication options](container-registry-authentication.md) for Azure Container Registry.
 
-* Learn about enabling [repository-scoped permissions](container-registry-repository-scoped-permissoins.md) (preview) in a container registry.
+* Learn about enabling [repository-scoped permissions](container-registry-repository-scoped-permissions.md) (preview) in a container registry.
