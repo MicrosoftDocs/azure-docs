@@ -32,7 +32,8 @@ The self-hosted integration runtime can't connect to the Data Factory service (b
 2. If the service is running, go on to step 3.
 
 1. If there's no proxy configured on the self-hosted integration runtime (which is the default setting), run the following PowerShell command on the machine where self-hosted integration runtime is installed:
-            
+
+
     **(New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")**
         
    > [!NOTE]     
@@ -51,21 +52,21 @@ The self-hosted integration runtime can't connect to the Data Factory service (b
 1. If "proxy" has been configured on the self-hosted integration runtime, verify that your proxy server can access the service endpoint. For a sample command, see [PowerShell, web requests, and proxies](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
                 
     ```powershell
-        $user = $env:username
-        $webproxy = (get-itemproperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet
-        Settings').ProxyServer
-        $pwd = Read-Host "Password?" -assecurestring
-        $proxy = new-object System.Net.WebProxy
-        $proxy.Address = $webproxy
-        $account = new-object System.Net.NetworkCredential($user,[Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($pwd)), "")
-        $proxy.credentials = $account
-        $url = "https://wu2.frontend.clouddatahub.net/"
-        $wc = new-object system.net.WebClient
-        $wc.proxy = $proxy
-        $webpage = $wc.DownloadData($url)
-        $string = [System.Text.Encoding]::ASCII.GetString($webpage)
-        $string
-        ```
+    $user = $env:username
+    $webproxy = (get-itemproperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet
+    Settings').ProxyServer
+    $pwd = Read-Host "Password?" -assecurestring
+    $proxy = new-object System.Net.WebProxy
+    $proxy.Address = $webproxy
+    $account = new-object System.Net.NetworkCredential($user,[Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($pwd)), "")
+    $proxy.credentials = $account
+    $url = "https://wu2.frontend.clouddatahub.net/"
+    $wc = new-object system.net.WebClient
+    $wc.proxy = $proxy
+    $webpage = $wc.DownloadData($url)
+    $string = [System.Text.Encoding]::ASCII.GetString($webpage)
+    $string
+    ```
 
 The following is the expected response:
             
