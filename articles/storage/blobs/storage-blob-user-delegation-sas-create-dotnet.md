@@ -36,19 +36,9 @@ For more information about the Azure Identity client library, see [Azure Identit
 
 When an Azure AD security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an RBAC role that grants access to blob data in Azure Storage. For information about assigning permissions via RBAC, see the section titled **Assign RBAC roles for access rights** in [Authorize access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 
-## Install the packages
+[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-The examples in this article use the latest version of the [Azure Storage client library for Blob storage](https://www.nuget.org/packages/Azure.Storage.Blobs). To install the package, run the following command from the NuGet package manager console:
-
-```powershell
-Install-Package Azure.Storage.Blobs
-```
-
-The examples in this article also use the latest version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. To install the package, run the following command from the NuGet package manager console:
-
-```powershell
-Install-Package Azure.Identity
-```
+To learn more about how to authenticate with the Azure Identity client library from Azure Storage, see the section titled **Authenticate with the Azure Identity library** in [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
 
 ## Add using directives
 
@@ -254,5 +244,6 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 ## See also
 
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
 - [Get User Delegation Key operation](/rest/api/storageservices/get-user-delegation-key)
 - [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)
