@@ -2,11 +2,9 @@
 title: Access to Azure virtual networks
 description: Overview about how integration service environments (ISEs) help logic apps access Azure virtual networks (VNETs)
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ---
