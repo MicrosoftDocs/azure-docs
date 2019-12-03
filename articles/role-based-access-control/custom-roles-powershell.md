@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/01/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -292,7 +292,7 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
 ```
 
-The following example adds a management group to the assignable scopes of the *Virtual Machine Operator* custom role.
+The following example adds a management group to `AssignableScopes` of the *Virtual Machine Operator* custom role. Adding a management group to `AssignableScopes` is currently in preview.
 
 ```azurepowershell
 Get-AzManagementGroup

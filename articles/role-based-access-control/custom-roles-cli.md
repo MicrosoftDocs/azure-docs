@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/01/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -181,7 +181,7 @@ To update a custom role, first use [az role definition list](/cli/azure/role/def
 az role definition update --role-definition <role_definition>
 ```
 
-The following example adds the *Microsoft.Insights/diagnosticSettings/* operation to *Actions* and adds a management group to *AssignableScopes* for the *Virtual Machine Operator* custom role.
+The following example adds the *Microsoft.Insights/diagnosticSettings/* operation to `Actions` and adds a management group to `AssignableScopes` for the *Virtual Machine Operator* custom role. Adding a management group to `AssignableScopes` is currently in preview.
 
 vmoperator.json
 

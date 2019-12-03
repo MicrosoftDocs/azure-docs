@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/01/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
@@ -51,9 +51,9 @@ The following shows what a custom role looks like as displayed in JSON format. T
   "DataActions": [],
   "NotDataActions": [],
   "AssignableScopes": [
-    "/providers/Microsoft.Management/managementGroups/{groupId1}",
-    "/providers/Microsoft.Management/managementGroups/{groupId2}",
-    "/subscriptions/{subscriptionId1}"
+    "/subscriptions/{subscriptionId1}",
+    "/subscriptions/{subscriptionId2}",
+    "/providers/Microsoft.Management/managementGroups/{groupId1}"
   ]
 }
 ```
@@ -94,9 +94,9 @@ A custom role has the following properties.
 | `Description` | Yes | String | The description of the custom role. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 1024. |
 | `Actions` | Yes | String[] | An array of strings that specifies the management operations that the role allows to be performed. For more information, see [Actions](role-definitions.md#actions). |
 | `NotActions` | No | String[] | An array of strings that specifies the management operations that are excluded from the allowed `Actions`. For more information, see [NotActions](role-definitions.md#notactions). |
-| `DataActions` | No | String[] | An array of strings that specifies the data operations that the role allows to be performed to your data within that object. For more information, see [DataActions](role-definitions.md#dataactions). |
+| `DataActions` | No | String[] | An array of strings that specifies the data operations that the role allows to be performed to your data within that object. If you create a custom role with `DataActions`, that role cannot be assigned at the management group scope. For more information, see [DataActions](role-definitions.md#dataactions). |
 | `NotDataActions` | No | String[] | An array of strings that specifies the data operations that are excluded from the allowed `DataActions`. For more information, see [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. For more information, see [AssignableScopes](role-definitions.md#assignablescopes). |
+| `AssignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. Adding a management group to `AssignableScopes` is currently in preview. For more information, see [AssignableScopes](role-definitions.md#assignablescopes). |
 
 ## Who can create, delete, update, or view a custom role
 
