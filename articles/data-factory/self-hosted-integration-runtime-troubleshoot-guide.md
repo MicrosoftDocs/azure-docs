@@ -15,7 +15,7 @@ This article explores common troubleshooting methods for self-hosted integration
 
 ## Common errors and resolutions
 
-### Error message: "Self-hosted integration runtime is unable to connect to cloud service."
+### Error message: Self-hosted integration runtime can't connect to cloud service
 
 ![Self-Hosted IR connection issue](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
@@ -79,7 +79,7 @@ The following is the expected response:
 > *	Check whether the TLS/SSL certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
 > *	If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
 
-### Error message: "Self-hosted integration runtime node/ logical SHIR is in Inactive/ 'Running (Limited)' state"
+### Error message: Self-hosted integration runtime node/ logical SHIR is in Inactive/ "Running (Limited)" state
 
 #### Cause 
 
