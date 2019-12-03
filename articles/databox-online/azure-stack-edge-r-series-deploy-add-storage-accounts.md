@@ -119,7 +119,7 @@ To verify that the connection is successfully established, use Storage Explorer 
 
 Connection to Azure Blob storage REST APIs over https requires the following steps:
 
-- Download the certificate from Azure portal
+- Get your blob endpoint certificate
 - Import the certificate on the client or remote host
 - Add the Azure consistent services VIP and blob service endpoint to the client or remote host
 - Configure and verify the connection
@@ -128,9 +128,13 @@ Each of these steps is described in the following sections.
 
 ### Get certificate
 
-Accessing Blob storage over HTTPS requires an SSL certificate for the device. You need to get the certificate in *.pem* format. In Windows environment, the *.pem* format is the same as Base-64 encoded *.cer* certificate.
+Accessing Blob storage over HTTPS requires an SSL certificate for the device. If using  Azure Storage Explorer, you need to get the certificate in *.pem* format. In Windows environment, the *.pem* format is the same as Base-64 encoded *.cer* certificate.
 
-You will install this certificate on the client or host computer that you will use to connect to the device. You will also upload this certificate to your Azure Stack Edge device.
+You will install this certificate on the client or host computer that you will use to connect to the device. You will also upload this certificate to your Azure Stack Edge device as *.pfx* file with a private key attached to it. For more information, go to:
+
+- [Create the blob endpoint certificate](azure-stack-edge-r-series-manage-certificates.md#create-certificates).
+- [Upload the blob endpoint certificate](azure-stack-edge-r-series-manage-certificates.md#upload-certificates).
+- [Import certificates on the client accessing the device](azure-stack-edge-r-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
  
 ### Import certificate
 

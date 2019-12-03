@@ -67,7 +67,7 @@ The following tables list the various enclosure specifications for dimensions an
 
 ### Enclosure dimensions
 
-The following table lists the dimensions of the enclosure in millimeters and inches.
+The following table lists the dimensions of the device with the rugged case in millimeters and inches.
 
 |     Enclosure     |     Millimeters     |     Inches     |
 |-------------------|---------------------|----------------|
@@ -75,22 +75,16 @@ The following table lists the dimensions of the enclosure in millimeters and inc
 |    Width          |    604.5           |    23.8"          |
 |    Length          |    740.4           |    35.5"          |
 
-The following table lists the dimensions of the device with the rugged case in millimeters and inches.
 
-|     Package     |     Millimeters     |     Inches     |
-|-------------------|---------------------|----------------|
-|    Height         |                |          |
-|    Width          |            |              |
-|    Length          |           |              |
 
 ### Enclosure weight
 
-The device package weighs XX lbs. and requires two persons to handle it. The weight of the device depends on the configuration of the enclosure.
+The device with UPS and the case 80 lbs. and requires two persons to handle it. The weight of the device depends on the configuration of the enclosure.
 
 |     Enclosure                                 |     Weight          |
 |-----------------------------------------------|---------------------|
-|    Total weight including the rugged case     |    XX lbs.          |
-|    Weight of the device                       |    XX lbs.          |
+|    Total weight of 1-node device + UPS + rugged case     |    ~80 lbs.          |
+
 
 ## Enclosure environment specifications
 
