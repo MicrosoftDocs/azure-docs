@@ -117,22 +117,18 @@ Use the VPN profile to configure your clients.
 4. Use the profile file to configure the VPN clients.
 
 ## Configure user VPN clients
-Use the downloaded profile to configure the remote access clients. The procedure for each operating system is different, please follow the correct instructions below:
 
-### Microsoft Windows
-### Working with client profiles
+To connect, you need to download the Azure VPN Client (Preview) and import the VPN client profile that was downloaded in the previous steps on every computer that wants to connect to the VNet.
 
 > [!NOTE]
 > Azure AD authentication is supported only for OpenVPN® protocol connections.
 >
 
-To connect, you need to download the Azure VPN Client (Preview) and import a VPN client profile on every computer that wants to connect to the VNet.
-
-### To download the Azure VPN client
+#### To download the Azure VPN client
 
 Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) to download the Azure VPN Client (Preview).
 
-### <a name="import"></a>To import a client profile
+#### <a name="import"></a>To import a client profile
 
 1. On the page, select **Import**.
 
@@ -154,7 +150,7 @@ Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sq
 
     ![import](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
 
-### <a name="delete"></a>To delete a client profile
+#### <a name="delete"></a>To delete a client profile
 
 1. Select the ellipses next to the client profile that you want to delete. Then, select **Remove**.
 
@@ -164,7 +160,7 @@ Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sq
 
     ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
-## <a name="diagnose"></a>Diagnose connection issues
+#### <a name="diagnose"></a>Diagnose connection issues
 
 1. To diagnose connection issues, you can use the **Diagnose** tool. Select the **...** next to the VPN connection that you want to diagnose to reveal the menu. Then select **Diagnose**.
 
