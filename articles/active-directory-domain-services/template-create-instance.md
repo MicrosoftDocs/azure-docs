@@ -125,7 +125,7 @@ As part of the Resource Manager resource definition, the following configuration
 * **notificationSettings** - If there are any alerts generated in the Azure AD DS managed domain, email notifications can be sent out. *Global administrators* of the Azure tenant and members of the *AAD DC Administrators* group can be *Enabled* for these notifications.
     * If desired, you can add additional recipients for notifications when there are alerts that require attention.
 
-The following condensed parameters definition shows how these values are declared:
+The following condensed parameters definition shows how these values are declared. A user forest named *aadds.contoso.com* is created with all users from Azure AD synchronized to the Azure AD DS managed domain:
 
 ```json
 "parameters": {
@@ -177,7 +177,7 @@ These parameters and resource type can be used as part of a wider Resource Manag
 
 ## Create a managed domain using sample template
 
-The following complete Resource Manager sample template creates an Azure AD DS managed domain and the supporting virtual network, subnet, and network security group rules. The network security group rules are required to secure the managed domain and make sure traffic can flow correctly.
+The following complete Resource Manager sample template creates an Azure AD DS managed domain and the supporting virtual network, subnet, and network security group rules. The network security group rules are required to secure the managed domain and make sure traffic can flow correctly. A user forest with the DNS name of *aadds.contoso.com* is created, with all users synchronized from Azure AD:
 
 ```json
 {
@@ -320,7 +320,7 @@ The following complete Resource Manager sample template creates an Azure AD DS m
 }
 ```
 
-This template can be deployed using your preferred deployment method, such as the [Azure portal][portal-deploy], [Azure PowerShell][powershell-deploy], or a CI/CD pipeline. The following example uses the [New-AzResourceGroupDeployment](/powershell/module/Az.Resources/New-AzResourceGroupDeployment) cmdlet. Specify your own resource group name and template filename:
+This template can be deployed using your preferred deployment method, such as the [Azure portal][portal-deploy], [Azure PowerShell][powershell-deploy], or a CI/CD pipeline. The following example uses the [New-AzResourceGroupDeployment][New-AzResourceGroupDeployment] cmdlet. Specify your own resource group name and template filename:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateFile <path-to-template>
@@ -342,6 +342,11 @@ To see the Azure AD DS managed domain in action, you can [domain-join a Windows 
 [windows-join]: join-windows-vm.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-phs]: tutorial-configure-password-hash-sync.md
+[availability-zones]: ../availability-zones/az-overview.md
+[portal-deploy]: ../azure-resource-manager/resource-group-template-deploy-portal.md
+[powershell-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[scoped-sync]: scoped-synchronization.md
+[resource-forests]: concepts-resource-forest.md
 
 <!-- EXTERNAL LINKS -->
 [Connect-AzAccount]: /powershell/module/Az.Accounts/Connect-AzAccount
@@ -355,6 +360,5 @@ To see the Azure AD DS managed domain in action, you can [domain-join a Windows 
 [New-AzResourceGroup]: /powershell/module/Az.Resources/New-AzResourceGroup
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
 [cloud-shell]: /azure/cloud-shell/cloud-shell-windows-users
-[availability-zones]: ../availability-zones/az-overview.md
-[portal-deploy]: ../azure-resource-manager/resource-group-template-deploy-portal.md
-[powershell-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain
+[New-AzResourceGroupDeployment]: /powershell/module/Az.Resources/New-AzResourceGroupDeployment
