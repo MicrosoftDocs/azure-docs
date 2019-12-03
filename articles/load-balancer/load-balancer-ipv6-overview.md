@@ -73,7 +73,6 @@ Limitations
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
 * Reserved IPv6 IPs (where IPAllocationMethod = static) are **currently not supported**.
 * NAT64 (translation of IPv6 to IPv4) is not supported.
-* Standard SKU Load Balancers do not currently support IPv6 addresses.
 
 ## Next steps
 
