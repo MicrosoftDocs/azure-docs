@@ -37,20 +37,20 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
       ],
       "properties": {
-			"publisher": "Microsoft.Azure.KeyVault",
-			"type": "KeyVaultForWindows",
-			"typeHandlerVersion": "1.0",
-			"autoUpgradeMinorVersion": true,
-			"settings": {
-				"secretsManagementSettings": {
-					"pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
-					"certificateStoreName": <certificate store name, e.g.: "MY">,
-					"linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
-					"certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
-					"requireInitialSync": <initial synchronization of certificates e..g: true>,
-					"observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
-				}		  
-			}
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForWindows",
+      "typeHandlerVersion": "1.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+        "secretsManagementSettings": {
+          "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
+          "certificateStoreName": <certificate store name, e.g.: "MY">,
+          "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
+          "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
+          "requireInitialSync": <initial synchronization of certificates e..g: true>,
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+        }      
+      }
       }
     }
 ```
@@ -92,17 +92,17 @@ The JSON configuration for a virtual machine extension must be nested inside the
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
       ],
       "properties": {
-			"publisher": "Microsoft.Azure.KeyVault",
-			"type": "KeyVaultForWindows",
-			"typeHandlerVersion": "1.0",
-			"autoUpgradeMinorVersion": true,
-			"settings": {
-					"pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
-					"certificateStoreName": <certificate store name, e.g.: "MY">,
-					"certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
-					"observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
-				}		  
-			}
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForWindows",
+      "typeHandlerVersion": "1.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+          "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
+          "certificateStoreName": <certificate store name, e.g.: "MY">,
+          "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+        }      
+      }
       }
     }
 ```
@@ -117,10 +117,10 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
     ```powershell
         # Build settings
         $settings = '{"secretsManagementSettings": 
-    		{ "pollingIntervalInS": "' + <pollingInterval> + 
-    		'", "certificateStoreName": "' + <certStoreName> + 
-    		'", "certificateStoreLocation": "' + <certStoreLoc> + 
-    		'", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        { "pollingIntervalInS": "' + <pollingInterval> + 
+        '", "certificateStoreName": "' + <certStoreName> + 
+        '", "certificateStoreLocation": "' + <certStoreLoc> + 
+        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
         $extName =  "KeyVaultForWindows"
         $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForWindows"
@@ -137,10 +137,10 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
     
         # Build settings
         $settings = '{"secretsManagementSettings": 
-    		{ "pollingIntervalInS": "' + <pollingInterval> + 
-    		'", "certificateStoreName": "' + <certStoreName> + 
-    		'", "certificateStoreLocation": "' + <certStoreLoc> + 
-    		'", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        { "pollingIntervalInS": "' + <pollingInterval> + 
+        '", "certificateStoreName": "' + <certStoreName> + 
+        '", "certificateStoreLocation": "' + <certStoreLoc> + 
+        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
         $extName = "KeyVaultForWindows"
         $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForWindows"
@@ -182,8 +182,8 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
 
 Please be aware of the following restrictions/requirements:
 - Key Vault restrictions:
-	- It must exist at the time of the deployment 
-	- Key Vault Access Policy is set for VM/VMSS Identity using MSI
+  - It must exist at the time of the deployment 
+  - Key Vault Access Policy is set for VM/VMSS Identity using MSI
 
 
 ## Troubleshoot and support
