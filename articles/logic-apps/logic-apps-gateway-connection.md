@@ -73,6 +73,8 @@ After you install the gateway on a local computer, create the Azure resource for
 
 1. Under **On-premises Data Gateways**, select **Add**.
 
+   ![Add new Azure resource for data gateway](./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png)
+
 1. Under **Create connection gateway**, provide this information for your gateway resource. When you're done, select **Create**.
 
    | Property | Description |
@@ -136,8 +138,8 @@ To update the settings for a gateway connection, you can edit your connection.
 
 To find all API connections associated with your Azure subscription:
 
-* From the main Azure menu, go to **All services** > **Web** > **API Connections**.
-* Or, from the main Azure menu, go to **All resources**. Set the **Type** filter to **API Connection**.
+* From the Azure portal menu, select **All services** > **Web** > **API Connections**.
+* Or, from the Azure portal menu, select **All resources**. Set the **Type** filter to **API Connection**.
 
 <a name="change-delete-gateway-resource"></a>
 
@@ -145,7 +147,7 @@ To find all API connections associated with your Azure subscription:
 
 To create a different gateway resource, link your gateway installation to a different gateway resource, or remove the gateway resource, you can delete the gateway resource without affecting the gateway installation.
 
-1. From the main Azure menu, select **All resources**. Find and select your gateway resource.
+1. From the Azure portal menu, select **All resources**, or search for and select **All resources** from any page. Find and select your gateway resource.
 
 1. If not already selected, on your gateway resource menu, select **On-premises Data Gateway**. On the gateway resource toolbar, select **Delete**.
 

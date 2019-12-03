@@ -195,7 +195,7 @@ When you're done with your logic app, delete the resource group that contains yo
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with the same account used to create your logic app.
 
-1. On the Azure portal menu, select **Resource groups** or search for and select **Resource groups**. Select your logic app's resource group.
+1. On the Azure portal menu, select **Resource groups**, or search for and select **Resource groups** from any page. Select your logic app's resource group.
 
 1. On the **Overview** page, select **Delete resource group**. Enter the resource group name as confirmation, and select **Delete**.
 
