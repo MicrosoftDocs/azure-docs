@@ -23,7 +23,7 @@ A role definition is a collection of permissions that can be performed, such as 
 
 To see the list of administrator roles for Azure Active Directory, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-## Azure Portal
+## Azure portal
 
 ### List all roles
 

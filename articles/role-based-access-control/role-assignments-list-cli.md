@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -119,7 +119,7 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
     To get the object ID of a system-assigned managed identity, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
 
     ```azurecli
-    az ad sp list --display-name "<vm-name>" --query [].objectId --output tsv
+    az ad sp list --display-name "<vmname>" --query [].objectId --output tsv
     ```
 
 1. To list the role assignments, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list).

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -141,6 +141,22 @@ To list role assignments for the classic subscription administrator and co-admin
 ```azurepowershell
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
+
+## List role assignments for a managed identity
+
+1. Get the the object ID of the system-assigned or user-assigned managed identity. 
+
+    To get the object ID of a user-assigned managed identity, you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
+
+    ```azurepowershell
+    Get-AzADServicePrincipal -DisplayNameBeginsWith "<name> or <vmname>"
+    ```
+
+1. To list the role assignments, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+
+    ```azurepowershell
+    Get-AzRoleAssignment -ObjectId <objectid>
+    ```
 
 ## Next steps
 
