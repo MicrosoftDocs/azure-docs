@@ -48,12 +48,12 @@ The following procedure provides you with steps for opting in a VM into the auto
 1. On the home page for your lab, select the **VM** in the **My virtual machines** list. 
 
     ![Configuration and policies menu](./media/devtest-lab-auto-startup-vm/select-vm.png)
-2. On the **Virtual machine** page, select **Auto-start** on the left menu or in the **Schedules** list. 
+2. On the **Virtual machine** page, select **Autostart** on the left menu or in the **Schedules** list. 
 
-    ![Select auto-start menu](./media/devtest-lab-auto-startup-vm/select-auto-start.png)
-3. On the **Auto-start** page, select **On** for the **Allow this virtual machine to be scheduled for automatic start** option.
+    ![Select autostart menu](./media/devtest-lab-auto-startup-vm/select-auto-start.png)
+3. On the **Autostart** page, select **On** for the **Allow this virtual machine to be scheduled for automatic start** option.
 
-    ![Enable auto-start for the VM](./media/devtest-lab-auto-startup-vm/auto-start-vm.png)
+    ![Enable autostart for the VM](./media/devtest-lab-auto-startup-vm/auto-start-vm.png)
 4. Then, select **Save** on the toolbar to save the setting. 
 
 
