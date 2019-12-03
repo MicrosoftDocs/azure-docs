@@ -126,7 +126,7 @@ If you don't want to use the automation, use the steps in the following sections
 
 ## Configure the sample to use your Azure AD tenant
 
-In the following steps, `ClientID` is the same as "application ID" or `AppId`.
+In the following steps, **ClientID** is the same as "application ID" or **AppId**.
 
 Open the solution in Visual Studio to configure the projects.
 
