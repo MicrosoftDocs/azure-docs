@@ -206,6 +206,18 @@ The following screenshot shows the built-in reports and charts for analyzing sea
 
 ![Power BI dashboard for Azure Cognitive Search](./media/search-traffic-analytics/AzureSearch-PowerBI-Dashboard.png "Power BI dashboard for Azure Cognitive Search")
 
+## Example in C#
+
+This section uses sample code from [Create your first app](https://github.com/Azure-Samples/azure-search-dotnet-samples) to demonstrate instrumentation, data collection, and reporting.
+
+TBD
+
+## Example in JavaScript
+
+This section uses built-in sample data nad a generated Web app from the portal to demonstrate instrumentation, data collection, and reporting.
+
+TBD
+
 ## Next steps
 Instrument your search application to get powerful and insightful data about your search service.
 
