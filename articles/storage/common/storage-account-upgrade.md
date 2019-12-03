@@ -12,7 +12,7 @@ ms.author: tamram
 
 # Upgrade to a General-purpose v2 storage account
 
-General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of General-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices.
+General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of General-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices. General-pupose v2 accounts support default account access tiers of hot or cool and blob level tiering between hot, cool, or archive.
 
 Upgrading to a General-purpose v2 storage account from your General-purpose v1 or Blob storage accounts is simple. You can upgrade using the Azure portal, PowerShell, or Azure CLI.
 
@@ -36,19 +36,19 @@ Upgrading to a General-purpose v2 storage account from your General-purpose v1 o
 
 To upgrade a General-purpose v1 account to a General-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) for information about installing PowerShell.
 
-Next, call the following command to upgrade the account, substituting the name of your resource group and storage account:
+Next, call the following command to upgrade the account, substituting the your resource group name, storage account name, and the desired account access tier.
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
 # [Azure CLI](#tab/azure-cli)
 
 To upgrade a General-purpose v1 account to a General-purpose v2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for information about installing the CLI.
 
-Next, call the following command to upgrade the account, substituting the name of your resource group and storage account:
+Next, call the following command to upgrade the account, substituting the your resource group name, storage account name, and the desired account access tier.
 
 ```cli
-az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
+az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --access-tier=<Hot/Cool>
 ```
 
 ---
@@ -68,7 +68,7 @@ In both cases, the first priority is to estimate the cost of storing, accessing,
 
 ## Pricing and billing
 
-Upgrading a v1 storage account to a General-purpose v2 account is free. However, changing the storage access tier may result in changes to your bill. 
+Upgrading a v1 storage account to a General-purpose v2 account is free. You may specify the desired account tier during the upgrade process. If an account tier is not specified on upgrade, the default account tier of the upgraded account will be `Hot`. However, changing the storage access tier after the upgrade may result in changes to your bill so it is recommended to specify the new account tier during upgrade.
 
 All storage accounts use a pricing model for blob storage based on the tier of each blob. When using a storage account, the following billing considerations apply:
 
