@@ -87,6 +87,13 @@ The text that follows is an example of a flow log. As you can see, there are mul
 
 ## NSG Flow Logging Considerations
 
+**Storage account considerations**: 
+
+1. Location: The storage account used must be in the same region as the NSG.
+2. No Firewall: NSG Flow logs is not onboarded as a [trusted Microsoft Service for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). See [How do I disable the firewall on my storage account?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-disable-the--firewall-on-my-storage-account) to disable the firewall. 
+3. No Service Endpoints: Due to a current limitation, logs can only be directly emitted to storage accounts and not via service endpoints. See [How do I use NSG Flow Logs with Service Endpoints?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) for help with removing existing Service Endpoints.
+4. Self-manage key rotation: If you change/rotate the access keys to your storage account, NSG Flow Logs will stop working. To fix this, you must disable and then re-enable NSG Flow Logs.
+
 **Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. A flow will only be associated to one NSG Rule. In scenarios where multiple NSGs are utilized, we recommend that NSG flow logging is enabled on all NSGs applied a resource's subnet or network interface to ensure that all traffic is recorded. See [how traffic is evaluated](../virtual-network/security-overview.md#how-traffic-is-evaluated) for more information on Network Security Groups. 
 
 **Flow Logging Costs**: NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large flow log volume and the associated costs. NSG Flow log pricing does not include the underlying costs of storage. Using the retention policy feature with NSG Flow Logging may result in a high volume of storage operations and the associated costs. If you do not require the retention policy feature, we recommend that you set this value to 0. See [Network Watcher Pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for additional details.
