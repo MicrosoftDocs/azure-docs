@@ -14,12 +14,13 @@ ms.author: wolfma
 
 ## Prerequisites
 
-Before you get started, make sure to:
+Before you get started:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=linux)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=linux)
+> * Make sure that you have access to a microphone for audio capture
 
 ## Add sample code
 
@@ -30,6 +31,9 @@ Before you get started, make sure to:
 1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
 1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+
+> [!NOTE]
+> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 ## Build the app
 

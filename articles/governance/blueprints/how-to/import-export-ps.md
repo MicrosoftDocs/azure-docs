@@ -1,5 +1,5 @@
 ---
-title: Import and export blueprint definitions with PowerShell
+title: Import and export blueprints with PowerShell
 description: Learn how to work with your blueprint definitions as code. Share, source control, and manage them using the export and import commands.
 ms.date: 09/03/2019
 ms.topic: conceptual

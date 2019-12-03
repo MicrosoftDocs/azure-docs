@@ -78,7 +78,7 @@ To enable Azure AD DS security audit events using the Azure portal, complete the
 > Azure AD DS security audits aren't retroactive. It's not possible to retrieve events from the past, or to replay events from the past. Azure AD DS can only send events that occur after it's enabled.
 
 1. Sign in to the Azure portal at https://portal.azure.com.
-1. At the top of the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *contoso.com*.
+1. At the top of the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aadds.contoso.com*.
 1. In the Azure AD DS window, select **Diagnostic settings (preview)** on the left-hand side.
 1. No diagnostics are configured by default. To get started, select **Add diagnostic setting**.
 
