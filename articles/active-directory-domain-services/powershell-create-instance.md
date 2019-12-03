@@ -124,7 +124,7 @@ $Vnet= New-AzVirtualNetwork `
 
 ## Create an Azure AD DS managed domain
 
-Now let's create an Azure AD DS managed domain. Set your Azure subscription ID, and then provide a name for the managed domain, such as *contoso.com*. You can get your subscription ID using the [Get-AzSubscription][Get-AzSubscription] cmdlet.
+Now let's create an Azure AD DS managed domain. Set your Azure subscription ID, and then provide a name for the managed domain, such as *aadds.contoso.com*. You can get your subscription ID using the [Get-AzSubscription][Get-AzSubscription] cmdlet.
 
 If you choose a region that supports Availability Zones, the Azure AD DS resources are distributed across zones for additional redundancy.
 
@@ -134,7 +134,7 @@ There's nothing for you to configure for Azure AD DS to be distributed across zo
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso.com"
+$ManagedDomainName = "aadds.contoso.com"
 
 # Enable Azure AD Domain Services for the directory.
 New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
@@ -168,7 +168,7 @@ $ResourceGroupName = "myResourceGroup"
 $VnetName = "myVnet"
 $AzureLocation = "westus"
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso.com"
+$ManagedDomainName = "aadds.contoso.com"
 
 # Connect to your Azure AD directory.
 Connect-AzureAD

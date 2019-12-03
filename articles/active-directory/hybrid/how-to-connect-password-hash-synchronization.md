@@ -118,13 +118,9 @@ It is typical to force a user to change their password during their first logon,
   
 The temporary password functionality helps to ensure that the transfer of ownership of the credential is completed on first use, to minimize the duration of time in which more than one individual has knowledge of that credential.
 
-To support temporary passwords in Azure AD for synchronized users, you can enable the *ForcePasswordResetOnLogonFeature* feature, by running the following command on your Azure AD Connect server, replacing <AAD Connector Name> with the connector name specific to your environment:
+To support temporary passwords in Azure AD for synchronized users, you can enable the *ForcePasswordResetOnLogonFeature* feature, by running the following command on your Azure AD Connect server:
 
-`Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
-
-You can use the following command to determine the connector name:
-
-`(Get-ADSyncConnector | where{$_.ListName -eq "Windows Azure Active Directory (Microsoft)"}).Name`
+`Set-ADSyncAADCompanyFeature  -ForcePasswordResetOnLogonFeature $true`
 
 Caveat:  Forcing a user to change their password on next logon requires a password change at the same time.  AD Connect will not pick up the force password change flag by itself, it is supplemental to the detected password change that occurs during password hash sync.
 
@@ -155,7 +151,7 @@ The synchronization of a password has no impact on the Azure user who is signed 
 
 ## Password hash sync process for Azure AD Domain Services
 
-If you use Azure AD Domain Services to provide legacy authentication for applications and services that need to use Keberos, LDAP, or NTLM, some additional processes are part of the password hash synchronization flow. Azure AD Connect uses the additional following process to synchronize password hashes to Azure AD for use in Azure AD Domain Services:
+If you use Azure AD Domain Services to provide legacy authentication for applications and services that need to use Kerberos, LDAP, or NTLM, some additional processes are part of the password hash synchronization flow. Azure AD Connect uses the additional following process to synchronize password hashes to Azure AD for use in Azure AD Domain Services:
 
 > [!IMPORTANT]
 > Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.

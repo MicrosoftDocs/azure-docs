@@ -1,11 +1,11 @@
 ---
-title: 'Azure Database for MariaDB Server VNet services endpoint overview | Microsoft Docs'
+title: VNet service endpoints - Azure Database for MariaDB
 description: 'Describes how VNet service endpoints work for your Azure Database for MariaDB server.'
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 12/02/2019
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for MariaDB
 

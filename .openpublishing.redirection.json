@@ -55,7 +55,7 @@
       "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json",
       "redirect_document_id": false
     },
-	    {
+    {
       "source_path": "articles/virtual-machines/windows/maintenance-notifications.md",
       "redirect_url": "/azure/virtual-machines/maintenance-notifications?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
       "redirect_document_id": false
@@ -561,17 +561,17 @@
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-kb-using-postman.md",
       "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-kb-using-curl.md",
       "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
       "redirect_document_id": false
-    }, 
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
@@ -11463,6 +11463,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-create-kafka-enabled.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-create",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
       "redirect_document_id": false
@@ -15616,6 +15621,11 @@
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-advanced-autoscale.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-spot",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-cli-quick-create-cli-nodejs.md",
@@ -29507,8 +29517,53 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Image-Search/search-the-web.md",
-      "redirect_url": "/azure/cognitive-services/bing-image-search",
+      "redirect_url": "/azure/cognitive-services/Bing-Image-Search/overview",
       "redirect_document_id": false
     },
     {
@@ -29518,7 +29573,7 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Web-Search/search-the-web.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/overview",
       "redirect_document_id": false
     },
     {
@@ -43800,6 +43855,56 @@
     {
       "source_path": "articles/healthcare-apis/configure-cosmos-db.md",
       "redirect_url": "/azure/healthcare-apis/configure-database",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-portal.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-getting-started.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-load-assets.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-keyboard-shortcuts.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-localization.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-submit-job.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-overview.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/classroom-labs/how-to-enable-multi-vm-environment.md",
+      "redirect_url": "/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus-messaging/migrate-java-apps-wild-fly.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java#use-service-bus-as-a-message-broker",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/howto-redirection.md",
+      "redirect_url": "/azure/mysql/concepts-connectivity-architecture",
       "redirect_document_id": false
     }
   ]

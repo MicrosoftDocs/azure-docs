@@ -1,6 +1,6 @@
 ---
-title: Understanding Azure Security Center for agent local configuration file for C# | Microsoft Docs
-description: Learn about Azure Security Center for agent local configuration  file for C#.
+title: Understanding Azure Security Center for IoT security agent local configuration file for C# | Microsoft Docs
+description: Learn more about the Azure Security Center for IoT security service, security agent local configuration file for C#.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
