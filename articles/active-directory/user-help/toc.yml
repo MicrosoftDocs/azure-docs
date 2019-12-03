@@ -2,12 +2,10 @@
   href: index.yml
 - name: Two-step verification help
   items:
-  - name: Overview
-    href: user-help-two-step-verification-overview.md
+  - name: Access and use two-factor verification
+    href: multi-factor-authentication-end-user-first-time.md
   - name: Set up your two-factor verification methods
     items:
-    - name: Overview
-      href: multi-factor-authentication-end-user-first-time.md
     - name: Set up an authenticator app 
       href: multi-factor-authentication-setup-auth-app.md
     - name: Set up a mobile device
