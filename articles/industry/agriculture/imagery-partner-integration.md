@@ -125,10 +125,10 @@ After the partner has credentials to connect to FarmBeats Datahub, the partner d
 
 1.	Create a new extended type for the following fields, in accordance with the type of imagery to be uploaded:
 
-    - **Scene Source**: For example, <drone_partner_name>
-    - **Scene Type**: For example, <drone>
-    - **Scene File Type**: For example, <chlorophyll index>
-    - **Scene File Content Type**: For example, <image/tiff>
+    - **Scene Source**: For example, drone_partner_name
+    - **Scene Type**: For example, drone
+    - **Scene File Type**: For example, chlorophyll index
+    - **Scene File Content Type**: For example, image/tiff
 
 2.	Call the Farms API to get the list of farms from within the Azure FarmBeats system.
 3.	Provide the customer with an ability to choose a single farm from the list of farms.

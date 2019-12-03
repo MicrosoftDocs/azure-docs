@@ -136,23 +136,26 @@ JSON is a common language-independent data format that provides a simple text re
 
 ## Metadata specifications
 
-FarmBeats datahub has the following APIs that enable device partners to create and manage device or sensor metadata. 
+FarmBeats Datahub has the following APIs that enable device partners to create and manage device or sensor metadata. 
 
-- /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of the device, which is either gateway or node. 
+- /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either gateway or node. 
 - /**Device**: Device corresponds to a physical device present on the farm.
-- /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of the sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure.
+- /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure.
 - /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
 
-  **DeviceModel**| DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of the device, which is either gateway or node.
+
+  | Device or sensor metadata | Description |
   --- | ---
+  **DeviceModel** | DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either gateway or node.
   Type (node, gateway)  | 1 Star |
   Manufacturer  | 2 Star |
   ProductCode  | Device product code or model name or number. For example, EnviroMonitor#6800. |
-  Ports  | Port name and type (digital or analog).  |
+  Ports  | Port name and type, which is digital or analog.  |
   Name  | Name to identify resource. For example, model name or product name. |
   Description  | Provide a meaningful description of the model. |
   Properties  | Additional properties from the manufacturer. |
-  **Device** | Device corresponds to a physical device present in the farm. Each device has a unique device ID. |
+  
+  **Device** | Device corresponds to a physical device present on the farm. Each device has a unique device ID. |
 DeviceModelId  |ID of the associated device model. |
 HardwareId   |Unique ID for the device, such as a MAC address.  |
 reportingInterval |Reporting interval in seconds. |
@@ -161,7 +164,7 @@ ParentDeviceId | ID of the parent device to which this device is connected. For 
   Name  | Name to identify the resource. Device partners need to send a name that's consistent with the device name on the device partner side. If the device name is user defined on the device partner side, the same user-defined name should be propagated to FarmBeats.  |
   Description  | Provide a meaningful description.  |
   Properties  |Additional properties from the manufacturer.  |
-  **SensorModel** | SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of the sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure. |
+  **SensorModel** | SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure. |
   Type (analog, digital)  |Mention analog or digital sensor.|
   Manufacturer  | Name of manufacturer. |
   ProductCode  | Product code or model name or number. For example, RS-CO2-N01.  |
@@ -179,7 +182,7 @@ ParentDeviceId | ID of the parent device to which this device is connected. For 
   hardwareId  | Unique ID for the sensor set by the manufacturer.
   sensorModelId  | ID of the associated sensor model.
   Location  | Sensor latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).
-  port > name  |Name and type of the port that the sensor is connected to on the device. This needs to be the same name as defined in the device model.
+  port > name  |Name and type of the port that the sensor is connected to on the device. This must be the same name as defined in the device model.
   deviceId  | ID of the device that the sensor is connected to.
   Name  | Name to identify the resource. For example, the sensor name or product name and model number or product code.
   Description  | Provide a meaningful description.
