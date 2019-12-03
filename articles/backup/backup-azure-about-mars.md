@@ -39,7 +39,7 @@ MARS agent supports the following restore scenarios:
 2.	Download the Recovery Service vault credentials and agent installer to an on-premises machine. To protect on-premises machine by choosing the backup option choose files and folders and system state and download mars agent.
 3.	Prepare the infrastructure:
 
-        a.    Run the installer to install the agent.
+    a.    Run the installer to install the agent.
 
     b.	Use downloaded vault credentials to register the machine to Recovery Services vault.
 4.	From agent console on the client, use schedule backup to configure the backup. Specify the retention policy of your backup data and start protecting.
