@@ -10,7 +10,7 @@ localization_priority: Normal
 To offer your add-in solution in languages beyond the primary language, you need localized metadata for each additional language. For add-ins, the best customer experience is to provide web services and functionality that support these additional languages. You also need to create descriptions in each language. For a list of the languages that Partner Center currently accepts, see the table later in this article.
 
 > [!NOTE]
-> For information about localizing add-ins, see [Localization for Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/localization) and [Localize SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/localize-sharepoint-add-ins). 
+> For information about localizing add-ins, see [Localization for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/localization) and [Localize SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/localize-sharepoint-add-ins). 
 
 To distribute your solution in additional languages, choose **Manage additional languages** on the **Marketplace listings** page in Partner Center. After you add other languages, you need to submit your solution for certfication again. 
 

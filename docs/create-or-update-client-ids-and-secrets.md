@@ -13,7 +13,7 @@ Create or delete client IDs and secrets, update or replace expiring client secre
 
 1. Generate and add a new client secret in Partner Center to associate with that particular add-in client ID. For specific steps, see **To generate additional client secrets** in [Update the client secret associated with your client ID](#update-the-client-secret-associated-with-your-client-id) later in this article.
 
-2. Update your remote web application to use the new client secret. For information about how to do this using Microsoft Office Developer Tools for Visual Studio, see **Update the remote web application in Visual Studio to use the new secret** in [Replace an expiring client secret in a SharePoint Add-in](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/replace-an-expiring-client-secret-in-a-sharepoint-add-in). 
+2. Update your remote web application to use the new client secret. For information about how to do this using Microsoft Office Developer Tools for Visual Studio, see **Update the remote web application in Visual Studio to use the new secret** in [Replace an expiring client secret in a SharePoint Add-in](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/replace-an-expiring-client-secret-in-a-sharepoint-add-in). 
 
 3. Republish your remote web application.
 
@@ -34,7 +34,7 @@ When a user installs an add-in that has an associated client ID and client secre
 For example, your add-in could be a trip calendar add-in that opens as an **IFRAME** on an Office 365 SharePoint site. OAuth would allow the add-in to identify the user to whom the trip calendar belongs, or if the trip calendar add-in needed to access other aspects of Office 365, such as resources or calendar information, it could access those on behalf of the signed-in user.
 
 > [!NOTE]
-> For more information about OAuth, client ID and client secrets, see [Authorization and authentication of SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins), [Context Token OAuth flow for SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/context-token-oauth-flow-for-sharepoint-add-ins), and [Register SharePoint Add-ins 2013](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/register-sharepoint-add-ins).
+> For more information about OAuth, client ID and client secrets, see [Authorization and authentication of SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins), [Context Token OAuth flow for SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/context-token-oauth-flow-for-sharepoint-add-ins), and [Register SharePoint Add-ins 2013](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/register-sharepoint-add-ins).
 
 <a name="bk_addclientid"> </a>
 ## Add a client ID and client secret
@@ -58,7 +58,7 @@ If your add-in is a service and it needs OAuth client IDs and client secrets, fo
 
 ### To add a client ID
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
 
 2. On the **Client IDs** tab, select **Add new client ID**.
 
@@ -104,9 +104,10 @@ After you create your client ID and client secret, you can add them to the code 
    >  If you are submitting a SharePoint Add-in that uses OAuth, and you want to distribute it to China, you must use a separate client ID and client secret for China.
 
 2. Select the friendly name of the OAuth client ID that you want your add-in to use. 
-        
+-->       
+
 <a name="bk_update"> </a>
--->
+
 ## Update the client secret associated with your client ID
 
 Update your client secret in the following situations:
@@ -127,7 +128,7 @@ Update your client secret in the following situations:
 
 ### To generate additional client secrets
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
 
 2. On the **Client IDs** tab, select the client ID with which you want to associate additional client secrets.
 
@@ -149,7 +150,7 @@ Update your client secret in the following situations:
 
 ### To delete a client secret
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
 
 2. On the **Client IDs** tab, select **Delete** next to the client ID that has the client secret that you want to delete.
     
@@ -172,7 +173,7 @@ You might want to delete a client ID in certain situations, for example:
 
 ### To delete a client ID
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
 
 2. On the **Client IDs** tab, select **Delete** next to the client ID that has the client secret that you want to delete.
 
