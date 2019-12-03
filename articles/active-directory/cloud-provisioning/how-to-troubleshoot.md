@@ -11,10 +11,11 @@ ms.technology: identity-adfs
 ---
 
 # Cloud provisioning troubleshooting
+
 Cloud provisioning touches many different things and has many different dependencies.  Naturally, this can give rise to various issues.  This document is designed to get you started on troubleshooting these issues.  This document will introduce you to the typical areas that you should focus on, how to gather additional information, and various techniques that can be used to track down problems.  
 
 
-  ##  Common troubleshooting areas
+## Common troubleshooting areas
 
 |Name|Description|
 |-----|-----|
@@ -35,6 +36,7 @@ Some of the first things that you want to verify with the agent are:
 These items can be verified in the Azure portal and on the local server that is running the agent.
 
 ### Azure portal agent verification
+
 To verify the agent is being seen by Azure and is healthy follow these steps:
 
 1. Sign in to the Azure portal.
@@ -46,6 +48,7 @@ To verify the agent is being seen by Azure and is healthy follow these steps:
  ![Provisioning agents](media/how-to-install/install8.png)</br>
 
 ### Verify the port
+
 To verify the Azure is listening on port 443 and that your agent can communicate with it, you can use the following tool:
 
 https://aadap-portcheck.connectorporttest.msappproxy.net/ 
@@ -54,6 +57,7 @@ This test will verify that your agents are able to communicate with Azure over p
  ![Services](media/how-to-install/verify2.png)
 
 ### On the local server
+
 To verify that the agent is running follow these steps:
 
 1.  On the server with the agent installed, open **Services** by either navigating to it or by going to Start/Run/Services.msc.
@@ -61,9 +65,11 @@ To verify that the agent is running follow these steps:
  ![Services](media/how-to-troubleshoot/troubleshoot1.png)
 
 ### Common agent installation issues
+
 The following are some common agent installation issues and what the typical resolution is.
 
 #### Agent failed to start
+
 If you receive an error message that states:
 
 **Service 'Microsfoft Azure AD Connect Provisioning Agent' failed to start.  Verify that you have sufficient privileges to start the system services.** 
@@ -80,6 +86,7 @@ To resolve this, use the following steps:
  ![Services](media/how-to-troubleshoot/troubleshoot3.png)
 
 #### Agent times out or certificate is invalid
+
 You may get the following errors if you are attempting to register the agent.
 
  ![Services](media/how-to-troubleshoot/troubleshoot4.png)
@@ -90,19 +97,20 @@ The Provisioning Agent supports use of outbound proxy. You can configure it by e
 Add the following lines into it, towards the end of the file just before the closing `</configuration>` tag.
 Replace the variables [proxy-server] and [proxy-port] with your proxy server name and port values.
 
-    ```xml
-        <system.net>
-            <defaultProxy enabled="true" useDefaultCredentials="true">
-                <proxy
-                    usesystemdefault="true"
-                    proxyaddress="http://[proxy-server]:[proxy-port]"
-                    bypassonlocal="true"
-                />
-            </defaultProxy>
-        </system.net>
-    ```
+```xml
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy
+                usesystemdefault="true"
+                proxyaddress="http://[proxy-server]:[proxy-port]"
+                bypassonlocal="true"
+            />
+        </defaultProxy>
+    </system.net>
+```
 
 #### Agent registration fails with security error
+
 You may see the following error when installing the cloud provisioning agent.
 
 This is typically caused by the agent being unable to execute the PowerShell registration scripts due to local PowerShell execution policies.
@@ -110,6 +118,7 @@ This is typically caused by the agent being unable to execute the PowerShell reg
 To resolve this, change the PowerShell execution policies on the server. You need to have Machine and User policies as "Undefined" or "RemoteSigned". If it is “Unrestricted” you will see this error.  For more information see [PowerShell execution policies](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
 
 ### Log files
+
 By default, the agent emits very minimal error messages and stack trace information. You can find these trace logs in the folder: **C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace**
 
 Use the following steps to gather additional details for troubleshooting agent-related issues.
@@ -145,9 +154,11 @@ Use the following steps to gather additional details for troubleshooting agent-r
     Get-Content “C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log” -Wait
     ```
 ## Object synchronization issues
+
 The following section contains information on troubleshooting object synchronization.
 
 ### Provisioning logs
+
 In the Azure portal, provisioning logs can be used to help track down and troubleshoot object synchronization issues.  To view the logs, select **Logs**.
  ![Provisioning logs](media/how-to-troubleshoot/log1.png)
 
@@ -176,12 +187,11 @@ By clicking on the status, you can see additional information about the quaranti
 
 - Use the Azure portal to restart the provisioning job. On the agent configuration page select **Restart provisioning**.
 
-
- ![Quarantine](media/how-to-troubleshoot/quarantine3.png)
+  ![Quarantine](media/how-to-troubleshoot/quarantine3.png)
 
 - Use Microsoft Graph to [restart the provisioning job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). You'll have full control over what you restart. You can choose to clear escrows (to restart the escrow counter that accrues toward quarantine status), clear quarantine (to remove the application from quarantine), or clear watermarks. Use the following request:
  
-       `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
+  `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
 
 ## Next steps 
 
