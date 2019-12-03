@@ -57,6 +57,7 @@
     href: tutorial-first-experiment-automated-ml.md
   - name: Machine Learning CLI
     href: tutorial-train-deploy-model-cli.md
+
 - name: Samples
   items:
   - name: Jupyter Notebooks
@@ -66,6 +67,7 @@
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
   - name: End-to-end MLOps examples
     href: https://github.com/microsoft/MLOps
+
 - name: Concepts
   items:
   - name: Workspace
@@ -120,6 +122,7 @@
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
+
 - name: How-to guides
   items:
   - name: Create & manage workspaces
@@ -148,6 +151,9 @@
     - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       href: how-to-vscode-tools.md
+    - name: Interactive debugging
+      displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
+      href: ../how-to-set-up-vs-code-remote.md
     - name: Git integration
       displayName: github gitlab
       href: concept-train-model-git-integration.md 
@@ -284,6 +290,9 @@
     - name: Azure App Service
       displayName: web app
       href: how-to-deploy-app-service.md
+    - name: Azure Functions
+      displayName: functions app
+      href: how-to-deploy-functions.md
     - name: Compute instances
       href: how-to-deploy-local-container-notebook-vm.md
     - name: Use custom Docker image
@@ -301,7 +310,7 @@
     - name: Run batch predictions
       displayName: score scoring asynchronous consume pipeline parallelrunstep inference
       href: how-to-run-batch-predictions.md
-    - name: Use the designer for batch predictions
+    - name: Designer batch predictions
       displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
       href: how-to-run-batch-predictions-designer.md
   - name: Monitor models
