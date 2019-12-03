@@ -15,7 +15,6 @@ ms.date: 12/02/2019
 Learn some basic scenarios on how to use Azure Monitor logs to monitor Azure HDInsight clusters:
 
 * [Analyze HDInsight cluster metrics](#analyze-hdinsight-cluster-metrics)
-* [Search for specific log messages](#search-for-specific-log-messages)
 * [Create event alerts](#create-alerts-for-tracking-events)
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
