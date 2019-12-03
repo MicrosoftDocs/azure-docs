@@ -169,7 +169,7 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
-The NVv4-series virtual machines are powered by [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPUs and AMD EPYC 7V12(Rome) CPUs. With NVv4-series Azure is introducing virtual machines with partial GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/8th of a GPU with 2GiB frame buffer to a full GPU with 16GiB frame buffert. NVv4 virtual machines currently support only Windows guest operating system.
+The NVv4-series virtual machines are powered by [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPUs and AMD EPYC 7V12(Rome) CPUs. With NVv4-series Azure is introducing virtual machines with partial GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/8th of a GPU with 2 GiB frame buffer to a full GPU with 16 GiB frame buffert. NVv4 virtual machines currently support only Windows guest operating system.
 
 [Sign-up and get access to these machines during preview](https://aka.ms/nvv4signup).
 <br>
