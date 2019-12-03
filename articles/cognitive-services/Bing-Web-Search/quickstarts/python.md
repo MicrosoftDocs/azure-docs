@@ -26,6 +26,8 @@ This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). S
 
 * [Python 2.x or 3.x](https://www.python.org/)
 
+## Create a Bing Web Search resource
+
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Define variables

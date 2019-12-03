@@ -25,6 +25,8 @@ Here are a few things that you'll need before running this quickstart:
 * [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/)
 * A subscription key
 
+## Create a Bing Web Search resource
+
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Create a project and declare required modules
