@@ -15,11 +15,11 @@ ms.collection: M365-identity-device-management
 
 # Integrate an existing forest and a new forest with a single Azure AD tenant
 
+This tutorial walks you through adding cloud provisioning to an existing hybrid identity environment. 
+
 ![Create](media/tutorial-existing-forest/existing-forest-new-forest.png)
 
-The following tutorial will walk you through adding cloud provisioning to an existing hybrid identity environment.  
-
-This environment can then be used for testing or for getting more familiar with how a hybrid identity works. 
+You can use the environment you create in this tutorial for testing or for getting more familiar with how a hybrid identity works. 
 
 In this scenario, there is an existing forest synced using Azure AD Connect sync to an Azure AD tenant. And you have a new forest that you want to sync to the same Azure AD tenant. You will setup cloud provisioning for the new forest. 
 
