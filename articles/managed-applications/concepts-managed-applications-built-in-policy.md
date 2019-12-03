@@ -32,6 +32,8 @@ If the managed application needs permissions to the subscription to perform an a
 To use the built-in policy, create a policy assignment and assign the Deploy associations for a managed application policy. Once the policy has been assigned successfully, 
 the policy will identify non-compliant resources and deploy association for resources that are non-compliant.
 
+![Assign built-in policy](media/builtin-policy/assign-builtin-policy-managedapp.png)
+
 ## Getting help
 
 If you have questions about Azure Custom Resource Providers development, try asking them on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). A similar question might have already been answered, so check first before posting. Add the tag ```azure-custom-providers``` to get a fast response!
