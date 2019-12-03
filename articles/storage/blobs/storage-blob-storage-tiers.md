@@ -136,7 +136,7 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **All Resources** and then select your storage account.
+1. On the Azure portal menu or from the **Home** page, search for and select **All Resources**, then select your storage account.
 
 1. In **Settings**, click **Configuration** to view and change the account configuration.
 
@@ -148,7 +148,7 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **All Resources**, select your storage account, select your container, and then select your blob.
+1. On the Azure portal menu or from the **Home** page, search for and select **All Resources**, select your container, and then select your blob.
 
 1. In the **Blob properties**, select **Change tier**.
 
@@ -218,7 +218,7 @@ Any blob that is deleted or moved out of the cool (GPv2 accounts only) or archiv
 
 **Which Azure tools and SDKs support blob-level tiering and archive storage?**
 
-Azure portal, PowerShell, CLI tools and .NET, Java, Python, and Node.js client libraries all support blob-level tiering and archive storage.  
+Azure portal, PowerShell, and CLI tools and .NET, Java, Python, and Node.js client libraries all support blob-level tiering and archive storage.  
 
 **How much data can I store in the hot, cool, and archive tiers?**
 
