@@ -162,3 +162,26 @@ Each GPU in NVv3 instances comes with a GRID license. This license gives you the
 1 GPU = one-half M60 card.
 
 <sup>1</sup> NVv3-series VMs feature Intel Hyper-Threading Technology
+
+## NVv4-series (Preview)  <sup>1</sup>
+
+Premium Storage:  Supported
+
+Premium Storage caching:  Supported
+
+The NVv4-series virtual machines are powered by [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPUs and AMD EPYC 7V12(Rome) CPUs. With NVv4-series Azure is introducing virtual machines with partial GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/8th of a GPU with 2GiB frame buffer to a full GPU with 16GiB frame buffert. NVv4 virtual machines currently support only Windows guest operating system.
+
+[Sign-up and get access to these machines during preview](https://aka.ms/nvv4signup).
+<br>
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 12 | 6000 / 100 | 2 |
+| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 24 | 8000 / 400 | 4 |
+| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 32 | 16000 / 800 | 8 | 
+| Standard_NV32as_v4 |32 |112 |700 | 1 | 16 | 32 | 32000 / 800 | 8 | 
+
+
+
+<sup>1</sup> NVv4-series VMs feature AMD Simultaneous multithreading Technology
+
