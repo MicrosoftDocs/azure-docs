@@ -56,7 +56,7 @@ To verify the Azure is listening on port 443 and that your agent can communicate
 https://aadap-portcheck.connectorporttest.msappproxy.net/ 
 
 This test will verify that your agents are able to communicate with Azure over port 443.  Open a browser and navigate to the above URL from the server where the agent is installed.
-![Services](media/how-to-cloud-prov-install/verify2.png)
+![Services](media/how-to-install/verify2.png)
 
 ### Additional requirements
 - [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 

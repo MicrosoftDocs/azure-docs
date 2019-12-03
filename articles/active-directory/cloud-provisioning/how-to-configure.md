@@ -30,7 +30,7 @@ To configure provisioning, use the following steps:
 6. Enter a **Notification email**. This email will be notified 
 7. when provisioning is not healthy.  
 8. Move the selector to **Enable** and click **Save**.
-![](media/tutorial-single-forest/newconfig2.png)
+![](media/tutorial-single-forest/configure2.png)
 
 ## Scoping provisioning to specific users and groups
 If you want to scope the agent to only synchronize specific users and groups, you can do this. You can scope using on-premises AD groups or Organizational Units. You cannot configure groups and Organizational Units within a configuration. 

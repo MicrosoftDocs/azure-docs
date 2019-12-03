@@ -34,7 +34,7 @@ Installing and configuring Azure AD Connect provisioning is accomplished in the 
 ![Welcome screen](media/how-to-install/install9.png)</br>
 3. Run the Azure AD Connect provisioning (AADConnectProvisioningAgent.Installer)
 3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
-![Welcome screen](media/how-to-install/install.png)</br>
+![Welcome screen](media/how-to-install/install1.png)</br>
 
 4. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.
 5. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory administrator account.  This operation will add your on-premises directory.  Click **Next**.</br>
