@@ -1,13 +1,13 @@
 ---
 title: Handle large messages - Azure Logic Apps
-description: Learn how to handle large message sizes with chunking in Azure Logic Apps
+description: How to handle large message sizes with chunking in Azure Logic Apps
 services: logic-apps
-author: shae-hurst
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.topic: article
-ms.date: 4/27/2018
+ms.suite: integration
+author: shae-hurst
 ms.author: shhurst
+ms.topic: article
+ms.date: 12/03/2019
 ---
 
 # Handle large messages with chunking in Azure Logic Apps
