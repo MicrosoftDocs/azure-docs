@@ -1,5 +1,5 @@
 ---
-title: Hyperscale FAQ
+title: FAQ - Azure Database for PostgreSQL – Hyperscale (Citus)
 description: Answers to common questions customers ask about an Azure SQL database in the Hyperscale service tier - commonly called a Hyperscale database.
 services: sql-database
 ms.service: sql-database

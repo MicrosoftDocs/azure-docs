@@ -1,6 +1,6 @@
 ---
-title: Server concepts in Azure Database for PostgreSQL
-description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL servers.
+title: Table colocation - Azure Database for PostgreSQL - Hyperscale (Citus)
+description: How to store related information together for faster queries
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
