@@ -129,7 +129,7 @@ For example, to get to number of rows written to a sink named 'sink1' in an acti
 To get the number of rows read from a source named 'source1' that was used in that sink, use `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead`.
 
 > [!NOTE]
-> If a sink has zero rows written, it will not show up in metrics
+> If a sink has zero rows written, it will not show up in metrics. Existence can be verified using the `contains` function. For example, `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` will check whether any rows were written to sink1.
 
 ## Next steps
 
