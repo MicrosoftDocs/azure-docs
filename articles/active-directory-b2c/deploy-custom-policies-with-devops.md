@@ -72,6 +72,8 @@ Next, grant the application permission to use the Microsoft Graph API to read an
 1. Select **Accept**.
 1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status**. It might take a few minutes for the permissions to propagate.
 
+* * *
+
 ### Create client secret
 
 To authenticate with Azure AD B2C, your PowerShell script needs to specify a client secret that you create for the application.
