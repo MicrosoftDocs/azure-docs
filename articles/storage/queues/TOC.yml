@@ -17,6 +17,8 @@
       href: storage-quickstart-queues-dotnet.md
     - name: .NET (v11)
       href: storage-quickstart-queues-dotnet-legacy.md
+    - name: Java (v12)
+      href: storage-quickstart-queues-java.md
 - name: Tutorials
   items:
   - name: Work with Azure storage queues
