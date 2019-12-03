@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/25/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
@@ -13,20 +13,20 @@ manager: carmonm
 
 # Understand the Windows agent check results in Update Management
 
-There may be many reasons your machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and Non-Azure machines in the [offline scenario](#troubleshoot-offline).
+There may be many reasons your machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Runbook Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline).
 
 The following list are the three readiness states a machine can be in:
 
-* **Ready** - The update agent is deployed and was last seen less than 1 hour ago.
-* **Disconnected** -  The update agent is deployed and was last seen over 1 hour ago.
-* **Not configured** -  The update agent isn't found or hasn't finished onboarding.
+* **Ready** - The Hybrid Runbook Worker is deployed and was last seen less than 1 hour ago.
+* **Disconnected** -  The Hybrid Runbook Worker is deployed and was last seen over 1 hour ago.
+* **Not configured** -  The Hybrid Runbook Worker isn't found or hasn't finished onboarding.
 
 > [!NOTE]
 > There may be a slight delay between what the Azure portal shows and the current state of the machine.
 
 ## Start the troubleshooter
 
-For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article. See the [offline instructions](#troubleshoot-offline) to troubleshoot a Non-Azure machine.
+For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For non-Azure machines, the link brings you to this article. See the [offline instructions](#troubleshoot-offline) to troubleshoot a non-Azure machine.
 
 ![Update management list of virtual machines](../media/update-agent-issues/vm-list.png)
 
@@ -45,7 +45,7 @@ Results are shown on the page when they're ready. The checks sections show what'
 
 ### Operating system
 
-The operating system check verifies whether the Hybrid Runbook Worker is running one of these operating systems:
+The operating system check verifies whether the Hybrid Runbook Worker is running one of the following operating systems:
 
 |Operating system  |Notes  |
 |---------|---------|
@@ -201,4 +201,3 @@ CheckResultMessageArguments : {}
 ## Next steps
 
 To troubleshoot more issues with your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Workers](hybrid-runbook-worker.md).
-
