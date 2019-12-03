@@ -65,7 +65,7 @@ Monitoring data from your subscription is now flowing into the storage account.
 
 ## Route resource data to the storage account
 
-Now we configure resource-level data (resource metrics and diagnostic logs) to be routed to the storage account by setting up **resource diagnostic settings**.
+Now we configure resource-level data (resource metrics and resource logs) to be routed to the storage account by setting up **resource diagnostic settings**.
 
 1. Click the **Monitor** button found on the left-hand navigation list, then on **Diagnostic Settings**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. If you do not have any resources in this list, you can [create a logic app](../../logic-apps/quickstart-create-first-logic-app-workflow.md) before proceeding so that you have a resource that you can configure a diagnostic setting on.
 
