@@ -41,7 +41,7 @@ November 4, 2019 - Ignite Conference
 
 July 24 2019
 
-+ Generally available in [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
++ Generally available in [Azure Government Cloud](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
 
 ## Service updates
 
