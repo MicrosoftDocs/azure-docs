@@ -44,6 +44,9 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 
 ### Sample code
 
+> [!NOTE]
+> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/from-microphone/quickstart.py#code)]
 
 ### Install and use the Speech SDK with Visual Studio Code

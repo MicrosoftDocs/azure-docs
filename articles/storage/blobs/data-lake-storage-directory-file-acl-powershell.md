@@ -378,7 +378,7 @@ The following table shows how the cmdlets used for Data Lake Storage Gen1 map to
 
 ## See also
 
-* [Known capability gaps](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 * [Storage PowerShell cmdlets](/powershell/module/az.storage).
 
