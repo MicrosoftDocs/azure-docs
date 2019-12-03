@@ -38,7 +38,18 @@ Manual scale is the default setting during cluster creation. The cluster has a s
 
 ### Optimized autoscale (preview)
 
-Optimized autoscale is the recommended autoscale method. This method optimizes cluster performance and costs. If the cluster approaches a state of under-utilization, it will be scaled in. This action lowers costs but keeps performance level. If the cluster approaches a state of over-utilization, it will be scaled out to maintain optimal performance. To configure Optimized autoscale:
+Optimized autoscale is the recommended autoscale method. This method optimizes cluster performance and costs. If the cluster approaches a state of under-utilization, it will be scaled in. This action lowers costs but keeps performance level. If the cluster approaches a state of over-utilization, it will be scaled out to maintain optimal performance. 
+
+## Scale out
+
+Scale out logic is simple. Assuming the number of cluster instances is below the maximum number defined by the user, scale out is performed if last hour Cache Utilization metric is above 80% (for the 50th percentile of 1 minute measures).
+
+## Scale in
+Scale in logic is more complex as the service is checking multiple metrics to verify it is safe to scale in the cluster.
+Assuming the number of instances is above 2, all of the following rules need to be satisfied:
+###table
+
+To configure Optimized autoscale:
 
 1. Select **Optimized autoscale**. 
 
