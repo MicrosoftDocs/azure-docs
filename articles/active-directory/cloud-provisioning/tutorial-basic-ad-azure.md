@@ -14,11 +14,13 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Basic Active Directory environment
 
+This tutorial walks you through creating a basic Active Directory environment. 
+
 ![Create](media/tutorial-single-forest/diagram1.png)
 
-The following tutorial will walk you through creating a basic Active Directory environment.  This environment can be used to test various aspects of hybrid identity scenarios and will be a prerequisite for some of the tutorials.  If you already have an existing Active Directory environment you can use that as a substitute.  This information is provided for individuals who my be starting from nothing.
+You can use the environment you create in the tutorial to test various aspects of hybrid identity scenarios and will be a prerequisite for some of the tutorials.  If you already have an existing Active Directory environment you can use that as a substitute.  This information is provided for individuals who my be starting from nothing.
 
-This tutorial consists of 
+This tutorial consists of
 ## Prerequisites
 The following are prerequisites required for completing this tutorial
 - A computer with [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed.  It is suggested to do this on either a [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) or a [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
