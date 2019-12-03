@@ -71,6 +71,21 @@ You can have a disaster recovery solution for your SQL Server databases in a hyb
 | **Backup and Restore with Azure Blob Storage Service** |On-premises production databases backed up directly to Azure blob storage for disaster recovery.<br/>![Backup and Restore](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-backup-restore.png)<br/>For more information, see [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md). |
 | **Replicate and Failover SQL Server to Azure with Azure Site Recovery** |On-premises production SQL Server replicated directly to Azure Storage for disaster recovery.<br/>![Replicate using Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-standalone-sqlserver-asr.png)<br/>For more information, see [Protect SQL Server using SQL Server disaster recovery and Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
 
+
+## Free DR replica in Azure
+Software assurance customers can implement hybrid disaster recovery plans with SQL Server using Always On availability groups or failover cluster instances without incurring additional licensing costs for the passive replica.
+
+In the image below, the setup uses SQL Server running on an Azure Virtual Machine utilizing 12 cores as a disaster recovery replica for an on-premises SQL Server deployment using 12 cores. In the past, you would need to license 12 cores of SQL Server for the on-premises and the Azure Virtual Machine deployment. The new benefit offers passive replica benefits running on an Azure Virtual Machine. Now you would need to only license 12 cores of SQL Server running on-premises as long as the disaster recovery criteria for the passive replica on Azure Virtual Machine is met.
+
+![Free DR replica in Azure](media/virtual-machines-windows-sql-high-availability-dr/free-dr-replica-azure.png)
+
+For more information see the [licensing guide](https://download.microsoft.com/download/6/6/0/66078040-86d8-4f6e-b0c5-e9919bbcb537/SQL%20Server%202019%20Licensing%20guide.pdf). 
+
+To enable this benefit, navigate to your [SQL Server virtual machine resource](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource), select **Configure** under settings, and then choose the **Disaster Recovery** option under **Licensing**. Select the checkbox to confirm that this SQL Server VM will be used as a passive replica, and then select **Apply** to save your settings. 
+
+<<<PORTAL IMAGE IS GOING TO GO HERE ONCE ITS UPDATED>>>
+
+
 ## Important considerations for SQL Server HADR in Azure
 Azure VMs, storage, and networking have different operational characteristics than an on-premises, non-virtualized IT infrastructure. A successful implementation of a HADR SQL Server solution in Azure requires that you understand these differences and design your solution to accommodate them.
 
