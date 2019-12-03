@@ -1,6 +1,6 @@
 ---
-title: Understand the Windows agent check results in Azure Update Management
-description: Learn how to troubleshoot issues with the Update Management agent.
+title: Understand the Windows Hybrid Runbook Worker health in Azure Update Management
+description: Learn how to troubleshoot issues with the Hybrid Runbook Worker on Windows that supports Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -11,7 +11,7 @@ ms.subservice: update-management
 manager: carmonm
 ---
 
-# Understand the Windows agent check results in Update Management
+# Understand the Windows Hybrid Runbook Worker health in Update Management
 
 There may be many reasons your machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Runbook Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline).
 
@@ -31,9 +31,9 @@ For Azure machines, clicking the **Troubleshoot** link under the **Update Agent 
 ![Update management list of virtual machines](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> To check the health of an agent, the VM must be running. If the VM isn't running, a **Start the VM** button appears.
+> To check the health of the Hybrid Runbook Worker, the VM must be running. If the VM isn't running, a **Start the VM** button appears.
 
-On the **Troubleshoot Update Agent** page, select **Run checks** to start the troubleshooter. The troubleshooter uses [Run Command](../../virtual-machines/windows/run-command.md) to run a script on the machine to verify agent dependencies. When the troubleshooter is finished, it returns the result of the checks.
+On the **Troubleshoot Update Agent** page, select **Run checks** to start the troubleshooter. The troubleshooter uses [Run Command](../../virtual-machines/windows/run-command.md) to run a script on the machine to verify dependencies. When the troubleshooter is finished, it returns the result of the checks.
 
 ![Troubleshoot Update Agent page](../media/update-agent-issues/troubleshoot-page.png)
 
