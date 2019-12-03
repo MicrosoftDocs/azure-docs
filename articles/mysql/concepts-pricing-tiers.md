@@ -1,11 +1,11 @@
 ---
-title: Pricing tiers for Azure Database for MySQL
+title: Pricing tiers - Azure Database for MySQL
 description: Learn about the various pricing tiers for Azure Database for MySQL including compute generations, storage types, storage size, vCores, memory, and backup retention periods.
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/02/2019
 ---
 
 # Azure Database for MySQL pricing tiers

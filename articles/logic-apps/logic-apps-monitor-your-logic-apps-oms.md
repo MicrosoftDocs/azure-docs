@@ -1,12 +1,11 @@
 ---
-title: Monitor logic apps with Azure Monitor - Azure Logic Apps
+title: Monitor logic apps with Azure Monitor
 description: Get insights and debugging data to troubleshoot and diagnose logic app runs with Azure Monitor logs
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/29/2019
 ---

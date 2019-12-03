@@ -1,6 +1,6 @@
 ---
-title: Use Azure Deployment Manager with templates
-description: Use Resource Manager templates with Azure Deployment Manager to deploy Azure resources.
+title: Use Azure Deployment Manager health check
+description: Use health check to safely deploy Azure resources with Azure Deployment Manager.
 author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
