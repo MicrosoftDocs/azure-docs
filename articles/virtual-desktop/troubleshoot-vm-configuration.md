@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 11/26/2019
+ms.date: 12/03/2019
 ms.author: helohr
 ---
 # Session host virtual machine configuration
