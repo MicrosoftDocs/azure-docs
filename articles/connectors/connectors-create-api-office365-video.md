@@ -3,8 +3,7 @@ title: Connect to Office 365 Video
 description: Manage videos with Office 365 Video REST APIs and Azure Logic Apps 
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 05/18/2016
 tags: connectors

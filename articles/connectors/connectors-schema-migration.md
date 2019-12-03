@@ -3,7 +3,7 @@ title: Migrate apps to latest schema
 description: How to migrate your logic apps to the latest schema version
 services: logic-apps
 ms.suite: integration
-author: ecfan
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 ---

@@ -3,8 +3,7 @@ title: Connect to OneDrive
 description: Upload and manage files with OneDrive REST APIs and Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors

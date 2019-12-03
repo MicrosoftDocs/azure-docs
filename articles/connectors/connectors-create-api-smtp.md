@@ -3,8 +3,7 @@ title: Connect to SMTP from Azure Logic Apps
 description: Automate tasks and workflows that send email through your SMTP (Simple Mail Transfer Protocol) account by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors

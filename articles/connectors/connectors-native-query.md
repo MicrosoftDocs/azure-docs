@@ -3,8 +3,7 @@ title: Add the query action in logic apps
 description: Overview of the query action for performing actions like filter array
 services: logic-apps
 ms.suite: integration
-author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/20/2016
 tags: connectors

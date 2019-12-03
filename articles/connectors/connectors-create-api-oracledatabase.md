@@ -3,8 +3,7 @@ title: Connect to Oracle Database
 description: Insert and manage records with Oracle Database REST APIs and Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 03/29/2017
 tags: connectors

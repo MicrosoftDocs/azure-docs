@@ -3,8 +3,7 @@ title: Connect to Azure Event Hubs
 description: Manage and monitor events with Azure Event Hubs and Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors

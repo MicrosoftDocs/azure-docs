@@ -3,8 +3,7 @@ title: Connect to OneDrive for Business
 description: Upload and manage files with OneDrive for Business REST APIs and Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/18/2016
 tags: connectors

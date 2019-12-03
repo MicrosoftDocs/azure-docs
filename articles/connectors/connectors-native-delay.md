@@ -3,8 +3,7 @@ title: Delay the next action in workflows
 description: Wait to run the next action in logic app workflows by using the Delay or Delay Until actions in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: deli, klam, LADocs
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors

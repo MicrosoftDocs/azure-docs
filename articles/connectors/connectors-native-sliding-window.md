@@ -3,8 +3,7 @@ title: Schedule tasks to handle contiguous data
 description: Create and run recurring tasks that handle contiguous data by using sliding windows in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: deli, klam, LADocs
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
 ---

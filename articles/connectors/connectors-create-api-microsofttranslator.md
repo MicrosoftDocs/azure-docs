@@ -3,8 +3,7 @@ title: Connect to Microsoft Translator
 description: Translate text and perform other language tasks with Microsoft Translator REST APIs and Azure Logic Apps 
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/07/2016
 tags: connectors

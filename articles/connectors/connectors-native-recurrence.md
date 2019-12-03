@@ -3,8 +3,7 @@ title: Schedule recurring tasks and workflows
 description: Schedule and run recurring automated tasks and workflows with the Recurrence trigger in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: deli, klam, LADocs
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
 ---

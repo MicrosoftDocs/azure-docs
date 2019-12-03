@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 author: valrobb
 ms.author: valthom
-ms.reviewer: chrishou, LADocs
+ms.reviewer: chrishou, logicappspm
 ms.topic: article
 ms.date: 06/19/2019
 tags: connectors

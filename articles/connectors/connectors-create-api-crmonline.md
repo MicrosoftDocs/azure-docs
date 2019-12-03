@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 author: Mattp123
 ms.author: matp
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors

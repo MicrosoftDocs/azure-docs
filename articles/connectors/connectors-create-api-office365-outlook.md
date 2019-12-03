@@ -3,8 +3,7 @@ title: Connect to Office 365 Outlook
 description: Manage email, contacts, and calendars with Office 365 REST APIs and Azure Logic Apps 
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors

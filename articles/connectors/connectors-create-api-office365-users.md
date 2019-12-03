@@ -3,8 +3,7 @@ title: Connect to Office 365 Users
 description: Manage user profiles with Office 365 Users REST APIs and Azure Logic Apps 
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.date: 08/18/2016
 ms.topic: article
 tags: connectors

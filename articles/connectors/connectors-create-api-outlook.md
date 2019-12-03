@@ -3,8 +3,7 @@ title: Connect to Outlook.com
 description: Manage email, calendars, and contacts with Outlook.com REST APIs and Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
