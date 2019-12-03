@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/29/2019
+ms.date: 12/03/2019
 ms.author: juliako
 ---
 
@@ -270,9 +270,16 @@ public async Task Sample()
         });
     var playerWidgetRequestResult = await client.GetAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos/{videoId}/PlayerWidget?{queryParams}");
     var playerWidgetLink = playerWidgetRequestResult.Headers.Location;
-    Console.WriteLine("");
-    Console.WriteLine("Player Widget url:");
-    Console.WriteLine(playerWidgetLink);
+     Console.WriteLine("");
+     Console.WriteLine("Player Widget url:");
+     Console.WriteLine(playerWidgetLink);
+     Console.WriteLine("\nPress Enter to exit...");
+     String line = Console.ReadLine();
+     if (line == "enter")
+     {
+         System.Environment.Exit(0);
+     }
+
 }
 
 private string CreateQueryString(IDictionary<string, string> parameters)
