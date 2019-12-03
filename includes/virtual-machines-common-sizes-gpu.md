@@ -18,6 +18,9 @@ GPU optimized VM sizes are specialized virtual machines available with single or
 
 * **NV and NVv3** sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX.  These VMs are backed by the NVIDIA Tesla M60 GPU.
 
+* **NVv4** sizes are optimized and designed for VDI and remote visualization. With partioned GPUs, NVv4 offers the right size for workloads requiring smaller GPU resources.  These VMs are backed by the AMD Radeon Instinct MI25 GPU.
+
+
 ## NC-series
 
 Premium Storage:  Not Supported
