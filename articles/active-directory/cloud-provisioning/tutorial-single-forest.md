@@ -15,9 +15,11 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Integrate a single forest with a single Azure AD tenant
 
+This tutorial walks you through creating a hybrid identity environment using Azure Active Directory (Azure AD) Connect cloud provisioning.
+
 ![Create](media/tutorial-single-forest/diagram1.png)
 
-The following tutorial will walk you through creating a hybrid identity environment using Azure AD Connect cloud provisioning.  This environment can then be used for testing or for getting more familiar with cloud provisioning.
+You can use the environment you create in this tutorial for testing or for getting more familiar with cloud provisioning.
 
 ## Prerequisites
 ### In the Azure Active Directory admin center
