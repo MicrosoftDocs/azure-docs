@@ -29,7 +29,7 @@ Use the Azure Queue storage client library v12 for Java to:
 
 ## Prerequisites
 
-* [Java Development Kit (JDK)](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable) version 8 or above
+* [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) version 8 or above
 * [Apache Maven](https://maven.apache.org/download.cgi)
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
