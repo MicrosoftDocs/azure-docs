@@ -12,7 +12,7 @@ ms.author: tamram
 
 # Upgrade to a General-purpose v2 storage account
 
-General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of General-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices. General-pupose v2 accounts support default account access tiers of hot or cool and blob level tiering between hot, cool, or archive.
+General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of General-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices. General-purpose v2 accounts support default account access tiers of hot or cool and blob level tiering between hot, cool, or archive.
 
 Upgrading to a General-purpose v2 storage account from your General-purpose v1 or Blob storage accounts is simple. You can upgrade using the Azure portal, PowerShell, or Azure CLI.
 
@@ -36,7 +36,7 @@ Upgrading to a General-purpose v2 storage account from your General-purpose v1 o
 
 To upgrade a General-purpose v1 account to a General-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) for information about installing PowerShell.
 
-Next, call the following command to upgrade the account, substituting the your resource group name, storage account name, and the desired account access tier.
+Next, call the following command to upgrade the account, substituting your resource group name, storage account name, and desired account access tier.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
@@ -45,7 +45,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 To upgrade a General-purpose v1 account to a General-purpose v2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for information about installing the CLI.
 
-Next, call the following command to upgrade the account, substituting the your resource group name, storage account name, and the desired account access tier.
+Next, call the following command to upgrade the account, substituting your resource group name, storage account name, and desired account access tier.
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --access-tier=<Hot/Cool>
@@ -55,14 +55,14 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## Specify an access tier for blob data
 
-General-purpose v2 accounts support all Azure storage services and data objects, but access tiers are available only for block blobs in Blob storage. When you upgrade to a General-purpose v2 storage account, you can specify an access tier for your blob data.
+General-purpose v2 accounts support all Azure storage services and data objects, but access tiers are available only apply to block blobs within Blob storage. When you upgrade to a General-purpose v2 storage account, you can specify a default account access tier of hot or cool, which indicates the default tier your blob data will be uploaded as if the individual blob access tier parameter is not specified.
 
-Access tiers enable you to choose the most cost-effective storage based on your anticipated usage patterns. Block blobs can be stored in a Hot, Cool, or Archive tier. For more information on access tiers, see [Azure Blob storage: Hot, Cool, and Archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+Blob access tiers enable you to choose the most cost-effective storage based on your anticipated usage patterns. Block blobs can be stored in a hot, cool, or archive tiers. For more information on access tiers, see [Azure Blob storage: Hot, Cool, and Archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
-By default, a new storage account is created in the Hot access tier, and a General-purpose v1 storage account is upgraded to the Hot access tier. If you are exploring which access tier to use for your data post-upgrade, consider your scenario. There are two typical user scenarios for migrating to a General-purpose v2 account:
+By default, a new storage account is created in the hot access tier, and a General-purpose v1 storage account can be upgraded to either the hot or cool account tier. If an account access tier is not specified on upgrade, it will be upgraded to hot by default. If you are exploring which access tier to use for your upgrade, consider your current data usage scenario. There are two typical user scenarios for migrating to a General-purpose v2 account:
 
 * You have an existing General-purpose v1 storage account and want to evaluate an upgrade to a General-purpose v2 storage account, with the right storage access tier for blob data.
-* You have decided to use a General-purpose v2 storage account or already have one and want to evaluate whether you should use the Hot or Cool storage access tier for blob data.
+* You have decided to use a General-purpose v2 storage account or already have one and want to evaluate whether you should use the hot or cool storage access tier for blob data.
 
 In both cases, the first priority is to estimate the cost of storing, accessing, and operating on your data stored in a General-purpose v2 storage account and compare that against your current costs.
 
