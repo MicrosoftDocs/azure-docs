@@ -1,18 +1,18 @@
 ---
 title: Query Azure Update Management logs
-description: This article describes how to query the logs for Update Management
+description: This article describes how to query the logs for Update Management in your Log Analytics workspace.
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 12/03/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Query update records for Update Management in Log Analytics
+# Query update records for Update Management in Azure Monitor Logs
 
-In addition to the details that are provided in the Azure portal, you can do searches against the logs. On the solution pages, select **Log Analytics**. The **Log Search** pane opens.
+In addition to the details that are provided in the Update Management solution, you can search against the logs stored in your Log Analytics workspace. From the solution page, in the left-hand pane select **Logs**. The **Log Search** page opens.
 
 You can also learn how to customize the queries or use them from different clients and more by visiting:  [Log Analytics search API documentation](https://dev.loganalytics.io/).
 
@@ -99,9 +99,9 @@ A record with a type of `UpdateAgent` is created that provides details of the up
 | WindowsUpdateAgentVersion | Version of the Windows Update agent. |
 | WSUSServer | Shows errors if the Windows Update agent has a problem to assist with troubleshooting. |
 
-### Update Status 
+### Update Deployment Status 
 
-A record with a type of `UpdateRunProgress` is created that provides update deployment status. These records have the properties in the following table:
+A record with a type of `UpdateRunProgress` is created that provides update deployment status of a scheduled deployment by machine. These records have the properties in the following table:
 
 | Property | Description | 
 |----------|-------------|
