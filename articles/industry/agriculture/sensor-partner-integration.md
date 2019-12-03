@@ -11,7 +11,7 @@ ms.author: v-umha
 
 This article provides information about the Azure FarmBeats Translator component, which enables sensor partner integration.
 
-Using this component, partners can develop sensors that integrate with FarmBeats to use the API and send customer device data and telemetry to the FarmBeats data hub. Data is visualized by using the FarmBeats Accelerator. Data can be used for data fusion and for building machine learning/artificial intelligence models.
+Using this component, partners can develop sensors that integrate with FarmBeats to use the API and send customer device data and telemetry to FarmBeats Datahub. Data is visualized by using the FarmBeats Accelerator. Data can be used for data fusion and for building machine learning/artificial intelligence models.
 
 ## Link a FarmBeats account
 
@@ -143,7 +143,7 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
 - /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure.
 - /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
   
-  **DeviceModel**| DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either gateway or node.
+  **DeviceModel** |  |
   --- | ---
   Type (node, gateway)  | 1 Star |
   Manufacturer  | 2 Star |
@@ -152,35 +152,35 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
   Name  | Name to identify resource. For example, model name or product name. |
   Description  | Provide a meaningful description of the model. |
   Properties  | Additional properties from the manufacturer. |
-  **Device** | **Device corresponds to a physical device present on the farm. Each device has a unique device ID.** |
+  **Device** |  |
   DeviceModelId  |ID of the associated device model. |
   HardwareId   |Unique ID for the device, such as a MAC address.  |
-  reportingInterval |Reporting interval in seconds. |
+  ReportingInterval |Reporting interval in seconds. |
   Location    |Device latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters). |
   ParentDeviceId | ID of the parent device to which this device is connected. For example, if a node is connected to a gateway, the node has parentDeviceID as the gateway. |
   Name  | Name to identify the resource. Device partners need to send a name that's consistent with the device name on the device partner side. If the device name is user defined on the device partner side, the same user-defined name should be propagated to FarmBeats.  |
   Description  | Provide a meaningful description.  |
   Properties  |Additional properties from the manufacturer.  |
-  **SensorModel** | **SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure.** |
+  **SensorModel** |  |
   Type (analog, digital)  |Mention analog or digital sensor.|
   Manufacturer  | Name of manufacturer. |
   ProductCode  | Product code or model name or number. For example, RS-CO2-N01.  |
   SensorMeasures > Name  | Name of the sensor measure. Only lowercase is supported. For measurements from different depths, specify the depth. For example, soil_moisture_15cm. This name has to be consistent with the telemetry data. |
-  sensorMeasures > DataType  | Telemetry data type. Currently, double is supported. |
-  sensorMeasures > Type  | Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to the /ExtendedType API.
-  sensorMeasures > Unit | Unit of sensor telemetry data. Following are the system-defined units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, and InchesPerHour. To add more, refer to the /ExtendedType API.
-  SensorMeasures > aggregationType  | Either none, average, maximum, minimum, or StandardDeviation.
-  SensorMeasures > depth  | The depth of the sensor in centimeters. For example, the measurement of moisture 10 cm under the ground.
-  sensorMeasures > description  | Provide a meaningful description of the measurement.
+  SensorMeasures > DataType  | Telemetry data type. Currently, double is supported. |
+  SensorMeasures > Type  | Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to the /ExtendedType API.
+  SensorMeasures > Unit | Unit of sensor telemetry data. Following are the system-defined units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, and InchesPerHour. To add more, refer to the /ExtendedType API.
+  SensorMeasures > AggregationType  | Either none, average, maximum, minimum, or StandardDeviation.
+  SensorMeasures > Depth  | The depth of the sensor in centimeters. For example, the measurement of moisture 10 cm under the ground.
+  SensorMeasures > Description  | Provide a meaningful description of the measurement.
   Name  | Name to identify resource. For example, the model name or product name.
   Description  | Provide a meaningful description of the model.
   Properties  | Additional properties from the manufacturer.
-  **Sensor**  | **Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.** |
-  hardwareId  | Unique ID for the sensor set by the manufacturer.
-  sensorModelId  | ID of the associated sensor model.
+  **Sensor**  |  |
+  HardwareId  | Unique ID for the sensor set by the manufacturer.
+  SensorModelId  | ID of the associated sensor model.
   Location  | Sensor latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).
-  port > name  |Name and type of the port that the sensor is connected to on the device. This must be the same name as defined in the device model.
-  deviceId  | ID of the device that the sensor is connected to.
+  Port > Name  |Name and type of the port that the sensor is connected to on the device. This must be the same name as defined in the device model.
+  DeviceId  | ID of the device that the sensor is connected to.
   Name  | Name to identify the resource. For example, the sensor name or product name and model number or product code.
   Description  | Provide a meaningful description.
   Properties  | Additional properties from the manufacturer.

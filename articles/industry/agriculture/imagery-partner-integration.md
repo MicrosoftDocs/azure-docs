@@ -15,8 +15,8 @@ Data, once available, can be visualized through the FarmBeats Accelerator and po
 
 FarmBeats provides the ability to:
 
-- Define custom image types, source, and file format by using ExtendedType APIs.
-- Ingest imagery data from various sources via the Scene and SceneFile APIs.
+- Define custom image types, source, and file format by using /ExtendedType APIs.
+- Ingest imagery data from various sources via the /Scene and /SceneFile APIs.
 
 The following information focuses on getting any form of imagery into the FarmBeats system.
 
@@ -104,7 +104,7 @@ curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 
 Most GET, POST, and PUT calls require a JSON request body.
 
-The following sample request is to create a device. (This sample has an input JSON with the request body.)
+The following sample request is to create a device. This sample has an input JSON with the request body.
 
 
 ```bash
@@ -121,7 +121,7 @@ JSON is a common language-independent data format that provides a simple text re
 
 ## Ingest imagery into FarmBeats
 
-After the partner has credentials to connect to FarmBeats Datahub, the partner does the following in the Translator component.
+After the partner has credentials to connect to FarmBeats Datahub, the partner takes the following steps in the Translator component.
 
 1.	Create a new extended type for the following fields, in accordance with the type of imagery to be uploaded:
 
@@ -130,21 +130,21 @@ After the partner has credentials to connect to FarmBeats Datahub, the partner d
     - **Scene File Type**: For example, chlorophyll index
     - **Scene File Content Type**: For example, image/tiff
 
-2.	Call the Farms API to get the list of farms from within the Azure FarmBeats system.
+2.	Call the /Farms API to get the list of farms from within the Azure FarmBeats system.
 3.	Provide the customer with an ability to choose a single farm from the list of farms.
 
     The partner system must show the farm within the partner software to do the path planning and drone flight and image collection.
 
-4.	Call the Scene API and provide required details to create a new scene with a unique scene ID.
-5.	Receive a blob SAS URL to upload the required images into the FarmBeats data hub, in the context of the chosen farm, in the FarmBeats system.
+4.	Call the /Scene API and provide required details to create a new scene with a unique scene ID.
+5.	Receive a blob SAS URL to upload the required images into FarmBeats Datahub, in the context of the chosen farm, in the FarmBeats system.
 
 Here's a detailed flow on the API calls.
 
 ### Step 1: ExtendedType
 
-Check in the ExtendedType API, if the type and file source are available on FarmBeats. To do so, call a GET on the /ExtendedType API.
+Check in the /ExtendedType API to see whether the type and file source are available on FarmBeats. To do so, call a GET on the /ExtendedType API.
 
-Following are the system-defined values:
+Here are the system-defined values:
 
 ```json
 {
@@ -328,7 +328,7 @@ Following are the system-defined values:
 
 This step is a one-time setup. The scope of this new scene type is limited to the subscription in which the FarmBeats project is deployed.
 
-For example, to add SceneSource: “SlantRange,” you do PUT on the ID of the /ExtendedType with the key "SceneSource" input payload.
+For example, to add SceneSource: “SlantRange,” you do a PUT on the ID of the /ExtendedType API with the key "SceneSource" input payload.
 
 ```json
 {
@@ -446,7 +446,7 @@ The scene ID returned in step 3 is the input for the scene file. The scene file 
 
 If the user requires a programmatic way of uploading a stream of images, the blob storage SDK can be used to define a method by using the scene file ID, location, and URL.
 
-Example input payload for the POST call on the /Scenefile API:
+Example input payload for the POST call on the /SceneFile API:
 
 ```json
 {
