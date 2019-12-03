@@ -18,18 +18,26 @@ Use the QnA Maker batch testing tool to test your knowledge base for expected an
 
 ## Prerequisites
 
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Either [create a QnA Maker service](create-publish-knowledge-base.md#create-a-new-qna-maker-knowledge-base) or use an existing service which uses the English language for the sample doc used in this quickstart.
 * Download the [multi-turn sample `.docx` file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
-* Download the [batch testing tool](https://aka.ms/qnamakerbatchtestingtool), extract the file from the `.zip` file.
-* Either [create a QnA Maker service](create-publish-knowledge-base.md#create-a-new-qna-maker-knowledge-base) or use an existing service.
+* Download the [batch testing tool](https://aka.ms/qnamakerbatchtestingtool), extract the executable file from the `.zip` file.
+
+## Sign into QnA Maker portal
+
+[Sign in](https://www.qnamaker.ai/) to the QnA Maker portal.
 
 ## Create a new knowledge base from the multi-turn .docx file
 
-1. [Sign in](https://www.qnamaker.ai/) to the QnA Maker portal.
 1. Select **Create a knowledge base** from the tool bar.
-1. Skip **Step 1**, moving on to **Step 2** to select your existing service.
+1. Skip **Step 1** because you should already have a QnA Maker resource, moving on to **Step 2** to select your existing resource information:
+    * Azure Active Directory ID
+    * Azure Subscription Name
+    * Azure QnA Service Name
+    * Language - the English language
 1. Enter the name `Multi-turn batch test quickstart` as the name of your knowledge base.
 1. In **Step 4**, check **Enable multi-turn extraction from URLs, .pdf or .docx files**.
-1. Enter the **Default answer text** of `Quickstart - can't find answer`.
+1. Enter the **Default answer text** of `Quickstart - can't find answer`. In a production knowledge base, this information should be more instructive to the user but for this quickstart, a simple response works.
 1. Still in **Step 4**, select **+ Add file** then select the downloaded `.docx` file listing in the prerequisites.
 1. In **Step 5**, select **Create your KB**.
 
@@ -38,7 +46,7 @@ Use the QnA Maker batch testing tool to test your knowledge base for expected an
 ## Save, train, and publish knowledge base
 
 1. Select **Save and train** from the toolbar to save the knowledge base.
-1. Select **Publish** from the toolbar then select **Publish** again to publish the knowledge so that you can query the knowledge base from a public URL endpoint. Once the publish is completed, save the host URL and endpoint key information shown on the publish page.
+1. Select **Publish** from the toolbar then select **Publish** again to publish the knowledge base. Publishing makes the knowledge base available for queries from a public URL endpoint. Once the publish is completed, save the host URL and endpoint key information shown on the publish page.
 
     |Required data| Example|
     |--|--|
@@ -136,6 +144,13 @@ Use the following chart to understand how to find the field values for optional 
     > [!div class="mx-imgBorder"]
     > ![Output second version of .tsv file from batch test](../media/batch-test/batch-test-2-output.png)
 
+## Clean up resources
+
+If you're not going to continue to use this knowledge base, delete the knowledge base
+with the following steps:
+
+1. In the QnA Maker portal, select **My Knowledge bases** from the top menu.
+1. In the list of knowledge bases, select the **Delete** icon on the row of the knowledge base of this quickstart.
 
 ## Next steps
 
