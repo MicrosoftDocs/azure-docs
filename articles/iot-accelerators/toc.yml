@@ -66,7 +66,7 @@
   items:
   - name: Remote monitoring
     items:
-    - name: Archticture
+    - name: Architecture
       href: iot-accelerators-remote-monitoring-architectural-choices.md
     - name: Device model schema
       href: iot-accelerators-remote-monitoring-device-schema.md
