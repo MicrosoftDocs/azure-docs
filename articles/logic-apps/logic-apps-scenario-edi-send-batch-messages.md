@@ -1,5 +1,5 @@
 ﻿---
-title: Batch process EDI messages as a group - Azure Logic Apps
+title: Batch process EDI messages as a group
 description: Send and receive EDI messages as batches, groups, or collections in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

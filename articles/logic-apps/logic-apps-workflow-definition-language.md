@@ -1,5 +1,5 @@
 ---
-title: Schema for Workflow Definition Language - Azure Logic Apps
+title: Schema for Workflow Definition Language
 description: Schema reference for the Workflow Definition Language in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

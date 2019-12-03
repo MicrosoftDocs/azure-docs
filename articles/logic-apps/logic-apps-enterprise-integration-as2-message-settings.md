@@ -1,5 +1,5 @@
 ---
-title: AS2 message settings - Azure Logic Apps
+title: AS2 message settings
 description: Reference guide for AS2 send and receive settings in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps

@@ -1,5 +1,5 @@
 ---
-title: Create workflows from templates - Azure Logic Apps | Microsoft Docs
+title: Create workflows from templates
 description: Build workflows faster by using logic app templates in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

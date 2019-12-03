@@ -1,5 +1,5 @@
 ---
-title: Reference guide for functions in expressions - Azure Logic Apps
+title: Reference guide for functions in expressions
 description: Reference guide to functions in expressions for Azure Logic Apps and Power Automate
 services: logic-apps
 ms.service: logic-apps

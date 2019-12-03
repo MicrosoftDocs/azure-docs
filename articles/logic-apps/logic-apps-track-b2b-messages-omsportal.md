@@ -1,5 +1,5 @@
 ---
-title: Track B2B messages with Azure Monitor logs - Azure Logic Apps | Microsoft Docs
+title: Track B2B messages with Azure Monitor logs
 description: Track B2B communication for integration accounts and Azure Logic Apps with Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps

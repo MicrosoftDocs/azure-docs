@@ -1,5 +1,5 @@
 ---
-title: Batch process messages as a group - Azure Logic Apps
+title: Batch process messages as a group
 description: Send and receive messages as batches in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

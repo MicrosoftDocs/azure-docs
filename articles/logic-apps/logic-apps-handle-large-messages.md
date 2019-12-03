@@ -1,5 +1,5 @@
 ---
-title: Handle large messages - Azure Logic Apps | Microsoft Docs
+title: Handle large messages
 description: Learn how to handle large message sizes with chunking in Azure Logic Apps
 services: logic-apps
 documentationcenter:

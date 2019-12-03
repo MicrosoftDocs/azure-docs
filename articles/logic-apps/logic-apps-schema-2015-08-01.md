@@ -1,5 +1,5 @@
 ---
-title: Schema updates for August-1-2015 preview - Azure Logic Apps | Microsoft Docs
+title: Schema updates for August-1-2015 preview
 description: Updated schema version 2015-08-01-preview for logic app definitions in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

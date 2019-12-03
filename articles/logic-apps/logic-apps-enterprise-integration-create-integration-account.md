@@ -1,5 +1,5 @@
 ---
-title: Create or manage B2B integration accounts - Azure Logic Apps
+title: Create or manage B2B integration accounts
 description: Create, link, and manage integration accounts for enterprise integration with Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

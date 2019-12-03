@@ -1,5 +1,5 @@
 ---
-title: Send and receive AS2 messages for B2B - Azure Logic Apps
+title: Send and receive AS2 messages for B2B
 description: Exchange AS2 messages for B2B enterprise integration scenarios by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

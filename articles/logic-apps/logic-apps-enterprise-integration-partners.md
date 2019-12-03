@@ -1,5 +1,5 @@
 ---
-title: Add trading partners for B2B integrations - Azure Logic Apps
+title: Add trading partners for B2B integrations
 description: Create trading partners in your integration account to use with Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

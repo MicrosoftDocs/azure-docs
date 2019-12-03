@@ -1,5 +1,5 @@
 ---
-title: Exception handling & error logging scenario - Azure Logic Apps
+title: Exception handling & error logging scenario
 description: Real use case and scenario for advanced exception handling and error logging in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

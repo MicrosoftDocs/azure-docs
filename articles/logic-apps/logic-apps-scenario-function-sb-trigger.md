@@ -1,5 +1,5 @@
 ---
-title: Call logic apps with Azure Functions - Azure Logic Apps
+title: Call logic apps with Azure Functions
 description: Create Azure functions that call or trigger logic apps by listening to Azure Service Bus
 services: logic-apps
 ms.service: logic-apps

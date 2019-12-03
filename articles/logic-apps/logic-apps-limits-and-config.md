@@ -1,5 +1,5 @@
 ---
-title: Limits and configuration - Azure Logic Apps
+title: Limits and configuration
 description: Service limits, such as duration, throughput, and capacity, plus configuration values, such as IP addresses to allow, for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

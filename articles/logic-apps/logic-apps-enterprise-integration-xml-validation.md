@@ -1,5 +1,5 @@
 ---
-title: Validate XML for B2B enterprise integration - Azure Logic Apps
+title: Validate XML for B2B enterprise integration
 description: Validate XML by using schemas in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps

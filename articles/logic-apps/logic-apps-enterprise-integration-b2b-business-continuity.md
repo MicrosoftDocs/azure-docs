@@ -1,5 +1,5 @@
 ---
-title: Disaster recovery for integration accounts - Azure Logic Apps
+title: Disaster recovery for integration accounts
 description: Set up cross-region disaster recovery for integration accounts in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

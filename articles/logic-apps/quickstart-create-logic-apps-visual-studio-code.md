@@ -1,5 +1,5 @@
 ---
-title: Automate tasks with Visual Studio Code - Azure Logic Apps
+title: Automate tasks with Visual Studio Code
 description: Create or edit logic app underlying JSON definitions by using Visual Studio Code (VS Code)
 services: logic-apps
 ms.service: logic-apps

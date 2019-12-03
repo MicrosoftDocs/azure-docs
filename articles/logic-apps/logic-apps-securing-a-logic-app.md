@@ -1,5 +1,5 @@
 ---
-title: Secure access and data - Azure Logic Apps
+title: Secure access and data
 description: Add security to protect inputs, outputs, request-based triggers, run history, management tasks, and access to other resources in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

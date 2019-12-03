@@ -1,5 +1,5 @@
 ---
-title: Deploy logic app templates - Azure Logic Apps
+title: Deploy logic app templates
 description: Learn how to deploy Azure Resource Manager templates created for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

@@ -1,5 +1,5 @@
 ---
-title: Add conditional statements to workflows - Azure Logic Apps | Microsoft Docs
+title: Add conditional statements to workflows
 description: How to create conditions that control actions in workflows in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

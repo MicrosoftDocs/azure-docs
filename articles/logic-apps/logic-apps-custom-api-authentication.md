@@ -1,5 +1,5 @@
 ---
-title: Add authentication to custom APIs - Azure Logic Apps | Microsoft Docs
+title: Add authentication to custom APIs
 description: Set up authentication for calling custom APIs from Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

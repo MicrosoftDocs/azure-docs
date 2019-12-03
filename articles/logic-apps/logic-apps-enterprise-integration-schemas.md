@@ -1,5 +1,5 @@
 ---
-title: Validate XML with schemas - Azure Logic Apps | Microsoft Docs
+title: Validate XML with schemas
 description: Add schemas to validate XML documents in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps

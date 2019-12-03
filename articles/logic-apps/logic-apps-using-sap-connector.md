@@ -1,5 +1,5 @@
 ---
-title: Connect to SAP systems - Azure Logic Apps
+title: Connect to SAP systems
 description: Access and manage SAP resources by automating workflows with Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

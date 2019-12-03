@@ -1,5 +1,5 @@
 ---
-title: Create tracking queries for B2B messages - Azure Logic Apps
+title: Create tracking queries for B2B messages
 description: Create queries that track AS2, X12, and EDIFACT messages in Azure Log Analytics for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

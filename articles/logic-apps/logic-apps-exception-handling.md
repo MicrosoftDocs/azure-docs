@@ -1,5 +1,5 @@
 ---
-title: Error and exception handling - Azure Logic Apps
+title: Error and exception handling
 description: Learn about patterns for error and exception handling in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

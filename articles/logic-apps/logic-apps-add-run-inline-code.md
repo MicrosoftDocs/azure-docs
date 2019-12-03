@@ -1,5 +1,5 @@
 ---
-title: Add and run code snippets - Azure Logic Apps
+title: Add and run code snippets
 description: Add and run code snippets with inline code in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

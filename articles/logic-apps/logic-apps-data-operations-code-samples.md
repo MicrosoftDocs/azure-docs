@@ -1,5 +1,5 @@
 ---
-title: Data operation samples - Azure Logic Apps
+title: Data operation samples
 description: Code samples for data operation actions in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

@@ -1,5 +1,5 @@
 ---
-title: Automate tasks for enterprise integration - Azure Logic Apps
+title: Automate tasks for enterprise integration
 description: Learn about automating workflows that integrate apps, data, services, and systems with minimal code for enterprise integration by using Azure Logic Apps.
 services: logic-apps
 ms.service: logic-apps

@@ -1,5 +1,5 @@
 ---
-title: Add artifacts to integration service environment - Azure Logic Apps
+title: Add artifacts to integration service environment
 description: Add logic apps, integration accounts, and custom connectors to your integration service environment (ISE) to access Azure virtual networks (VNETs)
 services: logic-apps
 ms.service: logic-apps

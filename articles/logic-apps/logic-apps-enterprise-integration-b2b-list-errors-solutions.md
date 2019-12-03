@@ -1,5 +1,5 @@
 ---
-title: Errors and solutions for B2B scenarios - Azure Logic Apps | Microsoft Docs
+title: Errors and solutions for B2B scenarios
 description: Find errors and solutions for B2B scenarios in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps

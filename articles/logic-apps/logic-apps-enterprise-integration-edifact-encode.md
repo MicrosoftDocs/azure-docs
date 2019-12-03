@@ -1,5 +1,5 @@
 ---
-title: Encode EDIFACT messages - Azure Logic Apps | Microsoft Docs
+title: Encode EDIFACT messages
 description: Validate EDI and generate XML with EDIFACT message encoder for Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps

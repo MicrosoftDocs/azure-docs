@@ -1,5 +1,5 @@
 ---
-title: Pricing & billing model - Azure Logic Apps
+title: Pricing & billing model
 description: Overview about how the pricing and billing model works for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
