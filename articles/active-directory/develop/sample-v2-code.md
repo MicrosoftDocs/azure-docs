@@ -87,7 +87,8 @@ The following samples show an application that accesses the Microsoft Graph API 
 | ------------------ | -------- | ---------- | -------------------- |
 | Console | ![This image shows the .NET Core logo](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Client Credentials](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
 | Web app | ![This image shows the ASP.NET logo](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Client Credentials](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
-| Console | ![This image shows the Python logo](media/sample-v2-code/logo_python.png)</p> Python | [Client Credentials](msal-authentication-flows.md#client-credentials) | [ms-identity-python-daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) |
+| Console | ![This image shows the Java logo](media/sample-v2-code/logo_java.png) | [Client Credentials](msal-authentication-flows.md#client-credentials) | [ms-identity-java-daemon](https://github.com/Azure-Samples/ms-identity-java-daemon) |
+| Console | ![This image shows the Python logo](media/sample-v2-code/logo_python.png) | [Client Credentials](msal-authentication-flows.md#client-credentials) | [ms-identity-python-daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) |
 
 ## Headless applications
 
@@ -96,6 +97,8 @@ The following sample shows a public client application running on a device witho
 | Client application | Platform | Flow/Grant | Calls Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
 | Desktop (Console)   | ![This image shows the .NET/C# (Desktop) logo](media/sample-v2-code/logo_NETcore.png) | [Device code flow](msal-authentication-flows.md#device-code) |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
+| Desktop (Console)   | ![This image shows the Java logo](media/sample-v2-code/logo_java.png) | [Device code flow](msal-authentication-flows.md#device-code) |[ms-identity-java-devicecodeflow](https://github.com/Azure-Samples/ms-identity-java-devicecodeflow) |
+| Desktop (Console)   | ![This image shows the Python logo](media/sample-v2-code/logo_python.png) | [Device code flow](msal-authentication-flows.md#device-code) |[ms-identity-python-devicecodeflow](https://github.com/Azure-Samples/ms-identity-python-devicecodeflow) |
 
 ## Web APIs
 
