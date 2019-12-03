@@ -189,96 +189,90 @@ After you add information to the CSV template, import the servers into Azure Mig
         1. Upload the modified file again.
 4. When the import status is **Completed**, the server information has been imported.
 
-## Updating server information
+## Update server information
 
-You can update the information for a server by uploading the data for the server again with the same **Server name**. You cannot modify the **Server name** field. Deleting servers is currently not supported.
+You can update the information for a server by uploading the data for the server again with the same **Server name**. You can't modify the **Server name** field. Deleting servers is currently not supported.
 
-### Verify servers in the portal
+## Verify servers in the portal
 
-After discovery, you can verify that the servers appear in the Azure portal.
+To verify that the servers appear in the Azure portal after discovery:
 
 1. Open the Azure Migrate dashboard.
-2. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, click the icon that displays the count for **Discovered servers**.
-3. Click on the **Import based** tab.
+2. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, select the icon that displays the count for **Discovered servers**.
+3. Select the **Import based** tab.
 
-## Set up an assessment
+## Set up and run an assessment
 
-There are two types of assessments you can create using Azure Migrate: Server Assessment.
+You can create two types of assessments by using Azure Migrate Server Assessment.
 
-**Assessment** | **Details** | **Data**
+**Assessment type** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments based on performance data values specified | **Recommended VM size**: Based on CPU and memory utilization data.<br/><br/> **Recommended disk type (standard or premium managed disk)**: Based on the IOPS and throughput of the on-premises disks.
-**As on-premises** | Assessments based on on-premises sizing. | **Recommended VM size**: Based on the server size specified<br/><br> **Recommended disk type**: Based on the storage type setting you select for the assessment.
+**Performance-based** | Assessments based on performance-data values specified. | **Recommended VM size**: Based on CPU and memory usage data.<br/><br/> **Recommended disk type (standard or premium managed disk)**: Based on the input/output per second (IOPS) and throughput of the on-premises disks.
+**As on-premises** | Assessments based on on-premises sizing. | **Recommended VM size**: Based on the server size specified.<br/><br> **Recommended disk type**: Based on the storage-type setting you select for the assessment.
 
-
-### Run an assessment
-
-Run an assessment as follows:
+To run an assessment:
 
 1. Review the [best practices](best-practices-assessment.md) for creating assessments.
-2. In the **Servers** tab, in **Azure Migrate: Server Assessment** tile, click **Assess**.
+2. In the **Servers** tab, in the **Azure Migrate: Server Assessment** tile, select **Assess**.
 
     ![Assess](./media/tutorial-assess-physical/assess.png)
 
-2. In **Assess servers**, specify a name for the assessment.
-3. In **Discovery source**, select **Machines added via import to Azure Migrate**
-3. Click **View all** to review the assessment properties.
+3. In **Assess servers**, specify a name for the assessment.
+4. In **Discovery source**, select **Machines added via import to Azure Migrate**.
+5. Select **View all** to review the assessment properties.
 
     ![Assessment properties](./media/tutorial-assess-physical/view-all.png)
 
-3. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
-4. In **Add machines to the group**, select servers to add to the group.
-5. Click **Create Assessment** to create the group, and run the assessment.
+6. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
+7. In **Add machines to the group**, select servers to add to the group.
+8. Select **Create assessment** to create the group, and then run the assessment.
 
     ![Create an assessment](./media/tutorial-assess-physical/assessment-create.png)
 
-6. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
-7. Click **Export assessment**, to download it as an Excel file.
-
-
+9. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
+10. Select **Export assessment** to download it as a Microsoft Excel file.
 
 ## Review an assessment
 
 An assessment describes:
 
 - **Azure readiness**: Whether servers are suitable for migration to Azure.
-- **Monthly cost estimation**: The estimated monthly compute and storage costs for running the servers in Azure.
+- **Monthly cost estimation**: Estimated monthly compute and storage costs for running the servers in Azure.
 - **Monthly storage cost estimation**: Estimated costs for disk storage after migration.
 
 ### View an assessment
 
-1. In **Migration goals** >  **Servers**, click **Assessments** in **Azure Migrate: Server Assessment**.
-2. In **Assessments**, click on an assessment to open it.
+1. In **Migration goals** > **Servers**, select **Assessments** in **Azure Migrate: Server Assessment**.
+2. In **Assessments**, select an assessment to open it.
 
     ![Assessment summary](./media/tutorial-assess-physical/assessment-summary.png)
 
 ### Review Azure readiness
 
-1. In **Azure readiness**, verify whether the servers are ready for migration to Azure.
+1. In **Azure readiness**, determine whether the servers are ready for migration to Azure.
 2. Review the status:
     - **Ready for Azure**: Azure Migrate recommends a VM size and cost estimates for VMs in the assessment.
-    - **Ready with conditions**: Shows issues and suggested remediation.
-    - **Not ready for Azure**: Shows issues and suggested remediation.
-    - **Readiness unknown**: Used when Azure Migrate can't assess readiness, due to data availability issues.
+    - **Ready with conditions**: Shows problems and suggested remediation.
+    - **Not ready for Azure**: Shows problems and suggested remediation.
+    - **Readiness unknown**: Azure Migrate can't assess readiness, due to data-availability issues.
 
-2. Click on an **Azure readiness** status. You can view server readiness details, and drill down to see server details, including compute, storage, and network settings.
+2. Select an **Azure readiness** status. You can view server-readiness details and drill down to see server details, including compute, storage, and network settings.
 
 ### Review cost details
 
-This view shows the estimated compute and storage cost of running VMs in Azure.
+This view shows the estimated compute and storage cost of running VMs in Azure. You can:
 
-1. Review the monthly compute and storage costs. Costs are aggregated for all servers in the assessed group.
+- Review the monthly compute and storage costs. Costs are aggregated for all servers in the assessed group.
 
     - Cost estimates are based on the size recommendations for a machine, and its disks and properties.
     - Estimated monthly costs for compute and storage are shown.
-    - The cost estimation is for running the on-premises servers as IaaS VMs. Azure Migrate Server Assessment doesn't consider PaaS or SaaS costs.
+    - The cost estimate is for running the on-premises servers as infrastructure-as-a-service (IaaS) VMs. Azure Migrate Server Assessment doesn't consider platform-as-a-service (PaaS) or software-as-a-service (SaaS) costs.
 
-2. You can review monthly storage cost estimates. This view shows aggregated storage costs for the assessed group, split over different types of storage disks.
-3. You can drill down to see details for specific VMs.
+- Review monthly storage-cost estimates. This view shows aggregated storage costs for the assessed group, split among different types of storage disks.
+- Drill down to see details for specific VMs.
 
 > [!NOTE]
-> Confidence ratings are not assigned to assessments of servers imported into Azure Migrate Server Assessment using CSV.
-
+> Confidence ratings are not assigned to assessments of servers imported into Azure Migrate Server Assessment by using CSV.
 
 ## Supported operating system names
 
@@ -299,13 +293,14 @@ Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9 | SUSE Linux Enterpris
 Ubuntu Linux | VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6
 Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003 | Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
 
+Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
 
 ## Next steps
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Imported servers to Azure Migrate: Server Assessment using CSV.
-> * Created and reviewed an assessment
+> * Imported servers into Azure Migrate Server Assessment by using CSV.
+> * Created and reviewed an assessment.
 
 Now, [deploy an appliance](./migrate-appliance.md) for more accurate assessments, and gather servers together into groups for deeper assessment using [dependency analysis](./concepts-dependency-visualization.md).
