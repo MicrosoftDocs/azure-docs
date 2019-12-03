@@ -21,6 +21,8 @@ Before you get started, make sure to:
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=linux)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=linux)
 
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
+
 ## Add sample code
 
 1. Create a C++ source file named `helloworld.cpp`, and paste the following code into it.
@@ -74,6 +76,9 @@ Before you get started, make sure to:
 1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. Replace the string `whatstheweatherlike.wav` with your own filename.
+
+> [!NOTE]
+> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 ## Build the app
 

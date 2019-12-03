@@ -15623,6 +15623,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-spot",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-cli-quick-create-cli-nodejs.md",
       "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create",
       "redirect_document_id": false
@@ -43850,6 +43855,11 @@
     {
       "source_path": "articles/service-bus-messaging/migrate-java-apps-wild-fly.md",
       "redirect_url": "/azure/app-service/containers/configure-language-java#use-service-bus-as-a-message-broker",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/howto-redirection.md",
+      "redirect_url": "/azure/mysql/concepts-connectivity-architecture",
       "redirect_document_id": false
     }
   ]
