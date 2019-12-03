@@ -7,7 +7,7 @@ ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 11/30/2019
 ---
 
 # How to manage your Commercial Marketplace account in Partner Center
@@ -63,9 +63,10 @@ In the Contact info section, you can see your **Publisher display name**, **Sell
 A payout account is the bank account to which proceeds are sent from your sales. This bank account must be in the same country where you registered your Partner Center account.
 
 To setup your payout account, you need to **associate your Microsoft Account**:
-1. In **Account settings**, under the **Financial details** section, select **Associate your Microsoft Account**. 
-2. When prompted, sign in with your Microsoft Account (MSA). This account cannot already be associated with another Partner Center account.
-3. To complete the setup of your payout account, log completely out of Partner Center, then log back in with your Microsoft Account (rather than your work account).
+1. Go to the [Commercial Marketplace overview page](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
+2. Under the Profile section, select **Associate your Microsoft Account**.
+3. When prompted, sign in with your Microsoft Account (MSA). This account cannot already be associated with another Partner Center account.
+4. To complete the setup of your payout account, log completely out of Partner Center, then log back in with your Microsoft Account (rather than your work account).
 
 Now that your Microsoft Account is associated, to add a payout account, you will need to:
 - **Choose a payment method**: Bank account or PayPal
