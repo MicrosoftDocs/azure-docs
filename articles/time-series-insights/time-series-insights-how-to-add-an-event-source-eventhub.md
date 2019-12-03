@@ -41,7 +41,7 @@ To add a new consumer group in your event hub:
 
    [![Event hub - Add a consumer group](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png#lightbox)
 
-   Otherwise, select a consumer group and skip to the next section.
+   Otherwise, select an existing consumer group and skip to the next section.
 
 1. On the **Consumer groups** page, enter a new unique value for **Name**.  Use this same name when you create a new event source in the Time Series Insights environment.
 
@@ -53,11 +53,11 @@ To add a new consumer group in your event hub:
 
 1. Locate your existing Time Series Insights environment. In the left menu, select **All resources**, and then select your Time Series Insights environment.
 
-1. Under **Environment Topology**, select **Event Sources**, and then select **Add**.
+1. Select **Event Sources**, and then select **Add**.
 
-   [![Under Event Sources, select the Add button](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
+   [![Under Event Sources, select the Add button](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png#lightbox)
 
-1. Enter a value for **Event source name** that is unique to this Time Series Insights environment, such as **event-stream**.
+1. Enter a value for **Event source name** that is unique to this Time Series Insights environment, such as `Contoso-TSI-GA-Event-Hub-ES`.
 
 1. For **Source**, select **Event Hub**.
 
@@ -65,11 +65,11 @@ To add a new consumer group in your event hub:
 
    * If you have an existing event hub in one of your subscriptions, select **Use Event Hub from available subscriptions**. This option is the easiest approach.
 
-     [![Select an Event Source import option](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png#lightbox)
+     [![Select an Event Source import option](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png#lightbox)
 
     *  The following table describes the required properties for the **Use Event Hub from available subscriptions** option:
 
-       [![Subscription and event hub details](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png#lightbox)
+       [![Subscription and event hub details](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
        | Property | Description |
        | --- | --- |
