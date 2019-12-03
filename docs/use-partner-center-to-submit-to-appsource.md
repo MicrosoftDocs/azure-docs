@@ -44,7 +44,7 @@ On the Product overview page, add the details associated with your submission. T
 |Specify the availability for your solution|[Specify availability](specify-availability.md)|
 
 > [!NOTE]
-> Partner Center does not support pricing model management for Office solutions. Existing paid add-ins that migrated from Seller Dashboard will need to move to a SaaS model or be made free by July 2020. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-add-ins.md).
+> Partner Center does not support pricing model management for Office solutions. Existing paid add-ins that migrated from Seller Dashboard will need to move to a SaaS model or be made free by July 2020. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md).
 
 ### 3 - Review and publish
 

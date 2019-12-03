@@ -9,7 +9,7 @@ localization_priority: Normal
 
 After you submit your solution and it's approved for addition to AppSource, you might want to brand it as an AppSource solution on your webpage. You can use the AppSource badges to promote your solution and drive traffic from your site to AppSource. To do so:
 
-1. Download the [AppSource Badge zip file](http://download.microsoft.com/download/A/1/F/A1F9C6C4-3543-4E4A-A4D1-76ED58EBDF6C/Microsoft_App_Source_Badges_EN_US.zip).
+1. Download the [AppSource Badge zip file](https://download.microsoft.com/download/A/1/F/A1F9C6C4-3543-4E4A-A4D1-76ED58EBDF6C/Microsoft_App_Source_Badges_EN_US.zip).
 
 2. Select the badge size that best suits your needs.
 
