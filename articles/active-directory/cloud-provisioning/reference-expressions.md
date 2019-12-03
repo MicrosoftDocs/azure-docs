@@ -55,7 +55,8 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 |[IsNull](#isnull)|If the expression evaluates to Null, then the IsNull function returns true.|
 |[IsNullOrEmpty](#isnullorempty)|If the expression is null or an empty string, then the IsNullOrEmpty function returns true.|         
 |[IsPresent](#ispresent)|If the expression evaluates to a string that is not Null and is not empty, then the IsPresent function returns true.|    
-|[IsString](#isstring)|If the expression can be evaluated to a string type, then the IsString function evaluates to True.| |[Item](#item)|The Item function returns one item from a multi-valued string/attribute.|
+|[IsString](#isstring)|If the expression can be evaluated to a string type, then the IsString function evaluates to True.|
+|[Item](#item)|The Item function returns one item from a multi-valued string/attribute.|
 |[Join](#join) |Join() is similar to Append(), except that it can combine multiple **source** string values into a single string, and each value will be separated by a **separator** string.| 
 |[Left](#left)|The Left function returns a specified number of characters from the left of a string.|
 |[Mid](#mid) |Returns a substring of the source value. A substring is a string that contains only some of the characters from the source string.|
