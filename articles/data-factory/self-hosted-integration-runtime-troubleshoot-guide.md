@@ -33,8 +33,9 @@ The self-hosted integration runtime can't connect to the Data Factory service (b
 
 1. If there's no proxy configured on the self-hosted integration runtime (which is the default setting), run the following PowerShell command on the machine where self-hosted integration runtime is installed:
 
-
-    **(New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")**
+    ```powershell
+    (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
+    ```
         
    > [!NOTE]     
    > The service URL may vary, depending on your Data Factory location. You can find the service URL under **ADF UI** > **Connections** > **Integration runtimes** > **Edit Self-hosted IR** > **Nodes** > **View Service URLs**.
