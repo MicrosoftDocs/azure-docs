@@ -138,7 +138,7 @@ Next, you'll use your newly trained model to analyze a document and extract key-
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<model ID>` with the model ID that you received in the previous section.
 1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf). For this quickstart, you can use the files under the **Test** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
-1. Replace `<file type>` with the file type. Supported types: `application/pdf`, `image/jpeg`, `image/png`.
+1. Replace `<file type>` with the file type. Supported types: `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`.
 1. Replace `<subscription key>` with your subscription key.
 
 ```bash

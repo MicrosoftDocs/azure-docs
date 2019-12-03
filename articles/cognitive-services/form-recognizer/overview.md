@@ -15,10 +15,10 @@ ms.author: pafarley
 
 # What is Form Recognizer?
 
-Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract text, key/value pairs and table data from form documents. It ingests text from forms and outputs structured data that includes the relationships in the original file. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Form Recognizer is comprised of custom models, the prebuilt receipt model, and the layout function. You can call Form Recognizer models by using a REST API to reduce complexity and integrate it into your workflow or application.
+Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract text, key/value pairs and table data from form documents. It ingests text from forms and outputs structured data that includes the relationships in the original file. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Form Recognizer is comprised of custom models, the prebuilt receipt model, and the layout API. You can call Form Recognizer models by using a REST API to reduce complexity and integrate it into your workflow or application.
 
 Form Recognizer is made up of the following services:
-* **Custom models** - Extract key/value pairs and table data from forms. These models are trained to your own data, so they're tailored to your forms.
+* **Custom models** - Extract key/value pairs and table data from forms. These models are trained with your own data, so they're tailored to your forms.
 * **Prebuilt receipt model** - Extract data from USA sales receipts using a prebuilt model.
 * **Layout API** - Extract text and table structures, along with their bounding box coordinates, from documents.
 
