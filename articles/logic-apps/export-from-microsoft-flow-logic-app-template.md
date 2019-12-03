@@ -3,7 +3,6 @@ title: Export flows from Power Automate to Azure Logic Apps
 description: Migrate flows from Power Automate to Azure Logic Apps by exporting as Azure Resource Manager templates
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019

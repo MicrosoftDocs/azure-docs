@@ -4,8 +4,7 @@ description: Real use case and scenario for advanced exception handling and erro
 services: logic-apps
 ms.suite: integration
 author: hedidin
-ms.author: estfan
-ms.reviewer: klam, logicappspm
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ---

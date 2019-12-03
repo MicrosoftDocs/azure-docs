@@ -3,7 +3,6 @@ title: Create web APIs & REST APIs for Azure Logic Apps
 description: Create web APIs & REST APIs to call your APIs, services, or systems for system integrations in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 05/26/2017

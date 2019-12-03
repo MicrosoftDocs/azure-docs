@@ -3,7 +3,6 @@ title: Build approval-based automated workflows
 description: Tutorial - Create an approval-based automated workflow that processes mailing list subscriptions by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc

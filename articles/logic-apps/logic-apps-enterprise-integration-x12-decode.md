@@ -3,8 +3,9 @@ title: Decode X12 messages
 description: Validate EDI and generate acknowledgements with X12 message decoder in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: jonfan, divswa, logicappspm
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ---

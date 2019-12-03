@@ -3,7 +3,6 @@ title: Scheduling recurring tasks and workflows in Azure Logic Apps
 description: An overview about scheduling recurring automated tasks, processes, and workflows with Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019

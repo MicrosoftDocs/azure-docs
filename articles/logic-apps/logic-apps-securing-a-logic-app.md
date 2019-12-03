@@ -3,7 +3,6 @@ title: Secure access and data
 description: Add security to protect inputs, outputs, request-based triggers, run history, management tasks, and access to other resources in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019

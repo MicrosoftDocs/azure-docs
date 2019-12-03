@@ -3,8 +3,9 @@ title: B2B enterprise integration
 description: Learn about building automated B2B workflows for enterprise integration by using Azure Logic Apps and Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: jonfan, divswa, logicappspm
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, logicappspm
 ms.topic: overview
 ms.date: 08/01/2019
 ---

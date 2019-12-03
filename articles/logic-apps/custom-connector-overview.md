@@ -3,7 +3,6 @@ title: Custom connector topic links
 description: Links to topics about how to create, use, share, and certify custom connectors
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 1/30/2018

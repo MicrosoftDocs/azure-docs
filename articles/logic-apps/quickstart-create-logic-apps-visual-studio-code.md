@@ -3,8 +3,6 @@ title: Automate tasks with Visual Studio Code
 description: Create or edit logic app underlying JSON definitions by using Visual Studio Code (VS Code)
 services: logic-apps
 ms.suite: integration
-ms.workload: azure-vs
-author: ecfan
 ms.reviewer: klam, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc

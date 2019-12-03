@@ -3,7 +3,6 @@ title: Build schedule-based automated workflows
 description: Tutorial - Create a schedule-based, recurring, automated workflow by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc

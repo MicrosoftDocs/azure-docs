@@ -3,7 +3,6 @@ title: Add loops to repeat actions
 description: Create loops that repeat workflow actions or process arrays in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019

@@ -3,7 +3,6 @@ title: Add and call Azure functions from Azure Logic Apps
 description: Add and run Azure functions from logic apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019

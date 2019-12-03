@@ -3,7 +3,6 @@ title: Create and manage variables for storing values
 description: How to store and manage values by using variables in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019

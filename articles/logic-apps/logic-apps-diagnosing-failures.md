@@ -3,7 +3,6 @@ title: Troubleshoot and diagnose failures
 description: Learn how to troubleshoot and diagnose workflow failures in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/15/2017

@@ -3,7 +3,6 @@ title: Create your first automated workflow
 description: Quickstart - Build your first automated workflow by using Azure Logic Apps for system integration and enterprise application integration (EAI) solutions
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc

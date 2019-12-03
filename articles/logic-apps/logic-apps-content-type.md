@@ -3,7 +3,6 @@ title: Handle content types
 description: Learn how Logic Apps handles content types at design time and run time
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018

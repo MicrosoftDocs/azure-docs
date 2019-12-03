@@ -3,8 +3,9 @@ title: Connect to SAP systems
 description: Access and manage SAP resources by automating workflows with Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: divswa, logicappspm
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors

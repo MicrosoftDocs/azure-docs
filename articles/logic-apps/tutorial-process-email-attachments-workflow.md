@@ -3,7 +3,6 @@ title: Automate tasks with multiple Azure services
 description: Tutorial - Create automated workflows to process emails with Azure Logic Apps, Azure Storage, and Azure Functions
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc

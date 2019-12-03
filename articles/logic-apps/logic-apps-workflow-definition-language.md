@@ -3,7 +3,6 @@ title: Schema for Workflow Definition Language
 description: Schema reference for the Workflow Definition Language in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019

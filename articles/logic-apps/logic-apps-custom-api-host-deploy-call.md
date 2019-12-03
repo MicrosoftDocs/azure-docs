@@ -3,8 +3,7 @@ title: Deploy and call web APIs & REST APIs from Azure Logic Apps
 description: Deploy and call web APIs & REST APIs for system integration workflows in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ecfan
-ms.reviewer: klam, stepsic, logicappspm
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 05/26/2017
 ---
