@@ -2,10 +2,8 @@
 title: Connect to SFTP server with SSH
 description: Automate tasks that monitor, create, manage, send, and receive files for an SFTP server by using SSH and Azure Logic Apps
 services: logic-apps
-
 ms.suite: integration
 author: ecfan
-
 ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
