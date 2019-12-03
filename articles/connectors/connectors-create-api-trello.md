@@ -5,7 +5,7 @@ services: logic-apps
 
 ms.suite: integration
 author: ecfan
-ms.author: estfan
+
 ms.reviewer: klam, LADocs
 ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
 ms.topic: article

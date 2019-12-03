@@ -2,10 +2,8 @@
 title: Connect to Box
 description: Create and manage files with Box REST APIs and Azure Logic Apps
 services: logic-apps
-
 ms.suite: integration
 author: ecfan
-ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 11/07/2016

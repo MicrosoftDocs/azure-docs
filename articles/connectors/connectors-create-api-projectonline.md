@@ -4,7 +4,7 @@ description: Automate workflows that monitor, create, and manage Project Online 
 services: logic-apps
 
 author: ecfan
-ms.author: estfan
+
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article

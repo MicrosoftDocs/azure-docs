@@ -2,11 +2,8 @@
 title: Connect to Excel Online
 description: Manage data with Excel Online REST APIs and Azure Logic Apps
 services: logic-apps
-
 ms.suite: integration
 author: ecfan
-ms.author: estfan
-manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 08/23/2018

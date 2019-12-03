@@ -5,7 +5,7 @@ services: logic-apps
 
 ms.suite: integration
 author: ecfan
-ms.author: estfan
+
 ms.reviewer: deli, klam, LADocs
 tags: connectors
 ms.topic: conceptual

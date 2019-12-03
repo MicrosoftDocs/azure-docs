@@ -5,7 +5,7 @@ services: logic-apps
 
 ms.suite: integration
 author: ecfan
-ms.author: estfan
+
 ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 11/01/2019

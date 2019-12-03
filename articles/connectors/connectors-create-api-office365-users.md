@@ -1,18 +1,12 @@
 ---
-# required metadata
 title: Connect to Office 365 Users
 description: Manage user profiles with Office 365 Users REST APIs and Azure Logic Apps 
+services: logic-apps
+ms.suite: integration
 author: ecfan
-manager: jeconnoc
-ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.date: 08/18/2016
 ms.topic: article
-
-services: logic-apps
-
-# optional metadata
-ms.reviewer: klam, LADocs
-ms.suite: integration
 tags: connectors
 ---
 

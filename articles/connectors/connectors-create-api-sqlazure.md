@@ -5,9 +5,9 @@ services: logic-apps
 
 ms.suite: integration
 author: ecfan
-ms.author: estfan
+
 ms.reviewer: klam; LADocs
-manager: carmonm
+
 ms.topic: conceptual
 tags: connectors
 ms.date: 11/08/2019

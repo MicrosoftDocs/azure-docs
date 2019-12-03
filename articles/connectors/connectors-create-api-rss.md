@@ -4,7 +4,7 @@ description: Automate tasks and workflows that monitor and manage RSS feeds by u
 services: logic-apps
 
 author: ecfan
-ms.author: estfan
+
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article

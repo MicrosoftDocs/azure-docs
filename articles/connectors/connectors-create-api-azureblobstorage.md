@@ -2,11 +2,8 @@
 title: Connect to Azure Blob Storage
 description: Create and manage blobs in Azure storage accounts by using Azure Logic Apps
 services: logic-apps
-
 ms.suite: integration
 author: ecfan
-ms.author: estfan
-manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/28/2019
