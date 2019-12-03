@@ -100,26 +100,26 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
 ```
 
 ## Connectivity, certificate, or timeout issues
-The following steps may help you with troubleshooting connectivity/certificate/timeout issues to all services under *.servicebus.windows.net. 
+The following steps may help you with troubleshooting connectivity/certificate/timeout issues for all services under *.servicebus.windows.net. 
 
 - Browse to or [wget](https://www.gnu.org/software/wget/) `https://sbwagn2.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues (most common when using java SDK).
 - Run the following command to check if any port is blocked on the firewall. Depending on the library you use, other ports are also used. For example: 443, 5672, 9354.
 
-    ```shell
-    tnc sbwagn2.servicebus.windows.net -port 5671 (Powershell)
+    ```powershell
+    tnc sbwagn2.servicebus.windows.net -port 5671
     ```
 
     On Linux:
 
     ```shell
-    telnet sbwagn2.servicebus.windows.net 5671 (linux)
+    telnet sbwagn2.servicebus.windows.net 5671
     ```
-- When there are intermittent connectivity issues, run the following command to check if there's any packets dropped. Keep it running for approximately 1 minute to know if the connections are partially blocked. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
+- When there are intermittent connectivity issues, run the following command to check if there are any dropped packets. Keep it running for approximately 1 minute to know if the connections are partially blocked. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
 
     ```shell
     psping.exe -t -q ehedhdev.servicebus.windows.net:9354 -nobanner     
     ```
-    You can use equivalent commands if you're using other tools `tnc`, `ping`, and so on. 
+    You can use equivalent commands if you're using other tools such as `tnc`, `ping`, and so on. 
 - Obtain a network trace if the previous steps don't help and analyze it or contact [Microsoft Support](https://support.microsoft.com/). 
 
 ## Next steps
