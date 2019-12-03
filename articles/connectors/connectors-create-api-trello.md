@@ -2,17 +2,13 @@
 title: Connect to Trello from Azure Logic Apps
 description: Automate tasks and workflows that monitor and manage lists, boards, and cards in your Trello projects by using Azure Logic Apps
 services: logic-apps
-
 ms.suite: integration
 author: ecfan
-
 ms.reviewer: klam, LADocs
-ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
+tags: connectors
 ---
-
 
 # Monitor and manage Trello with Azure Logic Apps
 
