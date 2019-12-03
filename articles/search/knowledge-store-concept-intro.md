@@ -133,6 +133,7 @@ A `knowledgeStore` consists of a connection and projections.
 }
 ```
 
+This sample does not contain any images, for an example of how to use file projections see [Working with projections](knowledge-store-projection-overview.md).
 ### Sources of data for a knowledge store
 
 If a knowledge store is output from an AI enrichment pipeline, what are the inputs? The original data that you want to extract, enrich, and ultimately save to a knowledge store can originate from any Azure data source supported by search indexers: 
