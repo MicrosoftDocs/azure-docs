@@ -133,8 +133,7 @@ It expects:
 * Fields that contain characters that require escaping (such as " and new lines) should start and end with a **"** character, without whitespace. All **"** characters *inside* the field are escaped by using a double **"** character (**""**). For example, _"Hello, ""World"""_ is a valid CSV file with a single record having a single column or field with the content _Hello, "World"_.
 * All records in the file must have the same number of columns and fields.
 
-On the other hand, Azure Data Factory, allows use of the backslash (escape) character.
-If you generate a CSV file using Azure Data Factory which contains a backslash character, your CSV file won't comply to RFC 4180, and ingestion of the file to Azure Data Explorer will fail.
+Azure Data Factory allows the backslash (escape) character. If you generate a CSV file with a backslash character using Azure Data Factory, ingestion of the file to Azure Data Explorer will fail.
 
 #### Example
 
