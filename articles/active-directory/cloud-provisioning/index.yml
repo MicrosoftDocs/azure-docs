@@ -28,7 +28,7 @@ landingContent:
             url: what-is-cloud-provisioning.md
  
   # Card
-  - title: Determine the best solution to manage the lifecycle of your users and groups
+  - title: Learn how to implement the best solution to manage the lifecycle of your users and groups
     linkLists:
       - linkListType: tutorial
         links:
