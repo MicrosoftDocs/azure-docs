@@ -1,3 +1,15 @@
+---
+title: system requirements
+description: System requirements for ARR.
+author: flborn
+manager: jlyons
+services: azure-remote-rendering
+ms.author: flborn
+ms.date: 12/03/2019
+ms.topic: overview
+ms.service: azure-remote-rendering
+---
+
 # System Requirements
 
 ## Development PC
