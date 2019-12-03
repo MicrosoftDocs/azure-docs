@@ -40,7 +40,7 @@ Before you configure streaming for any data source, you need to [create an Event
 For data that you can't directly stream to an event hub, you can write to Azure storage and then use a time-triggered Logic App that [pulls data from blob storage](../../connectors/connectors-create-api-azureblobstorage.md#add-action) and [pushes it as a message to the event hub](../../connectors/connectors-create-api-azure-event-hubs.md#add-action). 
 
 
-## Tools with Azure Monitor integration
+## Partner tools with Azure Monitor integration
 
 Routing your monitoring data to an event hub with Azure Monitor enables you to easily integrate with external SIEM and monitoring tools. Examples of tools with Azure Monitor integration include the following:
 
