@@ -20,7 +20,7 @@ landingContent:
         links:
           - text: What is Service Fabric Mesh?
             url: service-fabric-mesh-overview.md
-          - text: Introduction to Service Fabric Resource Model
+          - text: Introduction to the Service Fabric resource model
             url: service-fabric-mesh-service-fabric-resources.md
       - linkListType: concept
         links:
@@ -34,7 +34,7 @@ landingContent:
             url: service-fabric-mesh-secrets-overview
       - linkListType: whats-new
         links:
-          - text: Commonly asked Service Fabric Mesh questions
+          - text: Commonly asked questions
             url: service-fabric-mesh-faq.md
 
   # Card
@@ -44,6 +44,10 @@ landingContent:
         links:
           - text: Create a web app with Visual Studio
             url: service-fabric-mesh-quickstart-dotnet-core.md
+      - linkListType: tutorial
+        links:
+          - text: Build and deploy a Mesh app with Visual Studio
+            url: service-fabric-mesh-tutorial-create-dotnetcore.md
       - linkListType: how-to-guide
         links:
           - text: Set up your development environment
@@ -52,10 +56,6 @@ landingContent:
             url: service-fabric-mesh-howto-optimize-vs
           - text: Set up Service Fabric Mesh CLI
             url: service-fabric-mesh-howto-setup-cli.md
-      - linkListType: tutorial
-        links:
-          - text: Build and deploy a Mesh app with Visual Studio
-            url: service-fabric-mesh-tutorial-create-dotnetcore.md
       - linkListType: download
         links:
           - text: Find Service Fabric Mesh samples
