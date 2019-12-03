@@ -126,7 +126,7 @@ After copying this code into your development platform you will need to provide 
 
     * Navigate to https://api-portal.videoindexer.ai/
     * Login
-    * Go to **Products** -> ** Authorization** -> **Authorization subscription**
+    * Go to **Products** -> **Authorization** -> **Authorization subscription**
     * Copy the **Primary key**
 * Video URL – A URL of the video/audio file to be indexed. The URL must point at a media file (HTML pages are not supported). The file can be protected by an access token provided as part of the URI and the endpoint serving the file must be secured with TLS 1.2 or higher. The URL needs to be encoded.
 
