@@ -1,7 +1,7 @@
 ---
-title: Collect and report on search traffic analysis data
+title: Report on search traffic analysis data
 titleSuffix: Azure Cognitive Search
-description: Enable search traffic analytics for Azure Cognitive Search to add telemetry and user-initiated events to log files.
+description: Enable search traffic analytics for Azure Cognitive Search, collect telemetry and user-initiated events using Application Insights, and then analyze findings in a Power BI report.
 
 author: HeidiSteen
 manager: nitinme
@@ -13,11 +13,17 @@ ms.date: 12/05/2019
 ---
 
 # Implement search traffic analytics in Azure Cognitive Search
+
+Search traffic analytics is a pattern for implementing a feedback loop for your search service. The objective is to collect telemetry data about user-initiated click events and keyboard inputs. Using this information, you can determine the effectiveness of your search solution, including popular search terms, clickthrough rate, and which query inputs yield zero results.
+
+This pattern takes a dependency on [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview), a feature of [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/), that's used here for collecting user data. You will also need to add instrumentation to your client code, as described in this article. Finally, you will need a reporting mechanism to analyze the data. We recommend Power BI but you can use any tool that connects to Application Insights.
+
+<!-- 
 Search traffic analytics is a pattern for implementing a feedback loop for your search service. This pattern describes the necessary data and how to collect it using Application Insights, an industry leader for monitoring services in multiple platforms.
 
 Search traffic analytics lets you gain visibility into your search service and unlock insights about your users and their behavior. By having data about what your users choose, it's possible to make decisions that further improve your search experience, and to back off when the results are not what expected.
 
-Azure Cognitive Search offers a telemetry solution that integrates Azure Application Insights and Power BI to provide in-depth monitoring and tracking. Because interaction with Azure Cognitive Search is only through APIs, the telemetry must be implemented by the developers using search, following the instructions in this page.
+Azure Cognitive Search offers a telemetry solution that integrates Azure Application Insights and Power BI to provide in-depth monitoring and tracking. Because interaction with Azure Cognitive Search is only through APIs, the telemetry must be implemented by the developers using search, following the instructions in this page. -->
 
 ## Identify relevant search data
 
@@ -25,11 +31,11 @@ To have useful search metrics, it's necessary to log some signals from the users
 
 There are two signals Search Traffic Analytics needs:
 
-1. User generated search events: only search queries initiated by a user are interesting. Search requests used to populate facets, additional content or any internal information, are not important and they skew and bias your results.
+1. User-generated search events: only search queries initiated by a user are interesting. Search requests used to populate facets, additional content or any internal information, are not important and they skew and bias your results.
 
-2. User generated click events: By clicks in this document, we refer to a user selecting a particular search result returned from a search query. A click generally means that a document is a relevant result for a specific search query.
+2. User-generated click events: By clicks in this document, we refer to a user selecting a particular search result returned from a search query. A click generally means that a document is a relevant result for a specific search query.
 
-By linking search and click events with a correlation id, it's possible to analyze the behaviors of users on your application. These search insights are impossible to obtain with only search traffic logs.
+By linking search and click events with a correlation ID, it's possible to analyze the behaviors of users on your application. These search insights are impossible to obtain with only search traffic logs.
 
 ## Add search traffic analytics
 
@@ -71,7 +77,7 @@ This is the object that sends events to the Application Insights Resource.
 For other languages and platforms, see the complete [list](https://docs.microsoft.com/azure/application-insights/app-insights-platforms).
 
 **Step 2: Request a Search ID for correlation**
-To correlate search requests with clicks, it's necessary to have a correlation id that relates these two distinct events. Azure Cognitive Search provides you with a Search Id when you request it with a header:
+To correlate search requests with clicks, it's necessary to have a correlation ID that relates these two distinct events. Azure Cognitive Search provides you with a Search ID when you request it with a header:
 
 *C#*
 
@@ -178,9 +184,9 @@ Azure Cognitive search provides a monitoring [Power BI Content Pack](https://app
 
    ![Get Power BI reports](./media/search-traffic-analytics/get-use-power-bi.png "Get Power BI reports")
 
-2. On the same page, click **Download PowerBI report**.
+2. On the same page, click **Download Power BI report**.
 
-3. The report opens in Power BI Desktop, and you are prompted to connect to Application Insights. You can find this information in the Azure portal pages for you Application Insights resource.
+3. The report opens in Power BI Desktop, and you are prompted to connect to Application Insights. You can find this information in the Azure portal pages for your Application Insights resource.
 
    ![Connect to Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Connect to Application Insights")
 
