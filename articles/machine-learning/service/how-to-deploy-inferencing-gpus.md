@@ -168,17 +168,18 @@ For more information, see the reference documentation for [AksService.deploy_con
 
 ## Define the inference configuration
 
-The inference configuration points to the entry script and conda environment file. It also enables GPU support, which installs CUDA in the docker image created for the web service:
+The inference configuration points to the entry script and an environment object, which uses a proper docker image with GPU support:
 
 ```python
 from azureml.core.model import InferenceConfig
+from from azureml.core.environment import Environment, DEFAULT_GPU_IMAGE
 
-inference_config = InferenceConfig(runtime="python",
-                                   entry_script="score.py",
-                                   conda_file="myenv.yml",
-                                   enable_gpu=True)
+deploy_env = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
+env.docker.base_image = DEFAULT_GPU_IMAGE
+inference_config = InferenceConfig(entry_script="score.py", environment=deploy_env)
 ```
 
+For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 For more information, see the reference documentation for [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py).
 
 ## Deploy the model

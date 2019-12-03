@@ -274,13 +274,12 @@ Configure the image and deploy. The following code goes through these steps:
 ```python
 %%time
 from azureml.core.webservice import Webservice
-from azureml.core.model import InferenceConfig
+from azureml.core.model import InferenceConfig, Environment
 
-inference_config = InferenceConfig(runtime= "python", 
-                                   entry_script="score.py",
-                                   conda_file="myenv.yml")
+env = Environment.from_conda_specification(name="env", file_path="myenv.yml")
+inference_config = InferenceConfig(entry_script="score.py", environment=env)
 
-service = Model.deploy(workspace=ws, 
+service = Model.deploy(workspace=ws, \
                        name='sklearn-mnist-svc',
                        models=[model], 
                        inference_config=inference_config,

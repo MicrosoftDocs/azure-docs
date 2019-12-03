@@ -167,13 +167,12 @@ If you encounter problems deploying a model to ACI or AKS, try deploying it as a
 To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the `model` variable) as a local web service:
 
 ```python
-from azureml.core.model import InferenceConfig, Model
+from azureml.core.model import InferenceConfig, Model, Environment
 from azureml.core.webservice import LocalWebservice
 
-# Create inference configuration. This creates a docker image that contains the model.
-inference_config = InferenceConfig(runtime="python",
-                                   entry_script="score.py",
-                                   conda_file="myenv.yml")
+# Create inference configuration based on the environment definition and the entry script
+env = Environment.from_conda_specification(name="env", file_path="myenv.yml")
+inference_config = InferenceConfig(entry_script="score.py", environment=env)
 
 # Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)

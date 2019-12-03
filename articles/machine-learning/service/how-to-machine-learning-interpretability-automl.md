@@ -180,22 +180,23 @@ Deploy the service using the conda file and the scoring file from the previous s
 
 ```python
 from azureml.core.webservice import Webservice
-from azureml.core.model import InferenceConfig
 from azureml.core.webservice import AciWebservice
-from azureml.core.model import Model
+from azureml.core.model import Model, Environment, InferenceConfig
 
-aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
-                                               memory_gb=1, 
+aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
+                                               memory_gb=1,
                                                tags={"data": "Bank Marketing",  
-                                                     "method" : "local_explanation"}, 
+                                                     "method" : "local_explanation"},
                                                description='Get local explanations for Bank marketing test data')
-
-inference_config = InferenceConfig(runtime= "python", 
-                                   entry_script="score_local_explain.py",
-                                   conda_file="myenv.yml")
+env = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
+inference_config = InferenceConfig(entry_script="score_local_explain.py", environment=env)
 
 # Use configs and models generated above
-service = Model.deploy(ws, 'model-scoring', [scoring_explainer_model, original_model], inference_config, aciconfig)
+service = Model.deploy(ws,
+                       'model-scoring',
+                       [scoring_explainer_model, original_model],
+                       inference_config,
+                       aciconfig)
 service.wait_for_deployment(show_output=True)
 ```
 

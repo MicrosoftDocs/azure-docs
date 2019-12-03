@@ -484,17 +484,7 @@ inference_config = InferenceConfig(entry_script="x/y/score.py",
 
 For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
-You can also directly specify the dependencies without using an environment. The following example demonstrates how to create an inference configuration that loads software dependencies from a Conda file:
-
-```python
-from azureml.core.model import InferenceConfig
-
-inference_config = InferenceConfig(runtime="python",
-                                   entry_script="x/y/score.py",
-                                   conda_file="env/myenv.yml")
-```
-
-For more information, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class documentation.
+For more information on inference configuration, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class documentation.
 
 For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
