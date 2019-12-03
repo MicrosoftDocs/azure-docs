@@ -6,7 +6,7 @@ localization_priority: Normal
 
 # Define your Office solution properties in Partner Center
 
-On the Properties page in [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview), define the categories and industries that apply to your solution and add links to support documents.
+On the Properties page in [Partner Center](https://partner.microsoft.com/dashboard/office/overview), define the categories and industries that apply to your solution and add links to support documents.
 
 ## Add categories
 

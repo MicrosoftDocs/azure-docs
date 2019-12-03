@@ -113,9 +113,9 @@ After your account in the Seller Dashboard is approved, you can submit your solu
 - [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
 - [AppSource submission FAQ](office-store-submission-faq.md)
 - [Create effective AppSource listings](create-effective-office-store-listings.md)
-- [Register as an app developer](https://developer.microsoft.com/en-us/store/register)
-- [Have your app appear in the Office 365 app launcher](https://msdn.microsoft.com/en-us/office/office365/howto/connect-your-app-to-o365-app-launcher)
-- [Publish Power BI custom visuals to AppSource](https://docs.microsoft.com/en-us/power-bi/developer/office-store/)
+- [Register as an app developer](https://developer.microsoft.com/store/register)
+- [Have your app appear in the Office 365 app launcher](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)
+- [Publish Power BI custom visuals to AppSource](https://docs.microsoft.com/power-bi/developer/office-store/)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)  
  
 

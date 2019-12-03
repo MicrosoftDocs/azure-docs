@@ -39,7 +39,7 @@ You can create an account in one of two ways:
 ### Create an account using the Partner Center enrollment page
 If you're new to Partner Center, follow the instructions in this section to create your account. 
 
-1. Go to the [Partner Center enrollment](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/office) page.
+1. Go to the [Partner Center enrollment](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/office) page.
 2. Sign in with a work account so you so that you can link your company's work email account domain to your new Partner Center account. By associating these accounts, your company employees can sign in to Partner Center with their work account user names and passwords.
 
   > [!NOTE]

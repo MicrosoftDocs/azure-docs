@@ -104,8 +104,8 @@ If you use Internet Explorer, you can use the following keyboard shortcuts in th
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Disability Answer Desk](https://support.microsoft.com/en-us/accessibility/disability-answer-desk)
-- [Microsoft Accessibility website](https://www.microsoft.com/en-us/accessibility)
+- [Disability Answer Desk](https://support.microsoft.com/accessibility/disability-answer-desk)
+- [Microsoft Accessibility website](https://www.microsoft.com/accessibility)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
     
  

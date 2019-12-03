@@ -135,7 +135,7 @@ To start, we recommend that you have a subscription dedicated to your Azure Mark
 You can also check for [Azure AD service updates](https://azure.microsoft.com/updates/?product=active-directory).
 
 ### How does my add-in authenticate a user with Azure AD?
-Office provides the [Office Dialog API](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/auth-with-office-dialog-api) to enable you to authenticate users from within your add-in. For more information, see [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+Office provides the [Office Dialog API](https://docs.microsoft.com/office/dev/add-ins/develop/auth-with-office-dialog-api) to enable you to authenticate users from within your add-in. For more information, see [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
 ### What reports will I receive from Commercial Marketplace about my SaaS offer?
 

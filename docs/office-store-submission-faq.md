@@ -27,11 +27,11 @@ To avoid common submission errors:
  
   For example, do not create a manifest for a second add-in based on another add-in manifest you submitted without changing the ID in the new manifest.
 
-- For Office Add-ins, make sure that you are using [manifest schema version 1.1](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/add-in-manifests). For information about updating your manifest to version 1.1, see [Update to the latest JavaScript API for Office library and version 1.1 add-in manifest schema](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/update-your-javascript-api-for-office-and-manifest-schema-version). 
+- For Office Add-ins, make sure that you are using [manifest schema version 1.1](https://docs.microsoft.com/office/dev/add-ins/overview/add-in-manifests). For information about updating your manifest to version 1.1, see [Update to the latest JavaScript API for Office library and version 1.1 add-in manifest schema](https://docs.microsoft.com/office/dev/add-ins/develop/update-your-javascript-api-for-office-and-manifest-schema-version). 
 
 - For Office Add-ins, make sure that you specify a support URL in the **SupportUrl** element of your Office Add-in manifest. Your support URL should be a publicly available webpage, and should not require authentication. You cannot use personal social media pages or GitHub repositories for the support URL. You also can't use links to files hosted online such as a Word document on OneDrive, DropBox or Google Docs.
 
--  For all add-ins, make sure that your manifest is valid against the schema. For schema validation information, see [Schema reference for Office Add-ins manifests (v1.1)](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/add-in-manifests) or [Schema reference for manifests of SharePoint Add-ins](https://msdn.microsoft.com/library/1f8c5d44-3b60-0bfe-9069-1df821220691(Office.15).aspx).
+-  For all add-ins, make sure that your manifest is valid against the schema. For schema validation information, see [Schema reference for Office Add-ins manifests (v1.1)](https://docs.microsoft.com/office/dev/add-ins/overview/add-in-manifests) or [Schema reference for manifests of SharePoint Add-ins](https://msdn.microsoft.com/library/1f8c5d44-3b60-0bfe-9069-1df821220691(Office.15).aspx).
 
 - Make sure your add-in is tested and is fully functional.
 
@@ -72,7 +72,7 @@ The following is the update process for Office Add-ins:
 > [!NOTE]
 > You cannot have two or more versions of the same add-in in AppSource at the same time, because each add-in has a unique asset ID. If you create a new add-in to publish an updated version of your add-in without unpublishing the previous version, you will have two AppSource listings and will potentially split your customer base.
 
-Updates to SharePoint Add-ins are handled by the license-management tools that are part of the SharePoint Add-in catalog. For more information, see [SharePoint Add-ins update process](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-add-ins-update-process).
+Updates to SharePoint Add-ins are handled by the license-management tools that are part of the SharePoint Add-in catalog. For more information, see [SharePoint Add-ins update process](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/sharepoint-add-ins-update-process).
 
 <a name="bk_q4"> </a>
 ## Can I submit a paid add-in to AppSource?
@@ -80,11 +80,11 @@ All new add-ins submitted to AppSource via Partner Center are free. Existing pai
 
 ## Can I submit an autohosted SharePoint Add-in to AppSource?
 
-The Office 365 Autohosted Add-ins Preview program ended on June 30, 2014. You cannot create new autohosted add-ins in SharePoint. For more information, see [Update on Autohosted Add-ins Preview program](https://blogs.office.com/en-us/2014/05/16/update-on-autohosted-apps-preview-program/). For information about how to convert your autohosted add-in, see [Convert an autohosted SharePoint Add-in to a provider-hosted add-in](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/convert-an-autohosted-sharepoint-add-in-to-a-provider-hosted-add-in).
+The Office 365 Autohosted Add-ins Preview program ended on June 30, 2014. You cannot create new autohosted add-ins in SharePoint. For more information, see [Update on Autohosted Add-ins Preview program](https://blogs.office.com/2014/05/16/update-on-autohosted-apps-preview-program/). For information about how to convert your autohosted add-in, see [Convert an autohosted SharePoint Add-in to a provider-hosted add-in](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/convert-an-autohosted-sharepoint-add-in-to-a-provider-hosted-add-in).
  
 ## How do I reference the JavaScript APIs for Office in my add-ins?
 
-If your add-in uses the JavaScript APIs for Office, you must [reference the Microsoft-hosted Office.js file from its CDN URL](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/referencing-the-javascript-api-for-office-library-from-its-cdn). Don't include a copy of the Office.js file in your add-in, or reference a copy of the file hosted elsewhere.
+If your add-in uses the JavaScript APIs for Office, you must [reference the Microsoft-hosted Office.js file from its CDN URL](https://docs.microsoft.com/office/dev/add-ins/develop/referencing-the-javascript-api-for-office-library-from-its-cdn). Don't include a copy of the Office.js file in your add-in, or reference a copy of the file hosted elsewhere.
 
 <a name="bk_q7"> </a>
 ## Why do my apps and add-ins have to be SSL-secured?
@@ -98,7 +98,7 @@ Two aspects of your submission relate to supported languages:
 
 1. The languages you declare in your app package or manifest. You declare which languages your add-in supports differently depending on type:
     
-   - For SharePoint Add-ins, declare language support by using the [SupportedLocales element (PropertiesDefinition complexType) (SharePoint Add-in Manifest)](https://docs.microsoft.com/en-us/sharepoint/dev/schema/supportedlocales-element-propertiesdefinition-complextypesharepoint-add-in-manif), in the add-in manifest within the add-in package. For more information, see [Explore the app manifest structure and the package of a SharePoint Add-in](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/explore-the-app-manifest-structure-and-the-package-of-a-sharepoint-add-in).
+   - For SharePoint Add-ins, declare language support by using the [SupportedLocales element (PropertiesDefinition complexType) (SharePoint Add-in Manifest)](https://docs.microsoft.com/sharepoint/dev/schema/supportedlocales-element-propertiesdefinition-complextypesharepoint-add-in-manif), in the add-in manifest within the add-in package. For more information, see [Explore the app manifest structure and the package of a SharePoint Add-in](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/explore-the-app-manifest-structure-and-the-package-of-a-sharepoint-add-in).
 
    - For Office Add-ins that aren't dictionaries, declare language support by using the **DefaultLocale** and **Override** elements in your manifest. For more information, see [Localization for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/localization).
 

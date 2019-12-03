@@ -6,7 +6,7 @@ localization_priority: Priority
 
 # Submit your Office solution to AppSource via Partner Center
 
-If you want your Office solution to appear in AppSource, you need to submit it to [Partner Center](https://partner.microsoft-int.com/en-us/dashboard/office/products) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). 
+If you want your Office solution to appear in AppSource, you need to submit it to [Partner Center](https://partner.microsoft.com/dashboard/office/products) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). 
 
 If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, see [Create or update client IDs and secrets in Partner Center](create-or-update-client-ids-and-secrets.md).
 
@@ -21,7 +21,7 @@ Submitting your solution involves specifying your solution name and adding your 
 
 ### 1 - Create your solution and reserve name
 
-On the [Overview](https://partner.microsoft.com/en-us/dashboard/office/overview) page in Partner Center, select **Create a new...**, and select the type of solution that you are submitting:
+On the [Overview](https://partner.microsoft.com/dashboard/office/overview) page in Partner Center, select **Create a new...**, and select the type of solution that you are submitting:
 
 - Office add-in
 - SharePoint solution

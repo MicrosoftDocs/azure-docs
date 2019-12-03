@@ -79,7 +79,7 @@ The steps to complete your lead submission process varies based on the CRM syste
 
 #### Azure Blob
 
-Select **Azure Blob** to output lead information in a CSV format within an Azure-hosted blob. To get started with Azure, see [Create your free Azure account](https://azure.microsoft.com/en-us/free/).
+Select **Azure Blob** to output lead information in a CSV format within an Azure-hosted blob. To get started with Azure, see [Create your free Azure account](https://azure.microsoft.com/free/).
 
 You must submit a **Connection String** value as well as a **Container Name** value to submit your lead management details. To find or generate these values:
 
@@ -101,7 +101,7 @@ You must submit a **Connection String** value as well as a **Container Name** va
 
 #### Azure Table
 
-Select **Azure Table** to output lead information into a Microsoft Azure-hosted storage table. To get started with Azure, see [Create your free Azure account](https://azure.microsoft.com/en-us/free/).
+Select **Azure Table** to output lead information into a Microsoft Azure-hosted storage table. To get started with Azure, see [Create your free Azure account](https://azure.microsoft.com/free/).
 
 You must submit a **Connection String** value to submit your lead management details. To find or generate this value:
 

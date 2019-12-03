@@ -9,7 +9,7 @@ localization_priority: Normal
 To offer your Office Add-in or SharePoint Add-in in languages beyond the primary language, you need localized metadata for each additional language. The best customer experience is with add-ins that have web services and functionality that support these additional languages. You also need to create descriptions in each language. For a list of the languages that Partner Center currently accepts, see Table 2 later in this article.
 
 > [!NOTE]
-> For information about localizing add-ins, see [Localization for Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/localization) and [Localize SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/localize-sharepoint-add-ins). 
+> For information about localizing add-ins, see [Localization for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/localization) and [Localize SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/localize-sharepoint-add-ins). 
 
 To distribute your add-in in additional languages, you can edit the details in Partner Center. After you add other languages, you need to submit it for approval again. 
 
@@ -43,7 +43,7 @@ Users can verify whether a market-specific AppSource front is available for a ma
 
 ![Choose a different market for AppSource](images/mod-office15-office-store-choose-market.png)
  
-The following table lists the submission languages that AppSource is available in, and the locales and markets that correspond to each of these languages. For a list of all the languages and locales for which you can localize an app or add-in, see [Language identifiers and OptionState Id values in Office 2013](http://technet.microsoft.com/en-us/library/cc179219%28Office.15%29.aspx).
+The following table lists the submission languages that AppSource is available in, and the locales and markets that correspond to each of these languages. For a list of all the languages and locales for which you can localize an app or add-in, see [Language identifiers and OptionState Id values in Office](https://docs.microsoft.com/deployoffice/office2016/language-identifiers-and-optionstate-id-values-in-office-2016).
 
 **List of distribution languages and corresponding markets for AppSource**
 
