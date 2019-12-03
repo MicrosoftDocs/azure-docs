@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: bobbytreed
 ms.author: robreed
-ms.date: 12/02/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -22,7 +22,7 @@ Records that are collected by Update Management for Windows and Linux VMs and th
 
 ### Required updates
 
-Updates required by a computer are populated in the `RequiredUpdate` record. These records have the properties in the following table:
+A record with a type of `RequiredUpdate` is created that represents updates required by a machine. These records have the properties in the following table:
 
 | Property | Description | 
 |----------|-------------|
@@ -43,7 +43,7 @@ Updates required by a computer are populated in the `RequiredUpdate` record. The
 
 ### Update
 
-View updates available and their installation status are populated in the `Update` record. These records have the properties in the following table:
+A record with a type of `Update` is created that represents updates available and their installation status for a machine. These records have the properties in the following table:
 
 | Property | Description | 
 |----------|-------------|
@@ -78,9 +78,9 @@ View updates available and their installation status are populated in the `Updat
 | Resource | Name of the resource. | 
 | ResourceType | Name of the resource type. | 
 
-### UpdateAgent
+### Update Agent
 
-View update agent details populated in the `UpdateAgent` record. These records have the properties in the following table:
+A record with a type of `UpdateAgent` is created that provides details of the update agent on the machine. These records have the properties in the following table:
 
 | Property | Description | 
 |----------|-------------|
@@ -99,9 +99,9 @@ View update agent details populated in the `UpdateAgent` record. These records h
 | WindowsUpdateAgentVersion | Version of the Windows Update agent. |
 | WSUSServer | Shows errors if the Windows Update agent has a problem to assist with troubleshooting. |
 
-### UpdateStatus 
+### Update Status 
 
-View update deployment status populated in the `UpdateRunProgress` record.  These records have the properties in the following table:
+A record with a type of `UpdateRunProgress` is created that provides update deployment status. These records have the properties in the following table:
 
 | Property | Description | 
 |----------|-------------|
@@ -113,7 +113,7 @@ View update deployment status populated in the `UpdateRunProgress` record.  Thes
 | InstallationStatus | The possible installation states of an update on the client computer, *In progress*, *Succeeded*, *Partially failed*. |
 | KBID | Knowledge base article ID for the Windows update. | 
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
-| OSType | Specifies the type of operating system. | 
+| OSType | Specifies the type of operating system, *Windows* or *Linux*. | 
 | Product | The products for which the update is applicable for. |
 | Resource | Name of the resource. | 
 | ResourceId | Unique identifier for the resource that the record is associated with. |
@@ -131,9 +131,9 @@ View update deployment status populated in the `UpdateRunProgress` record.  Thes
 | VMUUID | Unique identifier for the virtual machine. |
 | _ResourceId | Unique identifier for the resource that the record is associated with. |
 
-### UpdateSummary 
+### Update Summary 
 
-View update summary by computer populated in the `UpdateSummary` record.  These records have the properties in the following table:
+A record with a type of `UpdateSummary` is created that provides update summary by machine. These records have the properties in the following table:
 
 | Property | Description | 
 |----------|-------------|
