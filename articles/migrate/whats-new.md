@@ -4,7 +4,7 @@ description: Learn about what's new and recent updates in the Azure Migrate serv
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/18/2019
+ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
 ---

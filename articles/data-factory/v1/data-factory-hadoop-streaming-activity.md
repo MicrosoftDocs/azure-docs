@@ -222,5 +222,5 @@ The HDInsight cluster is automatically populated with example programs (wc.exe a
 * [Pig Activity](data-factory-pig-activity.md)
 * [MapReduce Activity](data-factory-map-reduce.md)
 * [Invoke Spark programs](data-factory-spark.md)
-* [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

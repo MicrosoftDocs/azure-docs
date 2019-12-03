@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Databricks workspace with Azure Resource manager
-description: The quickstart shows how to use the Azure Resource Manager template to create an Azure Databricks workspace, then create an Apache Spark cluster, and run a Spark job.
+title: Quickstart - Create an Azure Databricks workspace with Azure Resource manager
+description: This quickstart shows how to use the Azure Resource Manager template to create an Azure Databricks workspace, then create an Apache Spark cluster, and run a Spark job.
 services: azure-databricks
 ms.service: azure-databricks
 author: mamccrea
