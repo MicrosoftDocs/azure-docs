@@ -63,7 +63,7 @@ For the multi-turn knowledge base, add 3 rows to the file. The first column is y
 |Column 2 - questions|
 |--|
 |`Use Windows Hello to sign in`|
-|`Sign out`|
+|`Charge your Surface Pro 4`|
 |`Get to know Windows 10`|
 
 These questions are the exact wording from the knowledge base and should return 100 as the confidence score. Next, add a few questions, similar to these questions but not exactly the same:
@@ -71,11 +71,16 @@ These questions are the exact wording from the knowledge base and should return 
 |Column 2 - questions|
 |--|
 |`What is Windows Hello?`|
-|`How do I sign out?`|
+|`How do I charge the laptop?`|
 |`What features are in Windows 10?`|
 
 > [!CAUTION]
 > Make sure that each column is separated by a tab delimiter only. Leading or trailing spaces are added to column data and will cause the program to throw exceptions when the type or size is incorrect.
+
+The batch test file, when opened in Excel, looks like the following image.
+
+> [!div class="mx-imgBorder"]
+> ![Input first version of .tsv file from batch test](../media/batch-test/batch-test-1-input.png)
 
 ## Run the test against the batch file
 
@@ -90,7 +95,7 @@ batchtesting.exe batch-test-data-1 https://YOUR-RESOURCE-NAME.azurewebsites.net 
 The test completes and generates the `out.tsv` file:
 
 > [!div class="mx-imgBorder"]
-> ![Output .tsv file from batch test](../media/batch-test/output-tsv-format-batch-test.png)
+> ![Output first version of .tsv file from batch test](../media/batch-test/batch-test-1-output.png)
 
 
 ## Using optional fields in the input batch test file
@@ -101,6 +106,38 @@ Use the following chart to understand how to find the field values for optional 
 |--|--|--|
 |3|metadata|Export existing knowledge base for values.|
 |4|top|Default value of `25` is recommended.|
-|5|QnA set ID|Export existing knowledge base for values.|
+|5|Question and answer set ID|Export existing knowledge base for values.|
+
+## Add metadata to the knowledge base
+
+1. In the QnA portal, on the **Edit** page, add metadata of `topic:power` to the following questions:
+
+    |Questions|
+    |--|
+    |Charge your Surface Pro 4|
+    |Check the battery level|
+
+1. Select **Save and train**, then select the **Publish** page, then select the **Publish** button.
+1. Select the **Settings** page, then select **Export** as a `.xls` file.
+1. Find this downloaded file and open with Excel.
+
+    The downloaded file has the correct format for the metadata and the correct question and answer set ID.
+
+    > [!div class="mx-imgBorder"]
+    > ![Exported knowledge base with metadata](../media/batch-test/exported-knowledge-base-with-metadata.png)
+
+1. Edit the `batch-test-data-1.tsv` file to add the metadata, top, and qna set ID.
+
+    > [!div class="mx-imgBorder"]
+    > ![Input second version of .tsv file from batch test](../media/batch-test/batch-test-2-input.png)
+
+1. Rerun the batch test with the same command. The output now includes matches.
+
+    > [!div class="mx-imgBorder"]
+    > ![Output second version of .tsv file from batch test](../media/batch-test/batch-test-2-output.png)
+
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)
