@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/27/2019
+ms.date: 12/02/2019
 ms.author: alkohli
 ---
 # Use certificates with Azure Stack Edge Rugged series 
@@ -28,6 +28,7 @@ The various types of certificates that are used on your Azure Stack Edge device 
 - Endpoint certificates
 - IoT device certificates
 - Local UI certificates
+
 Each of these certificates are described in detail in the following sections.
 
 ## Signing chain certificates
@@ -41,8 +42,8 @@ These certificates could be root certificates or the intermediate certificates. 
 ### Caveats
 
 - The root certificates can be uploaded on your device in the following format: 
-    - **DER** – These are available as a .cer format
-    - **Base-64 encoded** – These are available as .pem format.
+    - **DER** – These are available as a `.cer` format
+    - **Base-64 encoded** – These are available as `.pem` format.
     - **P7b** – This format is used only for signing chain certificates that includes the root and intermediate certificates.
 - Signing chain certificates are always uploaded before you upload any other certificates.
 
@@ -53,7 +54,7 @@ Your Azure Stack Edge device could be a 1-node device or a 4-node device. All th
 
 ### Caveats
 
-- The node certificate should be provided in .pfx format with a private key. 
+- The node certificate should be provided in `.pfx` format with a private key. 
 - You can create and upload 1 wildcard node certificate or 4 individual node certificates. 
 - A node certificate must be changed if the DNS domain changes but the device name does not change. If you are bringing your own node certificate, then you can't change the device serial number, you can only change the domain name.
 - Use the following table to guide you when creating a node certificate.
@@ -71,10 +72,10 @@ When you bring in a signed certificate of your own, you also need the correspond
 
 ### Caveats
 
-- The endpoint certificates need to be in .pfx format with a private key. Signing chain should be *.cer*. 
+- The endpoint certificates need to be in `.pfx` format with a private key. Signing chain should be DER format (`.cer` file extension). 
 - When you bring your own endpoint certificates, these can be as individual certificates or multidomain certificates. 
 - If you are bringing in signing chain, the signing chain certificate must be uploaded before you upload an endpoint certificate.
-- These certificates must be changed if the device name and the DNS domain names changes.
+- These certificates must be changed if the device name or the DNS domain names change.
 - A wildcard endpoint certificate can be used.
 - The properties of the endpoint certificates are similar to those of a typical SSL certificate. 
 - Use the following table when creating an endpoint certificate:
@@ -83,7 +84,7 @@ When you bring in a signed certificate of your own, you also need the correspond
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain><br>management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
-    |Multi-SAN single certificate for both endpoints|`<Device name>.<dnsdomain>|login.<Device name>.<Dns Domain><br>management.<Device name>.<Dns Domain><br>*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
+    |Multi-SAN single certificate for both endpoints|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 
 ## Local UI certificates
@@ -92,7 +93,7 @@ You can access the local web UI of your device via a browser. To ensure that thi
 
 ### Caveats
 
-- The local UI certificate is also uploaded in a *.pfx* format with a private key.
+- The local UI certificate is also uploaded in a `.pfx` format with a private key.
 - After you upload the local UI certificate, you will need to restart the browser and clear the cache. Refer to the specific instructions for your browser.
 
     |Type |Subject name (SN)  |Subject alternative name (SAN)  |Subject name example |
@@ -106,13 +107,13 @@ Your Azure Stack Edge device is also an IoT device with the compute enabled by a
 
 There are three IoT Edge certificates that you need to install to enable this trust relation:
 
-- Root certificate authority or the owner certificate authority – If tiering to Azure Stack, then this root certificate comes from Azure Stack.
-- Device certificate authority 
-- Device key certificate
+- **Root certificate authority or the owner certificate authority** – If tiering to Azure Stack, then this root certificate comes from Azure Stack.
+- **Device certificate authority** 
+- **Device key certificate**
 
 ### Caveats
 
-- The IoT Edge certificates are uploaded in *.pem* format. 
+- The IoT Edge certificates are uploaded in `.pem` format. 
 - Use the following guidance when creating IoT device certificates.
 
 For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](azure-stack-edge-r-series-placeholder.md).
@@ -123,7 +124,7 @@ If your Azure Stack Edge device is experiencing any issues, then to troubleshoot
 
 ### Caveats
 
-- The Support session certificate must be provided in a *.cer* format.
+- The Support session certificate must be provided as DER format with a `.cer` extension.
 - Use the following guidance when creating Support session certificates.
 
 ## VPN certificates
@@ -132,8 +133,8 @@ If VPN is configured on your Azure Stack Edge device, then you will also need a 
 
 ### Caveats
 
-- The VPN certificate must be provided in a *.cer* format.
-- Use the following guidance when creating VPN certificates.
+- The VPN certificate must be provided as DER format with a `.cer` extension.
+<!--- Use the following guidance when creating VPN certificates.-->
 
 ## Create certificates (optional)
 
@@ -153,7 +154,7 @@ You will have a defined way to create the certificates for the devices operating
 
 2. If you are bringing your own certificate, you will need a root certificate for the signing chain. See steps to [Create signing chain certificates](#create-signing-chain-certificate).
 
-3. You can next create the endpoint certificates for the local UI of the appliance, blob, and Azure Resource Manager. You can create 3 separate certificates for the appliance, blob, and ARM or you can create one certificate for all the 3 endpoints. For detailed steps, see [Create signing and endpoint certificates](#create-signed-endpoint-certificates).
+3. You can next create the endpoint certificates for the local UI of the appliance, blob, and Azure Resource Manager. You can create 3 separate certificates for the appliance, blob, and Azure Resource Manager, or you can create one certificate for all the 3 endpoints. For detailed steps, see [Create signing and endpoint certificates](#create-signed-endpoint-certificates).
 
 4. Whether you are creating 3 separate certificates or one certificate, specify the subject names (SN) and subject alternative names (SAN) as per the guidance provided for each certificate type. 
 
@@ -161,7 +162,7 @@ You will have a defined way to create the certificates for the devices operating
 
 Create these certificates via Windows PowerShell running in administrator mode. **The certificates created this way should be used for development or test purposes only.**
 
-The signing chain certificate needs to be crated only once. The other end point certificates will refer to this certificate for signing.
+The signing chain certificate needs to be created only once. The other end point certificates will refer to this certificate for signing.
  
 
 ```azurepowershell
@@ -230,7 +231,7 @@ Once the certificates are created, the next step is to upload the certificates o
 
 The certificates that you created for your device by default reside in the **Personal store** on your client. These certificates need to be exported on your client into appropriate format files that can then be uploaded to your device.
 
-1. The root certificate must be exported as a *.cer* format file. For detailed steps, see [Export certificates as a *.cer* format file](#export-certificates-as-cer-format).
+1. The root certificate must be exported as DER format with `.cer` extension. For detailed steps, see [Export certificates as DER format](#export-certificates-as-der-format).
 2. The endpoint certificates must be exported as *.pfx* files with private keys. For detailed steps, see [Export certificates as *.pfx* file with private keys](#export-certificates-as-pfx-format-with-private-key). 
 3. The root and endpoint certificates are then uploaded on the device using the **+ Add certificate** option on the Certificates page in the local web UI. 
 
@@ -257,15 +258,15 @@ The certificates that you created for your device by default reside in the **Per
 
 The certificates that you created and uploaded to your device must be imported on your Windows client (accessing the device) into the appropriate certificate store.
 
-1. The root certificate that you exported as the *.cer* should now be imported in the **Trusted Root Certificate Authorities** on your client system. For detailed steps, see [Import certificates into the Trusted Root Certificate Authorities store](#import-certificates-as-cer-format).
+1. The root certificate that you exported as the DER should now be imported in the **Trusted Root Certificate Authorities** on your client system. For detailed steps, see [Import certificates into the Trusted Root Certificate Authorities store](#import-certificates-as-cer-format).
 
-2. The endpoint certificates that you exported as the *.pfx* must be exported as *.cer*. This *.cer* is then imported in the **Personal certificate store** on your system. For detailed steps, see [Import certificates into the Personal certificate store](#import-certificates-as-cer-format).
+2. The endpoint certificates that you exported as the `.pfx` must be exported as DER with `.cer` extension. This `.cer` is then imported in the **Personal certificate store** on your system. For detailed steps, see [Import certificates into the Personal certificate store](#import-certificates-as-cer-format).
 
-### Import certificates as .cer format
+### Import certificates as DER format
 
 To import certificates on a Windows client, take the following steps:
 
-1. Right-click the `.cer` file and select **Install certificate**. This action starts the Certificate Import Wizard.
+1. Right-click the file and select **Install certificate**. This action starts the Certificate Import Wizard.
 
     ![Import certificate 1](media/azure-stack-edge-series-manage-certificates/import-cert-1.png)
 
@@ -294,7 +295,7 @@ Take the following steps to export an SSL certificate with private key on a Wind
 > [!IMPORTANT]
 > Perform these steps on the same machine that you used to create the certificate. 
 
-In MMC, double-click on Certificates (Local Computer) in the center window.
+1. Run *certlm.msc* to launch the local machine certificate store.
 
 1. Double click on the **Personal** folder, and then on **Certificates**.
 
@@ -338,7 +339,9 @@ In MMC, double-click on Certificates (Local Computer) in the center window.
 The .pfx file backup is now saved in the location you selected and is ready to be moved or stored for your safe keeping.
 
 
-### Export certificates as .cer format
+### Export certificates as DER format
+
+1. Run *certlm.msc* to launch the local machine certificate store.
 
 1. In the Personal certificate store, select the root certificate. Right-click and select **All Tasks > Export...**
 
@@ -360,12 +363,10 @@ The .pfx file backup is now saved in the location you selected and is ready to b
 
 ## Supported certificate algorithms
 
-Certificate algorithms are cryptographic algorithms that describe the mathematical procedures that are used for creating key pairs and performing digital signature operations. The Elliptic Curve Cryptographic (ECC) and RSA algorithms are the supported public key algorithms from which you can choose to generate the public-private key pair. 
+ Only the Rivest–Shamir–Adleman (RSA) certificates are supported with your Azure Stack Edge device. If Elliptic Curve Digital Signature Algorithm (ECDSA) certificates are used, then the device behavior is indeterminate.
 
-The certificate contains information to specify which algorithm to use for the key. Certificates that contain an RSA public key are referred to as RSA certificates. Certificates that contain an ECC public key are referred to as ECDSA (Elliptic Curve Digital Signature Algorithm) certificates. 
+ Certificates that contain an RSA public key are referred to as RSA certificates. Certificates that contain an Elliptic Curve Cryptographic (ECC) public key are referred to as ECDSA (Elliptic Curve Digital Signature Algorithm) certificates. 
 
-> [!IMPORTANT]
-> Only the RSA certificates are supported with your Azure Stack Edge device. If ECDSA certificates are used, then the device behavior is indeterminate.
 
 ## View certificate expiry
 
