@@ -61,7 +61,7 @@ Or [download the sample in a zip file](https://github.com/Azure-Samples/ms-ident
 
 This sample has one project. To register it, you can either:
 
-- Follow the steps in [Register the sample with your Azure Active Directory tenant](#register-the-sample-application-with-your-azure-ad-tenant) and [Configure the sample to use your Azure AD tenant](#choose-the-azure-ad-tenant-for-the-applications).
+- Follow the steps in [Register the sample with your Azure Active Directory tenant](#register-the-sample-application-with-your-azure-ad-tenant) and [Configure the sample to use your Azure AD tenant](#choose-the-azure-ad-tenant).
 - Use PowerShell scripts that:
   - *Automatically* create the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
   - Modify the Visual Studio projects' configuration files.
@@ -218,7 +218,7 @@ This project has web app and web API projects. To deploy them to Azure websites,
    1. Right-click the project in Solution Explorer, and then select **Publish**.
    1. Select **Import Profile** on the bottom bar, and import the publish profile that you downloaded earlier.
 1. Select **Configure**.
-1. On the **Connection** tab, update the destination URL so that uses "https." For example, use [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net). Select **Next**.
+1. On the **Connection** tab, update the destination URL so that it uses "https." For example, use [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net). Select **Next**.
 1. On the **Settings** tab, make sure that **Enable Organizational Authentication** is cleared.  
 1. Select **Save**. Select **Publish** on the main screen.
 
