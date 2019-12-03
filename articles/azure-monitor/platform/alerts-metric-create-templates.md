@@ -782,9 +782,19 @@ az group deployment create \
 
 ## Template for a more advanced Dynamic Thresholds metric alert
 
-You can use the following template to create a more advanced Dynamic Thresholds metric alert on dimensional metrics. Multiple criteria are not currently supported.
+You can use the following template to create a more advanced Dynamic Thresholds metric alert rule on dimensional metrics.
 
-Dynamic Thresholds alerts rule can create tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
+A single Dynamic Thresholds alert rule can create tailored thresholds for hundreds of metric time series (even different types) at a time, which results in fewer alert rules to manage.
+
+In the example below, the alert rule will monitor the dimensions value combinations of the **ResponseType** and **ApiName** dimensions for the **Transactions** metric:
+1. ResponsType - For each value of the **ResponseType** dimension, including future values, a different time series will be monitored individually.
+2. ApiName - A different time series will be monitored only for the **GetBlob** and **PutBlob** dimension values.
+
+For example, a few of the potential time series that will be monitored by this alert rule are:
+- Metric = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
+- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
 
 Save the json below as advanceddynamicmetricalert.json for the purpose of this walkthrough.
 
@@ -930,7 +940,7 @@ Save and modify the json below as advanceddynamicmetricalert.parameters.json for
         "resourceId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourcegroup-name/providers/Microsoft.Storage/storageAccounts/replace-with-storage-account"
         },
-        "criterion1": {
+        "criterion": {
             "value": {
                     "criterionType": "DynamicThresholdCriterion",
                     "name": "1st criterion",
@@ -939,12 +949,12 @@ Save and modify the json below as advanceddynamicmetricalert.parameters.json for
                         {
                             "name":"ResponseType",
                             "operator": "Include",
-                            "values": ["Success"]
+                            "values": ["*"]
                         },
                         {
                             "name":"ApiName",
                             "operator": "Include",
-                            "values": ["GetBlob"]
+                            "values": ["GetBlob", "PutBlob"]
                         }
                     ],
                     "operator": "GreaterOrLessThan",
@@ -955,7 +965,7 @@ Save and modify the json below as advanceddynamicmetricalert.parameters.json for
                     },
                     "timeAggregation": "Total"
                 }
-        }
+        },
         "actionGroupId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-actiongroup-name"
         }
@@ -991,7 +1001,7 @@ az group deployment create \
 
 >[!NOTE]
 >
-> While the metric alert could be created in a different resource group to the target resource, we recommend using the same resource group as your target resource.
+> Multiple criteria are not currently supported for metric alert rules that use Dynamic Thresholds.
 
 ## Template for metric alert that monitors multiple resources
 
