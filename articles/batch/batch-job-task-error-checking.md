@@ -12,13 +12,13 @@ ms.author: markscu
 
 # Job and task error checking
 
-There are various errors that can occur when adding jobs and tasks; detecting failures for these operations is straightforward because any failures are returned immediately by the API, CLI, or UI.  However, there are failures that can happen later when jobs and tasks are scheduled and actually run.
+There are various errors that can occur when adding jobs and tasks. Detecting failures for these operations is straightforward because any failures are returned immediately by the API, CLI, or UI.  However, there are failures that can happen later when jobs and tasks are scheduled and run.
 
-This article covers the errors that can occur after jobs and tasks are submitted; it lists and explains the errors that need to be checked and handled.
+This article covers the errors that can occur after jobs and tasks are submitted. It lists and explains the errors that need to be checked and handled.
 
 ## Jobs
 
-A job is a grouping of one or more tasks; the tasks actually specify the command lines to be run and are the units of execution.
+A job is a grouping of one or more tasks, the tasks actually specifying the command lines to be run.
 
 When adding a job, the following parameters can be specified which can influence how the job can fail:
 
@@ -34,7 +34,7 @@ When adding a job, the following parameters can be specified which can influence
 The following job properties should be checked for errors:
 
 - '[executionInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#jobexecutioninformation)':
-  - The 'terminateReason' property can have values to indicate that the 'maxWallClockTime', specified in the job constraints, was exceeded and therefore the job was terminated. It can can also be set to indicate a task failed if the job 'onTaskFailure' property was set appropriately.
+  - The 'terminateReason' property can have values to indicate that the 'maxWallClockTime', specified in the job constraints, was exceeded and therefore the job was terminated. It can also be set to indicate a task failed if the job 'onTaskFailure' property was set appropriately.
   - The '[schedulingError](https://docs.microsoft.com/rest/api/batchservice/job/get#jobschedulingerror)' property is set if there has been a scheduling error.
  
 ### Job preparation tasks
