@@ -401,8 +401,6 @@
         "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
       },
       "manager": {
-        "articles/connectors/*.md": "carmonm",
-        "articles/logic-apps/*.md": "carmonm",
         "articles/sql-database/**/*.md": "jroth",
         "articles/azure-functions/**/*.md": "gwallace",
         "articles/app-service/**/*.md": "gwallace",
