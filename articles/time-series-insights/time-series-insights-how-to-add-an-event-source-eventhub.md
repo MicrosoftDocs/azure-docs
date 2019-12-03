@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/02/2019
 ms.custom: seodec18
 ---
 
@@ -33,13 +33,15 @@ Applications use consumer groups to pull data from Azure Event Hubs. To reliably
 
 To add a new consumer group in your event hub:
 
-1. In the [Azure portal](https://portal.azure.com), locate and open your event hub from the event hub namespace.
+1. In the [Azure portal](https://portal.azure.com), locate and open your event hub instance from the **Overview** pane of your event hub namespace. Select **Entities > Event Hubs** or find your instance under **Name**.
 
-    [![Open your event hub namespace](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-hub-namespace.png#lightbox)
+    [![Open your event hub namespace](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png#lightbox)
 
-1. Under **Entities**, select **Consumer groups**, and then select **Consumer Group**.
+1. In your event hub instance, select **Entities > Consumer groups**. Then, select **+ Consumer group** to add a new consumer group. 
 
-   [![Event hub - Add a consumer group](media/time-series-insights-how-to-add-an-event-source-eventhub/2-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-event-hub-consumer-group.png#lightbox)
+   [![Event hub - Add a consumer group](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png#lightbox)
+
+   Otherwise, select a consumer group and skip to the next section.
 
 1. On the **Consumer groups** page, enter a new unique value for **Name**.  Use this same name when you create a new event source in the Time Series Insights environment.
 
