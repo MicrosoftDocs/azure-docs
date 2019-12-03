@@ -1,6 +1,6 @@
 ---
 title: Submit your Office solution to AppSource via Partner Center
-description: For your Office Add-in, Office 365 web app, or Power BI custom visual to appear in the AppSource, you need to submit it to the Seller Dashboard for approval.
+description: If you want your Office solution to appear in AppSource, you need to submit it to Partner Center for approval.
 localization_priority: Priority
 ---
 
@@ -11,6 +11,9 @@ If you want your Office solution to appear in AppSource, you need to submit it t
 If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, see [Create or update client IDs and secrets in Partner Center](create-or-update-client-ids-and-secrets.md).
 
 For information about the AppSource approval process, see [Make your solutions available in AppSource](submit-to-the-office-store.md).
+
+>[!NOTE]
+>If your solutions haven't been migrated to Partner center, you can use [Seller Dashboard](use-the-seller-dashboard-to-submit-to-the-office-store.md) to submit to AppSource. For details about the Partner Center migration, see the [FAQ](partner-center-faq.md).
 
 ## Submission process
 
