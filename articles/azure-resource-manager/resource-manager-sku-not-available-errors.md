@@ -24,6 +24,8 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 You receive this error when the resource SKU you've selected (such as VM size) isn't available for the location you've selected.
 
+If you are deploying an Azure Spot VM or Spot scale set instance, there isn't any capacity for Azure Spot in this location. For more information, see [Spot error messages](../virtual-machines/error-codes-spot.md).
+
 ## Solution 1 - PowerShell
 
 To determine which SKUs are available in a region, use the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) command. Filter the results by location. You must have the latest version of PowerShell for this command.
