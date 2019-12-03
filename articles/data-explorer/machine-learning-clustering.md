@@ -19,7 +19,7 @@ Azure Data Explorer has three Machine Learning plugins: [`autocluster`](/azure/k
 
 ## Clustering a single record set
 
-A common scenario includes a data set selected by a specific criteria such as time window that exhibits anomalous behavior, high temperature device readings, long duration commands, and top spending users. We would like a simple and fast way to find common patterns (segments) in the data. Patterns are a subset of the data set whose records share the same values over multiple dimensions (categorical columns). The following query builds and shows a time series of service exceptions over a week in ten-minute bins:
+A common scenario includes a data set selected by a specific criteria such as time window that exhibits anomalous behavior, high temperature device readings, long duration commands, and top spending users. We would like an easy and fast way to find common patterns (segments) in the data. Patterns are a subset of the data set whose records share the same values over multiple dimensions (categorical columns). The following query builds and shows a time series of service exceptions over a week in ten-minute bins:
 
 **\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5XPsaoCQQyF4d6nCFa7oHCtZd9B0F6G8ajByWTJZHS5+PDOgpVgYRn485EkOAnno9NAriWGFKw7QfQYUy0O43zZ0JNKFQnG/5jrbmeIXHBgwd6DjH2/JVqk2QrTL1aYvlifa4tni29YlzaiUK4yRK3Zu54006dBZ1N5/+X6PqpRI23+pFGGfIKRtz5egzk92K+dsycMyz3szhGEKWJ01lxI760O9ABuq0bMcvV2hqFoqnOz7F9BdSHlSgEAAA==)**\]**
 
@@ -157,7 +157,7 @@ demo_clustering1
 
 Basket implements the Apriori algorithm for item set mining and extracts all segments whose coverage of the record set is above a threshold (default 5%). You can see that more segments were extracted with similar ones (for example, segments 0,1 or 2,3).
 
-Both plugins are powerful and easy to use, but their significant limitation is due to the fact that they cluster a single record set in an unsupervised manner (with no labels). It's therefore unclear whether the extracted patterns characterize the selected record set (the anomalous records) or the global record set.
+Both plugins are powerful and easy to use, but their significant limitation is that they cluster a single record set in an unsupervised manner (with no labels). It's therefore unclear whether the extracted patterns characterize the selected record set (the anomalous records) or the global record set.
 
 ## Clustering the difference between two records sets
 
