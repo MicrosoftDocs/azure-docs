@@ -18,10 +18,12 @@ ms.collection: M365-identity-device-management
 
 # Register your verification method info to reset your own password
 
-> [!IMPORTANT]
-> Are you here because you can't sign in? If so, see [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
+If you forgot your work or school password, never got a password from your organization, or have been locked out of your account, you can use your security info and your mobile device to reset your work or school password.
 
-As an end user, you can reset your password or unlock your account by yourself if you use Azure Active Directory (Azure AD) self-service password reset (SSPR). Before you can use this functionality, you have to register your verification methods or confirm the predefined verification methods that your administrator has populated.
+Your administrator must turn this feature on for you to be able to register your information and reset your own password. If you don't see the **Forgot my password** option, it means that your administrator hasn't turned the feature on for your organization. If you believe this to be incorrect, contact your help desk for assistance.
+
+>[!Important]
+>This article is intended for users trying to use sign up for self-service password reset. This means that you’ll be able to reset your own work or school password (such as, alain@contoso.com), without requiring your administrator’s help. If you're an administrator looking for information about how to turn on self-service password reset for your employees or other users, see the [Deploy Azure AD self-service password reset and other articles]( https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## Register or confirm authentication data with SSPR
 
@@ -60,4 +62,3 @@ Your administrators might require you to confirm your verification methods after
 * [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Password Reset Registration page showing the registered methods and the finish button"
-

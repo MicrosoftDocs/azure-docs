@@ -22,8 +22,6 @@
     href: user-help-sign-in.md?toc=./toc.json
 - name: Password reset help
   items:
-  - name: Overview
-    href: user-help-password-reset-overview.md    
   - name: Sign up for password reset
     href: active-directory-passwords-reset-register.md
   - name: Reset your password

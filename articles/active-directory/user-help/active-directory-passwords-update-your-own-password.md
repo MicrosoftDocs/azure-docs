@@ -17,11 +17,12 @@ ms.collection: M365-identity-device-management
 
 # Reset your work or school password
 
-If you forgot your password, never got one from your company support, or have been locked out of your account, you can use your security info and your mobile device to reset your password.
+If you forgot your work or school password, never got a password from your organization, or have been locked out of your account, you can use your security info and your mobile device to reset your work or school password. Your administrator must turn this feature on for you to be able to register your information and reset your own password. If you don't see the **Forgot my password** option, it means that your administrator hasn't turned the feature on for your organization. If you believe this to be incorrect, contact your help desk for assistance.
 
->[!NOTE]
->If you know your password and just want to change it, you can go to the [Change your password](#how-to-change-your-password) steps in this article.<br><br>
->If you're trying to get back into a personal account like Xbox, hotmail.com, or outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
+If you know your password, but want to change it, see the [Change your password steps](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) sections of this article.
+
+>[!Important]
+>This article is intended for users trying to use reset a forgotten or unknown work or school account password. If you're an administrator looking for information about how to turn on self-service password reset for your employees or other users, see the [Deploy Azure AD self-service password reset and other articles]( https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## How to reset or unlock your password for a work or school account
 
@@ -159,10 +160,7 @@ Here are some common error cases and their solutions:
 |After I enter my User ID, I get an error that says, "We couldn't verify your account."|The sign-in process was unable to verify your account info.|There are two reasons you could be seeing this message.<br><br>1. Your administrator turned on password reset for your organization, but you haven't registered to use the service. To register for password reset, see one of the following articles, based on your verification method: [Set up security info to use an authenticator app (preview)](security-info-setup-auth-app.md), [Set up security info to use a phone call (preview)](security-info-setup-phone-number.md), [Set up security info to use text messaging (preview)](security-info-setup-text-msg.md), [Set up security info to use email (preview)](security-info-setup-email.md), or [Set up security info to use security questions (preview)](security-info-setup-questions.md).<br><br>2. Your administrator hasn't turned on password reset for your organization. In this situation, you must select the "contact an administrator link" to send an email to your administrator, asking to reset your password.|
 
 ## Next steps
+
 - Learn about security info in the [Security info (preview) overview](user-help-security-info-overview.md) article.
 
-- Learn about two-step verification in the [Two-step verification overview](user-help-two-step-verification-overview.md) article. 
-
-- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/)
-
-- Get troubleshooting tips and help for sign-in problems in the [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
+- If you're trying to get back into a personal account like Xbox, hotmail.com, or outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account article](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
