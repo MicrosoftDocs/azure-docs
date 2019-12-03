@@ -42,7 +42,7 @@ This article shows how to list an application in the Azure Active Directory (Azu
 - For SAML 2.0/WS-Fed, your application must have the capability to do the SAML/WS-Fed SSO integration in SP or IDP mode. Make sure this capability is working correctly before you submit the request.
 - For password SSO, make sure that your application supports form authentication so that password vaulting can be done to get single sign-on to work as expected.
 - You need a permanent account for testing with at least two users registered.
-- You can get a free test account with all the premium Azure AD features - 90 days free and can get extended as long as you do dev work with it: https://docs.microsoft.com/en-us/office/developer-program/office-365-developer-program
+- You can get a free test account with all the premium Azure AD features - 90 days free and can get extended as long as you do dev work with it: https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## Submit the request in the portal
 
