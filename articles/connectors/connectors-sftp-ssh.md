@@ -30,10 +30,6 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
 * By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md), except for the Copy File action, which can handle only 15 MB files. The **Get file content** action implicitly uses message chunking.
 
-  > [!NOTE]
-  > If chunking is enabled, the trigger body (`@triggerBody()?['Content']`) 
-  > can't be passed on to SFTP-SSH actions. 
-
 * SFTP-SSH triggers don't support chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
 
   * Use an SFTP-SSH trigger that returns file properties, such as **When a file is added or modified (properties only)**.
