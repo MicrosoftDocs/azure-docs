@@ -84,7 +84,7 @@ For more information see the [licensing guide](https://download.microsoft.com/do
 
 To enable this benefit, navigate to your [SQL Server virtual machine resource](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource), select **Configure** under settings, and then choose the **Disaster Recovery** option under **Licensing**. Select the checkbox to confirm that this SQL Server VM will be used as a passive replica, and then select **Apply** to save your settings. 
 
-\********PORTAL IMAGE IS GOING TO GO HERE ONCE ITS UPDATED*****
+![Free DR replica](media/virtual-machines-windows-sql-high-availability-dr/free-dr-replica-azure.png)
 
 
 ## Important considerations for SQL Server HADR in Azure
