@@ -1,5 +1,5 @@
 ---
-title: What is automated ML / automl
+title: What is automated ML / AutoML
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
 services: machine-learning
