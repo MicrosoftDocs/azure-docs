@@ -143,7 +143,7 @@ In order to view the schema and verify it, do the following steps:
                 "passwordCredentials": []
             },
     ```
-6. Replace the {Service Principal id} with your value and run the following query: https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/
+6. Replace the {Service Principal id} with your value and run the following query: `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`
 7. Locate the "id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976" section and note the "id:".
     ```
     {
@@ -235,7 +235,7 @@ In order to view the schema and verify it, do the following steps:
                 ]
             }
     ```
-8. Now run the following query: https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema
+8. Now run the following query: `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`
  
     Example:  https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
 
