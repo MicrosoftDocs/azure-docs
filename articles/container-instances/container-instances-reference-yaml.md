@@ -1,14 +1,8 @@
 ---
-title: Azure Container Instances YAML reference    
+title: YAML reference for container group   
 description: Reference for the YAML file supported by Azure Container Instances to configure a container group
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: danlep
 ---
 
 # YAML reference: Azure Container Instances

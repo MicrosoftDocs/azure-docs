@@ -91,12 +91,6 @@ Use these optional properties to configure transcription:
 
 Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) for reading audio and writing transcriptions to storage.
 
-## Webhooks
-
-Polling for transcription status may not be the most performant, or provide the best user experience. To poll for status, you can register callbacks, which will notify the client when long-running transcription tasks have completed.
-
-For more details, see [Webhooks](webhooks.md).
-
 ## Speaker Separation (Diarization)
 
 Diarization is the process of separating speakers in a piece of audio. Our Batch pipeline supports Diarization and is capable of recognizing two speakers on mono channel recordings.
@@ -117,7 +111,7 @@ To request that your audio transcription request is processed for diarization, y
 }
 ```
 
-Word level timestamps would also have to be 'turned on' as the parameters in the above request indicate.
+Word level timestamps would also have to be 'turned on' as the parameters in the above request indicate. 
 
 The corresponding audio will contain the speakers identified by a number (currently we support only two voices, so the speakers will be identified as 'Speaker 1 'and 'Speaker 2') followed by the transcription output.
 
@@ -185,7 +179,7 @@ You have to customize the sample code with your subscription information, the se
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
-The sample code will setup the client and submit the transcription request. It will then poll for status information and print details about the transcription progress.
+The sample code will set up the client and submit the transcription request. It will then poll for status information and print details about the transcription progress.
 
 [!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchstatus)]
 
