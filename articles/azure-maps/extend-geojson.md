@@ -1,6 +1,6 @@
 ---
 title: Extended GeoJSON geometries in Azure Maps | Microsoft Docs
-description: In this article, learn about how Azure Maps extends the GeoJSON spec to represent certain geometries.
+description: In this article, you will learn about how Azure Maps extends the GeoJSON spec to represent certain geometries.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/17/2018

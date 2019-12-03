@@ -1,10 +1,6 @@
 ---
 title: How to render custom data on a raster map in Azure Maps | Microsoft Docs
-<<<<<<< HEAD
-description: In this article, learn how to render custom data on a raster map in Azure Maps by using Azure Maps static image service.
-=======
 description: In this article, you'll learn how to render custom data on a raster map by using Azure Maps static image service.
->>>>>>> e9bc6d0e50e725db1d96dc0cfec14b57d1d264f9
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
