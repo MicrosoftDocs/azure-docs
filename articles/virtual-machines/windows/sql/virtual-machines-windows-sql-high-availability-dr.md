@@ -73,7 +73,8 @@ You can have a disaster recovery solution for your SQL Server databases in a hyb
 
 
 ## Free DR replica in Azure
-Software assurance customers can implement hybrid disaster recovery plans with SQL Server using Always On availability groups or failover cluster instances without incurring additional licensing costs for the passive replica.
+
+if you have Software Assurance, you can implement hybrid disaster recovery (DR) plans with SQL Server using Always On availability groups or failover cluster instances without incurring additional licensing costs for the passive DR instance.
 
 In the image below, the setup uses SQL Server running on an Azure Virtual Machine utilizing 12 cores as a disaster recovery replica for an on-premises SQL Server deployment using 12 cores. In the past, you would need to license 12 cores of SQL Server for the on-premises and the Azure Virtual Machine deployment. The new benefit offers passive replica benefits running on an Azure Virtual Machine. Now you would need to only license 12 cores of SQL Server running on-premises as long as the disaster recovery criteria for the passive replica on Azure Virtual Machine is met.
 
