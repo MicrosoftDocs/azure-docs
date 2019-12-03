@@ -131,7 +131,7 @@ Before you get started, make sure to:
    ./helloworld
    ```
 
-1. Your audio file is transmitted to the Speech services and the first utterance in the file is transcribed to text, which appears in the same window.
+1. Your audio file is transmitted to the Speech service and the first utterance in the file is transcribed to text, which appears in the same window.
 
    ```text
    Recognizing first result...
