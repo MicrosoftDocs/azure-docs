@@ -60,6 +60,66 @@ Additional characteristics:
 * Two shots: shows two persons’ faces of medium size.
 * Multiple faces: more than two persons.
 
+## Extracting Keyframes
+
+To extract high-resolution keyframes for your video, you must first upload and index the video.
+
+![Keyframes](./media/scenes-shots-keyframes/extracting-keyframes.png)
+
+### With the Video Indexer website
+
+To extract keyframes using the Video Indexer website, upload and index your video. Once the indexing job is complete, click on the **Download** button and select **Artifacts (ZIP)**. This will download the artifacts folder to your computer. 
+
+![Keyframes](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+ 
+Unzip and open the folder. In the *_KeyframeThumbnail* folder, and you will find all of the keyframes that were extracted from your video. 
+
+### With the Video Indexer API
+
+To get keyframes using the Video Indexer API, upload and index your video using the [Upload Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?) call. Once the indexing job is complete, call [Get Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?). This will give you all of the insights that Video Indexer extracted from your content in a JSON file.  
+
+You will get a list of keyframe IDs as part of each shot's metadata. You will now need to run each of these keyframe IDs on the [Get Thumbnails](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?) call. This will download each of the keyframe images to your computer. 
+
+```json
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
+      ],
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+
+]
+```
+
 ## Next steps
 
 [Examine the Video Indexer output produced by the API](video-indexer-output-json-v2.md#scenes)
