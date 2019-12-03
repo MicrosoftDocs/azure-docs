@@ -3,11 +3,11 @@ title: system requirements
 description: System requirements for ARR.
 author: FlorianBorn71
 manager: jlyons
-services: RemoteRendering
+services: azure-spatial-anchors
 ms.author: flborn
 ms.date: 12/03/2019
 ms.topic: overview
-ms.service: RemoteRendering
+ms.service: azure-spatial-anchors
 ---
 
 # System Requirements
