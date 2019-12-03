@@ -176,8 +176,8 @@ Add a single row under the “sink” section of the copy activity as follows:
 
 ```json
 "sink": {
-"type": "AzureDataExplorerSink",
-"additionalProperties": "{\"tags\":\"[\\\"drop-by:account_FiscalYearID_2020\\\"]\"}"
+    "type": "AzureDataExplorerSink",
+    "additionalProperties": "{\"tags\":\"[\\\"drop-by:account_FiscalYearID_2020\\\"]\"}"
 },
 ```
 
