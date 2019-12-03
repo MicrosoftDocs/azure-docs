@@ -44,11 +44,7 @@ You'll need to set the `cache` property on the indexer to start benefitting from
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters": {
-        "configuration": {
-            "enableAnnotationCache": true
-        }
-    }
+    "parameters": {}
 }
 ```
 
