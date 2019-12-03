@@ -1,5 +1,5 @@
 ---
-title: Receive and respond to HTTPS calls - Azure Logic Apps
+title: Receive and respond to HTTPS calls
 description: Handle HTTPS requests and events in real time by using Azure Logic Apps
 services: logic-apps
 

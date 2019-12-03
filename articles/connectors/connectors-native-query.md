@@ -1,5 +1,5 @@
 ---
-title: Add the query action in logic apps | Microsoft Docs
+title: Add the query action in logic apps
 description: Overview of the query action for performing actions like filter array.
 services: ''
 documentationcenter: ''

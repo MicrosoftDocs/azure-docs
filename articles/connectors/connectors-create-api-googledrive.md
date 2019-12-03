@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Connect to Google Drive - Azure Logic Apps | Microsoft Docs
+title: Connect to Google Drive
 description: Create and manage files with Google Drive REST APIs and Azure Logic Apps
 author: ecfan
 manager: jeconnoc

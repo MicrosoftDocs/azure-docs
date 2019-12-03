@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Connect to OneDrive for Business - Azure Logic Apps | Microsoft Docs
+title: Connect to OneDrive for Business
 description: Upload and manage files with OneDrive for Business REST APIs and Azure Logic Apps 
 author: ecfan
 manager: jeconnoc

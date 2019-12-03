@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Connect to Office 365 Video - Azure Logic Apps | Microsoft Docs
+title: Connect to Office 365 Video
 description: Manage videos with Office 365 Video REST APIs and Azure Logic Apps 
 author: ecfan
 manager: jeconnoc

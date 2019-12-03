@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Connect to OneDrive - Azure Logic Apps | Microsoft Docs
+title: Connect to OneDrive
 description: Upload and manage files with OneDrive REST APIs and Azure Logic Apps 
 author: ecfan
 manager: jeconnoc

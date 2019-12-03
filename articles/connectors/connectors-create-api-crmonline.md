@@ -1,5 +1,5 @@
 ---
-title: Connect to Dynamics 365 - Azure Logic Apps
+title: Connect to Dynamics 365
 description: Create and manage records with Dynamics 365 (online) REST APIs and Azure Logic Apps
 services: logic-apps
 

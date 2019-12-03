@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Connect to IBM Informix database - Azure Logic Apps | Microsoft Docs
+title: Connect to IBM Informix database
 description: Manage resources with IBM Informix REST APIs and Azure Logic Apps 
 author: gplarsen
 manager: jeconnoc

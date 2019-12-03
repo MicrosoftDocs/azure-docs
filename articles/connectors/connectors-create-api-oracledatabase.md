@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Connect to Oracle Database - Azure Logic Apps | Microsoft Docs
+title: Connect to Oracle Database
 description: Insert and manage records with Oracle Database REST APIs and Azure Logic Apps 
 author: ecfan
 manager: jeconnoc

@@ -1,5 +1,5 @@
 ---
-title: Connect to Facebook - Azure Logic Apps
+title: Connect to Facebook
 description: Manage your timeline and page with Facebook REST APIs and Azure Logic Apps
 services: logic-apps
 

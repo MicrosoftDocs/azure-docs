@@ -1,5 +1,5 @@
 ﻿---
-title: Connect to Bing Search - Azure Logic Apps
+title: Connect to Bing Search
 description: Find news with Bing Search REST APIs and Azure Logic Apps
 services: logic-apps
 

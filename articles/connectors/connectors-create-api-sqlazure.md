@@ -1,5 +1,5 @@
 ---
-title: Connect to SQL Server or Azure SQL Database - Azure Logic Apps
+title: Connect to SQL Server or Azure SQL Database
 description: Automate tasks for SQL databases on premises or in the cloud by using Azure Logic Apps
 services: logic-apps
 

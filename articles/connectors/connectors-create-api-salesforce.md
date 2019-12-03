@@ -1,5 +1,5 @@
 ---
-title: Connect to Salesforce from Azure Logic Apps | Microsoft Docs
+title: Connect to Salesforce from Azure Logic Apps
 description: Automate tasks and workflows that monitor, create, and manage Salesforce records and jobs by using Azure Logic Apps
 services: logic-apps
 

@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Connect to Microsoft Translator - Azure Logic Apps | Microsoft Docs
+title: Connect to Microsoft Translator
 description: Translate text and perform other language tasks with Microsoft Translator REST APIs and Azure Logic Apps 
 author: ecfan
 manager: jeconnoc

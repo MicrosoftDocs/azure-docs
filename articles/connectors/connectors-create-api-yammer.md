@@ -1,5 +1,5 @@
 ---
-title: Connect to Yammer from Azure Logic Apps | Microsoft Docs
+title: Connect to Yammer from Azure Logic Apps
 description: Automate tasks and workflows that monitor, post, and manage messages, feeds, and more in Yammer by using Azure Logic Apps
 services: logic-apps
 

@@ -1,5 +1,5 @@
 ---
-title: Connect to SendGrid from Azure Logic Apps | Microsoft Docs
+title: Connect to SendGrid from Azure Logic Apps
 description: Automate tasks and workflows that send emails and manage mailing lists in SendGrid by using Azure Logic Apps
 services: logic-apps
 

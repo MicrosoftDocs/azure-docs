@@ -1,5 +1,5 @@
 ---
-title: Connect to Box - Azure Logic Apps
+title: Connect to Box
 description: Create and manage files with Box REST APIs and Azure Logic Apps
 services: logic-apps
 

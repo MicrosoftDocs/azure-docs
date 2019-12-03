@@ -1,5 +1,5 @@
 ---
-title: Connect to Outlook.com - Azure Logic Apps | Microsoft Docs
+title: Connect to Outlook.com
 description: Manage email, calendars, and contacts with Outlook.com REST APIs and Azure Logic Apps
 services: logic-apps
 

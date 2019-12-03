@@ -1,5 +1,5 @@
 ---
-title: Connect to GitHub - Azure Logic Apps
+title: Connect to GitHub
 description: Monitor GitHub events with GitHub REST APIs and Azure Logic Apps
 services: logic-apps
 

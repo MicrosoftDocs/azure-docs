@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Connect to Office 365 Outlook - Azure Logic Apps | Microsoft Docs
+title: Connect to Office 365 Outlook
 description: Manage email, contacts, and calendars with Office 365 REST APIs and Azure Logic Apps 
 author: ecfan
 manager: jeconnoc

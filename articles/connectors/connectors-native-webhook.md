@@ -1,5 +1,5 @@
 ---
-title: Wait and respond to events - Azure Logic Apps
+title: Wait and respond to events
 description: Automate workflows that trigger, pause, and resume based on events at a service endpoint by using Azure Logic Apps
 services: logic-apps
 

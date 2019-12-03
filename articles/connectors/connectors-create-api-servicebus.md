@@ -1,5 +1,5 @@
 ---
-title: Exchange messages with Azure Service Bus - Azure Logic Apps
+title: Exchange messages with Azure Service Bus
 description: Send and receive messages by using Azure Service Bus in Azure Logic Apps
 services: logic-apps
 

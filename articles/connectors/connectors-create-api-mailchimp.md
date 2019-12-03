@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Connect to MailChimp - Azure Logic Apps | Microsoft Docs
+title: Connect to MailChimp
 description: Create and manage marketing emails with MailChimp REST APIs and Azure Logic Apps 
 author: ecfan
 manager: jeconnoc

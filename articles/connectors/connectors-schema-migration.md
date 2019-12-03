@@ -1,5 +1,5 @@
 ---
-title: Migrate apps to latest schema - Azure Logic Apps | Microsoft Docs
+title: Migrate apps to latest schema
 description: How to migrate your logic apps to the latest schema version
 services: logic-apps
 

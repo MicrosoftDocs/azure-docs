@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Event Hubs - Azure Logic Apps
+title: Connect to Azure Event Hubs
 description: Manage and monitor events with Azure Event Hubs and Azure Logic Apps 
 services: logic-apps
 
