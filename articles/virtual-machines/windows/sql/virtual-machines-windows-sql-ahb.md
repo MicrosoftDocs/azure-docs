@@ -140,7 +140,7 @@ You'll need to register your subscription with the resource provider, and then [
 
 ## The virtual machine '\<vmname\>' has more than one NIC associated
 
-This error occurs on virtual machines that have more than one NIC. Remove one of the NICs before you change the licensing model. Although you can add the NIC back to the VM after the you change the license model, operations in the Azure portal such as automatic backup and patching will no longer be supported. 
+This error occurs on virtual machines that have more than one NIC. Remove one of the NICs before you change the licensing model. Although you can add the NIC back to the VM after you change the license model, operations in the Azure portal such as automatic backup and patching will no longer be supported. 
 
 
 ## Next steps
