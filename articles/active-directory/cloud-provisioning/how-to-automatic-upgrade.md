@@ -25,13 +25,13 @@ The agent is installed here:  **"Program files\Azure AD Connect Provisioning Age
 
 You can verify your version by right-clicking on the executable and selecting properties and then details.
 
-![Agent file version](media/how-to-cloud-prov-agent/agent1.png)
+![Agent file version](media/how-to-automatic-upgrade/agent1.png)
 
 The agent updater is installed here:  **"Program files\Azure AD Connect Provisioning Agent Updater\AzureADConnectAgentUpdater.exe"**
 
 You can verify your version by right-clicking on the executable and selecting properties and then details.
 
-![Agent updater version](media/how-to-cloud-prov-agent/agent2.png)
+![Agent updater version](media/how-to-automatic-upgrade/agent2.png)
 
 ## Uninstalling the agent
 To remove the agent, navigate to **Uninstall or change a program** and uninstall the following:
@@ -40,7 +40,7 @@ To remove the agent, navigate to **Uninstall or change a program** and uninstall
 - Microsoft Azure AD Connect Provisioning Agent
 - Microsoft Azure AD Connect Provisioning Agent Package
 
-![Agent removal](media/how-to-cloud-prov-agent/agent3.png)
+![Agent removal](media/how-to-automatic-upgrade/agent3.png)
 
 ## Next steps 
 

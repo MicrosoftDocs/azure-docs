@@ -28,7 +28,7 @@ To add a custom attribute mapping, use the following procedure.
 
 1. Copy the schema into a text or code editor such as [Visual Studio Code](https://code.visualstudio.com/).  
 2. Locate the object that you wish to update in the schema
-![](media/how-to-cloud-prov-transformation/transform1.png)</br>
+ ![](media/how-to-transformation/transform1.png)</br>
 3. Locate the code for **ExtensionAttribute3** under the user object.
 
     ```
@@ -85,16 +85,16 @@ To add a custom attribute mapping, use the following procedure.
                             },
     ```
  5. Copy the schema back into Graph Explorer, change the Request Type to PUT and **Run Query**.  
-![](media/how-to-cloud-prov-transformation/transform2.png)</br>
+ ![](media/how-to-transformation/transform2.png)</br>
  6.  Now, in the Azure portal, navigate to the cloud provisioning configuration and **Restart Provisioning**.
-![](media/how-to-cloud-prov-transformation/transform3.png)</br>
+ ![](media/how-to-transformation/transform3.png)</br>
  7.  After a little while, verify the attributes are being populated by running the following query in Graph Explorer.
     
    ```
     https://graph.microsoft.com/beta/users/{Azure AD user UPN}
    ```
  8.  You should now see the value.
- ![](media/how-to-cloud-prov-transformation/transform4.png)</br>
+ ![](media/how-to-transformation/transform4.png)</br>
 
 ## Custom attribute mapping with function
 For more advanced mapping you can use functions that will allow you to manipulate the data and create values for attribute to suit your organizations needs.

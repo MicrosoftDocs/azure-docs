@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # What is identity provisioning?
 
-![cloud provisioning](media/whatis-prov/cloud1.png)
+![cloud provisioning](media/what-is-provisioning/cloud1.png)
 
 Today, businesses, and corporations are becoming more and more a mixture of on-premises and cloud applications.  Users require access to  applications both on-premises and in the cloud. There is need to have a single identity across these various applications (on-premises as well as cloud).
 
@@ -28,7 +28,7 @@ With regard to Azure Active Directory, provisioning can be broken down in to the
 - **[Directory provisioning](#directory-provisioning)** 
 
 ## HR driven provisioning
-![cloud provisioning](media/whatis-prov/cloud2.png)
+![cloud provisioning](media/what-is-provisioning/cloud2.png)
 
 Provisioning from HR to the cloud involves the creation of objects (users, roles, groups, etc.) based on the information that is in your HR system.  
 
@@ -41,14 +41,14 @@ The most common scenario would be, when a new employee joins your company, they 
 
 
 ## App provisioning
-![cloud provisioning](media/whatis-prov/cloud3.png)
+![cloud provisioning](media/what-is-provisioning/cloud3.png)
 
 App provisioning involves the provisioning of users and roles in the applications the user needs access to.  
 
 The most common scenario would be, when a user in Azure AD is provisioned into O365 or Salesforce.
 
 ## Directory provisioning
-![cloud provisioning](media/whatis-prov/cloud4.png)
+![cloud provisioning](media/what-is-provisioning/cloud4.png)
 
 On-premises provisioning involves provisioning from on-premises sources (like Active Directory) to Azure AD.  
 

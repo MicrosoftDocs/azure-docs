@@ -32,23 +32,23 @@ The following is a list of information to keep in mind when selecting a solution
 
 
 ## Multi-forest, single Azure AD tenant
-![Topology for a multi-forest and a single tenant](media/plan-cloud-prov-topologies/multi-forest.png)
+![Topology for a multi-forest and a single tenant](media/plan-cloud-provisioning-topologies/multi-forest.png)
 
 The most common topology is a multiple AD forests, with one or multiple domains, and a single Azure AD tenant.  
 
 ## Existing forest with Azure AD Connect, new forest with cloud Provisioning
-![Topology for a single forest and a single tenant](media/plan-cloud-prov-topologies/existing-forest-new-forest.png)
+![Topology for a single forest and a single tenant](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
 
 This scenario is topology is similar to the multi-forest scenario, however this one involves an existing Azure AD Connect environment and then bringing on a new forest using Azure AD Connect cloud provisioning.  For an example of this scenario see [Tutorial: An existing forest with a single Azure AD tenant](tutorial-existing-forest.md)
 
 ## Piloting Azure AD Connect cloud provisioning in an existing hybrid AD forest
-![Topology for a single forest and a single tenant](media/plan-cloud-prov-topologies/migrate.png)
+![Topology for a single forest and a single tenant](media/plan-cloud-provisioning-topologies/migrate.png)
 The piloting scenario involves the existence of both Azure AD Connect and Azure AD Connect cloud provisioning in the same forest and scoping the users and groups accordingly. NOTE: An object should be in scope in only one of the tools. 
 
 For an example of this scenario see [Tutorial: Pilot Azure AD Connect cloud provisioning in an existing synced AD forest](tutorial-pilot-aadc-aadccp.md)
 
 ## Single forest, single Azure AD tenant
-![Topology for a single forest and a single tenant](media/plan-cloud-prov-topologies/single-forest.png)
+![Topology for a single forest and a single tenant](media/plan-cloud-provisioning-topologies/single-forest.png)
 
 The simplest topology is a single on-premises forest, with one or multiple domains, and a single Azure AD tenant.  For an example of this scenario see [Tutorial: A single forest with a single Azure AD tenant](tutorial-single-forest.md)
 

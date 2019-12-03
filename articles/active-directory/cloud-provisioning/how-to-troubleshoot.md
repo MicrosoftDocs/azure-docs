@@ -40,10 +40,10 @@ To verify the agent is being seen by Azure and is healthy follow these steps:
 1. Sign in to the Azure portal.
 2. On the left, select **Azure Active Directory**, click **Azure AD Connect** and in the center select **Manage provisioning (preview)**.
 3.  On the **Azure AD Provisioning (preview)** screen click **Review all agents**.
- ![Azure AD Provisioning](media/how-to-cloud-prov-install/cloudprov7.png)</br>
+ ![Azure AD Provisioning](media/how-to-install/install7.png)</br>
  
 4. On the **On-premises provisioning agents screen** you will see the agents you have installed.  Verify that the agent in question is there and is marked **Healthy**.
- ![Provisioning agents](media/how-to-cloud-prov-install/cloudprov8.png)</br>
+ ![Provisioning agents](media/how-to-install/install8.png)</br>
 
 ### Verify the port
 To verify the Azure is listening on port 443 and that your agent can communicate with it, you can use the following tool:
@@ -51,14 +51,14 @@ To verify the Azure is listening on port 443 and that your agent can communicate
 https://aadap-portcheck.connectorporttest.msappproxy.net/ 
 
 This test will verify that your agents are able to communicate with Azure over port 443.  Open a browser and navigate to the above URL from the server where the agent is installed.
- ![Services](media/how-to-cloud-prov-install/verify2.png)
+ ![Services](media/how-to-install/verify2.png)
 
 ### On the local server
 To verify that the agent is running follow these steps:
 
 1.  On the server with the agent installed, open **Services** by either navigating to it or by going to Start/Run/Services.msc.
 2.  Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there and the status is **Running**.
- ![Services](media/how-to-cloud-prov-tshoot/tshoot1.png)
+ ![Services](media/how-to-troubleshoot/troubleshoot1.png)
 
 ### Common agent installation issues
 The following are some common agent installation issues and what the typical resolution is.
@@ -77,12 +77,12 @@ To resolve this, use the following steps:
 3.  Under **Services** double-click **Microsoft Azure AD Connect Provisioning Agent**
 4. On the tab change the “Logon Account” to a domain admin and restart the service. 
 
- ![Services](media/how-to-cloud-prov-tshoot/tshoot3.png)
+ ![Services](media/how-to-troubleshoot/troubleshoot3.png)
 
 #### Agent times out or certificate is invalid
 You may get the following errors if you are attempting to register the agent.
 
- ![Services](media/how-to-cloud-prov-tshoot/tshoot4.png)
+ ![Services](media/how-to-troubleshoot/troubleshoot4.png)
 
 This is usually caused by the agent being unable to connect to the Hybrid Identity Service and requires configuring HTTP proxy.  To resolve this configure an outbound proxy. 
 
@@ -149,15 +149,15 @@ The following section contains information on troubleshooting object synchroniza
 
 ### Provisioning logs
 In the Azure portal, provisioning logs can be used to help track down and troubleshoot object synchronization issues.  To view the logs, select **Logs**.
- ![Provisioning logs](media/how-to-cloud-prov-tshoot/provlog1.png)
+ ![Provisioning logs](media/how-to-troubleshoot/log1.png)
 
 The provisioning logs provide a wealth of information on the state of the objects being synchronized between your on-premises AD environment and Azure.
 
- ![Provisioning logs](media/how-to-cloud-prov-tshoot/provlog2.png)
+ ![Provisioning logs](media/how-to-troubleshoot/log2.png)
 
 You can use the drop-downs at the top of the page to filter the view to zero in on specific issues, dates, etc.  Double-clicking on an individual event will provide additional detailed information.
 
- ![Provisioning logs](media/how-to-cloud-prov-tshoot/provlog3.png)
+ ![Provisioning logs](media/how-to-troubleshoot/log3.png)
 
 This information will provide detailed steps and where the synchronization issue is occurring.  Thus, allowing you to zero in and pinpoint the exact spot of the problem.
 
@@ -166,18 +166,18 @@ This information will provide detailed steps and where the synchronization issue
 
 Cloud provisioning monitors the health of your configuration and places unhealthy objects in a "quarantine" state. If most or all of the calls made against the target system consistently fail because of an error, for example invalid admin credentials, the provisioning job is marked as in quarantine.
 
- ![Quarantine](media/how-to-cloud-prov-tshoot/quarantine1.png)
+ ![Quarantine](media/how-to-troubleshoot/quarantine1.png)
 
 By clicking on the status, you can see additional information about the quarantine.  You can also obtain the error code and message.
 
- ![Quarantine](media/how-to-cloud-prov-tshoot/quarantine2.png)
+ ![Quarantine](media/how-to-troubleshoot/quarantine2.png)
 
 ### Resolving a quarantine
 
 - Use the Azure portal to restart the provisioning job. On the agent configuration page select **Restart provisioning**.
 
 
- ![Quarantine](media/how-to-cloud-prov-tshoot/quarantine3.png)
+ ![Quarantine](media/how-to-troubleshoot/quarantine3.png)
 
 - Use Microsoft Graph to [restart the provisioning job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). You'll have full control over what you restart. You can choose to clear escrows (to restart the escrow counter that accrues toward quarantine status), clear quarantine (to remove the application from quarantine), or clear watermarks. Use the following request:
  

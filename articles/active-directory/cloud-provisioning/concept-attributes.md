@@ -33,7 +33,7 @@ Azure AD has two types of properties.  The properties are:
 ## Attributes and expressions
 When an object, such as a user is provisioned to Azure AD, a new instance of the user object is created.  This creation includes the properties of that object, which are also known as attributes.  Initially, the newly created object will have its attributes set to values that are determined by the synchronization rules.  These attributes are then kept up to date via the cloud provisioning agent.
 
-![](media/concept-cloud-prov-attributes/attribute1.png)
+![](media/concept-attributes/attribute1.png)
 
 For example, if a user is part of the Marketing department, their Azure AD department attribute will initially be created when they are provisioned and then the value would be set to Marketing.  But then, six months later, they change to Sales.  Their on-premises AD department attribute is changed to Sales.  This change will then synchronize to Azure AD and be reflected on their Azure AD user object.
 
@@ -242,7 +242,7 @@ In order to view the schema and verify it, do the following steps:
  Replace the {Service Principal Id} and {AD2ADD Provisioning Id} with your values.
 
 9. This query will return the schema.
-  ![](media/concept-cloud-prov-attributes/schema1.png)
+  ![](media/concept-attributes/schema1.png)
  
 ## Next steps 
 

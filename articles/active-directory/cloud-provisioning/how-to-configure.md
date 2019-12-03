@@ -23,7 +23,7 @@ To configure provisioning, use the following steps:
 1.  In the Azure AD portal, click **Azure Active Directory**
 2.  Click **Azure AD Connect**
 3.  Select **Manage provisioning (Preview)**
-![](media/how-to-cloud-prov-manage/manage1.png)
+![](media/how-to-configure/manage1.png)
 
 4.  Click on **New configuration**.
 5.  On the configuration screen, the on-premises domain is pre-populated
@@ -39,16 +39,16 @@ If you want to scope the agent to only synchronize specific users and groups, yo
 2.  Click **Azure AD Connect**
 3.  Select **Manage provisioning (Preview)**
 4.  Under **Configuration** click on your configuration.  
-![](media/how-to-cloud-prov-manage/scope1.png)
+![](media/how-to-configure/scope1.png)
 
 5.  Under **Configure**, select **All users** to change the scope of the configuration rule.
-![](media/how-to-cloud-prov-manage/scope2.png)
+![](media/how-to-configure/scope2.png)
 
 6. On the right, you can change the scope to include only security groups by entering the distinguished name of the group and clicking **Add**.
-![](media/how-to-cloud-prov-manage/scope3.png)
+![](media/how-to-configure/scope3.png)
 
 7. Or change it to include only specific OUs. Click **Done** and **Save**.
-![](media/how-to-cloud-prov-manage/scope4.png)
+![](media/how-to-configure/scope4.png)
 
 
 ## Restart provisioning 
@@ -57,7 +57,7 @@ If you do not want to wait for the next scheduled run, you can trigger the provi
 2.  Click **Azure AD Connect**
 3.  Select **Manage provisioning (Preview)**
 4.  Under **Configuration** click on your configuration.  
-![](media/how-to-cloud-prov-manage/scope1.png)
+![](media/how-to-configure/scope1.png)
 
 5.  At the top, click **Restart provisioning**.
 
@@ -68,10 +68,10 @@ If you want to delete a configuration you can do that by using the following ste
 2.  Click **Azure AD Connect**
 3.  Select **Manage provisioning (Preview)**
 4.  Under **Configuration** click on your configuration.  
-![](media/how-to-cloud-prov-manage/scope1.png)
+![](media/how-to-configure/scope1.png)
 
 5.  At the top, click **Delete**.
-![](media/how-to-cloud-prov-manage/remove1.png)
+![](media/how-to-configure/remove1.png)
 
 >[!IMPORTANT]
 >There is no confirmation prior to deleting a configuration so be sure that this is the action you want to take before clicking **Delete**.

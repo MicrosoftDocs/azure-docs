@@ -201,10 +201,10 @@ Now you need to create an Azure AD tenant so that you can synchronize our users 
 Now that you have an Azure AD tenant, you will create a global administrator account.  To create the global administrator account do the following.
 
 1.  Under **Manage**, select **Users**.</br>
-![Create](media/tutorial-single-forest/gadmin1.png)</br>
+![Create](media/tutorial-single-forest/administrator1.png)</br>
 2.  Select **All users** and then select **+ New user**.
 3.  Provide a name and username for this user. This will be your Global Admin for the tenant. You will also want to change the **Directory role** to **Global administrator.** You can also show the temporary password. When you are done, select **Create**.</br>
-![Create](media/tutorial-single-forest/gadmin2.png)</br>
+![Create](media/tutorial-single-forest/administrator2.png)</br>
 4. Once this has completed, open a new web browser and sign-in to myapps.microsoft.com using the new global administrator account and the temporary password.
 5. Change the password for the global administrator to something that you will remember.
 
