@@ -1,7 +1,7 @@
 ---
 title: Prepay for Azure Data Explorer markup to save money
 description: Learn how to buy Azure Data Explorer reserved capacity to save on your Azure Data Explorer costs.
-author: avnera
+author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
