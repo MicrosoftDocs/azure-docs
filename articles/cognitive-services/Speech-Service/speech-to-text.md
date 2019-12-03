@@ -35,7 +35,7 @@ Here is the features available via the Speech SDK and REST APIs:
 | Create accuracy tests to measure the accuracy of the baseline model versus custom models. | No  | Yes\*\*\* |
 | Manage subscriptions. | No  | Yes\*\*\* |
 
-\*_Using the REST functionality you can transfer up to 60 seconds of audio and will receive one final transcription result.
+\*_Using the REST functionality you can transfer up to 60 seconds of audio and will receive one final transcription result._
 
 \*\*_LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK calls LUIS for you and provide entity and intent results. With the REST API, you call LUIS yourself to derive intents and entities with your LUIS subscription._
 
