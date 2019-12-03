@@ -58,8 +58,8 @@ Add the following `using` directives to your code to use the Azure Identity and 
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Azure;
 using Azure.Identity;
-using Azure.Storage;
 using Azure.Storage.Sas;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
