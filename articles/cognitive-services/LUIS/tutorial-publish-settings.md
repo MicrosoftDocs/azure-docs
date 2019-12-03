@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Sentiment analysis - LUIS"
+title: "Tutorial: Publish settings - LUIS"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, create an app that demonstrates how to get positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
+description: In this tutorial, change the publish settings to gain improve predictions.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,23 +11,19 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.author: diberry
-#Customer intent: As a new user, I want to understand what sentiment is conveyed in a user's utterances.
+#Customer intent: As a new user, I want to understand hwo publishing settings impact the LUIS app.
 
 ---
 
-# Tutorial:  Get sentiment of utterance
+# Tutorial:  Configure publishing settings
 
-In this tutorial, create an app that demonstrates how to determine positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
-
+In this tutorial, modify the publishing settings then query the LUIS endpoint to understand publishing settings.
 
 **In this tutorial, you learn how to:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Create a new app
 > * Add sentiment analysis as publish setting
-> * Train app
-> * Publish app
 > * Get sentiment of utterance from endpoint
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
@@ -41,65 +37,15 @@ The following utterances show examples of sentiment:
 |positive|0.91 |John W. Smith did a great job on the presentation in Paris.|
 |positive|0.84 |The Seattle engineers did fabulous work on the Parker sales pitch.|
 
-Sentiment analysis is a publish setting that applies to every utterance. You do not have to find the words indicating sentiment in the utterance and mark them.
+Sentiment analysis is a publish setting that applies to every utterance. Once set, your app returns the sentiment of an utterance without you having to labeling data\.
 
 Because it is a publish setting, you do not see it on the intents or entities pages. You can see it in the [interactive test](luis-interactive-test.md#view-sentiment-results) pane or when testing at the endpoint URL.
 
+## Import example .json to begin app
 
-## Create a new app
+1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
 
-[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
-
-## Add PersonName prebuilt entity
-
-1. Select **Build** from the navigation menu.
-
-1. Select **Entities** from the left navigation menu.
-
-1. Select **Add prebuilt entity** button.
-
-1. Select the following entity from the list of prebuilt entities then select **Done**:
-
-   * **[PersonName](luis-reference-prebuilt-person.md)**
-
-     ![Screenshot of number select in prebuilt entities dialog](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
-
-## Create an intent to determine employee feedback
-
-Add a new intent to capture employee feedback from members of the company.
-
-1. Select **Intents** from the left panel.
-
-1. Select **Create new intent**.
-
-1. Name the new intent  name `EmployeeFeedback`.
-
-    ![Create new intent dialog box with EmployeeFeedback as name](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
-
-4. Add several utterances that indicate an employee doing something well or an area that needs improvement:
-
-    |Utterances|
-    |--|
-    |John Smith did a nice job of welcoming back a co-worker from maternity leave|
-    |Jill Jones did a great job of comforting a co-worker in her time of grief.|
-    |Bob Barnes didn't have all the required invoices for the paperwork.|
-    |Todd Thomas turned in the required forms a month late with no signatures|
-    |Katherine Kelly didn't make it to the important marketing off-site meeting.|
-    |Denise Dillard missed the meeting for June reviews.|
-    |Mark Mathews rocked the sales pitch at Harvard|
-    |Walter Williams did a great job on the presentation at Stanford|
-
-    Select the **View options**, select **Show entity values** to see the names.
-
-    [![Screenshot of LUIS app with example utterances in EmployeeFeedback intent](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
-
-## Add example utterances to the None intent
-
-[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
-
-## Train the app so the changes to the intent can be tested
-
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
 ## Configure app to include sentiment analysis
 
