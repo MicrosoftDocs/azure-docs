@@ -213,9 +213,11 @@ The Identity Experience Framework enforces this order as the file structure is b
 
 To test your release pipeline:
 
-1. Select **Pipelines** and then **Builds**
-1. Select the specific pipeline called "DeployCustomPolicies" or your newly named pipeline
-1. At the top right of the screen, select the button **Queued** and click **Run**
+1. Select **Pipelines** and then **Releases**.
+1. Select the pipeline you created earlier, for example *DeployCustomPolicies*.
+1. Select **Create release**, then select **Create** to queue the release.
+
+You should see a notification banner that says that a release been queued. To view its status, select the link in the notification banner, or select it in the list on the **Releases** tab.
 
 ## Next steps
 
