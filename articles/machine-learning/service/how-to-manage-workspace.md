@@ -58,7 +58,7 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
 
 ### Download a configuration file
 
-1. If you will be creating a [conpute instance](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.
+1. If you will be creating a [compute instance](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.
 
 1. If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
 
