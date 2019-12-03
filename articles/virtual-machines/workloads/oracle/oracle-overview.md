@@ -88,3 +88,5 @@ Deployment of Oracle Applications in Azure is based on a "bring your own license
 * Learn more about deploying [Oracle VM images](oracle-vm-solutions.md) in Azure infrastructure.
 
 * Learn more about how to [interconnect Azure with OCI](oracle-oci-overview.md).
+
+* Check out the [Oracle on Azure overview session](https://myignite.techcommunity.microsoft.com/sessions/82915) from Ignite 2019. 
