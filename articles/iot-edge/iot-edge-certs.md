@@ -46,7 +46,7 @@ In any case, the manufacturer uses an intermediate CA certificate at the end of 
 
 ### Device CA certificate
 
-The device CA certificate is generated from and signed by the final intermediate CA certificate in the process. This certificate is installed on the IoT Edge device itself, preferably in secure storage such as a hardware security module (HSM). In addition, a device CA certificate uniquely identifies an IoT Edge device. For IoT Edge, the device CA certificate can issue other certificates. For example, the device CA certificate issues leaf device certificates that are used to authenticate devices to the [Azure IoT Device Provisioning Service](../iot-dps/about-iot-dps.md).
+The device CA certificate is generated from and signed by the final intermediate CA certificate in the process. This certificate is installed on the IoT Edge device itself, preferably in secure storage such as a hardware security module (HSM). In addition, a device CA certificate uniquely identifies an IoT Edge device. The device CA certificate can sign other certificates. 
 
 ### IoT Edge Workload CA
 

@@ -4,7 +4,7 @@ description: Create test certificates and learn how to install them on an Azure 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/07/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -39,12 +39,11 @@ What's our guidance around creating certificates? Is this a standard process in 
 -->
 
 You should use your own certificate authority to create the following files:
+* Root CA
 * Device CA certificate
 * Device CA private key
-* Root CA
 
-an X.509 CA certificate associated to a specific IoT hub (the IoT hub root CA), a series of certificates signed with this CA, and a CA for the IoT Edge device.
-
+In this article, what we refer to as the *root CA* is not the topmost certificate authority for an organization. It's the topmost certificate authority for the IoT Edge scenario, which the IoT Edge hub module, user modules, and any downstream devices use to establish trust between each other. 
 
 ## Install certificates on the device
 
@@ -54,13 +53,15 @@ For provisioning, we used URIs to point to the certificates on the device (file:
 Will all the certificates and keys have consistent file extensions that we could use to help guide customers to understand what goes where?
  -->
 
-Now that you've made a certificate chain, you need to install it on the IoT Edge device and configure the IoT Edge runtime to reference the new certificates. 
+Install your certificate chain on the IoT Edge device and configure the IoT Edge runtime to reference the new certificates. 
 
-1. Copy the following files onto your IoT Edge device: 
+For example, if you used the sample scripts to [Create demo certificates](how-to-create-test-certificates.md), the three files that you need to copy onto your IoT Edge device are the following:
 
-   * Device CA certificate -  `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
-   * Device CA private key - `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
-   * Root CA - `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+* Device CA certificate: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
+* Device CA private key: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
+* Root CA: `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+
+1. Copy the three certificate and key files onto your IoT Edge device.
 
    You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.  If you generated the certificates on the IoT Edge device itself, you can skip this step and use the path to the working directory.
 
