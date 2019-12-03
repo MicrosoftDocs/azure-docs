@@ -224,79 +224,79 @@ For examples of client-side code that can handle multiple entity types stored in
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
 
 ### Choose an appropriate `PartitionKey`
-Your choice of **PartitionKey** should balance the need to enable the use of EGTs (to ensure consistency) against the requirement to distribute your entities across multiple partitions (to ensure a scalable solution).  
+Your choice of `PartitionKey` should balance the need to enable the use of EGTs (to ensure consistency) against the requirement to distribute your entities across multiple partitions (to ensure a scalable solution).  
 
-At one extreme, you could store all your entities in a single partition, but this may limit the scalability of your solution and would prevent the table service from being able to load-balance requests. At the other extreme, you could store one entity per partition, which would be highly scalable and which enables the table service to load-balance requests, but that would prevent you from using entity group transactions.  
+At one extreme, you could store all your entities in a single partition. But this might limit the scalability of your solution, and would prevent the table service from being able to load-balance requests. At the other extreme, you could store one entity per partition. This is highly scalable and enables the table service to load-balance requests, but prevents you from using entity group transactions.  
 
-An ideal **PartitionKey** is one that enables you to use efficient queries and that has sufficient partitions to ensure your solution is scalable. Typically, you will find that your entities will have a suitable property that distributes your entities across sufficient partitions.
+An ideal `PartitionKey` enables you to use efficient queries, and has sufficient partitions to ensure your solution is scalable. Typically, you'll find that your entities will have a suitable property that distributes your entities across sufficient partitions.
 
 > [!NOTE]
-> For example, in a system that stores information about users or employees, UserID may be a good PartitionKey. You may have several entities that use a given UserID as the partition key. Each entity that stores data about a user is grouped into a single partition, and so these entities are accessible via entity group transactions, while still being highly scalable.
+> For example, in a system that stores information about users or employees, `UserID` can be a good `PartitionKey`. You may have several entities that use a particular `UserID` as the partition key. Each entity that stores data about a user is grouped into a single partition. These entities are accessible via EGTs, while still being highly scalable.
 > 
 > 
 
-There are additional considerations in your choice of **PartitionKey** that relate to how you will insert, update, and delete entities: see the section [Design for data modification](#design-for-data-modification) below.  
+There are additional considerations in your choice of `PartitionKey` that relate to how you insert, update, and delete entities. For more information, see [Design for data modification](#design-for-data-modification) later in this article.  
 
-### Optimize queries for the Table service
-The Table service automatically indexes your entities using the **PartitionKey** and **RowKey** values in a single clustered index, hence the reason that point queries are the most efficient to use. However, there are no indexes other than that on the clustered index on the **PartitionKey** and **RowKey**.
+### Optimize queries for Table storage
+Table storage automatically indexes your entities by using the `PartitionKey` and `RowKey` values in a single clustered index. This is the reason that point queries are the most efficient to use. However, there are no indexes other than that on the clustered index on the `PartitionKey` and `RowKey`.
 
-Many designs must meet requirements to enable lookup of entities based on multiple criteria. For example, locating employee entities based on email, employee id, or last name. The following patterns in the section [Table Design Patterns](#table-design-patterns) address these types of requirement and describe ways of working around the fact that the Table service does not provide secondary indexes:  
+Many designs must meet requirements to enable lookup of entities based on multiple criteria. For example, locating employee entities based on email, employee ID, or last name. The following patterns in the section [Table design patterns](#table-design-patterns) address these types of requirements. The patterns also describe ways of working around the fact that Table storage doesn't provide secondary indexes.  
 
-* [Intra-partition secondary index pattern](#intra-partition-secondary-index-pattern) - Store multiple copies of each entity using different **RowKey** values (in the same partition) to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
-* [Inter-partition secondary index pattern](#inter-partition-secondary-index-pattern) - Store multiple copies of each entity using different **RowKey** values in separate partitions or in separate tables to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
-* [Index Entities Pattern](#index-entities-pattern) - Maintain index entities to enable efficient searches that return lists of entities.  
+* [Intra-partition secondary index pattern](#intra-partition-secondary-index-pattern): Store multiple copies of each entity by using different `RowKey` values (in the same partition). This enables fast and efficient lookups, and alternate sort orders by using different `RowKey` values.  
+* [Inter-partition secondary index pattern](#inter-partition-secondary-index-pattern): Store multiple copies of each entity by using different `RowKey` values in separate partitions or in separate tables. This enables fast and efficient lookups, and alternate sort orders by using different `RowKey` values.  
+* [Index entities pattern](#index-entities-pattern): Maintain index entities to enable efficient searches that return lists of entities.  
 
-### Sorting data in the Table service
+### Sort data in Table storage
 
-Query results returned by the Table service are sorted in ascending order based on **PartitionKey** and then by **RowKey**.
+Table storage returns query results sorted in ascending order, based on `PartitionKey` and then by `RowKey`.
 
 > [!NOTE]
-> Query results returned by the Azure Table API in Azure Cosmos DB are not sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Query results returned by the Azure Table API in Azure Cosmos DB aren't sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
-Keys in Azure Storage table are string values and to ensure that numeric values sort correctly, you should convert them to a fixed length and pad them with zeroes. For example, if the employee id value you use as the **RowKey** is an integer value, you should convert employee id **123** to **00000123**. 
+Keys in Table storage are string values. To ensure that numeric values sort correctly, you should convert them to a fixed length, and pad them with zeroes. For example, if the employee ID value you use as the `RowKey` is an integer value, you should convert employee ID **123** to **00000123**. 
 
-Many applications have requirements to use data sorted in different orders: for example, sorting employees by name, or by joining date. The following patterns in the section [Table Design Patterns](#table-design-patterns) address how to alternate sort orders for your entities:  
+Many applications have requirements to use data sorted in different orders: for example, sorting employees by name, or by joining date. The following patterns in the section [Table design patterns](#table-design-patterns) address how to alternate sort orders for your entities:  
 
-* [Intra-partition secondary index pattern](#intra-partition-secondary-index-pattern) - Store multiple copies of each entity using different RowKey values (in the same partition) to enable fast and efficient lookups and alternate sort orders by using different RowKey values.  
-* [Inter-partition secondary index pattern](#inter-partition-secondary-index-pattern) - Store multiple copies of each entity using different RowKey values in separate partitions in separate tables to enable fast and efficient lookups and alternate sort orders by using different RowKey values.
-* [Log tail pattern](#log-tail-pattern) - Retrieve the *n* entities most recently added to a partition by using a **RowKey** value that sorts in reverse date and time order.  
+* [Intra-partition secondary index pattern](#intra-partition-secondary-index-pattern): Store multiple copies of each entity by using different `RowKey` values (in the same partition). This enables fast and efficient lookups, and alternate sort orders by using different `RowKey` values.  
+* [Inter-partition secondary index pattern](#inter-partition-secondary-index-pattern): Store multiple copies of each entity by using different `RowKey` values in separate partitions in separate tables. This enables fast and efficient lookups, and alternate sort orders by using different `RowKey` values.
+* [Log tail pattern](#log-tail-pattern): Retrieve the *n* entities most recently added to a partition, by using a `RowKey` value that sorts in reverse date and time order.  
 
 ## Design for data modification
-This section focuses on the design considerations for optimizing inserts, updates, and deletes. In some cases, you will need to evaluate the trade-off between designs that optimize for querying against designs that optimize for data modification just as you do in designs for relational databases (although the techniques for managing the design trade-offs are different in a relational database). The section [Table Design Patterns](#table-design-patterns) describes some detailed design patterns for the Table service and highlights some of these trade-offs. In practice, you will find that many designs optimized for querying entities also work well for modifying entities.  
+This section focuses on the design considerations for optimizing inserts, updates, and deletes. In some cases, you'll need to evaluate the trade-off between designs that optimize for querying against designs that optimize for data modification. This evaluation is similar to what you do in designs for relational databases (although the techniques for managing the design trade-offs are different in a relational database). The section [Table design patterns](#table-design-patterns) describes some detailed design patterns for Table storage, and highlights some of these trade-offs. In practice, you'll find that many designs optimized for querying entities also work well for modifying entities.  
 
-### Optimizing the performance of insert, update, and delete operations
-To update or delete an entity, you must be able to identify it by using the **PartitionKey** and **RowKey** values. In this respect, your choice of **PartitionKey** and **RowKey** for modifying entities should follow similar criteria to your choice to support point queries because you want to identify entities as efficiently as possible. You do not want to use an inefficient partition or table scan to locate an entity in order to discover the **PartitionKey** and **RowKey** values you need to update or delete it.  
+### Optimize the performance of insert, update, and delete operations
+To update or delete an entity, you must be able to identify it by using the `PartitionKey` and `RowKey` values. In this respect, your choice of `PartitionKey` and `RowKey` for modifying entities should follow similar criteria to your choice to support point queries. You want to identify entities as efficiently as possible. You don't want to use an inefficient partition or table scan to locate an entity in order to discover the `PartitionKey` and `RowKey` values you need to update or delete it.  
 
-The following patterns in the section [Table Design Patterns](#table-design-patterns) address optimizing the performance or your insert, update, and delete operations:  
+The following patterns in the section [Table design patterns](#table-design-patterns) address optimizing the performance of your insert, update, and delete operations:  
 
-* [High volume delete pattern](#high-volume-delete-pattern) - Enable the deletion of a high volume of entities by storing all the entities for simultaneous deletion in their own separate table; you delete the entities by deleting the table.  
-* [Data series pattern](#data-series-pattern) - Store complete data series in a single entity to minimize the number of requests you make.  
-* [Wide entities pattern](#wide-entities-pattern) - Use multiple physical entities to store logical entities with more than 252 properties.  
-* [Large entities pattern](#large-entities-pattern) - Use blob storage to store large property values.  
+* [High volume delete pattern](#high-volume-delete-pattern): Enable the deletion of a high volume of entities by storing all the entities for simultaneous deletion in their own separate table. You delete the entities by deleting the table.  
+* [Data series pattern](#data-series-pattern): Store complete data series in a single entity to minimize the number of requests you make.  
+* [Wide entities pattern](#wide-entities-pattern): Use multiple physical entities to store logical entities with more than 252 properties.  
+* [Large entities pattern](#large-entities-pattern): Use blob storage to store large property values.  
 
-### Ensuring consistency in your stored entities
+### Ensure consistency in your stored entities
 The other key factor that influences your choice of keys for optimizing data modifications is how to ensure consistency by using atomic transactions. You can only use an EGT to operate on entities stored in the same partition.  
 
-The following patterns in the section [Table Design Patterns](#table-design-patterns) address managing consistency:  
+The following patterns in the section [Table design patterns](#table-design-patterns) address managing consistency:  
 
-* [Intra-partition secondary index pattern](#intra-partition-secondary-index-pattern) - Store multiple copies of each entity using different **RowKey** values (in the same partition) to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
-* [Inter-partition secondary index pattern](#inter-partition-secondary-index-pattern) - Store multiple copies of each entity using different RowKey values in separate partitions or in separate tables to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
-* [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern) - Enable eventually consistent behavior across partition boundaries or storage system boundaries by using Azure queues.
-* [Index Entities Pattern](#index-entities-pattern) - Maintain index entities to enable efficient searches that return lists of entities.  
-* [Denormalization pattern](#denormalization-pattern) - Combine related data together in a single entity to enable you to retrieve all the data you need with a single point query.  
-* [Data series pattern](#data-series-pattern) - Store complete data series in a single entity to minimize the number of requests you make.  
+* [Intra-partition secondary index pattern](#intra-partition-secondary-index-pattern): Store multiple copies of each entity by using different `RowKey` values (in the same partition). This enables fast and efficient lookups, and alternate sort orders by using different `RowKey` values.  
+* [Inter-partition secondary index pattern](#inter-partition-secondary-index-pattern): Store multiple copies of each entity by using different `RowKey` values in separate partitions or in separate tables. This enables fast and efficient lookups, and alternate sort orders by using different `RowKey` values.  
+* [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern): Enable eventually consistent behavior across partition boundaries or storage system boundaries by using Azure queues.
+* [Index entities pattern](#index-entities-pattern): Maintain index entities to enable efficient searches that return lists of entities.  
+* [Denormalization pattern](#denormalization-pattern): Combine related data together in a single entity, to enable you to retrieve all the data you need with a single point query.  
+* [Data series pattern](#data-series-pattern) - Store complete data series in a single entity, to minimize the number of requests you make.  
 
-For information about entity group transactions, see the section [Entity Group Transactions](#entity-group-transactions).  
+For more information, see [Entity Group Transactions](#entity-group-transactions) later in this article.  
 
-### Ensuring your design for efficient modifications facilitates efficient queries
-In many cases, a design for efficient querying results in efficient modifications, but you should always evaluate whether this is the case for your specific scenario. Some of the patterns in the section [Table Design Patterns](#table-design-patterns) explicitly evaluate trade-offs between querying and modifying entities, and you should always take into account the number of each type of operation.  
+### Ensure your design for efficient modifications facilitates efficient queries
+In many cases, a design for efficient querying results in efficient modifications, but you should always evaluate whether this is the case for your specific scenario. Some of the patterns in the section [Table design patterns](#table-design-patterns) explicitly evaluate trade-offs between querying and modifying entities, and you should always take into account the number of each type of operation.  
 
-The following patterns in the section [Table Design Patterns](#table-design-patterns) address trade-offs between designing for efficient queries and designing for efficient data modification:  
+The following patterns in the section [Table design patterns](#table-design-patterns) address trade-offs between designing for efficient queries and designing for efficient data modification:  
 
-* [Compound key pattern](#compound-key-pattern) - Use compound **RowKey** values to enable a client to look up related data with a single point query.  
-* [Log tail pattern](#log-tail-pattern) - Retrieve the *n* entities most recently added to a partition by using a **RowKey** value that sorts in reverse date and time order.  
+* [Compound key pattern](#compound-key-pattern): Use compound `RowKey` values to enable a client to look up related data with a single point query.  
+* [Log tail pattern](#log-tail-pattern): Retrieve the *n* entities most recently added to a partition, by using a `RowKey` value that sorts in reverse date and time order.  
 
-## Encrypting Table Data
+## Encrypt table data
 The .NET Azure Storage Client Library supports encryption of string entity properties for insert and replace operations. The encrypted strings are stored on the service as binary properties, and they are converted back to strings after decryption.    
 
 For tables, in addition to the encryption policy, users must specify the properties to be encrypted. This can be done by either specifying an [EncryptProperty] attribute (for POCO entities that derive from TableEntity) or an encryption resolver in request options. An encryption resolver is a delegate that takes a partition key, row key, and property name and returns a Boolean that indicates whether that property should be encrypted. During encryption, the client library will use this information to decide whether a property should be encrypted while writing to the wire. The delegate also provides for the possibility of logic around how properties are encrypted. (For example, if X, then encrypt property A; otherwise encrypt properties A and B.) It is not necessary to provide this information while reading or querying entities.
