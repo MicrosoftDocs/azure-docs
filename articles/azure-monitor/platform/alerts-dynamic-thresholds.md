@@ -172,11 +172,11 @@ The following items are best practices on how to configure alerts on some of the
 
 ## Interpreting Dynamic Threshold charts
 
-Following is a chart showing a metrics, it's dynamic threshold values, and some alerts fired when the value was outside of the allow threshold. 
+Following is a chart showing a metric, its dynamic threshold limits, and some alerts fired when the value was outside of the allowed thresholds.
 
 ![Learn more about how to configure Metric Alerts](media/alerts-dynamic-thresholds/threshold-picture-8bit.png)
 
-Use the following information to interpret the previous chart. 
+Use the following information to interpret the previous chart.
 
 - **Blue line** - The actual measured metric over time.
 - **Blue shaded area** - Shows the allowed range for the metric. As long as the metric values stay within this range, no alert will occur.
