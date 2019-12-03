@@ -16,9 +16,9 @@ ms.collection: M365-identity-device-management
 
 # Pilot cloud provisioning for an existing synced AD forest 
 
-![Create](media/tutorial-migrate-aadc-aadccp/diagram.png)
+This tutorial walks you through piloting cloud provisioning for a test Active Directory forest that is already synced using Azure Active Directory (Azure AD) Connect sync.
 
-The following tutorial will walk you through piloting cloud provisioning for a test AD forest that is already synced using Azure AD Connect sync. 
+![Create](media/tutorial-migrate-aadc-aadccp/diagram.png)
 
 ## Considerations
 Before you try this tutorial, consider the following items:
