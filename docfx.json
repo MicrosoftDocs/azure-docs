@@ -199,6 +199,11 @@
         "articles/governance/management-groups/**/*.md": "rthorn17",
         "articles/governance/resource-graph/**/*.md": "DCtheGeek",
         "articles/azure-functions/**/*.md": "ggailey777",
+        "articles/app-service/*.md": "cephalin",
+        "articles/app-service/containers/*.md": "cephalin",
+        "articles/app-service/scripts/*.md": "cephalin",
+        "articles/app-service/environment/*.md": "ccompy",
+        "articles/app-service-mobile/**/*.md": "elamalani",
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/backup/**/*.md": "dcurwin",
         "articles/blockchain/**/*.md": "PatAltimore",
@@ -245,6 +250,7 @@
         "articles/azure-databricks/**/*.md": "https://feedback.azure.com/forums/909463-azure-databricks",
         "articles/azure-functions/**/*.md": "https://feedback.azure.com/forums/355860-azure-functions",
         "articles/azure-government/**/*.md": "https://feedback.azure.com/forums/558487-azure-government",
+        "articles/industry/agriculture/**/*.md": "https://feedback.azure.com/forums/924718-Azure-farmbeats",
         "articles/azure-maps/**/*.md": "https://feedback.azure.com/forums/909172-azure-maps",
         "articles/azure-portal/**/*.md": "https://feedback.azure.com/forums/223579-azure-portal",
         "articles/azure-resource-manager/**/*.md": "https://feedback.azure.com/forums/281804-azure-resource-manager",
@@ -395,6 +401,8 @@
       "manager": {
         "articles/sql-database/**/*.md": "jroth",
         "articles/azure-functions/**/*.md": "gwallace",
+        "articles/app-service/**/*.md": "gwallace",
+        "articles/app-service-mobile/**/*.md": "crdun",
         "articles/backup/**/*.md": "carmonm",
         "articles/site-recovery/**/*.md": "carmonm",
         "articles/migrate/**/*.md": "carmonm",
@@ -407,6 +415,11 @@
         "articles/governance/management-groups/**/*.md": "rithorn",
         "articles/governance/resource-graph/**/*.md": "dacoulte",
         "articles/azure-functions/**/*.md": "glenga",
+        "articles/app-service/*.md": "cephalin",
+        "articles/app-service/containers/*.md": "cephalin",
+        "articles/app-service/scripts/*.md": "cephalin",
+        "articles/app-service/environment/*.md": "ccompy",
+        "articles/app-service-mobile/**/*.md": "emalani",
         "articles/ansible/**/*.md": "tarcher",
         "articles/backup/**/*.md": "dacurwin",
         "articles/blockchain/**/*.md": "patricka",
@@ -429,6 +442,8 @@
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
         "articles/azure-functions/**/*.md": "azure-functions",
+        "articles/app-service/**/*.md": "app-service",
+        "articles/app-service-mobile/**/*.md": "app-service-mobile",
         "articles/industry/**/*.md": "azure-industry",
         "articles/ansible/**/*.md": "ansible",
         "articles/backup/**/*.md": "backup",
@@ -472,7 +487,8 @@
         "articles/postgresql/**.md": ["Azure","Azure Database for PostgreSQL"],
         "articles/postgresql/**.yml": ["Azure","Azure Database for PostgreSQL"],
         "articles/stream-analytics/**/*.md": ["Azure","Stream Analytics"],
-        "articles/stream-analytics/**/*.yml": ["Azure","Stream Analytics"]
+        "articles/stream-analytics/**/*.yml": ["Azure","Stream Analytics"],
+        "articles/app-service/**/*.md": ["Azure","App Service"]
       },
       "titleSuffix": {
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
@@ -502,7 +518,17 @@
         "articles/migrate/**/*.md": "Azure Migrate",
         "articles/spatial-anchors/**/*.md": "Azure Spatial Anchors",
         "articles/spatial-anchors/**/*.yml": "Azure Spatial Anchors",
-        "articles/dev-spaces/**/*.md": "Azure Dev Spaces"
+        "articles/dev-spaces/**/*.md": "Azure Dev Spaces",
+        "articles/app-service/*.md": "Azure App Service",
+        "articles/app-service/*.yml": "Azure App Service",
+        "articles/app-service/containers/*.md": "Azure App Service",
+        "articles/app-service/containers/*.yml": "Azure App Service",
+        "articles/app-service/scripts/*.md": "Azure App Service",
+        "articles/app-service/scripts/*.yml": "Azure App Service",
+        "articles/app-service/environment/*.md": "Azure App Service Environment",
+        "articles/app-service/environment/*.yml": "Azure App Service Environment",
+        "articles/app-service-mobile/**/*.md": "Azure Mobile Apps",
+        "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps"
       },
       "featureFlags": {
         "articles/**/*.md": [
