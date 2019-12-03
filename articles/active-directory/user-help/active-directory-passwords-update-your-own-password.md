@@ -15,9 +15,9 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Reset your work or school password
+# Reset your work or school password using security info
 
-If you forgot your work or school password, never got a password from your organization, or have been locked out of your account, you can use your security info and your mobile device to reset your work or school password. Your administrator must turn this feature on for you to be able to register your information and reset your own password. If you don't see the **Forgot my password** option, it means that your administrator hasn't turned the feature on for your organization. If you believe this to be incorrect, contact your help desk for assistance.
+If you forgot your work or school password, never got a password from your organization, or have been locked out of your account, you can use your security info and your mobile device to reset your work or school password. Your administrator must turn on this feature for you to be able to set up your information and reset your own password.
 
 If you know your password, but want to change it, see the [Change your password steps](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) sections of this article.
 

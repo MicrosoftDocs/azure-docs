@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 If you forgot your work or school password, never got a password from your organization, or have been locked out of your account, you can use your security info and your mobile device to reset your work or school password.
 
-Your administrator must turn this feature on for you to be able to register your information and reset your own password. If you don't see the **Forgot my password** option, it means that your administrator hasn't turned the feature on for your organization. If you believe this to be incorrect, contact your help desk for assistance.
+Your administrator must turn on this feature for you to be able to register your information and reset your own password. If you don't see the **Forgot my password** option, it means that your administrator hasn't turned on the feature for your organization. If you believe this to be incorrect, contact your help desk for assistance.
 
 >[!Important]
 >This article is intended for users trying to use sign up for self-service password reset. This means that you’ll be able to reset your own work or school password (such as, alain@contoso.com), without requiring your administrator’s help. If you're an administrator looking for information about how to turn on self-service password reset for your employees or other users, see the [Deploy Azure AD self-service password reset and other articles]( https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
