@@ -21,6 +21,8 @@ Before you get started, make sure to:
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
 
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
+
 ## Add sample code
 
 1. Open the source file **helloworld.cpp**.
@@ -78,6 +80,9 @@ Before you get started, make sure to:
 1. Replace the string `whatstheweatherlike.wav` with your own filename.
 
 1. From the menu bar, choose **File** > **Save All**.
+
+> [!NOTE]
+> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 ## Build and run the application
 
