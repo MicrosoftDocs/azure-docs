@@ -33,11 +33,10 @@ The self-hosted integration runtime can't connect to the Data Factory service (b
 
 1. If there's no proxy configured on the self-hosted integration runtime (which is the default setting), run the following PowerShell command on the machine where self-hosted integration runtime is installed:
             
-        ```powershell
-            (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
-            ```
-  > [!NOTE] 
-    > The service URL may vary, depending on your Data Factory location. You can find the service URL under **ADF UI** > **Connections** > **Integration runtimes** > **Edit Self-hosted IR** > **Nodes** > **View Service URLs**.
+    **(New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")**
+        
+   > [!NOTE]     
+   > The service URL may vary, depending on your Data Factory location. You can find the service URL under **ADF UI** > **Connections** > **Integration runtimes** > **Edit Self-hosted IR** > **Nodes** > **View Service URLs**.
             
     The following is the expected response:
             
@@ -51,32 +50,32 @@ The self-hosted integration runtime can't connect to the Data Factory service (b
 
 1. If "proxy" has been configured on the self-hosted integration runtime, verify that your proxy server can access the service endpoint. For a sample command, see [PowerShell, web requests, and proxies](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
                 
-        ```powershell
-            $user = $env:username
-            $webproxy = (get-itemproperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet
-            Settings').ProxyServer
-            $pwd = Read-Host "Password?" -assecurestring
-            $proxy = new-object System.Net.WebProxy
-            $proxy.Address = $webproxy
-            $account = new-object System.Net.NetworkCredential($user,[Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($pwd)), "")
-            $proxy.credentials = $account
-            $url = "https://wu2.frontend.clouddatahub.net/"
-            $wc = new-object system.net.WebClient
-            $wc.proxy = $proxy
-            $webpage = $wc.DownloadData($url)
-            $string = [System.Text.Encoding]::ASCII.GetString($webpage)
-            $string
-            ```
+    ```powershell
+        $user = $env:username
+        $webproxy = (get-itemproperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet
+        Settings').ProxyServer
+        $pwd = Read-Host "Password?" -assecurestring
+        $proxy = new-object System.Net.WebProxy
+        $proxy.Address = $webproxy
+        $account = new-object System.Net.NetworkCredential($user,[Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($pwd)), "")
+        $proxy.credentials = $account
+        $url = "https://wu2.frontend.clouddatahub.net/"
+        $wc = new-object system.net.WebClient
+        $wc.proxy = $proxy
+        $webpage = $wc.DownloadData($url)
+        $string = [System.Text.Encoding]::ASCII.GetString($webpage)
+        $string
+        ```
 
 The following is the expected response:
             
 ![Powershell command response 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
 
-        > [!NOTE] 
-        > Proxy considerations:
-            > *	Check whether the proxy server requires whitelisting. If so, have [these domains](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) whitelisted.
-            > *	Check whether the TLS/SSL certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
-            > *	If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
+> [!NOTE] 
+> Proxy considerations:
+> *	Check whether the proxy server requires whitelisting. If so, have [these domains](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) whitelisted.
+> *	Check whether the TLS/SSL certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
+> *	If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
 
 ### Error message: "Self-hosted integration runtime node/ logical SHIR is in Inactive/ 'Running (Limited)' state"
 
@@ -94,15 +93,15 @@ This behavior occurs when nodes can't communicate with each other.
 
 1. Check whether an error log contains the following error: 
     
-        ```System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://xxxxxxx.bwld.com:8060/ExternalService.svc/WorkerManager. The connection attempt lasted for a time span of 00:00:00.9940994. TCP error code 10061: No connection could be made because the target machine actively refused it 10.2.4.10:8060. 
-        System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it. 
-        10.2.4.10:8060
+    ```System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://xxxxxxx.bwld.com:8060/ExternalService.svc/WorkerManager. The connection attempt lasted for a time span of 00:00:00.9940994. TCP error code 10061: No connection could be made because the target machine actively refused it 10.2.4.10:8060. 
+    System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it. 
+    10.2.4.10:8060
         
-        at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+    at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
                
-        at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+    at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
                
-        at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+    at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
        
 1. If you see this error, run the following on a command line: **telnet 10.2.4.10 8060**.
 1. If you receive the following error, contact your IT department for help with fixing this issue. After you can successfully telnet, contact Microsoft Support if you still have issues with the integrative runtime node status.
