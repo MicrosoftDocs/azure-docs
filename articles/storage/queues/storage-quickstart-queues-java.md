@@ -4,7 +4,7 @@ description: Learn how to use the Azure Queue Java v12 library to create a queue
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 11/22/2019
+ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
@@ -23,7 +23,7 @@ Use the Azure Queue storage client library v12 for Java to:
 * Receive and delete messages from a queue
 * Delete a queue
 
-[API reference documentation](/java/api/azure.storage.queues) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
+[API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -40,13 +40,54 @@ This section walks you through preparing a project to work with the Azure Queue 
 
 ### Create the project
 
-Create a Java Core application named *queues-quickstart-v12*.
+Create a Java application named *queues-quickstart-v12*.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name *queues-quickstart-v12*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
+1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command all on a single line to create a simple "Hello world!" Java project. The command is displayed here on multiple lines for readability.
 
    ```console
-   dotnet new console -n queues-quickstart-v12
+   mvn archetype:generate -DgroupId=com.queues.quickstart
+                          -DartifactId=queues-quickstart-v12
+                          -DarchetypeArtifactId=maven-archetype-quickstart
+                          -DarchetypeVersion=1.4
+                          -DinteractiveMode=false
    ```
+
+1. The output from generating the project should look something like this:
+
+    ```console
+    [INFO] Scanning for projects...
+    [INFO]
+    [INFO] ------------------< org.apache.maven:standalone-pom >-------------------
+    [INFO] Building Maven Stub Project (No POM) 1
+    [INFO] --------------------------------[ pom ]---------------------------------
+    [INFO]
+    [INFO] >>> maven-archetype-plugin:3.1.2:generate (default-cli) > generate-sources @ standalone-pom >>>
+    [INFO]
+    [INFO] <<< maven-archetype-plugin:3.1.2:generate (default-cli) < generate-sources @ standalone-pom <<<
+    [INFO]
+    [INFO]
+    [INFO] --- maven-archetype-plugin:3.1.2:generate (default-cli) @ standalone-pom ---
+    [INFO] Generating project in Batch mode
+    [INFO] ----------------------------------------------------------------------------
+    [INFO] Using following parameters for creating project from Archetype: maven-archetype-quickstart:1.4
+    [INFO] ----------------------------------------------------------------------------
+    [INFO] Parameter: groupId, Value: com.queues.quickstart
+    [INFO] Parameter: artifactId, Value: queues-quickstart-v12
+    [INFO] Parameter: version, Value: 1.0-SNAPSHOT
+    [INFO] Parameter: package, Value: com.queues.quickstart
+    [INFO] Parameter: packageInPathFormat, Value: com/queues/quickstart
+    [INFO] Parameter: version, Value: 1.0-SNAPSHOT
+    [INFO] Parameter: package, Value: com.queues.quickstart
+    [INFO] Parameter: groupId, Value: com.queues.quickstart
+    [INFO] Parameter: artifactId, Value: queues-quickstart-v12
+    [INFO] Project created from Archetype in dir: C:\quickstarts\queues\queues-quickstart-v12
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time:  6.394 s
+    [INFO] Finished at: 2019-12-03T09:58:35-08:00
+    [INFO] ------------------------------------------------------------------------
+    ```
 
 1. Switch to the newly created *queues-quickstart-v12* directory.
 
@@ -56,37 +97,41 @@ Create a Java Core application named *queues-quickstart-v12*.
 
 ### Install the package
 
-While still in the application directory, install the Azure Queue storage client library for Java package by using the `dotnet add package` command.
+Open the *pom.xml* file in your text editor. Add the following dependency element to the group of dependencies.
 
-```console
-dotnet add package Azure.Storage.Queues
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-storage-queue</artifactId>
+    <version>12.0.1</version>
+</dependency>
 ```
 
 ### Set up the app framework
 
 From the project directory:
 
-1. Open the *Program.cs* file in your editor
-1. Remove the `Console.WriteLine("Hello World!");` statement
-1. Add `using` directives
-1. Update the `Main` method declaration to support async code
+1. Navigate to the */src/main/java/com/queues/quickstart* directory
+1. Open the *App.java* file in your editor
+1. Delete the `System.out.println("Hello world!");` statement
+1. Add `import` directives
 
 Here's the code:
 
-```csharp
-using Azure;
-using Azure.Storage.Queues;
-using Azure.Storage.Queues.Models;
-using System;
-using System.Threading.Tasks;
+```java
+package com.queues.quickstart;
 
-namespace queues-quickstart-v12
+/**
+ * Azure queue storage v12 SDK quickstart
+ */
+import com.azure.storage.queues.*;
+import com.azure.storage.queues.models.*;
+import java.io.*;
+
+public class App
 {
-    class Program
+    public static void main( String[] args ) throws IOException
     {
-        static async Task Main(string[] args)
-        {
-        }
     }
 }
 ```
@@ -107,9 +152,10 @@ The following diagram shows the relationship between these resources.
 
 Use the following Java classes to interact with these resources:
 
-* [QueueServiceClient](/java/api/azure.storage.queues.queueserviceclient): The `QueueServiceClient` represents a URL to the Azure Storage Queue service.
-* [QueueClient](/java/api/azure.storage.queues.queueclient): The `QueueClient` class represents a URI to the Azure Storage Queue service, allowing you to manipulate a queue.
-* [QueueMessage](/java/api/azure.storage.queues.models.queuemessage): The `QueueMessage` class represents the object returned when calling [ReceiveMessages](/java/api/azure.storage.queues.queueclient.receivemessages) on a queue.
+* [QueueClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClientBuilder.html): The `QueueClientBuilder` class configures and instantiates a `QueueClient` object.
+* [QueueServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueServiceClient.html): The `QueueServiceClient` represents a URL to the Azure Storage Queue service.
+* [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html): The `QueueClient` class represents a URI to the Azure Storage Queue service, allowing you to manipulate a queue.
+* [QueueMessageItem](): The `QueueMessageItem` class represents the object returned when calling [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-) on a queue.
 
 ## Code examples
 
@@ -127,18 +173,18 @@ These example code snippets show you how to do the following actions with the Az
 
 The code below retrieves the connection string for the storage account. The connection string is stored the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
-Add this code inside the `Main` method:
+Add this code inside the `main` method:
 
-```csharp
-Console.WriteLine("Azure Queue storage v12 - Java quickstart sample\n");
+```java
+System.out.println("Azure Queues storage v12 - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
-// connection string is stored in an environment variable called CONNECT_STR
-//  on the machine running the application. If the environment variable is 
-// created after the application is launched in a console or with Visual Studio,
-// the shell or application needs to be closed and reloaded to take the 
-// environment variable into account.
-string connectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
+// connection string is stored in an environment variable on the machine
+// running the application called CONNECT_STR. If the environment variable
+// is created after the application is launched in a console or with
+// Visual Studio, the shell or application needs to be closed and reloaded
+// to take the environment variable into account.
+String connectStr = System.getenv("CONNECT_STR");
 ```
 
 ### Create a queue
@@ -149,111 +195,108 @@ Decide on a name for the new queue. The code below appends a GUID value to the q
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming containers and blobs, see [Naming Queues and Metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
 
-Create an instance of the [QueueClient](/java/api/azure.storage.queues.queueclient) class. Then, call the [CreateAsync](/java/api/azure.storage.queues.queueclient.createasync) method to create the queue in your storage account.
+Create an instance of the [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html) class. Then, call the [create](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#create--) method to create the queue in your storage account.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `main` method:
 
-```csharp
+```java
 //Create a unique name for the queue
-string queueName = "quickstartqueues-" + Guid.NewGuid().ToString();
+String queueName = "quickstartqueues-" + java.util.UUID.randomUUID();
 
-Console.WriteLine($"Creating queue: {queueName}");
+System.out.println("Creating queue: " + queueName);
 
 // Create a QueueClient object which will be used to create the actual queue
-QueueClient queueClient = new QueueClient(connectionString, queueName);
+QueueClient queueClient = new QueueClientBuilder()
+                                .connectionString(connectStr)
+                                .queueName(queueName)
+                                .buildClient();
 
 // Create the queue
-await queueClient.CreateAsync();
+queueClient.create();
 ```
 
 ### Add messages to a queue
 
-The following code snippet asynchronously adds messages to queue by calling the [SendMessageAsync](/java/api/azure.storage.queues.queueclient.sendmessageasync) method. It also saves a [SendReceipt](/java/api/azure.storage.queues.models.sendreceipt) returned from a `SendMessageAsync` call. The receipt is used to update the message later in the program.
+The following code snippet adds messages to queue by calling the [sendMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#sendMessage-java.lang.String-) method. It also saves a [SendMessageResult](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/SendMessageResult.html) returned from a `sendMessage` call. The result is used to update the message later in the program.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `main` method:
 
-```csharp
-Console.WriteLine("\nAdding messages to the queue...");
+```java
+System.out.println("\nAdding messages to the queue...");
 
 // Send several messages to the queue
-await queueClient.SendMessageAsync("First message");
-await queueClient.SendMessageAsync("Second message");
+queueClient.sendMessage("First message");
+queueClient.sendMessage("Second message");
 
-// Save the receipt so we can update this message later
-Response<SendReceipt> receipt = await queueClient.SendMessageAsync("Third message");
+// Save the result so we can update this message later
+SendMessageResult result = queueClient.sendMessage("Third message");
 ```
 
 ### List messages in a queue
 
-List the messages in the queue by calling the [PeekMessagesAsync](/java/api/azure.storage.queues.queueclient.peekmessagesasync) method. The `PeekMessagesAsync` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
+List the messages in the queue by calling the [peekMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#peekMessages-java.lang.Integer-java.time.Duration-com.azure.core.util.Context-) method. The `peelkMessages` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `main` method:
 
-```csharp
-Console.WriteLine("\nPeek at the messages in the queue...");
+```java
+System.out.println("\nPeek at the messages in the queue...");
 
 // Peek at messages in the queue
-Response<PeekedMessage[]> peekedMessages = await queueClient.PeekMessagesAsync(maxMessages: 10);
-
-foreach (PeekedMessage peekedMessage in peekedMessages.Value)
-{
-    // Display the message
-    Console.WriteLine($"Message: {peekedMessage.MessageText}");
-}
+queueClient.peekMessages(10, null, null).forEach(
+    peekedMessage -> System.out.println("Message: " + peekedMessage.getMessageText()));
 ```
 
 ### Update a message in a queue
 
-Update the contents of a message by calling the [UpdateMessageAsync](/java/api/azure.storage.queues.queueclient.updatemessageasync) method. The `UpdateMessageAsync` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content for the message, pass in the values from the `SendReceipt` that was saved earlier in the code. The `SendReceipt` values identify which message to update.
+Update the contents of a message by calling the [updateMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#updateMessage-java.lang.String-java.lang.String-java.lang.String-java.time.Duration-) method. The `updateMessage` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with new content for the message, pass in the message ID and pop receipt by using the `SendMessageResult` that was saved earlier in the code. The message ID and pop receipt identify which message to update.
 
-```csharp
-Console.WriteLine("\nUpdating the third message in the queue...");
+```java
+System.out.println("\nUpdating the third message in the queue...");
 
 // Update a message using the saved receipt from sending the message
-await queueClient.UpdateMessageAsync(receipt.Value.MessageId, receipt.Value.PopReceipt, "Third message has been updated");
+queueClient.updateMessage(result.getMessageId(), result.getPopReceipt(), "Third message has been updated", Duration.ofSeconds(1));
 ```
 
 ### Receive and delete messages from a queue
 
-Download previously added messages by calling the [ReceiveMessagesAsync](/java/api/azure.storage.queues.queueclient.receivemessagesasync) method. The example code also deletes messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
+Download previously added messages by calling the [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-java.time.Duration-java.time.Duration-com.azure.core.util.Context-) method. The example code also deletes messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
 
-The app pauses for user input by calling `Console.ReadLine` before it receives and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted.
+The app pauses for user input by calling `System.console().readLine();` before it receives and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `main` method:
 
-```csharp
-Console.WriteLine("\nPress Enter key to receive messages and delete them from the queue...");
-Console.ReadLine();
+```java
+System.out.println("\nPress Enter key to receive messages and delete them from the queue...");
+System.console().readLine();
 
 // Get messages from the queue
-Response<QueueMessage[]> messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10);
-
-foreach (QueueMessage message in messages.Value)
-{
+queueClient.receiveMessages(10).forEach(
     // "Process" the message
-    Console.WriteLine($"Message: {message.MessageText}");
+    receivedMessage -> {
+        System.out.println("Message: " + receivedMessage.getMessageText());
 
-    // Let the service know we're finished with
-    // the message and it can be safely deleted.
-    await queueClient.DeleteMessageAsync(message.MessageId, message.PopReceipt);
-}
+        // Let the service know we're finished with
+        // the message and it can be safely deleted.
+        queueClient.deleteMessage(receivedMessage.getMessageId(), receivedMessage.getPopReceipt());
+    }
+);
 ```
 
 ### Delete a queue
 
-The following code cleans up the resources the app created by deleting the queue using the [​DeleteAsync](/java/api/azure.storage.queues.queueclient.deleteasync) method.
+The following code cleans up the resources the app created by deleting the queue using the [​delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#delete--) method.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `main` method:
 
-```csharp
-Console.WriteLine("\nPress Enter key to delete the queue...");
-Console.ReadLine();
+```java
+System.out.println("\nPress Enter key to delete the queue...");
+System.console().readLine();
 
 // Clean up
-Console.WriteLine($"Deleting queue: {queueClient.Name}");
-await queueClient.DeleteAsync();
+System.out.println("Deleting queue: " + queueClient.getQueueName());
+queueClient.delete();
 
-Console.WriteLine("Done");
+System.out.println("Done");
 ```
 
 ## Run the code
@@ -263,19 +306,25 @@ This app creates and adds three messages to an Azure queue. The code lists the m
 In your console window, navigate to your application directory, then build and run the application.
 
 ```console
-dotnet build
+mvn compile
 ```
 
+Then, build the package.
+
 ```console
-dotnet run
+mvn package
+```
+
+Run the following `mvn` command to execute the app.
+
+```console
+mvn exec:java -Dexec.mainClass="com.queues.quickstart.App" -Dexec.cleanupDaemonThreads=false
 ```
 
 The output of the app is similar to the following example:
 
 ```output
-Azure Queue storage v12 - Java quickstart sample
-
-Creating queue: quickstartqueues-bdeeaa05-a9c4-4c40-943b-7f7a700d3e55
+Azure Queues storage v12 - Java quickstart sample
 
 Adding messages to the queue...
 
@@ -294,7 +343,7 @@ Message: Third message has been updated
 
 Press Enter key to delete the queue...
 
-Deleting queue: quickstartqueues-bdeeaa05-a9c4-4c40-943b-7f7a700d3e55
+Deleting queue: quickstartqueues-fbf58f33-4d5a-41ac-ac0e-1a05d01c7003
 Done
 ```
 
@@ -304,12 +353,11 @@ Press the **Enter** key to receive and delete the messages. When prompted, press
 
 ## Next steps
 
-In this quickstart, you learned how to create a queue and add messages to it using asynchronous Java code. Then you learned to view, retrieve, and delete messages. Finally, you learned how to delete a message queue.
+In this quickstart, you learned how to create a queue and add messages to it using Java code. Then you learned to view, retrieve, and delete messages. Finally, you learned how to delete a message queue.
 
 To see more Azure Queue storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure Queue storage SDK v12 Java samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
+> [Azure Queue storage SDK v12 Java samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
 
-* For tutorials, samples, quick starts and other documentation, visit [Azure for Java and Java Core developers](/java/azure/).
-* To learn more about Java Core, see [Get started with Java in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
+* For tutorials, samples, quick starts and other documentation, visit [Azure for Java cloud developers](https://docs.microsoft.com/azure/java/).
