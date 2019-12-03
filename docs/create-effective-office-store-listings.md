@@ -39,7 +39,7 @@ In your name:
 You specify your add-in name in two places, so be sure to use the same name in both:
 
 - Your add-in manifest; specifically, the [DisplayName element](/office/dev/add-ins/reference/manifest/displayname) (Office Add-in), or the [Title element](/sharepoint/dev/schema/title-element-propertiesdefinition-complextypesharepoint-add-in-manifest) (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
-- The Seller Dashboard add-in submission form. This specifies the name that is displayed in AppSource and the in-product Store.
+- The name that you reserve in Partner Center. This specifies the name that is displayed in AppSource and the in-product Store.
 
 <a name="bk_describe"> </a>
 ## Write compelling descriptions
@@ -72,14 +72,6 @@ In your description, answer the following questions:
 
 Most users read between 300 and 500 words. The maximum length for descriptions is 4,000 characters.
 
-You might want to list features to aid readers scanning your description. To create a bulleted list in the Seller Dashboard, use the following formatting:
-
-Features:
-
-[#LI] First feature[/#LI]
-
-[#LI] Second feature[/#LI]
-
 <a name="bk_describe"> </a>
 ## Apply guidelines for name and description length
 
@@ -104,9 +96,9 @@ The following figure shows a clear logo with an Excel chart next to an unclear F
 
 ![An image that shows a clear logo with an Excel chart next to an unclear Fabrikam logo](images/communicate-problem-do-dont.png)
 
-When you submit Office Add-ins, you specify an image in your manifest file, and upload an image with your Seller Dashboard submission.
+When you submit Office Add-ins, you specify an image in your manifest file, and upload an image on the **Marketplace listings** page in Partner Center.
 
-For SharePoint Add-ins, you include an image in your add-in package, and upload an image with your Seller Dashboard submission. These two images have to match for your add-in to validate.
+For SharePoint Add-ins, you include an image in your add-in package, and upload an image on the **Marketplace listings** page in Partner Center. These two images have to match for your add-in to validate.
 
 ### Create an icon for your add-in
 
@@ -124,7 +116,7 @@ The formatting requirements for this image differ depending on the add-in type. 
 
 You should also link to a version of your icon that can be used on high DPI screens by including the [HighResolutionIconUrl element](/office/dev/add-ins/reference/manifest/highresolutioniconurl) in the manifest. For Outlook add-ins, this image must be 128 x 128 pixels. For task pane and content add-ins, we recommend the image be at least 64 x 64 pixels. All other formatting requirements are the same as those listed in the previous table for the IconUrl element.
 
-For SharePoint Add-ins, you have to include an icon in the add-in's package. The image must be 96 x 96 pixels. You must also specify this image when you submit your add-in through the Seller Dashboard.
+For SharePoint Add-ins, you have to include an icon in the add-in's package. The image must be 96 x 96 pixels. You must also specify this image on the **Marketplace listings** page in Partner Center when you submit your add-in.
 
 <a name="bk_screenshots"> </a>
 ## Use images effectively

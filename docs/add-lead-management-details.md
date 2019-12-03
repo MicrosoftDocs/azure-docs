@@ -49,7 +49,7 @@ For information about setting up a new Dynamics service for leads, see the [Apps
 
 ### Azure Table
 
-Select **Azure Table** to output lead information into a Microsoft Azure-hosted storage table. To get started with Azure, see [Create your free Azure account](https://azure.microsoft.com/en-us/free/).
+Select **Azure Table** to output lead information into a Microsoft Azure-hosted storage table. To get started with Azure, see [Create your free Azure account](https://azure.microsoft.com/free/).
 
 You must submit a **Connection String** value to submit your lead management details. To find or generate this value:
 
@@ -59,7 +59,7 @@ You must submit a **Connection String** value to submit your lead management det
  
  3. Copy the storage account key shown under **Primary Connection String**.
  
- 4. Paste this string into the **Connection String** field in the Seller Dashboard.
+ 4. Paste this string into the **Connection String** field in Partner Center.
 
 ### Salesforce
 
@@ -77,7 +77,7 @@ To direct your lead information to a Salesforce CRM system, you need to provide 
 
 	`<input type=hidden name="oid" value="00XXXXXXXXXXXXX">`
 
- 6. Paste the value into the **Object Identifier** field in the Seller Dashboard.
+ 6. Paste the value into the **Object Identifier** field in Partner Center.
 
 ### Marketo
 
@@ -113,11 +113,11 @@ To find these values:
    |Munchkin Id|123-PQR-789|
    |Server Id|1169|
 
-8. Submit these values in the Seller Dashboard. 
+8. Submit these values in Partner Center. 
 
 ### Azure Blob
 
-Select **Azure Blob** to output lead information in a CSV format within an Azure-hosted blob. To get started with Azure, see [Create your free Azure account](https://azure.microsoft.com/en-us/free/).
+Select **Azure Blob** to output lead information in a CSV format within an Azure-hosted blob. To get started with Azure, see [Create your free Azure account](https://azure.microsoft.com/free/).
 
 You must submit a **Connection String** value as well as a **Container Name** value to submit your lead management details. To find or generate these values:
 
@@ -127,7 +127,7 @@ You must submit a **Connection String** value as well as a **Container Name** va
 
 3. Copy the storage account key shown under **Primary Connection String**.
 
-4. Paste this string in the **Connection String** field in the Seller Dashboard.
+4. Paste this string in the **Connection String** field in in Partner Center.
 
 5. In the Blob Services section for the same storage account, select **Containers**.
 
@@ -135,11 +135,11 @@ You must submit a **Connection String** value as well as a **Container Name** va
 
 7. Copy the **Name** of the container.
 
-8. Paste this string in the **Container Name** field in the Seller Dashboard.
+8. Paste this string in the **Container Name** field in in Partner Center.
 
 ## Submit your lead management details
 
-After you have completed the fields in the Seller Dashboard, select **Next**. 
+After you have completed the fields in in Partner Center, select **Save**. 
 
 If you get an error message, make sure that your details are correct or try again later. 
 
@@ -153,8 +153,5 @@ Make sure that any correspondence you send to customers includes an option to un
 
 ## See also
 
-- [Upload your package to AppSource](upload-package.md)
-- [Create your AppSource listing](office-store-listing.md)
-- [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md)
-- [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
-- [AppSource submission FAQ](office-store-submission-faq.md)
+- [Submit your Office solution to AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)
+

@@ -15,14 +15,14 @@ You enter the AppSource listing information on the Marketplace listings page in 
 
 You can select the languages in which your solution will be available. Choose **Manage additional languages** and select the check box next to the languages you want. After you select your languages, you can provide AppSource listing information for each language.
 
-For details about offering solution in multiple languages, see [Prepare localized add-ins](prepare-localized-apps-and-add-ins.md).
+For details about offering solutions in multiple languages, see [Prepare localized add-ins](prepare-localized-apps-and-add-ins.md).
 
 ## Create your listing
 
 Select a language to add the AppSource listing information for that language. Your listing includes the following information.
 
 ### Display name
-In the **Display name** field, select the name of the solution that will be displayed in AppSource. For details, see [Manage names](manage-add-in-names.md).
+In the **Display name** field, select the name of the solution that will be displayed in AppSource. For details, see [Manage names](manage-solution-names.md).
 
 ### Summary and description
 

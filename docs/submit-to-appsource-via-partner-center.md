@@ -6,17 +6,17 @@ localization_priority: Priority
 
 # Make your solutions available in AppSource and within Office
 
-Microsoft AppSource provides a convenient location for you to upload new Office and SharePoint Add-ins, Microsoft Teams apps, and Power BI visuals that provide solutions for both consumers and businesses. When you add your add-in solution to AppSource, you also make it available in the in-product experience within Office. To include your solution in AppSource and within Office, you submit it to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview). You need to create an individual or company account and, if applicable, add payout information. For details, see:
+Microsoft AppSource provides a convenient location for you to upload new Office and SharePoint Add-ins, Microsoft Teams apps, and Power BI visuals that provide solutions for both consumers and businesses. When you add your add-in solution to AppSource, you also make it available in the in-product experience within Office. To include your solution in AppSource and within Office, you submit it to [Partner Center](https://partner.microsoft.com/dashboard/office/overview). You need to create an individual or company account and, if applicable, add payout information. For details, see:
 
-- [Register as an app developer](https://developer.microsoft.com/store/register). After you create your account, it goes through an approval process. 
+- [Create a developer account](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/office). After you create your account, it goes through an approval process. 
   - For details about the registration process, see [Opening a developer account](open-a-developer-account.md).
-  - For details about adding and managing additional users in your Partner Center account, see [Manage account users](manage-account-users.md).
+  - For details about managing settings and additional users in your Partner Center account, see [Manage account users](manage-account-settings-and-profile.md).
 - [Submit your solution to AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md).
 
 > [!NOTE]
-> Office VSTO add-ins and COM add-ins cannot be submitted to AppSource. For more about the distinction between types of Office add-ins, see [How are Office Add-ins different from COM and VSTO add-ins?](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-ins#how-are-office-add-ins-different-from-com-and-vsto-add-ins).
+> Office VSTO add-ins and COM add-ins cannot be submitted to AppSource. For more about the distinction between types of Office add-ins, see [How are Office Add-ins different from COM and VSTO add-ins?](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-ins#how-are-office-add-ins-different-from-com-and-vsto-add-ins).
 
-For information about how to submit Power BI custom visuals to AppSource, see [Publish custom visuals to AppSource](https://docs.microsoft.com/en-us/power-bi/developer/office-store).
+For information about how to submit Power BI custom visuals to AppSource, see [Publish custom visuals to AppSource](https://docs.microsoft.com/power-bi/developer/office-store).
 
 <a name="bk_approval"> </a>
 ## Approval process
@@ -60,7 +60,7 @@ After you submit your solution:
 
 3. When the certification process is complete, you receive a message to let you know that either your submission is approved, or you need to make changes and resubmit it. You can also follow these steps to check the status of your submission in Partner Center:
 
-   - Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview).
+   - Sign in to [Partner Center](https://partner.microsoft.com/dashboard/office/overview).
    - On the **Product overview** page, the status of your submission will be one of the following:
       - Pre-processing
       - Certification
