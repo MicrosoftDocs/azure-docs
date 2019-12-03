@@ -1173,7 +1173,7 @@ See the following articles for help with Hive queries for machine learning:
 
 |Exception Messages|
 |------------------------|
-|Connection timeout occured.|
+|Connection timeout occurred.|
 
 
 ## Error 0073  
