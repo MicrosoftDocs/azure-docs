@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 This document will walk you through the installation process for the Azure AD Connect provisioning agent and how to initially configure it in the Azure portal.
 
 >[!IMPORTANT]
->The following installation instructions assume that all of the [Pre-requisites](how-to-prerequisites.md) have been met.
+>The following installation instructions assume that all of the [Prerequisites](how-to-prerequisites.md) have been met.
 
 Installing and configuring Azure AD Connect provisioning is accomplished in the following steps:
 	
