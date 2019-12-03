@@ -66,7 +66,7 @@ When the Azure portal shows that the Azure AD DS managed domain has finished pro
 
 To modify the list of groups whose users should be synchronized to the Azure AD DS managed domain, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your instance, such as *contoso.com*.
+1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your instance, such as *aadds.contoso.com*.
 1. Select **Synchronization** from the menu on the left-hand side.
 1. To add a group, choose **+ Select groups** at the top, then choose the groups to add.
 1. To remove a group from the synchronization scope, select it from the list of currently synchronized groups and choose **Remove groups**.
@@ -78,7 +78,7 @@ Changing the scope of synchronization causes the Azure AD DS managed domain to r
 
 To disable group-based scoped synchronization for an Azure AD DS managed domain, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your instance, such as *contoso.com*.
+1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your instance, such as *aadds.contoso.com*.
 1. Select **Synchronization** from the menu on the left-hand side.
 1. Set the synchronization scope from **Scoped** to **All**, then select **Save synchronization scope**.
 
@@ -190,11 +190,11 @@ Use PowerShell to complete this set of steps. Refer to the instructions to [enab
 
 1. Now create the Azure AD DS managed domain and enable group-based scoped synchronization. Include *"filteredSync" = "Enabled"* in the *-Properties* parameter.
 
-    Set your Azure subscription ID, and then provide a name for the managed domain, such as *contoso.com*. You can get your subscription ID using the [Get-AzSubscription][Get-AzSubscription] cmdlet. Set the resource group name, virtual network name, and region to the values used in the previous steps to create the supporting Azure resources:
+    Set your Azure subscription ID, and then provide a name for the managed domain, such as *aadds.contoso.com*. You can get your subscription ID using the [Get-AzSubscription][Get-AzSubscription] cmdlet. Set the resource group name, virtual network name, and region to the values used in the previous steps to create the supporting Azure resources:
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso.com"
+   $ManagedDomainName = "aadds.contoso.com"
    $ResourceGroupName = "myResourceGroup"
    $VnetName = "myVnet"
    $AzureLocation = "westus"
