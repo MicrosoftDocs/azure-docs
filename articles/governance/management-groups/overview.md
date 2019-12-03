@@ -2,7 +2,7 @@
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them. 
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
-ms.date: 04/22/2019
+ms.date: 12/02/2019
 ms.topic: overview
 ---
 # Organize your resources with Azure management groups
@@ -124,10 +124,10 @@ The following chart shows the list of roles and the supported actions on managem
 *: MG Contributor and MG Reader only allow users to do those actions on the management group scope.  
 **: Role Assignments on the Root management group aren't required to move a subscription or management group to and from it.  See [Manage your resources with management groups](manage.md) for details on moving items within the hierarchy.
 
-### Custom RBAC Role Definition and Assignment
+### Custom roles and management groups (Preview)
 
-Custom RBAC roles aren't supported on management groups at this time. See the [management group
-feedback forum](https://aka.ms/mgfeedback) to view the status of this item.
+It is possible to create a [custom role](../../role-based-access-control/custom-roles.md) and assign that role at a management group scope. This capability is currently in preview. When you create the custom role, you must add the management group to `AssignableScopes` and you cannot include any `DataActions`. To provide feedback or view status, see the [Azure management groups
+feedback forum](https://aka.ms/mgfeedback).
 
 ## Audit management groups using activity logs
 
