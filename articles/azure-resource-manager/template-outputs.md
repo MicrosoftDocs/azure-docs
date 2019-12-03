@@ -95,4 +95,3 @@ The following examples demonstrate scenarios for using outputs.
 ## Next steps
 
 * To learn about the available properties for outputs, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
-* For recommendations about creating outputs, see [Best practices - outputs](template-best-practices.md#outputs).
