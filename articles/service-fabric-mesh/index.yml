@@ -29,9 +29,9 @@ landingContent:
           - text: Networks and gateways
             url: service-fabric-mesh-networks-and-gateways.md
           - text: Storing state
-            url: service-fabric-mesh-storing-state
+            url: service-fabric-mesh-storing-state.md
           - text: Secrets
-            url: service-fabric-mesh-secrets-overview
+            url: service-fabric-mesh-secrets-overview.md
       - linkListType: whats-new
         links:
           - text: Commonly asked questions
@@ -53,7 +53,7 @@ landingContent:
           - text: Set up your development environment
             url: service-fabric-mesh-howto-setup-developer-environment-sdk.md
           - text: Optimize Visual Studio for Service Fabric Mesh
-            url: service-fabric-mesh-howto-optimize-vs
+            url: service-fabric-mesh-howto-optimize-vs.md
           - text: Set up Service Fabric Mesh CLI
             url: service-fabric-mesh-howto-setup-cli.md
       - linkListType: download
