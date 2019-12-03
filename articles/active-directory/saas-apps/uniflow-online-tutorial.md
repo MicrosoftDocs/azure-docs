@@ -186,13 +186,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	c. In the **Federation Metadata URl** textbox, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal.
 
-	d. Click on the **Copy** button to copy the **Reply URL** value and paste into **Reply URL** textbox in the **Basic Configuration** section in the Azure portal.
+	d. Select **Identity provider** as **Enabled**.
 
-	e. Select **Identity provider** as **Enabled**.
+	e. Select **Automatic user registraion** as **Activated**.
 
-	f. Select **Automatic user registraion** as **Activated**.
-
-	g. Click **Save**.
+	f. Click **Save**.
 
 ### Create uniFLOW Online test user
 
