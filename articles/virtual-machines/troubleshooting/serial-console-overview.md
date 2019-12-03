@@ -1,6 +1,6 @@
 ---
-title: Azure Serial Console for Linux | Microsoft Docs
-description: Bi-Directional Serial Console for Azure Virtual Machines and Virtual Machine Scale Sets.
+title: Azure Serial Console | Microsoft Docs
+description: The Azure Serial Console allows you to connect to your VM when SSH or RDP are not available.
 services: virtual-machines
 documentationcenter: ''
 author: asinn826
@@ -8,12 +8,12 @@ manager: borisb
 editor: ''
 tags: azure-resource-manager
 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 8/6/2019
+ms.date: 8/30/2019
 ms.author: alsin
 ---
 

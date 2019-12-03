@@ -15,7 +15,7 @@ The following table describes default limits for Azure general-purpose v1, v2, a
 | Resource | Default limit |
 | --- | --- |
 | Number of storage accounts per region per subscription, including both standard and premium accounts | 250 |
-| Maximum storage account capacity | 2 PB for US and Europe, and 500 TB for all other regions (including the UK)<sup>1</sup>|
+| Maximum storage account capacity | 2 PiB for US and Europe, and 500 TiB for all other regions (including the UK)<sup>1</sup>|
 | Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
 | Maximum request rate<sup>1</sup> per storage account | 20,000 requests per second |
 | Maximum ingress<sup>1</sup> per storage account (US, Europe regions) | 25 Gbps |
@@ -26,12 +26,8 @@ The following table describes default limits for Azure general-purpose v1, v2, a
 
 <sup>1</sup>Azure Standard Storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits for ingress, contact [Azure Support](https://azure.microsoft.com/support/faq/). For more information, see [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
-<sup>2</sup> [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy) options include:
-
-- **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
-- **GRS**: Geo-redundant storage.
-- **ZRS**: Zone-redundant storage.
-- **LRS**: Locally redundant storage.
+<sup>2</sup> If you have Read-access enabled (RA-GRS/RA-GZRS), the egress targets for the secondary location are identical to those of the primary location. [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy) options include:  
+[!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
 > [!NOTE]
 > We recommend that you use a general-purpose v2 storage account for most scenarios. You can easily upgrade a general-purpose v1 or an Azure Blob storage account to a general-purpose v2 account with no downtime and without the need to copy data.

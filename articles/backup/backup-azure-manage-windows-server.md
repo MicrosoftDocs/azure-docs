@@ -1,13 +1,8 @@
 ---
 title: Manage Azure Recovery Services vaults and servers
-description: Manage jobs and alerts in an Azure Recovery Services vault.
-
-author: dcurwin
-manager: carmonm
-ms.service: backup
+description: In this article, learn how to use the Recovery Services vault Overview dashboard to monitor and manage your Recovery Services vaults. 
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: dacurwin
 ---
 # Monitor and manage Recovery Services vaults
 
@@ -18,7 +13,6 @@ This article explains how to use the Recovery Services vault **Overview** dashbo
 The prerequisites for this article are: an Azure subscription, a Recovery Services vault, and that there is at least one backup item configured for the vault.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-
 
 ## Open a Recovery Services vault
 
@@ -254,8 +248,7 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
 * Cloud LRS storage usage associated with the vault
 * Cloud GRS storage usage associated with the vault
 
-
-## Troubleshooting Monitoring Issues
+## Troubleshooting monitoring issues
 
 **Issue:** Jobs and/or alerts from the Azure Backup agent do not appear in the portal.
 
@@ -271,6 +264,7 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## Next steps
+
 * [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)
 * To learn more about Azure Backup, see [Azure Backup Overview](backup-introduction-to-azure-backup.md)
 * Visit the [Azure Backup Forum](https://go.microsoft.com/fwlink/p/?LinkId=290933)

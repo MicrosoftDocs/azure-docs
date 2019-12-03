@@ -1,20 +1,16 @@
 ---
 title: Set Alerts in Azure Application Insights | Microsoft Docs
 description: Get notified about slow response times, exceptions, and other performance or usage changes in your web app.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.reviewer: lagayhar
-ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/23/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 01/23/2019
 
+ms.reviewer: lagayhar
 ---
+
 # Set Alerts in Application Insights
 [Azure Application Insights][start] can alert you to changes in performance or usage metrics in your web app. 
 

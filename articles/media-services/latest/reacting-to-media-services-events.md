@@ -35,6 +35,9 @@ Applications that handle Media Services events should follow a few recommended p
 * Ignore fields you don’t understand.  This practice will help keep you resilient to new features that might be added in the future.
 * Use the "subject" prefix and suffix matches to limit events to a particular event.
 
+> [!NOTE]
+> Events are subject to the Event Grid [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). If you want to get event notifications using APIs, see examples on how to consume events, with [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) or [Java SDK](https://github.com/Azure-Samples/media-services-v3-java).
+
 ## Next steps
 
 * [Monitor events - portal](monitor-events-portal-how-to.md)

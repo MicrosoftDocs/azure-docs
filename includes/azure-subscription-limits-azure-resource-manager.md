@@ -3,7 +3,7 @@
  description: include file
  services: billing
  author: rothja
- ms.service: billing
+ ms.service: cost-management-billing
  ms.topic: include
  ms.date: 07/22/2019
  ms.author: jroth

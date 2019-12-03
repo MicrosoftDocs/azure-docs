@@ -1,8 +1,7 @@
 ---
-title: Get started with Azure Data Lake Analytics using Azure CLI
+title: Create & query Azure Data Lake Analytics - Azure CLI
 description: Learn how to use the Azure Command-line Interface to create an Azure Data Lake Analytics account and submit a U-SQL job.
 ms.service: data-lake-analytics
-services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell

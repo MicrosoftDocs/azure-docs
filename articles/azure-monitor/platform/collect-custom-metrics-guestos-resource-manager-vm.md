@@ -1,5 +1,5 @@
 ---
-title: Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
+title: Collect Windows VM metrics in Azure Monitor with template
 description: Send guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
 author: anirudhcavale
 services: azure-monitor
@@ -26,6 +26,8 @@ If you're new to Resource Manager templates, learn about [template deployments](
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
+
+- Your VM resource must be in a [region that supports custom metrics](metrics-custom-overview.md#supported-regions). 
 
 
 ## Set up Azure Monitor as a data sink

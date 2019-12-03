@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 11/17/2019
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -28,10 +28,9 @@ The read replica feature uses PostgreSQL asynchronous replication. The feature i
 ## Cross-region replication
 You can create a read replica in a different region from your master server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-> [!IMPORTANT]
-> Cross-region replication is currently in public preview.
+You can have a master server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A master server can have a replica in its paired region or the universal replica regions. The picture below shows which replica regions are available depending on your master region.
 
-You can have a master server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql).  A master server can have a replica in its paired region or the universal replica regions.
+[ ![Read replica regions](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### Universal replica regions
 You can always create a read replica in any of the following regions, regardless of where your master server is located. These are the universal replica regions:
@@ -44,11 +43,11 @@ In addition to the universal replica regions, you can create a read replica in t
 
 If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.  
 
-However, there are limitations to consider: 
+There are limitations to consider: 
 
 * Regional availability: Azure Database for PostgreSQL is available in West US 2, France Central, UAE North, and Germany Central. However, their paired regions are not available.
 	
-* Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South, and US Gov Virginia. 
+* Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South. 
    This means that a master server in West India can create a replica in South India. However, a master server in South India cannot create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region is not West India.
 
 
@@ -156,7 +155,9 @@ A replica is created by using the same compute and storage settings as the maste
 
 PostgreSQL requires the value of the `max_connections` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. In Azure Database for PostgreSQL, the `max_connections` parameter value is based on the SKU. For more information, see [Limits in Azure Database for PostgreSQL](concepts-limits.md). 
 
-If you try to update the server values, but don't adhere to the limits, you receive an error.
+If you try to update the server values described above, but don't adhere to the limits, you receive an error.
+
+Firewall rules, virtual network rules, and parameter settings are not inherited from the master server to the replica when the replica is created or afterwards.
 
 ### max_prepared_transactions
 [PostgreSQL requires](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) the value of the `max_prepared_transactions` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. If you want to change `max_prepared_transactions` on the master, first change it on the replicas.
@@ -169,4 +170,4 @@ When a master server is deleted, all of its read replicas become standalone serv
 
 ## Next steps
 * Learn how to [create and manage read replicas in the Azure portal](howto-read-replicas-portal.md).
-* Learn how to [create and manage read replicas in the Azure CLI](howto-read-replicas-cli.md).
+* Learn how to [create and manage read replicas in the Azure CLI and REST API](howto-read-replicas-cli.md).

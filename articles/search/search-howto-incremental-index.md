@@ -1,46 +1,49 @@
 ---
-title: Incrementally index your documents with change tracking across the entire indexing pipeline - Azure Search
-description: Learn how to index Azure Blob Storage and extract text from documents with Azure Search.
+title: Add incremental indexing (preview) 
+titleSuffix: Azure Cognitive Search
+description: Enable change tracking and preserve state of enriched content for controlled processing in a cognitive skillset. This feature is currently in public preview.
 
-ms.date: 10/07/2019
 author: vkurpad 
 manager: eladz
 ms.author: vikurpad
 
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.custom: seonov2019
+ms.date: 11/04/2019
 ---
 
-# Incrementally Indexing Documents with Azure Search
-This article shows how to use Azure Search to incrementally index documents from any of the supported data sources. 
-If you are not familiar with setting up indexers in Azure search start with [indexer overview](search-indexer-overview.md). If you need to learn more about the incremental indexing feature start with [incremental indexing](cognitive-search-incremental-indexing-conceptual.md)
-First, it explains the basics of setting up and configuring incremental indexing. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
+# How to set up incremental indexing of enriched documents in Azure Cognitive Search
 
-## Setting up incremental indexing
-Incremental indexing can be configured using:
+> [!IMPORTANT] 
+> Incremental indexing is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.
 
-* Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
+This article shows you how to add state and caching to enriched documents moving through an Azure Cognitive Search enrichment pipeline so that you can incrementally index documents from any of the supported data sources. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental indexing, the indexer can determine which parts of the pipeline have changed, reusing existing enrichments for unchanged parts, and revising enrichments for the steps that do change. Cached content is placed in Azure Storage.
 
-> [!NOTE]
-> this feature is not yet available in the portal, and has to be used programmatically.
->
+If you're not familiar with setting up indexers, start with [indexer overview](search-indexer-overview.md) and then continue on to [skillsets](cognitive-search-working-with-skillsets.md) to learn about enrichment pipelines. For more background on key concepts, see [incremental indexing](cognitive-search-incremental-indexing-conceptual.md).
 
-Here, we demonstrate the flow to adding incremental indexing to an existing indexer
+## Modify an existing indexer
+
+If you have an existing indexer, follow these steps to enable incremental indexing.
 
 ### Step 1: Get the indexer
 
-Using a API client construct a GET request to get the current configuration of the indexer you want to add incremental indexing to.
- 
-    GET https://[service name].search.windows.net/indexers/[your indexer name]?api-version=2019-05-06-preview
-    Content-Type: application/json
-    api-key: [admin key]
+Start with a valid, existing indexer that has the required data source and index already defined. Your indexer should be runnable. Using an API client, construct a [GET request](https://docs.microsoft.com/rest/api/searchservice/get-indexer) to get the current configuration of the indexer, to which you want to add incremental indexing.
 
-### Step 2: Update the indexer definition
+```http
+GET https://[service name].search.windows.net/indexers/[your indexer name]?api-version=2019-05-06-Preview
+Content-Type: application/json
+api-key: [admin key]
+```
 
+### Step 2: Add the cache property
+
+<<<<<<< HEAD
 Edit the response from the GET request to add the `cache` property to the indexer. The cache object requires only a single property, `storageConnectionString` which is the connection string to the storage account. 
+=======
+Edit the response from the GET request to add the `cache` property to the indexer. The cache object requires only a single property, and that is the connection string to an Azure Storage account.
+>>>>>>> 3519a330aa86b6827d31403690529105825b1b16
 
 ```json
 {
@@ -69,50 +72,60 @@ You can optionally set the `enableReprocessing` boolean property within the cach
 ### Step 3: Reset the indexer
 
 > [!NOTE]
-> This will result in all documents in your datasource being processed again. All cognitive enrichments will be re-run on all documents.
+> Resetting the indexer will result in all documents in your data source being processed again so that content can be cached. All cognitive enrichments will be re-run on all documents.
 >
 
-A reset of the indexer is required when setting up incremental indexing for existing indexers to ensure that all documents are in a consistent state. Reset the indexer, via the portal or using the REST API
-To create a data source:
+A reset of the indexer is required when setting up incremental indexing for existing indexers to ensure all documents are in a consistent state. Reset the indexer using the [REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
 
-    POST https://[service name].search.windows.net/indexers/[your indexer name]/reset?api-version=2019-05-06-preview
-    Content-Type: application/json
-    api-key: [admin key]
+```http
+POST https://[service name].search.windows.net/indexers/[your indexer name]/reset?api-version=2019-05-06-Preview
+Content-Type: application/json
+api-key: [admin key]
+```
 
-### Step 4: Update the indexer
+### Step 4: Save the updated definition
 
 Update the indexer definition with a PUT request, the body of the request should contain the updated indexer definition.
- 
-    PUT https://[service name].search.windows.net/indexers/[your indexer name]/reset?api-version=2019-05-06-preview
-    Content-Type: application/json
-    api-key: [admin key]
-    {
-      "name" : "your indexer name",
-        ...
-        "cache": {
-            "storageConnectionString": "[your storage connection string]",
-            "enableReprocessing": true
-        }
+
+```http
+PUT https://[service name].search.windows.net/indexers/[your indexer name]/reset?api-version=2019-05-06-Preview
+Content-Type: application/json
+api-key: [admin key]
+{
+    "name" : "your indexer name",
+    ...
+    "cache": {
+        "storageConnectionString": "[your storage connection string]",
+        "enableReprocessing": true
     }
+}
+```
 
-If you now issue another GET request on the indexer, the response from the service will include a `cacheId` property in the cache object. This is the container name that will contain all the cached results and intermediate state of each document processed by this indexer.
+If you now issue another GET request on the indexer, the response from the service will include a `cacheId` property in the cache object. The `cacheId` is the name of the container that will contain all the cached results and intermediate state of each document processed by this indexer.
 
-### Set up incremental indexing for a new indexer
+## Enable incremental indexing on new indexers
 
-Setting up incremental indexing for a new indexer, simply include the cache property in the indexer definition payload. Ensure you are using the `2019-05-06-preview` version of the API.
+To set up incremental indexing for a new indexer, include the `cache` property in the indexer definition payload. Ensure you're using the `2019-05-06-Preview` version of the API.
 
 ## Overriding incremental indexing
 
-When configured, incremental indexing tracks changes across your indexing pipeline and drives documents to eventual consistency across your index and projections. In some cases you will need to override this behavior to ensure that the indexer does not perform additional work as a result of an update to the indexing pipeline. For example, updating the datasource connection string will require an indexer reset and reindexing of all documents as the datasource has changed. But if you were only updating the connection string with a new key, you do not want the change to result in any updates to existing documents.  Conversely, you may want the indexer to invalidate the cache and enrich documents even if no changes to the indexing pipeline are made, for instance, if you redeploy a custom skill with a new model and want the skill rerun on all your documents.
+When configured, incremental indexing tracks changes across your indexing pipeline and drives documents to eventual consistency across your index and projections. In some cases, you'll need to override this behavior to ensure the indexer doesn't do additional work as a result of an update to the indexing pipeline. For example, updating the datasource connection string will require an indexer reset and reindexing of all documents as the datasource has changed. But if you were only updating the connection string with a new key, you wouldn't want the change to result in any updates to existing documents. Conversely, you may want the indexer to invalidate the cache and enrich documents even if no changes to the indexing pipeline are made. For instance, you might want to invalidate the indexer if you were to redeploy a custom skill with a new model and wanted the skill rerun on all your documents.
 
 ### Override reset requirement
 
-When making changes to the indexing pipeline, any changes resulting in an invalidation of the cache requires a indexer reset. If you are making a change to the indexer pipeline and do not want the change tracking to invalidate the cache, you will need to set the `ignoreResetRequirement` querystring parameter to true for operations on the indexer or datasource.
+When making changes to the indexing pipeline, any changes resulting in an invalidation of the cache requires an indexer reset. If you're making a change to the indexer pipeline and don't want the change tracking to invalidate the cache, you'll need to set the `ignoreResetRequirement` querystring parameter to `true` for operations on the indexer or datasource.
 
 ### Override change detection
 
-When making updates to the skillset that would result in documents being flagged as incosistent, for example updating a custom skill URL when the skill is redeployed, set the `disableCacheReprocessingChangeDetection` query string parameter to true on skillset updates.
+When making updates to the skillset that would result in documents being flagged as inconsistent, for example updating a custom skill URL when the skill is redeployed, set the `disableCacheReprocessingChangeDetection` query string parameter to `true` on skillset updates.
 
 ### Force change detection
 
-Instanced when you want the indexing pipeline to recognize a change to an external entity, like deploying a new version of a custom skill, you will need to update the skillset and "touch" the specific skill by editing the skill definition, specifically the URL to force change detection and invalidate the cache for that skill.
+Instanced when you want the indexing pipeline to recognize a change to an external entity, like deploying a new version of a custom skill, you'll need to update the skillset and "touch" the specific skill by editing the skill definition, specifically the URL to force change detection and invalidate the cache for that skill.
+
+## Next steps
+
+This article covers incremental indexing for indexers that include skillsets. To further round out your knowledge, review articles about re-indexing in general, applicable to all indexing scenarios in Azure Cognitive Search.
+
++ [How to rebuild an Azure Cognitive Search index](search-howto-reindex.md). 
++ [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md). 

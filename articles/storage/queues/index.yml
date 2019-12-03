@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Queue Storage documentation - Azure Storage
+title: Azure Queue storage documentation
 summary: Azure Queue storage is a service for storing large numbers of messages. Access messages from anywhere in the world via HTTP or HTTPS.
 
 metadata:
-  title: Azure Queue Storage documentation - Azure Storage
-  description: Azure Queue Storage is a service for storing large numbers of messages. Access messages from anywhere in the world via HTTP or HTTPS.
+  title: Azure Queue storage documentation
+  description: Azure Queue storage is a service for storing large numbers of messages. Access messages from anywhere in the world via HTTP or HTTPS.
   services: storage
   ms.service: storage
   ms.subservice: queues

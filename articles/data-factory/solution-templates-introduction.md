@@ -1,5 +1,5 @@
 ---
-title: Overview of templates for Azure Data Factory | Microsoft Docs
+title: Overview of templates for Azure Data Factory 
 description:  Learn how to use a pre-defined template to get started quickly with Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -50,7 +50,7 @@ Data Factory uses Azure Resource Manager templates for saving data factory pipel
 
     -   Copy from \<source\> to \<destination\>
 
-        -   From Amazon S3 to Azure Data Lake Store Gen 2
+        -   [From Amazon S3 to Azure Data Lake Store Gen 2](solution-template-migration-s3-azure.md)
 
         -   From Google Big Query to Azure Data Lake Store Gen 2
 

@@ -454,6 +454,6 @@ For more information, see the following resources.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node) repository on GitHub.
-* [Azure for Node.js Developers](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
+* [Azure for Node.js Developers](https://docs.microsoft.com/azure/javascript/)
 * [Create a Node.js web app in Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)

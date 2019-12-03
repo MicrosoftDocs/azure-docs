@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with People | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with People | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and People.
 services: active-directory
 documentationCenter: na
@@ -14,13 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 08/27/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Integrate People with Azure Active Directory
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with People
 
 In this tutorial, you'll learn how to integrate People with Azure Active Directory (Azure AD). When you integrate People with Azure AD, you can:
 
@@ -44,6 +44,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * People supports **SP** initiated SSO
 * People Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
+>[!NOTE]
+>Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Adding People from the gallery
 
 To configure the integration of People into Azure AD, you need to add People from the gallery to your list of managed SaaS apps.
@@ -55,21 +58,20 @@ To configure the integration of People into Azure AD, you need to add People fro
 1. In the **Add from the gallery** section, type **People** in the search box.
 1. Select **People** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD single sign-on for People
 
 Configure and test Azure AD SSO with People using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in People.
 
 To configure and test Azure AD SSO with People, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 2. **[Configure People SSO](#configure-people-sso)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-5. **[Create People test user](#create-people-test-user)** - to have a counterpart of B.Simon in People that is linked to the Azure AD representation of user.
+    1. **[Create People test user](#create-people-test-user)** - to have a counterpart of B.Simon in People that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -101,22 +103,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Configure People SSO
-
-1. To get SSO configured for your application, you need to sign-on to your People tenant as an administrator.
-   
-2. In the menu on the left side, click **Settings**.
-
-	![Configure Single Sign-On](./media/people-tutorial/tutorial_people_001.png)
-
-3. Click **Company**.
-
-	![Configure Single Sign-On](./media/people-tutorial/tutorial_people_002.png)
-
-4. On the **Upload 'Single Sign On' SAML meta-data file**, click **Browse** to upload the downloaded metadata file.
-
-	![Configure Single Sign-On](./media/people-tutorial/tutorial_people_003.png)
-
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -147,11 +133,35 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+## Configure People SSO
+
+1. To automate the configuration within People, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Setup People** will direct you to the People application. From there, provide the admin credentials to sign into People. The browser extension will automatically configure the application for you and automate steps 3-6.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup People manually, open a new web browser window and sign into your People company site as an administrator and perform the following steps:
+   
+4. In the menu on the left side, click **Settings**.
+
+	![Configure Single Sign-On](./media/people-tutorial/tutorial_people_001.png)
+
+5. Click **Company**.
+
+	![Configure Single Sign-On](./media/people-tutorial/tutorial_people_002.png)
+
+6. On the **Upload 'Single Sign On' SAML meta-data file**, click **Browse** to upload the downloaded metadata file.
+
+	![Configure Single Sign-On](./media/people-tutorial/tutorial_people_003.png)
+
 ### Create People test user
 
 In this section, you create a user called B.Simon in People. Work with [People Client support team](mailto:customerservices@peoplehr.com) to add the users in the People platform. Users must be created and activated before you use single sign-on.
 
-### Test SSO 
+## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
@@ -179,3 +189,4 @@ When you click the People tile in the Access Panel, you should be automatically 
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Try People with Azure AD](https://aad.portal.azure.com)

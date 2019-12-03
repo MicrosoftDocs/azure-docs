@@ -4,8 +4,8 @@ description: This article explains how Azure Security Center uses role-based acc
 services: security-center
 cloud: na
 documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: memildin
+manager: rkarlin
 
 ms.assetid:
 ms.service: security-center
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 

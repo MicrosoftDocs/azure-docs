@@ -54,7 +54,7 @@ For AzureRM, the cmdlets in the following table are used to create and manage au
 
 ## Activities
 
-The activities in the following table are used to access credentials in a runbook and DSC configurations.
+The activities in the following table are used to access variables in a runbook and DSC configurations. The difference between Get-AzureRmAutomationVariable and Get-AutomationVariable cmdlets is clarified above at the start of this document.
 
 | Activities | Description |
 |:---|:---|

@@ -1,15 +1,8 @@
 ---
-title: Reuse templates across clouds - Azure Resource Manager
+title: Reuse templates across clouds
 description: Develop Azure Resource Manager templates that work consistently for different cloud environments. Create new or update existing templates for Azure Stack.
-services: azure-resource-manager
-documentationcenter: na
 author: marcvaneijk
-
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
@@ -43,7 +36,7 @@ The rest of this guide describes the areas to consider when planning to develop 
 * Ensure the template parameters you use work in the target clouds.
 * Verify that resource-specific properties are available the target clouds.
 
-For an introduction to Azure Resource Manger templates, see [Template deployment](resource-group-overview.md#template-deployment).
+For an introduction to Azure Resource Manger templates, see [Template deployment](template-deployment-overview.md).
 
 ## Ensure template functions work
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Route traffic to weighted endpoints - Azure Traffic Manager
+title: Tutorial:Route traffic to weighted endpoints - Azure Traffic Manager
 description: This tutorial article describes how to route traffic to weighted endpoints by using Traffic Manager.
 services: traffic-manager
 author: asudbring

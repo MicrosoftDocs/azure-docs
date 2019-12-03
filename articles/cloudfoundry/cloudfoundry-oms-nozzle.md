@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Log Analytics Nozzle for Cloud Foundry monitoring | Microsoft Docs
+title: Deploy Azure Log Analytics Nozzle for Cloud Foundry monitoring
 description: Step-by-step guidance on deploying the Cloud Foundry loggregator Nozzle for Azure Log Analytics. Use the Nozzle to monitor the Cloud Foundry system health and performance metrics.
 services: virtual-machines-linux
 author: ningk
