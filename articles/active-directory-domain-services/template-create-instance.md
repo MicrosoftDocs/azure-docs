@@ -125,26 +125,55 @@ As part of the Resource Manager resource definition, the following configuration
 * **notificationSettings** - If there are any alerts generated in the Azure AD DS managed domain, email notifications can be sent out. *Global administrators* of the Azure tenant and members of the *AAD DC Administrators* group can be *Enabled* for these notifications.
     * If desired, you can add additional recipients for notifications when there are alerts that require attention.
 
-The following Resource Manager template resource type is used to define and create the Azure AD DS managed domain. An Azure virtual network and subnet must already exist, or be created as part of Resource Manager template. The Azure AD DS managed domain is connected to this subnet.
+The following condensed parameters definition shows how these values are declared:
 
 ```json
-{
-    "apiVersion": "2017-06-01",
-    "type": "Microsoft.AAD/DomainServices",
-    "name": "[parameters('domainName')]",
-    "location": "[parameters('location')]",
-    "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
-    ],
-    "properties": {
-        "domainName": "[parameters('domainName')]",
-        "subnetId": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', parameters('vnetName'), '/subnets/', parameters('subnetName'))]",
-        "filteredSync": "[parameters('filteredSync')]",
-        "domainConfigurationType": "[parameters('domainConfigurationType')]",
-        "notificationSettings": "[parameters('notificationSettings')]"
-    }
+"parameters": {
+    "domainConfigurationType": {
+        "value": "FullySynced"
+    },
+    "domainName": {
+        "value": "aadds.contoso.com"
+    },
+    "filteredSync": {
+        "value": "Disabled"
+    },
+    "notificationSettings": {
+        "value": {
+            "notifyGlobalAdmins": "Enabled",
+            "notifyDcAdmins": "Enabled",
+            "additionalRecipients": []
+        }
+    },
+    [...]
 }
 ```
+
+The following condensed Resource Manager template resource type is then used to define and create the Azure AD DS managed domain. An Azure virtual network and subnet must already exist, or be created as part of Resource Manager template. The Azure AD DS managed domain is connected to this subnet.
+
+```json
+"resources": [
+    {
+        "apiVersion": "2017-06-01",
+        "type": "Microsoft.AAD/DomainServices",
+        "name": "[parameters('domainName')]",
+        "location": "[parameters('location')]",
+        "dependsOn": [
+            "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
+        ],
+        "properties": {
+            "domainName": "[parameters('domainName')]",
+            "subnetId": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', parameters('vnetName'), '/subnets/', parameters('subnetName'))]",
+            "filteredSync": "[parameters('filteredSync')]",
+            "domainConfigurationType": "[parameters('domainConfigurationType')]",
+            "notificationSettings": "[parameters('notificationSettings')]"
+        }
+    },
+    [...]
+]
+```
+
+These parameters and resource type can be used as part of a wider Resource Manager template to deploy a managed domain, as shown in the following section.
 
 ## Create a managed domain using sample template
 
