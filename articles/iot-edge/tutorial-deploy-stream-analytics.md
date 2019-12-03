@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Stream Analytics at the edge - Azure IoT Edge'
+title: 'Tutorial - Stream Analytics at the edge using Azure IoT Edge'
 description: 'In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device'
 author: kgremban
 ms.author: kgremban
