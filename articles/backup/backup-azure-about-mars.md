@@ -51,4 +51,4 @@ MARS agent supports the following restore scenarios:
 -	**Offline Seeding** - Initial full backups of data to Azure, typically transfer large amounts of data and requires more network bandwidth when compared to subsequent backups that transfer only the delta/incremental. Azure Backup compresses the initial backups. Through the process of offline seeding, Azure Backup can use disks to upload the compressed initial backup data offline to Azure. [Learn more](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
 
 
-The primary method for backing up Azure virtual machines (VMs) is by using an Azure Backup extension on the VM. This backs up the entire VM. If you want to backup specific files and folders within a VM then you can install MARS agent in Azure VMs.
+The primary method for backing up Azure virtual machines (VMs) is by using an Azure Backup extension on the VM. This backs up the entire VM. If you want to backup specific files and folders within a VM then you can install MARS agent in Azure VMs. [Learn more](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
