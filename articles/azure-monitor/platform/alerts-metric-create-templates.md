@@ -545,9 +545,11 @@ az group deployment create \
 >
 > While the metric alert could be created in a different resource group to the target resource, we recommend using the same resource group as your target resource.
 
-## Template for a more advanced static threshold metric alert
+## Template for a static threshold metric alert that monitors multiple criteria
 
-Newer metric alerts support alerting on multi-dimensional metrics as well as supporting multiple criteria. You can use the following template to create a more advanced metric alert on dimensional metrics and specify multiple criteria.
+Newer metric alerts support alerting on multi-dimensional metrics as well as supporting multiple criteria. You can use the following template to create a more advanced metric alert rule on dimensional metrics and specify multiple criteria.
+
+Please note that when the alert rule contains multiple criteria, the use of dimensions is limited to one value per dimension within each criterion.
 
 Save the json below as advancedstaticmetricalert.json for the purpose of this walkthrough.
 
@@ -751,7 +753,7 @@ Save and modify the json below as advancedstaticmetricalert.parameters.json for 
 ```
 
 
-You can create the metric alert using the template and parameters file using PowerShell or Azure CLI from your current working directory
+You can create the metric alert using the template and parameters file using PowerShell or Azure CLI from your current working directory.
 
 Using Azure PowerShell
 ```powershell
@@ -778,17 +780,237 @@ az group deployment create \
 
 >[!NOTE]
 >
-> While the metric alert could be created in a different resource group to the target resource, we recommend using the same resource group as your target resource.
+> When an alert rule contains multiple criteria, the use of dimensions is limited to one value per dimension within each criterion.
 
-## Template for a more advanced Dynamic Thresholds metric alert
+## Template for a static metric alert that monitors multiple dimensions
+
+You can use the following template to create a static metric alert rule on dimensional metrics.
+
+A single alert rule can monitor multiple metric time series at a time, which results in fewer alert rules to manage.
+
+In the example below, the alert rule will monitor the dimensions value combinations of the **ResponseType** and **ApiName** dimensions for the **Transactions** metric:
+1. **ResponsType** - The use of the "\*" wildcard means that for each value of the **ResponseType** dimension, including future values, a different time series will be monitored individually.
+2. **ApiName** - A different time series will be monitored only for the **GetBlob** and **PutBlob** dimension values.
+
+For example, a few of the potential time series that will be monitored by this alert rule are:
+- Metric = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
+- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
+
+Save the json below as multidimensionalstaticmetricalert.json for the purpose of this walkthrough.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the alert"
+            }
+        },
+        "alertDescription": {
+            "type": "string",
+            "defaultValue": "This is a metric alert",
+            "metadata": {
+                "description": "Description of alert"
+            }
+        },
+        "alertSeverity": {
+            "type": "int",
+            "defaultValue": 3,
+            "allowedValues": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "metadata": {
+                "description": "Severity of alert {0,1,2,3,4}"
+            }
+        },
+        "isEnabled": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "resourceId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Resource ID of the resource emitting the metric that will be used for the comparison."
+            }
+        },
+        "criterion":{
+            "type": "object",
+            "metadata": {
+                "description": "Criterion includes metric name, dimension values, threshold and an operator. The alert rule fires when ALL criteria are met"
+            }
+        },
+        "windowSize": {
+            "type": "string",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
+            "metadata": {
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
+            }
+        },
+        "evaluationFrequency": {
+            "type": "string",
+            "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
+            "metadata": {
+                "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated or deactivated"
+            }
+        }
+    },
+    "variables": { 
+		"criteria": "[array(parameters('criterion'))]"
+     },
+    "resources": [
+        {
+            "name": "[parameters('alertName')]",
+            "type": "Microsoft.Insights/metricAlerts",
+            "location": "global",
+            "apiVersion": "2018-03-01",
+            "tags": {},
+            "properties": {
+                "description": "[parameters('alertDescription')]",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": ["[parameters('resourceId')]"],
+                "evaluationFrequency":"[parameters('evaluationFrequency')]",
+                "windowSize": "[parameters('windowSize')]",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+                    "allOf": "[variables('criteria')]"
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+You can use the above template along with the parameter file provided below. 
+
+Save and modify the json below as multidimensionalstaticmetricalert.parameters.json for the purpose of this walkthrough.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "value": "New multi-dimensional metric alert rule (replace with your alert name)"
+        },
+        "alertDescription": {
+            "value": "New multi-dimensional metric alert rule created via template (replace with your alert description)"
+        },
+        "alertSeverity": {
+            "value":3
+        },
+        "isEnabled": {
+            "value": true
+        },
+        "resourceId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourcegroup-name/providers/Microsoft.Storage/storageAccounts/replace-with-storage-account"
+        },
+        "criterion": {
+            "value": {
+                    "name": "Criterion",
+                    "metricName": "Transactions",
+                    "dimensions": [
+                        {
+                            "name":"ResponseType",
+                            "operator": "Include",
+                            "values": ["*"]
+                        },
+                        {
+			    "name":"ApiName",
+                            "operator": "Include",
+                            "values": ["GetBlob", "PutBlob"]    
+                        }
+                    ],
+                    "operator": "GreaterThan",
+                    "threshold": "5",
+                    "timeAggregation": "Total"
+                }
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-actiongroup-name"
+        }
+    }
+}
+```
+
+
+You can create the metric alert using the template and parameters file using PowerShell or Azure CLI from your current working directory.
+
+Using Azure PowerShell
+```powershell
+Connect-AzAccount
+
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+ 
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+  -TemplateFile multidimensionalstaticmetricalert.json -TemplateParameterFile multidimensionalstaticmetricalert.parameters.json
+```
+
+
+
+Using Azure CLI
+```azurecli
+az login
+
+az group deployment create \
+    --name AlertDeployment \
+    --resource-group ResourceGroupofTargetResource \
+    --template-file multidimensionalstaticmetricalert.json \
+    --parameters @multidimensionalstaticmetricalert.parameters.json
+```
+
+
+## Template for a Dynamic Thresholds metric alert that monitors multiple dimensions
 
 You can use the following template to create a more advanced Dynamic Thresholds metric alert rule on dimensional metrics.
 
 A single Dynamic Thresholds alert rule can create tailored thresholds for hundreds of metric time series (even different types) at a time, which results in fewer alert rules to manage.
 
 In the example below, the alert rule will monitor the dimensions value combinations of the **ResponseType** and **ApiName** dimensions for the **Transactions** metric:
-1. ResponsType - For each value of the **ResponseType** dimension, including future values, a different time series will be monitored individually.
-2. ApiName - A different time series will be monitored only for the **GetBlob** and **PutBlob** dimension values.
+1. **ResponsType** - For each value of the **ResponseType** dimension, including future values, a different time series will be monitored individually.
+2. **ApiName** - A different time series will be monitored only for the **GetBlob** and **PutBlob** dimension values.
 
 For example, a few of the potential time series that will be monitored by this alert rule are:
 - Metric = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
@@ -974,7 +1196,7 @@ Save and modify the json below as advanceddynamicmetricalert.parameters.json for
 ```
 
 
-You can create the metric alert using the template and parameters file using PowerShell or Azure CLI from your current working directory
+You can create the metric alert using the template and parameters file using PowerShell or Azure CLI from your current working directory.
 
 Using Azure PowerShell
 ```powershell
@@ -1003,7 +1225,7 @@ az group deployment create \
 >
 > Multiple criteria are not currently supported for metric alert rules that use Dynamic Thresholds.
 
-## Template for metric alert that monitors multiple resources
+## Template for a metric alert that monitors multiple resources
 
 The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources with a single metric alert rule. This feature is currently only supported in Azure public cloud and only for virtual Machines and Databox Edge Devices.
 
