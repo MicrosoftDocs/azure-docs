@@ -105,7 +105,7 @@ This behavior occurs when nodes can't communicate with each other.
         at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
        
 1. If you see this error, run the following on a command line: **telnet 10.2.4.10 8060**.
-1. If you receive the following error, contact your IT department for help in fixing this issue. After you can successfully telnet, contact Microsoft Support if you still have issues with the integrative runtime node status.
+1. If you receive the following error, contact your IT department for help with fixing this issue. After you can successfully telnet, contact Microsoft Support if you still have issues with the integrative runtime node status.
         
         ![Command-line error](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
         
