@@ -29,12 +29,12 @@ For additional help, write to us at farmbeatssupport@microsoft.com, include depl
 
 **Corrective action**: Visit the Azure portal and follow these steps:
 
-1. Go to your FarmBeats Data hub Resource Group.   
-2. Select the **Event Hub** (DatafeedEventHubNamespace....) and check for the number of Incoming Messages.   
+1. Go to your FarmBeats Data hub Resource Group.   
+2. Select the **Event Hub** (DatafeedEventHubNamespace....) and check for the number of Incoming Messages.   
 3. In case there are **NO Incoming messages**, contact your device partner.  
-4. In case there are **Incoming messages**, contact farmbeatssupport@microsoft.com with Data hub and Accelerator logs and captured telemetry.
+4. In case there are **Incoming messages**, contact farmbeatssupport@microsoft.com with Data hub and Accelerator logs and captured telemetry.
 
-See [Logs section](#collect-logs-manually) of the document to understand how to download Logs.  
+See [Logs section](#collect-logs-manually) of the document to understand how to download Logs.  
 
 ### Don't have the Eventhub Connection String
 
@@ -50,7 +50,7 @@ See [Logs section](#collect-logs-manually) of the document to understand how to 
 
 **Symptoms**: Devices are installed, and you have linked FarmBeats with your device partner. The devices are online and sending telemetry data, but they appear Offline.
 
-**Corrective action**: The reporting interval is not configured for this device. Contact your device manufacturer to set the reporting interval. 
+**Corrective action**: The reporting interval is not configured for this device. Contact your device manufacturer to set the reporting interval. 
 
 ### Error deleting a resource
 
@@ -131,45 +131,45 @@ Close all browser tabs that have the Accelerator open and close the browser wind
 
 **Corrective action**:Rerun failed job or run a satellite Indices job for date range of 5-7 days and check if job is successful.
 
-### Sentinel Hub wrong URL or not accessible 
+### Sentinel Hub wrong URL or not accessible 
 
-**Job failure message**:Oops, something went wrong. The page you were trying to access is (temporarily) unavailable. 
+**Job failure message**:Oops, something went wrong. The page you were trying to access is (temporarily) unavailable. 
 
 **Corrective action**:
-1.	Open Sentinel URL (https://scihub.copernicus.eu/dhus/) in browser and check if website is accessible. 
-2.	If website is not accessible, Check if any firewall/company network etc. is blocking the website and take necessary steps to allow above URL. 
+1.	Open Sentinel URL (https://scihub.copernicus.eu/dhus/) in browser and check if website is accessible. 
+2.	If website is not accessible, Check if any firewall/company network etc. is blocking the website and take necessary steps to allow above URL. 
 3.	Rerun failed job or Run a satellite Indices job for a date range of 5-7 days and check if job is successful.  
 
 ### Sentinel server down for maintenance
 
-**Job failure message**: The Copernicus Open Access Hub will be back soon! Sorry for the inconvenience, we're performing some maintenance at the moment. We'll be back online shortly! 
+**Job failure message**: The Copernicus Open Access Hub will be back soon! Sorry for the inconvenience, we're performing some maintenance at the moment. We'll be back online shortly! 
 
 **Corrective action**:
 
-1.	This issue can occur if any maintenance activities are being done on the Sentinel Server. 
-2.	If any job/pipeline fails with above reason, resubmit the job after some time. 
-3.	User can visit https://scihub.copernicus.eu/news/ to check information about any planned/unplanned Sentinel maintenance activities.  
+1.	This issue can occur if any maintenance activities are being done on the Sentinel Server. 
+2.	If any job/pipeline fails with above reason, resubmit the job after some time. 
+3.	User can visit https://scihub.copernicus.eu/news/ to check information about any planned/unplanned Sentinel maintenance activities.  
 4.	Rerun failed job or Run a satellite Indices job for a date range of 5-7 days and check if job is successful.
 
 ### Sentinel Maximum number of connections reached
 
 **Job failure message**:
-Maximum number of two concurrent flows achieved by the user "<username>" 
+Maximum number of two concurrent flows achieved by the user "<username>" 
 
 **Corrective action**
-1.	If any job fails with the above reason, same sentinel account is being used in another deployment/software. 
-2.	User can create new sentinel account and re-run installer for upgrading data hub with new sentinel username and password.  
+1.	If any job fails with the above reason, same sentinel account is being used in another deployment/software. 
+2.	User can create new sentinel account and re-run installer for upgrading data hub with new sentinel username and password.  
 3.	Rerun failed job or run a satellite Indices job for date range of 5-7 days and check if job is successful.
 
-### Sentinel Server refused connection 
+### Sentinel Server refused connection 
 
 **Job failure message**:
 
-Server refused connection at: http://172.30.175.69:8983/solr/dhus 
+Server refused connection at: http://172.30.175.69:8983/solr/dhus 
 
-**Corrective action**: This issue can occur if any maintenance activities are being done on Sentinel Server. 
-1.	If any job/pipeline fails with above reason, resubmit the job after some time. 
-2.	User can visit https://scihub.copernicus.eu/news/ to check information about any planned/unplanned Sentinel maintenance activities.  
+**Corrective action**: This issue can occur if any maintenance activities are being done on Sentinel Server. 
+1.	If any job/pipeline fails with above reason, resubmit the job after some time. 
+2.	User can visit https://scihub.copernicus.eu/news/ to check information about any planned/unplanned Sentinel maintenance activities.  
 3.	Rerun failed job or run a satellite Indices job for date range of 5-7 days and check if job is successful.
 
 
@@ -278,11 +278,11 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 
 ## High CPU usage
 
-**Error**: You get an email alert referring to High CPU Usage Alert. 
+**Error**: You get an email alert referring to High CPU Usage Alert. 
 
-**Corrective action**: 
+**Corrective action**: 
 1.	Go to your FarmBeats Data hub Resource Group.
-2.	Select the App service.  
+2.	Select the App service.  
 3.	Go to Scale up (App Service plan) and select an appropriate [pricing tier](https://azure.microsoft.com/pricing/details/app-service/windows/)
 
 ## Next steps

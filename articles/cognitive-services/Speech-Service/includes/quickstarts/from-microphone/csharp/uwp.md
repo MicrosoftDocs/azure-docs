@@ -14,12 +14,13 @@ ms.author: erhopf
 
 ## Prerequisites
 
-Before you get started, make sure to:
+Before you get started:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=uwp)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=uwp)
+> * Make sure that you have access to a microphone for audio capture
 
 If you've already done this, great. Let's keep going.
 
