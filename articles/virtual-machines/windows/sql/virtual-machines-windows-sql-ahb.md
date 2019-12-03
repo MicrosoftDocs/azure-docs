@@ -31,17 +31,18 @@ According to the Microsoft Product Terms: "Customers must indicate that they are
 To indicate the use of Azure Hybrid Benefit for SQL Server on an Azure VM and be compliant, you have three options:
 
 - Provision a virtual machine by using a bring-your-own-license SQL Server image from Azure Marketplace. This option is available only for customers who have an Enterprise Agreement.
-- Provision a virtual machine by using a pay-as-you-go SQL Server image from Azure Marketplace and activate Azure Hybrid Benefit.
-- Self-install SQL Server on an Azure VM, manually [register the SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md), and activate Azure Hybrid Benefit.
+- Provision a virtual machine by using a pay-as-you-go SQL Server image from Azure Marketplace and activate the Azure Hybrid Benefit.
+- Self-install SQL Server on an Azure VM, manually [register with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md), and activate Azure Hybrid Benefit.
 
-The license type of SQL Server is set when the VM is provisioned. You can change it anytime afterward. Switching between license models incurs no downtime, does not restart the VM, adds no additional cost, and is effective immediately. In fact, activating Azure Hybrid Benefit *reduces* cost.
+The license type of SQL Server is set when the VM is provisioned. You can change it anytime afterward. Switching between license models incurs no downtime, does not restart the VM or the SQL Server service, doesn't add any additional costs, and is effective immediately. In fact, activating Azure Hybrid Benefit *reduces* cost.
 
 ## Prerequisites
 
-The use of the SQL VM resource provider requires the SQL Server IaaS extension. As such, you need the following:
+Changing the licensing model of your SQL Server VM has the following requirements: 
+
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
 - A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md).
+- [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) is a requirement to utilize the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
 
 ## Change the license for VMs already registered with the resource provider 
