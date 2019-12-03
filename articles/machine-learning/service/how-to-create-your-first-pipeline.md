@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources.
 
-* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning Notebook VM](concept-azure-machine-learning-architecture.md#compute-instance) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed.
 
 Start by attaching your workspace:
 
@@ -333,7 +333,7 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 
 ### Use a dataset 
 
-To use eith a `TabularDataset` or `FileDataset` in your pipeline, you need to turn it into a  [DatasetConsumptionConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_consumption_config.datasetconsumptionconfig?view=azure-ml-py) object by calling [as_named_input(name)](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#as-named-input-name-). You pass this `DatasetConsumptionConfig` object as one of the `inputs` to your pipeline step. 
+To use either a `TabularDataset` or `FileDataset` in your pipeline, you need to turn it into a  [DatasetConsumptionConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_consumption_config.datasetconsumptionconfig?view=azure-ml-py) object by calling [as_named_input(name)](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#as-named-input-name-). You pass this `DatasetConsumptionConfig` object as one of the `inputs` to your pipeline step. 
 
 ```python
 dataset_consuming_step = PythonScriptStep(

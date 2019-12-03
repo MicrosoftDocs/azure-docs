@@ -89,6 +89,9 @@
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
+  - name: Compute instance
+    displayName: resource, dsvm, Data Science Virtual Machine
+    href: concept-compute-instance.md
   - name: Compute target
     displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
     href: concept-compute-target.md
@@ -290,7 +293,7 @@
     - name: Azure Functions
       displayName: functions app
       href: how-to-deploy-functions.md
-    - name: Notebook VMs
+    - name: Compute instances
       href: how-to-deploy-local-container-notebook-vm.md
     - name: Use custom Docker image
       href: how-to-deploy-custom-docker-image.md

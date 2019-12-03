@@ -32,7 +32,7 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
 
 * The code in this document can be run in either of the following environments: 
 
-    * Azure Machine Learning Notebook VM - no downloads or installation necessary
+    * Azure Machine Learning compute instance - no downloads or installation necessary
 
         * Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
 
