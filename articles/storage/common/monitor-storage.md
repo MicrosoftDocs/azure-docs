@@ -66,6 +66,17 @@ For metrics supporting dimensions, you can filter metric with the desired dimens
 
 For a complete list of the dimensions that Azure Storage supports, see [Metrics Dimensions](monitor-storage-reference.md#metrics-dimensions).
 
+All metrics for Azure storage are located in the following namespaces:
+
+- Microsoft.Storage/storageAccounts
+- Microsoft.Storage/storageAccounts/blobServices
+- Microsoft.Storage/storageAccounts/fileServices
+- Microsoft.Storage/storageAccounts/queueServices
+- Microsoft.Storage/storageAccounts/tableServices
+
+For a list of all Azure Monitor support metrics (including Azure Storage), see [Azure Monitor supported metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+
+
 ### Access metrics with the REST API
 
 Azure Monitor provides [REST APIs](/rest/api/monitor/) to read metric definition and values. This section shows you how to read the storage metrics. Resource ID is used in all REST APIS. For more information, please read Understanding resource ID for services in Storage.
@@ -311,12 +322,14 @@ The following example shows how to read metric data on the metric supporting mul
 
 ## Analyzing log data
 
-Data in Azure Monitor Logs is stored in tables with each table having its own set of unique properties. Azure Storage stores data in the following tables.
+Data in Azure Monitor Logs is stored in tables. Azure Storage stores data in the following tables.
 
 | Table | Description |
 |:---|:---|
-| AzureDiagnostics | Common table used by multiple services to store Resource logs. Resource logs from Azure Storage can be identified with `PutSomethingHere`.   |
-| AzureActivity    | Common table that stores all records from the Activity log.
+|StorageBlobLogs | Logs that describe activity in blob storage. |
+|StorageFileLogs | Logs that describe activity in file shares. |
+|StorageQueueLogs | Logs that describe activity in queues.|
+|StorageTableLogs| Logs that describe activity in tables.|
 
 See [Azure Storage monitoring data reference](monitor-storage-reference.md) for a detailed reference of the fields that appear in these logs.
 
