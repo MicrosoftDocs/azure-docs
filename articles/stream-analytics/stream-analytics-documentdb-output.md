@@ -93,6 +93,16 @@ Creating Cosmos DB as an output in Stream Analytics generates a prompt for infor
 |Container name | The container name to be used. `MyContainer` is a sample valid input - one container named `MyContainer` must exist.  |
 |Document ID     | Optional. The column name in output events used as the unique key on which insert or update operations must be based. If left empty, all events will be inserted, with no update option.|
 
+Once the Cosmos DB output is configured, it can be used in the query as the target of an [INTO statement](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). When using a Cosmos DB output as such, [a partition key needs to be set explicitly](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). The output record must contain a case-sensitive column named after the partition key in Cosmos DB. To achieve greater parallelization, the statement may require a [PARTITION BY clause](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) using the same column.
+
+**Sample query**:
+
+```SQL
+    SELECT TollBoothId, PartitionId
+    INTO CosmosDBOutput
+    FROM Input1 PARTITION BY PartitionId
+``` 
+
 ## Error Handling and retries
 
 In the event of a transient failure, service unavailability or throttling while sending events to Cosmos DB, Stream Analytics retries indefinitely to successfully complete the operation. However, there are some failures for which retries are not attempted and they are as follows:

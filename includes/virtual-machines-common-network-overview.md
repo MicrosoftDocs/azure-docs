@@ -27,8 +27,6 @@ In addition to those basic resources, you should also consider these optional re
 - Network security groups
 - Load balancers 
 
-[!INCLUDE [updated-for-az](./updated-for-az.md)]
-
 ## Network interfaces
 
 A [network interface (NIC)](../articles/virtual-network/virtual-network-network-interface.md) is the interconnection between a VM and a virtual network (VNet). A VM must have at least one NIC, but can have more than one, depending on the size of the VM you create. Learn about how many NICs each VM size supports for [Windows](../articles/virtual-machines/windows/sizes.md) or [Linux](../articles/virtual-machines/linux/sizes.md).
@@ -167,3 +165,4 @@ There are also tutorials on how to load balance VMs and create highly available 
 - Learn how to configure [user-defined routes and IP forwarding](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Learn how to configure [VNet to VNet connections](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Learn how to [Troubleshoot routes](../articles/virtual-network/diagnose-network-routing-problem.md).
+- Learn more about [Virtual machine network bandwidth](../articles/virtual-network/virtual-machine-network-throughput.md).
