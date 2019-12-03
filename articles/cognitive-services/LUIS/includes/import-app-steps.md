@@ -18,4 +18,4 @@ ms.author: diberry
 
 1. Select **Build** then **Intents** to see the intents, the main building blocks of a LUIS app.
 
-    ![Change from the Versions page to the Intents page.](media/tutorial-machine-learned-entity/new-version-imported-app.png)
+    ![Change from the Versions page to the Intents page.](../media/tutorial-machine-learned-entity/new-version-imported-app.png)
