@@ -147,6 +147,7 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
     "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Failed",
+    "billingDetails":{"resourceUsageId":"<resourceUsageId>"},
     "plan": {
         "publisher": "publisherId",
         "product": "offer",
