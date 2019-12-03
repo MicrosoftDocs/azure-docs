@@ -406,6 +406,8 @@
         "articles/backup/**/*.md": "carmonm",
         "articles/site-recovery/**/*.md": "carmonm",
         "articles/migrate/**/*.md": "carmonm",
+        "articles/virtual-machines/**/*.md": "gwallace",
+        "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
         "articles/notebooks/*.md": "barbkess"
       },
       "ms.author": {
@@ -433,6 +435,10 @@
         "articles/dev-spaces/**/*.md": "zarhoads",
         "articles/site-recovery/*.md": "raynew",
         "articles/migrate/*.md": "raynew",
+        "articles/virtual-machines/linux/*.md": "cynthn",
+        "articles/virtual-machines/windows/*.md": "cynthn",
+        "articles/virtual-machines/*.md": "cynthn",
+        "articles/virtual-machines-scale-sets/*.md": "jushiman",
         "articles/notebooks/*.md": "kraigb"
       },
       "ms.service": {
@@ -454,6 +460,8 @@
         "articles/jenkins/**/*.md": "jenkins",
         "articles/terraform/**/*.md": "terraform",
         "articles/lighthouse/**/*.md": "lighthouse",
+        "articles/virtual-machines/*.md": "virtual-machines",
+        "articles/virtual-machine-scale-sets/*.md": "virtual-machine-scale-sets",
         "articles/azure-resource-manager/**/*.md": "azure-resource-manager",
         "articles/dev-spaces/**/*.md": "azure-dev-spaces",
         "articles/site-recovery/*.md": "site-recovery",
@@ -527,6 +535,10 @@
         "articles/app-service/scripts/*.yml": "Azure App Service",
         "articles/app-service/environment/*.md": "Azure App Service Environment",
         "articles/app-service/environment/*.yml": "Azure App Service Environment",
+        "articles/virtual-machines/*.md": "Azure Virtual Machines",
+        "articles/virtual-machines/*.yml": "Azure Virtual Machines",
+        "articles/virtual-machine-scale-sets/*.md": "Azure Virtual Machine Scale Sets",
+        "articles/virtual-machine-scale-sets/*.yml": "Azure Virtual Machine Scale Sets",
         "articles/app-service-mobile/**/*.md": "Azure Mobile Apps",
         "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps"
       },
