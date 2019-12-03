@@ -97,7 +97,7 @@ View update agent details populated in the `UpdateAgent` record. These records h
 | TimeGenerated | Date and time that the record was created. |
 | Type | *Update* | 
 | WindowsUpdateAgentVersion | Version of the Windows Update agent. |
-| WSUSServer | Shows errors if the Windows Update client cannot synchronize with Windows Update. | 
+| WSUSServer | Shows errors if the Windows Update agent has a problem to assist with troubleshooting. |
 
 ### UpdateStatus 
 
@@ -161,8 +161,8 @@ View update summary by computer populated in the `UpdateSummary` record.  These 
 | Type | *UpdateSummary* |
 | VMUUID | Unique identifier for the virtual machine. |
 | WindowsUpdateAgentVersion | Version of the Windows Update agent. |
-| WindowsUpdateSetting | | 
-| WSUSServer | Shows errors if the Windows Update client cannot synchronize with Windows Update. |
+| WindowsUpdateSetting | Shows the status of the Windows Update agent. Possible values are:<br> *Scheduled installation*<br> *Notify before installation*<br> Error returned from unhealthy WUA agent. | 
+| WSUSServer | Shows errors if the Windows Update agent has a problem to assist with troubleshooting. |
 | _ResourceId | Unique identifier for the resource that the record is associated with. |
 
 ## Sample queries
