@@ -1,4 +1,5 @@
 - name: Peering Documentation
+  href: index.yml
   items:
   - name: Peering Overview
     href: peering-overview.md
