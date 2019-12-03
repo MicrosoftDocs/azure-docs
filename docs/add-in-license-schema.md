@@ -1,5 +1,5 @@
 ---
-title: Office and SharePoint Add-in license XML schema structure
+title: Office and SharePoint Add-in license XML schema structure 
 description: Use this schema to create test licenses to test the license validation code in your Office or SharePoint add-in.
 ms.date: 1/11/2018
 localization_priority: Normal

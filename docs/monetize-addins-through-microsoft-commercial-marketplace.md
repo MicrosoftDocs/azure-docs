@@ -8,7 +8,7 @@ localization_priority: Priority
 
 This article describes how to sell your add-in through Microsoft by using Partner Center to submit your service for purchase as a SaaS offer. Your add-in will be free for your customers to download, but will require a license to your service.
 
-When you're ready to begin selling your service in Commercial Marketplace, we recommend that you submit a single software-as-a-service (SaaS) application with connected add-ins, apps, and extensions. You'll be able to reach Microsoft customers through AppSource, in addition to selling your service through partners and through the Microsoft sales team.
+When you're ready to begin selling your service in Commercial Marketplace, we recommend that you submit a single software-as-a-service (SaaS) application with connected add-ins, apps, and extensions. You'll be able to reach Microsoft customers through Microsoft AppSource, in addition to selling your service through partners and through the Microsoft sales team.
 
 We’re making it easier for customers to discover these Microsoft 365 app solutions, and deploy them across Microsoft Teams, Office, SharePoint, and other Microsoft applications.
 
@@ -65,10 +65,10 @@ Other considerations:
 - Upsell - If a user tries to access your service, but their tenant has no more free licenses, you service could provide them with a temporary license, and use the opportunity to encourage the admin to purchase additional licenses.
 - Multiple tenant purchases - You should consider whether to allow numerous purchases from the same tenant, and how to treat these in your database. For example, the Contoso Corporation sales team might purchase 50 licenses for their team, and the marketing team purchase 20 licenses for their team, and they might want to keep the account separate.
 
-#### Connecting to AppSource
-At this point, you will have built a website and services capable of authenticating customers and handling their licensing state. In order to monetize through Microsoft (and receive confirmation of valid purchases), your service must use the [SaaS fulfilment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to connect to AppSource, which uses these to drive the fulfilment, changes to plans, and cancellation of subscriptions.
+#### Connecting to Microsoft AppSource
+At this point, you will have built a website and services capable of authenticating customers and handling their licensing state. In order to monetize through Microsoft (and receive confirmation of valid purchases), your service must use the [SaaS fulfilment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to connect to Microsoft AppSource, which uses these to drive the fulfilment, changes to plans, and cancellation of subscriptions.
 
-#### Provisioning (customer purchase on AppSource)
+#### Provisioning (customer purchase on Microsoft AppSource)
 When a customer initiates a purchase, your service receives this information in an authorization code on a customer-interactive web page that uses a URL parameter; for example, `https://contoso.com/signup?token=..`, when the landing page URL in Partner Center is `https://contoso.com/signup`. The authorization code can be validated and exchanged for the details of the provisioning service by calling the resolve API. When a SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed.
 
 The following diagram shows the sequence of API calls for a provisioning scenario.
@@ -76,14 +76,16 @@ The following diagram shows the sequence of API calls for a provisioning scenari
 ![API calls for provisioning a SaaS service](images/saas-post-provisioning-api-v2-calls.png)
 
 #### Marketplace initiated update
-When a customer initiates an update on AppSource, AppSource notifies the webhook implemented by your service, which then queries AppSource for an update, and then the customer is charged or refunded.
+
+When a customer initiates an update on Microsoft AppSource, Microsoft AppSource notifies the webhook implemented by your service, which then queries Microsoft AppSource for an update, and then the customer is charged or refunded.
 
 The following diagram shows the sequence of actions when an update is initiated from the marketplace.
 
 ![API calls when the update is initiated from the marketplace](images/saas-update-api-v2-calls-from-marketplace-a.png)
 
 #### Service initiated update
-When a customer initiates an update on your service (if you allow this action), your service should update the subscription held by AppSource, which in turn will trigger a notification from AppSource to the webhook you have implemented. At this point, the actual changes to your licensing database should be made.
+
+When a customer initiates an update on your service (if you allow this action), your service should update the subscription held by Microsoft AppSource, which in turn will trigger a notification from Microsoft AppSource to the webhook you have implemented. At this point, the actual changes to your licensing database should be made.
 
 The following diagram shows the actions when an update is initiated from your SaaS service.
 
@@ -112,7 +114,7 @@ Submit your SaaS offer to Partner Center as a private plan first. This ensures t
 
 ## Customer experience
 
-A customer discovers your SaaS service in AppSource and purchases licenses, providing their payment details to Microsoft. The customer is then redirected to your website, where they finish setting up their account. The licenses are provisioned and the customer is billed. Your customer is then able to download your free add-in and sign in using the details provided. Your add-in checks the licensing database to verify that the cusotmer has a license. The following illustration shows the user workflow.
+A customer discovers your SaaS service in Microsoft AppSource and purchases licenses, providing their payment details to Microsoft. The customer is then redirected to your website, where they finish setting up their account. The licenses are provisioned and the customer is billed. Your customer is then able to download your free add-in and sign in using the details provided. Your add-in checks the licensing database to verify that the cusotmer has a license. The following illustration shows the user workflow.
 
 ![Diagram of the user workflow to acquire a SaaS app with an associated free add-in](images/monetization-customer-flow-diagram.png)
 
@@ -120,7 +122,7 @@ A customer discovers your SaaS service in AppSource and purchases licenses, prov
 
 ### Why has Microsoft changed their monetization model for add-ins?
 
-By charging for core application functionality and making add-ins free, partners gain more flexibility to add new value for customers by delivering paid functionality outside of the context of an add-in. To better support this model, AppSource has enabled full commerce for SaaS app transactions effective May 31, 2019, providing a new range of options for partners. Given our emphasis on a range of payment models for SaaS apps, we’re simplifying Office Add-ins by only supporting free-to-download options.
+By charging for core application functionality and making add-ins free, partners gain more flexibility to add new value for customers by delivering paid functionality outside of the context of an add-in. To better support this model, Microsoft AppSource has enabled full commerce for SaaS app transactions effective May 31, 2019, providing a new range of options for partners. Given our emphasis on a range of payment models for SaaS apps, we’re simplifying Office Add-ins by only supporting free-to-download options.
 
 ### How do I sign up for Partner Center?
 
@@ -144,7 +146,7 @@ As a partner, you can monitor your offer listings using the data visualization a
 For any questions, contact [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport). 
 
 > [!NOTE] 
-> Starting July 29th 2019, we will no longer accept new paid add-in submissions to AppSource. Customers will be able to purchase existing paid add-ins in AppSource until January 2020. They will then be hidden from the store, but will still be available for existing users. If these add-ins have not been migrated by July 2020, they will be removed from AppSource and for existing users. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md).
+> Starting July 29th 2019, we will no longer accept new paid add-in submissions to Microsoft AppSource. Customers will be able to purchase existing paid add-ins in Microsoft AppSource until January 2020. They will then be hidden from the store, but will still be available for existing users. If these add-ins have not been migrated by July 2020, they will be removed from Microsoft AppSource and for existing users. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md).
 
 We will provide additional migration information in the near future.
 
