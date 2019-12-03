@@ -13,25 +13,25 @@ ms.reviewer: sergkanz
 
 # Telemetry correlation in Application Insights
 
-In the world of microservices, every logical operation requires work to be done in various components of the service. Each of these components can be monitored separately by [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights supports distributed telemetry correlation, which you use to detect which component is responsible for failures or performance degradation.
+In the world of microservices, every logical operation requires work to be done in various components of the service. You can monitor each of these components separately by using [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights supports distributed telemetry correlation, which you use to detect which component is responsible for failures or performance degradation.
 
-This article explains the data model used by Application Insights to correlate telemetry sent by multiple components. It covers context-propagation techniques and protocols. It also covers the implementation of correlation concepts on different languages and platforms.
+This article explains the data model used by Application Insights to correlate telemetry sent by multiple components. It covers context-propagation techniques and protocols. It also covers the implementation of correlation tactics on different languages and platforms.
 
 ## Data model for telemetry correlation
 
-Application Insights defines a [data model](../../azure-monitor/app/data-model.md) for distributed telemetry correlation. To associate telemetry with the logical operation, every telemetry item has a context field called `operation_Id`. This identifier is shared by every telemetry item in the distributed trace. So, even with loss of telemetry from a single layer, you can still associate telemetry reported by other components.
+Application Insights defines a [data model](../../azure-monitor/app/data-model.md) for distributed telemetry correlation. To associate telemetry with a logical operation, every telemetry item has a context field called `operation_Id`. This identifier is shared by every telemetry item in the distributed trace. So, even if you lose telemetry from a single layer, you can still associate telemetry reported by other components.
 
-A distributed logical operation typically consists of a set of smaller operations, which are requests processed by one of the components. These operations are defined by [request telemetry](../../azure-monitor/app/data-model-request-telemetry.md). Every request telemetry has its own `id` that identifies it uniquely and globally. And all telemetry items (such as traces and exceptions) that are associated with this request should set the `operation_parentId` to the value of the request `id`.
+A distributed logical operation typically consists of a set of smaller operations, which are requests processed by one of the components. These operations are defined by [request telemetry](../../azure-monitor/app/data-model-request-telemetry.md). Every request telemetry item has its own `id` that identifies it uniquely and globally. And all telemetry items (such as traces and exceptions) that are associated with this request should set the `operation_parentId` to the value of the request `id`.
 
-Every outgoing operation, such as an HTTP call to another component, is represented by [dependency telemetry](../../azure-monitor/app/data-model-dependency-telemetry.md). Dependency telemetry also defines its own `id` that is globally unique. Request telemetry, initiated by this dependency call, uses this `id` as its `operation_parentId`.
+Every outgoing operation, such as an HTTP call to another component, is represented by [dependency telemetry](../../azure-monitor/app/data-model-dependency-telemetry.md). Dependency telemetry also defines its own `id` that's globally unique. Request telemetry, initiated by this dependency call, uses this `id` as its `operation_parentId`.
 
 You can build a view of the distributed logical operation by using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. These fields also define the causality order of telemetry calls.
 
-In a microservices environment, traces from components can go to different storage items. Every component can have its own instrumentation key in Application Insights. To get telemetry for the logical operation, the Application Insights UX queries data from every storage item. When the number of storage items is huge, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request, and the second identifies which component returned the response of the dependency call.
+In a microservices environment, traces from components can go to different storage items. Every component can have its own instrumentation key in Application Insights. To get telemetry for the logical operation, Application Insights queries data from every storage item. When the number of storage items is large, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request, and the second identifies which component returned the response of the dependency call.
 
 ## Example
 
-Let's take an example of an application called Stock Prices, which shows the current market price of a stock by using an external API called `Stock`. The Stock Prices application has a page called `Stock page` that the client web browser opens by using `GET /Home/Stock`. The application queries the `Stock` API by using an HTTP call `GET /api/stock/value`.
+Let's look at an example. An application called Stock Prices shows the current market price of a stock by using an external API called Stock. The Stock Prices application has a page called Stock page that the client web browser opens by using `GET /Home/Stock`. The application queries the Stock API by using the HTTP call `GET /api/stock/value`.
 
 You can analyze the resulting telemetry by running a query:
 
@@ -50,68 +50,68 @@ In the results, note that all telemetry items share the root `operation_Id`. Whe
 | request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | dependency | GET /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
-When the call `GET /api/stock/value` is made to an external service, you want to know the identity of that server so you can set the `dependency.target` field appropriately. When the external service doesn't support monitoring, `target` is set to the host name of the service (for example, `stock-prices-api.com`). However, if the service identifies itself by returning a predefined HTTP header, `target` contains the service identity that allows Application Insights to build a distributed trace by querying telemetry from that service.
+When the call `GET /api/stock/value` is made to an external service, you want to know the identity of that server so you can set the `dependency.target` field appropriately. When the external service doesn't support monitoring, `target` is set to the host name of the service (for example, `stock-prices-api.com`). But if the service identifies itself by returning a predefined HTTP header, `target` contains the service identity that allows Application Insights to build a distributed trace by querying telemetry from that service.
 
 ## Correlation headers
 
-We're transitioning to [W3C Trace-Context](https://w3c.github.io/trace-context/) which defines:
+Application Insights is transitioning to [W3C Trace-Context](https://w3c.github.io/trace-context/), which defines:
 
 - `traceparent`: Carries the globally unique operation ID and unique identifier of the call.
-- `tracestate`: Carries tracing system-specific context.
+- `tracestate`: Carries system-specific tracing context.
 
-Latest versions of Application Insights SDKs support Trace-Context protocol, but you may need to opt-into that (it will keep backward compatibility with old correlation protocol supported by ApplicationInsights SDKs).
+The latest version of the Application Insights SDK supports the Trace-Context protocol, but you might need to opt in to it. (Backward compatibility with the previous correlation protocol supported by the Application Insights SDK will be maintained.)
 
-The [correlation HTTP protocol aka Request-Id](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) is on deprecation path. This protocol defines two headers:
+The [correlation HTTP protocol, also called Request-Id](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md), is being deprecated. This protocol defines two headers:
 
 - `Request-Id`: Carries the globally unique ID of the call.
 - `Correlation-Context`: Carries the name-value pairs collection of the distributed trace properties.
 
-Application Insights also defines the [extension](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) for the correlation HTTP protocol. It uses `Request-Context` name-value pairs to propagate the collection of properties used by the immediate caller or callee. The Application Insights SDK uses this header to set `dependency.target` and `request.source` fields.
+Application Insights also defines the [extension](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) for the correlation HTTP protocol. It uses `Request-Context` name-value pairs to propagate the collection of properties used by the immediate caller or callee. The Application Insights SDK uses this header to set the `dependency.target` and `request.source` fields.
 
 ### Enable W3C distributed tracing support for classic ASP.NET apps
  
   > [!NOTE]
-  > No configuration needed starting with `Microsoft.ApplicationInsights.Web` and `Microsoft.ApplicationInsights.DependencyCollector` 
+  >  Starting with `Microsoft.ApplicationInsights.Web` and `Microsoft.ApplicationInsights.DependencyCollector`, no configuration is needed.
 
-W3C Trace-Context support is done in the backward-compatible way and correlation is expected to work with applications that are instrumented with previous versions of SDK (without W3C support). 
+W3C Trace-Context support is implemented in a backward-compatible way. Correlation is expected to work with applications that are instrumented with previous versions of the SDK (without W3C support).
 
-If for any reason you want to keep using legacy `Request-Id` protocol, you may *disable* Trace-Context with following configuration
+If you want to keep using the legacy `Request-Id` protocol, you can disable Trace-Context by using this configuration:
 
 ```csharp
   Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
   Activity.ForceDefaultIdFormat = true;
 ```
 
-If you run older version of the SDK, we recommend updating it or applying following configuration to enable Trace-Context.
-This feature is available in `Microsoft.ApplicationInsights.Web` and `Microsoft.ApplicationInsights.DependencyCollector` packages starting with version 2.8.0-beta1.
-It's disabled by default. To enable it, change `ApplicationInsights.config`:
+If you run an older version of the SDK, we recommend that you update it or apply the following configuration to enable Trace-Context.
+This feature is available in the `Microsoft.ApplicationInsights.Web` and `Microsoft.ApplicationInsights.DependencyCollector` packages, starting with version 2.8.0-beta1.
+It's disabled by default. To enable it, make these changes to `ApplicationInsights.config`:
 
-- Under `RequestTrackingTelemetryModule`, add the `EnableW3CHeadersExtraction` element with value set to `true`.
-- Under `DependencyTrackingTelemetryModule`, add the `EnableW3CHeadersInjection` element with value set to `true`.
-- Add `W3COperationCorrelationTelemetryInitializer` under the `TelemetryInitializers` similar to 
+- Under `RequestTrackingTelemetryModule`, add the `EnableW3CHeadersExtraction` element and set its value to `true`.
+- Under `DependencyTrackingTelemetryModule`, add the `EnableW3CHeadersInjection` element and set its value to `true`.
+- Add `W3COperationCorrelationTelemetryInitializer` under `TelemetryInitializers`. It will look similar to this example:
 
 ```xml
 <TelemetryInitializers>
   <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
    ...
-</TelemetryInitializers> 
+</TelemetryInitializers>
 ```
 
 ### Enable W3C distributed tracing support for ASP.NET Core apps
 
  > [!NOTE]
-  > No configuration needed starting with `Microsoft.ApplicationInsights.AspNetCore` version 2.8.0.
+  > Starting with `Microsoft.ApplicationInsights.AspNetCore` version 2.8.0, no configuration is needed.
  
-W3C Trace-Context support is done in the backward-compatible way and correlation is expected to work with applications that are instrumented with previous versions of SDK (without W3C support). 
+W3C Trace-Context support is implemented in a backward-compatible way. Correlation is expected to work with applications that are instrumented with previous versions of the SDK (without W3C support).
 
-If for any reason you want to keep using legacy `Request-Id` protocol, you may *disable* Trace-Context with following configuration
+If you want to keep using the legacy `Request-Id` protocol, you can disable Trace-Context by using this configuration:
 
 ```csharp
   Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
   Activity.ForceDefaultIdFormat = true;
 ```
 
-If you run older version of the SDK, we recommend updating it or applying following configuration to enable Trace-Context.
+If you run an older version of the SDK, we recommend that you update it or apply the following configuration to enable Trace-Context.
 
 This feature is in `Microsoft.ApplicationInsights.AspNetCore` version 2.5.0-beta1 and in `Microsoft.ApplicationInsights.DependencyCollector` version 2.8.0-beta1.
 It's disabled by default. To enable it, set `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` to `true`:
@@ -129,7 +129,7 @@ public void ConfigureServices(IServiceCollection services)
 
 - **Incoming configuration**
 
-  - For Java EE apps, add the following to the `<TelemetryModules>` tag inside ApplicationInsights.xml:
+  - For Java EE apps, add the following to the `<TelemetryModules>` tag in ApplicationInsights.xml:
 
     ```xml
     <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
@@ -137,6 +137,7 @@ public void ConfigureServices(IServiceCollection services)
        <Param name ="enableW3CBackCompat" value = "true" />
     </Add>
     ```
+    
   - For Spring Boot apps, add the following properties:
 
     - `azure.application-insights.web.enable-W3C=true`
