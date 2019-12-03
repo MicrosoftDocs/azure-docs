@@ -42,7 +42,7 @@ This section walks you through preparing a project to work with the Azure Queue 
 
 Create a Java application named *queues-quickstart-v12*.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command all on a single line to create a simple "Hello world!" Java project. The command is displayed here on multiple lines for readability.
+1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *queues-quickstart-v12*. Type the following **mvn** command all on a single line to create a "Hello world!" Java project. The command is displayed here on multiple lines for readability.
 
    ```console
    mvn archetype:generate -DgroupId=com.queues.quickstart
@@ -101,9 +101,9 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 
 ```xml
 <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-storage-queue</artifactId>
-    <version>12.0.1</version>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-queue</artifactId>
+  <version>12.0.1</version>
 </dependency>
 ```
 
@@ -124,9 +124,10 @@ package com.queues.quickstart;
 /**
  * Azure queue storage v12 SDK quickstart
  */
-import com.azure.storage.queues.*;
-import com.azure.storage.queues.models.*;
+import com.azure.storage.queue.*;
+import com.azure.storage.queue.models.*;
 import java.io.*;
+import java.time.*;
 
 public class App
 {
@@ -153,9 +154,9 @@ The following diagram shows the relationship between these resources.
 Use the following Java classes to interact with these resources:
 
 * [QueueClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClientBuilder.html): The `QueueClientBuilder` class configures and instantiates a `QueueClient` object.
-* [QueueServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueServiceClient.html): The `QueueServiceClient` represents a URL to the Azure Storage Queue service.
-* [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html): The `QueueClient` class represents a URI to the Azure Storage Queue service, allowing you to manipulate a queue.
-* [QueueMessageItem](): The `QueueMessageItem` class represents the object returned when calling [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-) on a queue.
+* [QueueServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueServiceClient.html): The `QueueServiceClient` class provides operations for interacting with the queue service in Azure Storage.
+* [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html): The `QueueClient` class represents a client that contains all the operations for interacting with a queue in Azure Storage.
+* [QueueMessageItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/QueueMessageItem.html): The `QueueMessageItem` class represents the object returned when calling [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-) on a queue.
 
 ## Code examples
 
@@ -192,7 +193,7 @@ String connectStr = System.getenv("CONNECT_STR");
 Decide on a name for the new queue. The code below appends a GUID value to the queue name to ensure that it's unique.
 
 > [!IMPORTANT]
-> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming containers and blobs, see [Naming Queues and Metadata](/rest/api/storageservices/naming-queues-and-metadata).
+> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
 
 Create an instance of the [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html) class. Then, call the [create](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#create--) method to create the queue in your storage account.
@@ -253,8 +254,12 @@ Update the contents of a message by calling the [updateMessage](https://azuresdk
 ```java
 System.out.println("\nUpdating the third message in the queue...");
 
-// Update a message using the saved receipt from sending the message
-queueClient.updateMessage(result.getMessageId(), result.getPopReceipt(), "Third message has been updated", Duration.ofSeconds(1));
+// Update a message using the result that
+// was saved when sending the message
+queueClient.updateMessage(result.getMessageId(),
+                          result.getPopReceipt(), 
+                          "Third message has been updated",
+                          Duration.ofSeconds(1));
 ```
 
 ### Receive and delete messages from a queue
@@ -360,4 +365,4 @@ To see more Azure Queue storage sample apps, continue to:
 > [!div class="nextstepaction"]
 > [Azure Queue storage SDK v12 Java samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
 
-* For tutorials, samples, quick starts and other documentation, visit [Azure for Java cloud developers](https://docs.microsoft.com/azure/java/).
+* For tutorials, samples, quick starts, and other documentation, visit [Azure for Java cloud developers](https://docs.microsoft.com/azure/java/).

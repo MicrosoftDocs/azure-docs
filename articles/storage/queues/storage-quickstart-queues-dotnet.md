@@ -148,7 +148,7 @@ string connectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
 Decide on a name for the new queue. The code below appends a GUID value to the queue name to ensure that it's unique.
 
 > [!IMPORTANT]
-> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming containers and blobs, see [Naming Queues and Metadata](/rest/api/storageservices/naming-queues-and-metadata).
+> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
 
 Create an instance of the [QueueClient](/dotnet/api/azure.storage.queues.queueclient) class. Then, call the [CreateAsync](/dotnet/api/azure.storage.queues.queueclient.createasync) method to create the queue in your storage account.
