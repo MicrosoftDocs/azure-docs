@@ -23,7 +23,7 @@ If you're just getting started with machine learning, take a look at the [basic 
 
 Here's the completed graph for this pipeline:
 
-[![Graph of the pipeline](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ The main data preparation tasks include data cleaning, integration, transformati
 
 Use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. We then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
-![Data pre-processing](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
+![Data pre-processing](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
 ## Train the model
 
@@ -72,7 +72,7 @@ After the model is trained, use the **Score Model** and **Evaluate Model** modul
 
 Here are the results:
 
-![Compare the results](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/result.png)
+![Compare the results](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
 These results show that the model built with **Boosted Decision Tree Regression** has a lower root mean squared error than the model built on **Decision Forest Regression**.
 

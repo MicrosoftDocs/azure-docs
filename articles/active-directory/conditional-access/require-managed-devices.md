@@ -1,12 +1,12 @@
 ---
-title: How To - Require managed devices for cloud app access with Azure Active Directory Conditional Access | Microsoft Docs
+title: Conditional Access require managed device - Azure Active Directory
 description: Learn how to configure Azure Active Directory (Azure AD) device-based Conditional Access policies that require managed devices for cloud app access.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 11/22/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -77,7 +77,7 @@ The option to *require a device to be marked as compliant* is the strongest form
 
 This option requires a device to be registered with Azure AD, and also to be marked as compliant by:
          
-- Intune.
+- Intune
 - A third-party mobile device management (MDM) system that manages Windows 10 devices via Azure AD integration. Third-party MDM systems for device OS types other than Windows 10 are not supported.
  
 ![Device-based conditions](./media/require-managed-devices/46.png)
@@ -88,6 +88,9 @@ For a device that is marked as compliant, you can assume that:
 - Mobile apps your workforce uses are managed
 - Your company information is protected by helping to control the way your workforce accesses and shares it
 - The device and its apps are compliant with company security requirements
+
+> [!NOTE]
+> If you configure a policy to require compliant devices users may be prompted on Mac, iOS, and Android to select a device certificate during policy evaluation. This is a known behavior.
 
 ## Next steps
 

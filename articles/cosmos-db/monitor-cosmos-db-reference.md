@@ -7,6 +7,7 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 11/11/2019
 ms.author: bwren
+ms.custom: subject-monitoring 
 ms.subservice: logs
 ---
 
@@ -15,13 +16,13 @@ This article provides a reference of log and metric data collected to analyze th
 
 
 ## Resource logs
-The following table lists the properties for Azure Cosmos DB resource logs when they're collected in Azure Monitor Logs or Azure Storage. In Azure Monitor Logs, they're collected in the **AzureDiagnostics** table with a **ResourceProvider** value of *MICROSOFT.DOCUMENTDB*.
+The following table lists the properties for Azure Cosmos DB resource logs when they're collected in Azure Monitor Logs or Azure Storage. In Azure Monitor Logs, they're collected in the **AzureDiagnostics** table with a **ResourceProvider** value of *MICROSOFT.DOCUMENTDB*. 
 
 | Azure Storage field or property | Azure Monitor Logs property | Description |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | The date and time (UTC) when the operation occurred. |
 | **resourceId** | **Resource** | The Azure Cosmos DB account for which logs are enabled.|
-| **category** | **Category** | For Azure Cosmos DB logs, **DataPlaneRequests** is the only available value. |
+| **category** | **Category** | For Azure Cosmos DB logs, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** are the available log types. |
 | **operationName** | **OperationName** | Name of the operation. This value can be any of the following operations: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed, or Upsert.   |
 | **properties** | n/a | The contents of this field are described in the rows that follow. |
 | **activityId** | **activityId_g** | The unique GUID for the logged operation. |
@@ -37,8 +38,12 @@ The following table lists the properties for Azure Cosmos DB resource logs when 
 | **responseLength** | **responseLength_s** | The length of the response, in bytes.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | This value is non-empty when [resource tokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) are used for authentication. The value points to the resource ID of the user. |
 
+For a list of all Azure Monitor log categories and links to associated schemas, see [Azure Monitor Logs categories and schemas](../azure-monitor/platform/diagnostic-logs-schema.md). 
+
 ## Metrics
 The following tables list the platform metrics collected for Azure CosmOS DB. All metrics are stored in the namespace **Cosmos DB standard metrics**.
+
+For a list of all Azure Monitor support metrics (including CosmosDB), see [Azure Monitor supported metrics](../azure-monitor/platform/metrics-supported.md). 
 
 #### Request metrics
 			

@@ -1,12 +1,11 @@
 ---
-title: Read replicas in Azure Database for MariaDB
+title: Read replicas - Azure Database for MariaDB
 description: 'Learn about read replicas in Azure Database for MariaDB: choosing regions, creating replicas, connecting to replicas, monitoring replication, and stopping replication.'
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/03/2019
----
 
 # Read replicas in Azure Database for MariaDB
 

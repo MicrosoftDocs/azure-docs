@@ -240,7 +240,7 @@ To enable Azure AD users to log in to Egnyte, they must be provisioned into Egny
     >
 
 >[!NOTE]
->You can use any other Egnyte user account creation tools or APIs provided by Egnyte to provision AAD user accounts.
+>You can use any other Egnyte user account creation tools or APIs provided by Egnyte to provision Azure AD user accounts.
 >
 
 ### Test single sign-on 
