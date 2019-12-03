@@ -62,8 +62,11 @@ However, not all connectors support chunking, so these connectors generate runti
 errors when incoming messages exceed the connectors' size limits.
 
 > [!NOTE]
-> For actions that use chunking, you can't pass the trigger body or use 
-> expressions such as `@triggerBody()?['Content']` in those actions. 
+> For actions that use chunking, you can't pass the trigger body or use expressions such as 
+> `@triggerBody()?['Content']` in those actions. Instead, for text or JSON file content, 
+> you can try using the **Compose** action or a variable to handle that content. If the 
+> trigger body contains other content types, such as media files, you need to perform  
+> other steps to handle that content.
 
 <a name="set-up-chunking"></a>
 
