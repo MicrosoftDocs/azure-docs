@@ -2,17 +2,15 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 12/02/2019
+ms.date: 12/03/2019
 ms.author: alkohli
 ---
 
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online.
 
-   ![Device online](./media/azure-stack-edge-r-series-deploy-add-storage-account/add-storage-account-1.png)
-
 2. Select **+ Add storage account** on the device command bar. Alternatively, select **Storage accounts** tile.
 
-   ![Add a storage account](./media/azure-stack-edge-r-series-deploy-add-storage-account/add-storage-account-2.png)
+   ![Add a storage account](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-1.png)
 
 3. In the **Add Edge storage account** pane, specify the following settings:
 
@@ -26,10 +24,10 @@ ms.author: alkohli
 
     e. After all the storage account options are specified, select **Add** to create the Edge storage account. You are notified when the Edge storage account is successfully created. The new Edge storage account is then displayed in the list of storage accounts in the Azure portal.
 
-       ![Add a storage account](./media/azure-stack-edge-r-series-deploy-add-storage-account/add-storage-account-3.png)
+       ![Add a storage account](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-2.png)
     
 4. If you select this new storage account and go to **Access keys**, you can find the blob service endpoint and the corresponding storage account name. Copy this information as these values together with the access keys will help you connect to the Edge storage account.
 
-   ![Add a storage account](./media/azure-stack-edge-r-series-deploy-add-storage-account/add-storage-account-4.png)
+    ![Add a storage account](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
 
     You get the access keys by connecting to the device local APIs using Azure Resource Manager. 

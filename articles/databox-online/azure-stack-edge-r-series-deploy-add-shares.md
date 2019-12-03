@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/16/2019
+ms.date: 12/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
 ---
@@ -131,13 +131,15 @@ On your Linux client connected to your Azure Stack Edge device, do the following
 
 2. After the NFS client is installed, mount the NFS share that you created on your Azure Stack Edge device by using the following command:
 
-   `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
+   `sudo mount -t nfs -o sec=sys,resvport <NFS Virtual IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
+
+    You can get the NFS Virtual IP from the **Device** page of your local web UI.
 
     > [!IMPORTANT]
     > Use of `sync` option when mounting shares improves the transfer rates of large files.
     > Before you mount the share, make sure that the directories that will act as mountpoints on your local computer are already created. These directories should not contain any files or subfolders.
 
-    The following example shows how to connect via NFS to a share on your Azure Stack Edge device. The device IP is `10.10.10.60`. The share `mylinuxshare2` is mounted on the ubuntuVM. The share mount point is `/home/azurestackedgeubuntuhost/edge`.
+    The following example shows how to connect via NFS to a share on your Azure Stack Edge device. The NFS Virtual IP is `10.10.10.60`. The share `mylinuxshare2` is mounted on the ubuntuVM. The share mount point is `/home/azurestackedgeubuntuhost/edge`.
 
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/azurestackedgeubuntuhost/Edge`
 
