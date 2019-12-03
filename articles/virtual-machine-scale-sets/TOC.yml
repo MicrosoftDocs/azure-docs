@@ -231,8 +231,8 @@
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Use low-priority
-      href: virtual-machine-scale-sets-use-low-priority.md
+    - name: Use spot instance
+      href: use-spot.md
   - name: Manage
     items:
     - name: Common management tasks

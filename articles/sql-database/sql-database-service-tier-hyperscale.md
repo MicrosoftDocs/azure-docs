@@ -247,6 +247,7 @@ These are the current limitations to the Hyperscale service tier as of GA.  We a
 | Database Copy | You cannot yet use Database Copy to create a new database in Azure SQL Hyperscale. |
 | TDE/AKV Integration | Transparent Database Encryption using Azure Key Vault (commonly referred to as Bring-Your-Own-Key or BYOK) is not yet supported for Azure SQL Database Hyperscale, however TDE with Service Managed Keys is fully supported. |
 |Intelligent Database Features | With the exception of the "Force Plan" option, all other Automatic tuning options are not yet supported on Hyperscale: options may appear to be enabled, but there won't be any recommendations or actions made. |
+| Shrink Database | DBCC SHRINKDATABASE or DBCC SHRINKFILE is not currently supported with Azure SQL Hyperscale databases. |
 
 ## Next steps
 
