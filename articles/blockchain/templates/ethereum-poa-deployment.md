@@ -1,7 +1,7 @@
 ---
 title: Deploy Ethereum Proof-of-Authority consortium solution template on Azure
 description: Use the Ethereum Proof-of-Authority consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.topic: article
 ms.reviewer: coborn
 ---
@@ -176,12 +176,11 @@ If the deployment includes VNet Gateways, the deployment can take up 45 to 50 mi
 
 ## Deployment output
 
-Once the deployment has completed, you can access the necessary parameters via the confirmation email or through the Azure portal.
+Once the deployment has completed, you can access the necessary parameters using the Azure portal.
 
 ### Confirmation email
 
-If you provide an email address ([Basics Section](#basics)), an email
-is sent that includes the deployment output information.
+If you provide an email address ([Basics Section](#basics)), an email is sent that includes the deployment information and links to this documentation.
 
 ![deployment email](./media/ethereum-poa-deployment/deployment-email.png)
 
@@ -189,20 +188,25 @@ is sent that includes the deployment output information.
 
 Once the deployment has completed successfully and all resources have been provisioned, you can view the output parameters in your resource group.
 
-1. Locate your resource group in the portal
-1. Go to **Deployments**
-1. Select the top deployment with the same name as your resource group
-1. Select **Outputs**
+1. Go to your resource group in the portal.
+1. Select **Overview > Deployments**.
+
+    [Resource group overview](./media/ethereum-poa-deployment/resource-group-overview.png)
+
+1. Select the **microsoft-azure-blockchain.azure-blockchain-ether-...** deployment.
+1. Select the **Outputs** section.
+
+    [Deployment outputs](./media/ethereum-poa-deployment/deployment-outputs.png)
 
 ## Growing the consortium
 
-To expand your consortium, you must first connect the physical network. If deploying behind a VPN, see the section [Connecting VNet Gateway](#connecting-vnet-gateways) configure the network connection as part of the new member deployment. Once your deployment completes, use the [Governance DApp](#governance-dapp) to become a network Admin.
+To expand your consortium, you must first connect the physical network. If deploying behind a VPN, see the section [Connecting VNet Gateway](#connecting-vnet-gateways) configure the network connection as part of the new member deployment. Once your deployment completes, use the [Governance DApp](#governance-dapp) to become a network admin.
 
 ### New member deployment
 
 Share the following information with the joining member. The information is found in your post-deployment email or in the portal deployment output.
 
-* Consortium Data Url
+* Consortium Data URL
 * The number of nodes you deployed
 * VNet Gateway Resource ID (if using VPN)
 
@@ -505,7 +509,7 @@ Admins have the power to delegate consensus participation to a set of validator 
 
 To perform any kind of transactions through the Governance DApp, you need to use an Ethereum wallet. The most straightforward approach is to use an in-browser wallet such as [MetaMask](https://metamask.io); however, because these are smart contracts deployed on the network you may also automate your interactions to the Governance contract.
 
-After installing MetaMask, navigate to the Governance DApp in the browser.  You can locate the URL in the deployment confirmation email or through Azure portal in the deployment output.  If you don't have an in-browser wallet installed you won't be able to perform any actions; however, you can view the administrator state.  
+After installing MetaMask, navigate to the Governance DApp in the browser.  You can locate the URL through Azure portal in the deployment output.  If you don't have an in-browser wallet installed you won't be able to perform any actions; however, you can view the administrator state.  
 
 ### Becoming an admin
 
@@ -543,9 +547,19 @@ On the top-right, is your Ethereum account alias and identicon.  If you're an ad
 
 ![Account](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
-## Tutorials
+## Development tools
 
 To compile, deploy, and test smart contracts, the Truffle Suite is a good option for Ethereum development. For more information, see [Truffle Suite](https://www.trufflesuite.com/docs/truffle/overview) documentation.
+
+MetaMask
+
+Ethereum Remix
+Remix is a powerful, open source tool that helps you write Solidity contracts straight from the browser. Written in JavaScript, Remix supports both usage in the browser and locally.
+
+Remix also supports testing, debugging and deploying of smart contracts and much more.
+
+https://remix-ide.readthedocs.io/en/latest/index.html 
+
 
 ### Programmatically interacting with a smart contract
 
@@ -665,11 +679,6 @@ Next, deploy to PoA network.
 $ truffle migrate --network poa
 ```
 
-### Debug smart contract with Truffle
-
-Truffle has a local develop network that is available for debugging
-smart contract. You can find the full tutorial
-[here](https://truffleframework.com/tutorials/debugging-a-smart-contract).
 
 ## WebAssembly (WASM) support
 
@@ -711,7 +720,7 @@ The transaction throughput will be highly dependent upon the types of transactio
 
 ### How do I subscribe to smart contract events?
 
-Ethereum Proof-of-Authority now supports web-sockets.  Check your deployment email or deployment output to locate the web-socket URL and port.
+Ethereum Proof-of-Authority now supports web-sockets.  Check your deployment output to locate the web-socket URL and port.
 
 ## Next steps
 
