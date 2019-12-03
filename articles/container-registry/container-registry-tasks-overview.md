@@ -56,7 +56,7 @@ ACR Tasks supports the following triggers when you set a Git repo as the task's 
 | Commit | Yes |
 | Pull request | No |
 
-To configure the trigger, you provide the task a personal access token (PAT) to set the webhook in the GitHub or Azure DevOps repo.
+To configure the trigger, you provide the task a personal access token (PAT) to set the webhook in the public or private GitHub or Azure DevOps repo.
 
 > [!NOTE]
 > Currently, ACR Tasks doesn't support commit or pull request triggers in GitHub Enterprise repos.
