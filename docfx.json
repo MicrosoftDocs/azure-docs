@@ -193,6 +193,8 @@
     },
     "fileMetadata": {
       "author": {
+        "articles/connectors/*.md": "ecfan",
+        "articles/logic-apps/*.md": "ecfan",
         "articles/governance/*.md": "DCtheGeek",
         "articles/governance/blueprints/**/*.md": "DCtheGeek",
         "articles/governance/policy/**/*.md": "DCtheGeek",
@@ -409,6 +411,8 @@
         "articles/notebooks/*.md": "barbkess"
       },
       "ms.author": {
+        "articles/connectors/*.md": "estfan",
+        "articles/logic-apps/*.md": "estfan",
         "articles/governance/*.md": "dacoulte",
         "articles/governance/blueprints/**/*.md": "dacoulte",
         "articles/governance/policy/**/*.md": "dacoulte",
@@ -436,6 +440,8 @@
         "articles/notebooks/*.md": "kraigb"
       },
       "ms.service": {
+        "articles/connectors/*.md": "logic-apps",
+        "articles/logic-apps/*.md": "logic-apps",
         "articles/governance/*.md": "governance",
         "articles/governance/blueprints/**/*.md": "blueprints",
         "articles/governance/policy/**/*.md": "azure-policy",
@@ -491,6 +497,8 @@
         "articles/app-service/**/*.md": ["Azure","App Service"]
       },
       "titleSuffix": {
+        "articles/connectors/*.md": "Azure Logic Apps",
+        "articles/logic-apps/*.md": "Azure Logic Apps",
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",

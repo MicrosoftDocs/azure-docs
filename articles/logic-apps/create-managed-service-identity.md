@@ -1,12 +1,9 @@
 ---
-title: Authenticate with managed identities - Azure Logic Apps
+title: Authenticate with managed identities
 description: Access resources in other Azure Active Directory tenants without signing in with credentials or secrets by using a managed identity
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
 ---
