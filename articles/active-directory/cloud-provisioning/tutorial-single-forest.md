@@ -77,7 +77,7 @@ To verify the agent is being seen by Azure follow these steps:
 ![Azure AD Provisioning](media/how-to-install/install7.png)</br>
  
 4. On the **On-premises provisioning agents screen** you will see the agents you have installed.  Verify that the agent in question is there and is marked **active**.
-![Provisioning agents](media/how-to-cloud-prov-install/verify1.png)</br>
+![Provisioning agents](media/how-to-install/verify1.png)</br>
 
 ### On the local server
 To verify that the agent is running follow these steps:

@@ -47,7 +47,7 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 ## Create custom user inbound rule
 
  1. Launch the synchronization editor from the application menu in desktop as shown below:</br>
- ![Synchronization Rule Editor Menu](media/how-to-cloud-custom-user-rule/syncruleeditormenu.png)</br>
+ ![Synchronization Rule Editor Menu](media/how-to-cloud-custom-user-rule/user8.png)</br>
  
  2. Select **Inbound** from the drop-down list for Direction and click on **Add new rule**.
  ![Custom rule](media/how-to-cloud-custom-user-rule/user1.png)</br>
@@ -132,32 +132,32 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 2. Download the Azure AD Connect cloud provisioning agent [here](https://go.microsoft.com/fwlink/?linkid=2109037).
 3. Run the Azure AD Connect cloud provisioning (AADConnectProvisioningAgent.Installer)
 3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/cloudprov1.png)</br>
+![Welcome screen](media/how-to-install/install1.png)</br>
 
 4. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.
 5. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory administrator account.  This operation will add your on-premises directory.  Click **Next**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/cloudprov3.png)</br>
+![Welcome screen](media/how-to-install/install3.png)</br>
 
 6. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
-![Welcome screen](media/how-to-cloud-prov-install/cloudprov4.png)</br>
+![Welcome screen](media/how-to-install/install4.png)</br>
 
 7. Once this operation completes you should see a notice **Your was successfully verified.**  You can click **Exit**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/cloudprov5.png)</br>
+![Welcome screen](media/how-to-install/install5.png)</br>
 8. If you still see the initial splash screen, click **Close**.1. Sign in to the server you will use with enterprise admin permissions.
 2. Download the Azure AD Connect cloud provisioning agent [here](https://go.microsoft.com/fwlink/?linkid=2109037).
 3. Run the Azure AD Connect cloud provisioning (AADConnectProvisioningAgent.Installer)
 3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/cloudprov1.png)</br>
+![Welcome screen](media/how-to-install/install1.png)</br>
 
 4. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.
 5. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory administrator account.  This operation will add your on-premises directory.  Click **Next**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/cloudprov3.png)</br>
+![Welcome screen](media/how-to-install/install3.png)</br>
 
 6. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
-![Welcome screen](media/how-to-cloud-prov-install/cloudprov4.png)</br>
+![Welcome screen](media/how-to-install/install4.png)</br>
 
 7. Once this operation completes you should see a notice **Your was successfully verified.**  You can click **Exit**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/cloudprov5.png)</br>
+![Welcome screen](media/how-to-install/install5.png)</br>
 8. If you still see the initial splash screen, click **Close**.
 
 ## Verify agent installation
@@ -168,13 +168,13 @@ To verify the agent is being seen by Azure follow these steps:
 
 1. Sign in to the Azure portal.
 2. On the left, select **Azure Active Directory**, click **Azure AD Connect** and in the center select **Manage provisioning (preview)**.</br>
-![Azure portal](media/how-to-cloud-prov-install/cloudprov6.png)</br>
+![Azure portal](media/how-to-install/install6.png)</br>
 
 3.  On the **Azure AD Provisioning (preview)** screen click **Review all agents**.
-![Azure AD Provisioning](media/how-to-cloud-prov-install/cloudprov7.png)</br>
+![Azure AD Provisioning](media/how-to-install/install7.png)</br>
  
 4. On the **On-premises provisioning agents screen** you will see the agents you have installed.  Verify that the agent in question is there and is marked **Disabled**.  The agent is disabled by default
-![Provisioning agents](media/how-to-cloud-prov-install/verify1.png)</br>
+![Provisioning agents](media/how-to-install/verify1.png)</br>
 
 ### On the local server
 To verify that the agent is running follow these steps:
@@ -182,7 +182,7 @@ To verify that the agent is running follow these steps:
 1.  Log on to the server with an administrator account
 2.  Open **Services** by either navigating to it or by going to Start/Run/Services.msc.
 3.  Under **Services** make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there and the status is **Running**.
-![Services](media/how-to-cloud-prov-tshoot/tshoot1.png)
+![Services](media/how-to-troubleshoot/troubleshoot1.png)
 
 ## Configure Azure AD Connect cloud provisioning
 Use the following steps to configure provisioning:
@@ -191,13 +191,13 @@ Use the following steps to configure provisioning:
  2. Click **Azure Active Directory**
  3. Click **Azure AD Connect**
  4. Select **Manage provisioning (Preview)**
- ![](media/how-to-cloud-prov-manage/manage1.png)</br>
+ ![](media/how-to-cloud-configure/manage1.png)</br>
  5.  Click **New Configuration**
- ![](media/tutorial-single-forest/newconfig1.png)</br>
+ ![](media/tutorial-single-forest/configure1.png)</br>
  6.  On the configuration screen, enter a **Notification email**, move the selector to **Enable** and click **Save**.
- ![](media/tutorial-single-forest/newconfig2.png)</br>
+ ![](media/tutorial-single-forest/configure2.png)</br>
  7. Under **Configure**, select **All users** to change the scope of the configuration rule.
- ![](media/how-to-cloud-prov-manage/scope2.png)</br>
+ ![](media/how-to-configure/scope2.png)</br>
  8. On the right, change the scope to include the specific OU you just created "OU=CPUsers,DC=contoso,DC=com".
  ![](media/tutorial-existing-forest/scope2.png)</br>
  9.  Click **Done** and **Save**.
