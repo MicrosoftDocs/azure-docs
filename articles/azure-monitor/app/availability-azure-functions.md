@@ -12,8 +12,7 @@ ms.date: 11/22/2019
 
 # Create and run custom availability tests using Azure Functions
 
-This article will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger function. The results of this test will be sent to your Application Insights resource, where you will be able to query for and alert on the availability results data. This allows you to create customized tests similar to what you can do via [Availability Monitoring](../../azure-monitor/app/monitor-web-app-availability.md) in the portal. Customized tests will allow you to write more complex availability tests than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test even if this feature is not available in your region.
-
+This article will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger function with your own business logic. The results of this test will be sent to your Application Insights resource, where you will be able to query for and alert on the availability results data. This allows you to create customized tests similar to what you can do via [Availability Monitoring](../../azure-monitor/app/monitor-web-app-availability.md) in the portal. Customized tests will allow you to write more complex availability tests than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test even if this feature is not available in your region.
 
 ## Create timer triggered function
 
@@ -152,6 +151,9 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 ## Check availability
 
 To make sure everything is working, you can look at the graph in the Availability tab of your Application Insights resource.
+
+> [!NOTE]
+> If you implemented your own business logic in runAvailabilityTest.csx then you will see successful results like in the screenshots below, if you did not then you will see failed results.
 
 ![Availability tab with successful results](media/availability-azure-functions/availtab.png)
 
