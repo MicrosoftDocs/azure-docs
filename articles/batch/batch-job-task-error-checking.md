@@ -23,11 +23,11 @@ A job is a grouping of one or more tasks, the tasks actually specifying the comm
 When adding a job, the following parameters can be specified which can influence how the job can fail:
 
 - [Job Constraints](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints)
-  - The 'maxWallClockTime' property can optionally be specified to set the maximum amount of time a job can be active or running. If exceeded, the job will be terminated with 'terminateReason' property set in the '[executionInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#cloudjob)' for the job.
+  - The 'maxWallClockTime' property can optionally be specified to set the maximum amount of time a job can be active or running. If exceeded, the job will be terminated with the 'terminateReason' property set in the '[executionInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#cloudjob)' for the job.
 - [Job Preparation Task](https://docs.microsoft.com/rest/api/batchservice/job/add#jobpreparationtask)
   - If specified, a job preparation task is run the first time a task is run for a job on a node. The job preparation task can fail, which will lead to the task not being run and the job not completing.
 - [Job Release Task](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask)
-  - Can only be specified when a job preparation task is configured. When a job is being terminated, the job release task is run on the pool nodes where a job preparation task was run. A job release task can fail, but the job will still move to a 'completed' state.
+  - A job release task can only be specified if a job preparation task is configured. When a job is being terminated, the job release task is run on the each of pool nodes where a job preparation task was run. A job release task can fail, but the job will still move to a 'completed' state.
 
 ### Job properties
 
@@ -62,13 +62,13 @@ Job tasks can fail for multiple reasons:
 - The elapsed time for the task, specified by the 'maxWallClockTime' property in the task '[constraints](https://docs.microsoft.com/rest/api/batchservice/task/add#taskconstraints)', was exceeded.
 
 In all cases the following properties must be checked for errors and information about the errors:
-- The tasks [executionInfo](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutioninformation) property contains multiple properties that provide information about an error. '[result](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutionresult) indicates if the task failed for any reason, with 'exitCode' and 'failureInfo' providing more information about the failure.
+- The tasks '[executionInfo](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutioninformation)' property contains multiple properties that provide information about an error. '[result](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutionresult) indicates if the task failed for any reason, with 'exitCode' and 'failureInfo' providing more information about the failure.
 - The task will always move to the 'completed' [state](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate), independent of whether it succeeded or failed.
 
 The impact of task failures on the job and any task dependencies must be considered.  The '[exitConditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions)' property can be specified for a task to configure an action for dependencies and for the job.
-- For dependencies, [DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction) controls whether the tasks dependent on the failed task are blocked or are run.
-- For the job, [JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction) controls whether the failed task leads to the job being disabled, terminated, or left unchanged.
+- For dependencies, '[DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction)' controls whether the tasks dependent on the failed task are blocked or are run.
+- For the job, '[JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction)' controls whether the failed task leads to the job being disabled, terminated, or left unchanged.
 
 ## Next steps
 
-Check that you've set your application to implement comprehensive error checking; it can be critical to promptly detect and diagnose issues.
+Check that your application implements comprehensive error checking; it can be critical to promptly detect and diagnose issues.
