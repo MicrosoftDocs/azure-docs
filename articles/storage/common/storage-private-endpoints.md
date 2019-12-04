@@ -111,8 +111,8 @@ The recommended DNS zone names for private endpoints for storage services are:
 
 For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
 
-- [Name resolution for resources in Azure virtual networks](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for Private Endpoints](/private-link/private-endpoint-overview#dns-configuration)
+- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for Private Endpoints](/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ## Pricing
 
