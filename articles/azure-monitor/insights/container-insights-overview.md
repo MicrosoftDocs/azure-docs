@@ -45,7 +45,7 @@ Azure Monitor for containers delivers a comprehensive monitoring experience usin
 * Monitor container workloads [deployed to Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
     >[!NOTE]
-    >Support for Red Hat OpenShift is a feature in public preview at this time.
+    >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
     >
 
 Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Azure Monitor for containers.
