@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for images - Bing Image Search REST API and Node.js"
+title: "Quickstart: Search for images REST API and Node.js - Bing Image Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send image search requests to the Bing Image Search REST API using JavaScript, and receive JSON responses.
 services: cognitive-services

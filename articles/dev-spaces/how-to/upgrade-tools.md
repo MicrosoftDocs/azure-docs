@@ -1,6 +1,5 @@
 ---
 title: "How to upgrade Azure Dev Spaces tools"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: "07/03/2018"
 ms.topic: "conceptual"

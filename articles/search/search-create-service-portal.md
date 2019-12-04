@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a search service in the portal'
 titleSuffix: Azure Cognitive Search
-description: Provision an AzureCognitive  Search resource in the Azure portal. Choose resource groups, regions, and SKU or pricing tier.
+description: In this portal quickstart, learn how to set up an Azure Cognitive Search resource in the Azure portal. Choose resource groups, regions, and SKU or pricing tier.
 
 manager: nitinme
 author: HeidiSteen
@@ -37,7 +37,7 @@ Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/p
 
 ## Choose a subscription
 
-Setting the subscription ID and resource group is your first step. If you have more than one subscription, choose one that also has data or file storage services. Azure Cognitive Search can autodetect Azure Table and Blob storage, SQL Database, and Azure Cosmos DB for indexing via [*indexers*](search-indexer-overview.md), but only for services under the same subscription.
+If you have more than one subscription, choose one for your search service.
 
 ## Set a resource group
 

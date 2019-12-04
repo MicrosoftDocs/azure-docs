@@ -1,19 +1,9 @@
 ---
-title: Configure Azure Active Directory authentication - Azure App Service
-description: Learn how to configure Azure Active Directory authentication for your App Service app.
-author: cephalin
-services: app-service
-documentationcenter: ''
-manager: gwallace
-editor: ''
-
+title: Configure Azure AD authentication
+description: Learn how to configure Azure Active Directory authentication as an identity provider for your App Service app.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
-ms.service: app-service
-ms.workload: web,mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/03/2019
-ms.author: cephalin
 ms.custom: seodec18
 ms.custom: fasttrack-edit
 
