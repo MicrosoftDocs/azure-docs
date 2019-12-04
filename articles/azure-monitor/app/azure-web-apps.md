@@ -144,7 +144,7 @@ If for some reason you would like to disable client-side monitoring:
 
 # [Node.js](#tab/nodejs)
 
-Test
+To enable client-side monitoring for your Node.js application, you need to [manually add the client-side JavaScript SDK to your application](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
 # [Java](#tab/java)
 
