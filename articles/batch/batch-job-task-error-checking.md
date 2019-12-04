@@ -23,7 +23,7 @@ A job is a grouping of one or more tasks, the tasks actually specifying the comm
 When adding a job, the following parameters can be specified which can influence how the job can fail:
 
 - [Job Constraints](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints)
-  - The 'maxWallClockTime' property can optionally be specified to set the maximum amount of time a job can be active or running. If exceeded, the job will be terminated with the 'terminateReason' property set in the '[executionInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#cloudjob)' for the job.
+  - The `maxWallClockTime` property can optionally be specified to set the maximum amount of time a job can be active or running. If exceeded, the job will be terminated with the `terminateReason` property set in the [executionInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#cloudjob) for the job.
 - [Job Preparation Task](https://docs.microsoft.com/rest/api/batchservice/job/add#jobpreparationtask)
   - If specified, a job preparation task is run the first time a task is run for a job on a node. The job preparation task can fail, which will lead to the task not being run and the job not completing.
 - [Job Release Task](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask)
