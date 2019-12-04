@@ -1134,15 +1134,9 @@ See the following articles for help with Hive queries for machine learning:
 
 **Resolution:**
  Revisit the module and inspect the SQL query for mistakes.  
-<<<<<<< HEAD
-  
- Verify that the query works correctly outside of Azure Machine Learning by logging in to the database server directly and running the query.  
-  
-=======
 
  Verify that the query works correctly outside of Azure ML by logging in to the database server directly and running the query.  
 
->>>>>>> ec33826041ef916b55aed6d55ff7fd9742e5e094
  If there is a SQL generated message reported by the module exception, take action based on the reported error. For example, the error messages sometimes include specific guidance on the likely error:
 + *No such column or missing database*, indicating that you might have typed a column name wrong. If you are sure the column name is correct, try using brackets or quotation marks to enclose the column identifier.
 + *SQL logic error near \<SQL keyword\>*, indicating that you might have a syntax error before the specified keyword
@@ -1369,7 +1363,6 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 
 ## Error 0105  
  This error is displayed when a module definition file contains an unsupported parameter type  
-<<<<<<< HEAD
   
  This error in Azure Machine Learning is produced when the you create a custom module xml definition and the type of a parameter or argument in the definition does not match a supported type.  
   
@@ -1382,188 +1375,6 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |Unsupported parameter type '{0}' specified.|  
 
 
-## Error 0106  
- Thrown when a module definition file defines an unsupported input type  
-  
- This error in Azure Machine Learning is produced when the type of an input port in a custom module XML definition does not match a supported type.  
-  
-**Resolution:**
- Make sure that the type property of an Input element in the custom module XML definition file is a supported type.  
-  
-|Exception Messages|  
-|------------------------|  
-|Unsupported input type.|  
-|Unsupported input type '{0}' specified.|  
-
-
-## Error 0107  
- Thrown when a module definition file defines an unsupported output type  
-  
- This error in Azure Machine Learning is produced when the type of an output port in a custom module xml definition does not match a supported type.  
-  
-**Resolution:**
- Make sure that the type property of an Output element in the custom module xml definition file is a supported type.  
-  
-|Exception Messages|  
-|------------------------|  
-|Unsupported output type.|  
-|Unsupported output type '{0}' specified.|  
-
-
-## Error 0108  
- Thrown when a module definition file defines more input or output ports than are supported  
-  
- This error in Azure Machine Learning is produced when too many input or output ports are defined in a custom module xml definition.  
-  
-**Resolution:**
- Makes sure the maximum number of input and output ports defined in the custom module xml definition does not exceed the maximum number of supported ports.  
-  
-|Exception Messages|  
-|------------------------|  
-|Exceeded supported number of input or output ports.|  
-|Exceeded number of supported '{0}' ports. Maximum allowed number of '{0}' ports is '{1}'.| 
-
-## Error 0109  
- Thrown when a module definition file defines a column picker incorrectly  
-  
- This error in Azure Machine Learning is produced when the syntax for a column picker argument contains an error in a custom module xml definition.  
-  
-**Resolution:**
- This error is produced when the syntax for a column picker argument contains an error in a custom module xml definition.  
-  
-|Exception Messages|  
-|------------------------|  
-|Unsupported syntax for column picker.|  
-  
-
-## Error 0110  
- Thrown when a module definition file defines a column picker that references a non-existent input port ID  
-  
- This error in Azure Machine Learning is produced when the *portId* property within the Properties element of an Arg of type ColumnPicker does not match the ID value of an input port.  
-  
-**Resolution:**
- Make sure the portId property matches the ID value of an input port defined in the custom module xml definition.  
-  
-|Exception Messages|  
-|------------------------|  
-|Column picker references a non-existent input port ID.|  
-|Column picker references a non-existent input port ID '{0}'.|  
-  
-
-## Error 0111  
- Thrown when a module definition file defines an invalid property  
-  
- This error in Azure Machine Learning is produced when an invalid property is assigned to an element in the custom module XML definition.  
-  
-**Resolution:**
- Make sure the property is supported by the custom module element.  
-  
-|Exception Messages|  
-|------------------------|  
-|Property definition is invalid.|  
-|Property definition '{0}' is invalid.|  
-  
-
-## Error 0112  
- Thrown when a module definition file cannot be parsed  
-  
- This error in Azure Machine Learning is produced when there is an error in the xml format that prevents the custom module XML definition from being parsed as a valid XML file.  
-  
-**Resolution:**
- Ensure that each element is opened and closed correctly. Make sure that there are no errors in the XML formatting.  
-  
-|Exception Messages|  
-|------------------------|  
-|Unable to parse module definition file.|  
-|Unable to parse module definition file '{0}'.|  
-  
-
-## Error 0113  
- Thrown when a module definition file contains errors.  
-  
- This error in Azure Machine Learning is produced when the custom module XML definition file can be parsed but contains errors, such as definition of elements not supported by custom modules.  
-  
-**Resolution:**
- Make sure the custom module definition file defines elements and properties that are supported by custom modules.  
-  
-|Exception Messages|  
-|------------------------|  
-|Module definition file contains errors.|  
-|Module definition file '{0}' contains errors.|  
-|Module definition file '{0}' contains errors. {1}|  
-  
-
-## Error 0114  
- Thrown when building a custom module fails.  
-  
- This error in Azure Machine Learning is produced when a custom module build fails. This occurs when one or more custom module-related errors are encountered while adding the custom module. The additional errors are reported within this error message.  
-  
-**Resolution:**
- Resolve the errors reported within this exception message.  
-  
-|Exception Messages|  
-|------------------------|  
-|Failed to build custom module.|  
-|Custom module builds failed with error(s): {0}|  
-  
-
-## Error 0115  
- Thrown when a custom module default script has an unsupported extension.  
-  
- This error in Azure Machine Learning occurs when you provide a script for a custom module that uses an unknown filename extension.  
-  
-**Resolution:**
- Verify the file format and filename extension of any script files included in the custom module.  
-  
-|Exception Messages|  
-|------------------------|  
-|Unsupported extention for default script.|  
-|Unsupported file extention {0} for default script.|  
-  
-
-## Error 0121  
- Thrown when SQL writes fails because the table is unwriteable  
-  
- This error in Azure Machine Learning is produced when you are using the [Export Data](export-data.md) module to save results to a table in a SQL database, and the table cannot be written to. Typically, you will see this error if the [Export Data](export-data.md) module successfully establishes a connection with the SQL Server instance, but is then unable to write the contents of the Azure Machine Learning dataset to the table.  
-  
-**Resolution:**
- - Open the Properties pane of the [Export Data](export-data.md) module and verify that the database and table names are entered correctly. 
- - Review the schema of the dataset you are exporting, and make sure that the data is compatible with the destination table.
- - Verify that the SQL sign in associated with the user name and password has permissions to write to the table. 
- - If the exception contains additional error information from SQL Server, use that information to make corrections.  
-  
-|Exception Messages|  
-|------------------------|  
-|Connected to server, unable to write to table.|  
-|Unable to write to Sql table: {0}|  
-
-
-## Error 0122  
- Exception occurs if multiple weight columns are specified and just one is allowed.  
-  
- This error in Azure Machine Learning occurs when too many columns have been selected as weight columns.  
-  
-**Resolution:**
- Review the input dataset and its metadata. Ensure that only one column contains weights.  
-  
-|Exception Messages|  
-|------------------------|  
-|Multiple weight columns are specified.|  
-=======
->>>>>>> ec33826041ef916b55aed6d55ff7fd9742e5e094
-
- This error in Azure Machine Learning is produced when the you create a custom module xml definition and the type of a parameter or argument in the definition does not match a supported type.  
-
-**Resolution:**
- Make sure that the type property of any **Arg** element in the custom module xml definition file is a supported type.  
-
-|Exception Messages|
-|------------------------|
-|Unsupported parameter type.|
-|Unsupported parameter type '{parameter_name}' specified.|
-|Unsupported parameter type '{parameter_name}' specified. Reason: {reason}.|
-
-
 ## Error 0125  
  Thrown when schema for multiple datasets does not match.  
 
@@ -1573,28 +1384,6 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |------------------------|
 |Dataset schema does not match.|
 
-<<<<<<< HEAD
-## Error 0126  
- Exception occurs if the user specifies a SQL domain that is not supported in Azure Machine Learning.  
-  
- This error is produced when the user specifies a SQL domain that is not supported in Azure Machine Learning. You will receive this error if you are attempting to connect to a database server in a domain that is not whitelisted. Currently, the allowed SQL domains are: ".database.windows.net", ".cloudapp.net", or ".database.secure.windows.net". That is, the server must be an Azure SQL server or a server in a virtual machine on Azure.  
-  
-**Resolution:**
- Revisit the module. Verify that the SQL database server belongs to one of the accepted domains:  
-  
--   .database.windows.net  
-  
--   .cloudapp.net  
-  
--   .database.secure.windows.net  
-  
-|Exception Messages|  
-|------------------------|  
-|Unsupported SQL domain.|  
-|The SQL domain {0} is not currently supported in Azure Machine Learning.|  
-  
-=======
->>>>>>> ec33826041ef916b55aed6d55ff7fd9742e5e094
 
 ## Error 0127  
  Image pixel size exceeds allowed limit  

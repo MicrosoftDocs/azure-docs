@@ -216,11 +216,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Change [`Dataset.get_by_id`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29#get-by-id-workspace--id-) to return registration name and version if the dataset is registered.
     + Fix a bug that ScriptRunConfig with dataset as argument cannot be used repeatedly to submit experiment run.
     + Datasets retrieved during a run will be tracked and can be seen in the run details page or by calling [`run.get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29#get-details--) after the run is complete.
-<<<<<<< HEAD
-    + Allow intermediate data in the Azure Machine Learning pipeline to be converted to tabular dataset and used in [`AutoMLStep`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlstep).
-=======
     + Allow intermediate data in Azure Machine Learning Pipeline to be converted to tabular dataset and used in [`AutoMLStep`](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlstep).
->>>>>>> ec33826041ef916b55aed6d55ff7fd9742e5e094
     + Added support for deploying and packaging supported models (ONNX, scikit-learn, and TensorFlow) without an InferenceConfig instance.
     + Added overwrite flag for service deployment (ACI and AKS) in SDK and CLI. If provided, will overwrite the existing service if service with name already exists. If service doesn't exist, will create new service.
     +  Models can be registered with two new frameworks, Onnx and Tensorflow. Model registration accepts sample input data, sample output data and resource configuration for the model.
@@ -236,13 +232,8 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Support backfill of data monitor metrics to analyze historical data for dataset monitors. 
     + Various bug fixes 
   + [**azureml-pipeline-core**](https://docs.microsoft.com/python/api/azureml-pipeline-core)
-<<<<<<< HEAD
-    + azureml-dataprep is no longer needed to submit the Azure Machine Learning pipeline run from the pipeline `yaml` file.
-  + [**azureml-train-automl**](https://docs.microsoft.com/python/api/azureml-train-automl)
-=======
     + azureml-dataprep is no longer needed to submit an Azure Machine Learning Pipeline run from the pipeline `yaml` file.
   + [**azureml-train-automl**](/python/api/azureml-train-automl-runtime/)
->>>>>>> ec33826041ef916b55aed6d55ff7fd9742e5e094
     + Add azureml-defaults to auto generated conda env to solve the model deployment failure
     + AutoML remote training now includes azureml-defaults to allow reuse of training env for inference.
   + **azureml-train-core**

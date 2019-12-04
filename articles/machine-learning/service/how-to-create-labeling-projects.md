@@ -12,21 +12,13 @@ ms.date: 11/04/2019
 
 # Get labels for data
 
-<<<<<<< HEAD
-Labeling large amounts of data has often been a headache in machine learning projects. Machine learning projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. 
-=======
 Labeling voluminous data in machine learning projects is often a headache. Projects that have a computer-vision component, such as image classification or object detection, generally require labels for thousands of images.
->>>>>>> ec33826041ef916b55aed6d55ff7fd9742e5e094
  
 [Azure Machine Learning](https://ml.azure.com/) gives you a central place to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification together with bounded boxes.
 
 Machine Learning tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with your Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
 
-<<<<<<< HEAD
-You can start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in either COCO format or as an Azure Machine Learning dataset. 
-=======
 In Machine Learning, you start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure Machine Learning dataset.
->>>>>>> ec33826041ef916b55aed6d55ff7fd9742e5e094
 
 In this article, you'll learn how to:
 
@@ -95,11 +87,7 @@ To directly upload your data:
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
-<<<<<<< HEAD
-The data get uploaded to the default blob store (`workspaceblobstore`) of your Azure Machine Learning workspace.
-=======
 The data gets uploaded to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
->>>>>>> ec33826041ef916b55aed6d55ff7fd9742e5e094
 
 ## Specify label classes
 
@@ -155,15 +143,9 @@ You can label data directly from the **Project details** page by selecting **Lab
 
 ## Export the labels
 
-<<<<<<< HEAD
-At any time, you may export the label data for machine learning experimentation. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. You will find the **Export** button on the **Project details** page of your labeling project.
-
-The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within **export/coco**. You can access the exported Azure Machine Learning dataset under the **Datasets** section of Azure Machine Learning. Dataset details page also provides sample code to access your labels from Python.
-=======
-You can export the label data for Machine Learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. Use the **Export** button on the **Project details** page of your labeling project.
+You can export the label data for machine learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. Use the **Export** button on the **Project details** page of your labeling project.
 
 The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *export/coco*. You can access the exported Azure Machine Learning dataset in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
->>>>>>> ec33826041ef916b55aed6d55ff7fd9742e5e094
 
 ![Exported dataset](media/how-to-create-labeling-projects/exported-dataset.png)
 
