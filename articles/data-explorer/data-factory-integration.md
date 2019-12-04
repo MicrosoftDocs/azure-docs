@@ -164,7 +164,7 @@ When copying a JSON file to Azure Data Explorer, note that:
     * Manually edit the pipeline definition by using Azure Data Factory's JSON editor. In **Mappings**
        * Remove the multiple mappings that were created for each child item, and add a single mapping that maps your object type to your table column.
        * After the closing square bracket, add a comma followed by:<br/>
-       `_"mapComplexValuesToString": true_`.
+       `"mapComplexValuesToString": true`.
 
 ### Specify AdditionalProperties when copying to Azure Data Explorer
 
@@ -194,7 +194,7 @@ static void Main(string[] args)
        additionalProperties.Add("tags", JsonConvert.SerializeObject(tags));
        var additionalPropertiesForPayload = JsonConvert.SerializeObject(additionalProperties);
        Console.WriteLine(additionalPropertiesForPayload);
-Console.ReadLine();
+       Console.ReadLine();
 }
 ```
 
