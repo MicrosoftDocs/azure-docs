@@ -33,5 +33,14 @@ We will also move client IDs and associated secrets for which the secrets have n
 
 All other products will not be migrated. These are legacy products that are no longer supported in Seller Dashboard.
 
+## How can I get started as an Office solutions developer?
+
+To get started, [open a developer account](open-a-developer-account.md) in Partner Center. For details about how to build Office solutions, see the following:
+
+- [Office Add-ins documentation](https://docs.microsoft.com/office/dev/add-ins/)
+- [SharePoint development](https://docs.microsoft.com/sharepoint/dev/)
+- [Microsoft Teams developer platform](https://docs.microsoft.com/microsoftteams/platform/)
+- [Power BI visuals](https://docs.microsoft.com/power-bi/developer/power-bi-custom-visuals)
+
 ## What if I have additional questions?
 Please contact [support](https://support.microsoft.com/supportforbusiness/productselection?sapId=48c74321-b2fa-010b-d0c2-1f8afea90a52) with your questions and they will be addressed by the appropriate team.
