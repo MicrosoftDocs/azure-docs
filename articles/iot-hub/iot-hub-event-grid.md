@@ -179,13 +179,7 @@ To filter messages before telemetry data is sent, you can update your [routing q
 
 ## Limitations for device connected and device disconnected events
 
-To receive device connected and device disconnected events, you must open the D2C link or C2D link for your device. If your device is using MQTT protocol, IoT Hub will keep the C2D link open. For AMQP, you can open the C2D link by calling the [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
-
-The D2C link is open if you are sending telemetry. 
-
-## Limitations for device connected and device disconnected events
-
-To receive device connection state events, a device must do either a ‘D2C Send Telemetry’ OR a ‘C2D Receive Message’ operation with Iot Hub. However, note that if a device is using AMQP protocol to connect with Iot Hub, it is recommended that they do a ‘C2D Receive Message’ operation otherwise their connection state notifications may be delayed by few minutes. If your device is using MQTT protocol, IoT Hub will keep the C2D link open. For AMQP, you can open the C2D link by calling the [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet), for IoT Hub C# SDK, or [device client for AMQP] (https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-amqp-support#device-client).
+To receive device connection state events, a device must do either a ‘D2C Send Telemetry’ OR a ‘C2D Receive Message’ operation with Iot Hub. However, note that if a device is using AMQP protocol to connect with Iot Hub, it is recommended that they do a ‘C2D Receive Message’ operation otherwise their connection state notifications may be delayed by few minutes. If your device is using MQTT protocol, IoT Hub will keep the C2D link open. For AMQP, you can open the C2D link by calling the [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet), for IoT Hub C# SDK, or [device client for AMQP](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-amqp-support#device-client).
 
 The D2C link is open if you are sending telemetry. 
 
