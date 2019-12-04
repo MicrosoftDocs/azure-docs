@@ -6,12 +6,12 @@ author: yegu
 
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 01/22/2019
+ms.date: 12/03/2019
 ms.author: yegu
 ms.custom: include file
 ---
 
-1. To create a new App Configuration store, sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the pane, select **+Create a resource**. In the **Search the Marketplace** box, enter **App Configuration** and select Enter.
+1. To create a new App Configuration store, sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the home page, select **Create a resource**. In the **Search the Marketplace** box, enter **App Configuration** and select Enter.
 
     ![Search for App Configuration](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-new.png)
 
@@ -28,6 +28,6 @@ ms.custom: include file
 
     ![Create an App Configuration store resource](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-create.png)
 
-1. Select **Create**. The deployment might take a few minutes to finish.
+1. Select **Create**. The deployment might take a few minutes.
 
-1. After the deployment is finished, select **Settings** > **Access Keys**. Make a note of either the primary read-only or primary read-write key connection string. You'll use this connection string later to configure your application to communicate with the App Configuration store that you created.
+1. After the deployment finishes, select **Settings** > **Access Keys**. Make a note of the primary read-only key connection string. You'll use this connection string later to configure your application to communicate with the App Configuration store that you created.
