@@ -34,7 +34,7 @@ The following utterances show examples of sentiment:
 
 |Sentiment|Score|Utterance|
 |:--|:--|:--|
-|negative|0.01 |The pizza was aweful.|
+|negative|0.01 |The pizza was awful.|
 |positive|0.97 |The cheese pizza was wonderful.|
 
 Sentiment analysis is a publish setting that applies to every utterance. Once set, your app returns the sentiment of an utterance without you having to label data.
