@@ -43,7 +43,6 @@ Configure destinations for platform logs by [creating a Diagnostic setting](diag
 
 - One or more destinations to send selected logs and metrics.
 - Which log categories and metrics from the resource are sent to the destinations.
-- If a storage account is selected as a destination, how long each log category should be retained.
 
 
 

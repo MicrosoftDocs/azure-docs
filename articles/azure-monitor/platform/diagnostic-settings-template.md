@@ -5,20 +5,26 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 12/03/2019
 ms.author: bwren
 ms.subservice: ""
 ---
 
 # Create diagnostic setting in Azure using a Resource Manager template
-[Platform logs](platform-logs-overview.md) in Azure provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article provides details on using an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) to configure diagnostic settings to collect platform logs to different destinations. This enables you to automatically start collecting platform logs when a resource is created.
+[Diagnostic settings](diagnostic-settings.md) in Azure Monitor specify where to send [Platform logs](platform-logs-overview.md) that are collected by Azure resources and the Azure platform they depend on. This article provides details and examples for using an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure diagnostic settings to collect platform logs to different destinations. 
+
+You can deploy these templates with a variety of methods including PowerShell and CLI. See [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md) and 
+[Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md) for details.
+
+> [!NOTE]
+> Since you can't [create a diagnostic setting](diagnostic-settings.md) for the Azure Activity log using PowerShell or CLI like diagnostic settings for other Azure resources, create a Resource Manager template for the Activity log using the information in this article and deploy the template using PowerShell or CLI.
 
 
-## Resource Manager template
-There are two sections of the Resource Manager template that you need to edit to create diagnostic settings. These sections are described in the following sections.
+## Resource Manager structure
+Resource Manager templates have two sections, parameters and resources. Parameters are values that you define when you deploy the template. Resources uses values provided by parameters and provides the definition of the resources being configured.
 
 ### Parameters
-Depending on the [destinations](diagnostic-settings.md#destinations) for the diagnostic setting, add parameters to the parameters blob for the storage account name, event hub authorization rule ID, and Log Analytics workspace ID.
+Following are parameter definitions for each of the possible [destinations](diagnostic-settings.md#destinations) for a diagnostic setting. You can remove parameters for destinations that your diagnostic setting doesn't use.
    
 ```json
 "settingName": {
@@ -54,7 +60,7 @@ Depending on the [destinations](diagnostic-settings.md#destinations) for the dia
 ```
 
 ### Resources
-In the resources array of the resource for which you want to create the diagnostic setting, add a resource of type `[resource namespace]/providers/diagnosticSettings`. The properties section follows the format described in [Diagnostic Settings - Create Or Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Add the `metrics` property to collect resource metrics to the same destinations if the [resource supports metrics](metrics-supported.md).
+In the resources array of the resource for which you want to create the diagnostic setting, add a resource of type `[resource namespace]/providers/diagnosticSettings`. The properties section follows the format described in [Diagnostic Settings - Create Or Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Provide a `category` in the `logs` section for each of the categories valid for the resource that you want to collect. Add the `metrics` property to collect resource metrics to the same destinations if the [resource supports metrics](metrics-supported.md).
    
 ```json
 "resources": [
@@ -74,31 +80,24 @@ In the resources array of the resource for which you want to create the diagnost
       "logs": [ 
         {
           "category": "/* log category name */",
-          "enabled": true,
-          "retentionPolicy": {
-            "days": 0,
-            "enabled": false
-          }
+          "enabled": true
         }
       ],
       "metrics": [
         {
           "category": "AllMetrics",
-          "enabled": true,
-          "retentionPolicy": {
-            "enabled": false,
-            "days": 0
-          }
+          "enabled": true
         }
       ]
     }
   }
 ]
 ```
+### Activity log
+For the Azure Activity log, add a resource of type `Microsoft.Insights/diagnosticSettings"` using the same format as other resources. The available categories are listed in [Categories in the Activity Log](activity-logs-overview.md#categories-in-the-activity-log).
 
 
-
-## Example
+## Example - Azure resource
 Following is a complete example that creates a Logic App and creates a diagnostic setting that enables streaming of resource logs to an event hub and storage in a storage account.
 
 ```json
@@ -230,6 +229,78 @@ Following is a complete example that creates a Logic App and creates a diagnosti
 }
 
 ```
+
+## Example - Activity log
+
+```json
+{
+	"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"settingName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the diagnostic setting"
+			}
+		},
+		"workspaceId": {
+			"type": "string",
+			"metadata": {
+				"description": "The resourceID of the Log Analytics workspace"
+			}
+		}
+	},
+	"variables": {},
+	"resources": [
+		{
+			"type": "Microsoft.Insights/diagnosticSettings",
+			"apiVersion": "2017-05-01-preview",
+			"name": "[parameters('settingName')]",
+			"location": "global",
+			"properties": {
+				"workspaceId": "[parameters('workspaceId')]",
+				"logs": [
+					{
+						"category": "Administrative",
+						"enabled": true
+					},
+					{
+						"category": "Security",
+						"enabled": true
+					},
+					{
+						"category": "ServiceHealth",
+						"enabled": true
+					},
+					{
+						"category": "Alert",
+						"enabled": true
+					},
+					{
+						"category": "Recommendation",
+						"enabled": true
+					},
+					{
+						"category": "Policy",
+						"enabled": true
+					},
+					{
+						"category": "Autoscale",
+						"enabled": true
+					},
+					{
+						"category": "ResourceHealth",
+						"enabled": true
+					}
+				]
+			}
+		}
+	]
+}
+```
+
+
+
 
 
 ## Next steps

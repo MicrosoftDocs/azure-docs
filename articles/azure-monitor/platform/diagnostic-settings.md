@@ -1,11 +1,11 @@
 ---
-title: Create diagnostic setting to collect logs and metrics in Azure | Microsoft Docs
+title: Create diagnostic setting to collect logs and metrics in Azure
 description: Create diagnostic settings to forward Azure platform logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 12/03/2019
 ms.author: bwren
 ms.subservice: logs
 ---
@@ -21,8 +21,6 @@ Each Azure resource requires its own diagnostic setting. The diagnostic setting 
  
 A single diagnostic setting can define one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
-> [!NOTE]
-> The Activity log can be forwarded to the same destinations as the other platform logs, but is not configured with diagnostic settings. See [Overview of Platform logs in Azure](platform-logs-overview.md#destinations) for details.
 
 > [!NOTE]
 > [Platform metrics](metrics-supported.md) are collected automatically to [Azure Monitor Metrics](data-platform-metrics.md). Diagnostic settings can be used to collect metrics for certain Azure services into Azure Monitor Logs for analysis with other monitoring data using [log queries](../log-query/log-query-overview.md).
@@ -43,15 +41,21 @@ Platform logs can be sent to the destinations in the following table. The config
 ## Create diagnostic settings in Azure portal
 You can configure diagnostic settings in the Azure portal either from the Azure Monitor menu or from the menu for the resource.
 
-1. From the Azure Monitor menu in the Azure portal, click **Diagnostic settings** under **Settings** and then click on the resource.
+1. Where you condifure diagnostic settings in the Azure portal depends on the resource.
 
-    ![Diagnostic settings](media/diagnostic-settings/menu-monitor.png)
-
-    Or from the resource menu in the Azure portal, click **Diagnostic settings** under **Monitor**.
+   - For a single resource, click **Diagnostic settings** under **Monitor** in the resource's menu.
 
     ![Diagnostic settings](media/diagnostic-settings/menu-resource.png)
 
-2. If no settings exist on the resource you have selected, you are prompted to create a setting. Click **Turn on diagnostics**.
+    - For one or more resources, click **Diagnostic settings** under **Settings** in the Azure Monitor menu and then click on the resource.
+    
+    ![Diagnostic settings](media/diagnostic-settings/menu-monitor.png)
+
+    - For the Activity log, click **Activity log** and then **Diagnostic settings**
+
+    ![Diagnostic settings](media/diagnostic-settings/menu-activity-log.png)
+
+2. If no settings exist on the resource you have selected, you are prompted to create a setting. Click **Add diagnostic setting**.
 
    ![Add diagnostic setting - no existing settings](media/diagnostic-settings/add-setting.png)
 
@@ -90,6 +94,9 @@ After a few moments, the new setting appears in your list of settings for this r
 ## Create diagnostic settings using PowerShell
 Use the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet to create a diagnostic setting with [Azure PowerShell](powershell-quickstart-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
 
+> [!IMPORTANT]
+> You cannot use this method for the Azure Activity log. Instead, use [Create diagnostic setting in Azure Monitor using a Resource Manager template](diagnostic-settings-template.md) to create a Resource Manager template and deploy it with PowerShell.
+
 Following is an example PowerShell cmdlet to create a diagnostic setting using all three destinations.
 
 
@@ -100,6 +107,9 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 
 ## Create diagnostic settings using Azure CLI
 Use the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command to create a diagnostic setting with [Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). See the documentation for this command for descriptions of its parameters.
+
+> [!IMPORTANT]
+> You cannot use this method for the Azure Activity log. Instead, use [Create diagnostic setting in Azure Monitor using a Resource Manager template](diagnostic-settings-template.md) to create a Resource Manager template and deploy it with CLI.
 
 Following is an example CLI command to create a diagnostic setting using all three destinations.
 
@@ -121,7 +131,7 @@ See [Diagnostic Settings](https://docs.microsoft.com/rest/api/monitor/diagnostic
 
 
 ### Configure diagnostic settings using Resource Manager template
-See [Automatically enable Diagnostic Settings at resource creation using a Resource Manager template](diagnostic-settings-template.md) to create or update diagnostic settings with a Resource Manager template.
+See [Create diagnostic setting in Azure Monitor using a Resource Manager template](diagnostic-settings-template.md) to create or update diagnostic settings with a Resource Manager template.
 
 ## Next steps
 
