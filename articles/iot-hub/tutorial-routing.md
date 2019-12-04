@@ -1,5 +1,5 @@
 ---
-title: Configure message routing for Azure IoT Hub using the Azure CLI and the Azure portal| Microsoft Docs
+title: Configure message routing for Azure IoT Hub using Azure CLI
 description: Configure message routing for Azure IoT Hub using the Azure CLI and the Azure portal
 author: robinsh
 manager: philmea

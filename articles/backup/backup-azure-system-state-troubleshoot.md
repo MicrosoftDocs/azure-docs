@@ -1,14 +1,9 @@
 ---
-title: Troubleshoot System State Backup with Azure Backup
+title: Troubleshoot System State Backup
 description: In this article, learn how to troubleshoot issues in System State Backup for on-premises Windows servers.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-keywords: how to backup; backup system state
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: dacurwin
 ---
 
 # Troubleshoot System State Backup
@@ -40,9 +35,9 @@ We recommend you perform the below validation, before you start troubleshooting 
 - Recovering to different hardware using System State recovery is not recommended by Microsoft
 - System State backup currently supports "on-premises" Windows servers, this functionality is not available for Azure VMs.
 
-## Pre-requisite
+## Prerequisites
 
-Before we troubleshoot System State Backup with Azure Backup, perform the below pre-requisites check.  
+Before we troubleshoot System State Backup with Azure Backup, perform the below prerequisites check.  
 
 ### Verify Windows Server Backup is installed
 
@@ -125,7 +120,7 @@ To validate Windows Server Backup status, perform the steps below:
 
 If the job fails, it indicates a WSB issue that would result in MARS agent System State Backups failure.
 
-## Common Errors
+## Common errors
 
 ### VSS Writer timeout error
 

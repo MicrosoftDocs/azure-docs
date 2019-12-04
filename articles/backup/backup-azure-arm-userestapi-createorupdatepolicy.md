@@ -1,19 +1,13 @@
 ---
-title: 'Azure Backup: Create backup policies using REST API'
+title: Create backup policies using REST API
 description: In this article, you will learn how to create and manage backup policies (schedule and retention) using REST API.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM backup; Azure VM restore;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ---
 # Create Azure Recovery Services backup policies using REST API
 
-The steps to create a backup policy for an Azure Recovery Services vault are outlined in the [policy REST API document](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate). Let us use this document as a reference to create a policy for Azure VM backup.
+The steps to create a backup policy for an Azure Recovery Services vault are outlined in the [policy REST API document](/rest/api/backup/protectionpolicies/createorupdate). Let us use this document as a reference to create a policy for Azure VM backup.
 
 ## Backup policy essentials
 
@@ -46,10 +40,10 @@ For example, to create a policy for Azure VM backup, following are the component
 
 |Name  |Required  |Type  |Description  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource properties        |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource properties        |
 |tags     |         | Object        |  Resource tags       |
 
-For the complete list of definitions in the request body, refer to the [backup policy REST API document](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate).
+For the complete list of definitions in the request body, refer to the [backup policy REST API document](/rest/api/backup/protectionpolicies/createorupdate).
 
 ### Example request body
 
@@ -154,7 +148,7 @@ It returns two responses: 202 (Accepted) when another operation is created, and 
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |    [Protection PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  OK       |
+|200 OK     |    [Protection PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 Accepted     |         |     Accepted    |
 
 ### Example responses

@@ -26,6 +26,10 @@ landingContent:
         links:
           - text: What is Azure HDInsight?
             url: ./hdinsight-overview.md
+      - linkListType: learn
+        links:
+          - text: Building Analytical Solutions with Azure HDInsight
+            url: https://docs.microsoft.com/learn/paths/build-oss-analytical-solutions-az-hdinsight/
       - linkListType: concept
         links:
           - text: HDInsight components and versions

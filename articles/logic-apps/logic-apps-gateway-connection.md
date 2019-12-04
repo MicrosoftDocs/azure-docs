@@ -1,12 +1,9 @@
 ---
-title: Access data sources on premises - Azure Logic Apps
+title: Access data sources on premises
 description: Connect to on-premises data sources from Azure Logic Apps by creating an Azure on-premises data gateway resource
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: arthii, LADocs
+ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
 ---
@@ -23,9 +20,9 @@ This article shows how to create your Azure gateway resource for a previously [i
 
 For information about how to use the gateway with other services, see these articles:
 
-* [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Power Automate on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Microsoft Power Apps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Microsoft Power Automate on-premises data gateway](/power-automate/gateway-reference)
+* [Microsoft Power BI on-premises data gateway](/power-bi/service-gateway-onprem)
+* [Microsoft Power Apps on-premises data gateway](/powerapps/maker/canvas-apps/gateway-reference)
 * [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>

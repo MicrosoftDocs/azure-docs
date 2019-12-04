@@ -39,6 +39,10 @@ landingContent:
             url: deploy-to-subscription.md
           - text: Deployment Manager
             url: deployment-manager-overview.md
+      - linkListType: video
+        links:
+          - text: What's new?
+            url: https://youtu.be/3D-JIKShrws
 
   # Card (optional)
   - title: Get started

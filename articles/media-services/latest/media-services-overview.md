@@ -51,6 +51,10 @@ Learn how to encode and package content, stream videos on-demand, broadcast live
 > [!TIP]
 > Before you start developing, review:<br/>* [Fundamental concepts](concepts-overview.md) (incudes important concepts, like packaging, encoding, and protecting)<br/>* [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, and so on)
 
+### SDKs
+
+Start developing with [Azure Media Services v3 client SDKs](media-services-apis-overview.md#sdks).
+
 ### Quickstarts  
 
 The quickstarts show fundamental day-1 instructions for new customers to quickly try out Media Services.

@@ -1,21 +1,11 @@
 ---
-title: Local cache overview - Azure App Service | Microsoft Docs
-description: This article describes how to enable, resize, and query the status of the Azure App Service Local Cache feature
-services: app-service
-documentationcenter: app-service
-author: cephalin
-manager: jpconnock
-editor: ''
+title: Local cache
+description: Learn how the local cache work in Azure App Service, and how to enable, resize, and query the status of your app's local cache.
 tags: optional
-keywords: ''
 
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
-ms.service: app-service
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/04/2016
-ms.author: cephalin
 ms.custom: seodec18
 
 ---

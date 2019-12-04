@@ -1,21 +1,13 @@
 ---
-title: Deployment best practices - Azure App Service | Microsoft Docs 
-description: Learn about the key components of deploying to Azure App Service.
+title: Deployment best practices 
+description: Learn about the key mechanisms of deploying to Azure App Service. Find language-specific recommendations and other caveats.
 keywords: azure app service, web app, deploy, deployment, pipelines, build
-services: app-service
-documentationcenter: ''
 author: jasonfreeberg
-manager: 
-editor: 
 
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.custom: 
 ---
 
 # Deployment Best Practices

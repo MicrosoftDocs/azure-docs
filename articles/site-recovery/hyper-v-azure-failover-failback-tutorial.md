@@ -1,12 +1,11 @@
 ---
-title: Fail over and fail back Hyper-V VMs during disaster recovery to Azure with Azure Site Recovery | Microsoft Docs
+title: Set up failover and failback for Hyper-V VMs in Azure Site Recovery 
 description: Learn how to fail over and fail back Hyper-V VMs during disaster recovery to Azure using the Azure Site Recovery service.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
 ---

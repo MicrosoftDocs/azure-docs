@@ -1,5 +1,5 @@
 ---
-title: Attach a Cognitive Services resource to a skillset
+title: Attach Cognitive Services to a skillset
 titleSuffix: Azure Cognitive Search
 description: Instructions for attaching a Cognitive Services all-in-one subscription to an AI enrichment pipeline in Azure Cognitive Search.
 

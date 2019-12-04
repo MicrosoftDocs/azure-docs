@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-# Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
+
 
 This article answers some frequently asked questions about Azure Managed Disks and Azure Premium SSD disks.
 
@@ -134,7 +134,9 @@ For managed disks you cannot rename them. However, you may rename an unmanaged d
 
 **Can I use GPT partitioning on an Azure Disk?**
 
-GPT partitioning can be used only on data disks, not OS disks. OS disks must use the MBR partition style.
+Generation 1 images can only use GPT partitioning on data disks, not OS disks. OS disks must use the MBR partition style.
+
+[Generation 2 images](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) can use GPT partitioning on the OS disk as well as the data disks.
 
 **What disk types support snapshots?**
 

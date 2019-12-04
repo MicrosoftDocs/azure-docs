@@ -1,5 +1,5 @@
 ---
-title: Tutorial - manage Azure virtual machines with Azure PowerShell | Microsoft Docs
+title: Tutorial - manage Azure virtual machines with Azure PowerShell 
 description: In this tutorial, you learn how to use Azure PowerShell to manage Azure virtual machines by applying RBAC, polices, locks and tags
 services: virtual-machines-windows
 documentationcenter: virtual-machines

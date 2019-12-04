@@ -1,11 +1,8 @@
 ---
-title: Azure extension resource types
+title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: tomfitz
 ---
 
 # Resource types that extend capabilities of other resources

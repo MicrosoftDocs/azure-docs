@@ -3,7 +3,7 @@ title: Error codes in the Azure Active Directory portal | Microsoft Docs
 description: Reference of sign-in activity report error codes. 
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/08/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -178,7 +178,8 @@ You can also programmatically access the sign-in data using the [reporting API](
 |90051|	Invalid Delegation Token. Invalid national Cloud ID ({cloudId}) is specified.|
 |90072| The account needs to be added as an external user in the tenant first. Sign-out and sign-in again with a different Azure AD account.|
 |90094| The grant requires administrator permissions. Ask your tenant administrator to provide consent for this application.|
-|500021|Tenant is restricted by company proxy. Denying the resource access.|
+|500011| The resource principal named <site address> was not found in the tenant named <tenant ID>. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.|
+|500021| Tenant is restricted by company proxy. Denying the resource access.|
 |500121| Authentication failed during strong authentication request.|
 |500133| The assertion is not within its valid time range. Ensure that the access token is not expired before using it for user assertion, or request a new token.|
 |530021|Application does not meet the Conditional Access approved app requirements.|
