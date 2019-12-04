@@ -39,17 +39,16 @@ With maintenance control, you can:
 
 ## Enable the PowerShell module
 
-Enable the PowerShell module. 
+The Az.Maintenance PowerShell cmdlets are in preview, so you need to install the module with the `AllowPrerelease` parameter in Cloud Shell or your local PowerShell installation. You also need to make sure `PowerShellGet` is up to date.
 
 ```azurepowershell-interactive
-
+Install-Module -Name PowerShellGet -Repository PSGallery -Force
+Install-Module -Name Az.Maintenance -AllowPrerelease
 ```
-
-If you choose to install the [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) locally, you need version 2.0.76 or later.
 
 ## Create a maintenance configuration
 
-Use `new-AzMaintenanceConfiguration` to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
+Use [New-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/new-azmaintenanceconfiguration) to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
 
 ```azurecli-interactive
 New-AzResourceGroup `
@@ -64,9 +63,11 @@ New-AzMaintenanceConfiguration `
 
 Copy the configuration ID from the output to use later.
 
-Using `-MaintenanceScope host` will ensure that all VMs on a host will follow the same maintenance configuration.
+Using `--maintenanceScope host` ensures that the maintenance config is used for controlling updates to the host.
 
-You can query for available maintenance configurations using [az maintenance configuration list]()
+If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your subscription.
+
+You can query for available maintenance configurations using [Get-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
 
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration 
