@@ -1,5 +1,5 @@
 ---
-title: UK OFFICIAL & UK NHS blueprint samples - Control mapping
+title: UK OFFICIAL & UK NHS blueprint samples - Control
 description: Control mapping of the UK OFFICIAL and UK NHS blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
 ms.date: 06/26/2019
 ms.topic: sample
@@ -147,23 +147,23 @@ This blueprint also assigns an Azure Policy definition that audits Linux VM pass
 permissions to alert if they're set incorrectly. This design enables you to take corrective action
 to ensure authenticators aren't compromised.
 
-- [Preview]: Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
+- \[Preview\]: Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
 
 This blueprint helps you enforce strong passwords by assigning Azure Policy definitions that
 audit Windows VMs that don't enforce minimum strength and other password requirements. Awareness of
 VMs in violation of the password strength policy helps you take corrective actions to ensure
 passwords for all VM user accounts are compliant with policy.
 
-- [Preview]: Deploy prerequisites to audit Windows VMs that do not have the password complexity setting enabled
-- [Preview]: Deploy prerequisites to audit Windows VMs that do not have a maximum password age of 70 days
-- [Preview]: Deploy prerequisites to audit Windows VMs that do not have a minimum password age of 1 day
-- [Preview]: Deploy prerequisites to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Preview]: Deploy prerequisites to audit Windows VMs that allow re-use of the previous 24 passwords
-- [Preview]: Show audit results from Windows VMs that do not have the password complexity setting enabled
-- [Preview]: Show audit results from Windows VMs that do not have a maximum password age of 70 days
-- [Preview]: Show audit results from Windows VMs that do not have a minimum password age of 1 day
-- [Preview]: Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
-- [Preview]: Show audit results from Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Deploy prerequisites to audit Windows VMs that do not have the password complexity setting enabled
+- \[Preview\]: Deploy prerequisites to audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Deploy prerequisites to audit Windows VMs that do not have a minimum password age of 1 day
+- \[Preview\]: Deploy prerequisites to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Deploy prerequisites to audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Show audit results from Windows VMs that do not have the password complexity setting enabled
+- \[Preview\]: Show audit results from Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Show audit results from Windows VMs that do not have a minimum password age of 1 day
+- \[Preview\]: Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Show audit results from Windows VMs that allow re-use of the previous 24 passwords
 
 This blueprint also helps you control access to Azure resources by assigning Azure Policy
 definitions. These policies audit use of resource types and configurations that may allow more
