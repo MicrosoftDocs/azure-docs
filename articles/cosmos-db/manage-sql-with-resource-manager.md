@@ -24,7 +24,7 @@ The following Azure Resource Manager template creates an Azure Cosmos account wi
 * Two containers that share 400 Requested Units per second (RU/s) throughput at the database level.
 * One container with dedicated 400 RU/s throughput.
 
-To create the Azure Cosmos DB resources, copy the following example template and deploy it as described, either via [Powershell](#deploy-via-powershell) or [Azure CLI](#deploy-via-azure-cli).
+To create the Azure Cosmos DB resources, copy the following example template and deploy it as described, either via [PowerShell](#deploy-via-powershell) or [Azure CLI](#deploy-via-azure-cli).
 
 * Optionally, you can visit the [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) and deploy the template from the Azure portal.
 * You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
@@ -127,7 +127,7 @@ The `az cosmosdb show` command shows the newly created Azure Cosmos account afte
 
 You can use an Azure Resource Manager template to create an Azure Cosmos DB container with a stored procedure, trigger, and user-defined function.
 
-Copy the following example template and deploy it as described, either with [Powershell](#deploy-with-powershell) or [Azure CLI](#deploy-with-azure-cli).
+Copy the following example template and deploy it as described, either with [PowerShell](#deploy-with-powershell) or [Azure CLI](#deploy-with-azure-cli).
 
 * Optionally, you can visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) and deploy the template from the Azure portal.
 * You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
@@ -194,7 +194,7 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-## Next Steps
+## Next steps
 
 Here are some additional resources:
 
