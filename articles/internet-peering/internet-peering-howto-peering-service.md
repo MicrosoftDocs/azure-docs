@@ -11,7 +11,7 @@ ms.author: prmitiki
 
 # Enable Peering Service on a Direct Peering using PowerShell
 > [!div class="op_single_selector"]
-> * [Portal](internet-peering-howto-peering-service-portal.md)
+> * [Azure portal](internet-peering-howto-peering-service-portal.md)
 > * [PowerShell](internet-peering-howto-peering-service.md)
 >
 

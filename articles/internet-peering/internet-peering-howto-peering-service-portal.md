@@ -11,11 +11,11 @@ ms.author: prmitiki
 
 # Enable Peering Service on a Direct Peering using Portal
 > [!div class="op_single_selector"]
-> * [Portal](internet-peering-howto-peering-service-portal.md)
+> * [Azure portal](internet-peering-howto-peering-service-portal.md)
 > * [PowerShell](internet-peering-howto-peering-service.md)
 >
 
-This article describes how to Enable Peering Service [Peering Service](internet-peering-service-overview.md) on a Direct Peering by using Azure Portal
+This article describes how to Enable Peering Service [Peering Service](internet-peering-service-overview.md) on a Direct Peering by using Azure portal
 
 ## Before you begin
 * Review [prerequisites](internet-peering-prerequisites.md) before you begin configuration.

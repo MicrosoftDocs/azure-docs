@@ -11,7 +11,7 @@ ms.author: prmitiki
 
 # Convert a legacy Direct Peering to Azure Resource using PowerShell
 > [!div class="op_single_selector"]
-> * [Portal](internet-peering-howto-legacydirect-arm-portal.md)
+> * [Azure portal](internet-peering-howto-legacydirect-arm-portal.md)
 > * [PowerShell](internet-peering-howto-legacydirect-arm.md)
 >
 

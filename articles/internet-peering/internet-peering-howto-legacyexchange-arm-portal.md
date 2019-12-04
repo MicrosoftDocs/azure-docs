@@ -11,7 +11,7 @@ ms.author: prmitiki
 
 # Convert a legacy Exchange Peering to Azure resource using Portal
 > [!div class="op_single_selector"]
-> * [Portal](internet-peering-howto-legacyexchange-arm-portal.md)
+> * [Azure portal](internet-peering-howto-legacyexchange-arm-portal.md)
 > * [PowerShell](internet-peering-howto-legacyexchange-arm.md)
 >
 

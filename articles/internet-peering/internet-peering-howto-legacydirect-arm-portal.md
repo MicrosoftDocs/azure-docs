@@ -11,11 +11,11 @@ ms.author: prmitiki
 
 # Convert a legacy Direct Peering to Azure Resource using Portal
 > [!div class="op_single_selector"]
-> * [Portal](internet-peering-howto-legacydirect-arm-portal.md)
+> * [Azure portal](internet-peering-howto-legacydirect-arm-portal.md)
 > * [PowerShell](internet-peering-howto-legacydirect-arm.md)
 >
 
-This article describes how to convert an existing legacy Direct Peering to Azure resource using Azure Portal.
+This article describes how to convert an existing legacy Direct Peering to Azure resource using Azure portal.
 
 
 ## Before you begin

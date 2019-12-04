@@ -33,7 +33,7 @@ Microsoft has a selective, but generally open peering policy. Peers are selected
 
 ## Use Azure for Peering setup
 
-You may request for Peering with Microsoft using Azure PowerShell or Azure Portal. Peering setup in this manner is managed as an Azure resource and provides the following benefits:
+You may request for Peering with Microsoft using Azure PowerShell or Azure portal. Peering setup in this manner is managed as an Azure resource and provides the following benefits:
 * Simplified and automatable steps to setup and manage peering with Microsoft.
 * Quick and easy way to view and manage all your peerings in one place.
 * Track status and bandwidth data for all your connections.

@@ -11,7 +11,7 @@ ms.author: prmitiki
 
 # Create or modify a Direct Peering using PowerShell
 > [!div class="op_single_selector"]
-> * [Portal](internet-peering-howto-directpeering-arm-portal.md)
+> * [Azure portal](internet-peering-howto-directpeering-arm-portal.md)
 > * [PowerShell](internet-peering-howto-directpeering-arm.md)
 >
 

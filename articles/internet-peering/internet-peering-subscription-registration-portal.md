@@ -11,7 +11,7 @@ ms.author: prmitiki
 
 # Associate Peer ASN to Azure Subscription using Portal
 > [!div class="op_single_selector"]
-> * [Portal](internet-peering-subscription-registration-portal.md)
+> * [Azure portal](internet-peering-subscription-registration-portal.md)
 > * [PowerShell](internet-peering-subscription-registration.md)
 >
 
@@ -51,7 +51,7 @@ You can create a new PeerAsn resource for associating an Autonomous System Numbe
     * **Peer name** corresponds to your company's name and needs to be as close as possible to your PeeringDb profile. Note that value supports only characters a-z, A-Z, and space
     * Enter your ASN in the **Peer ASN** field.
     * Click on **Create new** and enter **EMAIL ADDRESS** and **PHONE NUMBER** for your Network Operations Center (NOC)
-    * Then, click on **Review + create** and observe that Azure Portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
+    * Then, click on **Review + create** and observe that Azure portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
 
         > [!div class="mx-imgBorder"]
         > ![PeerAsn Review Tab](./media/PeerAsn_review_tab_validation.png)

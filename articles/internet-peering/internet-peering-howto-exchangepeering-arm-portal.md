@@ -11,11 +11,11 @@ ms.author: prmitiki
 
 # Create or modify an Exchange Peering using Portal
 > [!div class="op_single_selector"]
-> * [Portal](internet-peering-howto-exchangepeering-arm-portal.md)
+> * [Azure portal](internet-peering-howto-exchangepeering-arm-portal.md)
 > * [PowerShell](internet-peering-howto-exchangepeering-arm.md)
 >
 
-This article describes how to create a Microsoft Exchange Peering by using Azure Portal. This article also shows how to check the status of the resource, update it, or delete and deprovision it.
+This article describes how to create a Microsoft Exchange Peering by using Azure portal. This article also shows how to check the status of the resource, update it, or delete and deprovision it.
 
 ## Before you begin
 * Review [Prerequisites](internet-peering-prerequisites.md) and [Exchange Peering Walkthrough](internet-peering-workflows-exchange.md) before you begin configuration.

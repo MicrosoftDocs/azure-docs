@@ -64,9 +64,9 @@ landingContent:
             url: internet-peering-workflows-exchange.md
             
   # Card
-  - title: Reference
+  - title: Resources
     linkLists:
-      - linkListType: reference
+      - linkListType: resource
         links:
           - text: Peering FAQs
             url: internet-peering-faqs.md

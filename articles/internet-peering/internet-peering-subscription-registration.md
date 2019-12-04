@@ -11,7 +11,7 @@ ms.author: prmitiki
 
 # Associate Peer ASN to Azure Subscription using PowerShell
 > [!div class="op_single_selector"]
-> * [Portal](internet-peering-subscription-registration-portal.md)
+> * [Azure portal](internet-peering-subscription-registration-portal.md)
 > * [PowerShell](internet-peering-subscription-registration.md)
 >
 

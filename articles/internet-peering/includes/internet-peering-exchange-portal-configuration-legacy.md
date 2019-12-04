@@ -25,7 +25,7 @@ ms.author: prmitiki
         > You cannot modify settings for legacy peering connections. If you want to add additional peering connections with Microsoft in the selected **Metro** location you may do so by clicking **Create new** button. See [Create or modify an Exchange Peering using Portal](../internet-peering-howto-exchangepeering-arm-portal.md) for more info.
         >
 
-    * Click on **Review + create**. Observe that Azure Portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
+    * Click on **Review + create**. Observe that Azure portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
 
         > [!div class="mx-imgBorder"]
         > ![Peering Validation Tab](../media/Peering_Direct_review_tab_validation.png)

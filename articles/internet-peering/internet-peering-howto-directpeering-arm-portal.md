@@ -11,11 +11,11 @@ ms.author: prmitiki
 
 # Create or modify a Direct Peering using Portal
 > [!div class="op_single_selector"]
-> * [Portal](internet-peering-howto-directpeering-arm-portal.md)
+> * [Azure portal](internet-peering-howto-directpeering-arm-portal.md)
 > * [PowerShell](internet-peering-howto-directpeering-arm.md)
 >
 
-This article describes how to create a Microsoft Direct Peering by using Azure Portal. This article also shows how to check the status of the resource, update it, or delete and deprovision it.
+This article describes how to create a Microsoft Direct Peering by using Azure portal. This article also shows how to check the status of the resource, update it, or delete and deprovision it.
 
 ## Before you begin
 * Review [Prerequisites](internet-peering-prerequisites.md) and [Direct Peering Walkthrough](internet-peering-workflows-direct.md) before you begin configuration.

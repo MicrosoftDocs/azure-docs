@@ -20,43 +20,43 @@
   items:
   - name: Associate Peer ASN to Azure Subscription
     items:
+    - name: Azure portal
+      href: internet-peering-subscription-registration-portal.md
     - name: Azure PowerShell
       href: internet-peering-subscription-registration.md
-    - name: Azure Portal
-      href: internet-peering-subscription-registration-portal.md
   - name: Enable Peering Service on a Direct Peering
     items:
+    - name: Azure portal
+      href: internet-peering-howto-peering-service-portal.md
     - name: Azure PowerShell
       href: internet-peering-howto-peering-service.md
-    - name: Azure Portal
-      href: internet-peering-howto-peering-service-portal.md
   - name: Create or modify a Direct Peering
     items:
+    - name: Azure portal
+      href: internet-peering-howto-directpeering-arm-portal.md
     - name: Azure PowerShell
       href: internet-peering-howto-directpeering-arm.md
-    - name: Azure Portal
-      href: internet-peering-howto-directpeering-arm-portal.md
   - name: Convert a legacy Direct Peering to Azure resource
     items:
+    - name: Azure portal
+      href: internet-peering-howto-legacydirect-arm-portal.md
     - name: Azure PowerShell
       href: internet-peering-howto-legacydirect-arm.md
-    - name: Azure Portal
-      href: internet-peering-howto-legacydirect-arm-portal.md
   - name: Create or modify an Exchange Peering
     items:
+    - name: Azure portal
+      href: internet-peering-howto-exchangepeering-arm-portal.md
     - name: Azure PowerShell
       href: internet-peering-howto-exchangepeering-arm.md
-    - name: Azure Portal
-      href: internet-peering-howto-exchangepeering-arm-portal.md
   - name: Convert a legacy Exchange Peering to Azure resource
     items:
+    - name: Azure portal
+      href: internet-peering-howto-legacyexchange-arm-portal.md
     - name: Azure PowerShell
       href: internet-peering-howto-legacyexchange-arm.md
-    - name: Azure Portal
-      href: internet-peering-howto-legacyexchange-arm-portal.md
 - name: Resources
   items:
-  - name: Peering Service FAQs
-    href: internet-peering-service-faqs.md
   - name: Peering FAQs
     href: internet-peering-faqs.md
+  - name: Peering Service FAQs
+    href: internet-peering-service-faqs.md
