@@ -75,7 +75,7 @@ When an artifact appears to hang, first determine where it's stuck. An artifact 
 4. Determine if the script suffers from any unwanted behavior. If so, either request an update to the artifact (if it is from the public repo); or, make the corrections yourself (if it is from your private repo).
 
 > [!TIP]
-> YOu can correct issues with artifacts hosted in our [public repo](https://github.com/Azure/azure-devtestlab) and submit the changes for our review and approval. See the **Contributions** section in the [README.md](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/README.md) document.
+> You can correct issues with artifacts hosted in our [public repo](https://github.com/Azure/azure-devtestlab) and submit the changes for our review and approval. See the **Contributions** section in the [README.md](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/README.md) document.
 > 
 > For information about writing your own artifacts, see [AUTHORING.md](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/AUTHORING.md) document.
 
