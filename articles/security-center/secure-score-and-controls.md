@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2019
+ms.date: 12/04/2019
 ms.author: memildin
 
 ---
@@ -102,7 +102,7 @@ No; it won't change until you remediate all of the recommendation for a single r
 Yes, but for a while they will be running side by side to ease the transition.
 
 ### Can I access Secure Score via an API?
-An upcoming API will allow you to query a subscription's overall score as well as the current score per Secure Control.
+An upcoming API will allow you to query a subscription's overall score as well as the current score per Security Control.
 
 ### If a recommendation is not applicable to me, and I disable it in the policy, will my Security Control be fulfilled and my Secure Score updated?
 Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security policies](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).
