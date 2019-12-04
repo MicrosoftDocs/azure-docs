@@ -16,13 +16,13 @@ ms.subservice: B2C
 
 # Deploy custom policies from an Azure DevOps pipeline
 
-By using a continuous integration and delivery (CI/CD) pipeline that you set up in [Azure DevOps](https://azure.microsoft.com/overview/devops/), you can include your Azure AD B2C custom policies in your software delivery and code control automation. As you deploy to different Azure AD B2C environments, for example dev, test, and production, we recommend that you remove manual processes and perform automated testing by using Azure DevOps.
+By using a continuous integration and delivery (CI/CD) pipeline that you set up in [Azure DevOps][devops], you can include your Azure AD B2C custom policies in your software delivery and code control automation. As you deploy to different Azure AD B2C environments, for example dev, test, and production, we recommend that you remove manual processes and perform automated testing by using Azure DevOps.
 
 There are three primary steps required for enabling Azure DevOps to manage custom policies within Azure AD B2C:
 
 1. Create a web application registration in your Azure AD B2C tenant
-1. Configure your Azure DevOps Git repository
-1. Configure your Azure DevOps release pipeline
+1. Configure an Azure DevOps Git repository
+1. Configure an Azure DevOps release pipeline
 
 > [!IMPORTANT]
 > Managing Azure AD B2C custom policies currently uses **preview** operations available on the Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
@@ -38,7 +38,7 @@ The scenario described here makes use of service-to-service calls between Azure 
 
 ## Register an application for management tasks
 
-Start by creating an application registration that your PowerShell scripts executed by Azure DevOps will use to communicate with Azure AD B2C. If you already have an application registration that you use for automation tasks, you can skip this section.
+Start by creating an application registration that your PowerShell scripts executed by Azure DevOps will use to communicate with Azure AD B2C. If you already have an application registration that you use for automation tasks, you can skip to the [Grant permissions](#grant-permissions) section.
 
 ### Register application
 
@@ -82,9 +82,10 @@ To authenticate with Azure AD B2C, your PowerShell script needs to specify a cli
 
 ## Configure an Azure DevOps Git repository
 
-With a management application registered an a client secret created, you're ready to configure a repository for your policy files.
+With a management application registered, you're ready to configure a repository for your policy files.
 
-1. Sign in to your Azure DevOps organization and navigate to your project.
+1. Sign in to your Azure DevOps organization.
+1. [Create a new project][devops-create-project] or select an existing project.
 1. In your project, navigate to **Repos** and select the **Files** page. Select an existing repository or create one for this exercise.
 1. Create a folder named *B2CAssets*. Name the required placeholder file *README.md* and **Commit** the file. You can remove this file later, if you like.
 1. Add your Azure AD B2C policy files to the *B2CAssets* folder. This includes the *TrustFrameworkBase.xml*, *TrustFrameWorkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*, and any other policies you've created. Record the filename of each Azure AD B2C policy file for use in a later step (they're used as PowerShell script arguments).
@@ -225,3 +226,7 @@ Learn more about:
 
 * [Service-to-service calls using client credentials](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 * [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
+
+<!-- LINKS - External -->
+[devops]: https://docs.microsoft.com/azure/devops/?view=azure-devops
+[devops-create-project]:  https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops
