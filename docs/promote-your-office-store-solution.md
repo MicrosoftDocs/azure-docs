@@ -7,9 +7,9 @@ localization_priority: Normal
 
 # Promote your AppSource solution
 
-After you submit your solution to the Seller Dashboard and it is approved for addition to AppSource, you might want to brand it as an AppSource solution on your webpage. You can use the AppSource badges to promote your solution and drive traffic from your site to AppSource. To do so:
+After you submit your solution and it's approved for addition to AppSource, you might want to brand it as an AppSource solution on your webpage. You can use the AppSource badges to promote your solution and drive traffic from your site to AppSource. To do so:
 
-1. Download the [AppSource Badge zip file](http://download.microsoft.com/download/A/1/F/A1F9C6C4-3543-4E4A-A4D1-76ED58EBDF6C/Microsoft_App_Source_Badges_EN_US.zip).
+1. Download the [AppSource Badge zip file](https://download.microsoft.com/download/A/1/F/A1F9C6C4-3543-4E4A-A4D1-76ED58EBDF6C/Microsoft_App_Source_Badges_EN_US.zip).
 
 2. Select the badge size that best suits your needs.
 
@@ -70,5 +70,5 @@ The value that is sent to the document is the value of the  _mktcmpid_ parameter
 <a name="bk_addresources"> </a>
 
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
-- [Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-ins)  
-- [SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
+- [Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-ins)  
+- [SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/sharepoint-add-ins)

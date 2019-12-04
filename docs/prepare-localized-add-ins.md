@@ -1,20 +1,19 @@
 ---
-title: Prepare localized apps and add-ins
-description: Obtain localized metadata and create descriptions for each language beyond the primary language.
-ms.date: 1/11/2018
+title: Prepare localized add-ins
+description: To offer your Office Add-in or SharePoint Add-in in languages beyond the primary language, you need localized metadata for each additional language.
 localization_priority: Normal
 ---
 
-# Prepare localized apps and add-ins
+# Prepare localized add-ins
 
-To offer your Office Add-in, SharePoint Add-in, or Office 365 app in languages beyond the primary language, you need localized metadata for each additional language. The best customer experience is with apps or add-ins that have web services and functionality that support these additional languages. You also need to create descriptions in each language. For a list of the languages that the Seller Dashboard currently accepts, see Table 2 later in this article.
+To offer your Office Add-in or SharePoint Add-in in languages beyond the primary language, you need localized metadata for each additional language. The best customer experience is with add-ins that have web services and functionality that support these additional languages. You also need to create descriptions in each language. For a list of the languages that Partner Center currently accepts, see Table 2 later in this article.
 
 > [!NOTE]
-> For information about localizing add-ins, see [Localization for Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/localization) and [Localize SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/localize-sharepoint-add-ins). 
+> For information about localizing add-ins, see [Localization for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/localization) and [Localize SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/localize-sharepoint-add-ins). 
 
-To distribute your app or add-in in additional languages, you can edit the details in the Seller Dashboard. After you add other languages, you need to submit it for approval again. 
+To distribute your add-in in additional languages, you can edit the details in Partner Center. After you add other languages, you need to submit it for approval again. 
 
-In the case of previously approved add-ins, if you updated your manifest, you need to ensure that you update the add-in version in the manifest and in the submission form. The current add-in version remains in AppSource and the in-product Store until your new add-in is approved, unless you unpublish the current add-in. For more information, see [Update, unpublish, and view metrics in the Seller Dashboard](update-unpublish-and-view-metrics.md). 
+In the case of previously approved add-ins, if you updated your manifest, you need to ensure that you update the add-in version in the manifest and in the submission form. The current add-in version remains in AppSource and the in-product Store until your new add-in is approved, unless you unpublish the current add-in. For more information, see [Update, unpublish, and view metrics](update-unpublish-and-view-metrics.md). 
 
 > [!NOTE]
 > You can block customers in a certain country/region from acquiring or using your app or add-in when you add or edit it in the Seller Dashboard.
@@ -44,7 +43,7 @@ Users can verify whether a market-specific AppSource front is available for a ma
 
 ![Choose a different market for AppSource](images/mod-office15-office-store-choose-market.png)
  
-The following table lists the submission languages that AppSource is available in, and the locales and markets that correspond to each of these languages. For a list of all the languages and locales for which you can localize an app or add-in, see [Language identifiers and OptionState Id values in Office 2013](http://technet.microsoft.com/en-us/library/cc179219%28Office.15%29.aspx).
+The following table lists the submission languages that AppSource is available in, and the locales and markets that correspond to each of these languages. For a list of all the languages and locales for which you can localize an app or add-in, see [Language identifiers and OptionState Id values in Office](https://docs.microsoft.com/deployoffice/office2016/language-identifiers-and-optionstate-id-values-in-office-2016).
 
 **List of distribution languages and corresponding markets for AppSource**
 
@@ -115,7 +114,5 @@ The following table lists the submission languages that AppSource is available i
 <a name="bk_addresources"> </a>
 
 - [Validation policies](validation-policies.md) 
-- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)    
  
-

@@ -10,7 +10,7 @@ localization_priority: Priority
 >[!IMPORTANT]
 >We're migrating management of Office solutions from Seller Dashboard to Partner Center. For details, see [Moving from Seller Dashboard to Partner Center](https://developer.microsoft.com/office/blogs/moving-management-of-solutions-from-seller-dashboard-to-partner-center/) and read the [FAQ](partner-center-faq.md).
 
-If you want your Office Add-in, Office 365 web app, or Power BI custom visual to appear in AppSource and the in-product Store, you need to submit it to the [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). You can add and save your submission as a draft in your Seller Dashboard account until you're ready to submit it for approval.
+If you want your Office Add-in, Office 365 web app, or Power BI custom visual to appear in AppSource and the in-product Store, you need to submit it to the [Seller Dashboard](https://go.microsoft.com/fwlink/?LinkId=248605) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). You can add and save your submission as a draft in your Seller Dashboard account until you're ready to submit it for approval.
 
 If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, you can add a client ID and client secret in the Seller Dashboard before you add your add-in. For more information, see [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md).
 
@@ -58,7 +58,7 @@ Select **Add a new app**. On the **Listing type** page, select the type of solut
 |Long description|Required. One entry per language.|
 |Screenshots|At least one is required.|
 
-For more information, see [Create your AppSource listing](office-store-listing.md).
+For more information, see [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md).
 
 ### Block access page
 
@@ -75,7 +75,7 @@ For more information, see [Regional availability](office-store-listing.md#region
 |Pricing|Required|
 |Trial support|By default, no trial support|
 
-For details, see [Decide on a pricing model](decide-on-a-pricing-model.md).
+For details, see [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md).
 
 
 ## Submit for approval
@@ -109,13 +109,13 @@ After your account in the Seller Dashboard is approved, you can submit your solu
 - [Upload your package to AppSource](upload-package.md)
 - [Create your AppSource listing](office-store-listing.md)
 - [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
-- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
+- [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md)
 - [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
 - [AppSource submission FAQ](office-store-submission-faq.md)
 - [Create effective AppSource listings](create-effective-office-store-listings.md)
-- [Register as an app developer](https://developer.microsoft.com/en-us/store/register)
-- [Have your app appear in the Office 365 app launcher](https://msdn.microsoft.com/en-us/office/office365/howto/connect-your-app-to-o365-app-launcher)
-- [Publish Power BI custom visuals to AppSource](https://docs.microsoft.com/en-us/power-bi/developer/office-store/)
+- [Register as an app developer](https://developer.microsoft.com/store/register)
+- [Have your app appear in the Office 365 app launcher](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)
+- [Publish Power BI custom visuals to AppSource](https://docs.microsoft.com/power-bi/developer/office-store/)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)  
  
 

@@ -1,30 +1,29 @@
 ---
 title: Create effective listings in AppSource and within Office
-description: Make sure that the information you submit, including your title, description, logos, and images, clearly communicates the benefits and functionality that your solution provides.
-ms.date: 12/04/2018
+description: Make sure that the information you submit clearly communicates the benefits and functionality that your solution provides.
 localization_priority: Normal
 ---
 
 # Create effective listings in AppSource and within Office
 
-The information and images that you submit to the Seller Dashboard become the AppSource and in-product Store listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your title, description, logos, and images—clearly communicates the benefits and functionality that your solution provides.
+The information and images that you submit to Partner Center become the AppSource and in-product listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your name, description, icons, and images—clearly communicates the benefits and functionality that your solution provides.
 
-Apply the following when you create your title, description, and images:
+Apply the following when you create your name, description, and images:
 
 - Describe what your solution can do for customers. Answer the question: *What problem does this solution solve?*
-- Use unique logos for each submission.
+- Use unique icons for each solution.
 - Include images that show off your UI. Be sure to remove any personal information from your images.
 - If you update your functionality, update your description too.
 - Use a customer-friendly voice. Be concise and use natural language.
 - Avoid marketing speak and buzz words.
-- Check the spelling and grammar in your titles and descriptions.
+- Check the spelling and grammar in your names and descriptions.
 
 <a name="bk_name"> </a>
-## Use a succinct and descriptive title
+## Use a succinct and descriptive name
 
-Create a simple and direct title. The shorter the title the better. Remember, the length of the title that is displayed can depend on how the user sizes the window. Include your brand or company name if users are likely to use it to search for your solution.
+Create a simple and direct name. The shorter the name the better. Remember, the length of the name that is displayed can depend on how the user sizes the window. Include your brand or company name if users are likely to use it to search for your solution.
 
-In your title:
+In your name:
 
 - Make the purpose or benefits of your solution clear. Don't rely on your brand to communicate what your solution does.
 - Use the following naming pattern: Function + for + brand or company name (optional). For example, Small Business Invoicing for Contoso.
@@ -39,56 +38,48 @@ In your title:
 
 You specify your add-in name in two places, so be sure to use the same name in both:
 
-- Your add-in manifest; specifically, the [DisplayName element](/office/dev/add-ins/reference/manifest/displayname) element (Office Add-in), or the [Title element](/sharepoint/dev/schema/title-element-propertiesdefinition-complextypesharepoint-add-in-manifest) element (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
-- The Seller Dashboard add-in submission form. This specifies the name that is displayed in AppSource and the in-product Store.
+- Your add-in manifest; specifically, the [DisplayName element](/office/dev/add-ins/reference/manifest/displayname) (Office Add-in), or the [Title element](/sharepoint/dev/schema/title-element-propertiesdefinition-complextypesharepoint-add-in-manifest) (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
+- The name that you reserve in Partner Center. This specifies the name that is displayed in AppSource and the in-product Store.
 
 <a name="bk_describe"> </a>
 ## Write compelling descriptions
 
-A good description makes your solution stand out. Your short description should entice potential users to learn more. Your long description, which appears on the AppSource landing page, should provide more detail about your solution and its value.
+A good description makes your solution stand out. Your summary should entice potential users to learn more. Your description, which appears on the AppSource landing page, should provide more detail about your solution and its value.
 
-### Effective short descriptions
+### Effective summaries
 
-The short description that you supply with your submission is the text that is shown to users in AppSource and in-product search results. You want it to be original, engaging, and directed at your target audience. Describe your solution and its value to your target customer, in one or two sentences:
+The summary that you supply with your submission is the text that is shown to users in AppSource and in-product search results. You want it to be original, engaging, and directed at your target audience. Describe your solution and its value to your target customer, in one or two sentences:
 
 - Put the most important information first.
-- Do not repeat the title.
+- Do not repeat the name.
 - Avoid using jargon or specialized terminology; don't assume that users know what they're looking for.
 - Include keywords that customers might search for.
 
-The following figure shows a good short description next to one that relies on the brand name*
+The following figure shows a good summary next to one that relies on the brand name.
 
-![An image that shows a good short description next to one that relies on the brand name](images/description-do-dont.png)
+![An image that shows a good summary next to one that relies on the brand name](images/description-do-dont.png)
 
-### Effective long descriptions
+### Effective descriptions
 
-The long description is displayed on your landing page in AppSource and within Office. It should match the description in your manifest as closely as possible. You have room for a more detailed description, including the main features, the problems it solves, and the target audience for your solution. Be sure to include popular search keywords. The Office.com search engine will pick these up in search query return sets.
+The description is displayed on your landing page in AppSource and within Office. It should match the description in your manifest as closely as possible. You have room for a more detailed description, including the main features, the problems it solves, and the target audience for your solution. Be sure to include popular search keywords. The Office.com search engine will pick these up in search query return sets.
 
-In your long description, answer the following questions:
+In your description, answer the following questions:
 
 - How does your solution benefit its user?
 - What is special about it?
 - What are different ways someone could use your it?
 - What industries or specialists would use it?
 
-Most users read between 300 and 500 words. The maximum length for long descriptions is 4,000 characters.
-
-You might want to list features to aid readers scanning your description. To create a bulleted list in the Seller Dashboard, use the following formatting:
-
-Features:
-
-[#LI] First feature[/#LI]
-
-[#LI] Second feature[/#LI]
+Most users read between 300 and 500 words. The maximum length for descriptions is 4,000 characters.
 
 <a name="bk_describe"> </a>
-## Apply guidelines for title and description length
+## Apply guidelines for name and description length
 
 |**Item**|**Maximum length**|**Recommended length**|**Include key message in the...**|
 |:-----|:-----|:-----|:-----|
-|Title|50 characters|30 characters|First 30 characters|
-|Short description|100 characters|70 characters|First 30 characters|
-|Long description|4,000 characters|300-500 words|First 300 words|
+|Name|50 characters|30 characters|First 30 characters|
+|Summary|100 characters|70 characters|First 30 characters|
+|Description|4,000 characters|300-500 words|First 300 words|
 
 <a name="bk_images"> </a>
 ## Create a consistent visual identity 
@@ -105,9 +96,9 @@ The following figure shows a clear logo with an Excel chart next to an unclear F
 
 ![An image that shows a clear logo with an Excel chart next to an unclear Fabrikam logo](images/communicate-problem-do-dont.png)
 
-When you submit Office Add-ins, you specify an image in your manifest file, and upload an image with your Seller Dashboard submission.
+When you submit Office Add-ins, you specify an image in your manifest file, and upload an image on the **Marketplace listings** page in Partner Center.
 
-For SharePoint Add-ins, you include an image in your add-in package, and upload an image with your Seller Dashboard submission. These two images have to match for your add-in to validate.
+For SharePoint Add-ins, you include an image in your add-in package, and upload an image on the **Marketplace listings** page in Partner Center. These two images have to match for your add-in to validate.
 
 ### Create an icon for your add-in
 
@@ -125,7 +116,7 @@ The formatting requirements for this image differ depending on the add-in type. 
 
 You should also link to a version of your icon that can be used on high DPI screens by including the [HighResolutionIconUrl element](/office/dev/add-ins/reference/manifest/highresolutioniconurl) in the manifest. For Outlook add-ins, this image must be 128 x 128 pixels. For task pane and content add-ins, we recommend the image be at least 64 x 64 pixels. All other formatting requirements are the same as those listed in the previous table for the IconUrl element.
 
-For SharePoint Add-ins, you have to include an icon in the add-in's package. The image must be 96 x 96 pixels. You must also specify this image when you submit your add-in through the Seller Dashboard.
+For SharePoint Add-ins, you have to include an icon in the add-in's package. The image must be 96 x 96 pixels. You must also specify this image on the **Marketplace listings** page in Partner Center when you submit your add-in.
 
 <a name="bk_screenshots"> </a>
 ## Use images effectively
@@ -173,6 +164,5 @@ If you're creating ad-supported apps or add-ins, apply the following guidelines:
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Submit your Office solution to AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)
 - [Validation policies](validation-policies.md)
-- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)

@@ -1,7 +1,6 @@
 ---
 title: View acquisitions report
 description: Analyze your add-in performance and see funnel and acquisitions metrics.
-ms.date: 06/28/2019
 localization_priority: Normal
 ---
 
