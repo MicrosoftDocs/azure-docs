@@ -1,14 +1,12 @@
 ---
-title: Transform XML between formats - Azure Logic Apps | Microsoft Docs
+title: Transform XML between formats
 description: Create transforms or maps that convert XML between formats in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
 ---
 
