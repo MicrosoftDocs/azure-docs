@@ -232,16 +232,16 @@ A common requirement of all the Workday provisioning connectors is that they req
 
 **To create an integration system user:**
 
-1. Sign into your Workday tenant using an administrator account. In the **Workday Application**, enter create user in the search box, and then click **Create Integration System User**.
+1. Sign in to your Workday tenant using an administrator account. In the **Workday Application**, enter create user in the search box, and then click **Create Integration System User**.
 
-    ![Create user](./media/workday-inbound-tutorial/wd_isu_01.png "Create user")
+   ![Create user](./media/workday-inbound-tutorial/wd_isu_01.png "Create user")
 2. Complete the **Create Integration System User** task by supplying a user name and password for a new Integration System User.  
   
    * Leave the **Require New Password at Next Sign In** option unchecked, because this user will be logging on programmatically.
    * Leave the **Session Timeout Minutes** with its default value of 0, which will prevent the user’s sessions from timing out prematurely.
    * Select the option **Do Not Allow UI Sessions** as it provides an added layer of security that prevents a user with the password of the integration system from logging into Workday.
 
-          ![Create Integration System User](./media/workday-inbound-tutorial/wd_isu_02.png "Create Integration System User")
+   ![Create Integration System User](./media/workday-inbound-tutorial/wd_isu_02.png "Create Integration System User")
 
 ### Creating an integration security group
 
