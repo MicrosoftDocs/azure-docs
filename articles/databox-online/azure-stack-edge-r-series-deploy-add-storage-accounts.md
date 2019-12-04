@@ -128,51 +128,27 @@ Each of these steps is described in the following sections.
 
 ### Get certificate
 
-Accessing Blob storage over HTTPS requires an SSL certificate for the device. If using  Azure Storage Explorer, you need to get the certificate in *.pem* format. In Windows environment, the *.pem* format is the same as Base-64 encoded *.cer* certificate.
+Accessing Blob storage over HTTPS requires an SSL certificate for the device. You will also upload this certificate to your Azure Stack Edge device as *.pfx* file with a private key attached to it. For more information on how to create (for test and dev purposed only) and upload these certificates to your Azure Stack Edge device, go to:
 
-You will install this certificate on the client or host computer that you will use to connect to the device. You will also upload this certificate to your Azure Stack Edge device as *.pfx* file with a private key attached to it. For more information, go to:
-
-- [Create the blob endpoint certificate](azure-stack-edge-r-series-manage-certificates.md#create-certificates).
+- [Create the blob endpoint certificate](azure-stack-edge-r-series-manage-certificates.md#create-certificates-optional).
 - [Upload the blob endpoint certificate](azure-stack-edge-r-series-manage-certificates.md#upload-certificates).
 - [Import certificates on the client accessing the device](azure-stack-edge-r-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
- 
+
+
 ### Import certificate
 
-Accessing Blob storage over HTTPS requires an SSL certificate for the device. The way in which this certificate is made available to the client application varies from application to application and across operating systems and distributions. Some applications can access the certificate after it is imported into the system’s certificate store, while other applications do not make use of that mechanism.
+If using Azure Storage Explorer to connect to the storage accounts on the device, you also need to import certificate into Storage Explorer in PEM format. In Windows environment, Base-64 encoded *.cer* is the same as the PEM format.
 
-Specific information for some applications is mentioned in this section. For more information on other applications, consult the documentation for the application and the operating system used.
+Take the following steps to import the certificates on Azure Storage Explorer:
 
-Follow these steps to import the `.cer` file into the root store of a Windows or Linux client. On a Windows system, you can use Windows PowerShell or the Windows Server UI to import and install the certificate on your system.
+1. Make sure that Azure Storage Explorer is targeting the Azure Stack APIs. Go to **Edit > Target Azure Stack APIs**. When prompted, restart Storage Explorer for the change to take effect.
 
+2. To import SSL certificates, go to **Edit > SSL certificates > Import certificates**.
 
-#### Use Windows PowerShell
+   ![Import cert into Storage Explorer](./media/azure-stack-edge-r-series-deploy-add-storage-accounts/import-cert-storage-explorer-1.png) 
 
-1. Start a Windows PowerShell session as an administrator.
-2. At the command prompt, type:
+3. Navigate and provide the signing chain and blob certificates. Both the signing chain and the blob certificate should be in PEM format which is the same as Base64-encoded format on Windows system. You will be notified that the certificates were successfully imported.
 
-    ```
-    Import-Certificate -FilePath C:\temp\localuihttps.cer -CertStoreLocation Cert:\LocalMachine\Root
-    ```
-
-#### Use Windows Server UI
-
-[!INCLUDE [Import certificate on Windows client](../../includes/azure-stack-edge-gateway-import-certificate-windows.md)]
-
-#### Use a Linux system
-
-The method to import a certificate varies by distribution.
-
-Several, such as Ubuntu and Debian, use the `update-ca-certificates` command.  
-
-- Rename the Base64-encoded certificate file to have a `.crt` extension and copy it into the `/usr/local/share/ca-certificates directory`.
-- Run the command `update-ca-certificates`.
-
-Recent versions of RHEL, Fedora, and CentOS use the `update-ca-trust` command.
-
-- Copy the certificate file into the `/etc/pki/ca-trust/source/anchors` directory.
-- Run `update-ca-trust`.
-
-Consult the documentation specific to your distribution for details.
 
 ### Add device IP address and blob service endpoint
 
@@ -181,7 +157,6 @@ Follow the same steps to [add device IP address and blob service endpoint when c
 ### Configure and verify connection
 
 Follow the steps to [Configure and verify connection that you used while connecting over *http*](#verify-connection). The only difference is that you should leave the *Use http option* unchecked.
-
 
 ## Next steps
 
@@ -194,6 +169,6 @@ In this tutorial, you learned about the following Azure Stack Edge topics:
 To learn how to transform your data by using Azure Stack Edge, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Transform data with Azure Stack Edge](./azure-stack-edge-r-series-deploy-configure-compute.md)
+> [Transform data with Azure Stack Edge](./azure-stack-edge-r-series-placeholder.md)
 
 

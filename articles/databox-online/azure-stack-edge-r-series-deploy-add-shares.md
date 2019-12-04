@@ -159,6 +159,6 @@ In this tutorial, you learned about the following Azure Stack Edge topics:
 To learn how to transform your data by using Azure Stack Edge, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Transform data with Azure Stack Edge](./azure-stack-edge-r-series-deploy-configure-compute.md)
+> [Transform data with Azure Stack Edge](./azure-stack-edge-r-series-placeholder.md)
 
 
