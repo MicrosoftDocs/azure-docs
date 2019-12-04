@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Search with Azure Maps'
-description: 'Tutorial: Search nearby point of interest using Azure Maps'
+description: 'Tutorial: In this tutorial, you will learn how to search for nearby point of interest using Azure Maps'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019

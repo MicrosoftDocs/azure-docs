@@ -1,6 +1,6 @@
 ---
 title: Routing coverage in Azure Maps | Microsoft Docs
-description: Learn about routing coverage in Azure Maps 
+description: This article provide information about coverage for routing in Azure Maps. 
 author: jingjing-z
 ms.author: jinzh
 ms.date: 04/04/2019
