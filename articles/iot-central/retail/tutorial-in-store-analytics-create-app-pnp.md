@@ -57,7 +57,7 @@ To create a new Azure IoT Central application:
 
 1. Select **Retail**.  The retail page displays several retail application templates.
 
-To create a new in-store analytics checkout application that uses preview features:  
+To create a new in-store analytics checkout application:  
 
 1. Select the **In-store analytics - checkout** application template. This template includes device templates for all devices used in the tutorial except for RuuviTag sensors. The template also provides an operator dashboard for monitoring checkout and environmental conditions, and device status. 
 

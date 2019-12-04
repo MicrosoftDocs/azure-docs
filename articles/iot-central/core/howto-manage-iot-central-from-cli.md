@@ -81,9 +81,6 @@ These commands first create a resource group in the east US region for the appli
 | iotc-store@1.0.0         | Creates an application with a in-store analytics – checkout template. Use this template to monitor and manage the checkout flow inside your store. |
 | iotc-waste@1.0.0         | Creates an application with a Connected waste management template. Use this template to monitor waste bins and dispatch field operators. |
 
-> [!NOTE]
-> The preview application templates are currently only available in the **Europe** and **United States** locations.
-
 ## View your applications
 
 Use the [az iotcentral app list](/cli/azure/iotcentral/app#az-iotcentral-app-list) command to list your IoT Central applications and view metadata.

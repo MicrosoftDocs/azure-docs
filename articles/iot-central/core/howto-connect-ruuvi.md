@@ -28,7 +28,7 @@ To connect RuuviTag sensors, you need the following resources:
 
 * A RuuviTag sensor. For more information, please visit [RuuviTag](https://ruuvi.com/).
 * A Rigado Cascade 500 device or another BLE gateway. For more information, please visit [Rigado](https://www.rigado.com/).
-* An Azure IoT Central application created from one of the preview application templates. For more information, see the [create a new application](./quick-deploy-iot-central.md).
+* An Azure IoT Central application. For more information, see the [create a new application](./quick-deploy-iot-central.md).
 
 ## Add a RuuviTag device template
 

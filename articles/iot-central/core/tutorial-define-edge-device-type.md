@@ -84,7 +84,7 @@ As a builder, you can create and edit IoT Edge device templates in your applicat
 
 To add a new device template to your application, select **Device Templates** on the left pane.
 
-![Screenshot of Preview Application, with Device Templates highlighted](./media/tutorial-define-edge-device-type/edgedevicetemplate.png)
+![Screenshot of application, with Device Templates highlighted](./media/tutorial-define-edge-device-type/edgedevicetemplate.png)
 
 Select **+ New** to start creating a new device template.
 

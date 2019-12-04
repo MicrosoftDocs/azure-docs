@@ -94,9 +94,6 @@ The script first creates a resource group in the east US region for the applicat
 | iotc-store@1.0.0         | Creates an application with a in-store analytics – checkout template. Use this template to monitor and manage the checkout flow inside your store. |
 | iotc-waste@1.0.0         | Creates an application with a Connected waste management template. Use this template to monitor waste bins and dispatch field operators. |
 
-> [!NOTE]
-> The preview application templates are currently only available in the **Europe** and **United States** locations.
-
 ## View your IoT Central applications
 
 Use the [Get-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Get-AzIotCentralApp) cmdlet to list your IoT Central applications and view metadata.
