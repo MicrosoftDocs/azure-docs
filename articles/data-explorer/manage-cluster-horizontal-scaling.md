@@ -11,16 +11,33 @@ ms.date: 07/14/2019
 
 # Manage cluster horizontal scaling (scale out) in Azure Data Explorer to accommodate changing demand
 
-Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. A static cluster size can lead to under-utilization or over-utilization, neither of which is ideal.
-
-Because demand on a cluster can’t be predicted with absolute accuracy, it's better to *scale* a cluster, adding and removing capacity and CPU resources with changing demand. 
+Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. A static cluster size can lead to under-utilization or over-utilization, neither of which is ideal. Because demand on a cluster can’t be predicted with absolute accuracy, it's better to *scale* a cluster, adding and removing capacity and CPU resources with changing demand. 
 
 There are two workflows for scaling an Azure Data Explorer cluster: 
-
 * Horizontal scaling, also called scaling in and out.
 * [Vertical scaling](manage-cluster-vertical-scaling.md), also called scaling up and down.
-
 This article explains the horizontal scaling workflow.
+
+## When do I scale in and scale out?
+
+### Scale out
+
+When your cluster approaches a state of over-utilization, scale out to maintain optimal performance. Scale out can occur when:
+* The number of cluster instances is below the maximum number of instances defined by the user.
+* The cache utilization metric is above 80% for over an hour.
+
+### Scale in
+
+When your cluster approaches a state of under-utilization, scale in to lower costs but maintain performance level. Multiple metrics are used to verify that it's safe to scale in the cluster. The following rules are evaluated daily for the last 7 days:
+* Number of instances is above 2 but not above the instance count in the last 7 days.
+* To ensure that there is no overloading of resources, the following metrics must be verified: 
+    * Cache utilization below 75%
+    * CPU below 50%
+    * Ingestion utilization below 50%
+    * Streaming ingest utilization (if streaming ingest is used) below 80%
+    * Keep alive events are at a minimum, processed properly, and on time.
+    * No query throttling 
+    * Number of failed queries below a defined minimum.
 
 ## Configure horizontal scaling
 
@@ -103,5 +120,4 @@ You've now configured horizontal scaling for your Azure Data Explorer cluster. A
 ## Next steps
 
 * [Monitor Azure Data Explorer performance, health, and usage with metrics](using-metrics.md)
-
 * [Manage cluster vertical scaling](manage-cluster-vertical-scaling.md) for appropriate sizing of a cluster.
