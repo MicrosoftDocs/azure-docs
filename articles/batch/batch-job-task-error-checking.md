@@ -58,7 +58,7 @@ Job tasks can fail for multiple reasons:
 
 - The task command line fails, returning with a non-zero exit code.
 - There are `resourceFiles` specified for a task, but there was a failure that meant one or more files did not download.
-- There are 'outputFiles' specified for a task, but there was a failure that meant one or more files did not upload.
+- There are `outputFiles` specified for a task, but there was a failure that meant one or more files did not upload.
 - The elapsed time for the task, specified by the 'maxWallClockTime' property in the task '[constraints](https://docs.microsoft.com/rest/api/batchservice/task/add#taskconstraints)', was exceeded.
 
 In all cases the following properties must be checked for errors and information about the errors:
