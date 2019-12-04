@@ -123,6 +123,20 @@ To enable security defaults in your directory:
 1. Set the **Enable security defaults** toggle to **Yes**.
 1. Select **Save**.
 
+## Disabling security defaults
+
+Organizations that choose to implement Conditional Access policies that replace security defaults must disable security defaults. 
+
+![Warning message disable security defaults to enable Conditional Access](./media/concept-conditional-access-security-defaults/security-defaults-disable-before-conditional-access.png)
+
+To disable security defaults in your directory:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
+1. Browse to **Azure Active Directory** > **Properties**.
+1. Select **Manage security defaults**.
+1. Set the **Enable security defaults** toggle to **No**.
+1. Select **Save**.
+
 ## Next steps
 
 [Common Conditional Access policies](concept-conditional-access-policy-common.md)

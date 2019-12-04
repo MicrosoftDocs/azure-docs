@@ -26,8 +26,8 @@
 |**Generation2**|**VpnGw5**  | Max. 30*   | Max. 128  | Max. 10000      | 10 Gbps   | Supported | No |
 |**Generation2**|**VpnGw2AZ**| Max. 30*   | Max. 128  | Max. 500       | 1.25 Gbps | Supported | Yes |
 |**Generation2**|**VpnGw3AZ**| Max. 30*   | Max. 128  | Max. 1000      | 2.5 Gbps  | Supported | Yes |
-|**Generation2**|**VpnGw4AZ**| Max. 30*   | Max. 128  | Max. 1000      | 5 Gbps    | Supported | Yes |
-|**Generation2**|**VpnGw5AZ**| Max. 30*   | Max. 128  | Max. 1000      | 10 Gbps   | Supported | Yes |
+|**Generation2**|**VpnGw4AZ**| Max. 30*   | Max. 128  | Max. 5000      | 5 Gbps    | Supported | Yes |
+|**Generation2**|**VpnGw5AZ**| Max. 30*   | Max. 128  | Max. 10000      | 10 Gbps   | Supported | Yes |
 
 (*) Use [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md) if you need more than 30 S2S VPN tunnels.
 
