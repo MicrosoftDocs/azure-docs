@@ -104,9 +104,9 @@ Follow these steps.
 
 After the sensor data is flowing in, you can assign it to the farm where you deployed the sensors.
 
-1. On the home page, select **Farms** from the menu. The **Farms** list page displays.
+1. On the home page, select **Farms** from the menu. The **Farms** list page appears.
 2. Select the farm to which you want to assign the device, and select **Add Devices**.
-3. The **Add Devices** window displays. Select the device you want to assign to the farm.
+3. The **Add Devices** window appears. Select the device you want to assign to the farm.
 
     ![Add Devices window](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
