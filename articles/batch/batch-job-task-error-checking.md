@@ -27,7 +27,7 @@ When adding a job, the following parameters can be specified which can influence
 - [Job Preparation Task](https://docs.microsoft.com/rest/api/batchservice/job/add#jobpreparationtask)
   - If specified, a job preparation task is run the first time a task is run for a job on a node. The job preparation task can fail, which will lead to the task not being run and the job not completing.
 - [Job Release Task](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask)
-  - A job release task can only be specified if a job preparation task is configured. When a job is being terminated, the job release task is run on the each of pool nodes where a job preparation task was run. A job release task can fail, but the job will still move to a 'completed' state.
+  - A job release task can only be specified if a job preparation task is configured. When a job is being terminated, the job release task is run on the each of pool nodes where a job preparation task was run. A job release task can fail, but the job will still move to a `completed` state.
 
 ### Job properties
 
