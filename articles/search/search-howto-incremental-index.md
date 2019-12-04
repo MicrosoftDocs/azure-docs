@@ -39,11 +39,7 @@ api-key: [admin key]
 
 ### Step 2: Add the cache property
 
-<<<<<<< HEAD
 Edit the response from the GET request to add the `cache` property to the indexer. The cache object requires only a single property, `storageConnectionString` which is the connection string to the storage account. 
-=======
-Edit the response from the GET request to add the `cache` property to the indexer. The cache object requires only a single property, and that is the connection string to an Azure Storage account.
->>>>>>> 3519a330aa86b6827d31403690529105825b1b16
 
 ```json
 {
