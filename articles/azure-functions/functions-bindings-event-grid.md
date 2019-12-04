@@ -1,13 +1,8 @@
 ---
 title: Event Grid trigger for Azure Functions
 description: Understand how to handle Event Grid events in Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords:
 
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe

@@ -1,13 +1,9 @@
 ---
-title: Build first serverless app in Visual Studio - Azure Logic Apps
+title: Build first serverless app in Visual Studio
 description: Build, deploy, and manage a serverless app by using Azure Logic Apps and Azure Functions in Visual Studio
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: vs-azure
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
 ---

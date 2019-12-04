@@ -1,5 +1,5 @@
 ---
-title: Create automatic deployments from command line - Azure IoT Edge | Microsoft Docs 
+title: Deploy modules at scale using Azure CLI - Azure IoT Edge
 description: Use the IoT extension for Azure CLI to create automatic deployments for groups of IoT Edge devices
 keywords: 
 author: kgremban
@@ -9,7 +9,6 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Deploy and monitor IoT Edge modules at scale using the Azure CLI

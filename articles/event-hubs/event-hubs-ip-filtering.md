@@ -43,7 +43,6 @@ IP filter rules are applied in order, and the first rule that matches the IP add
 > Trusted Microsoft services are not supported when IP Filtering (Firewalls) are implemented, and will be made available soon.
 >
 > Common Azure scenarios that don't work with IP Filtering (note that the list is **NOT** exhaustive) -
-> - Azure Monitor
 > - Azure Stream Analytics
 > - Integration with Azure Event Grid
 > - Azure IoT Hub Routes

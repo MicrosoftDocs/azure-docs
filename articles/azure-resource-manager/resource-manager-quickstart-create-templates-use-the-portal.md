@@ -1,16 +1,7 @@
 ---
-title: Deploy Resource Manager template - Azure portal
+title: Deploy template - Azure portal
 description: Learn how to create your first Azure Resource Manager template using the Azure portal, and how to deploy it.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
