@@ -237,11 +237,11 @@ A common requirement of all the Workday provisioning connectors is that they req
     ![Create user](./media/workday-inbound-tutorial/wd_isu_01.png "Create user")
 2. Complete the **Create Integration System User** task by supplying a user name and password for a new Integration System User.  
   
-* Leave the **Require New Password at Next Sign In** option unchecked, because this user will be logging on programmatically.
-* Leave the **Session Timeout Minutes** with its default value of 0, which will prevent the user’s sessions from timing out prematurely.
-* Select the option **Do Not Allow UI Sessions** as it provides an added layer of security that prevents a user with the password of the integration system from logging into Workday.
+   * Leave the **Require New Password at Next Sign In** option unchecked, because this user will be logging on programmatically.
+   * Leave the **Session Timeout Minutes** with its default value of 0, which will prevent the user’s sessions from timing out prematurely.
+   * Select the option **Do Not Allow UI Sessions** as it provides an added layer of security that prevents a user with the password of the integration system from logging into Workday.
 
-    ![Create Integration System User](./media/workday-inbound-tutorial/wd_isu_02.png "Create Integration System User")
+          ![Create Integration System User](./media/workday-inbound-tutorial/wd_isu_02.png "Create Integration System User")
 
 ### Creating an integration security group
 
@@ -378,7 +378,7 @@ This section provides steps for user account provisioning from Workday to each A
 
 8. Click on the information banner displayed to download the Provisioning Agent. 
 
-   ![Download Agent](./media/workday-inbound-tutorial/pa_download_agent.png "Download Agent Screen")
+   ![Download Agent](./media/workday-inbound-tutorial/pa-download-agent.png "Download Agent Screen")
 
 
 ### Part 2: Install and configure on-premises Provisioning Agent(s)
@@ -441,9 +441,9 @@ Transfer the downloaded agent installer to the server host and follow the steps 
    ![Services](./media/workday-inbound-tutorial/services.png)
 
 ### Part 3: In the provisioning app, configure connectivity to Workday and Active Directory
-In this step, we establish connectivity with Workday and Active Directory in the Azure Portal. 
+In this step, we establish connectivity with Workday and Active Directory in the Azure portal. 
 
-1. In the Azure Portal, go back to the Workday to Active Directory User Provisioning App created in [Part 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+1. In the Azure portal, go back to the Workday to Active Directory User Provisioning App created in [Part 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
 
 1. Complete the **Admin Credentials** section as follows:
 
