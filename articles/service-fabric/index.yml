@@ -23,7 +23,7 @@ landingContent:
           - text: Learn more about Service Fabric
             url: service-fabric-content-roadmap.md
           - text: Service Fabric best practices overview
-          url: service-fabric-best-practices-overview.md
+            url: service-fabric-best-practices-overview.md
       - linkListType: concept
         links:
           - text: Understanding microservices
