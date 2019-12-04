@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech, intents, and entities, Python - Speech Service"
+title: "Quickstart: Recognize speech, intents, and entities, Python - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

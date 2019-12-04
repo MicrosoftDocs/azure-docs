@@ -1,12 +1,9 @@
 ---
-title: Connect to IBM DB2 - Azure Logic Apps
+title: Connect to IBM DB2
 description: Manage resources with IBM DB2 REST APIs and Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: plarsen, LADocs
+ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors

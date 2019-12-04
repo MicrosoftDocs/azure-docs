@@ -56,9 +56,18 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 For details about using a national cloud with a particular programming language, choose the tab matching your language:
 
+## [.NET](#tab/donet)
+
+You can use MSAL.NET to sign in users, acquire tokens, and call the Microsoft Graph API in national clouds.
+
+The following tutorials demonstrate how to build a .NET Core 2.2 MVC Web app. The app uses OpenID Connect to sign in users with a work and school account in an organization that belongs to a national cloud.
+
+- To sign in users and acquire tokens, follow this tutorial: [Build an ASP.NET Core Web app signing-in users in sovereign clouds with the Microsoft identity platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
+- To call the Microsoft Graph API, follow this tutorial: [Using the Microsoft identity platform to call the Microsoft Graph API from an An ASP.NET Core 2.x Web App, on behalf of a user signing-in using their work and school account in Microsoft National Cloud](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
+
 ## [JavaScript](#tab/javascript)
 
-## JavaScript
+To enable your MSAL.js application for sovereign clouds:
 
 ### Step 1: Register your application
 
@@ -128,17 +137,53 @@ In that code:
 
    To find Microsoft Graph endpoints for all the national clouds, see [Microsoft Graph endpoints in national clouds](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-## .NET
+## [Python](#tab/python)
 
-You can use MSAL.NET to sign in users, acquire tokens, and call the  Microsoft Graph API in national clouds.
+To enable your MSAL Python application for sovereign clouds:
 
-The following tutorials demonstrate how to build a .NET Core 2.2 MVC Web app. The app uses OpenID Connect to sign in users with a work and school account in an organization that belongs to a national cloud.
+- Register your application in a specific portal, depending on the cloud. For more information on how to choose the portal refer [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints)
+- Use any of the [samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) from the repo with a few changes to the configuration, depending on the cloud, which is mentioned next.
+- Use a specific authority, depending on the cloud you registered the application in. For more information on authorities for different clouds, refer [Azure AD Authentication endpoints](authentication-national-cloud.md#azure-ad-authentication-endpoints).
 
-- To sign in users and acquire tokens, follow [this tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
-- To call the Microsoft Graph API, follow [this tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
+    Here's an example authority:
+
+    ```json
+    "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
+    ```
+    
+- To call Microsoft graph requires a specific Graph endpoint URL that depends on which cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+
+    Here's an example of a graph endpoint, with scope:
+    
+    ```json
+    "endpoint" : "https://graph.microsoft.us/v1.0/me"
+    "scope": "User.Read"
+    ```
+    
+## [Java](#tab/java)
+
+To enable your MSAL for Java application for sovereign clouds:
+
+- Register your application in a specific portal, depending on the cloud. For more information on how to choose the portal refer [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints)
+- Use any of the [samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) from the repo with a few changes to the configuration, depending on the cloud, which are mentioned next.
+- Use a specific authority, depending on the cloud you registered the application in. For more information on authorities for different clouds, refer [Azure AD Authentication endpoints](authentication-national-cloud.md#azure-ad-authentication-endpoints).
+
+Here's an example authority:
+
+```json
+"authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
+```
+
+- To call Microsoft graph requires a specific Graph endpoint URL that depends on which cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+
+Here's an example of a graph endpoint, with scope:
+
+```json
+"endpoint" : "https://graph.microsoft.us/v1.0/me"
+"scope": "User.Read"
+```
 
 ## [Objective-C](#tab/objc)
-## MSAL for iOS and macOS
 
 MSAL for iOS and macOS can be used to acquire tokens in national clouds, but it requires additional configuration when creating `MSALPublicClientApplication`.
 
@@ -173,14 +218,6 @@ let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance,
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
 if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
 ```
-
-## [Java](#tab/java)
-
-To enable your MSAL for Java application for sovereign clouds, you must:
-
-- Register your application in a specific portal, depending on the cloud
-- Use a specific authority, depending on the cloud in the config file for your application
-- To call the Microsoft Graph API requires a specific Graph endpoint URL, depending on the cloud.
 
 ---
 
