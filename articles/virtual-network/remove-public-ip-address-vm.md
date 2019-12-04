@@ -1,5 +1,5 @@
 ﻿---
-title: Dissociate a public IP address an Azure VM
+title: Dissociate a public IP address from an Azure VM
 titlesuffix: Azure Virtual Network
 description: Learn how to dissociate a public IP address from a VM
 services: virtual-network
@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2019
+ms.date: 12/04/2019
 ms.author: kumud
 
 ---
 
-# Dissociate a public IP address from an Azure VM or a load balancer
+# Dissociate a public IP address from an Azure VM 
 
 In this article, you learn how to dissociate a public IP address from an Azure virtual machine (VM).
 
@@ -40,7 +40,7 @@ You can use the [Azure portal](#azure-portal), the Azure [command-line interface
 Install the [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), or use the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Select the **Try it** button in the CLI commands that follow. Selecting **Try it** invokes a Cloud Shell that you can sign in to your Azure account with.
 
 1. If using the CLI locally in Bash, sign in to Azure with `az login`.
-2. A public IP address is associated to an IP configuration of a network interface attached to a VM. Use the [az network nic-ip-config update](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) command to dissociate a public IP address from an IP configuration. The following example dissociates a public IP address named *myVMPublicIP* from the IP configuration named *ipconfigmyVM* of an existing network interface named *myVMNic* that is attached to a VM named *myVM* in a resource group named *myResourceGroup*.
+2. A public IP address is associated to an IP configuration of a network interface attached to a VM. Use the [az network nic-ip-config update](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) command to dissociate a public IP address from an IP configuration. The following example dissociates a public IP address named *myVMPublicIP* from the IP configuration named *ipconfigmyVM* of an existing network interface named *myVMVMNic* that is attached to a VM named *myVM* in a resource group named *myResourceGroup*.
   
    ```azurecli-interactive
     az network nic ip-config update \
