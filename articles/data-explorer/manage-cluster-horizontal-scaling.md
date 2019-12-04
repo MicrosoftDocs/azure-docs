@@ -29,13 +29,13 @@ When your cluster approaches a state of over-utilization, scale out to maintain 
 ### Scale in
 
 When your cluster approaches a state of under-utilization, scale in to lower costs but maintain performance level. Multiple metrics are used to verify that it's safe to scale in the cluster. The following rules are evaluated daily for the last 7 days:
-* Number of instances is above 2 but not above the instance count in the last 7 days.
+* Number of instances is above 2 but not above the instance count.
 * To ensure that there is no overloading of resources, the following metrics must be verified: 
     * Cache utilization below 75%
     * CPU below 50%
     * Ingestion utilization below 50%
     * Streaming ingest utilization (if streaming ingest is used) below 80%
-    * Keep alive events are at a minimum, processed properly, and on time.
+    * Keep alive events are above a defined minimum, processed properly, and on time.
     * No query throttling 
     * Number of failed queries below a defined minimum.
 
