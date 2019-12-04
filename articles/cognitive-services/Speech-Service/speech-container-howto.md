@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/04/2019
 ms.author: dapine
 ---
 
@@ -366,12 +366,10 @@ This command:
 
 ## Query the container's prediction endpoint
 
-| Container | Endpoint | Protocol |
+| Containers | SDK Host URL | Protocol |
 |--|--|--|
-| Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| Custom Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
-| Custom Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
+| Speech-to-text and Custom Speech-to-text | `ws://localhost:5000` | WS |
+| Text-to-speech and Custom Text-to-speech | `http://localhost:5000` | HTTP |
 
 For more information on using WSS and HTTPS protocols, see [container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 

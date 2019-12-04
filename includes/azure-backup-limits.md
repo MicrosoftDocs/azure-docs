@@ -2,11 +2,11 @@
 title: "include file"
 description: "include file"
 services: backup
-author: rayne-wiselman
+author: dcurwin
 ms.service: backup
 ms.topic: "include"
 ms.date: 12/07/2018
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: "include file"
 ---
 
@@ -20,4 +20,4 @@ The following limits apply to Azure Backup.
 | Backup vaults in an Azure subscription. |500 vaults per region. |
 | Schedule daily backups. |Windows Server/Client: Three a day.<br/> System Center DPM: Two a day. <br/> IaaS VMs: Once a day.  |
 | Data disks attached to an Azure VM for backup. | 16 |
-| Individual data disk attached to Azure VM for backup.| 4,095 GB|
+| Individual data disk attached to Azure VM for backup.| 32 TB|
