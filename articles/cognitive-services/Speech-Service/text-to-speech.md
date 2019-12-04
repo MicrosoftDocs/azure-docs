@@ -1,7 +1,7 @@
 ---
-title: Text-to-speech - Speech Service
+title: Text-to-speech - Speech service
 titleSuffix: Azure Cognitive Services
-description: The text-to-speech feature in the Speech Service enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose preset voices or create your own custom voice.
+description: The text-to-speech feature in the Speech service enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose preset voices or create your own custom voice.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: erhopf
 
 # What is text-to-speech?
 
-Text-to-speech from Azure Speech Services is a service that enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales. For a full list, see [supported languages](language-support.md#text-to-speech).
+Text-to-speech from the Speech service enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales. For a full list, see [supported languages](language-support.md#text-to-speech).
 
 Text-to-speech technology allows content creators to interact with their users in different ways. Text-to-speech can improve accessibility by providing users with an option to interact with content audibly. Whether the user has a visual impairment, a learning disability, or requires navigation information while driving, text-to-speech can improve an existing experience. Text-to-speech is also a valuable add-on for voice bots and voice assistants.
 
@@ -121,5 +121,5 @@ Sample code for text-to-speech is available on GitHub. These samples cover text-
 
 ## Next steps
 
-- [Get a free Speech Services subscription](get-started.md)
+- [Get a free Speech service subscription](get-started.md)
 - [Create custom voice fonts](how-to-customize-voice-font.md)
