@@ -124,7 +124,7 @@ The above error would appear in the **Deployment Message** section in the **Arti
 For more in-depth troubleshooting, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 
 > [!TIP]
-> **Verify network security group rules**. Use [IP flow verify](../azure/network-watcher/diagnose-vm-network-traffic-filtering-problem.md#use-ip-flow-verify) to confirm that a rule in a network security group is blocking traffic to or from a virtual machine. You can also review effective security group rules to ensure inbound **Allow** NSG rule exists. For more information, see [Using effective security rules to troubleshoot VM traffic flow](../virtual-network/diagnose-network-traffic-filter-problem.md).
+> **Verify network security group rules**. Use [IP flow verify](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md#use-ip-flow-verify) to confirm that a rule in a network security group is blocking traffic to or from a virtual machine. You can also review effective security group rules to ensure inbound **Allow** NSG rule exists. For more information, see [Using effective security rules to troubleshoot VM traffic flow](../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ## Other sources of error
 There are other less frequent possible sources of error. Make sure to evaluate each to see if it applies to your case. Here is one of them: 
