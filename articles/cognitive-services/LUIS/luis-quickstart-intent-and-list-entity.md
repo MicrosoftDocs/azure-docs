@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Exact text match - LUIS"
+title: "Tutorial: List entity - LUIS"
 titleSuffix: Azure Cognitive Services
 description: Get data that matches a predefined list of items. Each item on the list can have synonyms that also match exactly
 services: cognitive-services
@@ -9,112 +9,86 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/11/2019
+ms.date: 12/04/2019
 ms.author: diberry
-#Customer intent: As a new user, I want to understand how and why to use the list entity. 
+#Customer intent: As a new user, I want to understand how and why to use the list entity.
 ---
 
-# Tutorial: Get exact text-matched data from an utterance
+# Tutorial: Get exact text-matched data from an utterance with list entity
 
-In this tutorial, understand how to get entity data that matches a predefined list of items. 
+In this tutorial, understand how to get data that exactly matches a predefined list of items.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **In this tutorial, you learn how to:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Create app
-> * Add intent
-> * Add list entity 
-> * Train 
-> * Publish
-> * Get intents and entities from endpoint
+> * Import app and use existing intent
+> * Add list entity
+> * Train, publish, and query app to get extracted data
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## What is a list entity?
 
-A list entity is an exact text match to the words in the utterance. 
+A list entity is an exact text match to the words in the utterance. Each item on the list can include a list of synonyms. Use a list entity when you want an exact match.
 
-Each item on the list can include a list of synonyms. For the human resources app, a company department can be identified by several key pieces of information such as an official name, common acronyms, and billing department codes. 
-
-The Human Resources app needs to determine the department an employee is transferring to. 
+For this imported pizza application, create a list entity for the different types of pizza crust.
 
 A list entity is a good choice for this type of data when:
 
 * The data values are a known set.
 * The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
-* The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Stemming, plurals, and other variations are not resolved with just a list entity. To manage variations, consider using a [pattern](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax. 
+* The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Stemming, plurals, and other variations are not resolved with just a list entity. To manage variations, consider using a [pattern](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
 
-## Create a new app
+> ![CAUTION]
+> If you are not sure if you want a list entity or a machine-learned entity with a phrase list as a descriptor, the best and most flexible practice is to use a machine-learned entity with a phrase list as a descriptor. This method allows LUIS to learn and extend the values of the data to extract.
 
-[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+## Import example .json and add utterances
 
-## Create an intent to transfer employees to a different department
+1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+    [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-2. Select **Create new intent**. 
+1. The imported app has an `OrderPizza` intent. Select that intent, and add a few utterances with new crust types:
 
-3. Enter `TransferEmployeeToDepartment` in the pop-up dialog box then select **Done**. 
+    |New utterances|
+    |--|--|
+    |please order a pan crust small pepperoni pizza|
+    |3 thin crust hawaiian pizzas|
+    |deliver 2 stuffed crust pizzas with bread sticks|
+    |one thick crust pizza for pickup|
+    |one deep dish pepperoni pizza|
 
-    ![Screenshot of create new intent dialog with](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-ddl.png)
+## Crust list entity
 
-4. Add example utterances to the intent.
+Now that the **OrderPizza** intent has example utterances, LUIS needs to understand which words represent the crust types.
 
-    |Example utterances|
-    |--|
-    |move John W. Smith to the accounting department|
-    |transfer Jill Jones from to R&D|
-    |Dept 1234 has a new member named Bill Bradstreet|
-    |Place John Jackson in Engineering |
-    |move Debra Doughtery to Inside Sales|
-    |mv Jill Jones to IT|
-    |Shift Alice Anderson to DevOps|
-    |Carl Chamerlin to Finance|
-    |Steve Standish to 1234|
-    |Tanner Thompson to 3456|
-
-    [![Screenshot of intent with example utterances](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "Screenshot of intent with example utterances")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
-
-    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
-
-## Department list entity
-
-Now that the **TransferEmployeeToDepartment** intent has example utterances, LUIS needs to understand what is a department. 
-
-The primary, _canonical_, name for each item is the department name. Examples of the synonyms of each canonical name are: 
+Examples of the primary name and synonyms are:
 
 |Canonical name|Synonyms|
 |--|--|
-|Accounting|acct<br>accting<br>3456|
-|Development Operations|Devops<br>4949|
-|Engineering|eng<br>enging<br>4567|
-|Finance|fin<br>2020|
-|Information Technology|IT<br>2323|
-|Inside Sales|isale<br>insale<br>1414|
-|Research and Development|R&D<br>1234|
+|Deep dish|deep<br>deep dish crust<br>thick<br>thick crust|
+|Pan|regular<br>original<br>normal<br>regular crust<br>original crust<br>normal crust|
+|Stuffed|stuffed crust|
+|Thin|thin crust<br>skinny<br>skinny crust|
 
 1. Select **Entities** in the left panel.
 
-1. Select **Create new entity**.
+1. Select **+ Create**.
 
-1. In the entity pop-up dialog, enter `Department` for the entity name, and  **List** for entity type. Select **Done**.  
+1. In the entity pop-up dialog, enter `CrustList` for the entity name, and  **List** for entity type. Select **Next**.
 
-    [![Screenshot of creating new entity pop-up dialog](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Screenshot of creating new entity pop-up dialog")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of creating new entity pop-up dialog](media/luis-quickstart-intent-and-list-entity/create-pizza-crust-list-entity.png)
 
-1. On the Department entity page, enter `Accounting` as the new value.
+1. On the **Create a list entity** page, enter the canonical names and synonyms for each canonical name then select **Create**.
 
-1. For Synonyms, add the synonyms from the previous table.
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of adding items to list entity](media/luis-quickstart-intent-and-list-entity/add-pizza-crust-items-list-entity.png)
 
-1. Continue adding all the canonical names and their synonyms. 
-
-## Add example utterances to the None intent 
-
-[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
-
-## Train the app so the changes to the intent can be tested 
+## Train the app so the changes to the intent can be tested
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -124,7 +98,7 @@ The primary, _canonical_, name for each item is the department name. Examples of
 
 ## Get intent and entity prediction from endpoint
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 1. Go to the end of the URL in the address and enter `shift Joe Smith to IT`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `TransferEmployeeToDepartment` intent with `Department` extracted.
 
