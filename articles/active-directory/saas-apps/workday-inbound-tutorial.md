@@ -352,20 +352,44 @@ In this step, you'll grant "business process security" policy permissions for th
 
 This section provides steps for user account provisioning from Workday to each Active Directory domain within the scope of your integration.
 
-* [Install and configure on-premises Provisioning Agent(s)](#part-1-install-and-configure-on-premises-provisioning-agents)
-* [Adding the provisioning connector app and creating the connection to Workday](#part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday)
-* [Configure attribute mappings](#part-3-configure-attribute-mappings)
+* [Add the provisioning connector app and download the Provisioning Agent](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+* [Install and configure on-premises Provisioning Agent(s)](#part-2-install-and-configure-on-premises-provisioning-agents)
+* [Configure connectivity to Workday and Active Directory](#part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory)
+* [Configure attribute mappings](#part-4-configure-attribute-mappings)
 * [Enable and launch user provisioning](#enable-and-launch-user-provisioning)
 
-### Part 1: Install and configure on-premises Provisioning Agent(s)
+### Part 1: Add the provisioning connector app and download the Provisioning Agent
 
-To provision to Active Directory on-premises, an agent must be installed on a server that has .NET 4.7.1+ Framework and network access to the desired Active Directory domain(s).
+**To configure Workday to Active Directory provisioning:**
+
+1. Go to <https://portal.azure.com>
+
+2. In the left navigation bar, select **Azure Active Directory**
+
+3. Select **Enterprise Applications**, then **All Applications**.
+
+4. Select **Add an application**, and select the **All** category.
+
+5. Search for **Workday Provisioning to Active Directory**, and add that app from the gallery.
+
+6. After the app is added and the app details screen is shown, select **Provisioning**
+
+7. Change the **Provisioning** **Mode** to **Automatic**
+
+8. Click on the information banner displayed to download the Provisioning Agent. 
+
+   ![Download Agent](./media/workday-inbound-tutorial/pa_download_agent.png "Download Agent Screen")
+
+
+### Part 2: Install and configure on-premises Provisioning Agent(s)
+
+To provision to Active Directory on-premises, the Provisioning agent must be installed on a server that has .NET 4.7.1+ Framework and network access to the desired Active Directory domain(s).
 
 > [!TIP]
 > You can check the version of the .NET framework on your server using the instructions provided [here](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > If the server does not have .NET 4.7.1 or higher installed, you can download it from [here](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
-Once you have deployed .NET 4.7.1+, you can download the **[on-premises provisioning agent here](https://go.microsoft.com/fwlink/?linkid=847801)** and follow the steps given below to complete the agent configuration.
+Transfer the downloaded agent installer to the server host and follow the steps given below to complete the agent configuration.
 
 1. Sign in to the Windows Server where you want to install the new agent.
 
@@ -416,25 +440,12 @@ Once you have deployed .NET 4.7.1+, you can download the **[on-premises provisio
   
    ![Services](./media/workday-inbound-tutorial/services.png)
 
-### Part 2: Adding the provisioning connector app and creating the connection to Workday
+### Part 3: In the provisioning app, configure connectivity to Workday and Active Directory
+In this step, we establish connectivity with Workday and Active Directory in the Azure Portal. 
 
-**To configure Workday to Active Directory provisioning:**
+1. In the Azure Portal, go back to the Workday to Active Directory User Provisioning App created in [Part 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
 
-1. Go to <https://portal.azure.com>
-
-2. In the left navigation bar, select **Azure Active Directory**
-
-3. Select **Enterprise Applications**, then **All Applications**.
-
-4. Select **Add an application**, and select the **All** category.
-
-5. Search for **Workday Provisioning to Active Directory**, and add that app from the gallery.
-
-6. After the app is added and the app details screen is shown, select **Provisioning**
-
-7. Change the **Provisioning** **Mode** to **Automatic**
-
-8. Complete the **Admin Credentials** section as follows:
+1. Complete the **Admin Credentials** section as follows:
 
    * **Admin Username** – Enter the username of the Workday  integration system account, with the tenant domain name appended. It should look something like: **username\@tenant_name**
 
@@ -462,7 +473,7 @@ Once you have deployed .NET 4.7.1+, you can download the **[on-premises provisio
 
    * Once the credentials are saved successfully, the **Mappings** section will display the default mapping **Synchronize Workday Workers to On Premises Active Directory**
 
-### Part 3: Configure attribute mappings
+### Part 4: Configure attribute mappings
 
 In this section, you will configure how user data flows from Workday to Active Directory.
 
