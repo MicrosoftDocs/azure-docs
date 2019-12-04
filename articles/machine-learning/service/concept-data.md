@@ -15,7 +15,7 @@ ms.date: 12/09/2019
 
 # Data access in Azure Machine Learning
 
-In this article, learn about Azure Machine Learning's data management and integration solutions for your machine learning tasks. This article assumes you've already created an [Azure storage account](https://docs.microsoft.comazure/storage/common/storage-quickstart-create-account?tabs=azure-portal) and [Azure storage service](https://docs.microsoft.com/azure/storage/common/storage-introduction).
+In this article, you learn about Azure Machine Learning's data management and integration solutions for your machine learning tasks. This article assumes you've already created an [Azure storage account](https://docs.microsoft.comazure/storage/common/storage-quickstart-create-account?tabs=azure-portal) and [Azure storage service](https://docs.microsoft.com/azure/storage/common/storage-introduction).
 
 When you're ready to use the data in your storage, we recommend you
 
@@ -26,7 +26,7 @@ When you're ready to use the data in your storage, we recommend you
 
         **OR** 
 
-    1. Consuming it directly in Azure Machine Learning solutions like automated machine learning (automated ML) experiment runs, machine learning pipelines, and the designer.
+    1. Consuming it directly in Azure Machine Learning solutions like automated machine learning (automated ML) experiment runs, machine learning pipelines, and the [Azure Machine Learning designer](concept-designer.md).
 4. Create dataset monitors for your model input and output datasets to detect for data drift. 
 5. If data drift is detected, update your dataset and retrain your model accordingly.
 
@@ -36,7 +36,7 @@ The following diagram provides a visual demonstration of this recommended data a
 
 ## Access data in storage
 
-To access your data in your storage account, Azure Machine Learning offers datastores and datasets. Datastores provide a layer of abstraction over your storage service, this aids in security and ease of access to your storage, since connection information is kept in the datastore and not exposed in scripts. Datasets point to the specific file or files in your underlying storage that you want to use for your machine learning experiment. Together, datastores and datasets offer a secure, scalable, and reproducible data delivery workflow for your machine learning tasks.
+To access your data in your storage account, Azure Machine Learning offers datastores and datasets. Datastores provide a layer of abstraction over your storage service. This aids in security and ease of access to your storage, since connection information is kept in the datastore and not exposed in scripts. Datasets point to the specific file or files in your underlying storage that you want to use for your machine learning experiment. Together, datastores and datasets offer a secure, scalable, and reproducible data delivery workflow for your machine learning tasks.
 
 ### Datastores
 
@@ -56,9 +56,9 @@ Supported Azure storage services that can be registered as datastores:
 
 [Create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with data in your datastores and package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
 
-Datasets can be created from local files, public urls, [Azure Open Datasets](#open), or specific file(s) in your datastores. They aren't copies of your data, but are references that point to the data in your storage service, so no extra storage cost is incurred. 
+Datasets can be created from local files, public urls, [Azure Open Datasets](#open), or specific file(s) in your datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file. Datasets aren't copies of your data, but are references that point to the data in your storage service, so no extra storage cost is incurred. 
 
-The following diagram shows that if you don't have an Azure storage service, you can create a dataset directly from local files, public urls, or an Azure Open Dataset. Doing so connects your dataset to the default datastore automatically created with your experiment's [Azure Machine Learning workspace](concept-workspace.md).
+The following diagram shows that if you don't have an Azure storage service, you can create a dataset directly from local files, public urls, or an Azure Open Dataset. Doing so connects your dataset to the default datastore that was automatically created with your experiment's [Azure Machine Learning workspace](concept-workspace.md).
 
 ![Data-concept-diagram](media/concept-data/dataset-workflow.svg)
 
@@ -66,7 +66,7 @@ Additional datasets capabilities can be found in the following documentation:
 
 + [Version and track](how-to-version-track-datasets.md) dataset lineage.
 + [Monitor your dataset](how-to-monitor-datasets.md) to help with data drift detection.
-+  There are two different types of datasets:
++  See the following for documentation on the two types of datasets:
     + [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. Which lets you materialize the data into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of files you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
 
     + [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. By this method, you can download or mount files of your choosing to your compute target as a FileDataset object.
@@ -87,7 +87,7 @@ With datasets, you can accomplish a number of machine learning tasks through sea
 
 ## Azure Open Datasets
 
-[Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Open Datasets are in the cloud on Microsoft Azure and are integrated into Azure Machine Learning. You can also access the datasets through APIs and use them in other products, such as Power BI and Azure Data Factory.
+[Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Open Datasets are in the cloud on Microsoft Azure and are integrated into Azure Machine Learning. You can also access the datasets through APIs and use them in other products, such as Power BI and Azure Data Factory.
 
 Azure Open Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. You can also share your public datasets on Azure Open Datasets.
 
@@ -95,7 +95,7 @@ Azure Open Datasets include public-domain data for weather, census, holidays, pu
 
 ## Data labeling
 
-Labeling large amounts of data has often been a headache in machine learning projects. Machine learning projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels.
+Labeling large amounts of data has often been a headache in machine learning projects. Those with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels.
 
 Azure Machine Learning gives you a central location to create, manage, and monitor labeling projects. Labeling projects help coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling tasks. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes.
 
