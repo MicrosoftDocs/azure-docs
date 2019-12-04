@@ -280,7 +280,7 @@ After you have successfully deployed the chart, you can review the data for your
 
 ## Troubleshooting
 
-If you encounter an error while attempting to enable monitoring for your hybrid Kubernetes cluster, download the PowerShell script [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) is provided to help detect and fix the issues encountered. The issues it is designed to detect and attempt correction of are the following:
+If you encounter an error while attempting to enable monitoring for your hybrid Kubernetes cluster, copy the PowerShell script [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) and save it to a folder on your computer. This script is provided to help detect and fix the issues encountered. The issues it is designed to detect and attempt correction of are the following:
 
 * The specified Log Analytics workspace is valid 
 * The Log Analytics workspace is configured with the Azure Monitor for Containers solution. If not, configure the workspace.
