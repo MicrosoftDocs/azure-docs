@@ -107,12 +107,13 @@ The following steps use Homebrew to install the Core Tools on macOS.
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools@3
+    # if upgrading on a machine that has 2.x installed
+    brew link --overwrite azure-functions-core-tools@3
     ```
 
 1. If you do not plan to use [extension bundles], install [.NET Core 3.x SDK for macOS](https://www.microsoft.com/net/download/macos).
 
 ---
-
 
 #### <a name="linux"></a> Linux (Ubuntu/Debian) with APT
 
