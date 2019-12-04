@@ -8,6 +8,8 @@
     href: internet-peering-service-overview.md
 - name: Concepts
   items:
+  - name: Peering Policy
+    href: internet-peering-policy.md
   - name: Prerequisites to setup peering with Microsoft
     href: internet-peering-prerequisites.md
   - name: Direct Peering Walkthrough
