@@ -65,7 +65,7 @@ In all cases the following properties must be checked for errors and information
 - The tasks '[executionInfo](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutioninformation)' property contains multiple properties that provide information about an error. '[result](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutionresult) indicates if the task failed for any reason, with 'exitCode' and 'failureInfo' providing more information about the failure.
 - The task will always move to the `completed` [state](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate), independent of whether it succeeded or failed.
 
-The impact of task failures on the job and any task dependencies must be considered.  The '[exitConditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions)' property can be specified for a task to configure an action for dependencies and for the job.
+The impact of task failures on the job and any task dependencies must be considered.  The [exitConditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions) property can be specified for a task to configure an action for dependencies and for the job.
 - For dependencies, '[DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction)' controls whether the tasks dependent on the failed task are blocked or are run.
 - For the job, '[JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction)' controls whether the failed task leads to the job being disabled, terminated, or left unchanged.
 
