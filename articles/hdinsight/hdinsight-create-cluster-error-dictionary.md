@@ -15,10 +15,12 @@ ms.author: v-todmc
 
 This article describes resolutions to errors encountered when creating clusters. 
 
-## Scenario: DeploymentDocument 'CsmDocument_2_0' failed the validation  
+> [!NOTE]
+> The first three errors in the list below occur due to validation errors when the CsmDocument_2_0 class is used by an HDInsight product.
 
-### Issue
-'Script Action location cannot be accessed at the provided URL. You receive an error message: "The remote server returned an error: (404) Not Found."
+
+
+## 'Script Action location cannot be accessed at the provided URL. You receive an error message: "The remote server returned an error: (404) Not Found."
 
 ### Cause
 The Script Action URL that is provided as part of the Create Cluster request is not accessible from HDInsight service. We receive the “ErrorMessage” when we try to access the script action.
@@ -30,10 +32,7 @@ The Script Action URL that is provided as part of the Create Cluster request is 
 
 ---
 
-## Scenario DeploymentDocument 'CsmDocument_2_0' failed the validation
-
-### Issue
-'Script Action location cannot be accessed Uri : &lt;SCRIPT ACTION URL&gt;, ErrorMessage: The given script URI &lt;SCRIPT URI&gt; is in ADLS, but this cluster has no data lake storage principal', 
+## 'Script Action location cannot be accessed Uri : &lt;SCRIPT ACTION URL&gt;, ErrorMessage: The given script URI &lt;SCRIPT URI&gt; is in ADLS, but this cluster has no data lake storage principal', 
 
 ### Cause
 The Script Action URL that is provided as part of the Create Cluster request is not accessible from the HDInsight service. We receive the “ErrorMessage” when we try to access the script action. 
@@ -44,10 +43,7 @@ Make sure that the corresponding Azure Data Lake Store Gen 1 account is added to
 
 ---
 
-## Scenario: DeploymentDocument 'CsmDocument_2_0' failed the validation.  
-
-### Issue 
-'VM size ‘&lt;CUSTOMER SPECIFIED VM SIZE&gt;' provided in the request is invalid or not supported for role '&lt;ROLE&gt;'. Valid values are: &lt;VALID VM SIZE FOR ROLE&gt;. 
+## 'VM size ‘&lt;CUSTOMER SPECIFIED VM SIZE&gt;' provided in the request is invalid or not supported for role '&lt;ROLE&gt;'. Valid values are: &lt;VALID VM SIZE FOR ROLE&gt;. 
 
 ### Cause
 The customer-specified VM sizes are not allowed for the role. This may be true because the VM size value is not working as expected or is not suitable for the computer role. 
@@ -57,10 +53,7 @@ The error message lists the valid values for the VM size. Select one of these va
 
 ---
 
-## Scenario: InvalidVirtualNetworkId  
-
-### Issue 
-The VirtualNetworkId is not valid. VirtualNetworkId '&lt;USER_VIRTUALNETWORKID&gt;’ 
+## The VirtualNetworkId is not valid. VirtualNetworkId '&lt;USER_VIRTUALNETWORKID&gt;’ 
 
 ### Cause
 The **VirtualNetworkId** value that is specified during cluster creation is not in the correct format. 
@@ -71,10 +64,7 @@ Make sure that **VirtualNetworkId** and subnet are in the correct format. To obt
 
 ---
 
-## Scenario: CustomizationFailedErrorCode  
-
-### Issue
-Cluster deployment failed due to an error in the custom script action. Failed Actions: ‘&lt;SCRIPT_NAME&gt;, Please go to Ambari UI to further debug the failure. 
+## Cluster deployment failed due to an error in the custom script action. Failed Actions: ‘&lt;SCRIPT_NAME&gt;, Please go to Ambari UI to further debug the failure. 
 
 ### Cause
 The user’s custom script that was provided during the Create Cluster request is executed after the cluster is deployed successfully. This error code indicates that an error was encountered while executing this custom script with name ‘&lt;SCRIPT_NAME&gt;’.   
@@ -85,10 +75,7 @@ Because this is the user’s custom script, users should troubleshoot the issue 
 
 ---
 
-## Scenario: InvalidDocumentErrorCode  
-
-### Issue
-The &lt;META_STORE_TYPE&gt; Metastore schema version &lt;METASTORE_MAJOR_VERSION&gt; in database &lt;DATABASE_NAME&gt; is incompatible with cluster version &lt;CLUSTER_VERSION&gt; 
+## The &lt;META_STORE_TYPE&gt; Metastore schema version &lt;METASTORE_MAJOR_VERSION&gt; in database &lt;DATABASE_NAME&gt; is incompatible with cluster version &lt;CLUSTER_VERSION&gt; 
 
 ### Cause
 The custom metastore is incompatible with the selected HDInsight cluster version. Currently, HDInsight 4.0 cluster supports only Metastore version 3.*x*, and HDInsight 3.6 does not support Metastore version 3.*x* or later. 
@@ -98,9 +85,7 @@ Make sure to use only Metastore versions that are supported by each HDInsight cl
 
 ---
 
-## Scenario: FailedToConnectWithClusterErrorCode  
-### Issue
-Unable to connect to cluster management endpoint to perform scaling operation. Verify that network security rules are not blocking external access to the cluster, and that the cluster manager (Ambari) UI can be successfully accessed. 
+## Unable to connect to cluster management endpoint to perform scaling operation. Verify that network security rules are not blocking external access to the cluster, and that the cluster manager (Ambari) UI can be successfully accessed. 
 
 ### Cause
 You have a firewall rule on your Network Security Group (NSG) that is blocking cluster communication with critical Azure health and management services. 
@@ -114,10 +99,7 @@ If you plan to use network security groups to control network traffic, take 
 
 ---
 
-## Scenario: StoragePermissionsBlockedForMsi  
-
-### Issue
-The Managed Identity does not have permissions on the storage account. Please verify that 'Storage Blob Data Owner' role is assigned to the Managed Identity for the storage account. Storage: /subscriptions/ &LT;Subscription ID&GT; /resourceGroups/&LT; Resource Group Name&GT; /providers/Microsoft.Storage/storageAccounts/ &LT;Storage Account Name&GT;, Managed Identity: /subscriptions/ &LT;Subscription ID&GT; /resourceGroups/ /&LT; Resource Group Name&GT; /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ &LT;User Managed Identity Name&GT; 
+## The Managed Identity does not have permissions on the storage account. Please verify that 'Storage Blob Data Owner' role is assigned to the Managed Identity for the storage account. Storage: /subscriptions/ &LT;Subscription ID&GT; /resourceGroups/&LT; Resource Group Name&GT; /providers/Microsoft.Storage/storageAccounts/ &LT;Storage Account Name&GT;, Managed Identity: /subscriptions/ &LT;Subscription ID&GT; /resourceGroups/ /&LT; Resource Group Name&GT; /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ &LT;User Managed Identity Name&GT; 
 
 ### Cause
 The required permissions were not provided to **Manage identity.** **User-assigned managed identity** didn’t have Blob Storage Contributor Role on ADLS Gen2 storage account. 
@@ -128,10 +110,7 @@ Open the Azure portal, go to your Storage account, look under **Access Control (
 
 ---
 
-## Scenario: InvalidNetworkSecurityGroupSecurityRules   
-
-### Issue
-The security rules in the Network Security Group 
+## The security rules in the Network Security Group 
 `/subscriptions/<SubscriptionID>/resourceGroups/<Resource Group name>default/providers/Microsoft.Network/networkSecurityGroups/<Network Security Group Name>` configured with subnet `/subscriptions/<SubscriptionID>/resourceGroups/<Resource Group name>/providers/Microsoft.Network/virtualNetworks/<Virtual Network Name>/subnets/<Subnet Name>` 
 does not allow required inbound and/or outbound connectivity. For more information, see [Plan a virtual network for Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment), or contact Microsoft Support.
 
