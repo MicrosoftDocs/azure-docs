@@ -70,6 +70,8 @@
   items:
   - name: Workspace
     href: concept-workspace.md
+  - name: Data
+    href: concept-data.md    
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
@@ -301,7 +303,7 @@
     - name: Run batch predictions
       displayName: score scoring asynchronous consume pipeline parallelrunstep inference
       href: how-to-run-batch-predictions.md
-    - name: Use the designer for batch predictions
+    - name: Designer batch predictions
       displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
       href: how-to-run-batch-predictions-designer.md
   - name: Monitor models

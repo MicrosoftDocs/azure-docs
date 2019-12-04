@@ -1,14 +1,9 @@
 ---
-title: Receive and respond to HTTPS calls - Azure Logic Apps
+title: Receive and respond to HTTPS calls
 description: Handle HTTPS requests and events in real time by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewers: klam, LADocs
-manager: carmonm
-ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
+ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors

@@ -1,7 +1,7 @@
 ---
-title: Language support - Speech Service
+title: Language support - Speech service
 titleSuffix: Azure Cognitive Services
-description: The Speech Service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
+description: The Speech service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: erhopf
 ms.custom: seodec18
 ---
 
-# Language and region support for the Speech Services
+# Language and region support for the Speech service
 
-Language support varies by Speech Service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), and [Speech translation](#speech-translation) service offerings.
+Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), and [Speech translation](#speech-translation) service offerings.
 
 ## Speech-to-text
 
@@ -264,5 +264,5 @@ The **Speech Translation** API supports different languages for speech-to-speech
 
 ## Next steps
 
-* [Get your Speech Services trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [Get your Speech service trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 * [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
