@@ -1,5 +1,5 @@
 ---
-title: Brokered authentication in Android
+title: Brokered authentication in Android | Azure
 titlesuffix: Microsoft identity platform
 description: An overview of brokered authentication & authorization for Android in the Microsoft identity platform
 services: active-directory
