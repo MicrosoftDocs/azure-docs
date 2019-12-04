@@ -1,7 +1,7 @@
 ---
-title: Release Notes - Speech Service
+title: Release Notes - Speech service
 titleSuffix: Azure Cognitive Services
-description: See a running log of feature releases, improvements, bug fixes, and known issues for the Speech Service.
+description: See a running log of feature releases, improvements, bug fixes, and known issues for the Speech service.
 services: cognitive-services
 author: BrianMouncer
 manager: nitinme
@@ -172,7 +172,7 @@ This is a JavaScript-only release. No features have been added. The following fi
 
 **Bug fixes**
 
-- Mac/iOS: A bug that led to a long wait when a connection to the Speech Service could not be established was fixed.
+- Mac/iOS: A bug that led to a long wait when a connection to the Speech service could not be established was fixed.
 - Python: improve error handling for arguments in Python callbacks.
 - JavaScript: Fixed wrong state reporting for speech ended on RequestSession.
 
@@ -188,7 +188,7 @@ This is a bug fix release and only affecting the native/managed SDK. It is not a
 
 **New Features**
 
-- The Speech SDK supports selection of the input microphone through the AudioConfig class. This allows you to stream audio data to the Speech Services from a non-default microphone. For more information, see the documentation describing [audio input device selection](how-to-select-audio-input-devices.md). This feature is not yet available from JavaScript.
+- The Speech SDK supports selection of the input microphone through the AudioConfig class. This allows you to stream audio data to the Speech service from a non-default microphone. For more information, see the documentation describing [audio input device selection](how-to-select-audio-input-devices.md). This feature is not yet available from JavaScript.
 - The Speech SDK now supports Unity in a beta version. Provide feedback through the issue section in the [GitHub sample repository](https://aka.ms/csspeech/samples). This release supports Unity on Windows x86 and x64 (desktop or Universal Windows Platform applications), and Android (ARM32/64, x86). More information is available in our [Unity quickstart](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=unity).
 - The file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (shipped in previous releases) isn't needed anymore. The functionality is now integrated into the core SDK.
 
