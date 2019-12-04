@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Connect to a Custom Commands app with Speech SDK - Speech Service'
+title: 'Quickstart: Connect to a Custom Commands app with Speech SDK - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you will create a Speech SDK client application with Custom Commands.
 services: cognitive-services
@@ -31,7 +31,7 @@ A Custom Commands application is required to complete this article. If you haven
 You'll also need:
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+- An Azure subscription key for the Speech service. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
 
 ## Optional: Get started fast
 

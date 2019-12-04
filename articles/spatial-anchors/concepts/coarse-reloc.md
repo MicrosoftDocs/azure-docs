@@ -102,13 +102,8 @@ cloudSpatialAnchorSession->LocationProvider(sensorProvider);
 
 # [C++ WinRT](#tab/cppwinrt)
 ```cpp
-// Create the ASA factory
-SpatialAnchorsFactory m_asaFactory { nullptr };
-// . . .
-
 // Create the sensor fingerprint provider
-PlatformLocationProvider sensorProvider;
-sensorProvider = m_asaFactory.CreatePlatformLocationProvider();
+PlatformLocationProvider sensorProvider = PlatformLocationProvider();
 
 // Create and configure the session
 cloudSpatialAnchorSession = CloudSpatialAnchorSession();
@@ -576,7 +571,7 @@ anchorLocateCriteria->NearDevice(nearDeviceCriteria);
 # [C++ WinRT](#tab/cppwinrt)
 
 ```cpp
-NearDeviceCriteria nearDeviceCriteria = m_asaFactory.CreateNearDeviceCriteria();
+NearDeviceCriteria nearDeviceCriteria = NearDeviceCriteria();
 
 // Choose a maximum exploration distance between your device and the returned anchors
 nearDeviceCriteria.DistanceInMeters(5.0f);
@@ -585,7 +580,7 @@ nearDeviceCriteria.DistanceInMeters(5.0f);
 nearDeviceCriteria.MaxResultCount(25);
 
 // Set the session's locate criteria
-anchorLocateCriteria = m_asaFactory.CreateAnchorLocateCriteria();
+anchorLocateCriteria = AnchorLocateCriteria();
 anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 ```
 
