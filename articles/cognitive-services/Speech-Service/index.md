@@ -881,7 +881,7 @@ description: Get started with the Speech Services.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_recognition_from_blob.jpg​​​​​​​" alt="" />
+                                                        <img src="media/hub/speech_recognition_from_blob.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
