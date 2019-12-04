@@ -222,7 +222,7 @@ Create a policy as follows:
 
 13. After the wizard finishes creating the backup schedule, click **Close**.
 
-  ![Confirm Modify Backup Process](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
+    ![Confirm Modify Backup Process](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
 
 You must create a policy on each machine where the agent is installed.
 
