@@ -66,7 +66,7 @@ After the data is sent to the FarmBeats data hub, you can query the Scene Store 
 
 Alternatively, you can view the latest drone image on the **Farm Details** page. To view the image, follow the steps. 
 
-1. Select the farm to which your imagery was uploaded. The **Farm** details page displays.
+1. Select the farm to which your imagery was uploaded. The **Farm** details page appears.
 2. Scroll down to the latest **Precision Maps** section.
 3. View the image in the **Drone Imagery** section.
 
