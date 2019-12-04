@@ -15,9 +15,9 @@ ms.author: diberry
 
 ---
 
-# Tutorial:  Configure publishing settings
+# Tutorial:  Add sentiment analysis as a publishing setting
 
-In this tutorial, modify the publishing settings then query the LUIS endpoint to understand publishing settings.
+In this tutorial, modify the publishing settings to extract sentiment analysis then query the LUIS endpoint to understand publishing settings.
 
 **In this tutorial, you learn how to:**
 
@@ -47,17 +47,18 @@ Because it is a publish setting, you do not see it on the intents or entities pa
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
+## Train the app
+
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
+
 ## Configure app to include sentiment analysis
 
-1. Select **Manage** in the top right navigation, then select **Publish settings** from the left menu.
+1. Select **Publish** from the top menu. Sentiment analysis is a publishing setting.
 
-1. Select **Use sentiment analysis to determine if a user's utterance is positive, negative, or neutral.** to enable this setting.
+1. Select **Production slot** then select **Change settings**.
+1. Set the Sentiment Analysis setting to **On**.
 
-    ![Turn on Sentiment Analysis as publishing setting](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
-
-## Publish the app so the trained model is queryable from the endpoint
-
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+    ![Turn on Sentiment Analysis as publishing setting](./media/luis-quickstart-intent-and-sentiment-analysis/select-sentiment-publishing-setting.png)
 
 ## Get the sentiment of an utterance from the endpoint
 
@@ -65,9 +66,9 @@ Because it is a publish setting, you do not see it on the intents or entities pa
 
 1. Go to the end of the URL in the address and enter the following utterance:
 
-    `Jill Jones work with the media team on the public portal was amazing`
+    `Deliver 2 of the best cheese pizzas ever!!!`
 
-    The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `EmployeeFeedback` intent with the sentiment analysis extracted.
+    The last querystring parameter is `query`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `EmployeeFeedback` intent with the sentiment analysis extracted.
 
     ```json
     {
