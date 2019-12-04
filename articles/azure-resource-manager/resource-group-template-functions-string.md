@@ -247,10 +247,13 @@ Combines multiple string values and returns the concatenated string, or combines
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |string or array |The first value for concatenation. |
-| additional arguments |No |string |Additional values in sequential order for concatenation. |
+| arg1 |Yes |string or array |The first string or array for concatenation. |
+| additional arguments |No |string or array |Additional strings or arrays in sequential order for concatenation. |
+
+This function can take any number of arguments, and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Strings are only concatenated with other strings.
 
 ### Return value
+
 A string or array of concatenated values.
 
 ### Examples

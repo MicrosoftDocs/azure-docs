@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Build policies to enforce compliance"
 description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise wide design principles.
-ms.date: 02/04/2019
+ms.date: 11/25/2019
 ms.topic: tutorial
 ---
 # Tutorial: Create and manage policies to enforce compliance
@@ -18,8 +18,12 @@ across your organization, such as:
 > - Implement a new policy across an organization
 
 If you would like to assign a policy to identify the current compliance state of your existing
-resources, the quickstart articles go over how to do so. If you don't have an Azure subscription,
-create a [free account](https://azure.microsoft.com/free/) before you begin.
+resources, the quickstart articles go over how to do so.
+
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/)
+before you begin.
 
 ## Assign a policy
 
@@ -539,7 +543,7 @@ the assignments or definitions created above:
 1. Right-click the row or select the ellipses at the end of the definition (or assignment), and
    select **Delete definition** (or **Delete assignment**).
 
-## Next steps
+## Review
 
 In this tutorial, you successfully accomplished the following tasks:
 
@@ -548,6 +552,8 @@ In this tutorial, you successfully accomplished the following tasks:
 > - Created and assign an initiative definition to track compliance for multiple resources
 > - Resolved a non-compliant or denied resource
 > - Implemented a new policy across an organization
+
+## Next steps
 
 To learn more about the structures of policy definitions, look at this article:
 

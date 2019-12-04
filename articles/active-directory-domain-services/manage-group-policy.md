@@ -49,7 +49,7 @@ To create and configure Group Policy Object (GPOs), you need to install the Grou
 1. In the *Dashboard* pane of the **Server Manager** window, select **Add Roles and Features**.
 1. On the **Before You Begin** page of the *Add Roles and Features Wizard*, select **Next**.
 1. For the *Installation Type*, leave the **Role-based or feature-based installation** option checked and select **Next**.
-1. On the **Server Selection** page, choose the current VM from the server pool, such as *myvm.contoso.com*, then select **Next**.
+1. On the **Server Selection** page, choose the current VM from the server pool, such as *myvm.aadds.contoso.com*, then select **Next**.
 1. On the **Server Roles** page, click **Next**.
 1. On the **Features** page, select the **Group Policy Management** feature.
 
@@ -72,7 +72,7 @@ Default group policy objects (GPOs) exist for users and computers in an Azure AD
 
 There are two built-in Group Policy Objects (GPOs) in an Azure AD DS managed domain - one for the *AADDC Computers* container, and one for the *AADDC Users* container. You can customize these GPOs to configure group policy as needed within your Azure AD DS managed domain.
 
-1. In the **Group Policy Management** console, expand the **Forest: contoso.com** node. Next, expand the **Domains** nodes.
+1. In the **Group Policy Management** console, expand the **Forest: aadds.contoso.com** node. Next, expand the **Domains** nodes.
 
     Two built-in containers exist for *AADDC Computers* and *AADDC Users*. Each of these containers has a default GPO applied to them.
 
