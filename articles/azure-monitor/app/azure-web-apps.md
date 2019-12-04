@@ -94,9 +94,11 @@ Targeting the full framework from .NET Core, self-contained deployment, and ASP.
 
 # [Node.js](#tab/nodejs)
 
+Test
+
 # [Java](#tab/java)
 
-Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application, you need to [manually instrument your application](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-get-started).
+Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application, you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
 
 ## Enable client-side monitoring
 
@@ -136,9 +138,11 @@ If for some reason you would like to disable client-side monitoring:
 
 # [Node.js](#tab/nodejs)
 
+Test
+
 # [Java](#tab/java)
 
-Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application, you need to [manually instrument your application](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-get-started).
+Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application, you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
 
 ## Automate monitoring
 
