@@ -508,7 +508,7 @@
         href: floqast-tutorial.md
       - name: Fluxx Labs
         href: fluxxlabs-tutorial.md
-      - name: FM&#58Systems
+      - name: FM:Systems
         href: fm-systems-tutorial.md
       - name: Foko Retail
         href: foko-retail-tutorial.md
@@ -716,6 +716,8 @@
         href: jiramicrosoft-tutorial.md
       - name: JIRA SAML SSO by Microsoft (V5.2)
         href: jira52microsoft-tutorial.md
+      - name: Jisc Student Voter Registration
+        href: jisc-student-voter-registration-tutorial.md
       - name: Jitbit Helpdesk
         href: jitbit-helpdesk-tutorial.md
       - name: Jive
