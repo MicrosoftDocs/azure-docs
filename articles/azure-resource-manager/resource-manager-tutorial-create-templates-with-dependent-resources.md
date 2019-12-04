@@ -81,7 +81,7 @@ When you explore the template in this section, try to answer these questions:
     ![Visual Studio Code Azure Resource Manager templates public IP address definition](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
 4. Expand the fourth resource. The resource type is `Microsoft.Network/networkInterfaces`:
 
-    ![Visual Studio Code Azure Resource Manager templates dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
+    ![Visual Studio Code Azure Resource Manager templates dependsOn](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
     The dependsOn element enables you to define one resource as a dependent on one or more resources. The resource depends on two other resources:
 
