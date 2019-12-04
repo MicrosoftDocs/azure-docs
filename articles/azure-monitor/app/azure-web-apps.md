@@ -6,7 +6,7 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/19/2019
+ms.date: 12/04/2019
 
 ---
 
