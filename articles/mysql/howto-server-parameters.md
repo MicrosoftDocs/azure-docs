@@ -1,11 +1,11 @@
 ---
-title: How To Configure Server Parameters in Azure Database for MySQL
+title: Configure server parameters - Azure portal - Azure Database for MySQL
 description: This article describes how to configure MySQL server parameters in Azure Database for MySQL using the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 12/02/2019
 ---
 
 # How to configure server parameters in Azure Database for MySQL by using the Azure portal
@@ -34,7 +34,7 @@ The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](
 
 |**Pricing Tier**|**vCore(s)**|**InnoDB Buffer Pool size in MB <br>(servers supporting up to 4 TB storage)**| **InnoDB Buffer Pool size in MB <br>(servers supporting up to 16 TB storage)**|
 |:---|---:|---:|---:|
-|Basic| 1| 960| |
+|Basic| 1| 832| |
 |Basic| 2| 2560| |
 |General Purpose| 2| 3584| 7168|
 |General Purpose| 4| 7680| 15360|

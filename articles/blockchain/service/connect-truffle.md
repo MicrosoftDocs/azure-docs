@@ -1,15 +1,9 @@
 ---
 title: Use Truffle to connect to Azure Blockchain Service
 description: Connect to an Azure Blockchain Service network using Truffle
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/20/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
 #Customer intent: As a developer, I want to connect to my blockchain member node so that I can perform actions on a blockchain.
 ---
 
@@ -126,4 +120,4 @@ In this quickstart, you used Truffle connect to an Azure Blockchain Service defa
 Try the next tutorial to use Azure Blockchain Development Kit for Ethereum to create, build, deploy, and execute a smart contract function via a transaction.
 
 > [!div class="nextstepaction"]
-> [Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md)
+> [Create, build, and deploy smart contracts on Azure Blockchain Service](send-transaction.md)

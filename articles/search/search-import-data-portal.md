@@ -38,7 +38,7 @@ Known limitations are summarized as follows:
 
 + The wizard does not support iteration or reuse. Each pass through the wizard creates a new index, skillset, and indexer configuration. Only data sources can be persisted and reused within the wizard. To edit or refine other objects, you have to use the REST APIs or .NET SDK to retrieve and modify the structures.
 
-+ Source content must reside in a supported Azure data source, in a service under the same subscription.
++ Source content must reside in a supported Azure data source.
 
 + Sampling is over a subset of source data. For large data sources, it's possible for the wizard to miss fields. You might need to extend the schema, or correct the inferred data types, if sampling is insufficient.
 
