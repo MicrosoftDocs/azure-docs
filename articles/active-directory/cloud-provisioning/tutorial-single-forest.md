@@ -48,19 +48,24 @@ You can use the environment you create in this tutorial for testing or for getti
 ## Install the Azure AD Connect provisioning agent
 1. Sign in to the domain joined server.  If you are using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be DC1.
 2. Sign in to the Azure portal using cloud-only global admin credentials.
-3. On the left, select **Azure Active Directory**, click **Azure AD Connect** and in the center select **Manage provisioning (preview)**.</br>
-![Azure portal](media/how-to-install/install6.png)</br>
-4. Click on "Download agent"
-5. Run the Azure AD Connect provisioning agent
-6. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
-![Welcome screen](media/how-to-install/install1.png)</br>
+3. On the left, select **Azure Active Directory**, click **Azure AD Connect**, and in the center select **Manage provisioning (preview)**.
+
+   ![Azure portal](media/how-to-install/install6.png)
+
+4. Click **Download agent**.
+5. Run the Azure AD Connect provisioning agent.
+6. On the splash screen, **Accept** the licensing terms and click **Install**.
+
+   ![Welcome screen](media/how-to-install/install1.png)
 
 7. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  Note that if you have IE enhanced security enabled this will block the sign-in.  If this is the case, close the installation, disable IE enhanced security in Server Manager, and click the **AAD Connect Provisioning Agent Wizard** to restart the installation.
-8. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account should not have password change requirements. In case the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.</br>
-![Welcome screen](media/how-to-install/install3.png)</br>
+8. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account should not have password change requirements. In case the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.
 
-9. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
-![Welcome screen](media/how-to-install/install4.png)</br>
+   ![Welcome screen](media/how-to-install/install3.png)
+
+9. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.
+
+   ![Welcome screen](media/how-to-install/install4.png)
 
 10. Once this operation completes you should see a notice: **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
 ![Welcome screen](media/how-to-install/install5.png)</br>
