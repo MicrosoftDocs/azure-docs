@@ -77,7 +77,7 @@ Details of task configuration are shown in the following screenshot and list.
 
 For more information on BinSkim command-line arguments, rules by ID, or exit codes, see the [BinSkim User Guide](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
-For information about YAML configuration for this task, please check our [BinSkim YAML options](yaml-configuration.md#BinSkim-task)
+For information about YAML configuration for this task, please check our [BinSkim YAML options](yaml-configuration.md#binskim-task)
 
 ## Credential Scanner task
 
@@ -100,7 +100,7 @@ Available options include:
   - **Control Options** > **Run this task**: Specifies when the task will run. Select **Custom conditions** to specify more complex conditions.
   - **Version**: The build task version within Azure DevOps. This option isn't frequently used.
 
-For information about YAML configuration for this task, please check our [Credential Scanner YAML options](yaml-configuration.md#Credential-scanner-task)
+For information about YAML configuration for this task, please check our [Credential Scanner YAML options](yaml-configuration.md#credential-scanner-task)
 
 ## Microsoft Security Risk Detection task
 
@@ -176,7 +176,7 @@ For More information about TSLint, go to the [TSLint GitHub repo](https://github
 >[!NOTE] 
 >As you might be aware, the [TSLint GitHub repo](https://github.com/palantir/tslint) home page says that TSLint will be deprecated sometime in 2019. Microsoft is investigating [ESLint](https://github.com/eslint/eslint) as an alternative task.
 
-For information about YAML configuration for this task, please check our [TSLint YAML options](yaml-configuration.md#TSLint-task)
+For information about YAML configuration for this task, please check our [TSLint YAML options](yaml-configuration.md#tslint-task)
 
 ## Publish Security Analysis Logs task
 
