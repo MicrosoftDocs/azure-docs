@@ -27,7 +27,7 @@ Be aware of these points:
 - You can upload server information to Azure Migrate Server Assessment multiple times by using CSV.
 - Gathering application information is useful in evaluating your on-premises environment for migration. However, Azure Migrate Server Assessment doesn't currently perform application-level assessment or take applications into account when creating an assessment.
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set up an Azure Migrate project.
 > * Fill in a CSV file with server information.
