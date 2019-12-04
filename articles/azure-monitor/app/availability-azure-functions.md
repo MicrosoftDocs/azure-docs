@@ -39,8 +39,8 @@ This article will cover how to create an Azure Function with TrackAvailability()
 
 Copy the code below into the run.csx file (this will replace the pre-existing code). To do this, go into your Azure Functions application and select your timer trigger function on the left.
 
- [!div class="mx-imgBorder"]
-![Azure function's run.csx in Azure portal](media/availability-azure-functions/runcsx.png)
+>[!div class="mx-imgBorder"]
+>![Azure function's run.csx in Azure portal](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
 > For the Endpoint Address you would use: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. Unless your resource is located in a region like Azure Government or Azure China in which case consult this article on [overriding the default endpoints](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) and select the appropriate Telemetry Channel endpoint for your region.
@@ -139,8 +139,8 @@ On the right under view files, select **Add**. Call the new file **function.proj
 
 ```
 
- [!div class="mx-imgBorder"]
-![On the right select, add. Name the file function.proj](media/availability-azure-functions/addfile.png)
+>[!div class="mx-imgBorder"]
+>![On the right select, add. Name the file function.proj](media/availability-azure-functions/addfile.png)
 
 On the right under view files, select **Add**. Call the new file **runAvailabilityTest.csx** with the following configuration.
 
@@ -160,18 +160,18 @@ To make sure everything is working, you can look at the graph in the Availabilit
 > [!NOTE]
 > If you implemented your own business logic in runAvailabilityTest.csx then you will see successful results like in the screenshots below, if you did not then you will see failed results.
 
-[!div class="mx-imgBorder"]
-![Availability tab with successful results](media/availability-azure-functions/availtab.png)
+>[!div class="mx-imgBorder"]
+>![Availability tab with successful results](media/availability-azure-functions/availtab.png)
 
 When you set up your test using Azure Functions you will notice, that unlike using **Add test** in the Availability tab, the name of your test will not appear and you will not be able to interact with it. The results are visualized but you get a summary view instead of the same detailed view you get when you create an availability test via the portal.
 
 To see the end-to-end transaction details, select **Successful** or **Failed** under drill into, then select a sample. You can also get to the end-to-end transaction details by selecting a data point on the graph.
 
-[!div class="mx-imgBorder"]
-![Select a sample availability test](media/availability-azure-functions/sample.png)
+>[!div class="mx-imgBorder"]
+>![Select a sample availability test](media/availability-azure-functions/sample.png)
 
-[!div class="mx-imgBorder"]
-![End-to-end transaction details](media/availability-azure-functions/end-to-end.png)
+>[!div class="mx-imgBorder"]
+>![End-to-end transaction details](media/availability-azure-functions/end-to-end.png)
 
 If you ran everything as is (without adding business logic), then you will see that the test failed.
 
@@ -179,11 +179,11 @@ If you ran everything as is (without adding business logic), then you will see t
 
 You can use Logs(analytics) to view you availability results, dependencies, and more. To learn more about Logs, visit [Log query overview](../../azure-monitor/log-query/log-query-overview.md).
 
-[!div class="mx-imgBorder"]
-![Availability results](media/availability-azure-functions/availabilityresults.png)
+>[!div class="mx-imgBorder"]
+>![Availability results](media/availability-azure-functions/availabilityresults.png)
 
-[!div class="mx-imgBorder"]
-![Dependencies](media/availability-azure-functions/dependencies.png)
+>[!div class="mx-imgBorder"]
+>![Dependencies](media/availability-azure-functions/dependencies.png)
 
 ## Next steps
 
