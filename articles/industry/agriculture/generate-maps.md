@@ -53,7 +53,7 @@ Follow these steps.
 
     ![Select Sensor Placement](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-1.png)
 
-3. After you select **Sensor Placement**, the **Sensor Placement** window displays.
+3. After you select **Sensor Placement**, the **Sensor Placement** window appears.
 
     ![Sensor Placement window](./media/get-sensor-data-from-sensor-partner/sensor-placement-1.png)
 
@@ -64,7 +64,7 @@ Follow these steps.
 7. Select **Generate Maps**.
  A confirmation message with job details appears.
 
-  For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message displays on the tooltip of the *Failed* status. In this case, repeat the previous steps and try again.
+  For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message appears on the tooltip of the *Failed* status. In this case, repeat the previous steps and try again.
 
   If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact the [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
@@ -112,7 +112,7 @@ Follow these steps.
 
     ![Select Satellite Indices from the drop-down menu](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-satellite-indices-1.png)
 
-3. After you select **Satellite Indices**, the **Satellite Indices** window displays.
+3. After you select **Satellite Indices**, the **Satellite Indices** window appears.
 
     ![Satellite Indices window](./media/get-sensor-data-from-sensor-partner/satellitte-indices-1.png)
 
@@ -125,7 +125,7 @@ Follow these steps.
 
     ![Satellite Indices map confirmation message](./media/get-sensor-data-from-sensor-partner/successful-satellitte-indices-1.png)
 
-    For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message displays on the tooltip of the *Failed* status. In this case, repeat the previous steps and try again.
+    For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message appears on the tooltip of the *Failed* status. In this case, repeat the previous steps and try again.
 
     If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact the [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
@@ -177,7 +177,7 @@ Follow these steps.
 
     ![Select Soil Moisture from the drop-down menu](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-soil-moisture-1.png)
 
-3. After you select **Soil Moisture**, the **Soil Moisture** window displays.
+3. After you select **Soil Moisture**, the **Soil Moisture** window appears.
 
     ![Soil Moisture window](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
@@ -192,7 +192,7 @@ To find the sensor measure, go to **Sensors**, and select any soil moisture sens
 
    ![Soil Moisture map confirmation message](./media/get-sensor-data-from-sensor-partner/successful-soil-moisture-1.png)
 
-    For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message displays on the tooltip of the *Failed* status. In this case, repeat the previous steps and try again.
+    For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message appears on the tooltip of the *Failed* status. In this case, repeat the previous steps and try again.
 
     If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact the [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
