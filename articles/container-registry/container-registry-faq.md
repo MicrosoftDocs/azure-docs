@@ -181,6 +181,9 @@ az acr login -n MyRegistry
 
 Yes. Enable TLS by using any recent docker client (version 18.03.0 and above). 
 
+> [!IMPORTANT]
+> Starting January 3, 2020, Azure Container Registry will require all secure connections from servers and applications to use TLS 1.2. Support for TLS 1.0 and 1.1 will be retired.
+
 ### Does Azure Container Registry support Content Trust?
 
 Yes, you can use trusted images in Azure Container Registry, since the [Docker Notary](https://docs.docker.com/notary/getting_started/) has been integrated and can be enabled. For details, see [Content Trust in Azure Container Registry](container-registry-content-trust.md).
