@@ -94,7 +94,7 @@ Targeting the full framework from .NET Core, self-contained deployment, and ASP.
 
 # [Node.js](#tab/nodejs)
 
-Test
+From within your App Service web app under **Settings** > **select Application Insights** > **Enable**. Node.js agent based monitoring is currently in preview.
 
 # [Java](#tab/java)
 
@@ -102,7 +102,7 @@ Java App Service based web applications do not currently support automatic agent
 
 # [Python](#tab/python)
 
-Test
+Python App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Python application, you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
 
 ---
 
@@ -148,11 +148,11 @@ Test
 
 # [Java](#tab/java)
 
-Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application, you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
+To enable client-side monitoring for your Java application, you need to [manually add the client-side JavaScript SDK to your application](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
 # [Python](#tab/python)
 
-Test
+To enable client-side monitoring for your Python application, you need to [manually add the client-side JavaScript SDK to your application](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
 ---
 
