@@ -280,7 +280,7 @@ After you have successfully deployed the chart, you can review the data for your
 
 ## Troubleshooting
 
-If you encounter an error while attempting to enable monitoring for your hybrid Kubernetes cluster, the script [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) is provided to help detect and fixe the issues encountered. The issues it is designed to detect and attempt correction of are the following:
+If you encounter an error while attempting to enable monitoring for your hybrid Kubernetes cluster, download the PowerShell script [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) is provided to help detect and fix the issues encountered. The issues it is designed to detect and attempt correction of are the following:
 
 * The specified Log Analytics workspace is valid 
 * The Log Analytics workspace is configured with the Azure Monitor for Containers solution. If not, configure the workspace.
@@ -290,6 +290,12 @@ If you encounter an error while attempting to enable monitoring for your hybrid 
 * The Log Analytics workspace Id and key configured on the containerized agent match with the workspace the Insight is configured with.
 * Validate all the Linux worker nodes have `kubernetes.io/role=agent` label to schedule rs pod. If it doesn't exist, add it.
 * Validate `cAdvisor port: 10255` is opened on all nodes in the cluster.
+
+To execute with Azure PowerShell, use the following commands in the folder that contains the script:
+
+```powershell
+.\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig 
+```
 
 ## Next steps
 
