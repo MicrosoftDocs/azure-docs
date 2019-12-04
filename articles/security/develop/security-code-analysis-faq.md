@@ -218,6 +218,6 @@ The Roslyn Analyzers build task needs to query Azure DevOps for the MSBuild log 
 
 If you need additional assistance, Microsoft Security Code Analysis Support is available Monday to Friday from 9:00 AM to 5:00 PM Pacific Standard Time.
 
-- Onboarding: Contact your Technical Account Managers to get started.
+- Onboarding: Refer to our [Onboarding documentation](security-code-analysis-onboard.md)
   
 - Support: Email our team at [Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)
