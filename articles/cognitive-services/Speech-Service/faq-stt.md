@@ -60,11 +60,32 @@ The old dataset and the new dataset must be combined in a single .zip file (for 
 
 If you have adapted and deployed a model with baseline V1.0, that deployment will remain as is. Customers can decommission the deployed model, readapt using the newer version of the baseline and redeploy.
 
+**Q: Can I download my model and run it locally?**
+
+**A**: Models can't be downloaded and executed locally.
+
+**Q: Are my requests logged?**
+
+**A**: You have a choice when you create a deployment to switch off tracing. At that point, no audio or transcriptions will be logged. Otherwise, requests are typically logged in Azure in secure storage.
+
+**Q: Are my requests throttled?**
+
+**A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Speech to text](speech-to-text.md).
+
+**Q: How I am charged for dual channel audio?**
+
+**A**: If you submit each channel separately (each channel in its own file), you will be charged per duration of file. If you submit a single file with each channel multiplexed together, then you will be charged for the duration of the single file.
+
+> [!IMPORTANT]
+> If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
+
+## Increasing concurrency
+
 **Q: What if I need higher concurrency for my deployed model than what is offered in the portal?**
 
 **A**: You can scale up your model in increments of 20 concurrent requests.
 
-With the required information, create a support request in the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Do not post this information to any of the public channels mentioned on the {support page](support.md).
+With the required information, create a support request in the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Do not post this information to any of the public channels mentioned on the [support page](support.md) (GitHub, Stackoverflow, ...).
 
 To increase concurrency for a ***custom model***, we need the following information:
 
@@ -92,25 +113,6 @@ or
   - from the displayed services pick the speech service you want the concurrency increased for,
   - display the `Properties` for this service,
   - copy the complete `Resource ID`.
-
-**Q: Can I download my model and run it locally?**
-
-**A**: Models can't be downloaded and executed locally.
-
-**Q: Are my requests logged?**
-
-**A**: You have a choice when you create a deployment to switch off tracing. At that point, no audio or transcriptions will be logged. Otherwise, requests are typically logged in Azure in secure storage.
-
-**Q: Are my requests throttled?**
-
-**A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Speech to text](speech-to-text.md).
-
-**Q: How I am charged for dual channel audio?**
-
-**A**: If you submit each channel separately (each channel in its own file), you will be charged per duration of file. If you submit a single file with each channel multiplexed together, then you will be charged for the duration of the single file.
-
-> [!IMPORTANT]
-> If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
 
 ## Importing data
 
