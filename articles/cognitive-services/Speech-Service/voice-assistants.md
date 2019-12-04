@@ -14,7 +14,7 @@ ms.author: travisw
 
 # About voice assistants
 
-Voice assistants using the Speech service empower developers to create natural, human-like conversational interfaces for their applications and experiences.
+Voice assistants using the Speech service empowers developers to create natural, human-like conversational interfaces for their applications and experiences.
 
 The voice assistant service provides fast, reliable interaction between a device and an assistant implementation that uses either (1) the Bot Framework's Direct Line Speech channel or (2) the integrated Custom Commands (Preview) service for task completion.
 
