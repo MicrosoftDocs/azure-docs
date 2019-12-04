@@ -100,6 +100,10 @@ Test
 
 Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application, you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
 
+# [Python](#tab/python)
+
+Test
+
 ---
 
 ## Enable client-side monitoring
@@ -145,6 +149,10 @@ Test
 # [Java](#tab/java)
 
 Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application, you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
+
+# [Python](#tab/python)
+
+Test
 
 ---
 
