@@ -34,6 +34,10 @@ landingContent:
             url: internet-peering-policy.md
           - text: Prerequisites to setup peering with Microsoft
             url: internet-peering-prerequisites.md
+          - text: Peering FAQs
+            url: internet-peering-faqs.md
+          - text: Peering Service FAQs
+            url: internet-peering-service-faqs.md
 
   # Card
   - title: Get started
@@ -42,33 +46,41 @@ landingContent:
         links:
           - text: Associate Peer ASN to Azure Subscription using Portal
             url: internet-peering-subscription-registration-portal.md
-          - text: Enable Peering Service on a Direct Peering using Portal
-            url: internet-peering-howto-peering-service-portal.md
-          - text: Create or modify a Direct Peering using Portal
-            url: internet-peering-howto-directpeering-arm-portal.md
-          - text: Convert a legacy Direct Peering to Azure resource using Portal
-            url: internet-peering-howto-legacydirect-arm-portal.md
+
+  # Card
+  - title: Exchange Peering
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Exchange Peering Walkthrough
+            url: internet-peering-workflows-exchange.md
+      - linkListType: how-to-guide
+        links:
           - text: Create or modify an Exchange Peering using Portal
             url: internet-peering-howto-exchangepeering-arm-portal.md
           - text: Convert a legacy Exchange Peering to Azure resource using Portal
             url: internet-peering-howto-legacyexchange-arm-portal.md
 
   # Card
-  - title: Workflows
+  - title: Direct Peering
     linkLists:
       - linkListType: concept
         links:
           - text: Direct Peering Walkthrough
             url: internet-peering-workflows-direct.md
-          - text: Exchange Peering Walkthrough
-            url: internet-peering-workflows-exchange.md
-            
-  # Card
-  - title: Resources
-    linkLists:
-      - linkListType: resource
+      - linkListType: how-to-guide
         links:
-          - text: Peering FAQs
-            url: internet-peering-faqs.md
-          - text: Peering Service FAQs
-            url: internet-peering-service-faqs.md
+          - text: Create or modify a Direct Peering using Portal
+            url: internet-peering-howto-directpeering-arm-portal.md
+          - text: Convert a legacy Direct Peering to Azure resource using Portal
+            url: internet-peering-howto-legacydirect-arm-portal.md
+        
+  # Card
+  - title: Peering Service
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Enable Peering Service on a Direct Peering using Portal
+            url: internet-peering-howto-peering-service-portal.md
+            
+            
