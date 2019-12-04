@@ -28,10 +28,10 @@ ms.author: prmitiki
         > ![Peering Configuration - Direct Edit](../media/Peering_DirectLegacy_Conf_tab_Edit.png)
 
         > [!NOTE]
-        > If you want to add additional peering connections with Microsoft in the selected **Metro** location you may do so by clicking **Create new** button. See [Create or modify a Direct Peering using Portal](../internet-peering-howto-directpeering-arm-portal.md) for more info.
+        > If you want to add additional peering connections with Microsoft in the selected **Metro** location you may do so by clicking **Create new** button. See [Create or modify a Direct Peering using Azure portal](../internet-peering-howto-directpeering-arm-portal.md) for more info.
         >
 
-    * Click on **Review + create**. Observe that Azure portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
+    * Click on **Review + create**. Observe that  Azure portal  runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
 
         > [!div class="mx-imgBorder"]
         > ![Peering Validation Tab](../media/Peering_Direct_review_tab_validation.png)

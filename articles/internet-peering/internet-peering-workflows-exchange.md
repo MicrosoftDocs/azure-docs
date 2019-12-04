@@ -4,20 +4,22 @@ description: Exchange Peering workflow or walkthrough
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
 
-# Exchange Peering Walkthrough
+# Exchange Peering walkthrough
+
+This section explains the steps you need to follow to setup and manage an Exchange Peering.
 
 ## Create an Exchange Peering
 > [!div class="mx-imgBorder"]
 > ![Exchange Peering workflow and connection states](./media/exchange_peering.png)
 
 The following steps must be followed in order to provision an Exchange Peering:
-1. Please review Microsoft [Peering Policy](https://peering.azurewebsites.net/peering) to understand requirements for Exchange Peering.
+1. Please review Microsoft [Peering policy](https://peering.azurewebsites.net/peering) to understand requirements for Exchange Peering.
 1. Find Microsoft peering location and peering facility id in [Peeringdb](https://www.peeringdb.com/net/694)
 1. Request Exchange Peering for a peering location using the instructions in [Create and modify an Exchange Peering using PowerShell](internet-peering-howto-exchangepeering-arm.md) article for more details.
 1. After you submit a Peering request, Microsoft will review the request and contact you if required.
@@ -42,3 +44,7 @@ When an Exchange Peering is set for deprovision, you will see the connection sta
 
 > [!NOTE]
 > If you run the PowerShell cmdlet to delete the Exchange Peering when the connection state is ProvisioningStarted or ProvisioningCompleted the operation will fail.
+
+## Next steps
+
+* Learn about [Prerequisites to setup peering with Microsoft](internet-peering-prerequisites.md).

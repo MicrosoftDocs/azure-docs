@@ -1,6 +1,6 @@
 ---
-title: Associate Peer ASN to Azure Subscription using Portal
-description: Associate Peer ASN to Azure Subscription using Portal
+title: Associate Peer ASN to Azure Subscription using Azure portal
+description: Associate Peer ASN to Azure Subscription using Azure portal
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,11 +9,11 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-# Associate Peer ASN to Azure Subscription using Portal
-> [!div class="op_single_selector"]
-> * [Azure portal](internet-peering-subscription-registration-portal.md)
-> * [PowerShell](internet-peering-subscription-registration.md)
->
+# Associate Peer ASN to Azure Subscription using Azure portal
+
+Before you submit a peering request, you should first associate your ASN with Azure subscription using the steps below.
+
+If you prefer, you can complete this guide using the [PowerShell](internet-peering-subscription-registration.md).
 
 ## Create PeerAsn to associate your ASN with Azure Subscription
 
@@ -51,7 +51,7 @@ You can create a new PeerAsn resource for associating an Autonomous System Numbe
     * **Peer name** corresponds to your company's name and needs to be as close as possible to your PeeringDb profile. Note that value supports only characters a-z, A-Z, and space
     * Enter your ASN in the **Peer ASN** field.
     * Click on **Create new** and enter **EMAIL ADDRESS** and **PHONE NUMBER** for your Network Operations Center (NOC)
-    * Then, click on **Review + create** and observe that Azure portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
+    * Then, click on **Review + create** and observe that  Azure portal  runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
 
         > [!div class="mx-imgBorder"]
         > ![PeerAsn Review Tab](./media/PeerAsn_review_tab_validation.png)
@@ -80,10 +80,10 @@ Deleting a PeerAsn is not currently supported. If you need to delete PeerAsn, pl
 
 ## Next steps
 
-* [Create or modify a Direct Peering using Portal](internet-peering-howto-directpeering-arm-portal.md)
-* [Convert a legacy Direct Peering to Azure Resource using Portal](internet-peering-howto-legacydirect-arm-portal.md)
-* [Create or modify Exchange Peering using Portal](internet-peering-howto-exchangepeering-arm-portal.md)
-* [Convert a legacy Exchange Peering to Azure Resource using Portal](internet-peering-howto-legacyexchange-arm-portal.md)
+* [Create or modify a Direct Peering using Azure portal](internet-peering-howto-directpeering-arm-portal.md)
+* [Convert a legacy Direct Peering to Azure resource using Azure portal](internet-peering-howto-legacydirect-arm-portal.md)
+* [Create or modify Exchange Peering using Azure portal](internet-peering-howto-exchangepeering-arm-portal.md)
+* [Convert a legacy Exchange Peering to Azure resource using Azure portal](internet-peering-howto-legacyexchange-arm-portal.md)
 
 ## Additional Resources
 

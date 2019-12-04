@@ -4,19 +4,21 @@ description: Direct Peering workflow or walkthrough
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-# Direct Peering Walkthrough
+# Direct Peering walkthrough
+
+This section explains the steps you need to follow to setup and manage a Direct Peering.
 
 ## Create a Direct Peering
 > [!div class="mx-imgBorder"]
 > ![Direct Peering workflow and connection states](./media/direct_peering.png)
 
 The following steps must be followed in order to provision a Direct Peering:
-1. Please review Microsoft [Peering Policy](https://peering.azurewebsites.net/peering) to understand requirements for Direct Peering.
+1. Please review Microsoft [Peering policy](https://peering.azurewebsites.net/peering) to understand requirements for Direct Peering.
 1. Follow the instructions in [Create or modify a Direct Peering](internet-peering-howto-directpeering-arm.md) to submit a peering request.
 1. After you submit a Peering request, Microsoft will contact using your registered email address to provide LOA (Letter Of Authorization) or for other information.
 1. Once peering request is approved, connection state changes to ProvisioningStarted.
@@ -43,3 +45,7 @@ When a Direct Peering is set for deprovision, you will see the connection state 
 
 > [!NOTE]
 > If you run the PowerShell cmdlet to delete the Direct Peering when the ConnectionState is ProvisioningStarted or ProvisioningCompleted the operation will fail.
+
+## Next steps
+
+* Learn about [Prerequisites to setup peering with Microsoft](internet-peering-prerequisites.md).

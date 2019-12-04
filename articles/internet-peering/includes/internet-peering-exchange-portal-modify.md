@@ -49,4 +49,4 @@ This section describes how to perform the following modification operations for 
 
 ### 4. Remove IPv4/IPv6 session on Active connections
 
-Removing an IPv4/IPv6 session from an existing connection is not currently supported on Portal. Please contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).
+Removing an IPv4/IPv6 session from an existing connection is not currently supported on Azure portal. Please contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).

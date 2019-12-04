@@ -9,9 +9,9 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-Peering setup using Azure portal is currently under Preview. Therefore, you need to register Peering feature flag and Peering resource provider for your subscription.
+Peering setup using  Azure portal  is currently under Preview. Therefore, you need to register Peering feature flag and Peering resource provider for your subscription.
 
-1. Click on the icon for *Cloud Shell* on the top right corner of your portal.
+1. Click on the icon for *Cloud Shell* on the top right corner of your Azure portal.
 
     > [!div class="mx-imgBorder"]
     > ![Open Cloud Shell](../media/cloudshell_open.png)

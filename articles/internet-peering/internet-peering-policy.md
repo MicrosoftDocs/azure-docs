@@ -1,7 +1,7 @@
 ---
 
-title: Microsoft Peering Policy
-description: Peering Policy
+title: Microsoft Peering policy
+description: Peering policy
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -11,8 +11,7 @@ ms.author: prmitiki
 
 ---
 
-
-# Peering Policy
+# Peering policy
 Microsoft's general requirements from your network are explained in the sections below. These are applicable to both Direct Peering and Exchange Peering requests.
 
 ## Technical requirements:
@@ -60,3 +59,8 @@ We interconnect in as many diverse locations as possible. Traffic from your netw
 
 ### Physical connection requirements:
 * Each Direct Peering consists of two connections to two Microsoft edge routers from the Peer's routers located in Peer's edge. Microsoft requires dual BGP sessions across these connections. The peer may choose not to deploy redundant devices at their end.
+
+## Next steps
+
+* To learn about steps to setup Direct Peering with Microsoft, follow [Direct Peering walkthrough](internet-peering-workflows-direct.md).
+* To learn about steps to setup Exchange Peering with Microsoft, follow [Exchange Peering walkthrough](internet-peering-workflows-exchange.md).

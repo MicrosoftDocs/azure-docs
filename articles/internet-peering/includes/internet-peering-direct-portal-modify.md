@@ -25,7 +25,7 @@ This section describes how to perform the following modification operations for 
 
 ### 2. Remove Direct Peering connections
 
-Removing a connection is not currently supported on Portal. Please contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).
+Removing a connection is not currently supported on Azure portal. Please contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).
 
 ### 3. Upgrade or downgrade bandwidth on Active connections
 
@@ -47,4 +47,4 @@ Removing a connection is not currently supported on Portal. Please contact [Micr
 
 ### 5. Remove IPv4/IPv6 session on Active connections.
 
-Removing a **Session IPv4 prefix** or **Session IPv6 prefix** info is not currently supported on Portal. Please contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).
+Removing a **Session IPv4 prefix** or **Session IPv6 prefix** info is not currently supported on Azure portal. Please contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).

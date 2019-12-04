@@ -34,6 +34,6 @@ ms.author: prmitiki
     > [!div class="mx-imgBorder"]
     > ![Peering resource view](../media/Peering_Direct_get_connectionsSummary.png)
 
-    * **Connection State** corresponds to the state of the peering connection setup. The states displayed in this field follow the state diagram shown in [Direct Peering Walkthrough](../internet-peering-workflows-direct.md)
+    * **Connection State** corresponds to the state of the peering connection setup. The states displayed in this field follow the state diagram shown in [Direct Peering walkthrough](../internet-peering-workflows-direct.md)
     * **IPv4 Session State** and **IPv6 Session State** correspond to the IPv4 and IPv6 BGP session states respectively.  
     * When you select a row on the top, the ***Connection*** section on the bottom shows details for each connection. You can click on arrow marks to expand the sub-sections ***Configuration***, ***IPv4 address*** and ***IPv6 address***

@@ -10,15 +10,13 @@ ms.author: prmitiki
 ---
 
 # Create or modify an Exchange Peering using PowerShell
-> [!div class="op_single_selector"]
-> * [Azure portal](internet-peering-howto-exchangepeering-arm-portal.md)
-> * [PowerShell](internet-peering-howto-exchangepeering-arm.md)
->
 
-This article describes how to create a Microsoft Exchange Peering by using PowerShell cmdlets and the Azure Resource Manager deployment model. This article also shows you how to check the status of the resource, update it, or delete and deprovision it.
+This article describes how to create a Microsoft Exchange Peering by using PowerShell cmdlets and the Azure resource Manager deployment model. This article also shows you how to check the status of the resource, update it, or delete and deprovision it.
+
+If you prefer, you can complete this guide using the [Azure portal](internet-peering-howto-exchangepeering-arm-portal.md).
 
 ## Before you begin
-* Review [Prerequisites](internet-peering-prerequisites.md) and [Exchange Peering Walkthrough](internet-peering-workflows-exchange.md) before you begin configuration.
+* Review [Prerequisites](internet-peering-prerequisites.md) and [Exchange Peering walkthrough](internet-peering-workflows-exchange.md) before you begin configuration.
 * In case you have Exchange Peerings with Microsoft already, which are not converted to Azure resources, please refer to [Convert a legacy Exchange Peering to Azure resource using PowerShell](internet-peering-howto-legacyexchange-arm.md)
 
 ### Working with Azure PowerShell
@@ -44,6 +42,11 @@ This article describes how to create a Microsoft Exchange Peering by using Power
 ## <a name=delete></a>Deprovision an Exchange Peering
 
 [!INCLUDE [peering-exchange-delete](./includes/internet-peering-exchange-delete.md)]
+
+## Next steps
+
+* [Create or modify a Direct Peering using PowerShell](internet-peering-howto-directpeering-arm.md)
+* [Convert a legacy Direct Peering to Azure resource using PowerShell](internet-peering-howto-legacydirect-arm.md)
 
 ## Additional Resources
 You can get detailed descriptions of all the parameters by running the following command:

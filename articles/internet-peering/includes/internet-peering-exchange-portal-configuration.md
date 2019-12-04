@@ -20,7 +20,7 @@ ms.author: prmitiki
     * Choose the **Metro** location for where you want to setup peering.
 
         > [!NOTE]
-        > If you already have peering connections with Microsoft in the selected **Metro** location, and you are using Azure portal for the first time to setup peering in that location, then your existing peering connections will be listed in the **Peering connections** section as shown below. Microsoft will automatically convert these peering connections to Azure resource so that you can manage them all along with the new connections, in one place.See [Convert a legacy Exchange Peering to Azure Resource using Portal](../internet-peering-howto-legacyexchange-arm-portal.md) for more info.
+        > If you already have peering connections with Microsoft in the selected **Metro** location, and you are using  Azure portal  for the first time to setup peering in that location, then your existing peering connections will be listed in the **Peering connections** section as shown below. Microsoft will automatically convert these peering connections to Azure resource so that you can manage them all along with the new connections, in one place.See [Convert a legacy Exchange Peering to Azure resource using portal](../internet-peering-howto-legacyexchange-arm-portal.md) for more info.
         >
 
     * Under **Peering connections**, click **Create new** to add a line for each new connection you want to setup. Then, click the edit button for a line, highlighted below, to configure/modify connection settings.
@@ -49,7 +49,7 @@ ms.author: prmitiki
         > [!div class="mx-imgBorder"]
         > ![Peering Conf Tab Final](../media/Peering_Exchange_Conf_tab_final.png)
 
-    * Observe that Azure portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
+    * Observe that  Azure portal  runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
 
         > [!div class="mx-imgBorder"]
         > ![Peering Validation Tab](../media/Peering_Direct_review_tab_validation.png)

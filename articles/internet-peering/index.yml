@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Peering Documentation
-summary: Learn about Peering with Microsoft.
+title: Internet Peering Documentation
+summary: Learn about Internet Peering with Microsoft.
 
 metadata:
   title: Peering Documentation
@@ -24,38 +24,34 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Peering Overview
+          - text: About Internet Peering
             url: internet-peering-overview.md
-          - text: What is Peering Service?
+          - text: Internet Peering vs Peering Service
             url: internet-peering-service-overview.md
       - linkListType: concept
         links:
-          - text: Peering Policy
+          - text: Internet Peering policy
             url: internet-peering-policy.md
           - text: Prerequisites to setup peering with Microsoft
             url: internet-peering-prerequisites.md
-          - text: Peering FAQs
+          - text: Internet Peering FAQs
             url: internet-peering-faqs.md
-          - text: Peering Service FAQs
-            url: internet-peering-service-faqs.md
 
   # Card
   - title: Get started
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Associate Peer ASN to Azure Subscription using Portal
+          - text: Associate peer ASN to Azure subscription using portal
             url: internet-peering-subscription-registration-portal.md
 
   # Card
   - title: Exchange Peering
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Exchange Peering Walkthrough
-            url: internet-peering-workflows-exchange.md
       - linkListType: how-to-guide
         links:
+          - text: Exchange Peering walkthrough
+            url: internet-peering-workflows-exchange.md
           - text: Create or modify an Exchange Peering using Portal
             url: internet-peering-howto-exchangepeering-arm-portal.md
           - text: Convert a legacy Exchange Peering to Azure resource using Portal
@@ -64,12 +60,10 @@ landingContent:
   # Card
   - title: Direct Peering
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Direct Peering Walkthrough
-            url: internet-peering-workflows-direct.md
       - linkListType: how-to-guide
         links:
+          - text: Direct Peering walkthrough
+            url: internet-peering-workflows-direct.md
           - text: Create or modify a Direct Peering using Portal
             url: internet-peering-howto-directpeering-arm-portal.md
           - text: Convert a legacy Direct Peering to Azure resource using Portal
@@ -78,16 +72,15 @@ landingContent:
   # Card
   - title: Peering Service
     linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Peering Service?
-            url: internet-peering-service-overview.md
       - linkListType: concept
+        links:
           - text: Peering Service FAQs
             url: internet-peering-service-faqs.md
       - linkListType: how-to-guide
         links:
-          - text: Enable Peering Service on a Direct Peering using Portal
+          - text: Peering Service partner walkthrough
+            url: internet-peering-workflows-peeringservice.md
+          - text: Enable Peering Service on a Direct Peering using portal
             url: internet-peering-howto-peering-service-portal.md
             
             
