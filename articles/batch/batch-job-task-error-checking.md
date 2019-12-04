@@ -34,7 +34,7 @@ When adding a job, the following parameters can be specified which can influence
 The following job properties should be checked for errors:
 
 - '[executionInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#jobexecutioninformation)':
-  - The 'terminateReason' property can have values to indicate that the 'maxWallClockTime', specified in the job constraints, was exceeded and therefore the job was terminated. It can also be set to indicate a task failed if the job 'onTaskFailure' property was set appropriately.
+  - The `terminateReason` property can have values to indicate that the `maxWallClockTime`, specified in the job constraints, was exceeded and therefore the job was terminated. It can also be set to indicate a task failed if the job `onTaskFailure` property was set appropriately.
   - The '[schedulingError](https://docs.microsoft.com/rest/api/batchservice/job/get#jobschedulingerror)' property is set if there has been a scheduling error.
  
 ### Job preparation tasks
