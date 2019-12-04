@@ -55,7 +55,7 @@ Follow these steps:
 
 1. In the Azure portal, in **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
-3. In **Overview**, under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
+3. In **Overview**, under **Discover, assess and migrate servers**, select **Assess and migrate servers**.
 
     ![Discover and assess servers](./media/tutorial-assess-import/assess-migrate.png)
 
@@ -124,8 +124,8 @@ The following table summarizes the file fields to fill in:
 **Server type** | No | Values can be "Physical" or "Virtual".
 **Hypervisor** | No | Hypervisor on which a machine is running. <br/> Values can be "VMware", "Hyper-V", "Xen", "AWS", "GCP", or "Other".
 **Hypervisor version number** | No | Hypervisor version.
-**Virtual machine ID** | No | VM identifier. This is the **InstanceUUid** for a VMware vCenter VM, or **Hyper-V VM ID** for Hyper-V.
-**Virtual machine manager ID** | No | This is the **InstanceUUid** for VMWare vCenter. Not needed for Hyper-V.
+**Virtual machine ID** | No | VM identifier. This is the **InstanceUUid** value for a VMware vCenter VM, or the **Hyper-V VM ID** for Hyper-V.
+**Virtual machine manager ID** | No | This is the **InstanceUUid** value for VMWare vCenter. It isn't needed for Hyper-V.
 **MAC address**| No | Server MAC address.
 **BIOS ID** | No | Server BIOS ID.
 **Custom server ID**| No | Local, unique server ID on-premises. <br/> Useful for tracking the imported server by local ID.
@@ -161,14 +161,14 @@ Optionally, you can add specific fields only for a disk.
 
 The template provides fields for a single application. You can add similar columns for up to five apps.  
 
-For example, to specify all fields for a second app, add the columns:
+For example, to specify all fields for a second app, add these columns:
 
-Application 2 name
-Application 2 type
-Application 2 version
-Application 2 license expiry
+- Application 2 name
+- Application 2 type
+- Application 2 version
+- Application 2 license expiry
 
-Optionally you can add specific fields only for an app.
+Optionally, you can add specific fields only for an app.
 
 > [!NOTE]
 > App information is useful in evaluating your on-premises environment for migration. However, Azure Migrate Server Assessment doesn't currently perform app-level assessment or take apps into account when creating an assessment.
@@ -191,14 +191,14 @@ After you add information to the CSV template, import the servers into Azure Mig
 
 ## Update server information
 
-You can update the information for a server by uploading the data for the server again with the same **Server name**. You can't modify the **Server name** field. Deleting servers is currently not supported.
+You can update the information for a server by importing the data for the server again with the same **Server name**. You can't modify the **Server name** field. Deleting servers is currently not supported.
 
 ## Verify servers in the portal
 
 To verify that the servers appear in the Azure portal after discovery:
 
 1. Open the Azure Migrate dashboard.
-2. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, select the icon that displays the count for **Discovered servers**.
+2. On the **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, select the icon that displays the count for **Discovered servers**.
 3. Select the **Import based** tab.
 
 ## Set up and run an assessment
@@ -303,4 +303,4 @@ In this tutorial, you:
 > * Imported servers into Azure Migrate Server Assessment by using CSV.
 > * Created and reviewed an assessment.
 
-Now, [deploy an appliance](./migrate-appliance.md) for more accurate assessments, and gather servers together into groups for deeper assessment using [dependency analysis](./concepts-dependency-visualization.md).
+Now, [deploy an appliance](./migrate-appliance.md) for more accurate assessments, and gather servers together into groups for deeper assessment by using [dependency analysis](./concepts-dependency-visualization.md).
