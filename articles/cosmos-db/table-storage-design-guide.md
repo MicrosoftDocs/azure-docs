@@ -297,35 +297,35 @@ The following patterns in the section [Table design patterns](#table-design-patt
 * [Log tail pattern](#log-tail-pattern): Retrieve the *n* entities most recently added to a partition, by using a `RowKey` value that sorts in reverse date and time order.  
 
 ## Encrypt table data
-The .NET Azure Storage Client Library supports encryption of string entity properties for insert and replace operations. The encrypted strings are stored on the service as binary properties, and they are converted back to strings after decryption.    
+The .NET Azure Storage client library supports encryption of string entity properties for insert and replace operations. The encrypted strings are stored on the service as binary properties, and they're converted back to strings after decryption.    
 
-For tables, in addition to the encryption policy, users must specify the properties to be encrypted. This can be done by either specifying an [EncryptProperty] attribute (for POCO entities that derive from TableEntity) or an encryption resolver in request options. An encryption resolver is a delegate that takes a partition key, row key, and property name and returns a Boolean that indicates whether that property should be encrypted. During encryption, the client library will use this information to decide whether a property should be encrypted while writing to the wire. The delegate also provides for the possibility of logic around how properties are encrypted. (For example, if X, then encrypt property A; otherwise encrypt properties A and B.) It is not necessary to provide this information while reading or querying entities.
+For tables, in addition to the encryption policy, users must specify the properties to be encrypted. Either specify an `EncryptProperty` attribute (for POCO entities that derive from `TableEntity`), or specify an encryption resolver in request options. An encryption resolver is a delegate that takes a partition key, row key, and property name, and returns a Boolean that indicates whether that property should be encrypted. During encryption, the client library uses this information to decide whether a property should be encrypted while writing to the wire. The delegate also provides for the possibility of logic around how properties are encrypted. (For example, if X, then encrypt property A; otherwise encrypt properties A and B.) It's not necessary to provide this information while reading or querying entities.
 
-Merge is not currently supported. Since a subset of properties may have been encrypted previously using a different key, simply merging the new properties and updating the metadata will result in data loss. Merging either requires making extra service calls to read the pre-existing entity from the service, or using a new key per property, both of which are not suitable for performance reasons.     
+Merge isn't currently supported. Because a subset of properties might have been encrypted previously by using a different key, simply merging the new properties and updating the metadata will result in data loss. Merging either requires making extra service calls to read the pre-existing entity from the service, or using a new key per property. Neither of these are suitable for performance reasons.     
 
-For information about encrypting table data, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../storage/common/storage-client-side-encryption.md).  
+For information about encrypting table data, see [Client-side encryption and Azure Key Vault for Microsoft Azure Storage](../storage/common/storage-client-side-encryption.md).  
 
-## Modeling relationships
-Building domain models is a key step in the design of complex systems. Typically, you use the modeling process to identify entities and the relationships between them as a way to understand the business domain and inform the design of your system. This section focuses on how you can translate some of the common relationship types found in domain models to designs for the Table service. The process of mapping from a logical data-model to a physical NoSQL based data-model is different from that used when designing a relational database. Relational databases design typically assumes a data normalization process optimized for minimizing redundancy – and a declarative querying capability that abstracts how the implementation of how the database works.  
+## Model relationships
+Building domain models is a key step in the design of complex systems. Typically, you use the modeling process to identify entities and the relationships between them, as a way to understand the business domain and inform the design of your system. This section focuses on how you can translate some of the common relationship types found in domain models to designs for Table storage. The process of mapping from a logical data model to a physical NoSQL-based data model is different from that used when designing a relational database. Relational databases design typically assumes a data normalization process optimized for minimizing redundancy. Such design also assumes a declarative querying capability that abstracts the implementation of how the database works.  
 
 ### One-to-many relationships
-One-to-many relationships between business domain objects occur frequently: for example, one department has many employees. There are several ways to implement one-to-many relationships in the Table service each with pros and cons that may be relevant to the particular scenario.  
+One-to-many relationships between business domain objects occur frequently: for example, one department has many employees. There are several ways to implement one-to-many relationships in Table storage, each with pros and cons that might be relevant to the particular scenario.  
 
-Consider the example of a large multi-national corporation with tens of thousands of departments and employee entities where every department has many employees and each employee as associated with one specific department. One approach is to store separate department and employee entities such as these:  
+Consider the example of a large multinational corporation with tens of thousands of departments and employee entities. Every department has many employees and each employee is associated with one specific department. One approach is to store separate department and employee entities, such as the following:  
 
-![Department and employee entity][1]
+![Graphic showing a department entity and an employee entity][1]
 
-This example shows an implicit one-to-many relationship between the types based on the **PartitionKey** value. Each department can have many employees.  
+This example shows an implicit one-to-many relationship between the types, based on the `PartitionKey` value. Each department can have many employees.  
 
 This example also shows a department entity and its related employee entities in the same partition. You could choose to use different partitions, tables, or even storage accounts for the different entity types.  
 
-An alternative approach is to denormalize your data and store only employee entities with denormalized department data as shown in the following example. In this particular scenario, this denormalized approach may not be the best if you have a requirement to be able to change the details of a department manager because to do this you need to update every employee in the department.  
+An alternative approach is to denormalize your data, and store only employee entities with denormalized department data, as shown in the following example. In this particular scenario, this denormalized approach might not be the best if you have a requirement to be able to change the details of a department manager. To do this, you would need to update every employee in the department.  
 
-![Employee entity][2]
+![Graphic of employee entity][2]
 
 For more information, see the [Denormalization pattern](#denormalization-pattern) later in this guide.  
 
-The following table summarizes the pros and cons of each of the approaches outlined above for storing employee and department entities that have a one-to-many relationship. You should also consider how often you expect to perform various operations: it may be acceptable to have a design that includes an expensive operation if that operation only happens infrequently.  
+The following table summarizes the pros and cons of each of the approaches for storing employee and department entities that have a one-to-many relationship. You should also consider how often you expect to perform various operations. It might be acceptable to have a design that includes an expensive operation if that operation only happens infrequently.  
 
 <table>
 <tr>
@@ -343,9 +343,9 @@ The following table summarizes the pros and cons of each of the approaches outli
 </td>
 <td>
 <ul>
-<li>You may need to retrieve both an employee and a department entity for some client activities.</li>
-<li>Storage operations happen in the same partition. At high transaction volumes, this may result in a hotspot.</li>
-<li>You cannot move an employee to a new department using an EGT.</li>
+<li>You might need to retrieve both an employee and a department entity for some client activities.</li>
+<li>Storage operations happen in the same partition. At high transaction volumes, this can result in a hotspot.</li>
+<li>You can't move an employee to a new department by using an EGT.</li>
 </ul>
 </td>
 </tr>
@@ -354,14 +354,14 @@ The following table summarizes the pros and cons of each of the approaches outli
 <td>
 <ul>
 <li>You can update a department entity or employee entity with a single operation.</li>
-<li>At high transaction volumes, this may help spread the load across more partitions.</li>
+<li>At high transaction volumes, this can help spread the load across more partitions.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>You may need to retrieve both an employee and a department entity for some client activities.</li>
-<li>You cannot use EGTs to maintain consistency when you update/insert/delete an employee and update a department. For example, updating an employee count in a department entity.</li>
-<li>You cannot move an employee to a new department using an EGT.</li>
+<li>You might need to retrieve both an employee and a department entity for some client activities.</li>
+<li>You can't use EGTs to maintain consistency when you update/insert/delete an employee and update a department. For example, updating an employee count in a department entity.</li>
+<li>You can't move an employee to a new department by using an EGT.</li>
 </ul>
 </td>
 </tr>
@@ -374,129 +374,135 @@ The following table summarizes the pros and cons of each of the approaches outli
 </td>
 <td>
 <ul>
-<li>It may be expensive to maintain consistency if you need to update department information (this would require you to update all the employees in a department).</li>
+<li>It can be expensive to maintain consistency if you need to update department information (this would require you to update all the employees in a department).</li>
 </ul>
 </td>
 </tr>
 </table>
 
-How you choose between these options, and which of the pros and cons are most significant, depends on your specific application scenarios. For example, how often do you modify department entities; do all your employee queries need the additional departmental information; how close are you to the scalability limits on your partitions or your storage account?  
+How you choose among these options, and which of the pros and cons are most significant, depends on your specific application scenarios. For example, how often do you modify department entities? Do all your employee queries need the additional departmental information? How close are you to the scalability limits on your partitions or your storage account?  
 
 ### One-to-one relationships
-Domain models may include one-to-one relationships between entities. If you need to implement a one-to-one relationship in the Table service, you must also choose how to link the two related entities when you need to retrieve them both. This link can be either implicit, based on a convention in the key values, or explicit by storing a link in the form of **PartitionKey** and **RowKey** values in each entity to its related entity. For a discussion of whether you should store the related entities in the same partition, see the section [One-to-many relationships](#one-to-many-relationships).  
+Domain models can include one-to-one relationships between entities. If you need to implement a one-to-one relationship in Table storage, you must also choose how to link the two related entities when you need to retrieve them both. This link can be either implicit, based on a convention in the key values, or explicit, by storing a link in the form of `PartitionKey` and `RowKey` values in each entity to its related entity. For a discussion of whether you should store the related entities in the same partition, see the section [One-to-many relationships](#one-to-many-relationships).  
 
-There are also implementation considerations that might lead you to implement one-to-one relationships in the Table service:  
+There are also implementation considerations that might lead you to implement one-to-one relationships in Table storage:  
 
-* Handling large entities (for more information, see [Large Entities Pattern](#large-entities-pattern)).  
-* Implementing access controls (for more information, see [Controlling access with Shared Access Signatures](#controlling-access-with-shared-access-signatures)).  
+* Handling large entities (for more information, see [Large entities pattern](#large-entities-pattern)).  
+* Implementing access controls (for more information, see [Controlling access with shared access signatures](#controlling-access-with-shared-access-signatures)).  
 
 ### Join in the client
-Although there are ways to model relationships in the Table service, you should not forget that the two prime reasons for using the Table service are scalability and performance. If you find you are modeling many relationships that compromise the performance and scalability of your solution, you should ask yourself if it is necessary to build all the data relationships into your table design. You may be able to simplify the design and improve the scalability and performance of your solution if you let your client application perform any necessary joins.  
+Although there are ways to model relationships in Table storage, don't forget that the two prime reasons for using Table storage are scalability and performance. If you find you are modeling many relationships that compromise the performance and scalability of your solution, you should ask yourself if it's necessary to build all the data relationships into your table design. You might be able to simplify the design, and improve the scalability and performance of your solution, if you let your client application perform any necessary joins.  
 
-For example, if you have small tables that contain data that does not change often, then you can retrieve this data once and cache it on the client. This can avoid repeated roundtrips to retrieve the same data. In the examples we have looked at in this guide, the set of departments in a small organization is likely to be small and change infrequently making it a good candidate for data that client application can download once and cache as lookup data.  
+For example, if you have small tables that contain data that doesn't change often, you can retrieve this data once, and cache it on the client. This can avoid repeated roundtrips to retrieve the same data. In the examples we've looked at in this guide, the set of departments in a small organization is likely to be small and change infrequently. This makes it a good candidate for data that a client application can download once and cache as lookup data.  
 
 ### Inheritance relationships
-If your client application uses a set of classes that form part of an inheritance relationship to represent business entities, you can easily persist those entities in the Table service. For example, you might have the following set of classes defined in your client application where **Person** is an abstract class.
+If your client application uses a set of classes that form part of an inheritance relationship to represent business entities, you can easily persist those entities in Table storage. For example, you might have the following set of classes defined in your client application, where `Person` is an abstract class.
 
-![ER diagram of inheritance relationships][3]
+![Diagram of inheritance relationships][3]
 
-You can persist instances of the two concrete classes in the Table service using a single Person table using entities in that look like this:  
+You can persist instances of the two concrete classes in Table storage by using a single `Person` table. Use entities that look like the following:  
 
-![Diagram of the Customer entity and Employee entity][4]
+![Graphic showing customer entity and employee entity][4]
 
-For more information about working with multiple entity types in the same table in client code, see the section [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types) later in this guide. This provides examples of how to recognize the entity type in client code.  
+For more information about working with multiple entity types in the same table in client code, see [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types) later in this guide. This provides examples of how to recognize the entity type in client code.  
 
-## Table Design Patterns
-In previous sections, you have seen some detailed discussions about how to optimize your table design for both retrieving entity data using queries and for inserting, updating, and deleting entity data. This section describes some patterns appropriate for use with Table service solutions. In addition, you will see how you can practically address some of the issues and trade-offs raised previously in this guide. The following diagram summarizes the relationships between the different patterns:  
+## Table design patterns
+In previous sections, you learned about how to optimize your table design for both retrieving entity data by using queries, and for inserting, updating, and deleting entity data. This section describes some patterns appropriate for use with Table storage. In addition, you'll see how you can practically address some of the issues and trade-offs raised previously in this guide. The following diagram summarizes the relationships among the different patterns:  
 
-![Image of table design patterns][5]
+![Diagram of table design patterns][5]
 
-The pattern map above highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of course many other patterns that are worth considering. For example, one of the key scenarios for Table Service is to use the [Materialized View Pattern](https://msdn.microsoft.com/library/azure/dn589782.aspx) from the [Command Query Responsibility Segregation (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) pattern.  
+The pattern map highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of course many other patterns that are worth considering. For example, one of the key scenarios for Table storage is to use the [materialized view pattern](https://msdn.microsoft.com/library/azure/dn589782.aspx) from the [command query responsibility segregation](https://msdn.microsoft.com/library/azure/jj554200.aspx) pattern.  
 
 ### Intra-partition secondary index pattern
-Store multiple copies of each entity using different **RowKey** values (in the same partition) to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values. Updates between copies can be kept consistent using EGTs.  
+Store multiple copies of each entity by using different `RowKey` values (in the same partition). This enables fast and efficient lookups, and alternate sort orders by using different `RowKey` values. Updates between copies can be kept consistent by using EGTs.  
 
 #### Context and problem
-The Table service automatically indexes entities using the **PartitionKey** and **RowKey** values. This enables a client application to retrieve an entity efficiently using these values. For example, using the table structure shown below, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee id (the **PartitionKey** and **RowKey** values). A client can also retrieve entities sorted by employee id within each department.
+Table storage automatically indexes entities by using the `PartitionKey` and `RowKey` values. This enables a client application to retrieve an entity efficiently by using these values. For example, using the table structure shown below, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee ID (the `PartitionKey` and `RowKey` values). A client can also retrieve entities sorted by employee ID within each department.
 
-![Employee entity][6]
+![Graphic of employee entity][6]
 
-If you also want to be able to find an employee entity based on the value of another property, such as email address, you must use a less efficient partition scan to find a match. This is because the table service does not provide secondary indexes. In addition, there is no option to request a list of employees sorted in a different order than **RowKey** order.  
+If you also want to find an employee entity based on the value of another property, such as email address, you must use a less efficient partition scan to find a match. This is because the table service doesn't provide secondary indexes. In addition, there's no option to request a list of employees sorted in a different order than `RowKey` order.  
 
 #### Solution
-To work around the lack of secondary indexes, you can store multiple copies of each entity with each copy using a different **RowKey** value. If you store an entity with the structures shown below, you can efficiently retrieve employee entities based on email address or employee id. The prefix values for the **RowKey**, "empid_" and "email_" enable you to query for a single employee or a range of employees by using a range of email addresses or employee ids.  
+To work around the lack of secondary indexes, you can store multiple copies of each entity, with each copy using a different `RowKey` value. If you store an entity with the following structures, you can efficiently retrieve employee entities based on email address or employee ID. The prefix values for `RowKey`, `empid_`, and `email_` enable you to query for a single employee, or a range of employees, by using a range of email addresses or employee IDs.  
 
-![Employee entity with varying RowKey values][7]
+![Graphic showing employee entity with varying RowKey values][7]
 
-The following two filter criteria (one looking up by employee id and one looking up by email address) both specify point queries:  
+The following two filter criteria (one looking up by employee ID, and one looking up by email address) both specify point queries:  
 
 * $filter=(PartitionKey eq 'Sales') and (RowKey eq 'empid_000223')  
 * $filter=(PartitionKey eq 'Sales') and (RowKey eq 'email_jonesj@contoso.com')  
 
-If you query for a range of employee entities, you can specify a range sorted in employee id order, or a range sorted in email address order by querying for entities with the appropriate prefix in the **RowKey**.  
+If you query for a range of employee entities, you can specify a range sorted in employee ID order, or a range sorted in email address order. Query for entities with the appropriate prefix in the `RowKey`.  
 
-* To find all the employees in the Sales department with an employee id in the range 000100 to 000199 use:
+* To find all the employees in the Sales department with an employee ID in the range 000100 to 000199, use:
   $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
-* To find all the employees in the Sales department with an email address starting with the letter 'a' use:
+* To find all the employees in the Sales department with an email address starting with the letter "a", use:
   $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  The filter syntax used in the examples above is from the Table service REST API, for more information, see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  The filter syntax used in the preceding examples is from the Table storage REST API. For more information, see [Query entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
 
-* Table storage is relatively cheap to use so the cost overhead of storing duplicate data should not be a major concern. However, you should always evaluate the cost of your design based on your anticipated storage requirements and only add duplicate entities to support the queries your client application will execute.  
-* Because the secondary index entities are stored in the same partition as the original entities, you should ensure that you do not exceed the scalability targets for an individual partition.  
-* You can keep your duplicate entities consistent with each other by using EGTs to update the two copies of the entity atomically. This implies that you should store all copies of an entity in the same partition. For more information, see the section [Using Entity Group Transactions](#entity-group-transactions).  
-* The value used for the **RowKey** must be unique for each entity. Consider using compound key values.  
-* Padding numeric values in the **RowKey** (for example, the employee id 000223), enables correct sorting and filtering based on upper and lower bounds.  
-* You do not necessarily need to duplicate all the properties of your entity. For example, if the queries that look up the entities using the email address in the **RowKey** never need the employee's age, these entities could have the following structure:
+* Table storage is relatively cheap to use, so the cost overhead of storing duplicate data shouldn't be a major concern. However, you should always evaluate the cost of your design based on your anticipated storage requirements, and only add duplicate entities to support the queries your client application will run.  
+* Because the secondary index entities are stored in the same partition as the original entities, ensure that you don't exceed the scalability targets for an individual partition.  
+* You can keep your duplicate entities consistent with each other by using EGTs to update the two copies of the entity atomically. This implies that you should store all copies of an entity in the same partition. For more information, see [Use entity group transactions](#entity-group-transactions).  
+* The value used for the `RowKey` must be unique for each entity. Consider using compound key values.  
+* Padding numeric values in the `RowKey` (for example, the employee ID 000223) enables correct sorting and filtering based on upper and lower bounds.  
+* You don't necessarily need to duplicate all the properties of your entity. For example, if the queries that look up the entities by using the email address in the `RowKey` never need the employee's age, these entities could have the following structure:
 
-![Employee entity][8]
+![Graphic of employee entity][8]
 
-* It is typically better to store duplicate data and ensure that you can retrieve all the data you need with a single query, than to use one query to locate an entity and another to look up the required data.  
+* Typically, it's better to store duplicate data and ensure that you can retrieve all the data you need with a single query, than to use one query to locate an entity and another to look up the required data.  
 
 #### When to use this pattern
-Use this pattern when your client application needs to retrieve entities using a variety of different keys, when your client needs to retrieve entities in different sort orders, and where you can identify each entity using a variety of unique values. However, you should be sure that you do not exceed the partition scalability limits when you are performing entity lookups using the different **RowKey** values.  
+Use this pattern when:
+
+- Your client application needs to retrieve entities by using a variety of different keys.
+- Your client needs to retrieve entities in different sort orders.
+- You can identify each entity by using a variety of unique values.
+
+However, be sure that you don't exceed the partition scalability limits when you're performing entity lookups by using the different `RowKey` values.  
 
 #### Related patterns and guidance
-The following patterns and guidance may also be relevant when implementing this pattern:  
+The following patterns and guidance might also be relevant when implementing this pattern:  
 
 * [Inter-partition secondary index pattern](#inter-partition-secondary-index-pattern)
 * [Compound key pattern](#compound-key-pattern)
-* [Entity Group Transactions](#entity-group-transactions)
+* [Entity group transactions](#entity-group-transactions)
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)
 
 ### Inter-partition secondary index pattern
-Store multiple copies of each entity using different **RowKey** values in separate partitions or in separate tables to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
+Store multiple copies of each entity by using different `RowKey` values in separate partitions or in separate tables. This enables fast and efficient lookups, and alternate sort orders by using different `RowKey` values.  
 
 #### Context and problem
-The Table service automatically indexes entities using the **PartitionKey** and **RowKey** values. This enables a client application to retrieve an entity efficiently using these values. For example, using the table structure shown below, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee id (the **PartitionKey** and **RowKey** values). A client can also retrieve entities sorted by employee id within each department.  
+Table storage automatically indexes entities by using the `PartitionKey` and `RowKey` values. This enables a client application to retrieve an entity efficiently by using these values. For example, using the table structure shown below, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee ID (the `PartitionKey` and `RowKey` values). A client can also retrieve entities sorted by employee ID within each department.  
 
-![Employee entity][9]
+![Graphic of employee entity][9]
 
-If you also want to be able to find an employee entity based on the value of another property, such as email address, you must use a less efficient partition scan to find a match. This is because the table service does not provide secondary indexes. In addition, there is no option to request a list of employees sorted in a different order than **RowKey** order.  
+If you also want to be able to find an employee entity based on the value of another property, such as email address, you must use a less efficient partition scan to find a match. This is because Table storage doesn't provide secondary indexes. In addition, there's no option to request a list of employees sorted in a different order than `RowKey` order.  
 
-You are anticipating a high volume of transactions against these entities and want to minimize the risk of the Table service rate limiting your client.  
+You're anticipating a high volume of transactions against these entities, and want to minimize the risk of the Table storage rate limiting your client.  
 
 #### Solution
-To work around the lack of secondary indexes, you can store multiple copies of each entity with each copy using different **PartitionKey** and **RowKey** values. If you store an entity with the structures shown below, you can efficiently retrieve employee entities based on email address or employee id. The prefix values for the **PartitionKey**, "empid_" and "email_" enable you to identify which index you want to use for a query.  
+To work around the lack of secondary indexes, you can store multiple copies of each entity, with each copy using different `PartitionKey` and `RowKey` values. If you store an entity with the following structures, you can efficiently retrieve employee entities based on email address or employee ID. The prefix values for `PartitionKey`, `empid_`, and `email_` enable you to identify which index you want to use for a query.  
 
-![Employee entity with primary index and Employee entity with secondary index][10]
+![Graphic showing employee entity with primary index and employee entity with secondary index][10]
 
-The following two filter criteria (one looking up by employee id and one looking up by email address) both specify point queries:  
+The following two filter criteria (one looking up by employee ID, and one looking up by email address) both specify point queries:  
 
 * $filter=(PartitionKey eq 'empid_Sales') and (RowKey eq '000223')
 * $filter=(PartitionKey eq 'email_Sales') and (RowKey eq 'jonesj@contoso.com')  
 
-If you query for a range of employee entities, you can specify a range sorted in employee id order, or a range sorted in email address order by querying for entities with the appropriate prefix in the **RowKey**.  
+If you query for a range of employee entities, you can specify a range sorted in employee ID order, or a range sorted in email address order. Query for entities with the appropriate prefix in the `RowKey`.  
 
-* To find all the employees in the Sales department with an employee id in the range **000100** to **000199** sorted in employee id order use:
+* To find all the employees in the Sales department with an employee ID in the range **000100** to **000199**, sorted in employee ID order, use:
   $filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
-* To find all the employees in the Sales department with an email address that starts with 'a' sorted in email address order use:
+* To find all the employees in the Sales department with an email address that starts with "a", sorted in email address order, use:
   $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-Note that the filter syntax used in the examples above is from the Table service REST API, for more information, see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Note that the filter syntax used in the preceding examples is from the Table storage REST API. For more information, see [Query entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
