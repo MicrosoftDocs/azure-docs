@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye, jmartens, larryfr, vaidyas
 ms.author: trmccorm
-author: trmccorm
+author: tmccrmck
 ms.date: 11/21/2019
 ---
 
 # Debug and troubleshoot using ParallelRun
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to debug and troubleshoot the [ParallelRunStep](https://docs.microsoft.com/en-us/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) class from the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+In this article, you learn how to debug and troubleshoot the [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) class from the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## Testing scripts locally
 
