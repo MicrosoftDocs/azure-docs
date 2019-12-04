@@ -85,7 +85,7 @@ If you have adapted and deployed a model with baseline V1.0, that deployment wil
 
 **A**: You can scale up your model in increments of 20 concurrent requests.
 
-With the required information, create a support request in the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Do not post this information to any of the public channels mentioned on the [support page](support.md) (GitHub, Stackoverflow, ...).
+With the required information, create a support request in the [Azure support portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Do not post the information on any of the public channels  (GitHub, Stackoverflow, ...) mentioned on the [support page](support.md).
 
 To increase concurrency for a ***custom model***, we need the following information:
 
