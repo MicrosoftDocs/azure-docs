@@ -1,5 +1,5 @@
 ---
-title: Use Speech Service container with Kubernetes and Helm
+title: Use Speech service containers with Kubernetes and Helm
 titleSuffix: Azure Cognitive Services
 description: Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises.
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.date: 11/04/2019
 ms.author: dapine
 ---
 
-# Use Speech Service container with Kubernetes and Helm
+# Use Speech service containers with Kubernetes and Helm
 
-One option to manage your Speech containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services and various configuration options. For more information about running Docker containers without Kubernetes orchestration, see [install and run Speech Service containers](speech-container-howto.md).
+One option to manage your Speech containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services and various configuration options. For more information about running Docker containers without Kubernetes orchestration, see [install and run Speech service containers](speech-container-howto.md).
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ The following prerequisites before using Speech containers on-premises:
 
 ## The recommended host computer configuration
 
-Refer to the [Speech Service container host computer][speech-container-host-computer] details as a reference. This *helm chart* automatically calculates CPU and memory requirements based on how many decodes (concurrent requests) that the user specifies. Additionally, it will adjust based on whether optimizations for audio/text input are configured as `enabled`. The helm chart defaults to, two concurrent requests and disabling optimization.
+Refer to the [Speech service container host computer][speech-container-host-computer] details as a reference. This *helm chart* automatically calculates CPU and memory requirements based on how many decodes (concurrent requests) that the user specifies. Additionally, it will adjust based on whether optimizations for audio/text input are configured as `enabled`. The helm chart defaults to, two concurrent requests and disabling optimization.
 
 | Service | CPU / Container | Memory / Container |
 |--|--|--|
@@ -137,7 +137,7 @@ The *Helm chart* contains the configuration of which docker image(s) to pull fro
 
 > A [Helm chart][helm-charts] is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
 
-The provided *Helm charts* pull the docker images of the Speech Service, both text-to-speech and the speech-to-text services from the `mcr.microsoft.com` container registry.
+The provided *Helm charts* pull the docker images of the Speech service, both text-to-speech and the speech-to-text services from the `mcr.microsoft.com` container registry.
 
 ## Install the Helm chart on the Kubernetes cluster
 

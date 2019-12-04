@@ -269,7 +269,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
  
     ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure12.png)
 
-1. Once the application has been click on **Finish**.
+1. Once the application has been configured click on **Finish**.
 
     ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure13.png)
 
