@@ -51,7 +51,7 @@ Your Azure account needs permissions to create an Azure Migrate project.
 
 ## Set up an Azure Migrate project
 
-Follow these steps:
+To set up a new Azure Migrate project:
 
 1. In the Azure portal, in **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
@@ -128,7 +128,7 @@ The following table summarizes the file fields to fill in:
 **Virtual machine manager ID** | No | This is the **InstanceUUid** value for VMWare vCenter. It isn't needed for Hyper-V.
 **MAC address**| No | Server MAC address.
 **BIOS ID** | No | Server BIOS ID.
-**Custom server ID**| No | Local, unique server ID on-premises. <br/> Useful for tracking the imported server by local ID.
+**Custom server ID** | No | Local, unique server ID on-premises. <br/> Useful for tracking the imported server by local ID.
 **Application 1 name** | No | Name of workload running on the server.<br/>You can add details for more apps by [adding columns](#add-multiple-applications) in the template. You can add up to five applications.
 **Application 1 type** | No | Type of workload running on the server
 **Application 1 version** | No | Version of the workload running on the server.
@@ -141,7 +141,7 @@ The following table summarizes the file fields to fill in:
 
 ### Add operating systems
 
-Assessment recognizes specific OS names. Any OS name you specify must match one of the options in the [supported names list](#supported-operating-system-names).
+Assessment recognizes specific operating system names. Any name you specify must match one of the options in the [supported names list](#supported-operating-system-names).
 
 ### Add multiple disks
 
@@ -175,7 +175,7 @@ Optionally, you can add specific fields only for an app.
 
 ## Import the server information
 
-After you add information to the CSV template, import the servers into Azure Migrate Server Assessment.
+After adding information to the CSV template, import the servers into Azure Migrate Server Assessment.
 
 1. In Azure Migrate, in **Discover machines**, go to the completed template.
 2. Select **Import**.
