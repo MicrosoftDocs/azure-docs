@@ -105,6 +105,34 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 You can also register the Resource Providers using the portal by following the steps under [Azure portal](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
+## Machine changes after installing the agent
+
+If you have a change tracking solution deployed in your environment, you can use the list below to track, identify, and allow the changes made by the **Azure Connected Machine Agent (AzCMAgent)** installation package.
+
+After you install the agent you see the following changes made to your servers.
+
+### Windows
+
+Services installed:
+
+* Himds - The **Azure Connected Machine Agent** service.
+* Dscservice - 
+
+Files added to the server:
+
+* `%ProgramFiles%\AzureConnectedMachineAgent\*.*`
+
+### Linux
+
+Services installed:
+
+* Himdsd - The **Azure Connected Machine Agent** service.
+* dscd - 
+
+Files added to the server:
+
+* `/var/opt/azcmagent/**`
+
 ## Supported Scenarios
 
 After you register a node you can start managing your nodes using other Azure services.
