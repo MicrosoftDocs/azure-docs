@@ -96,27 +96,13 @@ For more information, see [Upcoming SameSite Cookie Changes in ASP.NET and ASP.N
 
 ### Automate user account provisioning for these newly supported SaaS apps
 
-Type: New feature
-Service category: Enterprise Apps
-Product capability: 3rd Party Integration
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration  
 
 You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
 
-- [SAP Cloud Platform Identity Authentication Service](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial)
-
-- [RingCentral](https://docs.microsoft.com/azure/active-directory/saas-apps/ringcentral-provisioning-tutorial)
-
-- [SpaceIQ](https://docs.microsoft.com/azure/active-directory/saas-apps/spaceiq-provisioning-tutorial)
-
-- [Miro](https://docs.microsoft.com/azure/active-directory/saas-apps/miro-provisioning-tutorial)
-
-- [Cloudgate](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-provisioning-tutorial)
-
-- [Infor CloudSuite](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloudsuite-provisioning-tutorial)
-
-- [OfficeSpace Software](https://docs.microsoft.com/azure/active-directory/saas-apps/officespace-software-provisioning-tutorial)
-
-- [Priority Matrix](https://docs.microsoft.com/azure/active-directory/saas-apps/priority-matrix-provisioning-tutorial)
+[SAP Cloud Platform Identity Authentication Service](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial), [RingCentral](https://docs.microsoft.com/azure/active-directory/saas-apps/ringcentral-provisioning-tutorial), [SpaceIQ](https://docs.microsoft.com/azure/active-directory/saas-apps/spaceiq-provisioning-tutorial), [Miro](https://docs.microsoft.com/azure/active-directory/saas-apps/miro-provisioning-tutorial), [Cloudgate](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-provisioning-tutorial), [Infor CloudSuite](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloudsuite-provisioning-tutorial), [OfficeSpace Software](https://docs.microsoft.com/azure/active-directory/saas-apps/officespace-software-provisioning-tutorial), [Priority Matrix](https://docs.microsoft.com/azure/active-directory/saas-apps/priority-matrix-provisioning-tutorial)
 
 For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
@@ -135,26 +121,20 @@ In November 2019, we've added these 21 new apps with Federation support to the a
 For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest.
 
 ---
- 
 
-[520171](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=520171&triage=true&fullScreen=false&_a=edit)
-
-### Edge Managed browser support for Azure AD SSO and Conditional Access is now GA
+### Microsoft Edge Mobile Support for Conditional Access and Single Sign-on (General Availability)
 
 **Type:** New feature  
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
- 
 
-Back in April, Microsoft Enterprise Mobility + Security announced the expanded capabilities in Azure AD for Microsoft Edge on iOS and Android to support Azure AD Single Sign-On and Conditional Access. This is now generally available. If you have been using Microsoft Intune Managed Browser, you should use Microsoft Edge instead.
- 
-Learn more about setting your client applications in conditional access here for 
-Device-based conditional access
-App-based conditional access
-If you are looking for more information on all the capabilities with Microsoft Edge using Intune policies, you can find it in  how to manage access using a Microsoft Intune policy-protect browser. 
+Azure AD for Microsoft Edge on iOS and Android now supports Azure AD Single Sign-On and Conditional Access.
 
+- **Microsoft Edge single sign-on (SSO):** Single sign-on is now available across native clients (such as Microsoft Outlook and Microsoft Edge) for all Azure AD -connected apps.
 
- 
+- **Microsoft Edge conditional access:** Through application-based conditional access policies, your users must use Microsoft Intune-protected browsers, such as Microsoft Edge.
+
+For more information about conditional access and SSO with Microsoft Edge, see the [Microsoft Edge Mobile Support for Conditional Access and Single Sign-on Now Generally Available](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Microsoft-Edge-Mobile-Support-for-Conditional-Access-and-Single/ba-p/988179) blog post. For more information about how to set up your client apps using app-based or device-based conditional access, see [Manage web access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/apps/app-configuration-managed-browser).
 
 ---
  
