@@ -136,7 +136,7 @@ Download the MARS agent for installation on machines you want to back up.
    * Azure Backup uses the cache to store data snapshots before sending them to Azure.
    * The cache location should have free space equal to at least 5% of the size of the data you'll back up.
 
-     ![MARS wizard installation settings](./media/backup-configure-vault/mars1.png)
+    ![MARS wizard installation settings](./media/backup-configure-vault/mars1.png)
 
 3. In **Proxy Configuration**, specify how the agent running on the Windows machine will connect to the internet. Then click **Next**.
 
@@ -203,10 +203,10 @@ Create a policy as follows:
     - Daily and weekly recovery point retention usually coincides with the backup schedule. Meaning that when the backup is triggered according to schedule, the recovery point created by the backup is stored for the duration indicated in the daily or weekly retention policy.
     - As an example, in the following screenshot:
 
-            -   Daily backups at midnight and 6:00 PM are kept for seven days.
-            -   Backups taken on a Saturday at midnight and 6:00 PM are kept for four weeks.
-            -   Backups taken on Saturday on the last week of the month at midnight and 6:00 PM are kept for 12 months.
-            -   Backups taken on a Saturday in the last week of March are kept for 10 years.
+        -   Daily backups at midnight and 6:00 PM are kept for seven days.
+        -   Backups taken on a Saturday at midnight and 6:00 PM are kept for four weeks.
+        -   Backups taken on Saturday on the last week of the month at midnight and 6:00 PM are kept for 12 months.
+        -   Backups taken on a Saturday in the last week of March are kept for 10 years.
 
     ![Retention example](./media/backup-configure-vault/retention-example.png)
 
