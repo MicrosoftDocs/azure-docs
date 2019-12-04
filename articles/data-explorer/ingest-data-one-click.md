@@ -11,7 +11,7 @@ ms.date: 10/31/2019
 
 # Use one-click ingestion to ingest data into Azure Data Explorer
 
-This article shows how to use one-click ingestion for new tables, in either JSON or CSV formats, from storage into Azure Data Explorer. When ingestion is complete, you can edit the table and run queries using the web UI.
+This article shows how to use one-click ingestion for new tables, in either JSON or CSV formats, from storage into Azure Data Explorer. When you use the intuitive wizard, your data ingests within a few minutes. Then, you can edit the table and run queries using the web UI.
 
 ## Prerequisites
 

@@ -4,9 +4,9 @@ description: This article describes how to use the Azure Update Management solut
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 05/22/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/03/2019
 ms.topic: conceptual
 manager: carmonm
 ---

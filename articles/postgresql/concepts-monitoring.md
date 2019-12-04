@@ -1,5 +1,5 @@
 ---
-title: Monitor and Tune in Azure Database for PostgreSQL - Single Server
+title: Monitor and tune - Azure Database for PostgreSQL - Single Server
 description: This article describes monitoring and tuning features in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema

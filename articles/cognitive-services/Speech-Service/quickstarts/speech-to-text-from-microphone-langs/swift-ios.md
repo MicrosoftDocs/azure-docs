@@ -31,7 +31,7 @@ Before you get started, you'll need:
 
 This tutorial won't work with a version of the SDK earlier than 1.6.0.
 
-The Cognitive Services Speech SDK for iOS is distributed as a framework bundle. It can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/) or downloaded from https://aka.ms/csspeech/macosbinary and linked manually. This article uses a CocoaPod.
+The Cognitive Services Speech SDK for iOS is distributed as a framework bundle. It can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/) or downloaded from https://aka.ms/csspeech/iosbinary and linked manually. This article uses a CocoaPod.
 
 ## Create an Xcode project
 
