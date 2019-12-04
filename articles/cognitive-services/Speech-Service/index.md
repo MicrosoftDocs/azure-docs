@@ -3,8 +3,8 @@
 layout: HubPage
 ms.date: 11-21-2019
 ms.topic: hub-page
-title: Speech Service Documentation
-description: Get started with the Speech Services.
+title: Speech service Documentation
+description: Get started with the Speech service. Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
 ---
 
 <div id="main" class="v2">
