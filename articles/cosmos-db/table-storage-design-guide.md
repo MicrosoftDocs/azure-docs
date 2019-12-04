@@ -508,201 +508,210 @@ Note that the filter syntax used in the preceding examples is from the Table sto
 Consider the following points when deciding how to implement this pattern:  
 
 * You can keep your duplicate entities eventually consistent with each other by using the [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern) to maintain the primary and secondary index entities.  
-* Table storage is relatively cheap to use so the cost overhead of storing duplicate data should not be a major concern. However, you should always evaluate the cost of your design based on your anticipated storage requirements and only add duplicate entities to support the queries your client application will execute.  
-* The value used for the **RowKey** must be unique for each entity. Consider using compound key values.  
-* Padding numeric values in the **RowKey** (for example, the employee id 000223), enables correct sorting and filtering based on upper and lower bounds.  
-* You do not necessarily need to duplicate all the properties of your entity. For example, if the queries that lookup the entities using the email address in the **RowKey** never need the employee's age, these entities could have the following structure:
+* Table storage is relatively cheap to use, so the cost overhead of storing duplicate data should not be a major concern. However, always evaluate the cost of your design based on your anticipated storage requirements, and only add duplicate entities to support the queries your client application will run.  
+* The value used for the `RowKey` must be unique for each entity. Consider using compound key values.  
+* Padding numeric values in the `RowKey` (for example, the employee ID 000223) enables correct sorting and filtering based on upper and lower bounds.  
+* You don't necessarily need to duplicate all the properties of your entity. For example, if the queries that look up the entities by using the email address in the `RowKey` never need the employee's age, these entities could have the following structure:
   
-  ![Employee entity with secondary index][11]
-* It is typically better to store duplicate data and ensure that you can retrieve all the data you need with a single query than to use one query to locate an entity using the secondary index and another to lookup the required data in the primary index.  
+  ![Graphic showing employee entity with secondary index][11]
+* Typically, it's better to store duplicate data and ensure that you can retrieve all the data you need with a single query, than to use one query to locate an entity by using the secondary index and another to look up the required data in the primary index.  
 
 #### When to use this pattern
-Use this pattern when your client application needs to retrieve entities using a variety of different keys, when your client needs to retrieve entities in different sort orders, and where you can identify each entity using a variety of unique values. Use this pattern when you want to avoid exceeding the partition scalability limits when you are performing entity lookups using the different **RowKey** values.  
+Use this pattern when:
+
+- Your client application needs to retrieve entities by using a variety of different keys.
+- Your client needs to retrieve entities in different sort orders.
+- You can identify each entity by using a variety of unique values.
+
+Use this pattern when you want to avoid exceeding the partition scalability limits when you are performing entity lookups by using the different `RowKey` values.  
 
 #### Related patterns and guidance
-The following patterns and guidance may also be relevant when implementing this pattern:  
+The following patterns and guidance might also be relevant when implementing this pattern:  
 
 * [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern)  
 * [Intra-partition secondary index pattern](#intra-partition-secondary-index-pattern)  
 * [Compound key pattern](#compound-key-pattern)  
-* [Entity Group Transactions](#entity-group-transactions)  
+* [Entity group transactions](#entity-group-transactions)  
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
 
 ### Eventually consistent transactions pattern
 Enable eventually consistent behavior across partition boundaries or storage system boundaries by using Azure queues.  
 
 #### Context and problem
-EGTs enable atomic transactions across multiple entities that share the same partition key. For performance and scalability reasons, you might decide to store entities that have consistency requirements in separate partitions or in a separate storage system: in such a scenario, you cannot use EGTs to maintain consistency. For example, you might have a requirement to maintain eventual consistency between:  
+EGTs enable atomic transactions across multiple entities that share the same partition key. For performance and scalability reasons, you might decide to store entities that have consistency requirements in separate partitions or in a separate storage system. In such a scenario, you can't use EGTs to maintain consistency. For example, you might have a requirement to maintain eventual consistency between:  
 
 * Entities stored in two different partitions in the same table, in different tables, or in different storage accounts.  
-* An entity stored in the Table service and a blob stored in the Blob service.  
-* An entity stored in the Table service and a file in a file system.  
-* An entity store in the Table service yet indexed using the Azure Cognitive Search service.  
+* An entity stored in Table storage and a blob stored in Blob storage.  
+* An entity stored in Table storage and a file in a file system.  
+* An entity stored in Table storage, yet indexed by using Azure Cognitive Search.  
 
 #### Solution
 By using Azure queues, you can implement a solution that delivers eventual consistency across two or more partitions or storage systems.
-To illustrate this approach, assume you have a requirement to be able to archive old employee entities. Old employee entities are rarely queried and should be excluded from any activities that deal with current employees. To implement this requirement you store active employees in the **Current** table and old employees in the **Archive** table. Archiving an employee requires you to delete the entity from the **Current** table and add the entity to the **Archive** table, but you cannot use an EGT to perform these two operations. To avoid the risk that a failure causes an entity to appear in both or neither tables, the archive operation must be eventually consistent. The following sequence diagram outlines the steps in this operation. More detail is provided for exception paths in the text following.  
+
+To illustrate this approach, assume you have a requirement to be able to archive former employee entities. Former employee entities are rarely queried, and should be excluded from any activities that deal with current employees. To implement this requirement, you store active employees in the **Current** table and former employees in the **Archive** table. Archiving an employee requires you to delete the entity from the **Current** table, and add the entity to the **Archive** table.
+
+But you can't use an EGT to perform these two operations. To avoid the risk that a failure causes an entity to appear in both or neither tables, the archive operation must be eventually consistent. The following sequence diagram outlines the steps in this operation.  
 
 ![Solution diagram for eventual consistency][12]
 
-A client initiates the archive operation by placing a message on an Azure queue, in this example to archive employee #456. A worker role polls the queue for new messages; when it finds one, it reads the message and leaves a hidden copy on the queue. The worker role next fetches a copy of the entity from the **Current** table, inserts a copy in the **Archive** table, and then deletes the original from the **Current** table. Finally, if there were no errors from the previous steps, the worker role deletes the hidden message from the queue.  
+A client initiates the archive operation by placing a message on an Azure queue (in this example, to archive employee #456). A worker role polls the queue for new messages; when it finds one, it reads the message and leaves a hidden copy on the queue. The worker role next fetches a copy of the entity from the **Current** table, inserts a copy in the **Archive** table, and then deletes the original from the **Current** table. Finally, if there were no errors from the previous steps, the worker role deletes the hidden message from the queue.  
 
-In this example, step 4 inserts the employee into the **Archive** table. It could add the employee to a blob in the Blob service or a file in a file system.  
+In this example, step 4 in the diagram inserts the employee into the **Archive** table. It could add the employee to a blob in Blob storage or a file in a file system.  
 
-#### Recovering from failures
-It is important that the operations in steps **4** and **5** must be *idempotent* in case the worker role needs to restart the archive operation. If you are using the Table service, for step **4** you should use an "insert or replace" operation; for step **5** you should use a "delete if exists" operation in the client library you are using. If you are using another storage system, you must use an appropriate idempotent operation.  
+#### Recover from failures
+It's important that the operations in steps 4-5 in the diagram be *idempotent* in case the worker role needs to restart the archive operation. If you're using Table storage, for step 4 you should use an "insert or replace" operation; for step 5, you should use a "delete if exists" operation in the client library you're using. If you're using another storage system, you must use an appropriate idempotent operation.  
 
-If the worker role never completes step **6**, then after a timeout the message reappears on the queue ready for the worker role to try to reprocess it. The worker role can check how many times a message on the queue has been read and, if necessary, flag it is a "poison" message for investigation by sending it to a separate queue. For more information about reading queue messages and checking the dequeue count, see [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
+If the worker role never completes step 6 in the diagram, then, after a timeout, the message reappears on the queue ready for the worker role to try to reprocess it. The worker role can check how many times a message on the queue has been read and, if necessary, flag it as a "poison" message for investigation by sending it to a separate queue. For more information about reading queue messages and checking the dequeue count, see [Get messages](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
 
-Some errors from the Table and Queue services are transient errors, and your client application should include suitable retry logic to handle them.  
+Some errors from Table storage and Queue storage are transient errors, and your client application should include suitable retry logic to handle them.  
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
 
-* This solution does not provide for transaction isolation. For example, a client could read the **Current** and **Archive** tables when the worker role was between steps **4** and **5**, and see an inconsistent view of the data. The data will be consistent eventually.  
-* You must be sure that steps 4 and 5 are idempotent in order to ensure eventual consistency.  
+* This solution doesn't provide for transaction isolation. For example, a client might read the **Current** and **Archive** tables when the worker role was between steps 4-5 in the diagram, and see an inconsistent view of the data. The data will be consistent eventually.  
+* You must be sure that steps 4-5 are idempotent in order to ensure eventual consistency.  
 * You can scale the solution by using multiple queues and worker role instances.  
 
 #### When to use this pattern
-Use this pattern when you want to guarantee eventual consistency between entities that exist in different partitions or tables. You can extend this pattern to ensure eventual consistency for operations across the Table service and the Blob service and other non-Azure Storage data sources such as database or the file system.  
+Use this pattern when you want to guarantee eventual consistency between entities that exist in different partitions or tables. You can extend this pattern to ensure eventual consistency for operations across Table storage and Blob storage, and other non-Azure Storage data sources, such as a database or the file system.  
 
 #### Related patterns and guidance
-The following patterns and guidance may also be relevant when implementing this pattern:  
+The following patterns and guidance might also be relevant when implementing this pattern:  
 
-* [Entity Group Transactions](#entity-group-transactions)  
+* [Entity group transactions](#entity-group-transactions)  
 * [Merge or replace](#merge-or-replace)  
 
 > [!NOTE]
-> If transaction isolation is important to your solution, you should consider redesigning your tables to enable you to use EGTs.  
+> If transaction isolation is important to your solution, consider redesigning your tables to enable you to use EGTs.  
 > 
 > 
 
-### Index Entities Pattern
+### Index entities pattern
 Maintain index entities to enable efficient searches that return lists of entities.  
 
 #### Context and problem
-The Table service automatically indexes entities using the **PartitionKey** and **RowKey** values. This enables a client application to retrieve an entity efficiently using a point query. For example, using the table structure shown below, a client application can efficiently retrieve an individual employee entity by using the department name and the employee id (the **PartitionKey** and **RowKey**).  
+Table storage automatically indexes entities by using the `PartitionKey` and `RowKey` values. This enables a client application to retrieve an entity efficiently by using a point query. For example, using the following table structure, a client application can efficiently retrieve an individual employee entity by using the department name and the employee ID (the `PartitionKey` and `RowKey`).  
 
-![Employee entity][13]
+![Graphic of employee entity][13]
 
-If you also want to be able to retrieve a list of employee entities based on the value of another non-unique property, such as their last name, you must use a less efficient partition scan to find matches rather than using an index to look them up directly. This is because the table service does not provide secondary indexes.  
+If you also want to be able to retrieve a list of employee entities based on the value of another non-unique property, such as last name, you must use a less efficient partition scan. This scan finds matches, rather than using an index to look them up directly. This is because Table storage doesn't provide secondary indexes.  
 
 #### Solution
-To enable lookup by last name with the entity structure shown above, you must maintain lists of employee ids. If you want to retrieve the employee entities with a particular last name, such as Jones, you must first locate the list of employee ids for employees with Jones as their last name, and then retrieve those employee entities. There are three main options for storing the lists of employee ids:  
+To enable lookup by last name with the preceding entity structure, you must maintain lists of employee IDs. If you want to retrieve the employee entities with a particular last name, such as Jones, you must first locate the list of employee IDs for employees with Jones as their last name, and then retrieve those employee entities. There are three main options for storing the lists of employee IDs:  
 
-* Use blob storage.  
+* Use Blob storage.  
 * Create index entities in the same partition as the employee entities.  
 * Create index entities in a separate partition or table.  
 
-<u>Option #1: Use blob storage</u>  
+Option 1: Use Blob storage  
 
-For the first option, you create a blob for every unique last name, and in each blob store a list of the **PartitionKey** (department) and **RowKey** (employee id) values for employees that have that last name. When you add or delete an employee, you should ensure that the content of the relevant blob is eventually consistent with the employee entities.  
+Create a blob for every unique last name, and in each blob store a list of the `PartitionKey` (department) and `RowKey` (employee ID) values for employees who have that last name. When you add or delete an employee, ensure that the content of the relevant blob is eventually consistent with the employee entities.  
 
-<u>Option #2:</u> Create index entities in the same partition  
+Option 2: Create index entities in the same partition  
 
-For the second option, use index entities that store the following data:  
+Use index entities that store the following data:  
 
-![Employee entity with string containing a list of employee IDs with same last name][14]
+![Graphic showing employee entity, with string containing a list of employee IDs with same last name][14]
 
-The **EmployeeIDs** property contains a list of employee ids for employees with the last name stored in the **RowKey**.  
+The `EmployeeIDs` property contains a list of employee IDs for employees with the last name stored in the `RowKey`.  
 
-The following steps outline the process you should follow when you are adding a new employee if you are using the second option. In this example, we are adding an employee with Id 000152 and a last name Jones in the Sales department:  
+The following steps outline the process you should follow when you're adding a new employee. In this example, we're adding an employee with ID 000152 and last name Jones in the Sales department:  
 
-1. Retrieve the index entity with a **PartitionKey** value "Sales" and the **RowKey** value "Jones." Save the ETag of this entity to use in step 2.  
-2. Create an entity group transaction (that is, a batch operation) that inserts the new employee entity (**PartitionKey** value "Sales" and **RowKey** value "000152"), and updates the index entity (**PartitionKey** value "Sales" and **RowKey** value "Jones") by adding the new employee id to the list in the EmployeeIDs field. For more information about entity group transactions, see [Entity Group Transactions](#entity-group-transactions).  
-3. If the entity group transaction fails because of an optimistic concurrency error (someone else has modified the index entity), then you need to start over at step 1 again.  
+1. Retrieve the index entity with a `PartitionKey` value "Sales", and the `RowKey` value "Jones". Save the ETag of this entity to use in step 2.  
+2. Create an entity group transaction (that is, a batch operation) that inserts the new employee entity (`PartitionKey` value "Sales" and `RowKey` value "000152"), and updates the index entity (`PartitionKey` value "Sales" and `RowKey` value "Jones"). The EGT does this by adding the new employee ID to the list in the EmployeeIDs field. For more information about EGTs, see [Entity group transactions](#entity-group-transactions).  
+3. If the EGT fails because of an optimistic concurrency error (that is, someone else has modified the index entity), then you need to start over at step 1.  
 
-You can use a similar approach to deleting an employee if you are using the second option. Changing an employee's last name is slightly more complex because you will need to execute an entity group transaction that updates three entities: the employee entity, the index entity for the old last name, and the index entity for the new last name. You must retrieve each entity before making any changes in order to retrieve the ETag values that you can then use to perform the updates using optimistic concurrency.  
+You can use a similar approach to deleting an employee if you're using the second option. Changing an employee's last name is slightly more complex, because you need to run an EGT that updates three entities: the employee entity, the index entity for the old last name, and the index entity for the new last name. You must retrieve each entity before making any changes, in order to retrieve the ETag values that you can then use to perform the updates by using optimistic concurrency.  
 
-The following steps outline the process you should follow when you need to look up all the employees with a given last name in a department if you are using the second option. In this example, we are looking up all the employees with last name Jones in the Sales department:  
+The following steps outline the process you should follow when you need to look up all the employees with a given last name in a department. In this example, we're looking up all the employees with last name Jones in the Sales department:  
 
-1. Retrieve the index entity with a **PartitionKey** value "Sales" and the **RowKey** value "Jones."  
-2. Parse the list of employee Ids in the EmployeeIDs field.  
-3. If you need additional information about each of these employees (such as their email addresses), retrieve each of the employee entities using **PartitionKey** value "Sales" and **RowKey** values from the list of employees you obtained in step 2.  
+1. Retrieve the index entity with a `PartitionKey` value "Sales", and the `RowKey` value "Jones".  
+2. Parse the list of employee IDs in the `EmployeeIDs` field.  
+3. If you need additional information about each of these employees (such as their email addresses), retrieve each of the employee entities by using `PartitionKey` value "Sales", and `RowKey` values from the list of employees you obtained in step 2.  
 
-<u>Option #3:</u> Create index entities in a separate partition or table  
+Option 3: Create index entities in a separate partition or table  
 
-For the third option, use index entities that store the following data:  
+For this option, use index entities that store the following data:  
 
-![Employee entity with string containing a list of employee IDs with same last name][15]
+![Graphic showing employee entity, with string containing a list of employee IDs with same last name][15]
 
-The **EmployeeIDs** property contains a list of employee ids for employees with the last name stored in the **RowKey**.  
+The `EmployeeIDs` property contains a list of employee IDs for employees with the last name stored in the `RowKey`.  
 
-With the third option, you cannot use EGTs to maintain consistency because the index entities are in a separate partition from the employee entities. You should ensure that the index entities are eventually consistent with the employee entities.  
+You can't use EGTs to maintain consistency, because the index entities are in a separate partition from the employee entities. Ensure that the index entities are eventually consistent with the employee entities.  
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
 
-* This solution requires at least two queries to retrieve matching entities: one to query the index entities to obtain the list of **RowKey** values, and then queries to retrieve each entity in the list.  
-* Given that an individual entity has a maximum size of 1 MB, option #2, and option #3 in the solution assume that the list of employee ids for any given last name is never greater than 1 MB. If the list of employee ids is likely to be greater than 1 MB in size, use option #1 and store the index data in blob storage.  
-* If you use option #2 (using EGTs to handle adding and deleting employees, and changing an employee's last name) you must evaluate if the volume of transactions will approach the scalability limits in a given partition. If this is the case, you should consider an eventually consistent solution (option #1 or option #3) that uses queues to handle the update requests and enables you to store your index entities in a separate partition from the employee entities.  
-* Option #2 in this solution assumes that you want to look up by last name within a department: for example, you want to retrieve a list of employees with a last name Jones in the Sales department. If you want to be able to look up all the employees with a last name Jones across the whole organization, use either option #1 or option #3.
-* You can implement a queue-based solution that delivers eventual consistency (see the [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern) for more details).  
+* This solution requires at least two queries to retrieve matching entities: one to query the index entities to obtain the list of `RowKey` values, and then queries to retrieve each entity in the list.  
+* Because an individual entity has a maximum size of 1 MB, option 2 and option 3 in the solution assume that the list of employee IDs for any particular last name is never greater than 1 MB. If the list of employee IDs is likely to be greater than 1 MB in size, use option 1 and store the index data in Blob storage.  
+* If you use option 2 (using EGTs to handle adding and deleting employees, and changing an employee's last name), you must evaluate if the volume of transactions will approach the scalability limits in a particular partition. If this is the case, you should consider an eventually consistent solution (option 1 or option 3). These use queues to handle the update requests, and enable you to store your index entities in a separate partition from the employee entities.  
+* Option 2 in this solution assumes that you want to look up by last name within a department. For example, you want to retrieve a list of employees with a last name Jones in the Sales department. If you want to be able to look up all the employees with a last name Jones across the whole organization, use either option 1 or option 3.
+* You can implement a queue-based solution that delivers eventual consistency. For more details, see the [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern).  
 
 #### When to use this pattern
-Use this pattern when you want to lookup a set of entities that all share a common property value, such as all employees with the last name Jones.  
+Use this pattern when you want to look up a set of entities that all share a common property value, such as all employees with the last name Jones.  
 
 #### Related patterns and guidance
-The following patterns and guidance may also be relevant when implementing this pattern:  
+The following patterns and guidance might also be relevant when implementing this pattern:  
 
 * [Compound key pattern](#compound-key-pattern)  
 * [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern)  
-* [Entity Group Transactions](#entity-group-transactions)  
+* [Entity group transactions](#entity-group-transactions)  
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
 
 ### Denormalization pattern
 Combine related data together in a single entity to enable you to retrieve all the data you need with a single point query.  
 
 #### Context and problem
-In a relational database, you typically normalize data to remove duplication resulting in queries that retrieve data from multiple tables. If you normalize your data in Azure tables, you must make multiple round trips from the client to the server to retrieve your related data. For example, with the table structure shown below you need two round trips to retrieve the details for a department: one to fetch the department entity that includes the manager's id, and then another request to fetch the manager's details in an employee entity.  
+In a relational database, you typically normalize data to remove duplication that occurs when queries retrieve data from multiple tables. If you normalize your data in Azure tables, you must make multiple round trips from the client to the server to retrieve your related data. For example, with the following table structure, you need two round trips to retrieve the details for a department. One trip fetches the department entity that includes the manager's ID, and the second trip fetches the manager's details in an employee entity.  
 
-![Department entity and Employee entity][16]
+![Graphic of department entity and employee entity][16]
 
 #### Solution
 Instead of storing the data in two separate entities, denormalize the data and keep a copy of the manager's details in the department entity. For example:  
 
-![Denormalized and combined Department entity][17]
+![Graphic of denormalized and combined department entity][17]
 
-With department entities stored with these properties, you can now retrieve all the details you need about a department using a point query.  
+With department entities stored with these properties, you can now retrieve all the details you need about a department by using a point query.  
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
 
-* There is some cost overhead associated with storing some data twice. The performance benefit (resulting from fewer requests to the storage service) typically outweighs the marginal increase in storage costs (and this cost is partially offset by a reduction in the number of transactions you require to fetch the details of a department).  
-* You must maintain the consistency of the two entities that store information about managers. You can handle the consistency issue by using EGTs to update multiple entities in a single atomic transaction: in this case, the department entity, and the employee entity for the department manager are stored in the same partition.  
+* There is some cost overhead associated with storing some data twice. The performance benefit resulting from fewer requests to the storage service typically outweighs the marginal increase in storage costs. Further, this cost is partially offset by a reduction in the number of transactions you require to fetch the details of a department.  
+* You must maintain the consistency of the two entities that store information about managers. You can handle the consistency issue by using EGTs to update multiple entities in a single atomic transaction. In this case, the department entity and the employee entity for the department manager are stored in the same partition.  
 
 #### When to use this pattern
 Use this pattern when you frequently need to look up related information. This pattern reduces the number of queries your client must make to retrieve the data it requires.  
 
 #### Related patterns and guidance
-The following patterns and guidance may also be relevant when implementing this pattern:  
+The following patterns and guidance might also be relevant when implementing this pattern:  
 
 * [Compound key pattern](#compound-key-pattern)  
-* [Entity Group Transactions](#entity-group-transactions)  
+* [Entity group transactions](#entity-group-transactions)  
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)
 
 ### Compound key pattern
-Use compound **RowKey** values to enable a client to lookup related data with a single point query.  
+Use compound `RowKey` values to enable a client to look up related data with a single point query.  
 
 #### Context and problem
-In a relational database, it is natural to use joins in queries to return related pieces of data to the client in a single query. For example, you might use the employee id to look up a list of related entities that contain performance and review data for that employee.  
+In a relational database, it's natural to use joins in queries to return related pieces of data to the client in a single query. For example, you might use the employee ID to look up a list of related entities that contain performance and review data for that employee.  
 
-Assume you are storing employee entities in the Table service using the following structure:  
+Assume you are storing employee entities in Table storage by using the following structure:  
 
-![Employee entity][18]
+![Graphic of employee entity][18]
 
-You also need to store historical data relating to reviews and performance for each year the employee has worked for your organization and you need to be able to access this information by year. One option is to create another table that stores entities with the following structure:  
+You also need to store historical data relating to reviews and performance for each year the employee has worked for your organization, and you need to be able to access this information by year. One option is to create another table that stores entities with the following structure:  
 
-![Employee review entity][19]
+![Graphic of employee review entity][19]
 
-Notice that with this approach you may decide to duplicate some information (such as first name and last name) in the new entity to enable you to retrieve your data with a single request. However, you cannot maintain strong consistency because you cannot use an EGT to update the two entities atomically.  
+With this approach, you might decide to duplicate some information (such as first name and last name) in the new entity, to enable you to retrieve your data with a single request. However, you can't maintain strong consistency because you can't use an EGT to update the two entities atomically.  
 
 #### Solution
-Store a new entity type in your original table using entities with the following structure:  
+Store a new entity type in your original table by using entities with the following structure:  
 
-![Employee entity with compound key][20]
+![Graphic of employee entity with compound key][20]
 
-Notice how the **RowKey** is now a compound key made up of the employee id and the year of the review data that enables you to retrieve the employee's performance and review data with a single request for a single entity.  
+Notice how the `RowKey` is now a compound key, made up of the employee ID and the year of the review data. This enables you to retrieve the employee's performance and review data with a single request for a single entity.  
 
 The following example outlines how you can retrieve all the review data for a particular employee (such as employee 000123 in the Sales department):  
 
@@ -711,37 +720,37 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
 
-* You should use a suitable separator character that makes it easy to parse the **RowKey** value: for example, **000123_2012**.  
-* You are also storing this entity in the same partition as other entities that contain related data for the same employee, which means you can use EGTs to maintain strong consistency.
-* You should consider how frequently you will query the data to determine whether this pattern is appropriate.  For example, if you will access the review data infrequently and the main employee data often you should keep them as separate entities.  
+* You should use a suitable separator character that makes it easy to parse the `RowKey` value: for example, **000123_2012**.  
+* You're also storing this entity in the same partition as other entities that contain related data for the same employee. This means you can use EGTs to maintain strong consistency.
+* You should consider how frequently you'll query the data to determine whether this pattern is appropriate. For example, if you access the review data infrequently, and the main employee data often, you should keep them as separate entities.  
 
 #### When to use this pattern
 Use this pattern when you need to store one or more related entities that you query frequently.  
 
 #### Related patterns and guidance
-The following patterns and guidance may also be relevant when implementing this pattern:  
+The following patterns and guidance might also be relevant when implementing this pattern:  
 
-* [Entity Group Transactions](#entity-group-transactions)  
+* [Entity group transactions](#entity-group-transactions)  
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
 * [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern)  
 
 ### Log tail pattern
-Retrieve the *n* entities most recently added to a partition by using a **RowKey** value that sorts in reverse date and time order.  
+Retrieve the *n* entities most recently added to a partition by using a `RowKey` value that sorts in reverse date and time order.  
 
 > [!NOTE]
-> Query results returned by the Azure Table API in Azure Cosmos DB aren't sorted by partition key or row key. Thus, this pattern is suitable for Azure Table Storage and not Azure Cosmos DB. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Query results returned by the Azure Table API in Azure Cosmos DB aren't sorted by partition key or row key. Thus, while this pattern is suitable for Table storage, it isn't suitable for Azure Cosmos DB. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### Context and problem
-A common requirement is to be able to retrieve the most recently created entities, for example the ten most recent expense claims submitted by an employee. Table queries support a **$top** query operation to return the first *n* entities from a set: there is no equivalent query operation to return the last n entities in a set.  
+A common requirement is to be able to retrieve the most recently created entities, for example the ten most recent expense claims submitted by an employee. Table queries support a `$top` query operation to return the first *n* entities from a set. There's no equivalent query operation to return the last *n* entities in a set.  
 
 #### Solution
-Store the entities using a **RowKey** that naturally sorts in reverse date/time order by using so the most recent entry is always the first one in the table.  
+Store the entities by using a `RowKey` that naturally sorts in reverse date/time order, so the most recent entry is always the first one in the table.  
 
-For example, to be able to retrieve the ten most recent expense claims submitted by an employee, you can use a reverse tick value derived from the current date/time. The following C# code sample shows one way to create a suitable "inverted ticks" value for a **RowKey** that sorts from the most recent to the oldest:  
+For example, to be able to retrieve the ten most recent expense claims submitted by an employee, you can use a reverse tick value derived from the current date/time. The following C# code sample shows one way to create a suitable "inverted ticks" value for a `RowKey` that sorts from the most recent to the oldest:  
 
 `string invertedTicks = string.Format("{0:D19}", DateTime.MaxValue.Ticks - DateTime.UtcNow.Ticks);`  
 
-You can get back to the date time value using the following code:  
+You can get back to the date/time value by using the following code:  
 
 `DateTime dt = new DateTime(DateTime.MaxValue.Ticks - Int64.Parse(invertedTicks));`  
 
@@ -752,40 +761,40 @@ The table query looks like this:
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
 
-* You must pad the reverse tick value with leading zeroes to ensure the string value sorts as expected.  
-* You must be aware of the scalability targets at the level of a partition. Be careful not create hot spot partitions.  
+* You must pad the reverse tick value with leading zeroes, to ensure the string value sorts as expected.  
+* You must be aware of the scalability targets at the level of a partition. Be careful to not create hot spot partitions.  
 
 #### When to use this pattern
-Use this pattern when you need to access entities in reverse date/time order or when you need to access the most recently added entities.  
+Use this pattern when you need to access entities in reverse date/time order, or when you need to access the most recently added entities.  
 
 #### Related patterns and guidance
-The following patterns and guidance may also be relevant when implementing this pattern:  
+The following patterns and guidance might also be relevant when implementing this pattern:  
 
 * [Prepend / append anti-pattern](#prepend-append-anti-pattern)  
 * [Retrieving entities](#retrieving-entities)  
 
 ### High volume delete pattern
-Enable the deletion of a high volume of entities by storing all the entities for simultaneous deletion in their own separate table; you delete the entities by deleting the table.  
+Enable the deletion of a high volume of entities by storing all the entities for simultaneous deletion in their own separate table. You delete the entities by deleting the table.  
 
 #### Context and problem
-Many applications delete old data that no longer needs to be available to a client application, or that the application has archived to another storage medium. You typically identify such data by a date: for example, you have a requirement to delete records of all sign-in requests that are more than 60 days old.  
+Many applications delete old data that no longer needs to be available to a client application, or that the application has archived to another storage medium. You typically identify such data by a date. For example, you have a requirement to delete records of all sign-in requests that are greater than 60 days old.  
 
-One possible design is to use the date and time of the sign-in request in the **RowKey**:  
+One possible design is to use the date and time of the sign-in request in the `*RowKey`:  
 
-![Login attempt entity][21]
+![Graphic of login attempt entity][21]
 
-This approach avoids partition hotspots because the application can insert and delete sign in entities for each user in a separate partition. However, this approach may be costly and time consuming if you have a large number of entities because first you need to perform a table scan in order to identify all the entities to delete, and then you must delete each old entity. You can reduce the number of round trips to the server required to delete the old entities by batching multiple delete requests into EGTs.  
+This approach avoids partition hotspots, because the application can insert and delete sign-in entities for each user in a separate partition. However, this approach can be costly and time consuming if you have a large number of entities. First, you need to perform a table scan in order to identify all the entities to delete, and then you must delete each old entity. You can reduce the number of round trips to the server required to delete the old entities by batching multiple delete requests into EGTs.  
 
 #### Solution
-Use a separate table for each day of sign-in attempts. You can use the entity design above to avoid hotspots when you are inserting entities, and deleting old entities is now simply a question of deleting one table every day (a single storage operation) instead of finding and deleting hundreds and thousands of individual signs in entities every day.  
+Use a separate table for each day of sign-in attempts. You can use the preceding entity design to avoid hotspots when you are inserting entities. Deleting old entities is now simply a question of deleting one table every day (a single storage operation), instead of finding and deleting hundreds and thousands of individual sign-in entities every day.  
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
 
-* Does your design support other ways your application will use the data such as looking up specific entities, linking with other data, or generating aggregate information?  
+* Does your design support other ways your application will use the data, such as looking up specific entities, linking with other data, or generating aggregate information?  
 * Does your design avoid hot spots when you are inserting new entities?  
 * Expect a delay if you want to reuse the same table name after deleting it. It's better to always use unique table names.  
-* Expect some rate limiting when you first use a new table while the Table service learns the access patterns and distributes the partitions across nodes. You should consider how frequently you need to create new tables.  
+* Expect some rate limiting when you first use a new table, while Table storage learns the access patterns and distributes the partitions across nodes. You should consider how frequently you need to create new tables.  
 
 #### When to use this pattern
 Use this pattern when you have a high volume of entities that you must delete at the same time.  
