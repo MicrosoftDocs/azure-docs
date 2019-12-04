@@ -14,39 +14,38 @@ The MARS agent supports the following backup scenarios:
 
 ![recovery services vault dashboard](./media/backup-try-azure-backup-in-10-mins/backup-scenarios.png)
 
-- **Files and Folders** : selectively protect Windows files and folders.
-- **Volume Level** : protect an entire Windows volume of your machine.
-- **System Level** : protect an entire Windows system state.
+- **Files and Folders**: selectively protect Windows files and folders.
+- **Volume Level**: protect an entire Windows volume of your machine.
+- **System Level**: protect an entire Windows system state.
 
 The MARS agent supports the following restore scenarios:
 
 ![recovery services vault dashboard](./media/backup-try-azure-backup-in-10-mins/restore-scenarios.png)
 
--	**Same Server** : Same server on which the backup was originally created.
-    -    **Files and Folders** : You can browse and choose individual files and folders that you would like to restore.
-    -    **Volume Level** : You can choose the volume and the recovery point that you want to restore and restore it to the same location or alternate location on the same machine.  You can either create a copy of existing files, overwrite existing files or skip recovering existing files.
-    -    **System Level** : You can choose the system state and recovery point to restore to the same machine at a specified location.
+-	**Same Server**: Same server on which the backup was originally created.
+    -    **Files and Folders**: You can browse and choose individual files and folders that you would like to restore.
+    -    **Volume Level**: You can choose the volume and the recovery point that you want to restore and restore it to the same location or alternate location on the same machine.  You can either create a copy of existing files, overwrite existing files or skip recovering existing files.
+    -    **System Level**: You can choose the system state and recovery point to restore to the same machine at a specified location.
 
 
-- 	**Alternate Server** : Another server, i.e. not the same server where the backup was taken.
-    -    **Files and Folders** : You can browse and choose individual files and folders that you would like to restore the recovery point to a target machine.
-    -    **Volume Level** : You can choose the volume and the recovery point that you want to restore to an alternate location by either creating a copy of the existing files, overwrite existing files or skip recovering existing files.
-    -    **System Level** : You can choose the system state and recovery point to restore as System State file to an alternate machine.
+- 	**Alternate Server**: Another server, i.e. not the same server where the backup was taken.
+    -    **Files and Folders**: You can browse and choose individual files and folders that you would like to restore the recovery point to a target machine.
+    -    **Volume Level**: You can choose the volume and the recovery point that you want to restore to an alternate location by either creating a copy of the existing files, overwrite existing files or skip recovering existing files.
+    -    **System Level**: You can choose the system state and recovery point to restore as System State file to an alternate machine.
 
 ## Backup process
 
-1.	From the Azure portal, create a Recovery Service vault and choose files and folders and/or system state from Backup goals.
-2.	Download the Recovery Service vault credentials and agent installer to an on-premises machine. To protect on-premises machine by choosing the backup option choose files and folders and system state and download the MARS agent.
+1.	From the Azure portal, create a [Recovery Service vault](https://review.docs.microsoft.com/azure/backup/backup-configure-vault?branch=pr-en-us-97600#create-a-recovery-services-vault) and choose files and folders and/or system state from Backup goals.
+2.	[Download](https://review.docs.microsoft.com/azure/backup/backup-configure-vault?branch=pr-en-us-97600#download-the-mars-agent) the Recovery Service vault credentials and agent installer to an on-premises machine. To protect on-premises machine by choosing the backup option choose files and folders and system state and download the MARS agent.
 3.	Prepare the infrastructure:
 
-    a.    Run the installer to install the agent.
+    a.    Run the installer to [install](https://review.docs.microsoft.com/azure/backup/backup-configure-vault?branch=pr-en-us-97600#install-and-register-the-agent) the agent.
 
     b.	Use downloaded vault credentials to register the machine to Recovery Services vault.
-4.	From agent console on the client, use schedule backup to configure the backup. Specify the retention policy of your backup data and start protecting.
+4.	From agent console on the client, use [schedule backup](https://review.docs.microsoft.com/azure/backup/backup-azure-manage-mars?branch=pr-en-us-97600#create-a-backup-polic) to configure the backup. Specify the retention policy of your backup data and start protecting.
 
 ![recovery services vault dashboard](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
-For the step-by-step procedure to setup and backup using the MARS agent, refer to this [article](https://review.docs.microsoft.com/azure/backup/backup-configure-vault?branch=pr-en-us-97600#create-a-recovery-services-vault).
 
 ### Additional scenarios
 -	**Backup specific files and folders within Azure VM** - The primary method for backing up Azure virtual machines (VMs) is by using an Azure Backup extension on the VM. This backs up the entire VM. If you want to backup specific files and folders within a VM then you can install the MARS agent in Azure VMs. [Learn more](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
