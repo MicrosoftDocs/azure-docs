@@ -17,14 +17,14 @@ ms.author: diberry
 
 # Tutorial:  Add sentiment analysis as a publishing setting
 
-In this tutorial, modify the publishing settings to extract sentiment analysis then query the LUIS endpoint to understand publishing settings.
+In this tutorial, modify the publishing settings to extract sentiment analysis then query the LUIS endpoint to see the returned sentiment of a user utterance.
 
 **In this tutorial, you learn how to:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Add sentiment analysis as publish setting
-> * Get sentiment of utterance from endpoint
+> * Add sentiment analysis as a publish setting
+> * Get sentiment of an utterance from the published endpoint
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
@@ -34,12 +34,12 @@ The following utterances show examples of sentiment:
 
 |Sentiment|Score|Utterance|
 |:--|:--|:--|
-|positive|0.91 |John W. Smith did a great job on the presentation in Paris.|
-|positive|0.84 |The Seattle engineers did fabulous work on the Parker sales pitch.|
+|negative|0.01 |The pizza was aweful.|
+|positive|0.97 |The cheese pizza was wonderful.|
 
-Sentiment analysis is a publish setting that applies to every utterance. Once set, your app returns the sentiment of an utterance without you having to labeling data\.
+Sentiment analysis is a publish setting that applies to every utterance. Once set, your app returns the sentiment of an utterance without you having to label data.
 
-Because it is a publish setting, you do not see it on the intents or entities pages. You can see it in the [interactive test](luis-interactive-test.md#view-sentiment-results) pane or when testing at the endpoint URL.
+Because it is a publish setting, you do not see it labeled on the intents or entities pages. You can see it in the [interactive test](luis-interactive-test.md#view-sentiment-results) pane or when testing at the endpoint URL.
 
 ## Import example .json to begin app
 
