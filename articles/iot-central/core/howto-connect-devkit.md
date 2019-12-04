@@ -25,7 +25,7 @@ In this how-to article, you:
 To complete the steps in this article, you need the following resources:
 
 - A [DevKit device](https://aka.ms/iot-devkit-purchase).
-- An IoT Central application created from the **Preview application** template. You can follow the steps in [Create an IoT Plug and Play application](./quick-deploy-iot-central.md).
+- An IoT Central application. You can follow the steps in [Create an IoT Central application](./quick-deploy-iot-central.md).
 
 ## Get device connection details
 

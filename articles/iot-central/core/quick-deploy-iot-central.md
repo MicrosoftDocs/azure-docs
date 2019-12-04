@@ -15,10 +15,7 @@ manager: corywink
 
 
 
-This quickstart shows you how to create an Azure IoT Central application that contains preview features such as IoT Plug and Play.
-
-> [!WARNING]
-> The IoT Plug and Play capabilities in Azure IoT Central are currently in public preview. Don't use an IoT Plug and Play enabled IoT Central application for production workloads. For production environments use an IoT central application created from a current, generally available, application template.
+This quickstart shows you how to create an Azure IoT Central application.
 
 ## Create an application
 
@@ -44,10 +41,7 @@ To create a new Azure IoT Central application:
     - **Pay-As-You-Go** applications are charged on a per device basis, with the first two devices being free. Learn more about [IoT Central pricing](https://aka.ms/iotcentral-pricing). If you create a Pay-As-You-Go application, you'll need to select your *Directory*, *Azure Subscription*, and *Location*:
         - *Directory* is the Azure Active Directory (AAD) in which you'll create your application. An Azure AD contains user identities, credentials, and other organizational information. If you don’t have an Azure AD, one is created for you when you create an Azure subscription.
         - An *Azure Subscription* enables you to create instances of Azure services. IoT Central provisions resources in your subscription. If you don’t have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription). After you create the Azure subscription, navigate back to the **Create an application** page. Your new subscription will appear in the **Azure Subscription** drop-down.
-        - *Location* is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you’d like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central public preview is currently available in the **United States**, or in **Europe**. Once you choose a location, you can't move your application to a different location later.
-
-        > [!NOTE]
-        > During public preview, the only available locations for **preview applications** are **Europe** and **United States**.
+        - *Location* is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Once you choose a location, you can't move your application to a different location later.
 
 1. Review the Terms and Conditions, and select **Create** at the bottom of the page.
 
