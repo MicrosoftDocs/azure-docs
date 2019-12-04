@@ -168,7 +168,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![uniFLOW Online Configuration](./media/uniflow-online-tutorial/configure4.png)
 
-	a. Enter the Diplay name Ex: *AzureAD SSO*.
+	a. Enter the Display name Ex: *AzureAD SSO*.
 
 	b. For **Provider type**, select **WS-Fed** option from the dropdown.
 
@@ -180,7 +180,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![uniFLOW Online Configuration](./media/uniflow-online-tutorial/configure5.png)
 
-	a. Enter the Diplay name Ex: *AzureAD SSO*.
+	a. Enter the Display name Ex: *AzureAD SSO*.
 
 	b. Select **From URL** option for the **ADGS Federation Metadata**.
 
@@ -188,7 +188,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	d. Select **Identity provider** as **Enabled**.
 
-	e. Select **Automatic user registraion** as **Activated**.
+	e. Select **Automatic user registration** as **Activated**.
 
 	f. Click **Save**.
 
