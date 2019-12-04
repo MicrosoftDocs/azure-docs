@@ -21,7 +21,7 @@ This article describes resolutions to errors encountered when creating clusters.
 
 
 ## Script Action location cannot be accessed at the provided URL
-**Error message: You receive an error message: "The remote server returned an error: (404) Not Found."**
+**Error message: "The remote server returned an error: (404) Not Found."**
 
 ### Cause
 The Script Action URL that is provided as part of the Create Cluster request is not accessible from HDInsight service. We receive the “ErrorMessage” when we try to access the script action.
@@ -72,7 +72,7 @@ Make sure that **VirtualNetworkId** and subnet are in the correct format. To obt
 **Error message: Cluster deployment failed due to an error in the custom script action. Failed Actions: &lt;SCRIPT_NAME&gt;, Please go to Ambari UI to further debug the failure.**
 
 ### Cause
-The user’s custom script that was provided during the Create Cluster request is executed after the cluster is deployed successfully. This error code indicates that an error was encountered while executing this custom script with name ‘&lt;SCRIPT_NAME&gt;’.   
+The user’s custom script that was provided during the Create Cluster request is executed after the cluster is deployed successfully. This error code indicates that an error was encountered while executing this custom script with name &lt;SCRIPT_NAME&gt;.   
 
 ### Resolution
 Because this is the user’s custom script, users should troubleshoot the issue and rerun the script if necessary. To troubleshoot the script failure, examine the logs in the /var/lib/ambari-agent/* folder. Or, open the Operations page in Ambari UI, and select the **run_customscriptionaction** operation to view the error details. The following screenshot shows an example of how the Ambari Operations page appears: 
@@ -118,9 +118,9 @@ Open the Azure portal, go to your Storage account, look under **Access Control (
 
 ---
 
-## The security rules in the Network Security Group 
-`/subscriptions/<SubscriptionID>/resourceGroups/<Resource Group name>default/providers/Microsoft.Network/networkSecurityGroups/<Network Security Group Name>` configured with subnet `/subscriptions/<SubscriptionID>/resourceGroups/<Resource Group name>/providers/Microsoft.Network/virtualNetworks/<Virtual Network Name>/subnets/<Subnet Name>` 
-does not allow required inbound and/or outbound connectivity. For more information, see [Plan a virtual network for Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment), or contact Microsoft Support.
+## Security rules in the Network Security Group do not allow required inbound and/or outbound connectivity
+**Error message: /subscriptions/\<SubscriptionID>\/resourceGroups/<Resource Group name>default/providers/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name>\ configured with subnet /subscriptions/\<SubscriptionID>\/resourceGroups/\<Resource Group name>\/providers/Microsoft.Network/virtualNetworks/\<Virtual Network Name>\/subnets/\<Subnet Name\> 
+does not allow required inbound and/or outbound connectivity. For more information, see [Plan a virtual network for Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment), or contact Microsoft Support.**
 
 ### Cause
 If you use network security groups (NSGs) or user-defined routes (UDRs) to control inbound traffic to your HDInsight cluster, you must make sure that your cluster can communicate with critical Azure health and management services.
