@@ -80,7 +80,7 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-You can choose to deploy the template with a locally installed version of PowerShell instead Azure Cloud Shell. You'll need to [install the Azure PowerShell module](/powershell/azure/install-az-ps). Run `Get-Module -ListAvailable Az` to find the version.
+You can choose to deploy the template with a locally installed version of PowerShell instead of Azure Cloud Shell. You'll need to [install the Azure PowerShell module](/powershell/azure/install-az-ps). Run `Get-Module -ListAvailable Az` to find the required version.
 
 ### Deploy via Azure CLI
 
@@ -119,7 +119,7 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-The `az cosmosdb show` command shows the newly created Azure Cosmos account after it's provisioned. You can choose to deploy the template with a locally installed version of Azure CLI instead Azure Cloud Shell. For information, see [Azure Command-Line Interface (CLI)](/cli/azure/).
+The `az cosmosdb show` command shows the newly created Azure Cosmos account after it's provisioned. You can choose to deploy the template with a locally installed version of Azure CLI instead Azure Cloud Shell. For more information, see the [Azure Command-Line Interface (CLI)](/cli/azure/) article.
 
 <a id="create-sproc"></a>
 
@@ -166,7 +166,7 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-You can choose to deploy the template with a locally installed version of PowerShell instead of from Azure Cloud Shell. You'll need to [install the Azure PowerShell module](/powershell/azure/install-az-ps). Run `Get-Module -ListAvailable Az` to find the version.
+You can choose to deploy the template with a locally installed version of PowerShell instead of Azure Cloud Shell. You'll need to [install the Azure PowerShell module](/powershell/azure/install-az-ps). Run `Get-Module -ListAvailable Az` to find the required version.
 
 ### Deploy with Azure CLI
 
@@ -196,7 +196,7 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 ## Next Steps
 
-You might find these resources to be helpful:
+Here are some additional resources:
 
 * [Azure Resource Manager documentation](/azure/azure-resource-manager/)
 * [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
