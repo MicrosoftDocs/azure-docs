@@ -147,7 +147,7 @@ We now need to restore Nuget packages in order to get Azure Spatial Anchors SDK.
 
 ## [Via NuGetForUnity](#tab/NuGetForUnity)
 
-First we need to install NuGetForUnity. Go to the [NuGetForUnity GitHub releases page](https://github.com/GlitchEnzo/NuGetForUnity#how-do-i-install-nugetforunity). Under Assets, download the lastest **NuGetForUnity.unitypackage**. In Unity, go to **Assets**, click **Import Package** > **Custom Package...**. Navigate to the package and select **Open**. Unity will now install NugetForUnity. If you don't see a new **NuGet** dropdown in Unity, you may need to right click under **Projects** > **Assets**. Then select **Reimport All**.
+First we need to install NuGetForUnity. Go to the [NuGetForUnity GitHub releases page](https://github.com/GlitchEnzo/NuGetForUnity/releases). Under Assets, download the lastest **NuGetForUnity.unitypackage**. In Unity, go to **Assets**, click **Import Package** > **Custom Package...**. Navigate to the package and select **Open**. Unity will now install NugetForUnity. If you don't see a new **NuGet** dropdown in Unity, you may need to right click under **Projects** > **Assets**. Then select **Reimport All**.
 
 Once you have NuGetForUnity installed, select **NuGet** > **Manage NuGet Packages**. Then search for Microsoft.Azure.SpatialAnchors.Unity and select **Install**.
 
