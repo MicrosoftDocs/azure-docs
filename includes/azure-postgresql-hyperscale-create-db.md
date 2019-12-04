@@ -41,7 +41,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
    ![Added client IP](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
 
    > [!NOTE]
-   > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 5432.
+   > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you cannot connect to your Hyperscale (Citus) cluster unless your IT department opens port 5432.
    >
 
 9. Click **Review + create** and then **Create** to provision the server. Provisioning takes a few minutes.
