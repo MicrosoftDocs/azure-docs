@@ -199,7 +199,7 @@ Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
     name='en-US-JessaRUS'>
-        Microsoft Speech service Text-to-Speech API
+        Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```
 
