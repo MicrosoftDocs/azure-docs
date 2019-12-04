@@ -62,13 +62,13 @@ Because it is a publish setting, you do not see it labeled on the intents or ent
 
 ## Get the sentiment of an utterance from the endpoint
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
 1. Go to the end of the URL in the address and enter the following utterance:
 
     `Deliver 2 of the best cheese pizzas ever!!!`
 
-    The last querystring parameter is `query`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `EmployeeFeedback` intent with the sentiment analysis extracted.
+    The last querystring parameter is `query`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `OrderPizza` intent with the sentiment analysis extracted.
 
     ```json
     {
