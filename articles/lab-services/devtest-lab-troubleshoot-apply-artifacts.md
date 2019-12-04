@@ -83,7 +83,7 @@ When an artifact appears to hang, first determine where it's stuck. An artifact 
 1. Log in to the virtual machine in question.
 2. Using File Explorer navigate to **C:\WindowsAzure\logs**.
 3. Locate and open file **WaAppAgent.log**.
-4. Look for entries that show when the VM Agent starts and when it is finishing initialization (that is, the first heartbeat is sent). Favor newer entries or specifically those around the time period for which you experience the issue.
+4. Look for entries that show when the VM Agent starts and when it is finishing initialization (that is, the first heartbeat is sent). Favor newer entries or specifically the ones around the time period for which you experience the issue.
 
     ```
     [00000006] [11/14/2019 05:52:13.44] [INFO]  WindowsAzureGuestAgent starting. Version 2.7.41491.949
@@ -104,7 +104,7 @@ DevTest Labs requires access to the lab’s storage account that is created to c
 
 Depending on how a VM is configured, it may not have direct access to this repo. Therefore, by design, DevTest Labs caches the artifacts in a storage account that's created when the lab is first initialized.
 
-If access to this storage account is blocked in any way, as when traffic is blocked from the VM to the Azure Storage service, you may see an error similar to the following:
+If access to this storage account is blocked in any way, as when traffic is blocked from the VM to the Azure Storage service, you may see an error similar to the following one:
 
 ```shell
 CSE Error: Failed to download all specified files. Exiting. Exception: Microsoft.WindowsAzure.Storage.StorageException: The remote server returned an error: (403) Forbidden. ---> System.Net.WebException: The remote server returned an error: (403) Forbidden.
