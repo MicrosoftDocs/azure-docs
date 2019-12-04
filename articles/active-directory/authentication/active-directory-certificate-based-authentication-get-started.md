@@ -41,6 +41,9 @@ To configure certificate-based authentication, the following statements must be 
 - Your client device must have access to at least one certificate authority that issues client certificates.
 - A client certificate for client authentication must have been issued to your client.
 
+>[!IMPORTANT]
+>The maximum size of a CRL for Azure Active Directory to successfully download and cache is 20MB, and the time required to download the CRL must not exceed 10 seconds.  If Azure Active Directory can't download a CRL, certificate based authentications using certificates issued by the corresponding CA will fail. Best practices to ensure CRL files are within size constraints are to keep certificate lifetimes to within reasonable limits and to clean up expired certificates. 
+
 ## Step 1: Select your device platform
 
 As a first step, for the device platform you care about, you need to review the following:
