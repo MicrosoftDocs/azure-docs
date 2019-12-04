@@ -10,7 +10,7 @@ ms.custom: "include file"
 ms.topic: "include"
 ms.date: 12/04/2019
 ---
-**Compute targets can be reused from one training job to the next**. For example, once you attach a remote VM to your workspace, you can reuse it for multiple jobs.  Machine learning pipelines can use all these compute targets by using the appropriate [pipeline steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py).
+**Compute targets can be reused from one training job to the next**. For example, once you attach a remote VM to your workspace, you can reuse it for multiple jobs.  For machine learning pipelines, use the appropriate [pipeline step](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) for each compute target.
 
 |Training &nbsp;targets|[Automated ML](../articles/machine-learning/service/concept-automated-ml.md) | [ML pipelines](../articles/machine-learning/service/concept-ml-pipelines.md) | [Azure Machine Learning designer](../articles/machine-learning/service/concept-designer.md)
 |----|:----:|:----:|:----:|
