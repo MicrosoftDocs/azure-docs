@@ -175,7 +175,7 @@ from azureml.core.model import InferenceConfig
 from azureml.core.environment import Environment, DEFAULT_GPU_IMAGE
 
 deploy_env = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
-env.docker.base_image = DEFAULT_GPU_IMAGE
+deploy_env.docker.base_image = DEFAULT_GPU_IMAGE
 inference_config = InferenceConfig(entry_script="score.py", environment=deploy_env)
 ```
 
