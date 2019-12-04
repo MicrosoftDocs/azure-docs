@@ -15,9 +15,9 @@ The major versions of the Azure Functions runtime are related to the version of 
 | 2.x | GA | .NET Core 2.2 |
 | 1.x | GA<sup>2</sup> | .NET Framework 4.6<sup>3</sup> |
 
-<sup>1</sup>GA releases are supported for production scenarios.   
-<sup>2</sup>Version 1.x is in maintenance mode. Enhancements are provided only in later versions.   
-<sup>3</sup>Only supports development in the Azure portal or locally on Windows computers.
+<sup>1</sup> GA releases are supported for production scenarios.   
+<sup>2</sup> Version 1.x is in maintenance mode. Enhancements are provided only in later versions.   
+<sup>3</sup> Only supports development in the Azure portal or locally on Windows computers.
 
 This article details some of the differences between the various versions, how you can create each version, and how to change versions.
 
@@ -40,17 +40,17 @@ By default, function apps created in the Azure portal and by the Azure CLI are s
 
 You may choose to migrate an existing app written to use the version 1.x runtime to instead use a newer version. Most of the changes you need to make are related to changes in the language runtime, such as C# API changes between .NET Framework 4.7 and .NET Core. You'll also need to make sure your code and libraries are compatible with the language runtime you choose. Finally, be sure to note any changes in trigger, bindings, and features highlighted below. For the best migration results, you should create a new function app in a new version and port your existing version 1.x function code to the new app.  
 
-While you could manually update the existing project and code, a sort of "in-place" upgrade. However, there are a number of other improvements after version 1.x that you may still need to make. For example, in C# the debugging object was changed from `TraceWriter` to `ILogger`. By creating a new version 3.x project, you start off with updated functions based on the latest version 3.x templates.
+While it's possible to do an "in-place" upgrade by manually updating the app configuration, going from 1.x to a higher version includes some breaking changes. For example, in C#, the debugging object is changed from `TraceWriter` to `ILogger`. By creating a new version 3.x project, you start off with updated functions based on the latest version 3.x templates.
 
 ### Changes in triggers and bindings in 2.x and 3.x
 
 Version 2.x and 3.x requires you to install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](./functions-bindings-register.md).
 
-There have also been a few changes in the `function.json` or attributes of the function between versions. For example, the Event Hub `path` property is now `eventHubName`. See the [existing binding table](#bindings) for links to documentation for each binding.
+There are also a few changes in the *function.json* or attributes of the function between versions. For example, the Event Hub `path` property is now `eventHubName`. See the [existing binding table](#bindings) for links to documentation for each binding.
 
 ### Changes in features and functionality in 2.x and 3.x
 
-A few features that have also been removed, updated, or replaced in the new version. This section details the changes you see in version 2.x and 3.x after having used version 1.x.
+A few features are removed, updated, or replaced in the new version. This section details the changes you see in version 2.x and 3.x after having used version 1.x.
 
 In version 2.x, the following changes were made:
 
@@ -74,7 +74,7 @@ In version 2.x, the following changes were made:
 
 ## Migrating from 2.x to 3.x
 
-3.x is a highly backwards compatible release to 2.x.  Many apps should be able to safely upgrade to 3.x without any code changes.  While moving to 3.x should require minimal changes and is encouraged, you should still test changes in a new app first to confirm all is working before changing the major version of any production apps.
+Azure Functions version 3.x is a highly backwards compatible to version 2.x.  Many apps should be able to safely upgrade to 3.x without any code changes.  While moving to 3.x is encouraged, be sure to run extensive tests before changing the major version in production apps.
 
 ### Migrating a locally developed application
 

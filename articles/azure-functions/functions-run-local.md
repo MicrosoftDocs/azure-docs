@@ -30,9 +30,9 @@ There are three versions of Azure Functions Core Tools. The version you use depe
 
 + **Version 1.x**: Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools). With this version, you can create functions in experimental languages that are not officially supported. For more information, see [Supported languages in Azure Functions](supported-languages.md)
 
-+ [Version 2.x](#v2): supports [version 2.x of the runtime](functions-versions.md). This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or npm for installation.
++ [**Version 2.x**](#v2): Supports [version 2.x of the Azure Functions runtime](functions-versions.md). This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux) and uses platform-specific package managers or npm for installation.
 
-+ [Version 3.x](#v2): supports [version 3.x of the runtime](functions-versions.md). This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or npm for installation.
++[**Version 3.x**](#v2): Supports [version 3.x of the Azure Functions runtime](functions-versions.md). This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux) and uses platform-specific package managers or npm for installation.
 
 Unless otherwise noted, the examples in this article are for version 3.x.
 
@@ -53,7 +53,8 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
 # [2.x](#tab/2x)
 
-1. Install [Node.js], which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
+1. Install [Node.js], which includes npm.
+    - For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
 
 1. Install the Core Tools package:
 
@@ -67,7 +68,8 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
 # [3.x](#tab/3x)
 
-1. Install [Node.js], which includes npm. For version 3.x of the tools, only Node.js 10 and later versions are supported.
+1. Install [Node.js], which includes npm.
+    - For version 3.x of the tools, only Node.js 10 and later versions are supported.
 
 1. Install the Core Tools package:
 
