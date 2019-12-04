@@ -1,6 +1,6 @@
 ---
-title: HIPAA HITRUST blueprint sample - Overview
-description: Overview of the HIPAA HITRUST blueprint sample. This blueprint sample helps customers assess specific HIPAA HITRUST Controls.
+title: HIPAA HITRUST blueprint sample Overview
+description: Overview of the HIPAA HITRUST blueprint sample. This blueprint sample helps customers assess specific HIPAA HITRUST controls.
 ms.date: 12/3/2019
 ms.topic: sample
 ---
@@ -14,10 +14,9 @@ attestation.
 ## Blueprint sample
 
 The blueprint sample helps customers deploy a core set of policies for any
-Azure-deployed architecture requiring accreditation or compliance with the Canada Federal PBMM
+Azure-deployed architecture requiring accreditation or compliance with the HITRUST HIPAA
 framework. The [control mapping](./control-mapping.md) section provides details on policies included
-within this initiative and how these policies help meet various controls defined by Canada Federal
-PBMM framework. When assigned to an architecture, resources are evaluated by Azure Policy for
+within this initiative and how these policies help meet various controls defined by HITRUST HIPAA framework. When assigned to an architecture, resources are evaluated by Azure Policy for
 compliance with assigned policies.
 
 ## Next steps
@@ -27,7 +26,7 @@ articles to learn about the control mapping and how to deploy this sample:
 
 > [!div class="nextstepaction"]
 > [HIPAA HITRUST blueprint - Control mapping](./control-mapping.md)
-> [HIPAA HITRUST blueprint sample - Deploy steps](./deploy.md)
+> [HIPAA HITRUST blueprint - Deploy steps](./deploy.md)
 
 Additional articles about blueprints and how to use them:
 
