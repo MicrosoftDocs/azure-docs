@@ -12,7 +12,7 @@ ms.author: aschhab
 
 ---
 
-# Configure customer-managed keys for encrypting Azure Service Bus data at rest by using the Azure portal
+# Configure customer-managed keys for encrypting Azure Service Bus data at rest by using the Azure portal (Preview)
 Azure Service Bus Premium provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Service Bus Premium relies on Azure Storage to store the data and by default, all the data that is stored with Azure Storage is encrypted using Microsoft-managed keys. 
 
 ## Overview
