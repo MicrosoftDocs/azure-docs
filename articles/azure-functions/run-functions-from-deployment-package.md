@@ -1,12 +1,8 @@
 ---
-title: Run your Azure Functions from a package | Microsoft Docs
+title: Run your Azure Functions from a package 
 description: Have the Azure Functions runtime run your functions by mounting a deployment package file that contains your function app project files.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.author: glenga
 
 ---
 

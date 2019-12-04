@@ -1,12 +1,11 @@
 ---
-title: UNH 2.5 segments in EDIFACT messages - Azure Logic Apps
+title: UNH 2.5 segments in EDIFACT messages
 description: Resolve EDIFACT messages with UNH2.5 segments in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
 ---

@@ -111,6 +111,7 @@ Here are step-by-step guides on how you can use Conditional Access to configure 
 - [Require MFA for Azure management](howto-conditional-access-policy-azure-management.md)
 - [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
 - [Require MFA for all users](howto-conditional-access-policy-all-users-mfa.md)
+- [Require Azure MFA registration](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requires Azure AD Identity Protection
 
 ## Enabling security defaults
 
@@ -120,6 +121,20 @@ To enable security defaults in your directory:
 1. Browse to **Azure Active Directory** > **Properties**.
 1. Select **Manage security defaults**.
 1. Set the **Enable security defaults** toggle to **Yes**.
+1. Select **Save**.
+
+## Disabling security defaults
+
+Organizations that choose to implement Conditional Access policies that replace security defaults must disable security defaults. 
+
+![Warning message disable security defaults to enable Conditional Access](./media/concept-conditional-access-security-defaults/security-defaults-disable-before-conditional-access.png)
+
+To disable security defaults in your directory:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
+1. Browse to **Azure Active Directory** > **Properties**.
+1. Select **Manage security defaults**.
+1. Set the **Enable security defaults** toggle to **No**.
 1. Select **Save**.
 
 ## Next steps

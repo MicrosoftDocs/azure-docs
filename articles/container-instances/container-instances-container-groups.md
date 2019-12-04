@@ -1,14 +1,8 @@
 ---
-title: Azure Container Instances container groups
+title: Introduction to container groups
 description: Learn about container groups in Azure Container Instances, a collection of instances that share a lifecycle and resources such as storage and network
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: danlep
 ms.custom: mvc
 
 ---
@@ -49,15 +43,15 @@ Azure Container Instances allocates resources such as CPUs, memory, and optional
 
 ### Resource usage by instances
 
-Each container instance is allocated the resources specified in its resource request. However, the resource usage by a container instance in a group depends on how you configure its optional [resource limit][resource-limits] property.
+Each container instance is allocated the resources specified in its resource request. However, the resource usage by a container instance in a group depends on how you configure its optional [resource limit][resource-limits] property. The resource limit must be less than than the mandatory [resource request][resource-requests] property.
 
 * If you don't specify a resource limit, the instance's maximum resource usage is the same as its resource request.
 
 * If you specify a resource limit for an instance, you can adjust the instance's resource usage for its workload, either reducing or increasing usage relative to the resource request. The maximum resource limit you can set is the total resources allocated to the group.
     
-    For example, in a group with two instances requesting 1 CPU, one of your containers might run a workload that requires more CPUs to run than the other.
+For example, in a group with two instances requesting 1 CPU, one of your containers might run a workload that requires more CPUs to run than the other.
 
-    In this scenario, you could set a resource limit of 0.5 CPU for one instance, and a limit of 2 CPUs for the second. This configuration limits the first container's resource usage to 0.5 CPU, allowing the second container to use up to the full 2 CPUs if available.
+In this scenario, you could set a resource limit of 0.5 CPU for one instance, and a limit of 2 CPUs for the second. This configuration limits the first container's resource usage to 0.5 CPU, allowing the second container to use up to the full 2 CPUs if available.
 
 For more information, see the [ResourceRequirements][resource-requirements] property in the container groups REST API.
 

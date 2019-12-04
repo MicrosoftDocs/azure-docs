@@ -5,11 +5,10 @@ description: The speech-to-text feature enables real-time transcription of audio
 services: cognitive-services
 author: erhopf
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/03/2019
 ms.author: erhopf
 ---
 
@@ -23,22 +22,24 @@ You can easily capture audio from a microphone, read from a stream, or access au
 
 ## Core features
 
-Here are the features available via the Speech SDK and REST APIs:
+Here is the features available via the Speech SDK and REST APIs:
 
 | Use case | SDK | REST |
 |--------- | --- | ---- |
-| Transcribe short utterances (<15 seconds). Only supports final transcription result. | Yes | Yes |
+| Transcribe short utterances (<15 seconds). Only supports one final transcription result. | Yes | Yes\* |
 | Continuous transcription of long utterances and streaming audio (>15 seconds). Supports interim and final transcription results. | Yes | No |
-| Derive intents from recognition results with [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Yes | No\* |
-| Batch transcription of audio files asynchronously. | No  | Yes\*\* |
-| Create and manage speech models. | No | Yes\*\* |
-| Create and manage custom model deployments. | No  | Yes\*\* |
-| Create accuracy tests to measure the accuracy of the baseline model versus custom models. | No  | Yes\*\* |
-| Manage subscriptions. | No  | Yes\*\* |
+| Derive intents from recognition results with [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Yes | No\*\* |
+| Batch transcription of audio files asynchronously. | No  | Yes\*\*\* |
+| Create and manage speech models. | No | Yes\*\*\* |
+| Create and manage custom model deployments. | No  | Yes\*\*\* |
+| Create accuracy tests to measure the accuracy of the baseline model versus custom models. | No  | Yes\*\*\* |
+| Manage subscriptions. | No  | Yes\*\*\* |
 
-\*_LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK can call LUIS for you and provide entity and intent results. With the REST API, you can call LUIS yourself to derive intents and entities with your LUIS subscription._
+\*_Using the REST functionality you can transfer up to 60 seconds of audio and will receive one final transcription result._
 
-\*\*_These services are available using the cris.ai endpoint. See [Swagger reference](https://westus.cris.ai/swagger/ui/index)._
+\*\*_LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK calls LUIS for you and provide entity and intent results. With the REST API, you call LUIS yourself to derive intents and entities with your LUIS subscription._
+
+\*\*\*_These services are available using the cris.ai endpoint. See [Swagger reference](https://westus.cris.ai/swagger/ui/index)._
 
 ## Get started with speech-to-text
 

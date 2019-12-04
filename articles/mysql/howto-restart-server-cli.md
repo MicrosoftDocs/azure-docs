@@ -1,11 +1,11 @@
 ---
-title: Restart Azure Database for MySQL server using Azure CLI
+title: Restart server - Azure CLI - Azure Database for MySQL
 description: This article describes how you can restart an Azure Database for MySQL server using the Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/28/2019
+ms.date: 12/02/2019
 ---
 
 # Restart Azure Database for MySQL server using the Azure CLI

@@ -1,8 +1,6 @@
 ---
-title: "Create a Kubernetes dev space in the cloud using Java and VS Code"
-titleSuffix: Azure Dev Spaces
+title: "Create a Kubernetes dev space: Visual Studio Code & Java"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
@@ -11,7 +9,7 @@ description: "Rapid Kubernetes development with containers and microservices on 
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
-# Get started on Azure Dev Spaces with Java
+# Create a Kubernetes dev space: Visual Studio Code and Java with Azure Dev Spaces
 
 In this guide, you will learn how to:
 
@@ -39,9 +37,10 @@ az login
 You can view your subscriptions by running: 
 
 ```cmd
-az account list
+az account list --output table
 ```
-Locate the  subscription which has `isDefault: true` in the JSON output.
+
+Locate the  subscription which has *True* for *IsDefault*.
 If this isn't the subscription you want to use, you can change the default subscription:
 
 ```cmd

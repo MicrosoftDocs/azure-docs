@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for images - Bing Image Search REST API and Ruby"
+title: "Quickstart: Search for images REST API and Ruby - Bing Image Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send image search requests to the Bing Image Search REST API using Ruby, and receive JSON responses.
 services: cognitive-services
