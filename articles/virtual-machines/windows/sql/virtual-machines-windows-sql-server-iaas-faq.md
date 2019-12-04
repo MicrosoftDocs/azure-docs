@@ -84,7 +84,7 @@ This article provides answers to some of the most common questions about running
    1. You have [license mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) through [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
    1. The passive SQL Server instance does not serve SQL Server data to clients or run active SQL Server workloads. It is only used to synchronize with the primary server and otherwise maintain the passive database in a warm standby state. If it is serving data, such as reports to clients running active SQL Server workloads, or performing any "work", such as additional backups from the secondary server, then it must be a paid licensed SQL Server instance. 
    1. The active SQL Server license is covered by Software Assurance and allows for **one** passive secondary SQL Server instance, with up to the same amount of compute as the licensed active server, only. 
-   1. The secondary SQL Server VM utilizes the bring-your-own-license (BYOL) or Azure Hybrid Benefit (AHB) [license model](virtual-machines-windows-sql-ahb.md). 
+   1. The secondary SQL Server VM utilizes the [Disaster Recovery](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) license in the Azure portal. 
 
 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
