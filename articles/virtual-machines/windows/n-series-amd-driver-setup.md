@@ -1,3 +1,22 @@
+﻿---
+title: Azure N-series AMD GPU driver setup for Windows 
+description: How to set up AMD GPU drivers for N-series VMs running Windows Server or Windows in Azure
+services: virtual-machines-windows
+author: vikancha
+manager: jkabat
+editor: ''
+tags: azure-resource-manager
+
+
+ms.service: virtual-machines-windows
+
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 12/4/2019
+ms.author: vikancha
+
+---
 # Install AMD GPU drivers on N-series VMs running Windows 
 
 To take advantage of the GPU capabilities of the new Azure NVv4 series VMs running Windows, AMD GPU drivers must be installed. The AMD driver extension will be available in the coming weeks. This article provides supported operating systems, drivers, and manual installation and verification steps.
@@ -9,7 +28,7 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 ## Supported operating systems and drivers
 | OS | Driver |
 | -------- |------------- |
-| Windows 10 EVD - Build 1903 <br/><br/>Windows 10 - Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [26.20.13024.5](http://download.microsoft.com/download/f/c/b/fcbcbccd-3d38-4d2c-94ff-a109732d1db0/AMD_Radeon_Preview_Win.zip) (.zip) |
+| Windows 10 EVD - Build 1903 <br/><br/>Windows 10 - Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [26.20.13024.5](https://download.microsoft.com/download/f/c/b/fcbcbccd-3d38-4d2c-94ff-a109732d1db0/AMD_Radeon_Preview_Win.zip) (.zip) |
 
 
 
