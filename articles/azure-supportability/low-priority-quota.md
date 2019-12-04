@@ -11,7 +11,7 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ---
 # Low priority quota: limit increase for all VM Series
 
-Low priority VMs provide a different model of Azure usage, trading a lower cost for letting Azure remove a VM as needed for Pay-as-you-go or Reserved VM Instance deployments. Read more about Low priority VMs [here](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority).
+Low priority VMs provide a different model of Azure usage, trading a lower cost for letting Azure remove a VM as needed for Pay-as-you-go or Reserved VM Instance deployments. Read more about Low priority VMs [here](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
 Resource Manager supports two types of vCPU quotas for virtual machines. **Pay-as-you-go VMs and Reserved VM Instances** use standard quota. **Low priority VMs** use Low priority quota. 
 
