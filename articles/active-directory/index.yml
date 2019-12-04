@@ -109,7 +109,7 @@ conceptualContent:
           itemType: tutorial
           text:  Integrate a single forest with a single Azure AD tenant
         - url: ./cloud-provisioning/how-to-install.md
-          itemType: quickstart
+          itemType: how-to-guide
           text:  Install Azure AD Connect cloud provisioning agent
       footerLink: 
         url: ./cloud-provisioning/index.yml
