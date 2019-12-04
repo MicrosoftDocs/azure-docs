@@ -1,5 +1,6 @@
 ---
-title: Brokered auth in Android | Azure
+title: Brokered authentication in Android
+titlesuffix: Microsoft identity platform
 description: An overview of brokered authentication & authorization for Android in the Microsoft identity platform
 services: active-directory
 author: shoatman
@@ -9,15 +10,13 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/14/2019
-ms.author: shoatman, hahamil, brianmel
+ms.author: shoatman
 ms.custom: aaddev
-ms.reviewer: shoatman
+ms.reviewer: shoatman, hahamil, brianmel
 ms.collection: M365-identity-device-management
 ---
 
-# Brokered auth in Android
-
-## Introduction
+# Brokered authentication in Android
 
 You must use one of Microsoft's authentication brokers to participate in device-wide Single Sign-On (SSO) and to meet organizational Conditional Access policies. Integrating with a broker provides the following benefits:
 
