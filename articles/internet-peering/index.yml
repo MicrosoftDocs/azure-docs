@@ -78,6 +78,13 @@ landingContent:
   # Card
   - title: Peering Service
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Peering Service?
+            url: internet-peering-service-overview.md
+      - linkListType: concept
+          - text: Peering Service FAQs
+            url: internet-peering-service-faqs.md
       - linkListType: how-to-guide
         links:
           - text: Enable Peering Service on a Direct Peering using Portal
