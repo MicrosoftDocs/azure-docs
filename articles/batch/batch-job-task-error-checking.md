@@ -49,7 +49,7 @@ The job preparation task instances should be checked to determine if there were 
 ### Job release tasks
 
 If a job release task is specified for a job, then when a job is being terminated an instance of the job release task is run on each of the pool nodes where a job preparation task was run.  The job release task instances should be checked to determine if there were errors:
-- All the instances of the job release task being run can be obtained from the job using the API '[List Preparation and Release Task Status](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus)'. As with any task, there is [execution information](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) available with properties such as 'failureInfo', 'exitCode', and 'result'.
+- All the instances of the job release task being run can be obtained from the job using the API [List Preparation and Release Task Status](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus). As with any task, there is [execution information](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) available with properties such as `failureInfo`, `exitCode`, and `result`.
 - If one or more job release tasks fail, then the job will still be terminated and move to a 'completed' state.
 
 ## Tasks
