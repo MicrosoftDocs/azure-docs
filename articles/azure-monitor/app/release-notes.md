@@ -15,7 +15,7 @@ Here are detailed release notes and update instructions for our SDKs:
 
 
 * .NET SDKs
-    - For version 2.12 and newer: [.NET SDKs (Including ASP.NET, ASP.Net Core, and Logging Adapters)](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
+    - For version 2.12 and newer: [.NET SDKs (Including ASP.NET, ASP.NET Core, and Logging Adapters)](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
     - For older releases:
       - [ASP.NET Web Server SDK](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)
       - [.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
