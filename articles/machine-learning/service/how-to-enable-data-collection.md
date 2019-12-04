@@ -243,9 +243,3 @@ You can choose a tool of your preference to analyze the data collected in your B
     [![Databricks setup](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
 1. Follow the steps on the template to view and analyze your data.
-
-## Example notebook
-
-The [How to use Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb) notebook demonstrates the concepts in this article.
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
