@@ -87,6 +87,12 @@ The log storage is allocated dynamically in 32 GB chunks. Its size directly depe
 
 The total backup storage usage is calculated as `Backup storage size = base blob size + size of snapshots + (size of log storage blob –  32GB)`. For live databases the base blob size is excluded from the billable backup storage size. After the database is dropped, the base blob is kept for the duration of the configured retention period as it is required for restores.
 
+### Monitoring consumption
+
+Each type of backup (full, differential and log) is reported on the database monitoring blade as a separate metric. The following diagram shows how to monitor the backups storage consumption.  
+
+![Monitor database backup consumption on the database monitoring blade of the Azure portal](media/sql-database-automated-backup/backup-metrics.png)
+
 
 ## Backup retention
 
