@@ -1,11 +1,11 @@
 ---
-title: Avere vFXT for Azure 
-description: Introduction to Avere vFXT for Azure, a cloud cache layer for HPC 
+title: Avere vFXT for Azure
+description: Introduction to Avere vFXT for Azure, a cloud cache layer for HPC
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: overview 
-ms.date: 10/31/2018 
-ms.author: rohogue 
+ms.topic: overview
+ms.date: 12/03/2019
+ms.author: rohogue
 ---
 
 # What is Avere vFXT for Azure?
@@ -14,12 +14,13 @@ Avere vFXT for Azure is a filesystem caching solution for data-intensive high-pe
 
 Avere vFXT supports these common computing scenarios:
 
-* Hybrid cloud architecture: Avere vFXT for Azure can work with a hardware storage system, which provides the benefit of cloud computing without having to move files.
-* Cloud bursting: Avere vFXT for Azure can help you move your data to the cloud for a single project, or "lift and shift" the entire workflow permanently.
+* Hybrid cloud architecture - Avere vFXT for Azure can work with a hardware storage system, which provides the benefit of cloud computing without having to move files.
+
+* Cloud bursting - Avere vFXT for Azure can help you move your data to the cloud for a single project, or "lift and shift" the entire workflow permanently.
 
 ![diagram showing details of the Avere vFXT system inside an Azure subscription connected to Blob storage and to an on-premises datacenter](media/avere-vfxt-hybrid.png)
 
-The Avere vFXT for Azure is best suited for these situations:
+Avere vFXT for Azure is best suited for these situations:
 
 * Read-heavy operations for HPC workloads
 * Applications using the common NFS protocol
@@ -38,9 +39,9 @@ In media and entertainment, the Avere vFXT cluster can speed up data access for 
 
 ### Life sciences
 
-Avere vFXT can let researchers run their secondary analysis workflows in Azure Compute, and access genomic data no matter their location.
+Avere vFXT lets researchers run secondary analysis workflows in Azure Compute, and access genomic data no matter their location.
 
-In pharmaceutical research, Avere vFXT clusters can be used to expedite drug discovery by helping researchers predict drug-target interactions and analyze research data.
+In pharmaceutical research, Avere vFXT clusters can expedite drug discovery by helping researchers predict drug-target interactions and analyze research data.
 
 ### Financial services analytics
 
@@ -58,7 +59,7 @@ The Avere vFXT cluster caches files as they are requested. Repeated requests can
 * Compatible with Azure Blob
 * Uses NFSv3 or SMB2 protocol
 
-The Avere vFXT uses the following Azure resources:
+Avere vFXT for Azure uses the following Azure resources:
 
 |Azure component|   |
 |----------|-----------|
@@ -69,8 +70,8 @@ The Avere vFXT uses the following Azure resources:
 
 ## Next steps
 
-Here are some links to start creating your own Avere vFXT deployment.
+Read these articles to plan and create your own Avere vFXT for Azure deployment.
 
-* [Planning your system](avere-vfxt-deploy-plan.md)
+* [Plan your system](avere-vfxt-deploy-plan.md)
 * [Deployment overview](avere-vfxt-deploy-overview.md)
 * [Create the vFXT](avere-vfxt-deploy.md)
