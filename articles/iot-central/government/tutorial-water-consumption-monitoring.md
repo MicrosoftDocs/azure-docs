@@ -71,7 +71,7 @@ Congratulations! You have finished creating your water quality monitoring applic
 * Pre-configured rules and jobs
 * Sample Branding using white labeling 
 
-It is your application and you can modify it anytime. Let’s now explore the application and make some customizations.  
+It is your application and you can modify it anytime. Let's now explore the application and make some customizations.  
 
 ## Explore and customize operator dashboard 
 After creating the application you land in the sample operator dashboard called **Wide World water consumption monitoring dashboard**.

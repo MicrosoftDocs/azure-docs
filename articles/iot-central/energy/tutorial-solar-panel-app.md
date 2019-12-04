@@ -23,7 +23,7 @@ This tutorial guides you through the process of creating the solar panel monitor
 > * Clean up resources
 
 
-If you don’t have a subscription, [create a free trial account](https://azure.microsoft.com/free)
+If you don't have a subscription, [create a free trial account](https://azure.microsoft.com/free)
 
 ## Prerequisites
 - None
@@ -44,7 +44,7 @@ You can create this application in three simple steps:
 3. **Create app** will open **New application** form. Fill in the requested details as shown in the figure below:
     * **Application name**: Pick a name for your IoT Central application. 
     * **URL**: Pick an IoT Central URL, the platform will verify its uniqueness.
-    * **7-day free trial**: If you already have an Azure subscription, default setting is recommended. If you don’t have an Azure subscription, start with free trial.
+    * **7-day free trial**: If you already have an Azure subscription, default setting is recommended. If you don't have an Azure subscription, start with free trial.
     * **Billing Info**: The application itself is free. The Directory, Azure subscription, and Region details are required to provision the resources for your app.
     * Click **Create** button at the bottom of the page and your app will be created in a minute or so.
         > [!div class="mx-imgBorder"]
@@ -53,7 +53,7 @@ You can create this application in three simple steps:
 
 ### Verify the application and simulated data
 
-The newly created solar panel app is your app and you can modify it anytime. Let’s ensure the app is deployed and working as expected before you modify it.
+The newly created solar panel app is your app and you can modify it anytime. Let's ensure the app is deployed and working as expected before you modify it.
 
 To verify the app creation and data simulation, go to the **Dashboard**. If you can see the tiles with some data, then your app deployment was successful. The data simulation may take a few minutes to generate the data, so give it 1-2 minutes. 
 

@@ -30,7 +30,3 @@ Quickly identify devices needing attention by building [custom rules](tutorial-c
 
 ## User roles and permissions
 [Roles and permissions](howto-manage-users-roles.md) give you the ability to tailor each user's experience. Create roles directly through the UI and easily assign the appropriate permissions. 
-
-
-
-

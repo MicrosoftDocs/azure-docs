@@ -65,7 +65,7 @@ The user who creates an application is automatically assigned to the **Administr
 
 ### Builder
 
-Users in the **Builder** role can manage every part of the app, but can’t make changes on the Administration or Continuous Data Export tabs.
+Users in the **Builder** role can manage every part of the app, but can't make changes on the Administration or Continuous Data Export tabs.
 
 ### Operator
 
