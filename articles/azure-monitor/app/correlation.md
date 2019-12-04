@@ -138,7 +138,7 @@ public void ConfigureServices(IServiceCollection services)
     </Add>
     ```
     
-  - For Spring Boot apps, add the following properties:
+  - For Spring Boot apps, add these properties:
 
     - `azure.application-insights.web.enable-W3C=true`
     - `azure.application-insights.web.enable-W3C-backcompat-mode=true`
@@ -161,13 +161,13 @@ public void ConfigureServices(IServiceCollection services)
   > Ideally, you would turn this off when all your services have been updated to newer versions of SDKs that support the W3C protocol. We highly recommend that you move to these newer SDKs as soon as possible.
 
 > [!IMPORTANT]
-> Make sure that both incoming and outgoing configurations are exactly the same.
+> Make sure the incoming and outgoing configurations are exactly the same.
 
 ### Enable W3C distributed tracing support for Web apps
 
-This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by default. To enable it, use `distributedTracingMode` config. AI_AND_W3C is provided for back-compatibility with any legacy Application Insights instrumented services:
+This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by default. To enable it, use `distributedTracingMode` config. AI_AND_W3C is provided for backward compatibility with any legacy services instrumented by Application Insights.
 
-- **NPM Setup (ignore if using Snippet Setup)**
+- **npm setup (ignore if using Snippet setup)**
 
   ```javascript
   import { ApplicationInsights, DistributedTracingModes } from '@microsoft/applicationinsights-web';
@@ -175,12 +175,12 @@ This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by 
   const appInsights = new ApplicationInsights({ config: {
     instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
     distributedTracingMode: DistributedTracingModes.W3C
-    /* ...Other Configuration Options... */
+    /* ...other configuration options... */
   } });
   appInsights.loadAppInsights();
   ```
   
-- **Snippet Setup (Ignore if using NPM Setup)**
+- **Snippet setup (ignore if using npm setup)**
 
   ```
   <script type="text/javascript">
@@ -189,7 +189,7 @@ This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by 
     {
       instrumentationKey:"INSTRUMENTATION_KEY",
       distributedTracingMode: 2 // DistributedTracingModes.W3C
-      /* ...Other Configuration Options... */
+      /* ...other configuration options... */
     }
   );
   window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
@@ -208,17 +208,17 @@ The [OpenTracing data model specification](https://opentracing.io/) and Applicat
 | `Operation_Id`                     	| `TraceId`                                       	|
 | `Operation_ParentId`               	| `Reference` of type `ChildOf` (the parent span) 	|
 
-For more information, see the [Application Insights telemetry data model](../../azure-monitor/app/data-model.md). 
+For more information, see [Application Insights telemetry data model](../../azure-monitor/app/data-model.md).
 
-For definitions of OpenTracing concepts, see the OpenTracing [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
+For definitions of OpenTracing concepts, see the OpenTracing [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
 
 ## Telemetry correlation in OpenCensus Python
 
-OpenCensus Python follows the `OpenTracing` data model specifications outlined above. It also supports the [W3C Trace-Context](https://w3c.github.io/trace-context/) without the need of any configuration.
+OpenCensus Python follows the `OpenTracing` data model specifications outlined earlier. It also supports the [W3C Trace-Context](https://w3c.github.io/trace-context/) without requiring any configuration.
 
 ### Incoming request correlation
 
-OpenCensus Python correlates W3C Trace Context headers from incoming requests to the spans that are generated from the requests themselves. OpenCensus will do this automatically with integrations for the following popular web application frameworks: `flask`, `django` and `pyramid`. The W3C Trace Context headers simply need to be populated with the [correct format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) and sent with the request. Below is an example `flask` application demonstrating this.
+OpenCensus Python correlates W3C Trace-Context headers from incoming requests to the spans that are generated from the requests themselves. OpenCensus will do this automatically with integrations for these popular web application frameworks: Flask, Django, and Pyramid. You just need to populate the W3C Trace-Context headers with the [correct format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) and send them with the request. Here's a sample Flask application that demonstrates this:
 
 ```python
 from flask import Flask
@@ -241,25 +241,29 @@ if __name__ == '__main__':
     app.run(host='localhost', port=8080, threaded=True)
 ```
 
-This runs a sample `flask` application on your local machine, listening to port `8080`. To correlate trace context, we send a request to the endpoint. In this example, we can use a `curl` command.
+This code runs a sample Flask application on your local machine, listening to port `8080`. To correlate trace context, you send a request to the endpoint. In this example, you can use a `curl` command:
 ```
 curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
 ```
-Looking at the [Trace Context Header Format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format), we derive the following information:
+By looking at the [Trace-Context header format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format), you can derive the following information:
+
 `version`: `00`
+
 `trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736`
+
 `parent-id/span-id`: `00f067aa0ba902b7`
+
 `trace-flags`: `01`
 
-If we take a look at the request entry that was sent to Azure Monitor, we can see fields populated with the trace header information. You can find this data under Logs(Analytics) in Azure Monitor Application Insights resource.
+If you look at the request entry that was sent to Azure Monitor, you can see fields populated with the trace header information. You can find this data under Logs (Analytics) in the Azure Monitor Application Insights resource.
 
-![Screenshot of request telemetry in Logs(Analytics) with trace header fields highlighted in red box](./media/opencensus-python/0011-correlation.png)
+![Request telemetry in Logs (Analytics)](./media/opencensus-python/0011-correlation.png)
 
-The `id` field is in the format `<trace-id>.<span-id>`, where the `trace-id` is taken from the trace header that was passed in the request and the `span-id` is a generated 8-byte array for this span. 
+The `id` field is in the format `<trace-id>.<span-id>`, where the `trace-id` is taken from the trace header that was passed in the request and the `span-id` is a generated 8-byte array for this span.
 
-The `operation_ParentId` field is in the format `<trace-id>.<parent-id>`, where both the `trace-id` and `parent-id` are taken from the trace header that was passed in the request.
+The `operation_ParentId` field is in the format `<trace-id>.<parent-id>`, where both the `trace-id` and the `parent-id` are taken from the trace header that was passed in the request.
 
-### Logs correlation
+### Log correlation
 
 OpenCensus Python allows correlation of logs by enriching log records with trace ID, span ID and sampling flag. This is done by installing the OpenCensus [logging integration](https://pypi.org/project/opencensus-ext-logging/). The following attributes will be added to Python `LogRecord`s: `traceId`, `spanId` and `traceSampled`. Note that this only takes effect for loggers created after the integration.
 Below is a sample application demonstrating this.
