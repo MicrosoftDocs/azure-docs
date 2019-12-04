@@ -61,7 +61,7 @@ Azure Stack Edge Rugged series has the following capabilities:
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
 |Cloud-managed     |Device and service are managed via the Azure portal.|
 |Disconnected mode| Device and service are managed via Azure Stack.|
-|Rugged hardware| Rugged hardware designed to meet military standards MIL-STD-810G and MIL-STD-461.|
+|Rugged hardware| Rugged hardware designed for harsh environmental conditions.|
 |Portable| A battery operated, portable form factor is also available.|
 |Offline upload     |Disconnected mode supports offline upload scenarios.|
 |Scale out file server| Available as 1-node and 4-node cluster configurations|
