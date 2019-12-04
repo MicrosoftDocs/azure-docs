@@ -34,7 +34,7 @@ At the end of this exercise, you'll have set up a system that will operate as fo
 ![diagram-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "The Speech Channel flow")
 
 > [!NOTE]
-> The steps in this tutorial do not require a paid service. As a new Azure user, you'll be able to use credits from your free Azure trial subscription and the free tier of Speech service to complete this tutorial.
+> The steps in this tutorial do not require a paid service. As a new Azure user, you'll be able to use credits from your free Azure trial subscription and the free tier of the Speech service to complete this tutorial.
 
 Here's what this tutorial covers:
 > [!div class="checklist"]
