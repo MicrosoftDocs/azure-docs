@@ -1,18 +1,18 @@
 ---
-title: Azure Data Factory Mapping Data Flow Expression Builder
-description: The Expression Builder for Azure Data Factory Mapping Data Flows
+title: Azure Data Factory mapping data flow Expression Builder
+description: The Expression Builder for Azure Data Factory mapping data flows
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 11/17/2019
 ---
 
-# Mapping Data Flow Expression Builder
+# Mapping data flow Expression Builder
 
 
 
-In Azure Data Factory Mapping Data Flow, you'll find expression boxes where you can enter expressions for data transformation. Use columns, fields, variables, parameters, functions from your data flow in these boxes. To build the expression, use the Expression Builder, which is launched by clicking in the expression text box inside the transformation. You'll also sometimes see "Computed Column" options when selecting columns for transformation. When you click that, you'll also see the Expression Builder launched.
+In Azure Data Factory mapping data flow, you'll find expression boxes where you can enter expressions for data transformation. Use columns, fields, variables, parameters, functions from your data flow in these boxes. To build the expression, use the Expression Builder, which is launched by clicking in the expression text box inside the transformation. You'll also sometimes see "Computed Column" options when selecting columns for transformation. When you click that, you'll also see the Expression Builder launched.
 
 ![Expression Builder](media/data-flow/xpb1.png "Expression Builder")
 
@@ -72,6 +72,46 @@ With expression functions that return arrays, use square brackets [] to address 
 
 When you have column names that include special characters or spaces, surround the name with curly braces.
 * ```{[dbo].this_is my complex name$$$}```
+
+## Keyboard shortcuts
+
+* ```Ctrl-K Ctrl-C```: Comments entire line
+* ```Ctrl-K Ctrl-U```: Uncomment
+* ```F1```: Provide editor help commands
+* ```Alt-Down Arrow```: Move current line down
+* ```Alt-Up Arrow```: Move current line up
+* ```Cntrl-Space```: Show context help
+
+## Manual comments
+
+* ```/* This is my comment */```
+
+* ```/* This is a```
+*   ```multi-line comment */```
+   
+* ```// This is a single line comment```
+
+If you put a comment at the top of your expression, it will appear in the transformation text box to document your transformation expressions:
+
+![Comments](media/data-flow/comments2.png "Comments")
+
+## Convert to dates or timestamps
+
+```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+
+Note that to include string literals in your timestamp output, you need to wrap your conversion inside of ```toString()```.
+
+Here is how to convert seconds from Epoch to a date or timestamp:
+
+```toTimestamp(1574127407*1000l)```
+
+Notice the trailing "l" at the end of the expression above. That signifies conversion to long as in-line syntax.
+
+## Handling column names with special characters
+
+When you have column names that include special characters or spaces, surround the name with curly braces.
+
+```{[dbo].this_is my complex name$$$}```
 
 ## Next steps
 

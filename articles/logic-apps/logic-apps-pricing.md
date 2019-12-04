@@ -1,12 +1,11 @@
 ---
-title: Pricing & billing - Azure Logic Apps | Microsoft Docs
-description: Learn how pricing and billing works for Azure Logic Apps
+title: Pricing & billing model
+description: Overview about how the pricing and billing model works for Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-ms.suite: logic-apps
+ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
 ---

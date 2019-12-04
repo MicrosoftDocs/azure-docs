@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create and query Azure SQL Data Warehouse - Azure portal | Microsoft Docs"
+title: 'Quickstart: Create and query a data warehouse- Azure portal'
 description: Create and query a data warehouse with Azure SQL Data Warehouse in the Azure portal.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,7 +10,7 @@ ms.subservice: development
 ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: sqlfreshmay19 
+ms.custom: seo-lt-2019
 ---
 # Quickstart: Create and query an Azure SQL Data Warehouse in the Azure portal
 
@@ -31,7 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a data warehouse
 
-An Azure SQL Data Warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md). 
+An Azure SQL Data Warehouse is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md). 
 
 Follow these steps to create a SQL Data Warehouse that contains the AdventureWorksDW sample data. 
 
@@ -46,8 +46,8 @@ Follow these steps to create a SQL Data Warehouse that contains the AdventureWor
     | Setting | Suggested value | Description |
     | :------ | :-------------- | :---------- |
     | **Subscription** | Your subscription | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-    | **Data warehouse name** | mySampleDataWarehouse | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). Note, a data warehouse is a type of database.|
+    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
+    | **Data warehouse name** | mySampleDataWarehouse | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). Note, a data warehouse is one type of database.|
     ||||
 
     ![create data warehouse](media/create-data-warehouse-portal/select-sample.png)
@@ -56,7 +56,7 @@ Follow these steps to create a SQL Data Warehouse that contains the AdventureWor
 
     | Setting | Suggested value | Description |
     | :------ | :-------------- | :---------- |
-    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
     | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
     | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |

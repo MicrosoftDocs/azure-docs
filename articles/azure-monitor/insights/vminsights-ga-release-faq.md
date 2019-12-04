@@ -1,15 +1,12 @@
 ---
 title: Azure Monitor for VMs (GA) frequently asked questions | Microsoft Docs
 description: Azure Monitor for VMs is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions about the GA release.
-services:  azure-monitor
-author: mgoedtel
-manager: carmonm
-editor:
 ms.service:  azure-monitor
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 10/07/2019
+ms.subservice: 
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
+ms.date: 10/07/2019
 
 ---
 
@@ -39,8 +36,9 @@ The current method of enabling Azure Monitor for VMs uses performance counters i
 
 Once we update our user interface to use the data in InsightsMetrics, we will update our documentation, and communicate this announcement via multiple channels, including displaying a banner in the Azure portal. At that point, you may choose to disable these [performance counters](vminsights-enable-overview.md#performance-counters-enabled) in your workspace if you no longer want to use them. 
 
-[!NOTE]
+>[!NOTE]
 >If you have Alert Rules that reference these counters in the Perf table, you need to update them to refer to the new data in the `InsightsMetrics` table.  Refer to our documentation for example log queries that you can use that refer to this table.
+>
 
 If you decide to keep the performance counters enabled, you will be billed for the data ingested and retained into the Perf table based on [Log Analytics pricing[(https://azure.microsoft.com/pricing/details/monitor/).
 

@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 11/20/2019
 ---
 
 # Azure HDInsight: Frequently asked questions
@@ -176,6 +176,11 @@ Yes, you can deploy an additional virtual machine within the same subnet as an H
 
 - Standalone nodes:  You can add a standalone virtual machine to the same subnet and access the cluster from that virtual machine by using the private end point `https://<CLUSTERNAME>-int.azurehdinsight.net`. For more information, see [Controlling network traffic](hdinsight-plan-virtual-network-deployment.md#networktraffic).
 
+### Should I store data on the local disk of an edge node?
+
+No, storing data on a local disk isn't a good idea. If the node fails, all data stored locally will be lost. We recommend storing data in Azure Data Lake Storage Gen2 or Azure Blob storage, or by mounting an Azure Files share for storing the data.
+
+
 ### Can I add an existing HDInsight cluster to another virtual network?
 
 No, you can't. The virtual network should be specified at the time of provisioning. If no virtual network is specified during provisioning, the deployment creates an internal network that isn't accessible from outside. For more information, see [Add HDInsight to an existing virtual network](hdinsight-plan-virtual-network-deployment.md#existingvnet).
@@ -233,6 +238,14 @@ In scenarios in which you must control the schedule, you can use the following s
    `/usr/local/bin/azsecd manual -s clamav`
 
 For more information about how to set up and run a cron job, see [How do I set up a Cron job](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job)?
+
+### Why is LLAP available on Spark ESP clusters?
+On ESP Spark clusters, LLAP is enabled for security reasons (i.e. Apache Ranger), not performance. You should use larger node VMs to accomodate for the resource usage of LLAP (e.g. minimum D13V2). 
+
+### How can I add addional AAD groups after creating an ESP cluster?
+There are two ways to achieve this:
+1- You can recreate the cluster and add the additional group at the time of cluster creation. If you are using scoped synchronization in AAD-DS, please make sure group B is included in the scoped synchronization.
+2- Add the group as a nested sub group of the previous group that was used to create the ESP cluster. For example, if you have created an ESP cluster with group `A`, you can later on add group `B` as a nested subgroup of `A` and after approximately one hour it will be synced and available in the cluster automatically. 
 
 ## Storage
 
@@ -376,3 +389,7 @@ For information about the integration capabilities of stream processing in Azure
 ### Is there a way to dynamically terminate the head node of the cluster when the cluster is idle for a specific period?
 
 You can't do this with HDInsight clusters. You can use Azure Data Factory for these scenarios.
+
+### What compliance offerings does HDInsight offer?
+
+For compliance information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).

@@ -1,19 +1,17 @@
 ---
-title: Dynamic automatic group membership rules - Azure Active Directory | Microsoft Docs
+title: Rules for dynamic group membership - Azure AD | Microsoft Docs
 description: How to create membership rules to automatically populate groups, and a rule reference.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/27/2019
 ms.author: curtand
 ms.reviewer: krbain
-
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
@@ -29,7 +27,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 
 > [!NOTE]
 > This feature requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the tenant to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your tenant, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
->
+> No license is required for devices that are members of a dynamic device group.
 
 ## Rule builder in the Azure portal
 
@@ -354,7 +352,10 @@ The custom property name can be found in the directory by querying a user's prop
 
 ## Rules for devices
 
-You can also create a rule that selects device objects for membership in a group. You can't have both users and devices as group members. The **organizationalUnit** attribute is no longer listed and should not be used. This string is set by Intune in specific cases but is not recognized by Azure AD, so no devices are added to groups based on this attribute.
+You can also create a rule that selects device objects for membership in a group. You can't have both users and devices as group members. 
+
+> [!NOTE]
+> The **organizationalUnit** attribute is no longer listed and should not be used. This string is set by Intune in specific cases but is not recognized by Azure AD, so no devices are added to groups based on this attribute.
 
 > [!NOTE]
 > systemlabels is a read-only attribute that cannot be set with Intune.
@@ -377,7 +378,8 @@ The following device attributes can be used.
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- objectId | a valid Azure AD object ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ objectId | a valid Azure AD object ID |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ devicePhysicalIds | any string value used by Autopilot, such as all Autopilot devices, OrderID, or PurchaseOrderID  | (device.devicePhysicalIDs -any _ -contains "[ZTDId]") (device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")
  systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  

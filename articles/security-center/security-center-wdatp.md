@@ -1,5 +1,5 @@
 ﻿---
-title: Microsoft Defender Advanced Threat Protection with Azure Security Center
+title: Microsoft Defender Advanced Threat Protection - Azure Security Center
 description: This document introduces the integration between Azure Security Center and Microsoft Defender Advanced Threat Protection.
 services: security-center
 documentationcenter: na
@@ -44,7 +44,7 @@ To investigate further, use Microsoft Defender ATP. Microsoft Defender ATP provi
 
 ## Platform support
 
-Microsoft Defender ATP in Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1 operating systems in a Standard service subscription.
+Microsoft Defender ATP in Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1, for Azure VMs you need a Standard tier subscription and for Non-Azure VMs you need Standard tier in the workspace level only.
 
 > [!NOTE]
 > When you use Azure Security Center to monitor servers, a Microsoft Defender ATP tenant is automatically created and the Microsoft Defender ATP data is stored in Europe by default. If you need to move your data to another location, you need to contact Microsoft Support to reset the tenant. Server endpoint monitoring utilizing this integration has been disabled for Office 365 GCC customers.
@@ -89,7 +89,7 @@ If you have a proxy or firewall that is blocking anonymous traffic, as a Microso
 
 To generate a benign Microsoft Defender ATP test alert:
 
-1. Use Remote Desktop to access either a Windows Server 2012 R2 VM or a Windows Server 2016 VM.  Open a Command Prompt window.
+1. Use Remote Desktop to access either a Windows Server 2012 R2 VM or a Windows Server 2016 VM. Open a Command Prompt window.
 
 2. At the prompt, copy and run the following command. The Command Prompt window will close automatically.
 
@@ -101,7 +101,7 @@ To generate a benign Microsoft Defender ATP test alert:
 
 3. If the command is successful, you'll see a new alert on the Azure Security Center dashboard and the Microsoft Defender ATP portal. This alert might take a few minutes to appear.
 
-4. To review the alert in Security Center, go to **Security Alerts** >  **Suspicious Powershell CommandLine**.
+4. To review the alert in Security Center, go to **Security Alerts** > **Suspicious Powershell CommandLine**.
 
 5. From the investigation window, select the link to go to the Microsoft Defender ATP portal.
 

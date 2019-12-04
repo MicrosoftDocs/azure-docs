@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory Mapping Data Flow Debug Mode
+title: Azure Data Factory mapping data flow Debug Mode
 description: Start an interactive debug session when building data flows
 author: kromerm
 ms.author: makromer
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ---
 
-# Mapping Data Flow Debug Mode
+# Mapping data flow Debug Mode
 
 
 
 ## Overview
 
-Azure Data Factory Mapping Data Flow's debug mode allows you to interactively watch the data shape transform while you build and debug your data flows. The debug session can be used both in Data Flow design sessions as well as during pipeline debug execution of data flows. To turn on debug mode, use the "Data Flow Debug" button at the top of the design surface.
+Azure Data Factory mapping data flow's debug mode allows you to interactively watch the data shape transform while you build and debug your data flows. The debug session can be used both in Data Flow design sessions as well as during pipeline debug execution of data flows. To turn on debug mode, use the "Data Flow Debug" button at the top of the design surface.
 
 ![Debug slider](media/data-flow/debugbutton.png "Debug slider")
 

@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 10/11/2019
 ---
 
 # Data exploration and visualization tools on the Azure Data Science Virtual Machine
@@ -27,15 +27,18 @@ In data science, the key is to understand the data. Visualization and data explo
 | How to use and run it      | Desktop shortcut  <br/> [Get started with Drill in 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Related tools on the DSVM      |   Rattle, Weka, SQL Server Management Studio      |
 
-## Weka
+## Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
-| What is it?   |  A collection of machine-learning algorithms for data mining tasks. These algorithms can either be applied directly to a dataset or called from your own Java code. Weka contains tools for data preprocessing, classification, regression, clustering, association rules, and visualization. |
-| Supported DSVM Editions     | Windows, Linux     |
-| Typical uses      | General machine-learning tool     |
-| How to use and run it      | On Windows, search for Weka on the Start menu. On Linux, sign in with X2Go, and then go to Applications > Development > Weka. |
-| Links to Samples      | [Weka samples](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Related tools on the DSVM      |LightGBM, Rattle, Xgboost   |
+| What is it?   | Interactive data visualization and BI tool    |
+| Supported DSVM versions      | Windows  |
+| Typical uses      |  Data visualization and building dashboards   |
+| How to use and run it      | Desktop shortcut (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`), or simply run from the **Start** menu.      |
+| Related tools on the DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
+
+> [!NOTE]
+> You need a Microsoft Office 365 account to access Power BI.
+
 
 ## Rattle
 |    |           |
@@ -47,12 +50,17 @@ In data science, the key is to understand the data. Visualization and data explo
 | Links to samples      | [Rattle](https://togaware.com/onepager/) |
 | Related tools on the DSVM      |LightGBM, Weka, Xgboost   |
 
-## Power BI Desktop 
+
+## Weka
 |    |           |
 | ------------- | ------------- |
-| What is it?   | Interactive data visualization and BI tool    |
-| Supported DSVM versions      | Windows  |
-| Typical uses      |  Data visualization and building dashboards   |
-| How to use and run it      | Desktop shortcut (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Related tools on the DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
+| What is it?   |  A collection of machine-learning algorithms for data mining tasks. These algorithms can either be applied directly to a dataset or called from your own Java code. Weka contains tools for data preprocessing, classification, regression, clustering, association rules, and visualization. |
+| Supported DSVM Editions     | Windows, Linux     |
+| Typical uses      | General machine-learning tool     |
+| How to use and run it      | On Windows, search for Weka on the Start menu. On Linux, sign in with X2Go, and then go to Applications > Development > Weka. |
+| Links to Samples      | [Weka samples](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Related tools on the DSVM      |LightGBM, Rattle, Xgboost   |
+
+
+
 

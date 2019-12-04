@@ -23,24 +23,27 @@ This article organizes proven practices for performance into a checklist you can
 
 | Done | Category | Design consideration |
 | --- | --- | --- |
-| &nbsp; |Scalability Targets |[Can you design your application to use no more than the maximum number of storage accounts?](#maximum-number-of-storage-accounts) |
-| &nbsp; |Scalability Targets |[Are you avoiding approaching capacity and transaction limits?](#capacity-and-transaction-targets) |
+| &nbsp; |Scalability targets |[Can you design your application to use no more than the maximum number of storage accounts?](#maximum-number-of-storage-accounts) |
+| &nbsp; |Scalability targets |[Are you avoiding approaching capacity and transaction limits?](#capacity-and-transaction-targets) |
 | &nbsp; |Scalability targets |[Are a large number of clients accessing a single blob concurrently?](#multiple-clients-accessing-a-single-blob-concurrently) |
 | &nbsp; |Scalability targets |[Is your application staying within the scalability targets for a single blob?](#bandwidth-and-operations-per-blob) |
 | &nbsp; |Partitioning |[Is your naming convention designed to enable better load-balancing?](#partitioning) |
 | &nbsp; |Networking |[Do client-side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
 | &nbsp; |Networking |[Do client-side devices have a high quality network link?](#link-quality) |
 | &nbsp; |Networking |[Is the client application in the same region as the storage account?](#location) |
-| &nbsp; |Direct Client Access |[Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
+| &nbsp; |Direct client access |[Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
 | &nbsp; |Caching |[Is your application caching data that is frequently accessed and rarely changed?](#reading-data) |
 | &nbsp; |Caching |[Is your application batching updates by caching them on the client and then uploading them in larger sets?](#uploading-data-in-batches) |
-| &nbsp; |.NET Configuration |[Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
-| &nbsp; |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
-| &nbsp; |.NET Configuration |[For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
+| &nbsp; |.NET configuration |[Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
+| &nbsp; |.NET configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
+| &nbsp; |.NET configuration |[For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
 | &nbsp; |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don't overload your client's capabilities or approach the scalability targets?](#unbounded-parallelism) |
 | &nbsp; |Tools |[Are you using the latest versions of Microsoft-provided client libraries and tools?](#client-libraries-and-tools) |
 | &nbsp; |Retries |[Are you using a retry policy with an exponential backoff for throttling errors and timeouts?](#timeout-and-server-busy-errors) |
 | &nbsp; |Retries |[Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
+| &nbsp; |Copying blobs |[Are you copying blobs in the most efficient manner?](#blob-copy-apis) |
+| &nbsp; |Copying blobs |[Are you using the latest version of AzCopy for bulk copy operations?](#use-azcopy) |
+| &nbsp; |Copying blobs |[Are you using the Azure Data Box family for importing large volumes of data?](#use-azure-data-box) |
 | &nbsp; |Content distribution |[Are you using a CDN for content distribution?](#content-distribution) |
 | &nbsp; |Use metadata |[Are you storing frequently used metadata about blobs in their metadata?](#use-metadata) |
 | &nbsp; |Uploading quickly |[When trying to upload one blob quickly, are you uploading blocks in parallel?](#upload-one-large-blob-quickly) |
@@ -59,7 +62,7 @@ If you're approaching the maximum number of storage accounts permitted for a par
 
 - Are you using storage accounts to store unmanaged disks and adding those disks to your virtual machines (VMs)? For this scenario, Microsoft recommends using managed disks. Managed disks scale for you automatically and without the need to create and manage individual storage accounts. For more information, see [Introduction to Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md)
 - Are you using one storage account per customer, for the purpose of data isolation? For this scenario, Microsoft recommends using a blob container for each customer, instead of an entire storage account. Azure Storage now allows you to assign role-based access control (RBAC) roles on a per-container basis. For more information, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](../common/storage-auth-aad-rbac-portal.md).
-- Are you using multiple storage accounts to shard to increase ingress, egress, I/O operations per second (IOPS), or capacity? In this scenario, Microsoft recommends that you take advantage of increased limits for standard storage accounts to reduce the number of storage accounts required for your workload if possible. Contact [Azure Support](https://azure.microsoft.com/support/options/) to request increased limits for your storage account. For more information, see [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
+- Are you using multiple storage accounts to shard to increase ingress, egress, I/O operations per second (IOPS), or capacity? In this scenario, Microsoft recommends that you take advantage of increased limits for storage accounts to reduce the number of storage accounts required for your workload if possible. Contact [Azure Support](https://azure.microsoft.com/support/options/) to request increased limits for your storage account. For more information, see [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 ### Capacity and transaction targets
 
@@ -179,7 +182,7 @@ For more information on performance improvements in .NET Core, see the following
 
 ### Increase default connection limit
 
-In .NET, the following code increases the default connection limit (which is usually 2 in a client environment or 10 in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application. Set the connection limit before opening any connections.
+In .NET, the following code increases the default connection limit (which is usually two in a client environment or ten in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application. Set the connection limit before opening any connections.
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
@@ -223,9 +226,23 @@ The client libraries handle retries with an awareness of which errors can be ret
 
 For more information on Azure Storage error codes, see [Status and error codes](/rest/api/storageservices/status-and-error-codes2).
 
-## Transfer data
+## Copying and moving blobs
 
-For information about efficiently transferring data to and from Blob storage or between storage accounts, see [Choose an Azure solution for data transfer](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+Azure Storage provides a number of solutions for copying and moving blobs within a storage account, between storage accounts, and between on-premises systems and the cloud. This section describes some of these options in terms of their effects on performance. For information about efficiently transferring data to or from Blob storage, see [Choose an Azure solution for data transfer](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+### Blob copy APIs
+
+To copy blobs across storage accounts, use the [Put Block From URL](/rest/api/storageservices/put-block-from-url) operation. This operation copies data synchronously from any URL source into a block blob. Using the `Put Block from URL` operation can significantly reduce required bandwidth when you are migrating data across storage accounts. Because the copy operation takes place on the service side, you do not need to download and re-upload the data.
+
+To copy data within the same storage account, use the [Copy Blob](/rest/api/storageservices/Copy-Blob) operation. Copying data within the same storage account is typically completed quickly.  
+
+### Use AzCopy
+
+The AzCopy command-line utility is a simple and efficient option for bulk transfer of blobs to, from, and across storage accounts. AzCopy is optimized for this scenario, and can achieve high transfer rates. AzCopy version 10 uses the `Put Block From URL` operation to copy blob data across storage accounts. For more information, see [Copy or move data to Azure Storage by using AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
+
+### Use Azure Data Box
+
+For importing large volumes of data into Blob storage, consider using the Azure Data Box family for offline transfers. Microsoft-supplied Data Box devices are a good choice for moving large amounts of data to Azure when you’re limited by time, network availability, or costs. For more information, see the [Azure DataBox Documentation](/azure/databox/).
 
 ## Content distribution
 
@@ -235,7 +252,7 @@ For more information about Azure CDN, see [Azure CDN](../../cdn/cdn-overview.md)
 
 ## Use metadata
 
-The Blob service supports HEAD requests, which can include blob properties or metadata. For example, if your application needs the Exif (exchangable image format) data from a photo, it can retrieve the photo and extract it. To save bandwidth and improve performance, your application can store the Exif data in the blob's metadata when the application uploads the photo. You can then retrieve the Exif data in metadata using only a HEAD request. Retrieving only metadata and not the full contents of the blob saves significant bandwidth and reduces the processing time required to extract the Exif data. Keep in mind that only 8 KB of metadata can be stored per blob.  
+The Blob service supports HEAD requests, which can include blob properties or metadata. For example, if your application needs the Exif (exchangable image format) data from a photo, it can retrieve the photo and extract it. To save bandwidth and improve performance, your application can store the Exif data in the blob's metadata when the application uploads the photo. You can then retrieve the Exif data in metadata using only a HEAD request. Retrieving only metadata and not the full contents of the blob saves significant bandwidth and reduces the processing time required to extract the Exif data. Keep in mind that 8 KiB of metadata can be stored per blob.  
 
 ## Upload blobs quickly
 
@@ -265,6 +282,4 @@ Page blobs are appropriate if the application needs to perform random writes on 
 ## Next steps
 
 - [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Performance and scalability checklist for Queue storage](../queues/storage-performance-checklist.md)
-- [Performance and scalability checklist for Table storage](../tables/storage-performance-checklist.md)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)

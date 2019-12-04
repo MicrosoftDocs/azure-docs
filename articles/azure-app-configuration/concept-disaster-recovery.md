@@ -21,7 +21,7 @@ Currently, Azure App Configuration is a regional service. Each configuration sto
 
 ## High-availability architecture
 
-To realize cross-region redundancy, you need to create multiple app configuration stores in different regions. With this setup, your application has at least one additional configuration store to fall back on if the primary store becomes inaccessible. The following diagram illustrates the topology between your application and its primary and secondary configuration stores:
+To realize cross-region redundancy, you need to create multiple App Configuration stores in different regions. With this setup, your application has at least one additional configuration store to fall back on if the primary store becomes inaccessible. The following diagram illustrates the topology between your application and its primary and secondary configuration stores:
 
 ![Geo-redundant stores](./media/geo-redundant-app-configuration-stores.png)
 

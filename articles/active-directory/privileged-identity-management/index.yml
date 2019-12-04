@@ -23,7 +23,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure AD PIM?
+          - text: What is Azure AD Privileged Identity Management?
             url: pim-configure.md
       - linkListType: concept
         links:
@@ -39,9 +39,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Deploy PIM
+          - text: Deploy Privileged Identity Management
             url: pim-deployment-plan.md
-          - text: Start using PIM
+          - text: Start using Privileged Identity Management
             url: pim-getting-started.md
 
   # Card

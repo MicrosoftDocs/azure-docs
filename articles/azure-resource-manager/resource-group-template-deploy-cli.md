@@ -1,12 +1,8 @@
 ---
-title: Deploy resources with Azure CLI and template | Microsoft Docs
+title: Deploy resources with Azure CLI and template
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.author: tomfitz
-
 ---
 # Deploy resources with Resource Manager templates and Azure CLI
 
@@ -32,9 +28,11 @@ To deploy to a **subscription**, use [az deployment create](/cli/azure/deploymen
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-Currently, management group deployments are only supported through the REST API. See [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md).
+For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
 
-The examples in this article use resource group deployments. For more information about subscription deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
+Currently, management group deployments are only supported through the REST API. For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
+
+The examples in this article use resource group deployments.
 
 ## Deploy local template
 
