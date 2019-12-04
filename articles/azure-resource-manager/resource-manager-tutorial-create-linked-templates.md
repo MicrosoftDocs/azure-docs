@@ -229,7 +229,7 @@ In practice, you generate a SAS token when you deploy the main template, and giv
 The main template is called azuredeploy.json.
 
 1. Open **azuredeploy.json** in Visual Studio Code if it is not opened.
-1. Replace the storage account resource definition the following json snippet:
+1. Replace the storage account resource definition with the following json snippet:
 
     ```json
     {
