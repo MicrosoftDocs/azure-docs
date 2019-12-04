@@ -145,6 +145,7 @@ Take the following steps to import the certificates on Azure Storage Explorer:
 
 2. To import SSL certificates, go to **Edit > SSL certificates > Import certificates**.
 
+  
    ![Import cert into Storage Explorer](./media/azure-stack-edge-r-series-deploy-add-storage-accounts/import-cert-storage-explorer-1.png) 
 
 3. Navigate and provide the signing chain and blob certificates. Both the signing chain and the blob certificate should be in PEM format which is the same as Base64-encoded format on Windows system. You will be notified that the certificates were successfully imported.
