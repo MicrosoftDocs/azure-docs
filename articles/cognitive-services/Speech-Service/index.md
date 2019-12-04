@@ -3,13 +3,13 @@
 layout: HubPage
 ms.date: 10-19-2019
 ms.topic: hub-page
-title: Speech Service Documentation
+title: Speech service Documentation
 description: Get started with the Speech service.
 ---
 
 <div id="main" class="v2">    
     <div class="container">
-        <h1>Speech Service Documentation</h1>
+        <h1>Speech service Documentation</h1>
         <ul class="pivots">
             <li>
                 <a href="#start">Get Started</a>
