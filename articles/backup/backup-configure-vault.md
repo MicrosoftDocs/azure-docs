@@ -202,10 +202,11 @@ Create a policy as follows:
     - For example, when you set a daily retention setting, you indicate that at the time specified for the daily retention, the latest recovery point will be retained for the specified number of days. Or, as another example, you could specify a monthly retention policy to indicate that the recovery point created on the 30th of every month should be stored for 12 months.
     - Daily and weekly recovery point retention usually coincides with the backup schedule. Meaning that when the backup is triggered according to schedule, the recovery point created by the backup is stored for the duration indicated in the daily or weekly retention policy.
     - As an example, in the following screenshot:
-            - Daily backups at midnight and 6:00 PM are kept for seven days.
-            - Backups taken on a Saturday at midnight and 6:00 PM are kept for four weeks.
-            - Backups taken on Saturday on the last week of the month at midnight and 6:00 PM are kept for 12 months.
-            - Backups taken on a Saturday in the last week of March are kept for 10 years.
+
+            -   Daily backups at midnight and 6:00 PM are kept for seven days.
+            -   Backups taken on a Saturday at midnight and 6:00 PM are kept for four weeks.
+            -   Backups taken on Saturday on the last week of the month at midnight and 6:00 PM are kept for 12 months.
+            -   Backups taken on a Saturday in the last week of March are kept for 10 years.
 
     ![Retention example](./media/backup-configure-vault/retention-example.png)
 
