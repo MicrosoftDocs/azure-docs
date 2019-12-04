@@ -169,7 +169,7 @@ Upon successful completion, your machine is connected to Azure. You can view you
 For **Linux**, if the server requires a proxy server, you can either:
 
 * Run the `install_linux_hybrid_agent.sh` script from the [Install the Agent](#download-and-install-the-agent) section above, with `--proxy`.
-* If you have already installed the agent, execute the command `/opt/azcmagent/bin/hybridrp_proxy add https://{proxy-url}:{proxy-port}`, which configures the proxy and restarts the agent.
+* If you have already installed the agent, execute the command `/opt/azcmagent/bin/hybridrp_proxy add http://{proxy-url}:{proxy-port}`, which configures the proxy and restarts the agent.
 
 #### Windows
 
@@ -177,7 +177,7 @@ For **Windows**, if the server requires proxy server for access to internet reso
 
 ```powershell
 # If a proxy server is needed, execute these commands with actual proxy URL
-[Environment]::SetEnvironmentVariable("https_proxy", "{https:\\proxy-url:proxyport}", "Machine")
+[Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
 $env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
 # The agent service needs to be restarted after the proxy environment variable is set in order for the changes to take effect.
 Restart-Service -Name himds
