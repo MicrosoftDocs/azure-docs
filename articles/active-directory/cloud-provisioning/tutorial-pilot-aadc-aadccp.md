@@ -128,37 +128,25 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 3.  Run `Start-ADSyncSyncCycle`.  Hit Enter.  
 
 ## Install the Azure AD Connect provisioning agent
-1. Sign in to the server you will use with enterprise admin permissions.  If you are using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial it would be CP1.
-2. Download the Azure AD Connect cloud provisioning agent [here](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Run the Azure AD Connect cloud provisioning (AADConnectProvisioningAgent.Installer)
-3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
+1. Sign in to the domain joined server.  If you are using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be DC1.
+2. Sign in to the Azure portal using cloud-only global admin credentials.
+3. On the left, select **Azure Active Directory**, click **Azure AD Connect** and in the center select **Manage provisioning (preview)**.</br>
+![Azure portal](media/how-to-install/install6.png)</br>
+4. Click on "Download agent"
+5. Run the Azure AD Connect provisioning agent
+6. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
 ![Welcome screen](media/how-to-install/install1.png)</br>
 
-4. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.
-5. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory administrator account.  This operation will add your on-premises directory.  Click **Next**.</br>
+7. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  Note that if you have IE enhanced security enabled this will block the sign-in.  If this is the case, close the installation, disable IE enhanced security in Server Manager, and click the **AAD Connect Provisioning Agent Wizard** to restart the installation.
+8. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account should not have password change requirements. In case the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.</br>
 ![Welcome screen](media/how-to-install/install3.png)</br>
 
-6. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
+9. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
 ![Welcome screen](media/how-to-install/install4.png)</br>
 
-7. Once this operation completes you should see a notice **Your was successfully verified.**  You can click **Exit**.</br>
+10. Once this operation completes you should see a notice: **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
 ![Welcome screen](media/how-to-install/install5.png)</br>
-8. If you still see the initial splash screen, click **Close**.1. Sign in to the server you will use with enterprise admin permissions.
-2. Download the Azure AD Connect cloud provisioning agent [here](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Run the Azure AD Connect cloud provisioning (AADConnectProvisioningAgent.Installer)
-3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
-![Welcome screen](media/how-to-install/install1.png)</br>
-
-4. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.
-5. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory administrator account.  This operation will add your on-premises directory.  Click **Next**.</br>
-![Welcome screen](media/how-to-install/install3.png)</br>
-
-6. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
-![Welcome screen](media/how-to-install/install4.png)</br>
-
-7. Once this operation completes you should see a notice **Your was successfully verified.**  You can click **Exit**.</br>
-![Welcome screen](media/how-to-install/install5.png)</br>
-8. If you still see the initial splash screen, click **Close**.
+11. If you still see the initial splash screen, click **Close**.
 
 ## Verify agent installation
 Agent verification occurs in the Azure portal and on the local server that is running the agent.
