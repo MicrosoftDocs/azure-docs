@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 12/03/2019
 ms.author: helohr
 ---
 # Session host virtual machine configuration
@@ -328,7 +328,7 @@ If your version number says "1809," install [the KB4516077 update](https://suppo
 
 ### Version 1903
 
-If your version number says "1903," install [the KB4517211 update](https://support.microsoft.com/help/4517211).
+Redeploy the host operating system with the latest version of the Windows 10, version 1903 image from the Azure Gallery.
 
 ## Next steps
 
