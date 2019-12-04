@@ -37,11 +37,9 @@
     # - name: With SQL Analytics pool
     #   href: article-template.md
     - name: With SQL on-demand
-      href: sql-analytics/quickstart-sql-on-demand.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-- name: Tutorials
-  items:
+      href: ./sql-analytics/quickstart-sql-on-demand.md
   - name: Power BI Professional
-    href: sql-analytics/tutorial-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    href: ./sql-analytics/tutorial-power-bi-professional.md
   - name: Data Scientist
     items:
     - name: Predict food inspection results
