@@ -48,7 +48,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * When assigning a user to Harness, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-## Setup Harness for provisioning
+## Set up Harness for provisioning
 
 1. Sign in to your [Harness Admin Console](https://app.harness.io/#/login). Navigate to **Continuous Security > Access Management**.
 
@@ -58,7 +58,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Harness Add SCIM](media/harness-provisioning-tutorial/apikeys.png)
 
-3. Click on **Add New Key**. In the **Add Api Key** dialog box, provide a **Name** and select an option from **Permissions Inherited from** dropdown menu. Click on **Submit** button.
+3. Click on **Add New Key**. In the **Add API Key** dialog box, provide a **Name** and select an option from **Permissions Inherited from** dropdown menu. Click on **Submit** button.
 
 	![Harness Add New Key](media/harness-provisioning-tutorial/addkey.png)
 
