@@ -43,17 +43,17 @@ If you already have established peerings with Microsoft, they are referred to as
 
 
 ## FAQ
-For frequently asked questions about Peering, see [Peering - FAQ](peering-faqs.md).
+For frequently asked questions about Peering, see [Peering - FAQ](internet-peering-faqs.md).
 
 ## Next steps
 
 * Learn about [Peering Policy](https://peering.azurewebsites.net/peering).
 * Steps to setup peering with Microsoft.
-    * [Direct Peering Walkthrough](peering-workflows-direct.md)
-    * [Exchange Peering Walkthrough](peering-workflows-exchange.md)
+    * [Direct Peering Walkthrough](internet-peering-workflows-direct.md)
+    * [Exchange Peering Walkthrough](internet-peering-workflows-exchange.md)
 * Request a Peering connection.
-    * [Create or modify a Direct Peering using Portal](peering-howto-directpeering-arm-portal.md)
-    * [Convert a legacy Direct Peering to Azure Resource using Portal](peering-howto-legacydirect-arm-portal.md)
-    * [Create or modify Exchange Peering using Portal](peering-howto-exchangepeering-arm-portal.md)
-    * [Convert a legacy Exchange Peering to Azure Resource using Portal](peering-howto-legacyexchange-arm-portal.md)
+    * [Create or modify a Direct Peering using Portal](internet-peering-howto-directpeering-arm-portal.md)
+    * [Convert a legacy Direct Peering to Azure Resource using Portal](internet-peering-howto-legacydirect-arm-portal.md)
+    * [Create or modify Exchange Peering using Portal](internet-peering-howto-exchangepeering-arm-portal.md)
+    * [Convert a legacy Exchange Peering to Azure Resource using Portal](internet-peering-howto-legacyexchange-arm-portal.md)
 * Learn about some of the other Azure key [networking capabilities](https://docs.microsoft.com/azure/networking/networking-overview).

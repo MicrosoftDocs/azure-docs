@@ -11,17 +11,17 @@ ms.author: prmitiki
 
 # Associate Peer ASN to Azure Subscription using PowerShell
 > [!div class="op_single_selector"]
-> * [Portal](peering-subscription-registration-portal.md)
-> * [PowerShell](peering-subscription-registration.md)
+> * [Portal](internet-peering-subscription-registration-portal.md)
+> * [PowerShell](internet-peering-subscription-registration.md)
 >
 
 ### Working with Azure PowerShell
-[!INCLUDE [CloudShell](./includes/peering-cloudshell-powershell-about.md)]
+[!INCLUDE [CloudShell](./includes/internet-peering-cloudshell-powershell-about.md)]
 
 ## Create PeerASN to associate your ASN with Azure Subscription
 
 ### 1. Sign in to your Azure account and select your subscription
-[!INCLUDE [Account](./includes/peering-account.md)]
+[!INCLUDE [Account](./includes/internet-peering-account.md)]
 
 ### 2. Register for Peering feature flag
 Register Peering feature flag for your subscription using the command below. This is required because Peering setup using Azure PowerShell is currently under Preview.
@@ -140,14 +140,14 @@ Deleting a PeerASN is not currently supported. If you need to delete PeerASN, pl
 
 ## Next steps
 
-* [Create or modify a Direct Peering](peering-howto-directpeering-arm.md)
-* [Convert a legacy Direct Peering to Azure Resource](peering-howto-legacydirect-arm.md)
-* [Create or modify Exchange Peering](peering-howto-exchangepeering-arm.md)
-* [Convert a legacy Exchange Peering to Azure Resource](peering-howto-legacyexchange-arm.md)
+* [Create or modify a Direct Peering](internet-peering-howto-directpeering-arm.md)
+* [Convert a legacy Direct Peering to Azure Resource](internet-peering-howto-legacydirect-arm.md)
+* [Create or modify Exchange Peering](internet-peering-howto-exchangepeering-arm.md)
+* [Convert a legacy Exchange Peering to Azure Resource](internet-peering-howto-legacyexchange-arm.md)
 
 ## Additional Resources
 
-For more information, please visit [Peering FAQs](peering-faqs.md)
+For more information, please visit [Peering FAQs](internet-peering-faqs.md)
 
-[!INCLUDE [peering-feedback](./includes/peering-feedback.md)]
+[!INCLUDE [peering-feedback](./includes/internet-peering-feedback.md)]
 

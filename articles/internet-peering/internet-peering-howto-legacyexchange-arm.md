@@ -11,22 +11,22 @@ ms.author: prmitiki
 
 # Convert a legacy Exchange Peering to Azure resource using PowerShell
 > [!div class="op_single_selector"]
-> * [Portal](peering-howto-legacyexchange-arm-portal.md)
-> * [PowerShell](peering-howto-legacyexchange-arm.md)
+> * [Portal](internet-peering-howto-legacyexchange-arm-portal.md)
+> * [PowerShell](internet-peering-howto-legacyexchange-arm.md)
 >
 
 This article describes how to convert an existing legacy Exchange Peering to Azure resource using PowerShell cmdlets.
 
 ## Before you begin
-* Review [Prerequisites](peering-prerequisites.md) and [Exchange Peering Walkthrough](peering-workflows-exchange.md) before you begin configuration.
+* Review [Prerequisites](internet-peering-prerequisites.md) and [Exchange Peering Walkthrough](internet-peering-workflows-exchange.md) before you begin configuration.
 
 ### Working with Azure PowerShell
-[!INCLUDE [CloudShell](./includes/peering-cloudshell-powershell-about.md)]
+[!INCLUDE [CloudShell](./includes/internet-peering-cloudshell-powershell-about.md)]
 
 ## Convert a legacy Exchange Peering to Azure resource
 
 ### 1. Sign in to your Azure account and select your subscription
-[!INCLUDE [Account](./includes/peering-account.md)]
+[!INCLUDE [Account](./includes/internet-peering-account.md)]
 
 ### <a name= get></a>3. Get legacy Exchange Peering for Conversion
 Below is the example to get legacy Exchange Peering at Seattle peering location:
@@ -93,10 +93,10 @@ You can get detailed descriptions of all the parameters by running the following
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
-For more information, please visit [Peering FAQs](peering-faqs.md)
+For more information, please visit [Peering FAQs](internet-peering-faqs.md)
 
-[!INCLUDE [peering-feedback](./includes/peering-feedback.md)]
+[!INCLUDE [peering-feedback](./includes/internet-peering-feedback.md)]
 
 ## Next steps
 
-* [Create or modify an Exchange Peering using PowerShell](peering-howto-exchangepeering-arm.md)
+* [Create or modify an Exchange Peering using PowerShell](internet-peering-howto-exchangepeering-arm.md)

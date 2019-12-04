@@ -13,12 +13,13 @@ ms.author: prmitiki
 # Exchange Peering Walkthrough
 
 ## Create an Exchange Peering
-![Exchange Peering workflow and connection states](./media/exchange_peering.png)
+> [!div class="mx-imgBorder"]
+> ![Exchange Peering workflow and connection states](./media/exchange_peering.png)
 
 The following steps must be followed in order to provision an Exchange Peering:
 1. Please review Microsoft [Peering Policy](https://peering.azurewebsites.net/peering) to understand requirements for Exchange Peering.
 1. Find Microsoft peering location and peering facility id in [Peeringdb](https://www.peeringdb.com/net/694)
-1. Request Exchange Peering for a peering location using the instructions in [Create and modify an Exchange Peering using PowerShell](peering-howto-exchangepeering-arm.md) article for more details.
+1. Request Exchange Peering for a peering location using the instructions in [Create and modify an Exchange Peering using PowerShell](internet-peering-howto-exchangepeering-arm.md) article for more details.
 1. After you submit a Peering request, Microsoft will review the request and contact you if required.
 1. Once approved, connection state changes to Approved
 1. Configure BGP session at your end and notify Microsoft
@@ -30,7 +31,7 @@ Please note that connection states are not to be confused with standard [BGP](ht
 
 ## Convert a legacy Exchange Peering to Azure resource
 The following steps must be followed in order to convert a legacy Exchange Peering to Azure resource:
-1. Follow the instructions in [Convert a legacy Exchange Peering to Azure resource](peering-howto-legacyexchange-arm.md)
+1. Follow the instructions in [Convert a legacy Exchange Peering to Azure resource](internet-peering-howto-legacyexchange-arm.md)
 1. After you submit the conversion request, Microsoft will review the request and contact you if required.
 1. Once approved, you will see your Exchange Peering with connection state as Active.
 

@@ -13,22 +13,26 @@ Peering setup using Azure Portal is currently under Preview. Therefore, you need
 
 1. Click on the icon for *Cloud Shell* on the top right corner of your portal.
 
-    ![Open Cloud Shell](../media/cloudshell_open.png)
+    > [!div class="mx-imgBorder"]
+    > ![Open Cloud Shell](../media/cloudshell_open.png)
 
 1. Click **PowerShell**
 
-    ![Open PowerShell](../media/cloudshell_clickPowerShell.png)
+    > [!div class="mx-imgBorder"]
+    > ![Open PowerShell](../media/cloudshell_clickPowerShell.png)
 
 1. Click **Create Storage** as it is required to run PowerShell commands in browser
 
-    ![Create Storage](../media/cloudshell_createStorage.png)
+    > [!div class="mx-imgBorder"]
+    > ![Create Storage](../media/cloudshell_createStorage.png)
 
     > [!NOTE]
     > Please note that this operation creates a storage account. You may delete it after executing the registration. To do so, note the **Resource group** name in the next step since you will need it later.
 
 1. Once PowerShell is initialized, it will look like below.
 
-    ![Create Storage](../media/cloudshell_initialized.png)
+    > [!div class="mx-imgBorder"]
+    > ![Create Storage](../media/cloudshell_initialized.png)
 
 1. Now, run the following commands to register Peering feature flag. You can enable it for the specific type of Peering you plan to setup. Or optionally enable it for both Direct Peering and Exchange Peering.
 
@@ -77,7 +81,8 @@ Peering setup using Azure Portal is currently under Preview. Therefore, you need
 
 1. Click **X** once you are done executing the commands above.
 
-    ![Open PowerShell](../media/cloudshell_closePowerShell.png)
+    > [!div class="mx-imgBorder"]
+    > ![Open PowerShell](../media/cloudshell_closePowerShell.png)
 
 #### Optional:
 
@@ -85,9 +90,11 @@ To delete the storage account created in a step above, follow the steps below.
 
 1. Click **Resource groups** and then click on the resource group name noted above.
 
-    ![Open Resource group](../media/cloudshell_resourceGroupOpen.png)
+    > [!div class="mx-imgBorder"]
+    > ![Open Resource group](../media/cloudshell_resourceGroupOpen.png)
 
 1. Deleting the resource group will delete the storage account.
 
-    ![Delete Resource group](../media/cloudshell_resourceGroupDelete.png)
+    > [!div class="mx-imgBorder"]
+    > ![Delete Resource group](../media/cloudshell_resourceGroupDelete.png)
 

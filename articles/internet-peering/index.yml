@@ -25,15 +25,15 @@ landingContent:
       - linkListType: overview
         links:
           - text: Peering Overview
-            url: peering-overview.md
+            url: internet-peering-overview.md
           - text: What is Peering Service?
-            url: peering-service-overview.md
+            url: internet-peering-service-overview.md
       - linkListType: concept
         links:
           - text: Peering Policy
-            url: peering-policy.md
+            url: internet-peering-policy.md
           - text: Prerequisites to setup peering with Microsoft
-            url: peering-prerequisites.md
+            url: internet-peering-prerequisites.md
 
   # Card
   - title: Get started
@@ -41,17 +41,17 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Associate Peer ASN to Azure Subscription using Portal
-            url: peering-subscription-registration-portal.md
+            url: internet-peering-subscription-registration-portal.md
           - text: Enable Peering Service on a Direct Peering using Portal
-            url: peering-howto-peering-service-portal.md
+            url: internet-peering-howto-peering-service-portal.md
           - text: Create or modify a Direct Peering using Portal
-            url: peering-howto-directpeering-arm-portal.md
+            url: internet-peering-howto-directpeering-arm-portal.md
           - text: Convert a legacy Direct Peering to Azure resource using Portal
-            url: peering-howto-legacydirect-arm-portal.md
+            url: internet-peering-howto-legacydirect-arm-portal.md
           - text: Create or modify an Exchange Peering using Portal
-            url: peering-howto-exchangepeering-arm-portal.md
+            url: internet-peering-howto-exchangepeering-arm-portal.md
           - text: Convert a legacy Exchange Peering to Azure resource using Portal
-            url: peering-howto-legacyexchange-arm-portal.md
+            url: internet-peering-howto-legacyexchange-arm-portal.md
 
   # Card
   - title: Workflows
@@ -59,9 +59,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Direct Peering Walkthrough
-            url: peering-workflows-direct.md
+            url: internet-peering-workflows-direct.md
           - text: Exchange Peering Walkthrough
-            url: peering-workflows-exchange.md
+            url: internet-peering-workflows-exchange.md
             
   # Card
   - title: Reference
@@ -69,6 +69,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Peering FAQs
-            url: peering-faqs.md
+            url: internet-peering-faqs.md
           - text: Peering Service FAQs
-            url: peering-service-faqs.md
+            url: internet-peering-service-faqs.md

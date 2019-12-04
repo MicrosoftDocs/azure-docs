@@ -42,7 +42,7 @@ Get-Module
 ```
 -->
 ## 2. Associate Peer ASN and contact info
-Before requesting for Peering, first associate your ASN and contact info to your subscription. Please follow the instructions in [Associate Peer ASN to Azure Subscription](peering-subscription-registration.md).
+Before requesting for Peering, first associate your ASN and contact info to your subscription. Please follow the instructions in [Associate Peer ASN to Azure Subscription](internet-peering-subscription-registration.md).
 
 ## 3. PeeringDB profile
 Peers are expected to have a complete and up-to-date profile on [PeeringDB](https://www.peeringdb.com). We use this information in our registration system to validate the peer's details such as NOC information, technical contact information, and their presence at the peering facilities etc.

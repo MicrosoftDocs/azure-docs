@@ -11,39 +11,39 @@ ms.author: prmitiki
 
 # Create or modify an Exchange Peering using PowerShell
 > [!div class="op_single_selector"]
-> * [Portal](peering-howto-exchangepeering-arm-portal.md)
-> * [PowerShell](peering-howto-exchangepeering-arm.md)
+> * [Portal](internet-peering-howto-exchangepeering-arm-portal.md)
+> * [PowerShell](internet-peering-howto-exchangepeering-arm.md)
 >
 
 This article describes how to create a Microsoft Exchange Peering by using PowerShell cmdlets and the Azure Resource Manager deployment model. This article also shows you how to check the status of the resource, update it, or delete and deprovision it.
 
 ## Before you begin
-* Review [Prerequisites](peering-prerequisites.md) and [Exchange Peering Walkthrough](peering-workflows-exchange.md) before you begin configuration.
-* In case you have Exchange Peerings with Microsoft already, which are not converted to Azure resources, please refer to [Convert a legacy Exchange Peering to Azure resource using PowerShell](peering-howto-legacyexchange-arm.md)
+* Review [Prerequisites](internet-peering-prerequisites.md) and [Exchange Peering Walkthrough](internet-peering-workflows-exchange.md) before you begin configuration.
+* In case you have Exchange Peerings with Microsoft already, which are not converted to Azure resources, please refer to [Convert a legacy Exchange Peering to Azure resource using PowerShell](internet-peering-howto-legacyexchange-arm.md)
 
 ### Working with Azure PowerShell
-[!INCLUDE [CloudShell](./includes/peering-cloudshell-powershell-about.md)]
+[!INCLUDE [CloudShell](./includes/internet-peering-cloudshell-powershell-about.md)]
 
 ## Create and provision an Exchange Peering
 
 ### 1. Sign in to your Azure account and select your subscription
-[!INCLUDE [Account](./includes/peering-account.md)]
+[!INCLUDE [Account](./includes/internet-peering-account.md)]
 
 ### <a name=exchange-location></a> 2. Get the list of supported peering locations for Exchange Peering
-[!INCLUDE [exchange-location](./includes/peering-exchange-location.md)]
+[!INCLUDE [exchange-location](./includes/internet-peering-exchange-location.md)]
 
 ### <a name=create></a> 3. Create an Exchange Peering
-[!INCLUDE [exchange-peering](./includes/peering-exchange.md)]
+[!INCLUDE [exchange-peering](./includes/internet-peering-exchange.md)]
 
 ### <a name=get></a> 4. Get Exchange Peering
-[!INCLUDE [peering-exchange-get](./includes/peering-exchange-get.md)]
+[!INCLUDE [peering-exchange-get](./includes/internet-peering-exchange-get.md)]
 
 ## <a name="modify"></a>Modify an Exchange Peering
-[!INCLUDE [peering-exchange-modify](./includes/peering-exchange-modify.md)]
+[!INCLUDE [peering-exchange-modify](./includes/internet-peering-exchange-modify.md)]
 
 ## <a name=delete></a>Deprovision an Exchange Peering
 
-[!INCLUDE [peering-exchange-delete](./includes/peering-exchange-delete.md)]
+[!INCLUDE [peering-exchange-delete](./includes/internet-peering-exchange-delete.md)]
 
 ## Additional Resources
 You can get detailed descriptions of all the parameters by running the following command:
@@ -52,6 +52,6 @@ You can get detailed descriptions of all the parameters by running the following
 Get-Help Get-AzPeering -detailed
 ```
 
-For more information, please visit [Peering FAQs](peering-faqs.md)
+For more information, please visit [Peering FAQs](internet-peering-faqs.md)
 
-[!INCLUDE [peering-feedback](./includes/peering-feedback.md)]
+[!INCLUDE [peering-feedback](./includes/internet-peering-feedback.md)]

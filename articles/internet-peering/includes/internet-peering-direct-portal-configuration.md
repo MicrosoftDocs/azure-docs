@@ -11,7 +11,8 @@ ms.author: prmitiki
 
 1. On the **Create a Peering** page, under **Configuration** tab, fill out the fields as shown below.
 
-    ![Peering Configuration - Direct](../media/Peering_Direct_Conf_tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![Peering Configuration - Direct](../media/Peering_Direct_Conf_tab.png)
 
     * For **Peering type**, select *Direct*.
     * For **Microsoft network**, choose *AS8075*. Please do not create peering with ASN 8069. It is reserved for special applications and only used by [Microsoft Peering](mailto:peering@microsoft.com).
@@ -19,20 +20,23 @@ ms.author: prmitiki
     * Choose the **Metro** location for where you want to setup peering.
 
         > [!NOTE]
-        > If you already have peering connections with Microsoft in the selected **Metro** location, and you are using Azure Portal for the first time to setup peering in that location, then your existing peering connections will be listed in the **Peering connections** section as shown below. Microsoft will automatically convert these peering connections to Azure resource so that you can manage them all along with the new connections, in one place. See [Convert a legacy Direct Peering to Azure Resource using Portal](../peering-howto-legacydirect-arm-portal.md) for more info.
+        > If you already have peering connections with Microsoft in the selected **Metro** location, and you are using Azure Portal for the first time to setup peering in that location, then your existing peering connections will be listed in the **Peering connections** section as shown below. Microsoft will automatically convert these peering connections to Azure resource so that you can manage them all along with the new connections, in one place. See [Convert a legacy Direct Peering to Azure Resource using Portal](../internet-peering-howto-legacydirect-arm-portal.md) for more info.
         >
 
     * Under **Peering connections**, click **Create new** to add a line for each new connection you want to setup. Then, click the edit button for a line, highlighted below, to configure/modify connection settings.
 
-        ![Peering Configuration - Direct Edit](../media/Peering_Direct_Conf_tab_Edit.png)
+        > [!div class="mx-imgBorder"]
+        > ![Peering Configuration - Direct Edit](../media/Peering_Direct_Conf_tab_Edit.png)
 
     * To delete a line, click on **...** button > **Delete**.
 
-        ![Peering Configuration - Direct Edit](../media/Peering_Direct_Conf_tab_Delete.png)
+        > [!div class="mx-imgBorder"]
+        > ![Peering Configuration - Direct Edit](../media/Peering_Direct_Conf_tab_Delete.png)
 
     * You are required to provide all the settings for a connection as shown below.
 
-         ![Peering Configuration - Direct Connection](../media/Peering_Direct_Conf_tab_Connection.png)
+         > [!div class="mx-imgBorder"]
+         > ![Peering Configuration - Direct Connection](../media/Peering_Direct_Conf_tab_Connection.png)
 
         1. Select the **Peering facility** where the connection needs to be setup.
         1. **Session Address Provider** is used to determine who provides the subnet needed to setup BGP session between your network and Microsoft. If you are able to provide subnet, then choose *Peer*. Else choose **Microsoft** and [Microsoft Peering](mailto:peering@microsoft.com) will contact you. Note that choosing so, would take longer for Microsoft to process the Peering request. In some cases Microsoft may not be able to provide subnets which will result in request denial.
@@ -44,16 +48,20 @@ ms.author: prmitiki
     * Repeat above step to add more connections at any facility where Microsoft is colocated with your network, within the **Metro** selected previously.
     * After adding all the required connections, click on **Review + create**.
 
-        ![Peering Conf Tab Final](../media/Peering_Direct_Conf_tab_final.png)
+        > [!div class="mx-imgBorder"]
+        > ![Peering Conf Tab Final](../media/Peering_Direct_Conf_tab_final.png)
 
     * Observe that Azure Portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
 
-        ![Peering Validation Tab](../media/Peering_Direct_review_tab_validation.png)
+        > [!div class="mx-imgBorder"]
+        > ![Peering Validation Tab](../media/Peering_Direct_review_tab_validation.png)
 
     * After it turns to *Validation Passed*, verify your information and submit the request by clicking **Create**. If you need to modify your request, click on **Previous** and repeat the steps above.
 
-        ![Peering Submit](../media/Peering_Direct_review_tab_submit.png)
+        > [!div class="mx-imgBorder"]
+        > ![Peering Submit](../media/Peering_Direct_review_tab_submit.png)
 
     * Once you submit the request, wait for it to complete deployment. If deployment fails, please contact [Microsoft Peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
 
-        ![Peering Success](../media/Peering_Direct_success.png)
+        > [!div class="mx-imgBorder"]
+        > ![Peering Success](../media/Peering_Direct_success.png)

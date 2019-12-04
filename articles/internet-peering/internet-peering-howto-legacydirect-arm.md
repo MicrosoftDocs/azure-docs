@@ -11,23 +11,23 @@ ms.author: prmitiki
 
 # Convert a legacy Direct Peering to Azure Resource using PowerShell
 > [!div class="op_single_selector"]
-> * [Portal](peering-howto-legacydirect-arm-portal.md)
-> * [PowerShell](peering-howto-legacydirect-arm.md)
+> * [Portal](internet-peering-howto-legacydirect-arm-portal.md)
+> * [PowerShell](internet-peering-howto-legacydirect-arm.md)
 >
 
 This article describes how to convert an existing legacy Direct Peering to Azure resource using PowerShell cmdlets.
 
 
 ## Before you begin
-* Review [Prerequisites](peering-prerequisites.md) and [Direct Peering Walkthrough](peering-workflows-direct.md) before you begin configuration.
+* Review [Prerequisites](internet-peering-prerequisites.md) and [Direct Peering Walkthrough](internet-peering-workflows-direct.md) before you begin configuration.
 
 ### Working with Azure PowerShell
-[!INCLUDE [CloudShell](./includes/peering-cloudshell-powershell-about.md)]
+[!INCLUDE [CloudShell](./includes/internet-peering-cloudshell-powershell-about.md)]
 
 ## Convert legacy Direct Peering to Azure Resource
 
 ### 1. Sign in to your Azure account and select your subscription
-[!INCLUDE [Account](./includes/peering-account.md)]
+[!INCLUDE [Account](./includes/internet-peering-account.md)]
 
 ### <a name= get></a>2. Get legacy Direct Peering for Conversion
 Below is an example to get legacy Direct Peering at Seattle peering location
@@ -116,11 +116,11 @@ You can get detailed descriptions of all the parameters by running the following
 Get-Help Get-AzPeering -detailed
 ```
 
-For more information, please visit [Peering FAQs](peering-faqs.md)
+For more information, please visit [Peering FAQs](internet-peering-faqs.md)
 
-[!INCLUDE [peering-feedback](./includes/peering-feedback.md)]
+[!INCLUDE [peering-feedback](./includes/internet-peering-feedback.md)]
 
 ## Next steps
 
-* [Create or modify a Direct Peering using PowerShell](peering-howto-directpeering-arm.md).
+* [Create or modify a Direct Peering using PowerShell](internet-peering-howto-directpeering-arm.md).
 

@@ -12,11 +12,12 @@ ms.author: prmitiki
 # Direct Peering Walkthrough
 
 ## Create a Direct Peering
-![Direct Peering workflow and connection states](./media/direct_peering.png)
+> [!div class="mx-imgBorder"]
+> ![Direct Peering workflow and connection states](./media/direct_peering.png)
 
 The following steps must be followed in order to provision a Direct Peering:
 1. Please review Microsoft [Peering Policy](https://peering.azurewebsites.net/peering) to understand requirements for Direct Peering.
-1. Follow the instructions in [Create or modify a Direct Peering](peering-howto-directpeering-arm.md) to submit a peering request.
+1. Follow the instructions in [Create or modify a Direct Peering](internet-peering-howto-directpeering-arm.md) to submit a peering request.
 1. After you submit a Peering request, Microsoft will contact using your registered email address to provide LOA (Letter Of Authorization) or for other information.
 1. Once peering request is approved, connection state changes to ProvisioningStarted.
 1. You need to:
@@ -31,7 +32,7 @@ Please note that connection states are not to be confused with standard [BGP](ht
 
 ## Convert a legacy Direct Peering to Azure resource
 The following steps must be followed in order to convert a legacy Direct Peering to Azure resource:
-1. Follow the instructions in [Convert a legacy Direct Peering to Azure resource](peering-howto-legacydirect-arm.md)
+1. Follow the instructions in [Convert a legacy Direct Peering to Azure resource](internet-peering-howto-legacydirect-arm.md)
 1. After you submit the conversion request, Microsoft will review the request and contact you if required.
 1. Once approved, you will see your Direct Peering with a connection state as Active.
 

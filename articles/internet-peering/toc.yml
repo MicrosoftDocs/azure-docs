@@ -2,58 +2,58 @@
   href: index.yml
   items:
   - name: Peering Overview
-    href: peering-overview.md
+    href: internet-peering-overview.md
   - name: What is Peering Service?
-    href: peering-service-overview.md
+    href: internet-peering-service-overview.md
 - name: Concepts
   items:
   - name: Prerequisites to setup peering with Microsoft
-    href: peering-prerequisites.md
+    href: internet-peering-prerequisites.md
   - name: Direct Peering Walkthrough
-    href: peering-workflows-direct.md
+    href: internet-peering-workflows-direct.md
   - name: Exchange Peering Walkthrough
-    href: peering-workflows-exchange.md
+    href: internet-peering-workflows-exchange.md
 - name: How-to guides
   items:
   - name: Associate Peer ASN to Azure Subscription
     items:
     - name: Azure PowerShell
-      href: peering-subscription-registration.md
+      href: internet-peering-subscription-registration.md
     - name: Azure Portal
-      href: peering-subscription-registration-portal.md
+      href: internet-peering-subscription-registration-portal.md
   - name: Enable Peering Service on a Direct Peering
     items:
     - name: Azure PowerShell
-      href: peering-howto-peering-service.md
+      href: internet-peering-howto-peering-service.md
     - name: Azure Portal
-      href: peering-howto-peering-service-portal.md
+      href: internet-peering-howto-peering-service-portal.md
   - name: Create or modify a Direct Peering
     items:
     - name: Azure PowerShell
-      href: peering-howto-directpeering-arm.md
+      href: internet-peering-howto-directpeering-arm.md
     - name: Azure Portal
-      href: peering-howto-directpeering-arm-portal.md
+      href: internet-peering-howto-directpeering-arm-portal.md
   - name: Convert a legacy Direct Peering to Azure resource
     items:
     - name: Azure PowerShell
-      href: peering-howto-legacydirect-arm.md
+      href: internet-peering-howto-legacydirect-arm.md
     - name: Azure Portal
-      href: peering-howto-legacydirect-arm-portal.md
+      href: internet-peering-howto-legacydirect-arm-portal.md
   - name: Create or modify an Exchange Peering
     items:
     - name: Azure PowerShell
-      href: peering-howto-exchangepeering-arm.md
+      href: internet-peering-howto-exchangepeering-arm.md
     - name: Azure Portal
-      href: peering-howto-exchangepeering-arm-portal.md
+      href: internet-peering-howto-exchangepeering-arm-portal.md
   - name: Convert a legacy Exchange Peering to Azure resource
     items:
     - name: Azure PowerShell
-      href: peering-howto-legacyexchange-arm.md
+      href: internet-peering-howto-legacyexchange-arm.md
     - name: Azure Portal
-      href: peering-howto-legacyexchange-arm-portal.md
+      href: internet-peering-howto-legacyexchange-arm-portal.md
 - name: Resources
   items:
   - name: Peering Service FAQs
-    href: peering-service-faqs.md
+    href: internet-peering-service-faqs.md
   - name: Peering FAQs
-    href: peering-faqs.md
+    href: internet-peering-faqs.md

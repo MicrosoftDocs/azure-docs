@@ -42,7 +42,7 @@ Select-AzSubscription -SubscriptionId "subscription-id"
 ```
 
 > [!IMPORTANT]
-> If you haven't already associated your ASN and subscription, then follow steps for [Associate Peer ASN](../peering-subscription-registration.md). This is required to request a Peering.
+> If you haven't already associated your ASN and subscription, then follow steps for [Associate Peer ASN](../internet-peering-subscription-registration.md). This is required to request a Peering.
 
 * If you don't already have a resource group, you must create one before you create a Peering. You can do so by running the following command:
 

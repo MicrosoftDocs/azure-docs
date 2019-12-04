@@ -21,7 +21,8 @@ The target segment for Peering Service is SaaS connectivity, SD-WAN customers wi
 
 The primary goal when connecting to Microsoft Cloud should be to minimize latency by reducing the round-trip time (RTT) from a user site to the Microsoft Global Network ,which is Microsoft's public network backbone that interconnects all of Microsoft's datacenters and multiple cloud application entry points. See [Getting the best connectivity and performance in Office 365](https://techcommunity.microsoft.com/t5/Office-365-Blog/Getting-the-best-connectivity-and-performance-in-Office-365/ba-p/124694).
 
-![Image of distributed access](./media/distributed-access.png)
+> [!div class="mx-imgBorder"]
+> ![Image of distributed access](./media/distributed-access.png)
 
 In the figure above each branch office of a global enterprise connects to the nearest possible Microsoft edge location possible through hte partner's network.
 
@@ -40,15 +41,15 @@ In the figure above each branch office of a global enterprise connects to the ne
 ## Create Direct Peering for Peering Service
 Service Providers can expand their geographical reach by creating new Direct Peering that support Peering Service. To accomplish this,
 1. Become a Peering Service partner if not already
-1. Follow the instructions to [Create or modify a Direct Peering using Portal](peering-howto-directpeering-arm-portal.md). Ensure it meets high-availability requirement.
-1. Then, follow steps to [Enable Peering Service on a Direct Peering using Portal](peering-howto-peering-service-portal.md) 
+1. Follow the instructions to [Create or modify a Direct Peering using Portal](internet-peering-howto-directpeering-arm-portal.md). Ensure it meets high-availability requirement.
+1. Then, follow steps to [Enable Peering Service on a Direct Peering using Portal](internet-peering-howto-peering-service-portal.md) 
 
 
 ## Use legacy Direct Peering to support Peering Service
 If you have legacy Direct Peering that you want to use to support Peering Service,
 1. Become a Peering Service partner if not already.
-1. Follow the instructions to [Convert a legacy Direct Peering to Azure Resource using Portal](peering-howto-legacydirect-arm-portal.md). If required, order additional circuits to meet high-availability requirement.
-1. Then, follow steps to [Enable Peering Service on a Direct Peering using Portal](peering-howto-peering-service-portal.md).
+1. Follow the instructions to [Convert a legacy Direct Peering to Azure Resource using Portal](internet-peering-howto-legacydirect-arm-portal.md). If required, order additional circuits to meet high-availability requirement.
+1. Then, follow steps to [Enable Peering Service on a Direct Peering using Portal](internet-peering-howto-peering-service-portal.md).
 
 
 <!--
@@ -66,11 +67,11 @@ As partners expand their geographical reach they can create new peering connecti
 2. Step 2: Order circuits in the desired Microsoft edge location that meet high-availability requirement
 3. Step 3: Indicate that the peering connectivity will be used to support Peering Service
 
-<br /> [Tutorial for creating new peering to support Peering Service](peering-direct.md)
+<br /> [Tutorial for creating new peering to support Peering Service](internet-peering-direct.md)
 -->
 
 ## FAQ
-For frequently asked questions, see [Peering Service - FAQ](peering-service-faqs.md).
+For frequently asked questions, see [Peering Service - FAQ](internet-peering-service-faqs.md).
 
 ## Next steps
 
