@@ -82,9 +82,9 @@ Build tasks can download the tools' NuGet packages from the [Azure DevOps Packag
 
 ### What effect does installing the extension have on my Azure DevOps organization? 
 
-Upon their installation, the security build tasks provided by the extension becomes available to all users in your organization. When you create or edit an Azure pipeline, these tasks are available from the build-task collection list. Otherwise, installing the extension in your Azure DevOps organization has no effect. The installation doesn't modify any account settings, project settings, or pipelines.
+Upon their installation, the security build tasks provided by the extension becomes available to all users in your organization. When you create or edit an Azure Pipeline, these tasks are available from the build-task collection list. Otherwise, installing the extension in your Azure DevOps organization has no effect. The installation doesn't modify any account settings, project settings, or pipelines.
 
-### Does installing the extension modify my existing Azure pipelines? 
+### Does installing the extension modify my existing Azure Pipelines? 
 
 No. Installing the extension makes the security build tasks available for addition to your pipelines. You're still required to add or update build definitions, so that the tools can work with your build process.
 

@@ -185,7 +185,7 @@ Details of task configuration are shown in the following screenshot and list.
 ![Configuring the Publish Security Analysis Logs build task](./media/security-tools/9-publish-security-analsis-logs600.png)  
 
 - **Artifact Name**: Any string identifier.
-- **Artifact Type**: Depending on your selection, you can publish logs to your Azure DevOps server or to a shared file that is accessible to the build agent.
+- **Artifact Type**: Depending on your selection, you can publish logs to your Azure DevOps Server or to a shared file that is accessible to the build agent.
 - **Tools**: You can choose to preserve logs for specific tools, or you can select **All Tools** to preserve all logs.
 
 For information about YAML configuration for this task, please check our [Publish Security Logs YAML options](yaml-configuration.md#publish-security-analysis-logs-task)

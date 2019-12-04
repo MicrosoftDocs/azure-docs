@@ -56,7 +56,7 @@ Prerequisites to getting started with Microsoft Security Code Analysis:
 >[!NOTE]
 > Even if you don't have access for installing the extension, continue with the installation steps. You can request access from your Azure DevOps organization admin during the installation process.
 
-After you install the extension, the secure development build tasks are visible and available to add to your Azure pipelines.
+After you install the extension, the secure development build tasks are visible and available to add to your Azure Pipelines.
 
 ## Adding specific build tasks to your Azure DevOps pipeline
 
