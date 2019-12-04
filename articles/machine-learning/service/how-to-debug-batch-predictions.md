@@ -5,7 +5,7 @@ description: Debug and troubleshoot machine learning pipelines in the Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: ms.topic: conceptual
+ms.topic: conceptual
 ms.reviewer: trbye, jmartens, larryfr, vaidyas
 ms.author: trmccorm
 author: trmccorm
@@ -19,36 +19,36 @@ In this article, you learn how to debug and troubleshoot the [ParallelRunStep](h
 
 ## Testing scripts locally
 
-Please see the [Testing scripts locally section](how-to-debug-pipelines#testing-scripts-locally) for ML pipelines. Your ParallelRunStep runs as a step in ML pipelines so the same answer applies to both.
+See the [Testing scripts locally section](how-to-debug-pipelines.md#testing-scripts-locally) for machine learning pipelines. Your ParallelRunStep runs as a step in ML pipelines so the same answer applies to both.
 
 ## Debugging scripts from remote context
 
-The transition from debugging a scoring script locally to debugging a scoring script in an actual pipeline can be be a difficult leap. For finding your logs in the portal please read the [ML pipelines section on debugging scripts from a remote context](how-to-debug-pipelines#debugging-scripts-from-remote-context) because everything in that section will apply to a batch inference run.
+The transition from debugging a scoring script locally to debugging a scoring script in an actual pipeline can be a difficult leap. For information on finding your logs in the portal, the [machine learning pipelines section on debugging scripts from a remote context](how-to-debug-pipelines.md#debugging-scripts-from-remote-context). The information in that section also applies to a batch inference run.
 
-For example, the log file `70_driver_log.txt` will also contains: 
+For example, the log file `70_driver_log.txt` also contains: 
 
-* All printed statements during your script's execution
-* The stack trace for the script 
+* All printed statements during your script's execution.
+* The stack trace of the script.
 
-Because of the distributed nature of running a Batch inference job, there will be logs from several different sources. To help with this process we've created two consolidated files which should help debug problems at a glance:
+Because of the distributed nature of Batch inference jobs, there are logs from several different sources. However, two consolidated files are created that provide high-level information:
 
-**~/logs/overview.txt**: This file provides a high-level info about the number of mini-batches (aka tasks) created so far and number of mini-batches processed so far. At this end, it shows the result of the job. If the job failed, it will show the error message and where to start the troubleshooting.
+`~/logs/overview.txt`: This file provides a high-level info about the number of mini-batches (also known as tasks) created so far and number of mini-batches processed so far. At this end, it shows the result of the job. If the job failed, it will show the error message and where to start the troubleshooting.
 
-**~/logs/master.txt**: This file provides the master node (AKA the orchestrator) view of the running job. Includes task creation, progress monitoring, the run's result.
+`~/logs/master.txt`: This file provides the master node (also known as the orchestrator) view of the running job. Includes task creation, progress monitoring, the run's result.
 
-For times where you need a full understanding of how each node executed your score script, we recommend looking at the individual process logs for each node. In the `worker` folder we've given full access to each processes' logs, grouped by worker nodes. The logs will look like this:
+When you need a full understanding of how each node executed the score script, look at the individual process logs for each node. The process logs can be found in the `worker` folder, grouped by worker nodes:
 
-**~/logs/worker/<ip_address>/Process-*.txt**: This provides much more detailed info about each mini-batch as it is picked up by a worker or completed by a worker. For each mini-batch, this includes:
+`~/logs/worker/<ip_address>/Process-*.txt`: This file provides detailed info about each mini-batch as it is picked up or completed by a worker. For each mini-batch, this file includes:
 
-- The IP address and the PID of the worker process 
-- The total number of items as well as the number of successfully-processed items 
-- The start and the end time in terms of wall clock times (start1 and end1) 
-- The start and the end time in terms of processor time spent (start2 and end2) 
+- The IP address and the PID of the worker process. 
+- The total number of items and the number of successfully processed items. 
+- The start and end time in wall-clock times (`start1` and `end1`). 
+- The start and end time in processor time spent (`start2` and `end2`). 
 
-Additionally, we've supplied information pertaining to the resource usage of each workers' processes which can be found in CSV format in `~/logs/performance/<ip_address>/` folder for easy consumption. Our advice to check resource utilization is to:
+You can also find information on the resource usage of the processes for each worker. This information is in CSV format, and is located at `~/logs/performance/<ip_address>/`. For example, when checking for resource utilization, look at the following files:
 
-- Check per worker process resource usage file named process_resource_monitor_<ip>_<pid>.csv 
-- Check per node log at sys_resource_monitor_<ip>.csv
+- `process_resource_monitor_<ip>_<pid>.csv`: Per worker process resource usage. 
+- `sys_resource_monitor_<ip>.csv`: Per node log.
 
 ### How do I log from my user script from a remote context?
 You can set up a logger with the below steps to make the logs show up in **logs/users** folder in the portal:
@@ -182,6 +182,6 @@ def run(mini_batch):
 
 ## Next steps
 
-* See the SDK reference for help with the [azureml-contrib-pipeline-step](https://docs.microsoft.com/en-us/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps?view=azure-ml-py) package and the [documentation](https://docs.microsoft.com/en-us/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallelrunstep?view=azure-ml-py) for ParallelRunStep class.
+* See the SDK reference for help with the [azureml-contrib-pipeline-step](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps?view=azure-ml-py) package and the [documentation](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallelrunstep?view=azure-ml-py) for ParallelRunStep class.
 
 * Follow the [advanced tutorial](tutorial-pipeline-batch-scoring-classification.md) on using pipelines for batch scoring.
