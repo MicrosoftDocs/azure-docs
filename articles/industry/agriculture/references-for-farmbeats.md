@@ -49,7 +49,7 @@ RoleAssignment  |RoleAssignment corresponds to the assignment of a role to a use
 
 ### Data format
 
-JSON is a common language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see the [JSON website](json.org/).
+JSON is a common language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see the [JSON website](https://www.json.org/).
 
 ## Authentication and authorization
 
