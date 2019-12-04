@@ -1,6 +1,6 @@
 ---
-title: Use Azure Deployment Manager with Resource Manager templates | Microsoft Docs
-description: Use Resource Manager templates with Azure Deployment Manager to deploy Azure resources.
+title: Use Azure Deployment Manager to deploy templates
+description: Learn how to use Resource Manager templates with Azure Deployment Manager to deploy Azure resources.
 author: mumian
 ms.date: 11/21/2019
 ms.topic: tutorial

@@ -51,7 +51,7 @@ If you have an Azure Machine Learning workspace with an Enterprise edition, [ski
 
 1. Select **Designer**.
 
-    ![Screenshot of the visual workspace showing how to access the designer](./media/tutorial-designer-automobile-price-train-score/launch-visual-interface.png)
+    ![Screenshot of the visual workspace showing how to access the designer](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
 1. Select **Easy-to-use prebuilt modules**.
 

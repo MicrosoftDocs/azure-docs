@@ -32,7 +32,7 @@ The following table summarizes all the objects and resources in FarmBeats Datahu
 --- | ---|
 Farm | Farm corresponds to a physical location of interest within the FarmBeats system. Each farm has a farm name and a unique farm ID. |
 Device  | Device corresponds to a physical device present on the farm. Each device has a unique device ID. A device is typically provisioned to a farm with a farm ID.
-DeviceModel  | DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either a gateway or a node.
+DeviceModel  | DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either gateway or node.
 Sensor  | Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
 SensorModel  | SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measurement, such as ambient temperature and pressure.
 Telemetry  | Telemetry provides the ability to read telemetry messages for a particular sensor and time range.
@@ -77,7 +77,7 @@ Accept | The response format. For Azure FarmBeats Datahub APIs, the format is JS
 
 To make a REST API request, you combine the HTTP (GET, POST, PUT, or DELETE) method, the URL to the API service, the URI to a resource to query, submit data to, update, or delete, and then add one or more HTTP request headers.
 
-The URL to the API service is your Datahub URL, https://\<yourdatahub-website-name>.azurewebsites.net.
+The URL to the API service is your Datahub URL, for example, https://\<yourdatahub-website-name>.azurewebsites.net.
 Optionally, you can include query parameters on GET calls to filter, limit the size of, and sort the data in the responses.
 
 The following sample request is used to get the list of devices:

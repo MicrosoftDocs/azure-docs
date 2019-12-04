@@ -1,12 +1,11 @@
 ---
-title: RosettaNet messages for B2B integration - Azure Logic Apps
+title: RosettaNet messages for B2B integration
 description: Exchange RosettaNet messages in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ---

@@ -1,19 +1,12 @@
 ---
-title: Get started with Mobile Apps by using Xamarin.Forms
+title: Get started with Xamarin.Forms
 description: Follow this tutorial to start using Mobile Apps for Xamarin.Forms development
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # Create a Xamarin.Forms app with Azure
 
