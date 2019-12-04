@@ -51,11 +51,11 @@
       href: tutorial-publish-settings.md
   - name: Create and use entities
     items:
-    - name: With regular expression entities
+    - name: Regular expression entities
       href: tutorial-regex-entity.md
-    - name: With list entities
+    - name: List entities
       href: luis-quickstart-intent-and-list-entity.md
-    - name: With entity roles
+    - name: Entity roles
       href: tutorial-entity-roles.md
       displayName: roles, geographyV2, context
     - name: Group and extract related data with composite entities

@@ -15,7 +15,7 @@ ms.author: diberry
 ---
 
 # Tutorial: Get well-formatted data from the utterance
-In this tutorial, create an app to extract consistently formatted data from an utterance using the **Regular Expression** entity.
+In this tutorial, create a regular expression entity to extract consistently formatted data from an utterance.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -23,24 +23,22 @@ In this tutorial, create an app to extract consistently formatted data from an u
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Create a new app
+> * Import app
 > * Add intent
 > * Add regular expression entity
-> * Train
-> * Publish
-> * Get intents and entities from endpoint
+> * Train, publish, and query app to get extracted data
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Regular expression entities
 
-Use the regular expression entity to pull out well-formatted text from an utterance. While the utterance's intent is always determined with machine-learning, this specific entity type is not machine-learned. A good match for the regular expression entity is any text that can consistently be represented by a regular expression.
+Use the regular expression entity to pull out well-formatted text from an utterance. While the utterance's intent is always determined with machine-learning, this specific entity type is not machine-learned. A good use for the regular expression entity is any text that can consistently be represented by a [regular expression](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 `Send pizza delivery time to x123432`
 
 This example uses a _short code_ for sending text messages. This short code is a 5 or 6-digit numeric code, prefixed with an x, and can be described with the regular expression `x\d{5,6}`.
 
-When you add a regular expression entity to a LUIS app, you don't need to label the text with the regular express entity. It is applied to all utterances in all intents.
+When you add a regular expression entity to a LUIS app, you don't need to [label](label-entity-example-utterance.md) the text with the regular express entity. It is applied to all utterances in all intents.
 
 ## Import example .json to begin app
 
@@ -50,9 +48,7 @@ When you add a regular expression entity to a LUIS app, you don't need to label 
 
 ## Create intent for sending confirmation text messages
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
-
-1. Select **Create new intent**.
+1. Select **+ Create** to create a new intent to classify an utterance's intent for sending a confirmation text.
 
 1. Enter `ConfirmationText` in the pop-up dialog box then select **Done**.
 
@@ -67,9 +63,7 @@ When you add a regular expression entity to a LUIS app, you don't need to label 
     To extract machine-learned entities, you should provide examples that include the entity in a variety of utterances but with this non-machine-learned entity, the variation is not important. As long as text matches the regular expression, it will be extracted.
 
 ## Use the regular expression entity for well-formatted data
-The regular expression entity to match the text number. This regular expression matches text but ignores case and culture variants.
-
-Create a regular expression entity to tell LUIS what the text number format is in the following steps:
+Create a regular expression entity to match the text number. This regular expression matches text but ignores case and culture variants.
 
 1. Select **Entities** in the left panel.
 
@@ -85,12 +79,12 @@ Create a regular expression entity to tell LUIS what the text number format is i
     > [!div class="mx-imgBorder"]
     > ![Enter regular expression to extract data from example utterance](./media/luis-quickstart-intents-regex-entity/pizza-set-regular-expression-for-new-entity.png)
 
-1. Select **Intents** from the left menu, then **ConfirmationText** intent to see the regular expression labeled in the utterances.
+1. Select **Intents** from the left menu, then the **ConfirmationText** intent to see the regular expression labeled in the utterances.
 
     > [!div class="mx-imgBorder"]
     > ![View regular expression labeled in example utterances](./media/luis-quickstart-intents-regex-entity/pizza-reg-ex-entity-shown-example-utterances-intent.png)
 
-    Because the entity is not a machine-learned entity, the entity is applied to the utterances and displayed in the LUIS website as soon as it is created.
+    Because the entity is not a machine-learned entity, the entity is applied to the utterances and displayed in the LUIS portal as soon as it is created.
 
 ## Train the app before testing or publishing
 
