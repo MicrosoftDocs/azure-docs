@@ -43,7 +43,7 @@ If a job preparation task is specified for a job, then an instance of that task 
 
 The job preparation task instances should be checked to determine if there were errors:
 - When a job preparation task is run, then the task that triggered the job preparation task will move to a [state](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate) of `preparing`; if the job preparation task then fails, the triggering task will revert to the `active` state and will not be run.  
-- All the instances of the job preparation task that have been run can be obtained from the job using the '[List Preparation and Release Task Status](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus)' API. As with any task, there is [execution information](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) available with properties such as 'failureInfo', 'exitCode', and 'result'.
+- All the instances of the job preparation task that have been run can be obtained from the job using the [List Preparation and Release Task Status](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus) API. As with any task, there is [execution information](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) available with properties such as `failureInfo`, `exitCode`, and `result`.
 - If job preparation tasks fail, then the triggering job tasks will not be run, the job will not complete and will be stuck. The pool may go unutilized if there are no other jobs with tasks that can be scheduled.
 
 ### Job release tasks
