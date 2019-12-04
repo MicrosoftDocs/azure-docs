@@ -568,6 +568,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-sentiment-analysis.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-publish-settings",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
       "redirect_document_id": false
@@ -11463,6 +11468,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-create-kafka-enabled.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-create",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
       "redirect_document_id": false
@@ -15616,6 +15626,11 @@
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-advanced-autoscale.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-spot",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-cli-quick-create-cli-nodejs.md",
@@ -29507,8 +29522,53 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Image-Search/search-the-web.md",
-      "redirect_url": "/azure/cognitive-services/bing-image-search",
+      "redirect_url": "/azure/cognitive-services/Bing-Image-Search/overview",
       "redirect_document_id": false
     },
     {
@@ -29518,7 +29578,7 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Web-Search/search-the-web.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/overview",
       "redirect_document_id": false
     },
     {
@@ -43840,6 +43900,16 @@
     {
       "source_path": "articles/lab-services/classroom-labs/how-to-enable-multi-vm-environment.md",
       "redirect_url": "/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus-messaging/migrate-java-apps-wild-fly.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java#use-service-bus-as-a-message-broker",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/howto-redirection.md",
+      "redirect_url": "/azure/mysql/concepts-connectivity-architecture",
       "redirect_document_id": false
     }
   ]

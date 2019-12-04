@@ -264,8 +264,8 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
  </tr>
 
   <tr>
-   <td><a href=scenario-web-api-call-api-overview.md"><img alt="Web API that calls web APIs" src="media/scenarios/web-api.svg"></a></td>
-   <td><a href=scenario-web-api-call-api-overview.md">A web API that calls web APIs</a></td>
+   <td><a href="scenario-web-api-call-api-overview.md"><img alt="Web API that calls web APIs" src="media/scenarios/web-api.svg"></a></td>
+   <td><a href="scenario-web-api-call-api-overview.md">A web API that calls web APIs</a></td>
    <td><a href="v2-oauth2-on-behalf-of-flow.md">On Behalf Of</a></td>
    <td>Work or school accounts and personal accounts</td>
  </tr>
