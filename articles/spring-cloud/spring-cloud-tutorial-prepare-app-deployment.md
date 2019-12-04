@@ -1,6 +1,6 @@
 ---
-title: Prepare a Java Spring application for deployment in Azure Spring Cloud | Microsoft Docs
-description: In this quickstart, you prepare a Java Spring application for deployment.
+title: Tutorial - Prepare a Spring application for deployment in Azure Spring Cloud
+description: In this tutorial, you prepare a Java Spring application for deployment.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
@@ -176,4 +176,8 @@ Include the following `spring-cloud-starter-sleuth` and `spring-cloud-starter-zi
 In this tutorial, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud. To learn how to set up a Config Server instance, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
+<<<<<<< HEAD
 > [Learn how to set up a Config Server instance](spring-cloud-tutorial-config-server.md)
+=======
+> [Learn how to set up your Config Server](spring-cloud-tutorial-config-server.md).
+>>>>>>> 19aa14512feae1c601221065436af8325634e633
