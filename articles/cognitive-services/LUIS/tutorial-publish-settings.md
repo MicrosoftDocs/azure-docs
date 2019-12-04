@@ -117,7 +117,7 @@ Because it is a publish setting, you do not see it labeled on the intents or ent
     }
     ```
 
-    The sentimentAnalysis is positive with a score of 86%.
+    The sentiment analysis is positive with a score of 86%.
 
 ## Clean up resources
 
