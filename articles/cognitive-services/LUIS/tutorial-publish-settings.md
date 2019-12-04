@@ -72,39 +72,52 @@ Because it is a publish setting, you do not see it on the intents or entities pa
 
     ```json
     {
-      "query": "Jill Jones work with the media team on the public portal was amazing",
-      "topScoringIntent": {
-        "intent": "EmployeeFeedback",
-        "score": 0.9616192
-      },
-      "intents": [
-        {
-          "intent": "EmployeeFeedback",
-          "score": 0.9616192
-        },
-        {
-          "intent": "None",
-          "score": 0.09347677
+        "query": "Deliver 2 of the best cheese pizzas ever!!!",
+        "prediction": {
+            "topIntent": "OrderPizza",
+            "intents": {
+                "OrderPizza": {
+                    "score": 0.4659952
+                },
+                "None": {
+                    "score": 0.16901511
+                },
+                "Confirm": {
+                    "score": 0.00421415
+                },
+                "Greeting": {
+                    "score": 0.00109914376
+                }
+            },
+            "entities": {
+                "number": [
+                    2
+                ],
+                "$instance": {
+                    "number": [
+                        {
+                            "type": "builtin.number",
+                            "text": "2",
+                            "startIndex": 8,
+                            "length": 1,
+                            "modelTypeId": 2,
+                            "modelType": "Prebuilt Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "sentiment": {
+                "label": "positive",
+                "score": 0.861665964
+            }
         }
-      ],
-      "entities": [
-        {
-          "entity": "jill jones",
-          "type": "builtin.personName",
-          "startIndex": 0,
-          "endIndex": 9
-        }
-      ],
-      "sentimentAnalysis": {
-        "label": "positive",
-        "score": 0.8694164
-      }
     }
     ```
 
     The sentimentAnalysis is positive with a score of 86%.
-
-    Try another utterance by removing the value for `q` in the address bar of the browser: `William Jones did a terrible job presenting his ideas.` The sentiment score indicates a negative sentiment by returning a low score `0.18597582`.
 
 ## Clean up resources
 
