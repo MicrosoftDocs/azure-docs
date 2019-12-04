@@ -568,6 +568,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-regex-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-regex-entity",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-sentiment-analysis.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-publish-settings",
       "redirect_document_id": false
