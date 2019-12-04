@@ -32,18 +32,18 @@ For example, the log file `70_driver_log.txt` also contains:
 
 Because of the distributed nature of Batch inference jobs, there are logs from several different sources. However, two consolidated files are created that provide high-level information:
 
-`~/logs/overview.txt`: This file provides a high-level info about the number of mini-batches (also known as tasks) created so far and number of mini-batches processed so far. At this end, it shows the result of the job. If the job failed, it will show the error message and where to start the troubleshooting.
+- `~/logs/overview.txt`: This file provides a high-level info about the number of mini-batches (also known as tasks) created so far and number of mini-batches processed so far. At this end, it shows the result of the job. If the job failed, it will show the error message and where to start the troubleshooting.
 
-`~/logs/master.txt`: This file provides the master node (also known as the orchestrator) view of the running job. Includes task creation, progress monitoring, the run's result.
+- `~/logs/master.txt`: This file provides the master node (also known as the orchestrator) view of the running job. Includes task creation, progress monitoring, the run's result.
 
 When you need a full understanding of how each node executed the score script, look at the individual process logs for each node. The process logs can be found in the `worker` folder, grouped by worker nodes:
 
-`~/logs/worker/<ip_address>/Process-*.txt`: This file provides detailed info about each mini-batch as it is picked up or completed by a worker. For each mini-batch, this file includes:
+- `~/logs/worker/<ip_address>/Process-*.txt`: This file provides detailed info about each mini-batch as it is picked up or completed by a worker. For each mini-batch, this file includes:
 
-- The IP address and the PID of the worker process. 
-- The total number of items and the number of successfully processed items. 
-- The start and end time in wall-clock times (`start1` and `end1`). 
-- The start and end time in processor time spent (`start2` and `end2`). 
+    - The IP address and the PID of the worker process. 
+    - The total number of items and the number of successfully processed items. 
+    - The start and end time in wall-clock times (`start1` and `end1`). 
+    - The start and end time in processor time spent (`start2` and `end2`). 
 
 You can also find information on the resource usage of the processes for each worker. This information is in CSV format, and is located at `~/logs/performance/<ip_address>/`. For example, when checking for resource utilization, look at the following files:
 
