@@ -242,7 +242,7 @@ By default, when you configure the RD Gateway to use a central policy store for 
 1. Click **Cancel**.
 
 >[!NOTE]
-> In case you would like to know how to create a new Connection request policy please check the [Connection Request Policy](https://docs.microsoft.com/en-us/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) documentation for the same. 
+> For more information about creating a connection request policy see the article, [Configure connection request policies](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) documentation for the same. 
 
 ## Configure NPS on the server where the NPS extension is installed
 
