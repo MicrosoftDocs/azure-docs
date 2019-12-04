@@ -1,6 +1,6 @@
 ---
-title: My Account portal overview - Azure Active Directory | Microsoft Docs
-description: A high-level overview and links to more information about the My Account portal and its features.
+title: Access the My Account portal & manage your info - Azure AD
+description: How to get to the My Account portal and its features, including Security info, Devices, Password, Organizations, Privacy, and My Sign-ins.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/28/2019
+ms.date: 12/03/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# My Account portal overview
+# Access the My Account portal to manage account information
 
 The **My Account** portal helps you to manage your work or school account by setting up and managing your security info, managing your connected organizations and devices, viewing how your organization uses your data.
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
+>This article is intended for users trying to get to the My Account portal to update their security info, device info, password, connected organizations, privacy, or previous sign-in information. If you're an administrator looking for information about how to turn on authentication and other Azure Active Directory (Azure AD) features for your employees and other uses, see the [Azure AD documentation for administrators](https://docs.microsoft.com/azure/active-directory/).
 
 ![My Account portal, Overview page](media/my-account-portal/my-account-portal-overview.png)
 
-## Go to the My Account portal
+## Access the My Account portal and your work or school account-related information
 
 You can get to the **My Account** portal (https://myprofile.microsoft.com), from the current version of any of the following browsers:
 

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 12/03/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
