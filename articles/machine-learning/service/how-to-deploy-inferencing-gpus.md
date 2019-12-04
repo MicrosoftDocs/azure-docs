@@ -172,7 +172,7 @@ The inference configuration points to the entry script and an environment object
 
 ```python
 from azureml.core.model import InferenceConfig
-from from azureml.core.environment import Environment, DEFAULT_GPU_IMAGE
+from azureml.core.environment import Environment, DEFAULT_GPU_IMAGE
 
 deploy_env = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
 env.docker.base_image = DEFAULT_GPU_IMAGE
