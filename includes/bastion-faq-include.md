@@ -58,4 +58,4 @@ For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual
 
 ### <a name="filetransfer"></a>Is file-transfer supported with Azure Bastion RDP session?
 
-We are working hard to add new features.   As of now file transfer is not supported, but part of our roadmap.  For any new features, please feel free to share your feedback on [Azure Bastion Feedback page](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+We are working hard to add new features. As of now, file transfer is not supported but is part of our roadmap. Please feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/forums/217313-networking?category_id=367303).
