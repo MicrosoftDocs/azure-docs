@@ -279,7 +279,7 @@ from azureml.core.model import InferenceConfig, Environment
 env = Environment.from_conda_specification(name="env", file_path="myenv.yml")
 inference_config = InferenceConfig(entry_script="score.py", environment=env)
 
-service = Model.deploy(workspace=ws, \
+service = Model.deploy(workspace=ws,
                        name='sklearn-mnist-svc',
                        models=[model], 
                        inference_config=inference_config,
