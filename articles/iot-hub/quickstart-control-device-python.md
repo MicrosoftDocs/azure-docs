@@ -161,7 +161,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
     ![Change in simulated client](./media/quickstart-control-device-python/SimulatedDevice-2.png)
 
     > [!NOTE]
-    > If you get an error on the import of *iothub_service_client*, make sure you've installed the exact version of Python and any other associated artifacts specified for your platform in [Prerequisites](#Prerequisites). If, after verifying the prerequisites, you still get an error, you may need to build the service client for your platform. To learn how to build the SDK for your platform, see the [devbox setup instructions](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) in the V1 SDK documentation.
+    > If you get an error on the import of *iothub_service_client*, make sure you've installed the exact version of Python and any other associated artifacts specified for your platform in [Prerequisites](#prerequisites). If, after verifying the prerequisites, you still get an error, you may need to build the service client for your platform. To learn how to build the SDK for your platform, see the [devbox setup instructions](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) in the V1 SDK documentation.
     >
 
 ## Clean up resources
