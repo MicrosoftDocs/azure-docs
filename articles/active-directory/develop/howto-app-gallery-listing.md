@@ -70,9 +70,9 @@ If you are seeing this error while logging in then here are the detail on the is
 
   ![issues resolving application in the gallery](./media/howto-app-gallery-listing/blocked.png)
 
-* We have detected something unusual about this sign-in. For example, you might be signing in from a new location, device, or app. Before you can continue, we need to verify your identity. Please contact your admin.
+**What’s happening:**
 
-* **What’s happening:** The guest user is federated to a home tenant which is also an Azure AD. The guest user is at High risk. Microsoft doesn’t allow High risk users to access its resources. All High risk users (employees or guests / vendors) must remediate / close their risk to access Microsoft resources. For guest users, this user risk comes from the home tenant and the policy comes from the resource tenant (Microsoft in this case).
+The guest user is federated to a home tenant which is also an Azure AD. The guest user is at High risk. Microsoft doesn’t allow High risk users to access its resources. All High risk users (employees or guests / vendors) must remediate / close their risk to access Microsoft resources. For guest users, this user risk comes from the home tenant and the policy comes from the resource tenant (Microsoft in this case).
  
 **Secure solutions:**
 
