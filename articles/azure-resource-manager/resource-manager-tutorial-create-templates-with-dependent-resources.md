@@ -81,7 +81,7 @@ When you explore the template in this section, try to answer these questions:
     ![Visual Studio Code Azure Resource Manager templates public IP address definition](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
 4. Expand the fourth resource. The resource type is `Microsoft.Network/networkInterfaces`:
 
-    ![Visual Studio Code Azure Resource Manager templates dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
+    ![Visual Studio Code Azure Resource Manager templates dependsOn](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
     The dependsOn element enables you to define one resource as a dependent on one or more resources. The resource depends on two other resources:
 
@@ -106,15 +106,15 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
 There are many methods for deploying templates.  In this tutorial, you use Cloud Shell from the Azure portal.
 
 1. Sign in to the [Cloud Shell](https://shell.azure.com).
-2. Select **PowerShell** from the upper left corner of the Cloud shell, and then select **Confirm**.  You use PowerShell in this tutorial.
-3. Select **Upload file** from the Cloud shell:
+1. Select **PowerShell** from the upper left corner of the Cloud shell, and then select **Confirm**.  You use PowerShell in this tutorial.
+1. Select **Upload file** from the Cloud shell:
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-4. Select the template you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file is overwritten without any notification.
+1. Select the template you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file is overwritten without any notification.
 
     You can optionally use the **ls $HOME** command and the **cat $HOME/azuredeploy.json** command to verify the files areis uploaded successfully.
 
-5. From the Cloud shell, run the following PowerShell commands. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
+1. From the Cloud shell, run the following PowerShell commands. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -130,18 +130,20 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile "$HOME/azuredeploy.json"
+    Write-Host "Press [ENTER] to continue ..."
     ```
 
-8. Run the following PowerShell command to list the newly created virtual machine:
+1. Run the following PowerShell command to list the newly created virtual machine:
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
+    Write-Host "Press [ENTER] to continue ..."
     ```
 
     The virtual machine name is hard-coded as **SimpleWinVM** inside the template.
 
-9. RDP to the virtual machine to verify the virtual machine has been created successfully.
+1. RDP to the virtual machine to verify the virtual machine has been created successfully.
 
 ## Clean up resources
 
