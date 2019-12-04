@@ -19,4 +19,4 @@ ms.author: b-juche
 # Azure NetApp Files videos
 This article provides references to videos that contain in-depth discussions about using Azure NetApp Files. 
 
-* [Microsoft Ignite 2019: Run your most demanding enterprise file workloads wit Azure NetApp Files](https://myignite.techcommunity.microsoft.com/sessions/82938?source=sessions)
+* [Microsoft Ignite 2019: Run your most demanding enterprise file workloads with Azure NetApp Files](https://myignite.techcommunity.microsoft.com/sessions/82938?source=sessions)
