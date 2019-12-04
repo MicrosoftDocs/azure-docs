@@ -4,8 +4,8 @@ description: Connection assets in Azure Automation contain the information requi
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
