@@ -26,5 +26,3 @@ The examples shown here also use the latest version of the [Azure Identity clien
 ```powershell
 Install-Package Azure.Identity
 ```
-
-To learn more about how to authenticate with the Azure Identity client library from Azure Storage, see the section titled **Authenticate with the Azure Identity library** in [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](/azure/storage/common/storage-auth-aad-msi?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
