@@ -83,7 +83,7 @@ The backup operations in this service tier reflect the design differences betwee
 
 The Hyperscale backup service is designed to dramatically reduce the restore time and to make it independent of the database size. For that reason, databases that are more active require snapshots with greater frequency.  To strike a balance between restore performance and overall backup cost, there is an intelligent pruning algorithm that is informed by the statistics of the point-in-time restores. For example, the most recent 3 days of retention contain more frequent snapshots than the remaining days of retention.  
 
-The log storage is allocated dynamically in 32GB chunks. Its size directly depends on the transaction rate of the database. Each log backup in log storage is associated with a specific snapshot. Once the snapshot is out of retention, it is automatically deleted along with the log backups associated with.  
+The log storage is allocated dynamically in 32 GB chunks. Its size directly depends on the transaction rate of the database. Each log backup in log storage is associated with a specific snapshot. Once the snapshot is out of retention, it is automatically deleted along with the log backups associated with.  
 
 The total backup storage usage is calculated as `Backup storage size = base blob size + size of snapshots + (size of log storage blob –  32GB)`. For live databases the base blob size is excluded from the billable backup storage size. After the database is dropped, the base blob is kept for the duration of the configured retention period as it is required for restores.
 
@@ -106,9 +106,9 @@ While the database is active, the total backup storage usage is calculated as fo
 
 Azure SQL DB will compute your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline which is responsible for aggregating this hourly usage to get your consumption at the end of each month. After the database is dropped, we decrease the consumption as the backups age. Once they become older than the retention period, the billing stops. 
 
-Let's assume the database has accumulated 744GB of backup storage and this amount stays constant throughout an entire month. To convert this cumulative storage consumption to an hourly usage, we divide it by 744.0 (31 days per month * 24 hours per day). Thus, SQL DB will report the database consumed 1 GB of PITR backup each hour. Azure billing will aggregate this and show a usage of 744GB for the entire month and the cost based on the $/GB/mo rate in your region. 
+Let's assume the database has accumulated 744 GB of backup storage and this amount stays constant throughout an entire month. To convert this cumulative storage consumption to an hourly usage, we divide it by 744.0 (31 days per month * 24 hours per day). Thus, SQL DB will report the database consumed 1 GB of PITR backup each hour. Azure billing will aggregate this and show a usage of 744 GB for the entire month and the cost based on the $/GB/mo rate in your region. 
 
-Now, a more complex example. Suppose the database has its retention increased to 14 days in the middle of the month and this (hypothetically) results in the total backup storage doubling to 1488GB. SQL DB would report 1 GB of usage for hours 1-372, and then report the usage as 2 GB for hours 373-744. This would be aggregated to be a final bill of 1116 GB/mo. 
+Now, a more complex example. Suppose the database has its retention increased to 14 days in the middle of the month and this (hypothetically) results in the total backup storage doubling to 1488 GB. SQL DB would report 1 GB of usage for hours 1-372, and then report the usage as 2 GB for hours 373-744. This would be aggregated to be a final bill of 1116 GB/mo. 
 
 You can use Azure subscription cost analysis to determine your current spending on backup storage.
 
