@@ -153,6 +153,8 @@ Unity will now install NugetForUnity. If you don't see a new **NuGet** dropdown 
 
 Once you have NuGetForUnity installed, select **NuGet** > **Manage NuGet Packages**. Then search for Microsoft.Azure.SpatialAnchors.Unity and select **Install**.
 
+We now need to build to get the actual Azure Spatial Anchors SDK, as the NuGet package we just downloaded just contains helper scripts. Build from **Unity** and then open and build the resulting **Visual Studio** solution again, as detailed in [Trying it out](#trying-it-out).
+
 ---
 
 In your **Visual Studio** solution, add the following import into your `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs`:
