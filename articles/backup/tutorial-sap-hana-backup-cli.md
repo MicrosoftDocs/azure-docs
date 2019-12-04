@@ -20,7 +20,7 @@ This document assumes that you already have an SAP HANA database installed on an
 
 Check out the [scenarios that we currently support](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support) for SAP HANA.
 
-[!INCLUDE [cloud-shell-try-it.md](/../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 To install and use the CLI locally, you must run Azure CLI version xx.xxx.x or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
