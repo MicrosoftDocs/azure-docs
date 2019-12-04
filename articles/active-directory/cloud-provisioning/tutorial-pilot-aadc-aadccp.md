@@ -26,8 +26,8 @@ Before you try this tutorial, consider the following items:
 2. Ensure that you're running Azure AD Connect sync version 1.4.32.0 or later and have configured the sync rules as documented. When piloting, you will be removing a test OU or group from Azure AD Connect sync scope. Moving objects out of scope leads to deletion of those objects in Azure AD. In case of user objects, the objects in Azure AD are soft-deleted and can be restored. In case of group objects, the objects in Azure AD are hard-deleted and cannot be restored. A new link type has been introduced in Azure AD Connect sync which will prevent the deletion in case of a piloting scenario. 
 3. Ensure that the objects in the pilot scope have ms-ds-consistencyGUID populated so cloud provisioning hard matches the objects. 
 
->[!NOTE]
->Azure AD Connect sync does not populate *ms-ds-consistencyGUID* by default for group objects. Follow the steps documented [here](https://blogs.technet.microsoft.com/markrenoden/2017/10/13/choosing-a-sourceanchor-for-groups-in-multi-forest-sync-with-aad-connect/) to populate *ms-ds-consistencyGUID* for group objects.
+   > [!NOTE]
+   > Azure AD Connect sync does not populate *ms-ds-consistencyGUID* by default for group objects. Follow the steps documented in [this blog post](https://blogs.technet.microsoft.com/markrenoden/2017/10/13/choosing-a-sourceanchor-for-groups-in-multi-forest-sync-with-aad-connect/) to populate *ms-ds-consistencyGUID* for group objects.
 
 4. This is an advanced scenario. Ensure that you follow the steps documented in this tutorial precisely.
 
