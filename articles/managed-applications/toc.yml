@@ -51,9 +51,9 @@
     href: concepts-custom-role-definition.md
   - name: Resource onboarding
     href: concepts-custom-providers-resourceonboarding.md
-  - name: Deploy associations for custom provider using policy
+  - name: Azure Policy for custom provider associations
     href: concepts-custom-providers-built-in-policy.md
-  - name: Deploy associations for managed application using policy
+  - name: Azure Policy for managed application associations
     href: concepts-managed-applications-built-in-policy.md
 - name: How-to guides
   items:
