@@ -19,6 +19,14 @@ ms.date: 08/01/2019
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
 
+## December 2019
+
+| Changes | Details |
+| --- | --- |
+| **Free DR replica in Azure** | You can host a [free passive instance](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) for disaster recovery in Azure for your on-premises SQL Server instance if you have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3). | 
+| &nbsp; | &nbsp; |
+
+
 ## October 2019
 
 | Changes | Details |
