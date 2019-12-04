@@ -1,8 +1,8 @@
 ---
-title: Use Azure Deployment Manager with Resource Manager templates | Microsoft Docs
-description: Use Resource Manager templates with Azure Deployment Manager to deploy Azure resources.
+title: Use Azure Deployment Manager to deploy templates
+description: Learn how to use Resource Manager templates with Azure Deployment Manager to deploy Azure resources.
 author: mumian
-ms.date: 11/21/2019
+ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
 
@@ -165,7 +165,7 @@ foreach ($x in $filesToUpload) {
     Set-AzStorageBlobContent -File $x.fullname -Container $storageContainer.Name -Blob $targetPath -Context $storageContext | Out-Null
 }
 
-$token = New-AzStorageContainerSASToken -name $containerName -Context $storageContext -Permission rl -ExpiryTime (Get-date).AddMonths(1)  -Protocol HttpsOrHttp
+$token = New-AzStorageContainerSASToken -name $containerName -Context $storageContext -Permission rl -ExpiryTime (Get-date).AddMonths(1)
 
 $url = $storageAccount.PrimaryEndpoints.Blob + $containerName + $token
 

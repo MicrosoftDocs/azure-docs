@@ -216,7 +216,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Change [`Dataset.get_by_id`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29#get-by-id-workspace--id-) to return registration name and version if the dataset is registered.
     + Fix a bug that ScriptRunConfig with dataset as argument cannot be used repeatedly to submit experiment run.
     + Datasets retrieved during a run will be tracked and can be seen in the run details page or by calling [`run.get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29#get-details--) after the run is complete.
-    + Allow intermediate data in Azure Machine Learning Pipeline to be converted to tabular dataset and used in [`AutoMLStep`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlstep).
+    + Allow intermediate data in Azure Machine Learning Pipeline to be converted to tabular dataset and used in [`AutoMLStep`](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlstep).
     + Added support for deploying and packaging supported models (ONNX, scikit-learn, and TensorFlow) without an InferenceConfig instance.
     + Added overwrite flag for service deployment (ACI and AKS) in SDK and CLI. If provided, will overwrite the existing service if service with name already exists. If service doesn't exist, will create new service.
     +  Models can be registered with two new frameworks, Onnx and Tensorflow. Model registration accepts sample input data, sample output data and resource configuration for the model.
@@ -233,7 +233,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Various bug fixes 
   + [**azureml-pipeline-core**](https://docs.microsoft.com/python/api/azureml-pipeline-core)
     + azureml-dataprep is no longer needed to submit an Azure Machine Learning Pipeline run from the pipeline `yaml` file.
-  + [**azureml-train-automl**](https://docs.microsoft.com/python/api/azureml-train-automl)
+  + [**azureml-train-automl**](/python/api/azureml-train-automl-runtime/)
     + Add azureml-defaults to auto generated conda env to solve the model deployment failure
     + AutoML remote training now includes azureml-defaults to allow reuse of training env for inference.
   + **azureml-train-core**
@@ -345,7 +345,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Improved performance for large Pipeline creation.
   + **[azureml-train-core](https://docs.microsoft.com/python/api/azureml-train-core)**
     + Added TensorFlow 2.0 support in [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow) Estimator.
-  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + The parent run will no longer be failed when setup iteration failed, as the orchestration already takes care of it.
     + Added local-docker and local-conda support for AutoML experiments
     + Added local-docker and local-conda support for AutoML experiments.
@@ -369,12 +369,12 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
     + Added curated environments. These environments have been pre-configured with libraries for common machine learning tasks, and have been pre-build and cached as Docker images for faster execution. They appear by default in [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29)'s list of environment, with prefix "AzureML".
   
   + **azureml-train-automl**
-  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + Added the ONNX conversion support for the ADB and HDI
 
 + **Preview features**  
   + **azureml-train-automl**
-  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + Supported BERT and BiLSTM as text featurizer (preview only)
     + Supported featurization customization for column purpose and transformer parameters (preview only)
     + Supported raw explanations when user enables model explanation during training (preview only)
@@ -386,7 +386,7 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
 + **Bug fixes and improvements**
   + **azureml-automl-core**
     + Introduced FeaturizationConfig to AutoMLConfig and AutoMLBaseSettings
-    + Introduced FeaturizationConfig to [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig) and AutoMLBaseSettings
+    + Introduced FeaturizationConfig to [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) and AutoMLBaseSettings
       + Override Column Purpose for Featurization with given column and feature type
       + Override transformer parameters
     + Added deprecation message for explain_model() and retrieve_model_explanations()
@@ -431,9 +431,9 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
   + **[azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
     + Added [RScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) to support R script run via AML pipeline.
     + Fixed metadata parameters parsing in [AzureBatchStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep) which was causing the error message "assignment for parameter SubscriptionId is not specified".
-  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + Supported training_data, validation_data, label_column_name, weight_column_name as data input format.
-    + Added deprecation message for [explain_model()](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer#explain-model-fitted-model--x-train--x-test--best-run-none--features-none--y-train-none----kwargs-) and [retrieve_model_explanations()](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer#retrieve-model-explanation-child-run-).
+    + Added deprecation message for [explain_model()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#explain-model-fitted-model--x-train--x-test--best-run-none--features-none--y-train-none----kwargs-) and [retrieve_model_explanations()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#retrieve-model-explanation-child-run-).
 
   
 ## 2019-09-16
