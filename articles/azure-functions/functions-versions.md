@@ -40,6 +40,8 @@ By default, function apps created in the Azure portal and by the Azure CLI are s
 
 You may choose to migrate an existing app written to use the version 1.x runtime to instead use a newer version. Most of the changes you need to make are related to changes in the language runtime, such as C# API changes between .NET Framework 4.7 and .NET Core. You'll also need to make sure your code and libraries are compatible with the language runtime you choose. Finally, be sure to note any changes in trigger, bindings, and features highlighted below. For the best migration results, you should create a new function app in a new version and port your existing version 1.x function code to the new app.  
 
+While you could manually update the existing project and code, a sort of "in-place" upgrade. However, there are a number of other improvements after version 1.x that you may still need to make. For example, in C# the debugging object was changed from `TraceWriter` to `ILogger`. By creating a new version 3.x project, you start off with updated functions based on the latest version 3.x templates.
+
 ### Changes in triggers and bindings in 2.x and 3.x
 
 Version 2.x and 3.x requires you to install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](./functions-bindings-register.md).
@@ -70,9 +72,13 @@ In version 2.x, the following changes were made:
 
 * The URL format of Event Grid trigger webhooks has been changed to `https://{app}/runtime/webhooks/{triggerName}`.
 
-### Migrating a locally developed application from 1.x
+## Migrating from 2.x to 3.x
 
-You may have existing function app projects that you developed locally using the version 1.x runtime. To upgrade to version 3.x, you should create a local function app project against version 3.x and port your existing code into the new app. You could manually update the existing project and code, a sort of "in-place" upgrade. However, there are a number of other improvements after version 1.x that you may still need to make. For example, in C# the debugging object was changed from `TraceWriter` to `ILogger`. By creating a new version 3.x project, you start off with updated functions based on the latest version 3.x templates.
+3.x is a highly backwards compatible release to 2.x.  Many apps should be able to safely upgrade to 3.x without any code changes.  While moving to 3.x should require minimal changes and is encouraged, you should still test changes in a new app first to confirm all is working before changing the major version of any production apps.
+
+### Migrating a locally developed application
+
+You can make the following updates function apps locally change targeted versions.
 
 #### Visual Studio runtime versions
 
@@ -88,7 +94,7 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 ##### Version 2.x
 
 ```xml
-<TargetFramework>netcoreapp2.2</TargetFramework>
+<TargetFramework>netcoreapp2.1</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
@@ -99,6 +105,9 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 <AzureFunctionsVersion>v3</AzureFunctionsVersion>
 ```
 
+> [!NOTE]
+> Azure Functions 3.x and .NET requires the `Microsoft.Sdk.NET.Functions` extension be at least `3.0.0`.
+
 When you debug or publish your project, the correct version of the runtime is used.
 
 #### VS Code and Azure Functions Core Tools
@@ -108,6 +117,28 @@ When you debug or publish your project, the correct version of the runtime is us
 For Visual Studio Code development, you may also need to update the user setting for the `azureFunctions.projectRuntime` to match the version of the tools installed.  This setting also updates the templates and languages used during function app creation.  To create apps in `~3` you would update the `azureFunctions.projectRuntime` user setting to `~3`.
 
 ![Azure Functions extension runtime setting](./media/functions-versions/vs-code-version-runtime.png)
+
+#### Maven and Java apps
+
+If creating apps in Java you can move from 2.x to 3.x by [installing the 3.x version of the core tools](functions-run-local.md#install-the-azure-functions-core-tools) required for local debugging.  After verifying the app behaves as expected in 3.x you can update the `POM.xml` file to modify the setting of the Azure Function maven targets to `~3`
+
+```xml
+<configuration>
+    <resourceGroup>${functionResourceGroup}</resourceGroup>
+    <appName>${functionAppName}</appName>
+    <region>${functionAppRegion}</region>
+    <appSettings>
+        <property>
+            <name>WEBSITE_RUN_FROM_PACKAGE</name>
+            <value>1</value>
+        </property>
+        <property>
+            <name>FUNCTIONS_EXTENSION_VERSION</name>
+            <value>~3</value>
+        </property>
+    </appSettings>
+</configuration>
+```
 
 ### Changing version of apps in Azure
 
