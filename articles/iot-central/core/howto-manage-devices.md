@@ -140,7 +140,7 @@ To bulk export devices from your application:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-For more information about connection strings and connecting real devices to your IoT Central application, see [Device connectivity in Azure IoT Central](overview-iot-central-get-connected.md).
+For more information about connection strings and connecting real devices to your IoT Central application, see [Device connectivity in Azure IoT Central](concepts-get-connected.md).
 
 ## Delete a device
 
