@@ -24,14 +24,23 @@ landingContent:
             url: service-fabric-content-roadmap.md
           - text: Service Fabric best practices overview
             url: service-fabric-best-practices-overview.md
+      - linkListType: get-started
+        links:
+          - text: Prepare your development environment on Windows
+            url: service-fabric-get-started.md
+          - text: Prepare your development environment on Linux
+            url: service-fabric-get-started-linux.md
+          - text: Prepare your development environment on Mac OS
+            url: service-fabric-get-started-mac.md
+          - text: Install the Azure Service Fabric CLI
+            url: service-fabric-cli.md
+
       - linkListType: concept
         links:
           - text: Understanding microservices
             url: service-fabric-overview-microservices.md
           - text: Application scenarios
             url: service-fabric-application-scenarios.md
-          - text: Service Fabric architecture
-            url: service-fabric-architecture.md
       - linkListType: whats-new
         links:
           - text: Release notes
@@ -40,14 +49,6 @@ landingContent:
   # Card
   - title: Get started with .NET applications and Windows
     linkLists:
-      - linkListType: get-started
-        links:
-          - text: Prepare your development environment on Windows
-            url: service-fabric-get-started.md
-          - text: Install the Azure Service Fabric CLI
-            url: service-fabric-cli.md
-          - text: Work in a Windows / Visual Studio dev environment
-            url: service-fabric-manage-application-in-visual-studio.md
       - linkListType: quickstart
         links:
           - text: Create a .NET Service Fabric application
@@ -62,12 +63,10 @@ landingContent:
             url: service-fabric-host-app-in-a-container.md
       - linkListType: how-to-guide
         links:
+          - text: Work in a Windows / Visual Studio dev environment
+            url: service-fabric-manage-application-in-visual-studio.md
           - text: Create and manage Windows clusters in an Azure virtual network
             url: service-fabric-tutorial-create-vnet-and-windows-cluster.md
-          - text: Get started with Reliable Services using C#
-            url: service-fabric-reliable-services-quick-start.md
-          - text: Get started with Reliable Actors using C#
-            url: service-fabric-reliable-actors-get-started.md
           - text: Create a guest executable application on Windows
             url: quickstart-guest-app.md
           - text: Windows cluster diagnostics
@@ -76,16 +75,6 @@ landingContent:
   # Card
   - title: Get started with Java applications and Linux
     linkLists:
-      - linkListType: get-started
-        links:
-          - text: Prepare your development environment on Linux
-            url: service-fabric-get-started-linux.md
-          - text: Prepare your development environment on Mac OS
-            url: service-fabric-get-started-mac.md
-          - text: Install the Azure Service Fabric CLI
-            url: service-fabric-cli.md
-          - text: Work in a Linux / Eclipse dev environment
-            url: service-fabric-get-started-eclipse.md
       - linkListType: quickstart
         links:
           - text: Create a Java Service Fabric application
@@ -94,6 +83,10 @@ landingContent:
             url: service-fabric-quickstart-containers-linux.md
           - text: Deploy a Java Spring Boot app to Service Fabric
             url: service-fabric-quickstart-java-spring-boot.md
+      - linkListType: concept
+        links:
+          - text: Service Fabric differences between Linux and Windows
+            url: service-fabric-linux-windows-differences.md
       - linkListType: tutorial
         links:
           - text: Create, deploy, and manage a native Service Fabric Java app
@@ -102,17 +95,9 @@ landingContent:
             url: service-fabric-tutorial-create-container-images.md
       - linkListType: how-to-guide
         links:
+          - text: Work in a Linux / Eclipse dev environment
+            url: service-fabric-get-started-eclipse.md
           - text: Create and manage Linux clusters in an Azure virtual network
             url: service-fabric-tutorial-create-vnet-and-linux-cluster.md
-          - text: Get started with Reliable Services using Java on Linux
-            url: service-fabric-reliable-services-quick-start-java.md
-          - text: Get started with Reliable Services using C# on Linux
-            url: service-fabric-create-your-first-linux-application-with-csharp.md
-          - text: Get started with Reliable Actors using Java on LInux
-            url: service-fabric-create-your-first-linux-application-with-java.md
           - text: Linux cluster diagnostics
             url: service-fabric-diagnostics-oms-syslog.md
-      - linkListType: concept
-        links:
-          - text: Service Fabric differences between Linux and Windows
-            url: service-fabric-linux-windows-differences.md
