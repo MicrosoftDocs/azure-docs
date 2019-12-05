@@ -1,7 +1,7 @@
 ---
-author: erhopf
-ms.author: erhopf
-ms.service: cognitiveservices
+author: aahill
+ms.author: aahi
+ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/03/2019
 ---

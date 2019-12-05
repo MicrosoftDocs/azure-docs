@@ -62,6 +62,8 @@ namespace BingSearchApisQuickstart
 
 A few variables must be set before we can continue. Confirm that the `uriBase` is valid and replace the `accessKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`. Remember to add this code to the `Program` class as noted above.
 
+[!INCLUDE [bing-endpoint-information](../../../../includes/bing-endpoints.md)]
+
 ```csharp
 // Enter a valid subscription key.
 const string accessKey = "enter key here";

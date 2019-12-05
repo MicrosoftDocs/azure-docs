@@ -111,6 +111,8 @@ type BingAnswer struct {
 
 This code declares the main function and sets required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`.
 
+[!INCLUDE [bing-endpoint-information](../../../../includes/bing-endpoints.md)]
+
 ```go
 // Declare the main function. This is required for all Go programs.
 func main() {

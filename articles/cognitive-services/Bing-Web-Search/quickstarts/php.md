@@ -43,6 +43,8 @@ Create a new PHP project in your favorite IDE or editor. Don't forget to add ope
 
 A few variables must be set before we can continue. Confirm that the `$endpoint` is correct and replace the `$accesskey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `$term`.
 
+[!INCLUDE [bing-endpoint-information](../../../../includes/bing-endpoints.md)]
+
 ```php
 $accessKey = 'enter key here';
 $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';

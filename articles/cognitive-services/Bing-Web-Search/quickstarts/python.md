@@ -41,6 +41,8 @@ assert subscription_key
 
 Declare the Bing Web Search API endpoint. If you run into any authorization errors, double-check this value against the Bing search endpoint in your Azure dashboard.
 
+[!INCLUDE [bing-endpoint-information](../../../../includes/bing-endpoints.md)]
+
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
 ```

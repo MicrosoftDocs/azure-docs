@@ -57,6 +57,8 @@ if (!SUBSCRIPTION_KEY) {
 
 This function will make a secure GET request, saving the search query as a query parameter in the path. `encodeURIComponent` is used to escape invalid characters, and the subscription key is passed in a header. The callback receives a [response](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) that subscribes to the `data` event to aggregate the JSON body, the `error` event to log any issues, and the `end` event to know when the message should be considered complete. When complete, the app will print the interesting headers and message body. You can play with the colors and set the depth to suit your preference, a depth of `1` gives a nice summary of the response.
 
+[!INCLUDE [bing-endpoint-information](../../../../includes/bing-endpoints.md)]
+
 ```javascript
 function bingWebSearch(query) {
   https.get({
