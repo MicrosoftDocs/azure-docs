@@ -66,8 +66,11 @@ From the output, copy the **password** and **ApplicationId** (from the previous 
 
 In the install agent onboarding script:
 
-* The **ApplicationId** property is used for the `--service-principal-id` parameter used in the install agent
-* The **password** property is used for the  `--service-principal-secret` parameter in the install agent.
+* The **ApplicationId** property is used for the `--service-principal-id` parameter used to connect the agent
+* The **password** property is used for the  `--service-principal-secret` parameter used to connect the agent.
+
+> [!NOTE]
+> Make sure to use the Service Principal **ApplicationId** property, not the **Id** property. The **Id** will not work.
 
 ## Manually install the agent and connect to Azure
 
@@ -84,7 +87,6 @@ For **Linux** servers, the agent is distributed via [Microsoft's package reposit
 > [!NOTE]
 > During Public Preview, only one package has been released, which is suitable for Ubuntu 16.04 or 18.04.
 
-<!-- What about this aks? -->
 The simplest option is to register the package repository, and then install the package using the distribution's package manager.
 The bash script located at [https://aka.ms/azcmagent](https://aka.ms/azcmagent) performs the following actions:
 
