@@ -1021,13 +1021,17 @@ var employees = employeeTable.ExecuteQuery(employeeQuery);
 > 
 
 #### Retrieve large numbers of entities from a query
-An optimal query returns an individual entity based on a **PartitionKey** value and a **RowKey** value. However, in some scenarios you may have a requirement to return many entities from the same partition or even from many partitions.  
+An optimal query returns an individual entity based on a `PartitionKey` value and a `RowKey` value. However, in some scenarios you might have a requirement to return many entities from the same partition, or even from many partitions. You should always fully test the performance of your application in such scenarios.  
 
-You should always fully test the performance of your application in such scenarios.  
+A query against Table storage can return a maximum of 1,000 entities at one time, and run for a maximum of five seconds. Table storage returns a continuation token to enable the client application to request the next set of entities, if any of the following are true:
 
-A query against the table service may return a maximum of 1,000 entities at one time and may execute for a maximum of five seconds. If the result set contains more than 1,000 entities, if the query did not complete within five seconds, or if the query crosses the partition boundary, the Table service returns a continuation token to enable the client application to request the next set of entities. For more information about how continuation tokens work, see [Query Timeout and Pagination](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
+- The result set contains more than 1,000 entities.
+- The query didn't complete within five seconds.
+- The query crosses the partition boundary. 
 
-If you are using the Storage Client Library, it can automatically handle continuation tokens for you as it returns entities from the Table service. The following C# code sample using the Storage Client Library automatically handles continuation tokens if the table service returns them in a response:  
+For more information about how continuation tokens work, see [Query timeout and pagination](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
+
+If you're using the Storage Client Library, it can automatically handle continuation tokens for you as it returns entities from Table storage. For example, the following C# code sample automatically handles continuation tokens if Table storage returns them in a response:  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(
@@ -1064,14 +1068,14 @@ do
 } while (continuationToken != null);  
 ```
 
-By using continuation tokens explicitly, you can control when your application retrieves the next segment of data. For example, if your client application enables users to page through the entities stored in a table, a user may decide not to page through all the entities retrieved by the query so your application would only use a continuation token to retrieve the next segment when the user had finished paging through all the entities in the current segment. This approach has several benefits:  
+By using continuation tokens explicitly, you can control when your application retrieves the next segment of data. For example, if your client application enables users to page through the entities stored in a table, a user might decide not to page through all the entities retrieved by the query. Your application would only use a continuation token to retrieve the next segment when the user had finished paging through all the entities in the current segment. This approach has several benefits:  
 
-* It enables you to limit the amount of data to retrieve from the Table service and that you move over the network.  
-* It enables you to perform asynchronous IO in .NET.  
-* It enables you to serialize the continuation token to persistent storage so you can continue in the event of an application crash.  
+* You can limit the amount of data to retrieve from Table storage and that you move over the network.  
+* You can perform asynchronous I/O in .NET.  
+* You can serialize the continuation token to persistent storage, so you can continue in the event of an application crash.  
 
 > [!NOTE]
-> A continuation token typically returns a segment containing 1,000 entities, although it may be fewer. This is also the case if you limit the number of entries a query returns by using **Take** to return the first n entities that match your lookup criteria: the table service may return a segment containing fewer than n entities along with a continuation token to enable you to retrieve the remaining entities.  
+> A continuation token typically returns a segment containing 1,000 entities, although it may contain fewer. This is also the case if you limit the number of entries a query returns by using **Take** to return the first n entities that match your lookup criteria. The table service might return a segment containing fewer than n entities, along with a continuation token to enable you to retrieve the remaining entities.  
 > 
 > 
 
@@ -1082,7 +1086,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 #### Server-side projection
-A single entity can have up to 255 properties and be up to 1 MB in size. When you query the table and retrieve entities, you may not need all the properties and can avoid transferring data unnecessarily (to help reduce latency and cost). You can use server-side projection to transfer just the properties you need. The following example retrieves just the **Email** property (along with **PartitionKey**, **RowKey**, **Timestamp**, and **ETag**) from the entities selected by the query.  
+A single entity can have up to 255 properties and be up to 1 MB in size. When you query the table and retrieve entities, you might not need all the properties, and can avoid transferring data unnecessarily (to help reduce latency and cost). You can use server-side projection to transfer just the properties you need. The following example retrieves just the `Email` property (along with `PartitionKey`, `RowKey`, `Timestamp`, and `ETag`) from the entities selected by the query.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(
@@ -1098,30 +1102,30 @@ foreach (var e in entities)
 }  
 ```
 
-Notice how the **RowKey** value is available even though it was not included in the list of properties to retrieve.  
+Notice how the `RowKey` value is available even though it isn't included in the list of properties to retrieve.  
 
-### Modifying entities
-The Storage Client Library enables you to modify your entities stored in the table service by inserting, deleting, and updating entities. You can use EGTs to batch multiple inserts, update, and delete operations together to reduce the number of round trips required and improve the performance of your solution.  
+### Modify entities
+The Storage Client Library enables you to modify your entities stored in Table storage by inserting, deleting, and updating entities. You can use EGTs to batch multiple inserts, update, and delete operations together, to reduce the number of round trips required and improve the performance of your solution.  
 
-Exceptions thrown when the Storage Client Library executes an EGT typically include the index of the entity that caused the batch to fail. This is helpful when you are debugging code that uses EGTs.  
+Exceptions thrown when the Storage Client Library runs an EGT typically include the index of the entity that caused the batch to fail. This is helpful when you are debugging code that uses EGTs.  
 
 You should also consider how your design affects how your client application handles concurrency and update operations.  
 
 #### Managing concurrency
-By default, the table service implements optimistic concurrency checks at the level of individual entities for **Insert**, **Merge**, and **Delete** operations, although it is possible for a client to force the table service to bypass these checks. For more information about how the table service manages concurrency, see  [Managing Concurrency in Microsoft Azure Storage](../storage/common/storage-concurrency.md).  
+By default, Table storage implements optimistic concurrency checks at the level of individual entities for insert, merge, and delete operations, although it's possible for a client to force Table storage to bypass these checks. For more information, see [Managing concurrency in Microsoft Azure Storage](../storage/common/storage-concurrency.md).  
 
 #### Merge or replace
-The **Replace** method of the **TableOperation** class always replaces the complete entity in the Table service. If you do not include a property in the request when that property exists in the stored entity, the request removes that property from the stored entity. Unless you want to remove a property explicitly from a stored entity, you must include every property in the request.  
+The `Replace` method of the `TableOperation` class always replaces the complete entity in Table storage. If you don't include a property in the request when that property exists in the stored entity, the request removes that property from the stored entity. Unless you want to remove a property explicitly from a stored entity, you must include every property in the request.  
 
-You can use the **Merge** method of the **TableOperation** class to reduce the amount of data that you send to the Table service when you want to update an entity. The **Merge** method replaces any properties in the stored entity with property values from the entity included in the request, but leaves intact any properties in the stored entity that are not included in the request. This is useful if you have large entities and only need to update a small number of properties in a request.  
+You can use the `Merge` method of the `TableOperation` class to reduce the amount of data that you send to Table storage when you want to update an entity. The `Merge` method replaces any properties in the stored entity with property values from the entity included in the request. This method leaves intact any properties in the stored entity that aren't included in the request. This is useful if you have large entities, and only need to update a small number of properties in a request.  
 
 > [!NOTE]
-> The **Replace** and **Merge** methods fail if the entity does not exist. As an alternative, you can use the **InsertOrReplace** and **InsertOrMerge** methods that create a new entity if it doesn't exist.  
+> The `*Replace` and `Merge` methods fail if the entity doesn't exist. As an alternative, you can use the `InsertOrReplace` and `InsertOrMerge` methods that create a new entity if it doesn't exist.  
 > 
 > 
 
-### Working with heterogeneous entity types
-The Table service is a *schema-less* table store that means that a single table can store entities of multiple types providing great flexibility in your design. The following example illustrates a table storing both employee and department entities:  
+### Work with heterogeneous entity types
+Table storage is a *schema-less* table store. That means that a single table can store entities of multiple types, providing great flexibility in your design. The following example illustrates a table storing both employee and department entities:  
 
 <table>
 <tr>
@@ -1210,10 +1214,10 @@ The Table service is a *schema-less* table store that means that a single table 
 </tr>
 </table>
 
-Each entity must still have **PartitionKey**, **RowKey**, and **Timestamp** values, but may have any set of properties. Furthermore, there is nothing to indicate the type of an entity unless you choose to store that information somewhere. There are two options for identifying the entity type:  
+Each entity must still have `PartitionKey`, `RowKey`, and `Timestamp` values, but can have any set of properties. Furthermore, there's nothing to indicate the type of an entity unless you choose to store that information somewhere. There are two options for identifying the entity type:  
 
-* Prepend the entity type to the **RowKey** (or possibly the **PartitionKey**). For example, **EMPLOYEE_000123** or **DEPARTMENT_SALES** as **RowKey** values.  
-* Use a separate property to record the entity type as shown in the table below.  
+* Prepend the entity type to the `RowKey` (or possibly the `PartitionKey`). For example, `EMPLOYEE_000123` or `DEPARTMENT_SALES` as `RowKey` values.  
+* Use a separate property to record the entity type, as shown in the following table.  
 
 <table>
 <tr>
@@ -1310,23 +1314,23 @@ Each entity must still have **PartitionKey**, **RowKey**, and **Timestamp** valu
 </tr>
 </table>
 
-The first option, prepending the entity type to the **RowKey**, is useful if there is a possibility that two entities of different types might have the same key value. It also groups entities of the same type together in the partition.  
+The first option, prepending the entity type to the `RowKey`, is useful if there is a possibility that two entities of different types might have the same key value. It also groups entities of the same type together in the partition.  
 
-The techniques discussed in this section are especially relevant to the discussion [Inheritance relationships](#inheritance-relationships) earlier in this guide in the section Modeling relationships.  
+The techniques discussed in this section are especially relevant to the discussion about[Inheritance relationships](#inheritance-relationships).  
 
 > [!NOTE]
-> You should consider including a version number in the entity type value to enable client applications to evolve POCO objects and work with different versions.  
+> Consider including a version number in the entity type value, to enable client applications to evolve POCO objects and work with different versions.  
 > 
 > 
 
 The remainder of this section describes some of the features in the Storage Client Library that facilitate working with multiple entity types in the same table.  
 
-#### Retrieving heterogeneous entity types
-If you are using the Storage Client Library, you have three options for working with multiple entity types.  
+#### Retrieve heterogeneous entity types
+If you're using the Storage Client Library, you have three options for working with multiple entity types.  
 
-If you know the type of the entity stored with a specific **RowKey** and **PartitionKey** values, then you can specify the entity type when you retrieve the entity as shown in the previous two examples that retrieve entities of type **EmployeeEntity**: [Executing a point query using the Storage Client Library](#executing-a-point-query-using-the-storage-client-library) and [Retrieving multiple entities using LINQ](#retrieving-multiple-entities-using-linq).  
+If you know the type of the entity stored with specific `RowKey` and `PartitionKey` values, then you can specify the entity type when you retrieve the entity. You saw this in the previous two examples that retrieve entities of type `EmployeeEntity`: [Run a point query by using the Storage Client Library](#run-a-point-query-by-using-the-storage-client-library) and [Retrieve multiple entities by using LINQ](#retrieve-multiple-entities-by-using-linq).  
 
-The second option is to use the **DynamicTableEntity** type (a property bag) instead of a concrete POCO entity type (this option may also improve performance because there is no need to serialize and deserialize the entity to .NET types). The following C# code potentially retrieves multiple entities of different types from the table, but returns all entities as **DynamicTableEntity** instances. It then uses the **EntityType** property to determine the type of each entity:  
+The second option is to use the `DynamicTableEntity` type (a property bag), instead of a concrete POCO entity type. This option might also improve performance, because there's no need to serialize and deserialize the entity to .NET types. The following C# code potentially retrieves multiple entities of different types from the table, but returns all entities as `DynamicTableEntity` instances. It then uses the `EntityType` property to determine the type of each entity:  
 
 ```csharp
 string filter = TableQuery.CombineFilters(
@@ -1359,9 +1363,9 @@ if (e.Properties.TryGetValue("EntityType", out entityTypeProperty))
 }  
 ```
 
-To retrieve other properties, you must use the **TryGetValue** method on the **Properties** property of the **DynamicTableEntity** class.  
+To retrieve other properties, you must use the `TryGetValue` method on the `Properties` property of the `DynamicTableEntity` class.  
 
-A third option is to combine using the **DynamicTableEntity** type and an **EntityResolver** instance. This enables you to resolve to multiple POCO types in the same query. In this example, the **EntityResolver** delegate is using the **EntityType** property to distinguish between the two types of entity that the query returns. The **Resolve** method uses the **resolver** delegate to resolve **DynamicTableEntity** instances to **TableEntity** instances.  
+A third option is to combine using the `DynamicTableEntity` type and an `EntityResolver` instance. This enables you to resolve to multiple POCO types in the same query. In this example, the `EntityResolver` delegate is using the `EntityType` property to distinguish between the two types of entity that the query returns. The `Resolve` method uses the `resolver` delegate to resolve `DynamicTableEntity` instances to `TableEntity` instances.  
 
 ```csharp
 EntityResolver<TableEntity> resolver = (pk, rk, ts, props, etag) =>
@@ -1405,8 +1409,8 @@ foreach (var e in entities)
 }  
 ```
 
-#### Modifying heterogeneous entity types
-You do not need to know the type of an entity to delete it, and you always know the type of an entity when you insert it. However, you can use **DynamicTableEntity** type to update an entity without knowing its type and without using a POCO entity class. The following code sample retrieves a single entity, and checks the **EmployeeCount** property exists before updating it.  
+#### Modify heterogeneous entity types
+You don't need to know the type of an entity to delete it, and you always know the type of an entity when you insert it. However, you can use the `DynamicTableEntity` type to update an entity without knowing its type, and without using a POCO entity class. The following code sample retrieves a single entity, and checks that the `EmployeeCount` property exists before updating it.  
 
 ```csharp
 TableResult result =
@@ -1424,24 +1428,24 @@ countProperty.Int32Value += 1;
 employeeTable.Execute(TableOperation.Merge(department));  
 ```
 
-### Controlling access with Shared Access Signatures
-You can use Shared Access Signature (SAS) tokens to enable client applications to modify (and query) table entities directly without the need to authenticate directly with the table service. Typically, there are three main benefits to using SAS in your application:  
+### Control access with shared access signatures
+You can use shared access signature (SAS) tokens to enable client applications to modify (and query) table entities directly, without the need to authenticate directly with Table storage. Typically, there are three main benefits to using SAS in your application:  
 
-* You do not need to distribute your storage account key to an insecure platform (such as a mobile device) in order to allow that device to access and modify entities in the Table service.  
-* You can offload some of the work that web and worker roles perform in managing your entities to client devices such as end-user computers and mobile devices.  
-* You can assign a constrained and time limited set of permissions to a client (such as allowing read-only access to specific resources).  
+* You don't need to distribute your storage account key to an insecure platform (such as a mobile device) in order to allow that device to access and modify entities in Table storage.  
+* You can offload some of the work that web and worker roles perform in managing your entities. You can offload to client devices such as end-user computers and mobile devices.  
+* You can assign a constrained and time-limited set of permissions to a client (such as allowing read-only access to specific resources).  
 
-For more information about using SAS tokens with the Table service, see [Using Shared Access Signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
+For more information about using SAS tokens with Table storage, see [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
 
-However, you must still generate the SAS tokens that grant a client application to the entities in the table service: do this in an environment that has secure access to your storage account keys. Typically, you use a web or worker role to generate the SAS tokens and deliver them to the client applications that need access to your entities. Because there is still an overhead involved in generating and delivering SAS tokens to clients, you should consider how best to reduce this overhead, especially in high-volume scenarios.  
+However, you must still generate the SAS tokens that grant a client application to the entities in Table storage. Do this in an environment that has secure access to your storage account keys. Typically, you use a web or worker role to generate the SAS tokens and deliver them to the client applications that need access to your entities. Because there is still an overhead involved in generating and delivering SAS tokens to clients, you should consider how best to reduce this overhead, especially in high-volume scenarios.  
 
-It is possible to generate a SAS token that grants access to a subset of the entities in a table. By default, you create a SAS token for an entire table, but it is also possible to specify that the SAS token grant access to either a range of **PartitionKey** values, or a range of **PartitionKey** and **RowKey** values. You might choose to generate SAS tokens for individual users of your system such that each user's SAS token only allows them access to their own entities in the table service.  
+It's possible to generate a SAS token that grants access to a subset of the entities in a table. By default, you create a SAS token for an entire table. But it's also possible to specify that the SAS token grant access to either a range of `PartitionKey` values, or a range of `PartitionKey` and `RowKey` values. You might choose to generate SAS tokens for individual users of your system, such that each user's SAS token only allows them access to their own entities in Table storage.  
 
 ### Asynchronous and parallel operations
 Provided you are spreading your requests across multiple partitions, you can improve throughput and client responsiveness by using asynchronous or parallel queries.
 For example, you might have two or more worker role instances accessing your tables in parallel. You could have individual worker roles responsible for particular sets of partitions, or simply have multiple worker role instances, each able to access all the partitions in a table.  
 
-Within a client instance, you can improve throughput by executing storage operations asynchronously. The Storage Client Library makes it easy to write asynchronous queries and modifications. For example, you might start with the synchronous method that retrieves all the entities in a partition as shown in the following C# code:  
+Within a client instance, you can improve throughput by running storage operations asynchronously. The Storage Client Library makes it easy to write asynchronous queries and modifications. For example, you might start with the synchronous method that retrieves all the entities in a partition, as shown in the following C# code:  
 
 ```csharp
 private static void ManyEntitiesQuery(CloudTable employeeTable, string department)
@@ -1466,7 +1470,7 @@ private static void ManyEntitiesQuery(CloudTable employeeTable, string departmen
 }  
 ```
 
-You can easily modify this code so that the query runs asynchronously as follows:  
+You can easily modify this code so that the query runs asynchronously, as follows:  
 
 ```csharp
 private static async Task ManyEntitiesQueryAsync(CloudTable employeeTable, string department)
@@ -1492,12 +1496,12 @@ private static async Task ManyEntitiesQueryAsync(CloudTable employeeTable, strin
 
 In this asynchronous example, you can see the following changes from the synchronous version:  
 
-* The method signature now includes the **async** modifier and returns a **Task** instance.  
-* Instead of calling the **ExecuteSegmented** method to retrieve results, the method now calls the **ExecuteSegmentedAsync** method and uses the **await** modifier to retrieve results asynchronously.  
+* The method signature now includes the `async` modifier, and returns a `Task` instance.  
+* Instead of calling the `ExecuteSegmented` method to retrieve results, the method now calls the `ExecuteSegmentedAsync` method. The method uses the `await` modifier to retrieve results asynchronously.  
 
-The client application can call this method multiple times (with different values for the **department** parameter), and each query will run on a separate thread.  
+The client application can call this method multiple times, with different values for the `department` parameter. Each query runs on a separate thread.  
 
-There is no asynchronous version of the **Execute** method in the **TableQuery** class because the **IEnumerable** interface does not support asynchronous enumeration.  
+There is no asynchronous version of the `Execute` method in the `TableQuery` class, because the `IEnumerable` interface doesn't support asynchronous enumeration.  
 
 You can also insert, update, and delete entities asynchronously. The following C# example shows a simple, synchronous method to insert or replace an employee entity:  
 
@@ -1511,7 +1515,7 @@ private static void SimpleEmployeeUpsert(CloudTable employeeTable,
 }  
 ```
 
-You can easily modify this code so that the update runs asynchronously as follows:  
+You can easily modify this code so that the update runs asynchronously, as follows:  
 
 ```csharp
 private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
@@ -1525,15 +1529,11 @@ private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
 
 In this asynchronous example, you can see the following changes from the synchronous version:  
 
-* The method signature now includes the **async** modifier and returns a **Task** instance.  
-* Instead of calling the **Execute** method to update the entity, the method now calls the **ExecuteAsync** method and uses the **await** modifier to retrieve results asynchronously.  
+* The method signature now includes the `async` modifier, and returns a `Task` instance.  
+* Instead of calling the `Execute` method to update the entity, the method now calls the `ExecuteAsync` method. The method uses the `await` modifier to retrieve results asynchronously.  
 
-The client application can call multiple asynchronous methods like this one, and each method invocation will run on a separate thread.  
+The client application can call multiple asynchronous methods like this one, and each method invocation runs on a separate thread.  
 
-### Credits
-We would like to thank the following members of the Azure team for their contributions: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah, and Serdar Ozler as well as  Tom Hollander from Microsoft DX. 
-
-We would also like to thank the following Microsoft MVPs for their valuable feedback during review cycles: Igor Papirov and Edward Bakker.
 
 [1]: ./media/storage-table-design-guide/storage-table-design-IMAGE01.png
 [2]: ./media/storage-table-design-guide/storage-table-design-IMAGE02.png
