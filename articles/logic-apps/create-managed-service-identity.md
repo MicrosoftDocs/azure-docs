@@ -193,7 +193,7 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
 #### Create user-assigned identity in an Azure Resource Manager template
 
-To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), which support [user-assigned identities for authentication](../managed-identities-azure-resources/how-to-manage-ua-identity-arm.md). In your template's `resources` section, your logic app's resource definition requires these items:
+To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), which support [user-assigned identities for authentication](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md). In your template's `resources` section, your logic app's resource definition requires these items:
 
 * An `identity` object with the `type` property set to `UserAssigned`
 
@@ -314,7 +314,7 @@ After you set up a managed identity that your logic app can use for authenticati
   * [Add role assignment by using Azure RBAC](../role-based-access-control/role-assignments-cli.md)
 * [Azure REST API](../role-based-access-control/role-assignments-rest.md)
 
-<a name="azure-portal-add-role"></a>
+<a name="azure-portal-assign-access"></a>
 
 ### Assign access in the Azure portal
 
@@ -415,20 +415,25 @@ These steps show how to use the managed identity with a trigger or action throug
 
    ![Add an HTTP action to access an Azure resource](./media/create-managed-service-identity/http-action-example.png)
 
-1. From the **Authentication** list, select **Managed Identity**. If the [**Authentication** property is supported](logic-apps-securing-a-logic-app.md#add-authentication-outbound) but hidden, open the **Add new parameter** list, and select **Authentication**.
-
-   > [!NOTE]
-   > Not all triggers and actions let you select an authentication type. For more information, see [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+1. From the **Authentication** list, select **Managed Identity**.
 
    ![In "Authentication" property, select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
 
-1. From the **Identity** list, select either **System-assigned** or the user-assigned identity that you want.
+   > [!NOTE]
+   > If the [**Authentication** property is supported](logic-apps-securing-a-logic-app.md#add-authentication-outbound) 
+   > but appears hidden, open the **Add new parameter** list, and select **Authentication**. 
+   > Not all triggers and actions let you select an authentication type. For more information, see [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+
+1. When you select **Managed Identity**, the **Identity** list appears. From that list, select either **System-assigned** or the user-assigned identity that you want to use.
 
    ![Select either "System-assigned" or the user-assigned identity](./media/create-managed-service-identity/select-either-system-or-user-assigned.png)
 
-1. After you select **Managed Identity**, the **Audience** property appears for some triggers and actions. By default, the property is set to the target resource ID. If the **Audience** property is supported but hidden, open the **Add new parameter** list, and select **Audience**.
+   For some triggers and actions, the **Audience** property also appears. By default, the property is set to the target resource ID.
 
    !["Audience" property set to target resource ID](./media/create-managed-service-identity/audience-property.png)
+
+   > [!NOTE]
+   > If the **Audience** property is supported but hidden, open the **Add new parameter** list, and select **Audience**.
 
 1. Make sure that you set the **Audience** value to the resource ID for the target resource or service. Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
 
