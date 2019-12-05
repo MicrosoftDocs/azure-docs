@@ -35,14 +35,14 @@ The MARS agent supports the following restore scenarios:
 
 ## Backup process
 
-1.	From the Azure portal, create a [Recovery Service vault](https://review.docs.microsoft.com/azure/backup/backup-configure-vault?branch=pr-en-us-97600#create-a-recovery-services-vault) and choose files and folders and/or system state from Backup goals.
-2.	[Download](https://review.docs.microsoft.com/azure/backup/backup-configure-vault?branch=pr-en-us-97600#download-the-mars-agent) the Recovery Service vault credentials and agent installer to an on-premises machine. To protect on-premises machine by choosing the backup option choose files and folders and system state and download the MARS agent.
+1.	From the Azure portal, create a [Recovery Service vault](https://docs.microsoft.com/azure/backup/backup-configure-vault#create-a-recovery-services-vault) and choose files and folders and/or system state from Backup goals.
+2.	[Download](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) the Recovery Service vault credentials and agent installer to an on-premises machine. To protect on-premises machine by choosing the backup option choose files and folders and system state and download the MARS agent.
 3.	Prepare the infrastructure:
 
-    a.    Run the installer to [install](https://review.docs.microsoft.com/azure/backup/backup-configure-vault?branch=pr-en-us-97600#install-and-register-the-agent) the agent.
+    a.    Run the installer to [install](https://docs.microsoft.com/azure/backup/backup-configure-vault#install-and-register-the-agent) the agent.
 
     b.	Use downloaded vault credentials to register the machine to Recovery Services vault.
-4.	From agent console on the client, use [schedule backup](https://review.docs.microsoft.com/azure/backup/backup-azure-manage-mars?branch=pr-en-us-97600#create-a-backup-polic) to configure the backup. Specify the retention policy of your backup data and start protecting.
+4.	From agent console on the client, use [schedule backup](https://docs.microsoft.com/azure/backup/backup-configure-vault#create-a-backup-policy) to configure the backup. Specify the retention policy of your backup data and start protecting.
 
 ![recovery services vault dashboard](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
@@ -54,6 +54,6 @@ The MARS agent supports the following restore scenarios:
 
 
 ## Next Steps
-[The MARS agent support matrix](https://review.docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent?branch=pr-en-us-97600)
+[The MARS agent support matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)
 
-[FAQ-The MARS agent](https://review.docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq?branch=pr-en-us-97600)
+[FAQ-The MARS agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)
