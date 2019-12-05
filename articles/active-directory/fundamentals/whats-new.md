@@ -130,6 +130,18 @@ For more information, see [Change request and approval settings for an access pa
 
 ---
 
+### Updates to the My Apps page along with new workspaces (General Availability)
+
+**Type:** New feature  
+**Service category:** My Apps  
+**Product capability:** 3rd Party Integration
+
+You can now customize the way your organization's users view and access the refreshed My Apps experience. This new experience also includes the new workspaces feature, which makes it easier for your users to find and organize apps.
+
+For more information about the new My Apps experience and creating workspaces, see [Create workspaces on the My Apps portal](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+
+---
+
 ### Google social ID support for Azure AD B2B collaboration (General Availability)
 
 **Type:** New feature  
@@ -196,7 +208,7 @@ Azure AD entitlement management is a new identity governance feature for custome
 
 Azure AD entitlement management can help you more efficiently manage access to groups, apps, and SharePoint Online sites for internal users, and also for users outside your organization who need access to those resources.
 
-For more information, see [What is Azure AD entitlement management?](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview#license-requirements).
+For more information, see [What is Azure AD entitlement management?](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview#license-requirements)
 
 ---
 
@@ -355,15 +367,15 @@ For a full list of the changes made to the page contract, see the [Version chang
 
 ---
 
-### Update to the My Apps page along with new Workspaces (Public preview)
+### Update to the My Apps page along with new workspaces (Public preview)
 
 **Type:** New feature  
 **Service category:** My Apps  
 **Product capability:** Access Control
 
-You can now customize the way your organization's users view and access the brand-new My Apps experience, including using the new Workspaces feature to make it easier for them to find apps. The new Workspaces functionality acts as a filter for the apps your organization's users already have access to.
+You can now customize the way your organization's users view and access the brand-new My Apps experience, including using the new workspaces feature to make it easier for them to find apps. The new workspaces functionality acts as a filter for the apps your organization's users already have access to.
 
-For more information on rolling out the new My Apps experience and creating Workspaces, see [Create workspaces on the My Apps (preview) portal](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+For more information on rolling out the new My Apps experience and creating workspaces, see [Create workspaces on the My Apps (preview) portal](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
 
 ---
 
