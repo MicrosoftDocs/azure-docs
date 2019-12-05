@@ -253,7 +253,7 @@ To view metrics in the Azure portal:
 ## Migrating to Spot VMs
 
 [Azure spot VMs](https://azure.microsoft.com/pricing/spot/) are an evolution of low-priority VMs. As with low-priority VMs, Spot VMs utilize spare Azure capacity and are available at a significantly reduced price compared to pay-as-you-go VMs, but they do have a number of important differences from low-priority VMs:
-- The price of spot VMs can vary, compared to the fixed pricing for low-priority VMs.
+- The price of Spot VMs can vary, compared to the fixed pricing for low-priority VMs.
 - To enable predictable costs, a maximum price can be specified when allocating spot VMs. If the current price exceeds the maximum price, then new VMs will not be allocated and existing VMs will be evicted.
 
 Azure Batch pools are being updated to replace low-priority VMs with spot VMs. A new SDK version will enable spot VMs to be specified for Batch pools and allow maximum price to be set, with the variable spot pricing being used. However, low-priority VMs, with fixed pricing, will continue to be available using the current Batch SDK, until November 30, 2020.
