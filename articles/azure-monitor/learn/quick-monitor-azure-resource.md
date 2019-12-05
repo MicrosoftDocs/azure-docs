@@ -52,4 +52,4 @@ Use alert rules to proactively notify you when a metric value indicates a potent
 In this quickstart, you viewed the metrics and logs for an Azure resource collected in Azure Monitor, created an alert rule based on a metric value, created diagnostic settings to collect resource logs, and then analyzed those resource logs with a log query.  See the following article read more about monitoring Azure resources and discover documentation for more advanced alerting analysis. 
 
 > [!div class="nextstepaction"]
-> [Monitoring Azure resources with Azure Monitor](../platform/monitor-azure-resource.md)
+> [Monitoring Azure resources with Azure Monitor](../insights/monitor-azure-resource.md)
