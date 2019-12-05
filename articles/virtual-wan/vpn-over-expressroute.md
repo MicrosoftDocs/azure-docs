@@ -29,9 +29,9 @@ An important aspect of this configuration is routing between the on-premises net
 
 ### Traffic from on-premises networks to Azure
 
-For traffic from on-premises networks to Azure, the Azure prefixes (including the virtual hub and all the spoke virtual networks connected to the hub) are advertised via both the ExpressRoute private peering BGP and the VPN BGP. This results in two network routes (paths) toward Azure from the on-premises networks
+For traffic from on-premises networks to Azure, the Azure prefixes (including the virtual hub and all the spoke virtual networks connected to the hub) are advertised via both the ExpressRoute private peering BGP and the VPN BGP. This results in two network routes (paths) toward Azure from the on-premises networks:
 
-- One over the IPsec protected path
+- One over the IPsec-protected path
 - One directly over ExpressRoute *without* IPsec protection. 
 
 To apply encryption to the communication, you must make sure that for the VPN-connected network in the diagram, the Azure routes via on-premises VPN gateway are preferred over the direct ExpressRoute path.
@@ -42,7 +42,7 @@ The same requirement applies to the traffic from Azure to on-premises networks. 
 
 - Advertise more specific prefixes on the VPN BGP session for the VPN-connected network. You can advertise a larger range that encompasses the VPN-connected network over ExpressRoute private peering, then more specific ranges in the VPN BGP session. For example, advertise 10.0.0.0/16 over ExpressRoute, and 10.0.1.0/24 over VPN.
 
-- Advertise disjoint prefixes for VPN and ExpressRoute. If the VPN-connected network ranges are disjointed from other ExpressRoute connected networks, you can advertise the prefixes in the VPN and ExpressRoute BGP sessions respectively. For example, advertise 10.0.0.0/24 over ExpressRoute, and 10.0.1.0/24 over VPN.
+- Advertise disjoint prefixes for VPN and ExpressRoute. If the VPN-connected network ranges are disjoint from other ExpressRoute connected networks, you can advertise the prefixes in the VPN and ExpressRoute BGP sessions respectively. For example, advertise 10.0.0.0/24 over ExpressRoute, and 10.0.1.0/24 over VPN.
 
 In both of these examples, Azure will send traffic to 10.0.1.0/24 over the VPN connection rather than directly over ExpressRoute without VPN protection.
 
@@ -65,14 +65,14 @@ For the steps to create an Azure virtual WAN and a hub with an ExpressRoute asso
 
 ## <a name="site"></a>2. Create a site for the on-premises network
 
-The site resource is the same as the non-ExpressRoute VPN sites for virtual WAN. The IP address of the on-premises VPN device can now be either a private IP address, or a public IP address in the on-premises network reachable via ExpressRoute private peering created in step 1.
+The site resource is the same as the non-ExpressRoute VPN sites for a virtual WAN. The IP address of the on-premises VPN device can now be either a private IP address, or a public IP address in the on-premises network reachable via ExpressRoute private peering created in step 1.
 
 > [!NOTE]
 > The IP address for the on-premises VPN device *must* be part of the address prefixes advertised to the virtual WAN hub via Azure ExpressRoute private peering.
 >
 
 1. Go to the Azure portal in your browser. 
-1. Select the WAN that you created. On the WAN page, under **Connectivity**, select **VPN sites** to open the VPN sites page.
+1. Select the WAN that you created. On the WAN page, under **Connectivity**, select **VPN sites**.
 1. On the **VPN sites** page, select **+Create site**.
 1. On the **Create site** page, fill in the following fields:
    * **Subscription**: Verify the subscription.
@@ -117,7 +117,7 @@ Download the VPN device configuration to get the private IP addresses of the hub
 1. On the page for your hub, select **VPN (Site-to-Site)** under **Connectivity**.
 1. At the top of the **Overview** page, select **Download VPN Config**. 
 
-   Azure creates a storage account in the resource group "microsoft-network-[location]," where *location* is the location of the WAN. After you have applied the configuration to your VPN devices, you can delete this storage account.
+   Azure creates a storage account in the resource group "microsoft-network-[location]," where *location* is the location of the WAN. After you apply the configuration to your VPN devices, you can delete this storage account.
 1. After the file is created, select the link to download it.
 1. Apply the configuration to your VPN device.
 
