@@ -59,7 +59,7 @@ If you want to save *all* documents, including the ones that have a duplicate ID
 Azure Cosmos DB automatically scales partitions based on your workload. So we recommend [unlimited](../cosmos-db/partition-data.md) containers as the approach for partitioning your data. When Stream Analytics writes to unlimited containers, it uses as many parallel writers as the previous query step or input partitioning scheme.
 
 > [!NOTE]
-> At this time, Azure Stream Analytics supports only unlimited containers with partition keys at the top level. For example, `/region` is supported. Nested partition keys (for example, `/region/name`) are not supported. 
+> Azure Stream Analytics supports only unlimited containers with partition keys at the top level. For example, `/region` is supported. Nested partition keys (for example, `/region/name`) are not supported. 
 
 Depending on your choice of partition key, you might receive this _warning_:
 
