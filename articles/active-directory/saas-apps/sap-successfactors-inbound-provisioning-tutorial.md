@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure SuccessFactors to Active Directory user provisioning | Microsoft Docs'
-description: Learn how to configure inbound provisioning from SuccessFactors to Active Directory
+title: 'Tutorial: Configure SuccessFactors inbound provisioning in Azure Active Directory | Microsoft Docs'
+description: Learn how to configure inbound provisioning from SuccessFactors 
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -53,7 +53,7 @@ This section describes the end-to-end user provisioning solution architecture fo
 * **Authoritative HR Data Flow – from SuccessFactors to on-premises Active Directory:** In this flow worker events (such as New Hires, Transfers, Terminations) first occur in the cloud SuccessFactors Employee Central and then the event data flows into on-premises Active Directory through Azure AD and the Provisioning Agent. Depending on the event, it may lead to create/update/enable/disable operations in AD.
 * **Email Writeback Flow – from on-premises Active Directory to SuccessFactors:** Once the account creation is complete in Active Directory, it is synced with Azure AD through Azure AD Connect sync and email attribute can be written back to SuccessFactors.
 
-  ![Overview](./media/sap-successfactors-to-ad/sf2ad-overview.png)
+  ![Overview](./media/sap-successfactors-inbound-provisioning/sf2ad-overview.png)
 
 ### End-to-end user data flow
 
@@ -90,35 +90,35 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 
 * Log in to SAP SuccessFactors with a user account that has access to the Admin Center.
 * Search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
-  ![Manage Permission Roles](./media/sap-successfactors-to-ad/manage-permission-roles.png)
+  ![Manage Permission Roles](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
 * From the Permission Role List, click **Create New**.
   > [!div class="mx-imgBorder"]
-  > ![Create New Permission Role](./media/sap-successfactors-to-ad/create-new-permission-role-1.png)
+  > ![Create New Permission Role](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
 * Add a **Role Name** and **Description** for the new permission role. The name and description should indicate that the role is for API usage permissions.
   > [!div class="mx-imgBorder"]
-  > ![Permission role detail](./media/sap-successfactors-to-ad/permission-role-detail.png)
+  > ![Permission role detail](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
 * Under Permission settings, click **Permission...**, then scroll down the permission list and click **Manage Integration Tools**. Check the box for **Allow Admin to Access to OData API through Basic Authentication**.
   > [!div class="mx-imgBorder"]
-  > ![Manage integration tools](./media/sap-successfactors-to-ad/manage-integration-tools.png)
+  > ![Manage integration tools](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
 * Scroll down in the same box and select **Employee Central API**. Add permissions as shown below to read using ODATA API and edit using ODATA API. Select the edit option if you plan to use the same account for the Writeback to SuccessFactors scenario. 
   > [!div class="mx-imgBorder"]
-  > ![Read write permissions](./media/sap-successfactors-to-ad/odata-read-write-perm.png)
+  > ![Read write permissions](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 * Click on **Done**. Click **Save Changes**.
 
 ### Create a Permission Group for the API user
 
 * In the SuccessFactors Admin Center, search for *Manage Permission Groups*, then select **Manage Permission Groups** from the search results.
   > [!div class="mx-imgBorder"]
-  > ![Manage permission groups](./media/sap-successfactors-to-ad/manage-permission-groups.png)
+  > ![Manage permission groups](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
 * From the Manage Permission Groups window, click **Create New**.
   > [!div class="mx-imgBorder"]
-  > ![Add new group](./media/sap-successfactors-to-ad/create-new-group.png)
+  > ![Add new group](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
 * Add a Group Name for the new group. The group name should indicate that the group is for API users.
   > [!div class="mx-imgBorder"]
-  > ![Permission group name](./media/sap-successfactors-to-ad/permission-group-name.png)
+  > ![Permission group name](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
 * Add members to the group. For example, you could select **Username** from the People Pool drop-down menu and then enter the username of the API account that will be used for the integration. 
   > [!div class="mx-imgBorder"]
-  > ![Add group members](./media/sap-successfactors-to-ad/add-group-members.png)
+  > ![Add group members](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
 * Click **Done** to finish creating the Permission Group.
 
 ### Grant Permission Role to the Permission Group
@@ -128,10 +128,10 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 * Under **Grant this role to...**, click **Add...** button.
 * Select **Permission Group...** from the drop-down menu, then click **Select...** to open the Groups window to search and select the group created above. 
   > [!div class="mx-imgBorder"]
-  > ![Add permission group](./media/sap-successfactors-to-ad/add-permission-group.png)
+  > ![Add permission group](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
 * Review the Permission Role grant to the Permission Group. 
   > [!div class="mx-imgBorder"]
-  > ![Permission Role and Group detail](./media/sap-successfactors-to-ad/permission-role-group.png)
+  > ![Permission Role and Group detail](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
 * Click **Save Changes**.
 
 ## Configuring user provisioning from SuccessFactors to Active Directory
@@ -164,7 +164,7 @@ This section provides steps for user account provisioning from SuccessFactors to
 
 8. Click on the information banner displayed to download the Provisioning Agent. 
    > [!div class="mx-imgBorder"]
-   > ![Download Agent](./media/sap-successfactors-to-ad/download-pa-agent.png "Download Agent Screen")
+   > ![Download Agent](./media/sap-successfactors-inbound-provisioning/download-pa-agent.png "Download Agent Screen")
 
 
 ### Part 2: Install and configure on-premises Provisioning Agent(s)
@@ -252,7 +252,7 @@ In this step, we establish connectivity with SuccessFactors and Active Directory
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the SuccessFactors credentials and the AD credentials configured on the agent setup are valid.
     >[!div class="mx-imgBorder"]
-    >![Azure portal](./media/sap-successfactors-to-ad/sf2ad-provisioning-creds.png)
+    >![Azure portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
 
    * Once the credentials are saved successfully, the **Mappings** section will display the default mapping **Synchronize SuccessFactors Users to On Premises Active Directory**
 
@@ -341,7 +341,7 @@ Once the SuccessFactors provisioning app configurations have been completed, you
 5. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
 
    > [!div class="mx-imgBorder"]
-   > ![Provisioning progress bar](./media/sap-successfactors-to-ad/prov-progress-bar-stats.png)
+   > ![Provisioning progress bar](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
 ## Next steps
 
