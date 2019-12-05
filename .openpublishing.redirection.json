@@ -5308,6 +5308,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/scripts/functions-cli-configure-custom-domain.md",
+      "redirect_url": "/azure/app-service/scripts/cli-configure-custom-domain?toc=%2fcli%2fazure%2ftoc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/scripts/functions-cli-configure-ssl-certificate.md",
+      "redirect_url": "/azure/app-service/scripts/cli-configure-ssl-certificate?toc=%2fcli%2fazure%2ftoc.json",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
       "redirect_document_id": false
