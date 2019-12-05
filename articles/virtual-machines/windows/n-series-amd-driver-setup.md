@@ -28,7 +28,7 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 ## Supported operating systems and drivers
 | OS | Driver |
 | -------- |------------- |
-| Windows 10 EVD - Build 1903 <br/><br/>Windows 10 - Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [19.Q4.1](https://download.microsoft.com/download/f/c/b/fcbcbccd-3d38-4d2c-94ff-a109732d1db0/AMD_Radeon_Preview_Win.zip) (.zip) |
+| Windows 10 EVD - Build 1903 <br/><br/>Windows 10 - Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [19.Q4.1](https://download.microsoft.com/download/7/e/5/7e558ac0-3fff-413d-af62-800285a2fc53/Radeon-Pro-Software-for-Enterprise-19.Q4.1-Technical-Preview.exe) (.exe) |
 
 
 
