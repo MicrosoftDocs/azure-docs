@@ -63,7 +63,7 @@ For more information, see the [ResourceRequirements][resource-requirements] prop
 
 ## Networking
 
-Container groups can share a public IP address and a port namespace on that IP address. To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. 
+Container groups can share an external-facing IP address and a port namespace on that IP address. To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. 
 
 Within a container group, containers instances can reach each other via localhost on any port, even if those ports aren't exposed externally on the group's IP address or from the container.
 
