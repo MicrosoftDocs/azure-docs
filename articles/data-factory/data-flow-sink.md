@@ -1,12 +1,12 @@
 ---
-title: Set up a sink transformation in the mapping data flow feature
+title: Set up a sink transformation in mapping data flow
 description: Learn how to set up a sink transformation in the mapping data flow.
 author: kromerm
 ms.author: makromer
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: "seo-lt-2019"​
 ms.date: 02/03/2019
 ---
 

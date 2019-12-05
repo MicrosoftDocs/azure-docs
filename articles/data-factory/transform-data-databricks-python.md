@@ -11,7 +11,7 @@ ms.date: 03/15/2018
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
-manager: craigg
+manager: anandsub
 ---
 # Transform data by running a Python activity in Azure Databricks
 

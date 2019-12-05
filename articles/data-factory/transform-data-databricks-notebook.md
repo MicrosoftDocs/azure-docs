@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 author: nabhishek
 ms.author: abnarain
-manager: jroth
+manager: shwang
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018

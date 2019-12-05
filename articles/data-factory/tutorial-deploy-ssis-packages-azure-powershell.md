@@ -8,6 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: tutorial
+ms.custom: "seo-lt-2019"​
 ms.date: 06/26/2019
 author: swinarko
 ms.author: sawinark
