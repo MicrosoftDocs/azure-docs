@@ -18,7 +18,7 @@ ms.author: alkohli
 
     b. An optional description for the information on the data the storage account is holding.  
     
-    c. By default, the Edge storage account is mapped to an Azure Storage account in the cloud and the data from the share is automatically pushed to the cloud. Specify the Azure storage account that your Edge storage account is mapped to.  
+    c. By default, the Edge storage account is mapped to an Azure Storage account in the cloud and the data from the storage account is automatically pushed to the cloud. Specify the Azure storage account that your Edge storage account is mapped to.  
 
     d. Next create a new container or select from an existing container in the Azure storage account. Any data from the device that is written to the Edge storage account is automatically uploaded to the selected storage container in the mapped Azure Storage account.
 
