@@ -1,10 +1,6 @@
 ---
-title: " Connect your development machine to an AKS cluster"
-titleSuffix: Azure Dev Spaces
+title: "Connect your development machine to an AKS cluster"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/04/2019
 ms.topic: "conceptual"
 description: "Learn how to connect your development machine to an AKS cluster with Azure Dev Spaces"
@@ -91,7 +87,7 @@ After you select your connection mode, you are prompted to enter the TCP port yo
 After you select your application's TCP port, Azure Dev Spaces will establish a connection to the AKS cluster. Azure Dev Spaces injects an agent into your AKS cluster to redirect traffic between the AKS cluster and your development machine. Establishing this connection may take a few minutes. Azure Dev Spaces will also request administrator access in order to modify the *hosts* file in your development machine.
 
 > [!IMPORTANT]
-> Once Azure Dev Spaces establishes a connection to your AKS cluster, the other services in your AKS cluster may not function correctly until you start the service in your development machine. Also, if your service has a dependency that is not available in your development machine, you may need to modify your application or provide [additional configuration](#additional-configuration)
+> Once Azure Dev Spaces establishes a connection to your AKS cluster, the other services in your AKS cluster may not function correctly until you start the service in your development machine if you choose the *Replace* connection mode. You can choose the *Clone* connection mode instead to create a child dev space for your redirection and avoid any disruption to the parent space. Also, if your service has a dependency that is not available in your development machine, you may need to modify your application or provide [additional configuration](#additional-configuration)
 
 Azure Dev Spaces opens a terminal window titled *AZDS Connect - Bikes* after it establishes a connection to your AKS cluster. This terminal window has all the environment variables and DNS entries configured from your AKS cluster. Any code you run in this terminal window or using the Visual Studio Code debugger is connected to the AKS cluster.
 
@@ -118,7 +114,6 @@ $ npm install
 > node install
 ...
 ```
-
 
 Click *Debug* then *Open Configurations*. If prompted to select an environment, choose *Node.js*.This creates a `.vscode/launch.json` file. Replace the contents of that file with the following:
 
@@ -230,6 +225,18 @@ MYAPP1_SERVICE_HOST=${services.myapp1}
 # in addition to the IP in the MYAPP1_SERVICE_HOST environment variable.
 ```
 
+## Using logging and diagnostics
+
+Logging output is written to the *Dev Spaces Connect* window after connect your development machine to your AKS cluster.
+
+![Output](../media/how-to-connect/connect-output.png)
+
+Click on the Azure Dev Spaces status bar and choose *Show diagnostics info*. This command prints the current environment variables and DNS entires in the logging output.
+
+![Output with diagnostics](../media/how-to-connect/connect-output-diagnostics.png)
+
+Additionally, you can find the diagnostic logs in `Azure Dev Spaces` directory in your [development machine's *TEMP* directory][azds-tmp-dir].
+
 ## Next steps
 
 Learn how to use Azure Dev Spaces and GitHub Actions to test changes from a pull request directly in AKS before the pull request is merged into your repository’s main branch.
@@ -237,11 +244,11 @@ Learn how to use Azure Dev Spaces and GitHub Actions to test changes from a pull
 > [!div class="nextstepaction"]
 > [GitHub Actions & Azure Kubernetes Service][gh-actions]
 
+[azds-tmp-dir]: ../troubleshooting.md#before-you-begin
 [azds-vs-code]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [bike-sharing-github]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [gh-actions]: github-actions.md
-[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [supported-regions]: ../about.md#supported-regions-and-configurations
 [team-quickstart]: ../quickstart-team-development.md
 [vs-code]: https://code.visualstudio.com/download

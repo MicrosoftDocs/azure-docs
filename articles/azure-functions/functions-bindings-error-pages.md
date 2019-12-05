@@ -1,14 +1,8 @@
 ---
 title: Azure Functions error handling guidance
 description: Learn to handle errors in Azure Functions with links to specific binding errors.
-services: functions
-cloud: 
-documentationcenter: 
 author: craigshoemaker
-manager: gwallace
 
-ms.assetid:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: cshoe

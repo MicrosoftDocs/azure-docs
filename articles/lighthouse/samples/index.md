@@ -1,12 +1,8 @@
 ---
 title: Azure Lighthouse samples and templates
 description: These samples and Azure Resource Manager templates show you how to onboard customers for Azure delegated resource management and support Azure Lighthouse scenarios.
-author: JnHs
-manager: carmonm
-ms.service: lighthouse
 ms.topic: sample
 ms.date: 10/17/2019
-ms.author: jenhayes
 ---
 # Azure Lighthouse samples
 

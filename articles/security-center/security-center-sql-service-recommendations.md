@@ -1,5 +1,5 @@
 ---
-title: Data & storage recommendations - Azure Security Center | Microsoft Docs
+title: Data & storage recommendations - Azure Security Center
 description: This document addresses recommendations in Azure Security Center that help you protect your data and Azure SQL service and stay in compliance with security policies.
 services: security-center
 documentationcenter: na

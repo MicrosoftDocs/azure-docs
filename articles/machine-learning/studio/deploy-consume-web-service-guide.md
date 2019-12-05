@@ -1,6 +1,6 @@
 ---
 title: Deployment and consumption
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: You can use Azure Machine Learning Studio (classic) to deploy machine learning workflows and models as web services. These web services can then be used to call the machine learning models from applications over the internet to do predictions in real time or in batch mode. 
 services: machine-learning
 ms.service: machine-learning
@@ -32,7 +32,7 @@ The following links provide general Information about how to deploy a new web se
 * For specific examples that deploy a web service, see:
 
   * [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md)
-  * [How to deploy a web service to multiple regions](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
+  * [How to deploy a web service to multiple regions](deploy-a-machine-learning-web-service.md#multi-region)
 
 ### With web services resource provider APIs (Azure Resource Manager APIs)
 

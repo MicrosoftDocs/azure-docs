@@ -5,7 +5,7 @@ author: amberbhargava
 manager: amberb
 editor: banders
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -16,7 +16,7 @@ ms.author: banders
 ---
 # Get billing ownership of Azure subscriptions to your MPA account
 
-To provide a single consolidated invoice for managed services and Azure consumption, Cloud Solution Provider (CSP) can take over billing ownership of Azure subscriptions from their customers with Enterprise Agreement (EA).
+To provide a single consolidated invoice for managed services and Azure consumption, Cloud Solution Provider (CSP) can take over billing ownership of Azure subscriptions from their customers with Direct Enterprise Agreement (EA).
 
 This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). It is subject to Microsoft governance and policies and might require review and approval for certain customers.
 

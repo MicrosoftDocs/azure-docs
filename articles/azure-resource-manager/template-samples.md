@@ -1,15 +1,8 @@
 ---
-title: Azure Resource Manager template samples
+title: Template samples
 description: Azure Resource Manager template samples for deploying management features, like roles and locks.
-services: azure-resource-manager
-author: tfitzmac
-
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
 ms.date: 11/16/2018
-ms.author: tomfitz
 ---
 # Azure Resource Manager templates for management features
 

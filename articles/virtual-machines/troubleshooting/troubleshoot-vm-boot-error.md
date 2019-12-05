@@ -1,10 +1,10 @@
 ---
-title: Azure Virtual Machine boot error
+title: Linux VM boots to Grub Rescue
 description: Virtual machine failed to boot because the virtual machine entered a rescue console
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-miegge
-manager: ''
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
@@ -17,7 +17,7 @@ ms.date: 08/28/2019
 ms.author: tiag
 ---
 
-# VM boot error
+# Linux VM boots to Grub Rescue
 
 We have identified that your Virtual Machine (VM) entered a rescue console. The issue occurs when your Linux VM had kernel changes applied recently such as a kernel upgrade, and is no longer starting up properly because of kernel errors during the boot process. During the boot process, when the boot loader attempts to locate the Linux kernel and hand off boot control to it, the VM enters a rescue console when the handoff fails.
 

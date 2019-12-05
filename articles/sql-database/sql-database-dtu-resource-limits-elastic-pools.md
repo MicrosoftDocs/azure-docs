@@ -1,10 +1,10 @@
 ---
-title: Azure SQL Database DTU resource limits elastic pools| Microsoft Docs
+title: DTU resource limits elastic pools
 description: This page describes some common DTU resource limits for elastic pools in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang:
 ms.topic: conceptual
 author: sachinpMSFT
@@ -83,7 +83,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 | Max concurrent workers per pool (requests) | 200 | 400 | 800 | 1600 | 2400 |
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Min eDTUs per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 |
-| Max eDTUs per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
+| Max eDTUs per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000|
 | Max storage per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 

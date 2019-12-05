@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database instance pools how-to guide (preview) 
+title: Instance pools how-to guide (preview) 
 description: This article describes how to create and manage Azure SQL Database instance pools (preview).
 services: sql-database
 ms.service: sql-database

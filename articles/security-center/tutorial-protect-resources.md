@@ -1,5 +1,5 @@
 ---
-title: Access & application controls tutorial - Azure Security Center | Microsoft Docs
+title: Access & application controls tutorial - Azure Security Center
 description: This tutorial shows you how to configure a just-in-time VM access policy and an application control policy.
 services: security-center
 documentationcenter: na

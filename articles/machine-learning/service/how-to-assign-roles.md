@@ -1,5 +1,5 @@
 ---
-title: Manage roles in an Azure Machine Learning workspace
+title: Manage roles in your workspace
 titleSuffix: Azure Machine Learning
 description: Learn how to access to an Azure Machine Learning workspace using role-based access control (RBAC).
 services: machine-learning
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/10/2019
+ms.date: 11/06/2019
 ms.custom: seodec18
 
 ---

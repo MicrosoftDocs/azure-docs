@@ -1,5 +1,5 @@
 ---
-title: Add language analyzers to string fields in an index
+title: Add language analyzers to string fields
 titleSuffix: Azure Cognitive Search
 description: Multi-lingual lexical text analysis for non-English queries and indexes in Azure Cognitive Search.
 
@@ -21,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Add language analyzers to an Azure Cognitive Search index
+# Add language analyzers to string fields in an Azure Cognitive Search index
 
 A *language analyzer* is a specific type of [text analyzer](search-analyzers.md) that performs lexical analysis using the linguistic rules of the target language. Every searchable field has an **analyzer** property. If your index contains translated strings, such as separate fields for English and Chinese text, you could specify language analyzers on each field to access the rich linguistic capabilities of those analyzers.  
 

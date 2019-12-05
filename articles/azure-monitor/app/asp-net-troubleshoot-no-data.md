@@ -171,7 +171,7 @@ You can disable it, but this is not recommended. Sampling is designed so that re
 On February 5 2018, we announced that we removed logging of the Client IP address. This does not affect Geo Location.
 
 > [!NOTE]
-> If you need the first 3 octets of the IP address, you can use a [telemetry initializer](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) to add a custom attribute.
+> If you need the first 3 octets of the IP address, you can use a [telemetry initializer](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer) to add a custom attribute.
 > This does not affect data collected prior to February 5, 2018.
 
 ## Wrong geographical data in user telemetry

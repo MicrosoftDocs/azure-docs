@@ -4,6 +4,7 @@ description: Explains how to build their Test Drive that connects with a Dynamic
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler

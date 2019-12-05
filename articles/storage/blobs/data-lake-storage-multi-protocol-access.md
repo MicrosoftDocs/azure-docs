@@ -42,9 +42,13 @@ The items that appear in this table will change over time as support for Blob st
 |Blob storage feature | Support level |
 |---|---|
 |[Cool access tier](storage-blob-storage-tiers.md)|Generally available|
+|Blob REST APIs|Generally available|
 |Blob SDKs |Generally available|
-|[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Generally available|
-|[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Generally available|
+|[PowerShell (Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Generally available|
+|[CLI (Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Generally available|
+|Blob SDKs with file system semantics ([.NET](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-dotnet) &vert; [Python](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-python) &vert; [Java](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-java))|Preview|
+|[PowerShell with file system semantics](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-powershell)|Preview|
+|[CLI with file system semantics](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-cli)|Preview|
 |[Diagnostic logs](../common/storage-analytics-logging.md)| Preview|
 |[Lifecycle management policies](storage-lifecycle-management-concepts.md)| Preview|
 |[Notifications via Azure Event Grid](data-lake-storage-events.md)|Preview|
@@ -73,7 +77,7 @@ Just like the list of supported Blob storage features, the items that appear in 
 |[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Generally available|
 |[IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Generally available|
 |[Logic apps](https://azure.microsoft.com/services/logic-apps/)|Generally available|
-|[Azure Search](https://docs.microsoft.com/azure/search/search-blob-storage-integration)|Preview|
+|[Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|Preview|
 
 For the complete list of Azure ecosystem support for Data Lake Storage Gen2, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md).
 

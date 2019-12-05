@@ -11,17 +11,17 @@ ms.date: 09/16/2019
 
 # Custom role definition artifact in Azure Managed Applications
 
-Custom role definition is an optional artifact in managed applications. It is used to determine what permissions the managed application needs to perform its functions.
+Custom role definition is an optional artifact in managed applications. It's used to determine what permissions the managed application needs to perform its functions.
 
-This article provides an overview of custom role definition artifact and its capabilities.
+This article provides an overview of the custom role definition artifact and its capabilities.
 
 ## Custom role definition artifact
 
-The custom role definition artifact must be named **customRoleDefinition.json** and placed at the same level as **createUiDefinition.json** and **mainTemplate.json** in the .zip package that creates a managed application definition. To learn how to create the .zip package and publish a managed application definition, see [Publish a managed application definition.](publish-managed-app-definition-quickstart.md)
+You need to name the custom role definition artifact customRoleDefinition.json. Place it at the same level as createUiDefinition.json and mainTemplate.json in the .zip package that creates a managed application definition. To learn how to create the .zip package and publish a managed application definition, see [Publish a managed application definition.](publish-managed-app-definition-quickstart.md)
 
 ## Custom role definition schema
 
-The **customRoleDefinition.json** file has a top level `roles` property, which is an array of roles. Each of these roles are the permissions that the managed application needs to function. Currently, only built-in roles are allowed, but multiple roles can be specified. The role can be referenced by the ID of the role definition or by the role name.
+The customRoleDefinition.json file has a top-level `roles` property that's an array of roles. These roles are the permissions that the managed application needs to function. Currently, only built-in roles are allowed, but you can specify multiple roles. A role can be referenced by the ID of the role definition or by the role name.
 
 Sample JSON for custom role definition:
 
@@ -44,9 +44,9 @@ Sample JSON for custom role definition:
 }
 ```
 
-## Role
+## Roles
 
-A role is composed of either a `$.properties.roleName` or `id`.
+A role is composed of either a `$.properties.roleName` or an `id`:
 
 ```json
 {
@@ -57,10 +57,10 @@ A role is composed of either a `$.properties.roleName` or `id`.
 }
 ```
 
-> [!Note]
-> Only one of either the `id` or `roleName` field is required. These fields are used to look up the role definition to apply. If both are supplied, the `id` field will be used.
+> [!NOTE]
+> You can use either the `id` or `roleName` field. Only one is required. These fields are used to look up the role definition that should be applied. If both are supplied, the `id` field will be used.
 
-|Property|Required|Description|
+|Property|Required?|Description|
 |---------|---------|---------|
-|ID|*yes*|The ID of the built-in role. This property can be the full ID or just the GUID.|
-|roleName|*yes*|The name of the built-in role.|
+|id|Yes|The ID of the built-in role. You can use the full ID or just the GUID.|
+|roleName|Yes|The name of the built-in role.|

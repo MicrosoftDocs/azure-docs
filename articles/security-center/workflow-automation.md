@@ -72,7 +72,7 @@ This article describes the Workflow automation feature (preview) of Azure Securi
 
     ![Refresh](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
-1. Select your Logic App and save the automation.
+1. Select your Logic App and save the automation. Note that the Logic App dropdown only shows Logic Apps with supporting Security Center connectors mentioned above.
 
 
 ## Manually trigger a Logic App

@@ -1,6 +1,6 @@
 ---
-title: Incident response tutorial - Azure Security Center | Microsoft Docs
-description: Azure Security Center Tutorial - Respond to security incidents
+title: Incident response tutorial - Azure Security Center
+description: In this tutorial, you'll learn how to triage security alerts, determine the root cause & scope of an incident, and search security data.
 services: security-center
 documentationcenter: na
 author: memildin

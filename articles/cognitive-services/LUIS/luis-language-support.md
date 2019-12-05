@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/08/2019
 ms.author: diberry
 ---
 
@@ -201,4 +201,4 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 
 Tokenization happens at the app level. There is no support for version-level tokenization. 
 
-[Import the file as a new app](luis-how-to-start-new-app.md#import-an-app-from-file), instead of a version. This action means the new app has a different app ID but uses the tokenizer version specified in the file. 
+[Import the file as a new app](luis-how-to-start-new-app.md), instead of a version. This action means the new app has a different app ID but uses the tokenizer version specified in the file. 

@@ -1,12 +1,8 @@
 ---
 title: host.json reference for Azure Functions 2.x
 description: Reference documentation for the Azure Functions host.json file with the v2 runtime.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.author: glenga
 ---
 
 # host.json reference for Azure Functions 2.x  
@@ -43,6 +39,10 @@ The following sample *host.json* files have all possible options specified.
         "queues": {},
         "sendGrid": {},
         "serviceBus": {}
+    },
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
@@ -130,6 +130,12 @@ Configuration settings can be found in [Event Hub triggers and bindings](functio
 
 Property that returns an object that contains all of the binding-specific settings, such as [http](#http) and [eventHub](#eventhub).
 
+## extensionBundle 
+
+Extension bundles lets you add a compatible set of Functions binding extensions to your function app. To learn more, see [Extension bundles for local development](functions-bindings-register.md#extension-bundles).
+
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
+
 ## functions
 
 A list of functions that the job host runs. An empty array means run all functions. Intended for use only when [running locally](functions-run-local.md). In function apps in Azure, you should instead follow the steps in [How to disable functions in Azure Functions](disable-function.md) to disable specific functions rather than using this setting.
@@ -143,7 +149,10 @@ A list of functions that the job host runs. An empty array means run all functio
 ## functionTimeout
 
 Indicates the timeout duration for all functions. It follows the timespan string format. In a serverless Consumption plan, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes.  
-In a Dedicated (App Service) plan, there is no overall limit, and the default value is 30 minutes. A value of `-1` indicates unbounded execution.
+
+In the Premium plan the valid range is from 1 second to 60 minutes, and the default value is 30 minutes.
+
+In a Dedicated (App Service) plan, there is no overall limit, and the default value is 30 minutes. A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
 
 ```json
 {
