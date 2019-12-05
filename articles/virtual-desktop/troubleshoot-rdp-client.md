@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.date: 12/05/2019
 ms.author: helohr
 ---
-# Troubleshooting the Remote Desktop client
+# Troubleshoot the Remote Desktop client
 
 This article describes common issues with the Remote Desktop client and how to fix them.
 
