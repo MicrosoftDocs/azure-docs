@@ -22,7 +22,7 @@ You will also need to enable partner access as mentioned in the steps below.
 
 You need to enable partner integration to your Azure FarmBeats instance. This step creates a client that will have access to your Azure FarmBeats as your device partner, and provides you the following values that are required in the subsequent steps.
 
-- API Endpoint – This is the data hub URL, for example, https://\<datahub>.azurewebsites.net
+- API Endpoint – This is the data hub URL, for example, `https://\<datahub>.azurewebsites.net`
 - Tenant ID
 - Client ID
 - Client Secret
@@ -114,7 +114,7 @@ For more information about objects, see [Swagger](https://aka.ms/FarmBeatsDatahu
 
 **API request to create metadata**
 
-To make an API request, you combine the HTTP (POST) method, the URL to the API service, the URI to a resource to query, submit data to create or delete a request and add one or more HTTP request headers. The URL to the API service is the API Endpoint i.e. the data hub URL (`https://\<yourdatahub>.azurewebsites.net`)  
+To make an API request, you combine the HTTP (POST) method, the URL to the API service, the URI to a resource to query, submit data to create or delete a request and add one or more HTTP request headers. The URL to the API service is the API Endpoint i.e. the data hub URL `https://\<yourdatahub>.azurewebsites.net`  
 
 **Authentication**:
 
