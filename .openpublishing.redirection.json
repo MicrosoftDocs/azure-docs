@@ -568,6 +568,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-list-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-list-entity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-regex-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-regex-entity",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-sentiment-analysis.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-publish-settings",
       "redirect_document_id": false
@@ -43372,52 +43382,52 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-churn.md",
-      "redirect_url": "how-to-designer-sample-classification-churn",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-churn",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-basic.md",
-      "redirect_url": "how-to-designer-sample-classification-predict-income",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-predict-income",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md",
-      "redirect_url": "how-to-designer-sample-classification-credit-risk-cost-sensitive",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-credit-risk-cost-sensitive",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-flight-delay.md",
-      "redirect_url": "how-to-designer-sample-classification-flight-delay",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-flight-delay",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-basic.md",
-      "redirect_url": "how-to-designer-sample-regression-automobile-price-basic",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-regression-automobile-price-basic",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md",
-      "redirect_url": "how-to-designer-sample-regression-automobile-price-compare-algorithms",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-regression-automobile-price-compare-algorithms",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-text-classification.md",
-      "redirect_url": "how-to-designer-sample-text-classification",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-text-classification",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-deploy.md",
-      "redirect_url": "tutorial-designer-automobile-price-deploy",
+      "redirect_url": "/azure/machine-learning/service/tutorial-designer-automobile-price-deploy",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-train-score.md",
-      "redirect_url": "tutorial-designer-automobile-price-train-score",
+      "redirect_url": "/azure/machine-learning/service/tutorial-designer-automobile-price-train-score",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-concept-visual-interface.md",
-      "redirect_url": "concept-designer",
+      "redirect_url": "/azure/machine-learning/service/concept-designer",
       "redirect_document_id": true
     },
     {
