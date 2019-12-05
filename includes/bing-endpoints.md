@@ -6,10 +6,5 @@ ms.topic: include
 ms.date: 12/03/2019
 ---
 
-> [!TIP] 
-> There are two endpoints you can use to access the Bing Web Search API:
->
-> * The Cognitive Services global endpoint:
->     * `https://api.cognitive.microsoft.com/bing/v7.0/search`
-> * The [custom subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) endpoint for your resource, displayed in the Azure Portal. 
->     * For example `<your-custom-subdomain>.cognitiveservices.azure.com/bing/v7.0/search`
+> [!NOTE] 
+> This quickstart uses the global Bing endpoint to access the API. You can also use the [custom subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) endpoint that's displayed in the Azure portal. Both endpoints provide equal access.
