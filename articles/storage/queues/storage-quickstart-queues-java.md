@@ -12,20 +12,18 @@ ms.topic: quickstart
 
 # Quickstart: Azure Queue storage client library v12 for Java
 
-Get started with the Azure Queue storage client library version 12 for Java. Azure Queue storage is a service for storing large numbers of messages for later retrieval and processing. Follow steps to install the package and try out example code for basic tasks.
+Get started with the Azure Queue storage client library version 12 for Java. Azure Queue storage is a service for storing large numbers of messages for later retrieval and processing. Follow these steps to install the package and try out example code for basic tasks.
 
 Use the Azure Queue storage client library v12 for Java to:
 
 * Create a queue
 * Add messages to a queue
-* List messages in a queue
+* Peek at messages in a queue
 * Update a message in a queue
 * Receive and delete messages from a queue
 * Delete a queue
 
 [API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples)
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## Prerequisites
 
@@ -165,7 +163,7 @@ These example code snippets show you how to do the following actions with the Az
 * [Get the connection string](#get-the-connection-string)
 * [Create a queue](#create-a-queue)
 * [Add messages to a queue](#add-messages-to-a-queue)
-* [List messages in a queue](#list-messages-in-a-queue)
+* [Peek at messages in a queue](#peek-at-messages -in-a-queue)
 * [Update a message in a queue](#update-a-message-in-a-queue)
 * [Receive and delete messages from a queue](#receive-and-delete-messages-from-a-queue)
 * [Delete a queue](#delete-a-queue)
@@ -233,9 +231,9 @@ queueClient.sendMessage("Second message");
 SendMessageResult result = queueClient.sendMessage("Third message");
 ```
 
-### List messages in a queue
+### Peek at messages in a queue
 
-List the messages in the queue by calling the [peekMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#peekMessages-java.lang.Integer-java.time.Duration-com.azure.core.util.Context-) method. The `peelkMessages` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
+Peek at the messages in the queue by calling the [peekMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#peekMessages-java.lang.Integer-java.time.Duration-com.azure.core.util.Context-) method. The `peelkMessages` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
 
 Add this code to the end of the `main` method:
 
@@ -266,7 +264,7 @@ queueClient.updateMessage(result.getMessageId(),
 
 Download previously added messages by calling the [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-java.time.Duration-java.time.Duration-com.azure.core.util.Context-) method. The example code also deletes messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
 
-The app pauses for user input by calling `System.console().readLine();` before it receives and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted.
+The app pauses for user input by calling `System.console().readLine();` before it receives and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
 
 Add this code to the end of the `main` method:
 
@@ -363,6 +361,6 @@ In this quickstart, you learned how to create a queue and add messages to it usi
 To see more Azure Queue storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure Queue storage SDK v12 Java samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
+> [Azure Queue storage SDK v12 Java client library samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
 
 * For tutorials, samples, quick starts, and other documentation, visit [Azure for Java cloud developers](https://docs.microsoft.com/azure/java/).

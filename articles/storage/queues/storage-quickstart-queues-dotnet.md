@@ -12,7 +12,7 @@ ms.topic: quickstart
 
 # Quickstart: Azure Queue storage client library v12 for .NET
 
-Get started with the Azure Queue storage client library version 12 for .NET. Azure Queue storage is a service for storing large numbers of messages for later retrieval and processing. Follow steps to install the package and try out example code for basic tasks.
+Get started with the Azure Queue storage client library version 12 for .NET. Azure Queue storage is a service for storing large numbers of messages for later retrieval and processing. Follow these steps to install the package and try out example code for basic tasks.
 
 > [!NOTE]
 > To get started with the previous SDK version, see [Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue](storage-quickstart-queues-dotnet-legacy.md).
@@ -21,14 +21,12 @@ Use the Azure Queue storage client library v12 for .NET to:
 
 * Create a queue
 * Add messages to a queue
-* List messages in a queue
+* Peek at messages in a queue
 * Update a message in a queue
 * Receive and delete messages from a queue
 * Delete a queue
 
 [API reference documentation](/dotnet/api/azure.storage.queues) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## Prerequisites
 
@@ -120,7 +118,7 @@ These example code snippets show you how to do the following actions with the Az
 * [Get the connection string](#get-the-connection-string)
 * [Create a queue](#create-a-queue)
 * [Add messages to a queue](#add-messages-to-a-queue)
-* [List messages in a queue](#list-messages-in-a-queue)
+* [Peek at messages in a queue](#peek-at-messages -in-a-queue)
 * [Update a message in a queue](#update-a-message-in-a-queue)
 * [Receive and delete messages from a queue](#receive-and-delete-messages-from-a-queue)
 * [Delete a queue](#delete-a-queue)
@@ -185,9 +183,9 @@ await queueClient.SendMessageAsync("Second message");
 Response<SendReceipt> receipt = await queueClient.SendMessageAsync("Third message");
 ```
 
-### List messages in a queue
+### Peek at messages in a queue
 
-List the messages in the queue by calling the [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) method. The `PeekMessagesAsync` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
+Peek at the messages in the queue by calling the [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) method. The `PeekMessagesAsync` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
 
 Add this code to the end of the `Main` method:
 
@@ -219,7 +217,7 @@ await queueClient.UpdateMessageAsync(receipt.Value.MessageId, receipt.Value.PopR
 
 Download previously added messages by calling the [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync) method. The example code also deletes messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
 
-The app pauses for user input by calling `Console.ReadLine` before it receives and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted.
+The app pauses for user input by calling `Console.ReadLine` before it receives and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
 
 Add this code to the end of the `Main` method:
 
@@ -311,7 +309,7 @@ In this quickstart, you learned how to create a queue and add messages to it usi
 To see more Azure Queue storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure Queue storage SDK v12 .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
+> [Azure Queue storage v12 .NET client library samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
 
 * For tutorials, samples, quick starts and other documentation, visit [Azure for .NET and .NET Core developers](/dotnet/azure/).
 * To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
