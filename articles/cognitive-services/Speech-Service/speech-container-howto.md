@@ -1,5 +1,5 @@
 ---
-title: Install Speech containers - Speech Service
+title: Install Speech containers - Speech service
 titleSuffix: Azure Cognitive Services
 description: Install and run speech containers. Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Text-to-speech converts input text into human-like synthesized speech.
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.date: 12/04/2019
 ms.author: dapine
 ---
 
-# Install and run Speech Service containers (Preview)
+# Install and run Speech service containers (Preview)
 
-Containers enable you to run some of the Speech Service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
+Containers enable you to run some of the Speech service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
 
 Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are four different containers available. The two standard containers are **Speech-to-text** and **Text-to-speech**. The two custom containers are **Custom Speech-to-text** and **Custom Text-to-speech**.
 
@@ -429,5 +429,5 @@ In this article, you learned concepts and workflow for downloading, installing, 
 ## Next steps
 
 * Review [configure containers](speech-container-configuration.md) for configuration settings
-* Learn how to [use Speech Service containers with Kubernetes and Helm](speech-container-howto-on-premises.md)
+* Learn how to [use Speech service containers with Kubernetes and Helm](speech-container-howto-on-premises.md)
 * Use more [Cognitive Services containers](../cognitive-services-container-support.md)
