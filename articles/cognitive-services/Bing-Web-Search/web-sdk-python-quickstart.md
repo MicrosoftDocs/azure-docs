@@ -165,7 +165,7 @@ If the response contains web pages, images, news, or videos, the first result fo
 
 1. Replace `YOUR_ENDPOINT` with your endpoint url.
 
-    [!INCLUDE [bing-endpoint-information](../../../../includes/bing-endpoints.md)]
+    [!INCLUDE [bing-endpoint-information](../../../includes/bing-endpoints.md)]
 
 1. Run the program. For example: `python your_program.py`.
 
