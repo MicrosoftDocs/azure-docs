@@ -605,7 +605,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_github_issues.png" style="width:140px" alt="" />
+                                                        <img src="media/hub/speech_github_issues.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -624,7 +624,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_stackoverflow.png" style="width:140px" alt="" />
+                                                        <img src="media/hub/speech_stackoverflow.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -643,7 +643,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_uservoice.png" style="width:140px" alt="" />
+                                                        <img src="media/hub/speech_uservoice.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
