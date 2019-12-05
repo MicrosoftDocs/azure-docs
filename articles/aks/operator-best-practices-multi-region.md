@@ -59,11 +59,11 @@ For information on how to set up endpoints and routing, see [Configure the geogr
 
 Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Azure Front Door Service include SSL termination, custom domain, web application firewall, URL Rewrite, and session affinity. Review the needs of your application traffic to understand which solution is the most suitable.
 
-### Interconnect regions with global vnet peering
+### Interconnect regions with global virtual network peering
 
-If the clusters need to talk to each other, connecting both virtual networks to each other can be achieved through [Virtual Network Peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). This technology interconnects Virtual Networks to each other providing high bandwidth across Microsoft's backbone network, even across different geographic regions.
+If the clusters need to talk to each other, connecting both virtual networks to each other can be achieved through [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). This technology interconnects virtual networks to each other providing high bandwidth across Microsoft's backbone network, even across different geographic regions.
 
-A prerequisite to peer the virtual networks where AKS clusters are running is using the standard Load Balancer in your AKS cluster, so that kubernetes services are reachable across the Virtual Network peering.
+A prerequisite to peer the virtual networks where AKS clusters are running is to use the standard Load Balancer in your AKS cluster, so that kubernetes services are reachable across the virtual network peering.
 
 ## Enable geo-replication for container images
 
