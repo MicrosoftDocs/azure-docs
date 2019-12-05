@@ -60,4 +60,4 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 ## Next steps 
 
 - [What is provisioning?](what-is-provisioning.md)
-- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
+- [Install cloud provisioning](how-to-install.md)
