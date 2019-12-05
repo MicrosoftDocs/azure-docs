@@ -99,7 +99,7 @@ az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
     * go to the MC_* resource group in the portal 
     * click on the Private DNS Zone 
     * select Virtual network link in the left pane
-    * create a new link to add the VNET of the VM to the Private DNS Zone
+    * create a new link to add the VNET of the VM to the Private DNS Zone (You may have to wait a few minutes for the DNS zone link to become available)
 * SSH into the VM
 * Install Kubectl tool and run kubectl commands
 
