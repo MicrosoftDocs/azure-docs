@@ -6,10 +6,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: shwang
+ms.custom: "seo-lt-2019"​
+ms.date: 07/31/2018
 ---
 
 # Transform data in Azure Data Factory

@@ -15,6 +15,7 @@ ms.topic: conceptual
 ms.custom: "seo-lt-2019"​
 ms.date: 12/24/2018
 ---
+
 # Delta copy from a database with a control table
 
 This article describes a template that's available to incrementally load new or updated rows from a database table to Azure by using an external control table that stores a high-watermark value.

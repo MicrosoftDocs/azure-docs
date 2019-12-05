@@ -10,8 +10,9 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: shwang
 ---
+
 # Transform data using Hadoop Streaming activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-hadoop-streaming-activity.md)

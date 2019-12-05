@@ -6,10 +6,10 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/27/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: shwang
+ms.date: 11/27/2018
 ---
 
 

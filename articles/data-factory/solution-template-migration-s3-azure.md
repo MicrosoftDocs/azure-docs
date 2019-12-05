@@ -12,8 +12,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
+ms.custom: "seo-lt-2019"​
 ms.date: 09/07/2019
 ---
+
 # Migrate data from Amazon S3 to Azure Data Lake Storage Gen2
 
 Use the templates to migrate petabytes of data consisting of hundreds of millions of files from Amazon S3 to Azure Data Lake Storage Gen2. 

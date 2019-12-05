@@ -3,17 +3,18 @@ title: Transform data by using Databricks
 description:  Learn how to use a solution template to transform data by using a Databricks notebook in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
+ms.reviewer: douglasl
 manager: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: "seo-lt-2019"​
 ms.date: 12/10/2018
-ms.author: abnarain
-ms.reviewer: douglasl
 ---
+
 # Transform data by using Databricks in Azure Data Factory
 
 In this tutorial, you create an end-to-end pipeline containing **Lookup**, **Copy**, and **Databricks notebook** activities in Data Factory.
