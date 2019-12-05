@@ -12,73 +12,12 @@ ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
 ---
-# Generic steps to prepare any class using Windows
+# Guide to setting up a Windows template machine in Azure Lab Services
 
-If you’re setting up a Windows 10 template machine for Azure Lab Services, here are some best practices and tips to to consider. The configuration steps below are all optional.  However, these preparatory steps could help make your students be more productive, minimize class time interruptions, and ensure that they're using the latest technologies.
+If you’re setting up a Windows 10 template machine for Azure Lab Services, here are some best practices and tips to consider. The configuration steps below are all optional.  However, these preparatory steps could help make your students be more productive, minimize class time interruptions, and ensure that they're using the latest technologies.
 
 >[!IMPORTANT]
 >This article contains PowerShell snippets to streamline the machine template modification process.  For all the PowerShell scripts shown, you’ll want to run them in Windows PowerShell with administrator privileges. In Windows 10, a quick way of doing that is to right-click the Start Menu and choose the "Windows PowerShell (Admin)".
-
-## Configure Updates
-
-### Install the latest Windows Updates
-
-We recommend that you install the latest Microsoft updates on the template machine for security purposes.  It also potentially avoids students from being disrupted in their work from updates running at unexpected.
-
-1. Launch **Settings** from the Start Menu
-2. Click on **Update** & Security
-3. Click **Check for updates**
-4. Updates will download and install.
-
-You can also use PowerShell to update the template machine.
-
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force
-Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm
-Install-Module PSWindowsUpdate -Confirm
-Install-WindowsUpdate -MicrosoftUpdate
-Set-ExecutionPolicy default -Force
-```
-
->[!NOTE]
->Some updates may require the machine to be restarted.  You'll be prompted if a reboot is required.
-
-### Install the latest updates for Microsoft Store apps
-
-We recommend having all Microsoft Store apps be updated to their latest versions.  Here are instructions to manually update applications from the Microsoft Store.  
-
-1. Launch **Microsoft Store** application.
-2. Click the ellipse (…) next to your user photo in the top corner of the application.
-3. Select **Download** and updates from the drop-down menu.
-4. Click **Get update** button.
-
-You can also use Powershell to update Microsoft Store applications that are already installed.
-
-```powershell
-(Get-WmiObject -Namespace "root\cimv2\mdm\dmmap" -Class "MDM_EnterpriseModernAppManagement_AppManagement01").UpdateScanMethod()
-```
-
-### Stop automatic Windows Updates
-
-After updating Windows to the latest version, you might consider stopping Windows Updates.  Automatic updates could potentially interfere with scheduled class time.  If your course runs longer than several months, consider asking students to manually check for updates or setting automatic updates for a time outside of scheduled class hours.  For more information about customization options for Windows Update, see the [manage additional Windows Update settings](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings).
-
-Automatic Windows Updates may be stopped by setting using the following PowerShell script.
-
-```powershell
-New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AU"
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AU"
-    -Name "NoAutoUpdate" -Value "1" -PropertyType DWORD
-```
-
-## Install foreign language packs
-
-If you need additional languages installed on the virtual machine, you can add them through the Microsoft Store.
-
-1. Launch Microsoft Store
-2. Search for “language pack”
-3. Choose language to install
-
-If you are already logged on to the template machine, use ["Install language pack" shortcut](ms-settings:regionlanguage?activationSource=SMC-IA-4027670) to go directly to the appropriate settings page.
 
 ## Install and configure OneDrive
 
@@ -108,7 +47,7 @@ Write-Host "Installing OneDrive..."
 
 ### OneDrive customizations
 
-There are many [customizations that can be performed to OneDrive](https://docs.microsoft.com/onedrive/use-group-policy). Let's cover some of the more common customization.s
+There are many [customizations that can be done to OneDrive](https://docs.microsoft.com/onedrive/use-group-policy). Let's cover some of the more common customizations.
 
 #### Silently move Windows known folders to OneDrive
 
@@ -156,7 +95,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### Silently sign in users to OneDrive
 
-OneDrive can be set to automatically sign in with the Windows credentials of the logged on user.  Automatic sign in is useful for classes where the student signs in with their Office 365 school credentials.
+OneDrive can be set to automatically sign in with the Windows credentials of the logged on user.  Automatic sign-in is useful for classes where the student signs in with their Office 365 school credentials.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -168,13 +107,13 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 This setting lets you prevent the tutorial from launching in a web browser at the end of OneDrive Setup.
 
-```powerShell
+```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive" -Force
 New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
     -Name "DisableTutorial" -Value "00000001" -PropertyType DWORD -Force
 ```
 
-### Set the maximum size of a user's OneDrive that can download automatically
+### Set the maximum size of a file that to be download automatically
 
 This setting is used in conjunction with Silently sign in users to the OneDrive sync client with their Windows credentials on devices that don't have OneDrive Files On-Demand enabled. Any user who has a OneDrive that's larger than the specified threshold (in MB) will be prompted to choose the folders they want to sync before the OneDrive sync client (OneDrive.exe) downloads the files.  In our example, "1111-2222-3333-4444" is the Office 365 tenant ID and 0005000 sets a threshold of 5 GB.
 
@@ -187,18 +126,20 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
 
 ## Install and configure Microsoft Office 365
 
+### Install Microsoft Office 365
+
 If your template machine needs Office, we recommend installation of Office through the [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). You will need to create a reusable configuration file using the [Office 365 Client Configuration Service](https://config.office.com/) to choose which architecture, what features you’ll need from Office, and how often it updates.
 
 1. Go to [Office 365 Client Configuration Service](https://config.office.com/) and download your own configuration file.
-2. Download [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117).  Download will have the file name of setup.exe.
+2. Download [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117).  Downloaded file will be `setup.exe`.
 3. Run `setup.exe /download configuration.xml` to download Office components.
 4. Run `setup.exe /configure configuration.xml` to install Office components.
 
-### Change the Microsoft Office 365 update channel to get latest features
+### Change the Microsoft Office 365 update channel
 
-Using the Office Configuration Tool, you can set how often Office updates.  However, if you need to update how often Office receives updates after installation, you can change the update channel url. Apply the url to the below PowerShell command. Update channel url addresses can be found at [change the update channel after you enable Office 365 clients to receive updates from Configuration Manager](https://docs.microsoft.com/sccm/sum/deploy-use/manage-office-365-proplus-updates#change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager). The example below shows how to set Office 365 to use the Monthly Update Channel.
+Using the Office Configuration Tool, you can set how often Office receives updates.  However, if you need to modify how often Office receives updates after installation, you can change the update channel url.  Update channel url addresses can be found at [change the update channel after you enable Office 365 clients to receive updates from Configuration Manager](https://docs.microsoft.com/sccm/sum/deploy-use/manage-office-365-proplus-updates#change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager). The example below shows how to set Office 365 to use the Monthly Update Channel.
 
-```powerShell
+```powershell
 # Update to the Office 365 Monthly Channel
 Set-ItemProperty
     -Path "HKLM:\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl"
@@ -206,11 +147,72 @@ Set-ItemProperty
     -Value "http://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60"
 ```
 
+## Install and configure Updates
+
+### Install the latest Windows Updates
+
+We recommend that you install the latest Microsoft updates on the template machine for security purposes before publishing the template VM.  It also potentially avoids students from being disrupted in their work when updates run at unexpected times.
+
+1. Launch **Settings** from the Start Menu
+2. Click on **Update** & Security
+3. Click **Check for updates**
+4. Updates will download and install.
+
+You can also use PowerShell to update the template machine.
+
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm
+Install-Module PSWindowsUpdate -Confirm
+Install-WindowsUpdate -MicrosoftUpdate
+Set-ExecutionPolicy default -Force
+```
+
+>[!NOTE]
+>Some updates may require the machine to be restarted.  You'll be prompted if a reboot is required.
+
+### Install the latest updates for Microsoft Store apps
+
+We recommend having all Microsoft Store apps be updated to their latest versions.  Here are instructions to manually update applications from the Microsoft Store.  
+
+1. Launch **Microsoft Store** application.
+2. Click the ellipse (…) next to your user photo in the top corner of the application.
+3. Select **Download** and updates from the drop-down menu.
+4. Click **Get update** button.
+
+You can also use Powershell to update Microsoft Store applications that are already installed.
+
+```powershell
+(Get-WmiObject -Namespace "root\cimv2\mdm\dmmap" -Class "MDM_EnterpriseModernAppManagement_AppManagement01").UpdateScanMethod()
+```
+
+### Stop automatic Windows Updates
+
+After updating Windows to the latest version, you might consider stopping Windows Updates.  Automatic updates could potentially interfere with scheduled class time.  If your course is a longer running one, consider asking students to manually check for updates or setting automatic updates for a time outside of scheduled class hours.  For more information about customization options for Windows Update, see the [manage additional Windows Update settings](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings).
+
+Automatic Windows Updates may be stopped using the following PowerShell script.
+
+```powershell
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AU"
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AU"
+    -Name "NoAutoUpdate" -Value "1" -PropertyType DWORD
+```
+
+## Install foreign language packs
+
+If you need additional languages installed on the virtual machine, you can add them through the Microsoft Store.
+
+1. Launch Microsoft Store
+2. Search for “language pack”
+3. Choose language to install
+
+If you are already logged on to the template VM, use ["Install language pack" shortcut](ms-settings:regionlanguage?activationSource=SMC-IA-4027670) to go directly to the appropriate settings page.
+
 ## Remove unneeded built-in apps
 
-Windows 10 comes with many built-in applications that might not be needed for your particular class. To simplify the machine image for students, you might want to uninstall some applications from your template machine.  To see a list of installed applications, use the PowerShell Get-AppxPackage cmdlet.  The example below shows all installed applications that can be removed.
+Windows 10 comes with many built-in applications that might not be needed for your particular class. To simplify the machine image for students, you might want to uninstall some applications from your template machine.  To see a list of installed applications, use the PowerShell `Get-AppxPackage` cmdlet.  The example below shows all installed applications that can be removed.
 
-```powerShell
+```powershell
 Get-AppxPackage | Where {$_.NonRemovable -eq $false} | select Name
 ```
 
@@ -222,8 +224,8 @@ Get-AppxPackage -Name *xbox* | foreach { if (-not $_.NonRemovable) { Remove-Appx
 
 ## Install common teaching-related applications
 
-Install other apps commonly used for teaching through the Windows Store app. Suggestions include applications like [Microsoft Whiteboard app](https://www.microsoft.com/store/productId/9MSPC6MP8FM4), [Microsoft Teams](https://www.microsoft.com/store/productId/9MSPC6MP8FM4), and [Minecraft Education Edition](https://education.minecraft.net/). These applications must be installed manually through the Windows Store or through their respective websites on the template machine.
+Install other apps commonly used for teaching through the Windows Store app. Suggestions include applications like [Microsoft Whiteboard app](https://www.microsoft.com/store/productId/9MSPC6MP8FM4), [Microsoft Teams](https://www.microsoft.com/store/productId/9MSPC6MP8FM4), and [Minecraft Education Edition](https://education.minecraft.net/). These applications must be installed manually through the Windows Store or through their respective websites on the template VM.
 
 ## Conclusion
 
-This article has shown you optional steps to prepare your Windows template machine for an effective class.  Steps include installing OneDrive and the latest updates for Windows, Microsoft Store apps, and Office 365.  We also discussed how to set updates to a schedule that works best for your class.  
+This article has shown you optional steps to prepare your Windows template VM for an effective class.  Steps include installing OneDrive and installing Office 365, installing the updates for Windows and installing updates for Microsoft Store apps.  We also discussed how to set updates to a schedule that works best for your class.  
