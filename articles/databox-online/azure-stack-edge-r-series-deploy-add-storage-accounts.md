@@ -153,7 +153,7 @@ Take the following steps to import the certificates on Azure Storage Explorer:
 
 ### Add device IP address and blob service endpoint
 
-Follow the same steps to [add device IP address and blob service endpoint when connecting over *http*](#add-device-ip-address-and-blob-service-endpoint-to-the-remote-client).
+Follow the same steps to [add device IP address and blob service endpoint when connecting over *http*](#add-azure-consistent-services-vip-address-and-blob-service-endpoint-to-the-remote-client).
 
 ### Configure and verify connection
 
