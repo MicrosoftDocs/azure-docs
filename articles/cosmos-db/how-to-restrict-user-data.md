@@ -49,36 +49,38 @@ The steps below create an AAD role assignment with "Key Only" access for Azure C
 
 - First, create a JSON document named AzureCosmosKeyOnlyAccess.json with the following content:
 
-    {
-        "Name": "Azure Cosmos DB Key Only Access Custom Role",
-        "Id": "00000000-0000-0000-0000-0000000000",
-        "IsCustom": true,
-        "Description": "This role restricts the user to only being able to read the account keys.",
-        "Actions":
-        [
-            "Microsoft.DocumentDB/databaseAccounts/listKeys/action"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": [],
-        "AssignableScopes":
-        [
-            "/subscriptions/$MySubscriptionId"
-        ]
-    }
+    ```
+        {
+            "Name": "Azure Cosmos DB Key Only Access Custom Role",
+            "Id": "00000000-0000-0000-0000-0000000000",
+            "IsCustom": true,
+            "Description": "This role restricts the user to only being able to read the account keys.",
+            "Actions":
+            [
+                "Microsoft.DocumentDB/databaseAccounts/listKeys/action"
+            ],
+            "NotActions": [],
+            "DataActions": [],
+            "NotDataActions": [],
+            "AssignableScopes":
+            [
+                "/subscriptions/$MySubscriptionId"
+            ]
+        }
+    ```
 
 - Run the following commands to create the Role assignment and assign it to a user named CosmosDBUser1:
 
-```azurepowershell
-New-AzRoleDefinition -InputFile "AzureCosmosKeyOnlyAccess.json"
-New-AzRoleAssignment -SignInName $MyUserName -RoleDefinitionName "Azure Cosmos DB Key Only Access Custom Role" -ResourceGroupName $MyResourceGroupName -ResourceName $MyAzureCosmosDBAccountName -ResourceType "Microsoft.DocumentDb/databaseAccounts"
-```
+    ```azurepowershell
+    New-AzRoleDefinition -InputFile "AzureCosmosKeyOnlyAccess.json"
+    New-AzRoleAssignment -SignInName $MyUserName -RoleDefinitionName "Azure Cosmos DB Key Only Access Custom Role" -ResourceGroupName $MyResourceGroupName -ResourceName $MyAzureCosmosDBAccountName -ResourceType "Microsoft.DocumentDb/databaseAccounts"
+    ```
 
 ## Remove non-data operations from being performed with key access
 
 The commands below remove the ability to:
 - use keys to create, modify or delete resources
-- remove the ability to update container settings (including indexing policies, throughput, consistency level etc.).
+- update container settings (including indexing policies, throughput, consistency level etc.).
 
 ```azurepowershell
 $cdba = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName $MyResourceGroupName -ResourceName $MyAzureCosmosDBAccountName
