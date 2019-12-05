@@ -1,10 +1,10 @@
 ---
 title: High availability in Azure Cosmos DB 
-description: This article describes how Azure Cosmos DB provides high availability
+description: This article describes how Azure Cosmos DB provides high availability by transparently replicating the data across all the regions associated with the Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 

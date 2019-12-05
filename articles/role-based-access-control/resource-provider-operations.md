@@ -1810,7 +1810,6 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Lists or gets the alerts |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Lists or gets the alerts |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/delete | Deletes the bandwidth schedules |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/operationResults/read | Lists or gets the operation result |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | Lists or gets the bandwidth schedules |
@@ -5532,14 +5531,14 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | List sensitivity labels of a given database |
 > | Action | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/write | Batch update recommended sensitivity labels |
 > | Action | Microsoft.Sql/managedInstances/databases/restoreDetails/read | Returns managed database restore details while restore is in progress. |
-> | Action | Microsoft.Sql/managedInstances/databases/schemas/read | Get a managed database schema. |
-> | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/read | Get a managed database column |
+> | Action | Microsoft.Sql/managedInstances/databases/schemas/read | Get a managed database schema. (schema only) |
+> | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/read | Get a managed database column (schema only) |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | Delete the sensitivity label of a given column |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/disable/action | Disable sensitivity recommendations on a given column |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/enable/action | Enable sensitivity recommendations on a given column |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/read | Get the sensitivity label of a given column |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | Create or update the sensitivity label of a given column |
-> | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/read | Get a managed database table |
+> | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/read | Get a managed database table (schema only) |
 > | Action | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | Retrieve a list of managed database threat detection policies configured for a given server |
 > | Action | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/write | Change the database threat detection policy for a given managed database |
 > | Action | Microsoft.Sql/managedInstances/databases/securityEvents/read | Retrieves the managed database security events |
@@ -5678,14 +5677,14 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Sql/servers/databases/restorePoints/delete | Deletes a restore point for the database. |
 > | Action | Microsoft.Sql/servers/databases/restorePoints/read | Returns restore points for the database. |
 > | Action | Microsoft.Sql/servers/databases/resume/action | Resume Azure SQL Datawarehouse Database |
-> | Action | Microsoft.Sql/servers/databases/schemas/read | Get a database schema. |
-> | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Get a database column. |
+> | Action | Microsoft.Sql/servers/databases/schemas/read | Get a database schema (schema only). |
+> | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Get a database column (schema only). |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/delete | Delete the sensitivity label of a given column |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/disable/action | Disable sensitivity recommendations on a given column |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/enable/action | Enable sensitivity recommendations on a given column |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/read | Get the sensitivity label of a given column |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/write | Create or update the sensitivity label of a given column |
-> | Action | Microsoft.Sql/servers/databases/schemas/tables/read | Get a database table. |
+> | Action | Microsoft.Sql/servers/databases/schemas/tables/read | Get a database table (schema only). |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/read | Retrieve list of index recommendations on a database |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/write | Apply index recommendation |
 > | Action | Microsoft.Sql/servers/databases/securityAlertPolicies/read | Retrieve a list of database threat detection policies configured for a given server |

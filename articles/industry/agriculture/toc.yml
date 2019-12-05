@@ -21,6 +21,8 @@
   items:
    - name: Deploy FarmBeats
      href: prepare-for-deployment.md
+   - name: Manage users
+     href: manage-users.md
    - name: Manage farms
      href: manage-farms.md
    - name: Get sensor data
