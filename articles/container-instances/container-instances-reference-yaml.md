@@ -39,7 +39,7 @@ properties: # Properties of container group
       image: string # Container image used to create the instance
       command:
       - string
-      ports: # Exposed ports on the instance
+      ports: # External ports from ipAddress configuration exposed on the instance
       - protocol: string
         port: integer
       environmentVariables:
