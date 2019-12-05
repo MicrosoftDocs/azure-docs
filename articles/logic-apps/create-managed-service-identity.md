@@ -12,7 +12,7 @@ ms.date: 12/14/2019
 
 To access resources in other Azure Active Directory (Azure AD) tenants and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets.
 
-Azure Logic Apps supports both [*system-assigned*](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work) and [*user-assigned*](../active-directory/managed-identities-azure-resources/overview.md#how-does-it-work) managed identities. Your logic app can use either the system-assigned identity or a *single* user-assigned identity, which you can share across a group of logic apps, but not both. Also, your logic app can only use managed identities with connectors that support managed identities. Currently, you can use managed identities only with specific built-in triggers and actions, not managed connectors or connections, for example:
+Azure Logic Apps supports both [*system-assigned*](../active-directory/managed-identities-azure-resources/overview.md) and [*user-assigned*](../active-directory/managed-identities-azure-resources/overview.md) managed identities. Your logic app can use either the system-assigned identity or a *single* user-assigned identity, which you can share across a group of logic apps, but not both. Also, your logic app can only use managed identities with connectors that support managed identities. Currently, you can use managed identities only with specific built-in triggers and actions, not managed connectors or connections, for example:
 
 * HTTP: The system-assigned identity *or* a user-assigned identity
 * Azure Functions: The system-assigned identity only
@@ -50,8 +50,6 @@ Unlike user-assigned identities, you don't have to manually create the system-as
 
 * [Azure portal](#azure-portal-system-logic-app)
 * [Azure Resource Manager templates](#template-system-logic-app)
-* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
-* [Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
 
 <a name="azure-portal-system-logic-app"></a>
 
@@ -129,8 +127,15 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
 * [Azure portal](#azure-portal-user-identity)
 * [Azure Resource Manager templates](#template-user-identity)
-* Azure PowerShell - [Create a user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md) and [assign access](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
-* Azure CLI - [Create a user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) and [assign access](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
+* Azure PowerShell
+  * [Create user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
+  * [Add role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
+* Azure CLI
+  * [Create user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
+  * [Add role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
+* Azure REST API
+  * [Create user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md)
+  * [Add role assignment](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-user-identity"></a>
 
@@ -188,7 +193,7 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
 #### Create user-assigned identity in an Azure Resource Manager template
 
-To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). To set up a user-assigned managed identity for your logic app by using a template, add these items to your logic app's resource definition in the template's `resources` section:
+To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), which support [user-assigned identities for authentication](../managed-identities-azure-resources/how-to-manage-ua-identity-arm.md). In your template's `resources` section, your logic app's resource definition requires these items:
 
 * An `identity` object with the `type` property set to `UserAssigned`
 
@@ -297,7 +302,21 @@ If your template also includes the managed identity's resource definition, you c
 
 ## Give identity access to resources
 
-After you set up a managed identity to use for your logic app, you can [give that identity access to other Azure resources](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). You can then use that identity for authentication.
+After you set up a managed identity that your logic app can use for authentication, set up access for that identity on the Azure resource where you want to use that identity by adding a role assignment. Here are the options that you can use:
+
+* [Azure portal](#azure-portal-assign-access)
+* [Azure Resource Manager template](../role-based-access-control/role-assignments-template.md)
+* Azure PowerShell
+  * [Assign access to an Azure resource for a managed identity](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
+  * [Add role assignment by using Azure RBAC](../role-based-access-control/role-assignments-powershell.md)
+* Azure CLI
+  * [Assign access to an Azure resource for a managed identity](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
+  * [Add role assignment by using Azure RBAC](../role-based-access-control/role-assignments-cli.md)
+* [Azure REST API](../role-based-access-control/role-assignments-rest.md)
+
+<a name="azure-portal-add-role"></a>
+
+### Assign access in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure resource where you want your managed identity to have access.
 
@@ -343,6 +362,8 @@ After you set up a managed identity to use for your logic app, you can [give tha
    The target resource's role assignments list now shows the selected managed identity and role. This example shows how you can use the system-assigned identity for one logic app and a user-assigned identity for a group of other logic apps.
 
    ![Added managed identities and roles to target resource](./media/create-managed-service-identity/added-roles-for-identities.png)
+
+   For more information, [Assign a managed identity access to a resource by using the Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
 
 1. Now follow the [steps to authenticate access with the identity](#authenticate-access-with-identity) in a trigger or action that supports managed identities.
 
@@ -436,8 +457,15 @@ To stop using a managed identity for your logic app, you have these options:
 
 * [Azure portal](#azure-portal-disable)
 * [Azure Resource Manager templates](#template-disable)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/remove-azroleassignment)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-delete)
+* Azure PowerShell
+  * [Remove role assignment](../role-based-access-control/role-assignments-powershell.md)
+  * [Delete user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
+* Azure CLI
+  * [Remove role assignment](../role-based-access-control/role-assignments-cli.md)
+  * [Delete user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
+* Azure REST API
+  * [Remove role assignment](../role-based-access-control/role-assignments-rest.md)
+  * [Delete user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md)
 
 If you delete your logic app, Azure automatically removes the managed identity from Azure AD.
 
