@@ -122,19 +122,19 @@ Along with the IoT hub, an Azure App Service web application was generated to cr
 
 1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Sign in again, if necessary, by using the same Azure account you've been using in this tutorial. Select your "Device Solution" and then **Go to your solution accelerator** to launch your deployed solution.
 
-     [![Solution accelerators dashboard](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
+   [![Solution accelerators dashboard](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
 
-1. The device simulation web app begins by prompting you to grant the web application the "Sign you in and read your profile" permission. This permission allows the application to retrieve the user profile information necessary to support the functioning of the application.
+1. The device simulation web app begins by prompting you to grant the web application the **Sign you in and read your profile** permission. This permission allows the application to retrieve the user profile information necessary to support the functioning of the application.
 
-     [![Device simulation web application consent](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
+   [![Device simulation web application consent](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
 
-1. After the **Simulation setup** page loads, enter the required parameters.
+1. Select **+ New simulation**. After the **Simulation setup** page loads, enter the required parameters.
 
    Parameter|Description
    ---|---
    **Target IoT Hub** | Select **Use pre-provisioned IoT Hub**.
    **Device model** | Select **Chiller**.
-   **Number of devices**  | Enter `1000` under **Amount**.
+   **Number of devices**  | Enter `10` under **Amount**.
    **Telemetry frequency** | Enter `10` seconds.
    **Simulation duration** | Select **End in:** and enter `5` minutes.
 
