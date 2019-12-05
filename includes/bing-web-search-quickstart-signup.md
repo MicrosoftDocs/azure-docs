@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 12/03/2019
 ---
 
-Begin using the Bing Web Search API by creating an Azure resource. Choose the resource type below that's right for you:
+Start using the Bing Web Search API by creating one of the Azure resources below.
 
 * A [trial resource](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
     * No Azure subscription needed
