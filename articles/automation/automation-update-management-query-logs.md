@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/03/2019
+ms.date: 12/05/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -51,7 +51,7 @@ A record with a type of `Update` is created that represents updates available an
 | Approved | *True* or *False* |
 | Classification | *Updates* |
 | Computer | Fully-qualified domain name of reporting machine. |
-| ComputerEnvironment | *Azure* |
+| ComputerEnvironment | *Azure* or *Non-Azure*. |
 | MSRCBulletinID | Security bulletin ID number | 
 | MSRCSeverity | Severity rating for the vulnerability. Values are:<br> *Critical*<br> *Important*<br> *Moderate*<br> *Low* |  
 | KBID | Knowledge base article ID for the Windows update. |
@@ -106,8 +106,8 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 | Property | Description | 
 |----------|-------------|
 | Computer | Fully-qualified domain name of reporting machine. |
-| ComputerEnvironment | *Azure* | 
-| CorrelationId | |
+| ComputerEnvironment | *Azure* or *Non-Azure*. | 
+| CorrelationId | Unique identifier of the runbook job run for the update. |
 | EndTime | The time when the synchronization process ended. | 
 | ErrorResult | Windows Update error code generated if an update fails to install. | 
 | InstallationStatus | The possible installation states of an update on the client computer, *In progress*, *Succeeded*, *Partially failed*. |
@@ -123,10 +123,10 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 | SourceSystem | *OperationsManager* |
 | StartTime | Time time when the update is scheduled to be installed. |
 | SubscriptionId | Unique identifier for the Azure subscription. | 
-| SucceededOnRetry | |
+| SucceededOnRetry | Shows when the update execution failed on the first attempt and the current operation is a retry attempt. |
 | TimeGenerated | Date and time that the record was created. |
 | Title | The title of the update. |
-| Type | *Update* |
+| Type | *UpdateRunProgress* |
 | UpdateId | Unique identifier of the software update. |
 | VMUUID | Unique identifier for the virtual machine. |
 | _ResourceId | Unique identifier for the resource that the record is associated with. |
@@ -138,7 +138,7 @@ A record with a type of `UpdateSummary` is created that provides update summary 
 | Property | Description | 
 |----------|-------------|
 | Computer | Fully-qualified domain name of reporting machine. |
-| ComputerEnvironment | *Azure* | 
+| ComputerEnvironment | *Azure* or *Non-Azure*. | 
 | CriticalUpdatesMissing | Number of critical updates missing that are applicable. | 
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
 | NETRuntimeVersion | Version of .NET Framework installed on the Windows computer. |
