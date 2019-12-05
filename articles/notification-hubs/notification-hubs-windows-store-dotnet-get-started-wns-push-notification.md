@@ -88,10 +88,12 @@ Your notification hub is now configured to work with WNS. You have the connectio
 
     1. In the search box at the top, type **Windows Universal**.
     2. In the search results, select **Blank App (Universal Windows)**, and then select **Next**.
+
+       ![New Project dialog](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
+
     3. In the **Configure your new project** dialog, enter a **Project name**, and a **Location** for the project files.
     4. Select **Create**.
 
-        ![New Project dialog](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
 3. Accept the defaults for the **target** and **minimum** platform versions, and select **OK**.
 4. In Solution Explorer, right-click the Windows Store app project, select **Publish**, and then select **Associate App with the Store**. The **Associate Your App with the Windows Store** wizard appears.
 5. In the wizard, sign in with your Microsoft account.
