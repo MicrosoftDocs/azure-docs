@@ -1,6 +1,6 @@
 ---
-title: Monitor Kubernetes cluster performance with Azure Monitor for containers | Microsoft Docs
-description: This article describes how you can view and analyze the performance and log data with Azure Monitor for containers.
+title: Kubernetes monitoring with Azure Monitor for containers | Microsoft Docs
+description: This article describes how you can view and analyze the performance of a Kubernetes cluster with Azure Monitor for containers.
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
