@@ -26,7 +26,7 @@ You cannot use `MoreLikeThis` on searchable sub-fields in a [complex type](searc
 
 ## Examples
 
-All examples below use [hotels sample from Quickstart](search-get-started-portal.md).
+All examples below use the [hotels sample from Quickstart](search-get-started-portal.md).
 
 ### Simple Query
 
