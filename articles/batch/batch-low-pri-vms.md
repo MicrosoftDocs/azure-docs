@@ -33,7 +33,7 @@ Low-priority VMs are offered at a significantly reduced price compared with dedi
 >
 > Spot VMs will not be supported for [Cloud Service Configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) pools after November 30, 2020. To use Spot VMs, Cloud Service pools will need to be migrated to [Virtual Machine Configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
 >
-> [More information is available below](#Migrating-to-Spot-VMs) about the migration from low-priority VMs to spot VMs.
+> See [Migrating to Spot VMs](#migrating-to-spot-vms) to learn more about migrating from low-priority VMs to Spot VMs.
 
 ## Use cases for low-priority VMs
 
