@@ -1,5 +1,6 @@
 ---
-title: Azure Quickstart - Create a blob in object storage with the Azure portal | Microsoft Docs
+title: Quickstart - Create a blob with the Azure portal
+titleSuffix: Azure Storage
 description: In this quickstart, you use the Azure portal in object (Blob) storage. Then you use the Azure portal to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
@@ -7,7 +8,7 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 12/04/2019
 ms.author: tamram
 ---
 
