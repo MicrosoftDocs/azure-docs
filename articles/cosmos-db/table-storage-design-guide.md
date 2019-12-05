@@ -800,9 +800,9 @@ Consider the following points when deciding how to implement this pattern:
 Use this pattern when you have a high volume of entities that you must delete at the same time.  
 
 #### Related patterns and guidance
-The following patterns and guidance may also be relevant when implementing this pattern:  
+The following patterns and guidance might also be relevant when implementing this pattern:  
 
-* [Entity Group Transactions](#entity-group-transactions)
+* [Entity group transactions](#entity-group-transactions)
 * [Modifying entities](#modifying-entities)  
 
 ### Data series pattern
@@ -811,82 +811,82 @@ Store complete data series in a single entity to minimize the number of requests
 #### Context and problem
 A common scenario is for an application to store a series of data that it typically needs to retrieve all at once. For example, your application might record how many IM messages each employee sends every hour, and then use this information to plot how many messages each user sent over the preceding 24 hours. One design might be to store 24 entities for each employee:  
 
-![Message stats entity][22]
+![Graphic of message stats entity][22]
 
 With this design, you can easily locate and update the entity to update for each employee whenever the application needs to update the message count value. However, to retrieve the information to plot a chart of the activity for the preceding 24 hours, you must retrieve 24 entities.  
 
 #### Solution
-Use the following design with a separate property to store the message count for each hour:  
+Use the following design, with a separate property to store the message count for each hour:  
 
-![Message stats entity with separated properties][23]
+![Graphic showing message stats entity with separated properties][23]
 
-With this design, you can use a merge operation to update the message count for an employee for a specific hour. Now, you can retrieve all the information you need to plot the chart using a request for a single entity.  
+With this design, you can use a merge operation to update the message count for an employee for a specific hour. Now, you can retrieve all the information you need to plot the chart by using a request for a single entity.  
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
 
-* If your complete data series does not fit into a single entity (an entity can have up to 252 properties), use an alternative data store such as a blob.  
-* If you have multiple clients updating an entity simultaneously, you will need to use the **ETag** to implement optimistic concurrency. If you have many clients, you may experience high contention.  
+* If your complete data series doesn't fit into a single entity (an entity can have up to 252 properties), use an alternative data store such as a blob.  
+* If you have multiple clients updating an entity simultaneously, use the **ETag** to implement optimistic concurrency. If you have many clients, you might experience high contention.  
 
 #### When to use this pattern
 Use this pattern when you need to update and retrieve a data series associated with an individual entity.  
 
 #### Related patterns and guidance
-The following patterns and guidance may also be relevant when implementing this pattern:  
+The following patterns and guidance might also be relevant when implementing this pattern:  
 
 * [Large entities pattern](#large-entities-pattern)  
 * [Merge or replace](#merge-or-replace)  
-* [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern) (if you are storing the data series in a blob)  
+* [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern) (if you're storing the data series in a blob)  
 
 ### Wide entities pattern
-Use multiple physical entities to store logical entities with more than 252 properties.  
+Use multiple physical entities to store logical entities with greater than 252 properties.  
 
 #### Context and problem
-An individual entity can have no more than 252 properties (excluding the mandatory system properties) and cannot store more than 1 MB of data in total. In a relational database, you would typically get round any limits on the size of a row by adding a new table and enforcing a 1-to-1 relationship between them.  
+An individual entity can have no more than 252 properties (excluding the mandatory system properties), and can't store more than 1 MB of data in total. In a relational database, you would typically work around any limits on the size of a row by adding a new table, and enforcing a 1-to-1 relationship between them.  
 
 #### Solution
-Using the Table service, you can store multiple entities to represent a single large business object with more than 252 properties. For example, if you want to store a count of the number of IM messages sent by each employee for the last 365 days, you could use the following design that uses two entities with different schemas:  
+By using Table storage, you can store multiple entities to represent a single large business object with greater than 252 properties. For example, if you want to store a count of the number of IM messages sent by each employee for the last 365 days, you can use the following design that uses two entities with different schemas:  
 
-![Message stats entity with Rowkey 01 and Message state entity with Rowkey 02][24]
+![Graphic showing message stats entity with Rowkey 01 and message stats entity with Rowkey 02][24]
 
-If you need to make a change that requires updating both entities to keep them synchronized with each other, you can use an EGT. Otherwise, you can use a single merge operation to update the message count for a specific day. To retrieve all the data for an individual employee you must retrieve both entities, which you can do with two efficient requests that use both a **PartitionKey** and a **RowKey** value.  
+If you need to make a change that requires updating both entities to keep them synchronized with each other, you can use an EGT. Otherwise, you can use a single merge operation to update the message count for a specific day. To retrieve all the data for an individual employee, you must retrieve both entities. You can do this with two efficient requests that use both a `PartitionKey` and a `RowKey` value.  
 
 #### Issues and considerations
-Consider the following points when deciding how to implement this pattern:  
+Consider the following point when deciding how to implement this pattern:  
 
 * Retrieving a complete logical entity involves at least two storage transactions: one to retrieve each physical entity.  
 
 #### When to use this pattern
-Use this pattern when  need to store entities whose size or number of properties exceeds the limits for an individual entity in the Table service.  
+Use this pattern when you need to store entities whose size or number of properties exceeds the limits for an individual entity in Table storage.  
 
 #### Related patterns and guidance
-The following patterns and guidance may also be relevant when implementing this pattern:  
+The following patterns and guidance might also be relevant when implementing this pattern:  
 
-* [Entity Group Transactions](#entity-group-transactions)
+* [Entity group transactions](#entity-group-transactions)
 * [Merge or replace](#merge-or-replace)
 
 ### Large entities pattern
-Use blob storage to store large property values.  
+Use Blob storage to store large property values.  
 
 #### Context and problem
-An individual entity cannot store more than 1 MB of data in total. If one or several of your properties store values that cause the total size of your entity to exceed this value, you cannot store the entire entity in the Table service.  
+An individual entity can't store more than 1 MB of data in total. If one or several of your properties store values that cause the total size of your entity to exceed this value, you can't store the entire entity in Table storage.  
 
 #### Solution
-If your entity exceeds 1 MB in size because one or more properties contain a large amount of data, you can store data in the Blob service and then store the address of the blob in a property in the entity. For example, you can store the photo of an employee in blob storage and store a link to the photo in the **Photo** property of your employee entity:  
+If your entity exceeds 1 MB in size because one or more properties contain a large amount of data, you can store data in Blob storage, and then store the address of the blob in a property in the entity. For example, you can store the photo of an employee in Blob storage, and store a link to the photo in the `Photo` property of your employee entity:  
 
-![Employee entity with string for Photo pointing to blob storage][25]
+![Graphic showing employee entity with string for Photo pointing to Blob storage][25]
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
 
-* To maintain eventual consistency between the entity in the Table service and the data in the Blob service, use the [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern) to maintain your entities.
+* To maintain eventual consistency between the entity in Table storage and the data in Blob storage, use the [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern) to maintain your entities.
 * Retrieving a complete entity involves at least two storage transactions: one to retrieve the entity and one to retrieve the blob data.  
 
 #### When to use this pattern
-Use this pattern when you need to store entities whose size exceeds the limits for an individual entity in the Table service.  
+Use this pattern when you need to store entities whose size exceeds the limits for an individual entity in Table storage.  
 
 #### Related patterns and guidance
-The following patterns and guidance may also be relevant when implementing this pattern:  
+The following patterns and guidance might also be relevant when implementing this pattern:  
 
 * [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern)  
 * [Wide entities pattern](#wide-entities-pattern)
@@ -894,80 +894,80 @@ The following patterns and guidance may also be relevant when implementing this 
 <a name="prepend-append-anti-pattern"></a>
 
 ### Prepend/append anti-pattern
-Increase scalability when you have a high volume of inserts by spreading the inserts across multiple partitions.  
+When you have a high volume of inserts, increase scalability by spreading the inserts across multiple partitions.  
 
 #### Context and problem
-Prepending or appending entities to your stored entities typically results in the application adding new entities to the first or last partition of a sequence of partitions. In this case, all of the inserts at any given time are taking place in the same partition, creating a hotspot that prevents the table service from load-balancing inserts across multiple nodes, and possibly causing your application to hit the scalability targets for partition. For example, if you have an application that logs network and resource access by employees, then an entity structure as shown below could result in the current hour's partition becoming a hotspot if the volume of transactions reaches the scalability target for an individual partition:  
+Prepending or appending entities to your stored entities typically results in the application adding new entities to the first or last partition of a sequence of partitions. In this case, all of the inserts at any particular time are taking place in the same partition, creating a hotspot. This prevents Table storage from load-balancing inserts across multiple nodes, and possibly causes your application to hit the scalability targets for partition. For example, consider the case of an application that logs network and resource access by employees. An entity structure such as the following can result in the current hour's partition becoming a hotspot, if the volume of transactions reaches the scalability target for an individual partition:  
 
-![Employee entity][26]
+![Graphic of employee entity][26]
 
 #### Solution
-The following alternative entity structure avoids a hotspot on any particular partition as the application logs events:  
+The following alternative entity structure avoids a hotspot on any particular partition, as the application logs events:  
 
-![Employee entity with RowKey compounding the Year, Month, Day, Hour, and Event ID][27]
+![Graphic showing employee entity with RowKey compounding the Year, Month, Day, Hour, and Event ID][27]
 
-Notice with this example how both the **PartitionKey** and **RowKey** are compound keys. The **PartitionKey** uses both the department and employee id to distribute the logging across multiple partitions.  
+Notice with this example how both the `PartitionKey` and `RowKey` are compound keys. The `PartitionKey` uses both the department and employee ID to distribute the logging across multiple partitions.  
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
 
 * Does the alternative key structure that avoids creating hot partitions on inserts efficiently support the queries your client application makes?  
-* Does your anticipated volume of transactions mean that you are likely to reach the scalability targets for an individual partition and be throttled by the storage service?  
+* Does your anticipated volume of transactions mean that you're likely to reach the scalability targets for an individual partition, and be throttled by the storage service?  
 
 #### When to use this pattern
 Avoid the prepend/append anti-pattern when your volume of transactions is likely to result in rate limiting by the storage service when you access a hot partition.  
 
 #### Related patterns and guidance
-The following patterns and guidance may also be relevant when implementing this pattern:  
+The following patterns and guidance might also be relevant when implementing this pattern:  
 
 * [Compound key pattern](#compound-key-pattern)  
 * [Log tail pattern](#log-tail-pattern)  
 * [Modifying entities](#modifying-entities)  
 
 ### Log data anti-pattern
-Typically, you should use the Blob service instead of the Table service to store log data.  
+Typically, you should use Blob storage instead of Table storage to store log data.  
 
 #### Context and problem
-A common use case for log data is to retrieve a selection of log entries for a specific date/time range: for example, you want to find all the error and critical messages that your application logged between 15:04 and 15:06 on a specific date. You do not want to use the date and time of the log message to determine the partition you save log entities to: that results in a hot partition because at any given time, all the log entities will share the same **PartitionKey** value (see the section [Prepend/append anti-pattern](#prepend-append-anti-pattern)). For example, the following entity schema for a log message results in a hot partition because the application writes all log messages to the partition for the current date and hour:  
+A common use case for log data is to retrieve a selection of log entries for a specific date/time range. For example, you want to find all the error and critical messages that your application logged between 15:04 and 15:06 on a specific date. You don't want to use the date and time of the log message to determine the partition you save log entities to. That results in a hot partition because at any particular time, all the log entities will share the same `PartitionKey` value (see the [Prepend/append anti-pattern](#prepend-append-anti-pattern)). For example, the following entity schema for a log message results in a hot partition, because the application writes all log messages to the partition for the current date and hour:  
 
-![Log message entity][28]
+![Graphic of log message entity][28]
 
-In this example, the **RowKey** includes the date and time of the log message to ensure that log messages are stored sorted in date/time order, and includes a message id in case multiple log messages share the same date and time.  
+In this example, the `RowKey` includes the date and time of the log message to ensure that log messages are sorted in date/time order. The `RowKey` also includes a message ID, in case multiple log messages share the same date and time.  
 
-Another approach is to use a **PartitionKey** that ensures that the application writes messages across a range of partitions. For example, if the source of the log message provides a way to distribute messages across many partitions, you could use the following entity schema:  
+Another approach is to use a `PartitionKey` that ensures that the application writes messages across a range of partitions. For example, if the source of the log message provides a way to distribute messages across many partitions, you can use the following entity schema:  
 
-![Log message entity][29]
+![Graphic of log message entity][29]
 
-However, the problem with this schema is that to retrieve all the log messages for a specific time span you must search every partition in the table.
+However, the problem with this schema is that to retrieve all the log messages for a specific time span, you must search every partition in the table.
 
 #### Solution
-The previous section highlighted the problem of trying to use the Table service to store log entries and suggested two, unsatisfactory, designs. One solution led to a hot partition with the risk of poor performance writing log messages; the other solution resulted in poor query performance because of the requirement to scan every partition in the table to retrieve log messages for a specific time span. Blob storage offers a better solution for this type of scenario and this is how Azure Storage Analytics stores the log data it collects.  
+The previous section highlighted the problem of trying to use Table storage to store log entries, and suggested two unsatisfactory designs. One solution led to a hot partition with the risk of poor performance writing log messages. The other solution resulted in poor query performance, because of the requirement to scan every partition in the table to retrieve log messages for a specific time span. Blob storage offers a better solution for this type of scenario, and this is how Azure Storage analytics stores the log data it collects.  
 
-This section outlines how Storage Analytics stores log data in blob storage as an illustration of this approach to storing data that you typically query by range.  
+This section outlines how Storage analytics stores log data in Blob storage, as an illustration of this approach to storing data that you typically query by range.  
 
-Storage Analytics stores log messages in a delimited format in multiple blobs. The delimited format makes it easy for a client application to parse the data in the log message.  
+Storage analytics stores log messages in a delimited format in multiple blobs. The delimited format makes it easy for a client application to parse the data in the log message.  
 
-Storage Analytics uses a naming convention for blobs that enables you to locate the blob (or blobs) that contain the log messages for which you are searching. For example, a blob named "queue/2014/07/31/1800/000001.log" contains log messages that relate to the queue service for the hour starting at 18:00 on 31 July 2014. The "000001" indicates that this is the first log file for this period. Storage Analytics also records the timestamps of the first and last log messages stored in the file as part of the blob's metadata. The API for blob storage enables you locate blobs in a container based on a name prefix: to locate all the blobs that contain queue log data for the hour starting at 18:00, you can use the prefix "queue/2014/07/31/1800."  
+Storage analytics uses a naming convention for blobs that enables you to locate the blob (or blobs) that contain the log messages for which you are searching. For example, a blob named "queue/2014/07/31/1800/000001.log" contains log messages that relate to the queue service for the hour starting at 18:00 on July 31, 2014. The "000001" indicates that this is the first log file for this period. Storage analytics also records the timestamps of the first and last log messages stored in the file, as part of the blob's metadata. The API for Blob storage enables you locate blobs in a container based on a name prefix. To locate all the blobs that contain queue log data for the hour starting at 18:00, you can use the prefix "queue/2014/07/31/1800".  
 
-Storage Analytics buffers log messages internally and then periodically update the appropriate blob or creates a new one with the latest batch of log entries. This reduces the number of writes it must perform to the blob service.  
+Storage analytics buffers log messages internally, and then periodically updates the appropriate blob or creates a new one with the latest batch of log entries. This reduces the number of writes it must perform to Blob storage.  
 
-If you are implementing a similar solution in your own application, you must consider how to manage the trade-off between reliability (writing every log entry to blob storage as it happens) and cost and scalability (buffering updates in your application and writing them to blob storage in batches).  
+If you're implementing a similar solution in your own application, consider how to manage the trade-off between reliability and cost and scalability. In other words, evaluate the effect of writing every log entry to Blob storage as it happens, compared to buffering updates in your application and writing them to Blob storage in batches.  
 
 #### Issues and considerations
 Consider the following points when deciding how to store log data:  
 
-* If you create a table design that avoids potential hot partitions, you may find that you cannot access your log data efficiently.  
+* If you create a table design that avoids potential hot partitions, you might find that you can't access your log data efficiently.  
 * To process log data, a client often needs to load many records.  
-* Although log data is often structured, blob storage may be a better solution.  
+* Although log data is often structured, Blob storage may be a better solution.  
 
 ### Implementation considerations
 This section discusses some of the considerations to bear in mind when you implement the patterns described in the previous sections. Most of this section uses examples written in C# that use the Storage Client Library (version 4.3.0 at the time of writing).  
 
-### Retrieving entities
-As discussed in the section [Design for querying](#design-for-querying), the most efficient query is a point query. However, in some scenarios you may need to retrieve multiple entities. This section describes some common approaches to retrieving entities using the Storage Client Library.  
+### Retrieve entities
+As discussed in the section [Design for querying](#design-for-querying), the most efficient query is a point query. However, in some scenarios you might need to retrieve multiple entities. This section describes some common approaches to retrieving entities by using the Storage Client Library.  
 
-#### Executing a point query using the Storage Client Library
-The easiest way to execute a point query is to use the **Retrieve** table operation as shown in the following C# code snippet that retrieves an entity with a **PartitionKey** of value "Sales" and a **RowKey** of value "212":  
+#### Run a point query by using the Storage Client Library
+The easiest way to run a point query is to use the **Retrieve** table operation. As shown in the following C# code snippet, this operation retrieves an entity with a `PartitionKey` of value "Sales", and a `RowKey` of value "212":  
 
 ```csharp
 TableOperation retrieveOperation = TableOperation.Retrieve<EmployeeEntity>("Sales", "212");
@@ -979,10 +979,10 @@ if (retrieveResult.Result != null)
 }  
 ```
 
-Notice how this example expects the entity it retrieves to be of type **EmployeeEntity**.  
+Notice how this example expects the entity it retrieves to be of type `EmployeeEntity`.  
 
-#### Retrieving multiple entities using LINQ
-You can retrieve multiple entities by using LINQ with Storage Client Library and specifying a query with a **where** clause. To avoid a table scan, you should always include the **PartitionKey** value in the where clause, and if possible the **RowKey** value to avoid table and partition scans. The table service supports a limited set of comparison operators (greater than, greater than or equal, less than, less than or equal, equal, and not equal) to use in the where clause. The following C# code snippet finds all the employees whose last name starts with "B" (assuming that the **RowKey** stores the last name) in the sales department (assuming the **PartitionKey** stores the department name):  
+#### Retrieve multiple entities by using LINQ
+You can retrieve multiple entities by using LINQ with Storage Client Library, and specifying a query with a **where** clause. To avoid a table scan, you should always include the `PartitionKey` value in the where clause, and if possible the `RowKey` value to avoid table and partition scans. Table storage supports a limited set of comparison operators (greater than, greater than or equal, less than, less than or equal, equal, and not equal) to use in the where clause. The following C# code snippet finds all the employees whose last name starts with "B" (assuming that the `RowKey` stores the last name) in the Sales department (assuming the `PartitionKey` stores the department name):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();
@@ -994,9 +994,9 @@ var query = (from employee in employeeQuery
 var employees = query.Execute();  
 ```
 
-Notice how the query specifies both a **RowKey** and a **PartitionKey** to ensure better performance.  
+Notice how the query specifies both a `RowKey` and a `PartitionKey` to ensure better performance.  
 
-The following code sample shows equivalent functionality using the fluent API (for more information about fluent APIs in general, see [Best Practices for Designing a Fluent API](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+The following code sample shows equivalent functionality by using the fluent API (for more information about fluent APIs in general, see [Best practices for designing a fluent API](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(
@@ -1016,11 +1016,11 @@ var employees = employeeTable.ExecuteQuery(employeeQuery);
 ```
 
 > [!NOTE]
-> The sample nests multiple **CombineFilters** methods to include the three filter conditions.  
+> The sample nests multiple `CombineFilters` methods to include the three filter conditions.  
 > 
 > 
 
-#### Retrieving large numbers of entities from a query
+#### Retrieve large numbers of entities from a query
 An optimal query returns an individual entity based on a **PartitionKey** value and a **RowKey** value. However, in some scenarios you may have a requirement to return many entities from the same partition or even from many partitions.  
 
 You should always fully test the performance of your application in such scenarios.  
