@@ -9,7 +9,7 @@ localization_priority: Priority
 
 Microsoft AppSource provides a convenient location for you to upload new Office Web Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps that provide solutions for both consumers and businesses. When you add your solution to AppSource, you also make it available in the Office Store within Office. To include your solution in AppSource and within Office, you submit it to the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). You need to create an individual or company account and, if applicable, add payout information. For details, see:
 
-- [Register as an app developer](https://developer.microsoft.com/store/register). After you create your account, it goes through an approval process.
+- [Register as an app developer](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/office). After you create your account, it goes through an approval process.
 - [Use the Seller Dashboard to submit your solution to AppSource and within Office](use-the-seller-dashboard-to-submit-to-the-office-store.md).
 
 >[!IMPORTANT]
