@@ -8,7 +8,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 12/04/2019
 ---
 
 # Tutorial: Train and deploy a model from the CLI
@@ -40,7 +40,7 @@ Learn how to take the following actions:
 
 ## Download the example project
 
-For this tutorial, download the [https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps) project. The files in the `model-training` and `model-deployment` directories are used by the steps in this tutorial.
+For this tutorial, download the [https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps) project. The files in the `examples/cli-train-deploy` directory are used by the steps in this tutorial.
 
 To get a local copy of the files, either [download a .zip archive](https://github.com/microsoft/MLOps/archive/master.zip), or use the following Git command to clone the repository:
 
@@ -50,12 +50,11 @@ git clone https://github.com/microsoft/MLOps.git
 
 ### Training files
 
-The repository contains the following files, which are used when training a model:
+The `examples/cli-train-delpoy` directory from the project contains the following files, which are used when training a model:
 
 * `.azureml\mnist.runconfig`: A __run configuration__ file. This file defines the runtime environment needed to train the model. In this example, it also mounts the data used to train the model into the training environment.
 * `scripts\train.py`: The training script. This file trains the model.
 * `scripts\utils.py`: A helper file used by the training script.
-* `mylib.py`: A helper module, used by `train-sklearn.py`.
 * `.azureml\conda_dependencies.yml`: Defines the software dependencies needed to run the training script.
 * `dataset.json`: The dataset definition. Used to register the MNIST dataset in the Azure Machine Learning workspace.
 
@@ -157,10 +156,10 @@ The output of this command is similar to the following JSON:
 
 ## Connect local project to workspace
 
-From a terminal or command prompt, use the following commands change directories to the `mlops` directory, then connect to your workspace:
+From a terminal or command prompt, use the following commands change directories to the `cli-train-deploy` directory, then connect to your workspace:
 
 ```azurecli-interactive
-cd ~/mlops
+cd ~/MLOps/examples/cli-train-deploy
 az ml folder attach -w <workspace-name> -g <resource-group-name>
 ```
 
@@ -169,7 +168,7 @@ The output of this command is similar to the following JSON:
 ```json
 {
   "Experiment name": "model-training",
-  "Project path": "/Code/MLOps/model-training",
+  "Project path": "/home/user/MLOps/examples/cli-train-deploy",
   "Resource group": "<resource-group-name>",
   "Subscription id": "<subscription-id>",
   "Workspace name": "<workspace-name>"
@@ -200,7 +199,7 @@ The output of this command is similar to the following JSON:
 This command creates a new compute target named `cpu`, with a maximum of four nodes. The VM size selected provides a VM with a GPU resource. For information on the VM size, see [VM types and sizes].
 
 > [!IMPORTANT]
-> The name of the compute target (`cpu` in this case), is important; it is referenced by the `.azureml/sklearn.runconfig` file used in the next section.
+> The name of the compute target (`cpu` in this case), is important; it is referenced by the `.azureml/mnist.runconfig` file used in the next section.
 
 ## Define the dataset
 
