@@ -37,7 +37,7 @@ In this example, the tenant contains a security group called **HR Department**. 
 
 1. Under **All products**, select both Office 365 Enterprise E5 and Enterprise Mobility + Security E3 by selecting the product names. To start the assignment, select **Assign** at the top of the page.
 
-   ![Select products to assign licenses](./media/licensing-groups-assign/all-products-assign.png)
+   ![Select products to assign licenses](./media/licensing-groups-assign/licenses-all-products-assign.png)
   
 1. On the **Assign license** page, select **Users and groups** to open a list of users and groups.
 
