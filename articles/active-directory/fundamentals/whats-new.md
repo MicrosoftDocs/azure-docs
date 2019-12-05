@@ -60,18 +60,6 @@ For more information about how to set up SAP SuccessFactors inbound provisioning
 
 ---
 
-### Redesign of the Azure AD Overview screen on the Azure Portal
-
-**Type:** Changed feature  
-**Service category:** Other  
-**Product capability:** Identity Lifecycle Management
-
-We've redesigned and reorganized the Azure AD **Overview** screen. As part of this redesign, the What's New section of the **Overview** page now appears on a **What's New** tab. Additionally, you'll notice that some components have been rearranged and that there's now a **Copy** option to copy your Tenant ID.
-
-For more information about this redesign, see ...
-
----
-
 ## November 2019
 
 ### Support for the SameSite Attribute and Chrome 80
@@ -91,6 +79,82 @@ As part of this change, app developers must:
 - Add an additional `SameSite` attribute of **Secure**.
 
 For more information, see [Upcoming SameSite Cookie Changes in ASP.NET and ASP.NET Core](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/) and [Potential disruption to customer websites and Microsoft products and services in Chrome version 79 and later](https://support.microsoft.com/help/4522904/potential-disruption-to-microsoft-services-in-chrome-beta-version-79).
+
+---
+
+### New AD FS app activity report to help migrate apps to Azure AD (Public Preview)
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** SSO
+
+Use the new Active Directory Federation Services (AD FS) app activity report, in the Azure portal, to identify which of your apps are capable of being migrated to Azure AD. The report assesses all AD FS apps for compatibility with Azure AD, checks for any issues, and gives guidance about preparing individual apps for migration.
+
+For more information, see [Use the AD FS application activity report to migrate applications to Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-application-activity).
+
+---
+
+### New workflow for users to request administrator consent (Public Preview)
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** Access Control
+
+The new admin consent workflow gives admins a way to grant access to apps that require admin approval. If a user tries to access an app, but is unable to provide consent, they can now send a request for admin approval. The request is sent by email, and placed in a queue that's accessible from the Azure portal, to all the admins who have been designated as reviewers. After a reviewer takes action on a pending request, the requesting users are notified of the action.
+
+For more information, see [Configure the admin consent workflow (preview)](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow).
+
+---
+
+### New Azure AD App Registrations Token configuration experience for managing optional claims (Public Preview)
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Developer Experience
+
+The new **Azure AD App Registrations Token configuration** blade on the Azure portal now shows app developers a dynamic list of optional claims for their apps. This new experience helps to streamline Azure AD app migrations and to minimize optional claims misconfigurations.
+
+For more information, see [Provide optional claims to your Azure AD app](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims).
+
+---
+
+### New two-stage approval workflow in Azure AD entitlement management (Public Preview)
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Entitlement Management
+
+We've introduced a new two-stage approval workflow that allows you to require two approvers to approve a user's request to an access package. For example, you can set it so the requesting user's manager must first approve, and then you can also require a resource owner to approve. If one of the approvers doesn't approve, access isn't granted.
+
+For more information, see [Change request and approval settings for an access package in Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-request-policy).
+
+---
+
+### Google social ID support for Azure AD B2B collaboration (General Availability)
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** User Authentication
+
+New support for using Google social IDs (Gmail accounts) in Azure AD helps to make collaboration simpler for your users and partners. There's no longer a need for your partners to create and manage a new Microsoft-specific account. Microsoft Teams now fully supports Google users on all clients and across the common and tenant-related authentication endpoints.
+
+For more information, see [Add Google as an identity provider for B2B guest users](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
+
+---
+
+### Microsoft Edge Mobile Support for Conditional Access and Single Sign-on (General Availability)
+
+**Type:** New feature  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+
+Azure AD for Microsoft Edge on iOS and Android now supports Azure AD Single Sign-On and Conditional Access:
+
+- **Microsoft Edge single sign-on (SSO):** Single sign-on is now available across native clients (such as Microsoft Outlook and Microsoft Edge) for all Azure AD -connected apps.
+
+- **Microsoft Edge conditional access:** Through application-based conditional access policies, your users must use Microsoft Intune-protected browsers, such as Microsoft Edge.
+
+For more information about conditional access and SSO with Microsoft Edge, see the [Microsoft Edge Mobile Support for Conditional Access and Single Sign-on Now Generally Available](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Microsoft-Edge-Mobile-Support-for-Conditional-Access-and-Single/ba-p/988179) blog post. For more information about how to set up your client apps using app-based or device-based conditional access, see [Manage web access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/apps/app-configuration-managed-browser).
 
 ---
 
@@ -122,199 +186,53 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### Microsoft Edge Mobile Support for Conditional Access and Single Sign-on (General Availability)
-
-**Type:** New feature  
-**Service category:** Conditional Access  
-**Product capability:** Identity Security & Protection
-
-Azure AD for Microsoft Edge on iOS and Android now supports Azure AD Single Sign-On and Conditional Access.
-
-- **Microsoft Edge single sign-on (SSO):** Single sign-on is now available across native clients (such as Microsoft Outlook and Microsoft Edge) for all Azure AD -connected apps.
-
-- **Microsoft Edge conditional access:** Through application-based conditional access policies, your users must use Microsoft Intune-protected browsers, such as Microsoft Edge.
-
-For more information about conditional access and SSO with Microsoft Edge, see the [Microsoft Edge Mobile Support for Conditional Access and Single Sign-on Now Generally Available](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Microsoft-Edge-Mobile-Support-for-Conditional-Access-and-Single/ba-p/988179) blog post. For more information about how to set up your client apps using app-based or device-based conditional access, see [Manage web access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/apps/app-configuration-managed-browser).
-
----
- 
-
-[588861](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=588861&triage=true&fullScreen=false&_a=edit)
-
-### New capability to help you migrate applications from AD FS to Azure AD
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** SSO
- 
-
-The AD FS application activity report (preview) in the Azure portal lets you quickly identify which of your applications are capable of being migrated to Azure AD. It assesses all AD FS applications for compatibility with Azure AD, checks for any issues, and gives guidance on preparing individual applications for migration. With the AD FS application activity report, you can:
-
-For more information, see Use the AD FS application activity report to migrate applications to Azure AD.
- 
-
----
- 
-
-[590325](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=590325&triage=true&fullScreen=false&_a=edit)
-
-### New workflow for users to request administrator consent
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** Access Control
- 
-
-The admin consent workflow gives administrators a secure way to grant access to applications that require admin approval. When a user tries to access an application but is unable to provide consent, they can send a request for admin approval. The request is placed in a queue of pending requests (accessible in the Azure portal), and admins are notified by email. When a reviewer takes action on a pending request, the requesting users are notified of the action.
-
-To learn more about how to use the workflow to securely empower your end-users to request access the applications they need, see Configure the admin consent workflow
- 
-
----
- 
-
-[669969](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=669969&triage=true&fullScreen=false&_a=edit)
-
-### Sign-in with Google social IDs is now Generally Available for Azure AD B2B Collaboration
-
-**Type:** New feature  
-**Service category:** B2B  
-**Product capability:** 
- 
-
-Azure AD’s support for Google social IDs makes collaboration even more seamless, enabling your partners to securely use their existing Google identities to collaborate with you. No need for them to create and manage a new account! Microsoft Teams now fully supports Google users on all clients and across the common and tenanted authentication endpoints.
- 
-
----
- 
-
-[709644](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=709644&triage=true&fullScreen=false&_a=edit)
-
-### Preview of two-stage approval workflow in entitlement management
+### New Azure AD entitlement management for Azure AD Premium P2 licenses
 
 **Type:** New feature  
 **Service category:** Other  
 **Product capability:** Entitlement Management
- 
 
-When defining an access package policy in entitlement management, you can configure two stages of approval.  For example, that a requesting user's manaager must first approve, followed by a resource owner must also approve.
+Azure AD entitlement management is a new identity governance feature for customers with Azure AD Premium P2 licenses, which helps organizations manage identity and access lifecycle at scale. This new feature helps by automating access request workflows, access assignments, reviews, and expiration.
 
- 
+Azure AD entitlement management can help you more efficiently manage access to groups, apps, and SharePoint Online sites for internal users, and also for users outside your organization who need access to those resources.
 
----
- 
-
-[740586](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=740586&triage=true&fullScreen=false&_a=edit)
-
-### Public Preview: App Registrations Token Configuration experience for managing optional claims
-
-**Type:** New feature  
-**Service category:** Other  
-**Product capability:** Developer Experience
- 
-
-Applications developers need an easy way to configure optional claims so that their Azure AD apps receive ID and access tokens containing the expected claims. 
-
-The new Azure AD App Registrations Token configuration blade surfaces a dynamic list of optional claims in Azure Portal. This experiences streamlines Azure AD app migrations and minimizes optional claims misconfigurations.
- 
+For more information, see [What is Azure AD entitlement management?](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview#license-requirements)
 
 ---
- 
 
-[791363](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=791363&triage=true&fullScreen=false&_a=edit)
+### New hotfix for Microsoft Identity Manager (MIM) 2016 Service Pack 2 (SP2)
 
-### Azure AD entitlement management
-
-**Type:** New feature  
-**Service category:** Other  
-**Product capability:** Entitlement Management
- 
-
-Azure AD entitlement management is a new identity governance feature of Azure AD Premium P2.
- 
- 
-
----
- 
-
-[839836](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=839836&triage=true&fullScreen=false&_a=edit)
-
-### New Federated Apps available in Azure AD App gallery - September and October 2019
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration
- 
-
-In September 2019 we have added following 29 new applications in our App gallery with Federation support:
-
-ScheduleLook, MS Azure SSO Access for Ethidex Compliance Office™ - Single  sign-on, iServer Portal, SKYSITE, Concur Travel and Expense, WorkBoard, YeeFlow, ARC Facilities, Luware Stratus Team, Wide Ideas, Prisma Cloud, JDLT Client Hub, RENRAKU, SealPath Secure Browser, Prisma Cloud, Penneo, Hiretual, Cintoo Cloud, Whitesource, Hosted Heritage Online SSO, IDC, CakeHR, BIS, Coo Kai Team Build, Sonarqube, Adobe Identity Management, Discovery Benefits SSO, Amelio, iTask                     
-
- 
-
-In October 2019 we have added following 35 new applications in our App gallery with Federation support:
-
- 
-
-In Case of Crisis – Mobile, Juno Journey, ExponentHR, Tact, OpusCapita Cash Management, Salestim, Learnster, Dynatrace, HunchBuzz, Freshworks, eCornell, ShipHazmat, Netskope Cloud Security, Contentful, Bindtuning, HireVue Coordinate – EU, HireVue Coordinate - USOnly, HireVue Coordinate - US, WittyParrot Knowledge Box, Cloudmore, Visit.org, Cambium Xirrus EasyPass Portal, Paylocity, Mail Luck!, Teamie, Velocity for Teams, SIGNL4, EAB Navigate IMPL, ScreenMeet, Omega Point, Speaking Email for Intune (iPhone), Speaking Email for Office 365 Direct (iPhone/Android), ExactCare SSO, iHealthHome Care Navigation System, Qubie                  
-
- 
-
-You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
-
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
-
-
- 
-
----
- 
-
-[316367](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=316367&triage=true&fullScreen=false&_a=edit)
-
-### MIM 2016 SP2
-
-**Type:** Changed feature  
+**Type:** Fixed  
 **Service category:** Microsoft Identity Manager  
 **Product capability:** Identity Lifecycle Management
- 
 
-A hotfix rollup package (build 4.6.34.0) is available for Microsoft Identity Manager (MIM) 2016 Service Pack 2 (SP2)
+A hotfix rollup package (build 4.6.34.0) is available for Microsoft Identity Manager (MIM) 2016 Service Pack 2 (SP2). This rollup package resolves issues and adds improvements that are described in the "Issues fixed and improvements added in this update" section.
 
- 
-
- 
+For more information and to download the hotfix package, see [Microsoft Identity Manager 2016 Service Pack 2 (build 4.6.34.0) Update Rollup is available](https://support.microsoft.com/help/4512924/microsoft-identity-manager-2016-service-pack-2-build-4-6-34-0-update-r)
 
 ---
- 
 
-[402766](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=402766&triage=true&fullScreen=false&_a=edit)
-
-### New and improved application gallery
+### New and improved Azure AD application gallery
 
 **Type:** Changed feature  
 **Service category:** Enterprise Apps  
 **Product capability:** SSO
- 
 
-Check out the new an improved Azure AD Application gallery. Easily find pre-integrated applications on our platform that support provisioning, OpenID Connect, and SAML.
+We've updated the Azure AD application gallery to make it easier for you to find pre-integrated apps that support provisioning, OpenID Connect, and SAML on your Azure Active Directory tenant.
 
-Learn More 
- 
+For more information, see [Add an application to your Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal)
 
 ---
- 
 
-[724751](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=724751&triage=true&fullScreen=false&_a=edit)
-
-### App role value length limit is increased from 120 to 240 characters
+### Increased app role definition length limit from 120 to 240 characters
 
 **Type:** Changed feature  
 **Service category:** Enterprise Apps  
 **Product capability:** SSO
- 
 
-The value element in an application role definition was limited to 120 characters.  Some customers found that  applications or services required role values to be longer than the allowed limit.   We've increased the maximum length of the role value that can be defined to 240 characters to accommodate these requirements.  (Application roles can be defined either in the application manifest or via Microsoft Graph).
+We've heard from customers that the length limit for the app role definition value in some apps and services is too short at 120 characters. In response, we've increased the maximum length of the role value definition to 240 characters.
+
+For more information about using application-specific role definitions, see [Add app roles in your application and receive them in the token](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps).
 
 ---
 
@@ -463,6 +381,20 @@ For more information, see [Upgrade to monthly active users billing model](https:
 
 ---
 
+### New Federated Apps available in Azure AD App gallery - October 2019
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+
+In October 2019, we've added these 35 new apps with Federation support to the app gallery:
+
+[In Case of Crisis – Mobile](https://docs.microsoft.com/azure/active-directory/saas-apps/in-case-of-crisis-mobile-tutorial), [Juno Journey](https://docs.microsoft.com/azure/active-directory/saas-apps/juno-journey-tutorial), [ExponentHR](https://docs.microsoft.com/azure/active-directory/saas-apps/exponenthr-tutorial), [Tact](https://tact.ai/assistant/), [OpusCapita Cash Management](http://cm1.opuscapita.com/tenantname), [Salestim](https://prd.salestim.io/forms), [Learnster](https://docs.microsoft.com/azure/active-directory/saas-apps/learnster-tutorial), [Dynatrace](https://docs.microsoft.com/azure/active-directory/saas-apps/dynatrace-tutorial), [HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process), [Freshworks](https://docs.microsoft.com/azure/active-directory/saas-apps/freshworks-tutorial), [eCornell](https://docs.microsoft.com/azure/active-directory/saas-apps/ecornell-tutorial), [ShipHazmat](https://docs.microsoft.com/azure/active-directory/saas-apps/shiphazmat-tutorial), [Netskope Cloud Security](https://docs.microsoft.com/azure/active-directory/saas-apps/netskope-cloud-security-tutorial), [Contentful](https://docs.microsoft.com/azure/active-directory/saas-apps/contentful-tutorial), [Bindtuning](https://bindtuning.com/login), [HireVue Coordinate – EU](https://www.hirevue.com/), [HireVue Coordinate - USOnly](https://www.hirevue.com/), [HireVue Coordinate - US](https://www.hirevue.com/), [WittyParrot Knowledge Box](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [Cloudmore](https://docs.microsoft.com/azure/active-directory/saas-apps/cloudmore-tutorial), [Visit.org](https://docs.microsoft.com/azure/active-directory/saas-apps/visitorg-tutorial), [Cambium Xirrus EasyPass Portal](https://login.xirrus.com/azure-signup), [Paylocity](https://docs.microsoft.com/azure/active-directory/saas-apps/paylocity-tutorial), [Mail Luck!](https://docs.microsoft.com/azure/active-directory/saas-apps/mail-luck-tutorial), [Teamie](https://theteamie.com/), [Velocity for Teams](https://velocity.peakup.org/teams/login), [SIGNL4](https://account.signl4.com/manage), [EAB Navigate IMPL](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-impl-tutorial), [ScreenMeet](https://console.screenmeet.com/), [Omega Point](https://pi.ompnt.com/), [Speaking Email for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [Speaking Email for Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/exactcare-sso-tutorial), [iHealthHome Care Navigation System](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
+
+For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
+
+---
+
 ### Consolidated Security menu item in the Azure AD portal
 
 **Type:** Changed feature  
@@ -565,6 +497,20 @@ For more information, see [Bulk add members](https://docs.microsoft.com/azure/ac
 We've created a new admin consent endpoint to support dynamic consent, which is helpful for apps that want to use the dynamic consent model on the Microsoft Identity platform.
 
 For more information about how to use this new endpoint, see [Using the admin consent endpoint](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent).
+
+---
+
+### New Federated Apps available in Azure AD App gallery - September 2019
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+
+In September 2019, we've added these 29 new apps with Federation support to the app gallery:
+
+[ScheduleLook](https://schedulelook.bbsonlineservices.net/), [MS Azure SSO Access for Ethidex Compliance Office™ - Single  sign-on]((https://docs.microsoft.com/azure/active-directory/saas-apps/ms-azure-sso-access-for-ethidex-compliance-office-tutorial)), [iServer Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/iserver-portal-tutorial), [SKYSITE](https://docs.microsoft.com/azure/active-directory/saas-apps/skysite-tutorial), [Concur Travel and Expense](https://docs.microsoft.com/azure/active-directory/saas-apps/concur-travel-and-expense-tutorial), [WorkBoard](https://docs.microsoft.com/azure/active-directory/saas-apps/workboard-tutorial), [YeeFlow](https://apps.yeeflow.com/), [ARC Facilities](https://docs.microsoft.com/azure/active-directory/saas-apps/arc-facilities-tutorial), [Luware Stratus Team](https://stratus.emea.luware.cloud/login), [Wide Ideas](https://wideideas.online/wideideas/), [Prisma Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/prisma-cloud-tutorial), [JDLT Client Hub](https://clients.jdlt.co.uk/login), [RENRAKU](https://docs.microsoft.com/azure/active-directory/saas-apps/renraku-tutorial), [SealPath Secure Browser](https://protection.sealpath.com/SealPathInterceptorWopiSaas/Open/InstallSealPathEditorOneDrive), [Prisma Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/prisma-cloud-tutorial), [Penneo](https://app.penneo.com/), [Hiretual](https://app.testhtm.com/settings/email-integration), [Cintoo Cloud](https://aec.cintoo.com/login), [Whitesource](https://docs.microsoft.com/azure/active-directory/saas-apps/whitesource-tutorial), [Hosted Heritage Online SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/hosted-heritage-online-sso-tutorial), [IDC](https://docs.microsoft.com/azure/active-directory/saas-apps/idc-tutorial), [CakeHR](https://docs.microsoft.com/azure/active-directory/saas-apps/cakehr-tutorial), [BIS](https://docs.microsoft.com/azure/active-directory/saas-apps/bis-tutorial), [Coo Kai Team Build](https://ms-contacts.coo-kai.jp/), [Sonarqube](https://docs.microsoft.com/azure/active-directory/saas-apps/sonarqube-tutorial), [Adobe Identity Management](https://docs.microsoft.com/azure/active-directory/saas-apps/adobe-identity-management-tutorial), [Discovery Benefits SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/discovery-benefits-sso-tutorial), [Amelio](https://app.amelio.co/), [iTask](https://itask.yipinapp.com/)
+
+For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
 
 ---
 
