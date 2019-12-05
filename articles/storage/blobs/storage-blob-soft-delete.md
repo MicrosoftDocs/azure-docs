@@ -151,11 +151,9 @@ The following steps show how to get started with soft delete.
 
 Enable soft delete for blobs on your storage account by using Azure portal:
 
-1. Launch the [Azure portal.](https://portal.azure.com/)
+1. In the [Azure portal](https://portal.azure.com/), select your storage account. 
 
-2. Select your Azure Storage account. 
-
-3. Navigate to the **Data Protection** option under **Blob Service**.
+2. Navigate to the **Data Protection** option under **Blob Service**.
 
 3. Click **Enabled** under **Blob soft delete**
 
