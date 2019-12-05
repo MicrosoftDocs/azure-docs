@@ -188,5 +188,5 @@ Set-AzStorageShareQuota -ShareName $shareName -Context $ctx -Quota 102400
 ## Next steps
 
 * [Connect and mount a file share on Windows](storage-how-to-use-files-windows.md)
-* [Connect and mount a file on Linux](storage-how-to-use-files-linux.md)
-* [Connect and mount a file on macOS](storage-how-to-use-files-mac.md)
+* [Connect and mount a file share on Linux](storage-how-to-use-files-linux.md)
+* [Connect and mount a file share on macOS](storage-how-to-use-files-mac.md)
