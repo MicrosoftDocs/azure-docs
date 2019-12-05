@@ -22,7 +22,7 @@ Azure FarmBeats includes user management for people who are part of your Azure A
 Azure FarmBeats uses Azure AD for authentication, access control and roles. Users in the Azure AD tenant can be added as users in Azure FarmBeats.
 
 > [!NOTE]
-> If the user you are trying to add is not present in the Azure AD tenant, follow the instructions to [Add Azure AD users](#Add-Azure-AD-users) to complete the setup, before proceeding to set them up as Azure FarmBeats users.
+> If the user you are trying to add is not present in the Azure AD tenant, follow the instructions in the **Add Azure AD users** section to complete the setup, before proceeding to set them up as Azure FarmBeats users.
 
 **Roles**
 
