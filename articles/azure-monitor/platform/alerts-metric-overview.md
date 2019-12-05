@@ -4,7 +4,7 @@ title: Understand how metric alerts work in Azure Monitor.
 description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
 author: rboucher
 ms.author: robb
-ms.date: 11/18/2019
+ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
@@ -122,7 +122,7 @@ Increasing look-back periods and number of violations can also allow filtering a
 
 ## Monitoring at scale using metric alerts in Azure Monitor
 
-So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources with one metric alert rule. This feature is currently supported only on virtual machines. Also, a single metric alert can monitor resources in one Azure region.
+So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources with one metric alert rule. This feature is currently supported only on virtual machines, SQL server databases, SQL server elastic pools and data box edge devices. Also, a single metric alert can monitor resources in one Azure region.
 
 You can specify the scope of monitoring by a single metric alert in one of three ways:
 
