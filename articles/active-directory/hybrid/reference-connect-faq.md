@@ -51,7 +51,7 @@ Yes. After you install the agent, you can complete the registration process by u
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-**Q: Does Azure AD Connect support syncing from two domains to on Azure AD?**  
+**Q: Does Azure AD Connect support syncing from two domains to an Azure AD?**  
 Yes, this scenario is supported. Refer to [Multiple Domains](how-to-connect-install-multiple-domains.md).
  
 **Q: Can you have multiple connectors for the same Active Directory domain in Azure AD Connect?**  

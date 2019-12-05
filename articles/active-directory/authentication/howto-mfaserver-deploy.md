@@ -1,15 +1,15 @@
 ---
-title: Getting started Azure Multi-Factor Authentication Server - Azure Active Directory
+title: Getting started Azure MFA Server - Azure Active Directory
 description: Step-by-step get started with Azure MFA Server on-premises
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -99,7 +99,7 @@ If you aren't using the Event Confirmation feature, and your users aren't using 
 Follow these steps to download the Azure Multi-Factor Authentication Server from the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Select **Azure Active Directory** > **MFA Server**.
+2. Search for and select *Azure Active Directory*. Select **MFA Server**.
 3. Select **Server settings**.
 4. Select **Download** and follow the instructions on the download page to save the installer. 
 

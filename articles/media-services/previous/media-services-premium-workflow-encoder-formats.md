@@ -20,8 +20,6 @@ ms.reviewer: anilmur
 # Media Encoder Premium Workflow formats and codecs
 
 > [!NOTE]
-> For premium encoder questions, email mepd@microsoft.com.
-> 
 > Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
 
 This document contains a list of input and output file formats and codecs that are supported by the public preview version of the **Media Encoder Premium Workflow** encoder.
@@ -96,8 +94,6 @@ The following section lists the codecs and file formats that are supported as ou
 * JPEG thumbnail creation
 * HEVC (H.265; 8 bit and 10 bit, Main and Main 10 Profile)
 
-  Support for HDR 10 is available in certain scenarios, please contact mepd@microsoft.com for more information
-
 
 ### Output Audio Codecs
 
@@ -137,6 +133,9 @@ On output, the following options are available:
 
 If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file. 
 
+## Need help?
+
+You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 ## Media Services learning paths
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

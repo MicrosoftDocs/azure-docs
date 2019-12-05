@@ -1,18 +1,18 @@
 ---
-title: Prepare on-premises machines for migration to Azure with Azure Migrate 
-description: This article describes how to prepare on-premises machines for migration to Azure with Azure Migrate.
+title: Prepare machines for migration with Azure Migrate 
+description: Learn how to prepare on-premises machines for migration with Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
 ---
 
 # Prepare on-premises machines for migration to Azure
 
-This article describes how to prepare on-premises and cloud-based machine before you start migrating them to Azure with [Azure Migrate Server Migration](migrate-services-overview.md#azure-migrate-server-migration).
+This article describes how to prepare on-premises machines before you start migrating them to Azure with [Azure Migrate Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 In this article, you:
@@ -39,10 +39,9 @@ In this article, you:
 
 ## Check what's supported
 
-- For VMware VMs, Azure Migrate Server Migration supports [agentless or agent-based migration](/server-migrate-overview.md). Verify VMware VM requirements/support for [agentless](migrate-support-matrix-vmware.md#migration---limitations) and [agent-based](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) migrations.
+- For VMware VMs, Azure Migrate Server Migration supports [agentless or agent-based migration](server-migrate-overview.md). Verify VMware VM requirements/support for [agentless](migrate-support-matrix-vmware.md#migration---limitations) and [agent-based](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) migrations.
 - Verify [migration requirements and support](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) for Hyper-V VMs.
-- Verify [migration requirements and support](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) for on-premises physical machines, or other virtualized servers. These requirements are similar to VMware VM requirements.
-
+- Verify [migration requirements and support](migrate-support-matrix-physical.md) for on-premises physical machines, or other virtualized servers. 
 
 
 

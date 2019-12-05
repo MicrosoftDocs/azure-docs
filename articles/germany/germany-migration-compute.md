@@ -68,7 +68,7 @@ A .zip file that has several files in it downloads. The PowerShell, Azure CLI, R
 
 For more information:
 
-- Refresh your knowledge by completing the [Site Recovery tutorials](https://docs.microsoft.com/azure/site-recovery/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Site Recovery tutorials](/azure/site-recovery/).
 - Get information about how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 - Learn more about [physical-to-Azure disaster recovery by using Site Recovery](../site-recovery/physical-azure-disaster-recovery.md).
 - Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
@@ -161,7 +161,7 @@ Redeploy your deployment scripts, templates, or code in the new region. Redeploy
 
 For more information:
 
-- Refresh your knowledge by completing the [Batch tutorials](https://docs.microsoft.com/azure/batch/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Batch tutorials](https://docs.microsoft.com/azure/batch/tutorial-parallel-dotnet).
 - Review the [Azure Batch overview](../batch/batch-technical-overview.md).
 
 ## Functions

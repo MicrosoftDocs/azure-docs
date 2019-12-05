@@ -18,8 +18,7 @@ ms.custom: mvc
 Kubernetes provides a distributed platform for containerized applications. With AKS, you can quickly create a production ready Kubernetes cluster. In this tutorial, part three of seven, a Kubernetes cluster is deployed in AKS. You learn how to:
 
 > [!div class="checklist"]
-> * Create a service principal for resource interactions
-> * Deploy a Kubernetes AKS cluster
+> * Deploy a Kubernetes AKS cluster that can authenticate to an Azure container registry
 > * Install the Kubernetes CLI (kubectl)
 > * Configure kubectl to connect to your AKS cluster
 
@@ -29,10 +28,9 @@ In additional tutorials, the Azure Vote application is deployed to the cluster, 
 
 In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you haven't done these steps, and would like to follow along, start at [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
-This tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This tutorial requires that you're running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 If you wish to get up and running with an integration for new or existing services, between [Azure Container Registry](TODO) and [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/), the 'How-to' [Authenticate with Azure Container Registry from Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/cluster-container-registry-integration) provides some abstractions over the commands detailed in this tutorial.
-
 
 ## Create a service principal
 
@@ -73,21 +71,19 @@ To grant the correct access for the AKS cluster to pull images stored in ACR, as
 ```azurecli
 az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 ```
-
 ## Create a Kubernetes cluster
 
 AKS clusters can use Kubernetes role-based access controls (RBAC). These controls let you define access to resources based on roles assigned to users. Permissions are combined if a user is assigned multiple roles, and permissions can be scoped to either a single namespace or across the whole cluster. By default, the Azure CLI automatically enables RBAC when you create an AKS cluster.
 
-Create an AKS cluster using [az aks create][]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr]. Provide your own `<appId>` and `<password>` from the previous step where the service principal was created.
+Create an AKS cluster using [az aks create][]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr]. To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is automatically created, since you did not specify one. Here, this service principal is [granted the right to pull images][container-registry-integration] from the Azure Container Registry (ACR) instance you created in the previous tutorial.
 
 ```azurecli
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
-    --service-principal <appId> \
-    --client-secret <password> \
-    --generate-ssh-keys
+    --generate-ssh-keys \
+    --attach-acr <acrName>
 ```
 
 After a few minutes, the deployment completes, and returns JSON-formatted information about the AKS deployment.
@@ -127,8 +123,7 @@ aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
 In this tutorial, a Kubernetes cluster was deployed in AKS, and you configured `kubectl` to connect to it. You learned how to:
 
 > [!div class="checklist"]
-> * Create a service principal for resource interactions
-> * Deploy a Kubernetes AKS cluster
+> * Deploy a Kubernetes AKS cluster that can authenticate to an Azure container registry
 > * Install the Kubernetes CLI (kubectl)
 > * Configure kubectl to connect to your AKS cluster
 
@@ -152,3 +147,4 @@ Advance to the next tutorial to learn how to deploy an application to the cluste
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-cli-install]: /cli/azure/install-azure-cli
+[container-registry-integration]: ./cluster-container-registry-integration.md

@@ -1,10 +1,10 @@
 ---
-title: Configure IoT Edge device - Machine Learning on Azure IoT Edge | Microsoft Docs 
-description: Configure an Azure Virtual Machine running Linux as an Azure IoT Edge device that acts as a transparent gateway.
+title: 'Tutorial: Configure IoT Edge device - Machine Learning on Azure IoT Edge'
+description: 'In this tutorial, you will configure an Azure Virtual Machine running Linux as an Azure IoT Edge device that acts as a transparent gateway.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -68,11 +68,11 @@ In this section, we create the self-signed certificates using a Docker image tha
 
 ## Upload certificates to Azure Key Vault
 
-To store our certificates securely and to make them accessible from multiple devices, we will upload the certificates into Azure Key Vault. As you can see from the list above, we have two types of certificate files: PFX and PEM. We will treat the PFX as Key Vault Certificates to be uploaded to Key Vault. The PEM files are plain text and we will treat them as Key Vault Secrets. We will use the Key Vault associated with the Azure Machine Learning service workspace we created by running the [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
+To store our certificates securely and to make them accessible from multiple devices, we will upload the certificates into Azure Key Vault. As you can see from the list above, we have two types of certificate files: PFX and PEM. We will treat the PFX as Key Vault Certificates to be uploaded to Key Vault. The PEM files are plain text and we will treat them as Key Vault Secrets. We will use the Key Vault associated with the Azure Machine Learning workspace we created by running the [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
 
-1. From the [Azure portal](https://portal.azure.com), navigate to your Azure Machine Learning service workspace.
+1. From the [Azure portal](https://portal.azure.com), navigate to your Azure Machine Learning workspace.
 
-2. From the overview page of the Azure Machine Learning service workspace, find the name of the **Key Vault**.
+2. From the overview page of the Azure Machine Learning workspace, find the name of the **Key Vault**.
 
     ![Copy key vault name](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
 
@@ -92,7 +92,7 @@ To store our certificates securely and to make them accessible from multiple dev
 
 To connect an Azure IoT Edge device to an IoT hub, we first create an identity for the device in the hub. We take the connection string from the device identity in the cloud and use it to configure the runtime on our IoT Edge device. Once the device has been configured and connects to the hub, we are able to deploy modules and send messages. We can also change the configuration of the physical IoT Edge device by changing the configuration of the corresponding device identity in IoT hub.
 
-For this tutorial, we create the new device identity using Visual Studio Code. You can also complete these steps using the [Azure portal](how-to-register-device-portal.md), or [Azure CLI](how-to-register-device-cli.md).
+For this tutorial, we create the new device identity using Visual Studio Code. You can also complete these steps using the [Azure portal](how-to-register-device.md#register-in-the-azure-portal), or [Azure CLI](how-to-register-device.md#register-with-the-azure-cli).
 
 1. On your development machine, open Visual Studio Code.
 

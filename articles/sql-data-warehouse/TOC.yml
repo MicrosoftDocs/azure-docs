@@ -1,10 +1,10 @@
-- name: SQL Data Warehouse Documentation
-  href: index.md
+- name: Azure Synapse Analytics Documentation
+  href: index.yml
 - name: Overview
   items:
-  - name: What is SQL Data Warehouse?
+  - name: What is Azure Synapse Analytics?
     href: sql-data-warehouse-overview-what-is.md
-  - name: SQL Data Warehouse architecture
+  - name: Azure Synapse Analytics architecture
     href: massively-parallel-processing-mpp-architecture.md
   - name: Data warehouse units
     href: what-is-a-data-warehouse-unit-dwu-cdwu.md
@@ -50,7 +50,11 @@
     - name: Create workload classifier
       items:
       - name: T-SQL
-        href: quickstart-create-a-workload-classifier-tsql.md
+        href: quickstart-create-a-workload-classifier-tsql.md 
+    - name: Create workload isolation
+      items:
+      - name: T-SQL
+        href: quickstart-configure-workload-isolation-tsql.md
 - name: Concepts
   items:
   - name: Security
@@ -73,6 +77,8 @@
       items:
       - name: Firewall rules
         href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+      - name: Private Link
+        href: ../sql-database/sql-database-private-endpoint-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Virtual network service endpoints
         href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Authentication
@@ -95,6 +101,8 @@
         href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Data protection
       items:
+      - name: Dynamic data masking
+        href: ../sql-database/sql-database-dynamic-data-masking-get-started.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Transparent Data Encryption (TDE) overview
         href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: TDE with Bring Your Own Key
@@ -116,41 +124,49 @@
     - name: JSON
       items:
       - name: JSON
-        href: /sql/t-sql/functions/json-functions-transact-sql?view=azure-sqldw-latest
+        href: /sql/t-sql/functions/json-functions-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: ISJSON
-        href: /sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest
+        href: /sql/t-sql/functions/isjson-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: JSON_VALUE
-        href: /sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest
+        href: /sql/t-sql/functions/json-value-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: JSON_QUERY
-        href: /sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest
+        href: /sql/t-sql/functions/json-query-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: JSON_MODIFY
-        href: /sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest
+        href: /sql/t-sql/functions/json-modify-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: OPENJSON
-        href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
+        href: /sql/t-sql/functions/openjson-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
     - name: Materialized view
       items:
       - name: Performance tuning guidance  
         href: performance-tuning-materialized-views.md
       - name: Create
-        href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+        href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: Alter
-        href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+        href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+      - name: Check view overhead
+        href: /sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
     - name: Ordered clustered columnstore index
       items:
       - name: Performance tuning guidance  
         href: performance-tuning-ordered-CCI.md
       - name: Create table
-        href: https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=aps-pdw-2016-au7
+        href: /sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: CTAS   
-        href: https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7
+        href: /sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: Create and change index
-        href: https://docs.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-2017#examples--and- 
+        href: https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest 
     - name: Result set caching
       items:
+      - name: Performance tuning guidance 
+        href: performance-tuning-result-set-caching.md
       - name: Set for a database
-        href: https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest
+        href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: Set for a session 
-        href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
+        href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest  
+      - name: Check cache size 
+        href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+      - name: Clean up cache
+        href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
     - name: Tables
       items:
       - name: Overview
@@ -201,14 +217,18 @@
       href: sql-data-warehouse-develop-label.md
   - name: Workload management
     items:
-    - name: Resource classes & workload management
-      href: resource-classes-for-workload-management.md
+    - name: Overview
+      href: sql-data-warehouse-workload-management.md
     - name: Workload classification
       href: sql-data-warehouse-workload-classification.md
     - name: Workload importance
       href: sql-data-warehouse-workload-importance.md
+    - name: Workload isolation
+      href: sql-data-warehouse-workload-isolation.md
     - name: Memory & concurrency limits
-      href: memory-and-concurrency-limits.md
+      href: memory-concurrency-limits.md
+    - name: Resource classes
+      href: resource-classes-for-workload-management.md
   - name: Manageability & monitoring
     items:
     - name: Overview
@@ -224,13 +244,7 @@
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
   - name: Maintenance schedules
-    items:
-    - name: Overview
-      href: maintenance-scheduling.md
-    - name: View maintenance schedule
-      href: viewing-maintenance-schedule.md
-    - name: Change maintenance schedule
-      href: changing-maintenance-schedule.md
+    href: maintenance-scheduling.md
   - name: Integration
     items:
     - name: Overview
@@ -251,20 +265,22 @@
       href: sql-data-warehouse-encryption-tde-tsql.md
   - name: Load data
     items:
-    - name: New York taxi cab data
-      href: load-data-from-azure-blob-storage-using-polybase.md
-    - name: Contoso public data
-      href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-    - name: Azure Data Lake Storage
+    - name: From Azure Data Lake Storage (ADLS)
       href: sql-data-warehouse-load-from-azure-data-lake-store.md
-    - name: Azure Databricks
+    - name: Using Azure Databricks (ADB)
       href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-    - name: Data Factory
+    - name: Using Data Factory (ADF)
       href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-    - name: SSIS
+    - name: Using SQL Server Integration Services (SSIS)
       href: /sql/integration-services/load-data-to-sql-data-warehouse
-    - name: Load WideWorldImporters
-      href: load-data-wideworldimportersdw.md
+    - name: Samples
+      items:
+      - name: New York Taxi 
+        href: load-data-from-azure-blob-storage-using-polybase.md
+      - name: Contoso 
+        href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+      - name: Wide World Importers
+        href: load-data-wideworldimportersdw.md
   - name: Develop
     items:
     - name: Overview
@@ -295,6 +311,8 @@
       href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md 
     - name: Configure workload importance
       href: sql-data-warehouse-how-to-configure-workload-importance.md 
+    - name: Convert resource classes to workload groups
+      href: sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md
   - name: Manage and monitor
     items:
     - name: Upgrade to Gen2
@@ -344,10 +362,10 @@
   - name: T-SQL
     items:
     - name: Full reference
-      href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-    - name: SQL DW language elements
+      href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+    - name: Azure Synapse Analytics TSQL language elements
       href: sql-data-warehouse-reference-tsql-language-elements.md
-    - name: SQL DW statements
+    - name: Azure Synapse Analytics TSQL statements
       href: sql-data-warehouse-reference-tsql-statements.md
   - name: System views
     href: sql-data-warehouse-reference-tsql-system-views.md

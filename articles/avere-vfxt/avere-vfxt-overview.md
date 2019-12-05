@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: overview 
 ms.date: 10/31/2018 
-ms.author: v-erkell 
+ms.author: rohogue 
 ---
 
 # What is Avere vFXT for Azure? 

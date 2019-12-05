@@ -1,12 +1,8 @@
 ---
-title: Samples - SWIFT CSP-CSCF v2020 blueprint - Overview
-description: Overview of the SWIFT CSP-CSCF v2020 blueprint sample.
-author: DCtheGeek
-ms.author: dacoulte
+title: SWIFT CSP-CSCF v2020 blueprint sample overview
+description: Overview of the SWIFT CSP-CSCF v2020 blueprint sample. This blueprint sample helps customers assess specific SWIFT CSP-CSCF controls.
 ms.date: 09/24/2019
 ms.topic: sample
-ms.service: blueprints
-manager: carmonm
 ---
 # Overview of the SWIFT CSP-CSCF v2020 blueprint sample
 
@@ -31,7 +27,7 @@ following articles to learn about the control mapping and how to deploy this sam
 > [SWIFT CSP-CSCF v2020 blueprint - Control mapping](./control-mapping.md)
 > [SWIFT CSP-CSCF v2020 blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

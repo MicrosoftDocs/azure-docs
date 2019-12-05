@@ -1,5 +1,5 @@
 ---
-title: Use a Windows VM system-assigned managed identity to access Azure Storage
+title: Tutorial`:` Use a managed identity to access Azure Storage - Windows - Azure AD
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Storage.
 services: active-directory
 documentationcenter: ''

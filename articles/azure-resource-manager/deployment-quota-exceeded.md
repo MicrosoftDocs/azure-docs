@@ -1,12 +1,8 @@
 ---
-title: Azure deployment quota exceeded
+title: Deployment quota exceeded
 description: Describes how to resolve the error of having more than 800 deployments in the resource group history.
-author: tfitzmac
-
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 10/02/2019
-ms.author: tomfitz
+ms.date: 10/04/2019
 ---
 
 # Resolve error when deployment count exceeds 800
@@ -27,6 +23,18 @@ Use the [az group deployment delete](/cli/azure/group/deployment#az-group-deploy
 az group deployment delete --resource-group exampleGroup --name deploymentName
 ```
 
+To delete all deployments older than five days, use:
+
+```azurecli-interactive
+startdate=$(date +%F -d "-5days")
+deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
+
+for deployment in $deployments
+do
+  az group deployment delete --resource-group exampleGroup --name $deployment
+done
+```
+
 You can get the current count in the deployment history with the following command:
 
 ```azurecli-interactive
@@ -39,6 +47,16 @@ Use the [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remov
 
 ```azurepowershell-interactive
 Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name deploymentName
+```
+
+To delete all deployments older than five days, use:
+
+```azurepowershell-interactive
+$deployments = Get-AzResourceGroupDeployment -ResourceGroupName exampleGroup | Where-Object Timestamp -lt ((Get-Date).AddDays(-5))
+
+foreach ($deployment in $deployments) {
+  Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name $deployment.DeploymentName
+}
 ```
 
 You can get the current count in the deployment history with the following command:

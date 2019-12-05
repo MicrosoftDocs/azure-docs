@@ -1,6 +1,6 @@
 ---
 title: Regions in which Video Indexer is available - Azure  
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: This article talks about Azure regions in which Video Indexer is available.  
 services: media-services
 author: anikaz

@@ -1,17 +1,14 @@
 ---
 title:  Authentication using Azure Active Directory in national clouds 
+titleSuffix: Microsoft identity platform
 description: Learn about app registration and authentication endpoints for national clouds.
 services: active-directory
-documentationcenter: ''
 author: negoe
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop    
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe

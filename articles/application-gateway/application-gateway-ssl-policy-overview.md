@@ -1,22 +1,13 @@
 ---
-title: SSL policy overview for Azure Application Gateway | Microsoft Docs
-description: Learn about how Azure Application Gateway allows you to configure SSL policy
+title: SSL policy overview for Azure Application Gateway
+description: Learn how to configure SSL policy for Azure Application Gateway and reduce encryption and decryption overhead from a back-end server farm.
 services: application gateway
-documentationcenter: na
 author: amsriva
-manager: 
-editor: ''
-tags: azure resource manager
-
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure services
-ms.date: 08/03/2017
+ms.date: 11/16/2019
 ms.author: amsriva
 ---
-   
 
 # Application Gateway SSL policy overview
 

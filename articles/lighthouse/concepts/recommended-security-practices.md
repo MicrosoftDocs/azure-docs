@@ -1,12 +1,8 @@
 ---
-title: Recommended security practices for Azure Lighthouse
+title: Recommended security practices
 description: When using Azure delegated resource management, it’s important to consider security and access control.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 07/11/2019
-ms.topic: overview
-manager: carmonm
+ms.topic: conceptual
 ---
 
 # Recommended security practices

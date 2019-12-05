@@ -1,14 +1,8 @@
 ---
-title: Integrate app with Azure Virtual Network - Azure App Service
-description: Shows you how to connect an app in Azure App Service to a new or existing Azure virtual network
-services: app-service
-documentationcenter: ''
+title: Integrate app with Azure Virtual Network
+description: Learn how Azure App Service integrates with Azure Virtual Network, and how to connect an app to a virtual network.
 author: ccompy
-manager: stefsch
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
@@ -58,6 +52,10 @@ There are some things that VNet Integration doesn't support including:
 * NetBios
 
 ## Regional VNet Integration 
+
+> [!NOTE]
+> Peering is not yet available for Linux based App Service.
+>
 
 When VNet Integration is used with VNets in the same region as your app, it requires the use of a delegated subnet with at least 32 addresses in it. The subnet cannot be used for anything else. Outbound calls made from your app will be made from the addresses in the delegated subnet. When you use this version of VNet Integration, the calls are made from addresses in your VNet. Using addresses in your VNet enables your app to:
 

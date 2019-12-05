@@ -5,7 +5,7 @@ description: Get an overview of the supported settings in an Azure Active Direct
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: reference
 ms.date: 07/10/2019
 
 ms.author: joflore
@@ -70,7 +70,6 @@ You can assign a Conditional Access policy to the following cloud apps from Micr
 - Project Online
 - Skype for Business Online
 - Virtual Private Network (VPN)
-- Visual Studio App Center
 - Windows Defender ATP
 
 ### Other applications

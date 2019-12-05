@@ -3,11 +3,11 @@ title: Reduce service costs using Azure Advisor | Microsoft Docs
 description: Use Azure Advisor to optimize the cost of your Azure deployments.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
+ms.author: sagupt
 ---
 
 # Reduce service costs using Azure Advisor
@@ -58,6 +58,7 @@ To save 60% of cost, we recommend storing your snapshots in Standard Storage, re
 To learn more about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
 * [Get Started](advisor-get-started.md)
-* [Advisor Performance recommendations](advisor-cost-recommendations.md)
-* [Advisor High Availability recommendations](advisor-cost-recommendations.md)
-* [Advisor Security recommendations](advisor-cost-recommendations.md)
+* [Advisor Performance recommendations](advisor-performance-recommendations.md)
+* [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
+* [Advisor Security recommendations](advisor-security-recommendations.md)
+* [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)

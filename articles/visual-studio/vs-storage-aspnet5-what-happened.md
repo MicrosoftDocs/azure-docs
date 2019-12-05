@@ -1,5 +1,5 @@
 ---
-title: What happened to my ASP.NET 5 project (Visual Studio connected services) | Microsoft Docs
+title: What happened to my ASP.NET 5 project (Visual Studio connected services) 
 description: Describes what happens after connecting to an Azure storage account in a Visual Studio ASP.NET 5 project using Visual Studio connected services
 services: storage
 author: ghogen
@@ -12,6 +12,7 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # What happened to my ASP.NET 5 project (Visual Studio Azure Storage connected services)?
 ## References added
