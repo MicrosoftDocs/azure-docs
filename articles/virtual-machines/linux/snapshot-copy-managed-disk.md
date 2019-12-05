@@ -1,5 +1,5 @@
 ---
-title: Create a snapshot of a VHD in Azure | Microsoft Docs
+title: Create a snapshot of a VHD in Azure 
 description: Learn how to create a copy of a VHD in Azure as a back up or for troubleshooting issues.
 documentationcenter: ''
 author: roygara

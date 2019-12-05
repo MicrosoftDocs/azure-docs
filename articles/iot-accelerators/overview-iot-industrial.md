@@ -1,11 +1,11 @@
 ---
 title: Overview of Azure industrial IoT | Microsoft Docs
-description: Overview of industrial IoT
+description: This article provides an overview of industrial IoT. It explains the connected factory, factory floor connectivity and security components in IIoT.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ---

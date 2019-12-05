@@ -34,10 +34,11 @@ Expressions are represented as JSON arrays. The first element of an expression i
 ] 
 ```
 
-The Azure Maps Web SDK supports many types of expressions that can be used on their own or in combination with other expressions.
+The Azure Maps Web SDK supports many types of that can be used on their own or in combination with other expressions.
 
 | Type of expressions | Description |
 |---------------------|-------------|
+| [Aggregate expression](#aggregate-expression) | An expression that defines a calculate that is processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. |
 | [Boolean expressions](#boolean-expressions) | Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons. |
 | [Color expressions](#color-expressions) | Color expressions make it easier to create and manipulate color values. |
 | [Conditional expressions](#conditional-expressions) | Conditional expressions provide logic operations that are like if-statements. |
@@ -59,7 +60,8 @@ All examples in this document will use the following feature to demonstrate diff
 		"type": "Point",
 		"coordinates": [-122.13284, 47.63699]
 	},
-	"properties": {		
+	"properties": {	
+        "id": 123,
         "entityType": "restaurant",
         "revenue": 12345,
         "subTitle": "Building 40", 
@@ -160,6 +162,27 @@ Math expressions provide mathematical operators to perform data-driven calculati
 | `['sin', number]` | number | Calculates the sine of the specified number. |
 | `['sqrt', number]` | number | Calculates the square root of the specified number. |
 | `['tan', number]` | number | Calculates the tangent of the specified number. |
+
+## Aggregate expression
+
+An aggregate expression defines a calculation that is processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. The output of these expressions must be a number or boolean. 
+
+An aggregate expression takes in three values; an operator value, and initial value, and an expression to retrieve a property from each feature in a data to apply the aggregate operation on. This expression has the following format:
+
+```javascript
+[operator: string, initialValue: boolean | number, mapExpression: Expression]
+```
+
+- operator: An expression function that is then applied to against all values calculated by the `mapExpression` for each point in the cluster. Supported operators; 
+    - For numbers: `+`, `*`, `max`, `min`
+    - For Booleans: `all`, `any`
+- initialValue: An initial value in which the first calculated value is aggregated against.
+- mapExpression: An expression that is applied against each point in the data set.
+
+**Examples**
+
+If all features in a data set have a `revenue` property that is a number. The total revenue of all points in a cluster created from the data set can be calculated using the following aggregate expression: `['+', 0, ['get', 'revenue']]`
+
 ## Boolean expressions
 
 Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons.
@@ -287,6 +310,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
+The following example uses a match expression to perform an "in array" or "array contains" type filter, in this case filtering data that has an ID value that is in a list of allowed IDs. When using expressions with filters, the result needs to be a Boolean value.
+
+```javascript
+var layer = new atlas.layer.BubbleLayer(datasource, null, {
+    filter: [
+        'match',  
+
+        //Get the property to match.
+        ['get', 'id'],  
+
+         //List of values to match.
+        [24, 53, 98], 
+
+        //If there is a match, return true.
+        true,
+    
+        //Otherwise return false.
+        false
+    ]
+});
+```
+
 ### Coalesce expression
 
 A `coalesce` expression steps through a set of expressions until the first non-null value is obtained and returns that value. 
@@ -325,6 +370,24 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 });
 ```
 
+The following example uses a `coalesce` expression to retrieve the first available image icon available in the map sprite from a list of specified image names.
+
+```javascript
+var layer = new atlas.layer.SymbolLayer(datasource, null, {
+    iconOptions: {
+        image: [
+            'coalesce',
+
+            //Try getting the image with id 'missing-image'.
+            ['image', 'missing-image'],
+
+            //Specify an image id to fallback to. 
+            'marker-blue'
+        ]
+    }
+});
+``` 
+
 ## Type expressions
 
 Type expressions provide tools for testing and converting different data types like strings, numbers, and boolean values.
@@ -332,6 +395,7 @@ Type expressions provide tools for testing and converting different data types l
 | Expression | Return type | Description |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | array \| object | Returns a literal array or object value. Use this expression to prevent an array or object from being evaluated as an expression. This is necessary when an array or object needs to be returned by an expression. |
+| `['image', string]` | string | Checks to see if a specified image ID is loaded into the maps image sprite. If it is, the ID is returned, otherwise null is returned. |
 | `['to-boolean', value]` | boolean | Converts the input value to a boolean. The result is `false` when the input is an empty string, `0`, `false`, `null`, or `NaN`; otherwise its `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converts the input value to a color. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | Converts the input value to a number, if possible. If the input is `null` or `false`, the result is 0. If the input is `true`, the result is 1. If the input is a string, it's converted to a number using the [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string function of the ECMAScript Language Specification. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
@@ -350,7 +414,7 @@ Type expressions provide tools for testing and converting different data types l
 >             //Get the entityType value.
 >             ['get', 'entityType'],
 >
->             //If there is no title, try getting the subtitle. 
+>             //If the entity type is 'restaurant', return a different pixel offset. 
 >             'restaurant', ['literal', [0, -10]],
 >
 >             //Default to value.
@@ -607,7 +671,7 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 });
 ```
 
-[See live example](map-add-shape.md#line-stroke-gradient)
+[See live example](map-add-line-layer.md#line-stroke-gradient)
 
 ### Text field format expression
 
@@ -615,6 +679,7 @@ The text field format expression can be used with the `textField` option of the 
 
  * `'font-scale'` - Specifies the scaling factor for the font size. If specified, this value will override the `size` property of the `textOptions` for the individual string.
  * `'text-font'` - Specifies one or more font families that should be used for this string. If specified, this value will override the `font` property of the `textOptions` for the individual string.
+ * `'text-color'` - Specifies a color to apply to a text when rendering. 
 
 The following pseudocode defines the structure of the text field format expression. 
 
@@ -624,12 +689,14 @@ The following pseudocode defines the structure of the text field format expressi
     input1: string, 
     options1: { 
         'font-scale': number, 
-        'text-font': string[] 
+        'text-font': string[],
+        'text-color': color
     },
     input2: string, 
     options2: { 
         'font-scale': number, 
-        'text-font': string[] 
+        'text-font': string[] ,
+        'text-color': color
     },
     …
 ]
@@ -637,7 +704,7 @@ The following pseudocode defines the structure of the text field format expressi
 
 **Example**
 
-The following example formats the text field by adding a bold font and scaling up the font size of the `title` property of the feature. This example also adds the `subtitle` property of the feature on a newline, with a scaled down font size.
+The following example formats the text field by adding a bold font and scaling up the font size of the `title` property of the feature. This example also adds the `subtitle` property of the feature on a newline, with a scaled down font size and colored red.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -656,7 +723,10 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
             //Scale the font size down of the subtitle property. 
             ['get', 'subtitle'],
-            { 'font-scale': 0.75 }
+            { 
+                'font-scale': 0.75, 
+                'text-color': 'red' 
+            }
         ]
     }
 });
@@ -789,8 +859,11 @@ See the following articles for more code samples that implement expressions:
 > [!div class="nextstepaction"] 
 > [Add a bubble layer](map-add-bubble-layer.md)
 
-> [!div class="nextstepaction"] 
-> [Add shapes](map-add-shape.md)
+> [!div class="nextstepaction"]
+> [Add a line layer](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Add a polygon layer](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
 > [Add a heat map layer](map-add-heat-map-layer.md)

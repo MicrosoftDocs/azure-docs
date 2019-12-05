@@ -1,15 +1,15 @@
 ---
-title: Plan and execute an Azure Multi-Factor Authentication deployment - Azure Active Directory
+title: Deploy Azure Multi-Factor Authentication - Azure Active Directory
 description: Microsoft Azure Multi-Factor Authentication deployment planning
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -73,11 +73,11 @@ Conditional Access policies enforce registration, requiring unregistered users t
 * Sign-ins from infected devices
 * Sign-ins from IP addresses with suspicious activities
 
-Some of the risk events detected by Azure Active Directory Identity Protection occur in real time and some require offline processing. Administrators can choose to block users who exhibit risky behaviors and remediate manually, require a password change, or require a multi-factor authentication as part of their Conditional Access policies.
+Some of the risk detections detected by Azure Active Directory Identity Protection occur in real time and some require offline processing. Administrators can choose to block users who exhibit risky behaviors and remediate manually, require a password change, or require a multi-factor authentication as part of their Conditional Access policies.
 
 ## Define network locations
 
-We recommended that organizations use Conditional Access to define their network using [named locations](../conditional-access/location-condition.md#named-locations). If your organization is using Identity Protection, consider using risk-based policies instead of named locations.
+We recommend that organizations use Conditional Access to define their network using [named locations](../conditional-access/location-condition.md#named-locations). If your organization is using Identity Protection, consider using risk-based policies instead of named locations.
 
 ### Configuring a named location
 
@@ -170,37 +170,9 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 
 If your users were enabled using per-user enabled and enforced Azure Multi-Factor Authentication the following PowerShell can assist you in making the conversion to Conditional Access based Azure Multi-Factor Authentication.
 
+Run this PowerShell in an ISE window or save as a .PS1 file to run locally.
+
 ```PowerShell
-# Disable MFA for all users, keeping their MFA methods intact
-Get-MsolUser -All | Disable-MFA -KeepMethods
-
-# Enforce MFA for all users
-Get-MsolUser -All | Set-MfaState -State Enforced
-
-# Wrapper to disable MFA with the option to keep the MFA
-# methods (to avoid having to proof-up again later)
-function Disable-Mfa {
-
-    [CmdletBinding()]
-    param(
-        [Parameter(ValueFromPipeline=$True)]
-        $User,
-        [switch] $KeepMethods
-    )
-
-    Process {
-
-        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
-        $User | Set-MfaState -State Disabled
-
-        if ($KeepMethods) {
-            # Restore the MFA methods which got cleared when disabling MFA
-            Set-MsolUser -ObjectId $User.ObjectId `
-                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
-        }
-    }
-}
-
 # Sets the MFA requirement state
 function Set-MfaState {
 
@@ -230,7 +202,12 @@ function Set-MfaState {
     }
 }
 
+# Disable MFA for all users
+Get-MsolUser -All | Set-MfaState -State Disabled
 ```
+
+> [!NOTE]
+> We recently changed the behavior and PowerShell script above accordingly. Previously, the script saved off the MFA methods, disabled MFA, and restored the methods. This is no longer necessary now that the default behavior for disable doesn't clear the methods.
 
 ## Plan Conditional Access policies
 
@@ -243,6 +220,7 @@ It is important that you prevent being inadvertently locked out of your Azure AD
 1. Sign in to the [Azure portal](https://portal.azure.com) using a global administrator account.
 1. Browse to **Azure Active Directory**, **Conditional Access**.
 1. Select **New policy**.
+   ![Create a Conditional Access policy to enable MFA for Azure portal users in pilot group](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Provide a meaningful name for your policy.
 1. Under **users and groups**:
    * On the **Include** tab, select the **All users** radio button
@@ -261,15 +239,13 @@ It is important that you prevent being inadvertently locked out of your Azure AD
 1. Set the **Enable policy** toggle to **On**.
 1. Click **Create**.
 
-![Create a Conditional Access policy to enable MFA for Azure portal users in pilot group](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
-
 ## Plan integration with on-premises systems
 
 Some legacy and on-premises applications that do not authenticate directly against Azure AD require additional steps to use MFA including:
 
 * Legacy on-premises applications, which will need to use Application proxy.
 * On-premises RADIUS applications, which will need to use MFA adapter with NPS server.
-* On-premises AD FS applications, which will need to use MFA adapter with AD FS 2016.
+* On-premises AD FS applications, which will need to use MFA adapter with AD FS 2016 or newer.
 
 Applications that authenticate directly with Azure AD and have modern authentication (WS-Fed, SAML, OAuth, OpenID Connect) can make use of Conditional Access policies directly.
 
@@ -288,7 +264,7 @@ The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA cap
 * With the CHAPv2 protocol, only authenticator app push notifications and voice call are supported.
 * Conditional Access policies cannot be applied.
 
-The NPS extension acts as an adapter between RADIUS and cloud-based Azure MFA to provide a second factor of authentication to protect [VPN](howto-mfa-nps-extension-vpn.md), [Remote Desktop Gateway connections](howto-mfa-nps-extension-rdg.md), or other RADIUS capable applications. Users that register for Azure MFA in this environment will be challenged for all authentication attempts, the lack of Conditional Access policies mean MFA is always required.
+The NPS extension acts as an adapter between RADIUS and cloud-based Azure MFA to provide a second factor of authentication to protect [VPN](howto-mfa-nps-extension-vpn.md), [Remote Desktop Gateway connections](howto-mfa-nps-extension-rdg.md), or other RADIUS capable applications. Users that register for Azure MFA in this environment will be challenged for all authentication attempts, the lack of Conditional Access policies means MFA is always required.
 
 #### Implementing your NPS server
 
@@ -319,13 +295,13 @@ Unlike with AD FS in Windows Server 2012 R2, the AD FS 2016 Azure MFA adapter in
 
 When using Azure MFA with AD FS 2016 and the target application is subject to Conditional Access policy, there are additional considerations:
 
-* Conditional Access is available when the application is a relying party to Azure AD, federated with AD FS 2016.
-* Conditional Access is not available when the application is a relying party to AD FS 2016 and is managed or federated with AD FS 2016.
-* Conditional Access is also not available when AD FS 2016 is configured to use Azure MFA as the primary authentication method.
+* Conditional Access is available when the application is a relying party to Azure AD, federated with AD FS 2016 or newer.
+* Conditional Access is not available when the application is a relying party to AD FS 2016 or AD FS 2019 and is managed or federated with AD FS 2016 or AD FS 2019.
+* Conditional Access is also not available when AD FS 2016 or AD FS 2019 is configured to use Azure MFA as the primary authentication method.
 
 #### AD FS logging
 
-Standard AD FS 2016 logging in both the Windows Security Log and the AD FS Admin log, contains information about authentication requests and their success or failure. Event log data within these events will indicate whether Azure MFA was used. For example, an AD FS Auditing Event ID 1200 may contain:
+Standard AD FS 2016 and 2019 logging in both the Windows Security Log and the AD FS Admin log, contains information about authentication requests and their success or failure. Event log data within these events will indicate whether Azure MFA was used. For example, an AD FS Auditing Event ID 1200 may contain:
 
 ```
 <MfaPerformed>true</MfaPerformed>
@@ -358,6 +334,9 @@ Now that you have planned your solution, you can implement by following the step
    1. With [Identity Protection](../identity-protection/howto-mfa-policy.md)
 1. Send user communications and get users to enroll at [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Keep track of who’s enrolled](#identify-non-registered-users)
+
+> [!TIP]
+> Government cloud users can enroll at [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
 ## Manage your solution
 

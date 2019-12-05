@@ -1,16 +1,16 @@
 ---
-title: QnA bot - Azure Bot Service - QnA Maker
+title: "Tutorial: QnA bot - Azure Bot Service - QnA Maker"
 titleSuffix: Azure Cognitive Services
 description: Create a QnA chat bot from the Publish page for an existing knowledge base. This bot uses the Bot Framework SDK v4. You do not need to write any code to build the bot, all the code is provided for you.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 06/11/2019
-ms.author: tulasim
+ms.topic: tutorial
+ms.date: 09/05/2019
+ms.author: diberry
 ---
 
 # Tutorial: Create a QnA Bot with Azure Bot Service v4
@@ -79,12 +79,6 @@ Create a bot as a client application for the knowledge base.
 
     For more information about Azure Bots, see [Use QnA Maker to answer questions](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
 
-## Related to QnA Maker bots
-
-* The QnA Maker help bot, used in the QnA Maker portal, is available as a [bot sample](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
-    ![QnA Maker help bot icon is red robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
-* [Healthcare bots](https://docs.microsoft.com/HealthBot/qna_model_howto) use QnA Maker as one of their [language models](https://docs.microsoft.com/HealthBot/qna_model_howto).
-
 ## Clean up resources
 
 When you are done with this tutorial's bot, remove the bot in the Azure portal. 
@@ -98,6 +92,16 @@ If you didn't create a new resource group, you need to find the resources associ
 * The Cognitive service
 * The App service
 * Optionally, it may also include the application insights service and storage for the application insights data
+
+
+## Related to QnA Maker bots
+
+* The QnA Maker help bot, used in the QnA Maker portal, is available as a [bot sample](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support).
+    ![QnA Maker help bot icon is red robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Healthcare bots](https://docs.microsoft.com/HealthBot/qna_model_howto) use QnA Maker as one of their [language models](https://docs.microsoft.com/HealthBot/qna_model_howto).
+
+
+[!INCLUDE [Bot Information](../../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
 ## Next steps
 

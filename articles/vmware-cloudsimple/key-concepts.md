@@ -3,9 +3,9 @@ title: Key concepts for administering Azure VMware Solution by CloudSimple
 description: Describes key concepts for administering Azure VMware Solution by CloudSimple
 author: sharaths-cs 
 ms.author: b-shsury 
-ms.date: 4/24/19 
+ms.date: 04/24/2019 
 ms.topic: article 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
@@ -28,7 +28,6 @@ Learn more about the [CloudSimple service](cloudsimple-service.md).
 ## CloudSimple node
 
 A CloudSimple node is a dedicated, bare-metal, hyperconverged compute and storage host into which the VMware ESXi hypervisor is deployed. This node is then incorporated into the VMware vSphere, vCenter, vSAN, and NSX platforms. CloudSimple networking services and edge networking services are also enabled. Each node serves as a unit of compute and storage capacity that you can provision to create [CloudSimple private clouds](cloudsimple-private-cloud.md). You provision or reserve nodes in a region where the CloudSimple service is available.
-
 
 Learn more about [CloudSimple nodes](cloudsimple-node.md).
 

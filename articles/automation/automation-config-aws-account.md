@@ -5,8 +5,8 @@ keywords: aws authentication, configure aws
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/17/2018
 ms.topic: conceptual
 manager: carmonm

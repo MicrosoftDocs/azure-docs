@@ -74,6 +74,8 @@ If you don't use WPAD and need to configure proxy settings on your computer, you
 
 If your organization requires access to the internet via an authenticated outbound proxy, you must make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration by using machine context, you must configure outbound proxy authentication by using machine context. Follow up with your outbound proxy provider on the configuration requirements.
 
+To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) script.
+
 ## Configure hybrid Azure AD join
 
 To configure a hybrid Azure AD join using Azure AD Connect, you need:
@@ -133,7 +135,7 @@ If some of your domain-joined devices are Windows downlevel devices, you must:
 
 ### Configure the local intranet settings for device registration
 
-o successfully complete hybrid Azure AD join of your Windows downlevel devices and to avoid certificate prompts when devices authenticate to Azure AD, you can push a policy to your domain-joined devices to add the following URLs to the local intranet zone in Internet Explorer:
+To successfully complete hybrid Azure AD join of your Windows downlevel devices and to avoid certificate prompts when devices authenticate to Azure AD, you can push a policy to your domain-joined devices to add the following URLs to the local intranet zone in Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`
@@ -142,7 +144,7 @@ You also must enable **Allow updates to status bar via script** in the user’s 
 
 ### Configure seamless SSO
 
-To successfully complete hybrid Azure AD join of your Windows downlevel devices in a managed domain that uses [PHS]../hybrid/whatis-phs.md) or [PTA](../hybrid/how-to-connect-pta.md) as your Azure AD cloud authentication method, you must also [configure seamless SSO](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
+To successfully complete hybrid Azure AD join of your Windows downlevel devices in a managed domain that uses [PHS](../hybrid/whatis-phs.md) or [PTA](../hybrid/how-to-connect-pta.md) as your Azure AD cloud authentication method, you must also [configure seamless SSO](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
 
 ### Install Microsoft Workplace Join for Windows downlevel computers
 

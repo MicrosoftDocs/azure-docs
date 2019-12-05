@@ -78,7 +78,7 @@ To complete the steps described in this topic, you have to:
     ```
 1. Press **Send**.
 
-    You see the **Response** with the info about a job that was created and submitted and the job's status. 
+    You see the **Response** with the info about the job that was created and submitted and the job's status. 
 
 ## Next steps
 

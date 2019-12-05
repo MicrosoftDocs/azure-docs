@@ -3,9 +3,7 @@ title: How to Use Twilio for Voice and SMS (Java) | Microsoft Docs
 description: Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java.
 services: ''
 documentationcenter: java
-author: devinrader
-manager: twilio
-editor: mollybos
+author: georgewallace
 
 ms.assetid: f3508965-5527-4255-9d51-5d5f926f4d43
 ms.service: multiple
@@ -14,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
-ms.author: microsofthelp@twilio.com
+ms.author: gwallace
 
 ---
 # How to Use Twilio for Voice and SMS Capabilities in Java

@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Configure port forwarding in Azure Load Balancer using the Azure portal"
-titlesuffix: Azure Load Balancer
+title: "Tutorial: Configure port forwarding - Azure portal"
+titleSuffix: Azure Load Balancer
 description: This tutorial shows how to configure port forwarding using Azure Load Balancer to create connections to VMs in an Azure virtual network.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
 ---
 
@@ -230,6 +230,7 @@ Create a load balancer inbound network address translation (NAT) rule to forward
    - **Name**: Type *MyNATRuleVM1*.
    - **Port**: Type *4221*.
    - **Target virtual machine**: Select **MyVM1** from the drop-down.
+   - **Network IP Configuration**: Select **ipconfig1** from the drop-down.
    - **Port mapping**: Select **Custom**.
    - **Target port**: Type *3389*.
    

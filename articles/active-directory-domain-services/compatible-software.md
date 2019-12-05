@@ -1,9 +1,9 @@
 ---
-title: 'Azure Active Directory Domain Services: Compatible third party software | Microsoft Docs'
+title: Compatible third party software for Azure AD Domain Services | Microsoft Docs
 description: Third party software that works with Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.author: ergreenl
+ms.author: iainfou
 
 ---
 

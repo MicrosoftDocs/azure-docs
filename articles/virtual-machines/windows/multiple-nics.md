@@ -1,15 +1,15 @@
 ﻿---
-title: Create and manage Windows VMs in Azure that use multiple NICs | Microsoft Docs
+title: Create and manage Windows VMs in Azure that use multiple NICs 
 description: Learn how to create and manage a Windows VM that has multiple NICs attached to it by using Azure PowerShell or Resource Manager templates.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -24,7 +24,7 @@ Virtual machines (VMs) in Azure can have multiple virtual network interface card
 
 In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Create a VM with multiple NICs
 First, create a resource group. The following example creates a resource group named *myResourceGroup* in the *EastUs* location:

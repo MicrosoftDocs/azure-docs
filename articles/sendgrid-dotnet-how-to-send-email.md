@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: dx@sendgrid.com
+ms.author: erikre
+ms.reviewer: dx@sendgrid.com
 
 ---
 # How to Send Email Using SendGrid with Azure

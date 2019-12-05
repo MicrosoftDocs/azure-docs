@@ -22,7 +22,6 @@ ms.date: 08/17/2018
 |   |   |
 |---|---|
 |**SDK download**|[NuGet](https://aka.ms/acdbtablenuget)|
-|**API documentation**|[.NET API reference documentation](https://aka.ms/acdbtableapiref)|
 |**Quickstart**|[Azure Cosmos DB: Build an app with .NET and the Table API](create-table-dotnet.md)|
 |**Tutorial**|[Azure Cosmos DB: Develop with the Table API in .NET](tutorial-develop-table-dotnet.md)|
 |**Current supported framework**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
@@ -34,6 +33,10 @@ ms.date: 08/17/2018
 >
 
 ## Release notes
+
+### <a name="2.1.2"/>2.1.2
+
+* Bug fixes
 
 ### <a name="2.1.0"/>2.1.0
 
@@ -81,6 +84,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.1.2](#2.1.2) |September 16, 2019| |
 | [2.1.0](#2.1.0) |January 22, 2019|April 01, 2020 |
 | [2.0.0](#2.0.0) |September 26, 2018|March 01, 2020 |
 | [1.1.3](#1.1.3) |July 17, 2018|December 01, 2019 |

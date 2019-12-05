@@ -1,14 +1,8 @@
 ---
-title: Deploy GPU-enabled Azure container instances 
-description: Learn how to deploy Azure container instances to run on GPU resources.
-services: container-instances
-author: dlepow
-manager: jeconnoc
-
-ms.service: container-instances
+title: Deploy GPU-enabled container instance 
+description: Learn how to deploy Azure container instances to run compute-intensive container apps using GPU resources.
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: danlep
 ---
 
 # Deploy container instances that use GPU resources
@@ -114,7 +108,7 @@ Done
 
 ## Resource Manager template example
 
-Another way to deploy a container group with GPU resources is by using a [Resource Manager template](container-instances-multi-container-group.md). Start by creating a file named `gpudeploy.json`, then copy the following JSON into it. This example deploys a container instance with a V100 GPU that runs a [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) training job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/). The resource requests are sufficient to run the workload.
+Another way to deploy a container group with GPU resources is by using a [Resource Manager template](container-instances-multi-container-group.md). Start by creating a file named `gpudeploy.json`, then copy the following JSON into it. This example deploys a container instance with a V100 GPU that runs a [TensorFlow](https://www.tensorflow.org/) training job against the MNIST dataset. The resource requests are sufficient to run the workload.
 
 ```JSON
 {

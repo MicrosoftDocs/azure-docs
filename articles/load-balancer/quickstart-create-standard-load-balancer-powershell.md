@@ -1,10 +1,10 @@
 ---
 title: 'Quickstart: Create a Standard Load Balancer - Azure PowerShell'
-titlesuffix: Azure Load Balancer
-description: This quickstart shows how to create a Standard Load Balancer using PowerShell
+titleSuffix: Azure Load Balancer
+description: This quickstart shows how to create a Standard Load Balancer using Azure PowerShell
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
-ms.author: kumud
+ms.author: allensu
 ms:custom: seodec18
 ---
 

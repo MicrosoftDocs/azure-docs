@@ -1,16 +1,16 @@
 ---
-title: Scheduled Events for Windows VMs in Azure | Microsoft Docs
+title: Scheduled Events for Windows VMs in Azure 
 description: Scheduled events using the Azure Metadata service for on your Windows virtual machines.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -44,7 +44,7 @@ Scheduled Events provides events in the following use cases:
 - [Platform initiated maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
 - Degraded hardware
 - User initiated maintenance (e.g. user restarts or redeploys a VM)
-- [Low-Priority VM eviction](https://azure.microsoft.com/blog/low-priority-scale-sets) in scale sets
+- [Spot VM](spot-vms.md) and [Spot scale set](../../virtual-machine-scale-sets/use-spot.md) instance evictions
 
 ## The Basics  
 

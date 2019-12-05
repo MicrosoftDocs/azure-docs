@@ -1,12 +1,12 @@
 ---
-title: Enable replication for a disk added to an Azure VM replicated by Azure Site Recovery | Microsoft Docs
+title: Enable replication for an added Azure VM disk in Azure Site Recovery 
 description: This article describes how to enable replication for a disk added to an Azure VM that's enabled for disaster recovery with Azure Site Recovery
 services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/29/2018
+ms.date: 04/29/2019
 ms.author: asgang
 
 ---
@@ -47,6 +47,6 @@ After the enable replication job runs and the initial replication finishes, the 
 
 
 
-# Next steps
+## Next steps
 
 [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.

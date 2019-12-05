@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 This article helps you to understand how to configure an Application Proxy application within Azure AD to expose your on-premises applications to the cloud.
 
-## Recommended documents 
+## Recommended documents
 
 To learn about the initial configurations and creation of an Application Proxy application through the Admin Portal, follow the [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
@@ -36,19 +36,15 @@ For information on uploading certificates and using custom domains, see [Working
 
 If you are following the steps in the [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md) documentation and are getting an error creating the application, see the error details for information and suggestions for how to fix the application. Most error messages include a suggested fix. To avoid common errors, verify:
 
--   You are an administrator with permission to create an Application Proxy application
-
--   The internal URL is unique
-
--   The external URL is unique
-
--   The URLs start with http or https, and end with a “/”
-
--   The URL should be a domain name, not an IP address
+- You are an administrator with permission to create an Application Proxy application
+- The internal URL is unique
+- The external URL is unique
+- The URLs start with http or https, and end with a “/”
+- The URL should be a domain name, not an IP address
 
 The error message should display in the top-right corner when you create the application. You can also select the notification icon to see the error messages.
 
-   ![Notification prompt](./media/application-proxy-config-how-to/error-message.png)
+![Shows where to find the Notification prompt in the Azure portal](./media/application-proxy-config-how-to/error-message.png)
 
 ## Configure connectors/connector groups
 
@@ -58,19 +54,16 @@ If your connectors are inactive, this means that they are unable to reach the se
 
 ## Upload certificates for custom domains
 
-Custom Domains allow you to specify the domain of your external URLs. To use custom domains, you need to upload the certificate for that domain. For information on using custom domains and certificates, see [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md). 
+Custom Domains allow you to specify the domain of your external URLs. To use custom domains, you need to upload the certificate for that domain. For information on using custom domains and certificates, see [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
 If you are encountering issues uploading your certificate, look for the error messages in the portal for additional information on the problem with the certificate. Common certificate problems include:
 
--   Expired certificate
-
--   Certificate is self-signed
-
--   Certificate is missing the private key
+- Expired certificate
+- Certificate is self-signed
+- Certificate is missing the private key
 
 The error message display in the top-right corner as you try to upload the certificate. You can also select the notification icon to see the error messages.
 
-   ![Notification prompt](./media/application-proxy-config-how-to/error-message2.png)
-
 ## Next steps
+
 [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md)

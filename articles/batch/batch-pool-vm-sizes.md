@@ -4,16 +4,15 @@ description: How to choose from the available VM sizes for compute nodes in Azur
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 
 ms.service: batch
 ms.workload: 
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 09/12/2019
 ms.author: lahugh
 ms.custom: seodec18
 
@@ -43,16 +42,18 @@ Any promotional or preview VM sizes not listed aren't guaranteed for support.
 | Av2-series | All sizes | Any |
 | B-series | None | Not available |
 | DC-series | None | Not available |
-| Dv2, Dsv2-series | All sizes | Any |
+| Dv2, DSv2-series | All sizes | Any |
 | Dv3, Dsv3-series | All sizes | Any |
-| [Memory optimized sizes](../virtual-machines/linux/sizes-memory.md) | None | Not available |
+| Ev3, Esv3-series | All sizes | Any |
 | Fsv2-series | All sizes | Any |
 | H-series | All sizes | Any |
-| Hb-series | All sizes | User subscription mode |
-| Hc-series | All sizes | User subscription mode |
+| HB-series<sup>2</sup> | All sizes | Any |
+| HC-series<sup>2</sup> | All sizes | Any |
 | Ls-series | All sizes | Any |
 | Lsv2-series | None | Not available |
-| M-series | Standard_M64ms (low-priority only), Standard_M128s (low-priority only) | Any |  
+| M-series | Standard_M64ms (low-priority only), Standard_M128s (low-priority only) | Any |
+| Mv2-series | None | Not available |
+| NC-series | All sizes | Any |
 | NCv2-series<sup>2</sup> | All sizes | Any |
 | NCv3-series<sup>2</sup> | All sizes | Any |
 | ND-series<sup>2</sup> | All sizes | Any |

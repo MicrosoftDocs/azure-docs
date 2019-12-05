@@ -1,8 +1,8 @@
 ---
-title: Frequently asked questions about Azure Spatial Anchors | Microsoft Docs
-description: Azure Spatial Anchors is a managed cloud service and developer platform that enables cross-device, multi-user, mixed reality experiences across HoloLens, iOS and Android devices. These FAQs address questions about the service from a technical point of view.
+title: Frequently asked questions
+description: FAQs about the Azure Spatial Anchors service.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
@@ -116,11 +116,7 @@ Get started with [development here](index.yml).
 
 **Q: Does it work with Unreal?**
 
-**A:** We expect to have support for Unreal soon.
-
-**Q: Does it work with Xamarin?**
-
-**A:** Yes. While we don't provide a Xamarin SDK, we expect developers can use Azure Spatial Anchors in their Xamarin apps by integrating with the Azure Spatial Anchors API.
+**A:** Support for Unreal will be considered in the future.
 
 **Q: What ports and protocols does Azure Spatial Anchors use?**
 

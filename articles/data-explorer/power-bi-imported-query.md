@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 07/10/2019
 
 #Customer intent: As a data analyst, I want to understand connection options in Power BI so I can choose the option most appropriate to my scenario.
 ---
@@ -79,4 +79,4 @@ If you no longer need the report you created for this article, delete the Power 
 
 ## Next steps
 
-[Visualize data using an imported query in Power BI](power-bi-sql-query.md)
+[Visualize data using the Azure Data Explorer connector for Power BI](power-bi-connector.md)

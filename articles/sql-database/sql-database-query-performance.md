@@ -1,5 +1,5 @@
 ---
-title: Query Performance Insight for Azure SQL Database  | Microsoft Docs
+title: Query Performance Insight
 description: Query performance monitoring identifies the most CPU-consuming queries for an Azure SQL database.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/03/2019
 ---
 # Query Performance Insight for Azure SQL Database

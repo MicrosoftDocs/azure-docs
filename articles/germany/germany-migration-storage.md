@@ -128,7 +128,7 @@ As noted earlier, there are multiple ways to create a VM by using this new manag
 For more information:
 
 - Learn how to export to disk [via API](/rest/api/compute/disks/grantaccess) by getting a shared access signature URI. 
-- Learn how to create a managed disk [via API](/rest/api/compute/disks/createorupdate#create_a_managed_disk_by_importing_an_unmanaged_blob_from_a_different_subscription.) from an unmanaged blob.
+- Learn how to create a managed disk [via API](/rest/api/compute/disks/createorupdate#create-a-managed-disk-by-importing-an-unmanaged-blob-from-a-different-subscription.) from an unmanaged blob.
 
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-title: Secure managed instance public endpoints - Azure SQL Database managed instance | Microsoft Docs
+title: Secure managed instance public endpoints
 description: "Securely use public endpoints in Azure with a managed instance"
 services: sql-database
 ms.service: sql-database
@@ -9,7 +9,6 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 05/08/2019
 ---
 # Use an Azure SQL Database managed instance securely with public endpoints

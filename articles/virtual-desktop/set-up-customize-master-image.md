@@ -1,17 +1,17 @@
 ---
 title: Prepare and customize a master VHD image - Azure
-description: How to prepare, customize and upload a Windows Virtual Desktop preview master image to Azure.
+description: How to prepare, customize and upload a Windows Virtual Desktop master image to Azure.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: how-to
-ms.date: 04/03/2019
+ms.topic: conceptual
+ms.date: 10/14/2019
 ms.author: helohr
 ---
 # Prepare and customize a master VHD image
 
-This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Windows Virtual Desktop Preview-specific configuration that can be used with your organization's existing processes.
+This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 ## Create a VM
 
@@ -57,36 +57,15 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## Software preparation and installation
 
-This section covers how to prepare and install FSLogix, Windows Defender, and other common applications. 
+This section covers how to prepare and install FSLogix and Windows Defender, as well as some basic configuration options for apps and your image's registry. 
 
-If you're installing Office 365 ProPlus and OneDrive on your VM, see [Install Office on a master VHD image](install-office-on-wvd-master-image.md). Follow the link in Next steps of that article to return to this article and complete the master VHD process.
+If you're installing Office 365 ProPlus and OneDrive on your VM, go to [Install Office on a master VHD image](install-office-on-wvd-master-image.md) and follow the instructions there to install the apps. After you're done, return to this article.
 
 If your users need to access certain LOB applications, we recommend you install them after completing this section’s instructions.
 
-### Disable Automatic Updates
-
-To disable Automatic Updates via local Group Policy:
-
-1. Open **Local Group Policy Editor\\Administrative Templates\\Windows Components\\Windows Update**.
-2. Right-click **Configure Automatic Update** and set it to **Disabled**.
-
-You can also run the following command on a command prompt to disable Automatic Updates.
-
-```batch
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
-```
-
-### Specify Start layout for Windows 10 PCs (optional)
-
-Run this command to specify a Start layout for Windows 10 PCs.
-
-```batch
-reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
-```
-
 ### Set up user profile container (FSLogix)
 
-To include the FSLogix container as part of the image, follow the instructions in [Set up a user profile share for a host pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+To include the FSLogix container as part of the image, follow the instructions in [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial).
 
 ### Configure Windows Defender
 
@@ -98,26 +77,25 @@ For more detailed instructions for how to configure Windows Defender on Windows 
 
 To learn more about how to configure Windows Defender to exclude certain files from scanning, see [Configure and validate exclusions based on file extension and folder location](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
 
-### Configure session timeout policies
+### Disable Automatic Updates
 
-Remote session policies can be enforced on Group Policy level since all VMs in a host pool are part of the same security group.
+To disable Automatic Updates via local Group Policy:
 
-To configure remote session policies:
+1. Open **Local Group Policy Editor\\Administrative Templates\\Windows Components\\Windows Update**.
+2. Right-click **Configure Automatic Update** and set it to **Disabled**.
 
-1. Navigate to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**.
-2. In the panel on the right side, select the **Set time limit for active but idle Remote Desktop Services sessions** policy.
-3. After the modal window appears, change the policy option from **Not configured** to **Enabled** to activate the policy.
-4. In the drop-down menu beneath the policy option, set the amount of time to **4 hours**.
-
-You can also configure remote session policies manually by running the following commands:
+You can also run the following command on a command prompt to disable Automatic Updates.
 
 ```batch
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fResetBroken /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 7200000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
+```
+
+### Specify Start layout for Windows 10 PCs (optional)
+
+Run this command to specify a Start layout for Windows 10 PCs.
+
+```batch
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
 ### Set up time zone redirection
@@ -147,7 +125,7 @@ For Windows Virtual Desktop session host that use Windows 10 Enterprise or Windo
 You can also change the setting with the registry by running the following command:
 
 ```batch
-reg add HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy /v 01 /t REG_DWORD /d 0 /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v 01 /t REG_DWORD /d 0 /f
 ```
 
 ### Include additional language support
@@ -168,8 +146,7 @@ This section covers application and operating system configuration. All configur
 For feedback hub collection of telemetry data on Windows 10 Enterprise multi-session, run this command:
 
 ```batch
-reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
-reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection /v AllowTelemetry /d 3
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 3 /f
 ```
 
 Run the following command to fix Watson crashes:
@@ -181,15 +158,13 @@ remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\W
 Enter the following commands into the registry editor to fix 5k resolution support. You must run the commands before you can enable the side-by-side stack.
 
 ```batch
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp]
-"MaxMonitors"=dword:00000004
-"MaxXResolution"=dword:00001400
-"MaxYResolution"=dword:00000b40
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxMonitors /t REG_DWORD /d 4 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxXResolution /t REG_DWORD /d 5120 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxYResolution /t REG_DWORD /d 2880 /f
 
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs]
-"MaxMonitors"=dword:00000004
-"MaxXResolution"=dword:00001400
-"MaxYResolution"=dword:00000b40
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" /v MaxMonitors /t REG_DWORD /d 4 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" /v MaxXResolution /t REG_DWORD /d 5120 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" /v MaxYResolution /t REG_DWORD /d 2880 /f
 ```
 
 ## Prepare the image for upload to Azure
@@ -202,7 +177,7 @@ After preparing the image for upload, make sure the VM remains in the off or dea
 
 This section only applies when the master image was created locally.
 
-The following instructions will tell you how to upload your master image into an Azure storage account. If you don’t already have an Azure storage account, follow the instructions in [this article](https://code.visualstudio.com/tutorials/static-website/create-storage) to create one.
+The following instructions will tell you how to upload your master image into an Azure storage account. If you don’t already have an Azure storage account, follow the instructions in [this article](/azure/javascript/tutorial-vscode-static-website-node-03) to create one.
 
 1. Convert the VM image (VHD) to Fixed if you haven’t already. If you don’t convert the image to Fixed, you can't successfully create the image.
 
@@ -225,5 +200,5 @@ Now that you have an image, you can create or update host pools. To learn more a
 - [Create a host pool with an Azure Resource Manager template](create-host-pools-arm-template.md)
 - [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Create a host pool with PowerShell](create-host-pools-powershell.md)
-- [Set up a user profile share for a host pool](create-host-pools-user-profile.md)
+- [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md)
 - [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)

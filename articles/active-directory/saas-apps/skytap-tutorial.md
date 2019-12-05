@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04-08-2019
+ms.date: 04/08/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -191,7 +191,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Skytap test user
 
-In this section, you create a user called Britta Simon in Skytap. Work with [Skytap support team](mailto:support@skytap.com) to add the users in the Skytap platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Skytap. Any Admininstrator or User Manager within a Skytap Account can create users. More information on how to do this is in Skytap's help files, see: https://help.skytap.com/users-create.html
 
 ### Test single sign-on 
 

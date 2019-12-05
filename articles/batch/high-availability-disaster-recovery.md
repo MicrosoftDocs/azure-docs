@@ -4,14 +4,13 @@ description: Learn how to design your Batch application for a regional outage
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 
 ms.service: batch
 ms.workload: 
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: lahugh

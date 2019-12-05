@@ -8,7 +8,6 @@ manager: chackdan
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple

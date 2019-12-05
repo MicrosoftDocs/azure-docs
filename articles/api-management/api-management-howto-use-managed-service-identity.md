@@ -46,29 +46,26 @@ For example, a complete Azure Resource Manager template might look like the foll
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "0.9.0.0"
-    },
-    "resources": [
-        {
-            "apiVersion": "2017-03-01",
-            "name": "contoso",
-            "type": "Microsoft.ApiManagement/service",
-            "location": "[resourceGroup().location]",
-            "tags": {},
-            "sku": {
-                "name": "Developer",
-                "capacity": "1"
-            },
-            "properties": {
-                "publisherEmail": "admin@contoso.com",
-                "publisherName": "Contoso"
-            },
-            "identity": {
-                "type": "systemAssigned"
-            }
-        }
-    ]
+	"$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+	"contentVersion": "0.9.0.0",
+	"resources": [{
+		"apiVersion": "2017-03-01",
+		"name": "contoso",
+		"type": "Microsoft.ApiManagement/service",
+		"location": "[resourceGroup().location]",
+		"tags": {},
+		"sku": {
+			"name": "Developer",
+			"capacity": "1"
+		},
+		"properties": {
+			"publisherEmail": "admin@contoso.com",
+			"publisherName": "Contoso"
+		},
+		"identity": {
+			"type": "systemAssigned"
+		}
+	}]
 }
 ```
 ## Use the managed service identity to access other resources

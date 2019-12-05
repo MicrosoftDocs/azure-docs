@@ -4,11 +4,11 @@ description: How to perform failover to a disaster recovery site for SAP HANA on
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor:
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -31,12 +31,12 @@ There are two cases to consider when you fail over to a DR site:
 >[!NOTE]
 >The following steps must be done on the HANA Large Instance unit, which represents the DR unit. 
  
-To restore to the latest replicated storage snapshots, follow the steps in "Perform full DR failover - azure_hana_dr_failover" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
+To restore to the latest replicated storage snapshots, follow the steps in "Perform full DR failover - azure_hana_dr_failover" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf). 
 
 If you want to have multiple SAP HANA instances failed over, run the azure_hana_dr_failover command several times. When requested, enter the SAP HANA SID you want to fail over and restore. 
 
 
-You can test the DR failover also without impacting the actual replication relationship. To perform a test failover, follow the steps in "Perform a test DR failover - azure_hana_test_dr_failover" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
+You can test the DR failover also without impacting the actual replication relationship. To perform a test failover, follow the steps in "Perform a test DR failover - azure_hana_test_dr_failover" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf). 
 
 >[!IMPORTANT]
 >Do *not* run any production transactions on the instance that you created in the DR site through the process of **testing a failover**. The command azure_hana_test_dr_failover creates a set of volumes that have no relationship to the primary site. As a result, synchronization back to the primary site is *not* possible. 

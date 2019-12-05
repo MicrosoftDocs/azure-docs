@@ -3,7 +3,7 @@ title: Clustering point data in Azure Maps | Microsoft Docs
 description: How to cluster point data in the Web SDK
 author: rbrundritt
 ms.author: richbrun
-ms.date: 03/27/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -14,6 +14,10 @@ ms.custom: codepen
 # Clustering point data
 
 When visualizing many data points on the map, points overlap each other, the map looks cluttered and it becomes difficult to see and use. Clustering of point data can be used to improve this user experience. Clustering point data is the process of combining point data that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## Enabling clustering on a data source
 
@@ -30,7 +34,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 	//The maximum zoom level in which clustering occurs.
 	//If you zoom in more than this, all points are rendered as symbols.
-	clusterMaxZoom: 15 
+	clusterMaxZoom: 15
 });
 ```
 
@@ -106,6 +110,17 @@ The point data that a cluster represents is spread over an area. In this sample 
 
  <iframe height="500" style="width: 100%;" scrolling="no" title="Cluster area convex hull" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>Cluster area convex hull</a> by Azure Maps
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## Aggregating data in clusters
+
+Often clusters are represented using a symbol with the number of points that are within the cluster, however sometimes it is desirable to further customize the style of clusters based on some metric, like the total revenue of all points within a cluster. With cluster aggregates custom properties can be created and populated using an [aggregate expression](data-driven-style-expressions-web-sdk.md#aggregate-expression) calculation.  Cluster aggregates can be defined in `clusterProperties` option of the `DataSource`.
+
+The following sample uses an aggregate expression to calculate a count based on the entity type property of each data point in a cluster.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Cluster aggregates" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>Cluster aggregates</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

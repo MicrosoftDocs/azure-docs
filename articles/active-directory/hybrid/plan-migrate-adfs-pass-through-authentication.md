@@ -72,8 +72,8 @@ To understand which method you should use, complete the steps in the following s
    ![Screenshot of the View current configuration option on the Additional tasks page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
 3. On the **Review your solution** page, scroll to **Active Directory Federation Services (AD FS)**.<br />
 
-   * If the AD FS configuration appears in this section, you can safely assume that AD FS was originally configured by using Azure AD Connect. You can convert your domains from federated identity to managed identity by using the Azure AD Connect **Change user sign-in** option. For more information about the process, see the section **Option 1: Configure pass-through authentication by using Azure AD Connect**.
-   * If AD FS isn't listed in the current settings, you must manually convert your domains from federated identity to managed identity by using PowerShell. For more information about this process, see the section **Option 2: Switch from federation to pass-through authentication by using Azure AD Connect and PowerShell**.
+   * If the AD FS configuration appears in this section, you can safely assume that AD FS was originally configured by using Azure AD Connect. You can convert your domains from federated identity to managed identity by using the Azure AD Connect **Change user sign-in** option. For more information about the process, see the section **Option A: Configure pass-through authentication by using Azure AD Connect**.
+   * If AD FS isn't listed in the current settings, you must manually convert your domains from federated identity to managed identity by using PowerShell. For more information about this process, see the section **Option B: Switch from federation to pass-through authentication by using Azure AD Connect and PowerShell**.
 
 ### Document current federation settings
 
@@ -449,5 +449,5 @@ For more information, see [Troubleshoot Azure Active Directory pass-through auth
 ## Next steps
 
 * Learn about [Azure AD Connect design concepts](plan-connect-design-concepts.md).
-* Choose the [right authentication](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+* Choose the [right authentication](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 * Learn about [supported topologies](plan-connect-design-concepts.md).

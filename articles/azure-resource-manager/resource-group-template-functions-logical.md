@@ -1,12 +1,8 @@
 ---
-title: Azure Resource Manager template functions - logical | Microsoft Docs
+title: Template functions - logical
 description: Describes the functions to use in an Azure Resource Manager template to determine logical values.
-author: tfitzmac
-ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/15/2019
-ms.author: tomfitz
-
 ---
 # Logical functions for Azure Resource Manager templates
 
@@ -185,7 +181,7 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {

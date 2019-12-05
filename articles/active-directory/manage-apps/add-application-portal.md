@@ -1,5 +1,5 @@
 ---
-title: 'Add an app to your Azure Active Directory tenant | Microsoft Docs'
+title: 'Quickstart - Add an app to your Azure Active Directory tenant'
 description: This quickstart uses the Azure portal to add a gallery application to your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: msmimart
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 10/29/2019
 ms.author: mimart
 
 ms.collection: M365-identity-device-management
@@ -39,46 +39,37 @@ To add a gallery application to your Azure AD tenant:
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, select **Azure Active Directory**.
 
-1. In the **Azure Active Directory** pane, select **Enterprise applications**.
+2. In the **Azure Active Directory** pane, select **Enterprise applications**. The **All applications** pane opens and displays a random sample of the applications in your Azure AD tenant.
 
-    ![Open enterprise applications](media/add-application-portal/open-enterprise-apps.png)
+3. To add a gallery app to your tenant, select **New application**. 
 
-1. The **All applications** pane opens to show a random sample of the applications in your Azure AD tenant. Select **New application** at the top of the **All applications** pane.
+    ![Select New application to add a gallery app to your tenant](media/add-application-portal/new-application.png)
 
-    ![New application](media/add-application-portal/new-application.png)
+ 4. Switch to the new gallery preview experience: In the banner at the top of the **Add an application page**, select the link that says **Click here to try out the new and improved app gallery**.
 
-1. In the **Categories** pane, you'll see icons under the **Featured applications** area that are a random sample of gallery applications.  To see more applications, you could select **Show more**. But, we don't recommend searching this way since there are thousands of applications in the gallery.
+5. The **Browse Azure AD Gallery (Preview)** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Note that the applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning.
 
-    ![Search by name or category](media/add-application-portal/categories.png)
+    ![Search for an app by name or category](media/add-application-portal/browse-gallery.png)
 
-1. To search for an application, under **Add from the gallery**, enter the name of the application you want to add. Select the application from the results and select **Add**. The following example shows the **Add app** form that appears after searching for github.com.
+6. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results. In the form, you can edit the name of the application to match the needs of your organization. In this example we've changed the name to **GitHub-test**.
 
-    ![Add an application](media/add-application-portal/add-an-application.png)
+    ![Shows how to add an application from the gallery](media/add-application-portal/create-application.png)
 
-1. In the application-specific form, you can change property information. For example, you can edit the name of the application to match the needs of your organization. This example uses the name **GitHub-test**.
+7. Select **Create**. A getting started page appears with the options for configuring the application for your organization.
 
-1. When you've finished making changes to the properties, select **Add**.
-
-1. A getting started page appears with the options for configuring the application for your organization.
-
-You've finished adding your application. Feel free to take a break. The next sections show you how to change the logo and edit other properties for your application.
+You've finished adding your application. The next sections show you how to change the logo and edit other properties for your application.
 
 ## Find your Azure AD tenant application
 
 Let's assume you had to leave and now you're returning to continue configuring your application. The first thing to do is find your application.
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select **Azure Active Directory**.
-
 1. In the **Azure Active Directory** pane, select **Enterprise applications**.
-
 1. From the **Application Type** drop-down menu, select **All Applications**, and then select **Apply**. To learn more about the viewing options, see [View tenant applications](view-applications-portal.md).
-
 1. You can now see a list of all the applications in your Azure AD tenant. The list is a random sample. To see more applications, select **Show more** one or more times.
-
 1. To quickly find an application in your tenant, enter the application name in the search box and select **Apply**. This example finds the GitHub-test application added previously.
 
-    ![Search for an application](media/add-application-portal/find-application.png)
-
+    ![Shows how to find an application using the search box](media/add-application-portal/find-application.png)
 
 ## Configure user sign-in properties
 
@@ -87,17 +78,17 @@ Now that you've found the application, you can open it and configure application
 To edit the application properties:
 
 1. Select the application to open it.
-1. Select **Properties** to open the properties pane for editing.
+2. Select **Properties** to open the properties pane for editing.
 
-    ![Edit properties pane](media/add-application-portal/edit-properties.png)
+    ![Shows the Properties screen and editable app properties](media/add-application-portal/edit-properties.png)
 
-1. Take a moment to understand the sign-in options. The options determine how users who are assigned or unassigned to the application can sign into the application. And, the options also determine if a user can see the application in the access panel.
+3. Take a moment to understand the sign-in options. The options determine how users who are assigned or unassigned to the application can sign into the application. And, the options also determine if a user can see the application in the access panel.
 
-    - **Enabled for users to sign-in** determines whether users assigned to the application can sign in.
-    - **User assignment required** determines whether users who aren't assigned to the application can sign in.
-    - **Visible to user** determines whether users assigned to an app can see it in the access panel and O365 launcher.
+    - **Enabled for users to sign-in?** determines whether users assigned to the application can sign in.
+    - **User assignment required?** determines whether users who aren't assigned to the application can sign in.
+    - **Visible to users?** determines whether users assigned to an app can see it in the access panel and O365 launcher.
 
-1. Use the following tables to help you choose the best options for your needs.
+4. Use the following tables to help you choose the best options for your needs.
 
    - Behavior for **assigned** users:
 
@@ -137,18 +128,17 @@ To use a custom logo:
 1. Since you've already found your application, select the application.
 1. In the left pane, select **Properties**.
 1. Upload the logo.
-1. When you're finished, select **Save**.
+1. When you're finished, select **Save**. 
 
-    ![Change the logo](media/add-application-portal/change-logo.png)
+    ![Shows how to change the logo from the app's Properties page](media/add-application-portal/change-logo.png)
 
+   > [!NOTE]
+   > The thumbnail displayed on this **Properties** pane doesn't update right away. You can close and reopen the properties to see the updated icon.
 
 ## Next steps
 
-In this quickstart, you've learned how to add a gallery application to your Azure AD tenant. You learned how to edit the properties for an application.
+Now that you've added the application to your Azure AD organization, [choose a single sign-on method](what-is-single-sign-on.md#choosing-a-single-sign-on-method) you want to use and refer to the appropriate article below:
 
-Now, you're ready to configure the application for single sign-on.
-
-> [!div class="nextstepaction"]
-> [Configure single sign-on](configure-single-sign-on-portal.md)
-
-
+- [Configure SAML-based single sign-on](configure-single-sign-on-non-gallery-applications.md)
+- [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md)
+- [Configure linked sign-on](configure-linked-sign-on.md)

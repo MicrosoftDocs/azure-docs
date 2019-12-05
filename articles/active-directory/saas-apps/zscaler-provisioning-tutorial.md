@@ -6,7 +6,6 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-
 ms.assetid: 31f67481-360d-4471-88c9-1cc9bdafee24
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant-msft
+ms.author: "jeedes"
 ---
 
 # Tutorial: Configure Zscaler for automatic user provisioning
@@ -26,15 +25,13 @@ The objective of this tutorial is to demonstrate the steps to be performed in Zs
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
 >
 
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following:
 
-* An Azure AD tenant
-* A Zscaler tenant
-* A user account in Zscaler with Admin permissions
+* An Azure AD tenant.
+* A Zscaler tenant.
+* A user account in Zscaler with Admin permissions.
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the Zscaler SCIM API, which is available to Zscaler developers for accounts with the Enterprise package.

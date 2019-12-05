@@ -1,18 +1,14 @@
 ---
-title: Deploy to Azure Functions using the Jenkins Azure Functions plugin
-description: Learn how to deploy to Azure Functions using the Jenkins Azure Functions plugin
-ms.service: jenkins
+title: Deploy to Azure Functions using the Jenkins Azure Functions plug-in
+description: Learn how to deploy to Azure Functions using the Jenkins Azure Functions plug-in
 keywords: jenkins, azure, devops, java, azure functions
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
-ms.date: 02/23/2019
+ms.date: 10/23/2019
 ---
 
-# Deploy to Azure Functions using the Jenkins Azure Functions plugin
+# Deploy to Azure Functions using the Jenkins Azure Functions plug-in
 
-[Azure Functions](/azure/azure-functions/) is a serverless compute service. Using Azure Functions, you can run code on-demand without provisioning or managing infrastructure. This tutorial shows how to deploy a Java function to Azure Functions using the Azure Functions plugin.
+[Azure Functions](/azure/azure-functions/) is a serverless compute service. Using Azure Functions, you can run code on-demand without provisioning or managing infrastructure. This tutorial shows how to deploy a Java function to Azure Functions using the Azure Functions plug-in.
 
 ## Prerequisites
 
@@ -45,12 +41,6 @@ The following steps show how to create a Java function using the Azure CLI:
     ```cli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
     ```
-    
-1. Update to version 2.x runtime, replacing the placeholders with the appropriate values.
-
-    ```cli
-    az functionapp config appsettings set --name <function_app> --resource-group <resource_group> --settings FUNCTIONS_EXTENSION_VERSION=~2
-    ```
 
 ## Prepare Jenkins server
 
@@ -77,8 +67,8 @@ The following steps explain how to prepare the Jenkins server:
 
 1. In the Jenkins dashboard, install the following plugins:
 
-    - Azure Functions Plugin
-    - EnvInject Plugin
+    - Azure Functions Plug-in
+    - EnvInject Plug-in
 
 1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service.md) for step-by-step instructions.
 

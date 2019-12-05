@@ -1,20 +1,19 @@
 ---
-title: Plan capacity for Hyper-V disaster recovery with Azure Site Recovery | Microsoft Docs
+title: Plan capacity for Hyper-V disaster recovery with Azure Site Recovery
 description: Use this article to estimate capacity when setting up disaster recovery with the Azure Site Recovery service.
 author: rayne-wiselman
 manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 11/12/2019
 ms.author: raynew
 
 ---
 
 # Plan capacity for Hyper-V VM disaster recovery 
 
-A new enhanced version of [Azure Site Recovery Deployment Planner for Hyper-V to Azure deployment](site-recovery-hyper-v-deployment-planner.md) is now available. It replaces the old tool. Use the new tool for your deployment planning.
-The tool provides the following guidelines:
+The[Azure Site Recovery Deployment Planner] (site-recovery-hyper-v-deployment-planner.md) for Hyper-V to Azure deployment provides the following:
 
 * VM eligibility assessment, based on the number of disks, disk size, IOPS, churn, and a few VM characteristics
 * Network bandwidth need versus RPO assessment

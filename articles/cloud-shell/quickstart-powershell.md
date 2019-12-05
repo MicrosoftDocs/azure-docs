@@ -1,20 +1,14 @@
 ---
-title: PowerShell in Azure Cloud Shell Quickstart | Microsoft Docs
-description: Quickstart for PowerShell in Cloud Shell
-services: Azure
-documentationcenter: ''
+title: Azure Cloud Shell Quickstart - PowerShell
+description: Learn how to use the PowerShell in your browser with Azure Cloud Shell.
 author: maertendmsft
-manager: timlt
+ms.author: damaerte
 tags: azure-resource-manager
- 
-ms.assetid: 
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
-ms.author: damaerte
 ---
 
 # Quickstart for PowerShell in Azure Cloud Shell
@@ -23,8 +17,6 @@ This document details how to use the PowerShell in Cloud Shell in the [Azure por
 
 > [!NOTE]
 > A [Bash in Azure Cloud Shell](quickstart.md) Quickstart is also available.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Start Cloud Shell
 
@@ -182,14 +174,15 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
   Assuming you have a VM, MyVM1, let's use `Invoke-AzVMCommand` to invoke a PowerShell script block on the remote machine.
 
   ```azurepowershell-interactive
-  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
+  Enable-AzVMPSRemoting -Name MyVM1 -ResourceGroupname MyResourceGroup
+  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -Credential (Get-Credential)
   ```
 
   You can also navigate to the VirtualMachines directory first and run `Invoke-AzVMCommand` as follows.
 
   ```azurepowershell-interactive
-  PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
-  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo}
+  PS Azure:\> cd MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines
+  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo} -Credential (Get-Credential)
 
   # You will see output similar to the following:
 
@@ -211,13 +204,13 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 You can use `Enter-AzVM` to interactively log into a VM running in Azure.
 
   ```azurepowershell-interactive
-  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -Credential (Get-Credential)
   ```
 
 You can also navigate to the `VirtualMachines` directory first and run `Enter-AzVM` as follows
 
   ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM
+ PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM -Credential (Get-Credential)
  ```
 
 ### Discover WebApps

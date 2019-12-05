@@ -1,12 +1,11 @@
 ---
-title: Track B2B messages with Azure Monitor logs - Azure Logic Apps | Microsoft Docs
+title: Track B2B messages with Azure Monitor logs
 description: Track B2B communication for integration accounts and Azure Logic Apps with Azure Log Analytics
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/19/2018
 ---
@@ -256,7 +255,7 @@ Here are the property descriptions for each EDIFACT message.
 | Receiver | The host partner specified in **Receive Settings**, or the guest partner specified in **Send Settings** for an EDIFACT agreement |
 | Logic App | The logic app where the EDIFACT actions are set up |
 | Status | The EDIFACT message status <br>Success = Received or sent a valid EDIFACT message. No functional ack is set up. <br>Success = Received or sent a valid EDIFACT message. Functional ack is set up and received, or a functional ack is sent. <br>Failed = Received or sent an invalid EDIFACT message <br>Pending = Received or sent a valid EDIFACT message. Functional ack is set up, and a functional ack is expected. |
-| Ack | Functional Ack (997) status <br>Accepted = Received or sent a positive functional ack. <br>Rejected = Received or sent a negative functional ack. <br>Pending = Expecting a functional ack but not received. <br>Pending = Generated a functional ack but can't send to partner. <br>Not Required = Functional Ack is not set up. |
+| Ack | Functional Ack (CONTRL) status <br>Accepted = Received or sent a positive functional ack. <br>Rejected = Received or sent a negative functional ack. <br>Pending = Expecting a functional ack but not received. <br>Pending = Generated a functional ack but can't send to partner. <br>Not Required = Functional Ack is not set up. |
 | Direction | The EDIFACT message direction |
 | Correlation ID | The ID that correlates all the triggers and actions in a logic app |
 | Msg type | The EDIFACT message type |

@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 10/17/2019
 ms.author: juliako
 
 ---
@@ -41,19 +41,6 @@ Currently, MSDN is Media Services team's primary community forum.
 The team also monitors questions tagged on Stack Overflow with 'azure-media-services'.
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
-
-## Contact the team
-
-Azure Media Services primary support email is: **amshelp\@microsoft.com**.
-
-The following table lists email of feature sub teams:
-
-| Feature | Email |
-| --- | --- |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure Media Explorer |amse@microsoft.com |
-| Workflow Designer |mepd@microsoft.com |
-| Live Streaming and Packaging |amslived@microsoft.com |
 
 ## Next steps
 

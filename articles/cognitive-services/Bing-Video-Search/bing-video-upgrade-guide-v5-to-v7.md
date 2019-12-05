@@ -1,6 +1,6 @@
 ---
 title: Upgrade Bing Video Search API v5 to v7
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Identifies the parts of your application that you need to update to use version 7.
 services: cognitive-services
 author: swhite-msft

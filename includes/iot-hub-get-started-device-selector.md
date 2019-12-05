@@ -14,5 +14,4 @@ ms.author: robinsh
 > * [IoT DevKit AZ3166 with VS Code](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)
 > * [Raspberry Pi with Node.js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [Raspberry Pi with C](../articles/iot-hub/iot-hub-raspberry-pi-kit-c-get-started.md)
-> * [Adafruit Feather HUZZAH ESP8266 with Arduino IDE](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md)
 > * [iOS with Swift](../articles/iot-hub/quickstart-send-telemetry-ios.md)

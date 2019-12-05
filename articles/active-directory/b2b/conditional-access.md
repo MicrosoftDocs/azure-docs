@@ -1,5 +1,5 @@
 ---
-title: Conditional Access for B2B collaboration users - Azure Active Directory | Microsoft Docs
+title: Conditional Access for B2B collaboration users - Azure AD
 description: Azure Active Directory B2B collaboration supports multi-factor authentication (MFA) for selective access to your corporate applications
 
 services: active-directory
@@ -90,6 +90,10 @@ Therefore, the recommendation for MFA for B2B users is to always require MFA in 
 When Contoso enables device-based Conditional Access policies for their corporate data, access is prevented from devices that are not managed by Contoso and not compliant with the Contoso device policies.
 
 If the B2B user’s device isn't managed by Contoso, access of B2B users from the partner organizations is blocked in whatever context these policies are enforced. However, Contoso can create exclusion lists containing specific partner users to exclude them from the device-based Conditional Access policy.
+
+#### Mobile application management policies for B2B
+
+Conditional Access app protection policies cannot be applied to B2B users because the inviting organization has no visibility into the B2B user's home organization.
 
 #### Location-based Conditional Access for B2B
 

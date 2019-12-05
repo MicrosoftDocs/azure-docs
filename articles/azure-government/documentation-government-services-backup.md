@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 1/5/2017
-ms.author: markgal, sogup;
+ms.author: sogup
 
 ---
 # Azure Government Backup

@@ -4,6 +4,7 @@ description: Cloud Partner Portal and GDPR.
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
@@ -13,8 +14,7 @@ ms.author: pabutler
 Cloud Partner Portal GDPR compliance
 ====================================
 
-[General Data Protection Regulation (GDPR)](https://ec.europa.eu/justice/data-protection/reform/index_en.htm)is
-a European Union (EU) data protection and privacy law. The GDPR imposes rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents.
+[General Data Protection Regulation (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en/) is a European Union (EU) data protection and privacy law. The GDPR imposes rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents.
 
 Cloud Partner Portal provides detailed information regarding its processing of customer data and the security measures used to protect that data. This information is accessible via its in-product experiences.
 

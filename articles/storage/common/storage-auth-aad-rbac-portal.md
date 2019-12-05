@@ -5,8 +5,8 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 03/21/2019
+ms.topic: conceptual
+ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -38,18 +38,23 @@ After you have determined the appropriate scope for a role assignment, navigate 
 
 The following sections describe each of these steps in more detail.
 
+> [!NOTE]
+> As an owner of your Azure Storage account, you are not automatically assigned permissions to access data. You must explicitly assign yourself an RBAC role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or a container or queue.
+> 
+> You cannot assign a role scoped to a container or queue if your storage account has a hierarchical namespace enabled.
+
 ### Assign a built-in RBAC role
 
 Before you assign a role to a security principal, be sure to consider the scope of the permissions you are granting. Review the [Determine resource scope](#determine-resource-scope) section to decide the appropriate scope.
 
 The procedure shown here assigns a role scoped to a container, but you can follow the same steps to assign a role scoped to a queue: 
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your storage account and display the **Overview** for the account.
+1. In the [Azure portal](https://portal.azure.com), go to your storage account and display the **Overview** for the account.
 1. Under Services, select **Blobs**. 
 1. Locate the container for which you want to assign a role, and display the container's settings. 
 1. Select **Access control (IAM)** to display access control settings for the container. Select the **Role assignments** tab to see the list of role assignments.
 
-    ![Screenshot showing container access control settings](media/storage-auth-aad-rbac-portal/portal-access-control-container.png)
+    ![Screenshot showing container access control settings](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)
 
 1. Click the **Add role assignment** button to add a new role.
 1. In the **Add role assignment** window, select the Azure Storage role that you want to assign. Then search to locate the security principal to which you want to assign that role.
@@ -61,11 +66,6 @@ The procedure shown here assigns a role scoped to a container, but you can follo
     ![Screenshot showing list of users assigned to a role](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
 You can follow similar steps to assign a role scoped to the storage account, resource group, or subscription.
-
-> [!NOTE]
-> As an owner of your Azure Storage account, you are not automatically assigned permissions to access data. You must explicitly assign yourself an RBAC role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or a container or queue.
-> 
-> You cannot assign a role scoped to a container or queue if your storage account has a hierarchical namespace enabled.
 
 ### Assign the Reader role for portal access
 

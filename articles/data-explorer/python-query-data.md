@@ -1,21 +1,21 @@
 ---
-title: 'Quickstart: Query data using the Azure Data Explorer Python library'
-description: 'In this quickstart, you learn how to query data from Azure Data Explorer using Python.'
+title: 'Query data using the Azure Data Explorer Python library'
+description: 'In this article, you learn how to query data from Azure Data Explorer using Python.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
+ms.topic: conceptual
+ms.date: 08/05/2019
 
 # Customer intent: As a Python developer, I want to query data so I can include it in my apps.
 ---
 
-# Quickstart: Query data using the Azure Data Explorer Python library
+# Query data using the Azure Data Explorer Python library
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides a [data client library for Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). This library enables you to query data from your code. In this quickstart, you connect to a table on the *help cluster* that we have set up to aid learning. You then query a table on that cluster and return the results.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides a [data client library for Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). This library enables you to query data from your code. In this article, you connect to a table on the *help cluster* that we have set up to aid learning. You then query a table on that cluster and return the results.
 
-This quickstart is also available as an [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
+This article is also available as an [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
 ## Prerequisites
 
@@ -59,13 +59,14 @@ The tenant ID in this case is `6babcaad-604b-40ac-a9d7-9fd97c0b779f`. Set the va
 ```python
 AAD_TENANT_ID = "<TenantId>"
 KUSTO_CLUSTER = "https://help.kusto.windows.net/"
-KUSTO_DATABASE  = "Samples"
+KUSTO_DATABASE = "Samples"
 ```
 
 Now construct the connection string. This example uses device authentication to access the cluster. You can also use [AAD application certificate](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [AAD application key](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20), and [AAD user and password](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 ```python
-KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_CLUSTER)
+KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_CLUSTER)
 KCSB.authority_id = AAD_TENANT_ID
 ```
 
@@ -74,8 +75,8 @@ KCSB.authority_id = AAD_TENANT_ID
 Execute a query against the cluster and store the output in a data frame. When this code runs, it returns a message like the following: *To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code F3W4VWZDM to authenticate*. Follow the steps to sign-in, then return to run the next code block.
 
 ```python
-KUSTO_CLIENT  = KustoClient(KCSB)
-KUSTO_QUERY  = "StormEvents | sort by StartTime desc | take 10"
+KUSTO_CLIENT = KustoClient(KCSB)
+KUSTO_QUERY = "StormEvents | sort by StartTime desc | take 10"
 
 RESPONSE = KUSTO_CLIENT.execute(KUSTO_DATABASE, KUSTO_QUERY)
 ```
@@ -94,4 +95,4 @@ You should see the top ten results from the StormEvents table.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)
+> [Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)

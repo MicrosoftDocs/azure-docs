@@ -8,7 +8,7 @@ manager: danielgi
 editor: sohamnchatterjee
 
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -40,7 +40,7 @@ This article lists current Metros containing point-of-presence (POP) locations, 
 | Africa | Cape Town, South Africa<br />Johannesburg, South Africa | Johannesburg, South Africa | South Africa |
 | Middle East | Dubai, United Arab Emirates | Muscat, Oman<br />Fujirah, United Arab Emirates | Qatar<br />United Arab Emirates |
 | India | Chennai, India<br />Hyderabad, India<br />Mumbai, India<br />New Delhi, India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> | India |
-| Asia | Hong Kong<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Philippines<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hong Kong<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hong Kong<br />Indonesia<br />Israel<br />Japan<br />Macau<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Turkey<br />Vietnam |
+| Asia | Hong Kong<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Philippines<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hong Kong<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan<br />Taipei, Taiwan | Hong Kong<br />Indonesia<br />Israel<br />Japan<br />Macau<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Turkey<br />Vietnam |
 | Australia and New Zealand | Brisbane, Australia<br />Melbourne, Australia<br />Perth, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Australia<br />New Zealand |
 
 

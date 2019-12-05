@@ -5,8 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 6/1/2019
+ms.date: 08/31/2019
 ms.author: victorh
 ---
 
@@ -40,7 +39,7 @@ See [HTTP/2 support](https://docs.microsoft.com/azure/application-gateway/config
 
 ### What resources are supported as part of a backend pool?
 
-See [supported backend resources](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pool).
+See [supported backend resources](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools).
 
 ### In what regions is Application Gateway available?
 
@@ -68,7 +67,7 @@ If you're using a public IP address as an endpoint, you'll find the IP and DNS i
 
 ### Does the IP or DNS name change over the lifetime of the application gateway?
 
-The VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway.
+In Application Gateway V1 SKU, the VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway. In Application Gateway V2 SKU, you can set the IP address as static, so IP and DNS name will not change over the lifetime of the application gateway. 
 
 ### Does Application Gateway support static IP?
 
@@ -96,7 +95,7 @@ Yes. See [Modifications to a request](https://docs.microsoft.com/azure/applicati
 
 New Application Gateway v1 SKU deployments can take up to 20 minutes to provision. Changes to instance size or count aren't disruptive, and the gateway remains active during this time.
 
-Deployments that use the v2 SKU can take up to 6 minutes to provision.
+Most deployments that use the v2 SKU take around 6 minutes to provision. However it can take longer depending on the type of deployment. For example, deployments across multiple Availability Zones with many instances can take more than 6 minutes. 
 
 ### Can I use Exchange Server as a backend with Application Gateway?
 
@@ -265,7 +264,7 @@ Application Gateway supports up to 100 SSL certificates.
 
 ### How many authentication certificates for backend reencryption does Application Gateway support?
 
-Application Gateway supports up to 10 authentication certificates. The default is 5.
+Application Gateway supports up to 100 authentication certificates.
 
 ### Does Application Gateway natively integrate with Azure Key Vault?
 
@@ -273,17 +272,17 @@ Yes, the Application Gateway v2 SKU supports Key Vault. For more information, se
 
 ### How do I configure HTTPS listeners for .com and .net sites? 
 
-For multiple domain-based (host-based) routing, you can create multisite listeners, set up listeners that use HTTPS as the protocol, and associate the listeners with the routing rules. For more information, see [Hosting multiple sites by using Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview). 
+For multiple domain-based (host-based) routing, you can create multisite listeners, set up listeners that use HTTPS as the protocol, and associate the listeners with the routing rules. For more information, see [Hosting multiple sites by using Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview).
+
+### Can I use special characters in my .pfx file password?
+
+No, use only alphanumeric characters in your .pfx file password.
 
 ## Configuration - web application firewall (WAF)
 
 ### Does the WAF SKU offer all the features available in the Standard SKU?
 
 Yes. WAF supports all the features in the Standard SKU.
-
-### Which CRS versions does Application Gateway support?
-
-Application Gateway supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) and CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
 
 ### How do I monitor WAF?
 
@@ -299,7 +298,7 @@ Yes. For more information, see [Customize WAF rule groups and rules](application
 
 ### What rules are currently available for WAF?
 
-WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) and [3.0](application-gateway-crs-rulegroups-rules.md#owasp30). These rules provide baseline security against most of the top-10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
+WAF currently supports CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3.0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30), and [3.1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31). These rules provide baseline security against most of the top-10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
 
 * SQL injection protection
 * Cross-site scripting protection
@@ -318,6 +317,19 @@ Yes. You can enable DDoS protection on the virtual network where the application
 ### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
 
 Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
+
+## Configuration - ingress controller for AKS
+
+### What is an Ingress Controller?
+
+Kubernetes allows creation of `deployment` and `service` resource to expose a group of pods internally in the cluster. To expose the same service externally, an [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource is defined which provides load balancing, SSL termination and name-based virtual hosting.
+To satisfy this `Ingress` resource, an Ingress Controller is required which listens for any changes to `Ingress` resources and configures the load balancer policies.
+
+The Application Gateway Ingress Controller allows [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) to be used as the ingress for an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) also known as an AKS cluster.
+
+### Can a single ingress controller instance manage multiple Application Gateways?
+
+Currently, one instance of Ingress Controller can only be associated to one Application Gateway.
 
 ## Diagnostics and logging
 
@@ -345,7 +357,7 @@ In the portal, on the menu blade of an application gateway, select **Activity Lo
 
 ### Can I set alerts with Application Gateway?
 
-Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#metrics) and [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics) and [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 ### How do I analyze traffic statistics for Application Gateway?
 
@@ -356,6 +368,13 @@ You can also use a Resource Manager template that installs and runs the popular 
 ### What could cause backend health to return an unknown status?
 
 Usually, you see an unknown status when access to the backend is blocked by a network security group (NSG), custom DNS, or user-defined routing (UDR) on the application gateway subnet. For more information, see [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md).
+
+### Is there any case where NSG flow logs won't show allowed traffic?
+
+Yes. If your configuration matches following scenario, you won't see allowed traffic in your NSG flow logs:
+- You've deployed Application Gateway v2
+- You have an NSG on the application gateway subnet
+- You've enabled NSG flow logs on that NSG
 
 ## Next steps
 

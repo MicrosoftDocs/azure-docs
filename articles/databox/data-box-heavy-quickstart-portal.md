@@ -7,10 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 06/04/2019
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
 ---
+
+::: zone target = "docs"
 
 # Quickstart: Deploy Azure Data Box Heavy using the Azure portal
 
@@ -52,9 +55,10 @@ Before you begin, make sure that:
     - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10-G switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
 - The power cables are included in a tray at the back of the device.
 
+
 ## Sign in to Azure
 
-Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Order
 
@@ -66,6 +70,16 @@ This step takes roughly 5 minutes.
 4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
 Once the order is created, the device is prepared for shipment.
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+# Cable and connect to your device
+
+After you have reviewed the prerequisites, you'll cable and connect to your device.
+
+::: zone-end
 
 ## Cable for power
 
@@ -92,7 +106,7 @@ This step takes about 10-15 minutes to complete.
 
 This step takes about 5-7 minutes to complete.
 
-1. To get the device password, go to **General > Device details** in the [Azure portal](http://portal.azure.com). Same password is used for both nodes of the device.
+1. To get the device password, go to **General > Device details** in the [Azure portal](https://portal.azure.com). Same password is used for both nodes of the device.
 2. Assign a static IP address of 192.168.100.5 and subnet 255.255.255.0 to the Ethernet adapter on the computer you are using to connect to Data Box Heavy. Access the local web UI of the device at `https://192.168.100.10`. The connection could take up to 5 minutes after you turned on the device.
 3. Sign in using the password from the Azure portal. You see an error indicating a problem with the website’s security certificate. Follow the browser-specific instructions to proceed to the web page.
 4. By default, the network settings for the interfaces (excluding the MGMT) are configured as DHCP. If needed, you can configure these interfaces as static and provide an IP address.
@@ -102,6 +116,9 @@ This step takes about 5-7 minutes to complete.
 This step takes about 15-20 minutes to complete.
 
 Follow the steps used for the first node to cable and configure the second node on the device.  
+
+
+::: zone target = "docs"
 
 ## Copy data
 
@@ -154,3 +171,5 @@ In this quickstart, you’ve deployed a Data Box Heavy to help import your data 
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box Heavy](data-box-portal-admin.md)
+
+::: zone-end

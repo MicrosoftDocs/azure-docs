@@ -10,8 +10,8 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-
 ---
+
 # Use HDInsight Tools for IntelliJ with Hortonworks Sandbox
 
 Learn how to use HDInsight Tools for IntelliJ to develop Apache Scala applications, and then test the applications on [Hortonworks Sandbox](https://hortonworks.com/products/sandbox/) running on your computer. 
@@ -20,7 +20,7 @@ Learn how to use HDInsight Tools for IntelliJ to develop Apache Scala applicatio
 
 ## Prerequisites
 
-Before you begin this tutorial, you must have the following items:
+Before you begin this article, you must have the following items:
 
 - Hortonworks Data Platform (HDP) 2.4 on Hortonworks Sandbox running on your local computer. To set up HDP, see [Get started in the Apache Hadoop ecosystem with a Hadoop sandbox on a virtual machine](apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
@@ -51,7 +51,7 @@ In this section, you create a sample Scala project by using IntelliJ IDEA. In th
       * **Maven**: For Scala project-creation wizard support.
       * **SBT**: For managing dependencies and building for the Scala project.
 
-   ![The New Project dialog box](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+   ![Intellij create new scala project](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Select **Next**.
 3. In the next **New Project** dialog box, complete the following steps:
@@ -138,7 +138,7 @@ To submit a project to an emulator:
 2. Complete the following steps:
 
     1. In the **Spark cluster (Linux only)** drop-down list, select your local Hortonworks Sandbox.
-    2. In the **Main class name** box, select or enter the main class name. For this tutorial, the name is **GroupByTest**.
+    2. In the **Main class name** box, select or enter the main class name. For this article, the name is **GroupByTest**.
 
 3. Select **Submit**. The job submission logs are shown in the Spark submission tool window.
 

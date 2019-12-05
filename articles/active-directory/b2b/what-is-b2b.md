@@ -1,5 +1,5 @@
 ---
-title: What is Azure Active Directory B2B collaboration? - Azure Active Directory | Microsoft Docs
+title: What is B2B collaboration in Azure Active Directory?
 description: Azure Active Directory B2B collaboration supports guest user access so you can securely share resources and collaborate with external partners.
 
 services: active-directory
@@ -43,7 +43,7 @@ Guest users sign in to your apps and services with their own work, school, or so
 ![Screenshot showing the Review permissions page](media/what-is-b2b/consentscreen.png)
 
 ## Use policies to securely share your apps and services
-You can use authorization policies protect your corporate content. Conditional Access policies, such as multi-factor authentication, can be enforced:
+You can use authorization policies to protect your corporate content. Conditional Access policies, such as multi-factor authentication, can be enforced:
 - At the tenant level.
 - At the application level.
 - For specific guest users to protect corporate apps and data.

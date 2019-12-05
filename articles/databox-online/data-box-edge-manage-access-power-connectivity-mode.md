@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/24/2019
 ms.author: alkohli
 ---
 
@@ -62,7 +62,7 @@ When generating the activation key for the Data Box Edge device, or performing a
 -  Creating a share with an associated storage account.
 -  Creating a user who can access the shares on the device.
 
-You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Data Box Edge device, creation of a user will all fail.
+You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Data Box Edge device, creation of a user, configuration of Edge compute role, reset device password will all fail.
 
 For more information on how to provide access to users to Azure Active Directory Graph API, see [Default access for administrators, users, and guest users](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
@@ -76,7 +76,7 @@ You don't need to grant access permissions to the subscription level for users t
 
 Before you attempt to create any resource, make sure that the resource provider is registered in the subscription. If the resource provider is not registered, you'll need to make sure that the user creating the new resource has enough rights to register the required resource provider on the subscription level. If you haven't done this as well, then you'll see the following error:
 
-*The subscription <Subscription name> doesn’t have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
+*The subscription \<Subscription name> doesn’t have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
 
 
 To get a list of registered resource providers in the current subscription, run the following command:

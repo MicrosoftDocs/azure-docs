@@ -7,12 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/29/2019
+ms.date: 07/03/2019
 ms.author: alkohli
+ms.localizationpriority: high 
 #Customer intent: As an IT admin, I need to be able to order Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
 
-# Tutorial: Order Azure Data Box Heavy (preview)
+# Tutorial: Order Azure Data Box Heavy
 
 
 Azure Data Box Heavy is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied 770 TB (approximate usable capacity) storage device and then ship the device back. This data is then uploaded to Azure.

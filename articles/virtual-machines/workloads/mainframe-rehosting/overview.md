@@ -81,7 +81,7 @@ Learn how to [move mainframe compute to Azure](./concepts/mainframe-compute-azur
 
 Azure offers commitment-based service-level agreements (SLAs). Multiple-nines availability is the default, and SLAs can be optimized with local or geo-based replication of services. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
-With Azure IaaS such as a VM, specific system functions provide failover support—for example, failover clustering instances and [availability sets](/azure/virtual-machines/windows/regions-and-availability#availability-sets). When you use Azure platform as a service (PaaS) resources, the platform handles failover automatically. Examples include [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction).
+With Azure IaaS such as a VM, specific system functions provide failover support—for example, failover clustering instances and availability sets. When you use Azure platform as a service (PaaS) resources, the platform handles failover automatically. Examples include [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
 ### Scalability
 

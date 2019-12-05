@@ -1,13 +1,13 @@
 ---
-title: 'How to configure Postman for Azure Digital Twins | Microsoft Docs'
-description: How to configure Postman for Azure Digital Twins.
-author: kingdomofends
-manager: alinast
+title: How to configure Postman - Azure Digital Twins | Microsoft Docs
+description: Learn how to configure and use Postman to test the Azure Digital Twins APIs.
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.author: v-adgera
+ms.date: 11/13/2019
 ---
 
 # How to configure Postman for Azure Digital Twins
@@ -30,25 +30,49 @@ Through the Postman client, solutions developers can specify the kind of HTTP re
 
 Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant flow.
 
-1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create an Azure AD application of type Native. Or you can reuse an existing Native app registration.
+1. Open the **API permissions** pane for your app registration. Select **Add a permission** button. In the **Request API permissions** pane, select the **APIs my organization uses** tab, and then search for:
+    
+    1. `Azure Digital Twins`. Select the **Azure Digital Twins** API.
 
-1. Under **Required permissions**, select **Add** and enter **Azure Digital Twins** under **Add API access**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead. Then, select **Grant Permissions > Delegated Permissions** and **Done**.
+        [![Search API or Azure Digital Twins](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
-    [![Azure Active Directory app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+    1. Alternatively, search for `Azure Smart Spaces Service`. Select the **Azure Smart Spaces Service** API.
 
-1. Select **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.
+        [![Search API for Azure Smart Spaces](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
-    [![Azure Active Directory implicit flow](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
+    > [!IMPORTANT]
+    > The Azure AD API name and ID that will appear depends on your tenant:
+    > * Test tenant and customer accounts should search for `Azure Digital Twins`.
+    > * Other Microsoft accounts should search for `Azure Smart Spaces Service`.
 
-1. Configure a **Reply URL** to `https://www.getpostman.com/oauth2/callback`.
+1. The selected API shows up as **Azure Digital Twins** in the same **Request API permissions** pane. Select the **Read (1)** drop down, and then select **Read.Write** checkbox. Select the **Add permissions** button.
 
-    [![Azure Active Directory Reply URL](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
+    [![Add API permissions for Azure Digital Twins](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+
+1. Depending on your organization's settings, you might need to take additional steps to grant admin access to this API. Contact your administrator for more information. Once the admin access is approved, the **ADMIN CONSENT REQUIRED** column in the **API permissions** pane will show similar to the following for your APIs:
+
+    [![Configure admin consent approval](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+
+1. Configure a second **Redirect URI** to `https://www.getpostman.com/oauth2/callback`.
+
+    [![Configure a new Postman Redirect URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
+
+1. To make sure that [the app is registered as a **public client**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), open the **Authentication** pane for your app registration, and scroll down in that pane. In the **Default client type** section, choose **Yes** for **Treat application as a public client**, and hit **Save**.
+
+    Check **Access tokens** to enable the **oauth2AllowImplicitFlow** setting in your Manifest.json.
+
+    [![Public client configuration setting](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
 
 1. Copy and keep the **Application ID** of your Azure Active Directory app. It's used in the steps that follow.
 
+   [![Azure Active Directory application ID](../../includes/media/digital-twins-permissions/aad-app-reg-app-id.png)](../../includes/media//digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
+
+
 ## Obtain an OAuth 2.0 token
 
-Next, set up and configure Postman to obtain an Azure Active Directory token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
+[!INCLUDE [digital-twins-management-api](../../includes/digital-twins-management-api.md)]
+
+Set up and configure Postman to obtain an Azure Active Directory token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
 
 1. Go to [www.getpostman.com](https://www.getpostman.com/) to download the app.
 1. Verify that your **Authorization URL** is correct. It should take the format:
@@ -67,46 +91,41 @@ Next, set up and configure Postman to obtain an Azure Active Directory token. Af
     |---------|---------|
     | Grant Type | `Implicit` |
     | Callback URL | `https://www.getpostman.com/oauth2/callback` |
-    | Auth URL | Use the **Authorization URL** from step 2 |
-    | Client ID | Use the **Application ID** for the Azure Active Directory app that was created or repurposed from the previous section |
+    | Auth URL | Use the **Authorization URL** from **step 2** |
+    | Client ID | Use the **Application ID** for the Azure Active Directory app that was created or reused from the previous section |
     | Scope | Leave blank |
     | State | Leave blank |
     | Client Authentication | `Send as Basic Auth header` |
 
 1. The client should now appear as:
 
-    [![Postman client example](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
+    [![Postman client token example](media/how-to-configure-postman/configure-postman-oauth-token.png)](media/how-to-configure-postman/configure-postman-oauth-token.png#lightbox)
 
 1. Select **Request Token**.
-
-    >[!TIP]
-    >If you receive the error message "OAuth 2 couldn’t be completed," try the following:
-    > * Close Postman, and reopen it and try again.
   
 1. Scroll down, and select **Use Token**.
-
-<div id="multi"></div>
 
 ## Make a multipart POST request
 
 After completing the previous steps, configure Postman to make an authenticated HTTP multipart POST request:
 
-1. Under the **Header** tab, add an HTTP request header key **Content-Type** with value `multipart/mixed`.
+1. Under the **Headers** tab, add an HTTP request header key **Content-Type** with value `multipart/mixed`.
 
-   [![Content type multipart/mixed](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
+   [![Specify content type multipart/mixed](media/how-to-configure-postman/configure-postman-content-type.png)](media/how-to-configure-postman/configure-postman-content-type.png#lightbox)
 
 1. Serialize non-text data into files. JSON data would be saved as a JSON file.
-1. Under the **Body** tab, add each file by assigning a **key** name, selecting `file` or `text`.
+1. Under the **Body** tab, select `form-data`. 
+1. Add each file by assigning a **key** name, selecting `File`.
 1. Then, select each file through the **Choose File** button.
 
-   [![Postman client example](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
+   [![Postman client form body example](media/how-to-configure-postman/configure-postman-form-body.png)](media/how-to-configure-postman/configure-postman-form-body.png#lightbox)
 
    >[!NOTE]
    > * The Postman client does not require that multipart chunks have a manually assigned **Content-Type** or **Content-Disposition**.
    > * You do not need to specify those headers for each part.
    > * You must select `multipart/mixed` or another appropriate  **Content-Type** for the entire request.
 
-1. Lastly, select **Send** to submit your multipart HTTP POST request.
+1. Lastly, select **Send** to submit your multipart HTTP POST request. A status code of `200` or `201` indicates a successful request. You will also see the appropriate response message.
 
 ## Next steps
 

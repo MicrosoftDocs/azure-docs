@@ -11,6 +11,7 @@ ms.subservice: custom-decision-service
 ms.topic: overview
 ms.date: 05/08/2018
 ms.author: slivkins
+ROBOTS: NOINDEX
 ---
 # What is Custom Decision Service?
 

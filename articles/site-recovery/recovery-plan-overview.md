@@ -1,12 +1,11 @@
 ---
-title: Using recovery plans in disaster recovery with Azure Site Recovery | Microsoft Docs
+title: About recovery plans in Azure Site Recovery 
 description: Learn about using recovery plans for disaster recovery with the Azure Site Recovery service. 
 author: rayne-wiselman
 manager: carmonm
-services: site-recovery
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/30/2019
+ms.topic: conceptual
+ms.date: 11/12/2019
 ms.author: raynew
 
 ---
@@ -14,8 +13,7 @@ ms.author: raynew
 
 This article describes recovery plans in [Azure Site Recovery](site-recovery-overview.md).
 
-A recovery plan gathers machines into recovery groups. You can customize a plan by adding order, instructions, and tasks to it. After a plan is defined, you can run a failover on it.
-
+A recovery plan gathers machines into recovery groups. You can customize a plan by adding order, instructions, and tasks to it. After a plan is defined, you can run a failover on it.  Machines can be referenced in multiple Recovery Plans, in which subsequent plans will skip the deployment/startup of the machine if it was previously deployed via another recovery plan.
 
 
 ## Why use a recovery plan?
@@ -29,6 +27,9 @@ A recovery plan helps you to define a systematic recovery process, by creating s
 
 
 ## Model apps
+
+> [!NOTE]
+> Up to 100 protected instances can be added to one recovery plan.
 
 You can plan and create a recovery group to capture app-specific properties. As an example, let's consider a typical three-tier application with a SQL server backend, middleware, and a web frontend. Typically, you customize the recovery plan so that machines in each tier start in the correct order after failover.
 

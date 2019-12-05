@@ -1,14 +1,13 @@
 ---
-title: Manage Apache Hadoop clusters in HDInsight with PowerShell - Azure 
+title: Manage Apache Hadoop clusters with PowerShell - Azure HDInsight
 description: Learn how to perform administrative tasks for the Apache Hadoop clusters in HDInsight using Azure PowerShell.
-ms.reviewer: tyfox
 author: hrasheed-msft
-
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
-ms.author: tylerfox
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using Azure PowerShell
@@ -17,6 +16,8 @@ ms.author: tylerfox
 Azure PowerShell can be used to control and automate the deployment and management of your workloads in Azure. In this article, you learn how to manage [Apache Hadoop](https://hadoop.apache.org/) clusters in Azure HDInsight by using the Azure PowerShell Az module. For the list of the HDInsight PowerShell cmdlets, see the [Az.HDInsight reference](https://docs.microsoft.com/powershell/module/az.hdinsight).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -85,7 +86,7 @@ The impact of changing the number of data nodes for each type of cluster support
 
     The Storm web UI is available on the HDInsight cluster:
 
-    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
+    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-powershell/portal-scale-cluster.png)
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 
@@ -146,10 +147,6 @@ It is the same procedure as Grant/revoke HTTP access. If the cluster has been gr
 ## Find the default storage account
 The following PowerShell script demonstrates how to get the default storage account name and the related information:
 
-> [!IMPORTANT]  
-> The values for `DefaultStorageAccount`, and `DefaultStorageContainer` are not returned from [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) when [secure transfer](../storage/common/storage-require-secure-transfer.md) is enabled on the storage account.
-
-
 ```powershell
 #Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
@@ -193,10 +190,6 @@ See [Run the MapReduce examples included in HDInsight](hadoop/apache-hadoop-run-
 **To submit Apache Hive jobs**
 
 See [Run Apache Hive queries using PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
-
-**To submit Apache Pig jobs**
-
-See [Run Apache Pig jobs using PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
 **To submit Apache Sqoop jobs**
 

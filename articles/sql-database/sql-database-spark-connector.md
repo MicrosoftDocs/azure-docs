@@ -1,5 +1,5 @@
 ---
-title: Spark Connector with Azure SQL Database and SQL Server| Microsoft Docs
+title: Spark Connector with Azure SQL Database and SQL Server
 description: Learn how to use the Spark Connector for Azure SQL Database and SQL Server
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 09/25/2018
 ---
 # Accelerate real-time big data analytics with Spark connector for Azure SQL Database and SQL Server
@@ -60,7 +59,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"            -> "mysqlserver.database.windows.net",
   "databaseName"   -> "MyDatabase",
-  "dbTable"        -> "dbo.Clients"
+  "dbTable"        -> "dbo.Clients",
   "user"           -> "username",
   "password"       -> "*********",
   "connectTimeout" -> "5", //seconds
@@ -98,7 +97,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"          -> "mysqlserver.database.windows.net",
   "databaseName" -> "MyDatabase",
-  "dbTable"      -> "dbo.Clients"
+  "dbTable"      -> "dbo.Clients",
   "user"         -> "username",
   "password"     -> "*********"
 ))
@@ -125,7 +124,7 @@ val config = Config(Map(
   "queryCustom"  -> query
 ))
 
-sqlContext.SqlDBQuery(config)
+sqlContext.sqlDBQuery(config)
 ```
 
 ## Connect Spark to Azure SQL Database using AAD authentication
@@ -196,7 +195,6 @@ val bulkCopyConfig = Config(Map(
   "databaseName"      -> "MyDatabase",
   "user"              -> "username",
   "password"          -> "*********",
-  "databaseName"      -> "zeqisql",
   "dbTable"           -> "dbo.Clients",
   "bulkCopyBatchSize" -> "2500",
   "bulkCopyTableLock" -> "true",

@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -191,7 +192,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
 ### Assign the Azure AD test user
 
-In this section, you set up Britta Simon to use Azure AD single sign-on by granting her access to AnswerHub.
+In this section, you set up the user Britta Simon to use Azure AD single sign-on by granting the user access to AnswerHub.
 
 **To assign the Azure AD test user:**
 

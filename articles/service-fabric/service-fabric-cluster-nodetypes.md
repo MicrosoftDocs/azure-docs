@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: chackdan
+ms.author: pepogors
 
 ---
 # Azure Service Fabric node types and virtual machine scale sets
@@ -56,6 +56,7 @@ The following is a snippet of Service Fabric Virtual Machine extension:
          "durabilityLevel": "Silver",
          "enableParallelJobs": true,
          "nicPrefixOverride": "[variables('subnet0Prefix')]",
+         "dataPath": "D:\\\\SvcFab",
          "certificate": {
            "commonNames": [
              "[parameters('certificateCommonName')]"
@@ -73,7 +74,7 @@ The following are the property descriptions:
 | **Name** | **Allowed Values** | ** --- ** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 | name | string | --- | unique name for extension |
-| type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode | --- | Identifies OS Service Fabric is bootstrapping to |
+| type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode" | --- | Identifies OS Service Fabric is bootstrapping to |
 | autoUpgradeMinorVersion | true or false | --- | Enable Auto Upgrade of SF Runtime Minor Versions |
 | publisher | Microsoft.Azure.ServiceFabric | --- | name of the Service Fabric extention publisher |
 | clusterEndpont | string | --- | URI:PORT to Management endpoint |
@@ -84,6 +85,7 @@ The following are the property descriptions:
 | commonNames | string[] | --- | Common Names of installed cluster certificates |
 | x509StoreName | string | --- | Name of Store where installed cluster certificate is located |
 | typeHandlerVersion | 1.1 | --- | Version of Extension. 1.0 classic version of extension are recommended to upgrade to 1.1 |
+| dataPath | string | --- | Path to the drive used to save state for Service Fabric system services and application data. 
 
 ## Next steps
 * See the [overview of the "Deploy anywhere" feature and a comparison with Azure-managed clusters](service-fabric-deploy-anywhere.md).

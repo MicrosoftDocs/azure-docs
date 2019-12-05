@@ -1,5 +1,5 @@
 ---
-title: SQL Server database migration to a single/pooled database in Azure SQL Database | Microsoft Docs
+title: SQL Server database migration to a single/pooled database
 description: Learn how about SQL Server database migration to a single database or an elastic pool in Azure SQL Database. 
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/11/2019
 ---
 # SQL Server database migration to Azure SQL Database

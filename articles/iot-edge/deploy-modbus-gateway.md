@@ -6,9 +6,8 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 06/28/2019
 ms.author: kgremban
-ms.custom: seodec18
 ---
 
 # Connect Modbus TCP devices through an IoT Edge device gateway
@@ -65,7 +64,7 @@ This section walks through deploying Microsoft's sample Modbus module to your Io
                 "Op01":{
                   "PollingInterval": "1000",
                   "UnitId":"1",
-                  "StartAddress":"400001",
+                  "StartAddress":"40001",
                   "Count":"2",
                   "DisplayName":"Voltage"
                 }

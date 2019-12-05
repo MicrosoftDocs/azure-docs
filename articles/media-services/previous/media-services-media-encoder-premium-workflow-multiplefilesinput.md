@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: xpouyat;anilmur;juliako
+ms.author: xpouyat
+ms.reviewer: anilmur;juliako
 
 ---
 # Using multiple input files and component properties with Premium Encoder

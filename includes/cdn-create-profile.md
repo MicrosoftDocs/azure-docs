@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: cdn
 author: SyntaxC4
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 05/24/2018
 ms.author: cfowler
@@ -30,7 +30,7 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
     | -------- | ----- |
     | **Name** | Enter *my-cdn-profile-123* for your profile name. This name must be globally unique; if it is already in use, you may enter a different name. |
     | **Subscription** | Select an Azure subscription from the drop-down list. |
-    | **Resource group** | Select **Create new** and enter *my-resource-group-123* for your resource group name. This name must be globally unique. If it is already in use, you may enter a different name or you can select **Use existing** and select **my-resource-group-123** from the drop-down list. | 
+    | **Resource group** | Select **Create new** and enter *my-resource-group-123* for your resource group name. If it is already in use, you may enter a different name or you can select **Use existing** and select **my-resource-group-123** from the drop-down list. | 
     | **Resource group location** | Select **Central US** from the drop-down list. |
     | **Pricing tier** | Select **Standard Verizon** from the drop-down list. |
     | **Create a new CDN endpoint now** | Leave unselected. |  

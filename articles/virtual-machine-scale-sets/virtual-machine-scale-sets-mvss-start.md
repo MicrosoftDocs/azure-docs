@@ -18,7 +18,7 @@ ms.author: manayar
 ---
 
 # Learn about virtual machine scale set templates
-[Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial series shows how to create a basic scale set template and how to modify this template to suit various scenarios. All examples come from this [GitHub repository](https://github.com/gatneil/mvss).
+[Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) are a great way to deploy groups of related resources. This tutorial series shows how to create a basic scale set template and how to modify this template to suit various scenarios. All examples come from this [GitHub repository](https://github.com/gatneil/mvss).
 
 This template is intended to be simple. For more complete examples of scale set templates, see the [Azure Quickstart Templates GitHub repository](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
 

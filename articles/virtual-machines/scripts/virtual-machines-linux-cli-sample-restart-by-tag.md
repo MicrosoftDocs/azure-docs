@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Sample - Restart VMs | Microsoft Docs
+title: Azure CLI Script Sample - Restart VMs 
 description: Azure CLI Script Sample - Restart VMs by tag and by ID
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: allclark
-manager: douge
+author: cynthn
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: allclark
+ms.author: cynthn
 ms.custom: mvc
 ---
 

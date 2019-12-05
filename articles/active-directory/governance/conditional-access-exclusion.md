@@ -3,8 +3,8 @@ title: Use access reviews to manage users excluded from Conditional Access polic
 description: Learn how to use Azure Active Directory (Azure AD) access reviews to manage users that have been excluded from Conditional Access policies
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/25/2018
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -31,7 +31,7 @@ As an IT administrator, you might use [Azure AD Conditional Access](../condition
 
 As another example, you might use [named locations](../conditional-access/location-condition.md) in Conditional Access to configure a set of counties and regions from which you don't want to allow users to access their tenant.
 
-![Named locations](./media/conditional-access-exclusion/named-locations.png)
+![Named locations in Conditional Access](./media/conditional-access-exclusion/named-locations.png)
 
 However, in some cases, users might have a legitimate reason to sign in from these blocked countries/regions. For example, users might be traveling for work or personal reasons. In this example, the Conditional Access policy to block these countries/regions could have a dedicated cloud security group for the users who are excluded from the policy. Users who need access while traveling, can add themselves to the group using [Azure AD self-service Group management](../users-groups-roles/groups-self-service-management.md).
 
@@ -63,7 +63,7 @@ Follow these steps to create a new Azure AD group and a Conditional Access polic
 
 1. Select the users that should be part of this exclusion group and then click **Create**.
 
-    ![New group pane](./media/conditional-access-exclusion/new-group.png)
+    ![New group pane in Azure Active Directory](./media/conditional-access-exclusion/new-group.png)
 
 ### Create a Conditional Access policy that excludes the group
 
@@ -88,7 +88,7 @@ Now you can create a Conditional Access policy that uses this exclusion group.
 
 1. Continue with setting up the Conditional Access policy based on your organizational requirements.
 
-    ![Select excluded users](./media/conditional-access-exclusion/select-excluded-users.png)
+    ![Select excluded users pane in Conditional Access](./media/conditional-access-exclusion/select-excluded-users.png)
 
 Let's cover two examples where you can use access reviews to manage exclusions in Conditional Access policies.
 
@@ -111,7 +111,7 @@ Let's say you have a Conditional Access policy that blocks access from certain c
 
 6. Enable mail notifications so users are notified about the start and completion of the access review.
 
-    ![Create an access review](./media/conditional-access-exclusion/create-access-review-1.png)
+    ![Create an access review pane for example 1](./media/conditional-access-exclusion/create-access-review-1.png)
 
 ## Example 2: Access review for users accessing with legacy authentication
 
@@ -129,7 +129,7 @@ Let's say you have a Conditional Access policy that blocks access for users usin
 
 6. Enable mail notifications so users are notified about the start and completion of the access review.
 
-    ![Create an access review](./media/conditional-access-exclusion/create-access-review-2.png)
+    ![Create an access review pane for example 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
 **Pro Tip**: If you have many exclusion groups and therefore need to create multiple access reviews, we now have an API in the Microsoft Graph beta endpoint that allows you to create and manage them programmatically. To get started, see the [Azure AD access reviews API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) and [Example of retrieving Azure AD access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
@@ -143,11 +143,11 @@ Now that you have everything in place, group, Conditional Access policy, and acc
 
 1. Click **Results** to see who was approved to stay on the list and who was removed.
 
-    ![Access reviews results](./media/conditional-access-exclusion/access-reviews-results.png)
+    ![Access reviews results show who was approved](./media/conditional-access-exclusion/access-reviews-results.png)
 
 1. Then click **Audit logs** to see the actions that were taken during this review.
 
-    ![Access reviews audit logs](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
+    ![Access reviews audit logs listing actions](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
 
 As an IT administrator, you know that managing exclusion groups to your policies is sometimes inevitable. However, maintaining these groups, reviewing them on a regular basis by the business owner or the users themselves, and auditing these changes can made easier with Azure AD access reviews.
 

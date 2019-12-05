@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create and monitor Apache Storm topology in Azure HDInsight'
+title: 'Quickstart: Create/manage Apache Storm topology - Azure HDInsight'
 description: In the quickstart, learn how to create and monitor an Apache Storm topology in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -49,7 +49,7 @@ Use the following steps to monitor the topology using the Storm UI:
 
 2. Under **Topology Summary**, select the **wordcount** entry in the **Name** column. Information about the topology is displayed.
 
-    ![Storm Dashboard with storm-starter WordCount topology information.](./media/apache-storm-quickstart/topology-summary.png)
+    ![Storm Dashboard with storm-starter WordCount topology information.](./media/apache-storm-quickstart/hdi-topology-summary.png)
 
     The new page provides the following information:
 
@@ -66,7 +66,7 @@ Use the following steps to monitor the topology using the Storm UI:
 
 3. From this page, select an entry from the **Spouts** or **Bolts** section. Information about the selected component is displayed.
 
-    ![Storm Dashboard with information about selected components.](./media/apache-storm-quickstart/component-summary.png)
+    ![Storm Dashboard with information about selected components.](./media/apache-storm-quickstart/hdi-component-summary.png)
 
     The new page displays the following information:
 
@@ -106,4 +106,4 @@ To delete a cluster, see [Delete an HDInsight cluster using your browser, PowerS
 In this quickstart, you used an example from the Apache [storm-starter](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) project to create and monitor an Apache Storm topology to an existing Apache Storm cluster. Advance to the next article to learn the basics of managing and monitoring Apache Storm topologies.
 
 > [!div class="nextstepaction"]
->[Deploy and manage Apache Storm topologies on Azure HDInsight ](./apache-storm-deploy-monitor-topology-linux.md)
+>[Deploy and manage Apache Storm topologies on Azure HDInsight](./apache-storm-deploy-monitor-topology-linux.md)

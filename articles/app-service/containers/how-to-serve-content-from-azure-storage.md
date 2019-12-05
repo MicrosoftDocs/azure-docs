@@ -1,18 +1,15 @@
-﻿---
-title: Serve content from Azure Storage on Linux - App Service
-description: How to configure and serve content from Azure Storage in Azure App Service on Linux.
-author: msangapu
-manager: jeconnoc
+---
+title: Attach custom Storage container on Linux
+description: Learn how to attach custom network share to your Linux container in Azure App Service. Share files between apps, manage static content remotely and access locally, etc.
+author: msangapu-msft
 
-ms.service: app-service
-ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
-ms.author: msangapu-msft
+ms.author: msangapu
 ---
-# Serve content from Azure Storage in App Service on Linux
+# Attach Azure Storage containers to Linux containers
 
-This guide shows how to serve static content in App Service on Linux by using [Azure Storage](/azure/storage/common/storage-introduction). Benefits include secured content, content portability, access to multiple apps, and multiple transferring methods. 
+This guide shows how to attach network shares to App Service on Linux from using [Azure Storage](/azure/storage/common/storage-introduction). Benefits include secured content, content portability, persistent storage, access to multiple apps, and multiple transferring methods.
 
 ## Prerequisites
 
@@ -23,6 +20,8 @@ This guide shows how to serve static content in App Service on Linux by using [A
 
 > [!NOTE]
 > Azure Storage is non-default storage and billed separately, not included with the web app.
+>
+> Bring your own storage does not support using the Storage Firewall configuration due to infrastructure limitations.
 >
 
 Create an Azure [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).

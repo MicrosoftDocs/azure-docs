@@ -11,6 +11,7 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
+ROBOTS: NOINDEX
 ---
 
 # API
@@ -101,7 +102,7 @@ The `details=2` element adds more details that Custom Decision Service might ext
 - `title` from `<meta property="og:title" content="..." />` or `<meta property="twitter:title" content="..." />` or `<title>...</title>`
 - `description` from `<meta property="og:description" ... />` or `<meta property="twitter:description" content="..." />` or `<meta property="description" content="..." />`
 - `image` from `<meta property="og:image" content="..." />`
-- `ds_id` from `<meta name=”microsoft:ds_id” content="..." />`
+- `ds_id` from `<meta name="microsoft:ds_id" content="..." />`
 
 The HTTP response:
 

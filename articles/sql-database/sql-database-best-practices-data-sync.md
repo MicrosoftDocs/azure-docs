@@ -1,5 +1,5 @@
 ---
-title: "Best practices for Azure SQL Data Sync | Microsoft Docs"
+title: Best practices for Data Sync
 description: "Learn about best practices for configuring and running Azure SQL Data Sync."
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: "allenwux"
 ms.author: "xiwu"
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/20/2018
 ---
 # Best practices for SQL Data Sync 

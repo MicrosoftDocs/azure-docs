@@ -1,6 +1,6 @@
 ---
 title: Sending requests to the Bing Spell Check API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn about the Bing Spell Check modes, settings, and other information relating to the API.
 services: cognitive-services
 author: aahill
@@ -8,15 +8,15 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
-ms.topic: overview
-ms.date: 02/20/2019
+ms.topic: conceptual
+ms.date: 06/27/2019
 ms.author: aahi
 ---
 
 # Sending requests to the Bing Spell Check API
 
 To check a text string for spelling and grammar errors, you'd send a GET request to the following endpoint:  
-  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/spellcheck
 ```  
@@ -69,6 +69,8 @@ The following shows a request that includes all the suggested query parameters a
 
 The following shows the response to the previous request. The example also shows the Bing-specific response headers.
 
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
+
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
 X-MSEdge-ClientID: 1C3352B306E669780D58D607B96869
@@ -115,7 +117,7 @@ BingAPIs-Market: en-US
 }  
 ```  
 
-# Next steps
+## Next steps
 
 - [What is the Bing Spell Check API?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

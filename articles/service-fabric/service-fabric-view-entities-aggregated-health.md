@@ -28,7 +28,7 @@ Service Fabric provides multiple ways to get the aggregated health of the entiti
 * Health queries (through PowerShell, API, or REST)
 * General queries that return a list of entities that have health as one of the properties (through PowerShell, API, or REST)
 
-To demonstrate these options, let's use a local cluster with five nodes and the [fabric:/WordCount application](https://aka.ms/servicefabric-wordcountapp). The **fabric:/WordCount** application contains two default services, a stateful service of type `WordCountServiceType`, and a stateless service of type `WordCountWebServiceType`. I changed the `ApplicationManifest.xml` to require seven target replicas for the stateful service and one partition. Because there are only five nodes in the cluster, the system components report a warning on the service partition because it is below the target count.
+To demonstrate these options, let's use a local cluster with five nodes and the [fabric:/WordCount application](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg). The **fabric:/WordCount** application contains two default services, a stateful service of type `WordCountServiceType`, and a stateless service of type `WordCountWebServiceType`. I changed the `ApplicationManifest.xml` to require seven target replicas for the stateful service and one partition. Because there are only five nodes in the cluster, the system components report a warning on the service partition because it is below the target count.
 
 ```xml
 <Service Name="WordCountService">
@@ -1049,7 +1049,7 @@ The queries that contain **HealthState** for entities are:
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Some of the queries return paged results. The return of these queries is a list derived from [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). If the results do not fit a message, only a page is returned and a ContinuationToken that tracks where enumeration stopped. Continue to call the same query and pass in the continuation token from the previous query to get next results.
+> Some of the queries return paged results. The return of these queries is a list derived from [PagedList\<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). If the results do not fit a message, only a page is returned and a ContinuationToken that tracks where enumeration stopped. Continue to call the same query and pass in the continuation token from the previous query to get next results.
 
 ### Examples
 The following code gets the unhealthy applications in the cluster:

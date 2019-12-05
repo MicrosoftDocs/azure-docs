@@ -77,7 +77,7 @@ If your Azure cluster gets upgraded to version 6.5 or higher, EventStore will be
     "fabricSettings": [
       …
     ],
-    "eventStoreEnabled": false
+    "eventStoreServiceEnabled": false
   ```
 
 ### Azure cluster version 6.4

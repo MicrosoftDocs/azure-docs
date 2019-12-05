@@ -1,12 +1,10 @@
 ---
-title: Protect Azure data and storage services in Azure Security Center | Microsoft Docs
+title: Data & storage recommendations - Azure Security Center
 description: This document addresses recommendations in Azure Security Center that help you protect your data and Azure SQL service and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
-
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
-ms.author: monhaber
-
+ms.author: memildin
 ---
 
 # Protect Azure data and storage services in Azure Security Center
@@ -25,19 +22,19 @@ This topic shows you how to view and implement security recommendations for data
 
 1. In the **Resource security hygiene** section, click **Data and storage resources**.
 
-   ![Data & storage resources](./media/security-center-monitoring/click-data.png)
+    ![Data & storage resources](./media/security-center-monitoring/click-data.png)
 
     The **Data security** page opens with recommendations for data resources.
 
-     ![Data Resources](./media/security-center-monitoring/sql-overview.png)
+    ![Data Resources](./media/security-center-monitoring/sql-overview.png)
 
-From this page, you can:
+    From this page, you can:
 
-* Click the **Overview** tab lists all the data resources recommendations to be remediated. 
-* Click each tab, and view the recommendations by resource type.
+    * Click the **Overview** tab lists all the data resources recommendations to be remediated. 
+    * Click each tab, and view the recommendations by resource type.
 
     > [!NOTE]
-    > For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+    > For more information about storage encryption, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
 
 
 ## Remediate a recommendation on a data resource
@@ -63,7 +60,7 @@ From this page, you can:
 |Storage account|20|Secure transfer to storage accounts should be enabled|Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking.|
 |Redis|20|Only secure connections to your Redis Cache should be enabled|Enable only connections via SSL to Azure Cache for Redis. Use of secure connections ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking.|
 |SQL|15|Transparent Data Encryption on SQL databases should be enabled|Enable transparent data encryption to protect data-at-rest and meet compliance requirements.|
-|SQL|15|SQL server auditing should be enabled|Enable auditing  for Azure SQL servers. (Azure SQL service only. Doesn't include SQL running on your virtual machines.)|
+|SQL|15|SQL server auditing should be enabled|Enable auditing for Azure SQL servers. (Azure SQL service only. Doesn't include SQL running on your virtual machines.)|
 |Data lake analytics|5|Diagnostics logs in Data Lake Analytics should be enabled|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 |Data lake store|5|Diagnostics logs in Azure Data Lake Store should be enabled|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 |SQL|30|Vulnerabilities on your SQL databases should be remediated|SQL Vulnerability Assessment scans your database for security vulnerabilities and exposes any deviations from best practices such as misconfigurations, excessive permissions, and unprotected sensitive data. Resolving the vulnerabilities found can greatly improve your database security stature.|
@@ -74,8 +71,7 @@ From this page, you can:
 ## See also
 To learn more about recommendations that apply to other Azure resource types, see the following topics:
 
-* [Protecting your virtual machines in Azure Security Center](security-center-virtual-machine-recommendations.md)
-* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
+* [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
 
 To learn more about Security Center, see the following topics:

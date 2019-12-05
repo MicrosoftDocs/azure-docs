@@ -2,7 +2,7 @@
 title: Add or remove group owners - Azure Active Directory | Microsoft Docs
 description: Instructions about how to add or remove group owners using Azure Active Directory. 
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
 # Add or remove group owners in Azure Active Directory
-Azure Active Directory (Azure AD) groups are owned and managed by group owners. Group owners can be users or service principals, and are able to manage the group including membership. Only existing group owners or group-managing administrators can assign group onwers. Group owners aren't required to be members of the group.
+Azure Active Directory (Azure AD) groups are owned and managed by group owners. Group owners can be users or service principals, and are able to manage the group including membership. Only existing group owners or group-managing administrators can assign group owners. Group owners aren't required to be members of the group.
 
 When a group has no owner, group-managing administrators are still able to manage the group.
 

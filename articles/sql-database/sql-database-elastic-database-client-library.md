@@ -1,5 +1,5 @@
 ---
-title: Building scalable cloud databases | Microsoft Docs
+title: Building scalable cloud databases
 description: Build scalable .NET database apps with the elastic database client library
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-manager: craigg
 ms.date: 09/25/2018
 ---
 # Building scalable cloud databases

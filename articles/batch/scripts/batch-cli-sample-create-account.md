@@ -4,7 +4,7 @@ description: Azure CLI Script Example - Create a Batch account in Batch service 
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: 
 
 ms.assetid:

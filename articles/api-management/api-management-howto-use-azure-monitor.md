@@ -11,7 +11,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
@@ -60,8 +59,9 @@ To access metrics:
 
     ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. From the drop-down, select metrics you are interested in. For example, **Successful Gateway Requests**. You can also add more metrics to the chart.
-3. The chart shows the total number of successful API calls.
+1. From the drop-down, select metrics you are interested in. For example, **Requests**. 
+1. The chart shows the total number of API calls.
+1. The chart can be filtered using the dimensions of the **Requests** metric. For example, click on **Add filter**, choose **Backend Response Code**, enter 500 as the value. Now the chart shows the number of requests that were failed in the API backend.   
 
 ## Set up an alert rule for unauthorized request
 
@@ -179,10 +179,10 @@ API Management currently provides diagnostics logs (batched hourly) about indivi
 | Property  | Type | Description |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | True if the HTTP request completed with response status code within 2xx or 3xx range |
-| time | date-time | Timestamp of receiving the HTTP request by the gateway |
+| time | date-time | Timestamp of when the gateway starts process the request |
 | operationName | string | Constant value 'Microsoft.ApiManagement/GatewayLogs' |
 | category | string | Constant value 'GatewayLogs' |
-| durationMs | integer | Number of milliseconds from the moment gateway received request until the moment response sent in full |
+| durationMs | integer | Number of milliseconds from the moment gateway received request until the moment response sent in full. It includes clienTime, cacheTime, and backendTime. |
 | callerIpAddress | string | IP address of immediate Gateway caller (can be an intermediary) |
 | correlationId | string | Unique http request identifier assigned by API Management |
 | location | string | Name of the Azure region where the Gateway that processed the request was located |
@@ -210,7 +210,7 @@ API Management currently provides diagnostics logs (batched hourly) about indivi
 | apimSubscriptionId | string | Subscription entity identifier for current request | 
 | backendId | string | Backend entity identifier for current request | 
 | LastError | object | Last request processing error | 
-| elapsed | integer | Number of milliseconds elapsed since Gateway received request  the moment the error occurred | 
+| elapsed | integer | Number of milliseconds elapsed between when the gateway received the request  and the moment the error occurred | 
 | source | string | Name of the policy or processing internal handler caused the error | 
 | scope | string | Scope of the policy document containing the policy that caused the error | 
 | section | string | Section of the policy document containing the policy that caused the error | 

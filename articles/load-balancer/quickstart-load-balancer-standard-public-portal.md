@@ -1,10 +1,10 @@
 ---
 title: Quickstart:Create a Standard Load Balancer - Azure portal
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a Standard Load Balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
-author: KumudD 
+author: asudbring 
 manager: twooley
 Customer intent: I want to create a Standard Load Balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: mvc
 ---
 

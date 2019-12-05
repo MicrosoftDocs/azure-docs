@@ -1,5 +1,5 @@
 ---
-title: Develop and configure Azure Functions SignalR Service applications
+title: Develop & configure Azure Functions app - Azure SignalR
 description: Details on how to develop and configure serverless real-time applications using Azure Functions and Azure SignalR Service
 author: anthonychu
 ms.service: signalr
@@ -35,7 +35,7 @@ A client application requires a valid access token to connect to Azure SignalR S
 
 Use an HTTP triggered Azure Function and the *SignalRConnectionInfo* input binding to generate the connection information object. The function must have an HTTP route that ends in `/negotiate`.
 
-For more information on how to create the negotiate function, see the [*SignalRConnectionInfo* input binding reference](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding).
+For more information on how to create the negotiate function, see the [*SignalRConnectionInfo* input binding reference](../azure-functions/functions-bindings-signalr-service.md#input).
 
 To learn about how to create an authenticated token, refer to [Using App Service Authentication](#using-app-service-authentication).
 
@@ -45,7 +45,7 @@ Use the *SignalR* output binding to send messages to clients connected to Azure 
 
 Users can be added to one or more groups. You can also use the *SignalR* output binding to add or remove users to/from groups.
 
-For more information, see the [*SignalR* output binding reference](../azure-functions/functions-bindings-signalr-service.md#signalr-output-binding).
+For more information, see the [*SignalR* output binding reference](../azure-functions/functions-bindings-signalr-service.md#output).
 
 ### SignalR Hubs
 
@@ -117,15 +117,44 @@ Example:
 }
 ```
 
-#### Azure
+#### Cloud - Azure Functions CORS
 
 To enable CORS on an Azure Function app, go to the CORS configuration screen under the *Platform features* tab of your Function app in the Azure portal.
+
+> [!NOTE]
+> CORS configuration is not yet available in Azure Functions Linux Consumption plan. Use [Azure API Management](#cloud---azure-api-management) to enable CORS.
 
 CORS with Access-Control-Allow-Credentials must be enabled for the SignalR client to call the negotiate function. Select the checkbox to enable it.
 
 In the *Allowed origins* section, add an entry with the origin base URL of your web application.
 
 ![Configuring CORS](media/signalr-concept-serverless-development-config/cors-settings.png)
+
+#### Cloud - Azure API Management
+
+Azure API Management provides an API gateway that adds capabilities to existing back-end services. You can use it to add CORS to your function app. It offers a consumption tier with pay-per-action pricing and a monthly free grant.
+
+Refer to the API Management documentation for information on how to [import an Azure Function app](../api-management/import-function-app-as-api.md). Once imported, you can add an inbound policy to enable CORS with Access-Control-Allow-Credentials support.
+
+```xml
+<cors allow-credentials="true">
+  <allowed-origins>
+    <origin>https://azure-samples.github.io</origin>
+  </allowed-origins>
+  <allowed-methods>
+    <method>GET</method>
+    <method>POST</method>
+  </allowed-methods>
+  <allowed-headers>
+    <header>*</header>
+  </allowed-headers>
+  <expose-headers>
+    <header>*</header>
+  </expose-headers>
+</cors>
+```
+
+Configure your SignalR clients to use the API Management URL.
 
 ### Using App Service Authentication
 

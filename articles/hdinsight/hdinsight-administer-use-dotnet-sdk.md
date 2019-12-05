@@ -253,10 +253,6 @@ See [Run MapReduce samples in HDInsight](hadoop/apache-hadoop-run-samples-linux.
 
 See [Run Apache Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**To submit Apache Pig jobs**
-
-See [Run Apache Pig jobs using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
-
 **To submit Apache Sqoop jobs**
 
 See [Use Apache Sqoop with HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).

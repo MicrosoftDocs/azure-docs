@@ -2,12 +2,12 @@
 title: Service principals for Azure Kubernetes Services (AKS)
 description: Create and manage an Azure Active Directory service principal for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: iainfou
+ms.author: mlearned
 
 #Customer intent: As a cluster operator, I want to understand how to create a service principal and delegate permissions for AKS to access required resources. In large enterprise environments, the user that deploys the cluster (or CI/CD system), may not have permissions to create this service principal automatically when the cluster is created.
 ---
@@ -91,7 +91,7 @@ The following sections detail common delegations that you may need to make.
 
 ### Azure Container Registry
 
-If you use Azure Container Registry (ACR) as your container image store, you need to grant permissions for your AKS cluster to read and pull images. The service principal of the AKS cluster must be delegated the *Reader* role on the registry. For detailed steps, see [Grant AKS access to ACR][aks-to-acr].
+If you use Azure Container Registry (ACR) as your container image store, you need to grant permissions to the service principal for your AKS cluster to read and pull images. Currently, the recommended configuration is to use the [az aks create][az-aks-create] or [az aks update][az-aks-update] command to integrate with a registry and assign the appropriate role for the service principal. For detailed steps, see [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-to-acr].
 
 ### Networking
 
@@ -175,6 +175,6 @@ For information on how to update the credentials, see [Update or rotate the cred
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
+[aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md

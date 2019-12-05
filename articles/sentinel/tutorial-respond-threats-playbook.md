@@ -1,6 +1,6 @@
 ---
-title: Run a playbook in Azure Sentinel Preview| Microsoft Docs
-description: This article describes how to run a playbook in Azure Sentinel.
+title: 'Tutorial: Run a playbook in Azure Sentinel'
+description: 'Tutorial: This article describes how to run a playbook in Azure Sentinel.'
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -8,22 +8,20 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 11/12/2019
 ms.author: rkarlin
 ---
 
-# Tutorial: Set up automated threat responses in Azure Sentinel Preview
+# Tutorial: Set up automated threat responses in Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 This tutorial helps you to use security playbooks in Azure Sentinel to set automated threat responses to security-related issues detected by Azure Sentinel.
 
@@ -32,6 +30,7 @@ This tutorial helps you to use security playbooks in Azure Sentinel to set autom
 > * Understand playbooks
 > * Create a playbook
 > * Run a playbook
+> * Automate threat responses
 
 
 ## What is a security playbook in Azure Sentinel?
@@ -73,7 +72,9 @@ Follow these steps to create a new security playbook in Azure Sentinel:
 
 6. You are taken to the Logic App Designer where you can either build new or edit the template. For more information on creating a playbook with [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
-7. If you are creating a blank playbook, in the **Search all connectors and triggers** field, type *Azure Sentinel*, and select **When a response to an Azure Sentinel alert is triggered**. <br>After it is created, the new playbook appears in the **Playbooks** list. If it doesn’t appear, click **Refresh**. 
+7. If you are creating a blank playbook, in the **Search all connectors and triggers** field, type *Azure Sentinel*, and select **When a response to an Azure Sentinel alert is triggered**. <br>After it is created, the new playbook appears in the **Playbooks** list. If it doesn’t appear, click **Refresh**.
+
+1. Use the **Get entities** functions, which enable you to get the relevant entities from inside the **Entities** list, such as accounts, IP addresses and hosts. This will enable you to run actions on specific entities.
 
 7. Now you can define what happens when you trigger the playbook. You can add an action, logical condition, switch case conditions, or loops.
 
@@ -85,16 +86,33 @@ You can run a playbook on demand.
 
 To run a playbook on-demand:
 
-1. In the **Cases** page, select a case and click on **View full details**.
+1. In the **incidents** page, select an incident and click on **View full details**.
 
 2. In the **Alerts** tab, click on the alert you want to run the playbook on, and scroll all the way to the right and click **View playbooks** and select a playbook to **run** from the list of available playbooks on the subscription. 
 
 
 
+## Automate threat responses
+
+SIEM/SOC teams can be inundated with security alerts on a regular basis. The volume of alerts generated is so huge, that available security admins are overwhelmed. This results all too often in situations where many alerts can't be investigated, leaving the organization vulnerable to attacks that go unnoticed. 
+
+Many, if not most, of these alerts conform to recurring patterns that can be addressed by specific and defined remediation actions. Azure Sentinel already enables you to define your remediation in playbooks. It is also possible to set real-time automation as part of your playbook definition to enable you to fully automate a defined response to particular security alerts. Using real-time automation, response teams can significantly reduce their workload by fully automating the routine responses to recurring types of alerts, allowing you to concentrate more on unique alerts, analyzing patterns, threat hunting, and more.
+
+To automate responses:
+
+1. Select the alert for which you want to automate the response.
+1. In the **Edit alert rule** page, under **Real-time automation**, choose the **Triggered playbook** you want to run when this alert rule is matched.
+1. Select **Save**.
+
+   ![real-time automation](./media/tutorial-detect-threats/rt-configuration.png)
+
+
+
+
+
 
 ## Next steps
-In this article, you learned how to run a playbook in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+
 In this tutorial, you learned how to run a playbook in Azure Sentinel. Continue to the [how to proactively hunt for threats](hunting.md) using Azure Sentinel.
-> [!div class="nextstepaction"]
-> [Hunt for threats](hunting.md) to proactively find threats on your network.
+
 

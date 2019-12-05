@@ -27,12 +27,13 @@ Click on the desired video (make sure it was [published](media-services-portal-p
 
 Some considerations apply:
 
-* The **MEDIA SERVICES CONTENT PLAYER** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, use another player. For example, [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* The **MEDIA SERVICES CONTENT PLAYER** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, use another player. For example, [Azure Media Player](https://aka.ms/azuremediaplayer).
 
 ![AMSPlayer][AMSPlayer]
 
 ### Azure Media Player
-Use [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) to playback your content (clear or protected) in any of the following formats:
+
+Use [Azure Media Player](https://aka.ms/azuremediaplayer) to playback your content (clear or protected) in any of the following formats:
 
 * Smooth Streaming
 * MPEG DASH
@@ -40,15 +41,17 @@ Use [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.ht
 * Progressive MP4
 
 ### Flash Player
+
 #### AES-encrypted with Token
+
 [https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
-### Silverlight Players
-
 #### PlayReady with Token
+
 [https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
 ### DASH Players
+
 [https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
 [https://dashif.org](https://dashif.org)

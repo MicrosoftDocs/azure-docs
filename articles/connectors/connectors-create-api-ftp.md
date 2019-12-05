@@ -1,13 +1,10 @@
 ---
-title: Connect to FTP server - Azure Logic Apps
+title: Connect to FTP server
 description: Create, monitor, and manage files on an FTP server with Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, klam, LADocs
-ms.topic: article
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 06/19/2019
 tags: connectors
 ---

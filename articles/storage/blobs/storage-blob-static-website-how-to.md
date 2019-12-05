@@ -1,10 +1,10 @@
 ---
 title: Host a static website in Azure Storage
 description: Learn how to serve static content (HTML, CSS, JavaScript, and image files) directly from a container in an Azure Storage GPv2 account.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.subservice: blobs
+ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
 ---
@@ -17,7 +17,7 @@ This article shows you how to enable static website hosting by using the Azure p
 
 <a id="portal" />
 
-## Use the Azure portal
+## [Portal](#tab/azure-portal)
 
 For a step-by-step tutorial, see [Tutorial: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
@@ -33,19 +33,13 @@ In the pane that appears beside the account overview page of your storage accoun
 
 <a id="cli" />
 
-## Use the Azure CLI
+## [Azure CLI](#tab/azure-cli)
 
 You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 1. First, open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. From the command window that you've opened, install the storage preview extension.
-
-   ```azurecli-interactive
-   az extension add --name storage-preview
-   ```
-
-3. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
+2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
@@ -53,7 +47,7 @@ You can enable static website hosting by using the [Azure Command-Line Interface
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-4. Enable static website hosting.
+3. Enable static website hosting.
 
    ```azurecli-interactive
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
@@ -65,7 +59,7 @@ You can enable static website hosting by using the [Azure Command-Line Interface
 
    * Replace the `<index-document-name>` placeholder with the name of the index document. This document is commonly "index.html".
 
-5. Upload objects to the *$web* container from a source directory.
+4. Upload objects to the *$web* container from a source directory.
 
    > [!NOTE]
    > If you're using Azure Cloud Shell, make sure to add an `\` escape character when referring to the `$web` container (For example: `\$web`). If you're using a local installation of the Azure CLI, then you won't have to use the escape character.
@@ -103,7 +97,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 <a id="powershell" />
 
-## Use PowerShell
+## [PowerShell](#tab/azure-powershell)
 
 You can enable static website hosting by using the Azure PowerShell module.
 
@@ -176,7 +170,7 @@ You can view content from a browser by using the public URL of the website.
 Find the URL by using the following command:
 
 ```powershell
- $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>"
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
@@ -185,6 +179,8 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 <a id="metrics" />
+
+---
 
 ## Enable metrics on static website pages
 
@@ -214,7 +210,7 @@ Once you've enabled metrics, traffic statistics on files in the **$web** contain
 
    ![Azure Storage static websites metrics API name](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
 
-7. heck the box next to **GetWebContent** in the *Values* selector to populate the metrics report.
+7. Check the box next to **GetWebContent** in the *Values* selector to populate the metrics report.
 
    ![Azure Storage static websites metrics GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 

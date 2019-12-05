@@ -196,7 +196,7 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| Outputs | Array | Gets the Job outputs.|
+| outputs | Array | Gets the Job outputs.|
 
 ### JobOutputStateChange
 

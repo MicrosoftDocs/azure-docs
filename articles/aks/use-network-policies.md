@@ -2,12 +2,12 @@
 title: Secure pods with network policies in Azure Kubernetes Service (AKS)
 description: Learn how to secure traffic that flows in and out of pods by using Kubernetes network policies in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)
@@ -46,17 +46,12 @@ Azure provides two ways to implement network policy. You choose a network policy
 
 Both implementations use Linux *IPTables* to enforce the specified policies. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable filter rules.
 
-Network policy only works with the Azure CNI (advanced) option. Implementation is different for the two options:
-
-* *Azure Network Policies* - the Azure CNI sets up a bridge in the VM host for intra-node networking. The filtering rules are applied when the packets pass through the bridge.
-* *Calico Network Policies* - the Azure CNI sets up local kernel routes for the intra-node traffic. The policies are applied on the pod’s network interface.
-
 ### Differences between Azure and Calico policies and their capabilities
 
 | Capability                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Supported platforms                      | Linux                      | Linux                       |
-| Supported networking options             | Azure CNI                  | Azure CNI                   |
+| Supported networking options             | Azure CNI                  | Azure CNI and kubenet       |
 | Compliance with Kubernetes specification | All policy types supported |  All policy types supported |
 | Additional features                      | None                       | Extended policy model consisting of Global Network Policy, Global Network Set, and Host Endpoint. For more information on using the `calicoctl` CLI to manage these extended features, see [calicoctl user reference][calicoctl]. |
 | Support                                  | Supported by Azure support and Engineering team | Calico community support. For more information on additional paid support, see [Project Calico support options][calico-support]. |
@@ -70,9 +65,13 @@ To see network policies in action, let's create and then expand on a policy that
 * Allow traffic based on pod labels.
 * Allow traffic based on namespace.
 
-First, let's create an AKS cluster that supports network policy. The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
+First, let's create an AKS cluster that supports network policy. 
 
-To use network policy with an AKS cluster, you must use the [Azure CNI plug-in][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking].
+> [!IMPORTANT]
+>
+> The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
+
+To use Azure Network Policy, you must use the [Azure CNI plug-in][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
 
 The following example script:
 
@@ -80,12 +79,11 @@ The following example script:
 * Creates an Azure Active Directory (Azure AD) service principal for use with the AKS cluster.
 * Assigns *Contributor* permissions for the AKS cluster service principal on the virtual network.
 * Creates an AKS cluster in the defined virtual network and enables network policy.
-    * The *azure* network policy option is used. To use Calico as the network policy option instead, use the `--network-policy calico` parameter.
+    * The *azure* network policy option is used. To use Calico as the network policy option instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
 
 Provide your own secure *SP_PASSWORD*. You can replace the *RESOURCE_GROUP_NAME* and *CLUSTER_NAME* variables:
 
 ```azurecli-interactive
-SP_PASSWORD=mySecurePassword
 RESOURCE_GROUP_NAME=myResourceGroup-NP
 CLUSTER_NAME=myAKSCluster
 LOCATION=canadaeast
@@ -102,7 +100,9 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
+SP=$(az ad sp create-for-rbac --output json)
+SP_ID=$(echo $SP | jq -r .appId)
+SP_PASSWORD=$(echo $SP | jq -r .password)
 
 # Wait 15 seconds to make sure that service principal has propagated
 echo "Waiting for service principal to propagate..."
@@ -463,9 +463,9 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
-[calico-support]: https://www.projectcalico.org/support
-[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calicoctl]: https://docs.projectcalico.org/v3.9/reference/calicoctl/
+[calico-support]: https://www.tigera.io/tigera-products/calico/
+[calico-logs]: https://docs.projectcalico.org/v3.9/maintenance/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->

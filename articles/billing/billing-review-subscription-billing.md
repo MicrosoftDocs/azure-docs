@@ -8,13 +8,13 @@ manager:
 editor: ''
 
 ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
-ms.author: erikre
+ms.date: 10/01/2019
+ms.author: banders
 
 # As an administrator or developer, I want to use REST APIs to review subscription billing data for a specified period.
 
@@ -91,7 +91,7 @@ Each item in **value** represents a details regarding the use of a service:
 |**meterDetails** | Detailed information about the use. |
 |**nextLink**| When set, specifies a URL for the next "page" of details. Blank when the page is the last one. |
 
-This example is abbreviated; see [List usage details](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) for a complete description of each response field.
+This example is abbreviated; see [List usage details](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy) for a complete description of each response field.
 
 Other status codes indicate error conditions. In these cases, the response object explains why the request failed.
 

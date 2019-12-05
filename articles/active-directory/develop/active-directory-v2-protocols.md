@@ -2,18 +2,14 @@
 title: Learn about the authorization protocols supported by Microsoft identity platform | Azure
 description: A guide to OAuth 2.0 and OpenID Connect protocols that are supported by the Microsoft identity platform endpoint.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
@@ -32,14 +28,14 @@ The Microsoft identity platform endpoint for identity-as-a-service with industry
 
 In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involved in the exchange:
 
-![OAuth 2.0 Roles](./media/active-directory-v2-flows/protocols-roles.svg)
+![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * The **Authorization Server** is the Microsoft identity platform endpoint and responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens. The authorization server also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in a flow.
 * The **Resource Owner** is typically the end user. It's the party that owns the data and has the power to allow third parties to access that data or resource.
 * The **OAuth Client** is your app, identified by its application ID. The OAuth client is usually the party that the end user interacts with, and it requests tokens from the authorization server. The client must be granted permission to access the resource by the resource owner.
 * The **Resource Server** is where the resource or data resides. It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access tokens to ensure that access to a resource can be granted.
 
-## App Registration
+## App registration
 
 Every app that wants to accept both personal and work or school accounts must be registered through the **App registrations** experience in the [Azure portal](https://aka.ms/appregistrations) before it can sign these users in using OAuth 2.0 or OpenID Connect. The app registration process will collect and assign a few values to your app:
 

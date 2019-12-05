@@ -4,7 +4,7 @@ description: Learn about performance testing results for HB-series VM sizes in A
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

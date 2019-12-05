@@ -5,12 +5,12 @@ documentationcenter: ''
 author: yashesvi
 manager: yashar
 editor: ''
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 10/01/2019
 ms.author: banders
 ---
 # View Azure reservations in the Azure portal
@@ -26,7 +26,7 @@ For more information, see [Add or change users who can manage a reservation](bil
 To view a reservation as an Owner or Reader,
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Search on **Reservations**.
+2. Search for **Reservations**.
     ![Screenshot that shows Azure portal search](./media/billing-view-reservation/portal-reservation-search.png)  
 3. The list shows all the reservations where you have the Owner or Reader role. Each reservation shows the last known utilization percentage.  
     ![Example showing a list of reservations](./media/billing-view-reservation/view-reservations.png)
@@ -43,7 +43,7 @@ If you need to change the scope of a reservation, split a reservation, or change
 To view reservation transactions in Azure portal,
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search on **Cost Management + Billing**.
+1. Search for **Cost Management + Billing**.
 
     ![Screenshot that shows Azure portal search](./media/billing-view-reservation/portal-cm-billing-search.png)
 

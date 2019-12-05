@@ -57,23 +57,40 @@ To filter by values in the data fields and specify the comparison operator, use 
 * key - The field in the event data that you're using for filtering. It can be a number, boolean, or string.
 * value or values - The value or values to compare to the key.
 
-The JSON syntax for using advanced filters is:
+If you specify a single filter with multiple values, an **OR** operation is performed, so the value of the key field must be one of these values. Here is an example:
 
 ```json
-"filter": {
-  "advancedFilters": [
+"advancedFilters": [
     {
-      "operatorType": "NumberGreaterThanOrEquals",
-      "key": "Data.Key1",
-      "value": 5
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/",
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
+    }
+]
+```
+
+If you specify multiple different filters, an **AND** operation is performed, so each filter condition must be met. Here is an example: 
+
+```json
+"advancedFilters": [
+    {
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/"
+        ]
     },
     {
-      "operatorType": "StringContains",
-      "key": "Subject",
-      "values": ["container1", "container2"]
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
     }
-  ]
-}
+]
 ```
 
 ### Operator
@@ -103,7 +120,7 @@ All string comparisons are case-insensitve.
 
 For events in the Event Grid schema, use the following values for the key:
 
-* Id
+* ID
 * Topic
 * Subject
 * EventType

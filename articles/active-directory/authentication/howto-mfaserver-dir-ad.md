@@ -1,15 +1,15 @@
 ---
-title: Integration of Azure MFA Server and Active Directory - Azure Active Directory
+title: Azure MFA Server and Active Directory - Azure Active Directory
 description: How to integrate the Azure Multi-Factor Authentication Server with Active Directory so you can synchronize the directories.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -29,6 +29,9 @@ Use the Directory Integration section of the Azure MFA Server to integrate with 
 By default, the Azure Multi-Factor Authentication (MFA) Server is configured to import or synchronize users from Active Directory.  The Directory Integration tab allows you to override the default behavior and to bind to a different LDAP directory, an ADAM directory, or specific Active Directory domain controller.  It also provides for the use of LDAP Authentication to proxy LDAP or for LDAP Bind as a RADIUS target, pre-authentication for IIS Authentication, or primary authentication for User Portal.  The following table describes the individual settings.
 
 ![Edit LDAP configuration in MFA Server](./media/howto-mfaserver-dir-ad/dirint.png)
+
+> [!NOTE]
+> Directory integration is not guaranteed to work with directories other than Active Directory Domain Services.
 
 | Feature | Description |
 | --- | --- |

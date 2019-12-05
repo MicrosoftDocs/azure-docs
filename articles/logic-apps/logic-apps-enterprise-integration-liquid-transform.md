@@ -1,12 +1,11 @@
 ---
-title: Convert JSON data with Liquid transforms - Azure Logic Apps | Microsoft Docs
+title: Convert JSON data with Liquid transforms
 description: Create transforms or maps for advanced JSON transformations using Logic Apps and Liquid template
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/16/2018
 ---
@@ -95,7 +94,7 @@ In the search box, find and select your integration account.
    [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. In the Logic App Designer, add the 
-   [Request trigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) 
+   [Request trigger](../connectors/connectors-native-reqres.md#add-request) 
    to your logic app.
 
 3. Under the trigger, choose **New step**. 

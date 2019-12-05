@@ -12,25 +12,27 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
+ms.date: 07/26/2019
 ---
 
 # Tutorial: Prepare data to train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 
-In part one of this three-part tutorial series, you'll prepare the data from an Azure SQL database to train a predictive model in R with Azure SQL Database Machine Learning Services (preview).
+In part one of this three-part tutorial series, you'll import and prepare data from an Azure SQL database using R. Later in this series, you'll use this data to train and deploy a predictive machine learning model in R with Azure SQL Database Machine Learning Services (preview).
 
 For this tutorial series, imagine you own a ski rental business and you want to predict the number of rentals that you'll have on a future date. This information will help you get your stock, staff, and facilities ready.
+
+In parts one and two of this series, you'll develop some R scripts in RStudio to prepare your data and train a machine learning model. Then, in part three, you'll run those R scripts inside a SQL database using stored procedures.
 
 In this article, you'll learn how to:
 
 > [!div class="checklist"]
-> * Import a sample database into an Azure SQL database
-> * Load the data from the Azure SQL database into a data frame using R
-> * Prepare the data by identifying some columns as categorical
+> * Import a sample database into an Azure SQL database using R
+> * Load the data from the Azure SQL database into an R data frame
+> * Prepare the data in R by identifying some columns as categorical
 
-In [part two](sql-database-tutorial-predictive-model-build-compare.md), you'll learn how to create and train multiple models, and then choose the most accurate one.
+In [part two](sql-database-tutorial-predictive-model-build-compare.md), you'll learn how to create and train multiple machine learning models in R, and then choose the most accurate one.
 
-In [part three](sql-database-tutorial-predictive-model-deploy.md), you'll learn how to store the model in a database, and then create a stored procedure that can make predictions based on new data.
+In [part three](sql-database-tutorial-predictive-model-deploy.md), you'll learn how to store the model in a database, and then create stored procedures from the R scripts you developed in parts one and two. The stored procedures will run in a SQL database to make predictions based on new data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -153,9 +155,9 @@ From the Azure portal, follow these steps:
 
 In part one of this tutorial series, you completed these steps:
 
-* Import a database backup file into an Azure SQL database
-* Load the data from the Azure SQL database into a data frame using R
-* Prepare the data by identifying some columns as categories
+* Import a sample database into an Azure SQL database using R
+* Load the data from the Azure SQL database into an R data frame
+* Prepare the data in R by identifying some columns as categorical
 
 To create a machine learning model that uses data from the TutorialDB database, follow part two of this tutorial series:
 

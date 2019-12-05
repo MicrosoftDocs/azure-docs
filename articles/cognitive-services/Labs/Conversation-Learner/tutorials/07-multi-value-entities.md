@@ -10,6 +10,7 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
+ROBOTS: NOINDEX
 ---
 # How to use multi-value entities with a Conversation Learner model
 This tutorial shows the Multi-value property of Entities.

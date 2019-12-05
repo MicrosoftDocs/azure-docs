@@ -1,9 +1,9 @@
 ---
-title: Connectivity architecture in Azure Database for PostgreSQL
-description: Describes the connectivity architecture for your Azure Database for PostgreSQL server.
+title: Connectivity architecture - Azure Database for PostgreSQL - Single Server
+description: Describes the connectivity architecture of your Azure Database for PostgreSQL - Single Server.
 author: kummanish
 ms.author: manishku
-ms.service: PostgreSQL
+ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ---
@@ -16,7 +16,7 @@ Connection to your Azure Database for PostgreSQL is established through a gatewa
 
 ![Overview of the connectivity architecture](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-As client connect to the database, they get a connection string which connects to the gateway. This gateway has a public IP address that listens to port 5432. Inside the database clusterz traffic is forwarded to appropriate Azure Database for PostgreSQL. Therefore, in order to connect to your server, such as from corporate networks, it is necessary to open up the client side firewall to allow outbound traffic to be able to reach our gateways. Below you can find a complete list of the IP addresses used by our gateways per region.
+As client connect to the database, they get a connection string which connects to the gateway. This gateway has a public IP address that listens to port 5432. Inside the database cluster traffic is forwarded to appropriate Azure Database for PostgreSQL. Therefore, in order to connect to your server, such as from corporate networks, it is necessary to open up the client side firewall to allow outbound traffic to be able to reach our gateways. Below you can find a complete list of the IP addresses used by our gateways per region.
 
 ## Azure Database for PostgreSQL gateway IP addresses
 The following table lists the primary and secondary IPs of the Azure Database for PostgreSQL gateway for all data regions. The primary IP address is the current IP address of the gateway and the second IP address is a failover IP address in case of failure of the primary. As mentioned, customers should allow outbound to both the IP addresses. The second IP address does not listen in on any services until it is activated by Azure Database for PostgreSQL to accept connections.
@@ -49,6 +49,9 @@ The following table lists the primary and secondary IPs of the Azure Database fo
 | North Europe | 191.235.193.75 | 40.113.93.91 |
 | South Central US | 23.98.162.75 | 13.66.62.124 |
 | South East Asia | 23.100.117.95 | 104.43.15.0 |
+| South Africa North | 102.133.152.0 | |
+| South Africa West | 102.133.24.0 | |
+| UAE North | 65.52.248.0 | |
 | UK South | 51.140.184.11 | |
 | UK West | 51.141.8.11| |
 | West Europe | 191.237.232.75 | 40.68.37.158 |

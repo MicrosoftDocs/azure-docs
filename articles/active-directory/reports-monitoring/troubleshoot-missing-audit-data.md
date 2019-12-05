@@ -1,6 +1,6 @@
 ---
 
-title: 'Troubleshoot Missing data in the Azure Active Directory activity logs  | Microsoft Docs'
+title: 'Troubleshoot Missing data in activity logs  | Microsoft Docs'
 description: Provides you with a resolution to missing data in Azure Active Directory activity logs.
 services: active-directory
 documentationcenter: ''
