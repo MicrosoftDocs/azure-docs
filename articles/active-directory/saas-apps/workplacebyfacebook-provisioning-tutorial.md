@@ -95,7 +95,7 @@ For more information on how to configure automatic provisioning, see [https://de
 You can now create a test account. Wait for up to 20 minutes to verify that the account has been synchronized to Workplace by Facebook.
 
 > [!NOTE]
-> The Azure AD third party application in Workplace by Facebook has been approved. Customers will not have an interruption of service on December 16th. You will see a note in the Workplace by Facebook Admin console indicating a deadline of 28-February-2020 by when you will need to move to the application. No action is required to move to the new application currently. We will update this document as soon as a migration path is avialable.
+> The Azure AD third party application in Workplace by Facebook has been approved. Customers will not have an interruption of service on December 16th. You will see a note in the Workplace by Facebook Admin console indicating a deadline of 28-February-2020 by when you will need to move to the application. We will provide an update here on the transition by end of month.
 
 ## Additional resources
 
