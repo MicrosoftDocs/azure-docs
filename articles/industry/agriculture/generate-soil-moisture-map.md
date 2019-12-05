@@ -88,4 +88,4 @@ Use the following steps:
 
 ## Next steps
 
-Now that you’ve successfully generated a Soil Moisture Heatmap, learn how to [generate sensor placement](generate-maps.md#sensor-placement-maps) and [ingest historical telemetry data](ingest-historical-telemetry-data.md). 
+Now that you’ve successfully generated a Soil Moisture Heatmap, learn how to [generate sensor placement](generate-maps.md#sensor-placement-map) and [ingest historical telemetry data](ingest-historical-telemetry-data.md). 

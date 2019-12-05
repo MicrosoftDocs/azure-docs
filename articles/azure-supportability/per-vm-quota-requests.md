@@ -12,7 +12,7 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 # Standard quota: per VM Series vCPU limit increase
 
-Resource Manager supports two types of vCPU quotas for virtual machines. **Pay-as-you-go VMs and Reserved VM Instances** use standard quota. **Low priority VMs** use Low priority quota. 
+Resource Manager supports two types of vCPU quotas for virtual machines. **Pay-as-you-go VMs and Reserved VM Instances** use standard quota. **Spot VMs** use Spot quota. 
 Standard vCPU quota for pay-as-you-go and Reserved VM Instances is enforced at two tiers for each subscription in each region
 
 The first tier is the **Total Regional vCPUs limit** (across all VM Series), and the second tier is the **per VM Series vCPUs limit** (such as the Dv3-series vCPUs). Anytime a new VM is to be deployed, the sum of new and existing vCPUs usage for that VM Series must not exceed the vCPU quota approved for that particular VM Series. Further, the total new and existing vCPU count deployed across all VM Series should not exceed the Total Regional vCPUs quota approved for the subscription. If either of those quotas are exceeded, the VM deployment will not be allowed.
@@ -22,7 +22,7 @@ Learn more about standard vCPU quotas on the [Virtual machine vCPU quotas page](
 
 Learn more about increasing the regional vCPU limit for standard quota [here](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests). 
 
-Learn more about **increasing Low priority VM vCPU limits** [here](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Learn more about **increasing Spot VM vCPU limits** [here](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
 You can request an increase in **standard vCPU quota limits per VM Series** via **Help + Support** blade or the **Usages + Quota** blade in the portal.
 
@@ -60,7 +60,7 @@ You can also request Quota for multiple regions through a single support case. R
 
    ![Quota Details DM](./media/resource-manager-core-quotas-request/1-7.png)
 
-8. For the selected location, select **Type** value as **‘Standard’**. You can request both Standard and Low priority quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Low priority quota limits** on the **<> page**.
+8. For the selected location, select **Type** value as **‘Standard’**. You can request both Standard and Spot quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Spot quota limits** on the this [page](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)
 
    ![SKU Family](./media/resource-manager-core-quotas-request/1-8.png)
 
@@ -108,7 +108,7 @@ You can also **request Quota for multiple regions** through a single support cas
 
    ![Quota Problem blade](./media/resource-manager-core-quotas-request/1-1-6.png)
 
-7. For the selected location, select **Type** value as **‘Standard’**. You can request both Standard and Low Priority quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Low Priority vCPUs limits** on this [page](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+7. For the selected location, select **Type** value as **‘Standard’**. You can request both Standard and Low Priority quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Spot vCPUs limits** on this [page](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
    ![SKU series selected](./media/resource-manager-core-quotas-request/1-1-7.png)
    
