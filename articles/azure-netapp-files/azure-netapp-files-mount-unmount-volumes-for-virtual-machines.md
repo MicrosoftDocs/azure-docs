@@ -39,7 +39,7 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
 
 4. If you want to mount the volume to Windows:
 
-    a. Mount the volume onto a Unix or Linux VM first.
+    a. Mount the volume onto a Unix or Linux VM first.  
     b. Run a `chmod 777` or `chmod 775` command against the volume.  
     c. Mount the volume via the NFS client on Windows.
 
