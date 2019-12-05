@@ -8,10 +8,10 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mialdrid
-ms.custom: seodec18
 
 ---
-# ExpressRoute virtual network gateway and FastPath
+# About ExpressRoute virtual network gateways
+
 To connect your Azure virtual network and your on-premises network via ExpressRoute, you must create a virtual network gateway first. A virtual network gateway serves two purposes: exchange IP routes between the networks and route network traffic. This article explains gateway types, gateway SKUs and estimated performance by SKU. This article also explains ExpressRoute [FastPath](#fastpath), a feature that enables the network traffic from your on-premises network to bypass the virtual network gateway to improve performance.
 
 ## Gateway types
@@ -74,16 +74,11 @@ Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateway.
 The new gateway SKUs also support other deployment options to best match your needs. When creating a virtual network gateway using the new gateway SKUs, you also have the option to deploy the gateway in a specific zone. This is referred to as a zonal gateway. When you deploy a zonal gateway, all the instances of the gateway are deployed in the same Availability Zone.
 
 ## <a name="fastpath"></a>FastPath
-ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway. 
 
-FastPath is available on all ExpressRoute circuits. It still requires a virtual network gateway to be created to exchange routes between virtual network and on-premises network. The virtual network gateway must be either Ultra Performance or ErGw3AZ.
+ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
 
-FastPath doesn't support the following features:
-* UDR on Gateway subnet: if you apply a UDR to the Gateway subnet of your virtual network the network traffic from your on-premises network will continue to be sent to the virtual network gateway.
-* VNet Peering: if you have other virtual networks peered with the one that is connected to ExpressRoute the network traffic from your on-premises network to the other virtual networks (i.e. the so-called "Spoke" VNets) will continue to be sent to the virtual network gateway. The workaround is to connect all the virtual networks to the ExpressRoute circuit directly.
-* Basic Load Balancer: if you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer will be sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
-* Private Link: if you connect to a [private endpoint](../private-link/private-link-overview.md) in your virtual network from your on-premises network the connection will go through the virtual network gateway.
- 
+For more information about FastPath, including limitations and requirements, see [About FastPath](aboutfastpath.md).
+
 ## <a name="resources"></a>REST APIs and PowerShell cmdlets
 For additional technical resources and specific syntax requirements when using REST APIs and PowerShell cmdlets for virtual network gateway configurations, see the following pages:
 
@@ -99,4 +94,4 @@ See [Create a virtual network gateway for ExpressRoute](expressroute-howto-add-g
 
 See [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md) for more information about configuring zone-redundant gateways.
 
-See [Link virtual network to ExpressRoute](expressroute-howto-linkvnet-arm.md) for more information about how to enable FastPath. 
+See [About FastPath](about-fastpath.md) for additional FastPath information.
