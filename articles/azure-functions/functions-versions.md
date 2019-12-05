@@ -42,13 +42,13 @@ You may choose to migrate an existing app written to use the version 1.x runtime
 
 While it's possible to do an "in-place" upgrade by manually updating the app configuration, going from 1.x to a higher version includes some breaking changes. For example, in C#, the debugging object is changed from `TraceWriter` to `ILogger`. By creating a new version 3.x project, you start off with updated functions based on the latest version 3.x templates.
 
-### Changes in triggers and bindings in 2.x and 3.x
+### Changes in triggers and bindings after version 1.x
 
-Version 2.x and 3.x requires you to install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](./functions-bindings-register.md).
+Starting with version 2.x, you must install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](./functions-bindings-register.md).
 
 There are also a few changes in the *function.json* or attributes of the function between versions. For example, the Event Hub `path` property is now `eventHubName`. See the [existing binding table](#bindings) for links to documentation for each binding.
 
-### Changes in features and functionality in 2.x and 3.x
+### Changes in features and functionality after version 1.x
 
 A few features are removed, updated, or replaced in the new version. This section details the changes you see in version 2.x and 3.x after having used version 1.x.
 
@@ -120,7 +120,7 @@ For Visual Studio Code development, you may also need to update the user setting
 
 #### Maven and Java apps
 
-If creating apps in Java you can move from 2.x to 3.x by [installing the 3.x version of the core tools](functions-run-local.md#install-the-azure-functions-core-tools) required for local debugging.  After verifying the app behaves as expected in 3.x you can update the `POM.xml` file to modify the setting of the Azure Function maven targets to `~3`
+You can migrate Java apps from version 2.x to 3.x by [installing the 3.x version of the core tools](functions-run-local.md#install-the-azure-functions-core-tools) required to run locally.  After verifying that your app works correctly running locally on version 3.x, update the app's `POM.xml` file to modify the `FUNCTIONS_EXTENSION_VERSION` setting to `~3`, as in the following example:
 
 ```xml
 <configuration>
