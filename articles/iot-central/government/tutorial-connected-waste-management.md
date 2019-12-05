@@ -71,7 +71,7 @@ Congratulations! Your newly created application comes with pre-configured:
 * Pre-configured rules and jobs
 * Sample Branding using white labeling 
 
-It is your application and you can modify it anytime. Let’s now explore the application and make some customizations.  
+It is your application and you can modify it anytime. Let's now explore the application and make some customizations.  
 
 ## Explore and customize operator dashboard 
 After creating the application you land in the **Wide Waste connected waste management dashboard**.
@@ -128,7 +128,7 @@ To view the device template:
 
 2. In the Device templates list you will see **Connected Waste Bin**. Open by clicking on the name.
 
-3. Familirize with the device template capabilites. You can see it defines sensors like *Fill level*, *Odor meter*, *weight*, *location* etc.
+3. Familiarize with the device template capabilities. You can see it defines sensors like *Fill level*, *Odor meter*, *weight*, *location* etc.
 
    ![Device Template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 

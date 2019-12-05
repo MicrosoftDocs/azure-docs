@@ -71,7 +71,7 @@ Congratulations! You have finished creating your water quality monitoring applic
 * Pre-configured rules and jobs
 * Sample Branding using white labeling 
 
-It is your application and you can modify it anytime. Let’s now explore the application and make some customizations.  
+It is your application and you can modify it anytime. Let's now explore the application and make some customizations.  
 
 ## Explore and customize operator dashboard 
 After creating the application you land in the sample operator dashboard called **Wide World water consumption monitoring dashboard**.
@@ -122,7 +122,7 @@ The **Water consumption monitoring** application comes with two reference device
 To view the device template:
 
 1. Click on **Device templates** from the left navigation pane of your application in IoT Central. 
-    In the Device templates list you will see two device templates **Flow meterr** and **Smart Valve**
+    In the Device templates list you will see two device templates **Flow meter** and **Smart Valve**
 
    ![Device Template](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate.png)
 

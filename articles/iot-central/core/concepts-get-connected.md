@@ -3,7 +3,7 @@ title: Device connectivity in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device connectivity in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/09/2019
+ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -12,11 +12,9 @@ manager: philmea
 
 # Get connected to Azure IoT Central
 
-
-
 This article introduces key concepts relating to device connectivity in Microsoft Azure IoT Central.
 
-Azure IoT Central uses the [Azure IoT Hub Device Provisioning service (DPS)](https://docs.microsoft.com/azure/iot-dps/about-iot-dps) to manage all device registration and connection.
+Azure IoT Central uses the [Azure IoT Hub Device Provisioning service (DPS)](../../iot-dps/about-iot-dps.md) to manage all device registration and connection.
 
 Using DPS enables:
 
@@ -69,7 +67,7 @@ The following steps describe how to connect devices to IoT Central using X.509 c
 
     - Navigate to **Administration > Device Connection > Certificates (X.509)** and add X.509 root or intermediate certificate you're using to generate the leaf device certificates.
 
-      ![Connection settings](media/overview-iot-central-get-connected/connection-settings.png)
+      ![Connection settings](media/concepts-get-connected/connection-settings.png)
 
       If you have a security breach or your primary certificate is set to expire, use the secondary certificate to reduce downtime. You can continue to provision devices using the secondary certificate while you update the primary certificate.
 
@@ -78,7 +76,7 @@ The following steps describe how to connect devices to IoT Central using X.509 c
         - Create an X.509 verification certificate with the verification code you generated in the previous step. Save the certificate as a .cer file.
         - Upload the signed verification certificate and select **Verify**.
 
-          ![Connection settings](media/overview-iot-central-get-connected/verify-cert.png)
+          ![Connection settings](media/concepts-get-connected/verify-cert.png)
 
 1. Use a CSV file to _import and register devices_ in your IoT Central application.
 
@@ -108,7 +106,7 @@ A key scenario IoT Central enables is for OEMs to mass manufacture devices that 
 
 The following diagram outlines this flow:
 
-![Connection settings](media/overview-iot-central-get-connected/device-connection-flow1.png)
+![Connection settings](media/concepts-get-connected/device-connection-flow1.png)
 
 The following steps describe this process in more detail. The steps differ slightly depending on whether you're using SAS or X.509 certificates for device authentication:
 
@@ -116,7 +114,7 @@ The following steps describe this process in more detail. The steps differ sligh
 
     - **X.509 Certificates:** [Add and verify the root/intermediate certificate](#connect-devices-using-x509-certificates) and use it to generate the device certificates in the following step.
     - **SAS:** Copy the primary key. This key is the group SAS key for the IoT Central application. Use the key to generate the device SAS keys in the following step.
-    ![Connection settings SAS](media/overview-iot-central-get-connected/connection-settings-sas.png)
+    ![Connection settings SAS](media/concepts-get-connected/connection-settings-sas.png)
 
 1. Generate your device credentials
     - **Certificates X.509:** Generate the leaf-certificates for your devices using the root or intermediate certificate you added to your IoT Central application. Make sure you use the lower-case **Device ID** as the CNAME in the leaf certificates. For testing purposes only, use this [command-line tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate device certificates.
@@ -150,9 +148,9 @@ For customers connecting devices that have authentication credentials that are p
 ### Creating individual enrollments
 IoT Central supports the following attestation mechanisms
 
-1. **Symmetric key attestation:** Symmetric key attestation is a simple approach to authenticating a device with a Device Provisioning Service instance. To create an individual enrollment with Symmetric keys; open the Connect dialog, select Individual Enrollment and Mechanism “SAS” and input the Primary and Secondary keys. SAS keys must be base64 encoded. Here is the [link](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) to code samples to help write your device code to provision devices using Symmetric keys and individual enrollments.
-1. **X.509 certificates:** X.509 certificates as the title suggests is a certificate-based attestation mechanism, an excellent way to scale production. To create an individual enrollment with Symmetric keys select Individual Enrollment and Mechanism “X.509” and upload the primary and secondary certificates and save to create the enrollment. Here is the [link](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) to code samples to help write your device code to provision devices using X509. Device certificates used with an [Individual enrollment](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment) entry have a requirement that the Subject Name must be set to the Device ID (also known as registration ID) of the Individual Enrollment entry.
-1. **TPM attestation:** TPM stands for Trusted Platform Module and is a type of hardware security module (HSM) and is one of the most secure ways to connect your devices.  This article assumes you are using a discrete, firmware, or integrated TPM. Software emulated TPMs are well suited for prototyping or testing, but they do not provide the same level of security as discrete, firmware, or integrated TPMs do. We do not recommend using software TPMs in production. To create an individual enrollment with Symmetric keys select Individual Enrollment and Mechanism “TPM” and input the endorsement keys to create the enrollment. For more information about types of TPMs, you can learn more about TPM attestation [here](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation). Here is the [link](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/TpmSample) to code samples to help write your device code to provision devices using TPM. To create a TPM-based attestation, type in the endorsement key and save.
+1. **Symmetric key attestation:** Symmetric key attestation is a simple approach to authenticating a device with a Device Provisioning Service instance. To create an individual enrollment with Symmetric keys; open the Connect dialog, select Individual Enrollment and Mechanism "SAS" and input the Primary and Secondary keys. SAS keys must be base64 encoded. Here is the [link](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) to code samples to help write your device code to provision devices using Symmetric keys and individual enrollments.
+1. **X.509 certificates:** X.509 certificates as the title suggests is a certificate-based attestation mechanism, an excellent way to scale production. To create an individual enrollment with Symmetric keys select Individual Enrollment and Mechanism "X.509" and upload the primary and secondary certificates and save to create the enrollment. Here is the [link](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) to code samples to help write your device code to provision devices using X509. Device certificates used with an [Individual enrollment](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment) entry have a requirement that the Subject Name must be set to the Device ID (also known as registration ID) of the Individual Enrollment entry.
+1. **TPM attestation:** TPM stands for Trusted Platform Module and is a type of hardware security module (HSM) and is one of the most secure ways to connect your devices.  This article assumes you are using a discrete, firmware, or integrated TPM. Software emulated TPMs are well suited for prototyping or testing, but they do not provide the same level of security as discrete, firmware, or integrated TPMs do. We do not recommend using software TPMs in production. To create an individual enrollment with Symmetric keys select Individual Enrollment and Mechanism "TPM" and input the endorsement keys to create the enrollment. For more information about types of TPMs, you can learn more about TPM attestation [here](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation). Here is the [link](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/TpmSample) to code samples to help write your device code to provision devices using TPM. To create a TPM-based attestation, type in the endorsement key and save.
 
 ## Connect devices with IoT Plug and Play
 

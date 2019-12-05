@@ -27,7 +27,7 @@ Devices exchange data with your Azure IoT Central application. A device can:
 
 In Azure IoT Central, the data that a device can exchange with your application is specified in a device template. For more information about device templates, see [Metadata management](#metadata-management).
 
-To learn more about how devices connect to your Azure IoT Central application, see [Device connectivity](overview-iot-central-get-connected.md).
+To learn more about how devices connect to your Azure IoT Central application, see [Device connectivity](concepts-get-connected.md).
 
 ## Azure IoT Edge devices
 
@@ -101,7 +101,7 @@ Azure IoT Central uses Azure IoT Hub as a cloud gateway that enables device conn
 
 To learn more about IoT Hub, see [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
-To learn more about device connectivity in Azure IoT Central, see [Device connectivity](overview-iot-central-get-connected.md).
+To learn more about device connectivity in Azure IoT Central, see [Device connectivity](concepts-get-connected.md).
 
 ## Data stores
 
@@ -167,4 +167,4 @@ An operator can create personalized application dashboards. You can have several
 
 ## Next steps
 
-Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [device connectivity](overview-iot-central-get-connected.md) in Azure IoT Central.
+Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [device connectivity](concepts-get-connected.md) in Azure IoT Central.

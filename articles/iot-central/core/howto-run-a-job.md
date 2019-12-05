@@ -35,7 +35,7 @@ This section shows you how to create and run a job. It shows you how to increase
 
     ![Configure job](./media/howto-run-a-job/configurejob.png)
 
-6. On the right-hand side, choose the devices you’d like to run the job on. By selecting the top check box, all devices are selected in the entire device set. By selecting the check box near **Name**, all devices on the current page are selected.
+6. On the right-hand side, choose the devices you'd like to run the job on. By selecting the top check box, all devices are selected in the entire device set. By selecting the check box near **Name**, all devices on the current page are selected.
 
 7. After selecting your devices, choose **Run** or **Save**. The job now appears on your main **Jobs** page. On this view, you can see your currently running job and the history of any previously run jobs. Your running job always shows up at the top of the list. Your saved job can be opened again at any time to continue editing or to run.
 
