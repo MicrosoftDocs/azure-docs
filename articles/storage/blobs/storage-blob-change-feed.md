@@ -103,7 +103,7 @@ Use an Azure Resource Manager template to enable Change feed on your existing st
 
 2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
 
-3. Choose **[Template deployment](https://portal.azure.com/#create/Microsoft.Template)**, choose **Create**, and then choose **Build your own template in the editor**.
+3. Choose **[Deploy a custom template](https://portal.azure.com/#create/Microsoft.Template)**, then choose **Build your own template in the editor**.
 
 4. In the template editor, paste in the following json. Replace the `<accountName>` placeholder with the name of your storage account.
 
