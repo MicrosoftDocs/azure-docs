@@ -103,7 +103,7 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 <a id="amlcompute"></a>
 
-## Use a Machine Learning Compute
+## <a name="compute-instance"></a>Use a Machine Learning Compute
 
 > [!NOTE]
 > Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
