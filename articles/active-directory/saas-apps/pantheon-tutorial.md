@@ -135,7 +135,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure Pantheon SSO
+## Configure Pantheon SSO
 
 To configure single sign-on on **Pantheon** side, you need to send the downloaded **Certificate** and appropriate copied URLs to [Pantheon support team](https://pantheon.io/docs/getting-support/).
 
