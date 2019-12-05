@@ -80,6 +80,6 @@ Migrating your existing virtual network gateways to zone-redundant or zonal gate
 
 Co-existence of both VPN and Express Route gateways in the same virtual network is supported. However, you should reserve a /27 IP address range for the gateway subnet.
 
-## Next Steps
+## Next steps
 
 [Create a zone-redundant virtual network gateway](create-zone-redundant-vnet-gateway.md)
