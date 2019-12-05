@@ -200,8 +200,8 @@ Presumed current environment:
 For more information about Storm, Spark Streaming, and Spark Structured Streaming, see the following documents:
 
 * [Spark Streaming Programming Guide](https://spark.apache.org/docs/latest/streaming-programming-guide.html)
-* [Overview of Apache Spark Streaming](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-streaming-overview)
+* [Overview of Apache Spark Streaming](../spark/apache-spark-streaming-overview.md)
 * [Structured Streaming Programming Guide](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)
-* [Overview of Apache Spark Structured Streaming](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-structured-streaming-overview)
-* [What is Apache Storm on Azure HDInsight?](https://docs.microsoft.com/en-us/azure/hdinsight/storm/apache-storm-overview)
+* [Overview of Apache Spark Structured Streaming](../spark/apache-spark-structured-streaming-overview.md)
+* [What is Apache Storm on Azure HDInsight?](./apache-storm-overview.md)
 * [Azure HDInsight release notes](../hdinsight-version-release.md)
