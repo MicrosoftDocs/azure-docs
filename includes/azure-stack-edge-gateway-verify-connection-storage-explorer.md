@@ -30,7 +30,7 @@ Follow these steps to connect to the storage account and verify the connection.
     1. Enter a display name for your Edge storage account. 
     2. Provide the Edge storage account name.
     3. Paste the access key that you got from the device local APIs via Azure Resource Manager.
-    4. Select Storage domain as **Other (enter below)** and then provide the blob service endpoint is provided in the format: `<appliance name>.<DNSdomain>`. 
+    4. Select Storage domain as **Other (enter below)** and then provide the suffix of blob service endpoint in the format: `<appliance name>.<DNSdomain>`. 
     5. Check **Use HTTP** option as transfer is over *http*. 
     6. Select **Next**.
 

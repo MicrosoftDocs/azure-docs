@@ -42,8 +42,8 @@ These certificates could be root certificates or the intermediate certificates. 
 ### Caveats
 
 - The root certificates can be uploaded on your device in the following format: 
-    - **DER** – These are available as a `.cer` format
-    - **Base-64 encoded** – These are available as `.pem` format.
+    - **DER** – These are available as a `.cer` file extension.
+    - **Base-64 encoded or PEM** – These are available as `.cer` extension also.
     - **P7b** – This format is used only for signing chain certificates that includes the root and intermediate certificates.
 - Signing chain certificates are always uploaded before you upload any other certificates.
 
