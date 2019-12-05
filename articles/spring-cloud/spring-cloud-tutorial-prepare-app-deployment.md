@@ -1,6 +1,6 @@
 ---
-title: Prepare a Spring application for deployment in Azure Spring Cloud | Microsoft Docs
-description: In this quickstart, you prepare a Java Spring application for deployment.
+title: Tutorial - Prepare a Spring application for deployment in Azure Spring Cloud
+description: In this tutorial, you prepare a Java Spring application for deployment.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
@@ -172,3 +172,4 @@ In this tutorial, you learned how to configure your Java Spring application for 
 > [!div class="nextstepaction"]
 > [Learn how to set up your Config Server](spring-cloud-tutorial-config-server.md).
 
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

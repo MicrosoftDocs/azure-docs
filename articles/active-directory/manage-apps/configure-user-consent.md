@@ -1,5 +1,5 @@
 ---
-title: Configure user consent to an application - Azure Active Directory | Microsoft Docs
+title: Configure user consent to an application - Azure Active Directory
 description: Learn how to manage the way users consent to application permissions. You can simplify the user experience by granting admin consent. These methods apply to all end users in your Azure Active Directory (Azure AD) tenant. 
 services: active-directory
 author: msmimart
@@ -23,6 +23,8 @@ For more information on consenting to applications, see [Azure Active Directory 
 ## Prerequisites
 
 Granting admin consent requires you to sign in as global administrator, an application administrator, or a cloud application administrator.
+
+To grant admin consent to permissions on Microsoft Graph and Azure AD Graph, you need global administrator privileges. 
 
 To restrict access to applications, you need to require user assignment and then assign users or groups to the application.  For more information, see [Methods for assigning users and groups](methods-for-assigning-users-and-groups.md).
 

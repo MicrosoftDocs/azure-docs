@@ -1,16 +1,16 @@
 ﻿---
-title: Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
-description: Upgrade your solution to use Azure Data Lake Storage Gen2
+title: Upgrade Azure Data Lake Storage from Gen1 to Gen2
+description: Upgrade Azure Data Lake Storage from Gen1 to Gen2.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 11/01/2019
+ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
 ---
 
-# Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
+# Upgrade Azure Data Lake Storage from Gen1 to Gen2
 
 If you're using Azure Data Lake Storage Gen1 in your big data analytics solutions, this guide helps you to upgrade those solutions to use Azure Data Lake Storage Gen2. You can use this document to assess the dependencies that your solution has on Data Lake Storage Gen1. This guide also shows you how to plan and perform the upgrade.
 
@@ -75,7 +75,7 @@ This section describes which Data Lake Storage Gen1 platform capabilities that a
 | Data Operations – Logs  | Yes | Yes | *Available now* (Preview). See [known issues](data-lake-storage-known-issues.md).<br><br> Azure Monitoring integration – *Not yet available* |
 | Encryption data at rest | Transparent, Server side with service-managed keys and with customer-managed keys in Azure KeyVault | Transparent, Server side with service-managed keys and with customer keys managed keys in Azure KeyVault | Service-managed keys – *Available now*<br><br> Customer-managed keys – *Available now*  |
 | Management operations (e.g. Account Create) | [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) provided by Azure for account management | [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) provided by Azure for account management | *Available now*|
-| Developer SDKs | .NET, Java, Python, Node.js  | .NET, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS| Blob SDK - *Available now*. Azure Data Lake Storage Gen2 SDK - *Not yet available*  |
+| Developer SDKs | .NET, Java, Python, Node.js  | .NET, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS| Blob SDK - *Available now*. [Azure Data Lake Storage Gen2 SDK](https://azure.microsoft.com/blog/extended-filesystem-programming-capabilities-in-azure-data-lake-storage/)- *Available now - .NET, Java, Python (public preview)*  |
 | |Optimized performance for parallel analytics workloads. High Throughput and IOPS. | Optimized performance for parallel analytics workloads. High Throughput and IOPS. | *Available now* |
 | Virtual Network (VNet) support  | [Using Virtual Network integration](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-network-security)  | [Using Service Endpoint for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | *Available now* |
 | Size limits | No limits on account sizes, file sizes or number of files | No limits on account sizes or number of files. File size limited to 5TB. | *Available now*|
