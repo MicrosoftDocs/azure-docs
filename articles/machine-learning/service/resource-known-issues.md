@@ -20,7 +20,7 @@ This article helps you find and correct errors or failures encountered when usin
 
 Azure Compute will be updating the NCv3 SKUs starting early November 2019 to support all MPI implementations and versions, and RDMA verbs for InfiniBand-equipped virtual machines. This will require a short downtime - [read more about the SR-IOV upgrade](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
 
-As a customer of Azure Machine Learning's managed compute offering (AmlCompute), you are not required to make any changes at this time. Based on the [update schedule](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) you would need to plan for a short break in your training. The service will take responsibility to update the VM images on your cluster nodes and automatically scale up your cluster. Once the upgrade completes you may be able to use all other MPI discibutions (like OpenMPI with Pytorch) besides getting higher InfiniBand bandwidth, lower latencies, and better distributed application performance.
+As a customer of Azure Machine Learning's managed compute offering (AmlCompute), you are not required to make any changes at this time. Based on the [update schedule](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) you would need to plan for a short break in your training. The service will take responsibility to update the VM images on your cluster nodes and automatically scale up your cluster. Once the upgrade completes you may be able to use all other MPI distributions (like OpenMPI with Pytorch) besides getting higher InfiniBand bandwidth, lower latencies, and better distributed application performance.
 
 ## Azure Machine Learning designer issues
 
@@ -277,10 +277,10 @@ This is a known limitation of the current release.
 
 Manually refresh the page. Initialization should proceed at roughly 20 datapoints per second. The lack of autorefresh is a known issue. 
 
-### Bounding box cannot be drawn all the way to right edge of image 
-
-Try resizing the browser window. We are investigating to determine the cause of this behavior. 
-
 ### When reviewing images, newly labeled images are not shown
 
 To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.
+
+### Pressing Esc key while labeling for object detection creates a zero size label on the top left corner. Submitting labels in this state fails.
+
+Delete the label by clicking on the cross mark next to it.

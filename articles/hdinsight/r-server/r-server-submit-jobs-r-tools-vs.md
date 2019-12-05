@@ -18,7 +18,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
 ## Set up your environment
 
-1. Install [R Tools for Visual Studio](https://docs.microsoft.com/visualstudio/rtvs/installation).
+1. Install [R Tools for Visual Studio](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 
     ![Installing RTVS in Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 

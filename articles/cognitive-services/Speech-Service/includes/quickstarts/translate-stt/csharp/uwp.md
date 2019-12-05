@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech-to-text, C# (UWP) - Speech Service'
+title: 'Quickstart: Translate speech-to-text, C# (UWP) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

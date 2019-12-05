@@ -2,11 +2,10 @@
 title: Overview - Azure Serverless
 description: Create powerful solutions in the cloud without worrying about infrastructure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
-ms.reviewer: klam, estfan, LADocs
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
 ---

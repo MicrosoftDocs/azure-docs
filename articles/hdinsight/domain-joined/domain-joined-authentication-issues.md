@@ -93,7 +93,7 @@ Password is expired.
 
 ### Resolution
 
-Change the password in the Azure portal (on your on-premise system) and then wait for 30 minutes for sync to catch up.
+Change the password in the Azure portal (on your on-premises system) and then wait for 30 minutes for sync to catch up.
 
 ---
 

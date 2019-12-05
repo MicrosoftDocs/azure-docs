@@ -53,6 +53,9 @@ Follow these steps to open the settings for an Azure resource role.
 
 1. Use the **Notification** tab or the **Next: Activation** button at the bottom of the page to get to the notification setting tab for this role. These settings control all the email notifications related to this role.
 
+    > [!NOTE]
+    > This notifications UI is currently being rolled across Azure regions and subscriptions. If you can't configure these granular notifications, please check back in a day or two.
+
     ![Role Notifications tab in role settings page](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
 
 1. Select the **Update** button at any time to update the role settings.

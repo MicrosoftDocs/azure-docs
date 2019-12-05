@@ -1,5 +1,5 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks visualizations | Microsoft docs
+title: Azure Monitor workbook visualizations
 description: Learn about all the Azure Monitor workbook visualizations components including - text, charts, grids, trees, and graphs.
 services: azure-monitor
 author: mrbullwinkle

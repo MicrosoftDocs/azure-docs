@@ -1,13 +1,9 @@
 ---
-title: Work with Azure Functions Core Tools | Microsoft Docs
+title: Work with Azure Functions Core Tools 
 description: Learn how to code and test Azure functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
-author: ggailey777
-manager: gwallace
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: glenga
 ms.custom: 80e4ff38-5174-43
 ---
 
@@ -516,6 +512,7 @@ This type of streaming logs requires that you [enable Application Insights integ
 
 ## Next steps
 
+Learn how to develop, test, and publish Azure Functions by using Azure Functions Core Tools [Microsoft learn module](https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-core-tools/)
 Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli).  
 To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues).
 
