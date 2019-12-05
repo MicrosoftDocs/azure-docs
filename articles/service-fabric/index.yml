@@ -99,3 +99,11 @@ landingContent:
             url: service-fabric-tutorial-create-vnet-and-linux-cluster.md
           - text: Linux cluster diagnostics
             url: service-fabric-diagnostics-oms-syslog.md
+
+  # Card
+  - title: Get started with Java applications and Linux
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Service Fabric differences between Linux and Windows
+            url: service-fabric-linux-windows-differences.md
