@@ -1,10 +1,12 @@
 ---
-title: Running in a Container Instance
-description: Run Azure CycleCloud in a Container Instance for quick and easy use.
+title: Quickstart - Install via Marketplace
+description: Use this quickstart to learn how to run CycleCloud in an Azure Container
 author: KimliW
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---
+
+TODO: This needs to be reformatted so that it reads more as a quickstart.
 
 # Run Azure CycleCloud in a Container Instance
 

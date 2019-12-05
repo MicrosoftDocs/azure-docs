@@ -1,10 +1,12 @@
 ---
-title: Manual Installation
-description: Manually install and configure Azure CycleCloud.
+title: Quickstart - Manual Installation
+description: Use this quickstart to learn about installing CycleCloud manually. 
 author: KimliW
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---
+
+TODO: convert this into a quickstart that well documented steps that a user can follow.
 
 # Manual Installation
 
