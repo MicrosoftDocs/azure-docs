@@ -104,6 +104,8 @@ These operations are governed by resource classes:
 
 > [!NOTE]  
 > SELECT statements on dynamic management views (DMVs) or other system views are not governed by any of the concurrency limits. You can monitor the system regardless of the number of queries executing on it.
+>
+>
 
 ### Operations not governed by resource classes
 
@@ -178,7 +180,9 @@ Users can be members of multiple resource classes. When a user belongs to more t
 
 ## Recommendations
 
->[!NOTE]  Consider leveraging workload management capabilities ([workload isolation](sql-data-warehouse-workload-isolation.md), [classification](sql-data-warehouse-workload-classification.md) and [importance](sql-data-warehouse-workload-importance.md)) for more control over your workload and predictable performance.  
+>[!NOTE]
+>Consider leveraging workload management capabilities ([workload isolation](sql-data-warehouse-workload-isolation.md), [classification](sql-data-warehouse-workload-classification.md) and [importance](sql-data-warehouse-workload-importance.md)) for more control over your workload and predictable performance.  
+>
 >
 
 We recommend creating a user that is dedicated to running a specific type of query or load operation. Give that user a permanent resource class instead of changing the resource class on a frequent basis. Static resource classes afford greater overall control on the workload, so we suggest using static resource classes before considering dynamic resource classes.
