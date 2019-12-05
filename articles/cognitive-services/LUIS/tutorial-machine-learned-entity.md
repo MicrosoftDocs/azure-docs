@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/20/2019
+ms.date: 12/05/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
 ---
