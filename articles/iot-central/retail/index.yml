@@ -55,7 +55,7 @@ landingContent:
             url: ../preview/tutorial-connect-pnp-device.md
       - linkListType: how-to-guide
         links:
-          - text: Prepare and connect an MX Chip IoT DevKit
+          - text: Prepare and connect an MXChip IoT DevKit
             url: ../preview/howto-connect-devkit.md
           - text: Connect other IoT clouds
             url: ../core/howto-build-iotc-device-bridge.md

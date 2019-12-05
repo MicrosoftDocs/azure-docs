@@ -1,15 +1,15 @@
 ---
 
-title: Register using CSP Partner information with Cloudyn in Azure | Microsoft Docs
+title: Register using CSP Partner information with Cloudyn in Azure
 description: This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 11/18/2019
 ms.topic: quickstart
 ms.custom: seodec18
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ---
 
@@ -27,6 +27,8 @@ As a CSP partner, you can register with Cloudyn. Your registration provides acce
 > For more information, see [Connect to the Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
 >
 > Access to Cloudyn can be made available to CSP Indirect Resellers after their CSP Indirect Provider registers with Cloudyn. CSP Indirect Resellers can then provide Cloudyn access to Azure customers and subscriptions.
+>
+>Cloudy is complaint with the Microsoft Secure Application model. For more information, see [Enabling the Secure Application Model framework](/partner-center/develop/enable-secure-app-model).
 
 ## Sign in to Azure
 

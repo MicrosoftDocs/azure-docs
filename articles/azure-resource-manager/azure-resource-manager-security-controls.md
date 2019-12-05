@@ -1,14 +1,8 @@
 ---
-title: Security controls for Azure Resource Manager
+title: Security controls
 description: A checklist of built-in security controls for evaluating the Azure Resource Manager service. 
-services: azure-resource-manager
-author: msmbaldwin
-manager: rkarlin
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: mbaldwin
-
 ---
 # Security controls for Azure Resource Manager
 

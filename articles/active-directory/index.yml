@@ -99,7 +99,22 @@ conceptualContent:
       footerLink: 
         url: ../active-directory-b2c/index.yml
         text: See more
-
+    
+    - title: Cloud provisioning 
+      links: 
+        - url: ./cloud-provisioning/what-is-cloud-provisioning.md
+          itemType: overview
+          text:  What is cloud provisioning?
+        - url: ./cloud-provisioning/tutorial-single-forest.md
+          itemType: tutorial
+          text:  Integrate a single forest with a single Azure AD tenant
+        - url: ./cloud-provisioning/how-to-install.md
+          itemType: how-to-guide
+          text:  Install Azure AD Connect cloud provisioning agent
+      footerLink: 
+        url: ./cloud-provisioning/index.yml
+        text: See more
+    
     - title: Conditional Access 
       links: 
         - url: ./conditional-access/overview.md

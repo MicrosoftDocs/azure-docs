@@ -16,12 +16,13 @@ Ingesting historical data from Internet of Things (IoT) for resources such as de
 ## Before you begin
 
 Before you proceed with this article, make sure that you’ve installed FarmBeats, and collected historical data from IoT.
+You will also need to enable partner access as mentioned in the steps below.
 
 ## Enable partner access
 
 You need to enable partner integration to your Azure FarmBeats instance. This step creates a client that will have access to your Azure FarmBeats as your device partner, and provides you the following values that are required in the subsequent steps.
 
-- API Endpoint – This is the data hub URL, for example, https://<datahub>.azurewebsites.net
+- API Endpoint – This is the data hub URL, for example, https://\<datahub>.azurewebsites.net
 - Tenant ID
 - Client ID
 - Client Secret
@@ -69,7 +70,7 @@ Follow the below steps to generate these:
 - /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.  
 
 
-|        Device Mode   |  Suggestions   |
+|        Device Model   |  Suggestions   |
 | ------- | -------             |
 |     Type (Node, Gateway)        |          1 Star      |
 |          Manufacturer            |         2 Star     |
@@ -113,7 +114,7 @@ For more information about objects, see [Swagger](https://aka.ms/FarmBeatsDatahu
 
 **API request to create metadata**
 
-To make an API request, you combine the HTTP (POST) method, the URL to the API service, the URI to a resource to query, submit data to create or delete a request and add one or more HTTP request headers. The URL to the API service is the API Endpoint i.e. the data hub URL (https://<yourdatahub>.azurewebsites.net)  
+To make an API request, you combine the HTTP (POST) method, the URL to the API service, the URI to a resource to query, submit data to create or delete a request and add one or more HTTP request headers. The URL to the API service is the API Endpoint i.e. the data hub URL (https://\<yourdatahub>.azurewebsites.net)  
 
 **Authentication**:
 
@@ -128,6 +129,28 @@ Using the above credentials, the caller can request for an access token, which n
 ```
 headers = *{"Authorization": "Bearer " + access_token, …}*
 ```
+
+Below is a sample Python code that gives the access token, which can be used for subsequent API calls to FarmBeats: 
+
+```python
+import azure 
+
+from azure.common.credentials import ServicePrincipalCredentials 
+import adal 
+#FarmBeats API Endpoint 
+ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
+CLIENT_ID = "<Your Client ID>"   
+CLIENT_SECRET = "<Your Client Secret>"   
+TENANT_ID = "<Your Tenant ID>" 
+AUTHORITY_HOST = 'https://login.microsoftonline.com' 
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
+#Authenticating with the credentials 
+context = adal.AuthenticationContext(AUTHORITY) 
+token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
+#Should get an access token here 
+access_token = token_response.get('accessToken') 
+```
+
 
 **HTTP Request Headers**:
 
@@ -240,17 +263,15 @@ Sensor
     "additionalProp3": {}
   }
 }
-
 ```
 The below sample request is to create a device (This has an input json as payload with the request body).  
 
-```azurepowershell-interactive
+```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
 "accept: application/json" -H  "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>" -d "
-{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
+"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
 \"reportingInterval\": 900,  \"name\": \"Device123\",  
-\"description\": \"Test Device 123\",}"*
+\"description\": \"Test Device 123\"}" *
 ```
 
 > [!NOTE]
@@ -267,33 +288,50 @@ You must send the Telemetry to Azure Event Hub for processing. Azure EventHub is
 **Send telemetry message as the client**
 
 Once you have a connection established as an EventHub client, you can send messages to the EventHub as a json.  
-Convert the historical sensor data format to a canonical format that Azure FarmBeats understands. The canonical message format is as below:  
 
+Here is a sample Python code that sends telemetry as a client to a specified Event Hub:
 
+```python
+import azure
+from azure.eventhub import EventHubClient, Sender, EventData, Receiver, Offset
+EVENTHUBCONNECTIONSTRING = "<EventHub Connection String provided by customer>"
+EVENTHUBNAME = "<EventHub Name provided by customer>"
 
- ```
-  {   
-      “deviceid”: “<id of the Device created>”,   
-      "timestamp": "<timestamp in ISO 8601 format>",     
-      "version" : "1",   
-      "sensors":
-      [     
-      {        
-          "id": "<id of the sensor created>”       
-          "sensordata": [         
-          {            
-              "timestamp": "< timestamp in ISO 8601 format >",           
-              "<sensor measure name (as defined in the Sensor Model)>": value          
-    },          
-    {            
-    "timestamp": "<timestamp in ISO 8601 format>",           
-     "<sensor measure name (as defined in the Sensor Model)>": value          
-    }        
-    ]      
-    }  
-    }
+write_client = EventHubClient.from_connection_string(EVENTHUBCONNECTIONSTRING, eventhub=EVENTHUBNAME, debug=False)
+sender = write_client.add_sender(partition="0")
+write_client.run()
+for i in range(5):
+    telemetry = "<Canonical Telemetry message>"
+    print("Sending telemetry: " + telemetry)
+    sender.send(EventData(telemetry))
+write_client.stop()
+
 ```
 
+Convert the historical sensor data format to a canonical format that Azure FarmBeats understands. The canonical message format is as below:  
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+        }
+      ]
+    }
+ ]
+}
+```
 
 After adding the corresponding devices and sensors, obtain the deviceid and the sensorid in the telemetry message, as described in the previous section
 

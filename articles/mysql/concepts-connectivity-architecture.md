@@ -1,11 +1,11 @@
 ---
-title: Connectivity architecture in Azure Database for MySQL
+title: Connectivity architecture - Azure Database for MySQL
 description: Describes the connectivity architecture for your Azure Database for MySQL server.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 12/02/2019
 ---
 
 # Connectivity architecture in Azure Database for MySQL
@@ -66,4 +66,3 @@ The following table lists the primary and secondary IPs of the Azure Database fo
 
 * [Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
 * [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)
-

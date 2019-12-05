@@ -35,9 +35,10 @@ The following table lists the limits that apply to IoT Hub resources.
 | Maximum cloud-to-device queue depth per device |50 |
 | Maximum delivery count for feedback messages <br/> in response to a cloud-to-device message |100 |
 | Maximum TTL for feedback messages in <br/> response to a cloud-to-device message |2 days |
-| [Maximum size of device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (tags, reported properties, and desired properties) | 8 KB |
-| Maximum size of device twin string value | 4 KB |
-| [Maximum depth of object in device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5 |
+| [Maximum size of device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) | 8 KB for tags section, and 32 KB for desired and reported properties sections each |
+| Maximum length of device twin string key | 1 KB |
+| Maximum length of device twin string value | 4 KB |
+| [Maximum depth of object in device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 10 |
 | Maximum size of direct method payload | 128 KB |
 | Job history maximum retention | 30 days |
 | Maximum concurrent jobs | 10 (for S3), 5 for (S2), 1 (for S1) |

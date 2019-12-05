@@ -2,17 +2,13 @@
 title: Authentication in Microsoft identity platform | Azure
 description: Learn about the basics of authentication in the Microsoft identity platform (v2.0).
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/15/2019
 ms.author: ryanwi
@@ -71,7 +67,7 @@ It's up to the app for which the token was generated, the web app that signed-in
 
 Tokens are only valid for a limited amount of time. Usually the STS provides a pair of tokens: an access token to access the application or protected resource, and a refresh token used to refresh the access token when the access token is close to expiring. 
 
-Access tokens are passed to a Web API as the bearer token in the `Authenticate` header. An app can provide a refresh token to the STS, and if the user access to the app wasn't revoked, it will get back a new access token and a new refresh token. This is how the scenario of someone leaving the enterprise is handled. When the STS receives the refresh token, it won't issue another valid access token if the user is no longer authorized.
+Access tokens are passed to a Web API as the bearer token in the `Authorization` header. An app can provide a refresh token to the STS, and if the user access to the app wasn't revoked, it will get back a new access token and a new refresh token. This is how the scenario of someone leaving the enterprise is handled. When the STS receives the refresh token, it won't issue another valid access token if the user is no longer authorized.
 
 ## Application model
 
@@ -145,7 +141,7 @@ This attribute causes ASP.NET to check for the presence of a session cookie cont
 ### How a web app delegates sign-in to Azure AD and obtains a token
 
 User authentication happens via the browser. The OpenID protocol uses standard HTTP protocol messages.
-- The web app sends an HTTP 202 (redirect) to the browser to use Azure AD.
+- The web app sends an HTTP 302 (redirect) to the browser to use Azure AD.
 - When the user is authenticated, Azure AD sends the token to the web app by using a redirect through the browser.
 - The redirect is provided by the web app in the form of a redirect URI. This redirect URI is registered with the Azure AD application object. There can be several redirect URIs because the application may be deployed at several URLs. So the web app will also need to specify the redirect URi to use.
 - Azure AD verifies that the redirect URI sent by the web app is one of the registered redirect URIs for the app.
@@ -156,7 +152,7 @@ The flow described above applies, with slight differences, to desktop and mobile
 
 Desktop and mobile applications can use an embedded Web control, or a system browser, for authentication. The following diagram shows how a Desktop or mobile app uses the Microsoft authentication library (MSAL) to acquire access tokens and call web APIs.
 
-![Desktop app how it appears to be](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+![Desktop app how it appears to be](media/authentication-scenarios/desktop-app-how-it-appears-to-be.png)
 
 MSAL uses a browser to get tokens, and as with web apps, delegates authentication to Azure AD.
 

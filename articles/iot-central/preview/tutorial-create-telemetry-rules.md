@@ -1,6 +1,6 @@
 ---
-title: Create and manage rules in your Azure IoT Central application | Microsoft Docs
-description: Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
+title: Tutorial - Create and manage rules in your Azure IoT Central application
+description: This tutorial shows you how Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/24/2019
@@ -104,11 +104,6 @@ Choose the rule you want to enable or disable. Add a filter in the **Scopes** se
 
 ## Next steps
 
-Now that you have learned how to create rules in your Azure IoT Central application, the suggested next step is to learn [How to manage your devices](howto-manage-devices.md)
-
-## Next steps
-
->>>>>>> fa07415cf19e8cdb02d570edb3785780bfa97a7c:articles/iot-central/preview/tutorial-create-telemetry-rules.md
 In this tutorial, you learned how to:
 
 * Create a telemetry-based rule
@@ -117,5 +112,4 @@ In this tutorial, you learned how to:
 Now that you've defined a threshold-based rule the suggested next step is to learn how to:
 
 > [!div class="nextstepaction"]
-
 > [Configure continuous data export](./howto-export-data.md).

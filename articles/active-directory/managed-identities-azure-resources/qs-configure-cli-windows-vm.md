@@ -1,5 +1,5 @@
 ---
-title: How to configure system and user-assigned managed identities on an Azure VM using Azure CLI
+title: Configure managed identities on Azure VM using Azure CLI - Azure AD
 description: Step by step instructions for configuring system and user-assigned managed identities on an Azure VM using Azure CLI.
 services: active-directory
 documentationcenter: 
@@ -31,7 +31,7 @@ In this article, using the Azure CLI, you learn how to perform the following man
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To run the CLI script examples, you have three options:
     - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).

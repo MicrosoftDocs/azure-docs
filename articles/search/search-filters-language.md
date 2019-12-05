@@ -1,5 +1,5 @@
 ---
-title: Language filters for multi-lingual content in a search index
+title: Filter by language in a search index
 titleSuffix: Azure Cognitive Search
 description: Filter criteria to support multi-language search, scoping query execution to language-specific fields.
 

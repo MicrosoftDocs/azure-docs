@@ -1,12 +1,8 @@
 ---
-title: Use Blockchain Data Manager to update Azure Cosmos DB
-description: Use Blockchain Data Manager to send blockchain data to Azure Cosmos DB
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
-ms.date: 11/04/2019
+title: Use Blockchain Data Manager to update Azure Cosmos DB - Azure Blockchain Service
+description: Use Blockchain Data Manager for Azure Blockchain Service to send blockchain data to Azure Cosmos DB
+ms.date: 12/04/2019
 ms.topic: tutorial
-ms.service: azure-blockchain
 ms.reviewer: chroyal
 #Customer intent: As a developer, I want to use Blockchain Data Manager to send blockchain data to Azure Cosmos DB
 ---

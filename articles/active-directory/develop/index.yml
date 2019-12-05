@@ -7,6 +7,7 @@ metadata:
    ms.topic: landing-page
    ms.date: 06/22/2019
    author: CelesteDG
+   ms.author: celested
    ms.service: active-directory
    ms.subservice: develop
    ms.workload: identity   

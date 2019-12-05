@@ -81,7 +81,7 @@ Optionally, you can include query parameters on GET calls to filter, limit the s
 
 The below sample request is to get the list of devices:
 
-```azurepowershell-interactive
+```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
@@ -89,7 +89,7 @@ Most GET, POST, and PUT calls require a JSON request body.
 
 The below sample request is to create a Device (This has an input json with the request body).
 
-```json
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
@@ -116,25 +116,25 @@ Azure FarmBeats Data hub API's return the standard HTTP errors. The most common 
 
 In addition to the standard HTTP errors, Azure FarmBeats Data hub APIs also return internal errors in the below format:
 
-    ```
+```json
     {
       "message": "<More information on the error>",
       "status": "<error code>”,
       "code": "<InternalErrorCode>",
       "moreInfo": "<Details of the error>"
     }
-    ```
+```
 
 Example: When creating a Farm, a mandatory field “Name” was not specified in the input payload. The resulting error message would be:
 
-    ```json
+ ```json    
     {
       "message": "Model validation failed",
       "status": 400,
       "code": "ModelValidationFailed",
       "moreInfo": "[\"The Name field is required.\"]"
     }
-    ```
+  ```
 
 ## Adding users or app registrations to Azure Active Directory
 

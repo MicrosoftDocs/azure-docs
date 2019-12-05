@@ -28,7 +28,7 @@ Find detailed description on Azure Cognitive Search [Features](/azure/search/sea
 - [Azure portal](https://portal.azure.com) 
 - [Documentation](/azure/search/)
 - [Developer guide](https://azure.microsoft.com/resources/iot-developers-guide/)
-- [How to use Azure Cognitive Search](/azure/search/search-what-is-azure-search#how-to-use-azure-search)
+- [How to use Azure Cognitive Search](/azure/search/search-what-is-azure-search#how-to-use-azure-cognitive-search)
 - [Quickstarts](/azure/search/search-create-service-portal)
 
   

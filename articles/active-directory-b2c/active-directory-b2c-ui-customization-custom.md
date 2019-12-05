@@ -202,4 +202,4 @@ In the Modify your sign-up or sign-in custom policy section, you configured the 
 
 ## Next steps
 
-For more information about UI elements that can be customized, see [reference guide for UI customization for built-in policies](active-directory-b2c-reference-ui-customization.md).
+For more information about UI elements that can be customized, see [reference guide for UI customization for user flows](active-directory-b2c-reference-ui-customization.md).

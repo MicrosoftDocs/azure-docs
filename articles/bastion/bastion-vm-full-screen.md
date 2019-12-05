@@ -1,5 +1,5 @@
 ---
-title: 'Change virtual machine session view to full screen in Azure Bastion | Microsoft Docs'
+title: 'Azure Bastion: View virtual machine session: full screen'
 description: In this article, learn how to change the view to full screen.
 services: bastion
 author: cherylmc

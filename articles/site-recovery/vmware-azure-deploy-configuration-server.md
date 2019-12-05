@@ -1,5 +1,5 @@
 ---
-title: Deploy the configuration server for VMware disaster recovery with Azure Site Recovery | Microsoft Docs
+title: Deploy the configuration server in Azure Site Recovery 
 description: This article describes how to deploy a configuration server for VMware disaster recovery with Azure Site Recovery
 services: site-recovery
 author: Rajeswari-Mamilla

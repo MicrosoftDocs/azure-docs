@@ -18,7 +18,101 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2019-11-25
 
+### Azure Machine Learning SDK for Python v1.0.76
+
++ **Breaking changes**
+  + Azureml-Train-AutoML upgrade issues
+    + Upgrading to azureml-train-automl>=1.0.76 from azureml-train-automl<1.0.76 can cause partial installations, causing some automl imports to fail. To resolve this, you can run the setup script found at https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd. Or if you are using pip directly you can:
+      + "pip install --upgrade azureml-train-automl"
+      + "pip install --ignore-installed azureml-train-automl-client"
+    + or you can uninstall the old version before upgrading
+      + "pip uninstall azureml-train-automl"
+      + "pip install azureml-train-automl"
+
++ **Bug fixes and improvements**
+  + **azureml-automl-runtime**
+    + AutoML will now take into account both true and false classes when calculating averaged scalar metrics for binary classification tasks.
+    + Moved Machine learning and training code in AzureML-AutoML-Core to a new package AzureML-AutoML-Runtime.
+  + **azureml-contrib-dataset**
+    + When calling `to_pandas_dataframe` on a labeled dataset with the download option, you can now specify whether to overwrite existing files or not.
+    + When calling `keep_columns` or `drop_columns` that results in a timeseries, label, or image column being dropped, the corresponding capabilities will be dropped for the dataset as well.
+    + Fixed an issue with pytorch loader for the object detection task.
+  + **azureml-contrib-interpret**
+    + Removed explanation dashboard widget from azureml-contrib-interpret, changed package to reference the new one in interpret_community
+    + Updated version of interpret-community to 0.2.0
+  + **azureml-core**
+    + Improve performance of `workspace.datasets`.
+    + Added the ability to register Azure SQL Database Datastore using username and password authentication
+    + Fix for loading RunConfigurations from relative paths.
+    + When calling `keep_columns` or `drop_columns` that results in a timeseries column being dropped, the corresponding capabilities will be dropped for the dataset as well.
+  + **azureml-interpret**
+    + updated version of interpret-community to 0.2.0
+  + **azureml-pipeline-steps**
+    + Documented supported values for `runconfig_pipeline_params` for azure machine learning pipeline steps.
+  + **azureml-pipeline-core**
+    + Added CLI option to download output in json format for Pipeline commands.
+  + **azureml-train-automl**
+    + Split AzureML-Train-AutoML into 2 packages, an client package AzureML-Train-AutoML-Client and a ML training package AzureML-Train-AutoML-Runtime
+  + **azureml-train-automl-client**
+    + Added a thin client for submitting AutoML experiments without needing to install any machine learning dependencies locally.
+    + Fixed logging of automatically detected lags, rolling window sizes and maximal horizons in the remote runs.
+  + **azureml-train-automl-runtime**
+    + Added a new AutoML package to isolate machine learning and runtime components from the client.
+  + **azureml-contrib-train-rl**
+    + Added reinforcement learning support in SDK.
+    + Added AmlWindowsCompute support in RL SDK. 
+
+ 
+## 2019-11-11
+
+### Azure Machine Learning SDK for Python v1.0.74
+ 
+  + **Preview features**
+    + **azureml-contrib-dataset**
+      + After importing azureml-contrib-dataset, you can call `Dataset.Labeled.from_json_lines` instead of `._Labeled` to create a labeled dataset.
+      + When calling `to_pandas_dataframe` on a labeled dataset with the download option, you can now specify whether to overwrite existing files or not.
+      + When calling `keep_columns` or `drop_columns` that results in a timeseries, label, or image column being dropped, the corresponding capabilities will be dropped for the dataset as well.
+      + Fixed issues with PyTorch loader when calling `dataset.to_torchvision()`.
+
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Added Model Profiling to the preview CLI.
+    + Fixes breaking change in Azure Storage causing AzureML CLI to fail.
+    + Added Load Balancer Type to MLC for AKS types
+  + **azureml-automl-core**
+    + Fixed the issue with detection of maximal horizon on time series, having missing values and multiple grains.
+    + Fixed the issue with failures diring generation of cross validation splits.
+    + Replace this section with a message in markdown format to appear in the release notes: -Improved handling of short grains in the forecasting data sets.
+    + Fixed the issue with masking of some user information during logging. -Improved logging of the errors during forecasting runs.
+    + Adding psutil as a conda dependency to the auto-generated yml deployment file.
+  + **azureml-contrib-mir**
+    + Fixes breaking change in Azure Storage causing AzureML CLI to fail.
+  + **azureml-core**
+    + Fixes a bug which caused models deployed on Azure Functions to produce 500s.
+    + Fixed an issue where the amlignore file was not applied on snapshots.
+    + Added a new API amlcompute.get_active_runs that returns a generator for running and queued runs on a given amlcompute.
+    + Added Load Balancer Type to MLC for AKS types.
+    + Added append_prefix bool parameter to download_files in run.py and download_artifacts_from_prefix in artifacts_client. This flag is used to selectively flatten the origin filepath so only the file or folder name is added to the output_directory
+    + Fix deserialization issue for `run_config.yml` with dataset usage.
+    + When calling `keep_columns` or `drop_columns` that results in a timeseries column being dropped, the corresponding capabilities will be dropped for the dataset as well.
+  + **azureml-interpret**
+    + Updated interpret-community version to 0.1.0.3
+  + **azureml-train-automl**
+    + Fixed an issue where automl_step might not print validation issues.
+    + Fixed register_model to succeed even if the model's environment is missing dependencies locally.
+    + Fixed an issue where some remote runs were not docker enabled.
+    + Add logging of the exception that is causing a local run to fail prematurely.
+  + **azureml-train-core**
+    + Consider resume_from runs in the calculation of automated hyperparameter tuning best child runs.
+  + **azureml-pipeline-core**
+    + Fixed parameter handling in pipeline argument construction.
+    + Added pipeline description and step type yaml parameter.
+    + New yaml format for Pipeline step and added deprecation warning for old format.
+    
+    
+  
 ## 2019-11-04
 
 ### Web experience 
@@ -122,7 +216,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Change [`Dataset.get_by_id`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29#get-by-id-workspace--id-) to return registration name and version if the dataset is registered.
     + Fix a bug that ScriptRunConfig with dataset as argument cannot be used repeatedly to submit experiment run.
     + Datasets retrieved during a run will be tracked and can be seen in the run details page or by calling [`run.get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29#get-details--) after the run is complete.
-    + Allow intermediate data in Azure Machine Learning Pipeline to be converted to tabular dataset and used in [`AutoMLStep`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlstep).
+    + Allow intermediate data in Azure Machine Learning Pipeline to be converted to tabular dataset and used in [`AutoMLStep`](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlstep).
     + Added support for deploying and packaging supported models (ONNX, scikit-learn, and TensorFlow) without an InferenceConfig instance.
     + Added overwrite flag for service deployment (ACI and AKS) in SDK and CLI. If provided, will overwrite the existing service if service with name already exists. If service doesn't exist, will create new service.
     +  Models can be registered with two new frameworks, Onnx and Tensorflow. Model registration accepts sample input data, sample output data and resource configuration for the model.
@@ -139,7 +233,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Various bug fixes 
   + [**azureml-pipeline-core**](https://docs.microsoft.com/python/api/azureml-pipeline-core)
     + azureml-dataprep is no longer needed to submit an Azure Machine Learning Pipeline run from the pipeline `yaml` file.
-  + [**azureml-train-automl**](https://docs.microsoft.com/python/api/azureml-train-automl)
+  + [**azureml-train-automl**](/python/api/azureml-train-automl-runtime/)
     + Add azureml-defaults to auto generated conda env to solve the model deployment failure
     + AutoML remote training now includes azureml-defaults to allow reuse of training env for inference.
   + **azureml-train-core**
@@ -176,7 +270,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Added psutil as a dependency of `automl` and included psutil as a conda dependency in amlcompute.
     + Fixed the issue with heuristic lags and rolling window sizes on the forecasting data sets some series of which can cause linear algebra errors
       + Added print out for the heuristically determined parameters in the forecasting runs.
-  + **[azureml-contrib-datadrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift)**
+  + **azureml-contrib-datadrift**
     + Added protection while creating output metrics if dataset level drift is not in the first section.
   + **azureml-contrib-interpret**
     + azureml-contrib-explain-model package has been renamed to azureml-contrib-interpret
@@ -228,16 +322,16 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
         experiment2 = Experiment(workspace, "Active Experiment")
         experiment1.reactivate(new_name="Previous Active Experiment")
         ```
-        The static method [list()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly--) on Experiment can take a name filter and ViewType filter. ViewType values are "ACTIVE_ONLY", "ARCHIVED_ONLY" and "ALL". Example: 
+        The static method [list()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) on Experiment can take a name filter and ViewType filter. ViewType values are "ACTIVE_ONLY", "ARCHIVED_ONLY" and "ALL". Example: 
         
         ```py
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
         all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
         ```
     + Support using environment for model deploy, and service update.
-  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift)**
-    + The show attribute of [DataDriftDetector](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector) class won't support optional argument 'with_details' any more. The show attribute will only present data drift coefficient and data drift contribution of feature columns.
-    + DataDriftDetector function [get_output](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector#get-output-start-time--end-time--run-id-none--daily-latest-only-true-) behavior changes:
+  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-datadrift)**
+    + The show attribute of [DataDriftDetector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) class won't support optional argument 'with_details' any more. The show attribute will only present data drift coefficient and data drift contribution of feature columns.
+    + DataDriftDetector function [get_output]https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) behavior changes:
       + Input parameter start_time, end_time are optional instead of mandatory;
       + Input specific start_time and/or end_time with a specific run_id in the same invoking will result in value error exception because they are mutually exclusive; 
       + By input specific start_time and/or end_time, only results of scheduled runs will be returned; 
@@ -251,7 +345,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Improved performance for large Pipeline creation.
   + **[azureml-train-core](https://docs.microsoft.com/python/api/azureml-train-core)**
     + Added TensorFlow 2.0 support in [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow) Estimator.
-  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + The parent run will no longer be failed when setup iteration failed, as the orchestration already takes care of it.
     + Added local-docker and local-conda support for AutoML experiments
     + Added local-docker and local-conda support for AutoML experiments.
@@ -275,12 +369,12 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
     + Added curated environments. These environments have been pre-configured with libraries for common machine learning tasks, and have been pre-build and cached as Docker images for faster execution. They appear by default in [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29)'s list of environment, with prefix "AzureML".
   
   + **azureml-train-automl**
-  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + Added the ONNX conversion support for the ADB and HDI
 
 + **Preview features**  
   + **azureml-train-automl**
-  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + Supported BERT and BiLSTM as text featurizer (preview only)
     + Supported featurization customization for column purpose and transformer parameters (preview only)
     + Supported raw explanations when user enables model explanation during training (preview only)
@@ -292,7 +386,7 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
 + **Bug fixes and improvements**
   + **azureml-automl-core**
     + Introduced FeaturizationConfig to AutoMLConfig and AutoMLBaseSettings
-    + Introduced FeaturizationConfig to [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig) and AutoMLBaseSettings
+    + Introduced FeaturizationConfig to [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) and AutoMLBaseSettings
       + Override Column Purpose for Featurization with given column and feature type
       + Override transformer parameters
     + Added deprecation message for explain_model() and retrieve_model_explanations()
@@ -337,9 +431,9 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
   + **[azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
     + Added [RScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) to support R script run via AML pipeline.
     + Fixed metadata parameters parsing in [AzureBatchStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep) which was causing the error message "assignment for parameter SubscriptionId is not specified".
-  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + Supported training_data, validation_data, label_column_name, weight_column_name as data input format.
-    + Added deprecation message for [explain_model()](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer#explain-model-fitted-model--x-train--x-test--best-run-none--features-none--y-train-none----kwargs-) and [retrieve_model_explanations()](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer#retrieve-model-explanation-child-run-).
+    + Added deprecation message for [explain_model()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#explain-model-fitted-model--x-train--x-test--best-run-none--features-none--y-train-none----kwargs-) and [retrieve_model_explanations()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#retrieve-model-explanation-child-run-).
 
   
 ## 2019-09-16
@@ -857,7 +951,7 @@ We reverted a change that improved performance, as it was causing issues for som
 + **Preview features**
     + Integration with [MLflow](https://mlflow.org) 1.0.0 tracking through azureml-mlflow package ([example notebooks](https://aka.ms/azureml-mlflow-examples)).
     + Submit Jupyter notebook as a run. [API Reference Documentation](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
-    + Public Preview of [Data Drift Detector](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) through azureml-contrib-datadrift package ([example notebooks](https://aka.ms/azureml-datadrift-example)). Data Drift is one of the top reasons where model accuracy degrades over time. It happens when data served to model in production is different from the data that the model was trained on. AML Data Drift detector helps customer to monitor data drift and sends alert whenever drift is detected. 
+    + Public Preview of [Data Drift Detector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) through azureml-contrib-datadrift package ([example notebooks](https://aka.ms/azureml-datadrift-example)). Data Drift is one of the top reasons where model accuracy degrades over time. It happens when data served to model in production is different from the data that the model was trained on. AML Data Drift detector helps customer to monitor data drift and sends alert whenever drift is detected. 
 
 + **Breaking changes**
 

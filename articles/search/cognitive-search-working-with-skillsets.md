@@ -1,5 +1,5 @@
 ---
-title: Working with skillsets
+title: Skillset concepts and workflow
 titleSuffix: Azure Cognitive Search
 description: Skillsets are where you author an AI enrichment pipeline in Azure Cognitive Search. Learn important concepts and details about skillset composition.
 
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# Working with skillsets in Azure Cognitive Search
+# Skillset concepts and composition in Azure Cognitive Search
 
 This article is for developers who need a deeper understanding of how the enrichment pipeline works and assumes you have a conceptual understanding of the AI enrichment process. If you are new this concept, start with:
 + [AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md)
@@ -61,7 +61,7 @@ Each skill requires a context. A context determines:
 
 ### SourceContext
 
-The `sourceContext` is only used in [shaper skills](cognitive-search-skill-shaper.md) and [projections](knowledge-store-projection-overview.md). It is used to construct multi-level, nested objects. The `sourceContext` enables you to construct a hierarchical, anonymous type object, which would require multiple skills if you were only using the context. Using `sourceContext` is shown in the next section.
+The `sourceContext` is only used in skill inputs and [projections](knowledge-store-projection-overview.md). It is used to construct multi-level, nested objects. You may need to create a new oject to either pass it as an input to a skill or project into the knowledge store. As enrichment nodes may not be a valid JSON object in the enrichment tree and refrencing an node in the tree only returns that state of the node when it was created, using the enrichments as skill inputs or projections requires you to create a well formed JSON object. The `sourceContext` enables you to construct a hierarchical, anonymous type object, which would require multiple skills if you were only using the context. Using `sourceContext` is shown in the next section. Look at the skill output that generated an enrichment to determine if it is a valid JSON object and not a primitive type.
 
 ### Projections
 
