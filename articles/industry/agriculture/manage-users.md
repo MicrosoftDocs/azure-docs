@@ -57,9 +57,7 @@ Follow the steps to remove a user from the Azure FarmBeats system:
 
 The user is deleted from the system. You will receive the following message to confirm the successful operation.
 
-
 ![Project Farm Beats](./media/create-farms/manage-users-2.png)
-
 
 ## Add Azure AD users
 

@@ -44,7 +44,6 @@ Azure FarmBeats deployment creates the following resources within your subscript
 |12|      Azure App Service      |  Datahub/Accelerator       |
 |13 |    App service plan        |     Datahub/Accelerator      |
 |14 |Azure Maps account     |Accelerator    |
-|15 |       Azure Time Series Insights      |  Datahub     |
 
 Azure FarmBeats is available for download in Azure Marketplace, which you can access directly from the Azure portal.  
 
