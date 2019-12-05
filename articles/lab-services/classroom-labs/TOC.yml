@@ -72,6 +72,8 @@
       href: how-to-enable-remote-desktop-linux.md
     - name: Enable nested virtualization on a template VM
       href: how-to-enable-nested-virtualization-template-vm.md
+    - name: Prepare a Windows template VM
+      href: how-to-prepare-windows-template.md
   - name: Connect to VMs in classroom labs (student)
     items:        
     - name: Access classroom labs
