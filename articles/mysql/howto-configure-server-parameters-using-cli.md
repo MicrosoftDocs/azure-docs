@@ -59,7 +59,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> You should restart the server to ensure the time zone tables are properly populated. To restart the server, use the [Azure portal](howto-restart-server-portal.md) or [CLI](howto-restart-server-cli.ms).
+> You should restart the server to ensure the time zone tables are properly populated. To restart the server, use the [Azure portal](howto-restart-server-portal.md) or [CLI](howto-restart-server-cli.md).
 
 To view available time zone values, run the following command:
 
