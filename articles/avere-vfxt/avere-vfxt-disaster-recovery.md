@@ -81,7 +81,7 @@ Follow these steps to establish a data backup in another account.
 
 1. Create a new, empty Blob storage container in another storage account in another region.
 
-1. Use any convenient copy tool to copy the data on the core filer to the new container. The copy must replicate the data without changes, and without disrupting the proprietary cloud filesystem format used by Avere vFXT for Azure. Azure-based tools include including [ADLCopy](../data-lake-store/data-lake-store-copy-data-azure-storage-blob), [Azure PowerShell](../data-lake-store/data-lake-store-get-started-powershell), and [Azure Data Factory](../data-factory/connector-azure-data-lake-store).
+1. Use any convenient copy tool to copy the data on the core filer to the new container. The copy must replicate the data without changes, and without disrupting the proprietary cloud filesystem format used by Avere vFXT for Azure. Azure-based tools include including [ADLCopy](../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md), and [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
 1. After copying the data to the backup container, add the original container back to the cluster as described in [Configure storage](avere-vfxt-add-storage.md).
 
