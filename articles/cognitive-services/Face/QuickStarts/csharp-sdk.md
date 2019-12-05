@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 08/20/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ---
 # Quickstart: Face client library for .NET
