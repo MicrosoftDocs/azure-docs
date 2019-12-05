@@ -32,7 +32,7 @@ An important aspect of this configuration is routing between the on-premises net
 For traffic from on-premises networks to Azure, the Azure prefixes (including the virtual hub and all the spoke virtual networks connected to the hub) are advertised via both the ExpressRoute private peering BGP and the VPN BGP. This results in two network routes (paths) toward Azure from the on-premises networks:
 
 - One over the IPsec-protected path
-- One directly over ExpressRoute *without* IPsec protection. 
+- One directly over ExpressRoute *without* IPsec protection 
 
 To apply encryption to the communication, you must make sure that for the VPN-connected network in the diagram, the Azure routes via on-premises VPN gateway are preferred over the direct ExpressRoute path.
 
@@ -101,7 +101,7 @@ After you create the VPN site and connect to the hub, use the following steps to
 
 1. Go back to the virtual WAN resource page, and select the hub resource. Or navigate from the VPN site to the connected hub.
 1. Under **Connectivity**, select **VPN (Site-to-Site)**.
-1. Select **...** on the VPN site over ExpressRoute, and select **Edit VPN connection to this hub**.
+1. Select the ellipsis (**...**) on the VPN site over ExpressRoute, and select **Edit VPN connection to this hub**.
 1. For **Use Azure Private IP Address**, select **Yes**. The setting configures the hub VPN gateway to use private IP addresses within the hub address range on the gateway for this connection, instead of the public IP addresses. This will ensure that the traffic from the on-premises network traverses the ExpressRoute private peering paths rather than using the public internet for this VPN connection. The following screenshot shows the setting.
 
    ![Setting for using a private IP address for the VPN connection](./media/vpn-over-expressroute/vpn-link-configuration.png)
