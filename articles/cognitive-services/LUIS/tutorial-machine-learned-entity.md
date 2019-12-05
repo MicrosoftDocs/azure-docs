@@ -217,7 +217,7 @@ Test the app using the interactive **Test** panel. This process lets you enter a
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
-## Get intent and entity prediction  from HTTP endpoint
+## Get intent and entity prediction from HTTP endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
