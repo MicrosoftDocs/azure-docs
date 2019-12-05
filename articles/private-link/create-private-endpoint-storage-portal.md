@@ -165,12 +165,6 @@ Connect to the VM *myVm* from the internet as follows:
 
 In this section, you will connect privately to the storage account using the Private Endpoint.
 
-> [!IMPORTANT]
-> DNS configuration for storage needs a manual modification on the hosts file to include the FQDN of the specific account
-> Please modify the following file using administrator permissions on Windows: c:\Windows\System32\Drivers\etc\hosts or Linux /etc/hosts
-> Include the DNS information for the account from previous step in the following format
-> [Private IP Address] myaccount.blob.core.windows.net
-
 1. In the Remote Desktop of *myVM*, open PowerShell.
 2. Enter `nslookup mystorageaccount.blob.core.windows.net`
     You'll receive a message similar to this:

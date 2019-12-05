@@ -4,9 +4,9 @@ description: This VM management solution starts and stops your Azure Resource Ma
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 11/06/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/04/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -113,7 +113,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    - Specify a name for the new **Log Analytics workspace**, such as "ContosoLAWorkspace".
    - Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
    - For **Resource Group**, you can create a new resource group or select an existing one.
-   - Select a **Location**. Currently, the only locations available are **Australia Southeast**, **Canada Central**, **Central India**, **East US**, **Japan East**, **Southeast Asia**, **UK South**, **West Europe**, and **West US 2**.
+   - Select a **Location**.
    - Select a **Pricing tier**. Choose the **Per GB (Standalone)** option. Azure Monitor logs have updated [pricing](https://azure.microsoft.com/pricing/details/log-analytics/) and the Per GB tier is the only option.
 
    > [!NOTE]
