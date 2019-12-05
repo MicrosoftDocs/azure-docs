@@ -109,7 +109,7 @@ AKS defines a "released version" as the generally available versions, enabled in
 
 #### Notification channels for AKS changes
 
-AKS releases a weekly service update which summarizes new Kubernetes versions, service changes, and component updates that have been released on the service on [github](https://github.com/Azure/AKS/releases).
+AKS publishes regular service updates which summarize new Kubernetes versions, service changes, and component updates that have been released on the service on [github](https://github.com/Azure/AKS/releases).
 
 These changes are rolled to all customers as part of regular maintenance that is offered as part of the managed service, some require explicit upgrades while others require no action.
 
@@ -168,7 +168,7 @@ policies. Azure does not automatically upgrade your cluster or delete it.
 
 **What version does the control plane support if the node pool is not in one of the supported AKS versions?**
 
-The control plane must be within a window of versions from all node pools. For details on upgrading the control plane or node pools, visit documentation on [upgrading node pools](use-multiple-node-pools.md#Upgrade-a-cluster-control-plane-with-multiple-node-pools).
+The control plane must be within a window of versions from all node pools. For details on upgrading the control plane or node pools, visit documentation on [upgrading node pools](use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 ## Next steps
 
