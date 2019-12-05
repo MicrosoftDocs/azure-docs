@@ -15,7 +15,7 @@ ms.author: saudas
 
 In a private cluster, the Control Plane/API server will have internal IP addresses defined in [RFC1918](https://tools.ietf.org/html/rfc1918).  
 
-The communication between the control plane/API server, which is in an AKS managed Azure subscription, and the customers cluster / node pool, which is in a customer subscription, can communicate with each other through the private link service in the API server VNET and a private endpoint exposed in the subnet of the customer AKS cluster.
+The communication between the control plane/API server, which is in an AKS-managed Azure subscription, and the customers cluster / node pool, which is in a customer subscription, can communicate with each other through the private link service in the API server VNET and a private endpoint exposed in the subnet of the customer AKS cluster.
 
 > [!IMPORTANT]
 > AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
@@ -25,9 +25,7 @@ The communication between the control plane/API server, which is in an AKS manag
 
 ## Before you begin
 
-You must have the following:
-
-* You also need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.18 extension
+* You need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.18 extension
 
 ## Current Supported regions
 * Australia East
@@ -113,4 +111,4 @@ The API server end point has no public IP address. Consequently, users will need
 * IPV4 traffic Only – No support for IPv6 traffic 
 * No support to convert existing AKS clusters to private clusters  
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning 
-* Azure Monitor for containers Live Data is not currently supported
+* Azure Monitor for containers Live Data isn't currently supported
