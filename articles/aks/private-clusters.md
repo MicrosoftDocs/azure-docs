@@ -89,6 +89,11 @@ Where --enable-private-cluster is a mandatory flag for a private cluster
 ## Steps to connect to the private cluster
 The API server end point has no public IP address. Consequently, users will need to create an Azure virtual machine in a virtual network and connect to the API server. The steps in
 
+* Get credentials to connect to the cluster
+
+```azurecli-interactive
+az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
+```
 * Create a VM in the same VNET as the AKS cluster or create a VM in a different VNET and peer this VNET with the AKS cluster VNET
 * If you create a VM in a different VNET, you'll need to set up a link between this VNET and the Private DNS Zone
     * go to the MC_* resource group in the portal 
