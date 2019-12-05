@@ -1,6 +1,6 @@
 ---
-title: Low Priority Quota | Microsoft Docs
-description: Low priority quota requests
+title: Spot Quota | Microsoft Docs
+description: Spot quota requests
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 11/19/2019
@@ -9,21 +9,21 @@ ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 ---
-# Low priority quota: limit increase for all VM Series
+# Spot quota: limit increase for all VM Series
 
-Low priority VMs provide a different model of Azure usage, trading a lower cost for letting Azure remove a VM as needed for Pay-as-you-go or Reserved VM Instance deployments. Read more about Low priority VMs [here](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority).
+Spot VMs provide a different model of Azure usage, trading a lower cost for letting Azure remove a VM as needed for Pay-as-you-go or Reserved VM Instance deployments. Read more about Spot VMs [here](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
-Resource Manager supports two types of vCPU quotas for virtual machines. **Pay-as-you-go VMs and Reserved VM Instances** use standard quota. **Low priority VMs** use Low priority quota. 
+Resource Manager supports two types of vCPU quotas for virtual machines. **Pay-as-you-go VMs and Reserved VM Instances** use standard quota. **Spot VMs** use Spot quota. 
 
-For **Low priority quota** type, Resource Manager vCPU quotas are enforced across all available VM Series as a single regional limit.
+For **Spot quota** type, Resource Manager vCPU quotas are enforced across all available VM Series as a single regional limit.
 
-Anytime a new Low priority VM is to be deployed, the sum of new and existing vCPUs usage for all Low priority VM instances must not exceed the approved Low priority vCPU quota limit. If the Low priority quota is exceeded, the Low priority VM deployment will not be allowed. You can request an increase of the Low priority vCPUs quota limit from Azure portal. 
+Anytime a new Spot VM is to be deployed, the sum of new and existing vCPUs usage for all Spot VM instances must not exceed the approved Spot vCPU quota limit. If the Spot quota is exceeded, the Spot VM deployment will not be allowed. You can request an increase of the Spot vCPUs quota limit from Azure portal. 
 
 Learn more about standard vCPU quotas on the Virtual machine vCPU quotas page and Azure subscription and service limits page. Learn more about increasing the regional vCPU limit for standard quota on this [page](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests).
 
-You can now request an increase in **Low priority quota limits for all VM Series** via **Help + Support** blade or the **Usages + Quota** blade in the portal.
+You can now request an increase in **Spot quota limits for all VM Series** via **Help + Support** blade or the **Usages + Quota** blade in the portal.
 
-## Request Low priority quota limit increase for all VM Series per Subscription using the Help + Support blade
+## Request Spot quota limit increase for all VM Series per Subscription using the Help + Support blade
 
 Follow the instructions below to create a support request via Azure's 'Help + Support' blade available in the Azure portal.
 
@@ -58,7 +58,7 @@ You can also **request Quota for multiple regions** through a single support cas
 
 ![Provide details](./media/resource-manager-core-quotas-request/3-7.png)
 
-8. For the selected location, select **Type** value as **‘Low priority’**. You can request both Standard and Low priority quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Standard quota per VM Series** on this [page](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+8. For the selected location, select **Type** value as **‘Spot’**. You can request both Standard and Spot quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Standard quota per VM Series** on this [page](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
 
 ![Provide details](./media/resource-manager-core-quotas-request/3-8.png)
 
@@ -72,7 +72,7 @@ You can also **request Quota for multiple regions** through a single support cas
 
 11. After entering the desired quota, click **Save and Continue** on the Quota details panel to continue with the support request creation.
 
-## Request Low priority quota limit increase for all VM Series per Subscription using Usages + Quota blade
+## Request Spot quota limit increase for all VM Series per Subscription using Usages + Quota blade
 
 Follow the instructions below using to create a support request via Azure's 'Usage + quota' blade available in the Azure portal.
 
@@ -102,7 +102,7 @@ You can also **request Quota for multiple regions** through a single support cas
 
   ![Fill in form](./media/resource-manager-core-quotas-request/3-2-6.png)
  
-7.	For the selected location, select **Type** value as **‘Low priority’.** You can request both Standard and Low priority quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing standard quota per VM Series** on this [page](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+7.	For the selected location, select **Type** value as **‘Spot’.** You can request both Standard and Spot quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing standard quota per VM Series** on this [page](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
 
   ![Fill in form](./media/resource-manager-core-quotas-request/3-2-7.png)
  
@@ -115,4 +115,5 @@ You can also **request Quota for multiple regions** through a single support cas
   ![Fill in form](./media/resource-manager-core-quotas-request/3-2-9.png)
  
 10. After entering the desired quota, click **Save and Continue** on the Quota details panel to continue with the support request creation.
+
 
