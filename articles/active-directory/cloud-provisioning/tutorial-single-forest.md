@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -38,7 +38,7 @@ You can use the environment you create in this tutorial for testing or for getti
      | --- | --- |
      | **80** | Downloads the certificate revocation lists (CRLs) while validating the SSL certificate |
      | **443** | Handles all outbound communication with the service |
-     | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed on the Azure AD portal. Port 8080 is _not_ used for user sign-ins. |
+     | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed on the Azure AD portal. |
      
      If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
    - If your firewall or proxy allows you to specify safe suffixes, then add  connections t to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
@@ -46,23 +46,30 @@ You can use the environment you create in this tutorial for testing or for getti
    - For certificate validation, unblock the following URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, and **www\.microsoft.com:80**. Since these URLs are used for certificate validation with other Microsoft products you may already have these URLs unblocked.
 
 ## Install the Azure AD Connect provisioning agent
-1. Sign in to the server you will use with enterprise admin permissions.  If you are using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be DC1.
-2. Download the Azure AD Connect provisioning agent [here](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Run the Azure AD Connect provisioning agent (AADConnectProvisionin
-4. gAgent.Installer)
-3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
-![Welcome screen](media/how-to-install/install1.png)</br>
+1. Sign in to the domain joined server.  If you are using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be DC1.
+2. Sign in to the Azure portal using cloud-only global admin credentials.
+3. On the left, select **Azure Active Directory**, click **Azure AD Connect**, and in the center select **Manage provisioning (preview)**.
 
-4. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  Note that if you have IE enhanced security enabled this will block the sign-in.  If this is the case, close the installation, disable IE enhanced security in Server Manager, and click the **AAD Connect Provisioning Agent Wizard** to restart the installation.
-5. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account should not have password change requirements. In case the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.</br>
-![Welcome screen](media/how-to-install/install3.png)</br>
+   ![Azure portal](media/how-to-install/install6.png)
 
-6. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
-![Welcome screen](media/how-to-install/install4.png)</br>
+4. Click **Download agent**.
+5. Run the Azure AD Connect provisioning agent.
+6. On the splash screen, **Accept** the licensing terms and click **Install**.
 
-7. Once this operation completes you should see a notice: **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
+   ![Welcome screen](media/how-to-install/install1.png)
+
+7. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  Note that if you have IE enhanced security enabled this will block the sign-in.  If this is the case, close the installation, disable IE enhanced security in Server Manager, and click the **AAD Connect Provisioning Agent Wizard** to restart the installation.
+8. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account should not have password change requirements. In case the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.
+
+   ![Welcome screen](media/how-to-install/install3.png)
+
+9. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.
+
+   ![Welcome screen](media/how-to-install/install4.png)
+
+10. Once this operation completes you should see a notice: **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
 ![Welcome screen](media/how-to-install/install5.png)</br>
-8. If you still see the initial splash screen, click **Close**.
+11. If you still see the initial splash screen, click **Close**.
 
 
 ## Verify agent installation
