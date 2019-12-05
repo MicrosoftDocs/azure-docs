@@ -93,14 +93,18 @@ As a solution builder, you can also customize the IoT Central application UI for
 
 ## Connect your devices
 
-After the builder defines the types of devices that can connect to the application, a device developer creates the code to run on the devices. As a device developer, you use Microsoft's open-source [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) to create your device code. These SDKs have broad language, platform, and protocol support to meet your needs to connect your devices to your IoT Central application. The SDKs help you implement the following device capabilities:
+Azure IoT Central uses the [Azure IoT Hub Device Provisioning service (DPS)](../../iot-dps/about-iot-dps.md) to manage all device registration and connection.
 
-- Create a secure connection.
-- Send telemetry.
-- Report status.
-- Receive configuration updates.
+Using DPS enables:
 
-For more information, see the blog post [Benefits of using the Azure IoT SDKs, and pitfalls to avoid if you don't](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/).
+- IoT Central to support onboarding and connecting devices at scale.
+- You to generate device credentials and configure the devices offline without registering the devices through IoT Central UI.
+- Devices to connect using shared access signatures.
+- Devices to connect using industry-standard X.509 certificates.
+- You to use your own device IDs to register devices in IoT Central. Using your own device IDs simplifies integration with existing back-office systems.
+- A single, consistent way to connect devices to IoT Central.
+
+To learn more, see [Get connected to Azure IoT Central](./concepts-get-connected.md).
 
 ### Azure IoT Edge devices
 
@@ -114,7 +118,7 @@ As well as devices created using the [Azure IoT SDKs](https://github.com/Azure/a
 
 For more information, see [Azure IoT Edge devices and IoT Central](concepts-architecture.md#azure-iot-edge-devices).
 
-## Manage your application
+## Stay connected
 
 IoT Central applications are fully hosted by Microsoft, which reduces the administration overhead of managing your applications.
 
@@ -128,12 +132,52 @@ As a solution builder, you can define custom rules and actions that operate over
 
 Administrators manage access to your application with [user roles and permissions](howto-administer.md).
 
+With any IoT solution designed to operate at scale, a structured approach to device management is important. It's not enough just to connect your devices to the cloud, you need to keep your devices connected and healthy. An operator can use the following IoT Central capabilities to manage your devices throughout the application life cycle:
+
+### Dashboards 
+
+Built-in [dashboards](./howto-set-up-template.md#generate-default-views) provide a customizable UI to monitor device health and telemetry. Start with a pre-built dashboard in an [application template](howto-use-app-templates.md) or create your own dashboards tailored to the needs of your operators. You can share dashboards with all users in your application, or keep them private.
+
+### Rules and actions 
+
+Build [custom rules](tutorial-create-telemetry-rules.md) based on device state and telemetry to identify devices in need of attention. Configure actions to notify the right people and ensure corrective measures are taken in a timely fashion.
+
+### Jobs 
+
+[Jobs](howto-run-a-job.md) let you apply single or bulk updates to devices by setting properties or calling commands. 
+
+### User roles and permissions
+
+[Roles and permissions](howto-manage-users-roles.md) let an administrator tailor each user's experience. An administrator uses the web UI to create roles and assign permissions.
+
+## Transform your IoT data
+
+As an application platform, IoT Central lets you transform your IoT data into the business insights that drive actionable outcomes. [Rules](./tutorial-create-telemetry-rules.md), [data export](./howto-export-data.md), and the [public REST API](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) are examples of how you can integrate IoT Central with line-of-business applications:
+
+![How IoT Central can transform your IoT data](media/overview-iot-central/transform.png)
+
+### Monitor device health and operations using rules
+
+When your devices are connected and sending data, rules can identify devices  experiencing problems or sending error messages so that you can fix them with minimal downtime. Build rules in your IoT Central application to monitor telemetry from your devices and alert an operator when a metric crosses a threshold or a device sends a specific message. Email actions and webhooks for your rules notify the right people and the right downstream systems.
+
+### Run custom analytics and processing on your exported data
+
+You can generate business insights, such as determining machine efficiency trends or predicting future energy usage on a factory floor, by building custom analytics pipelines to process telemetry from your devices and store the results. Configure data exports in your IoT Central application to export telemetry, device property changes, and device template changes to other services where you can analyze, store, and visualize the data with your preferred tools.
+
+### Build custom IoT solutions and integrations with the REST APIs
+
+Build IoT solutions such as:
+
+- Mobile companion apps that can remotely set up and control devices.
+- Custom integrations that enable existing line-of-business applications to interact with your IoT devices and data.
+- Device management applications for device modeling, onboarding, management, and data access.
+
 ## Next steps
 
 Now that you have an overview of IoT Central, here are suggested next steps:
 
-- Understand the differences between [IoT Central and Azure IoT solution accelerators](overview-iot-options.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
 - Learn more about [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md)
 - Learn how to [Create Azure IoT Edge Device template](tutorial-define-edge-device-type.md)
+- Learn more about [Azure IoT technologies and services](../../iot-fundamentals/iot-services-and-technologies.md).
