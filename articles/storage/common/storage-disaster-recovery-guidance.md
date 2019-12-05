@@ -135,7 +135,7 @@ Connect-AzAccount -SubscriptionId <subscription-id>
 Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
-It may take 1-2 days to receive approval for the preview. To verify that your registration has been approved, run the following command:
+It can take 5-7 days to receive approval for the preview. To verify that your registration has been approved, run the following command:
 
 ```powershell
 Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
