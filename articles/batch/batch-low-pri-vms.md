@@ -260,7 +260,7 @@ Azure Batch pools are being updated to replace low-priority VMs with Spot VMs. A
 
 If you are using ‘[virtual machine configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)’ pools, you can continue to use the current SDK and allocate low-priority VMs until November 30, 2020.  After this date, it will not be possible to use the current SDK to create pools that use low-priority VMs; pool creation and resize will fail if any low-priority VMs are specified. You should plan on moving from low-priority VMs to spot VMs by using a new version of the Batch SDK, which will be available in first quarter of 2020.
 
-Support for spot VMs will not be added for ‘[cloud service configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration)’ pools. It will not be possible to allocate low-priority VMs after November 30, 2020. You will need to migrate from ‘cloud service configuration’ pools to ‘virtual machine configuration’ pools and then use spot VMs, by using the new Batch SDK version, when available.
+Support for Spot VMs will not be added for [Cloud Service configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) pools. It will not be possible to allocate low-priority VMs after November 30, 2020. You will need to migrate from **Cloud Service configuration** pools to **virtual machine configuration** pools and then use Spot VMs, by using the new Batch SDK version, when available.
 
 With this Batch SDK update, new versions of the tools, such as the Azure Command-Line Interface (CLI) and Batch Explorer, will be made available and support Spot VMs.
 
