@@ -47,44 +47,44 @@ The following diagram illustrates simple Azure EA hierarchies.
 
 To administer the Azure services in your enrollment, there are four distinct enterprise administrative user roles:
 
-- Enterprise Administrator
-- Department Administrator
-- Account Owner
-- Service Administrator
+- Enterprise administrator
+- Department administrator
+- Account owner
+- Service administrator
 
 Roles work in two different portals to complete tasks.  You use the [Azure Enterprise portal](https://ea.azure.com) to manage billing and costs, and the [Azure portal](https://portal.azure.com) to manage Azure services.
 
 User roles are associated with a user account. To validate user authenticity, each user must have a valid work, school, or Microsoft account. Ensure that each account is associated with an email address that's actively monitored. Account notifications are sent to the email address.
 
-When setting up users, you can assign multiple accounts to the Enterprise Administrator role. However, only one account can hold the Account Owner role. Also, you can assign both the Enterprise Administrator and Account Owner roles to a single account.
+When setting up users, you can assign multiple accounts to the enterprise administrator role. However, only one account can hold the account owner role. Also, you can assign both the enterprise administrator and account owner roles to a single account.
 
-### Enterprise Administrator
+### Enterprise administrator
 
 Users with this role have the highest level of access. They can:
 
-- Manage accounts and Account Owners
-- Manage other Enterprise Administrators
-- Manage Department Administrators
+- Manage accounts and account owners
+- Manage other enterprise administrators
+- Manage department administrators
 - Manage notification contacts
 - View usage across all accounts
 - View unbilled charges across all accounts
 
-You can have multiple Enterprise Administrators in an enterprise enrollment. You can grant read-only access to Enterprise Administrators. They all inherit the Department Administrator role.
+You can have multiple enterprise administrators in an enterprise enrollment. You can grant read-only access to enterprise administrators. They all inherit the department administrator role.
 
-### Department Administrator
+### Department administrator
 
 Users with this role can:
 
 - Create and manage departments
-- Create new Account Owners
+- Create new account owners
 - View usage details for the departments that they manage
 - View costs, if they have the necessary permissions
 
-You can have multiple Department Administrators for each enterprise enrollment.
+You can have multiple department administrators for each enterprise enrollment.
 
-You can grant Department Administrators read-only access when you edit or create a new department administrator. Set the read-only option to **Yes**.
+You can grant department administrators read-only access when you edit or create a new department administrator. Set the read-only option to **Yes**.
 
-### Account Owner
+### Account owner
 
 Users with this role can:
 
@@ -94,13 +94,13 @@ Users with this role can:
 
 Each account requires a unique work, school, or Microsoft account. For more information about Azure Enterprise Portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md).
 
-### Service Administrator
+### Service administrator
 
-The Service Administrator role has permissions to manage services in the Azure portal and assign users to the Co-Administrator role.
+The service administrator role has permissions to manage services in the Azure portal and assign users to the co-administrator role.
 
 ## Activate your enrollment
 
-To activate your service, the initial Enterprise Administrator opens the [Azure Enterprise portal](https://ea.azure.com) and signs in using the email address from the invitation email.
+To activate your service, the initial enterprise administrator opens the [Azure Enterprise portal](https://ea.azure.com) and signs in using the email address from the invitation email.
 
 If you have more than one enrollment, choose one to activate. By default, only active enrollments are shown. To view enrollment history, clear the **Active** option in the top right of the Azure Enterprise portal.
 
@@ -108,11 +108,11 @@ Under **Enrollment**, the status shows **Active**.
 
 ![Example showing an active enrollment](./media/billing-ea-portal-get-started/ea-enrollment-status.png)
 
-Only existing Azure Enterprise Administrators can create other Enterprise Administrators.
+Only existing Azure enterprise administrators can create other enterprise administrators.
 
-### Create another Enterprise Administrator
+### Create another enterprise administrator
 
-To add another Enterprise Administrator:
+To add another enterprise administrator:
 
 1. Sign in to the [Azure Enterprise portal](https://ea.azure.com).
 1. Go to **Manage** > **Enrollment Detail**.
@@ -120,20 +120,20 @@ To add another Enterprise Administrator:
 
 Make sure that you have the user's email addresses and preferred authentication method, such as work, school, or Microsoft account.
 
-If you're not the Enterprise Administrator, contact an Enterprise Administrator to request that they add you to an enrollment. After you're added to an enrollment, you receive an activation email.
+If you're not the enterprise administrator, contact an enterprise administrator to request that they add you to an enrollment. After you're added to an enrollment, you receive an activation email.
 
-If your Enterprise Administrator can't assist you, create an [Azure Enterprise portal support request](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Provide the following information:
+If your enterprise administrator can't assist you, create an [Azure Enterprise portal support request](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Provide the following information:
 
 - Enrollment number
 - Email address to add, and authentication type (work, school, or Microsoft account)
-- Email approval from an existing Enterprise Administrator
-  - If the existing Enterprise Administrator isn't available, contact your partner or software advisor to request that they change the contact details through the Volume Licensing Service Center (VLSC) tool.
+- Email approval from an existing enterprise administrator
+  - If the existing enterprise administrator isn't available, contact your partner or software advisor to request that they change the contact details through the Volume Licensing Service Center (VLSC) tool.
 
 For more information about enterprise administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md).
 
 ## Create an Azure Enterprise department
 
-Enterprise Administrators and Department Administrators use departments to organize and report on enterprise Azure services and usage by department and cost center. The Enterprise Administrator can:
+Enterprise administrators and department administrators use departments to organize and report on enterprise Azure services and usage by department and cost center. The enterprise administrator can:
 
 - Add or remove departments
 - Associate an account to a department
@@ -144,123 +144,135 @@ A department administrator can add new accounts to their departments. They can r
 
 To add a department:
 
-1. In the left navigation area, click **Manage**.
-2. Click the **Department** tab, then click **+ Add Department** and then enter the required information.
-3. The Department name is the only required field. It must be at least three characters.
-4. When complete, click **Add**.
+1. In the left pane, select **Manage**.
+1. Select the **Department** tab, then select **+ Add Department**. Enter the required information.
+1. The department name is the only required field. It must be at least three characters.
+1. When complete, select **Add**.
 
-## Add a department admin
+## Add a department administrator
 
-After a department is created, the Azure enterprise administrator can add department administrators and associate each one to a department. The department administrator can:
+After a department is created, the enterprise administrator can add department administrators and associate each one to a department. Department administrators can perform the following actions for their departments:
 
 - Create other department administrators
-- View and edit department properties like name or cost center
-- Add an account for their departments
-- Remove accounts from their departments
-- Download usage details for their departments
-- View the monthly usage and charges for their department if an enterprise administrator has granted them permission <sup>1</sup>
+- View and edit department properties such as name or cost center
+- Add accounts
+- Remove accounts
+- Download usage details
+- View the monthly usage and charges <sup>1</sup>
 
-### To add a department admin
+> <sup>1</sup> An enterprise administrator must have granted these permissions. If you were given permission to view department monthly usage and charges, but can't see them, contact your partner.
+
+### To add a department administrator
 
 As an enterprise administrator:
 
-1. In the left navigation area, click **Manage**.
-2. Click the **Department** tab and then click the department.
-3. Click **+ Add Administrator** and add the required information.
-4. For read-only access, set the **Read-Only** option to **Yes** and then click **Add**.
+1. In the left pane, select **Manage**.
+1. Select the **Department** tab and then select the department.
+1. Select **+ Add Administrator** and add the required information.
+1. For read-only access, set the **Read-Only** option to **Yes** and then select **Add**.
 
 ![Example showing the Add Department Administrator dialog](./media/billing-ea-portal-get-started/ea-create-add-department-admin.png)
 
 ### To set read-only access
 
-You can grant read-only access to department administrators. When creating a new department administrator:
+You can grant read-only access to department administrators.
 
-- Set the read-only option to **Yes**.
+- When you create a new department administrator, set the read-only option to **Yes**.
 
-To edit an existing department administrator:
+- To edit an existing department administrator:
+   1. Select a department, and then select the pencil symbol next to the **Department Administrator** that you want to edit.
+   1. Set the read-only open to **Yes**, and then select **Save**.
 
-1. Select a department and then click the pencil symbol next to the **Department Administrator** that you want to edit.
-2. Set the read-only open to **Yes**. and then click **Save**.
-
-Users with the enterprise administrator role automatically get department administrator permissions.
-
-<sup>1</sup> If you were given permission to view department monthly usage and charges but can't see them, contact your partner.
+Enterprise administrators automatically get department administrator permissions.
 
 ## Add an account
 
-Account and subscription structure impact how they're administered and how they appear on your invoices and reports. Examples of typical organization include structuring by business divisions, functional teams, and geographic locations.
+The structure of accounts and subscriptions impact how they're administered and how they appear on your invoices and reports. Examples of typical organizational structures include business divisions, functional teams, and geographic locations.
 
 To add an account:
 
-1. In the Azure Enterprise portal, click **Manage** in the left navigation area.
-2. Click the **Account** tab and then on the **Account** page, click **+Add Account**.
-3. Select a department, or leave it as unassigned, and then select desired authentication type.
-4. Type a friendly name to use to identify the account in reporting.
-5. Type the **Account Owner Email** address to associate with the new account.
-6. Confirm the email address and then click **Add**.
+1. In the Azure Enterprise portal, select **Manage** in the left navigation area.
+1. Select the **Account** tab. On the **Account** page, select **+Add Account**.
+1. Select a department, or leave it as unassigned, and then select the desired authentication type.
+1. Enter a friendly name to identify the account in reporting.
+1. Enter the **Account Owner Email** address to associate with the new account.
+1. Confirm the email address and then select **Add**.
 
 ![Example showing the list of accounts and the +Add Account option](./media/billing-ea-portal-get-started/create-ea-add-an-account.png)
 
-You can add another account by clicking **Add Another Account**, or you can click **Add** at the bottom-right corner of the left toolbar.
+To add another account, select **Add Another Account**, or select **Add** at the bottom-right corner of the left toolbar.
 
 To confirm account ownership:
 
 1. Sign in to the Azure Enterprise portal.
-1. Confirm account ownership by viewing the status. The status should change from **Pending** to **Start/End date**. The Start/End date is the date the user first signed in and the agreement end date.
-1. When the 'Warning' message pops up, an account owner needs to click **Continue** to activate the account the first time they sign in to the Azure Enterprise portal.
+1. View the status.
 
+   The status should change from **Pending** to **Start/End date**. The Start/End date is the date the user first signed in and the agreement end date.
+1. When the 'Warning' message pops up, the account owner needs to select **Continue** to activate the account the first time they sign in to the Azure Enterprise portal.
 
 ## Change account owner
 
-Enterprise administrators can use the Azure Enterprise portal to transfer subscription account ownership in an enrollment. The action moves all subscriptions from a source user account a destination user account.
+Enterprise administrators can use the Azure Enterprise portal to transfer subscription account ownership in an enrollment. The action moves all subscriptions from a source user account to a destination user account.
 
-Important points about transferring user account information:
+Be aware of this important information when transferring accounts:
 
-- Transfers from a Work or School account to another Work or School account are supported.
-- Transfers from a Microsoft account to a Work or School account are supported.
-- Transfers from a Work or School account to a Microsoft account are not supported.
-- Transfers from a Microsoft account to another Microsoft account are supported. The target account must be a valid Azure Commerce account to be a valid target for transfers. For new accounts, you are asked to create an Azure Commerce account when signing in to the Azure Enterprise portal. For existing accounts, you must first create a new Azure subscription before the account is eligible.
+- You can make these transfers:
+  - From a work or school account to another work or school account.
+  - From a Microsoft account to a work or school account.
+  - From a Microsoft account to another Microsoft account.
+  
+    The target account must be a valid Azure Commerce account to be a valid target for transfers. For new accounts, you are asked to create an Azure Commerce account when signing in to the Azure Enterprise portal. For existing accounts, you must first create a new Azure subscription before the account is eligible.
+
+- You can't make a transfer from a work or school account to a Microsoft account.
+
 - When you complete a subscription transfer, Microsoft updates the account owner.
 
-Role-based access control policies:
+Understand these role-based access control (RBAC) policies:
 
-- Only Azure subscription transfers between two organizational IDs in the same tenant preserve existing Azure role-based access control (RBAC) policies, service administrator role assignments, and coadministrator role assignments. Other subscription transfers result in losing your RBAC policies and service administrator coadministrator role assignments. Policies and administrator roles don't transfer across different directories. Service administrators are updated to the owner of destination account.
-- When you perform subscription transfers between two organizational IDs in the same tenant, RBAC policies and existing service administrator and coadministrator roles are preserved.
+- When you perform subscription transfers between two organizational IDs in the same tenant, RBAC policies and existing service administrator and co-administrator roles are preserved.
+- Other subscription transfers result in losing your RBAC policies and role assignments.
+- Policies and administrator roles don't transfer across different directories. Service administrators are updated to the owner of destination account.
 
 Before changing an account owner:
 
 1. View the **Account** tab and identify the source account. The source account must be active.
-2. Identify the destination account. It must be active.
+1. Identify the destination account and make sure it's active.
 
 To transfer account ownership for all subscriptions:
 
-1. In the left navigation area, click **Manage**.
-2. Click the **Account** tab and hover over an account.
-3. Click the change account owner symbol on the right. The symbol resembles a person.
-4. Select an eligible account and then click **Next**.
-5. Confirm the transfer and click **Submit**.
+1. In the left navigation area, select **Manage**.
+1. Select the **Account** tab and hover over an account.
+1. Select the change account owner icon on the right. The icon resembles a person.
+1. Choose an eligible account and then select **Next**.
+1. Confirm the transfer and select **Submit**.
 
 ![Image showing the Change Account Owner symbol](./media/billing-ea-portal-get-started/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 
 To transfer account ownership for a single subscription:
 
-1. In the left navigation area, click **Manage**.
-2. Click the **Account** tab and hover over an account.
-3. Click the transfer subscriptions symbol on the right. The symbol resembles a page.
-4. Select an eligible subscription and then click **Next**.
-5. Confirm the transfer and then click **Submit**.
+1. In the left navigation area, select **Manage**.
+1. Select the **Account** tab and hover over an account.
+1. Select the transfer subscriptions icon on the right. The icon resembles a page.
+1. Choose an eligible subscription and then select **Next**.
+1. Confirm the transfer and then select **Submit**.
 
 ![Image showing the Transfer Subscriptions symbol](./media/billing-ea-portal-get-started/ea-transfer-subscriptions.png)
 
-Here's a video that shows Azure Enterprise portal user management:
+View this video to see Azure Enterprise portal user management:
 
-[Azure Enterprise portal user management video](https://www.youtube.com/watch?v=621jVkvmwm8)
-
->[!VIDEO https://www.youtube.com/embed/621jVkvmwm8]
+> [!VIDEO https://www.youtube.com/embed/621jVkvmwm8]
 
 ## Create a subscription
 
-Account owners can view and manage subscriptions. You can use subscriptions to give teams in your organization access to development environments and projects. For example test, production, development, and staging. When you create different subscriptions for each application environment, you help secure each environment. You can also assign a different service administrator account for each subscription. You can associate subscriptions with any number of services. The account owner creates subscriptions and assigns a service administrator account to each subscription in their account.
+Account owners can view and manage subscriptions. You can use subscriptions to give teams in your organization access to development environments and projects. For example: test, production, development, and staging.
+
+When you create different subscriptions for each application environment, you help secure each environment.
+
+- You can also assign a different service administrator account for each subscription. 
+- You can associate subscriptions with any number of services.
+- The account owner creates subscriptions and assigns a service administrator account to each subscription in their account.
+
+\***
 
 ### Add a subscription
 
@@ -273,12 +285,12 @@ All new subscriptions are created with the default subscription name of _Microso
 To add a subscription:
 
 1. In the Azure Enterprise portal, sign in to the account.
-2. Click the **Admin** tab and then click **Subscription** at the top of the page.
-2. Verify that you're signed in as the account owner of the account.
-3. Click **+Add Subscription** and then click **Purchase**.
+1. Click the **Admin** tab and then click **Subscription** at the top of the page.
+1. Verify that you're signed in as the account owner of the account.
+1. Click **+Add Subscription** and then click **Purchase**.
   The first time you add a subscription to an account, you must provide your contact information. When adding additional subscriptions, your contact information is added for you.
-4. Click **Subscriptions**, then select the subscription you created, and then click **Edit Subscription Details**.
-5. Update the **Subscription Name** and **Service Administrator** then select the checkmark.
+1. Click **Subscriptions**, then select the subscription you created, and then click **Edit Subscription Details**.
+1. Update the **Subscription Name** and **Service Administrator** then select the checkmark.
   The subscription name appears on reports and is the name of the project associated with the subscription in the development portal.
 
 New subscriptions can take up to 24 hours to appear in the subscriptions list. After you've created a subscription, you can:
@@ -362,15 +374,13 @@ To view the usage summary reports and graphs:
 7. Toggle between **Charge by Services** and **Charge by Hierarchy**.
 8. Expand and collapse between **Azure Service**, **Charges Billed Separately**, and **Azure Marketplace** to view details.
 
-Here's a video that shows how to view usage:
+View this video to see how to view usage:
 
-[Azure Enterprise portal usage video](https://www.youtube.com/watch?v=Cv2IZ9QCn9E)
-
->[!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
 
 ### Download CSV reports
 
-Enterprise Administrators use the Monthly Report Download page to download several reports as CSV files. They include:
+Enterprise administrators use the Monthly Report Download page to download several reports as CSV files. They include:
 
 - Balance and Charge
 - Usage Detail
@@ -390,9 +400,7 @@ Users downloading CSV files with Safari to Excel may experience formatting error
 
 ![Example showing Download Usage page](./media/billing-ea-portal-get-started/create-ea-download-csv-reports.png)
 
-Here's a video that shows how to download usage information:
-
-[Azure Enterprise portal usage video](https://www.youtube.com/watch?v=eY797htT1qg)
+View this video to see how to download usage information:
 
 >[!VIDEO https://www.youtube.com/embed/eY797htT1qg]
 
