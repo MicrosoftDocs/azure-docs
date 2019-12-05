@@ -93,8 +93,9 @@ On your Azure Stack Edge device:
 
 - The front panel has disk drives and a power button.
 
-    - There are 10 disk slots in the front of your device.
-    - Slot 0 and slot 1 have an M.2 SATA disk each that serves as an operating system disk. Slots 2 to 9 are 8 TB SSDs used as data disks.
+    - There are 8 disk slots in the front of your device.
+    - The device also has 2 X M.2 SATA disks inside that serve as operating system disks. 
+
 - The back plane includes redundant power supply units (PSUs).
 - The back plane has four network interfaces:
 
