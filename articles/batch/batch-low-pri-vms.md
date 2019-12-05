@@ -256,7 +256,7 @@ To view metrics in the Azure portal:
 - The price of Spot VMs can vary, compared to the fixed pricing for low-priority VMs.
 - To enable predictable costs, a maximum price can be specified when allocating Spot VMs. If the current price exceeds the maximum price, then new VMs will not be allocated and existing VMs will be evicted.
 
-Azure Batch pools are being updated to replace low-priority VMs with spot VMs. A new SDK version will enable spot VMs to be specified for Batch pools and allow maximum price to be set, with the variable spot pricing being used. However, low-priority VMs, with fixed pricing, will continue to be available using the current Batch SDK, until November 30, 2020.
+Azure Batch pools are being updated to replace low-priority VMs with Spot VMs. A new SDK version will enable spot VMs to be specified for Batch pools and allow maximum price to be set, with the variable Spot VM pricing being used. However, low-priority VMs, with fixed pricing, will continue to be available using the current Batch SDK, until November 30, 2020.
 
 If you are using ‘[virtual machine configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)’ pools, you can continue to use the current SDK and allocate low-priority VMs until November 30, 2020.  After this date, it will not be possible to use the current SDK to create pools that use low-priority VMs; pool creation and resize will fail if any low-priority VMs are specified. You should plan on moving from low-priority VMs to spot VMs by using a new version of the Batch SDK, which will be available in first quarter of 2020.
 
