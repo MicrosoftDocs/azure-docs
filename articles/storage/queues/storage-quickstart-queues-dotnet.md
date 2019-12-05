@@ -69,7 +69,9 @@ From the project directory:
 1. Open the *Program.cs* file in your editor
 1. Remove the `Console.WriteLine("Hello World!");` statement
 1. Add `using` directives
-1. Update the `Main` method declaration to support async code
+1. Update the `Main` method declaration to [support async code](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main)
+
+
 
 Here's the code:
 
@@ -107,9 +109,9 @@ The following diagram shows the relationship between these resources.
 
 Use the following .NET classes to interact with these resources:
 
-* [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): The `QueueServiceClient` represents a URL to the Azure Storage Queue service.
-* [QueueClient](/dotnet/api/azure.storage.queues.queueclient): The `QueueClient` class represents a URI to the Azure Storage Queue service, allowing you to manipulate a queue.
-* [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage): The `QueueMessage` class represents the object returned when calling [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) on a queue.
+* [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
+* [QueueClient](/dotnet/api/azure.storage.queues.queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
+* [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage): The `QueueMessage` class represents the individual objects returned when calling [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) on a queue.
 
 ## Code examples
 
@@ -154,12 +156,13 @@ Create an instance of the [QueueClient](/dotnet/api/azure.storage.queues.queuecl
 Add this code to the end of the `Main` method:
 
 ```csharp
-//Create a unique name for the queue
+// Create a unique name for the queue
 string queueName = "quickstartqueues-" + Guid.NewGuid().ToString();
 
 Console.WriteLine($"Creating queue: {queueName}");
 
-// Create a QueueClient object which will be used to create the actual queue
+// Instantiate a QueueClient which will be
+// used to create and manipulate the queue
 QueueClient queueClient = new QueueClient(connectionString, queueName);
 
 // Create the queue

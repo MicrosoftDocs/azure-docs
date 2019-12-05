@@ -152,9 +152,9 @@ The following diagram shows the relationship between these resources.
 Use the following Java classes to interact with these resources:
 
 * [QueueClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClientBuilder.html): The `QueueClientBuilder` class configures and instantiates a `QueueClient` object.
-* [QueueServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueServiceClient.html): The `QueueServiceClient` class provides operations for interacting with the queue service in Azure Storage.
-* [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html): The `QueueClient` class represents a client that contains all the operations for interacting with a queue in Azure Storage.
-* [QueueMessageItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/QueueMessageItem.html): The `QueueMessageItem` class represents the object returned when calling [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-) on a queue.
+* [QueueServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueServiceClient.html): The `QueueServiceClient` allows you to manage the all queues in your storage account.
+* [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
+* [QueueMessageItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/QueueMessageItem.html): The `QueueMessageItem` class represents the individual objects returned when calling [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-) on a queue.
 
 ## Code examples
 
@@ -199,12 +199,13 @@ Create an instance of the [QueueClient](https://azuresdkdocs.blob.core.windows.n
 Add this code to the end of the `main` method:
 
 ```java
-//Create a unique name for the queue
+// Create a unique name for the queue
 String queueName = "quickstartqueues-" + java.util.UUID.randomUUID();
 
 System.out.println("Creating queue: " + queueName);
 
-// Create a QueueClient object which will be used to create the actual queue
+// Instantiate a QueueClient which will be
+// used to create and manipulate the queue
 QueueClient queueClient = new QueueClientBuilder()
                                 .connectionString(connectStr)
                                 .queueName(queueName)
