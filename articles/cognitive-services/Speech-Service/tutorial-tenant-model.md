@@ -1,7 +1,7 @@
 ---
 title: Create a tenant model (preview) - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Automatically generate a tenant model (Custom Speech with Office 365 data) that uses your Office 365 data to deliver optimal speech recognition for organization-specific terms that is both secure and compliant.
+description: Automatically generate a secure, compliant tenant model (Custom Speech with Office 365 data) that uses your Office 365 data to deliver optimal speech recognition for organization-specific terms.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -42,7 +42,9 @@ Before you can deploy your tenant model, you need to be enrolled in the Tenant M
 
    ![The Azure Speech Services pane](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
-To turn off the tenant model instance, repeat the preceding steps 1 and 2, clear the **Allow the organization-wide language model** check box, and then select **Save changes**.
+To turn off the tenant model instance:
+1. Repeat the preceding steps 1 and 2.
+1. Clear the **Allow the organization-wide language model** check box, and then select **Save changes**.
 
 ## Get a Speech subscription key
 
