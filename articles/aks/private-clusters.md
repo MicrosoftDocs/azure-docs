@@ -104,14 +104,14 @@ az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
 * Install Kubectl tool and run kubectl commands
 
 ## Dependencies  
-* Standard LB Only – no support for basic load balancer  
+* Standard LB Only - no support for basic load balancer  
 
 ## Limitations 
 * No support for virtual nodes in a private cluster to spin private ACI instances in a private Azure VNET.
 * No support for Azure DevOps integration out of the box with private clusters
-* If customers need to enable ACR to work with private AKS, then the ACR’s VNET will need to be peered with the agent cluster VNET
+* If customers need to enable ACR to work with private AKS, then the ACR's VNET will need to be peered with the agent cluster VNET
 * No current support for Azure Dev Spaces
-* IPV4 traffic Only – No support for IPv6 traffic 
+* IPV4 traffic Only - No support for IPv6 traffic 
 * No support to convert existing AKS clusters to private clusters  
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning 
 * Azure Monitor for containers Live Data isn't currently supported
