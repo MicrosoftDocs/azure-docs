@@ -32,7 +32,7 @@ Managed disks support [Availability Zones](../articles/availability-zones/az-ove
 
 ### Azure Backup support
 
-To protect against regional disasters, [Azure Backup](../articles/backup/backup-overview.md) can be used to create a backup job with time-based backups and backup retention policies. This allows you to perform easy VM restorations at will. Currently Azure Backup supports disk sizes up to four tebibyte (TiB) disks.  Azure Backup supports backup and restore of managed disks. [Learn more](../articles/backup/backup-support-matrix-iaas.md) about Azure VM backup support.
+To protect against regional disasters, [Azure Backup](../articles/backup/backup-overview.md) can be used to create a backup job with time-based backups and backup retention policies. This allows you to perform easy VM restorations at will. Azure Backup supports backup and restore of managed disks. [Learn more](../articles/backup/backup-support-matrix-iaas.md) about Azure VM backup support.
 
 ### Granular access control
 

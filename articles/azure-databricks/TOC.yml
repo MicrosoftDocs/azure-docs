@@ -126,9 +126,6 @@
     - name: Initialize cluster nodes
       href: /azure/databricks/clusters/init-scripts
       maintainContext: true
-    - name: Custom containers
-      href: /azure/databricks/clusters/custom-containers
-      maintainContext: true 
     - name: GPU-enabled clusters
       href: /azure/databricks/clusters/gpu
       maintainContext: true 
@@ -226,9 +223,6 @@
     maintainContext: true
   - name: Data
     items:
-    - name: Databricks File System (DBFS)
-      href: /azure/databricks/data/databricks-file-system
-      maintainContext: true
     - name: Databases and tables
       href: /azure/databricks/data/tables
       maintainContext: true
@@ -317,6 +311,9 @@
       - name: ZIP files
         href: /azure/databricks/data/data-sources/zip-files
         maintainContext: true 
+    - name: Databricks File System (DBFS)
+      href: /azure/databricks/data/databricks-file-system
+      maintainContext: true
     - name: FileStore
       href: /azure/databricks/data/filestore
       maintainContext: true
@@ -832,6 +829,9 @@
       - name: Model inference performance tuning
         href: /azure/databricks/applications/deep-learning/inference/model-inference-performance
         maintainContext: true
+        name: Reference solution for distributed image model inference
+        href: /azure/databricks/applications/deep-learning/reference-solutions/images-etl-inference
+        maintainContext: true
   - name: MLflow
     items: 
     - name: MLflow overview
@@ -1066,9 +1066,6 @@
       - name: Cluster configuration overview
         href: /azure/databricks/administration-guide/clusters/index
         maintainContext: true
-      - name: Enable Container Services
-        href: /azure/databricks/administration-guide/clusters/container-services
-        maintainContext: true
       - name: Enable Databricks Runtime for Genomics
         href: /azure/databricks/administration-guide/clusters/genomics-runtime
         maintainContext: true
@@ -1137,9 +1134,6 @@
         maintainContext: true 
       - name: Configuration setting overwrites default  settings
         href: /azure/databricks/kb/clusters/conf-overwrites-default-settings
-        maintainContext: true 
-      - name: Run JNI libraries on single-core executors
-        href: /azure/databricks/kb/clusters/multiple-executors-single-worker
         maintainContext: true 
       - name: Overwrite log4j configurations
         href: /azure/databricks/kb/clusters/overwrite-log4j-logs
@@ -1544,6 +1538,9 @@
       items:
       - name: Platform release notes 
         href: /azure/databricks/release-notes/product/index
+        maintainContext: true
+      - name: December 2019
+        href: /azure/databricks/release-notes/product/2019/december
         maintainContext: true
       - name: November 2019
         href: /azure/databricks/release-notes/product/2019/november
