@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy and configure Azure Firewall using the Azure portal'
+title: 'Tutorial: Deploy & configure Azure Firewall using the Azure portal'
 description: In this tutorial, you learn how to deploy and configure Azure Firewall using the Azure portal. 
 services: firewall
 author: vhorne

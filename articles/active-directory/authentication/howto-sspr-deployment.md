@@ -1,15 +1,15 @@
 ---
-title: Self-service password reset deployment plan - Azure Active Directory
+title: Self-service password reset deployment - Azure Active Directory
 description: Strategy for successful implementation of Azure AD self-service password reset
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 
@@ -133,7 +133,7 @@ To ensure that your deployment works as expected, you should plan out a set of t
 | User signs in when password reset registration is enforced | User is prompted to register security information |
 | User signs in when password reset registration has been completed | User is not prompted to register security information |
 | SSPR portal is accessible when the user does not have a license | Is accessible |
-| Reset user password from Windows 10 AADJ or H+AADJ device lock screen after user has registered | User can reset password |
+| Reset user password from Windows 10 Azure AD joined or hybrid Azure AD joined device lock screen after user has registered | User can reset password |
 | SSPR registration and usage data are available to administrators in near real time | Is available via audit logs |
 
 ### Support plan

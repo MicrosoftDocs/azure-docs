@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Postman FHIR server in Azure - Azure API for FHIR'
+title: Postman FHIR server in Azure - Azure API for FHIR
 description: In this tutorial, we will walk through the steps needed to use Postman to access an FHIR server. Postman is helpful for debugging applications that access APIs.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -11,7 +11,7 @@ author: hansenms
 ms.date: 02/07/2019
 ---
 
-# Tutorial: Access FHIR API with Postman
+# Access Azure API for FHIR with Postman
 
 A client application would access an FHIR API through a [REST API](https://www.hl7.org/fhir/http.html). You may also want to interact directly with the FHIR server as you build applications, for example, for debugging purposes. In this tutorial, we will walk through the steps needed to use [Postman](https://www.getpostman.com/) to access an FHIR server. Postman is a tool often used for debugging when building applications that access APIs.
 
@@ -122,7 +122,7 @@ If you repeat the patient search, you should now see the patient record:
 
 ## Next steps
 
-In this tutorial, you've accessed an FHIR API using postman. Read about the supported API features in Microsoft FHIR server for Azure.
+In this tutorial, you've accessed an FHIR API using postman. Read about the supported API features in our supported features section.
  
 >[!div class="nextstepaction"]
->[Supported FHIR features](fhir-features-supported.md)
+>[Supported features](fhir-features-supported.md)

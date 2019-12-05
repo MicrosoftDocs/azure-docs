@@ -1,15 +1,10 @@
 ---
-title: Azure Blockchain Workbench configuration reference
-description: Azure Blockchain Workbench Preview application configuration overview.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
+title: Azure Blockchain Workbench configuration metadata reference
+description: Azure Blockchain Workbench Preview application configuration metadata overview.
 ms.date: 09/05/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
+#Customer intent: As a developer, I want to understand application configuration metadata details used by Azure Blockchain Workbench.
 ---
 # Azure Blockchain Workbench configuration reference
 

@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 11/19/2019
 ms.author: hamusa
 ---
 
@@ -168,7 +168,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 
 ### Specify vCenter Server details
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
-2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). You can scope the discovery by limiting access to the vCenter account accordingly; learn more about scoping discovery [here](tutorial-assess-vmware.md#scoping-discovery).
+2. In **User name** and **Password**, specify the vCenter Server account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). You can scope the discovery by limiting access to the vCenter account accordingly; learn more about scoping discovery [here](tutorial-assess-vmware.md#scoping-discovery).
 3. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
 
 ### Specify VM credentials
@@ -218,7 +218,7 @@ There are 2 approaches to assign permissions on inventory objects in vCenter to 
 
     Similarly for Server Migration, a user-defined role (can be named <em> Azure _Migrate</em>) with these [privileges](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) assigned must be applied to the vCenter user account for all the parent objects where the VMs to be migrated are hosted.
 
-![Assign permissions](./media/tutorial-assess-vmware/assign-perms.png)
+  ![Assign permissions](./media/tutorial-assess-vmware/assign-perms.png)
 
 - The alternative approach is to assign the user account and role at the datacenter level and propagate them to the child objects. Then give the account a **No access** role for every object (such as VMs) that you don’t want to discover/migrate. This configuration is cumbersome. It exposes accidental access controls, because every new child object is also automatically granted access that's inherited from the parent. Therefore, we recommend that you use the first approach.
 

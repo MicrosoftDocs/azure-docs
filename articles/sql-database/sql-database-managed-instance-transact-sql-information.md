@@ -21,7 +21,7 @@ This article summarizes and explains the differences in syntax and behavior betw
 
 There are some PaaS limitations that are introduced in Managed Instance and some behavior changes compared to SQL Server. The differences are divided into the following categories: <a name="Differences"></a>
 
-- [Availability](#availability) includes the differences in [Always-On](#always-on-availability) and [backups](#backup).
+- [Availability](#availability) includes the differences in [Always On Availability Groups](#always-on-availability-groups) and [backups](#backup).
 - [Security](#security) includes the differences in [auditing](#auditing), [certificates](#certificates), [credentials](#credential), [cryptographic providers](#cryptographic-providers), [logins and users](#logins-and-users), and the [service key and service master key](#service-key-and-service-master-key).
 - [Configuration](#configuration) includes the differences in [buffer pool extension](#buffer-pool-extension), [collation](#collation), [compatibility levels](#compatibility-levels), [database mirroring](#database-mirroring), [database options](#database-options), [SQL Server Agent](#sql-server-agent), and [table options](#tables).
 - [Functionalities](#functionalities) include [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distributed transactions](#distributed-transactions), [extended events](#extended-events), [external libraries](#external-libraries), [filestream and FileTable](#filestream-and-filetable), [full-text Semantic Search](#full-text-semantic-search), [linked servers](#linked-servers), [PolyBase](#polybase), [Replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [stored procedures, functions, and triggers](#stored-procedures-functions-and-triggers).
@@ -33,7 +33,7 @@ This page also explains [Temporary known issues](#Issues) that are discovered in
 
 ## Availability
 
-### <a name="always-on-availability"></a>Always On
+### <a name="always-on-availability-groups"></a>Always On Availability Groups
 
 [High availability](sql-database-high-availability.md) is built into managed instance and can't be controlled by users. The following statements aren't supported:
 
@@ -570,14 +570,6 @@ Restore process will block these operations on the Managed instances and instanc
 
 **Workaround**: Run `ALTER RESOURCE GOVERNOR RECONFIGURE` periodically or as part of SQL Agent Job that executes the SQL task when the instance starts if you are using 
 [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
-
-### Cannot authenticate to external mail servers using secure connection (SSL)
-
-**Date:** Aug 2019
-
-Database mail that is [configured using secure connection (SSL)](/sql/relational-databases/database-mail/configure-database-mail) cannot authenticate on some email servers outside the Azure. This is security configuration issue that will be resolved soon.
-
-**Workaround:** Temporary remove secure connection (SSL) from the database mail configuration until the issue gets resolved. 
 
 ### Cross-database Service Broker dialogs must be re-initialized after service tier upgrade
 

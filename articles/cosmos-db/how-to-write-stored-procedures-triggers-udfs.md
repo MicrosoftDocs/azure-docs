@@ -312,6 +312,17 @@ function tax(income) {
 
 For examples of how to register and use a user-defined function, see [How to use user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs) article.
 
+## Logging 
+
+When using stored procedure, triggers or user-defined functions, you can log the steps using the `console.log()` command. This command will concentrate a string for debugging when `EnableScriptLogging` is set to true as shown in the following example:
+
+```javascript
+var response = await client.ExecuteStoredProcedureAsync(
+document.SelfLink,
+new RequestOptions { EnableScriptLogging = true } );
+Console.WriteLine(response.ScriptLog);
+```
+
 ## Next steps
 
 Learn more concepts and how-to write or use stored procedures, triggers, and user-defined functions in Azure Cosmos DB:
