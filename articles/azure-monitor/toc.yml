@@ -1159,7 +1159,7 @@
     items:
     - name: Resource log services, categories, and schemas
       href: platform/diagnostic-logs-schema.md
-    - Name: Activity log schema
+    - name: Activity log schema
       href: platform/activity-log-schema.md
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
