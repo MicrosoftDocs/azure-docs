@@ -25,5 +25,5 @@ To streamline your account and offer management experience, Microsoft is migrati
 | Azure Container     |     Not yet available       |   Not yet available     |
 | Consulting Service      |     Not yet available       |   Not yet available     |
 | IoT Edge Module      |     Not yet available       |   Not yet available     |
-| PowerBI Service App     |     Not yet available       |   Not yet available     |
+| Power BI Service App     |     Not yet available       |   Not yet available     |
 |  |  |
