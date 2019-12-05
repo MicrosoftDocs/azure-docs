@@ -16,15 +16,15 @@ ms.author: diberry
 ---
 
 # Tutorial: Fix unsure predictions by reviewing endpoint utterances
-In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTPS endpoint that LUIS is unsure of. Some utterances may have to be verified for intent and others may need to be verified for entity. You should review endpoint utterances as a regular part of you scheduled LUIS maintenance.
+In this tutorial, improve app predictions by verifying or correcting utterances, received via the LUIS HTTPS endpoint, that LUIS is unsure of. You should review endpoint utterances as a regular part of your scheduled LUIS maintenance.
 
-This review process is another way for LUIS to learn your app domain. LUIS selected the utterances that appear in the review list. This list is:
+This review process is another way for LUIS to learn your app domain. LUIS selectes the utterances that appear in the review list. This list is:
 
 * Specific to the app.
 * Is meant to improve the app's prediction accuracy.
 * Should be reviewed on a periodic basis.
 
-By reviewing the endpoint utterances, you verify or correct the utterance's predicted intent. You also label custom entities that were not predicted or predicted incorrectly.
+By reviewing the endpoint utterances, you verify or correct the utterance's predicted intent.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -34,9 +34,7 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 > [!div class="checklist"]
 > * Import example app
 > * Review endpoint utterances
-> * Update phrase list
-> * Train app
-> * Publish app
+> * Train and publish app
 > * Query endpoint of app to see LUIS JSON response
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
@@ -85,12 +83,14 @@ In this app, you have intents and entities but you don't have any endpoint usage
 
 ## Review endpoint utterances
 
+Review the endpoint utterances for correctly aligned intent. While there is a single pool of utterances to review across all versions, the process of correctly aligning the intent adds the example utterance to the current _active model_ only.
+
 1. From the **Build** section of the portal, select **Review endpoint utterances** from the left navigation. The list is filtered for the **ApplyForJob** intent.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of Review endpoint utterances button in left navigation](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
 
-    This utterance, `I'm looking for a job with Natural Language Processing`, is not in the correct intent. Use the initial utterance table to view the aligned intent.
+    This utterance, `I'm looking for a job with Natural Language Processing`, is not in the correct intent.
 
     The reason the utterance was mispredicted is that the **ApplyForJob** intent has 21 utterances compared to the 7 utterances in **GetJobInformation**. The intent with more utterances will have a higher prediction. It is important that the quantity and quality of the utterances across intents is balanced.
 
@@ -99,7 +99,7 @@ In this app, you have intents and entities but you don't have any endpoint usage
     > [!div class="mx-imgBorder"]
     > ![Screenshot of Review endpoint utterances button in left navigation](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
 
-    Review the remaining utterances in this intent, correcting the aligned intent as needed.
+    Review the remaining utterances in this intent, correcting the aligned intent as needed. Use the initial utterance table to view the aligned intent in this tutorial.
 
     The **Review endpoint utterances** list should no longer have the corrected utterances. If more utterances appear, continue to work through the list, correcting aligned intents until the list is empty.
 
@@ -117,7 +117,7 @@ If you imported this app, you need to select **Sentiment analysis**.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Get intent and entities from endpoint
+## Get intent prediction from endpoint
 
 Try an utterance close to the corrected utterance.
 
@@ -229,7 +229,7 @@ Try an utterance close to the corrected utterance.
     }
    ```
 
-   The correct intent was predicted with a high score.
+   Now that the unsure utterances are correctly aligned, the correct intent was predicted with a **high score**.
 
 ## Can reviewing be replaced by adding more utterances?
 You may wonder why not add more example utterances. What is the purpose of reviewing endpoint utterances? In a real-world LUIS app, the endpoint utterances are from users with word choice and arrangement you haven't used yet. If you had used the same word choice and arrangement, the original prediction would have a higher percentage.
