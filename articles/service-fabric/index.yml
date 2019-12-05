@@ -61,7 +61,7 @@ landingContent:
             url: service-fabric-host-app-in-a-container.md
       - linkListType: how-to-guide
         links:
-          - text: Use a Windows / Visual Studio dev environment
+          - text: Develop applications with Visual Studio
             url: service-fabric-manage-application-in-visual-studio.md
           - text: Create Windows clusters in an Azure virtual network
             url: service-fabric-tutorial-create-vnet-and-windows-cluster.md
@@ -73,18 +73,18 @@ landingContent:
   # Card
   - title: Get started with Java applications and Linux
     linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create a Java Service Fabric application
-            url: service-fabric-quickstart-java-reliable-services.md
-          - text: Deploy Linux containers to Service Fabric
-            url: service-fabric-quickstart-containers-linux.md
-          - text: Deploy a Java Spring Boot app to Service Fabric
-            url: service-fabric-quickstart-java-spring-boot.md
       - linkListType: concept
         links:
           - text: Service Fabric differences between Linux and Windows
             url: service-fabric-linux-windows-differences.md
+      - linkListType: quickstart
+        links:
+          - text: Create a Java Service Fabric app
+            url: service-fabric-quickstart-java-reliable-services.md
+          - text: Deploy a Linux container app to Service Fabric
+            url: service-fabric-quickstart-containers-linux.md
+          - text: Deploy a Java Spring Boot app to Service Fabric
+            url: service-fabric-quickstart-java-spring-boot.md
       - linkListType: tutorial
         links:
           - text: Create, deploy, and manage a Service Fabric Java app
@@ -93,7 +93,7 @@ landingContent:
             url: service-fabric-tutorial-create-container-images.md
       - linkListType: how-to-guide
         links:
-          - text: Use a Linux / Eclipse dev environment
+          - text: Develop applications with Eclipse
             url: service-fabric-get-started-eclipse.md
           - text: Create Linux clusters in an Azure virtual network
             url: service-fabric-tutorial-create-vnet-and-linux-cluster.md
