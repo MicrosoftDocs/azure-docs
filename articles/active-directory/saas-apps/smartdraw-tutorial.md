@@ -146,7 +146,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure SmartDraw SSO
+## Configure SmartDraw SSO
 
 1. In a different web browser window, sign in to SmartDraw as an Administrator.
 
