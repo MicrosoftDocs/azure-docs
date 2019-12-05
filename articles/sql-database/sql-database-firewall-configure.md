@@ -121,13 +121,15 @@ To set a server-level IP firewall rule in the Azure portal, go to the overview p
 
 #### From the database overview page
 
-1. To set a server-level IP firewall rule from the database overview page, select **Set server firewall** on the toolbar, as the following image shows. The **Firewall settings** page for the SQL Database server opens.
+1. To set a server-level IP firewall rule from the database overview page, select **Set server firewall** on the toolbar, as the following image shows. 
 
-      ![Server IP firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png)
+    ![Server IP firewall rule](./media/sql-database-get-started-portal/sql-database-server-set-firewall-rule.png)
+
+    The **Firewall settings** page for the SQL Database server opens.
 
 2. Select **Add client IP** on the toolbar to add the IP address of the computer that you're using, and then select **Save**. A server-level IP firewall rule is created for your current IP address.
 
-      ![Set server-level IP firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png)
+    ![Set server-level IP firewall rule](./media/sql-database-get-started-portal/sql-database-server-firewall-settings.png)
 
 #### From the server overview page
 
