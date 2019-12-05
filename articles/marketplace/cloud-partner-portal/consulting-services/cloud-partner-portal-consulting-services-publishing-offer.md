@@ -6,8 +6,8 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pabutler
+ms.date: 12/06/2019
+ms.author: v-qiwe
 ---
 
 # Azure and Dynamics 365 consulting service offer
@@ -32,9 +32,11 @@ This section outlines the elements of publishing a consulting service offer. Pub
     - Microsoft Azure
     - Dynamics 365 for Customer Engagement 
     - Dynamics 365 for Finance & Operations 
+    - Dynamics 365 Customer Insights
     - Dynamics 365 Business Central 
     - Power BI 
     - PowerApps
+    - Power Automate
 - [Create a new offer](./cpp-consulting-service-create-offer.md) lists the steps required to create a consulting service offer entry by using the Cloud Partner Portal:
     - [Define offer settings](./cpp-consulting-service-define-offer-settings.md).
     - [Enter storefront details and whether to publish in the Azure Marketplace or on AppSource.](./cpp-consulting-service-storefront-details.md)

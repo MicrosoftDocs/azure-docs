@@ -2,12 +2,13 @@
 title: Azure Marketplace and AppSource Consulting Services 
 description: This article describes the eligibility criteria and publishing requirements for new consulting-service offerings in the Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: pabutler
+ms.date: 12/06/2019
+ms.author: v-qiwe
 ---
 
 # Consulting Services for Azure Marketplace and AppSource
@@ -58,24 +59,30 @@ Partners are required to have a **silver or gold competency** in the relevant ar
 
 |Primary Product |Eligibility Requirement |
 |---------|---------|
-| Dynamics 365 for Customer Engagement    |   Silver or Gold [Cloud Customer Relationship Management](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency) competency.    | 
-|Dynamics 365 for Finance and Operations, Enterprise edition  |  Silver or Gold [Enterprise Resource Planning](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) competency, and a minimum revenue of $25K in Cloud Operations in the trailing 12 months.       |
-|Dynamics 365 for Finance and Operations, Business edition  |  Serve as [Cloud Service Provider (CSP)](https://partner.microsoft.com/cloud-solution-provider) or [Digital Partner of Record (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) for at least one customer      |
-|Power BI, Power BI Custom Visuals | Meet the [Solution Partner criteria](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Have a published [Partner Showcase](https://appsource.microsoft.com/partners) solution
+| Dynamics 365 Sales <br> Dynamics 365 Marketing <br> Dynamics 365 Customer Service <br> Dynamics 365 Field Service <br> Dynamics 365 Talent |   Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Customer Engagement option.    | 
+| Dynamics 365 Finance <br> Dynamics 365 Operations <br> Dynamics 365 Retail <br> Dynamics 365 Talent <br> Dynamics 365 Project Service Automation |  Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Unified Operations option.       |
+| Dynamics 365 Customer Insights | Must be eligible to publish Dynamics 365 or Power BI offers and <br> <ol> <li>Attend an in-person or virtual airlift event.</li> <li> Fully setup and share an instance </li> </ol> |
+| Dynamics 365 Business Central | Must be Gold or Silver certified in [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) and serve at least 3 customers <br> <br> OR <br> <br> Must have published a Business Central application in AppSource |
+| Power BI | Must be listed on the [Power BI partner showcase](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
+|PowerApps | Must be eligible for Advanced Benefits in the [PowerApps Partnership](https://aka.ms/PowerAppsPartner). |
+
+Additional resources and support:
+
+1. [Microsoft Cloud Enablement Desk](https://aka.ms/CEDnominate) <br> The Cloud Enablement Desk Guided Experience Partner Nomination Form is to help provide a Cloud Program Specialist to articulate MPN benefits, and serve as guide to competency attainment.  
+2. How to get listed on Power BI showcase? <br> Begin by submitting a request to get listed, see [become a partner](https://powerbi.microsoft.com/en-us/become-a-partner/).
 
 <b> For more information, see [competencies through Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
- 
 
-**SI partners can submit consulting-service offerings for the following 18 countries/regions**
+**SI partners can submit consulting-service offerings for the following 21 countries/regions**
 
-|Eligible countries/regions |   |   |   |
+|   |   |   |   |
 |---------|----------|----------|----------|
-|Australia |France  |     Mexico          |Spain       |
-|Belgium   |Germany |     Netherlands     |Sweden       |
-|Canada    |India   |     New Zealand     |United Kingdom  |
-|Denmark   |Italy   |     Norway          |United States |
-|Finland   |Japan   |     Poland          
+| Australia | Belgium | Canada | Denmark |
+| Finland  | France | Germany  | India   |
+| Italy    | Japan  |  Mexico  |  Netherlands  |
+|  New Zealand  |  Norway  |  Poland  | South Africa |
+|  Spain  | Sweden  | Swizerland  |  United States  |
+| United Kingdom  |
 
 
 ## How To Register For Consulting Services in Azure Marketplace and AppSource
