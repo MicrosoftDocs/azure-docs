@@ -1,6 +1,6 @@
 ---
 title: Maintenance control for Azure virtual machines using PowerShell
-description: Learn how to control when maintenace is applied to your Azure VMs using Maintenance Control and Azure PowerShell.
+description: Learn how to control when maintenace is applied to your Azure VMs using Maintenance Control and PowerShell.
 services: virtual-machines-linux
 author: cynthn
 
@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 11/19/2019
+ms.date: 12/04/2019
 ms.author: cynthn
 ---
 
@@ -39,154 +39,156 @@ With maintenance control, you can:
 
 ## Enable the PowerShell module
 
-The Az.Maintenance PowerShell cmdlets are in preview, so you need to install the module with the `AllowPrerelease` parameter in Cloud Shell or your local PowerShell installation. You also need to make sure `PowerShellGet` is up to date.
+Make sure `PowerShellGet` is up to date.
 
 ```azurepowershell-interactive
 Install-Module -Name PowerShellGet -Repository PSGallery -Force
+```
+
+The Az.Maintenance PowerShell cmdlets are in preview, so you need to install the module with the `AllowPrerelease` parameter in Cloud Shell or your local PowerShell installation.   
+
+```azurepowershell-interactive
 Install-Module -Name Az.Maintenance -AllowPrerelease
 ```
 
+If you are installing locally, make sure you open your PowerShell prompt as an administrator.
+
+You may also be asked to confirm that you want to install from an *untrusted repository*. Type `Y` or select **Yes to All** to install the module.
+
+
+
 ## Create a maintenance configuration
 
-Use [New-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/new-azmaintenanceconfiguration) to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
+Use [New-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/new-azmaintenanceconfiguration) to create a maintenance configuration. This example creates a resource group, and a maintenance configuration named *myConfig* scoped to the host. 
 
-```azurecli-interactive
+```azurepowershell-interactive
 New-AzResourceGroup `
    -Location eastus `
    -Name myMaintenanceRG
-New-AzMaintenanceConfiguration `
+$config = New-AzMaintenanceConfiguration `
    -ResourceGroup myMaintenanceRG `
    -Name myConfig `
-   -MaintenanceScope Host`
+   -MaintenanceScope host `
    -Location  eastus
 ```
 
-Copy the configuration ID from the output to use later.
-
-Using `--maintenanceScope host` ensures that the maintenance config is used for controlling updates to the host.
+Using `-MaintenanceScope host` ensures that the maintenance config is used for controlling updates to the host.
 
 If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your subscription.
 
 You can query for available maintenance configurations using [Get-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
 
 ```azurepowershell-interactive
-Get-AzMaintenanceConfiguration 
+Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-## Apply the configuration
+## Assign the configuration
 
-Use `az maintenance assignment create` to apply the configuration.
+Use [New-AzConfigurationAssignment] createhttps://docs.microsoft.com/powershell/module/az.maintenance/new-azconfigurationassignment) to assign the configuration to your isolated VM or Azure Dedicated Host.
 
 ### Isolated VM
 
-Apply the configuration to a VM using the ID of the configuration. Specify `--resource-type virtualMachines` and supply the name of the VM for `--resource-name`, and the resource group for `--resource-group`. 
+Apply the configuration to a VM using the ID of the configuration. Specify `-ResourceType VirtualMachines` and supply the name of the VM for `-ResourceName`, and the resource group of the VM for `-ResourceGroupName`. 
 
-```azurecli-interactive
-az maintenance assignment create \
-   --resource-group myMaintenanceRG \
-   --location eastus \
-   --resource-name myVM \
-   --resource-type virtualMachines \
-   --provider-name Microsoft.Compute \
-   --configuration-assignment-name myConfig \
-   --maintenance-configuration-id '/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig'
+```azurepowershell-interactive
+New-AzConfigurationAssignment `
+   -ResourceGroupName myResourceGroup `
+   -Location eastus `
+   -ResourceName myVM `
+   -ResourceType VirtualMachines `
+   -ProviderName Microsoft.Compute `
+   -ConfigurationAssignmentName $config.Name `
+   -MaintenanceConfigurationId $config.Id
 ```
 
 ### Dedicate host
 
-To apply a configuration to a dedicated host, you need to include `--resource-type hosts`, `--resource-parent-name` with the name of the host group, and `--resource-parent-type hostGroups`. 
+To apply a configuration to a dedicated host, you also need to include `-ResourceType hosts`, `-ResourceParentName` with the name of the host group, and `-ResourceParentType hostGroups`. 
 
-The parameter `--resource-id` is the ID of the host. You can use [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) to get the ID of your dedicated host.
 
-```azurecli-interactive
-az maintenance assignment create \
-   -g myDHResourceGroup \
-   --resource-name myHost \
-   --resource-type hosts \
-   --provider-name Microsoft.Compute \
-   --configuration-assignment-name myConfig \
-   --maintenance-configuration-id "/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myDhResourceGroup/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig" \
-   -l eastus \
-   --resource-parent-name myHostGroup \
-   --resource-parent-type hostGroups \
-   --resource-id /subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/re
-sourceGroups/myResourceGroup/providers/Microsoft.Compute/hostGroups/myHostGroup/hosts
-/myHost
+```azurepowershell-interactive
+New-AzConfigurationAssignment `
+   -ResourceGroupName myResourceGroup `
+   -Location eastus `
+   -ResourceName myHost `
+   -ResourceType hosts `
+   -ResourceParentName myHostGroup `
+   -ResourceParentType hostGroups `
+   -ProviderName Microsoft.Compute `
+   -ConfigurationAssignmentName $config.Name `
+   -MaintenanceConfigurationId $config.Id
 ```
 
 ## Check for pending updates
 
-Use `az maintenance update list` to see if there are pending updates. Update --subscription to be the ID for the subscription that contains the VM.
+Use [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) to see if there are pending updates. Use `-subscription` to specify the Azure subscription of the VM if it is different from the one that you are logged into. 
 
 ### Isolated VM
 
 Check for pending updates for an isolated VM. In this example, the output is formatted as a table for readability.
 
-```azurecli-interactive
-az maintenance update list \
-   -g myMaintenanceRg \
-   --resource-name myVM \
-   --resource-type virtualMachines \
-   --provider-name Microsoft.Compute \
-   -o table
+```azurepowershell-interactive
+Get-AzMaintenanceUpdate `
+  -ResourceGroupName myResourceGroup `
+  -ResourceName myVM `
+  -ResourceType VirtualMachines `
+  -ProviderName Microsoft.Compute | Format-Table
 ```
 
 ### Dedicated host
 
 To check for pending updates for a dedicated host. In this example, the output is formatted as a table for readability. Replace the values for the resources with your own.
 
-```azurecli-interactive
-az maintenance update list \
-   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myHostResourceGroup \
-   --resource-name myHost \
-   --resource-type hosts \
-   --provider-name Microsoft.Compute \
-   --resource-parentname myHostGroup \
-   --resource-parent-type hostGroups \
-   -o table
+```azurepowershell-interactive
+Get-AzMaintenanceUpdate `
+   -ResourceGroupName myResourceGroup `
+   -Location eastus `
+   -ResourceName myHost `
+   -ResourceType hosts `
+   -ResourceParentName myHostGroup `
+   -ResourceParentType hostGroups `
+   -ProviderName Microsoft.Compute | Format-Table
 ```
 
 ## Apply updates
 
-Use `az maintenance apply update` to apply pending updates.
+Use [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) to apply pending updates.
 
 ### Isolated VM
 
 Create a request to apply updates to an isolated VM.
 
-```azurecli-interactive
-az maintenance applyupdate create \
-   -g myMaintenanceRG\
-   --resource-name myVM \
-   --resource-type virtualMachines \
-   --provider-name Microsoft.Compute
+```azurepowershell-interactive
+New-AzApplyUpdate `
+   -ResourceGroupName myResourceGroup `
+   -ResourceName myVM `
+   -ResourceType VirtualMachines `
+   -ProviderName Microsoft.Compute
 ```
 
 ### Dedicated host
 
 Apply updates to a dedicated host.
 
-```azurecli-interactive
-az maintenance applyupdate create \
-   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myHostResourceGroup \
-   --resource-name myHost \
-   --resource-type hosts \
-   --provider-name Microsoft.Compute \
-   --resource-parent-name myHostGroup \
-   --resource-parent-type hostGroups
+```azurepowershell-interactive
+New-AzApplyUpdate `
+   -ResourceGroupName myResourceGroup `
+   -Location eastus `
+   -ResourceName myHost `
+   -ResourceType hosts `
+   -ResourceParentName myHostGroup `
+   -ResourceParentType hostGroups `
+   -ProviderName Microsoft.Compute
 ```
 
-## Delete a maintenance configuration
+## Remove a maintenance configuration
 
-Use [az maintenance configuration delete]() to delete a maintenance configuration.
+Use [Remove-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) to delete a maintenance configuration.
 
 ```azurecli-interactive
-az maintenance configuration delete \
-   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myResourceGroup \
-   --name myConfig
+Remove-AzMaintenanceConfiguration `
+   -ResourceGroupName myResourceGroup`
+   -Name $config.Name
 ```
 
 ## Next steps
