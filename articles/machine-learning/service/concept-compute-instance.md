@@ -91,21 +91,6 @@ The following tools and environments are installed on the compute instance:-
 
 Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
-## Sharing
-
-When you create a compute instance, it acts as a shared compute resource for the workspace. Users can collaboratively debug models and share notebooks on the compute instances within the boundaries of the workspace.
-
-You can share results of machine learning experiments by sending a link to a notebook file. If your colleagues have access to the workspace, they can open the link and see the fully rendered notebook. You can send Jupyter/JupyterLab notebook links and ml.azure.com integrated notebook links.
-
-You can also collaborate on debugging a notebook running on your compute instance on Jupyter/JupyterLab/Integrated Notebook. Your colleagues then execute the code from their own web browser session.  They access the same execution environment (kernel) as yours to help fix issues.
-
-Coediting of notebooks is subject to limitations of Jupyter/JupyterLab. 
-
-Any workspace user who is assigned to a role with the `Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action` permission can access applications including, but not limited to, Jupyter, Jupyter Lab, RStudio on compute instance through given DNS name.
-
-The workspace owner, workspace contributor, and data scientist roles already have this permission. The user who accesses these instances is authenticated with Azure Active Directory (Azure AD) with Multi-Factor Authentication.
-
-Each compute instance uses the workspace’s managed identity, so you can share the compute instance without compromising your credentials or Azure AD tokens.
 
 ## Accessing files
 
