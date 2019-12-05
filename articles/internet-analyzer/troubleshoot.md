@@ -13,7 +13,7 @@ ms.author: dibotero
 
 This article contains troubleshooting steps for common Internet Analyzer issues.
 
-## Azure Portal
+## Azure portal
 **"Not enough measurements have been collected for this scorecard" in the Scorecards section**
 
 Note that:
