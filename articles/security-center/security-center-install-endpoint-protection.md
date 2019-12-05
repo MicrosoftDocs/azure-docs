@@ -1,12 +1,10 @@
 ---
 title: Manage endpoint protection issues with Azure Security Center | Microsoft Docs
-description: Learn how to manage endpoint protection issues in Azure Security Center.
+description: Learn about Security Center's monitoring of your endpoint protection and how to remediate any issues that arise.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +12,11 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Manage endpoint protection issues with Azure Security Center
-Azure Security Center monitors the status of antimalware protection and reports this under the Endpoint protection issues blade. Security Center highlights issues, such as detected threats and insufficient protection, which can make your virtual machines (VMs) and computers vulnerable to antimalware threats. By using the information under **Endpoint protection issues**, you can identify a plan to address any issues identified.
+Azure Security Center monitors the status of antimalware protection and reports this under the Endpoint protection issues page. Security Center highlights issues, such as detected threats and insufficient protection, which can make your virtual machines (VMs) and computers vulnerable to antimalware threats. By using the information under **Endpoint protection issues**, you can identify a plan to address any issues identified.
 
 Security Center reports the following endpoint protection issues:
 
@@ -27,7 +25,7 @@ Security Center reports the following endpoint protection issues:
 - Endpoint protection health:
 
   - Signature out of date – An antimalware solution is installed on these VMs and computers, but the solution does not have the latest antimalware signatures.
-  - No real time protection – An antimalware solution is installed on these VMs and computers, but it is not configured for real-time protection.   The service may be disabled or Security Center may be unable to obtain the status because the solution is not supported. See [partner integration](security-center-services.md#endpoint-supported) for a list of supported solutions.
+  - No real time protection – An antimalware solution is installed on these VMs and computers, but it is not configured for real-time protection. The service may be disabled or Security Center may be unable to obtain the status because the solution is not supported. See [partner integration](security-center-services.md#endpoint-supported) for a list of supported solutions.
   - Not reporting – An antimalware solution is installed but not reporting data.
   - Unknown –  An antimalware solution is installed but its status is unknown or reporting an unknown error.
 
@@ -37,7 +35,7 @@ Security Center reports the following endpoint protection issues:
     >
 
 ## Implement the recommendation
-Endpoint protection issues is presented as a recommendation in Security Center.  If your environment is vulnerable to antimalware threats, this recommendation will be displayed under **Recommendations** and under **Compute**. To see the **Endpoint protection issues dashboard**, you need to follow the Compute workflow.
+Endpoint protection issues is presented as a recommendation in Security Center. If your environment is vulnerable to antimalware threats, this recommendation will be displayed under **Recommendations** and under **Compute**. To see the **Endpoint protection issues dashboard**, you need to follow the Compute workflow.
 
 In this example, we will use **Compute**.  We will look at how to install antimalware on Azure VMs and on non-Azure computers.
 

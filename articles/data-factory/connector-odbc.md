@@ -1,5 +1,5 @@
 ---
-title: Copy data from ODBC sources using Azure Data Factory | Microsoft Docs
+title: Copy data from ODBC sources using Azure Data Factory 
 description: Learn how to copy data from OData sources to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -24,6 +24,11 @@ ms.author: jingwang
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to an ODBC data store. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
+
+This ODBC connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from ODBC source to any supported sink data store, or copy from any supported source data store to ODBC sink. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -274,6 +279,11 @@ Create an ODBC linked service to link a SAP HANA data store to an Azure data fac
 ```
 
 Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 
 ## Troubleshoot connectivity issues
 

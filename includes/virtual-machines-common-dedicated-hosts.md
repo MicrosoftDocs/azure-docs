@@ -80,6 +80,8 @@ There is a default quota limit of 3000 vCPUs for dedicated hosts, per region. Bu
 
 For more information, see [Virtual machine vCPU quotas](/azure/virtual-machines/windows/quotas).
 
+Free trial and MSDN subscriptions do not have quota for Azure Dedicated Hosts.
+
 ## Pricing
 
 Users are charged per dedicated host, regardless how many VMs are deployed. In your monthly statement you will see a new billable resource type of hosts. The VMs on a dedicated host will still be shown in your statement, but will carry a price of 0.
@@ -110,6 +112,6 @@ Azure monitors and manages the health status of your hosts. The following states
 |----------|----------------|
 | Host Available     | There are no known issues with your host.   |
 | Host Under Investigation  | We’re having some issues with the host which we’re looking into. This is a transitional state required for Azure to try and identify the scope and root cause for the issue identified. Virtual machines running on the host may be impacted. |
-| Host Pending Deallocate   | Azure can’t restore the host back to a healthy state and ask you to redeploy your virtual machines out of this host. If `autoHealingOnFailure` is enabled, your virtual machines are *service healed* to healthy hardware. Otherwise, your virtual machine may be running on a host that is about to fail.|
+| Host Pending Deallocate   | Azure can’t restore the host back to a healthy state and ask you to redeploy your virtual machines out of this host. If `autoReplaceOnFailure` is enabled, your virtual machines are *service healed* to healthy hardware. Otherwise, your virtual machine may be running on a host that is about to fail.|
 | Host deallocated  | All virtual machines have been removed from the host. You are no longer being charged for this host since the hardware was taken out of rotation.   |
 

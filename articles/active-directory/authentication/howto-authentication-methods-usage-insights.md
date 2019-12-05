@@ -1,15 +1,15 @@
 ---
-title: Authentication methods usage & insights reporting (preview) - Azure Active Directory
+title: Authentication methods usage & insights - Azure Active Directory
 description: Reporting on Azure AD self-service password reset and Multi-Factor Authentication authentication method usage
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 
@@ -55,8 +55,6 @@ The **Registrations** chart on the **Registration** tab shows the number of succ
 Clicking on either of the charts will bring you to a pre-filtered list of registration or reset events.
 
 Using the control in the upper, right-hand corner, you can change the date range for the audit data shown in the Registrations and Resets charts to 24 hours, 7 days, or 30 days.
-
-Registration data from the 
 
 ### Registration details
 

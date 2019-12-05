@@ -1,17 +1,15 @@
 ---
-title: Administrator takeover of an unmanaged directory - Azure Active Directory | Microsoft Docs
-description: How to take over a DNS domain name in an unmanaged directory (shadow tenant) in Azure Active Directory. 
+title: Admin takeover of an unmanaged directory - Azure AD | Microsoft Docs
+description: How to take over a DNS domain name in an unmanaged Azure AD organization (shadow tenant). 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 08/01/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -20,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
 
-This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service signup for Azure Active Directory?](directory-self-service-signup.md)
+This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service sign-up for Azure Active Directory?](directory-self-service-signup.md)
 
 ## Decide how you want to take over an unmanaged directory
 During the process of admin takeover, you can prove ownership as described in [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md). The next sections explain the admin experience in more detail, but here's a summary:
@@ -84,14 +82,11 @@ When you verify ownership of the domain name, Azure AD removes the domain name f
 ### Support for external admin takeover
 External admin takeover is supported by the following online services:
 
-- Power BI
 - Azure Rights Management
 - Exchange Online
 
 The supported service plans include:
 
-- Power BI Free
-- Power BI Pro
 - PowerApps Free
 - PowerFlow Free
 - RMS for individuals
@@ -100,7 +95,7 @@ The supported service plans include:
 
 External admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription. 
 
-You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged tenant and verifying it on the desired tenant. **The ForceTakeover option does not move over users, or retain access to the subscription. This option moves only the domain name.**
+You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged tenant and verifying it on the desired tenant. 
 
 #### More information about RMS for individuals
 
@@ -109,10 +104,6 @@ For [RMS for individuals](/azure/information-protection/rms-for-individuals), wh
 The key and templates are not moved over when the unmanaged tenant is in a different region. For example, if the unmanaged tenant is in Europe and the organization that you own is in North America.
 
 Although RMS for individuals is designed to support Azure AD authentication to open protected content, it doesn't prevent users from also protecting content. If users did protect content with the RMS for individuals subscription, and the key and templates were not moved over, that content is not accessible after the domain takeover.
-
-#### More information about Power BI
-
-When you perform an external takeover, Power BI content that was created before the takeover is placed in a [Power BI Archived Workspace](/power-bi/service-admin-power-bi-archived-workspace). You must manually migrate any content that you want to use in the new tenant.
 
 ### Azure AD PowerShell cmdlets for the ForceTakeover option
 You can see these cmdlets used in [PowerShell example](#powershell-example).

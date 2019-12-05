@@ -166,5 +166,5 @@ The preceding examples show several aspects of the Cosmos DB query language:
 ## Next steps
 
 - [Introduction to Azure Cosmos DB](introduction.md)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [SELECT clause](sql-query-select.md)

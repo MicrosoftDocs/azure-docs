@@ -1,12 +1,13 @@
 ---
-title: 'Create a route-based VPN gateway: Azure portal | Microsoft Docs'
+title: 'Create a route-based VPN gateway: portal'
+titleSuffix: Azure VPN Gateway
 description: Create a route-based VPN Gateway using the Azure portal
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 09/24/2019
 ms.author: cherylmc
 ---
 
@@ -20,16 +21,18 @@ The steps in this article will create a VNet, a subnet, a gateway subnet, and a 
 
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
 
-## <a name="gwsubnet"></a>Add a gateway subnet
-
-[!INCLUDE [gateway subnet](../../includes/vpn-gateway-add-gateway-subnet-portal-include.md)]
-
 ## <a name="gwvalues"></a>Configure and create the gateway
+
+In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
+
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
 >The Basic gateway SKU does not support IKEv2 or RADIUS authentication. If you plan on having Mac clients connect to your virtual network, do not use the Basic SKU.
+
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="viewgw"></a>View the VPN gateway
 

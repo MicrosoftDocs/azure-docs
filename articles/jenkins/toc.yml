@@ -55,7 +55,7 @@
       maintainContext: true
 - name: How-to
   items: 
-    - name: Use the App Service plugin
+    - name: Use the App Service plug-in
       href: deploy-jenkins-app-service-plugin.md
 - name: Samples
   items:

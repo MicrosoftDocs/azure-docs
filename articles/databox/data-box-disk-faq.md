@@ -7,9 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/15/2019
+ms.date: 08/29/2019
 ms.author: alkohli
 ---
+
 # Azure Data Box Disk: Frequently Asked Questions
 
 The Microsoft Azure Data Box Disk cloud solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way. This FAQ contains questions and answers that you may have when you use Data Box Disks in the Azure portal. 
@@ -83,6 +84,24 @@ A.  You can track the status of the Data Box Disk order in the Azure portal. Whe
 
 ### Q. How do I return the disks? 
 A.  Microsoft provides a shipping label with the Data Box Disks in the shipping package. Affix the label to the shipping box and drop off the sealed package at your shipping carrier location. If the label is damaged or lost, go to **Overview > Download shipping label** and download a new return shipping label.
+
+### Can I pick up my Data Box Disk order myself? Can I return the disks via a carrier that I choose?
+A. Yes. Microsoft also offers self-managed shipping in US Gov region only. When placing the Data Box Disk order, you can choose self-managed shipping option. To pick up your Data Box Disk order, take the following steps:
+    
+1. After you have placed the order, the order is processed and the disks are prepared. You will be notified via an email that your order is ready for pickup. 
+2. Once the order is ready for pickup, go to your order in the Azure portal and navigate to the **Overview** blade. 
+3. You will see a notification with a code in the Azure portal. Email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them the code. The team will provide the location and schedule a pickup date and time. You must call the team within 5 business days after you receive the email notification.
+
+Once the data copy and validation is complete, take the following steps to return your disk:
+
+1. Once the data validation is complete, unplug the disks. Remove the connecting cables.
+2. Wrap all the disks and the connecting cables with a bubble wrap and place those into the shipping box. Charges may apply if the accessories are missing.
+
+    - Reuse the packaging from the initial shipment. We recommend that you pack disks using a well-secured bubbled wrap.
+    - Make sure the fit is snug to reduce any movements within the box.
+3. Go to the **Overview blade** for your order in Azure portal. You should see a notification with a code.
+4. Use that code and email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them the code. They would provide you information on where and when to drop off the disks.
+
 
 ## Migrate data
 

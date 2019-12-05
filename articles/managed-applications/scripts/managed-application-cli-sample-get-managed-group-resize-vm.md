@@ -1,6 +1,6 @@
 ---
-title: Azure CLI script sample - Get a managed resource group and resize VMs | Microsoft Docs
-description: Azure CLI script sample - Get a managed resource group and resize VMs
+title:  Get managed resource group & resize VMs - Azure CLI
+description: Provides Azure CLI sample script that gets a managed resource group in an Azure Managed Application. The script resizes VMs.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac

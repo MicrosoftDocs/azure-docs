@@ -1,15 +1,9 @@
 ---
-title: Azure Functions F# developer reference | Microsoft Docs
+title: Azure Functions F# developer reference 
 description: Understand how to develop Azure Functions using F# script.
-services: functions
-documentationcenter: fsharp
 author: sylvanc
-manager: jbronsk
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, F#
 
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
-ms.service: azure-functions
-ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc

@@ -1,15 +1,15 @@
 ---
-title: Plan and execute an Azure Multi-Factor Authentication deployment - Azure Active Directory
+title: Deploy Azure Multi-Factor Authentication - Azure Active Directory
 description: Microsoft Azure Multi-Factor Authentication deployment planning
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -77,7 +77,7 @@ Some of the risk detections detected by Azure Active Directory Identity Protecti
 
 ## Define network locations
 
-We recommended that organizations use Conditional Access to define their network using [named locations](../conditional-access/location-condition.md#named-locations). If your organization is using Identity Protection, consider using risk-based policies instead of named locations.
+We recommend that organizations use Conditional Access to define their network using [named locations](../conditional-access/location-condition.md#named-locations). If your organization is using Identity Protection, consider using risk-based policies instead of named locations.
 
 ### Configuring a named location
 
@@ -173,32 +173,6 @@ If your users were enabled using per-user enabled and enforced Azure Multi-Facto
 Run this PowerShell in an ISE window or save as a .PS1 file to run locally.
 
 ```PowerShell
-# Disable MFA for all users, keeping their MFA methods intact
-Get-MsolUser -All | Disable-MFA -KeepMethods
-
-# Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
-function Disable-MFA {
-
-    [CmdletBinding()]
-    param(
-        [Parameter(ValueFromPipeline=$True)]
-        $User,
-        [switch] $KeepMethods
-    )
-
-    Process {
-
-        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
-        $User | Set-MfaState -State Disabled
-
-        if ($KeepMethods) {
-            # Restore the MFA methods which got cleared when disabling MFA
-            Set-MsolUser -ObjectId $User.ObjectId `
-                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
-        }
-    }
-}
-
 # Sets the MFA requirement state
 function Set-MfaState {
 
@@ -228,7 +202,12 @@ function Set-MfaState {
     }
 }
 
+# Disable MFA for all users
+Get-MsolUser -All | Set-MfaState -State Disabled
 ```
+
+> [!NOTE]
+> We recently changed the behavior and PowerShell script above accordingly. Previously, the script saved off the MFA methods, disabled MFA, and restored the methods. This is no longer necessary now that the default behavior for disable doesn't clear the methods.
 
 ## Plan Conditional Access policies
 
@@ -241,6 +220,7 @@ It is important that you prevent being inadvertently locked out of your Azure AD
 1. Sign in to the [Azure portal](https://portal.azure.com) using a global administrator account.
 1. Browse to **Azure Active Directory**, **Conditional Access**.
 1. Select **New policy**.
+   ![Create a Conditional Access policy to enable MFA for Azure portal users in pilot group](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Provide a meaningful name for your policy.
 1. Under **users and groups**:
    * On the **Include** tab, select the **All users** radio button
@@ -258,8 +238,6 @@ It is important that you prevent being inadvertently locked out of your Azure AD
 1. Skip the **Session** section.
 1. Set the **Enable policy** toggle to **On**.
 1. Click **Create**.
-
-![Create a Conditional Access policy to enable MFA for Azure portal users in pilot group](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
 ## Plan integration with on-premises systems
 

@@ -1,7 +1,6 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Tutorial store data with SQL module - Azure IoT Edge | Microsoft Docs 
-description: Learn how to store data locally on your IoT Edge device with a SQL Server module
+title: Tutorial - Store data with SQL module using Azure IoT Edge
+description: This tutorial shows how to store data locally on your IoT Edge device with a SQL Server module
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -9,7 +8,7 @@ ms.author: kgremban
 ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: "mvc, seodec18"
+ms.custom: mvc
 #Customer intent: As an IoT developer, I want to use SQL Service to execute logic on edge devices to filter data and communications that is sent to the cloud.
 ---
 
@@ -144,15 +143,17 @@ Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux AR
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
                        // Send the message to the output as the temperature value is greater than the threashold.
-                       var filteredMessage = new Message(messageBytes);
-                       // Copy the properties of the original message into the new Message object.
-                       foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
-                       {filteredMessage.Properties.Add(prop.Key, prop.Value);}
-                       // Add a new property to the message to indicate it is an alert.
-                       filteredMessage.Properties.Add("MessageType", "Alert");
-                       // Send the message.       
-                       await output.AddAsync(filteredMessage);
-                       logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                       using (var filteredMessage = new Message(messageBytes))
+                       {
+                            // Copy the properties of the original message into the new Message object.
+                            foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                            {filteredMessage.Properties.Add(prop.Key, prop.Value);}
+                            // Add a new property to the message to indicate it is an alert.
+                            filteredMessage.Properties.Add("MessageType", "Alert");
+                            // Send the message.       
+                            await output.AddAsync(filteredMessage);
+                            logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                       }
                    }
                }
            }

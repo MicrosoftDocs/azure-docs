@@ -2,11 +2,8 @@
 title: Connectors for Azure Logic Apps
 description: Automate workflows with connectors for Azure Logic Apps, including built-in, managed, on-premises, integration account, and enterprise connectors
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 05/08/2019
 ---
@@ -277,15 +274,10 @@ configuration details before you can use a trigger or action in your logic app.
 For example, you must authorize a connection to a Twitter account for 
 accessing data or to post on your behalf. 
 
-For connectors that use OAuth, creating a connection means signing into 
-the service, such as Office 365, Salesforce, or GitHub, where your access 
-token is encrypted and securely stored in an Azure secret store. 
-Other connectors, such as FTP and SQL, require a connection that 
-has configuration details, such as the server address, username, and password. 
-These connection configuration details are also encrypted and securely stored. 
+For connectors that use Azure Active Directory (Azure AD) OAuth, creating a connection means signing into the service, such as Office 365, Salesforce, or GitHub, where your access token is [encrypted](../security/fundamentals/encryption-overview.md) and securely stored in an Azure secret store. Other connectors, such as FTP and SQL, require a connection that has configuration details, such as the server address, username, and password. These connection configuration details are also encrypted and securely stored. Learn more about [encryption in Azure](../security/fundamentals/encryption-overview.md).
 
 Connections can access the target service or system for as long as that service or system allows. 
-For services that use Azure Active Directory (AD) OAuth connections, such as Office 365 and Dynamics, 
+For services that use Azure AD OAuth connections, such as Office 365 and Dynamics, 
 Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long 
 Azure Logic Apps can use a token without refreshing. Generally, some actions invalidate all access 
 tokens, such as changing your password.

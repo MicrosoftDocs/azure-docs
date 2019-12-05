@@ -4,9 +4,9 @@ description: Learn how reservation discounts apply to Azure App Service Isolated
 services: billing
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 10/01/2019
 ms.author: banders
 ---
 

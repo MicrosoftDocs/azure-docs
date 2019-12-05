@@ -4,7 +4,7 @@ description: This article describes certification coverage for Azure Cosmos DB c
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 10/15/2019
 ms.author: dharmas
 ms.reviewer: sngun
 
@@ -32,7 +32,7 @@ Azure Cosmos DB is continually expanding its certification coverage. Currently, 
 
 | **Globally  applicable** | **US Government** | **Industry specific** | **Region or country specific** |
 | --- | --- | --- | --- |
-| CSA STAR Certification | DoD SRG Level 2 | HIPAA BAA | Australia IRAP Unclassified |
+| CSA STAR Certification | DoD SRG Level 2 | HIPAA BAA | Australia IRAP |
 | CSA STAR Attestation | FedRAMP Moderate | HITRUST | Germany C5|
 | ISO 20000-1:2011 | GxP (FDA 21 CFR Part 11) | PCI DSS | Singapore MTCS Level 3 |
 | ISO 22301:2012 | | | Spain ENS High|

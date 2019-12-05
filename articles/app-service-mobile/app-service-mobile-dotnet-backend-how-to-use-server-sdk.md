@@ -1,25 +1,22 @@
 ---
-title: How to work with the .NET backend server SDK for Mobile Apps | Microsoft Docs
+title: Work with the .NET backend server SDK
 description: Learn how to work with the .NET backend server SDK for Azure App Service Mobile Apps.
 keywords: app service, azure app service, mobile app, mobile service, scale, scalable, app deployment, azure app deployment
-services: app-service\mobile
-documentationcenter: ''
 author: conceptdev
-manager: crdun
-editor: ''
 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: crdun
-
 ---
 # Work with the .NET backend server SDK for Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
+
+> [!NOTE]
+> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
+>
+> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
 
 This topic shows you how to use the .NET backend server SDK in key Azure App Service Mobile Apps scenarios. The Azure Mobile Apps SDK
 helps you work with mobile clients from your ASP.NET application.
@@ -503,7 +500,7 @@ diagnostics in your Mobile App backend.
 
 To enable diagnostics and write to the logs:
 
-1. Follow the steps in [How to enable diagnostics](../app-service/troubleshoot-diagnostic-logs.md#enablediag).
+1. Follow the steps in [Enable application logging (Windows)](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows).
 2. Add the following using statement in your code file:
 
         using System.Web.Http.Tracing;
@@ -512,7 +509,7 @@ To enable diagnostics and write to the logs:
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. Republish your server project, and access the Mobile App backend to execute the code path with the logging.
-5. Download and evaluate the logs, as described in [How to: Download logs](../app-service/troubleshoot-diagnostic-logs.md#download).
+5. Download and evaluate the logs, as described in [Access log files](../app-service/troubleshoot-diagnostic-logs.md#access-log-files).
 
 ### <a name="local-debug"></a>Local debugging with authentication
 You can run your application locally to test changes before publishing them to the cloud. For most Azure Mobile Apps backends, press *F5* while

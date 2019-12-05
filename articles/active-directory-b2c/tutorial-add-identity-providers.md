@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Add identity providers to your applications in Azure Active Directory B2C
 
-In your applications, you may want to enable users to sign in with different identity providers. An *identity provider* creates, maintains, and manages identity information while providing authentication services to applications. You can add identity providers that are supported by Azure Active Directory (Azure AD) B2C to your [user flows](active-directory-b2c-reference-policies.md) using the Azure portal.
+In your applications, you may want to enable users to sign in with different identity providers. An *identity provider* creates, maintains, and manages identity information while providing authentication services to applications. You can add identity providers that are supported by Azure Active Directory B2C (Azure AD B2C) to your [user flows](active-directory-b2c-reference-policies.md) using the Azure portal.
 
 In this article, you learn how to:
 
@@ -41,7 +41,7 @@ Identity provider applications provide the identifier and key to enable communic
 To enable sign-in for users from Azure AD, you need to register an application within the Azure AD tenant. The Azure AD tenant is not the same as your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your Azure AD tenant.
+1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **New registration**.
 1. Enter a name for your application. For example, `Azure AD B2C App`.
