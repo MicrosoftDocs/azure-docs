@@ -8,7 +8,17 @@
     href: terminology.md
 - name: Quickstarts
   items:
-  - name: Applications
+  = name: Monitor Azure resource
+    href: learn/quick-monitor-azure-resource.md
+  - name: Monitor virtual machines
+    items:
+    - name: Collect - Azure VMs
+      href: learn/quick-collect-azurevm.md
+    - name: Collect - Linux computer
+      href: learn/quick-collect-linux-computer.md
+    - name: Collect - Windows computer
+      href: learn/quick-collect-windows-computer.md
+  - name: Monitor applications
     items:
     - name: .NET application
       href: learn/quick-monitor-portal.md
@@ -20,14 +30,6 @@
       href: learn/mobile-center-quickstart.md
     - name: Web application
       href: app/website-monitoring.md 
-  - name: Virtual machines
-    items:
-    - name: Collect - Azure VMs
-      href: learn/quick-collect-azurevm.md
-    - name: Collect - Linux computer
-      href: learn/quick-collect-linux-computer.md
-    - name: Collect - Windows computer
-      href: learn/quick-collect-windows-computer.md
 - name: Tutorials
   items:
   - name: Logs
