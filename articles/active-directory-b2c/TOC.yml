@@ -198,7 +198,7 @@
           href: active-directory-b2c-custom-setup-adfs2016-idp.md
           displayName: SAML
         - name: Azure AD B2C
-          href: saml-identity-provider.md
+          href: connect-with-saml-relying-parties.md
           displayName: SAML
         - name: Salesforce
           href: active-directory-b2c-setup-sf-app-custom.md

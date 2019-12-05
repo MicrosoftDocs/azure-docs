@@ -14,7 +14,7 @@ ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Define a SAML technical profile in an Azure AD B2C custom policy
+# Configure Azure AD B2C as a SAML IdP to your applications
 
 This article explains how to configure Azure Active Directory B2C (Azure AD B2C) to provide SAML (protocol) assertions to applications (aka Service Providers).  Azure AD B2C will act as the single Identity Provider to your SAML application (aka relying party).
 
