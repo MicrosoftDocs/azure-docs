@@ -66,15 +66,15 @@ As you're analyzing test results, keep in mind the following recommendations:
 - Repeat tests whenever changes are observed or planned.
 
 
-## Testing VMs running Windows
+## Test VMs that are running Windows
 
-## Get latte.exe onto the VMs
+### Get latte.exe onto the VMs
 
 Download the [latest version of latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
 
 Consider putting latte.exe in separate folder, such as *c:\tools*.
 
-## Allow latte.exe through Windows Defender Firewall
+### Allow latte.exe through Windows Defender Firewall
 
 On the *receiver*, create an Allow rule on Windows Defender Firewall to allow the latte.exe traffic to arrive. It's easiest to allow the entire latte.exe program by name rather than to allow specific TCP ports inbound.
 
@@ -88,7 +88,7 @@ For example, if you copied latte.exe to the *c:\tools* folder, this would be the
 
 `netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
-## Running latency tests
+### Run latency tests
 
 * On the *receiver*, start latte.exe (run it from the CMD window, not from PowerShell):
 
