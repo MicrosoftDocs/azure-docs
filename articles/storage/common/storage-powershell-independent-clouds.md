@@ -1,12 +1,13 @@
 ---
-title: Managing Storage in the Azure independent clouds Using Azure PowerShell | Microsoft Docs
-description: Managing Storage in the China Cloud, Government Cloud, and German Cloud Using Azure PowerShell
+title: Use PowerShell to manage data in Azure independent clouds
+titleSuffix: Azure Storage
+description: Managing Storage in the China Cloud, Government Cloud, and German Cloud Using Azure PowerShell.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 10/24/2017
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -21,7 +22,7 @@ Most people use Azure Public Cloud for their global Azure deployment. There are 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## Using an independent cloud 
+## Using an independent cloud
 
 To use Azure Storage in one of the independent clouds, you connect to that cloud instead of Azure Public. To use one of the independent clouds rather than Azure Public:
 
@@ -34,7 +35,7 @@ The examples require Azure PowerShell module Az version 0.7 or later. In a Power
 ## Log in to Azure
 
 Run the [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) cmdlet to see the available Azure environments:
-   
+
 ```powershell
 Get-AzEnvironment
 ```
@@ -104,8 +105,7 @@ The results are similar to the following:
 | ResourceManagerUrl | http://management.microsoftazure.de/ |
 | SqlDatabaseDnsSuffix | .database.cloudapi.de |
 | **StorageEndpointSuffix** | core.cloudapi.de |
-| ... | ... | 
-
+| ... | ... |
 To retrieve just the storage endpoint suffix property, retrieve the specific cloud and ask for just that one property.
 
 ```powershell
@@ -113,11 +113,9 @@ $environment = Get-AzEnvironment -Name AzureGermanCloud
 Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
 ```
 
-This returns the following information.
+This command returns the following information:
 
-```
-Storage Endpoint Suffix = core.cloudapi.de
-```
+`Storage Endpoint Suffix = core.cloudapi.de`
 
 ### Get endpoint from a storage account
 
@@ -137,7 +135,7 @@ Write-Host "queue endpoint = " $storageAccount.PrimaryEndPoints.Queue
 Write-Host "table endpoint = " $storageAccount.PrimaryEndPoints.Table
 ```
 
-For a storage account in the Government Cloud, this returns the following: 
+For a storage account in the Government Cloud, this command returns the following:
 
 ```
 blob endpoint = http://myexistingstorageaccount.blob.core.usgovcloudapi.net/
