@@ -34,15 +34,17 @@ You can also assign roles using Privileged Identity Management (PIM). For more d
       ![Azure portal search for Azure Active Directory](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
 
 
-3. Select **Users**, and then search for and select the user getting the role assignment. For example, _Alain DuBois_.
+3. Select **Users**.
+
+4. Search for and select the user getting the role assignment. For example, _Alain Charon_.
 
       ![All users page - select the user](media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
 
-4. On the **Alain Charon - Profile** page, select **Assigned roles**.
+5. On the **Alain Charon - Profile** page, select **Assigned roles**.
 
     The **Alain Charon - Directory role** page appears.
 
-5. Select **Add assignment**, select the role to assign to Alain (for example, _Application administrator_), and then choose **Select**.
+6. Select **Add assignment**, select the role to assign to Alain (for example, _Application administrator_), and then choose **Select**.
 
     ![Assigned roles page - showing the selected role](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
