@@ -472,7 +472,7 @@
       - name: SharePoint sites
         href: app/sharepoint.md
       - name: Windows desktop
-        href: app/windows-desktop.md        
+        href: app/windows-desktop.md
   - name: Monitor Azure resources
     items:
     - name: Monitor Azure service
