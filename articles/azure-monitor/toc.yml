@@ -8,7 +8,7 @@
     href: terminology.md
 - name: Quickstarts
   items:
-  = name: Monitor Azure resource
+  - name: Monitor Azure resource
     href: learn/quick-monitor-azure-resource.md
   - name: Monitor virtual machines
     items:
