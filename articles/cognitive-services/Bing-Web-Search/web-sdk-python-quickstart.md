@@ -18,8 +18,6 @@ The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Pyt
 
 Want to see the code right now? The [Bing Web Search SDK for Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) are available on GitHub.
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## Prerequisites
 
 The Bing Web Search SDK is compatible with Python 2.7, 3.3, 3.4, 3.5, and 3.6. We recommend using a virtual environment for this quickstart.

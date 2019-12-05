@@ -16,8 +16,6 @@ ms.author: aahi
 
 The Bing Web Search SDK makes it easy to integrate Bing Web Search into your C# application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## Prerequisites
 Here are a few things that you'll need before running this quickstart:
 

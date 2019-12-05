@@ -19,8 +19,6 @@ ms.custom: seodec2018
 
 Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Go application sends a search request to the API, and shows the response. While this application is written in Go, the API is a RESTful Web service compatible with most programming languages.
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## Prerequisites
 Here are a few things that you'll need before running this quickstart:
 

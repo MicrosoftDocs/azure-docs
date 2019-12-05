@@ -12,7 +12,7 @@ Begin using the Bing Web Search API by creating an Azure resource. Choose the re
     * No Azure subscription needed
     * Valid for seven days, for free. After signing up, a trial key and endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 
-* A [ Bing Search v7 resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
+* A [ Bing Search v7 resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7):
     * Available through the Azure portal until you delete the resource.
     * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
 
