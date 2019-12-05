@@ -27,7 +27,9 @@ This quickstart uses the built-in Real Estate sample data and index because it h
 
 ![data source page for sample data](media/search-create-app-portal/import-data-realestate.png)
 
-### Step 1 - Start the wizard
+When the index is ready, move on to the next step.
+
+## Start the wizard
 
 1. Sign into the [Azure portal](https://portal.azure.com) and [find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
@@ -37,7 +39,7 @@ This quickstart uses the built-in Real Estate sample data and index because it h
 
 1. Select **Enable Cross Origin Resource Sharing (CORS)** to add CORS support to your index definition. This step is optional, but your local web app won't connect to your index without it.
 
-### Step 2 - Configure search results
+## Configure search results
 
 The wizard provides a basic layout for rendered search results that includes space for a thumbnail image, a title, and description. Backing each of these elements is a field in your index that provides the data. 
 
@@ -49,7 +51,7 @@ The wizard provides a basic layout for rendered search results that includes spa
 
 ![data source page for sample data](media/search-create-app-portal/configure-results.png)
 
-### Step 3 - Add a sidebar
+## Add a sidebar
 
 The search service supports faceted navigation, which is often rendered as a sidebar. Facets are based on filterable and facetable fields, as expressed in the index schema.
 
@@ -61,7 +63,7 @@ In Azure Cognitive Search, faceted navigation is a cumulative filtering experien
 Accept the current selection of facets and continue to the next page.
 
 
-### Step 4 - Add typeahead
+## Add typeahead
 
 Typeahead functionality is available in the form of autocomplete and query suggestions. The wizard supports query suggestions. Based on keystroke inputs provided by the user, the search service returns a list of "completed" query strings that can be selected as the input.
 
@@ -71,7 +73,7 @@ The following screenshot shows options in the wizard, juxtaposed with a rendered
 
 ![Query suggestion configuration](media/search-create-app-portal/suggestions.png)
 
-## Download and run the app
+## Create, download and execute
 
 1. Select **Create search app** to generate the HTML file.
 
