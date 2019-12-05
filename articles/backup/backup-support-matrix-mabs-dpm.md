@@ -147,7 +147,7 @@ For information on the various servers and workloads that you can protect with A
 
 ## Supported backups to DPM
 
-For information on the various servers and workloads that you can protect with Data Protection Manager, refer [What can DPM back up?](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019)
+For information on the various servers and workloads that you can protect with Data Protection Manager, refer to the article [What can DPM back up?](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
 
 - Clustered workloads backed up by DPM/MABS should be in the same domain as DPM/MABS or in a child/trusted domain.
 - You can use NTLM/certificate authentication to back up data in untrusted domains or workgroups.
