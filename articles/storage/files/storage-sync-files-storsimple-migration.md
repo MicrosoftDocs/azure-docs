@@ -22,7 +22,7 @@ This article describes the concept of how a migration will commence.
 It is imperative to note that customers in need of migration off of StorSimple and onto Azure File Sync do not need to proceed on their own.
 
 > [!IMPORTANT]
-> Microsoft is committed to assist customers in their migration. Email AzureFiles@microsoft.com for a customized migration plan as well as assistance during the migration.
+> Microsoft is committed to assist customers in their migration. Email AzureFiles@microsoft .com for a customized migration plan as well as assistance during the migration.
 
 ## Migration approach
 The migration to Azure File Sync will commence cloud-side with minimal impact to on-premises and limited downtime.
@@ -63,7 +63,7 @@ Also, one Azure file share can sync to many different servers, in the case you n
 Familiarize yourself with Azure Files and Azure File Sync. It is important to understand the Azure File Sync terminology and deployment pattern for a successful migration. There is more detailed information available for every step in this overview article. Make sure to reach out to Microsoft for customized help during planning and execution of your migration.
 
 > [!IMPORTANT]
-> Microsoft is committed to assist customers in their migration. Email AzureFiles@microsoft.com for a customized migration plan as well as assistance during the migration.
+> Microsoft is committed to assist customers in their migration. Email AzureFiles@microsoft .com for a customized migration plan as well as assistance during the migration.
 
 ## Additional resources
 Azure File Sync, as the target service, has two fundamental documents that we recommend you read, if you are new to Azure File Sync.
