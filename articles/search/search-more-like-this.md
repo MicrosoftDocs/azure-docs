@@ -26,9 +26,9 @@ You cannot use `MoreLikeThis` on searchable sub-fields in a [complex type](searc
 
 ## Examples
 
-All examples below use the [hotels sample from Quickstart](search-get-started-portal.md).
+All following examples use the hotels sample from [Quickstart: Create a search index in the Azure portal](search-get-started-portal.md).
 
-### Simple Query
+### Simple query
 
 The following query finds documents whose description fields are most similar to the field of the source document as specified by the `moreLikeThis` parameter:
 
@@ -47,7 +47,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06-Preview
     }
 ```
 
-### Applying Filters
+### Apply filters
 
 `MoreLikeThis` can be combined with other common query parameters like `$filter`. For instance, the query can be restricted to only hotels whose category is 'Budget' and where the rating is higher than 3.5:
 
@@ -55,9 +55,9 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06-Preview
 GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&api-version=2019-05-06-Preview
 ```
 
-### Selecting Fields and Limiting Results
+### Select fields and limit results
 
-The `$top` selector can be used to limit how many results should be returned in a `MoreLikeThis` query. Also, fields can be selected with `$select`. Here the top 3 hotels are selected along with their Id, Name and Rating: 
+The `$top` selector can be used to limit how many results should be returned in a `MoreLikeThis` query. Also, fields can be selected with `$select`. Here the top three hotels are selected along with their ID, Name, and Rating: 
 
 ```
 GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&$top=3&$select=HotelId,HotelName,Rating&api-version=2019-05-06-Preview
