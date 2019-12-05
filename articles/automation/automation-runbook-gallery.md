@@ -4,8 +4,8 @@ description: Runbooks and modules from Microsoft and the community are available
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm

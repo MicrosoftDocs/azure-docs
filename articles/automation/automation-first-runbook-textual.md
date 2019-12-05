@@ -5,8 +5,8 @@ keywords: powershell workflow, powershell workflow examples, workflow powershell
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
