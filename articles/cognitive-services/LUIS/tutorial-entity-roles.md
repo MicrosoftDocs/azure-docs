@@ -20,7 +20,7 @@ In this tutorial, find related pieces of data based on context. For example, an 
 
 A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns.
 
-[!INCLUDE [Only valid with current portal](./includes/only-portal-only.md)]
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **In this tutorial, you learn how to:**
 

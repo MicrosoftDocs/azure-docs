@@ -24,7 +24,7 @@ The composite entity is a good fit for this type of data because the data:
 * Use a variety of entity types.
 * Need to be grouped and processed by client app as a unit of information.
 
-[!INCLUDE [Only valid with current portal](./includes/only-portal-only.md)]
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **In this tutorial, you learn how to:**
 
