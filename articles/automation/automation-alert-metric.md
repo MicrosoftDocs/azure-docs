@@ -3,8 +3,8 @@ title: Monitor Azure Automation runbooks with metric alerts
 description: This article walks you through monitoring Azure Automation runbooks based off of metrics
 services: automation
 ms.service: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
