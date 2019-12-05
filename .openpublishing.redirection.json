@@ -568,6 +568,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-list-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-list-entity",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-regex-entity.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-regex-entity",
       "redirect_document_id": false
@@ -12435,6 +12440,11 @@
     {
       "source_path": "articles/cosmos-db/monitor-accounts.md",
       "redirect_url": "/azure/cosmos-db/monitor-cosmos-db",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/create-firewall-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/common/ipfirewall",
       "redirect_document_id": false
     },
     {
