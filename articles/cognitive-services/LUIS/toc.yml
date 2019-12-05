@@ -54,7 +54,7 @@
     - name: Regular expression entities
       href: tutorial-regex-entity.md
     - name: List entities
-      href: luis-quickstart-intent-and-list-entity.md
+      href: tutorial-list-entity.md
     - name: Entity roles
       href: tutorial-entity-roles.md
       displayName: roles, geographyV2, context
