@@ -82,9 +82,9 @@ Build tasks can download the tools' NuGet packages from the [Azure DevOps Packag
 
 ### What effect does installing the extension have on my Azure DevOps organization? 
 
-Upon their installation, the security build tasks provided by the extension becomes available to all users in your organization. When you create or edit an Azure pipeline, these tasks are available from the build-task collection list. Otherwise, installing the extension in your Azure DevOps organization has no effect. The installation doesn't modify any account settings, project settings, or pipelines.
+Upon their installation, the security build tasks provided by the extension becomes available to all users in your organization. When you create or edit an Azure Pipeline, these tasks are available from the build-task collection list. Otherwise, installing the extension in your Azure DevOps organization has no effect. The installation doesn't modify any account settings, project settings, or pipelines.
 
-### Does installing the extension modify my existing Azure pipelines? 
+### Does installing the extension modify my existing Azure Pipelines? 
 
 No. Installing the extension makes the security build tasks available for addition to your pipelines. You're still required to add or update build definitions, so that the tools can work with your build process.
 
@@ -218,9 +218,6 @@ The Roslyn Analyzers build task needs to query Azure DevOps for the MSBuild log 
 
 If you need additional assistance, Microsoft Security Code Analysis Support is available Monday to Friday from 9:00 AM to 5:00 PM Pacific Standard Time.
 
-  - Onboarding: Contact your Technical Account Managers to get started.
+- Onboarding: Refer to our [Onboarding documentation](security-code-analysis-onboard.md)
   
-  - Support: Email our team at [Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
-
-  >[!NOTE] 
-  >You might not have a paid support relationship with Microsoft. Or you might have a support offering that prevents you from purchasing services from the Phoenix catalog. If either of these conditions is true, please visit our [support services home page](https://www.microsoft.com/enterprise/services/support) for more information.
+- Support: Email our team at [Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)
