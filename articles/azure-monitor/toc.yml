@@ -479,34 +479,26 @@
       href: insights/monitor-azure-resource.md
     - name: Monitor resource groups
       href: insights/resource-group-insights.md
-    - name: Platform logs overview
-      href: platform/platform-logs-overview.md 
-    - name: Resource logs
-      items: 
+    - name: Platform logs
       - name: Overview
-        displayname: Resource logs
+        displayName Platform logs, Resource logs, Activity log
+        href: platform/platform-logs-overview.md 
+      - name: Resource logs overview
         href: platform/resource-logs-overview.md 
+      - name: Activity log overview
+        href: platform/activity-logs-overview.md
+      - name: View Activity log
+        href: platform/activity-log-view.md
       - name: Collect in Azure Monitor Logs
-        displayname: Resource logs
+        displayname: Resource logs, Activity log, Platform logs
         href: platform/resource-logs-collect-workspace.md
       - name: Archive to storage
-        displayname: Resource logs
+        displayname: Resource logs, Activity log, Platform logs
         href: platform/resource-logs-collect-storage.md
       - name: Stream to Event Hubs
-        displayname: Resource logs
+        displayname: Resource logs, Activity log, Platform logs
         href: platform/resource-logs-stream-event-hubs.md
-    - name: Activity log
-      items:
-      - name: Overview
-        displayname: Activity log
-        href: platform/activity-logs-overview.md
-      - name: View and retrieve
-        displayname: Activity log
-        href: platform/activity-log-view.md
-      - name: Schema
-        displayname: Activity log
-        href: platform/activity-log-schema.md
-      - name: Legacy collection
+      - name: Legacy Activity log collection
         items:
         - name: Collect and analyze
           displayname: Activity log
@@ -1162,8 +1154,12 @@
       href: platform/metrics-supported.md
     - name: Supported metrics for newer alerts
       href: platform/alerts-metric-near-real-time.md
-  - name: Resource log services, categories, and schemas
-    href: platform/diagnostic-logs-schema.md
+  - Platform logs
+    items:
+    - name: Resource log services, categories, and schemas
+      href: platform/diagnostic-logs-schema.md
+    - Name: Activity log schema
+      href: platform/activity-log-schema.md
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure CLI - Application Insights (Preview)
