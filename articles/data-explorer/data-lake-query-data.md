@@ -16,7 +16,7 @@ Azure Data Lake Storage is a highly scalable and cost-effective data lake soluti
 Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Storage Gen2, providing fast, cached, and indexed access to data in the lake. You can analyze and query data in the lake without prior ingestion into Azure Data Explorer. You can also query across ingested and uningested native lake data simultaneously.  
 
 > [!TIP]
-> The best query performance necessitates data ingestion into Azure Data Explorer. The capability to query data in Azure Data Lake Storage Gen2 without prior ingestion should only be used for historical data or data that is rarely queried. See [best practices](#best-practices) section below for more information.
+> The best query performance necessitates data ingestion into Azure Data Explorer. The capability to query data in Azure Data Lake Storage Gen2 without prior ingestion should only be used for historical data or data that is rarely queried. [Optimize your query performance in the lake](#optimize-your-query-performance) for best results.
  
 
 ## Create an external table
@@ -222,35 +222,36 @@ This query uses partitioning, which optimizes query time and performance. The qu
   
 You can write additional queries to run on the external table *TaxiRides* and learn more about the data. 
 
+## Optimize your query performance
 
-## Best practices
-
-Below are some important points when considering querying external data (most of them are relevant not only for Azure Data Explorer). 
+Optimize your query performance in the lake by using the following best practices for querying external data. 
  
 ### Data format
  
-Use columnar format for analytical queries - this allows reading only columns relevant to a query. Also, different column encoding techniques allow for reducing data size significantly, which always have positive effect considering data transfer is usually the bottleneck. Azure Data Explorer supports Parquet and ORC columnar formats, however current implementations of ORC reader is less optimized than Parquet's, therefore current suggestion is Parquet.
+Use a columnar format for analytical queries since:
+* Only the columns relevant to a query can be read. 
+* Column encoding techniques can reduce data size significantly.  
+Azure Data Explorer supports Parquet and ORC columnar formats. Parquet format is suggested due to optimized implementation. 
  
 ### Azure region 
  
-Make sure external data resides in the same region as Azure Data Explorer cluster. This reduces both the cost and the data fetch time.
+Ascertain that external data resides in the same Azure region as your Azure Data Explorer cluster. This reduces cost and data fetch time.
  
 ### File size
  
-Try to avoid many small files  this brings unneeded overhead, taking advantage of columnar format is hard, files enumeration process is slower, etc. As a rule of thumb - start with hundreds of Mb (up to 1Gb) per file, and see how this works for you. This is valid, of course, while the number of such files is greater than the number of CPU cores in your Azure Data Explorer cluster. 
+Optimal file size is hundreds of Mb (up to 1 Gb) per file. Avoid many small files that require unneeded overhead, such as slower file enumeration process and limited use of columnar format. Note that the number of files must be greater than the number of CPU cores in your Azure Data Explorer cluster. 
  
 ### Compression
  
-Always use compression to reduce amount of data being fetched from the remote storage. When using Parquet format - use internal Parquet compression mechanism, which compresses column groups separately, thus allowing to read them separately (to validate, check that files are named like “<filename>.gz.parquet” or “<filename>.snappy.parquet” as opposed to “<filename>.parquet.gz”). As for the compression codec itself - it’s not very much important, but rumors say that “gzip” gives better compression ratio, while “snappy” gives better throughput when decoding. Try what works best for your use case.
+Use compression to reduce the amount of data being fetched from the remote storage. For Parquet format, use the internal Parquet compression mechanism that compresses column groups separately, thus allowing you to read them separately. To validate use of compression mechanism, check that the files are named as follows: “<filename>.gz.parquet” or “<filename>.snappy.parquet” as opposed to “<filename>.parquet.gz”). 
  
 ### Partitioning
  
-Always organize your data using "folder" partitions in such a way that enables query engine for skipping irrelevant paths. Look at most of your queries, what filter is used the most? Usually, this would be a timestamp or some sort of tenant ID (or a combination of both). When planning partitioning, however, think about file size. As a side note, Azure Data Explorer doesn’t support partition discovery yet the way it works in Spark (Databricks), when paths named like `/customer_id=Xyz/year=2018/month=01/day=01` automatically appear in resulted datasets as columns, therefore partitions must present in the data as fields.
+Organize your data using "folder" partitions that enables the query to skip irrelevant paths. When planning partitioning consider file size and common filters in your queries such as timestamp or tenant ID.
  
 ### VM size
  
-When choosing appropriate size of Azure Data Explorer engine nodes, prefer instances with more cores and higher network throughput (memory amount is less important).
-
+Select VM SKUs with more cores and higher network throughput (memory is less important). For more information see [Select the correct VM SKU for your Azure Data Explorer cluster](manage-cluster-choose-sku.md).
 
 ## Next steps
 
