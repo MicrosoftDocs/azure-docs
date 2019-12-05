@@ -230,7 +230,7 @@ The [Start, monitor, and cancel training runs](how-to-manage-runs.md) article hi
 
 ### View active/queued runs from the browser
 
-Compute targets used to train models are a shared resource. As such, they may have multiple jobs queued or running at a given time. To see the training jobs for a specific compute target from your browser, use the following steps:
+Compute targets used to train models are a shared resource. As such, they may have multiple runs queued or active at a given time. To see the runs for a specific compute target from your browser, use the following steps:
 
 1. From the [Azure Machine Learning studio](https://ml.azure.com/), select your workspace, and then select __Compute__ from the left side of the page.
 
