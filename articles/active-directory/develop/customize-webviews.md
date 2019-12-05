@@ -3,20 +3,16 @@ title: Customize browsers and WebViews
 titleSuffix: Microsoft identity platform
 description: Learn how to customize the browser experience used by MSAL for iOS and macOS to sign in users
 services: active-directory
-documentationcenter: dev-center-name
 author: tylermsft
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: 
+ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
