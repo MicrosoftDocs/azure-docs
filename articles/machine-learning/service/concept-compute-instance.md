@@ -29,7 +29,7 @@ A compute instance is a managed virtual machine (VM), optimized to be your machi
     * JupyterLab
     * RStudio
     * Visual Studio Code 
-* **Collaborative**: Provide your team of data scientists with a collaborative environment. Within the boundaries of a workspace, you can collaboratively debug models, and share notebooks on shared compute instances.
+* **Collaborative**: Provide your team of data scientists with a collaborative environment. Within the boundaries of a workspace, you can collaboratively debug models.
 * **Managed and secure**:  Reduce your security footprint and add compliance with enterprise security requirements. Compute instances  provide robust management policies and secure networking configurations such as:
     * Automated provisioning through Resource Manager templates or Azure Machine Learning SDK.
     * [Role-based access control (RBAC)](/azure/role-based-access-control/overview).
@@ -94,11 +94,11 @@ Compute instances are typically used as development environments.  They can also
 
 ## Accessing files
 
-Notebooks and R scripts are stored in the default storage account of your workspace in Azure file share.  These files are located under your “User files” directory. This storage makes it easy to share notebooks between compute instances. The storage account also keeps your notebooks safely preserved when you stop or delete a compute instance. 
+Notebooks and R scripts are stored in the default storage account of your workspace in Azure file share.  These files are located under your “User files” directory. This storage makes it easy to share notebooks between compute instances. The storage account also keeps your notebooks safely preserved when you stop or delete a compute instance.
 
-The Azure file share account of your workspace is mounted as a drive on the compute instance. This drive is the default working directory for Jupyter, Jupyter Labs, and RStudio. 
+The Azure file share account of your workspace is mounted as a drive on the compute instance. This drive is the default working directory for Jupyter, Jupyter Labs, and RStudio.
 
-The files in the file share are accessible from all compute instances in the same workspace. Any changes to these files on the compute instance will be reliably persisted back to the file share. 
+The files in the file share are accessible from all compute instances in the same workspace. Any changes to these files on the compute instance will be reliably persisted back to the file share.
 
 You can also clone the latest Azure Machine Learning samples to the user files directory in the workspace file share.
 
@@ -112,7 +112,7 @@ In your workspace in Azure Machine Learning studio, select **Compute**, then sel
 
 You can perform the following actions:
 
-* Create a compute instance. Specify the name, Azure VM type including GPUs, enable/disable SSH access, and configure virtual network settings optionally. You can also create an instance directly from integrated notebooks, Azure portal, Resource Manager template, or Azure Machine Learning SDK. The dedicated cores per region quota which applies to compute instance creation is unified and shared with Azure Machine Learning compute cluster quota. 
+* Create a compute instance. Specify the name, Azure VM type including GPUs, enable/disable SSH access, and configure virtual network settings optionally. You can also create an instance directly from integrated notebooks, Azure portal, Resource Manager template, or Azure Machine Learning SDK. The dedicated cores per region quota which applies to compute instance creation is unified and shared with Azure Machine Learning compute cluster quota.
 * Start a compute instance
 * Stop a compute instance
 * Delete a compute instance
