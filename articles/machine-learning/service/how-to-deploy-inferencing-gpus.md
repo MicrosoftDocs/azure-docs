@@ -168,7 +168,7 @@ For more information, see the reference documentation for [AksService.deploy_con
 
 ## Define the inference configuration
 
-The inference configuration points to the entry script and an environment object, which uses a proper docker image with GPU support:
+The inference configuration points to the entry script and an environment object, which uses a docker image with GPU support:
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -212,7 +212,7 @@ For more information, see the reference documentation for [Model](https://docs.m
 
 ## Issue a sample query to your service
 
-Send a test query to the deployed model. When you send a jpeg image to the model, it scores the image. The following code sample downloads test data and then selects a random test image to send to the service. 
+Send a test query to the deployed model. When you send a jpeg image to the model, it scores the image. The following code sample downloads test data and then selects a random test image to send to the service.
 
 ```python
 # Used to test your webservice
