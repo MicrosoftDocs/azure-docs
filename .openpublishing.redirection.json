@@ -12443,6 +12443,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/create-firewall-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/common/ipfirewall",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices-linux.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-connecting-devices-linux",
       "redirect_document_id": false
