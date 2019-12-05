@@ -605,7 +605,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_octokitty.svg" style="width:140px" alt="" />
+                                                        <img src="media/hub/speech_github_issues.png" style="width:140px" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -624,7 +624,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_stackoverflow.svg" style="width:140px" alt="" />
+                                                        <img src="media/hub/speech_stackoverflow.png" style="width:140px" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -643,7 +643,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo-uservoice.svg" style="width:140px" alt="" />
+                                                        <img src="media/hub/speech_uservoice.png" style="width:140px" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -881,7 +881,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_recognition_from_blob.jpg" alt="" />
+                                                        <img src="media/hub/speech_call_center_transcription.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -924,7 +924,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-about.svg" alt="" />
+                                                        <img src="media/hub/speech_containers.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -943,7 +943,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech_regions.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
