@@ -51,8 +51,8 @@ landingContent:
         links:
           - text: Internet Analyzer FAQ
             url: internet-analyzer-faq.md
-          - text: Internet Analyzer Troubleshooting
-            url: internet-analyzer-troubleshooting.md
+          - text: Internet Analyzer troubleshooting
+            url: troubleshoot.md
           - text: Internet Analyzer CLI reference
             url: https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest
 
