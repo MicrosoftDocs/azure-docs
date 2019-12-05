@@ -5,8 +5,8 @@ keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
