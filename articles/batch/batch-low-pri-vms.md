@@ -281,4 +281,4 @@ Low-priority VMs will continue to be supported until November 30, 2020 using the
 
 * Read the [Batch feature overview for developers](batch-api-basics.md), essential information for anyone preparing to use Batch. The article contains more detailed information about Batch service resources like pools, nodes, jobs, and tasks, and the many API features that you can use while building your Batch application.
 * Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
-* Start to plan the move from low-priority VMs to spot VMs. If you use low-priority VMs with `Cloud Service Configuration` pools, then plan to move to `Virtual Machine Configuration' pools.
+* Start to plan the move from low-priority VMs to Spot VMs. If you use low-priority VMs with **Cloud Service configuration** pools, then plan to move to **Virtual Machine configuration** pools.
