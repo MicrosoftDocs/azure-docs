@@ -34,7 +34,7 @@ For more information, see [Supported languages](supported-languages.md).
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
 
-By default, function apps created in the Azure portal and by the Azure CLI are set to version 2.x. You can modify this version as needed. You can only change the runtime version to 1.x after you create your function app but before you add any functions.  Moving between 2.x and 3.x is allowed even with apps that have functions, but it is still recommended to test in a new app first. To learn how to pin the runtime version to a different version, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
+By default, function apps created in the Azure portal and by the Azure CLI are set to version 2.x. You can modify this version as needed. You can only change the runtime version to 1.x after you create your function app but before you add any functions.  Moving between 2.x and 3.x is allowed even with apps that have functions, but it is still recommended to test in a new app first.
 
 ## Migrating from 1.x to later versions
 
@@ -50,7 +50,7 @@ There are also a few changes in the *function.json* or attributes of the functio
 
 ### Changes in features and functionality after version 1.x
 
-A few features are removed, updated, or replaced in the new version. This section details the changes you see in version 2.x and 3.x after having used version 1.x.
+A few features were removed, updated, or replaced after version 1.x. This section details the changes you see in later versions after having used version 1.x.
 
 In version 2.x, the following changes were made:
 
@@ -75,6 +75,36 @@ In version 2.x, the following changes were made:
 ## Migrating from 2.x to 3.x
 
 Azure Functions version 3.x is a highly backwards compatible to version 2.x.  Many apps should be able to safely upgrade to 3.x without any code changes.  While moving to 3.x is encouraged, be sure to run extensive tests before changing the major version in production apps.
+
+### Breaking changes between 2.x and 3.x
+
+The following are the changes to be aware of before upgrading a 2.x app to 3.x.
+
+#### JavaScript
+
+* Output bindings assigned through `context.done` or return values now behave the same as setting in `bindingData`.
+
+* Timer trigger object is camelCase instead of PascalCase
+
+* Event Hub triggered functions with `dataType` binary will receive an array of `binary` instead of `string`.
+
+* The HTTP request payload can no longer be accessed via `context.bindingData.req`.  It can still be accessed as an input parameter, `context.req`, and in `context.bindings`.
+
+#### .NET
+
+* Synchronous server operations are disabled by default.
+
+### Changing version of apps in Azure
+
+The version of the Functions runtime used by published apps in Azure is dictated by the [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) application setting. The following major runtime version values are supported:
+| Value | Runtime target |
+| ------ | -------- |
+| `~3` | 3.x |
+| `~2` | 2.x |
+| `~1` | 1.x |
+
+>[!IMPORTANT]
+> Don't arbitrarily change this setting, because other app setting changes and changes to your function code may be required.
 
 ### Migrating a locally developed application
 
@@ -139,18 +169,6 @@ You can migrate Java apps from version 2.x to 3.x by [installing the 3.x version
     </appSettings>
 </configuration>
 ```
-
-### Changing version of apps in Azure
-
-The version of the Functions runtime used by published apps in Azure is dictated by the [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) application setting. The following major runtime version values are supported:
-| Value | Runtime target |
-| ------ | -------- |
-| `~3` | 3.x |
-| `~2` | 2.x |
-| `~1` | 1.x |
-
->[!IMPORTANT]
->Don't arbitrarily change this setting, because other app setting changes and changes to your function code are likely required. To learn about the recommended way to migrate your function app to a different runtime version, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 ## Bindings
 

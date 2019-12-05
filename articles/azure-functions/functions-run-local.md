@@ -28,11 +28,9 @@ Developing functions on your local computer and publishing them to Azure using C
 
 There are three versions of Azure Functions Core Tools. The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required:
 
-+ **Version 1.x**: Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools). With this version, you can create functions in experimental languages that are not officially supported. For more information, see [Supported languages in Azure Functions](supported-languages.md)
++ **Version 1.x**: Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Version 2.x**](#v2): Supports [version 2.x of the Azure Functions runtime](functions-versions.md). This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux) and uses platform-specific package managers or npm for installation.
-
-+[**Version 3.x**](#v2): Supports [version 3.x of the Azure Functions runtime](functions-versions.md). This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux) and uses platform-specific package managers or npm for installation.
++ [**Version 2.x/3.x**](#v2): Supports [version 2.x of the Azure Functions runtime](functions-versions.md). This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux) and uses platform-specific package managers or npm for installation.
 
 Unless otherwise noted, the examples in this article are for version 3.x.
 
@@ -42,7 +40,7 @@ Unless otherwise noted, the examples in this article are for version 3.x.
 
 ### <a name="v2"></a>Version 2.x and 3.x
 
-Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). 
+Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). 
 
 > [!IMPORTANT]
 > You can bypass the requirement for installing the .NET Core SDK by using [extension bundles].
@@ -51,27 +49,18 @@ Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .
 
 The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-# [2.x](#tab/2x)
-
 1. Install [Node.js], which includes npm.
     - For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
 
 1. Install the Core Tools package:
 
+    ##### v2.x
+
     ```bash
     npm install -g azure-functions-core-tools
     ```
 
-   It may take a few minutes for npm to download and install the Core Tools package.
-
-1. If you do not plan to use [extension bundles], install the [.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows).
-
-# [3.x](#tab/3x)
-
-1. Install [Node.js], which includes npm.
-    - For version 3.x of the tools, only Node.js 10 and later versions are supported.
-
-1. Install the Core Tools package:
+    ##### v3.x
 
     ```bash
     npm install -g azure-functions-core-tools@3
@@ -79,32 +68,24 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
    It may take a few minutes for npm to download and install the Core Tools package.
 
-1. If you do not plan to use [extension bundles], install the [.NET Core 3.x SDK for Windows](https://www.microsoft.com/net/download/windows).
-
----
+1. If you do not plan to use [extension bundles], install the [.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS with Homebrew
 
 The following steps use Homebrew to install the Core Tools on macOS.
 
-# [2.x](#tab/2x)
-
 1. Install [Homebrew](https://brew.sh/), if it's not already installed.
 
 1. Install the Core Tools package:
+
+    ##### v2.x
 
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
 
-1. If you do not plan to use [extension bundles], install [.NET Core 2.x SDK for macOS](https://www.microsoft.com/net/download/macos).
-
-# [3.x](#tab/3x)
-
-1. Install [Homebrew](https://brew.sh/), if it's not already installed.
-
-1. Install the Core Tools package:
+    ##### v3.x
 
     ```bash
     brew tap azure/functions
@@ -112,10 +93,6 @@ The following steps use Homebrew to install the Core Tools on macOS.
     # if upgrading on a machine that has 2.x installed
     brew link --overwrite azure-functions-core-tools@3
     ```
-
-1. If you do not plan to use [extension bundles], install [.NET Core 3.x SDK for macOS](https://www.microsoft.com/net/download/macos).
-
----
 
 #### <a name="linux"></a> Linux (Ubuntu/Debian) with APT
 
