@@ -47,20 +47,15 @@ Before you can use a custom keyword, you'll need to create a keyword using the [
 
 1. At the [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) page, create a **New project**. 
 
-    ![Create a new keyword project](media/custom-keyword/custom-kws-portal-landing-page.png)
-
 1. Enter a **Name**, an optional **Description**, and select the language. You will need one project per language and support is currently limited to the en-US language.
 
     ![Describe your keyword project](media/custom-keyword/custom-kws-portal-new-project.png)
 
-1. From the project list click on the **Name** of the your project. In the example below it is **MyKeyword**
+1. Select your project from the list. 
 
     ![Select your keyword project](media/custom-keyword/custom-kws-portal-project-list.png)
 
-
 1. To start a new keyword model click **Train model**.
-
-    ![Train a new model](media/custom-keyword/custom-kws-portal-model-list.png)  
 
 1. Enter a **Name** for the keyword model, and optional **Description** and type in the **Keyword** of your choice, and click **Next**. We have some [guidelines](#choose-an-effective-keyword) to help choose an effective keyword.
 
@@ -70,10 +65,7 @@ Before you can use a custom keyword, you'll need to create a keyword using the [
 
     ![Review your keyword](media/custom-keyword/custom-kws-portal-choose-prons.png) 
 
-
-
 1. It may take up to ten minutes for the model to be generated. The keyword list will change from **Processing** to **Succeeded** when the model is complete. You can then download the file.
-
 
     ![Review your keyword](media/custom-keyword/custom-kws-portal-download-model.png) 
 
