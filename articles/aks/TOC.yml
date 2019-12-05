@@ -218,6 +218,8 @@
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
       maintainContext: true
+    - name: Create a private cluster
+      href: private-clusters.md
   - name: Monitoring and logging
     items:
     - name: Azure Monitor for containers

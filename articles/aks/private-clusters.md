@@ -7,7 +7,7 @@ manager: saudas
 
 ms.service: container-service
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 12/05/2019
 ms.author: saudas
 ---
 
@@ -15,9 +15,7 @@ ms.author: saudas
 
 In a private cluster, the Control Plane/API server will have internal IP addresses defined in [RFC1918](https://tools.ietf.org/html/rfc1918).  
 
-The communication between the control plane/API server, which is in an Azure subscription and the customers cluster / node pool, which is in a customer subscription can communicate with each other through the private link service in the API server VNET and a private end point exposed in the subnet of the customer AKS cluster.
-
-Private cluster users can use a Standard Load Balancer or an internal load balancer to route traffic inside the private cluster without requiring a public IP.
+The communication between the control plane/API server, which is in an AKS managed Azure subscription, and the customers cluster / node pool, which is in a customer subscription, can communicate with each other through the private link service in the API server VNET and a private endpoint exposed in the subnet of the customer AKS cluster.
 
 > [!IMPORTANT]
 > AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
@@ -29,11 +27,17 @@ Private cluster users can use a Standard Load Balancer or an internal load balan
 
 You must have the following:
 
-* You also need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.14 extension
+* You also need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.18 extension
+
+## Current Suported regions
+* Australia East
+* West US
+* West US 2
+* Canada Central
 
 ## Install latest AKS CLI preview extension
 
-You need the **aks-preview 0.4.14** extension or later.
+You need the **aks-preview 0.4.18** extension or later.
 
 ```azurecli-interactive
 az extension update --name aks-preview 
@@ -44,9 +48,7 @@ az extension list
 > When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
 ```azurecli-interactive
-az feature register --name AllowPrivateEndpoints --namespace Microsoft.Network
 az feature register --name AKSPrivateLinkPreview --namespace Microsoft.ContainerService
-az feature register --name AKSAzureStandardLoadBalancer --namespace Microsoft.ContainerService
 ```
 
 It may take several minutes for the status to show *Registered*. You can check on the registration status by using the [az feature list][az-feature-list] command:
@@ -103,17 +105,12 @@ The API server end point has no public IP address. Consequently, users will need
 ## Dependencies  
 * Standard LB Only – no support for basic load balancer  
 
-## Known Issues 
-* Scaling and upgrading cluster through AKS RP will not cordon nor drain the node [Will be fixed by public preview]
-* Upgrade cluster will likely fail [Will be fixed by public preview]
-
 ## Limitations 
-* Cannot create more than one AKS cluster into same VNET
 * No support for virtual nodes in a private cluster to spin private ACI instances in a private Azure VNET.
 * No support for Azure DevOps integration out of the box with private clusters
 * If customers need to enable ACR to work with private AKS, then the ACR’s VNET will need to be peered with the agent cluster VNET
-* Devspaces might not work. You might be able to get it to work with [self hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-linux?view=azure-devops)
+* No current support for Azure Dev Spaces
 * IPV4 traffic Only – No support for IPv6 traffic 
 * No support to convert existing AKS clusters to private clusters  
-* Deleting the private end point in the customer subnet will cause the cluster to stop functioning 
-* Azure monitoring won't work
+* Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning 
+* Azure Monitor for containers Live Data is not currently supported
