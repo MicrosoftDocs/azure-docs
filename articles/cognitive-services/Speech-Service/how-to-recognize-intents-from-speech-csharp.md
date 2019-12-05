@@ -39,7 +39,7 @@ Be sure you have the following items before you begin this guide:
 
 ## LUIS and speech
 
-LUIS integrates with the Speech Services to recognize intents from speech. You don't need a Speech Services subscription, just LUIS.
+LUIS integrates with the Speech service to recognize intents from speech. You don't need a Speech service subscription, just LUIS.
 
 LUIS uses three kinds of keys:
 
@@ -51,7 +51,7 @@ LUIS uses three kinds of keys:
 
 For this guide, you need the endpoint key type. This guide uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) quickstart. If you've created a LUIS app of your own, you can use it instead.
 
-When you create a LUIS app, LUIS automatically generates a starter key so you can test the app using text queries. This key doesn't enable the Speech Services integration and won't work with this guide. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this guide.
+When you create a LUIS app, LUIS automatically generates a starter key so you can test the app using text queries. This key doesn't enable the Speech service integration and won't work with this guide. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this guide.
 
 After you create the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the **My Apps** page, then switch to the app's **Manage** page. Finally, select **Keys and Endpoints** in the sidebar.
 
@@ -123,7 +123,7 @@ The following sections include a discussion of the code.
 First, you need to create a speech configuration from your LUIS endpoint key and region. You can use speech configurations to create recognizers for the various capabilities of the Speech SDK. The speech configuration has multiple ways to specify the subscription you want to use; here, we use `FromSubscription`, which takes the subscription key and region.
 
 > [!NOTE]
-> Use the key and region of your LUIS subscription, not of a Speech Services subscription.
+> Use the key and region of your LUIS subscription, not a Speech service subscription.
 
 Next, create an intent recognizer using `new IntentRecognizer(config)`. Since the configuration already knows which subscription to use, you don't need to specify the subscription key and endpoint again when creating the recognizer.
 
