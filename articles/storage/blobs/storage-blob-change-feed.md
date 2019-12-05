@@ -54,11 +54,9 @@ Here's a few things to keep in mind when you enable the change feed.
 
 Enable change feed on your storage account by using Azure portal:
 
-1. Launch the [Azure portal.](https://portal.azure.com/)
+1. In the [Azure portal](https://portal.azure.com/), select your storage account. 
 
-2. Select your Azure Storage account. 
-
-3. Navigate to the **Data Protection** option under **Blob Service**.
+2. Navigate to the **Data Protection** option under **Blob Service**.
 
 3. Click **Enabled** under **Blob change feed**
 
@@ -304,7 +302,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 ## Conditions and known issues (Preview)
 
-This section describes known issues and conditions in the current public preview of the change feed. Fixes will be implemented when the feature is GA.
+This section describes known issues and conditions in the current public preview of the change feed. 
 - For preview, you must first [register your subscription](#register) before you can enable change feed for your storage account in the westcentralus or westus2 regions. 
 - The change feed captures only create, update, delete, and copy operations. Metadata updates are not currently captured in preview.
 - Change event records for any single change might appear more than once in your change feed.
