@@ -12,7 +12,7 @@ ms.date: 12/04/2019
 
 # Quickstart: Create an Azure Databricks workspace in your own Virtual Network
 
-The default deployment of Azure Databricks creates a new virtual network that is managed by Databricks. This quickstart shows how to create an Azure Databricks workspace in you own virtual network instead. You also create an Apache Spark cluster within that workspace. 
+The default deployment of Azure Databricks creates a new virtual network that is managed by Databricks. This quickstart shows how to create an Azure Databricks workspace in your own virtual network instead. You also create an Apache Spark cluster within that workspace. 
 
 For more information about why you might choose to create an Azure Databricks workspace in your own virtual network, see [Deploy Azure Databricks in your Azure Virtual Network (VNet Injection)] (/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
