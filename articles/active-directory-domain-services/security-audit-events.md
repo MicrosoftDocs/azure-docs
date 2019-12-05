@@ -14,7 +14,7 @@ ms.date: 10/31/2019
 ms.author: iainfou
 
 ---
-# Enable security audits for Azure Active Directory Domain Services (preview)
+# Enable security audits for Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (Azure AD DS) security audits lets Azure stream security events to targeted resources. These resources include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. After you enable security audit events, Azure AD DS sends all the audited events for the selected category to the targeted resource. You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Azure portal.
 
@@ -79,7 +79,7 @@ To enable Azure AD DS security audit events using the Azure portal, complete the
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 1. At the top of the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aadds.contoso.com*.
-1. In the Azure AD DS window, select **Diagnostic settings (preview)** on the left-hand side.
+1. In the Azure AD DS window, select **Diagnostic settings** on the left-hand side.
 1. No diagnostics are configured by default. To get started, select **Add diagnostic setting**.
 
     ![Add a diagnostic setting for Azure AD Domain Services](./media/security-audit-events/add-diagnostic-settings.png)
