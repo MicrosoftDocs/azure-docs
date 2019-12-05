@@ -98,7 +98,7 @@ With the changes introduced in this enhanced Secure Score, you must solve all re
 ### If I address only three out of four recommendations in a Security Control, will my Secure Score change?
 No; it won't change until you remediate all of the recommendation for a single resource. To get the maximum score for a control, you must remediate all recommendations, for all resources.
 
-### Will this enhanced Secure Score replace the old Secure Score? 
+### Will this enhanced Secure Score replace the existing Secure Score? 
 Yes, but for a while they will be running side by side to ease the transition.
 
 ### Can I access Secure Score via an API?

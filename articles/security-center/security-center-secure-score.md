@@ -19,7 +19,7 @@ ms.author: memildin
 # Improve your Secure Score in Azure Security Center
 
 > [!NOTE]
-> There is an enhanced Secure Score available in preview. The enhanced Secure Score will eventually replace the old Secure Score, but for a while they will be running side-by-side to ease the transition.
+> There is an enhanced Secure Score available in preview. The enhanced Secure Score will eventually replace the existing Secure Score, but for a while they will be running side-by-side to ease the transition.
 >
 > For details of the benefits of the enhanced Secure Score, see [here](secure-score-and-controls.md).
 >
