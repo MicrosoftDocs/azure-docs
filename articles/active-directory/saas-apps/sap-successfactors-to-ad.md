@@ -140,7 +140,7 @@ This section provides steps for user account provisioning from SuccessFactors to
 
 * [Add the provisioning connector app and download the Provisioning Agent](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
 * [Install and configure on-premises Provisioning Agent(s)](#part-2-install-and-configure-on-premises-provisioning-agents)
-* [Configure connectivity to SuccessFactors and Active Directory](#part-3-in-the-provisioning-app-configure-connectivity-to-successFactors-and-active-directory)
+* [Configure connectivity to SuccessFactors and Active Directory](#part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory)
 * [Configure attribute mappings](#part-4-configure-attribute-mappings)
 * [Enable and launch user provisioning](#enable-and-launch-user-provisioning)
 
