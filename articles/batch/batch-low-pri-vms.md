@@ -264,7 +264,7 @@ Support for spot VMs will not be added for ‘[cloud service configuration](http
 
 With this Batch SDK update, new versions of the tools, such as the Azure Command-Line Interface (CLI) and Batch Explorer, will be made available and support Spot VMs.
 
-Low-priority VMs will continue to be supported until November 30, 2020 using the following API versions; later API versions will support spot VMs:
+Low-priority VMs will continue to be supported until November 30, 2020 using the following API versions; later API versions will support Spot VMs:
 
 | API or Tool | Service API Version | Management API Version |
 | - | - | - |
