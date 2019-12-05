@@ -45,7 +45,7 @@ You take the following steps:
     - Launch **Settings** window on your computer.
     - Select the **System** tile.
     - Select **Notifications & actions** from the left menu. 
-    - Confirm that the **Get notifications from apps and other senders** setting is enabled. If it isn't enabled, enable it. 
+    - Confirm that the **Get notifications from apps and other senders** setting is enabled. If it isn't enabled, enable it.
 
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for UWP apps.
 
@@ -53,7 +53,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 To send push notifications to UWP apps, associate your app to the Windows Store. Then, configure your notification hub to integrate with WNS.
 
-1. Navigate to the [Windows Dev Center](https://partner.microsoft.com/en-us/dashboard/windows/first-run-experience), sign in with your Microsoft account, and then select **Create a new app**.
+1. Navigate to the [Windows Dev Center](https://partner.microsoft.com/dashboard/windows/first-run-experience), sign in with your Microsoft account, and then select **Create a new app**.
 
     ![New app button](./media/notification-hubs-windows-store-dotnet-get-started/windows-store-new-app-button.png)
 2. Type a name for your app, and then select **Reserve product name**. Doing so creates a new Windows Store registration for your app.
@@ -88,8 +88,8 @@ Your notification hub is now configured to work with WNS. You have the connectio
 
     1. In the search box at the top, type **Windows Universal**.
     2. In the search results, select **Blank App (Universal Windows)**, and then select **Next**.
-    4. In the **Configure your new project** dialog, enter a **Project name**, and a **Location** for the project files.
-    5. Select **Create**.
+    3. In the **Configure your new project** dialog, enter a **Project name**, and a **Location** for the project files.
+    4. Select **Create**.
 
         ![New Project dialog](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
 3. Accept the defaults for the **target** and **minimum** platform versions, and select **OK**.
