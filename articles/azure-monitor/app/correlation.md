@@ -265,8 +265,9 @@ The `operation_ParentId` field is in the format `<trace-id>.<parent-id>`, where 
 
 ### Log correlation
 
-OpenCensus Python allows correlation of logs by enriching log records with trace ID, span ID and sampling flag. This is done by installing the OpenCensus [logging integration](https://pypi.org/project/opencensus-ext-logging/). The following attributes will be added to Python `LogRecord`s: `traceId`, `spanId` and `traceSampled`. Note that this only takes effect for loggers created after the integration.
-Below is a sample application demonstrating this.
+OpenCensus Python enables you to correlate logs by adding a trace ID, a span ID, and a sampling flag to log records. You add these attributes by installing OpenCensus [logging integration](https://pypi.org/project/opencensus-ext-logging/). These attributes will be added to Python `LogRecord` objects: `traceId`, `spanId`, and `traceSampled`. Note that this takes effect only for loggers that are created after the integration.
+
+Here's a sample application that demonstrates this:
 
 ```python
 import logging
@@ -285,59 +286,59 @@ with tracer.span(name='hello'):
     logger.warning('In the span')
 logger.warning('After the span')
 ```
-When this code is run, we get the following in the console:
+When this code runs, the following prints in the console:
 ```
 2019-10-17 11:25:59,382 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 Before the span
 2019-10-17 11:25:59,384 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=70da28f5a4831014 In the span
 2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
 ```
-Observe how there is a spanId present for the log message that is within the span, which is the same spanId that belongs to the span named `hello`.
+Notice that there's a `spanId` present for the log message that's within the span. This is the same `spanId` that belongs to the span named `hello`.
 
-You can export the log data using the `AzureLogHandler`. More information can be found [here](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs)
+You can export the log data by using `AzureLogHandler`. For more information, see [this article](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs).
 
 ## Telemetry correlation in .NET
 
-Over time, .NET defined several ways to correlate telemetry and diagnostics logs:
+Over time, .NET has defined several ways to correlate telemetry and diagnostics logs:
 
-- `System.Diagnostics.CorrelationManager` allows tracking of [LogicalOperationStack and ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). 
+- `System.Diagnostics.CorrelationManager` allows the tracking of [LogicalOperationStack and ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx).
 - `System.Diagnostics.Tracing.EventSource` and Event Tracing for Windows (ETW) define the [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx) method.
-- `ILogger` uses [Log Scopes](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). 
+- `ILogger` uses [Log scopes](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes).
 - Windows Communication Foundation (WCF) and HTTP wire up "current" context propagation.
 
-However, those methods didn't enable automatic distributed tracing support. `DiagnosticSource` is a way to support automatic cross-machine correlation. .NET libraries support 'DiagnosticSource' and allow automatic cross-machine propagation of the correlation context via the transport, such as HTTP.
+But those methods didn't enable automatic distributed tracing support. `DiagnosticSource` supports automatic cross-machine correlation. .NET libraries support `DiagnosticSource` and allow automatic cross-machine propagation of the correlation context via the transport, such as HTTP.
 
-The [guide to Activities](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) in `DiagnosticSource` explains the basics of tracking activities.
+The [Activity User Guide](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) in `DiagnosticSource` explains the basics of tracking activities.
 
-ASP.NET Core 2.0 supports extraction of HTTP headers and starting a new activity.
+ASP.NET Core 2.0 supports extraction of HTTP headers and starting new activities.
 
-`System.Net.Http.HttpClient`, starting with version 4.1.0, supports automatic injection of the correlation HTTP headers and tracking the HTTP call as an activity.
+`System.Net.Http.HttpClient`, starting with version 4.1.0, supports automatic injection of correlation HTTP headers and tracking HTTP calls as activities.
 
-There is a new HTTP module, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), for classic ASP.NET. This module implements telemetry correlation by using `DiagnosticSource`. It starts an activity based on incoming request headers. It also correlates telemetry from the different stages of request processing, even for cases when every stage of Internet Information Services (IIS) processing runs on a different managed thread.
+There's a new HTTP module, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), for classic ASP.NET. This module implements telemetry correlation by using `DiagnosticSource`. It starts an activity based on incoming request headers. It also correlates telemetry from the different stages of request processing, even when every stage of Internet Information Services (IIS) processing runs on a different managed thread.
 
 The Application Insights SDK, starting with version 2.4.0-beta1, uses `DiagnosticSource` and `Activity` to collect telemetry and associate it with the current activity.
 
 <a name="java-correlation"></a>
 ## Telemetry correlation in the Java SDK
 
-The [Application Insights SDK for Java](../../azure-monitor/app/java-get-started.md) supports automatic correlation of telemetry beginning with version 2.0.0. It automatically populates `operation_id` for all telemetry (such as traces, exceptions, and custom events) issued within the scope of a request. It also takes care of propagating the correlation headers (described earlier) for service-to-service calls via HTTP, if the [Java SDK agent](../../azure-monitor/app/java-agent.md) is configured.
+[Application Insights SDK for Java](../../azure-monitor/app/java-get-started.md) version 2.0.0 or later supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also takes care of propagating the correlation headers (described earlier) for service-to-service calls via HTTP, if the [Java SDK agent](../../azure-monitor/app/java-agent.md) is configured.
 
 > [!NOTE]
-> Only calls made via Apache HTTPClient are supported for the correlation feature. If you're using Spring RestTemplate or Feign, both can be used with Apache HTTPClient under the hood.
+> Only calls made via Apache HttpClient are supported for the correlation feature. Both Spring RestTemplate and Feign can be used with Apache HttpClient under the hood.
 
-Currently, automatic context propagation across messaging technologies (such Kafka, RabbitMQ, or Azure Service Bus) isn't supported. However, it's possible to code such scenarios manually by using the `trackDependency` and `trackRequest` APIs. In these APIs, a dependency telemetry represents a message being enqueued by a producer, and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
+Currently, automatic context propagation across messaging technologies (like Kafka, RabbitMQ, and Azure Service Bus) isn't supported. It is possible to code such scenarios manually by using the `trackDependency` and `trackRequest` methods. In these methods, a dependency telemetry represents a message being enqueued by a producer, and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
 
-### Telemetry correlation in Asynchronous Java Application
+### Telemetry correlation in asynchronous Java applications
 
-In order to correlate telemetry in Asynchronous Spring Boot application, please follow [this](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) in-depth article. It provides guidance for instrumenting Spring's [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) as well as [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
+To learn how to correlate telemetry in an asynchronous Spring Boot application, see [Distributed Tracing in Asynchronous Java Applications](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications). This article provides guidance for instrumenting Spring's [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) and [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html).
 
 
 <a name="java-role-name"></a>
 ## Role name
 
-At times, you might want to customize the way component names are displayed in the [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by doing one of the following:
+You might want to customize the way component names are displayed in the [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by doing one of the following:
 
-- Starting with Application Insights Java SDK 2.5.0, you can specify the cloud role name
-  by adding `<RoleName>` to your `ApplicationInsights.xml` file, e.g.
+- With Application Insights Java SDK 2.5.0 and later, you can specify the `cloud_RoleName`
+  by adding `<RoleName>` to your ApplicationInsights.xml file:
 
   ```XML
   <?xml version="1.0" encoding="utf-8"?>
@@ -348,16 +349,16 @@ At times, you might want to customize the way component names are displayed in t
   </ApplicationInsights>
   ```
 
-- If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
+- If you use Spring Boot with the Application Insights Spring Boot Starter, you just need to set your custom name for the application in the application.properties file:
 
   `spring.application.name=<name-of-app>`
 
-  The Spring Boot starter automatically assigns `cloudRoleName` to the value you enter for the `spring.application.name` property.
+  The Spring Boot Starter automatically assigns `cloudRoleName` to the value you enter for the `spring.application.name` property.
 
 ## Next steps
 
 - Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md).
-- For advanced correlation scenarios in ASP.NET Core and ASP.NET consult the [track custom operations](custom-operations-tracking.md) article.
+- For advanced correlation scenarios in ASP.NET Core and ASP.NET, see [Track custom operations](custom-operations-tracking.md).
 - Learn more about [setting cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) for other SDKs.
 - Onboard all components of your microservice on Application Insights. Check out the [supported platforms](../../azure-monitor/app/platforms.md).
 - See the [data model](../../azure-monitor/app/data-model.md) for Application Insights types.
