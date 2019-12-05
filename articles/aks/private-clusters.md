@@ -111,7 +111,6 @@ az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
 * No support for Azure DevOps integration out of the box with private clusters
 * If customers need to enable ACR to work with private AKS, then the ACR's VNET will need to be peered with the agent cluster VNET
 * No current support for Azure Dev Spaces
-* IPV4 traffic Only - No support for IPv6 traffic 
 * No support to convert existing AKS clusters to private clusters  
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning 
 * Azure Monitor for containers Live Data isn't currently supported
