@@ -26,6 +26,15 @@ The tradeoff for using low-priority VMs is that those VMs may not be available t
 Low-priority VMs are offered at a significantly reduced price compared with dedicated VMs. For pricing details, 
  see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
+> [!IMPORTANT]
+> Low-priority VMs are going to be replaced by [Spot VMs](https://azure.microsoft.com/pricing/spot/). Spot VMs are an evolution of low-priority VMs, but differ in that pricing can vary and an optional maximum price can be set when allocating Spot VMs.
+>
+> Low-priority VMs will continue to be supported by Batch until November 30, 2020. In addition, Azure Batch will start supporting Spot VMs in the first quarter of 2020 via a new version of the Batch APIs.
+>
+> Spot VMs will not be supported for [Cloud Service Configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) pools after November 30, 2020. To use Spot VMs, Cloud Service pools will need to be migrated to [Virtual Machine Configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
+>
+> [More information is available below](#Migrating-to-Spot-VMs) about the migration from low-priority VMs to spot VMs.
+
 ## Use cases for low-priority VMs
 
 Given the characteristics of low-priority VMs, what workloads can and cannot use
@@ -241,7 +250,35 @@ To view metrics in the Azure portal:
 
 ![Metrics for low-priority nodes](media/batch-low-pri-vms/low-pri-metrics.png)
 
+## Migrating to Spot VMs
+
+[Azure spot VMs](https://azure.microsoft.com/pricing/spot/) are evolution of low-priority VMs. As with low-priority VMs, Spot VMs utilize spare Azure capacity and are available at a significantly reduced price compared to pay-as-you-go VMs, but they do have a number of important differences from low-priority VMs:
+- The price of spot VMs can vary, compared to the fixed pricing for low-priority VMs.
+- To enable predictable costs, a maximum price can be specified when allocating spot VMs. If the current price exceeds the maximum price, then new VMs will not be allocated and existing VMs will be evicted.
+
+Azure Batch pools are being updated to replace low-priority VMs with spot VMs. A new SDK version will enable spot VMs to be specified for Batch pools and allow maximum price to be set, with the variable spot pricing being used. However, low-priority VMs, with fixed pricing, will continue to be available using the current Batch SDK, until November 30, 2020.
+
+If you are using ‘[virtual machine configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)’ pools, you can continue to use the current SDK and allocate low-priority VMs until November 30, 2020.  After this date, it will not be possible to use the current SDK to create pools that use low-priority VMs; pool creation and resize will fail if any low-priority VMs are specified. You should plan on moving from low-priority VMs to spot VMs by using a new version of the Batch SDK, which will be available in first quarter of 2020.
+
+Support for spot VMs will not be added for ‘[cloud service configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration)’ pools. It will not be possible to allocate low-priority VMs after November 30, 2020. You will need to migrate from ‘cloud service configuration’ pools to ‘virtual machine configuration’ pools and then use spot VMs, by using the new Batch SDK version, when available.
+
+As with any Batch SDK update, new versions of the tools, such as the Azure Command-Line Interface (CLI) and Batch Explorer, will be made available and support spot VMs.
+
+Low-priority VMs will continue to be supported until November 30, 2020 using the following API versions; later API versions will support spot VMs:
+
+| API or Tool | Service API Version | Management API Version |
+| - | - | - |
+| REST   | 2019-08-01.10.0 | 2019-08-01.10.0 |
+|.NET    | 12.0.0 | 9.0.0 |
+|Java    | 7.0.0  | 7.0.0 |
+|Node.js | 8.0.0  | 5.0.0 |
+|Python  | 8.0.0  | 7.0.0 |
+| Azure CLI | 2.0.77 | 2.0.77 |
+| Azure PowerShell | 3.1.0 | 3.1.0 |
+
+
 ## Next steps
 
 * Read the [Batch feature overview for developers](batch-api-basics.md), essential information for anyone preparing to use Batch. The article contains more detailed information about Batch service resources like pools, nodes, jobs, and tasks, and the many API features that you can use while building your Batch application.
 * Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
+* Start to plan the move from low-priority VMs to spot VMs. If you use low-priority VMs with `Cloud Service Configuration` pools, then plan to move to `Virtual Machine Configuration' pools.
