@@ -3,7 +3,7 @@ title: About the MARS Agent
 description: Learn how the MARS Agent supports the backup scenarios
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 12/02/2019
 ---
 
 # About the Microsoft Azure Recovery Services (MARS) Agent
@@ -53,7 +53,7 @@ The MARS agent supports the following restore scenarios:
 -	**Offline Seeding** - Initial full backups of data to Azure, typically transfer large amounts of data and requires more network bandwidth when compared to subsequent backups that transfer only the delta/incremental. Azure Backup compresses the initial backups. Through the process of offline seeding, Azure Backup can use disks to upload the compressed initial backup data offline to Azure. [Learn more](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
 
 
-## Next Steps
+## Next steps
 [The MARS agent support matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)
 
 [FAQ-The MARS agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)
