@@ -61,5 +61,5 @@ This has been accomplished by Azure AD Connect sync, Azure AD Connect cloud prov
  
 ## Next steps 
 
-- [What is provisioning?](what-is-provisioning.md)
 - [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
+- [Install cloud provisioning](how-to-install.md)
