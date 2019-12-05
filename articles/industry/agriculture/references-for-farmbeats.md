@@ -157,7 +157,7 @@ Azure FarmBeats APIs can be accessed by a user or an app registration in the Azu
 
 4. Go to your [Data hub Swagger](https://<yourdatahub>.azurewebsites.net/swagger/index.html) and perform the following steps:
     - Navigate to **RoleAssignment API**
-    - Perform a **POST** to create a RoleAssignment for the **Object ID** you just created. – The input json is:
+    - Perform a **POST** to create a RoleAssignment for the **Object ID** you just created.
 
   > [!NOTE]
   > For more information on adding users and AD registration, see [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) .

@@ -276,12 +276,8 @@ If you encounter any issues, review [Troubleshoot](troubleshoot-project-farmbeat
 After the Datahub installation is complete, you'll receive the URL to access Azure FarmBeats APIs via the Swagger interface in the format https://\<yourdatahub-website-name>.azurewebsites.net/swagger.
 
 1. To sign in via Swagger, copy and paste the URL in your browser.
-1. Sign in with your Azure portal credentials.
-1. (Optional) Try this "sanity test":
-
-     - Sign in successfully to the Swagger portal by using the Datahub link, which you received as an output to a successful deployment.
-     - Extended types Get API- Select "Try it out /Execute"
-     - You should receive the server response Code 200 and not an exception, such as "403 unauthorized user."
+2. Sign in with your Azure portal credentials.
+3. You can see the swagger and perform all REST operations on the Azure FarmBeats   APIs. This indicates successful deployment of Azure FarmBeats.
 
 ### Accelerator
 
