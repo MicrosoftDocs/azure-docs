@@ -63,7 +63,7 @@ Azure Cosmos DB automatically scales partitions based on your workload. So we re
 
 Depending on your choice of partition key, you might receive this _warning_:
 
-"CosmosDB Output contains multiple rows and just one row per partition key. If the output latency is higher than expected, consider choosing a partition key that contains at least several hundred records per partition key."
+`CosmosDB Output contains multiple rows and just one row per partition key. If the output latency is higher than expected, consider choosing a partition key that contains at least several hundred records per partition key.`
 
 It's important to choose a partition key property that has a number of distinct values, and that lets you distribute your workload evenly across these values. As a natural artifact of partitioning, requests that involve the same partition key are limited by the maximum throughput of a single partition. 
 
