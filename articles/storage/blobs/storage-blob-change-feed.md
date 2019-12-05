@@ -52,40 +52,23 @@ Here's a few things to keep in mind when you enable the change feed.
 
 ### [Portal](#tab/azure-portal)
 
-To deploy the template by using Azure portal:
+Enable change feed on your storage account by using Azure portal:
 
-1. In the Azure portal, choose **Create a resource**.
+1. Launch the [Azure portal.](https://portal.azure.com/)
 
-2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
+2. Select your Azure Storage account. 
 
-3. Choose **Template deployment**, choose **Create**, and then choose **Build your own template in the editor**.
+3. Navigate to the **Data Protection** option under **Blob Service**.
 
-4. In the template editor, paste in the following json. Replace the `<accountName>` placeholder with the name of your storage account.
+3. Click **Enabled** under **Blob change feed**
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {},
-       "variables": {},
-       "resources": [{
-           "type": "Microsoft.Storage/storageAccounts/blobServices",
-           "apiVersion": "2019-04-01",
-           "name": "<accountName>/default",
-           "properties": {
-               "changeFeed": {
-                   "enabled": true
-               }
-           } 
-        }]
-   }
-   ```
-    
-5. Choose the **Save** button, specify the resource group of the account, and then choose the **Purchase** button to deploy the template and enable the change feed.
+4. Choose the **Save** button to confirm your Data Protection settings
+
+![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
 ### [PowerShell](#tab/azure-powershell)
 
-To deploy the template by using PowerShell:
+Enable change feed by using PowerShell:
 
 1. Install the latest PowershellGet.
 
@@ -112,6 +95,38 @@ To deploy the template by using PowerShell:
    ```powershell
    Update-AzStorageBlobServiceProperty -ResourceGroupName -StorageAccountName -EnableChangeFeed $true
    ```
+
+### [Template](#tab/template)
+Use an Azure Resource Manager template to enable Change feed on your existing storage account via Azure portal:
+
+1. In the Azure portal, choose **Create a resource**.
+
+2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
+
+3. Choose **[Template deployment](https://portal.azure.com/#create/Microsoft.Template)**, choose **Create**, and then choose **Build your own template in the editor**.
+
+4. In the template editor, paste in the following json. Replace the `<accountName>` placeholder with the name of your storage account.
+
+   ```json
+   {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {},
+       "variables": {},
+       "resources": [{
+           "type": "Microsoft.Storage/storageAccounts/blobServices",
+           "apiVersion": "2019-04-01",
+           "name": "<accountName>/default",
+           "properties": {
+               "changeFeed": {
+                   "enabled": true
+               }
+           } 
+        }]
+   }
+   ```
+    
+5. Choose the **Save** button, specify the resource group of the account, and then choose the **Purchase** button to deploy the template and enable the change feed.
 
 ---
 
