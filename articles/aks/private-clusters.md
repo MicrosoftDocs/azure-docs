@@ -15,7 +15,7 @@ ms.author: saudas
 
 In a private cluster, the Control Plane/API server will have internal IP addresses defined in [RFC1918](https://tools.ietf.org/html/rfc1918).  
 
-The communication between the control plane/API server, which is in an AKS-managed Azure subscription, and the customers cluster / node pool, which is in a customer subscription, can communicate with each other through the private link service in the API server VNET and a private endpoint exposed in the subnet of the customer AKS cluster.
+The communication between the control plane/API server, which is in an AKS-managed Azure subscription, and the customers cluster/node pool, which is in a customer subscription, can communicate with each other through the private link service in the API server VNET and a private endpoint exposed in the subnet of the customer AKS cluster.
 
 > [!IMPORTANT]
 > AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
