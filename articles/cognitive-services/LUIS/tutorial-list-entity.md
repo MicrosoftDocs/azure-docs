@@ -88,56 +88,101 @@ Examples of the primary name and synonyms are:
     > [!div class="mx-imgBorder"]
     > ![Screenshot of adding items to list entity](media/luis-quickstart-intent-and-list-entity/add-pizza-crust-items-list-entity.png)
 
-## Train the app so the changes to the intent can be tested
+## Train the app before testing or publishing
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## Publish the app so the trained model is queryable from the endpoint
+## Publish the app to query from the endpoint
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## Get intent and entity prediction from endpoint
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Go to the end of the URL in the address and enter `shift Joe Smith to IT`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `TransferEmployeeToDepartment` intent with `Department` extracted.
+2. Go to the end of the URL in the address and enter the following utterance:
+
+    `Deliver 2 deep dish hawaiian pizzas and a thin pepperoni`
+
+    The last querystring parameter is `query`, the utterance **query**.
+
 
    ```json
     {
-      "query": "shift Joe Smith to IT",
-      "topScoringIntent": {
-        "intent": "TransferEmployeeToDepartment",
-        "score": 0.9775754
-      },
-      "intents": [
-        {
-          "intent": "TransferEmployeeToDepartment",
-          "score": 0.9775754
-        },
-        {
-          "intent": "None",
-          "score": 0.0154493852
+        "query": "Deliver 2 deep dish hawaiian pizzas and a thin pepperoni",
+        "prediction": {
+            "topIntent": "OrderPizza",
+            "intents": {
+                "OrderPizza": {
+                    "score": 0.9957229
+                },
+                "None": {
+                    "score": 0.016832687
+                },
+                "Confirm": {
+                    "score": 0.0015708931
+                },
+                "Greeting": {
+                    "score": 0.00057060417
+                }
+            },
+            "entities": {
+                "number": [
+                    2
+                ],
+                "CrustList": [
+                    [
+                        "Deep dish"
+                    ],
+                    [
+                        "Thin"
+                    ]
+                ],
+                "$instance": {
+                    "number": [
+                        {
+                            "type": "builtin.number",
+                            "text": "2",
+                            "startIndex": 8,
+                            "length": 1,
+                            "modelTypeId": 2,
+                            "modelType": "Prebuilt Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ],
+                    "CrustList": [
+                        {
+                            "type": "CrustList",
+                            "text": "deep dish",
+                            "startIndex": 10,
+                            "length": 9,
+                            "modelTypeId": 5,
+                            "modelType": "List Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        },
+                        {
+                            "type": "CrustList",
+                            "text": "thin",
+                            "startIndex": 42,
+                            "length": 4,
+                            "modelTypeId": 5,
+                            "modelType": "List Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
         }
-      ],
-      "entities": [
-        {
-          "entity": "it",
-          "type": "Department",
-          "startIndex": 19,
-          "endIndex": 20,
-          "resolution": {
-            "values": [
-              "Information Technology"
-            ]
-          }
-        }
-      ]
     }
    ```
 
-## Clean up resources
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## Related information
 
@@ -145,7 +190,9 @@ Examples of the primary name and synonyms are:
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)
-
+* [Concept - entities](luis-concept-entity-types.md)
+* [JSON reference of regular expression entity](reference-entity-regular-expression.md?tabs=V3)
+* [How to add entities to extract data](luis-how-to-add-entities.md)
 
 ## Next steps
 This tutorial created a new intent, added example utterances, then created a list entity to extract exact text matches from utterances. After training, and publishing the app, a query to the endpoint identified the intention and returned the extracted data.
