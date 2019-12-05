@@ -114,7 +114,7 @@ For more information about objects, see [Swagger](https://aka.ms/FarmBeatsDatahu
 
 ### API request to create metadata
 
-To make an API request, you combine the HTTP (POST) method, the URL to the API service, and the URI to a resource to query, submit data to, create, or delete a request, and then add one or more HTTP request headers. The URL to the API service is the API endpoint, that is, the Datahub URL (https://<yourdatahub>.azurewebsites.net). 
+To make an API request, you combine the HTTP (POST) method, the URL to the API service, and the URI to a resource to query, submit data to, create, or delete a request. Then you add one or more HTTP request headers. The URL to the API service is the API endpoint, that is, the Datahub URL (https://\<yourdatahub>.azurewebsites.net).  
 
 ### Authentication
 
@@ -130,7 +130,29 @@ Using these credentials, the caller can request an access token. The token must 
 headers = *{"Authorization": "Bearer " + access_token, …}*
 ```
 
-### HTTP request headers
+The following sample Python code gives the access token, which can be used for subsequent API calls to FarmBeats: 
+
+```python
+import azure 
+
+from azure.common.credentials import ServicePrincipalCredentials 
+import adal 
+#FarmBeats API Endpoint 
+ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
+CLIENT_ID = "<Your Client ID>"   
+CLIENT_SECRET = "<Your Client Secret>"   
+TENANT_ID = "<Your Tenant ID>" 
+AUTHORITY_HOST = 'https://login.microsoftonline.com' 
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
+#Authenticating with the credentials 
+context = adal.AuthenticationContext(AUTHORITY) 
+token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
+#Should get an access token here 
+access_token = token_response.get('accessToken') 
+```
+
+
+**HTTP request headers**
 
 Here are the most common request headers that must be specified when you make an API call to FarmBeats Datahub:
 
@@ -267,7 +289,26 @@ You must send the telemetry to Azure Event Hubs for processing. Azure Event Hubs
 
 After you have a connection established as an Event Hubs client, you can send messages to the event hub as JSON. 
 
-Convert the historical sensor data format to a canonical format that Azure FarmBeats understands. Here's the canonical message format. 
+Here's sample Python code that sends telemetry as a client to a specified event hub:
+
+```python
+import azure
+from azure.eventhub import EventHubClient, Sender, EventData, Receiver, Offset
+EVENTHUBCONNECTIONSTRING = "<EventHub Connection String provided by customer>"
+EVENTHUBNAME = "<EventHub Name provided by customer>"
+
+write_client = EventHubClient.from_connection_string(EVENTHUBCONNECTIONSTRING, eventhub=EVENTHUBNAME, debug=False)
+sender = write_client.add_sender(partition="0")
+write_client.run()
+for i in range(5):
+    telemetry = "<Canonical Telemetry message>"
+    print("Sending telemetry: " + telemetry)
+    sender.send(EventData(telemetry))
+write_client.stop()
+
+```
+
+Convert the historical sensor data format to a canonical format that Azure FarmBeats understands. The canonical message format is as follows: 
 
 ```json
 {
@@ -294,7 +335,7 @@ Convert the historical sensor data format to a canonical format that Azure FarmB
 
 After you add the corresponding devices and sensors, obtain the device ID and the sensor ID in the telemetry message, as described in the previous section.
 
-Here's an example of a telemetry message.
+Here's an example of a telemetry message:
 
 
  ```json
