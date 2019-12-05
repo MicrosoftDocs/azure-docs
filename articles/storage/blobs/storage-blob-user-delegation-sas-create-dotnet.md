@@ -1,12 +1,13 @@
 ---
-title: Create a user delegation SAS for a container or blob with .NET (preview) - Azure Storage
-description: Learn how to create a user delegation SAS (preview) using Azure Active Directory credentials in Azure Storage using the .NET client library.
+title: Use .NET to create a user delegation SAS for a container or blob
+titleSuffix: Azure Storage
+description: Learn how to create a user delegation SAS (preview) with Azure Active Directory credentials by using the .NET client library for Azure Storage.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 12/03/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
@@ -20,35 +21,13 @@ This article shows how to use Azure Active Directory (Azure AD) credentials to c
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## Authenticate with the Azure Identity library
-
-The Azure Identity client library for .NET authenticates a security principal. When your code is running in Azure, the security principal is a managed identity for Azure resources.
-
-When your code is running in the development environment, authentication may be handled automatically, or it may require a browser login, depending on which tools you're using. Microsoft Visual Studio supports single sign-on (SSO), so that the active Azure AD user account is automatically used for authentication. For more information about SSO, see [Single sign-on to applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
-
-Other development tools may prompt you to login via a web browser. You can also use a service principal to authenticate from the development environment. For more information, see [Create identity for Azure app in portal](../../active-directory/develop/howto-create-service-principal-portal.md).
-
-After authenticating, the Azure Identity client library gets a token credential. This token credential is then encapsulated in the service client object that you create to perform operations against Azure Storage. The library handles this for your seamlessly by getting the appropriate token credential.
-
-For more information about the Azure Identity client library, see [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
-
 ## Assign RBAC roles for access to data
 
 When an Azure AD security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an RBAC role that grants access to blob data in Azure Storage. For information about assigning permissions via RBAC, see the section titled **Assign RBAC roles for access rights** in [Authorize access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 
-## Install the packages
+[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-The examples in this article use the latest version of the [Azure Storage client library for Blob storage](https://www.nuget.org/packages/Azure.Storage.Blobs). To install the package, run the following command from the NuGet package manager console:
-
-```powershell
-Install-Package Azure.Storage.Blobs
-```
-
-The examples in this article also use the latest version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. To install the package, run the following command from the NuGet package manager console:
-
-```powershell
-Install-Package Azure.Identity
-```
+To learn more about how to authenticate with the Azure Identity client library from Azure Storage, see the section titled **Authenticate with the Azure Identity library** in [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
 
 ## Add using directives
 
@@ -254,5 +233,6 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 ## See also
 
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
 - [Get User Delegation Key operation](/rest/api/storageservices/get-user-delegation-key)
 - [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)
