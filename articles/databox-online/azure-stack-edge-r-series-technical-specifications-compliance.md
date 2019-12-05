@@ -67,13 +67,13 @@ The following tables list the various enclosure specifications for dimensions an
 
 ### Enclosure dimensions
 
-The following table lists the dimensions of the device with the rugged case in millimeters and inches.
+The following table lists the dimensions of the device and the USP with the rugged case in millimeters and inches.
 
 |     Enclosure     |     Millimeters     |     Inches     |
 |-------------------|---------------------|----------------|
-|    Height         |    XX            |    XX"          |
-|    Width          |    604.5           |    23.8"          |
-|    Length          |    740.4           |    35.5"          |
+|    Height         |    301.2            |    11.86          |
+|    Width          |    604.5           |    23.80          |
+|    Length          |    740.4           |    35.50          |
 
 
 
@@ -86,10 +86,10 @@ The device with UPS and the case 80 lbs. and requires two persons to handle it. 
 |    Total weight of 1-node device + UPS + rugged case     |    ~80 lbs.          |
 
 
-## Enclosure environment specifications
+<!--## Enclosure environment specifications
 
-TBD
-<!--This section lists the specifications related to the enclosure environment such as temperature, humidity, and altitude.
+
+This section lists the specifications related to the enclosure environment such as temperature, humidity, and altitude.
 
 
 ### Temperature and humidity
