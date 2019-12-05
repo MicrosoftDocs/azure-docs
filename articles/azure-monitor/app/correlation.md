@@ -27,7 +27,7 @@ Every outgoing operation, such as an HTTP call to another component, is represen
 
 You can build a view of the distributed logical operation by using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. These fields also define the causality order of telemetry calls.
 
-In a microservices environment, traces from components can go to different storage items. Every component can have its own instrumentation key in Application Insights. To get telemetry for the logical operation, Application Insights queries data from every storage item. When the number of storage items is large, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request, and the second identifies which component returned the response of the dependency call.
+In a microservices environment, traces from components can go to different storage items. Every component can have its own instrumentation key in Application Insights. To get telemetry for the logical operation, Application Insights queries data from every storage item. When the number of storage items is large, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request. The second field identifies which component returned the response of the dependency call.
 
 ## Example
 
@@ -325,7 +325,7 @@ The Application Insights SDK, starting with version 2.4.0-beta1, uses `Diagnosti
 > [!NOTE]
 > Only calls made via Apache HttpClient are supported for the correlation feature. Both Spring RestTemplate and Feign can be used with Apache HttpClient under the hood.
 
-Currently, automatic context propagation across messaging technologies (like Kafka, RabbitMQ, and Azure Service Bus) isn't supported. It is possible to code such scenarios manually by using the `trackDependency` and `trackRequest` methods. In these methods, a dependency telemetry represents a message being enqueued by a producer, and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
+Currently, automatic context propagation across messaging technologies (like Kafka, RabbitMQ, and Azure Service Bus) isn't supported. It is possible to code such scenarios manually by using the `trackDependency` and `trackRequest` methods. In these methods, a dependency telemetry represents a message being enqueued by a producer. The request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
 
 ### Telemetry correlation in asynchronous Java applications
 
@@ -335,7 +335,7 @@ To learn how to correlate telemetry in an asynchronous Spring Boot application, 
 <a name="java-role-name"></a>
 ## Role name
 
-You might want to customize the way component names are displayed in the [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by doing one of the following:
+You might want to customize the way component names are displayed in the [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by taking one of the following actions:
 
 - With Application Insights Java SDK 2.5.0 and later, you can specify the `cloud_RoleName`
   by adding `<RoleName>` to your ApplicationInsights.xml file:
