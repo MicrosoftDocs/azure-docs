@@ -113,15 +113,17 @@ In your workspace in Azure Machine Learning studio, select **Compute**, then sel
 You can perform the following actions:
 
 * Create a compute instance. Specify the name, Azure VM type including GPUs, enable/disable SSH access, and configure virtual network settings optionally. You can also create an instance directly from integrated notebooks, Azure portal, Resource Manager template, or Azure Machine Learning SDK. The dedicated cores per region quota which applies to compute instance creation is unified and shared with Azure Machine Learning compute cluster quota.
-* Start a compute instance
-* Stop a compute instance
-* Delete a compute instance
-* Access Jupyter, JupyterLab, RStudio, VS Code URIs on the compute instance
 * Refresh the compute instances tab
+* Start, stop and restart a compute instance
+* Delete a compute instance
+
+For each compute instance in your workspace you can:
+
+* Access Jupyter, JupyterLab, RStudio, VS Code URIs on the compute instance
 * SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number.
 * Get details about a specific compute instance such as IP address, and region.
 
-RBAC allows you to control which users in the workspace can create, delete, start, stop a compute instance, or access the applications (Jupyter, JupyterLab, RStudio) on compute instances at the workspace scope.
+[RBAC](/azure/role-based-access-control/overview) allows you to control which users in the workspace can create, delete, start, stop a compute instance, or access the applications (Jupyter, JupyterLab, RStudio) on compute instances at the workspace scope.
 
 You can also create an instance
 * Directly from the integrated notebooks experience
