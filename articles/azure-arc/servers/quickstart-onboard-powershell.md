@@ -49,14 +49,13 @@ Id                    : 5be92c87-01c4-42f5-bade-c1c10af87758
 Type                  :
 ```
 
->>Note: 
-It may take a while to get your SPN permissions properly populated. Running the following role assignment to set the permissions much faster.
+> [!NOTE] 
+> It may take a while to get your SPN permissions properly populated. Running the following role assignment to set the permissions much faster.
+> ``` PowerShell
+> New-AzRoleAssignment -RoleDefinitionName "Azure Connected Machine Onboarding" -ServicePrincipalName $sp.ApplicationId
+> ```
 
-``` PowerShell
-New-AzRoleAssignment -RoleDefinitionName "Azure Connected Machine Onboarding" -ServicePrincipalName $sp.ApplicationId
-```
-
-Now, retrieve the password using powershell.
+Now, retrieve the password using PowerShell.
 
 ```azurepowershell-interactive
 $credential = New-Object pscredential -ArgumentList "temp", $sp.Secret
