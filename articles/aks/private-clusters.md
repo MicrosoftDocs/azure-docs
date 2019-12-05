@@ -107,7 +107,7 @@ az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
 * Standard LB Only - no support for basic load balancer  
 
 ## Limitations 
-* No support for virtual nodes in a private cluster to spin private ACI instances in a private Azure VNET.
+* No support for virtual nodes in a private cluster to spin private ACI instances in a private Azure VNET
 * No support for Azure DevOps integration out of the box with private clusters
 * If customers need to enable ACR to work with private AKS, then the ACR's VNET will need to be peered with the agent cluster VNET
 * No current support for Azure Dev Spaces
