@@ -27,8 +27,8 @@ Begin by creating an Azure AD Application for your protected endpoint. See https
 
 Use the PowerShell script below in order to create a role and service principle in your Azure AD Application. You will need the Tenant ID and Object ID from your Azure AD Application:
 
-    > [!NOTE]
-    > You must be a member of the [Azure AD Application Administrator role](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) to execute this script.
+   > [!NOTE]
+   > You must be a member of the [Azure AD Application Administrator role](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) to execute this script.
     
 1. Modify the PowerShell script's $myTenantId to use your Azure AD Tenant ID.
 1. Modify the PowerShell script's $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application
