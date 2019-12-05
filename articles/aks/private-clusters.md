@@ -29,7 +29,7 @@ You must have the following:
 
 * You also need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.18 extension
 
-## Current Suported regions
+## Current Supported regions
 * Australia East
 * West US
 * West US 2
