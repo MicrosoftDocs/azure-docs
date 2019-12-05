@@ -68,14 +68,15 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 ## Network requirements
 
 To enable Azure AD authentication for your Linux VMs in Azure, you need to ensure your VMs network configuration permits outbound access to the following endpoints over TCP port 443:
-https://login.microsoftonline.com
-https://device.login.microsoftonline.com
-https://pas.windows.net
-https://management.azure.com
-https://packages.microsoft.com
+
+* https://login.microsoftonline.com
+* https://device.login.microsoftonline.com
+* https://pas.windows.net
+* https://management.azure.com
+* https://packages.microsoft.com
 
 > [!NOTE]
-> Currently, Azure Network Security Group (NSG) cannot be configured for VMs enables with Azure AD authentication.
+> Currently, Azure network security groups can't be configured for VMs enabled with Azure AD authentication.
 
 ## Create a Linux virtual machine
 
