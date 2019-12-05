@@ -59,11 +59,11 @@ Unlike user-assigned identities, you don't have to manually create the system-as
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in Logic App Designer.
 
-1. On the logic app menu, under **Settings**, select **Identity** > **System assigned**. Under **Status**, select **On** > **Save**.
+1. On the logic app menu, under **Settings**, select **Identity**. Select **System assigned** > **On** > **Save**.
 
-   ![Enable the system-assigned identity](./media/create-managed-service-identity/turn-on-system-assigned-identity.png)
+   ![Enable the system-assigned identity](./media/create-managed-service-identity/enable-system-assigned-identity.png)
 
-1. After you're prompted to confirm, select **Yes**.
+1. When Azure prompts you to confirm, select **Yes**.
 
    Your logic app can now use the system-assigned identity, which is registered with Azure Active Directory and is represented by an object ID.
 
@@ -443,37 +443,15 @@ If you delete your logic app, Azure automatically removes the managed identity f
 
 <a name="azure-portal-disable"></a>
 
-### Remove managed identity in the Azure portal
+### Disable managed identity in the Azure portal
 
-In the Azure portal, remove the identity from [your logic app](#disable-identity-logic-app) and the identity's access from [your target resource](#disable-identity-target-resource).
-
-<a name="disable-identity-logic-app"></a>
-
-#### Remove system-assigned identity from logic app
-
-1. In the [Azure portal](https://portal.azure.com), open your logic app in Logic App Designer.
-
-1. On the logic app menu, under **Settings**, select **Identity**, and follow the steps for your identity:
-
-   * **System-assigned**
-
-     Select **System assigned** > **Status** > **Off** > **Save** > **Yes**.
-
-     ![Stop using system-assigned identity](./media/create-managed-service-identity/turn-off-system-assigned-identity.png)
-
-   * **User-assigned**
-
-     Select **User assigned** and the managed identity that you want to remove. Select **Remove**.
-
-     ![Remove user-assigned identity](./media/create-managed-service-identity/remove-user-assigned-identity.png)
-
-The managed identity is now removed from your logic app.
+In the Azure portal, first remove the identity's access to [your target resource](#disable-identity-target-resource). Next, turn off the system-assigned identity or remove the user-assigned identity from [your logic app](#disable-identity-logic-app).
 
 <a name="disable-identity-target-resource"></a>
 
 #### Remove identity access from resources
 
-1. In the [Azure portal](https://portal.azure.com), go to the target Azure resource where you want to remove access for a managed identity.
+1. In the [Azure portal](https://portal.azure.com), go to the target Azure resource where you want to remove access for the managed identity.
 
 1. From the target resource's menu, select **Access control (IAM)**. Under the toolbar, select **Role assignments**.
 
@@ -485,6 +463,24 @@ The managed identity is now removed from your logic app.
    > [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 The managed identity is now removed and no longer has access to the target resource.
+
+<a name="disable-identity-logic-app"></a>
+
+#### Disable managed identity on logic app
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app in Logic App Designer.
+
+1. On the logic app menu, under **Settings**, select **Identity**, and then follow the steps for your identity:
+
+   * Select **System assigned** > **On** > **Save**. When Azure prompts you to confirm, select **Yes**.
+
+     ![Disable the system-assigned identity](./media/create-managed-service-identity/disable-system-assigned-identity.png)
+
+   * Select **User assigned** and the managed identity, and then select **Remove**. When Azure prompts you to confirm, select **Yes**.
+
+     ![Remove the user-assigned identity](./media/create-managed-service-identity/remove-user-assigned-identity.png)
+
+The managed identity is now disabled on your logic app.
 
 <a name="template-disable"></a>
 
