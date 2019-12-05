@@ -62,6 +62,26 @@ This logic for proxyAddresses is referred to as **ProxyCalc**. ProxyCalc is invo
 - The attribute msExchRecipientTypeDetails has a value.
 - You make a change to proxyAddresses or userPrincipalName.
 
+ProxyCalc will sanitize an address if ShadowProxyAddresses contains a non-verified domain and the cloud user has one of the following properties configured. 
+•	User is licensed with an EXO service type plan enabled (Excluding MyAnalytics)  
+•	User has MSExchRemoteRecipientType set (not null)  
+•	User is considered a shared resource
+ 
+To be considered a shared resource the cloud user will have one of the following values set in CloudMSExchRecipientDisplayType 
+ 
+            0x00000000,                     // MailboxUser (shared)
+            0x00000002,                     // PublicFolder
+            0x00000007,                     // ConferenceRoomMailbox
+            0x00000008,                     // EquipmentMailbox
+            0x0000000A,                     // ArbitrationMailbox
+            0x0000000F,                     // RoomList
+            0x00000010,                     // TeamMailboxUser
+            0x00000011,                     // Group mailbox
+            0x00000012,                     // Scheduling mailbox
+            0x40000000,                     // ACLableMailboxUser
+            0x40000010,                     // ACLableTeamMailboxUser
+
+
 ProxyCalc might take some time to process a change on a user and is not synchronous with the Azure AD Connect export process.
 
 > [!NOTE]
