@@ -42,7 +42,7 @@ A list entity is a good choice for this type of data when:
 * The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
 * The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Stemming, plurals, and other variations are not resolved with just a list entity. To manage variations, consider using a [pattern](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
 
-> ![CAUTION]
+> [!CAUTION]
 > If you are not sure if you want a list entity or a machine-learned entity with a phrase list as a descriptor, the best and most flexible practice is to use a machine-learned entity with a phrase list as a descriptor. This method allows LUIS to learn and extend the values of the data to extract.
 
 ## Import example .json and add utterances
@@ -63,7 +63,7 @@ A list entity is a good choice for this type of data when:
 
 ## Crust list entity
 
-Now that the **OrderPizza** intent has example utterances, LUIS needs to understand which words represent the crust types.
+Now that the **OrderPizza** intent has example utterances with crust types, LUIS needs to understand which words represent the crust types.
 
 Examples of the primary name and synonyms are:
 
@@ -88,6 +88,8 @@ Examples of the primary name and synonyms are:
     > [!div class="mx-imgBorder"]
     > ![Screenshot of adding items to list entity](media/luis-quickstart-intent-and-list-entity/add-pizza-crust-items-list-entity.png)
 
+    When you add a list entity to a LUIS app, you don't need to [label](label-entity-example-utterance.md) the text with the list entity. It is applied to all utterances in all intents.
+
 ## Train the app before testing or publishing
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
@@ -107,7 +109,7 @@ Examples of the primary name and synonyms are:
     The last querystring parameter is `query`, the utterance **query**.
 
 
-   ```json
+    ```json
     {
         "query": "Deliver 2 deep dish hawaiian pizzas and a thin pepperoni",
         "prediction": {
@@ -180,7 +182,9 @@ Examples of the primary name and synonyms are:
             }
         }
     }
-   ```
+    ```
+
+    The types of crust were found as exact text matches and returned in the JSON response. This information is used by the client application to process the order.
 
 [!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
@@ -195,10 +199,8 @@ Examples of the primary name and synonyms are:
 * [How to add entities to extract data](luis-how-to-add-entities.md)
 
 ## Next steps
-This tutorial created a new intent, added example utterances, then created a list entity to extract exact text matches from utterances. After training, and publishing the app, a query to the endpoint identified the intention and returned the extracted data.
-
-Continue with this app, [adding a composite entity](luis-tutorial-composite-entity.md).
+This tutorial added example utterances, then created a list entity to extract exact text matches from the utterances. After training, and publishing the app, a query to the endpoint identified the intention and returned the extracted data.
 
 > [!div class="nextstepaction"]
-> [Add prebuilt entity with a role to the app](tutorial-entity-roles.md)
+> [Add prebuilt entity with a role](tutorial-entity-roles.md)
 
