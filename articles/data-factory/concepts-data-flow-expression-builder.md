@@ -99,7 +99,13 @@ If you put a comment at the top of your expression, it will appear in the transf
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Note that to include string literals in your timestamp output, you need to wrap your conversion inside of a toString()
+Note that to include string literals in your timestamp output, you need to wrap your conversion inside of ```toString()```.
+
+Here is how to convert seconds from Epoch to a date or timestamp:
+
+```toTimestamp(1574127407*1000l)```
+
+Notice the trailing "l" at the end of the expression above. That signifies conversion to long as in-line syntax.
 
 ## Handling column names with special characters
 
