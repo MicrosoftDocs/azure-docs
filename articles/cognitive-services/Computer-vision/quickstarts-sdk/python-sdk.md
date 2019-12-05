@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ---
 
@@ -201,5 +201,5 @@ In this quickstart, you learned how to use the Computer Vision library for Pytho
 > [!div class="nextstepaction"]
 >[Computer Vision API reference (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-* [What is the Computer Vision API?](../Home.md)
+* [What is Computer Vision?](../Home.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).
