@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/01/2019
+ms.date: 12/02/2019
 ---
 # Quickstart: Create an Azure Cosmos account, database, container, and items from the Azure portal
 
