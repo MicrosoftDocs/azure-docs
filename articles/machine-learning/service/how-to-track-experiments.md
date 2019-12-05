@@ -232,9 +232,9 @@ The [Start, monitor, and cancel training runs](how-to-manage-runs.md) article hi
 
 Compute targets used to train models are a shared resource. As such, they may have multiple jobs queued or running at a given time. To see the training jobs for a specific compute target from your browser, use the following steps:
 
-1. From the [Azure Machine Learning studio](https://ml.azure.com/), select the your workspace, and then select __Compute__ from the left side of the page.
+1. From the [Azure Machine Learning studio](https://ml.azure.com/), select your workspace, and then select __Compute__ from the left side of the page.
 
-1. Select __Training Clusters__ to display a list of compute targets used for training. Then select the cluster that you are interested in.
+1. Select __Training Clusters__ to display a list of compute targets used for training. Then select the cluster.
 
     ![Select the training cluster](./media/how-to-track-experiments/select-training-compute.png)
 
