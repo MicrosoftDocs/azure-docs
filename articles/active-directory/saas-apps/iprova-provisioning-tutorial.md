@@ -52,21 +52,21 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 1. Sign in to your [iProva Admin Console](https://www.iProva.com/). Navigate to **Go to > Application Management**.
 
-	![iProva Admin Console](media/iProva-provisioning-tutorial/admin.png)
+	![iProva Admin Console](media/iprova-provisioning-tutorial/admin.png)
 
 2.	Click on **External user management**.
 
-	![iProva Add SCIM](media/iProva-provisioning-tutorial/external.png)
+	![iProva Add SCIM](media/iprova-provisioning-tutorial/external.png)
 
 3. To add a new provider, Click on the **plus** icon. In the new **Add provider** dialog box, provide a **Title**. You can choose to add **IP-based access restriction**. Click on **OK** button.
 
-	![iProva add new](media/iProva-provisioning-tutorial/add.png)
+	![iProva add new](media/iprova-provisioning-tutorial/add.png)
 
-	![iProva add provider](media/iProva-provisioning-tutorial/addprovider.png)
+	![iProva add provider](media/iprova-provisioning-tutorial/addprovider.png)
 
 4.	Click on **Permanent token** button. Copy the **Permanent token** and save it as this will be the only time you can view it. This value will be entered in the Secret Token field in the Provisioning tab of your iProva application in the Azure portal.
 
-	![iProva Create Token](media/iProva-provisioning-tutorial/token.png)
+	![iProva Create Token](media/iprova-provisioning-tutorial/token.png)
 
 ## Add iProva from the gallery
 
@@ -127,19 +127,19 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to iProva**.
 
-	![iProva User Mappings](media/iProva-provisioning-tutorial/usermappings.png)
+	![iProva User Mappings](media/iprova-provisioning-tutorial/usermappings.png)
 
 9. Review the user attributes that are synchronized from Azure AD to iProva in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in iProva for update operations. Select the **Save** button to commit any changes.
 
-	![iProva User Attributes](media/iProva-provisioning-tutorial/userattributes.png)
+	![iProva User Attributes](media/iprova-provisioning-tutorial/userattributes.png)
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to iProva**.
 
-	![iProva Group Mappings](media/iProva-provisioning-tutorial/groupmappings.png)
+	![iProva Group Mappings](media/iprova-provisioning-tutorial/groupmappings.png)
 
 11. Review the group attributes that are synchronized from Azure AD to iProva in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in iProva for update operations. Select the **Save** button to commit any changes.
 
-	![iProva Group Attributes](media/iProva-provisioning-tutorial/groupattributes.png)
+	![iProva Group Attributes](media/iprova-provisioning-tutorial/groupattributes.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
