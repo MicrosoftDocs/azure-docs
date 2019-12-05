@@ -16,7 +16,11 @@ ms.date: 12/09/2019
 
 In this article, you'll learn how to set up Visual Studio Code Remote on an Azure Machine Learning Compute Instance so you can **interactively debug your code** from VS Code. 
 
+> [!NOTE]
+> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+
 + An [Azure Machine Learning Compute Instance](/service/concept-compute-instance.md) is a fully managed cloud-based workstation for data scientists and provides management and enterprise readiness capabilities for IT administrators. 
+
 
 + [Visual Studio Code Remote](https://code.visualstudio.com/docs/remote/remote-overview) Development allows you to use a container, remote machine, or the Windows Subsystem for Linux (WSL) as a full-featured development environment. 
 
