@@ -128,7 +128,7 @@ To view the device template:
 
 2. In the Device templates list you will see **Connected Waste Bin**. Open by clicking on the name.
 
-3. Familirize with the device template capabilites. You can see it defines sensors like *Fill level*, *Odor meter*, *weight*, *location* etc.
+3. Familiarize with the device template capabilities. You can see it defines sensors like *Fill level*, *Odor meter*, *weight*, *location* etc.
 
    ![Device Template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
