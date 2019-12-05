@@ -60,7 +60,7 @@ Azure AD features pre-integrated support for many popular SaaS apps and human re
 
    If you want to request a new application for provisioning, you can [request that your application be integrated with our app gallery](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing). For a user provisioning request, we require the application to have a SCIM-compliant endpoint. Please request that the application vendor follow the SCIM standard so we can onboard the app to our platform quickly.
 
-* **Applications that support SCIM 2.0**. For information on how to generically connect applications that implement SCIM 2.0-based user management APIs, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md).
+* **Applications that support SCIM 2.0**. For information on how to generically connect applications that implement SCIM 2.0-based user management APIs, see [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md).
 
 ## What is SCIM?
 
@@ -68,7 +68,7 @@ To help automate provisioning and deprovisioning, apps expose proprietary user a
 
 To address these challenges, the SCIM specification provides a common user schema to help users move into, out of, and around apps. SCIM is becoming the de facto standard for provisioning and, when used in conjunction with federation standards like SAML or OpenID Connect, provides administrators an end-to-end standards-based solution for access management.
 
-For detailed guidance on using SCIM to automate the provisioning and deprovisioning of users and groups to an application, see [SCIM user provisioning with Azure Active Directory](use-scim-to-provision-users-and-groups.md).
+For detailed guidance on using SCIM to automate the provisioning and deprovisioning of users and groups to an application, see [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md).
 
 ## Manual vs. automatic provisioning
 
@@ -90,7 +90,7 @@ For pre-integrated applications listed in the gallery, step-by-step guidance is 
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
-For other applications that support SCIM 2.0, follow the steps in the article [SCIM user provisioning with Azure Active Directory](use-scim-to-provision-users-and-groups.md).
+For other applications that support SCIM 2.0, follow the steps in the article [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md).
 
 
 ## Related articles
@@ -99,5 +99,5 @@ For other applications that support SCIM 2.0, follow the steps in the article [S
 - [Customizing attribute mappings for user provisioning](customize-application-attributes.md)
 - [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
 - [Scoping filters for user provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
-- [Using SCIM to enable automatic provisioning of users and groups from Azure AD to applications](use-scim-to-provision-users-and-groups.md)
+- [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md)
 - [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

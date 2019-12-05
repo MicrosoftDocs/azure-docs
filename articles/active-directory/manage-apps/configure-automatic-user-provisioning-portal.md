@@ -20,14 +20,10 @@ ms.collection: M365-identity-device-management
 ---
 # Managing user account provisioning for enterprise apps in the Azure portal
 
-This article describes how to use the [Azure portal](https://portal.azure.com) to manage automatic user account provisioning and de-provisioning for applications that support it. 
+This article describes the general steps for managing automatic user account provisioning and de-provisioning for applications that support it. *User account provisioning* is the act of creating, updating, and/or disabling user account records in an application’s local user profile store. Most cloud and SaaS applications store the users role and permissions in the user's own local user profile store, and presence of such a user record in the user's local store is *required* for single sign-on and access to work. To learn more about automatic user account provisioning, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md).
 
-*User account provisioning* is the act of creating, updating, and/or disabling user account records in an application’s local user profile store. Most cloud and SaaS applications store the users role and permissions in the user's own local user profile store, and presence of such a user record in the user's local store is *required* for single sign-on and access to work.
-
-In the Azure portal, the **Provisioning** tab in the left navigation pane for an Enterprise App displays what provisioning modes are supported for that app. This can be one of two values:
-
-
-To learn more about automatic user account provisioning and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md).
+> [!IMPORTANT]
+> Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-integrated applications that are enabled for automatic provisioning with Azure AD. You should start by finding the provisioning setup tutorial specific to your application in the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). You'll likely find step-by-step guidance for configuring both the app and Azure AD to create the provisioning connection.
 
 ## Finding your apps in the portal
 

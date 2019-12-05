@@ -20,9 +20,10 @@ ms.collection: M365-identity-device-management
 ---
 # How provisioning works
 
-User account provisioning refers to creating, updating, or disabling user account records in an application’s local user profile store. Most cloud and SaaS applications store the user's role and permissions in the user's own local user profile store, and presence of such a user record in the user's local store is *required* for single sign-on and access to work. Many applications in the Azure AD gallery support automatic user provisioning, which means an Azure AD provisioning connector has been developed for them. 
+Automatic provisioning refers to creating user identities and roles in the cloud applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Before you start a deployment, you can review this article to learn how Azure AD provision works and get configuration recommendations. 
 
-The **Azure AD Provisioning Service** provisions users to SaaS apps and other systems by connecting to user management API endpoints provided by each application vendor. These user management API endpoints allow Azure AD to programmatically create, update, and remove users. For selected applications, the provisioning service can also create, update, and remove additional identity-related objects, such as groups and roles.
+The **Azure AD Provisioning Service** provisions users to SaaS apps and other systems by connecting to a System for Cross-Domain Identity Management (SCIM) 2.0 user management API endpoint provided by the application vendor. This SCIM endpoint allows Azure AD to programmatically create, update, and remove users. For selected applications, the provisioning service can also create, update, and remove additional identity-related objects, such as groups and roles. The channel used for provisioning between Azure AD and the application is encrypted using HTTPS SSL encryption.
+
 
 ![Azure AD Provisioning Service](./media/user-provisioning/provisioning0.PNG)
 *Figure 1: The Azure AD Provisioning Service*
@@ -33,18 +34,19 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 ![Inbound user provisioning workflow](./media/user-provisioning/provisioning2.PNG)
 *Figure 3: "Inbound" user provisioning workflow from popular Human Capital Management (HCM) applications to Azure Active Directory and Windows Server Active Directory*
 
-You should start by finding the setup tutorial specific to setting up provisioning for your application, and following those steps to configure both the app and Azure AD to create the provisioning connection. App tutorials can be found at [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+## Provisioning using SCIM 2.0
 
-> [!NOTE]
-> If you would like to request an automatic Azure AD provisioning connector for an app that doesn't currently have one, you can fill out a request using the [Azure Active Directory Application Requests](https://aka.ms/aadapprequest).
+The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and deprovisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. When building apps for Azure AD, developers can use the SCIM 2.0 user management API to build a SCIM endpoint that integrates Azure AD for provisioning. For details, see [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md).
+
+If you would like to request an automatic Azure AD provisioning connector for an app that doesn't currently have one, you can fill out a request using the [Azure Active Directory Application Requests](https://aka.ms/aadapprequest).
 
 ## Authorization
 
 Credentials are required for Azure AD to connect to the application's user management API. While you're configuring automatic user provisioning for an application, you'll need to enter valid credentials. You can find credential types and requirements for the application by referring to the app tutorial. In the Azure portal, you'll be able to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
 
-Note that if SAML-based single sign-on is also configured for the application,Azure AD's internal, per-application storage limit is 1024 bytes for all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD). When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens often consumes over 50% percent of the space. Any secret tokens, URIs, notification email addresses, user names, and passwords that are entered during setup of user provisioning can cause the storage limit to be exceeded.
+Note that if SAML-based single sign-on is also configured for the application,Azure AD's internal, per-application storage limit is 1024 bytes for all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD). When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens often consumes over 50% percent of the space. Any secret tokens, URIs, notification email addresses, user names, and passwords that are entered during setup of user provisioning can cause the storage limit to be exceeded. For more information, see [Problem saving administrator credentials while configuring user provisioning](application-provisioning-config-problem-storage-limit.md).
 
-## Mapping attributes 
+## Mapping attributes
 
 When you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute mappings. Mappings determine the user attributes that flow between Azure AD and the target application when user accounts are provisioned or updated.
 
@@ -56,20 +58,32 @@ You can customize the default attribute-mappings according to your business need
 
 When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these, you must write a script-like expression that allows you to transform your users’ data into formats that are more acceptable for the SaaS application. For details, see [Writing expressions for attribute mappings](functions-for-customizing-application-data.md).
 
-## Scoping 
+## Scoping users and groups for provisioning
 
-Scoping filters allow the Azure Active Directory (Azure AD) provisioning service to include or exclude any users who have attributes that match specific values. For example, when provisioning users from Azure AD to a SaaS application used by a sales team, you can specify that only users with a "Department" attribute of "Sales" should be in scope for provisioning.
+Scoping allows the Azure Active Directory (Azure AD) provisioning service to include or exclude any users from provisioning. Depending on the type of application, there are different ways to determine which users should be in scope for provisioning. 
 
-Scoping filters can be used differently depending on the type of provisioning connector:
+* **User assignment**. For outbound provisioning from Azure AD to a SaaS application, relying on [user assignments](assign-user-or-group-access-portal.md) is the most common way to determine which users are in scope for provisioning. Because user assignments are also used for enabling single sign-on, they provide a single method for managing both access and provisioning. This method doesn't apply to inbound provisioning scenarios, for example from HCM systems.
 
-* **Outbound provisioning from Azure AD to SaaS applications.** When Azure AD is the source system, user and group assignments are the most common method for determining which users are in scope for provisioning. These assignments also are used for enabling single sign-on and provide a single method to manage access and provisioning. Scoping filters can be used optionally, in addition to assignments or instead of them, to filter users based on attribute values.
+* **Attribute-based scoping filters**. You can use scoping filters to define attribute-based rules that determine which users are provisioned to an application. This method is commonly used for inbound provisioning from HCM applications to Azure AD and Active Directory. Scoping filters are configured as part of the attribute mappings for each Azure AD user provisioning connector. For details about configuring attribute-based scoping filters, see [Attribute-based application provisioning with scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 
-  > [!TIP]
-  > You can disable provisioning based on assignments for an enterprise application by changing settings in the Scope menu under the provisioning settings to Sync all users and groups. Using this option plus attribute-based scoping filters offers faster performance than using group-based assignments.
- 
-* **Inbound provisioning from HCM applications to Azure AD and Active Directory.** When an HCM application such as Workday is the source system, scoping filters are the primary method for determining which users should be provisioned from the HCM application to Active Directory or Azure AD.
+### Groups
 
-By default, Azure AD provisioning connectors do not have any attribute-based scoping filters configured. For details, see [Attribute-based application provisioning with scoping filters](define-conditional-rules-for-provisioning-user-accounts.md)
+With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Then, when the provisioning scope is set to **Sync only assigned users and groups**, the Azure AD user provisioning service provisions or de-provisions users in the application based on whether they're members of the group. 
+
+The Azure AD user provisioning service can read and provision users in [dynamic groups](../users-groups-roles/groups-create-rule.md). However, dynamic groups can impact the performance of end-to-end user provisioning from Azure AD to SaaS applications. When using dynamic groups, keep these caveats and recommendations in mind:
+
+  * How fast a user in a dynamic group is provisioned or deprovisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information on how to check the processing status of a dynamic group, see [Check processing status for a membership rule](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
+
+  * When a user loses membership in the dynamic group, it's a de-provisioning event. Consider this when creating rules for dynamic groups. 
+
+### Nested groups
+
+The Azure AD user provisioning service can't read or provision users in nested groups. The service can only read and provision users that are immediate members of an explicitly assigned group. This is a limitation of "group-based assignments to applications", which also affects single sign-on (see [Using a group to manage access to SaaS applications](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps)). You should explicitly assign (or otherwise [scope in](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) the groups that contain the users who need to be provisioned.
+
+### B2B (guest) users
+
+It's possible to use the Azure AD user provisioning service to provision B2B (or guest) users in Azure AD to SaaS applications. 
+However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
 
 ## Provisioning cycles: Initial and incremental
 
@@ -146,76 +160,20 @@ When in quarantine, the frequency of incremental cycles is gradually reduced to 
 
 The provisioning job will be removed from quarantine after all of the offending errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled. Learn more here about quarantine status [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-### How long will it take to provision users?
+### How long provisioning takes
 
 Performance depends on whether your provisioning job is running an initial provisioning cycle or an incremental cycle. For details about how long provisioning takes and how to monitor the status of the provisioning service, see [Check the status of user provisioning](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
-### How can I tell if users are being provisioned properly?
+### How to tell if users are being provisioned properly
 
-All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). This includes all read and write operations made to the source and target systems, and the user data that was read or written during each operation.
-
-For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
-
-## Frequently asked questions
-
-
-### How do I troubleshoot issues with user provisioning?
-
-For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](application-provisioning-config-problem.md).
-
-### What are the best practices for rolling out automatic user provisioning?
-
-> [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
-
-For an example step-by-step deployment plan for outbound user provisioning to an application, see the [Identity Deployment Guide for User Provisioning](https://aka.ms/deploymentplans/userprovisioning).
-
-### Does automatic user provisioning to SaaS apps work with B2B users in Azure AD?
-
-Yes, it's possible to use the Azure AD user provisioning service to provision B2B (or guest) users in Azure AD to SaaS applications.
-
-However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
-
-### Does automatic user provisioning to SaaS apps work with dynamic groups in Azure AD?
-
-Yes. When configured to "sync only assigned users and groups", the Azure AD user provisioning service can provision or de-provision users in a SaaS application based on whether they're members of a [dynamic group](../users-groups-roles/groups-create-rule.md). Dynamic groups also work with the "sync all users and groups" option.
-
-However, usage of dynamic groups can impact the overall performance of end-to-end user provisioning from the Azure AD to SaaS applications. When using dynamic groups, keep these caveats and recommendations in mind:
-
-- How fast a user in a dynamic group is provisioned or deprovisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information on how to check the processing status of a dynamic group, see [Check processing status for a membership rule](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
-
-- When using dynamic groups, the rules must be carefully considered with user provisioning and de-provisioning in mind, as a loss of membership results in a deprovisioning event.
-
-### Does automatic user provisioning to SaaS apps work with nested groups in Azure AD?
-
-No. When configured to "sync only assigned users and groups", the Azure AD user provisioning service isn't able to read or provision users that are in nested groups. It's only able to read and provision users that are immediate members of the explicitly assigned group.
-
-This is a limitation of "group-based assignments to applications", which also affects single sign-on and is described in [Using a group to manage access to SaaS applications](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
-
-As a workaround, you should explicitly assign (or otherwise [scope in](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) the groups that contain the users who need to be provisioned.
-
-### Is provisioning between Azure AD and a target application using an encrypted channel?
-
-Yes. We use HTTPS SSL encryption for the server target.
-
-## Summary of terminology
-| Term | Description |
-| --- | --- |
-| Provisioning | |
-| Source system| |
-| Target system| |
-| Source anchor| |
-| Target anchor| |
-| Matching attribute| |
-| Scope| |
-| Initial cycle| |
-| Incremental cycle| |
-| Quarantine| |
-| Attribute mappings| |
-| Matching attribute| |
-| SCIM | |
+All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). This includes all read and write operations made to the source and target systems, and the user data that was read or written during each operation. For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
 
 ## Next Steps
+
+[Plan an automatic user provisioning deployment](plan-auto-user-provisioning.md)
 
 [Configure provisioning for a gallery app](configure-automatic-user-provisioning-portal.md)
 
 [Build a SCIM endpoint and configure provisioning when creating your own app](use-scim-to-provision-users-and-groups.md)
+
+[Troubleshoot problems with configuring and provisioning users to an application](application-provisioning-config-problem.md).

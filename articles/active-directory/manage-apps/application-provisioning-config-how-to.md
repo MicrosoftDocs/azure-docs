@@ -18,6 +18,7 @@ ms.author: mimart
 ms.reviewer: asteen
 
 ms.collection: M365-identity-device-management
+ROBOTS: NOINDEX
 ---
 
 # How to configure user provisioning to an Azure AD Gallery application
