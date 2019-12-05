@@ -37,7 +37,7 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
     * `$FILEPATH` is the export path of the Azure NetApp Files volume.
     * `$MOUNTPOINT` is the directory created on the Linux host used to mount the NFS export.
 
-4. If you want to mount the volume to Windows:
+4. If you want to mount the volume to Windows using NFS:
 
     a. Mount the volume onto a Unix or Linux VM first.  
     b. Run a `chmod 777` or `chmod 775` command against the volume.  
