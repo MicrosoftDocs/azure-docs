@@ -16,7 +16,7 @@ Azure Machine Learning simplifies and accelerates the building, training, and de
 ## Install Azure Machine Learning on an HDInsight cluster
 
 For general tutorials of automated machine learning, see [Tutorial: Use automated machine learning to build your regression model](../../machine-learning/service/tutorial-auto-train-models.md).
-All new HDInsight-Spark clusters come pre-installed with Azure Machine Learning AutoML SDK. You can get started with AutoML on HDInsight with this [sample Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). This Jupyter Notebook demonstrates how to use an automated machine learning classifier for a simple classification problem.
+All new HDInsight-Spark clusters come pre-installed with AzureML-AutoML SDK. You can get started with AutoML on HDInsight with this [sample Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). This Jupyter Notebook demonstrates how to use an automated machine learning classifier for a simple classification problem.
 
 > [!Note]
 > Azure Machine Learning packages are installed into Python3 conda environment. The installed Jupyter notebook should be run using the PySpark3 kernel.
@@ -70,5 +70,5 @@ In the [automated machine learning configuration](/python/api/azureml-train-auto
 ## Next steps
 
 * For more information on the motivation behind automated machine learning, see [Release models at pace using Microsoft’s automated machine learning!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
-* For more details on using automated machine learning in Azure Machine Learning, see [New automated machine learning capabilities in Azure Machine Learning](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
+* For more details on using Azure ML Automated ML capabilities, see [New automated machine learning capabilities in Azure Machine Learning](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
 * [AutoML project from Microsoft Research](https://www.microsoft.com/research/project/automl/)

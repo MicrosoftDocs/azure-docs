@@ -1,5 +1,5 @@
 ---
-title: 'MLOps: Machine learning model management'
+title: 'MLOps: ML model management'
 titleSuffix: Azure Machine Learning
 description: 'Learn about model management with Azure Machine Learning (MLOps). Deploy, manage, and monitor your models to continuously improve them. '  
 services: machine-learning
@@ -15,26 +15,26 @@ ms.custom: seodec18
 
 # MLOps: Model management, deployment and monitoring with Azure Machine Learning
 
-In this article, learn about how to use Azure Machine Learning to manage the lifecycle of your models. Azure Machine Learning uses a machine learning operations (MLOps) approach. MLOps improves the quality and consistency of your machine learning solutions. 
+In this article, learn about how to use Azure Machine Learning to manage the lifecycle of your models. Azure Machine Learning uses a Machine Learning Operations (MLOps) approach. MLOps improves the quality and consistency of your machine learning solutions. 
 
 Azure Machine Learning provides the following MLOps capabilities:
 
-- **Create reproducible machine learning pipelines**. Pipelines allow you to define repeatable and reusable steps for your data preparation, training, and scoring processes.
+- **Create reproducible ML pipelines**. Pipelines allow you to define repeatable and reusable steps for your data preparation, training, and scoring processes.
 - **Register, package, and deploy models from anywhere** and track associated metadata required to use the model.
-- **Capture the governance data required for capturing the end-to-end machine learning lifecycle**, including who is publishing models, why changes are being made, and when models were deployed or used in production.
-- **Notify and alert on events in the machine learning lifecycle** such as experiment completion, model registration, model deployment, and data drift detection.
-- **Monitor machine learning applications for operational and machine learning-related issues**. Compare model inputs between training and inference, explore model-specific metrics, and provide monitoring and alerts on your machine learning infrastructure.
-- **Automate the end-to-end machine learning lifecycle with Azure Machine Learning and Azure DevOps** to frequently update models, test new models, and continuously roll out new machine learning models alongside your other applications and services.
+- **Capture the governance data required for capturing the end-to-end ML lifecycle**, including who is publishing models, why changes are being made, and when models were deployed or used in production.
+- **Notify and alert on events in the ML lifecycle** such as experiment completion, model registration, model deployment, and data drift detection.
+- **Monitor ML applications for operational and ML-related issues**. Compare model inputs between training and inference, explore model-specific metrics, and provide monitoring and alerts on your ML infrastructure.
+- **Automate the end-to-end ML lifecycle with Azure Machine Learning and Azure DevOps** to frequently update models, test new models, and continuously roll out new ML models alongside your other applications and services.
 
-## Create reproducible machine learning pipelines
+## Create reproducible ML pipelines
 
-Use machine learning pipelines from Azure Machine Learning to stitch together all of the steps involved in your model training process.
+Use ML pipelines from Azure Machine Learning to stitch together all of the steps involved in your model training process.
 
-A machine learning pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [Machine learning pipelines](concept-ml-pipelines.md).
+An ML pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [ML pipelines](concept-ml-pipelines.md).
 
 ## Register, package, and deploy models from anywhere
 
-### Register and track machine learning models
+### Register and track ML models
 
 Model registration allows you to store and version your models in the Azure cloud, in your workspace. The model registry makes it easy to organize and keep track of your trained models.
 
@@ -65,7 +65,7 @@ Azure Machine Learning can use profiling to determine the ideal CPU and memory s
 
 Converting your model to [Open Neural Network Exchange](https://onnx.ai) (ONNX) may improve performance. On average, converting to ONNX can yield a 2x performance increase.
 
-For more information on ONNX with Azure Machine Learning, see the [Create and accelerate machine learning models](concept-onnx.md) article.
+For more information on ONNX with Azure Machine Learning, see the [Create and accelerate ML models](concept-onnx.md) article.
 
 ### Use models
 
@@ -83,7 +83,7 @@ You also provide the configuration of the target deployment platform. For exampl
 When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service and interact with IoT Edge.
 
 #### Batch scoring
-Batch scoring is supported through machine learning pipelines. For more information, see [Batch predictions on big data](how-to-run-batch-predictions.md).
+Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](how-to-run-batch-predictions.md).
 
 #### Real-time web services
 
@@ -111,19 +111,20 @@ For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI (preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
-## Capture the governance data required for capturing the end-to-end machine learning lifecycle
+## Capture the governance data required for capturing the end-to-end ML lifecycle
 
-Azure Machine Learning gives you the capability to track the end-to-end audit trail of all of your machine learning assets. Specifically:
+Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets. Specifically:
 
-- Azure Machine Learning [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
-- [Azure Machine Learning Datasets](how-to-create-register-datasets.md) help you track, profile, and version data. 
-- Azure Machine Learning Run history stores a snapshot of the code, data, and compute used to train a model.
-- The Azure Machine Learning Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
+- Azure ML [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
+- [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data. 
+- Azure ML Run history stores a snapshot of the code, data, and compute used to train a model.
+- The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
 
-## Notify, automate, and alert on events in the machine learning lifecycle
-Azure Machine Learning publishes key events to Azure EventGrid, which can be used to notify and automate on events in the machine learning lifecycle. For more information, please see [this document](how-to-use-event-grid.md).
+## Notify, automate, and alert on events in the ML lifecycle
+Azure ML publishes key events to Azure EventGrid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](how-to-use-event-grid.md).
 
-## Monitor for operational and machine learning issues
+
+## Monitor for operational & ML issues
 
 Monitoring enables you to understand what data is being sent to your model, and the predictions that it returns.
 
@@ -131,7 +132,7 @@ This information helps you understand how your model is being used. The collecte
 
 For more information, see [How to enable model data collection](how-to-enable-data-collection.md).
 
-## Automate the machine learning lifecycle 
+## Automate the ML lifecycle 
 
 You can use GitHub and Azure Pipelines to create a continuous integration process that trains a model. In a typical scenario, when a Data Scientist checks a change into the Git repo for a project, the Azure Pipeline will start a training run. The results of the run can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
 
@@ -140,7 +141,7 @@ The [Azure Machine Learning extension](https://marketplace.visualstudio.com/item
 * Enables workspace selection when defining a service connection.
 * Enables release pipelines to be triggered by trained models created in a training pipeline.
 
-For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of machine learning models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article and the [Azure Machine Learning MLOps](https://aka.ms/mlops) repository.
+For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article and the [Azure Machine Learning MLOps](https://aka.ms/mlops) repository.
 
 ## Next steps
 
@@ -152,7 +153,7 @@ Learn more by reading and exploring the following resources:
 
 + [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
 
-+ [CI/CD of machine learning models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
++ [CI/CD of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
 
 + Create clients that [consume a deployed model](how-to-consume-web-service.md)
 

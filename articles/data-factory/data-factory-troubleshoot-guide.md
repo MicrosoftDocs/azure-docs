@@ -349,16 +349,16 @@ The following table applies to U-SQL.
 
 - **Message**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Cause**: Properties of the activity such as pipelineParameters are invalid for the Azure Machine Learning pipeline.
+- **Cause**: Properties of the activity such as pipelineParameters are invalid for the Azure ML pipeline.
 
-- **Recommendation**:  Please check the value of activity properties to match expected payload of the published Azure Machine Learning pipeline specified in Linked Service.
+- **Recommendation**:  Please check the value of activity properties to match expected payload of the published Azure ML pipeline specified in Linked Service.
 
 
 ### Error code:  4124
 
 - **Message**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Cause**: The published Azure Machine Learning pipeline endpoint does not exist.
+- **Cause**: The published Azure ML pipeline endpoint does not exist.
 
 - **Recommendation**:  Please verify the published Azure Machine Learning pipeline endpoint specified in Linked Service exists in Azure Machine Learning.
 
@@ -376,9 +376,9 @@ The following table applies to U-SQL.
 
 - **Message**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
-- **Cause**: Azure Machine Learning pipeline run failed.
+- **Cause**: Azure ML pipeline run failed.
 
-- **Recommendation**:  Please check in Azure Machine Learning for more error logs and fix the machine learning pipeline.
+- **Recommendation**:  Please check in Azure Machine Learning for more error logs and fix the ML pipeline.
 
 
 

@@ -88,8 +88,8 @@ To modify your project so that Azure can be made aware of important information 
     import azureml
     from azureml.core import Run
 
-    # Access the Azure Machine Learning run
-    # Init run param to check if running within Azure Machine Learning
+    # Access the Azure ML run
+    # Init run param to check if running within AML
     def get_AMLRun():
         try:
             run = Run.get_submitted_run()
@@ -122,7 +122,7 @@ To modify your project so that Azure can be made aware of important information 
     ...
             acc_val = acc_op.eval(feed_dict = {X: X_test, y: y_test})
 
-            # Log accuracies to Azure Machine Learning logger if using Azure Machine Learning
+            # Log accuracies to AML logger if using AML
             if run != None:
                 run.log('Validation Accuracy', np.float(acc_val))
                 run.log('Training Accuracy', np.float(acc_train))
@@ -133,7 +133,7 @@ To modify your project so that Azure can be made aware of important information 
 ### Run the script in Azure
 That's it! Now just use the extension to run your script in the cloud! Note that the following walkthrough video takes the liberty of compressing the amount of time it takes to create a new Azure Machine Learning workspace and compute, as well as the time it takes to run the training script.
 
-   [![Start an Azure Machine Learning experiment](./media/vscode-tools-for-ai/start-golden-path.gif)](./media/vscode-tools-for-ai/start-golden-path.gif#lightbox)
+   [![Start an Azure ML experiment](./media/vscode-tools-for-ai/start-golden-path.gif)](./media/vscode-tools-for-ai/start-golden-path.gif#lightbox)
 
 After clicking the Run Experiment button, answer the prompts as follows:
 
@@ -217,7 +217,7 @@ To create a compute target:
 
 Here's an example of how to create and edit an Azure Machine Learning compute (AMLCompute):
 
-[![Create an Azure Machine Learning compute in Visual Studio Code](./media/vscode-tools-for-ai/create-remote-compute.gif)](./media/vscode-tools-for-ai/create-remote-compute.gif#lightbox)
+[![Create AML compute in Visual Studio Code](./media/vscode-tools-for-ai/create-remote-compute.gif)](./media/vscode-tools-for-ai/create-remote-compute.gif#lightbox)
 
 #### The run configuration file
 
@@ -227,11 +227,11 @@ Here's an example of how to create a run configuration for the AmlCompute, creat
 
 [![Create a run configuration for a compute](./media/vscode-tools-for-ai/create-runconfig.gif)](./media/vscode-tools-for-ai/create-runconfig.gif#lightbox)
 
-To run Azure Machine Learning experiments on your local machine a run configuration file is still required. When creating a local run configuration the Python environment used will default to the path to the interpreter you have set within VS Code.
+To run Azure ML experiments on your local machine a run configuration file is still required. When creating a local run configuration the Python environment used will default to the path to the interpreter you have set within VS Code.
 
 ### Train and tune models
 
-Using the Azure Machine Learning extension for VS Code There are multiple ways of running a training script in an experiment.
+Using the Azure ML extension for VS Code There are multiple ways of running a training script in an experiment.
 
 1. Right click on the training script and choose **Azure ML: Run as Experiment in Azure**
 1. Click the Run Experiment toolbar icon.
@@ -281,7 +281,7 @@ To register your model:
 
 Here's an example of how to register your model to Azure Machine Learning:
 
-[![Registering a Model to Azure Machine Learning](./media/vscode-tools-for-ai/register-model.gif)](./media/vscode-tools-for-ai/register-model.gif#lightbox)
+[![Registering a Model to AML](./media/vscode-tools-for-ai/register-model.gif)](./media/vscode-tools-for-ai/register-model.gif#lightbox)
 
 
 #### Deploy your service from Visual Studio Code
@@ -320,7 +320,7 @@ Here's an example of how to deploy a web service:
 
 ### Experiment with additional features
 
-You can use the Command Palette to access many Azure Machine Learning features in Visual Studio Code. To invoke the Command Palette type Ctrl+Shift+P. From here, you can search for additional Azure Machine Learning features of the extension.
+You can use the Command Palette to access many Azure Machine Learning features in Visual Studio Code. To invoke the Command Palette type Ctrl+Shift+P. From here, you can search for additional Azure ML features of the extension.
 
 [![Keyboard shortcuts for Azure Machine Learning for Visual Studio Code](./media/vscode-tools-for-ai/commands.gif)](./media/vscode-tools-for-ai/commands.gif#lightbox)
 

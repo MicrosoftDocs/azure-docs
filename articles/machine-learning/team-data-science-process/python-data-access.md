@@ -89,7 +89,7 @@ Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SE
    
     ![Paste code into the notebook][ipython-dataset]
 
-## <a name="accessingIntermediateDatasets"></a>Access intermediate datasets from machine learning experiments
+## <a name="accessingIntermediateDatasets"></a>Access intermediate datasets from Machine Learning experiments
 After an experiment is run in the classic version of Machine Learning Studio, it is possible to access the intermediate datasets from the output nodes of modules. Intermediate datasets are data that has been created and used for intermediate steps when a model tool has been run.
 
 Intermediate datasets can be accessed as long as the data format is compatible with the Python client library.
@@ -176,7 +176,7 @@ Some metadata values are assigned by the user at creation time:
     print(ds.family_id)
     print(ds.data_type_id)
 
-Others are values assigned by Azure Machine Learning:
+Others are values assigned by Azure ML:
 
     print(ds.id)
     print(ds.created_date)

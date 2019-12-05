@@ -38,7 +38,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-* Complete the [Tutorial: Get started creating your first Azure Machine Learning experiment](tutorial-1st-experiment-sdk-setup.md) to:
+* Complete the [Tutorial: Get started creating your first Azure ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
     * Create a workspace
     * Clone the tutorials notebook to your folder in the workspace.
     * Create a cloud-based Notebook VM.
@@ -76,7 +76,7 @@ import azureml.core
 from azureml.core import Workspace
 
 # check core SDK version number
-print("Azure Machine Learning SDK Version: ", azureml.core.VERSION)
+print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```
 
 ### Connect to a workspace
@@ -425,10 +425,10 @@ print(model.name, model.id, model.version, sep='\t')
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-You can also delete just the Azure Machine Learning compute cluster. However, autoscale is turned on, and the cluster minimum is zero. So this particular resource won't incur additional compute charges when not in use:
+You can also delete just the Azure Machine Learning Compute cluster. However, autoscale is turned on, and the cluster minimum is zero. So this particular resource won't incur additional compute charges when not in use:
 
 ```python
-# Optionally, delete the Azure Machine Learning compute cluster
+# Optionally, delete the Azure Machine Learning Compute cluster
 compute_target.delete()
 ```
 

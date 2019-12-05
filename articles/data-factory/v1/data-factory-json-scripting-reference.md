@@ -5359,7 +5359,7 @@ In this example, the activity has the dataset **MLSqlInput** as input and **MLSq
 {
    "name": "MLWithSqlReaderSqlWriter",
    "properties": {
-      "description": "Azure Machine Learning model with sql azure reader/writer",
+      "description": "Azure ML model with sql azure reader/writer",
       "activities": [{
          "name": "MLSqlReaderSqlWriterActivity",
          "type": "AzureMLBatchExecution",

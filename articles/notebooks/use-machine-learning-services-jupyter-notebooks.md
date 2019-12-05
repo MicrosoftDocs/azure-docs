@@ -7,7 +7,7 @@ ms.date: 12/04/2018
 
 # Use Azure Machine Learning in a notebook
 
-Azure Notebooks comes pre-configured with the necessary environment to work with [Azure Machine Learning](/azure/machine-learning/service/). You can easily clone a sample project into your Notebooks account to explore a variety of machine learning scenarios.
+Azure Notebooks comes pre-configured with the necessary environment to work with [Azure Machine Learning](/azure/machine-learning/service/). You can easily clone a sample project into your Notebooks account to explore a variety of Machine Learning scenarios.
 
 ## Clone the sample into your account
 
@@ -24,13 +24,13 @@ Azure Notebooks comes pre-configured with the necessary environment to work with
 
 1. Select **00 - configuration.ipynb** to start the configuration section of the notebook, and follow its instructions to create an Azure Machine Learning Workspace.
 
-    - Because Azure Notebooks already contains the necessary Python packages, you can just run the code snippet in step 2 of the Prerequisites to verify the Azure Machine Learning SDK version.
+    - Because Azure Notebooks already contains the necessary Python packages, you can just run the code snippet in step 2 of the Prerequisites to verify the Azure ML SDK version.
 
 1. Once configuration is complete, select **01.getting-started** to open the folder containing thirteen different sample notebooks, each of which is self-explanatory.
 
 ## Next steps
 
-The Azure Machine Learning documentation contains a variety of other resources that guide you through working with machine learning within notebooks:
+The Azure Machine Learning documentation contains a variety of other resources that guide you through working with Machine Learning within notebooks:
 
 - [Quickstart: Use Python to get started with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
 - [Tutorial #1: Train an image classification model with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)

@@ -1,5 +1,5 @@
 ---
-title: Build machine learning models with designer
+title: Build ML models with designer
 titleSuffix: Azure Machine Learning
 description: Learn about the terms, concepts, and workflow that makes up the designer for Azure Machine Learning.
 services: machine-learning
@@ -45,7 +45,7 @@ The designer gives you a visual canvas to build, test, and deploy machine learni
 
 ## Pipeline
 
-A [pipeline](concept-azure-machine-learning-architecture.md#machine-learning-pipelines) consists of datasets and analytical modules, which you connect together. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
+A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical modules, which you connect together. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
 
 ### Pipeline draft
 
@@ -89,7 +89,7 @@ Use compute resources from your workspace to run your pipeline and host your dep
 | Azure Machine Learning compute | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Compute targets are attached to your machine learning [workspace](concept-workspace.md). You manage your compute targets in your workspace in [Azure Machine Learning Studio (classic)](https://ml.azure.com).
+Compute targets are attached to your [Azure Machine Learning workspace](concept-workspace.md). You manage your compute targets in your workspace in [Azure Machine Learning Studio (classic)](https://ml.azure.com).
 
 ## Deploy
 

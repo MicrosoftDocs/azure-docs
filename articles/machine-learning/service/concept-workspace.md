@@ -34,7 +34,7 @@ The diagram shows the following components of a workspace:
 + [Compute targets](concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
 + [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  
-+ [Pipelines](concept-azure-machine-learning-architecture.md#machine-learning-pipelines) are reusable workflows for training and retraining your model.
++ [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
 + [Datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a registered model.
 + Use the registered model and a scoring script to create a [deployment endpoint](concept-azure-machine-learning-architecture.md#endpoints).
@@ -55,7 +55,7 @@ You can interact with your workspace in the following ways:
 Machine learning tasks read and/or write artifacts to your workspace.
 
 + Run an experiment to train a model - writes experiment run results to the workspace.
-+ Use automated machine learning to train a model - writes training results to the workspace.
++ Use automated ML to train a model - writes training results to the workspace.
 + Register a model in the workspace.
 + Deploy a model - uses the registered model to create a deployment.
 + Create and run reusable workflows.
@@ -109,7 +109,7 @@ To get started with Azure Machine Learning, see:
 + [Azure Machine Learning overview](overview-what-is-azure-ml.md)
 + [Create a workspace](how-to-manage-workspace.md)
 + [Manage a workspace](how-to-manage-workspace.md)
-+ [Tutorial: Get started creating your first machine learning experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)
++ [Tutorial: Get started creating your first ML experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)
 + [Tutorial: Get started with Azure Machine Learning with the R SDK]( tutorial-1st-r-experiment.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) (Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces)
 + [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md) (Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces)
