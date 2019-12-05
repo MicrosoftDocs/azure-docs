@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech stored in blob storage, C++ - Speech Service"
+title: "Quickstart: Recognize speech stored in blob storage, C++ - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -70,7 +70,7 @@ Next, we'll generate the transcription request. Add this code to `recognizeSpeec
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=199-203)]
 
 ## Send the request and check its status
-Now we post the request to the Speech Service and check the initial response code. This response code will simply indicate if the service has received the request. The service will return a Url in the response headers that's the location where it will store the transcription status.
+Now we post the request to the Speech service and check the initial response code. This response code will simply indicate if the service has received the request. The service will return a Url in the response headers that's the location where it will store the transcription status.
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=204-216)]
 
 ## Wait for the transcription to complete

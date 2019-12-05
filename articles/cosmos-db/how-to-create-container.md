@@ -1,10 +1,10 @@
 ---
 title: Create a container in Azure Cosmos DB
-description: Learn how to create a container in Azure Cosmos DB
+description: Learn how to create a container in Azure Cosmos DB by using Azure portal, .Net, Java, Python, Node.js and other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ---
 
