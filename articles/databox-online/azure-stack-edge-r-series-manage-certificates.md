@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/03/2019
+ms.date: 12/05/2019
 ms.author: alkohli
 ---
 # Use certificates with Azure Stack Edge Rugged series 
