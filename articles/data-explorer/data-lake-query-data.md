@@ -16,13 +16,8 @@ Azure Data Lake Storage is a highly scalable and cost-effective data lake soluti
 Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Storage Gen2, providing fast, cached, and indexed access to data in the lake. You can analyze and query data in the lake without prior ingestion into Azure Data Explorer. You can also query across ingested and uningested native lake data simultaneously.  
 
 > [!TIP]
-> The best query performance necessitates data ingestion into Azure Data Explorer. The capability to query data in Azure Data Lake Storage Gen2 without prior ingestion should only be used for historical data or data that is rarely queried.
+> The best query performance necessitates data ingestion into Azure Data Explorer. The capability to query data in Azure Data Lake Storage Gen2 without prior ingestion should only be used for historical data or data that is rarely queried. See [best practices](#best-practices) section below for more information.
  
-## Optimize query performance in the lake 
-
-* Partition data for improved performance and optimized query time.
-* Compress data for improved performance (gzip for best compression, lz4 for best performance).
-* Use Azure Blob Storage or Azure Data Lake Storage Gen2 with the same region as your Azure Data Explorer cluster. 
 
 ## Create an external table
 
@@ -226,6 +221,36 @@ This query uses partitioning, which optimizes query time and performance. The qu
 ![render partitioned query](media/data-lake-query-data/taxirides-with-partition.png)
   
 You can write additional queries to run on the external table *TaxiRides* and learn more about the data. 
+
+
+## Best practices
+
+Below are some important points when considering querying external data (most of them are relevant not only for Azure Data Explorer). 
+ 
+### Data format
+ 
+Use columnar format for analytical queries - this allows reading only columns relevant to a query. Also, different column encoding techniques allow for reducing data size significantly, which always have positive effect considering data transfer is usually the bottleneck. Azure Data Explorer supports Parquet and ORC columnar formats, however current implementations of ORC reader is less optimized than Parquet's, therefore current suggestion is Parquet.
+ 
+### Azure region 
+ 
+Make sure external data resides in the same region as Azure Data Explorer cluster. This reduces both the cost and the data fetch time.
+ 
+### File size
+ 
+Try to avoid many small files  this brings unneeded overhead, taking advantage of columnar format is hard, files enumeration process is slower, etc. As a rule of thumb - start with hundreds of Mb (up to 1Gb) per file, and see how this works for you. This is valid, of course, while the number of such files is greater than the number of CPU cores in your Azure Data Explorer cluster. 
+ 
+### Compression
+ 
+Always use compression to reduce amount of data being fetched from the remote storage. When using Parquet format - use internal Parquet compression mechanism, which compresses column groups separately, thus allowing to read them separately (to validate, check that files are named like “<filename>.gz.parquet” or “<filename>.snappy.parquet” as opposed to “<filename>.parquet.gz”). As for the compression codec itself - it’s not very much important, but rumors say that “gzip” gives better compression ratio, while “snappy” gives better throughput when decoding. Try what works best for your use case.
+ 
+### Partitioning
+ 
+Always organize your data using "folder" partitions in such a way that enables query engine for skipping irrelevant paths. Look at most of your queries, what filter is used the most? Usually, this would be a timestamp or some sort of tenant ID (or a combination of both). When planning partitioning, however, think about file size. As a side note, Azure Data Explorer doesn’t support partition discovery yet the way it works in Spark (Databricks), when paths named like `/customer_id=Xyz/year=2018/month=01/day=01` automatically appear in resulted datasets as columns, therefore partitions must present in the data as fields.
+ 
+### VM size
+ 
+When choosing appropriate size of Azure Data Explorer engine nodes, prefer instances with more cores and higher network throughput (memory amount is less important).
+
 
 ## Next steps
 
