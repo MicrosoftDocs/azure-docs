@@ -1,5 +1,5 @@
 ---
-title: PowerShell sample - List Application Proxy apps with a policy
+title: PowerShell sample - List all Application Proxy apps with a policy
 description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications in your directory that have a lifetime token policy.
 services: active-directory
 author: msmimart
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 12/05/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
@@ -37,6 +37,7 @@ This sample requires the Azure AD PowerShell Module Version for Graph. If needed
 |[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets a service principal. |
 |[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets an Azure AD application. |
 |[Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) | Gets a policy in Azure AD. |
+|[Get-AzureADServicePrincipalPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) | Gets the policy of a service principal in Azure AD. |
 
 
 # Next steps

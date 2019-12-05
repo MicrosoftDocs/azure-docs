@@ -1,5 +1,5 @@
 ---
-title: PowerShell sample - Assign user & group to Application Proxy app
+title: PowerShell sample - List users & groups for Application Proxy app
 description: PowerShell example that lists all the users and groups assigned to a specific Azure Active Directory (Azure AD) Application Proxy application.
 services: active-directory
 author: msmimart
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 12/05/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
@@ -38,6 +38,7 @@ This sample requires the Azure AD PowerShell Module Version for Graph. If needed
 | [Get-AzureADGroup](https://docs.microsoft.com/powershell/module/AzureAD/Get-AzureADGroup?view=azureadps-2.0)| Gets a group. |
 | [Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets a service principal. |
 | [Get-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/AzureAD/Get-AzureADUserAppRoleAssignment?view=azureadps-2.0) | Get a user application role assignment. |
+| [Get-Get-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/AzureAD/Get-AzureADUserAppRoleAssignment?view=azureadps-2.0) | Get a group application role assignment. |
 
 # Next steps
 
