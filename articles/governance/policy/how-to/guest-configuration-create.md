@@ -2,7 +2,7 @@
 title: How to create Guest Configuration policies
 description: Learn how to create an Azure Policy Guest Configuration policy for Windows or Linux VMs with Azure PowerShell.
 ms.date: 11/21/2019
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # How to create Guest Configuration policies
 
