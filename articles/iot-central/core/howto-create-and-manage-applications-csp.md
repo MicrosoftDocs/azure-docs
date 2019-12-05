@@ -69,9 +69,6 @@ To learn more, see [Azure subscriptions](https://docs.microsoft.com/azure/guides
 
 Choose the region or [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your Azure IoT Central Application. Typically, you should choose the region that's closest physically to your devices to get optimal performance.
 
-> [!NOTE]
-> The preview application templates are currently only available in the **Europe** and **US** locations.
-
 To learn more, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) and [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 You can see the regions in which Azure IoT Central is available on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central) page.
