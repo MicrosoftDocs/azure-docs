@@ -35,7 +35,7 @@ This sample requires the Azure AD PowerShell Module Version for Graph. If needed
 | Command | Notes |
 |---|---|
 |[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets a service principal. |
-|[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets an Azure AD application. |
+|[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Gets an Azure AD application. |
 |[Get-AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Retrieves an application configured for Application Proxy in Azure AD. |
 |[Set-AzureADApplicationProxyApplicationCustomDomainCertificate](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplicationproxyapplicationcustomdomaincertificate?view=azureadps-2.0) | Assigns a certificate to an application configured for Application Proxy in Azure AD. This command uploads the certificate and allows the application to use Custom Domains. |
 

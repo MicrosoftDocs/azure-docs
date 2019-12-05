@@ -34,11 +34,11 @@ This sample requires the Azure AD PowerShell Module Version for Graph. If needed
 
 | Command | Notes |
 |---|---|
-| [Get-AzureADUser](https://docs.microsoft.com/powershell/module/AzureAD/Get-AzureADUser?view=azureadps-2.0)| Gets a user. |
-| [Get-AzureADGroup](https://docs.microsoft.com/powershell/module/AzureAD/Get-AzureADGroup?view=azureadps-2.0)| Gets a group. |
+| [Get-AzureADUser](https://docs.microsoft.com/powershell/module/AzureAD/get-azureaduser?view=azureadps-2.0)| Gets a user. |
+| [Get-AzureADGroup](https://docs.microsoft.com/powershell/module/AzureAD/get-azureadgroup?view=azureadps-2.0)| Gets a group. |
 | [Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets a service principal. |
-| [Get-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/AzureAD/Get-AzureADUserAppRoleAssignment?view=azureadps-2.0) | Get a user application role assignment. |
-| [Get-Get-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/AzureAD/Get-AzureADUserAppRoleAssignment?view=azureadps-2.0) | Get a group application role assignment. |
+| [Get-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/AzureAD/get-azureaduserapproleassignment?view=azureadps-2.0) | Get a user application role assignment. |
+| [Get-Get-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/AzureAD/get-azureadgroupapproleassignment?view=azureadps-2.0) | Get a group application role assignment. |
 
 # Next steps
 

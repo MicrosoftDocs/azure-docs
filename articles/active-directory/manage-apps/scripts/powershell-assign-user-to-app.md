@@ -34,7 +34,7 @@ This sample requires the Azure Active Directory (Azure AD) PowerShell Module Ver
 
 | Command | Notes |
 |---|---|
-| [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/AzureAD/New-AzureADUserAppRoleAssignment?view=azureadps-2.0) | Assigns a user to an application role. |
+| [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/AzureAD/new-azureaduserapproleassignment?view=azureadps-2.0) | Assigns a user to an application role. |
 
 # Next steps
 
