@@ -16,11 +16,18 @@ ms.subservice: B2C
 
 # Configure Azure AD B2C as a SAML IdP to your applications
 
-This article explains how to configure Azure Active Directory B2C (Azure AD B2C) to provide SAML (protocol) assertions to applications (aka Service Providers).  Azure AD B2C will act as the single Identity Provider to your SAML application (aka relying party).
+In this article you learn how to configure Azure Active Directory B2C (Azure AD B2C) to provide Security Assertion Markup Language (SAML) protocol assertions to applications (service providers). Azure AD B2C can act as the single identity provider (IdP) to your SAML application, the relying party.
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Scenario overview
 
-Organizations using Azure AD B2C to secure access from their users (typically customers or citizens) to their own applications, may have a need to interact with identity providers or applications that are configured to authenticate using the SAML protocol.  Azure AD B2C achieves this interoperability by (A) interacting with SAML-based identity providers and/or (B) achieving single-sign-on with SAML-based service providers.
+Organizations that use Azure AD B2C as their customer identity and access management solution might require interaction with identity providers or applications that are configured to authenticate using the SAML protocol.
+
+Azure AD B2C achieves this interoperability in two ways:
+
+* By interacting with SAML-based identity providers, and/or
+* Achieving single-sign-on (SSO) with SAML-based service providers
 
 ![Diagram with B2C as identity provider on left and B2C as service provider on right](media/saml-identity-provider/saml-idp-diagram-01.jpg)
 
@@ -28,20 +35,20 @@ Summarizing the two non-exclusive core scenarios with SAML:
 
 | Scenario | Azure AD B2C role | How-to |
 | -------- | ----------------- | ------- |
-| My application expects a SAML assertion to complete an authentication.  | **B2C acts as Identity Provider (IdP)**<br />AAD B2C service acts as a SAML Identity Provider to the applications.  | This article.  |
+| My application expects a SAML assertion to complete an authentication. | **B2C acts as Identity Provider (IdP)**<br />AAD B2C service acts as a SAML Identity Provider to the applications. | This article. |
 | My users need to single-sign-on with a SAML compliant Identity Provider. (e.g. ADFS, Salesforce, Shibboleth)  | **B2C acts as Service Provider (SP)**<br />AAD B2C service acts as a Service Provider when connecting to the SAML Identity Provider. It is a Federation Proxy between your application and the SAML Identity Provider  | [Add ADFS as a SAML IdP using custom policies in Azure AD B2C](active-directory-b2c-custom-setup-adfs2016-idp.md) |
 
 ## Prerequisites
 
-* Basic understanding of custom policies by completing [Get started with custom policies in Azure AD B2C](active-directory-b2c-get-started-custom.md).
-* Basic understanding of SAML.
-* "SocialAndLocalAccounts" custom policy starterpack configured and working in your tenant from the "Getting Started" article. We will make changes to the pack to add SAML RP functionality, use a local "working directory" to make these changes.
-* An application configured as a SAML service provider (SP). For this tutorial you can use the [simulator application](https://samltestapp2.azurewebsites.net/SP).
+* Complete the steps in [Get started with custom policies in Azure AD B2C](active-directory-b2c-get-started-custom.md).
+  * This article walks you through the process of adding SAML relying party (RP) functionality to the *SocialAndLocalAccounts* custom policy starter pack discussed in the getting started article.
+* Basic understanding of the Security Assertion Markup Language (SAML) protocol.
+* An application configured as a SAML service provider (SP). For this tutorial, you can use the [simulator application](https://samltestapp2.azurewebsites.net/).
 
 ## Components of the solution
 
-* Your SAML application, or more generally, the ability to receive, decode and respond to SAML assertions from Azure AD B2C.  For this walk-through, we will use the following SAML Application simulator to interact with B2C: https://samltestapp2.azurewebsites.net/SP
-* Publicly available Metadata endpoint for your application.  (or simulator provides one)
+* Your SAML application, or more generally, the ability to receive, decode and respond to SAML assertions from Azure AD B2C. For this walk-through, we will use the following SAML Application simulator to interact with B2C: https://samltestapp2.azurewebsites.net/SP
+* Publicly available Metadata endpoint for your application. (or simulator provides one)
 * Azure AD B2C tenant
 
 ## 1. Setup the certificates
@@ -91,6 +98,7 @@ Open the TrustFrameworkExtensions.xml policy from the starterpack policy. Locate
 <ClaimsProvider>
   <DisplayName>Token Issuer</DisplayName>
   <TechnicalProfiles>
+
     <!-- SAML Token Issuer technical profile -->
     <TechnicalProfile Id="Saml2AssertionIssuer">
       <DisplayName>Token Issuer</DisplayName>
@@ -109,11 +117,13 @@ Open the TrustFrameworkExtensions.xml policy from the starterpack policy. Locate
       <OutputClaims/>
       <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml"/>
     </TechnicalProfile>
+
     <!-- Session management technical profile for SAML based tokens -->
     <TechnicalProfile Id="SM-Saml">
       <DisplayName>Session Management Provider</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
     </TechnicalProfile>
+
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
@@ -155,7 +165,7 @@ Now that your tenant can issue SAML tokens, we need to create the SAML relying p
 
 ### 3.1 Create sign-up or sign-in policy
 
-1. Copy the SignUpOrSignin.xml file from your starterpack working directory, rename it to match the Id of the new journey you created i.e. SignUpOrSigninSAML.xml.  This is your relying party policy file.
+1. Copy the SignUpOrSignin.xml file from your starterpack working directory, rename it to match the Id of the new journey you created i.e. SignUpOrSigninSAML.xml. This is your relying party policy file.
 1. Open the SignUpOrSigninSAML.xml file
 1. Replace the policy name B2C_1A_signup_signin to B2C_1A_signup_signin_SAML
 1. Replace the entire `<TechnicalProfile>` element in the `<RelyingParty>` element with the following:
