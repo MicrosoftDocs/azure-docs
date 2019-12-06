@@ -19,15 +19,19 @@ ms.author: allensu
 
 # What is Azure Load Balancer?
 
-Load balancing, as the name suggsts, refers to efficiently distributing load or incoming network traffic across a group of backend resources or servers. Azure offers a [variety of load balancing options](../architecture/guide/technology-choices/load-balancing-overview.md) that you can choose from based on your need. This document covers the Azure Load Balancer.
+*Load balancing* refers to efficiently distributing load or incoming network traffic across a group of backend resources or servers. Azure offers a [variety of load balancing options](../architecture/guide/technology-choices/load-balancing-overview.md) that you can choose from based on your need. This document covers the Azure Load Balancer.
 
-Azure Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model. With Azure Load Balancer, you can scale your applications and create high availabile services. Load Balancer supports inbound and outbound scenarios, provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications.
+Azure Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model. It is the single point of contact for clients. You can load balance across Aure Virtual Machines or instances in a Virtual Machine Scale Sets (VMSS). 
+
+
+With Azure Load Balancer, you can scale your applications and create high availabile services. 
+Load Balancer supports inbound and outbound scenarios, provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications.
 
 Load Balancer distributes new inbound flows that arrive at the Load Balancer's front end to back-end pool instances, according to specified load balacing rules and health probes.
 
 A public Load Balancer can provide outbound connections for virtual machines (VMs) inside your virtual network by translating their private IP addresses to public IP addresses.
 
-## Why use Load Balancer?
+## Why use Load Balancer?I
 
 You can use Azure Load Balancer to:
 
