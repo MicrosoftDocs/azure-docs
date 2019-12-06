@@ -6,8 +6,8 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
-ms.date: 12/04/2019
+ms.topic: article
+ms.date: 12/06/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge device so that I can manage resources.
 ---
@@ -43,7 +43,9 @@ The process of connecting to local APIs of the device using Azure Resource Manag
 
 The following sections detail each of the above steps in connecting to Azure Resource Manager.
 
-## Step 1: Configure Azure Stack Edge device (local web UI) 
+## Step 1: Configure Azure Stack Edge device 
+
+Take the following steps in the local web UI of your Azure Stack Edge device.
 
 1. Complete the network settings, web proxy settings (optional), and time settings (optional). In this example, **Port 6** network interface settings are configured.
 
@@ -88,36 +90,46 @@ Certificates ensure that your communication is trusted. On your Azure Stack Edge
 
 When you bring in a signed certificate of your own, you also need the corresponding signing chain of the certificate. For the signing chain, local UI, Azure Resource Manager, and the blob certificates on the device, you will need the corresponding certificates on the client machine also to authenticate and communicate with the device.
 
-The following section describes the procedure to create signing chain and endpoint certificates, import these certificates on your Windows client, and finally upload these certificates on the device.
+To connect to Azure Resource Manager, you will need to create or get signing chain and endpoint certificates, import these certificates on your Windows client, and finally upload these certificates on the device.
 
 ### Create certificates (Optional)
 
 For test and development use only, you can use Windows PowerShell to create certificates on your local system. While creating the certificates for the client, follow these guidelines:
 
-1. You first need to create a root certificate for the signing chain. See steps to [Create signing chain certificates]().
+1. You first need to create a root certificate for the signing chain. For more information, see See steps to [Create signing chain certificates](azure-stack-edge-r-series-manage-certificates.md#create-signing-chain-certificates).
 
-2. You can next create the endpoint certificates for the local UI, blob, and Azure Resource Manager. See the steps to [Create endpoint certificates]().
+2. You can next create the endpoint certificates for the local UI, blob, and Azure Resource Manager. See the steps to [Create endpoint certificates](azure-stack-edge-r-series-manage-certificates.md#create-signed-endpoint-certificates).
+
+3. For all these certificates, make sure that the subject name and subject alternate name conform to the following guidelines:
+
+    |Type |Subject name (SN)  |Subject alternative name (SAN)  |Subject name example |
+    |---------|---------|---------|---------|
+    |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
+    |Blob storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Local UI| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
+    |Multi-SAN single certificate for both endpoints|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
+
+For more information on certificates, go to how to [Manage certifcates](azure-stack-edge-r-series-manage-certificates.md).
 
 
 ### Upload certificates on the device
 
 The certificates that you created in the previous step will be in the Personal store on your client. These certificates need to be exported on your client into appropriate format files that can then be uploaded to your device.
 
-1. The root certificate must be exported as a .cer format file. For detailed steps, see [Export certificates as a .cer format file](#export-certificate-to-.cer-format).
+1. The root certificate must be exported as a .cer format file. For detailed steps, see [Export certificates as a .cer format file](azure-stack-edge-r-series-manage-certificates.md#export-certificate-to-.cer-format).
 
-2. The endpoint certificates must be exported as *.pfx* files with private keys. For detailed steps, see [Export certificates as .pfx file with private keys](#export-certificate-to-.pfx-format-with-a-private-key).
+2. The endpoint certificates must be exported as *.pfx* files with private keys. For detailed steps, see [Export certificates as .pfx file with private keys](azure-stack-edge-r-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 
-3. The root and endpoint certificates are then uploaded on the device using the **+Add certificate** option on the **Certificates** page in the local web UI. To upload the certificates, follow the steps in [Upload certificates]().
+3. The root and endpoint certificates are then uploaded on the device using the **+Add certificate** option on the **Certificates** page in the local web UI. To upload the certificates, follow the steps in [Upload certificates](azure-stack-edge-r-series-manage-certificates.md#upload-certificates).
 
-If you experience any errors, go to [Errors with certificates]().
 
 ### Import certificates on the client running Azure PowerShell
 
 The certificates that you created in the previous step must be imported on your Windows client into the appropriate certificate store.
 
-1. The root certificate that you exported as the *.cer* should now be imported in the Trusted Root Certificate Authorities on your client system. For detailed steps, see [Import certificates into the Trusted Root Certificate Authorities store.](#import-certificates-into-the-personal-store)
+1. The root certificate that you exported as the *.cer* should now be imported in the Trusted Root Certificate Authorities on your client system. For detailed steps, see [Import certificates into the Trusted Root Certificate Authorities store.](azure-stack-edge-r-series-manage-certificates.md#import-certificates-as-der-format)
 
-2. The endpoint certificates that you exported as the *.pfx* must be exported as *.cer*. This *.cer* is then imported in the **Personal** certificate store on your system. For detailed steps, see [Import certificates into the Personal certificate store](#export-certificate-to-.cer-format).
+2. The endpoint certificates that you exported as the *.pfx* must be exported as *.cer*. This *.cer* is then imported in the **Personal** certificate store on your system. For detailed steps, see [Import certificates into personal store](azure-stack-edge-r-series-manage-certificates.md#import-certificates-as-der-format).
 
 ## Step 3: Review and configure the prerequisites on the client 
 
@@ -359,7 +371,7 @@ AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com:30005 https://login.
 
     a. Username -- *EdgeARMuser*
 
-    b. Password - *Password1*
+    b. Password - The default password is *Password1*. Install the requisite Azure PowerShell modules to set the user password. For more information, see [Install Azure PowerShell module]](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.1.0#install-the-azure-powershell-module-10. You will  You can set the password for the device.
 
 To sign in, type the following command:
 
