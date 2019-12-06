@@ -299,7 +299,10 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
         main()
     ```
 
-4. The exporter will send log data to Azure Monitor. You can find the data under `traces`. NOTE: `traces` in this context is not the same as `Tracing`. `traces` refers to the type of telemetry that you will see in Azure Monitor when utilizing the `AzureLogHandler`. `Tracing` refers to a concept in OpenCensus and relates to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
+4. The exporter will send log data to Azure Monitor. You can find the data under `traces`. 
+
+> [!NOTE]
+> `traces` in this context is not the same as `Tracing`. `traces` refers to the type of telemetry that you will see in Azure Monitor when utilizing the `AzureLogHandler`. `Tracing` refers to a concept in OpenCensus and relates to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
 
 5. For details on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
 
