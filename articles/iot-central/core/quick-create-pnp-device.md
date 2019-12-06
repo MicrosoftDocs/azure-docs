@@ -3,7 +3,7 @@ title: Quickstart - Add a simulated device to Azure IoT Central
 description: This quickstart shows how to create a device template and add a simulated device to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/07/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -58,7 +58,7 @@ The following steps show you how to use the device catalog to import the capabil
 
     ![MXChip IoT DevKit device template](./media/quick-create-pnp-device/devkit-template.png)
 
-    The MXChip IoT DevKit capability model includes interfaces such as **mxchip_sensor**, **mxchip_settings** and **Device Information**. Interfaces define the capabilities of an MXChip IoT DevKit device. Capabilities include the telemetry a device sends, the properties a device reports, and the commands a device responds to.
+    The MXChip IoT DevKit capability model includes interfaces such as **mxchip_sensor**, **mxchip_settings**, and **Device Information**. Interfaces define the capabilities of an MXChip IoT DevKit device. Capabilities include the telemetry a device sends, the properties a device reports, and the commands a device responds to.
 
 ### Add cloud properties
 
@@ -90,21 +90,23 @@ Default views are a quick way to get started with visualizing your important dev
 * The **Overview** view uses charts and metrics to display device telemetry.
 * The **About** view displays device properties.
 
-Select the **Views** node in the device template. You can see that IoT Central generated a **Overview** and **About** view for you when you added the template.
+Select the **Views** node in the device template. You can see that IoT Central generated an **Overview** and an **About** view for you when you added the template.
 
-To add your cloud properties to the **About** view:
+To add a new **Manage device** form that an operator can use to manage the device:
 
-1. Select the **About** view.
+1. Select the **Views** node, and then select the **Editing device and cloud data** tile to add a new view.
 
-1. Select the **Customer Name** and **Last Service Date** cloud properties. Then select **Add tile**:
+1. Change the form name to **Manage device**.
 
-    ![Create tile](media/quick-create-pnp-device/customize-view.png)
+1. Select the **Customer Name** and **Last Service Date** cloud properties, and the **Fan Speed** property. Then select **Add section**:
 
-1. Select **Save** to save your changes.
+    ![Create new form](media/quick-create-pnp-device/new-form.png)
+
+1. Select **Save** to save your new form.
 
 ## Publish device template
 
-Before you can create a simulated device, or connect a real device, you need to publish your device template. Although IoT Central published the template when you first created it, because you made changes to the template you must publish the updated version.
+Before you can create a simulated device, or connect a real device, you need to publish your device template. Although IoT Central published the template when you first created it, you must publish the updated version.
 
 To publish a device template:
 
@@ -140,13 +142,15 @@ Now you can interact with the views that were created by the builder for the dev
 
 1. The **Commands** view lets you run commands, such as **blink** on the device.
 
+1. The **Manage devices** view is the form you created for the operator to manage the device.
+
 ## Use a simulated device to improve views
 
 After you create a new simulated device, the builder can use this device to continue to improve and build upon the views for the device template.
 
 1. Choose **Device templates** in the left pane and select the **MXChip IoT DevKit** template.
 
-1. Select any of the views you would like to edit, or create a new view. Select **Configure preview device**, then **Select from a running device**. Here you can choose between having no preview device, using a real device you can configure for testing, or from an existing device you've added into IoT Central.
+1. Select any of the views you would like to edit, or create a new view. Select **Configure preview device**, then **Select from a running device**. Here you can choose to have no preview device, a real device configured for testing, or an existing device you've added into IoT Central.
 
 1. Choose your simulated device in the list. Then select **Apply**. Now you can see the same simulated device in your device template views building experience. This view is useful for charts and other visualizations.
 
