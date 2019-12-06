@@ -97,6 +97,7 @@ The following are the changes to be aware of before upgrading a 2.x app to 3.x.
 ### Changing version of apps in Azure
 
 The version of the Functions runtime used by published apps in Azure is dictated by the [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) application setting. The following major runtime version values are supported:
+
 | Value | Runtime target |
 | ------ | -------- |
 | `~3` | 3.x |
