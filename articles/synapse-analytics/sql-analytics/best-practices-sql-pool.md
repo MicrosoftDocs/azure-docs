@@ -12,16 +12,16 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# Best practices for SQL pools in Azure Synapse
-This article provides a collection of best practices to help you achieve optimal performance for SQL pools in Azure Synapse. Below you'll find basic guidance and important areas to focus on as you build your solution. Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth.
+# Best practices for SQL pools in Azure Synapse Analytics
+This article provides a collection of best practices to help you achieve optimal performance for SQL pools in Azure Synapse Analytics. Below you'll find basic guidance and important areas to focus on as you build your solution. Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth.
 
-### SQL pools
+## SQL pools loading
 For SQL pools loading guidance, see [Guidance for loading data](../../sql-data-warehouse/guidance-for-loading-data.md).
 
-### Reduce cost with pause and scale
-For more information about reducing costs through pausing and scaling, see the [Manage compute](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md). 
+## Reduce cost with pause and scale
+For more information about reducing costs through pausing and scaling, see [Manage compute](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md). 
 
-### Maintain statistics
+## Maintain statistics
 While SQL Server automatically detects and creates or updates statistics on columns, SQL pools require manual maintenance of statistics. You'll want to maintain your statistics to ensure that the SQL pool plans are optimized.  The plans created by the optimizer are only as good as the available statistics. 
 
 > [!TIP]
@@ -31,16 +31,14 @@ It's equally important to update statistics as significant changes happen to you
 
 To shorten statistics maintenance time, be selective about which columns have statistics, or need the most frequent updating. For example, you might want to update date columns where new values may be added daily. Focus on having statistics for columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
-See also [Manage table statistics][Manage table statistics], [CREATE STATISTICS][CREATE STATISTICS], [UPDATE STATISTICS][UPDATE STATISTICS].
+Additional information on statistics can be found in the [Manage table statistics](development-tables-statistics.md), [CREATE STATISTICS]( https://msdn.microsoft.com/library/ms188038.aspx), and [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx) articles.
 
-### Group INSERT statements into batches
+## Group INSERT statements into batches
 A one-time load to a small table with an INSERT statement such as `INSERT INTO MyLookup VALUES (1, 'Type 1')`may be the best approach depending on your needs. However, if you need to load thousands or millions of rows throughout the day, it's likely that singleton INSERTS aren't optimal. 
 
-One way to solve this issue is to develop one process that writes to a file, and then another process to periodically load this file.
+One way to solve this issue is to develop one process that writes to a file, and then another process to periodically load this file. Refer to the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) article for more information.
 
-See also [INSERT][INSERT]
-
-### Use PolyBase to load and export data quickly
+## Use PolyBase to load and export data quickly
 SQL pool supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  
 
 > [!NOTE]
@@ -50,23 +48,21 @@ PolyBase is designed to leverage the MPP (Massively Parallel Processing) archite
 
 PolyBase loads can be run using CTAS or INSERT INTO. CTAS will minimize transaction logging and is the fastest way to load your data. Azure Data Factory also supports PolyBase loads and can achieve performance similar to CTAS. PolyBase supports various file formats including Gzip files. 
 
-To maximize throughput when using Gzip text files, break up files into 60 or more files to maximize parallelism of your load. For faster total throughput, consider loading data concurrently.
+To maximize throughput when using Gzip text files, break up files into 60 or more files to maximize parallelism of your load. For faster total throughput, consider loading data concurrently. Additional information for the topics relevant to this section is included in the following articles:
+- [Load data](../../sql-data-warehouse/design-elt-data-loading.md) 
+- [Guide for using PolyBase](../../sql-data-warehouse/guidance-for-loading-data.md)
+- [Azure SQL pool loading patterns and strategies](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/) 
+- [Load Data with Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md) 
+- [Move data with Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md) 
+- [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/dn935026.aspx) 
+- [Create table as select (CTAS)](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md)
 
-See also:
-- [Load data][Load data] 
-- [Guide for using PolyBase][Guide for using PolyBase]
--  [Azure SQL pool loading patterns and strategies][Azure SQL Analytics pool loading patterns and strategies] 
-- [Load Data with Azure Data Factory][Load Data with Azure Data Factory] 
-- [Move data with Azure Data Factory][Move data with Azure Data Factory] 
-- [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] 
-- [Create table as select (CTAS)][Create table as select (CTAS)]
+## Load then query external tables
+Polybase isn't optimal for queries. Polybase tables for SQL pools currently only support Azure blob files and Azure Data Lake storage. These files don't have any compute resources backing them. As a result, SQL pools can't offload this work and must read the entire file by loading it to tempdb so it can read the data. 
 
-### Load then query external tables
-Polybase isn't optimal for queries. Polybase tables for SQL pools currently only support Azure blob files and Azure Data Lake storage. These files don't have any compute resources backing them. As a result, SQL pools can't offload this work and must read the entire file by loading it to tempdb so it can read the data. If you have several queries for querying this data, it's better to load this data once and have queries use the local table.
+If you have several queries for querying this data, it's better to load this data once and have queries use the local table. Further Polybase guidance is included in the  [Guide for using PolyBase](../../sql-data-warehouse/guidance-for-loading-data.md) article. 
 
-See also [Guide for using PolyBase][Guide for using PolyBase]
-
-### Hash distribute large tables
+## Hash distribute large tables
 By default, tables are Round Robin distributed.   This default makes it easy for users to start creating tables without having to decide how their tables should be distributed. Round Robin tables may perform sufficiently for some workloads. But, in most cases, a distribution column provides better performance.  
 
 The most common example of a table distributed by a column outperforming a Round Robin table is when two large fact tables are joined.  
@@ -76,25 +72,23 @@ For example, if you have an orders table distributed by order_id, and a transact
 > [!NOTE]
 When loading a distributed table, your incoming data shouldn't be sorted on the distribution key. Doing so will slow down your loads. 
 
-The links below provide additional details about improving performance by selecting a distribution column. Also, you'll find information about how to define a distributed table in the WITH clause of your CREATE TABLE statement.
+The article links provided below will give you additional details about improving performance via selecting a distribution column. Also, you'll find information about how to define a distributed table in the WITH clause of your CREATE TABLE statement:  
+- [Table overview](development-tables-overview.md) 
+- [Table distribution](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md) 
+- [Selecting table distribution](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/) 
+- [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest) 
+- [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 
-See also 
-- [Table overview][Table overview] 
-- [Table distribution][Table distribution] 
-- [Selecting table distribution][Selecting table distribution] 
-- [CREATE TABLE][CREATE TABLE] 
-- [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
-
-### Do not over-partition
+## Do not over-partition
 While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy that may work well on SQL Server may not work well on SQL pool.  
 
 Having too many partitions can reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. SQL pools automatically partition your data into 60 databases. So, if you create a table with 100 partitions, the result will be 6000 partitions. Each workload is different, so the best advice is to experiment with partitioning to see what works best for your workload.  
 
 One option to consider is using a granularity that is lower than what you've implemented using SQL Server. For example, consider using weekly or monthly partitions instead of daily partitions.
 
-See also [Table partitioning][Table partitioning]
+More information about partitioning is detailed in the [Table partitioning](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md) article. 
 
-### Minimize transaction sizes
+## Minimize transaction sizes
 INSERT, UPDATE, and DELETE statements run in a transaction. When they fail, they must be rolled back. To reduce the potential for a long rollback, minimize transaction sizes whenever possible.  Minimizing transaction sizes can be done by dividing INSERT, UPDATE, and DELETE statements into parts. For example, if you have an INSERT that you expect to take 1 hour, you can break up the INSERT into four parts. Each run will then be shortened to 15 minutes.  
 
 > [!TIP]
@@ -104,27 +98,33 @@ Another way to eliminate rollbacks is to use Metadata Only operations like parti
 
 For unpartitioned tables, consider using a CTAS to write the data you want to keep in a table rather than using DELETE.  If a CTAS takes the same amount of time, it's much safer to run since it has minimal transaction logging and can be canceled quickly if needed.
 
-See also [Understanding transactions][Understanding transactions], [Optimizing transactions][Optimizing transactions], [Table partitioning][Table partitioning], [TRUNCATE TABLE][TRUNCATE TABLE], [ALTER TABLE][ALTER TABLE], [Create table as select (CTAS)][Create table as select (CTAS)]
+Further information on content related to this section is included in the articles below: 
+- [Create table as select (CTAS)](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md)
+- [Understanding transactions](../../sql-data-warehouse/sql-data-warehouse-develop-transactions.md)
+- [Optimizing transactions](../../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md) 
+- [Table partitioning](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md) 
+- [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx) 
+- [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx) 
 
-### Reduce query result sizes  
+## Reduce query result sizes  
 Reducing query results sizes helps you avoid client-side issues caused by large query results.  You can edit your query to reduce the number of rows returned. Some query generation tools allow you to add “top N” syntax to each query.  You can also CETAS the query result to a temporary table and then use PolyBase export for the downlevel processing.
 
-### Use the smallest possible column size
+## Use the smallest possible column size
 When defining your DDL, use the smallest data type that will support your data as doing so will improve query performance.  This recommendation is particularly important for CHAR and VARCHAR columns.  If the longest value in a column is 25 characters, then define your column as VARCHAR(25).  Avoid defining all character columns to a large default length.  Additionally, define columns as VARCHAR when that is all that is needed rather than using NVARCHAR.
 
-See also [Table overview][Table overview], [Table data types][Table data types], [CREATE TABLE][CREATE TABLE]
+Please see the [Table overview](development-tables-overview.md), [Table data types](development-tables-data-types.md), and [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest) articles for a more detailed review of essential concepts relevant to the above information.
 
-### Use temporary heap tables for transient data
+## Use temporary heap tables for transient data
 When you're temporarily landing data on SQL pools, heap tables will generally make the overall process faster.  If you're loading data only to stage it before running more transformations, loading the table to a heap table will be quicker than loading the data to a clustered columnstore table.  
 
 Loading data to a temp table will also load much faster than loading a table to permanent storage.  Temporary tables start with a "#" and are only accessible by the session that created it. Consequently, they may only work in limited scenarios. Heap tables are defined in the WITH clause of a CREATE TABLE.  If you do use a temporary table, remember to create statistics on that temporary table too.
 
-See also [Temporary tables][Temporary tables], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
+For additional guidance, refer to the [Temporary tables](https://msdn.microsoft.com/library/ms190273.aspx), [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest), and [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx) articles. 
 
-### Optimize clustered columnstore tables
+## Optimize clustered columnstore tables
 Clustered columnstore indexes are one of the most efficient ways you can store your data in SQL pool.  By default, tables in SQL pool are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  
 
-Segment quality can be measured by the number of rows in a compressed Row Group. See the [Causes of poor columnstore index quality][Causes of poor columnstore index quality] in the [Table indexes][Table indexes] article for step-by-step instructions on detecting and improving segment quality for clustered columnstore tables.  
+Segment quality can be measured by the number of rows in a compressed Row Group. See the [Causes of poor columnstore index quality](../../sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality) in the [Table indexes](../../sql-data-warehouse/sql-data-warehouse-tables-index.md) article for step-by-step instructions on detecting and improving segment quality for clustered columnstore tables.  
 
 Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
 
@@ -137,101 +137,41 @@ If you partition your data, each partition will need to have 1 million rows to b
 
 If your table doesn't have 6 billion rows, you have two main options. Either reduce the number of partitions or consider using a heap table instead.  It also may be worth experimenting to see if better performance can be gained by using a heap table with secondary indexes rather than a columnstore table.
 
-When querying a columnstore table, queries will run faster if you select only the columns you need.  
+When querying a columnstore table, queries will run faster if you select only the columns you need.  More information on table and columnstore indexes and can be found within the [Table indexes](../../sql-data-warehouse/sql-data-warehouse-tables-index.md), [Columnstore indexes guide](https://msdn.microsoft.com/library/gg492088.aspx), and [Rebuilding columnstore indexes]( ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality) articles.
 
-See also [Table indexes][Table indexes], [Columnstore indexes guide][Columnstore indexes guide], [Rebuilding columnstore indexes][Rebuilding columnstore indexes]
-
-### Use larger resource class to improve query performance
+## Use larger resource class to improve query performance
 SQL pools use resource groups as a way to allocate memory to queries. Initially, all users are assigned to the small resource class, which grants 100 MB of memory per distribution.  There are always 60 distributions. Each distribution is given a minimum of 100 MB. The total system-wide memory allocation is 6,000 MB, or just under 6 GB.  
 
 Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, such as pure scans, will see no benefit. Utilizing larger resource classes impacts concurrency. So, you'll want to keep these facts in mind before moving all of your users to a large resource class.
 
-See also [Resource classes for workload management](workload-management-resource-classes.md)
+For additional information on resource classes, refer to the [Resource classes for workload management](workload-management-resource-classes.md) article.
 
-### Use smaller resource class to increase concurrency
+## Use smaller resource class to increase concurrency
 If you notice a long delay in user queries, your users might be running in larger resource classes. This scenario promotes the consumption of concurrency slots, which can cause other queries to queue up.  To determine if users queries are queued, run `SELECT * FROM sys.dm_pdw_waits` to see if any rows are returned.
 
-See also [Resource classes for workload management](workload-management-resource-classes.md), [sys.dm_pdw_waits][sys.dm_pdw_waits]
+The [Resource classes for workload management](workload-management-resource-classes.md) and [sys.dm_pdw_waits](https://msdn.microsoft.com/library/mt203893.aspx) articles will provide you with more information.
 
-### Use DMVs to monitor and optimize your queries
-SQL pools have several DMVs that can be used to monitor query execution.  The monitoring article below walks you through step-by-step instructions on how to view details of an executing query.  To quickly find queries in these DMVs, using the LABEL option with your queries can help.
+## Use DMVs to monitor and optimize your queries
+SQL pools have several DMVs that can be used to monitor query execution.  The monitoring article below walks you through step-by-step instructions on how to view details of an executing query.  To quickly find queries in these DMVs, using the LABEL option with your queries can help. For additional detailed information, please see the articles included in the list below: 
+- [Monitor your workload using DMVs](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md) 
+- [LABEL](development-label.md) 
+- [OPTION](https://msdn.microsoft.com/library/ms190322.aspx)
+- [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) 
+- [sys.dm_pdw_exec_requests]( https://msdn.microsoft.com/library/mt203887.aspx) 
+- [sys.dm_pdw_request_steps](https://msdn.microsoft.com/library/mt203913.aspx) 
+- [sys.dm_pdw_sql_requests](https://msdn.microsoft.com/library/mt203889.aspx) 
+- [sys.dm_pdw_dms_workers](https://msdn.microsoft.com/library/mt203878.aspx) 
+- [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx) 
+- [sys.dm_pdw_waits](https://msdn.microsoft.com/library/mt203893.aspx)
 
-See also: 
-- [Monitor your workload using DMVs][Monitor your workload using DMVs] 
-- [LABEL][LABEL] 
-- [OPTION][OPTION]
-- [sys.dm_exec_sessions][sys.dm_exec_sessions] 
-- [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests] 
-- [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps] 
-- [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests] 
-- [sys.dm_pdw_dms_workers] 
-- [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] 
-- [sys.dm_pdw_waits][sys.dm_pdw_waits]
+## Next steps
 
-### Next steps
+Also see the [Troubleshooting](sql-data-warehouse-troubleshoot.md) article for common issues and solutions.
 
-Also see our [Troubleshooting][Troubleshooting] article for common issues and solutions.
+If you need information not provided in this article, use the "Search for docs" on the left side of this page to search all of the SQL pool documents.  The [SQL pool Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) is a place for you to pose questions to other users and to the SQL pool Product Group.  
 
-If you need information not provided in this article, use the "Search for docs" on the left side of this page to search all of the SQL pool documents.  The [SQL pool Forum][Azure SQL Analytics pool MSDN Forum] is a place for you to pose questions to other users and to the SQL pool Product Group.  
+We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL pool Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 
-We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL pool Stack Overflow Forum][Azure SQL Analytics pool Stack Overflow Forum].
-
-For feature requests, use the [Azure SQL pool Feedback][Azure SQL Analytics pool Feedback] page.  Adding your requests or up-voting other requests helps us to focus on the most in-demand features.
-
-<!--Image references-->
-
-<!--Article references-->
-[Create a support ticket]: ../../sql-data-warehouse-get-started-create-support-ticket.md
-[Create table as select (CTAS)]: ../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md
-[Table overview]: development-tables-overview.md
-[Table data types]: development-tables-data-types.md
-[Table distribution]: ../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md
-[Table indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md
-[Causes of poor columnstore index quality]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
-[Rebuilding columnstore indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Table partitioning]: ../../sql-data-warehouse/sql-data-warehouse-tables-partition.md
-[Manage table statistics]: development-tables-statistics.md
-[Temporary tables]: development-tables-temporary.md
-[Guide for using PolyBase]: ../../sql-data-warehouse/guidance-for-loading-data.md
-[Load data]: ../../sql-data-warehouse/design-elt-data-loading.md
-[Move data with Azure Data Factory]: ../../data-factory/transform-data-using-machine-learning.md
-[Load data with Azure Data Factory]: ../../data-factory/load-azure-sql-data-warehouse.md
-[Load data with bcp]: /sql/tools/bcp-utility
-[Load data with PolyBase]: ../../sql-data-warehouse/load-data-wideworldimportersdw.md
-[Monitor your workload using DMVs]: ../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md
-[Pause compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[Resume compute resources]:../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Scale compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#scale-compute
-[Understanding transactions]: ../../sql-data-warehouse/sql-data-warehouse-develop-transactions.md
-[Optimizing transactions]: ../../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md
-[Troubleshooting]: ../../sql-data-warehouse/sql-data-warehouse-troubleshoot.md
-[LABEL]: development-label.md
-
-<!--MSDN references-->
-[ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
-[CREATE TABLE AS SELECT]: https://msdn.microsoft.com/library/mt204041.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
-[INSERT]: https://msdn.microsoft.com/library/ms174335.aspx
-[OPTION]: https://msdn.microsoft.com/library/ms190322.aspx
-[TRUNCATE TABLE]: https://msdn.microsoft.com/library/ms177570.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-[sys.dm_exec_sessions]: https://msdn.microsoft.com/library/ms176013.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
-[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
-[sys.dm_pdw_waits]: https://msdn.microsoft.com/library/mt203893.aspx
-[Columnstore indexes guide]: https://msdn.microsoft.com/library/gg492088.aspx
-
-<!--Other Web references-->
-[Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
-[Azure SQL Analytics pool Feedback]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Azure SQL Analytics pool MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
-[Azure SQL Analytics pool Stack Overflow Forum]:  https://stackoverflow.com/questions/tagged/azure-sqldw
-[Azure SQL Analytics pool loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/
-
+For feature requests, use the [Azure SQL pool Feedback](https://feedback.azure.com/forums/307516-sql-data-warehouse) page.  Adding your requests or up-voting other requests helps us to focus on the most in-demand features.
 
 

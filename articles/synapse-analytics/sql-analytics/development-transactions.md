@@ -194,5 +194,5 @@ They are as follows:
 * No support for DDL such as CREATE TABLE inside a user-defined transaction
 
 ## Next steps
-To learn more about optimizing transactions, see [Transactions best practices](development-transaction-best-practices.md). To learn about other SQL Data Warehouse best practices, see [SQL Data Warehouse best practices](best-practices.md).
+To learn more about optimizing transactions, see [Transactions best practices](development-transaction-best-practices.md). Additional best practices guides are also provided for [SQL pools](best-practices-sql-pool.md) and [SQL on-demand](best-practices-sql-on-demand.md).
 
