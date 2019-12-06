@@ -27,17 +27,19 @@ This quickstart uses the built-in Real Estate sample data and index because it h
 
 ![data source page for sample data](media/search-create-app-portal/import-data-realestate.png)
 
-When the index is ready, move on to the next step.
+When the index is ready to use, move on to the next step.
 
 ## Start the wizard
 
 1. Sign into the [Azure portal](https://portal.azure.com) and [find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
-1. On the Overview page, select **Indexes** in the middle of the page to list your existing indexes. Choose *realestate-us-sample-index*.
+1. On the Overview page, from the links on the middle of the page, select **Indexes**. 
 
-1. Select **Create search app (preview)** to start the wizard.
+1. Choose *realestate-us-sample-index* from the list of existing indexes.
 
-1. Select **Enable Cross Origin Resource Sharing (CORS)** to add CORS support to your index definition. This step is optional, but your local web app won't connect to your index without it.
+1. On the index page, at the top, select **Create search app (preview)** to start the wizard.
+
+1. On the first wizard page, select **Enable Cross Origin Resource Sharing (CORS)** to add CORS support to your index definition. This step is optional, but your local web app won't connect to the remote index without it.
 
 ## Configure search results
 
@@ -55,7 +57,7 @@ The wizard provides a basic layout for rendered search results that includes spa
 
 The search service supports faceted navigation, which is often rendered as a sidebar. Facets are based on filterable and facetable fields, as expressed in the index schema.
 
-In Azure Cognitive Search, faceted navigation is a cumulative filtering experience. Each filter builds on the previous filter to further narrow the results.
+In Azure Cognitive Search, faceted navigation is a cumulative filtering experience. Within a category, selecting multiple filters expands the results (for example, selecting Seattle and Bellevue within City). Across categories, selecting multiple filters narrows results.
 
 > [!TIP]
 > You can view the full index schema in the portal. Look for the **Index definition (JSON)** link in each index's overview page. Fields that qualify for faceted navigation have "filterable: true" and "facetable: true" attributes.
