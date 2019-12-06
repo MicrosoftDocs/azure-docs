@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard schema | Microsoft Docs
-description: The article gives an overview of the Media Encoder Standard schema.
+description: This article describes some of the elements and types of the XML schema on which Media Encoder Standard presets are based.
 author: Juliako
 manager: femila
 editor: ''

@@ -1,6 +1,6 @@
 ---
 title: Create content keys with REST | Microsoft Docs
-description: Learn how to create content keys that provide secure access to Assets.
+description: This article demonstrates how to create content keys that provide secure access to assets.
 services: media-services
 documentationcenter: ''
 author: Juliako
