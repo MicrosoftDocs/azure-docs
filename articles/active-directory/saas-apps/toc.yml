@@ -133,6 +133,8 @@
         href: ascentis-tutorial.md
       - name: Asset Bank
         href: assetbank-tutorial.md
+      - name: AssetSonar
+        href: assetsonar-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-tutorial.md
       - name: Atlassian Jira and Confluence
@@ -477,6 +479,8 @@
         href: ezofficeinventory-tutorial.md
       - name: ExponentHR
         href: exponenthr-tutorial.md
+      - name: EZRentOut
+        href: ezrentout-tutorial.md
 
     - name: F - G
       items:
@@ -1617,6 +1621,8 @@
         href: insight4grc-provisioning-tutorial.md
       - name: iPass SmartConnect
         href: ipass-smartconnect-provisioning-tutorial.md
+      - name: iProva
+        href: iprova-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
