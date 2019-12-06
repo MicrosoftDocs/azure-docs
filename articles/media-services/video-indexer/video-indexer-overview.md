@@ -1,7 +1,7 @@
 ---
 title: What is Video Indexer?
 titleSuffix: Azure Media Services
-description: An overview of the Azure Media Services Video Indexer service.
+description: This article gives an overview of the Azure Media Services Video Indexer service.
 services: media-services
 author: Juliako
 manager: femila
