@@ -31,14 +31,12 @@ A **[public Load Balancer](#publicloadbalancer)** can provide outbound connectio
 An **[internal (or private) Load Balancer](#internalloadbalancer)** can be used for scenarios where only private IP addresses are needed at the front end. Internal Load Balancers are used to load balance traffic inside a virtual network. You can also reach a Load Balancer front end from an on-premises network in a hybrid scenario.
 
 ## Load Balancer components
-* Load Balancing rule
-* Frontend
-* Backend pool
-* Inbound NAT rule
-* Health probe
-  To determine the health of instances in the back-end pool, Load Balancer uses health probes that you define. When a probe fails to respond, the Load Balancer stops sending new connections to the unhealthy instances. A probe failure doesn't affect existing connections. The connection continues until the application terminates the flow, an idle timeout occurs, or the VM shuts down.
-  Load Balancer provides different health probe types for TCP, HTTP, and HTTPS endpoints. For more information, see [Probe types](load-balancer-custom-probe-overview.md#types).
-
+* **Frontend IP configurations**: The IP address of the Load Balancer. It is the point of contact for clients. These can be either public or private IP addresses, thus creating either Public or Internal Load Balancers respectively.
+* **Backend pool**: The group of Virtual Machines or instances in the Virtual Machine Scale Set that are going to serve the incoming request.
+* **Health probes**: A health probe is used to determine the health of the instances in the backend pool. You can define the unhealthy threshold for your health probes. When a probe fails to respond, the Load Balancer stops sending new connections to the unhealthy instances. A probe failure doesn't affect existing connections. The connection continues until the application terminates the flow, an idle timeout occurs, or the VM shuts down. Load Balancer provides different health probe types for TCP, HTTP, and HTTPS endpoints. For more information, see [Probe types](load-balancer-custom-probe-overview.md#types).
+* **Load balancing rules**: Load Balancing rules are the ones that tell the Load Balancer what needs to be done when. 
+* **Inbound NAT rules**: An Inbound NAT rule forwards traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. Port forwarding is done by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside an Azure Virtual Network. You can map multiple internal endpoints to ports on the same front-end IP address. You can use the front-end IP addresses to remotely administer your VMs without an additional jump box.
+* Outboud rules
 * Outbound connections
 
 ## Fundamental Load Balancer features
@@ -56,12 +54,6 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
   ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
   *Figure: Hash-based distribution*
-
-* **Port forwarding**
-
-  With Load Balancer, you can create an inbound NAT rule. This NAT rule forwards traffic from a specific port of a specific front-end IP address to a specific port of a specific back-end instance inside the virtual network. This forwarding is done by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside an Azure Virtual Network.
-  
-  You can map multiple internal endpoints to ports on the same front-end IP address. You can use the front-end IP addresses to remotely administer your VMs without an additional jump box.
 
 * **Application independence and transparency**
 
