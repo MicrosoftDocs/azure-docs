@@ -44,7 +44,7 @@ Learn [where and how to deploy your model to a compute target](how-to-deploy-and
 
 A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters and [compute instances](concept-compute-instance.md) are the only managed computes. Additional managed compute resources may be added in the future.
 
-You can create Azure Machine Learning compute instances or compute clusters in:
+You can create Azure Machine Learning compute instances (preview) or compute clusters in:
 
 | | Azure Machine Learning studio | Azure portal | SDK | Resource Manager template | CLI |
 |---| ----- | ----- | ----- | ----- | ----- |

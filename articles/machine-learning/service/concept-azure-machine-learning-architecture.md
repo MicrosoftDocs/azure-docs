@@ -80,7 +80,7 @@ An activity represents a long running operation. The following operations are ex
 
 Activities can provide notifications through the SDK or the web UI so that you can easily monitor the progress of these operations.
 
-### <a name="compute-instance"></a>Compute instance
+### <a name="compute-instance"></a>Compute instance (preview)
 
 > [!NOTE]
 > Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
