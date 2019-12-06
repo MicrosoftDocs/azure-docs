@@ -703,4 +703,4 @@ FROM OPENROWSET(
 
 ## Next steps
 
-For further query performance improvements, see [Best practices for SQL pools](best-practices-sql-pool.md#maintain).
+For further query performance improvements, see [Best practices for SQL pools](best-practices-sql-pool.md#maintain-statistics).

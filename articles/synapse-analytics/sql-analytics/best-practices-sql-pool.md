@@ -166,7 +166,7 @@ SQL pools have several DMVs that can be used to monitor query execution.  The mo
 
 ## Next steps
 
-Also see the [Troubleshooting](sql-data-warehouse-troubleshoot.md) article for common issues and solutions.
+Also see the [Troubleshooting](../../sql-data-warehouse/sql-data-warehouse-troubleshoot.md) article for common issues and solutions.
 
 If you need information not provided in this article, use the "Search for docs" on the left side of this page to search all of the SQL pool documents.  The [SQL pool Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) is a place for you to pose questions to other users and to the SQL pool Product Group.  
 

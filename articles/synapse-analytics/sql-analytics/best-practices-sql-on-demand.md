@@ -62,4 +62,4 @@ As CETAS generates Parquet files, statistics will be automatically created when 
 
 ## Next Steps
 
-Review the [Troubleshooting](sql-data-warehouse-troubleshoot.md) article for common issues and solutions. If you're working with SQL pools rather than SQL on-demand, please see the [Best Practices for SQL pools](best-practices-sql-pool.md) article for specific guidance.
+Review the [Troubleshooting](../../sql-data-warehouse/sql-data-warehouse-troubleshoot.md) article for common issues and solutions. If you're working with SQL pools rather than SQL on-demand, please see the [Best Practices for SQL pools](best-practices-sql-pool.md) article for specific guidance.
