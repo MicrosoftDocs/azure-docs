@@ -42,12 +42,12 @@ Here is a quick overview of the steps:
 
 To protect an API with Azure AD, the first step is to register an application in Azure AD that represents the API. 
 
-1. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page. 
+1. Go to the [Azure portal](https://portal.azure.com) to register your application. Search for and select **API registrations**.
 
 1. Select **New registration**. 
 
 1. When the **Register an application page** appears, enter your application's registration information: 
-    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `backend-app`. 
+    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, such as *backend-app*. 
     - In the **Supported account types** section, select an option that suits your scenario. 
 
 1. Leave the **Redirect URI** section empty.
@@ -56,55 +56,55 @@ To protect an API with Azure AD, the first step is to register an application in
 
 1. On the app **Overview** page, find the **Application (client) ID** value and record it for later.
 
-When the application is created, make a note of the **Application ID**, for use in a subsequent step. 
+    When the application is created, make a note of the **Application ID**, for use in a subsequent step. 
 
-1. Select **Expose an API** and click on **Save and continue** to create an Application ID URI.
+1. Select **Expose an API**. Then, next to **Application ID URI**, select **Set** and then **Save** to create the URI for the Application ID.
 
-1. In the **Add a scope** page, create a new scope supported by the API. (e.g., Read) then click on *Add scope* to create the scope. Repeat this step to add all scopes supported by your API.
+1. Select the **Add a scope** button to display the **Add a scope** page. Then create a new scope that's supported by the API (for example, `Files.Read`). Finally, select the **Add scope** button to create the scope. Repeat this step to add all scopes supported by your API.
 
-1. When the scope is created, make a note of it, for use in a subsequent step. 
+1. When the scopes are created, make a note of them for use in a subsequent step. 
 
 ## Register another application in Azure AD to represent a client application
 
 Every client application that calls the API needs to be registered as an application in Azure AD as well. In this example, the client application is the Developer Console in the API Management developer portal. Here's how to register another application in Azure AD to represent the Developer Console.
 
-1. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page. 
+1. Go to the [Azure portal](https://portal.azure.com) to register your application. Search for and select **API registrations**.
 
 1. Select **New registration**.
 
 1. When the **Register an application page** appears, enter your application's registration information: 
-    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `client-app`. 
-    - In the **Supported account types** section, select **Accounts in any organizational directory**. 
+    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, such as *client-app*. 
+    - In the **Supported account types** section, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. 
 
-1. In the **Redirect URI** section, select `Web` and enter the URL `https://contoso5.portal.azure-api.net/signin`
+1. In the **Redirect URI** section, select `Web` and enter the URL `https://contoso5.portal.azure-api.net/signin`.
 
 1. Select **Register** to create the application. 
 
 1. On the app **Overview** page, find the **Application (client) ID** value and record it for later.
 
-Now, create a client secret for this application, for use in a subsequent step.
+Now, create a client secret for this application to use in a subsequent step.
 
 1. From the list of pages for your client app, select **Certificates & secrets**, and select **New client secret**.
 
 1. Under **Add a client secret**, provide a **Description**. Choose when the key should expire, and select **Add**.
 
-When the secret is created, make a note of the key value, for use in a subsequent step. 
+When the secret is created, note the key value for use in a subsequent step. 
 
 ## Grant permissions in Azure AD
 
 Now that you have registered two applications to represent the API and the Developer Console, you need to grant permissions to allow the client-app to call the backend-app.  
 
-1. Navigate to **App registrations**. 
+1. Go to the [Azure portal](https://portal.azure.com) to grant permissions to your client application. Search for and select **API registrations**.
 
-1. Select `client-app`, and in the list of pages for the app go to **API permissions**.
+1. Choose your client app. Then in the list of pages for the app, select **API permissions**.
 
 1. Select **Add a Permission**.
 
-1. Under **Select an API**, find and select `backend-app`.
+1. Under **Select an API**, select **My APIs**, and then find and select your backend-app.
 
-1. Under **Delegated Permissions**, select the appropriate permissions to `backend-app` then click on **Add permissions**.
+1. Under **Delegated Permissions**, select the appropriate permissions to your backend-app, then select **Add permissions**.
 
-1. Optionally, on the **API permissions** page, click on **Grant admin consent for <your-tenant-name>** in the bottom of the page to grant consent on behalf of all users in this directory. 
+1. Optionally, on the **API permissions** page, select **Grant admin consent for \<your-tenant-name>** to grant consent on behalf of all users in this directory. 
 
 ## Enable OAuth 2.0 user authorization in the Developer Console
 
@@ -112,7 +112,9 @@ At this point, you have created your applications in Azure AD, and have granted 
 
 In this example, the Developer Console is the client-app. The following steps describe how to enable OAuth 2.0 user authorization in the Developer Console. 
 
-1. In Azure portal, browse to your API Management instance.
+1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
+
+1. Choose your API Management instance.
 
 1. Select **OAuth 2.0** > **Add**.
 
