@@ -110,7 +110,7 @@ New-AzRoleDefinition -Role $role
 Monitoring data—particularly log files—can contain sensitive information, such as IP addresses or user names. Monitoring data from Azure comes in three basic forms:
 
 1. The Activity Log, which describes all control-plane actions on your Azure subscription.
-2. Diagnostic Logs, which are logs emitted by a resource.
+2. resource logs, which are logs emitted by a resource.
 3. Metrics, which are emitted by resources.
 
 All three of these data types can be stored in a storage account or streamed to Event Hub, both of which are general-purpose Azure resources. Because these are general-purpose resources, creating, deleting, and accessing them is a privileged operation reserved for an administrator. We suggest that you use the following practices for monitoring-related resources to prevent misuse:
@@ -177,7 +177,7 @@ Azure Monitor needs access to your Azure resources to provide the services you e
 
 Monitoring data is often written to a storage account. You may want to make sure that the data copied to a Storage Account cannot be accessed by unauthorized users. For additional security, you can lock down network access to only allow your authorized resources and trusted Microsoft services access to a storage account by restricting a storage account to use "selected networks".
 ![Azure Storage Settings Dialog](./media/roles-permissions-security/secured-storage-example.png)
-Azure Monitor is considered one of these "trusted Microsoft services" If you allow trusted Microsoft services to access your Secured Storage, Azure monitor will have access to your secured Storage Account; enabling writing Azure Monitor diagnostic logs, activity log, and metrics to your Storage Account under these protected conditions. This will also enable Log Analytics to read logs from secured storage.   
+Azure Monitor is considered one of these "trusted Microsoft services" If you allow trusted Microsoft services to access your Secured Storage, Azure monitor will have access to your secured Storage Account; enabling writing Azure Monitor resource logs, activity log, and metrics to your Storage Account under these protected conditions. This will also enable Log Analytics to read logs from secured storage.   
 
 
 For more information, see [Network security and Azure Storage](../../storage/common/storage-network-security.md)

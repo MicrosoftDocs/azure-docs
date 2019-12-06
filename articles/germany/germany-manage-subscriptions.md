@@ -1,6 +1,6 @@
 ---
 title: Azure Germany subscriptions | Microsoft Docs
-description: Information on managing your subscription in Azure Germany
+description: This article provides information on managing your subscription in Azure Germany.
 services: germany
 cloud: na
 documentationcenter: na
