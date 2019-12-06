@@ -37,16 +37,16 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 ### Release status
 12/6/2019: Release for download. Not available through auto-upgrade
 ### New features and improvements
-The release enables password writeback for customers in the China environment. This will allow these customers to write-back passwords that are reset in Azure AD to Active Directory.
-We updated Password Hash Sync for Azure AD Domain Services to properly account for padding in Kerberos hashes.  This will provide a performance improvement during password synchronization from AAD to Azure AD Domain Services.
-We added support for reliable sessions between the authentication agent and service bus.
-This release enforces TLS 1.2 for communication between authentication agent and cloud services.
-We added a DNS cache for websocket connections between authentication agent and cloud services.
-We added the ability to target specific agent from cloud to test for agent connectivity.
+- The release enables password writeback for customers in the China environment. This will allow these customers to write-back passwords that are reset in Azure AD to Active Directory.
+- We updated Password Hash Sync for Azure AD Domain Services to properly account for padding in Kerberos hashes.  This will provide a performance improvement during password synchronization from AAD to Azure AD Domain Services.
+- We added support for reliable sessions between the authentication agent and service bus.
+- This release enforces TLS 1.2 for communication between authentication agent and cloud services.
+- We added a DNS cache for websocket connections between authentication agent and cloud services.
+- We added the ability to target specific agent from cloud to test for agent connectivity.
 
 ### Fixed issues
-Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login windows credentials instead of the admin credentialss provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the AADConnect user interface. 
-A fix was made to enable DSSO simultaneously in all forest through the AADConnect user interface
+- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login windows credentials instead of the admin credentialss provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the AADConnect user interface. 
+- A fix was made to enable DSSO simultaneously in all forest through the AADConnect user interface
 
 ## 1.4.32.0
 ### Release status
