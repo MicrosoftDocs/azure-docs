@@ -15,6 +15,8 @@
     items:
     - name: Create a search index
       href: search-get-started-portal.md
+    - name: Create an app (preview)
+      href: search-create-app-portal.md
     - name: Create a cognitive skillset
       href: cognitive-search-quickstart-blob.md
     - name: Create a knowledge store

@@ -1,7 +1,7 @@
 ---
 title: Frequently asked questions about Video Indexer - Azure
 titleSuffix: Azure Media Services
-description: Get answers to frequently asked questions about Video Indexer.
+description: This article gives answers to frequently asked questions about Azure Media Services Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
