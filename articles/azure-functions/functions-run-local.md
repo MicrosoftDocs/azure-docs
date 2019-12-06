@@ -30,7 +30,7 @@ There are three versions of Azure Functions Core Tools. The version you use depe
 
 + **Version 1.x**: Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Version 2.x/3.x**](#v2): Supports [version 2.x of the Azure Functions runtime](functions-versions.md). This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux) and uses platform-specific package managers or npm for installation.
++ [**Version 2.x/3.x**](#v2): Supports either [version 2.x or 3.x of the Azure Functions runtime](functions-versions.md). These versions support [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux) and use platform-specific package managers or npm for installation.
 
 Unless otherwise noted, the examples in this article are for version 3.x.
 
@@ -51,6 +51,7 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
 1. Install [Node.js], which includes npm.
     - For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
+    - For version 3.x of the tools, only Node 10 and later versions are supported.
 
 1. Install the Core Tools package:
 

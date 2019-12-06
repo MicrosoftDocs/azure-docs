@@ -82,13 +82,15 @@ The following are the changes to be aware of before upgrading a 2.x app to 3.x.
 
 #### JavaScript
 
-* Output bindings assigned through `context.done` or return values now behave the same as setting in `bindingData`.
+* Output bindings assigned through `context.done` or return values now behave the same as setting in `context.bindings`.
 
 * Timer trigger object is camelCase instead of PascalCase
 
 * Event Hub triggered functions with `dataType` binary will receive an array of `binary` instead of `string`.
 
 * The HTTP request payload can no longer be accessed via `context.bindingData.req`.  It can still be accessed as an input parameter, `context.req`, and in `context.bindings`.
+
+* Node.js 8 is no longer supported and will not execute in 3.x functions.
 
 #### .NET
 
