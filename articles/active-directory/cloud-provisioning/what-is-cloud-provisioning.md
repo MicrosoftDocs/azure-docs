@@ -29,7 +29,7 @@ With Azure AD Connect cloud provisioning, provisioning from AD to Azure AD is or
 
 The following table provides a comparison between Azure AD Connect and Azure AD Connect cloud provisioning:
 
-| Feature | Azure Active Directory Connect synch| Azure Active Directory Connect cloud provisioning |
+| Feature | Azure Active Directory Connect sync| Azure Active Directory Connect cloud provisioning |
 |:--- |:---:|:---:|
 |Connect to single on-premises AD forest|● |● |
 | Connect to multiple on-premises AD forests |● |● |
