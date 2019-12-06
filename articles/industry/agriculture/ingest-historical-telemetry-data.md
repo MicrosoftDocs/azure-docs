@@ -96,8 +96,8 @@ Follow the below steps to generate these:
 |          SensorMeasures > DataType	   |Telemetry data type. Currently double is supported|
 |    SensorMeasures > Type	  |Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to /ExtendedType API.|
 |        SensorMeasures > Unit	            | Unit of sensor telemetry data. Following are the system-defined units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to /ExtendedType API.|
-|    SensorMeasures > aggregationType	 |  Values can be none, average, maximum, minimum, or StandardDeviation  |
-|          Name            | Name to identify resource. For example, model name/product name.  |
+|  SensorMeasures > aggregationType	 |  Values can be none, average, maximum, minimum, or StandardDeviation  |
+|        Name            | Name to identify resource. For example, model name/product name.  |
 |    Description        | Provide a meaningful description of the model  |
 |   Properties       |  Additional properties from the manufacturer  |
 |    **Sensor**      |          |
@@ -114,7 +114,7 @@ For more information about objects, see [Swagger](https://aka.ms/FarmBeatsDatahu
 
 **API request to create metadata**
 
-To make an API request, you combine the HTTP (POST) method, the URL to the API service, the URI to a resource to query, submit data to create or delete a request and add one or more HTTP request headers. The URL to the API service is the API Endpoint i.e. the data hub URL `https://\<yourdatahub>.azurewebsites.net`  
+To make an API request, you combine the HTTP (POST) method, the URL to the API service, the URI to a resource to query, submit data to create or delete a request and add one or more HTTP request headers. The URL to the API service is the API Endpoint i.e. the data hub URL <`https://\<yourdatahub>.azurewebsites.net`>  
 
 **Authentication**:
 
@@ -333,7 +333,7 @@ Convert the historical sensor data format to a canonical format that Azure FarmB
 }
 ```
 
-After adding the corresponding devices and sensors, obtain the deviceid and the sensorid in the telemetry message, as described in the previous section
+After adding the corresponding devices and sensors, obtain the deviceid and the sensor id in the telemetry message, as described in the previous section
 
 Example Telemetry message:
 

@@ -15,7 +15,7 @@ For additional help, contact us at farmbeatssupport@microsoft.com. Be sure to in
 
 To download the **deployer.log** file, do the following:
 
-1. Sign-in to **Azure Portal** and select your subscription and Azure AD tenant.
+1. Sign-in to **Azure portal** and select your subscription and Azure AD tenant.
 2. Launch Cloud Shell from the top navigation of the Azure portal.
 3. Select **Bash** as the preferred Cloud Shell experience.
 4. Select the highlighted icon and then, in the drop-down list, select **Download**.

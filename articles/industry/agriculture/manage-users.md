@@ -1,6 +1,6 @@
 ---
 title: Manage users
-description: Describes how to manage users
+description: This article describes how to manage users.
 author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019

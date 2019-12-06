@@ -37,7 +37,7 @@ SensorModel  | SensorModel corresponds to the meta-data of the sensor such as th
 Telemetry  | Telemetry provides the ability to read telemetry messages for a particular sensor and time range.
 Job  | Job corresponds to any workflow of activities, which are executed in the FarmBeats system to get a desired output. Each job is associated with a job ID and job type.
 JobType  | JobType corresponds to different job types supported by the system. This includes system defined & user-defined job types.
-ExtendedType  | ExtendedType corresponds to the list of system & user-defined types in the system. This helps setup a new Sensor or Scene or Scenefile type in the FarmBeats system.
+ExtendedType  | ExtendedType corresponds to the list of system & user-defined types in the system. This helps setup a new Sensor or Scene or Scene file type in the FarmBeats system.
 Partner  | Partner corresponds to the sensor/ imagery integration partner for FarmBeats
 Scene  | Scene corresponds to any generated output in the context of a Farm. Each Scene has a scene ID, scene source, scene type and farm ID associated with it. Each scene ID can have multiple scene files associated with it.
 SceneFile |SceneFile corresponds to all files, which are generated for single scene. A single scene ID can have multiple SceneFile IDs associated with it.
