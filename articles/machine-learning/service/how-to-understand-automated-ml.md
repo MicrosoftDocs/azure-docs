@@ -110,8 +110,8 @@ We are comparing the actual value of the dataset against the predicted values th
 ##### Example 2: A classification model with high accuracy 
 ![A classification model with high accuracy](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
 
-##### Example 3: A classifcation model with high accuracy and high bias is model predictions
-![A classifcation model with high accuracy and high bias is model predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix3.png)
+##### Example 3: A classifcation model with high accuracy and high bias in model predictions
+![A classifcation model with high accuracy and high bias in model predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-biased-model.png)
 
 
 ### Precision-recall chart
