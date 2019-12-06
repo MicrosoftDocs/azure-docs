@@ -424,18 +424,15 @@ These steps show how to use the managed identity with a trigger or action throug
    > but appears hidden, open the **Add new parameter** list, and select **Authentication**. 
    > Not all triggers and actions let you select an authentication type. For more information, see [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-1. When you select **Managed Identity**, the **Identity** list appears. From that list, select either **System-assigned** or the user-assigned identity that you want to use.
+1. When you select **Managed Identity**, the **Identity** list appears. From that list, select either **System-assigned** or your user-assigned identity, based on your specific scenario.
 
    ![Select either "System-assigned" or the user-assigned identity](./media/create-managed-service-identity/select-either-system-or-user-assigned.png)
 
-   For some triggers and actions, the **Audience** property also appears. By default, the property is set to the target resource ID.
+1. On some triggers and actions, the **Audience** property also appears for you to set the target resource ID. If the **Audience** property is supported but appears hidden, open the **Add new parameter** list, and select **Audience**.
 
    !["Audience" property set to target resource ID](./media/create-managed-service-identity/audience-property.png)
 
-   > [!NOTE]
-   > If the **Audience** property is supported but hidden, open the **Add new parameter** list, and select **Audience**.
-
-1. Make sure that you set the **Audience** value to the resource ID for the target resource or service. Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
+1. Set the **Audience** value to the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
 
    > [!IMPORTANT]
    > Make sure that the target resource ID *exactly matches* the value that Azure Active Directory (AD) expects, 
