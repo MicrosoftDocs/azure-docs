@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial - Azure Toolkit for IntelliJ: Spark application for Synapse'
 description: Tutorial -
- Use the Azure Toolkit for IntelliJ to develop Spark applications which are written in Scala, and submit them to a Synapse Spark Pool.
+ Use the Azure Toolkit for IntelliJ to develop Spark applications, which are written in Scala, and submit them to a Synapse Spark Pool.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 12/06/2019
 ---
 
 # Tutorial: Use Azure Toolkit for IntelliJ to create Apache Spark applications for Synapse Spark Pools
 
-This tutorial demonstrates how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications that are written in [Scala](https://www.scala-lang.org/), and then submit them to a Synapse Spark Pools directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
+This tutorial demonstrates how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to a Synapse Spark Pools directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
 
 * Develop and submit a Scala Spark application on a Synapse Spark Pool.
 * Access your Azure Synapse Spark Pools resources.
@@ -29,11 +29,11 @@ In this tutorial, you learn how to:
 
 * [IntelliJ IDEA Community Version](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 
-* Azure toolkit plugin 3.27.0-2019.2 – Install from IntelliJ Plugin repository. [More details.](https://docs.microsoft.com/en-us/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable)
+* Azure toolkit plugin 3.27.0-2019.2 – Install from IntelliJ Plugin repository. [More details.](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable)
 
 * [JDK (Version 1.8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
-* Scala Plugin – Install from IntelliJ Plugin repository. [More details](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea).
+* Scala Plugin – Install from IntelliJ Plugin repository. [More details](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea).
 
 * Enable the Synapse feature – Put [AadProvider.json](https://msdata.visualstudio.com/A365/_wiki/wikis/A365.wiki?path=%2F.attachments%2FAadProvider-6b733bf0-a0e8-4eea-ad88-940908fcfe1f.json&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1&sanitize=true&wikiVersion=GBwikiMaster&pagePath=%2FArcadia%20Wiki%2FBugBash%2FIntelliJ%20Toolkit%20for%20Synapse%20(Arcadia)) to user/AzureToolsForIntelliJ/AadProvider.json
 
@@ -177,7 +177,7 @@ After creating a Scala application, you can remote run it.
 
     - Environment variables: If you already set the system environment variable **HADOOP_HOME** to **C:\WinUtils**, it can auto detect that no need to manually add.
     - [WinUtils.exe Location](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): If you have not set the system environment variable, you can find the location by clicking its button.
-    - Just choose either of two options and they are not needed on MacOS and Linux.
+    - Just choose either of two options and they are't needed on MacOS and Linux.
 
 2. Then click the local run button.
 
@@ -282,7 +282,7 @@ It's convenient for you to foresee the script result by sending some code to the
 
 ## Next steps
 
-In this tutorial, you learn how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications which are written in [Scala](https://www.scala-lang.org/), and then submit them to a Synapse Spark Pool directly from the IntelliJ integrated development environment (IDE). Advance to the next article to see **Use Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight cluster**.
+In this tutorial, you learn how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to a Synapse Spark Pool directly from the IntelliJ integrated development environment (IDE). Advance to the next article to see **Use Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight cluster**.
 
 > [!div class="nextstepaction"]
-> [Use Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight cluster](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
+> [Use Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
