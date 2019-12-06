@@ -11,11 +11,22 @@ ms.author: jeconnoc
 
 # Metrics for Azure Spring Cloud
 
-Azure Monitor Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources. In Azure Spring Cloud, we offer two options for viewing metrics: charts in the **Application Overview** page and the service level Metrics page.
+Azure Monitor Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources. In Azure Spring Cloud, there are two view point for metrics.
+* Charts in each application overview page
+* Common metrics page
+
+ ![Metrics views](media/metrics/metrics-1.png)
+
+Charts in the application **Overview** provides quick status check for each application. The common **Metrics** page contains all metrics available for reference. You can build your own charts in the common metrics page and pin them in Dashboard.
 
 ## Application Overview page
+Select an app in **App Management** to find charts in the overview page.  
 
-Each application's **Application Overview** page presents a metrics chart that allows you to perform a quick status check of your application.  Go to your Azure Spring Cloud service page and select **Application Dashboard**, then select an application from the list.  
+ ![App Management](media/metrics/metrics-2.png)
+
+Each application's **Application Overview** page presents a metrics chart that allows you to perform a quick status check of your application.  Go to your Azure Spring Cloud service page and select **Application Dashboard**, then select an application from the list. 
+
+ ![App Management](media/metrics/metrics-3.png)
 
 We provide 5 charts with metrics updated every minute for the following:
 
