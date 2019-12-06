@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/23/2019
+ ms.date: 12/06/2019
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -153,6 +153,6 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## Next steps
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft.com to get access to the public preview.
+If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft .com to get access to the public preview.
 
 If you'd like to see sample code demonstrating the differential capability of incremental snapshots, using .NET, see [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).
