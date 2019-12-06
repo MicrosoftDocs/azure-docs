@@ -172,7 +172,6 @@ Apply updates to a dedicated host.
 ```azurepowershell-interactive
 New-AzApplyUpdate `
    -ResourceGroupName myResourceGroup `
-   -Location eastus `
    -ResourceName myHost `
    -ResourceType hosts `
    -ResourceParentName myHostGroup `
