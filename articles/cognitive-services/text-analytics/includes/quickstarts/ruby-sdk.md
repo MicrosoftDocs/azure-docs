@@ -48,7 +48,7 @@ Create variables for your resource's Azure endpoint and key.
 [!code-ruby[endpoint, key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)]
 -->
 ```ruby
-const key = '<paste-your-text-analytics-key-here>'
+const subscription_key = '<paste-your-text-analytics-key-here>'
 const endpoint = `<paste-your-text-analytics-endpoint-here>`
 ```
 
@@ -81,7 +81,7 @@ class TextAnalyticsClient
 end
 ```
 
-In this class, create a function called `initialize` to authenticate the client. Use your `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` environment variables. 
+In this class, create a function called `initialize` to authenticate the client using your key and endpoint. 
 
 [!code-ruby[initialize function for authentication](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=initialize)]
 

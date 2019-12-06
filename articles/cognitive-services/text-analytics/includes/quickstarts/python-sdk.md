@@ -43,7 +43,7 @@ Create variables for your resource's Azure endpoint and subscription key.
 
 <!-- [!code-python[endpoint and key variables](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=initialVars)] -->
 ```python
-key = "<paste-your-text-analytics-key-here>"
+subscription_key = "<paste-your-text-analytics-key-here>"
 endpoint = "<paste-your-text-analytics-endpoint-here>"
 ```
 
