@@ -863,6 +863,9 @@ az ml model download --model-id mymodel:1 --target-dir model_folder
 No-code model deployment is currently in preview and supports the following machine learning frameworks:
 
 ### Tensorflow SavedModel format
+Tensorflow models need to be registered in **SavedModel format** to work with no-code model deployment.
+
+Please see [this link](https://www.tensorflow.org/guide/saved_model) for information on how to create a SavedModel.
 
 ```python
 from azureml.core import Model
