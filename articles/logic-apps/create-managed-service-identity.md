@@ -430,7 +430,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
 1. On some triggers and actions, the **Audience** property also appears for you to set the target resource ID. If the **Audience** property is supported but appears hidden, open the **Add new parameter** list, and select **Audience**.
 
-   !["Audience" property set to target resource ID](./media/create-managed-service-identity/audience-property.png)
+   !["Audience" property set to target resource ID](./media/create-managed-service-identity/show-audience-property.png)
 
 1. Set the **Audience** value to the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
 
