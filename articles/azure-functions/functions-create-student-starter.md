@@ -118,7 +118,7 @@ In Azure for Student Starter you have access to most of the features of the Azur
     * [See languages supported in higher plans here](supported-languages.md)
 * Windows is the only supported operating system.
 * Scale is restricted to [one free tier instance](https://azure.microsoft.com/pricing/details/app-service/windows/) running for up to 60 minutes each day. You will serverlessly scale from 0 to 1 instance automatically as HTTP traffic is received, but no further.
-* Only [the 2.x runtime](functions-versions.md) is supported.
+* Only [version 2.x and later](functions-versions.md) of the Functions runtime is supported.
 * All developer tooling is supported for editing and publishing functions. This includes VS Code, Visual Studio, the Azure CLI, and the Azure portal. If you'd like to use anything other than the portal, you will need to first create an app in the portal, and then choose that app as a deployment target in your preferred tool.
 
 ## Next steps
