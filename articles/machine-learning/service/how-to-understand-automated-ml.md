@@ -3,7 +3,7 @@ title: Understand automated ML results
 titleSuffix: Azure Machine Learning
 description: Learn how to view and understand charts and metrics for each of your automated machine learning runs. 
 services: machine-learning
-author: rakellam
+author: RachelKellam
 ms.author: rakellam
 ms.reviewer: sgilley
 ms.service: machine-learning
@@ -93,7 +93,7 @@ recall_score_macro|Recall is the percent of correctly labeled elements of a cert
 recall_score_micro|Recall is the percent of correctly labeled elements of a certain class. Micro is computed globally by counting the total true positives, false negatives and false positives|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
 recall_score_weighted|Recall is the percent of correctly labeled elements of a certain class. Weighted is the arithmetic mean of recall for each class, weighted by number of true instances in each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|Weighted accuracy is accuracy where the weight given to each example is equal to the proportion of true instances in that example's true class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight is a vector equal to the proportion of that class for each element in the target|
-
+<a name="confusion-matrix"></a>
 ### Confusion matrix
 #### What is a confusion matrix?
 A confusion matrix is used to describe the performance of a classification model. Each row displays the instances of the true, or actual class in your dataset, and each column represents the instances of the class that was predicted by the model. 
@@ -113,7 +113,7 @@ We are comparing the actual value of the dataset against the predicted values th
 ##### Example 3: A classifcation model with high accuracy and high bias in model predictions
 ![A classifcation model with high accuracy and high bias in model predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-biased-model.png)
 
-
+<a name="precision-recall-chart"></a>
 ### Precision-recall chart
 #### What is a precision-recall chart?
 The precision-recall curve shows the relationship between precision and recall from a model. The term precision represents that ability for a model to label all instances correctly. Recall represents the ability for a classifier to find all instances of a particular label.
@@ -132,7 +132,7 @@ Depending on the goal of the business problem, the ideal precision-recall curve 
 
 ##### Example 2: A classification model with ~100% precision and ~100% recall 
 ![A classification model high precision and recall](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
-
+<a name="roc"></a>
 ### ROC chart
 
 #### What is a ROC chart?
@@ -151,7 +151,7 @@ Ideally, the model will have closer to 100% true positive rate and closer to 0% 
 
 ##### Example 2: A classification model with high true labels and low false labels
 ![a classification model with high true labels and low false labels](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
-
+<a name="lift-curve"></a>
 ### Lift chart
 #### What is a lift chart?
 Lift charts are used to evaluate the performance of a classification model. It shows how much better you can expect to do with the generated model compared to without a model in terms of accuracy.
@@ -163,7 +163,7 @@ You can compare the lift of the model built automatically with Azure Machine Lea
 ![A classification model that does worse than a random selection model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
 ##### Example 2: A classification model that performs better than a random selection model
 ![A classification model that performs better](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
-
+<a name="gains-curve"></a>
 ### Gains chart
 #### What is a gains chart?
 
@@ -178,7 +178,7 @@ Use the cumulative gains chart to help you choose the classification cutoff usin
 
 ##### Example 2: A classification model with significant gain
 ![A classification model with significant gain](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
-
+<a name="calibration-plot"></a>
 ### Calibration chart
 
 #### What is a calibration chart?
