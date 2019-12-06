@@ -46,7 +46,8 @@ After the data is inside the Log Analytics workspace, [deploy a GitHub template]
 
 ### View Azure Backup data by using Log Analytics
 
-After the template is deployed, the solution for monitoring and reporting in Azure Backup will show up in the workspace summary region. To go to the summary, follow one of these paths:
+> [!IMPORTANT]
+> The LA Reporting Template currently supports data from the legacy event AzureBackupReport in AzureDiagnostics mode. To use this template, you will need to [configure vault diagnostic settings in the Azure Diagnostics Mode](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event). 
 
 - **Azure Monitor**: In the **Insights** section, select **More** and then choose the relevant workspace.
 - **Log Analytics workspaces**: Select the relevant workspace, and then under **General**, select **Workspace summary**.
