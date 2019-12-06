@@ -26,7 +26,7 @@ The Service Bus bindings are provided in the [Microsoft.Azure.WebJobs.ServiceBus
 The Service Bus bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet package, version 3.x. Source code for the package is in the [azure-functions-servicebus-extension](https://github.com/Azure/azure-functions-servicebus-extension) GitHub repository.
 
 > [!NOTE]
-> Versions 2.x and higher do not create the topic or subscription configured in the `ServiceBusTrigger` instance. These versions are based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) which does not handle queue management.
+> Versions 2.x and higher do not create the topic or subscription configured in the `ServiceBusTrigger` instance. These versions are based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) which doesn’t handle queue management.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
