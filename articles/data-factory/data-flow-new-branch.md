@@ -1,11 +1,12 @@
 ---
-title: Azure Data Factory mapping data flow New Branch Transformation
+title: Mapping data flow New Branch Transformation
 description: Azure Data Factory mapping data flow New Branch Transformation
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/12/2019
 ---
 

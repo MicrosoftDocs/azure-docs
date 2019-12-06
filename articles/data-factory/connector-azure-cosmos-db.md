@@ -4,12 +4,12 @@ description: Learn how to copy data to and from Azure Cosmos DB (SQL API), and a
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: multiple
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 11/13/2019

@@ -4,12 +4,13 @@ description: 'Learn how to use Azure Data Factory and Copy Activity to copy data
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 01/22/2018
 ms.author: jingwang
 ---

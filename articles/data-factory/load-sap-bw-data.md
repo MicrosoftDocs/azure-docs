@@ -4,7 +4,7 @@ description: 'Use Azure Data Factory to copy data from SAP Business Warehouse (B
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer:
 
 ms.service: data-factory

@@ -4,7 +4,7 @@ description: Learn how to copy data from an on-premises data store to the Azure 
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 
 ms.service: data-factory
