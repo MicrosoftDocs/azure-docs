@@ -200,4 +200,4 @@ LUIS provides several prebuilt entities for common data extraction.
 This tutorial created a composite entity to encapsulate existing entities. This allows the client application to find a group of related data in different datatypes to continue the conversation. A client application for this Human Resources app could ask what day and time the move needs to begin and end. It could also ask about other logistics of the move such as a physical phone.
 
 > [!div class="nextstepaction"]
-> [Learn how to add a simple entity with a phrase list](luis-quickstart-primary-and-secondary-data.md)
+> [Fix unsure predictions by reviewing endpoint utterances](luis-tutorial-review-endpoint-utterances.md)

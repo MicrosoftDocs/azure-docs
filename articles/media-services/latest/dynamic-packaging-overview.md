@@ -1,7 +1,7 @@
 ---
 title: Dynamic packaging in Media Services
 titleSuffix: Azure Media Services
-description: An overview of dynamic packaging in Azure Media Services.
+description: This article gives an overview of dynamic packaging in Azure Media Services.
 author: Juliako
 manager: femila
 editor: ''
