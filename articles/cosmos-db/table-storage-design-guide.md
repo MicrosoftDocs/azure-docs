@@ -440,7 +440,7 @@ If you query for a range of employee entities, you can specify a range sorted in
 * To find all the employees in the Sales department with an email address starting with the letter "a", use:
   $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  The filter syntax used in the preceding examples is from the Table storage REST API. For more information, see [Query entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+The filter syntax used in the preceding examples is from the Table storage REST API. For more information, see [Query entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
@@ -731,7 +731,7 @@ Use this pattern when you need to store one or more related entities that you qu
 The following patterns and guidance might also be relevant when implementing this pattern:  
 
 * [Entity group transactions](#entity-group-transactions)  
-* [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
+* [Work with heterogeneous entity types](#work-with-heterogeneous-entity-types)  
 * [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern)  
 
 ### Log tail pattern
