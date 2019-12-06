@@ -44,7 +44,7 @@ By linking search and click events with a correlation ID, it's possible to analy
 
 The signals mentioned in the preceding section must be gathered from the search application as the user interacts with it. Application Insights is an extensible monitoring solution, available for multiple platforms, with flexible instrumentation options. Usage of Application Insights lets you take advantage of the Power BI search reports created by Azure Cognitive Search to make the analysis of data easier.
 
-In the [portal](https://portal.azure.com) page for your Azure Cognitive Search service, the Search Traffic Analytics blade contains a cheat sheet for following this telemetry pattern. You can also select or create an Application Insights resource, and see the necessary data, all in one place.
+In the [portal](https://portal.azure.com) page for your Azure Cognitive Search service, the Search Traffic Analytics page contains a cheat sheet for following this telemetry pattern. You can also select or create an Application Insights resource, and see the necessary data, all in one place.
 
 ![Search Traffic Analytics instructions][1]
 
@@ -58,7 +58,7 @@ You need the instrumentation key for creating the telemetry client for your appl
 
 ## 2 - Add instrumentation
 
-This phase is where you instrument your own search application, using the Application Insights resource your created in the step above. There are four steps to this process:
+This step is where you instrument your own search application, using the Application Insights resource your created in the step above. There are four steps to this process:
 
 **Step 1: Create a telemetry client**
 This is the object that sends events to the Application Insights Resource.
