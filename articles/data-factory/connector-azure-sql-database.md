@@ -1,5 +1,5 @@
 ---
-title: Copy and transform data in Azure SQL Database by using Data Factory 
+title: Copy and transform data in Azure SQL Database
 description: Learn how to copy data to and from Azure SQL Database, and transform data in Azure SQL Database by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
