@@ -177,12 +177,12 @@ The NVv4-series virtual machines are powered by [AMD Radeon Instinct MI25](https
 [Sign-up and get access to these machines during preview](https://aka.ms/nvv4signup).
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 12 | 4000 / 60 | 2 |
-| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 24 | 8000 / 120 | 4 |
-| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 32 | 16000 / 240 | 8 | 
-| Standard_NV32as_v4 |32 |112 |700 | 1 | 16 | 32 | 32000 / 480 | 8 | 
+| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 |
+| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 4 |
+| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 | 
+| Standard_NV32as_v4 |32 |112 |700 | 1 | 16 | 32 | 8 | 
 
 
 
