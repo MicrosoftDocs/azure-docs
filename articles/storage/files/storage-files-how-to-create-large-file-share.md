@@ -1,6 +1,6 @@
 ---
 title: Enable and create large file shares - Azure Files
-description: In this article, you'll learn how to enable and create large file shares.
+description: In this article, you learn how to enable and create large file shares.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -24,13 +24,12 @@ You can scale up your standard file shares to 100 TiB by enabling your storage a
 
 ## Restrictions
 
-For now, you can only use locally redundant storage and zone-redundant storage on large file share–enabled accounts. You can't use geo-zone-redundant storage, geo-redundant storage, or read-access geo-redundant storage.
-
-Enabling large file shares on an account is an irreversible process. After you enable it, you won't be able to convert your account to geo-zone-redundant storage, geo-redundant storage, or read-access geo-redundant storage.
+For now, you can only use LRS or ZRS on large file share–enabled accounts. You can't use GZRS, GRS, or RA-GRS.
+Enabling large file shares on an account is an irreversible process. After you enable it, you won't be able to convert your account to GZRS, GRS, or RA-GRS.
 
 ## Create a new storage account
 
-### The Azure portal
+### Portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the Azure portal, select **All services**. 
@@ -41,7 +40,7 @@ Enabling large file shares on an account is an irreversible process. After you e
 
     ![Screenshot showing how to create a resource group in the portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
-1. Next, enter a name for your storage account. The name must be unique across Azure, be between 3 and 24 characters in length, and include only numbers and lowercase letters.
+1. Next, enter a name for your storage account. The name must be unique across Azure. The name also must be 3 to 24 characters in length, and it can only have numbers and lowercase letters.
 1. Select a location for your storage account, and make sure it's [one of the regions supported for large file shares](storage-files-planning.md#regional-availability).
 1. Set the replication to either **Locally redundant storage** or **Zone-redundant storage**.
 1. Leave these fields at their default values:
@@ -60,11 +59,11 @@ Enabling large file shares on an account is an irreversible process. After you e
 
 1. Select **Create**.
 
-### The Azure CLI
+### CLI
 
-First, [install the latest version of the CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) so that you can enable large file shares.
+First, [install the latest version of the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) so that you can enable large file shares.
 
-To create a storage account with large file shares enabled, replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your information in the following command:
+To create a storage account with large file shares enabled, use the following command. Replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your information.
 
 ```azurecli-interactive
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
@@ -75,7 +74,7 @@ az storage account create –name <yourStorageAccountName> -g <yourResourceGroup
 
 First, [install the latest version of PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) so that you can enable large file shares.
 
-To create a storage account with large file shares enabled, replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your information in the following command:
+To create a storage account with large file shares enabled, use the following command. Replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your information.
 
 ```PowerShell
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
@@ -84,10 +83,9 @@ New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 ## Enable large files shares on an existing account
 
-You can also enable large file shares on your existing accounts. If you enable large file shares, you won't be able to convert to geo-zone-redundant storage, geo-redundant storage, or read-access geo-redundant storage. Enabling large file shares is irreversible on this storage account.
+You can also enable large file shares on your existing accounts. If you enable large file shares, you won't be able to convert to GZRS, GRS, or RA-GRS. Enabling large file shares is irreversible on this storage account.
 
-
-### Azure portal
+### Portal
 
 1. Open the [Azure portal](https://portal.azure.com), and go to the storage account where you want to enable large file shares.
 1. Open the storage account and select **Configuration**.
@@ -100,9 +98,9 @@ You've now enabled large file shares on your storage account.
 
 If you receive the error message "Large file shares are not available for the account yet," your region might be in the middle of completing its rollout. Contact support if you have an urgent need for large file shares.
 
-### The Azure CLI
+### CLI
 
-To enable large file shares on your existing account, replace `<yourStorageAccountName>` and `<yourResourceGroup>` with your information in the following command:
+To enable large file shares on your existing account, use the following command. Replace `<yourStorageAccountName>` and `<yourResourceGroup>` with your information.
 
 ```azurecli-interactive
 az storage account update –name <yourStorageAccountName> -g <yourResourceGroup> –enable-large-file-share
@@ -110,7 +108,7 @@ az storage account update –name <yourStorageAccountName> -g <yourResourceGroup
 
 ### PowerShell
 
-To enable large file shares on your existing account, replace `<yourStorageAccountName>` and `<yourResourceGroup>` with your information in the following command:
+To enable large file shares on your existing account, use the following command. Replace `<yourStorageAccountName>` and `<yourResourceGroup>` with your information.
 
 ```PowerShell
 Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare
@@ -120,7 +118,7 @@ Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 After you've enabled large file shares on your storage account, you can create file shares in that account with higher quotas. 
 
-### The Azure portal
+### Portal
 
 Creating a large file share is almost identical to creating a standard file share. The main difference is that you can set a quota up to 100 TiB.
 
@@ -130,9 +128,9 @@ Creating a large file share is almost identical to creating a standard file shar
 
 ![The Azure portal UI showing the Name and Quota boxes](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 
-### The Azure CLI
+### CLI
 
-To create a large file share, replace `<yourStorageAccountName>`, `<yourStorageAccountKey>`, and `<yourFileShareName>` with your information in the following command:
+To create a large file share, use the following command. Replace `<yourStorageAccountName>`, `<yourStorageAccountKey>`, and `<yourFileShareName>` with your information.
 
 ```azurecli-interactive
 az storage share create --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName>
@@ -140,7 +138,7 @@ az storage share create --account-name <yourStorageAccountName> --account-key <y
 
 ### PowerShell
 
-To create a large file share, replace `<YourStorageAccountName>`, `<YourStorageAccountKey>`, and `<YourStorageAccountFileShareName>` with your information in the following command:
+To create a large file share, use the following command. Replace `<YourStorageAccountName>`, `<YourStorageAccountKey>`, and `<YourStorageAccountFileShareName>` with your information.
 
 ```PowerShell
 ##Config
@@ -155,17 +153,17 @@ New-AzStorageShare -Name $shareName -Context $ctx
 
 After you've enabled large file shares on your storage account, you can also expand existing file shares in that account to the higher quota. 
 
-### The Azure portal
+### Portal
 
 1. From your storage account, select **File shares**.
-1. Select and hold (or right-click) your file share, and then select **Quota**.
+1. Right-click your file share, and then select **Quota**.
 1. Enter the new size that you want, and then select **OK**.
 
 ![The Azure portal UI with Quota of existing file shares](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
 
-### The Azure CLI
+### CLI
 
-To set the quota to the maximum size, replace `<yourStorageAccountName>`, `<yourStorageAccountKey>`, and `<yourFileShareName>` with your information in the following command:
+To set the quota to the maximum size, use the following command. Replace `<yourStorageAccountName>`, `<yourStorageAccountKey>`, and `<yourFileShareName>` with your information.
 
 ```azurecli-interactive
 az storage share update --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName> --quota 102400
@@ -173,7 +171,7 @@ az storage share update --account-name <yourStorageAccountName> --account-key <y
 
 ### PowerShell
 
-To set the quota to the maximum size, replace `<YourStorageAccountName>`, `<YourStorageAccountKey>`, and `<YourStorageAccountFileShareName>` with your information in the following command:
+To set the quota to the maximum size, use the following command. Replace `<YourStorageAccountName>`, `<YourStorageAccountKey>`, and `<YourStorageAccountFileShareName>` with your information.
 
 ```PowerShell
 ##Config
