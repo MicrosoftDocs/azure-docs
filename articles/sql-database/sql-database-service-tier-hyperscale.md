@@ -191,25 +191,25 @@ If you want to create Hyperscale database in a region that is not listed as supp
 
 To request the ability to create Hyperscale databases in regions not listed:
 
-1. Navigate to [Azure Help and Support Blade](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+1. From the Azure portal menu, select **Help + support**, or search for and select **Help + support** from any page.
 
-2. Click on [**New support request**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+2. In [Azure Help and Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview), select [**New support request**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-    ![Azure Help and Support Blade](media/sql-database-service-tier-hyperscale/request-screen-1.png)
+3. For **Issue Type**, select **Service and subscription limits (quotas)**.
 
-3. For **Issue Type**, select **Service and subscription limits (quotas)**
+4. Choose the subscription you would use to create the database(s).
 
-4. Choose the subscription you would use to create the database(s)
+5. For **Quota Type**, select **SQL database**.
 
-5. For **Quota Type**, select **SQL database**
+    ![Azure Help and Support Blade](media/sql-database-service-tier-hyperscale/new-support-request-screen.png)
 
-6. Click **Next: Solutions**
+6. Click **Next: Solutions**.
 
-1. Click **Provide Details**
+7. Click **Provide Details**.
 
     ![Problem details](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
-8. Choose **SQL Database quota type**: **Other quota request**
+8. Choose **SQL Database quota type**: **Other quota request**.
 
 9. Fill in the following template:
 
@@ -223,11 +223,11 @@ To request the ability to create Hyperscale databases in regions not listed:
     > Number of TB estimated 
     >
 
-10. Choose **Severity C**
+10. Choose **Severity C**.
 
 11. Choose the appropriate contact method and fill in details.
 
-12. Click **Save** and **Continue**
+12. Click **Save** and **Continue**.
 
 ## Known limitations
 These are the current limitations to the Hyperscale service tier as of GA.  We are actively working to remove as many of these limitations as possible.
@@ -242,7 +242,7 @@ These are the current limitations to the Hyperscale service tier as of GA.  We a
 | Elastic Pools |  Elastic Pools are not currently supported with SQL Database Hyperscale.|
 | Migration to Hyperscale is currently a one-way operation | Once a database is migrated to Hyperscale, it cannot be migrated directly to a non-Hyperscale service tier. At present, the only way to migrate a database from Hyperscale to non-Hyperscale is to export/import using a BACPAC file or other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS, etc.)|
 | Migration of databases with persistent in-memory objects | Hyperscale only supports non persistent In-Memory objects (table types, native SPs and functions).  Persistent In-Memory tables and other objects must be dropped and recreated as non-In-Memory objects before migrating a database to the Hyperscale service tier.|
-| Change Tracking | You cannot yet configure and use Change Tracking with Azure SQL Hyperscale databases. |
+| Change Tracking | Change Tracking is currently in public preview and can be enabled on new or existing Hyperscale databases. |
 | Geo Replication  | You cannot yet configure geo-replication for Azure SQL Database Hyperscale. |
 | Database Copy | You cannot yet use Database Copy to create a new database in Azure SQL Hyperscale. |
 | TDE/AKV Integration | Transparent Database Encryption using Azure Key Vault (commonly referred to as Bring-Your-Own-Key or BYOK) is not yet supported for Azure SQL Database Hyperscale, however TDE with Service Managed Keys is fully supported. |
