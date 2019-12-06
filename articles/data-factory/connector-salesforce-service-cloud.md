@@ -1,5 +1,5 @@
 ---
-title: Copy data from and to Salesforce Service Cloud by using Azure Data Factory 
+title: Copy data from and to Salesforce Service Cloud
 description: Learn how to copy data from Salesforce Service Cloud to supported sink data stores or from supported source data stores to Salesforce Service Cloud by using a copy activity in a data factory pipeline.
 services: data-factory
 documentationcenter: ''
