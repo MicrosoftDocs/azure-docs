@@ -212,6 +212,6 @@ You can find more information on [Application Insights](https://docs.microsoft.c
 Learn more about creating amazing reports. See [Getting started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) for details.
 
 <!--Image references-->
-[1]: ./media/search-traffic-analytics/azuresearch-trafficfnalytics.png
+[1]: ./media/search-traffic-analytics/azuresearch-trafficanalytics.png
 [2]: ./media/search-traffic-analytics/azuresearch-appinsightsdata.png
 [3]: ./media/search-traffic-analytics/azuresearch-pbitemplate.png
