@@ -289,7 +289,7 @@ If legacy authentication is widely used in your environment, you should plan to 
 
 In an illicit consent grant attack, the attacker creates an Azure AD-registered application that requests access to data such as contact information, email, or documents. Users might be granting consent to malicious applications via phishing attacks when landing on malicious websites.
 
-Below are a list apps with permissions you might want to scrutinize for Microsoft cloud services:
+Below are a list of apps with permissions you might want to scrutinize for Microsoft cloud services:
 
 - Apps with app or delegated \*.ReadWrite Permissions
 - Apps with delegated permissions can read, send, or manage email on behalf of the user
