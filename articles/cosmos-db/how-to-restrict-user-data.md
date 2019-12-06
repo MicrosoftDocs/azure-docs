@@ -12,7 +12,7 @@ ms.author: tvoellm
 
 In Azure Cosmos DB, there are two ways to authenticate your interactions with the database service:
 - using your Azure Active Directory identity when interacting with the Azure portal,
-- using Cosmos DB [keys](secure-access-to-data.md#master-keys) or [resource tokens](secure-access-to-data.md#resource-tokens) when issuing calls from APIs and SDKs.
+- using Azure Cosmos DB [keys](secure-access-to-data.md#master-keys) or [resource tokens](secure-access-to-data.md#resource-tokens) when issuing calls from APIs and SDKs.
 
 Each authentication method gives access to different sets of operations, with some overlap:
 ![Split of operations per authentication type](./media/how-to-restrict-user-data/operations.png)
