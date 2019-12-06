@@ -36,7 +36,7 @@ This sample requires the Azure Active Directory (Azure AD) PowerShell Module Ver
 |---|---|
 | [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/AzureAD/New-azureadgroupapproleassignment?view=azureadps-2.0) | Assigns a group to an application role. |
 
-# Next steps
+## Next steps
 
 For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 

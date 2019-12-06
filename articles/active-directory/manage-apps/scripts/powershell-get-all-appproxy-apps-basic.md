@@ -36,7 +36,7 @@ This sample requires the Azure AD PowerShell Module Version for Graph. If needed
 |---|---|
 |[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets a service principal. |
 
-# Next steps
+## Next steps
 
 For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 

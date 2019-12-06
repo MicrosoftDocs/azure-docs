@@ -37,7 +37,7 @@ This sample requires the Azure AD PowerShell Module Version for Graph. If needed
 | [Get-AzureADApplicationProxyConnectorGroup](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyconnectorgroup?view=azureadps-2.0) | Retrieves a list of all connector groups, or if specified, details of the specified connector group. |
 | [Get-AzureADApplicationProxyConnectorGroupMembers](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyconnectorgroupmembers?view=azureadps-2.0) | Gets all Application Proxy connectors associated with each connector group.|
 
-# Next steps
+## Next steps
 
 For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 

@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 The following table includes links to PowerShell script examples for Azure AD Application Proxy. These samples require the Azure Active Directory PowerShell Module Version for Graph. If you need to install this module, see [Azure Active Directory PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
-For more information about the cmdlets used in these samples, see [Application Proxy Application Management](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) and [Application Proxy Connector Management](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
+For more information about the cmdlets used in these samples, see [Application Proxy Application Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) and [Application Proxy Connector Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
 
 | | |
 |---|---|

@@ -40,7 +40,7 @@ This sample requires the Azure AD PowerShell Module Version for Graph. If needed
 |[Get-AzureADServicePrincipalPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview) | Gets the policy of a service principal in Azure AD. |
 
 
-# Next steps
+## Next steps
 
 For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
