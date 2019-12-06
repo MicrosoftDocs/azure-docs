@@ -195,5 +195,5 @@ Create a regular expression entity to match the text number. This regular expres
 This tutorial created a new intent, added example utterances, then created a regular expression entity to extract well-formatted data from the utterances. After training, and publishing the app, a query to the endpoint identified the intention and returned the extracted data.
 
 > [!div class="nextstepaction"]
-> [Learn about the list entity](luis-quickstart-intent-and-list-entity.md)
+> [Learn about the list entity](tutorial-list-entity.md)
 
