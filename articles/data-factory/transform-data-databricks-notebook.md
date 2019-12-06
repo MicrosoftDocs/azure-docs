@@ -5,7 +5,7 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 author: nabhishek
 ms.author: abnarain
 manager: shwang

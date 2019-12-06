@@ -5,7 +5,7 @@ services: data-factory
 documentationcenter: ''
 ms.author: yexu
 author: dearandyxu
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services

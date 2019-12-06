@@ -6,7 +6,7 @@ documentationcenter: ''
 ms.assetid: 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek

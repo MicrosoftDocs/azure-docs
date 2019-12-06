@@ -3,7 +3,7 @@ title: Copy and transform data in Azure Data Lake Storage Gen2 using Data Factor
 description: Learn how to copy data to and from Azure Data Lake Storage Gen2, and transform data in Azure Data Lake Storage Gen2 by using Azure Data Factory.
 services: data-factory
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory

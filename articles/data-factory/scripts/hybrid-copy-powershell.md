@@ -4,7 +4,7 @@ description: This PowerShell script copies data from an on-premises SQL Server d
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: article
 ms.author: jingwang
 author: linda33wj

@@ -5,13 +5,13 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: naF
+F
 ms.topic: conceptual
 ms.date: 01/09/2019
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: 
-manager: craigg
+manager: anandsub
 ---
 # Source control in Azure Data Factory
 

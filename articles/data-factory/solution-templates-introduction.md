@@ -5,11 +5,11 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.author: daperlov
 author: djpmsft
-manager: craigg
+manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
 ---

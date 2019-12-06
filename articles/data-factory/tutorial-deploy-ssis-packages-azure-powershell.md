@@ -13,7 +13,7 @@ ms.date: 06/26/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ---
 
 # Provision the Azure-SSIS Integration Runtime in Azure Data Factory with PowerShell

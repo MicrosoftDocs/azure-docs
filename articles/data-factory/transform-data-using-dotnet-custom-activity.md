@@ -5,12 +5,12 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
 ---
 # Use custom activities in an Azure Data Factory pipeline
 

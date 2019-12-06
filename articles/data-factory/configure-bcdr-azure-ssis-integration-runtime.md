@@ -12,7 +12,7 @@ ms.date: 08/14/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ---
 # Configure the Azure-SSIS Integration Runtime with Azure SQL Database geo-replication and failover
 

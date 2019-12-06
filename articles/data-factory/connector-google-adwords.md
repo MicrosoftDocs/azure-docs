@@ -4,7 +4,7 @@ description: Learn how to copy data from Google AdWords to supported sink data s
 services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services

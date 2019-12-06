@@ -4,11 +4,10 @@ description: This PowerShell script creates an Azure-SSIS integration runtime th
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.author: sawinark
 author: swinarko
-manager: shwang
+manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ---

@@ -6,10 +6,10 @@ documentationcenter: ''
 ms.author: abnarain
 author: nabhishek
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/10/2018

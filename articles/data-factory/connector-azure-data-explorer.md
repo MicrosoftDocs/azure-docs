@@ -9,7 +9,7 @@ manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019

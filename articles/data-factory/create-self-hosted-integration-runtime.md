@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/18/2019
 ---

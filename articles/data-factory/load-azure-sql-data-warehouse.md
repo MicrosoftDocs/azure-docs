@@ -4,7 +4,7 @@ description: 'Use Azure Data Factory to copy data into Azure SQL Data Warehouse'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory

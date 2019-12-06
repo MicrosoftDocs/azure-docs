@@ -4,7 +4,7 @@ description: Create an Azure data factory and then use the Copy Data tool to cop
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
