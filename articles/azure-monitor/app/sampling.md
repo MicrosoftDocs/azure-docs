@@ -4,8 +4,8 @@ description: How to keep the volume of telemetry under control.
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 03/14/2019
 
 ms.reviewer: vitalyg
