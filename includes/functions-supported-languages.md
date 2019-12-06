@@ -24,7 +24,7 @@ ms.custom: include file
 |Batch (.cmd, .bat)  |Experimental|N/A|N/A|
 |PHP                 |Experimental|N/A|N/A|
 
-<sup>1</sup>The Functions v3.x runtime is in preview.  
-<sup>2</sup>Supported through transpiling to JavaScript.
+<sup>1</sup> The Functions v3.x runtime is in preview.  
+<sup>2</sup> Supported through transpiling to JavaScript.
 
 For information about planned changes to language support, see [Azure roadmap](https://azure.microsoft.com/roadmap/?tag=functions).

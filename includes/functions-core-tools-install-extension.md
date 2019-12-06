@@ -12,7 +12,7 @@ ms.custom: include file
 
 ## Register extensions
 
-With the exception of HTTP and timer triggers, Functions bindings in runtime version 2.x are implemented as extension packages. In version 2.x of the Azure Functions runtime, you have to explicitly register the extensions for the binding types used in your functions. The exceptions to this are HTTP bindings and timer triggers, which do not require extensions.
+With the exception of HTTP and timer triggers, Functions bindings in runtime version 2.x and higher are implemented as extension packages. In version 2.x and beyond of the Azure Functions runtime, you have to explicitly register the extensions for the binding types used in your functions. The exceptions to this are HTTP bindings and timer triggers, which do not require extensions.
 
 You can choose to install binding extensions individually, or you can add an extension bundle reference to the host.json project file. Extension bundles removes the chance of having package compatibility issues when using multiple binding types. It is the recommended approach for registering binding extensions. Extension bundles also removes the requirement of installing the .NET Core 2.x SDK. 
 
