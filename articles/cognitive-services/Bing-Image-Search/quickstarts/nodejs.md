@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -38,7 +38,8 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     let https = require('https');
     ```
 
-2. Create variables for the API endpoint, image API search path, your subscription key, and search term.
+2. Create variables for the API endpoint, image API search path, your subscription key, and search term. `host` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+
     ```javascript
     let subscriptionKey = 'enter key here';
     let host = 'api.cognitive.microsoft.com';

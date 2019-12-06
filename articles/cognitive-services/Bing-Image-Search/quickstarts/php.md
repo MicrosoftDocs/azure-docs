@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -35,7 +35,7 @@ To run this application, follow these steps.
 
 1. Make sure secure HTTP support is enabled in your `php.ini` file. On Windows, this file is located in `C:\windows`.
 2. Create a new PHP project in your favorite IDE or editor.
-3. define the API endpoint, your subscription key, and search term.
+3. define the API endpoint, your subscription key, and search term. the endpoint can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
