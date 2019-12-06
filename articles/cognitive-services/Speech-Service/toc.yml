@@ -1,8 +1,7 @@
-# displayName: additional text for filtering down the ToC in meaningful way.
 - name: Speech service documentation
   href: index.md
 - name: Overview
-  expanded: false
+  expanded: true
   items:
   - name: What is the Speech service?
     href: overview.md
@@ -457,6 +456,7 @@
     - name: Troubleshoot the Speech Devices SDK
       href: speech-devices-sdk-troubleshooting.md
   - name: Reference
+    items:
     - name: Speech Devices SDK Release notes
       href: devices-sdk-release-notes.md
 - name: Migration
