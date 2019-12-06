@@ -72,7 +72,7 @@ $config = New-AzMaintenanceConfiguration `
    -Location  eastus
 ```
 
-Using `-MaintenanceScope host` ensures that the maintenance config is used for controlling updates to the host.
+Using `-MaintenanceScope host` ensures that the maintenance configuration is used for controlling updates to the host.
 
 If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your subscription.
 
@@ -142,7 +142,6 @@ To check for pending updates for a dedicated host. In this example, the output i
 ```azurepowershell-interactive
 Get-AzMaintenanceUpdate `
    -ResourceGroupName myResourceGroup `
-   -Location eastus `
    -ResourceName myHost `
    -ResourceType hosts `
    -ResourceParentName myHostGroup `
@@ -187,7 +186,7 @@ Use [Remove-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/mo
 
 ```azurecli-interactive
 Remove-AzMaintenanceConfiguration `
-   -ResourceGroupName myResourceGroup`
+   -ResourceGroupName myResourceGroup `
    -Name $config.Name
 ```
 
