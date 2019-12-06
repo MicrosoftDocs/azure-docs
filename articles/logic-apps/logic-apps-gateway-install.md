@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 12/05/2019
 ---
 
 # Install on-premises data gateway for Azure Logic Apps
