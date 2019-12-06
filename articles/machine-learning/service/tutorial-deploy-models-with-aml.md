@@ -224,7 +224,7 @@ def run(raw_data):
 
 ### Create environment file
 
-Next create an environment file, called **myenv.yml**, that specifies all of the script's package dependencies. This file is used to make sure that all of those dependencies are installed in the Docker image. This model needs `scikit-learn` and `azureml-sdk`. All environment files need to list azureml-defaults with verion >= 1.0.53 as a pip dependency:
+Next create an environment file, called **myenv.yml**, that specifies all of the script's package dependencies. This file is used to make sure that all of those dependencies are installed in the Docker image. This model needs `scikit-learn` and `azureml-sdk`. All environment files need to list azureml-defaults with verion >= 1.0.53 as a pip dependency.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies 
