@@ -568,6 +568,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-list-entity.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-list-entity",
       "redirect_document_id": false
@@ -10030,6 +10035,11 @@
     {
       "source_path": "articles/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways.md",
       "redirect_url": "/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-wan/virtual-wan-office365-overview.md",
+      "redirect_url": "/azure/virtual-wan/virtual-wan-about",
       "redirect_document_id": false
     },
     {

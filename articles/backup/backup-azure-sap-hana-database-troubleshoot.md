@@ -99,17 +99,19 @@ In multiple container databases for HANA, the standard configuration is SYSTEMDB
 If you're protecting SAP HANA 1.0 databases and wish to upgrade to 2.0, then perform the steps outlined below:
 
 - [Stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) with retain data for old SDC database.
+- Perform the upgrade. After completion, the HANA is now MDC with a system DB and tenant DB(s)
 - Rerun [pre-registration script](https://aka.ms/scriptforpermsonhana) with correct details of (sid and mdc).
-- Re-register extension (Backup -> view details -> Select the relevant Azure VM -> Re-register).
+- Re-register extension for the same machine in Azure Portal (Backup -> view details -> Select the relevant Azure VM -> Re-register).
 - Click Rediscover DBs for the same VM. This action should show the new DBs in step 2 with correct details (SYSTEMDB and Tenant DB, not SDC).
-- Protect these new databases.
+- Configure backup for these new databases.
 
 ## Upgrading without an SID change
 
 Upgrades to OS or SAP HANA that don't cause a SID change can be handled as outlined below:
 
 - [Stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) with retain data for the database
-- Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana)
+- Perform the upgrade.
+- Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana). Usually, we have seen upgrade process removes the necessary roles. Running the pre-registration script will help verify all the required roles.
 - [Resume protection](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) for the database again
 
 ## Next steps
