@@ -30,6 +30,17 @@ A **[public Load Balancer](#publicloadbalancer)** can provide outbound connectio
 
 An **[internal (or private) Load Balancer](#internalloadbalancer)** can be used for scenarios where only private IP addresses are needed at the front end. Internal Load Balancers are used to load balance traffic inside a virtual network. You can also reach a Load Balancer front end from an on-premises network in a hybrid scenario.
 
+## Load Balancer components
+* Load Balancing rule
+* Frontend
+* Backend pool
+* Inbound NAT rule
+* Health probe
+  To determine the health of instances in the back-end pool, Load Balancer uses health probes that you define. When a probe fails to respond, the Load Balancer stops sending new connections to the unhealthy instances. A probe failure doesn't affect existing connections. The connection continues until the application terminates the flow, an idle timeout occurs, or the VM shuts down.
+  Load Balancer provides different health probe types for TCP, HTTP, and HTTPS endpoints. For more information, see [Probe types](load-balancer-custom-probe-overview.md#types).
+
+* Outbound connections
+
 ## Fundamental Load Balancer features
 
 Load Balancer provides the following fundamental capabilities for TCP and UDP applications:
@@ -64,14 +75,6 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
   Load Balancer instantly reconfigures itself when you scale instances up or down. Adding or removing VMs from the back-end pool reconfigures the Load Balancer without additional operations on the Load Balancer resource.
 
-* **Health probes**
-
-  To determine the health of instances in the back-end pool, Load Balancer uses health probes that you define. When a probe fails to respond, the Load Balancer stops sending new connections to the unhealthy instances. A probe failure doesn't affect existing connections. The connection continues until the application terminates the flow, an idle timeout occurs, or the VM shuts down.
-
-  Load Balancer provides different health probe types for TCP, HTTP, and HTTPS endpoints. For more information, see [Probe types](load-balancer-custom-probe-overview.md#types).
-
-  When using Classic cloud services, an additional type is allowed: [Guest agent](load-balancer-custom-probe-overview.md#guestagent). A guest agent should be considered to be a health probe of last resort. Microsoft doesn't recommend them if other options are available.
-
 * **Outbound connections (SNAT)**
 
   All outbound flows from private IP addresses inside your virtual network to public IP addresses on the internet can be translated to a front-end IP address of the Load Balancer. When a public front end is tied to a back-end VM by way of a load-balancing rule, Azure translates outbound connections to the public front-end IP address. This configuration has the following advantages:
@@ -93,11 +96,6 @@ The complete scenario configuration might differ slightly depending on SKU. Load
 > New designs should adopt Standard Load Balancer.
 
 Standalone VMs, availability sets, and virtual machine scale sets can be connected to only one SKU, never both. Load Balancer and the public IP address SKU must match when you use them with public IP addresses. Load Balancer and public IP SKUs aren't mutable.
-
-The best practice is to specify the SKUs explicitly. At this time, required changes are being kept to a minimum. If a SKU isn't specified, the default is the `2017-08-01` API version of the Basic SKU.
-
->[!IMPORTANT]
->Standard Load Balancer is a new Load Balancer product. It is largely a superset of Basic Load Balancer, but there are important differences between the two products. Any end-to-end scenario that's possible with Basic Load Balancer can also be created with Standard Load Balancer. If you're already used to Basic Load Balancer, compare it with Standard Load Balancer to understand the latest changes in their behavior.
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
