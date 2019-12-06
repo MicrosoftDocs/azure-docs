@@ -12,40 +12,23 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 12/05/2019
 ms.author: allensu
 
 ---
 
 # What is Azure Load Balancer?
 
-With Azure Load Balancer, you can scale your applications and create high availability for your services. Load Balancer supports inbound and outbound scenarios, provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications.
+*Load balancing* refers to efficiently distributing load or incoming network traffic across a group of backend resources or servers. Azure offers a [variety of load balancing options](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) that you can choose from based on your need. This document covers the Azure Load Balancer.
 
-Load Balancer distributes new inbound flows that arrive at the Load Balancer's front end to back-end pool instances, according to specified rules and health probes.
+Azure Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model. It is the single point of contact for clients. Load Balancer distributes new inbound flows that arrive at the Load Balancer's front end to back-end pool instances, according to specified load balacing rules and health probes. The back-end pool instances can be Azure Virtual Machines or instances in a Virtual Machine Scale Set (VMSS). 
 
-A public Load Balancer can provide outbound connections for virtual machines (VMs) inside your virtual network by translating their private IP addresses to public IP addresses.
+With Azure Load Balancer, you can scale your applications and create high availabile services. 
+Load Balancer supports both, inbound and outbound scenarios, provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications.
 
-Azure Load Balancer is available in two pricing tiers or *SKUs*: Basic and Standard. There are differences in scale, features, and pricing. Any scenario that's possible with Basic Load Balancer can also be created with Standard Load Balancer, although the approaches differ slightly. As you learn about Load Balancer, familiarize yourself with the fundamentals and the SKU-specific differences.
+A **[public Load Balancer](#publicloadbalancer)** can provide outbound connections for virtual machines (VMs) inside your virtual network by translating their private IP addresses to public IP addresses. Public Load Balancers are used to load balancer internet traffic to your VMs.
 
-## Why use Load Balancer?
-
-You can use Azure Load Balancer to:
-
-* Load balance incoming internet traffic to your VMs. This configuration is known as a [public Load Balancer](#publicloadbalancer).
-* Load balance traffic across VMs inside a virtual network. You can also reach a Load Balancer front end from an on-premises network in a hybrid scenario. Both of these scenarios use a configuration that is known as an [internal Load Balancer](#internalloadbalancer).
-* Port forward traffic to a specific port on specific VMs with inbound network address translation (NAT) rules.
-* Provide [outbound connectivity](load-balancer-outbound-connections.md) for VMs inside your virtual network by using a public Load Balancer.
-
->[!NOTE]
-> Azure provides a suite of fully managed load-balancing solutions for your scenarios. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, see [What is Azure Application Gateway?](../application-gateway/overview.md) If you're looking for global DNS load balancing, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Your end-to-end scenarios may benefit from combining these solutions.
->
-> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
-
-## What are Load Balancer resources?
-
-Load Balancer resources are objects specifying how Azure should program its multi-tenant infrastructure to achieve the scenario that you want to create. There's no direct relationship between Load Balancer resources and actual infrastructure. Creating a Load Balancer doesn't create an instance, and capacity is always available.
-
-A Load Balancer resource can be either a public Load Balancer or an internal Load Balancer. The Load Balancer resource's functions are defined by a front end, a rule, a health probe, and a back-end pool definition. You place VMs in the back-end pool by specifying the back-end pool from the VM.
+An **[internal (or private) Load Balancer](#internalloadbalancer)** can be used for scenarios where only private IP addresses are needed at the front end. Internal Load Balancers are used to load balance traffic inside a virtual network. You can also reach a Load Balancer front end from an on-premises network in a hybrid scenario.
 
 ## Fundamental Load Balancer features
 
@@ -191,4 +174,4 @@ For information about the Standard Load Balancer SLA, see [SLA for Load Balancer
 
 ## Next steps
 
-See [Create a Basic Load Balancer](quickstart-create-basic-load-balancer-portal.md) to get started with using a Load Balancer: create one, create VMs with a custom IIS extension installed, and load balance the web app between the VMs.
+See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer: create one, create VMs with a custom IIS extension installed, and load balance the web app between the VMs.
