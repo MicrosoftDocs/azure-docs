@@ -1,17 +1,17 @@
 ---
-title: View audit history for Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+title: View audit report for Azure AD roles in PIM - Azure AD | Microsoft Docs
 description: Learn how to view the audit history for Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/10/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 # View audit history for Azure AD roles in PIM
 
-You can use the Azure Active Directory (Azure AD) Privileged Identity Management (PIM) audit history to see all the role assignments and activations within the past 30 days for all privileged roles. If you want to see the full audit history of activity in your directory, including administrator, end user, and synchronization activity, you can use the [Azure Active Directory security and activity reports](../reports-monitoring/overview-reports.md).
+You can use the Privileged Identity Management (PIM) audit history to see all role assignments and activations within the past 30 days for all privileged roles. If you want to see the full audit history of activity in your Azure Active Directory (Azure AD) organization, including administrator, end user, and synchronization activity, you can use the [Azure Active Directory security and activity reports](../reports-monitoring/overview-reports.md).
 
 ## View audit history
 
@@ -59,7 +59,7 @@ Follow these steps to view the audit history for Azure AD roles.
 
 1. In **Time range**, select a time range.
 
-1. In **Roles**, add checkmarks for the roles you want to view.
+1. In **Roles**, select the checkboxes to indicate the roles you want to view.
 
     ![Update chart parameters pane](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
@@ -67,4 +67,4 @@ Follow these steps to view the audit history for Azure AD roles.
 
 ## Next steps
 
-- [View activity and audit history for Azure resource roles in PIM](azure-pim-resource-rbac.md)
+- [View activity and audit history for Azure resource roles in Privileged Identity Management](azure-pim-resource-rbac.md)

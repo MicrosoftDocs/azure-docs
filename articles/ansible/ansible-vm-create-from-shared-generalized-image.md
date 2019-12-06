@@ -3,10 +3,6 @@ title: Tutorial - Create a VM or virtual machine scale set from the Azure Shared
 description: Learn how to use Ansible to create VM or virtual machine scale set based on a generalized image in Shared Image Gallery.
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, shared image gallery
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/14/2019
 ---
 
@@ -105,7 +101,7 @@ Run the playbook using the `ansible-playbook` command:
 ansible-playbook 00-prerequisites.yml
 ```
 
-In the [Azure portal](https://portol.azure.com), check the resource group you specified in `vars.yml` to see the new virtual machine and various resources you created.
+In the [Azure portal](https://portal.azure.com), check the resource group you specified in `vars.yml` to see the new virtual machine and various resources you created.
 
 ## Generalize the VM and create a custom image
 

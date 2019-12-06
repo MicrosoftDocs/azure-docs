@@ -1,5 +1,5 @@
 ---
-title: "Prepare test data for Custom Speech - Speech Service"
+title: "Prepare test data for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "Whether you're testing to see how accurate Microsoft speech recognition is or training your own models, you'll need data (in the form of audio and/or text). On this page, we cover the types of data, how they are used, and how to manage them."
 services: cognitive-services
@@ -20,7 +20,7 @@ Whether you're testing to see how accurate Microsoft speech recognition is or tr
 
 This table lists accepted data types, when each data type should be used, and the recommended quantity. Not every data type is required to create a model. Data requirements will vary depending on whether you're creating a test or training a model.
 
-| Data type | Used of testing | Quantity | Used for training | Quantity |
+| Data type | Used of testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/a |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5 - 5 hours of audio | Yes | 1 - 1,000 hours of audio |
@@ -89,7 +89,7 @@ To address issues like word deletion or substitution, a significant amount of da
 > [!NOTE]
 > Transcription should be encoded as UTF-8 byte order mark (BOM).
 
-The transcriptions are text-normalized so they can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. For the appropriate language to use when you prepare your transcriptions, see [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md)
+The transcriptions are text-normalized so they can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data to the Speech Studio. For the appropriate language to use when you prepare your transcriptions, see [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md)
 
 After you've gathered your audio files and corresponding transcriptions, they should be packaged as a single .zip file before uploading to the [Custom Speech portal](https://speech.microsoft.com/customspeech). This is an example dataset with three audio files and a human-labeled transcription file:
 

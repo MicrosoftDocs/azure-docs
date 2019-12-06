@@ -5,7 +5,7 @@ keywords: azure subscription disabled
 author: bandersmsft
 manager: amberb
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

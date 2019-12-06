@@ -1,9 +1,9 @@
 ﻿### YamlMime:Landing
 
-title: Azure Search documentation # < 60 chars
+title: Azure Cognitive Search documentation # < 60 chars
 summary: Cloud search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
 metadata:
-  title: Azure Search documentation
+  title: Azure Cognitive Search documentation
   description: Cloud search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
   services: search
   ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
@@ -19,19 +19,19 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Search
+  - title: About Cognitive Search
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Search?
+          - text: What is Azure Cognitive Search?
             url: search-what-is-azure-search.md
       - linkListType: architecture
         links:
-          - text: How full text search works in Azure Search
+          - text: How full text search works in Cognitive Search
             url: search-lucene-query-architecture.md
       - linkListType: video
         links:
-          - text: What is Azure Search (1 min 27 sec)
+          - text: What is Cognitive Search (1 min 27 sec)
             url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
 
   # Card
@@ -45,9 +45,13 @@ landingContent:
             url: search-get-started-portal.md
           - text: Create an enrichment pipeline
             url: cognitive-search-quickstart-blob.md
+      - linkListType: tutorial
+        links:
+          - text: Create an app
+            url: tutorial-csharp-create-first-app.md
       - linkListType: learn
         links:
-          - text: Introduction to Azure Search
+          - text: Introduction to Azure Cognitive Search
             url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
 
   # Card
@@ -79,10 +83,6 @@ landingContent:
             url: search-indexer-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Index from Blob storage
-            url: search-howto-indexing-azure-blob-storage.md
-          - text: Index JSON blobs
-            url: search-howto-index-json-blobs.md
           - text: Index from Azure SQL Database
             url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
           - text: Index from Cosmos DB data
@@ -98,7 +98,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: What is cognitive search?
+          - text: AI enrichment pipeline
             url: cognitive-search-concept-intro.md
           - text: Skillsets
             url: cognitive-search-defining-skillset.md
@@ -116,7 +116,7 @@ landingContent:
             url: knowledge-store-create-portal.md
       - linkListType: reference
         links:
-          - text: Predefined skills
+          - text: Built-in skills
             url: cognitive-search-predefined-skills.md
 
   # Card

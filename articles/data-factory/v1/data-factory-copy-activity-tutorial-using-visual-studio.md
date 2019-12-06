@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a pipeline with Copy Activity using Visual Studio | Microsoft Docs'
+title: 'Tutorial: Create a pipeline with Copy Activity using Visual Studio '
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio.
 services: data-factory
 documentationcenter: ''
@@ -506,7 +506,7 @@ To publish entities in an Azure Data Factory project using configuration file:
 When you deploy, the values from the configuration file are used to set values for properties in the JSON files before the entities are deployed to Azure Data Factory service.   
 
 ## Use Azure Key Vault
-It is not advisable and often against security policy to commit sensitive data such as connection strings to the code repository. See [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) sample on GitHub to learn about storing sensitive information in Azure Key Vault and using it while publishing Data Factory entities. The Secure Publish extension for Visual Studio allows the secrets to be stored in Key Vault and only references to them are specified in linked services/ deployment configurations. These references are resolved when you publish Data Factory entities to Azure. These files can then be committed to source repository without exposing any secrets.
+It is not advisable and often against security policy to commit sensitive data such as connection strings to the code repository. See [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFSecurePublish) sample on GitHub to learn about storing sensitive information in Azure Key Vault and using it while publishing Data Factory entities. The Secure Publish extension for Visual Studio allows the secrets to be stored in Key Vault and only references to them are specified in linked services/ deployment configurations. These references are resolved when you publish Data Factory entities to Azure. These files can then be committed to source repository without exposing any secrets.
 
 
 ## Next steps

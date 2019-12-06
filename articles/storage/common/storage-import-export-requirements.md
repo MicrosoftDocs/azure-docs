@@ -89,5 +89,5 @@ When preparing hard drives and copying the data using the WAImportExport tool, y
 
 * [Set up the WAImportExport tool](storage-import-export-tool-how-to.md)
 * [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
-* [Azure Import Export REST API sample](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Azure Import Export REST API sample](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
 

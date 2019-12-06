@@ -1,14 +1,12 @@
 ---
-title: Create B2B enterprise integrations - Azure Logic Apps | Microsoft Docs
+title: Create B2B enterprise integrations
 description: Receive B2B data in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
 ---
 

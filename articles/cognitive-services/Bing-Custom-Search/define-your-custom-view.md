@@ -1,7 +1,7 @@
 ---
 title: Configure your Bing Custom Search experience | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: Describes how to create site and vertical search services
+description: The portal lets you create a search instance that specifies the slices of the web; domains, subpages, and webpages.
 services: cognitive-services
 author: aahill
 manager: nitinme

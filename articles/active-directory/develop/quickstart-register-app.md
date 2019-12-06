@@ -31,7 +31,7 @@ This quickstart shows you how to add and register an application using the **App
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the Azure AD tenant that you want.
-1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations > New registration**.
+1. Search for and select **Azure Active Directory**. On the **Active Directory** page, select **App registrations** and then select **New registration**.
 1. When the **Register an application** page appears, enter your application's registration information:
 
    - **Name** - Enter a meaningful application name that will be displayed to users of the app.

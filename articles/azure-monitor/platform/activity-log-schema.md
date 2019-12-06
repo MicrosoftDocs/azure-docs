@@ -1,6 +1,6 @@
 ---
 title: Azure Activity Log event schema
-description: Understand the event schema for data emitted into the Activity Log
+description: Describes the event schema for each category in the Azure Activity log.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -10,7 +10,7 @@ ms.author: dukek
 ms.subservice: logs
 ---
 # Azure Activity Log event schema
-The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data. The schema of the data differs depending on if you are reading the data in the portal, PowerShell, CLI, or directly via the REST API versus [streaming the data to storage or Event Hubs using a Log Profile](activity-log-export.md). The examples below show the schema as made available via the portal, PowerShell, CLI, and REST API. A mapping of those properties to the [Azure diagnostic logs schema](diagnostic-logs-schema.md) is provided at the end of the article.
+The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data. The schema of the data differs depending on if you are reading the data in the portal, PowerShell, CLI, or directly via the REST API versus [streaming the data to storage or Event Hubs using a Log Profile](activity-log-export.md). The examples below show the schema as made available via the portal, PowerShell, CLI, and REST API. A mapping of those properties to the [Azure logs schema](diagnostic-logs-schema.md) is provided at the end of the article.
 
 ## Administrative
 This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
@@ -175,13 +175,13 @@ This category contains the record of any service health incidents that have occu
     "title": "Network Infrastructure - UK South",
     "service": "Service Fabric",
     "region": "UK South",
-    "communication": "Starting at approximately 21:41 UTC on 20 Jul 2017, a subset of customers in UK South may experience degraded performance, connectivity drops or timeouts when accessing their Azure resources hosted in this region. Engineers are investigating underlying Network Infrastructure issues in this region. Impacted services may include, but are not limited to App Services, Automation, Service Bus, Log Analytics, Key Vault, SQL Database, Service Fabric, Event Hubs, Stream Analytics, Azure Data Movement, API Management, and Azure Search. Multiple engineering teams are engaged in multiple workflows to mitigate the impact. The next update will be provided in 60 minutes, or as events warrant.",
+    "communication": "Starting at approximately 21:41 UTC on 20 Jul 2017, a subset of customers in UK South may experience degraded performance, connectivity drops or timeouts when accessing their Azure resources hosted in this region. Engineers are investigating underlying Network Infrastructure issues in this region. Impacted services may include, but are not limited to App Services, Automation, Service Bus, Log Analytics, Key Vault, SQL Database, Service Fabric, Event Hubs, Stream Analytics, Azure Data Movement, API Management, and Azure Cognitive Search. Multiple engineering teams are engaged in multiple workflows to mitigate the impact. The next update will be provided in 60 minutes, or as events warrant.",
     "incidentType": "Incident",
     "trackingId": "NA0F-BJG",
     "impactStartTime": "2017-07-20T21:41:00.0000000Z",
     "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"UK South\"}],\"ServiceName\":\"Service Fabric\"}]",
     "defaultLanguageTitle": "Network Infrastructure - UK South",
-    "defaultLanguageContent": "Starting at approximately 21:41 UTC on 20 Jul 2017, a subset of customers in UK South may experience degraded performance, connectivity drops or timeouts when accessing their Azure resources hosted in this region. Engineers are investigating underlying Network Infrastructure issues in this region. Impacted services may include, but are not limited to App Services, Automation, Service Bus, Log Analytics, Key Vault, SQL Database, Service Fabric, Event Hubs, Stream Analytics, Azure Data Movement, API Management, and Azure Search. Multiple engineering teams are engaged in multiple workflows to mitigate the impact. The next update will be provided in 60 minutes, or as events warrant.",
+    "defaultLanguageContent": "Starting at approximately 21:41 UTC on 20 Jul 2017, a subset of customers in UK South may experience degraded performance, connectivity drops or timeouts when accessing their Azure resources hosted in this region. Engineers are investigating underlying Network Infrastructure issues in this region. Impacted services may include, but are not limited to App Services, Automation, Service Bus, Log Analytics, Key Vault, SQL Database, Service Fabric, Event Hubs, Stream Analytics, Azure Data Movement, API Management, and Azure Cognitive Search. Multiple engineering teams are engaged in multiple workflows to mitigate the impact. The next update will be provided in 60 minutes, or as events warrant.",
     "stage": "Active",
     "communicationId": "636361902146035247",
     "version": "0.1.1"
@@ -768,11 +768,11 @@ resource.
 | properties.policies | Includes details about the policy definition, assignment, effect, and parameters that this Policy evaluation is a result of. |
 | relatedEvents | This field is blank for Policy events. |
 
-## Mapping to diagnostic logs schema
+## Mapping to resource logs schema
 
-When streaming the Azure Activity Log to a storage account or Event Hubs namespace, the data follows the [Azure diagnostic logs schema](./diagnostic-logs-schema.md). Here is the mapping of properties from the schema above to the diagnostic logs schema:
+When streaming the Azure Activity Log to a storage account or Event Hubs namespace, the data follows the [Azure resource logs schema](./diagnostic-logs-schema.md). Here is the mapping of properties from the schema above to the resource logs schema:
 
-| Diagnostic logs schema property | Activity Log REST API schema property | Notes |
+| Resource logs schema property | Activity Log REST API schema property | Notes |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType, resourceGroupName are all inferred from the resourceId. |

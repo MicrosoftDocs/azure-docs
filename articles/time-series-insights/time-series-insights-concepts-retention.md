@@ -1,21 +1,21 @@
 ---
-title: 'Understand data retention in your Azure Time Series Insights environment | Microsoft Docs'
+title: 'Understand data retention in your environment - Azure Time Series Insight | Microsoft Docs'
 description: This article describes two settings that control data retention in your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
 ---
 
 # Understand data retention in Azure Time Series Insights
 
-This article describes two settings that impact data retention in your Azure Time Series Insights environment.
+This article describes two primary settings that impact data retention in your Azure Time Series Insights environment.
 
 ## Video
 
@@ -83,7 +83,7 @@ When ingress resumes:
 
 In the impacted Event Hubs, consider adjusting the **Message Retention** property to minimize data loss when pause ingress occurs in Time Series Insights.
 
-[![Event hub message retention.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[![Event hub message retention.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
 If no properties are configured on event source (`timeStampPropertyName`), Time Series Insights defaults to the timestamp of arrival at event hub as the X-axis. If `timeStampPropertyName` is configured to be something else, the environment looks for the configured `timeStampPropertyName` in the data packet when events are parsed.
 

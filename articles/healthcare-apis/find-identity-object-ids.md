@@ -63,4 +63,4 @@ az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | jq -r .objectId
 In this article, you've learned how to find identity object IDs needed to configure the identities that are allowed to access an Azure API for FHIR instance. Next deploy a fully managed Azure API for FHIR:
  
 >[!div class="nextstepaction"]
->[Deploy Open Source FHIR server](fhir-paas-portal-quickstart.md)
+>[Deploy Azure API for FHIR](fhir-paas-portal-quickstart.md)

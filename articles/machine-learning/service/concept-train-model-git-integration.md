@@ -1,7 +1,7 @@
 ---
 title: Git integration for Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning integrates with a local Git repository.
+description: Learn how Azure Machine Learning integrates with a local Git repository. When submitting a training run from a local directory that is a Git repository, information about repo, branch, and current commit are tracked as part of the run.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -86,5 +86,4 @@ For more information, see the [az ml run](https://docs.microsoft.com/cli/azure/e
 
 ## Next steps
 
-* For a walkthrough of how to train with Azure Machine Learning in Visual Studio Code, see [Tutorial: Train models with Azure Machine Learning](tutorial-train-models-with-aml.md).
-* For a walkthrough of how to edit, run, and debug code locally, see the [Python hello-world tutorial](https://code.visualstudio.com/docs/Python/Python-tutorial).
+* [Set up and use compute targets for model training](how-to-set-up-training-targets.md)

@@ -41,8 +41,10 @@ SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [
 
 The above example assigns the name of the cluster resource group for the *myAKSCluster* in *myResourceGroup* to *CLUSTER_RESOURCE_GROUP*. The example then uses *CLUSTER_RESOURCE_GROUP* to list the scale set name and assign it to *SCALE_SET_NAME*.
 
-> [!NOTE]
-> SSH keys can currently only be added to Linux nodes using the Azure CLI. If you want to connect to a Windows Server node using SSH, use the SSH keys provided when you created the AKS cluster and skip the next set of commands for adding your SSH public key. You will still need the IP address of the node you wish to troubleshoot, which is shown in the final command of this section. Alternatively, you can [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp] instead of using SSH.
+> [!IMPORTANT]
+> At this time, you should only update your SSH keys for your virtual machine scale set-based AKS clusters using the Azure CLI.
+> 
+> For Linux nodes, SSH keys can currently only be added using the Azure CLI. If you want to connect to a Windows Server node using SSH, use the SSH keys provided when you created the AKS cluster and skip the next set of commands for adding your SSH public key. You will still need the IP address of the node you wish to troubleshoot, which is shown in the final command of this section. Alternatively, you can [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp] instead of using SSH.
 
 To add your SSH keys to the nodes in a virtual machine scale set, use the [az vmss extension set][az-vmss-extension-set] and [az vmss update-instances][az-vmss-update-instances] commands.
 
@@ -154,21 +156,12 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. Open a new terminal window, not connected to your container, list the pods on your AKS cluster using the [kubectl get pods][kubectl-get] command. The pod created in the previous step starts with the name *aks-ssh*, as shown in the following example:
+1. Open a new terminal window, not connected to your container, copy your private SSH key into the helper pod. This private key is used to create the SSH into the AKS node. 
 
-    ```
-    $ kubectl get pods
-
-    NAME                       READY     STATUS    RESTARTS   AGE
-    aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
-    ```
-
-1. In an earlier step, you added your public SSH key to the AKS node you wanted to troubleshoot. Now, copy your private SSH key into the helper pod. This private key is used to create the SSH into the AKS node.
-
-    Provide your own *aks-ssh* pod name obtained in the previous step. If needed, change *~/.ssh/id_rsa* to location of your private SSH key:
+   If needed, change *~/.ssh/id_rsa* to location of your private SSH key:
 
     ```console
-    kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+    kubectl cp ~/.ssh/id_rsa $(kubectl get pod -l run=aks-ssh -o jsonpath='{.items[0].metadata.name}'):/id_rsa
     ```
 
 1. Return to the terminal session to your container, update the permissions on the copied `id_rsa` private SSH key so that it is user read-only:

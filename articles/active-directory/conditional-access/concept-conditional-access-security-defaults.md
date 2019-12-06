@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/23/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,7 +29,7 @@ The following security configurations will be turned on in your tenant.
 
 ## Unified Multi-Factor Authentication registration
 
-All users in your tenant must register for multifactor authentication (MFA) in the form of the Azure Multi-Factor Authentication service. Users have 14 days to register for Multi-Factor Authentication by using the Microsoft Authenticator app. After the 14 days have passed, the user won't be able to sign in until Multi-Factor Authentication registration is finished.
+All users in your tenant must register for multi-factor authentication (MFA) in the form of the Azure Multi-Factor Authentication service. Users have 14 days to register for Multi-Factor Authentication by using the Microsoft Authenticator app. After the 14 days have passed, the user won't be able to sign in until Multi-Factor Authentication registration is finished.
 
 We understand that some users might be out of office or won't sign in during the 14 days immediately after enabling security defaults. To ensure that every user has ample time to register for Multi-Factor Authentication, the 14-day period is unique for each user. A user's 14-day period begins after their first successful interactive sign-in after you enable security defaults.
 
@@ -110,6 +110,8 @@ Here are step-by-step guides on how you can use Conditional Access to configure 
 - [Require MFA for administrators](howto-conditional-access-policy-admin-mfa.md)
 - [Require MFA for Azure management](howto-conditional-access-policy-azure-management.md)
 - [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
+- [Require MFA for all users](howto-conditional-access-policy-all-users-mfa.md)
+- [Require Azure MFA registration](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requires Azure AD Identity Protection
 
 ## Enabling security defaults
 
@@ -119,6 +121,20 @@ To enable security defaults in your directory:
 1. Browse to **Azure Active Directory** > **Properties**.
 1. Select **Manage security defaults**.
 1. Set the **Enable security defaults** toggle to **Yes**.
+1. Select **Save**.
+
+## Disabling security defaults
+
+Organizations that choose to implement Conditional Access policies that replace security defaults must disable security defaults. 
+
+![Warning message disable security defaults to enable Conditional Access](./media/concept-conditional-access-security-defaults/security-defaults-disable-before-conditional-access.png)
+
+To disable security defaults in your directory:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
+1. Browse to **Azure Active Directory** > **Properties**.
+1. Select **Manage security defaults**.
+1. Set the **Enable security defaults** toggle to **No**.
 1. Select **Save**.
 
 ## Next steps

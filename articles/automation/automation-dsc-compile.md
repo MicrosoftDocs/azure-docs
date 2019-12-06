@@ -4,8 +4,8 @@ description: This article describes how to compile Desired State Configuration (
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
@@ -299,7 +299,7 @@ For more information about how to sign node configurations, see [Improvements in
 ### Compiling a configuration in Windows PowerShell
 
 The process to compile DSC configurations in Windows PowerShell is included in the PowerShell DSC documentation
-[Write, Compile, and Apply a Configuration](/powershell/dsc/configurations/write-compile-apply-configuration#compile-the-configuration).
+[Write, Compile, and Apply a Configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration#compile-the-configuration).
 This can be executed from a developer workstation or within a build service such as
 [Azure DevOps](https://dev.azure.com).
 

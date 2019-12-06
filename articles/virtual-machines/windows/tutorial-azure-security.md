@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use Azure Security Center for Windows VMs in Azure | Microsoft Docs
+title: Tutorial - Use Azure Security Center for Windows VMs in Azure 
 description: In this tutorial, you learn about the Azure Security Center features to help protect and secure your Windows virtual machines in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines

@@ -1,6 +1,6 @@
 ---
 title: Media Services operations REST API overview | Microsoft Docs
-description: Media Services REST API overview
+description: The "Media Services Operations REST" API is used for creating Jobs, Assets, Live Channels and other resources in a Media Services account. This article provides an Azure Media Services v2 REST API overview.
 services: media-services
 documentationcenter: ''
 author: Juliako

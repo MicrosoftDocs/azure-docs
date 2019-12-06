@@ -1,6 +1,6 @@
 ---
 title: Azure Germany database services | Microsoft Docs
-description: Provides a comparison of database services for Azure Germany
+description: This article provides a comparison of SQL database services for Azure Germany.
 services: germany
 cloud: na
 documentationcenter: na
@@ -41,7 +41,7 @@ The URLs for accessing and managing Azure Cache for Redis in Azure Germany are d
 | Azure portal | https://portal.azure.com | https://portal.microsoftazure.de |
 
 > [!NOTE]
-> All your scripts and code need to account for the appropriate endpoints and environments. For more information, see "To connect to Microsoft Azure Germany" in [Manage Azure Cache for Redis with Azure PowerShell](../azure-cache-for-redis/cache-howto-manage-redis-cache-powershell.md).
+> All your scripts and code need to account for the appropriate endpoints and environments. For more information, see "To connect to Microsoft Azure Germany" in [Manage Azure Cache for Redis with Azure PowerShell](../azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell.md).
 >
 >
 

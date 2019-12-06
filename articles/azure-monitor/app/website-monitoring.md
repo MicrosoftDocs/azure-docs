@@ -1,15 +1,14 @@
 ---
-title: Quickstart Monitor Websites with Azure Monitor Application Insights | Microsoft Docs
+title: Monitor websites with Azure Monitor Application Insights
 description: Provides instructions to quickly setup client/browser-side website monitoring with Azure Monitor Application Insights
-services: application-insights
-keywords:
+ms.service:  azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/15/2019
-ms.service: application-insights
+
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
 ---
 
 # Start monitoring your website

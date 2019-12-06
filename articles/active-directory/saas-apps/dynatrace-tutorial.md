@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -45,7 +45,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Dynatrace supports **Just In Time** user provisioning
 
 > [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+> The identifier of this application is a fixed string value. Only one instance can be configured in one tenant.
 
 ## Adding Dynatrace from the gallery
 
@@ -53,7 +53,7 @@ To configure the integration of Dynatrace into Azure AD, you need to add Dynatra
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. Navigate to **Enterprise Applications**, and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Dynatrace** in the search box.
 1. Select **Dynatrace** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
@@ -65,10 +65,10 @@ Configure and test Azure AD SSO with Dynatrace using a test user called **B.Simo
 To configure and test Azure AD SSO with Dynatrace, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Dynatrace SSO](#configure-dynatrace-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Dynatrace test user](#create-dynatrace-test-user)** - to have a counterpart of B.Simon in Dynatrace that is linked to the Azure AD representation of user.
+    * **[Create Dynatrace test user](#create-dynatrace-test-user)** - to have a counterpart of B.Simon in Dynatrace that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -81,18 +81,28 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
+1. In the **Basic SAML Configuration** section, the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Click **Set additional URLs** and complete the following step to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL:
     `https://sso.dynatrace.com/`
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML**. Select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-1. On the **Set up Dynatrace** section, copy the appropriate URL(s) based on your requirement.
+1. In the **SAML Signing Certificate** section, select the **Edit** button to open the **SAML Signing Certificate** dialog box. Complete the following steps:
+
+	![Edit SAML Signing Certificate](common/edit-certificate.png)
+
+	a. The **Signing Option** setting is pre-populated. Please review the settings as per your organization.
+
+	b. Click **Save**.
+
+	![Communifire Signing option](./media/dynatrace-tutorial/tutorial-dynatrace-signing-option.png)
+
+1. In the **Set up Dynatrace** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -118,35 +128,34 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 
 	![The Add User link](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. In the **Users and groups** dialog box, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog box, click the **Assign** button.
 
 ## Configure Dynatrace SSO
 
-To configure single sign-on on **Dynatrace** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Dynatrace support team](https://www.dynatrace.com/services-support/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **Dynatrace** side, you need to send the downloaded **Federation Metadata XML** file and the appropriate copied URLs from the Azure portal to the [Dynatrace support team](https://www.dynatrace.com/services-support/). They configure this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Dynatrace test user
 
-In this section, a user called Britta Simon is created in Dynatrace. Dynatrace supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Dynatrace, a new one is created after authentication.
+In this section, a user called B.Simon is created in Dynatrace. Dynatrace supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Dynatrace, a new one is created after authentication.
 
-## Test SSO 
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Dynatrace tile in the Access Panel, you should be automatically signed in to the Dynatrace for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Dynatrace tile in the Access Panel, you should be automatically signed in to the Dynatrace, for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Dynatrace with Azure AD](https://aad.portal.azure.com/)
-
