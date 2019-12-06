@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: conceptual
@@ -55,8 +55,9 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Allow removing attributes from flowing from AD to Azure AD |● |● |
 | Allow advanced customization for attribute flows |● | |
 | Support for writeback (passwords, devices, groups) |● | |
+| Azure AD Domain Services support|● | |
 
 ## Next steps 
 
 - [What is provisioning?](what-is-provisioning.md)
-- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
+- [Install cloud provisioning](how-to-install.md)
