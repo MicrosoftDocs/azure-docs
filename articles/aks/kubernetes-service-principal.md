@@ -171,6 +171,7 @@ For information on how to update the credentials, see [Update or rotate the cred
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
 [rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
