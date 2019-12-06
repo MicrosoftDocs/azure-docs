@@ -22,7 +22,7 @@ In this article, you learn how to create a custom keyword for your device.
 
 Consider the following guidelines when you choose a keyword:
 
-* Your keyword should be an English word or a phrase. It should take no longer than two seconds to say.
+* Your keyword should be an English word or phrase. It should take no longer than two seconds to say.
 
 * Words of 4 to 7 syllables work best. For example, "Hey, Computer" is a good keyword. Just "Hey" is a poor one.
 
