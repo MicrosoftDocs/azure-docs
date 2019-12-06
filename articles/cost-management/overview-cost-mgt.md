@@ -14,7 +14,7 @@ ms.custom:
 
 # What is Azure Cost Management?
 
-Cost management is the process of effectively planning and controlling costs involved in your business. Cost management tasks are normally performed by finance, management, and app teams. Azure Cost Management helps organizations plan with cost in mind. It also helps to analyze costs effectively and take action to optimize cloud spending. To learn more about how to approach cost management as an organization, take a look at the [Azure Cost Management best practices](cost-mgt-best-practices.md) article.
+Cost management is the process of effectively planning and controlling costs involved in your business. Cost management tasks are normally performed by finance, management, and app teams. Azure Cost Management helps organizations plan with cost in mind. It also helps to analyze costs effectively and take action to optimize cloud spending. To learn more about how to approach cost management as an organization, take a look at the [Azure Cost Management best practices](../cost-management-billing/costs/cost-mgt-best-practices.md) article.
 
 Watch the [Azure Cost Management overview video](https://www.youtube.com/watch?v=el4yN5cHsJ0) for a quick overview about how Azure Cost Management can help you save money in Azure.
 
@@ -60,5 +60,5 @@ Azure has other tools that aren't a part of the Azure Cost Management feature se
 
 Now that you're familiar with Cost Management, the next step is to start using the service.
 
-- Start using Azure Cost Management to [analyze costs](quick-acm-cost-analysis.md).
-- You can also read more about [Azure Cost Management best practices](cost-mgt-best-practices.md).
+- Start using Azure Cost Management to [analyze costs](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+- You can also read more about [Azure Cost Management best practices](../cost-management-billing/costs/cost-mgt-best-practices.md).

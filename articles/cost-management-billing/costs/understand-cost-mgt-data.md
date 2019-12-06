@@ -84,9 +84,9 @@ The following tables show data that's included or isn't in Cost Management. All 
 
 | **Included** | **Not included** |
 | --- | --- |
-| Azure service usage<sup>5</sup>        | Support charges - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
-| Marketplace offering usage<sup>6</sup> | Taxes - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
-| Marketplace purchases<sup>6</sup>      | Credits - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
+| Azure service usage<sup>5</sup>        | Support charges - For more information, see [Invoice terms explained](../../billing/billing-understand-your-invoice.md). |
+| Marketplace offering usage<sup>6</sup> | Taxes - For more information, see [Invoice terms explained](../../billing/billing-understand-your-invoice.md). |
+| Marketplace purchases<sup>6</sup>      | Credits - For more information, see [Invoice terms explained](../../billing/billing-understand-your-invoice.md). |
 | Reservation purchases<sup>7</sup>      |  |
 | Amortization of reservation purchases<sup>7</sup>      |  |
 
@@ -106,7 +106,7 @@ _<sup>**8**</sup> Resource tags are applied as usage is emitted from each servic
 
 ## Rated usage data refresh schedule
 
-Cost and usage data is available in Cost Management + Billing in the Azure portal and [supporting APIs](index.yml). Keep the following points in mind as you review costs:
+Cost and usage data is available in Cost Management + Billing in the Azure portal and [supporting APIs](../../cost-management/index.yml). Keep the following points in mind as you review costs:
 
 - Estimated charges for the current billing period are updated six times per day.
 - Estimated charges for the current billing period can change as you incur more usage.
@@ -121,7 +121,7 @@ Pay-as-you-go subscriptions – If the billing month ends on May 15, then the es
 
 ### Rerated data
 
-Whether you use the [Cost Management APIs](index.yml), Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get rerated, and consequently change, until the invoice is closed.
+Whether you use the [Cost Management APIs](../../cost-management/index.yml), Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get rerated, and consequently change, until the invoice is closed.
 
 ## Usage data update frequency varies
 
@@ -145,4 +145,4 @@ Historical data for credit-based and pay-in-advance offers might not match your 
 
 ## See also
 
-- If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).
+- If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](../../cost-management/quick-acm-cost-analysis.md).

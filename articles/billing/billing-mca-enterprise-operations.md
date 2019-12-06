@@ -137,7 +137,7 @@ To view charges for subscriptions that belonged to an account, go to the [subscr
 
 ### View charges for a subscription
 
-You can view charges for a subscription either on the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or the Azure cost analysis. For more information on Azure cost analysis, see [explore and analyze costs with Cost analysis](../cost-management/quick-acm-cost-analysis.md).
+You can view charges for a subscription either on the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or the Azure cost analysis. For more information on Azure cost analysis, see [explore and analyze costs with Cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
 
 ## Need help? Contact support
 

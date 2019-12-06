@@ -44012,6 +44012,66 @@
             "source_path": "articles/cost-management/use-reports.md",
             "redirect_url": "/azure/cost-management-billing/cloudyn/use-reports",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/cost-mgt-alerts-monitor-usage-spending.md",
+            "redirect_url": "/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/cost-analysis-common-uses.md",
+            "redirect_url": "/azure/cost-management-billing/costs/cost-analysis-common-uses",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/cost-mgt-best-practices.md",
+            "redirect_url": "/azure/cost-management-billing/costs/cost-mgt-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/get-started-partners.md",
+            "redirect_url": "/azure/cost-management-billing/costs/get-started-partners",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/migrate-cost-management-api.md",
+            "redirect_url": "/azure/cost-management-billing/costs/migrate-cost-management-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/quick-acm-cost-analysis.md",
+            "redirect_url": "/azure/cost-management-billing/costs/quick-acm-cost-analysis",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/tutorial-acm-create-budgets.md",
+            "redirect_url": "/azure/cost-management-billing/costs/tutorial-acm-create-budgets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/support-request-cost-management.md",
+            "redirect_url": "/azure/cost-management-billing/costs/open-support-request",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/tutorial-export-acm-data.md",
+            "redirect_url": "/azure/cost-management-billing/costs/tutorial-export-acm-data",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/tutorial-acm-opt-recommendations.md",
+            "redirect_url": "/azure/cost-management-billing/costs/tutorial-acm-opt-recommendations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/understand-cost-mgt-data.md",
+            "redirect_url": "/azure/cost-management-billing/costs/understand-cost-mgt-data",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/understand-work-scopes.md",
+            "redirect_url": "/azure/cost-management-billing/costs/understand-work-scopes",
+            "redirect_document_id": true
         }
     ]
 }

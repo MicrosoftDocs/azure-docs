@@ -28,7 +28,7 @@ In this quickstart, you learn how to:
 
 Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). To view cost data, you need at least read access for your Azure account.
 
-For information about assigning access to Azure Cost Management data, see [Assign access to data](assign-access-acm-data.md).
+For information about assigning access to Azure Cost Management data, see [Assign access to data](../../cost-management/assign-access-acm-data.md).
 
 ## Sign in to Azure
 
@@ -95,7 +95,7 @@ Generally, you can expect to see data or notifications for consumed resources wi
 
 **Group by** common properties to break down costs and identify top contributors. To group by resource tags, for example, select the tag key you want to group by. Costs are broken down by each tag value, with an extra segment for resources that don't have that tag applied.
 
-Most [Azure resources support tagging](../azure-resource-manager/tag-support.md). However, some tags aren't available in Cost Management and billing. Additionally, resource group tags aren't supported. Support for tags applies to usage reported *after* the tag was applied to the resource. Tags aren't applied retroactively for cost rollups.
+Most [Azure resources support tagging](../../azure-resource-manager/tag-support.md). However, some tags aren't available in Cost Management and billing. Additionally, resource group tags aren't supported. Support for tags applies to usage reported *after* the tag was applied to the resource. Tags aren't applied retroactively for cost rollups.
 
 Watch the [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to learn about using Azure tag policy to improve cost data visibility.
 
@@ -151,7 +151,7 @@ The following table lists some of the most common grouping and filtering options
 | **Subscription** | Break down costs by subscription. All purchases show as **Not specified**. |
 | **Tag** | Break down costs by tag values for a specific tag key. |
 
-For more information about terms, see [Understand the terms used in the Azure usage and charges file](../billing/billing-understand-your-usage.md).
+For more information about terms, see [Understand the terms used in the Azure usage and charges file](../../billing/billing-understand-your-usage.md).
 
 
 ## Saving and sharing customized views

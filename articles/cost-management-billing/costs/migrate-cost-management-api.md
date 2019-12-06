@@ -14,7 +14,7 @@ ms.custom:
 
 # Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs
 
-This article helps you understand the data structure, API, and other system integration differences between Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Azure Cost Management supports APIs for both account types. Review the [Setup billing account for](../billing/mca-setup-account.md) Microsoft Customer Agreement article before continuing.
+This article helps you understand the data structure, API, and other system integration differences between Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Azure Cost Management supports APIs for both account types. Review the [Setup billing account for](../../billing/mca-setup-account.md) Microsoft Customer Agreement article before continuing.
 
 Organizations with an existing EA account should review this article in conjunction with setting up an MCA account. Previously, renewing an EA account required some minimal work to move from an old enrollment to a new one. However, migrating to an MCA account requires additional effort. Additional effort is because of changes in the underlying billing subsystem, which affect all cost-related APIs and service offerings.
 
@@ -32,7 +32,7 @@ MCA APIs and new integration allow you to:
 
 The following items help you transition to MCA APIs.
 
-- Familiarize yourself with the new [Microsoft Customer Agreement billing account](../billing/billing-mca-overview.md).
+- Familiarize yourself with the new [Microsoft Customer Agreement billing account](../../billing/billing-mca-overview.md).
 - Determine which APIs you use and see which ones are replaced in the following section.
 - Familiarize yourself with [Azure Resource Manager REST APIs](/rest/api/azure).
 - If you're not already using Azure Resource Manager APIs, [register your client app with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).
@@ -321,7 +321,7 @@ Here's an example of the synchronous REST API response:
 
 #### New response body
 
-The APIs support the [Azure REST asynchronous](../azure-resource-manager/resource-manager-async-operations.md) format. Call the API using GET and you receive the following response:
+The APIs support the [Azure REST asynchronous](../../azure-resource-manager/resource-manager-async-operations.md) format. Call the API using GET and you receive the following response:
 
 ```
 No Response Body
@@ -516,7 +516,7 @@ To get reservation summaries with the Reservation Summaries API:
 
 ## Move from Cloudyn to Cost Management
 
-Organizations using [Cloudyn](https://cloudyn.com) should start using [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) for any cost management needs. Cost Management is available in the Azure portal with no onboarding and an eight-hour latency. For more information, see the [Cost Management documentation](index.yml).
+Organizations using [Cloudyn](https://cloudyn.com) should start using [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) for any cost management needs. Cost Management is available in the Azure portal with no onboarding and an eight-hour latency. For more information, see the [Cost Management documentation](../../cost-management/index.yml).
 
 With Azure Cost Management, you can:
 
@@ -531,4 +531,4 @@ You can also use Power BI for cost reporting. The [Azure Cost Management connect
 
 ## Next steps
 
-- Read the [Cost Management documentation](index.yml) to learn how to monitor and control Azure spending. Or, if you want to optimize resource use with Cost Management.
+- Read the [Cost Management documentation](../../cost-management/index.yml) to learn how to monitor and control Azure spending. Or, if you want to optimize resource use with Cost Management.

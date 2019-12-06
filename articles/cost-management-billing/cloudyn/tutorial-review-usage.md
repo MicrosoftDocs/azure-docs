@@ -83,7 +83,7 @@ View VM instance IDs by clicking the plus symbol next to **List of Candidates**.
 
 To watch a tutorial video about detecting usage inefficiencies, see [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704).
 
-Azure Cost Management also provides cost-saving recommendations for Azure services. For more information, see [Tutorial: Optimize costs from recommendations](../../cost-management/tutorial-acm-opt-recommendations.md).
+Azure Cost Management also provides cost-saving recommendations for Azure services. For more information, see [Tutorial: Optimize costs from recommendations](../costs/tutorial-acm-opt-recommendations.md).
 
 ## Create alerts for unusual spending
 

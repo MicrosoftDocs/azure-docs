@@ -55,7 +55,7 @@ The resulting cost analysis shows the cost of the pool as well as the resources 
 
 To create a budget for the pool select **Budget: none**, and then select **Create new budget >**. Now use the window to configure a budget specifically for your pool.
 
-For more information on configuring a budget, see [Create and manage Azure budgets](../cost-management/tutorial-acm-create-budgets.md).
+For more information on configuring a budget, see [Create and manage Azure budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md).
 
 > [!NOTE]
 > Azure Batch is built on Azure Cloud Services and Azure Virtual Machines technology. When you choose **Cloud Services Configuration**, you are charged based on the Cloud Services pricing structure. When you choose **Virtual Machine Configuration**, you are charged based on the Virtual Machines pricing structure. The example on this page uses the **Virtual Machine Configuration**.
