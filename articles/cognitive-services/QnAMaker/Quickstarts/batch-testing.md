@@ -14,7 +14,7 @@ ms.author: diberry
 
 # Quickstart: Test knowledge base with batch questions and expected answers
 
-Use the QnA Maker batch testing tool to test your knowledge base for expected answers, confidence scores, and multi-turn prompts.
+Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Maker resource for expected answers, confidence scores, and multi-turn prompts.
 
 ## Prerequisites
 
