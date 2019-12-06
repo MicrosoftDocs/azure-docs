@@ -157,8 +157,7 @@ In this section, you author a Databricks linked service. This linked service con
            # Creating widgets for leveraging parameters, and printing the parameters
 
            dbutils.widgets.text("input", "","")
-           dbutils.widgets.get("input")
-           y = getArgument("input")
+           y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)
            ```
