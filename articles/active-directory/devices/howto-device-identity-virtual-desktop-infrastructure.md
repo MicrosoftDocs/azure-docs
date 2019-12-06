@@ -45,7 +45,7 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 | Hybrid Azure AD joined | Federated* | Windows current*** and Windows down-level**** | Persistent | Yes |
 |   |   |   | Non-Persistent | Yes |
 |   | Managed** | Windows current and Windows down-level | Persistent | Yes |
-|   |   | Windows down-level | Non-Persistent | Yes |
+|   |   | Windows down-level | Non-Persistent | No |
 |   |   | Windows current | Non-Persistent | No |
 | Azure AD joined | Federated | Windows current | Persistent | No |
 |   |   |   | Non-Persistent | No |
