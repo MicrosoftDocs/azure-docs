@@ -44,9 +44,9 @@ Immutable storage supports the following features:
 
 ## How it works
 
-Immutable storage for Azure Blob storage supports two types of WORM or immutable policies: time-based retention and legal holds. When a time-based retention policy or legal hold is applied on a container, all existing blobs move into an immutable WORM state in less than 30 seconds. All new blobs that are uploaded to that container will also move into the immutable state. Once all blobs have moved into the immutable state, the immutable policy is confirmed and all overwrite or delete operations for existing and new objects in the immutable container are not allowed.
+Immutable storage for Azure Blob storage supports two types of WORM or immutable policies: time-based retention and legal holds. When a time-based retention policy or legal hold is applied on a container, all existing blobs move into an immutable WORM state in less than 30 seconds. All new blobs that are uploaded to that policy protecteced container will also move into an immutable state. Once all blobs are in an immutable state, the immutable policy is confirmed and any overwrite or delete operations in the immutable container are not allowed.
 
-Container and storage account deletion are not permitted if there are any blobs in the container or storage account that are protected by an immutable policy. The container deletion operation will fail if at least one blob exists with a locked time-based retention policy or a legal hold. The storage account deletion operation will fail if there is at least one WORM container with a legal hold or a blob with an active retention interval.
+Container and storage account deletion are also not permitted if there are any blobs in a container that are protected by a legal hold or a locked time-based policy. A legal hold policy will protect against blob, container, and storage account deletion. Both unlocked and locked time-based policies will protect against blob deletion for the specified time. Both unlocked and locked time-based polcies will protect against container deletion only if at least one blob exists within the container. Only a container with *locked* time-based policy will protect against storage account deletions; containers with unlocked time-based policies do not offer storage account deletion protection nor compliance.
 
 ### Time-based retention policies
 
@@ -57,7 +57,7 @@ When a time-based retention policy is applied on a container, all blobs in the c
 
 For new blobs, the effective retention period is equal to the user-specified retention interval. Because users can extend the retention interval, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
-For example, suppose that a user creates a time-based retention policy with a retention interval of five years. An existing blob in that container, _testblob1_, was created one year ago. The effective retention period for _testblob1_ is four years. When a new blob, _testblob2_, is uploaded to the container, the effective retention period for the new blob is five years.
+For example, suppose that a user creates a time-based retention policy with a retention interval of five years. An existing blob in that container, _testblob1_, was created one year ago; so, the effective retention period for _testblob1_ is four years. When a new blob, _testblob2_, is uploaded to the container, the effective retention period for the _testblob2_ is five years from the time of its creation.
 
 An unlocked time-based retention policy is recommended only for feature testing and a policy must be locked in order to be compliant with SEC 17a-4(f) and other regulatory compliance. Once a time-based retention policy is locked, the policy cannot be removed and a maximum of five increases to the effective retention period is allowed. For more information on how to set and lock time-based retention policies, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
@@ -76,14 +76,14 @@ A container can have both a legal hold and a time-based retention policy at the 
 
 The following table shows the types of Blob storage operations that are disabled for the different immutable scenarios. For more information, see the [Azure Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) documentation.
 
-|Scenario  |Blob state  |Blob operations not allowed  |
-|---------|---------|---------|
-|Effective retention interval on the blob has not yet expired and/or legal hold is set     |Immutable: both delete and write-protected         | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |
-|Effective retention interval on the blob has expired     |Write-protected only (delete operations are allowed)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |
-|All legal holds cleared, and no time-based retention policy is set on the container     |Mutable         |None         |
-|No WORM policy is created (time-based retention or legal hold)     |Mutable         |None         |
+|Scenario  |Blob state  |Blob operations denied  |Container and account protection
+|---------|---------|---------|---------|
+|Effective retention interval on the blob has not yet expired and/or legal hold is set     |Immutable: both delete and write-protected         | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |Container and storage account deletion denied         |
+|Effective retention interval on the blob has expired and no legal hold is set    |Write-protected only (delete operations are allowed)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |Container deletion denied if at least 1 blob exists within protected container; storage account deletion denied only for *locked* time-based policies         |
+|All legal holds cleared, and no time-based retention policy is set on the container     |Mutable         |None         |None         |
+|No WORM policy is created (time-based retention or legal hold)     |Mutable         |None         |None         |
 
-<sup>1</sup> The application allows these operations to create a new blob once. All subsequent overwrite operations on an existing blob path in an immutable container are not allowed.
+<sup>1</sup> The blob service allows these operations to create a new blob once. All subsequent overwrite operations on an existing blob path in an immutable container are not allowed.
 
 The following limits apply to legal holds:
 
@@ -122,13 +122,13 @@ No, Legal Hold is just the general term used for a non-time-based retention poli
 
 Only unlocked time-based retention policies can be removed from a container. Once a time-based retention policy is locked, it cannot be removed; only effective retention period extensions are allowed. Legal hold tags can be deleted. When all legal tags are deleted, the legal hold is removed.
 
-**What happens if I try to delete a container with a *locked* time-based retention policy or legal hold?**
+**What happens if I try to delete a container with a time-based retention policy or legal hold?**
 
-The Delete Container operation will fail if at least one blob exists with a locked time-based retention policy or a legal hold. The Delete Container operation will succeed only if no blob with an active retention interval exists and there are no legal holds. You must delete the blobs before you can delete the container.
+The Delete Container operation will fail if at least one blob exists within the container with either a locked or unlocked time-based retention policy or if the container has a legal hold. The Delete Container operation will succeed only if no blobs exist within the container and there are no legal holds. 
 
-**What happens if I try to delete a storage account with a WORM container that has a *locked* time-based retention policy or legal hold?**
+**What happens if I try to delete a storage account with a container that has a time-based retention policy or legal hold?**
 
-The storage account deletion will fail if there is at least one WORM container with a legal hold or a blob with an active retention interval. You must delete all WORM containers before you can delete the storage account. For information on container deletion, see the preceding question.
+The storage account deletion will fail if there is at least one container with a legal hold set or a **locked** time-based policy. A container with an unlocked time-based policy does not protect against storage account deletion. You must remove all legal holds and delete all **locked** containers before you can delete the storage account. For information on container deletion, see the preceding question. You can also apply further delete protections for your storage account with [Azure Resource Manager locks](../../azure-resource-manager/resource-group-lock-resources.md).
 
 **Can I move the data across different blob tiers (hot, cool, cold) when the blob is in the immutable state?**
 
@@ -152,4 +152,7 @@ Immutable storage is available in Azure Public, China, and Government regions. I
 
 ## Next steps
 
-[Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md)
+- [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md)
+- [Set rules to automatically tier and delete blob data with lifecycle management](storage-lifecycle-management-concepts.md)
+- [Soft delete for Azure Storage blobs](../blobs/storage-blob-soft-delete.md)
+- [Protect subscriptions, resource groups, and resources with Azure Resource Manager locks](../../azure-resource-manager/resource-group-lock-resources.md).
