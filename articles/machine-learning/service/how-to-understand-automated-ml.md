@@ -102,7 +102,7 @@ A confusion matrix is used to describe the performance of a classification model
 For classification problems, Azure Machine Learning automatically provides a confusion matrix for each model that is built. For each confusion matrix, automated ML will show the frequency of each predicted label (column) compared against the true label (row). The darker the color, the higher the count in that particular part of the matrix. 
 
 #### What does a good model look like?
-We are comparing the actual value of the dataset against the predicted values that the model gave. Because of this, machine learning models have higher accuracy if the model has most of it's values along the diagnol, meaning the model predicted the correct value. If a model has class imbalance, the confusion matrix will help to detect a biased model.
+We are comparing the actual value of the dataset against the predicted values that the model gave. Because of this, machine learning models have higher accuracy if the model has most of its values along the diagonal, meaning the model predicted the correct value. If a model has class imbalance, the confusion matrix will help to detect a biased model.
 
 ##### Example 1: A classification model with poor accuracy
 ![A classification model with poor accuracy](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
@@ -110,8 +110,8 @@ We are comparing the actual value of the dataset against the predicted values th
 ##### Example 2: A classification model with high accuracy 
 ![A classification model with high accuracy](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
 
-##### Example 3: A classifcation model with high accuracy and high bias in model predictions
-![A classifcation model with high accuracy and high bias in model predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-biased-model.png)
+##### Example 3: A classification model with high accuracy and high bias in model predictions
+![A classification model with high accuracy and high bias in model predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-biased-model.png)
 
 <a name="precision-recall-chart"></a>
 ### Precision-recall chart
@@ -188,7 +188,7 @@ For all classification problems, you can review the calibration line for micro-a
 
 Macro-average will compute the metric independently of each class and then take the average, treating all classes equally. However, micro-average will aggregate the contributions of all the classes to compute the average. 
 #### What does a good model look like?
- A well calibrated model  aligns with the y=x line, where it is reasonably confident in its predictions. An over-confident model  aligns with the y=0 line, where the predicted probability is present but there is no actual probability. 
+ A well-calibrated model  aligns with the y=x line, where it is reasonably confident in its predictions. An over-confident model  aligns with the y=0 line, where the predicted probability is present but there is no actual probability. 
 
 
 ##### Example 1: A well-calibrated model
