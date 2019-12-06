@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 >Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` into your ![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png) feed reader.
 
-Azure AD receives improvements on an ongoing basis. To stay up-to-date with the most recent developments, this article provides you with information about:
+Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
 - Known issues
@@ -198,15 +198,15 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### New Azure AD entitlement management for Azure AD Premium P2 licenses
+### Azure AD entitlement management (General Availability)
 
 **Type:** New feature  
 **Service category:** Other  
 **Product capability:** Entitlement Management
 
-Azure AD entitlement management is a new identity governance feature for customers with Azure AD Premium P2 licenses, which helps organizations manage identity and access lifecycle at scale. This new feature helps by automating access request workflows, access assignments, reviews, and expiration.
+Azure AD entitlement management is a new identity governance feature, which helps organizations manage identity and access lifecycle at scale. This new feature helps by automating access request workflows, access assignments, reviews, and expiration across groups, apps, and SharePoint Online sites.
 
-Azure AD entitlement management can help you more efficiently manage access to groups, apps, and SharePoint Online sites for internal users, and also for users outside your organization who need access to those resources.
+With Azure AD entitlement management, you can more efficiently manage access both for employees  and also for users outside your organization who need access to those resources.
 
 For more information, see [What is Azure AD entitlement management?](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview#license-requirements)
 
@@ -796,13 +796,13 @@ For more information about the enhanced security info experience, see our [admin
 
 2. Go to **Azure Active Directory > User settings > Manage settings for access panel preview features**.
 
-3. In the **Users can use preview features for registering and managing security info - enhanced** area, select **Selected**, and then either choose a group of users or choose **All** to turn this feature on for all users in the tenant.
+3. In the **Users can use preview features for registering and managing security info - enhanced** area, select **Selected**, and then either choose a group of users or choose **All** to turn on this feature for all users in the tenant.
 
 4. In the **Users can use preview features for registering and managing security **info**** area, select **None**.
 
 5. Save your settings.
 
-    After you save your settings you'll no longer have access to the old security info experience.
+    After you save your settings, you'll no longer have access to the old security info experience.
 
 >[!Important]
 >If you don't complete these steps before September 25, 2019, your Azure Active Directory tenant will be automatically enabled for the enhanced experience. If you have questions, please contact us at registrationpreview@microsoft.com.
@@ -880,7 +880,7 @@ For more information, see [What's new for authentication?](https://docs.microsof
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
 
-Azure AD customers can now set policies to manage FIDO2 security keys for their organization's users and groups. End-users can also self-register their security keys, use the keys to sign in to their Microsoft accounts on web sites while on FIDO-capable devices, as well as sign in to their Azure AD-joined Windows 10 devices.
+Azure AD customers can now set policies to manage FIDO2 security keys for their organization's users and groups. End users can also self-register their security keys, use the keys to sign in to their Microsoft accounts on web sites while on FIDO-capable devices, as well as sign-in to their Azure AD-joined Windows 10 devices.
 
 For more information, see [Enable passwordless sign in for Azure AD (preview)](/azure/active-directory/authentication/concept-authentication-passwordless) for administrator-related information, and [Set up security info to use a security key (Preview)](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-security-key) for end-user-related information.
 
