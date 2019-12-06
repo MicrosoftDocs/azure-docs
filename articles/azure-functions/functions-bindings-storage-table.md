@@ -253,7 +253,7 @@ public class Person : TableEntity
 
 ### Input - C# script example - CloudTable
 
-`IQueryable` isn't supported in the [Functions runtime (version 2.x and higher)](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
+`IQueryable` isn't supported in the Functions runtime for [versions 2.x and higher)](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
 
 ```json
 {
