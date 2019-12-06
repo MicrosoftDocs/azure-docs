@@ -29,7 +29,7 @@ The tutorial demonstrate the steps to be performed in ServiceNow and Azure Activ
 ## Capabilities Supported
 * Create users in ServiceNow
 * Remove users in ServiceNow when they do not require access anymore
-* Keep user attributes sunchronized between Azure AD and ServiceNow
+* Keep user attributes synchronized between Azure AD and ServiceNow
 * Provision groups and group memberships in ServiceNow
 
 ## Prerequisites
@@ -114,7 +114,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![TestApp User Mappings](media/Leapsome-provisioning-tutorial/Leapsome-user-mappings.png)
 
-9. Review the user attributes that are synchronized from Azure AD to ServiceNow in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in ServiceNow for update operations. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to ServiceNow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in ServiceNow for update operations. Select the **Save** button to commit any changes.
 
 	![TestApp User Attributes](media/Leapsome-provisioning-tutorial/Leapsome-user-attributes.png)
 
@@ -122,7 +122,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![TestApp Group Mappings](media/Leapsome-provisioning-tutorial/Leapsome-group-mappings.png)
 
-11. Review the group attributes that are synchronized from Azure AD to ServiceNow in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in ServiceNow for update operations. Select the **Save** button to commit any changes.
+11. Review the group attributes that are synchronized from Azure AD to ServiceNow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in ServiceNow for update operations. Select the **Save** button to commit any changes.
 
 	![TestApp Group Attributes](media/Leapsome-provisioning-tutorial/Leapsome-group-attributes.png)
 
@@ -143,18 +143,18 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
 ## 6. Monitor your deployment
-Once you've configured provisioing, use the following resources to monitor your deployment:
+Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the progress bar to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarnatine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## Troubleshooting Tips
-* **InvalidLookupReference:** When provisioning certain attributes such as Department and Location in ServiceNow, the values must already exist in a reference table in ServiceNow. For example, you may have 2 locations (Seattle, Los Angelas) and 3 departments (Sales, Finance, Marketing) in the **insert table name** table in ServiceNow. If you attempt to provision a user wher his deparment is "Sales" and location is "Seattle" he will be provisioned successfully. If you attempt to provision a user with department "Sales" and location "LA" the user won't be provisioned. The location LA must either be added to the reference table in ServiceNow or the user attribute in Azure AD must be updated to match the format in ServiceNow. 
+* **InvalidLookupReference:** When provisioning certain attributes such as Department and Location in ServiceNow, the values must already exist in a reference table in ServiceNow. For example, you may have two locations (Seattle, Los Angeles) and three departments (Sales, Finance, Marketing) in the **insert table name** table in ServiceNow. If you attempt to provision a user where his department is "Sales" and location is "Seattle" he will be provisioned successfully. If you attempt to provision a user with department "Sales" and location "LA" the user won't be provisioned. The location LA must either be added to the reference table in ServiceNow or the user attribute in Azure AD must be updated to match the format in ServiceNow. 
 * **EntryJoiningPropertyValueIsMissing:** Review your [attribute mappings](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) to identify the matching attribute. This value must be present on the user or group you're attempting to provision. 
-* Review the [ServiceNow SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) to understand any requirements or limitations (e.g. format to specify country code for a user )
+* Review the [ServiceNow SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) to understand any requirements or limitations (for example, format to specify country code for a user)
 * Describe how to configure referential attributes
-* Some ServiceNow deployments require whitelisting IP ranges for the Azure AD provisioning service. The reserved IP ranges for the Azure AD provisioning service can be found [here](https://www.microsoft.com/download/details.aspx?id=56519) under "AzureActiveDirectoryDomainServices."
+* Some ServiceNow deployments require whitelisting IP ranges for the Azure AD provisioning service. The reserved IP ranges for the Azure AD provisioning service can be found [here](https://www.microsoft.com/download/details.aspx?id=56519) under "AzureActiveDirectoryDomainServices".
 
 ## Additional resources
 
