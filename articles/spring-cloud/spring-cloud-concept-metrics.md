@@ -21,7 +21,7 @@ In Azure Spring Cloud, there are two view point for metrics.
 
 Charts in the application **Overview** provides quick status check for each application. The common **Metrics** page contains all metrics available for reference. You can build your own charts in the common metrics page and pin them in Dashboard.
 
-## Application Overview page
+## Application overview page
 Select an app in **App Management** to find charts in the overview page.  
 
  ![App Management](media/metrics/metrics-2.png)
@@ -39,6 +39,14 @@ We provide 5 charts with metrics updated every minute for the following:
 * **Average Response Time**: Average response time from your app.
 
 You can select a time range for the chart between 1 hour up to 7 Days.
+
+## Common metrics page
+
+The **Metrics** in the left navigation pane links to the common metrics page.
+
+First, select metrics to view:
+
+![App Management](media/metrics/metrics-4.png)
 
 ## Service-level metric queries
 
