@@ -6,7 +6,7 @@ ms.suite: integration
 author: shae-hurst
 ms.author: shhurst
 ms.topic: article
-ms.date: 4/27/2018
+ms.date: 12/03/2019
 ---
 
 # Handle large messages with chunking in Azure Logic Apps
@@ -59,6 +59,14 @@ Logic Apps splits any message larger than 30 MB into smaller chunks.
 For connectors that support chunking, the underlying chunking protocol is invisible to end users. 
 However, not all connectors support chunking, so these connectors generate runtime 
 errors when incoming messages exceed the connectors' size limits.
+
+> [!NOTE]
+> For actions that use chunking, you can't pass the trigger body or use expressions such as 
+> `@triggerBody()?['Content']` in those actions. Instead, for text or JSON file content, 
+> you can try using the [**Compose** action](../logic-apps/logic-apps-perform-data-operations.md#compose-action) 
+> or [create a variable](../logic-apps/logic-apps-create-variables-store-values.md) to handle that content. 
+> If the trigger body contains other content types, such as media files, you need to perform 
+> other steps to handle that content.
 
 <a name="set-up-chunking"></a>
 

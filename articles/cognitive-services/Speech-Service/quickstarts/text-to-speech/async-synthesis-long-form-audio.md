@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Asynchronous synthesis for long-form audio (Preview) - Speech Service"
+title: "Quickstart: Asynchronous synthesis for long-form audio (Preview) - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Use the Long Audio API to asynchronously convert text to speech, and retrieve the audio output from a URI provided by the service. This REST API is ideal for content providers that need to convert text files greater than 10,000 characters or 50 paragraphs into synthesized speech.
 services: cognitive-services

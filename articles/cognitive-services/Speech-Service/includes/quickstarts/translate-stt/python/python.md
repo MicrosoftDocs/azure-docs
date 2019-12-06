@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech-to-speech, Python - Speech Service'
+title: 'Quickstart: Translate speech-to-speech, Python - Speech service'
 description: TBD
 services: cognitive-services
 author: chlandsi
@@ -84,7 +84,7 @@ Before you get started, make sure to:
    python quickstart.py
    ```
 
-2. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to German). The Speech Services then sends the text back to the application for display.
+2. Speak an English phrase or sentence. The application transmits your speech to the Speech service, which translates and transcribes to text (in this case, to German). The Speech service then sends the text back to the application for display.
 
    ````
    Say something...
