@@ -1,6 +1,6 @@
 ---
 title: Azure CLI Script Example - Upload a file to a container | Microsoft Docs
-description: Use the Azure CLI script to upload a local file to a storage container.
+description: This article show how to use the Azure CLI script to upload a local file to a storage container.
 services: media-services
 documentationcenter: ''
 author: Juliako
