@@ -21,8 +21,8 @@ ms.custom: seodec18
 
 - Added a `FromHost()` API, to ease use with on-prem containers and sovereign clouds.
 - Added Automatic Source Language Detection for Speech Recognition (in Java and C++)
-- Added SourceLanguageConfig object for Speech Recognition, used to specify expected source languages (in Java and C++)
-- Added KeywordRecognizer support on Windows (UWP), Android and iOS through the Nuget and Unity packages
+- Added `SourceLanguageConfig` object for Speech Recognition, used to specify expected source languages (in Java and C++)
+- Added `KeywordRecognizer` support on Windows (UWP), Android and iOS through the Nuget and Unity packages
 - Added Remote Conversation Java API to do Conversation Transcription in asynchronous batches.
 
 **Breaking changes**
@@ -226,7 +226,7 @@ The following new content is available in our [sample repository](https://aka.ms
 - Empty proxy username and proxy password were not handled correctly. With this release, if you set proxy username and proxy password to an empty string, they will not be submitted when connecting to the proxy.
 - SessionId's created by the SDK were not always truly random for some languages&nbsp;/ environments. Added random generator initialization to fix this issue.
 - Improve handling of authorization token. If you want to use an authorization token, specify in the `SpeechConfig` and leave the subscription key empty. Then create the recognizer as usual.
-- In some cases the Connection object wasn't released correctly. This issue has been fixed.
+- In some cases the `Connection` object wasn't released correctly. This issue has been fixed.
 - The JavaScript sample was fixed to support audio output for translation synthesis also on Safari.
 
 ## Speech SDK 1.2.1
