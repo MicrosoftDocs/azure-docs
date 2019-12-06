@@ -335,6 +335,8 @@
         href: how-to-audio-content-creation.md
   - name: Custom keyword spotting
     href: speech-devices-sdk-create-kws.md
+  - name: Effective custom keyword guidelines
+    href: speech-devices-sdk-kws-guidelines.md
 - name: Speech Service
   expanded: false
   items:
