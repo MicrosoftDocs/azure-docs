@@ -2,108 +2,168 @@
 title: 'Tutorial: Configure ServiceNow for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to ServiceNow.
 services: active-directory
-documentationCenter: na
-author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+documentationcenter: ''
+author: zchia
+writer: zchia
+manager: beatrizd
 
 ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2019
-ms.author: jeedes
-
-ms.collection: M365-identity-device-management
+ms.date: 11/07/2019
+ms.author: zchia
 ---
-# Tutorial: Configure ServiceNow for automatic user provisioning with Azure Active Directory
 
-The objective of this tutorial is to show you the steps you need to perform in ServiceNow and Azure AD to automatically provision and de-provision user accounts from Azure AD to ServiceNow.
+# Tutorial: Configure ServiceNow for automatic user provisioning
 
-> [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+The tutorial demonstrate the steps to be performed in ServiceNow and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to [ServiceNow](https://www.servicenow.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
+
+
+**Insert App Logo**
+
+## Capabilities Supported
+* Create users in ServiceNow
+* Remove users in ServiceNow when they do not require access anymore
+* Keep user attributes sunchronized between Azure AD and ServiceNow
+* Provision groups and group memberships in ServiceNow
 
 ## Prerequisites
 
-To configure Azure AD integration with ServiceNow, you need the following items:
+The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-- An Azure AD subscription
-- For ServiceNow, an instance or tenant of ServiceNow, Calgary version or higher
-- For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or higher
+* [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A [ServiceNow instance](https://www.servicenow.com/) of Calgary or higher
+* A [ServiceNow Express instance](https://www.servicenow.com/) of Helsinki or higher
+* A user account in ServiceNow with the following permissions:
 
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+## 1. Plan your provisioning deployment
+1. Learn about how provisioning the provisioning service works
+2. Determine who will be in [scope for provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)
+3. Determine what data to [map between Azure AD and ServiceNow](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-To test the steps in this tutorial, you should follow these recommendations:
+## 2. Configure ServiceNow to support provisioning with Azure AD
 
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a [free account](https://azure.microsoft.com/free/).
+1. Sign in to your [TestApp Admin Console](https://www.Leapsome.com/app/#/login). Navigate to **Settings > Admin Settings**.
 
-## Assigning users to ServiceNow
+	![TestApp Admin Console](media/Leapsome-provisioning-tutorial/leapsome-admin-console.png)
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD is synchronized.
+2.	Navigate to **Integrations > SCIM User provisioning**.
 
-Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Azure AD represent the users who need access to your ServiceNow app. Once decided, you can assign these users to your ServiceNow app by following the instructions here:
-[Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+	![TestApp Add SCIM](media/Leapsome-provisioning-tutorial/leapsome-add-scim.png)
 
+3.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your TestApp application in the Azure portal.
 
-> [!IMPORTANT]
->*   It is recommended that a single Azure AD user is assigned to ServiceNow to test the provisioning configuration. Additional users and/or groups may be assigned later.
->*   When assigning a user to ServiceNow, you must select a valid user role. The "Default Access" role does not work for provisioning.
->*   For more information on how to create and configure roles in Azure AD, please refer this [link](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)
+	![TestApp Create Token](media/Leapsome-provisioning-tutorial/leapsome-create-token.png)
 
-## Enable automated user provisioning
+## 3. Add ServiceNow from the Azure AD application gallery
 
-This section guides you through connecting your Azure AD to ServiceNow's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in ServiceNow based on user and group assignment in Azure AD.
+Add ServiceNow from the Azure AD application gallery to start managing provisioning to ServiceNow. If you have previously setup ServiceNow for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+
+## 4. Assign users to ServiceNow
+
+Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
+
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to SAP Cloud Platform Identity Authentication. Once decided, you can assign these users and/or groups to ServiceNow by following the instructions here:
+* [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
+
+## Important tips for assigning users to ServiceNow
+* It is recommended that a single Azure AD user is assigned to TestApp to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+
+* When assigning a user to TestAoo, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+
+## 5. Configure automatic user provisioning to ServiceNow 
+
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
 > [!TIP]
->You may also choose to enabled SAML-based Single Sign-On for ServiceNow, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for TestApp , following the instructions provided in the [TestApp Single sign-on tutorial](Leapsome-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
-### Configure automatic user account provisioning
+### To configure automatic user provisioning for ServiceNow in Azure AD:
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-1. If you have already configured ServiceNow for single sign-on, search for your instance of ServiceNow using the search field. Otherwise, select **Add** and search for **ServiceNow** in the application gallery. Select ServiceNow from the search results, and add it to your list of applications.
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-1. Select your instance of ServiceNow, then select the **Provisioning** tab.
+2. In the applications list, select **ServiceNow**.
 
-1. Set the **Provisioning** Mode to **Automatic**. 
+	![The ServiceNow link in the Applications list](common/all-applications.png)
 
-    ![provisioning](./media/servicenow-provisioning-tutorial/provisioning.png)
+3. Select the **Provisioning** tab.
 
-1. Under the Admin Credentials section, perform the following steps:
-   
-    a. In the **ServiceNow Instance Name** textbox, type the ServiceNow instance name.
+	![Provisioning tab](common/provisioning.png)
 
-    b. In the **ServiceNow Admin User Name** textbox, type the user name of an administrator.
+4. Set the **Provisioning Mode** to **Automatic**.
 
-    c. In the **ServiceNow Admin Password** textbox, the administrator's password.
+	![Provisioning tab](common/provisioning-automatic.png)
 
-1. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your ServiceNow app. If the connection fails, ensure your ServiceNow account has Team Admin permissions and try the **"Admin Credentials"** step again.
+5. Under the **Admin Credentials** section, input `https://www.leapsome.com/api/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to ServiceNow. If the connection fails, ensure your ServiceNow account has Admin permissions and try again.
 
-1. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox.
+	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-1. Click **Save.**
+6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
-1. Under the Mappings section, select **Synchronize Azure Active Directory Users to ServiceNow.**
+	![Notification Email](common/provisioning-notification-email.png)
 
-1. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to ServiceNow. The attributes selected as **Matching** properties are used to match the user accounts in ServiceNow for update operations. Select the Save button to commit any changes.
+7. Click **Save**.
 
-1. To enable the Azure AD provisioning service for ServiceNow, change the **Provisioning Status** to **On** in the Settings section
+8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to ServiceNow**.
 
-1. Click **Save.**
+	![TestApp User Mappings](media/Leapsome-provisioning-tutorial/Leapsome-user-mappings.png)
 
-It starts the initial synchronization of any users and/or groups assigned to ServiceNow in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your ServiceNow app.
+9. Review the user attributes that are synchronized from Azure AD to ServiceNow in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in ServiceNow for update operations. Select the **Save** button to commit any changes.
+
+	![TestApp User Attributes](media/Leapsome-provisioning-tutorial/Leapsome-user-attributes.png)
+
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to ServiceNow**.
+
+	![TestApp Group Mappings](media/Leapsome-provisioning-tutorial/Leapsome-group-mappings.png)
+
+11. Review the group attributes that are synchronized from Azure AD to ServiceNow in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in ServiceNow for update operations. Select the **Save** button to commit any changes.
+
+	![TestApp Group Attributes](media/Leapsome-provisioning-tutorial/Leapsome-group-attributes.png)
+
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. To enable the Azure AD provisioning service for ServiceNow, change the **Provisioning Status** to **On** in the **Settings** section.
+
+	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+
+14. Define the users and/or groups that you would like to provision to ServiceNow by choosing the desired values in **Scope** in the **Settings** section.
+
+	![Provisioning Scope](common/provisioning-scope.png)
+
+15. When you are ready to provision, click **Save**.
+
+	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on ServiceNow.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
+## 6. Monitor your deployment
+Once you've configured provisioing, use the following resources to monitor your deployment. 
+
+1. Use the provisioning logs to determine which users have been provisioned successfully or unsuccessfully
+Quarnatine doc
+2. Check the progress bar to see the status of the provisioning cycle and how close it is to completion
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarnatine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+
+## Troubleshooting Tips
+* Review the [ServiceNow SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) to understand any requirements or limitations (e.g. format to specify country code for a user )
+
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](tutorial-list.md)
+* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configure Single Sign-on](servicenow-tutorial.md)
+
+## Next steps
+
+* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+
 
 
