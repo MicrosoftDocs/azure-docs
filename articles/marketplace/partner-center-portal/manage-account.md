@@ -7,7 +7,7 @@ ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2019
+ms.date: 12/06/2019
 ---
 
 # How to manage your Commercial Marketplace account in Partner Center
@@ -129,7 +129,6 @@ Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs. You
 
 For more information, see the [Tracking Azure customer usage with GUIDs FAQ](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
 
-
 ## Create a billing profile
 
 If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](./create-new-customer-engagement-offer.md) or [Dynamics 365 for Operations](./create-new-operations-offer.md) offer, you need to complete your **billing profile**.
@@ -138,11 +137,11 @@ The billing address is pre-populated from your legal entity, and you can update 
 
 ## Multi-user account management
 
-Partner Center leverages [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process. 
+Partner Center leverages [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process.
 
 ## Manage users
 
-The **Users** section of Partner Center (under **Account Settings**) let's you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. In order to manage users, you must be signed in with your [work account](./company-work-accounts.md) (the associated Azure AD tenant). To manage users within a different work account / tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant. 
+The **Users** section of Partner Center (under **Account Settings**) let's you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. In order to manage users, you must be signed in with your [work account](./company-work-accounts.md) (the associated Azure AD tenant). To manage users within a different work account / tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant.
 
 Once you are signed in with your work account (Azure AD tenant), you can:
 - [Add or remove users](#add-or-remove-users)
@@ -152,8 +151,7 @@ Once you are signed in with your work account (Azure AD tenant), you can:
 - [Manage keys for an Azure AD application](#manage-keys-for-an-azure-ad-application)
 - [Define user roles and permissions](#define-user-roles-and-permissions)
 
-
-Keep in mind that all Partner Center users (including groups and Azure AD applications) must have an active work account in an [Azure AD tenant](#manage-tenants) that is associated with your Partner Center account. 
+Keep in mind that all Partner Center users (including groups and Azure AD applications) must have an active work account in an [Azure AD tenant](#manage-tenants) that is associated with your Partner Center account.
 
 ### Add or remove users
 
@@ -167,8 +165,8 @@ To add users to your Partner Center account that already exist in your company's
 2. Select one or more users from the list that appears. You can use the search box to search for specific users.
 *If you select more than one user to add to your Partner Center account, you must assign them the same role or set of custom permissions. To add multiple users with different roles/permissions, repeat these steps for each role or set of custom permissions.
 3. When you are finished choosing users, click **Add selected**.
-5. In the **Roles** section, specify the role(s) or customized permissions for the selected user(s).
-6. Select **Save**.
+4. In the **Roles** section, specify the role(s) or customized permissions for the selected user(s).
+5. Select **Save**.
 
 #### Create new users
 
@@ -176,7 +174,7 @@ To create brand new user accounts, you must have an account with [**Global admin
 
 1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Create new users**.
 1. Enter a first name, last name, and username for each new user. 
-1. If you want the new user to have a global administrator account in your organization's directory, check the box labeled **Make this user a Global administrator in your Azure AD, with full control over all directory resources**. This will give the user full access to all administrative features in your company's Azure AD. They'll be able to add and manage users in your organization's work account (Azure AD tenant), though not in Partner Center, unless you grant the account the appropriate role/permissions. 
+1. If you want the new user to have a global administrator account in your organization's directory, check the box labeled **Make this user a Global administrator in your Azure AD, with full control over all directory resources**. This will give the user full access to all administrative features in your company's Azure AD. They'll be able to add and manage users in your organization's work account (Azure AD tenant), though not in Partner Center, unless you grant the account the appropriate role/permissions.
 1. If you checked the box to **Make this user a Global administrator**, you'll need to provide a **Password recovery email** for the user to recover their password if necessary.
 1. In the **Group membership** section, select any groups to which you want the new user to belong.
 1. In the **Roles** section, specify the role(s) or customized permissions for the user.
@@ -186,7 +184,7 @@ Creating a new user in Partner Center will also create an account for that user 
 
 #### Invite new users by email
 
-To invite users that are not currently a part of your company work account (Azure AD tenant) via email, you must have an account with [**Global administrator**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions. 
+To invite users that are not currently a part of your company work account (Azure AD tenant) via email, you must have an account with [**Global administrator**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions.
 
 1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Invite users by email**.
 2. Enter one or more email addresses (up to ten), separated by commas or semicolons.
@@ -218,7 +216,7 @@ Groups allow you to control multiple user roles and permissions all together.
 
 #### Add an existing group
 
-To add a group that already exists in your organization's work account (Azure AD tenant) to your Partner Center account: 
+To add a group that already exists in your organization's work account (Azure AD tenant) to your Partner Center account:
 
 1. From the **Users** page (under **Account settings**), select **Add groups**.
 2. Select one or more groups from the list that appears. You can use the search box to search for specific groups.
@@ -231,7 +229,7 @@ When you add an existing group, every user who is a member of that group will be
 
 #### Add a new group
 
-To add a brand-new group to your Partner Center account: 
+To add a brand-new group to your Partner Center account:
 
 1. From the **Users** page (under **Account settings**), select **Add groups**.
 2. On the next page, select **New group**.
@@ -249,11 +247,11 @@ To remove a group from your work account (Azure AD tenant), go to **Users** (und
 
 ## Manage Azure AD applications
 
-You can allow applications or services that are part of your company's Azure AD to access your Partner Center account. 
+You can allow applications or services that are part of your company's Azure AD to access your Partner Center account.
 
 #### Add existing Azure AD applications
 
-To add applications that already exist in your company's Azure Active Directory: 
+To add applications that already exist in your company's Azure Active Directory:
 
 1. From the **Users** page (under **Account settings**), select **Add Azure AD applications**.
 2. Select one or more Azure AD applications from the list that appears. You can use the search box to search for specific Azure AD applications. If you select more than one Azure AD application to add to your Partner Center account, you must assign them the same role or set of custom permissions. To add multiple Azure AD applications with different roles/permissions, repeat these steps for each role or set of custom permissions.
@@ -261,7 +259,7 @@ To add applications that already exist in your company's Azure Active Directory:
 4. In the **Roles** section, specify the role(s) or customized permissions for the selected Azure AD application(s).
 5. Select **Save**.
 
-#### Add new Azure AD applications 
+#### Add new Azure AD applications
 
 If you want to grant Partner Center access to a brand-new Azure AD application account, you can create one in the **Users** section. Note that this will create a new account in your company work account (Azure AD tenant), not just in your Partner Center account. If you are primarily using this Azure AD application for Partner Center authentication, and don't need users to access it directly, you can enter any valid address for the **Reply URL** and **App ID URI**, as long as those values are not used by any other Azure AD application in your directory.
 
@@ -345,9 +343,9 @@ When you remove a tenant, all users that were added to the Partner Center accoun
 
 ## Agreements
 
-The **Agreements** section of Partner Center (under **Account Settings**) let's you view a list of the publishing agreements that you've authorized. These agreements are listed according to name and version number, including the date it was accepted and the name of the user that accepted the agreement. 
+The **Agreements** section of Partner Center (under **Account Settings**) let's you view a list of the publishing agreements that you've authorized. These agreements are listed according to name and version number, including the date it was accepted and the name of the user that accepted the agreement.
 
-**Actions needed** may appear at the top of this page if there are agreement updates that need your attention. To accept an updated agreement, first read the linked Agreement Version, then select **Accept agreement**. 
+**Actions needed** may appear at the top of this page if there are agreement updates that need your attention. To accept an updated agreement, first read the linked Agreement Version, then select **Accept agreement**.
 
 ## Next steps
 
