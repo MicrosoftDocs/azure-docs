@@ -177,7 +177,7 @@ After creating a Scala application, you can remote run it.
 
     - Environment variables: If you already set the system environment variable **HADOOP_HOME** to **C:\WinUtils**, it can auto detect that no need to manually add.
     - [WinUtils.exe Location](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): If you have not set the system environment variable, you can find the location by clicking its button.
-    - Just choose either of two options and they are't needed on MacOS and Linux.
+    - Just choose either of two options and they aren't needed on MacOS and Linux.
 
 2. Then click the local run button.
 
