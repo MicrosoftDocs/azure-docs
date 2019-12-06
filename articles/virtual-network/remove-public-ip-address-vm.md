@@ -64,11 +64,18 @@ Install the [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-netw
 
      In the previous example, *myVMVMNic* is the name of the network interface.
 
-   - If you don't know the name of a public IP configuration for a network interface, use the [az network nic ip-config show](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-show) command to retrieve them. For example, the following command lists the names of the public IP configurations for a network interface named *myVMVMNic* in a resource group named *myResourceGroup*:
+   - If you don't know the name of an IP configuration for a network interface, use the [az network nic ip-config list](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) command to retrieve them. For example, the following command lists the names of the public IP configurations for a network interface named *myVMVMNic* in a resource group named *myResourceGroup*:
+
+     ```azurecli-interactive
+     az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
+     ```
+
+  - If you don't know the name of a public IP configuration for a network interface, use the [az network nic ip-config show](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-show) command to retrieve them. For example, the following command lists the names of the public IP configurations for a network interface named *myVMVMNic* in a resource group named *myResourceGroup*:
 
      ```azurecli-interactive
      az network nic ip-config show --name ipconfigmyVM --nic-name myVMVMNic --resource-group myResourceGroup --query publicIPAddress.id
      ```
+
 
 ## PowerShell
 
