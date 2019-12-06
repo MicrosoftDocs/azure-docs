@@ -1,21 +1,20 @@
 ---
-title: Copy data from/to Azure File Storage by using Azure Data Factory 
+title: Copy data from/to Azure File Storage
 description: Learn how to copy data from Azure File Storage to supported sink data stores (or) from supported source data stores to Azure File Storage by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.author: jingwang
-
 ---
+
 # Copy data from or to Azure File Storage by using Azure Data Factory
 
 This article outlines how to copy data to and from Azure File Storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
