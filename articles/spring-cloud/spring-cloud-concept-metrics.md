@@ -52,7 +52,7 @@ First, select metrics to view:
 
 Azure Spring Cloud allows you to monitor a variety of application metrics. 
 
-To review metric data, you will select your metric, your **Aggregation**, and your time range.  These concepts are explained below.
+To review metric data, select your metric, **Aggregation**, and time range.  These concepts are explained below.
 
 ### Aggregation 
 
@@ -171,6 +171,104 @@ The following table shows the available metrics and details.
     <td></td>
     <td></td>
     <td></td>
+   </tr>
+   <tr>
+    <th>Name</th>
+    <th>Display Name</th> 
+    <th>Spring Actuator Metric Name</th>
+    <th>Unit</th>
+    <th>Details</th>
+  </tr>
+  <tr>
+    <td>GCPauseTotalTime</td>
+    <td>GC Pause (total-time)</td>
+    <td>jvm.gc.pause </td>
+    <td>Milliseconds</td>
+    <td>Total GC time consumed after this JMV started, including Young and Old GC.</td>
+   </tr>
+  <tr>
+    <td>TomcatSentBytes</td>
+    <td>Tomcat Total Sent Bytes</td>
+    <td>tomcat.global.sent</td>
+    <td>Bytes</td>
+    <td>Amount of data Tomcat web server sent, in bytes.</td>
+   </tr>
+  <tr>
+    <td>TomcatReceivedBytes</td>
+    <td>Tomcat Total Received Bytes</td>
+    <td>tomcat.global.received</td>
+    <td>Bytes</td>
+    <td>Amount of data Tomcat web server received, in bytes</td>
+   </tr>
+  <tr>
+    <td>TomcatRequestTotalTime</td>
+    <td>Tomcat Request Total Times</td>
+    <td>tomcat.global.request (total-time)</td>
+    <td>Milliseconds</td>
+    <td>Total time of Tomcat web server to process the requests.</td>
+   </tr>
+  <tr>
+    <td>TomcatRequestTotalCount</td>
+    <td>Request Total Count</td>
+    <td>tomcat.global.request(total-count)</td>
+    <td>Count</td>
+    <td>Total count of Tomcat web server processed requests.</td>
+   </tr>
+  <tr>
+    <td>TomcatRequestMaxTime</td>
+    <td>Tomcat Request Max Time</td>
+    <td>tomcat.global.request.max</td>
+    <td>Milliseconds</td>
+    <td>Maximum time of Tomcat web server to process a request.</td>
+   </tr>
+  <tr>
+    <td>TomcatErrorCount</td>
+    <td>Tomcat Global Error</td>
+    <td>tomcat.global.error</td>
+    <td>Count</td>
+    <td>Number of errors occurs of processed requests.</td>
+   </tr>
+  <tr>
+    <td>TomcatSessionActiveMaxCount</td>
+    <td>Tomcat Session Max Active Count</td>
+    <td>tomcat.sessions.active.max</td>
+    <td>Count</td>
+    <td>Maximum number of sessions that have been active at the same time.</td>
+   </tr>
+  <tr>
+    <td>TomcatSessionAliveMaxTime</td>
+    <td>Tomcat Session Max Alive Time</td>
+    <td>tomcat.sessions.alive.max</td>
+    <td>Milliseconds</td>
+    <td>Longest time in seconds that an expired session had been alive.</td>
+   </tr>
+  <tr>
+    <td>TomcatSessionCreatedCount</td>
+    <td>Tomcat Session Created Count</td>
+    <td>tomcat.sessions.created</td>
+    <td>Count</td>
+    <td>Number of sessions that have created.</td>
+   </tr>
+      <tr>
+    <th>Name</th>
+    <th>Display Name</th> 
+    <th>Spring Actuator Metric Name</th>
+    <th>Unit</th>
+    <th>Details</th>
+  </tr>
+  <tr>
+    <td>TomcatSessionExpiredCount</td>
+    <td>Tomcat Session Expired Count</td>
+    <td>tomcat.sessions.expired</td>
+    <td>Count</td>
+    <td>Number of sessions that have expired.</td>
+   </tr>
+  <tr>
+    <td>TomcatSessionRejectedCount</td>
+    <td>Tomcat Session Rejected Count</td>
+    <td>tomcat.sessions.rejected</td>
+    <td>Count</td>
+    <td>Number of sessions that were not created because the maximum number of active sessions was reached.</td>
    </tr>
 </table>
 
