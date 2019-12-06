@@ -90,7 +90,9 @@ These are known issues for Azure Machine Learning Datasets.
 
 ### TypeError: FileNotFound: No such file or directory
 
-This error occurs if the file path you attempt to mount to your compute target can't be found. This happens if you use the relative path instead of the absolute path of the file(s) in your datastore or dataset. When you use `as_mount()` or `mount()` include a leading forward slash, `/`, to ensure you are mounting your dataset relative to your compute target, instead of your working directory. 
+This error occurs if the file path you provide isn't where the file is located. You need to make sure the way you refer to the file is consistent with where you mounted your dataset on your compute target. To ensure a deterministic state, we recommended to use the abstract path when mounting a dataset to a compute target. For example, in the following code we mount the dataset under the root of the filesystem of the compute target, `/tmp`. 
+
+If you don't include the leading forward slash, '/', the dataset will be mounted under the current working directory of the compute target.
 
 ```python
 # Note the leading / in '/tmp/dataset'
@@ -98,6 +100,7 @@ script_params = {
     '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
 } 
 ```
+
 ### Fail to read Parquet file from HTTP or ADLS Gen 2
 
 There is a known issue in AzureML DataPrep SDK version 1.1.25 that causes a failure when creating a dataset by reading Parquet files from HTTP or ADLS Gen 2. It will fail with `Cannot seek once reading started.`. To fix this issue, please upgrade `azureml-dataprep` to a version higher than 1.1.26, or downgrade to a version lower than 1.1.24.
