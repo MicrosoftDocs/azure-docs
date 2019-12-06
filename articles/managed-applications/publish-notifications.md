@@ -1,6 +1,6 @@
 ---
-title: Azure Managed Applications with Notifications
-description: Configure Managed Application with webhook endpoints to receive notifications about creates, updates, deletes, and errors on the managed application instances.
+title: Azure managed applications with notifications
+description: Configure managed applications with webhook endpoints to receive notifications about creates, updates, deletes, and errors on the managed application instances.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
@@ -9,30 +9,31 @@ ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
 ---
-# Azure Managed Applications with Notifications
+# Azure managed applications with notifications
 
-Azure managed application notifications allow publishers to automate actions based on lifecycle events of the managed application instances. Publishers can specify custom notification webhook endpoints to receive event notifications about new and existing managed application instances. It allows the publisher to set up custom workflows at the time of application provisioning, updates, and deletion.
+Azure managed application notifications allow publishers to automate actions based on lifecycle events of the managed application instances. Publishers can specify custom notification webhook endpoints to receive event notifications about new and existing managed application instances. Publishers can set up custom workflows at the time of application provisioning, updates, and deletion.
 
 ## Getting started
-To start receiving managed applications, spin up a public HTTPS endpoint and specify it when publishing the Service Catalog application definition or the Marketplace offer.
+To start receiving managed applications, spin up a public HTTPS endpoint and specify it when you publish the service catalog application definition or the Azure Marketplace offer.
 
-Here are the recommended series of steps to get up and running quickly:
+Here are the recommended steps to get started quickly:
 1. Spin up a public HTTPS endpoint that logs the incoming POST requests and returns `200 OK`.
-2. Add the endpoint to service catalog application definition or marketplace offer as explained below.
-3. Create a managed application instance that references the application definition or the marketplace offer.
-4. Validate that the notifications are being received successfully.
-5. Enable authorization as explained in the **Endpoint Authentication** section below.
-6. Follow the **Notification Schema** documentation below to parse the notification requests and implement your business logic based on the notification.
+2. Add the endpoint to the service catalog application definition or Azure Marketplace offer as explained later in this article.
+3. Create a managed application instance that references the application definition or the Azure Marketplace offer.
+4. Validate that the notifications are being received.
+5. Enable authorization as explained in the **Endpoint authentication** section of this article.
+6. Follow the instructions in the **Notification schema** section of this article to parse the notification requests and implement your business logic based on the notification.
 
-## Adding service catalog application definition notifications
+## Add service catalog application definition notifications
 #### Azure portal
-Please read [Publish a service catalog application through Azure portal](./publish-portal.md) to get started.
+To get started, see [Publish a service catalog application through Azure portal](./publish-portal.md).
 
-![Service catalog application definition notifications on Portal](./media/publish-notifications/service-catalog-notifications.png)
+![Service catalog application definition notifications in the Azure portal](./media/publish-notifications/service-catalog-notifications.png)
+
 #### REST API
 
 > [!NOTE]
-> Currently only one endpoint is supported as part of the **notificationEndpoints** in the application definition properties
+> Currently, you can supply only one endpoint in the `notificationEndpoints` in the application definition properties.
 
 ``` JSON
     {
@@ -56,10 +57,10 @@ Please read [Publish a service catalog application through Azure portal](./publi
         ...
 
 ```
-## Adding marketplace managed application notifications
-For more information please see [Create an Azure application offer](../marketplace/cloud-partner-portal/azure-applications/cpp-create-offer.md).
+## Add Azure Marketplace managed application notifications
+For more information, see [Create an Azure application offer](../marketplace/cloud-partner-portal/azure-applications/cpp-create-offer.md).
 
-![Service catalog application definition notifications on Portal](./media/publish-notifications/marketplace-notifications.png)
+![Azure Marketplace managed application notifications on Portal](./media/publish-notifications/marketplace-notifications.png)
 ## Event triggers
 The following table describes all the possible combinations of EventType + ProvisioningState and their triggers:
 
