@@ -36,7 +36,7 @@ Before you can use a custom keyword, you'll need to create a keyword using the [
 
 1. To start a new keyword model click **Train model**.
 
-1. Enter a **Name** for the keyword model, and optional **Description** and type in the **Keyword** of your choice, and click **Next**. We have some [guidelines](#choose-an-effective-keyword) to help choose an effective keyword.
+1. Enter a **Name** for the keyword model, and optional **Description** and type in the **Keyword** of your choice, and click **Next**. We have some [guidelines](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) to help choose an effective keyword.
 
     ![Enter your keyword](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -52,4 +52,4 @@ Before you can use a custom keyword, you'll need to create a keyword using the [
 
 ## Next steps
 
-Review the [Guidelines for creating an effective keyword](./speech-devices-sdk-kws-guidelines.md).
+Review the [Guidelines for creating an effective keyword](speech-devices-sdk-kws-guidelines.md).
