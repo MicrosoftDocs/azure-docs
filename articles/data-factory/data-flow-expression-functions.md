@@ -7,6 +7,7 @@ manager: anandsub
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/15/2019
 ---
 

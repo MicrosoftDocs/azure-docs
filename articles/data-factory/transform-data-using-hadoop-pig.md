@@ -5,7 +5,6 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain

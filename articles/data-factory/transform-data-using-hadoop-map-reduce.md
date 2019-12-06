@@ -2,10 +2,8 @@
 title: Transform data using Hadoop MapReduce activity
 description: Learn how to process data by running Hadoop MapReduce programs on an Azure HDInsight cluster from an Azure data factory.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain

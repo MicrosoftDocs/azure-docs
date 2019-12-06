@@ -5,11 +5,10 @@ services: data-factory
 documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: 
-manager: 
+ms.reviewer: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019

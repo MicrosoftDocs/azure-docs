@@ -1,5 +1,5 @@
 ---
-title: Copy data from an SAP table by using Azure Data Factory 
+title: Copy data from an SAP table
 description: Learn how to copy data from an SAP table to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 ms.author: jingwang
