@@ -132,7 +132,7 @@ This section provides steps for
 
    * Once the credentials are saved successfully, the **Mappings** section will display the default mapping **Synchronize Azure Active Directory Users to SuccessFactors**
 
-### Part 4: Configure attribute mappings
+### Part 2: Configure attribute mappings
 
 In this section, you will configure how user data flows from SuccessFactors to Active Directory.
 

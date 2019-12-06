@@ -16,7 +16,7 @@ ms.date: 12/05/2019
 ms.author: chmutali
 ---
 # Tutorial: Configure SAP SuccessFactors to Active Directory user provisioning (Preview)
-The objective of this tutorial is to show the steps you need to perform to provision users from SuccessFactors Employee Central into Active Directory (AD) and Azure AD, with optional write-back of email address to SuccessFactors.
+The objective of this tutorial is to show the steps you need to perform to provision users from SuccessFactors Employee Central into Active Directory (AD) and Azure AD, with optional write-back of email address to SuccessFactors. This integration is in public preview and supports retrieving more than [70+ user attributes](../manage-apps/sap-successfactors-attribute-reference) from SuccessFactors Employee Central.
 
 >[!NOTE]
 >Use this tutorial if the users you want to provision from SuccessFactors need an on-premises AD account and optionally an Azure AD account. If the users from SuccessFactors only need Azure AD account (cloud-only users), then please refer to the tutorial on [configure SAP SuccessFactors to Azure AD](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) user provisioning. 
@@ -107,6 +107,10 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 * Scroll down in the same box and select **Employee Central API**. Add permissions as shown below to read using ODATA API and edit using ODATA API. Select the edit option if you plan to use the same account for the Writeback to SuccessFactors scenario. 
   > [!div class="mx-imgBorder"]
   > ![Read write permissions](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+
+  >[!NOTE]
+  >For the complete list of attributes retrieved by this provisioning app, please refer to [SuccessFactors Attribute Reference](../manage-apps/sap-successfactors-attribute-reference)
+
 * Click on **Done**. Click **Save Changes**.
 
 ### Create a Permission Group for the API user
@@ -293,6 +297,10 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
 1. In the **Attribute mappings** section, you can define how individual SuccessFactors attributes map to Active Directory attributes.
 
+  >[!NOTE]
+  >For the complete list of SuccessFactors attribute supported by the application, please refer to [SuccessFactors Attribute Reference](../manage-apps/sap-successfactors-attribute-reference)
+
+
 1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
         mappings. An individual attribute mapping supports these properties:
 
@@ -349,20 +357,9 @@ Once the SuccessFactors provisioning app configurations have been completed, you
 
 ## Next steps
 
+* [Learn more about supported SuccessFactors Attributes for inbound provisioning](../manage-apps/sap-successfactors-attribute-reference)
 * [Learn how to configure email writeback to SuccessFactors](sap-successfactors-writeback-tutorial.md)
 * [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
 * [Learn how to configure single sign-on between SuccessFactors and Azure Active Directory](successfactors-tutorial.md)
-* [Learn how to export and import your provisioning configurations](../manage-apps/export-import-provisioning-configuration.md)
 * [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
-
-
-
-
-
-
-
-
-
-
-
-
+* [Learn how to export and import your provisioning configurations](../manage-apps/export-import-provisioning-configuration.md)
