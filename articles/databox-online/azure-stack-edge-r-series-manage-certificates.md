@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/03/2019
+ms.date: 12/05/2019
 ms.author: alkohli
 ---
 # Use certificates with Azure Stack Edge Rugged series 
@@ -28,6 +28,7 @@ The various types of certificates that are used on your Azure Stack Edge device 
 - Endpoint certificates
 - IoT device certificates
 - Local UI certificates
+- Support session certificates
 
 Each of these certificates are described in detail in the following sections.
 
@@ -42,8 +43,8 @@ These certificates could be root certificates or the intermediate certificates. 
 ### Caveats
 
 - The root certificates can be uploaded on your device in the following format: 
-    - **DER** – These are available as a `.cer` format
-    - **Base-64 encoded** – These are available as `.pem` format.
+    - **DER** – These are available as a `.cer` file extension.
+    - **Base-64 encoded or PEM** – These are available as `.cer` extension also.
     - **P7b** – This format is used only for signing chain certificates that includes the root and intermediate certificates.
 - Signing chain certificates are always uploaded before you upload any other certificates.
 
@@ -120,12 +121,18 @@ For more information on IoT Edge certificates, see [Azure IoT Edge certificate d
 
 ## Support session certificates
 
-If your Azure Stack Edge device is experiencing any issues, then to troubleshoot those issues, a remote PowerShell Support session may be opened on the device. To enable a secure, encrypted communication over this Support session, you can upload a certificate. 
+If your Azure Stack Edge device is experiencing any issues, then to troubleshoot those issues, a remote PowerShell Support session may be opened on the device. To enable a secure, encrypted communication over this Support session, you can upload a certificate.
+
+### Caveats
+
+- Make sure that the corresponding `.pfx` certificate with private key is installed on the client machine using the decryption tool.
+- Verify that the **Key Usage** field for the certificate is not **Certificate Signing**. To verify this, right-click the certificate, choose **Open** and in the **Details** tab, find **Key Usage**. 
+
 
 ### Caveats
 
 - The Support session certificate must be provided as DER format with a `.cer` extension.
-- Use the following guidance when creating Support session certificates.
+
 
 ## VPN certificates
 
@@ -166,7 +173,7 @@ The signing chain certificate needs to be created only once. The other end point
  
 
 ```azurepowershell
-$cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature -Subject "CN=RootCert" -HashAlgorithm sha256 -KeyLength 2048 -CertStoreLocation "Cert:\LocalMachine\My" -KeyUsageProperty Sign -KeyUsage CertSign
+New-SelfSignedCertificate -Type Custom -KeySpec Signature -Subject "CN=RootCert" -HashAlgorithm sha256 -KeyLength 2048 -CertStoreLocation "Cert:\LocalMachine\My" -KeyUsageProperty Sign -KeyUsage CertSign
 ```
 
 
@@ -188,7 +195,7 @@ Create a certificate for the Blob endpoint in your personal store.
 $AppName = "DBE-HWDC1T2"
 $domain = "microsoftdatabox.com"
 
-$blobcert = New-SelfSignedCertificate -Type Custom -DnsName *.blob.$AppName.$domain -Subject "CN=*.blob.$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
+New-SelfSignedCertificate -Type Custom -DnsName *.blob.$AppName.$domain -Subject "CN=*.blob.$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
 ```
 
 **Azure Resource Manager endpoint certificate**
@@ -199,7 +206,7 @@ Create a certificate for the Azure Resource Manager endpoints in your personal s
 $AppName = "DBE-HWDC1T2"
 $domain = "microsoftdatabox.com"
 
-$armcert = New-SelfSignedCertificate -Type Custom -DnsName "management.$AppName.$domain","login.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
+New-SelfSignedCertificate -Type Custom -DnsName "management.$AppName.$domain","login.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
 ```
 
 **Device local web UI certificate**
@@ -210,7 +217,7 @@ Create a certificate for the local web UI of the device in your personal store.
 $AppName = "DBE-HWDC1T2"
 $domain = "microsoftdatabox.com"
 
-$localuicert = New-SelfSignedCertificate -Type Custom -DnsName $AppName.$domain -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
+New-SelfSignedCertificate -Type Custom -DnsName $AppName.$domain -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
 ```
 
 **Single multi-SAN certificate for all endpoints**
@@ -221,7 +228,7 @@ Create a single certificate for all the endpoints in your personal store.
 $AppName = "DBE-HWDC1T2"
 $domain = "microsoftdatabox.com"
 
-$multisancert = New-SelfSignedCertificate -Type Custom -DnsName "$AppName.$domain","*.$AppName.$domain","*.blob.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
+New-SelfSignedCertificate -Type Custom -DnsName "$AppName.$domain","*.$AppName.$domain","*.blob.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
 ```
 
 Once the certificates are created, the next step is to upload the certificates on your Azure Stack Edge device

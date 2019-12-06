@@ -20,7 +20,7 @@ The following table provides information about what kind of weather information 
 
 | Symbol | Meaning |
 |--------|---------|
-|*       |Covers Weather along route, Current Conditions, Hourly Forecast, Quarter-day Forecast and Daily Forecast APIs |
+|*       |Covers Weather Along Route, Current Conditions, Hourly Forecast, Quarter-day Forecast and Daily Forecast APIs |
 
 
 ## Americas

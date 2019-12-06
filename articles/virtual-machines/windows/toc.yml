@@ -272,16 +272,16 @@
         href: dedicated-hosts-powershell.md
       - name: Portal
         href: dedicated-hosts-portal.md
-      - name: Deploy spot VMs
-        items:
-        - name: Portal
-          href: spot-portal.md
-        - name: PowerShell
-          href: spot-powershell.md
-        - name: Template
-          href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Error codes
-          href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Deploy spot VMs
+      items:
+      - name: Portal
+        href: spot-portal.md
+      - name: PowerShell
+        href: spot-powershell.md
+      - name: Template
+        href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: Error codes
+        href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Use C#
       href: csharp.md
     - name: Use specialized disk

@@ -168,7 +168,7 @@
       href: configure-customer-managed-key.md
   - name: Troubleshoot
     items:
-    - name: Exceptions
+    - name: Troubleshooting guide
       href: event-hubs-messaging-exceptions.md
 - name: Reference
   items:

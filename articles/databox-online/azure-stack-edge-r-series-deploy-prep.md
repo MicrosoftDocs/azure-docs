@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 12/05/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure. 
 ---
@@ -61,7 +61,7 @@ Before you begin, make sure that:
 
 Before you deploy a physical device, make sure that:
 
-- You've reviewed the safety information that was included in the shipment package.
+- You've reviewed the safety information for this device at [Safety guidelines for your Azure Stack Edge device](azure-stack-edge-r-series-placeholder.md).
 - You have access to a flat, stable, and level work surface where the device can rest safely.
 - The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU). The device is shipped with an uninterruptible power supply (UPS) and a heater.
 - You have received the physical device.
@@ -89,14 +89,29 @@ To create a Azure Stack Edge resource, take the following steps in the Azure por
     - The Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
     - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
-2. In the left-pane, select **+ Create a resource**. Search for **Azure Stack Edge / Azure Storage Gateway**. Select **Azure Stack Edge / Azure Storage Gateway**. Select **Create**.
-3. Pick the subscription that you want to use for the Azure Stack Edge device. Select the region where you want to deploy the Azure Stack Edge resource. For this release, East US, South East Asia, and West Europe are available. 
+2. In the left-pane, select **+ Create a resource**. 
+
+    ![Create new resource](media/azure-stack-edge-r-series-deploy-prep/order-1.png)
+
+3. Search for **Azure Stack Edge / Data Box Gateway**. Select **Azure Stack Edge / Data Box Gateway**. 
+
+    ![Search Data Box Edge/ Data Box Gateway service](media/azure-stack-edge-r-series-deploy-prep/order-2.png)
+
+4. Select **Create**.
+
+    <!--![Select create](media/azure-stack-edge-r-series-deploy-prep/order-3.png)-->
+
+5. Pick the subscription that you want to use for the Azure Stack Edge device. Select the region where you want to deploy the Azure Stack Edge resource. For this release, East US, South East Asia, and West Europe are available. 
 
     Choose a location closest to the geographical region where you want to deploy your device. The region stores only the metadata for device management. The actual data can be stored in any storage account. 
     
-    In the **Azure Stack Edge** option, select **Create**.
+    Select **Apply**.
 
-    ![Search Azure Stack Edge service](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
+    ![Pick subscription, location, country](media/azure-stack-edge-r-series-deploy-prep/order-4.png)
+
+5. Select your Azure Stack Edge device. In this example, **Azure Stack Edge Rugged J-series** was selected.
+
+    ![Pick Azure Stack Edge device](media/azure-stack-edge-r-series-deploy-prep/order-5.png)
 
 3. On the **Basics** tab, enter or select the following **Project details**.
     
@@ -113,30 +128,36 @@ To create a Azure Stack Edge resource, take the following steps in the Azure por
     |Region     |For this release, East US, South East Asia, and West Europe are available to deploy your resource. If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
     |Configuration   | Choose the appropriate configuration for your device. The following configurations are available: <ul><li>1-node device</li><li> 1-node device with UPS.</li><li>1-node device with UPS and heater</li><li>4-node device</li><li>4-node device with UPS</li><li>4-node device with UPS and heater</li></ul>       |
 
-    ![Project and instance details](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
+    ![Choose configuration](media/azure-stack-edge-r-series-deploy-prep/order-7.png)
+
+    The **Basics** tab should look like the following screenshot: 
+
+    ![Basics tab](media/azure-stack-edge-r-series-deploy-prep/order-8.png)
+ 
 
 5. Select **Next: Shipping address**.
 
     - If you already have a device, select the combo box for **I have an Azure Stack Edge device**.
+
+        ![Check existing device](media/azure-stack-edge-r-series-deploy-prep/order-9.png)
+
     - If this is the new device that you are ordering, enter the contact name, company, address to ship the device, and contact information.
 
-    ![Shipping address for new device](media/data-box-edge-deploy-prep/data-box-edge-resource1.png)
+        ![Shipping address for new device](media/azure-stack-edge-r-series-deploy-prep/order-10.png)
 
 6. Select **Next: Review + create**.
 
 7. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
 
-    ![Review Azure Stack Edge resource details and privacy terms](media/data-box-edge-deploy-prep/data-box-edge-resource2.png)
+    ![Review Azure Stack Edge resource details and privacy terms](media/azure-stack-edge-r-series-deploy-prep/order-12.png)
 
 8. Select **Create**.
 
 The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
-![Go to the Azure Stack Edge resource](media/data-box-edge-deploy-prep/data-box-edge-resource3.png)
+![Go to the Azure Stack Edge resource](media/azure-stack-edge-r-series-deploy-prep/order-13.png)
 
-After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
-
-![Notification for review of the Azure Stack Edge order](media/data-box-edge-deploy-prep/data-box-edge-resource4.png)
+You device is now ready for setup and activation.
 
 ## Get the activation key
 
@@ -144,11 +165,11 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
 1. Select the resource that you created. Select **Overview** and then select **Device setup**.
 
-    ![Select Device setup](media/data-box-edge-deploy-prep/data-box-edge-select-devicesetup.png)
+    ![Select Device setup](media/azure-stack-edge-r-series-deploy-prep/get-activation-key-1.png)
 
 2. On the **Activate** tile, select **Generate key** to create an activation key. Select the copy icon to copy the key and save it for later use.
 
-    ![Get activation key](media/data-box-edge-deploy-prep/get-activation-key.png)
+    ![Get activation key](media/azure-stack-edge-r-series-deploy-prep/get-activation-key-2.png)
 
 > [!IMPORTANT]
 > - The activation key expires three days after it is generated.

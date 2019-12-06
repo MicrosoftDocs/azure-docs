@@ -4,13 +4,13 @@ description: This article describes the new serverless compute tier and compares
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: 
+ms.custom: test 
 ms.devlang: 
 ms.topic: conceptual
-author: moslake
+author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 11/04/2019
+ms.date: 12/03/2019
 ---
 # Azure SQL Database serverless
 

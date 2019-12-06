@@ -25,7 +25,7 @@ In this article, you'll:
 ## Prerequisites
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- An Azure subscription key for Speech Services
+- An Azure subscription key for Speech service
   - [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
 - A previously created Custom Commands app
   - [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)

@@ -20,6 +20,9 @@ Machine Learning tracks progress and maintains the queue of incomplete labeling 
 
 In Machine Learning, you start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure Machine Learning dataset.
 
+> [!Important]
+> Only image classification and object identification labeling projects are currently supported. Additionally, the data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.) 
+
 In this article, you'll learn how to:
 
 > [!div class="checklist"]
@@ -28,6 +31,7 @@ In this article, you'll learn how to:
 > * Manage the teams and people who work on the project
 > * Run and monitor the project
 > * Export the labels
+
 
 ## Prerequisites
 

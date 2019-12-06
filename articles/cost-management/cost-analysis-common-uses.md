@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/16/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
@@ -58,8 +58,9 @@ Looking at daily and monthly costs can help you to better understand if there’
 
 ## View costs for a specific tag
 
-Many Azure users apply tags to their resources such as a cost center or
-development environment (production and test) to better categorize charges. Tags appear as a dimension in cost analysis. You can use the dimension to gain insights into your custom tagging categorizations.
+Many Azure users apply tags to their resources such as a cost center or development environment (production and test) to better categorize charges. Tags appear as a dimension in cost analysis. You can use the dimension to gain insights into your custom tagging categorizations.
+
+Support for tags applies to usage reported *after* the tag was applied to the resource. Tags aren't applied retroactively for cost rollups.
 
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Select **Group by** for your tag.

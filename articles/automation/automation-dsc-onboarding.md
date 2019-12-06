@@ -4,8 +4,8 @@ description: How to setup machines for management with Azure Automation State Co
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
