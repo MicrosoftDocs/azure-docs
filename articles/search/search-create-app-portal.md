@@ -13,7 +13,7 @@ ms.date: 12/05/2019
 
 # Quickstart: Create a search app in the portal (Azure Cognitive Search)
 
-Use the portal's **Create search app** wizard to generate a downloadable, localhost-style web app that runs in a browser. Depending on its configuration, the generated app runs locally and is operational with a live connection to an index. You can include a search bar, results area, sidebar filters, and typeahead support.
+Use the portal's **Create search app** wizard to generate a downloadable, "localhost"-style web app that runs in a browser. Depending on its configuration, the generated app is operational on first use, with a live connection to a remote index. A default app can include a search bar, results area, sidebar filters, and typeahead support.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [Create an index](search-create-index-portal.md) to use as the basis of your application. 
 
-This quickstart uses the built-in Real Estate sample data and index because it has thumbnail images. To create an index containing Real Estate data, run the **Import data** wizard, choosing the *realestate-us-sample* data source.
+This quickstart uses the built-in Real Estate sample data and index because it has thumbnail images. To create the index used in this exercise, run the **Import data** wizard, choosing the *realestate-us-sample* data source.
 
 ![data source page for sample data](media/search-create-app-portal/import-data-realestate.png)
 
@@ -45,7 +45,7 @@ When the index is ready to use, move on to the next step.
 
 The wizard provides a basic layout for rendered search results that includes space for a thumbnail image, a title, and description. Backing each of these elements is a field in your index that provides the data. 
 
-1. In Thumbnail, choose the *thumbnail* field in the *realestate-us-sample*index. Because the sample includes image thumbnails in the form of URL-addressed images stored in a field called *thumbnail*, you can include that particular element. If your index doesn't have images, leave this field blank.
+1. In Thumbnail, choose the *thumbnail* field in the *realestate-us-sample* index. This sample happens to include image thumbnails in the form of URL-addressed images stored in a field called *thumbnail*. If your index doesn't have images, leave this field blank.
 
 1. In Title, choose a field that conveys the uniqueness of each document. In this sample, the listing ID is a reasonable selection.
 
