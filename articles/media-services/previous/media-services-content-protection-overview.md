@@ -1,6 +1,6 @@
 ---
 title: Protect your content with Azure Media Services | Microsoft Docs
-description: This articles give an overview of content protection with Media Services.
+description: This article gives an overview of content protection with Azure Media Services v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
