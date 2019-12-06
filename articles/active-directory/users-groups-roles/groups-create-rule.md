@@ -84,7 +84,7 @@ The following status messages can be shown for **Membership last updated** statu
 - **In Progress**: Updates are currently in progress.
 - **Unknown**: The last update time can't be retrieved. The group might be new.
 
-If an error occurs while processing the membership rule for a specific group, an alert is shown on the top of the **Overview page** for the group. If no pending dynamic membership updates can be processed for all the groups within the tenant for more then 24 hours, an alert is shown on the top of **All groups**.
+If an error occurs while processing the membership rule for a specific group, an alert is shown on the top of the **Overview page** for the group. If no pending dynamic membership updates can be processed for all the groups within the tenant for more than 24 hours, an alert is shown on the top of **All groups**.
 
 ![processing error message alerts](./media/groups-create-rule/processing-error.png)
 
