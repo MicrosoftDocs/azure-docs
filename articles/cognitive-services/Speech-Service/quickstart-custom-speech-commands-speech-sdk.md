@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Connect to a Custom Commands app with Speech SDK - Speech service'
+title: 'Quickstart: Connect to a Custom Commands app with Speech SDK - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you will create a Speech SDK client application with Custom Commands.
 services: cognitive-services
@@ -31,7 +31,7 @@ A Custom Commands application is required to complete this article. If you haven
 You'll also need:
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- An Azure subscription key for the Speech service. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+- An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
 
 ## Optional: Get started fast
 
@@ -304,7 +304,7 @@ Add the code-behind source as follows:
    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
    const string region = "YourServiceRegion"; // The subscription service region. Note: only 'westus2' is currently supported
 
-   var speechCommandsConfig = DialogServiceConfig.FromSpeechCommandsAppId(speechCommandsApplicationId, speechSubscriptionKey, region);
+   var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
