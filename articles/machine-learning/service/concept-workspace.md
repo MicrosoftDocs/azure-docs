@@ -71,9 +71,9 @@ You can also perform the following workspace management tasks:
 |---------------------------|---------|---------|------------|------------|
 | Create a workspace        | **&check;**     | | **&check;** | **&check;** |
 | Manage workspace access    | **&check;**   || |  **&check;**    |
-| Upgrade to Enterprise edition    | **&check;** |  | |     |
-| Create and manage compute resources    |   | **&check;** | **&check;** |  **&check;**   |
-| Create a compute instance | **&check;**  | **&check;** | **&check;** |     |
+| Upgrade to Enterprise edition    | **&check;** | **&check;**  | |     |
+| Create and manage compute resources    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
+| Create a Notebook VM |   | **&check;** | |     |
 
 > [!NOTE]
 > Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.

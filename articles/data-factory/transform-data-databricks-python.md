@@ -1,5 +1,5 @@
 ---
-title: Transform data with Databricks Python - Azure 
+title: Transform data with Databricks Python 
 description: Learn how to process or transform data by running a Databricks Python.
 services: data-factory
 documentationcenter: ''

@@ -1,6 +1,6 @@
 ---
 title: Azure Germany IoT services | Microsoft Docs
-description: Provides a starting point for IoT Suite for Azure Germany
+description: This article provides a starting point for Azure IoT Suite for Azure Germany.
 services: germany
 cloud: na
 documentationcenter: na
