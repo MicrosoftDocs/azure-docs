@@ -456,6 +456,9 @@
     items:
     - name: Troubleshoot the Speech Devices SDK
       href: speech-devices-sdk-troubleshooting.md
+  - name: Reference
+    - name: Speech Devices SDK Release notes
+      href: devices-sdk-release-notes.md
 - name: Migration
   exanded: false
   items:
