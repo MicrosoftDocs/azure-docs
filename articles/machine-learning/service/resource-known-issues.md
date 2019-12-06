@@ -88,9 +88,9 @@ Binary classification charts (precision-recall, ROC, gain curve etc.) shown in a
 
 These are known issues for Azure Machine Learning Datasets.
 
-### TypeError: File not found
+### TypeError: FileNotFound: No such file or directory
 
-This error occurs if you attempt to use the relative path instead of the absolute path of the file(s) in your datastore or dataset that you want to mount to your compute target. When you use `as_mount()` or `mount()` include a leading forward slash, `/`, to ensure you are mounting your dataset relative to your compute target, instead of your working directory. 
+This error occurs if the file path you attempt to mount to your compute target can't be found. This happens if you use the relative path instead of the absolute path of the file(s) in your datastore or dataset. When you use `as_mount()` or `mount()` include a leading forward slash, `/`, to ensure you are mounting your dataset relative to your compute target, instead of your working directory. 
 
 ```python
 # Note the leading / in '/tmp/dataset'
@@ -221,9 +221,9 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. 
 
 > [!WARNING]
-> Before performing the following actions, check the version of your Azure Kubernetes Service cluster. If the cluster version is equal to or greater than 1.14, you will not be able to re-attach your cluster to the Azure Machine Learning workspace.
+> Before performing the following actions, check the version of your Azure Kubernetes Service cluster. If the cluster version is equal to or greater than 1.14, you will not be able to reattach your cluster to the Azure Machine Learning workspace.
 
-You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then re-attaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when re-attaching the cluster. 
+You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then reattaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when reattaching the cluster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -261,10 +261,10 @@ If you are running into ModuleErrors while submitting experiments in Azure ML, i
 
 If you are using [Estimators](concept-azure-machine-learning-architecture.md#estimators) to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter.
 
-Azure ML also provides framework specific estimators for Tensorflow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
+Azure ML also provides framework-specific estimators for Tensorflow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
  
  Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
-Framework specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+Framework-specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
 >[Note!]
 > If you think a particular package is common enough to be added in Azure ML maintained images and environments please raise a GitHub issue in [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
@@ -272,8 +272,8 @@ Framework specific dependencies  are listed in the respective framework document
  ### NameError (Name not defined), AttributeError (Object has no attribute)
 This exception should come from your training scripts. You can look at the log files from Azure portal to get more information about the specific name not defined or attribute error. From the SDK, you can use `run.get_details()` to look at the error message. This will also list all the log files generated for your run. Please make sure to take a look at your training script, fix the error before retrying. 
 
-### Horovod is shutdown
-In most cases, this exception means there was an underlying exception in one of the processes that caused horovod to shutdown. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easy to differentiate the logs. To find the exact error that caused horovod shutdown, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 
+### Horovod is shut down
+In most cases, this exception means there was an underlying exception in one of the processes that caused horovod to shut down. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easy to differentiate the logs. To find the exact error that caused horovod shutdown, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 
 
 ## Labeling projects issues
 
@@ -291,6 +291,6 @@ Manually refresh the page. Initialization should proceed at roughly 20 datapoint
 
 To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.
 
-### Pressing Esc key while labeling for object detection creates a zero size label on the top left corner. Submitting labels in this state fails.
+### Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.
 
 Delete the label by clicking on the cross mark next to it.
