@@ -39,7 +39,7 @@ subscription_key = "YOUR_ACCESS_KEY"
 assert subscription_key
 ```
 
-Declare the Bing Web Search API endpoint. It can can be the global endpoint below, or the [custom subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) endpoint displayed in the Azure portal for your resource..
+Declare the Bing Web Search API endpoint. It can be the global endpoint below, or the [custom subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) endpoint displayed in the Azure portal for your resource..
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"

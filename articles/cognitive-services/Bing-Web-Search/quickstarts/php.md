@@ -41,7 +41,7 @@ Before we get started, locate `php.ini` and uncomment this line:
 
 Create a new PHP project in your favorite IDE or editor. Don't forget to add opening and closing tags `<?php` and `?>`.
 
-A few variables must be set before we can continue. `$endpoint` can can be the global endpoint below, or the [custom subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) endpoint displayed in the Azure portal for your resource. Confirm that the `$endpoint` is correct and replace the `$accesskey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `$term`.
+A few variables must be set before we can continue. `$endpoint` can be the global endpoint below, or the [custom subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) endpoint displayed in the Azure portal for your resource. Confirm that the `$endpoint` is correct and replace the `$accesskey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `$term`.
 
 ```php
 $accessKey = 'enter key here';
