@@ -106,65 +106,64 @@ The following table shows the available metrics and details.
     <td>AppCpuUsagePercentage</td>
     <td>App CPU Usage Percentage</td>
     <td>process.cpu.usage</td>
-    <td></td>
     <td>Percent</td>
     <td>Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads. All values betweens 0.0 and 1.0 are possible depending of the activities going on in the JVM process and the whole system. If the Java Virtual Machine recent CPU usage is not available, the method returns a negative value.</td>
    </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>AppMemoryCommitted</td>
+    <td>App Memory Assigned</td>
+    <td>jvm.memory.committed</td>
+    <td>Bytes</td>
+    <td>Represents the amount of memory (in bytes) that is guaranteed to be available for use by the Java virtual machine. The amount of committed memory may change over time (increase or decrease). The Java virtual machine may release memory to the system and committed could be less than init. committed will always be greater than or equal to used.</td>
    </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>AppMemoryUsed</td>
+    <td>App Memory Used</td>
+    <td>jvm.memory.used</td>
+    <td>Bytes</td>
+    <td>Represents the amount of memory currently used in bytes.</td>
    </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>AppMemoryMax</td>
+    <td>App Memory Max</td>
+    <td>jvm.memory.max</td>
+    <td>Bytes</td>
+    <td>Represents the maximum amount of memory (in bytes) that can be used for memory management. Its value may be undefined. The maximum amount of memory may change over time if defined. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory).</td>
    </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>MaxOldGenMemoryPoolBytes</td>
+    <td>Max Available Old Generation Data Size</td>
+    <td>jvm.gc.max.data.size</td>
+    <td>Bytes</td>
+    <td>The peak memory usage of the old generation memory pool since the Java virtual machine was started.</td>
    </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>OldGenMemoryPoolBytes</td>
+    <td>Old Generation Data Size</td>
+    <td>jvm.gc.live.data.size</td>
+    <td>Bytes</td>
+    <td>Size of old generation memory pool after a full GC.</td>
    </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>OldGenPromotedBytes</td>
+    <td>Promote to Old Generation Data Size</td>
+    <td>jvm.gc.memory.promotede</td>
+    <td>Bytes</td>
+    <td>Count of positive increases in the size of the old generation memory pool before GC to after GC.</td>
    </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>YoungGenPromotedBytes</td>
+    <td>Promote to Young Generation Data Size</td>
+    <td>jvm.gc.memory.allocated</td>
+    <td>Bytes</td>
+    <td>Incremented for an increase in the size of the young generation memory pool after one GC to before the next.</td>
    </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>GCPauseTotalCount</td>
+    <td>GC Pause Count</td>
+    <td>jvm.gc.pause (total-count)</td>
+    <td>Count</td>
+    <td>Total GC count after this JMV started, including Young and Old GC.</td>
    </tr>
   <tr>
     <td></td>
