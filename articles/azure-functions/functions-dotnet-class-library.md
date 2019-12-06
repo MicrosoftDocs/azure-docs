@@ -21,7 +21,15 @@ This article assumes that you've already read the following articles:
 
 ## Supported versions
 
-The Azure Functions 2.x runtime uses .NET Core 2.2. Your function code can use .NET Core 2.2 APIs by updating the Visual Studio project settings. The Function templates do not default to .NET Core 2.2 to avoid adversely affecting customers that do not have .NET Core 2.2 installed.
+Versions of the Functions runtime work with specific versions of .NET. The following table shows the highest level of .NET Core and .NET Framework and .NET Core that can be used with a specific version of Functions in your project. 
+
+| Functions runtime version | Max .NET version |
+| ---- | ---- |
+| Functions 3.x | .NET Core 3.1 |
+| Functions 2.x | .NET Core 2.2 |
+| Functions 1.x | .NET Framework 4.6 |
+
+To learn more, see [Azure Functions runtime versions overview](functions-versions.md)
 
 ## Functions class library project
 
