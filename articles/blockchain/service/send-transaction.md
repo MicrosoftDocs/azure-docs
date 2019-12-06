@@ -1,7 +1,7 @@
 ---
 title: Create, build, & deploy smart contracts tutorial - Azure Blockchain Service
 description: Tutorial on how to use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service.
-ms.date: 11/20/2019
+ms.date: 12/05/2019
 ms.topic: tutorial
 ms.reviewer: chrisseg
 
@@ -62,11 +62,11 @@ Smart contracts are located in the project's **contracts** directory. You compil
 1. In the VS Code explorer sidebar, expand the **contracts** folder in your project.
 1. Right-click **HelloBlockchain.sol** and choose **Build Contracts** from the menu.
 
-    ![Build contracts](./media/send-transaction/build-contracts.png)
+    ![Choose Build contracts menu ](./media/send-transaction/build-contracts.png)
 
 Azure Blockchain Development Kit uses Truffle to compile the smart contracts.
 
-![Compile output](./media/send-transaction/compile-output.png)
+![Truffle compiler output](./media/send-transaction/compile-output.png)
 
 ## Deploy a smart contract
 
@@ -82,41 +82,11 @@ Azure Blockchain Development Kit uses Truffle to execute the migration script to
 
 ## Call a contract function
 
-The **HelloBlockchain** contract's **SendRequest** function changes the **RequestMessage** state variable. Changing the state of a blockchain network is done via a transaction. You can create a script to execute the **SendRequest** function via a transaction.
+The **HelloBlockchain** contract's **SendRequest** function changes the **RequestMessage** state variable. Changing the state of a blockchain network is done via a transaction. You can use the Azure Blockchain Development Kit smart contract interaction page to call the **SendRequest** function via a transaction.
 
-1. Create a new file in the root of your Truffle project and name it `sendrequest.js`. Add the following Web3 JavaScript code to the file.
+1. To interact with your smart contract, right-click **HelloBlockchain.sol** and choose **Show Smart Contract Interaction Page** from the menu.
 
-    ```javascript
-    var HelloBlockchain = artifacts.require("HelloBlockchain");
-        
-    module.exports = function(done) {
-      console.log("Getting the deployed version of the HelloBlockchain smart contract")
-      HelloBlockchain.deployed().then(function(instance) {
-        console.log("Calling SendRequest function for contract ", instance.address);
-        return instance.SendRequest("Hello, blockchain!");
-      }).then(function(result) {
-        console.log("Transaction hash: ", result.tx);
-        console.log("Request complete");
-        done();
-      }).catch(function(e) {
-        console.log(e);
-        done();
-      });
-    };
-    ```
-
-1. When Azure Blockchain Development Kit creates a project, the Truffle configuration file is generated with your consortium blockchain network endpoint details. Open **truffle-config.js** in your project. The configuration file lists two networks: one named development and one with the same name as the consortium.
-1. In VS Code's terminal pane, use Truffle to execute the script on your consortium blockchain network. In the terminal pane menu bar, select the **Terminal** tab and **PowerShell** in the dropdown.
-
-    ```PowerShell
-    truffle exec sendrequest.js --network <blockchain network>
-    ```
-
-    Replace \<blockchain network\> with the name of the blockchain network defined in the **truffle-config.js**.
-
-Truffle executes the script on your blockchain network.
-
-![Script output](./media/send-transaction/execute-transaction.png)
+    ![Choose Show Smart Contract Interaction Page from menu](./media/send-transaction/contract-interaction.png)
 
 When you execute a contract's function via a transaction, the transaction isn't processed until a block is created. Functions meant to be executed via a transaction return a transaction ID instead of a return value.
 
