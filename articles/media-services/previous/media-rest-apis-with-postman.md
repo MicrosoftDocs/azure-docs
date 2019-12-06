@@ -1,6 +1,6 @@
 ---
 title: Configure Postman for Azure Media Services REST API calls
-description: Learn how to configure Postman for Media Services REST API calls.
+description: This article describes how to configure Postman for Media Services REST API calls.
 services: media-services
 documentationcenter: ''
 author: Juliako

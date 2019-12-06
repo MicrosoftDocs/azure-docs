@@ -127,7 +127,7 @@ In this section, you will create a private storage account using a Private Endpo
     | Subnet | Select *mySubnet*. |
     | **PRIVATE DNS INTEGRATION**|  |
     | Integrate with private DNS zone  | Leave the default **Yes**. |
-    | Private DNS zone  | Leave the default ** (New) privatelink.blob.core.windows.net**. |
+    | Private DNS zone  | Leave the default **(New) privatelink.blob.core.windows.net**. |
     |||
 7. Select **OK**. 
 8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
@@ -146,7 +146,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
 
-1. Open the downloaded.rdp* file.
+1. Open the *downloaded.rdp* file.
 
     1. If prompted, select **Connect**.
 

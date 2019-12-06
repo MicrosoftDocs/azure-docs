@@ -1,6 +1,6 @@
 ---
 title: Inserting ads on the client side | Microsoft Docs
-description: This topic shows how to insert ads on the client side.
+description: This article demonstrates how to insert ads into your media on the client side.
 services: media-services
 documentationcenter: ''
 author: juliako

@@ -360,6 +360,5 @@ By using `B2CGraphClient`, you have a service application that can manage your B
 As you incorporate this functionality into your own application, remember a few key points for B2C applications:
 
 * Grant the application the required permissions in the tenant.
-* For now, you need to use ADAL (not MSAL) to get access tokens. (You can also send protocol messages directly, without using a library.)
 * When you call the Graph API, use `api-version=1.6`.
 * When you create and update consumer users, a few properties are required, as described above.
