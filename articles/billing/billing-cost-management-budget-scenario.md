@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure billing and cost management budget scenario | Microsoft Docs
 description: Learn how to use Azure automation to shut down VMs based on specific budget thresholds.
 services: 'billing'
@@ -288,7 +288,7 @@ You’re done with all the supporting components needed to effectively orchestra
 
 ## Create the Azure Budget
 
-You can create a budget in the Azure portal using the [Budget feature](../cost-management/tutorial-acm-create-budgets.md) in Cost Management. Or, you can create a budget using REST APIs, Powershell cmdlets, or use the CLI. The following procedure uses the REST API. Before calling the REST API, you will need an authorization token. To create an authorization token, you can use the [ARMClient](https://github.com/projectkudu/ARMClient) project. The **ARMClient** allows you to authenticate yourself to the Azure Resource Manager and get a token to call the APIs.
+You can create a budget in the Azure portal using the [Budget feature](../cost-management-billing/costs/tutorial-acm-create-budgets.md) in Cost Management. Or, you can create a budget using REST APIs, Powershell cmdlets, or use the CLI. The following procedure uses the REST API. Before calling the REST API, you will need an authorization token. To create an authorization token, you can use the [ARMClient](https://github.com/projectkudu/ARMClient) project. The **ARMClient** allows you to authenticate yourself to the Azure Resource Manager and get a token to call the APIs.
 
 ### Create an authentication token
 

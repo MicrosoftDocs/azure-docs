@@ -84,9 +84,9 @@ The following tables show data that's included or isn't in Cost Management. All 
 
 | **Included** | **Not included** |
 | --- | --- |
-| Azure service usage<sup>5</sup>        | Support charges - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
-| Marketplace offering usage<sup>6</sup> | Taxes - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
-| Marketplace purchases<sup>6</sup>      | Credits - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
+| Azure service usage<sup>5</sup>        | Support charges - For more information, see [Invoice terms explained](../../billing/billing-understand-your-invoice.md). |
+| Marketplace offering usage<sup>6</sup> | Taxes - For more information, see [Invoice terms explained](../../billing/billing-understand-your-invoice.md). |
+| Marketplace purchases<sup>6</sup>      | Credits - For more information, see [Invoice terms explained](../../billing/billing-understand-your-invoice.md). |
 | Reservation purchases<sup>7</sup>      |  |
 | Amortization of reservation purchases<sup>7</sup>      |  |
 
@@ -145,4 +145,4 @@ Historical data for credit-based and pay-in-advance offers might not match your 
 
 ## See also
 
-- If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).
+- If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](../../cost-management/quick-acm-cost-analysis.md).

@@ -17,7 +17,7 @@ ms.author: banders
 When you sign up for Azure, there are several things you can do to get a better idea of your spending:
 
 - Get estimated costs before adding services using [pricing calculator](https://azure.microsoft.com/pricing/calculator/), Azure price sheet or while adding services in the Azure portal.
-- Monitor costs with [budgets](../cost-management/tutorial-acm-create-budgets.md), [alerts](../cost-management/cost-mgt-alerts-monitor-usage-spending.md), and [cost analysis](../cost-management/quick-acm-cost-analysis.md).
+- Monitor costs with [budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md), [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md), and [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
 - Review the charges on your invoice by comparing them with [detailed usage files](billing-download-azure-invoice-daily-usage-date.md).
 - Integrate billing and cost data with your own reporting system using [billing](https://docs.microsoft.com/rest/api/billing/) and [consumption](https://docs.microsoft.com/rest/api/consumption/) APIs.
 - Use additional resources and tools for Enterprise Agreement (EA), Cloud Solution Provider (CSP), and Azure Sponsorship customers.
@@ -62,7 +62,7 @@ You can monitor costs with the following tools:
 
 ### Track costs with budgets and cost alerts
 
-Create [budgets](../cost-management/tutorial-acm-create-budgets.md) to manage costs and create [alerts](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) that automatically notify you are your stakeholders of spending anomalies and overspending.
+Create [budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md) to manage costs and create [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) that automatically notify you are your stakeholders of spending anomalies and overspending.
 
 ### <a name="costs"></a> Explore and analyze costs with cost analysis
 
@@ -70,7 +70,7 @@ After you have your Azure services running, regularly check costs to track your 
 
 1. Visit the [Cost Management + Billing page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade).
 
-2. Click **Cost analysis** from the left side of the screen to see the current cost broken down by various pivots such as service, location, and subscription. After you add a service or make a purchase, wait 24 hours for the data to display. By default, cost analysis shows the cost for the scope that you are in. For example, in the screenshot below, cost for Contoso billing account is displayed. Use the Scope pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](../cost-management/understand-work-scopes.md#scopes)
+2. Click **Cost analysis** from the left side of the screen to see the current cost broken down by various pivots such as service, location, and subscription. After you add a service or make a purchase, wait 24 hours for the data to display. By default, cost analysis shows the cost for the scope that you are in. For example, in the screenshot below, cost for Contoso billing account is displayed. Use the Scope pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](../cost-management-billing/costs/understand-work-scopes.md#scopes)
 
     ![Screenshot of the cost analysis view in Azure portal](./media/billing-getting-started/cost-analysis.png)
 
@@ -81,7 +81,7 @@ After you have your Azure services running, regularly check costs to track your 
     ![Screenshot of the spend history view in Azure portal](./media/billing-getting-started/costhistory.png)
 
 ## Optimize and reduce costs
-If you're unfamiliar with the principles of cost management, read [How to optimize your cloud investment with Azure Cost Management](../cost-management/cost-mgt-best-practices.md).
+If you're unfamiliar with the principles of cost management, read [How to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md).
 
 In the Azure portal, you can also optimize and reduce Azure costs with auto shutdown for VMs and Advisor recommendations.
 
@@ -105,7 +105,7 @@ Select **Cost** from the left-hand side. You'll see actionable recommendations i
 
 ![Screenshot of Advisor cost recommendation example](./media/billing-getting-started/advisor-action.png)
 
-Review the [Optimize costs from recommendations](../cost-management/tutorial-acm-opt-recommendations.md) tutorial for a guided tutorial about cost-saving Advisor recommendations.
+Review the [Optimize costs from recommendations](../cost-management-billing/costs/tutorial-acm-opt-recommendations.md) tutorial for a guided tutorial about cost-saving Advisor recommendations.
 
 ## Review charges against your latest invoice
 
@@ -179,4 +179,4 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 ## Next steps
 - Learn about using [spending limits](billing-spending-limit.md) to prevent overspending.
-- Start [analyzing your Azure costs](../cost-management/quick-acm-cost-analysis.md).
+- Start [analyzing your Azure costs](../cost-management-billing/costs/quick-acm-cost-analysis.md).

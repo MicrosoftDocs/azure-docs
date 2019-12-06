@@ -84,4 +84,4 @@ A scope is a node within a billing account that users use to view and manage bil
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- Learn how to start [analyzing your costs](../cost-management/quick-acm-cost-analysis.md).
+- Learn how to start [analyzing your costs](../cost-management-billing/costs/quick-acm-cost-analysis.md).
