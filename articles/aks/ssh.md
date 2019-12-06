@@ -39,7 +39,7 @@ CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myA
 SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
-The above example assigns the name of the cluster resource group for the *myAKSCluster* in *myResourceGroup* to *CLUSTER_RESOURCE_GROUP*. The example then uses *CLUSTER_RESOURCE_GROUP* to list the scale set name and assign it to *SCALE_SET_NAME*.  
+The above example assigns the name of the cluster resource group for the *myAKSCluster* in *myResourceGroup* to *CLUSTER_RESOURCE_GROUP*. The example then uses *CLUSTER_RESOURCE_GROUP* to list the scale set name and assign it to *SCALE_SET_NAME*.
 
 > [!IMPORTANT]
 > At this time, you should only update your SSH keys for your virtual machine scale set-based AKS clusters using the Azure CLI.
@@ -98,7 +98,7 @@ CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myA
 az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
-The above example assigns the name of the cluster resource group for the *myAKSCluster* in *myResourceGroup* to *CLUSTER_RESOURCE_GROUP*. The example then uses *CLUSTER_RESOURCE_GROUP* to list the virtual machine name. The example output shows the name of the virtual machine: 
+The above example assigns the name of the cluster resource group for the *myAKSCluster* in *myResourceGroup* to *CLUSTER_RESOURCE_GROUP*. The example then uses *CLUSTER_RESOURCE_GROUP* to list the virtual machine name. The example output shows the name of the virtual machine:
 
 ```
 Name                      ResourceGroup                                  Location
@@ -142,7 +142,7 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
 1. Run a `debian` container image and attach a terminal session to it. This container can be used to create an SSH session with any node in the AKS cluster:
 
     ```console
-    kubectl run -it --rm aks-ssh --image=debian
+    kubectl run --generator=run-pod/v1 -it --rm aks-ssh --image=debian
     ```
 
     > [!TIP]
@@ -156,9 +156,9 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. Open a new terminal window, not connected to your container, copy your private SSH key into the helper pod. This private key is used to create the SSH into the AKS node.
+1. Open a new terminal window, not connected to your container, copy your private SSH key into the helper pod. This private key is used to create the SSH into the AKS node. 
 
-    If needed, change *~/.ssh/id_rsa* to location of your private SSH key:
+   If needed, change *~/.ssh/id_rsa* to location of your private SSH key:
 
     ```console
     kubectl cp ~/.ssh/id_rsa $(kubectl get pod -l run=aks-ssh -o jsonpath='{.items[0].metadata.name}'):/id_rsa
@@ -174,22 +174,22 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
 
     ```console
     $ ssh -i id_rsa azureuser@10.240.0.4
-    
+
     ECDSA key fingerprint is SHA256:A6rnRkfpG21TaZ8XmQCCgdi9G/MYIMc+gFAuY9RUY70.
     Are you sure you want to continue connecting (yes/no)? yes
     Warning: Permanently added '10.240.0.4' (ECDSA) to the list of known hosts.
-    
+
     Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.15.0-1018-azure x86_64)
-    
+
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-    
+
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-    
+
     [...]
-    
+
     azureuser@aks-nodepool1-79590246-0:~$
     ```
 
