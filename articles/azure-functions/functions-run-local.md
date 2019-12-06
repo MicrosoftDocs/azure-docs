@@ -225,7 +225,7 @@ When no valid storage connection string is set for [`AzureWebJobsStorage`] and t
 Even when using the storage emulator for development, you may want to test with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-create-storage-account.md), you can get a valid storage connection string in one of the following ways:
 
 - From the [Azure portal], search for and select **Storage accounts**. 
-  ![Select Storagea accounts from Azure portal](./media/functions-run-local/select-storage-accounts.png)
+  ![Select Storage accounts from Azure portal](./media/functions-run-local/select-storage-accounts.png)
   
   Select your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
   ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
