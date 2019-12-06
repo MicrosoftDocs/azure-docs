@@ -267,7 +267,7 @@ No. You cannot force delete the soft-deleted items, they are automatically delet
 
 #### Can soft delete operations be performed in PowerShell or CLI?
 
-Soft delete operations can be performed using [Powershell](#soft-delete-for-vms-using-azure-powershell). Support for CLI is coming soon.
+Soft delete operations can be performed using [Powershell](#soft-delete-for-vms-using-azure-powershell). Currently, CLI is not supported.
 
 #### Is soft delete supported for other cloud workloads, like SQL Server in Azure VMs and SAP HANA in Azure VMs?
 
