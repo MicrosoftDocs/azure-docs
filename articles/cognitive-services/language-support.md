@@ -7,7 +7,7 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -85,7 +85,7 @@ These tables highlight language availability by service category; core languages
 
 The following Cognitive Services are language agnostic and don't have limitations based on language.
 
-* [Personalizer (Preview)](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
+* [Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
 * [Anomaly Detector (Preview)](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
 
 

@@ -14,7 +14,7 @@ ms.date: 09/09/2019
 
 # Apply Math Operation
 
-This article describes a module of Azure Machine Learning visual interface.
+This article describes a module of Azure Machine Learning designer (preview).
 
 Use the Apply Math Operation to create calculations that are applied to numeric columns in the input dataset. 
 
@@ -91,7 +91,7 @@ If you generate the results using the **Append** or **ResultOnly** options, the 
 -   **Equals(Col2_Col1)**,  indicating that you tested Col2 against Col1.  
 -   **Equals(Col2_$10)**, indicating that you compared column 2 to the constant 10.  
 
-Even if you use the **Inplace** option, the source data is not deleted or changed; the column in the original dataset is still available in visual interface. To view the original data, you can connect the [Add Columns](add-columns.md) module and join it to the output of **Apply Math Operation**.  
+Even if you use the **Inplace** option, the source data is not deleted or changed; the column in the original dataset is still available in the designer. To view the original data, you can connect the [Add Columns](add-columns.md) module and join it to the output of **Apply Math Operation**.  
     
 ## Basic math operations 
 
@@ -204,7 +204,7 @@ Squares the values in the selected column.
 
 ## Comparison operations  
 
-Use the comparison functions in Azure Machine Learning visual interface anytime that you need to test two sets of values against each other. For example, in a pipeline you might need to do these comparison operations:  
+Use the comparison functions in Azure Machine Learning designer anytime that you need to test two sets of values against each other. For example, in a pipeline you might need to do these comparison operations:  
 
 - Evaluate a column of probability scores model against a threshold value.
 - Determine if two sets of results are the same. For each row that is different, add a FALSE flag that can be used for further processing or filtering.  
@@ -276,7 +276,7 @@ Specify the column of values to operate on (the *minuend*), by choosing a differ
 
 ##  Rounding operations 
 
-Azure Machine Learning visual interface supports a variety of rounding operations. For many operations, you must specify the amount of  precision to use when rounding. You can use either a static precision level, specified as a constant, or you can apply a dynamic precision value obtained from a column of values.  
+Azure Machine Learning designer supports a variety of rounding operations. For many operations, you must specify the amount of  precision to use when rounding. You can use either a static precision level, specified as a constant, or you can apply a dynamic precision value obtained from a column of values.  
 
 - If you use a constant, set **Precision Type** to **Constant** and then type the number of digits as an integer in the **Constant Precision** text box. If you type a non-integer, the module does not raise an error, but results can be unexpected.  
 

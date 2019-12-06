@@ -41,14 +41,14 @@ Here's how to make the switch to MAU billing for an existing Azure AD B2C resour
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the subscription owner.
 1. Select the **Directory + subscription** filter in the top menu, and then select the Azure AD B2C directory that you want to upgrade to MAU billing.<br/>
-    :::image type="content" source="media/active-directory-b2c-how-to-enable-billing/portal-mau-01-select-b2c-directory.png" alt-text="Directory and subscription filter in Azure portal":::
+    ![Directory and subscription filter in Azure portal](media/active-directory-b2c-how-to-enable-billing/portal-mau-01-select-b2c-directory.png)
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. On the **Overview** page of the Azure AD B2C tenant, select the link under **Resource name**. You're directed to the Azure AD B2C resource in your Azure AD tenant.<br/>
-    :::image type="content" source="media/active-directory-b2c-how-to-enable-billing/portal-mau-02-b2c-resource-link.png" alt-text="Azure AD B2C resource link highlighted in Azure portal":::
+    ![Azure AD B2C resource link highlighted in Azure portal](media/active-directory-b2c-how-to-enable-billing/portal-mau-02-b2c-resource-link.png)
 1. On the **Overview** page of the Azure AD B2C resource, under **Billable Units**, select the **Per Authentication (Change to MAU)** link.<br/>
-    :::image type="content" source="media/active-directory-b2c-how-to-enable-billing/portal-mau-03-change-to-mau-link.png" alt-text="Change to MAU link highlighted in Azure portal":::
+    ![Change to MAU link highlighted in Azure portal](media/active-directory-b2c-how-to-enable-billing/portal-mau-03-change-to-mau-link.png)
 1. Select **Confirm** to complete the upgrade to MAU billing.<br/>
-    :::image type="content" source="media/active-directory-b2c-how-to-enable-billing/portal-mau-04-confirm-change-to-mau.png" alt-text="MAU-based billing confirmation dialog in Azure portal":::
+    ![MAU-based billing confirmation dialog in Azure portal](media/active-directory-b2c-how-to-enable-billing/portal-mau-04-confirm-change-to-mau.png)
 
 ### What to expect when you transition to MAU billing from per-authentication billing
 

@@ -1,5 +1,5 @@
 ---
-title: Set up PostgreSQL on a Linux VM | Microsoft Docs
+title: Set up PostgreSQL on a Linux VM 
 description: Learn how to install and configure PostgreSQL on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: ''

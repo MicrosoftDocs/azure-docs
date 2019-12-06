@@ -3,10 +3,10 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 08/29/2019
+ms.date: 11/21/2019
 ---
 
-# Save costs with Azure Reserved VM Instances
+
 
 When you commit to an Azure reserved VM instance you can save money. The reservation discount is applied automatically to the number of running virtual machines that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. For Windows VMs, the usage meter is split into two separate meters. There's a compute meter, which is same as the Linux meter, and a Windows IP meter. The charges that you see when you make the purchase are only for the compute costs. Charges don't include Windows software costs. For more information about software costs, see [Software costs not included with Azure Reserved VM Instances](../articles/billing/billing-reserved-instance-windows-software-costs.md).
 
@@ -76,7 +76,6 @@ Reserved VM Instances are available for most VM sizes with some exceptions. Rese
 ## Buy a Reserved VM Instance
 
 You can buy a reserved VM instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pay for the reservation [up front or with monthly payments](../articles/billing/billing-monthly-payments-reservations.md).
-
 These requirements apply to buying a reserved VM instance:
 
 - You must be in an Owner role for at least one EA subscription or a subscription with a pay-as-you-go rate.
@@ -89,6 +88,9 @@ To buy an instance:
 1. Select **All services** > **Reservations**.
 1. Select **Add** to purchase a new reservation and then click **Virtual machine**.
 1. Enter required fields. Running VM instances that match the attributes you select qualify to get the reservation discount. The actual number of your VM instances that get the discount depend on the scope and quantity selected.
+
+If you have an EA agreement, you can use the **Add more option** to quickly add additional instances. The option isn't available for other subscription types.
+
 
 | Field      | Description|
 |------------|--------------|

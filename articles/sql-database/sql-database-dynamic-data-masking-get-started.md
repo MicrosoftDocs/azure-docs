@@ -1,9 +1,10 @@
 ---
-title: Dynamic data masking for Azure SQL Database and Data Warehouse | Microsoft docs
+title: Dynamic data masking
 description: Dynamic data masking limits sensitive data exposure by masking it to non-privileged users for SQL Database and Data Warehouse
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: 
 ms.devlang:
 ms.topic: conceptual

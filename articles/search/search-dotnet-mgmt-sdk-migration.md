@@ -1,18 +1,18 @@
 ---
-title: Upgrading to the Azure Search .NET Management SDK version 2 - Azure Search
+title: Upgrade to the Azure Search .NET Management SDK version 2
+titleSuffix: Azure Cognitive Search
 description: Upgrade to the Azure Search .NET Management SDK version 2 from previous versions. Learn what's new and what code changes are required.
-author: brjohnstmsft
+
 manager: nitinme
+author: brjohnstmsft
 ms.author: brjohnst
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/02/2019
-
+ms.date: 11/04/2019
 ---
 
-# Upgrading to the Azure Search .NET Management SDK version 
+# Upgrading versions of the Azure Search .NET Management SDK
 
 > [!Important]
 > This content is still under construction. Version 3.0 of the Azure Search Management .NET SDK is available on NuGet. We are working on updating this migration guide to explain how to upgrade to the new version. 
@@ -42,7 +42,5 @@ If your build fails, it could be because you've implemented some of the SDK inte
 
 Once you've fixed any build errors, you can make changes to your application to take advantage of new functionality if you wish. New features in the SDK are detailed in [What's new in version 2](#WhatsNew).
 
-## Conclusion
-We welcome your feedback on the SDK. If you encounter problems, feel free to ask us for help on the [Azure Search MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to prefix your issue title with "[Azure Search]".
-
-Thank you for using Azure Search!
+## Next steps
+We welcome your feedback on the SDK. If you encounter problems, please post your questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cognitive-search?tab=Newest). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to label your issue title with "[search]".

@@ -1,12 +1,11 @@
 ---
-title: Exclude disks from replication when setting up disaster recovery with the Azure Site Recovery service | Microsoft Docs
+title: Exclude disks from replication in disaster recovery with Azure Site Recovery
 description: Describes how to exclude VM disks from replication during disaster recovery to Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 11/12/2019
 ms.author: mayg
 
 ---

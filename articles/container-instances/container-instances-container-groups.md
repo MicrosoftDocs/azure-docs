@@ -1,14 +1,8 @@
 ---
-title: Azure Container Instances container groups
-description: Understand how multi-container groups work in Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
+title: Introduction to container groups
+description: Learn about container groups in Azure Container Instances, a collection of instances that share a lifecycle and resources such as storage and network
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: danlep
+ms.date: 11/01/2019
 ms.custom: mvc
 
 ---
@@ -16,7 +10,7 @@ ms.custom: mvc
 
 The top-level resource in Azure Container Instances is the *container group*. This article describes what container groups are and the types of scenarios they enable.
 
-## How a container group works
+## What is a container group?
 
 A container group is a collection of containers that get scheduled on the same host machine. The containers in a container group share a lifecycle, resources, local network, and storage volumes. It's similar in concept to a *pod* in [Kubernetes][kubernetes-pod].
 
@@ -47,15 +41,17 @@ To preserve a container group's configuration, you can export the configuration 
 
 Azure Container Instances allocates resources such as CPUs, memory, and optionally [GPUs][gpus] (preview) to a container group by adding the [resource requests][resource-requests] of the instances in the group. Taking CPU resources as an example, if you create a container group with two instances, each requesting 1 CPU, then the container group is allocated 2 CPUs.
 
-The maximum resources available for a container group depend on the [Azure region][region-availability] used for the deployment.
+### Resource usage by instances
 
-### Container resource requests and limits
+Each container instance is allocated the resources specified in its resource request. However, the resource usage by a container instance in a group depends on how you configure its optional [resource limit][resource-limits] property. The resource limit must be less than than the mandatory [resource request][resource-requests] property.
 
-* By default, container instances in a group share the requested resources of the group. In a group with two instances each requesting 1 CPU, the group as whole has access to 2 CPUs. Each instance can use up to the 2 CPUs and the instances may compete for CPU resource while they are running.
+* If you don't specify a resource limit, the instance's maximum resource usage is the same as its resource request.
 
-* To limit resource usage by an instance in a group, optionally set a [resource limit][resource-limits] for the instance. In a group with two instances requesting 1 CPU, one of your containers might require more CPUs to run than the other.
+* If you specify a resource limit for an instance, you can adjust the instance's resource usage for its workload, either reducing or increasing usage relative to the resource request. The maximum resource limit you can set is the total resources allocated to the group.
+    
+For example, in a group with two instances requesting 1 CPU, one of your containers might run a workload that requires more CPUs to run than the other.
 
-  In this scenario, you could set a resource limit of 0.5 CPU for one instance, and a limit of 2 CPUs for the second. This configuration limits the first container's resource usage to 0.5 CPU, allowing the second container to use up to the full 2 CPUs if available.
+In this scenario, you could set a resource limit of 0.5 CPU for one instance, and a limit of 2 CPUs for the second. This configuration limits the first container's resource usage to 0.5 CPU, allowing the second container to use up to the full 2 CPUs if available.
 
 For more information, see the [ResourceRequirements][resource-requirements] property in the container groups REST API.
 
@@ -67,7 +63,9 @@ For more information, see the [ResourceRequirements][resource-requirements] prop
 
 ## Networking
 
-Container groups share an IP address and a port namespace on that IP address. To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. Containers within a group can reach each other via localhost on the ports that they have exposed, even if those ports aren't exposed externally on the group's IP address.
+Container groups can share an external-facing IP address and a port namespace on that IP address. To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. 
+
+Within a container group, containers instances can reach each other via localhost on any port, even if those ports aren't exposed externally on the group's IP address or from the container.
 
 Optionally deploy container groups into an [Azure virtual network][virtual-network] (preview) to allow containers to communicate securely with other resources in the virtual network.
 

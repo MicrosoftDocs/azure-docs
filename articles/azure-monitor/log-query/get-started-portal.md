@@ -3,7 +3,7 @@ title: Get started with Azure Monitor Log Analytics | Microsoft Docs
 description: This article provides a tutorial for using Log Analytics in the Azure portal to write queries.
 ms.service:  azure-monitor
 ms.subservice: logs
-ms.topic: conceptual
+ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 07/19/2019

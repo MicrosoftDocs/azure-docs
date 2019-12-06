@@ -1,17 +1,8 @@
 ---
 title: Clone a Jupyter notebook from GitHub with Azure Notebooks
 description: Quickly clone a Jupyter notebook from a GitHub repository and run it in your Azure Notebooks account.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
 ---
 
 # Quickstart: Clone a notebook

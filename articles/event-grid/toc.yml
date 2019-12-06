@@ -1,5 +1,7 @@
-- name: Event Grid Documentation
+- name: Azure Event Grid Documentation
   href: index.yml
+- name: Switch to Event Grid on IoT Edge documentation
+  href: edge/pub-sub-events-webhook-local.md
 - name: Overview
   items:
   - name: What is Event Grid?
@@ -25,6 +27,8 @@
       href: custom-event-quickstart-powershell.md
     - name: Portal
       href: custom-event-quickstart-portal.md
+  - name: Azure Functions as event handler
+    href: custom-event-to-function.md
   - name: Queue storage as event handler
     href: custom-event-to-queue-storage.md
   - name: Event Hubs as event handler
@@ -109,6 +113,8 @@
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
+  - name: Secure WebHook with AAD
+    href: secure-webhook-delivery.md
   - name: Dead letter and retry
     href: manage-event-delivery.md
   - name: Filter events
@@ -160,6 +166,8 @@
       href: event-schema-event-hubs.md
     - name: IoT Hub
       href: event-schema-iot-hub.md
+    - name: Key Vault
+      href: event-schema-key-vault.md
     - name: Media Services
       href: ../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Resource groups
@@ -172,6 +180,8 @@
       href: event-schema-app-configuration.md
     - name: Azure SignalR
       href: event-schema-azure-signalr.md
+    - name: Azure Machine Learning
+      href: event-schema-machine-learning.md
   - name: Template resources
     items:
     - name: Event subscriptions

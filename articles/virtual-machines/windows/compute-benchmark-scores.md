@@ -1,5 +1,5 @@
 ---
-title: Compute benchmark scores for Azure Windows VMs | Microsoft Docs
+title: Compute benchmark scores for Azure Windows VMs 
 description: Compare SPECint compute benchmark scores for Azure VMs running Windows Server.
 services: virtual-machines-windows
 documentationcenter: ''

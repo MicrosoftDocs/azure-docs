@@ -37,7 +37,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a virtual network
 
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**. 
 2. Select **Networking**, and then select **Virtual network**.
 3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **Create**:
 
@@ -55,7 +55,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 An application security group enables you to group together servers with similar functions, such as web servers.
 
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**. 
 2. In the **Search the Marketplace** box, enter *Application security group*. When **Application security group** appears in the search results, select it, select **Application security group** again under **Everything**, and then select **Create**.
 3. Enter, or select, the following information, and then select **Create**:
 
@@ -77,7 +77,7 @@ An application security group enables you to group together servers with similar
 
 ## Create a network security group
 
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**. 
 2. Select **Networking**, and then select **Network security group**.
 3. Enter, or select, the following information, and then select **Create**:
 
@@ -134,7 +134,7 @@ Create two VMs in the virtual network.
 
 ### Create the first VM
 
-1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**. 
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
 3. Enter, or select, the following information, and accept the defaults for the remaining settings:
 

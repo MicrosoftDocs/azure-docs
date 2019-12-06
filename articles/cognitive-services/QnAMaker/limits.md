@@ -15,13 +15,13 @@ ms.custom: seodec18
 
 # QnA Maker knowledge base limits and boundaries
 
-QnA Maker limits provided below are a combination of the [Azure Search pricing tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) and the [QnA Maker pricing tier limits](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). You need to know both sets of limits to understand how many knowledge bases you can create per resource and how large each knowledge base can grow.
+QnA Maker limits provided below are a combination of the [Azure Cognitive Search pricing tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) and the [QnA Maker pricing tier limits](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). You need to know both sets of limits to understand how many knowledge bases you can create per resource and how large each knowledge base can grow.
 
 ## Knowledge bases
 
-The maximum number of knowledge bases is based on [Azure Search tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
+The maximum number of knowledge bases is based on [Azure Cognitive Search tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
 
-|**Azure Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Maximum number of published knowledge bases allowed|2|14|49|199|199|2,999|
 
@@ -39,11 +39,11 @@ The maximum number of deep-links that can be crawled for extraction of QnAs from
 
 ## Metadata Limits
 
-### By Azure Search pricing tier
+### By Azure Cognitive Search pricing tier
 
-Maximum number of metadata fields per knowledge base is based on your **[Azure Search tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)**.
+Maximum number of metadata fields per knowledge base is based on your **[Azure Cognitive Search tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)**.
 
-|**Azure Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Maximum metadata fields per QnA Maker service (across all KBs)|1,000|100*|1,000|1,000|1,000|1,000|
 
@@ -67,7 +67,7 @@ Overall limits on the content in the knowledge base:
 * Length of file name: 200
 * Supported file formats: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Maximum number of alternate questions: 300
-* Maximum number of question-answer pairs: Depends on the **[Azure Search tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** chosen. A question and answer pair maps to a document on Azure Search index. 
+* Maximum number of question-answer pairs: Depends on the **[Azure Cognitive Search tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** chosen. A question and answer pair maps to a document on Azure Cognitive Search index. 
 * URL/HTML page: 1 million characters
 
 ## Create Knowledge base call limits:

@@ -1,11 +1,11 @@
 ---
-title: Troubleshoot Azure Application Gateway Bad Gateway (502) errors
-description: Learn how to troubleshoot Application Gateway 502 errors
+title: Troubleshoot Bad Gateway errors - Azure Application Gateway
+description: 'Learn how to troubleshoot Application Gateway Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server.'
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/25/2019
+ms.date: 11/16/2019
 ms.author: amsriva
 ---
 

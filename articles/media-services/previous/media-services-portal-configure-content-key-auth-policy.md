@@ -1,6 +1,6 @@
 ---
 title: Configure a content key authorization policy by using the Azure portal | Microsoft Docs
-description: Learn how to configure an authorization policy for a content key.
+description: This article demonstrates how to configure an authorization policy for a content key.
 services: media-services
 documentationcenter: ''
 author: juliako

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Contextual data with roles - LUIS"
 titleSuffix: Azure Cognitive Services
-description: Find related data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. 
+description: Find related data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,22 +9,24 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 12/05/2019
 ms.author: diberry
-#Customer intent: As a new user, I want to understand how and why to use roles on an entity. 
+#Customer intent: As a new user, I want to understand how and why to use roles on an entity.
 ---
 
 # Tutorial: Extract contextually related data from an utterance
 
-In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a transfer from one city to another. Both pieces of data may be required and they are related to each other.  
+In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a transfer from one city to another. Both pieces of data may be required and they are related to each other.
 
-A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns. 
+A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns.
+
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
 > * Create new app
-> * Add intent 
+> * Add intent
 > * Get origin and destination information using roles
 > * Train
 > * Publish
@@ -51,9 +53,9 @@ A role should be used when the entity data to extract:
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Select **Create new intent**. 
+1. Select **Create new intent**.
 
-1. Enter `MoveEmployeeToCity` in the pop-up dialog box then select **Done**. 
+1. Enter `MoveEmployeeToCity` in the pop-up dialog box then select **Done**.
 
     ![Screenshot of create new intent dialog with](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
@@ -79,24 +81,24 @@ The prebuilt entity, geographyV2, extracts location information, including city 
 
 1. Select **Entities** from the left-side navigation.
 
-1. Select **Add prebuilt entity**, then select `geo` in the search bar to filter the prebuilt entities. 
+1. Select **Add prebuilt entity**, then select `geo` in the search bar to filter the prebuilt entities.
 
     ![Add geographyV2 prebuilt entity to app](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 1. Select the checkbox and select **Done**.
-1. In the **Entities** list, select the **geographyV2** to open the new entity. 
-1. Add two roles, `Origin`, and `Destination`. 
+1. In the **Entities** list, select the **geographyV2** to open the new entity.
+1. Add two roles, `Origin`, and `Destination`.
 
     ![Add roles to prebuilt entity](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Select **Intents** from the left-side navigation, then select the **MoveEmployeeToCity** intent. Notice the city names are labeled with the prebuilt entity **geographyV2**.
 1. In the first utterance of the list, select the origin location. A drop-down menu appears. Select **geographyV2** in the list, then follow the menu across to select **Origin**.
-1. Use the method from the previous step to mark all roles of locations in all the utterances. 
+1. Use the method from the previous step to mark all roles of locations in all the utterances.
 
 
-## Add example utterances to the None intent 
+## Add example utterances to the None intent
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## Train the app so the changes to the intent can be tested 
+## Train the app so the changes to the intent can be tested
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -146,9 +148,9 @@ The prebuilt entity, geographyV2, extracts location information, including city 
       ]
     }
     ```
-    
+
     The correct intent is predicted and the entities array has both the origin and destination roles in the corresponding **entities** property.
-    
+
 ## Clean up resources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
@@ -167,5 +169,5 @@ The prebuilt entity, geographyV2, extracts location information, including city 
 
 This tutorial created a new intent and added example utterances for the contextually learned data of origin and destination locations. Once the app is trained and published, a client-application can use that information to create a move ticket with the relevant information.
 
-> [!div class="nextstepaction"] 
-> [Learn how to add a composite entity](luis-tutorial-composite-entity.md) 
+> [!div class="nextstepaction"]
+> [Learn how to add a composite entity](luis-tutorial-composite-entity.md)

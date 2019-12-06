@@ -1,7 +1,7 @@
 ---
 title: Translator Text API BreakSentence Method
 titleSuffix: Azure Cognitive Services
-description: Use the Translator Text API BreakSentence method.
+description: The Translator Text API BreakSentence method identifies the positioning of sentence boundaries in a piece of text.
 services: cognitive-services
 author: swmachan
 manager: nitinme

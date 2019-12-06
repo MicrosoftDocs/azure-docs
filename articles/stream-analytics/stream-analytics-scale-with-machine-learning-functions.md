@@ -9,7 +9,7 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ---
-# Scale your Stream Analytics job with Azure Machine Learning Studio functions
+# Scale your Stream Analytics job with Azure Machine Learning Studio (classic) functions
 
 This article discusses how to efficiently scale Azure Stream Analytics jobs that use Azure Machine Learning functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](stream-analytics-scale-jobs.md).
 
@@ -17,7 +17,7 @@ This article discusses how to efficiently scale Azure Stream Analytics jobs that
 
 A Machine Learning function in Stream Analytics can be used like a regular function call in the Stream Analytics query language. Behind the scenes, however, these function calls are actually Azure Machine Learning Web Service requests.
 
-You can improve the throughput of Machine Learning web service requests by "batching" multiple rows together in the same web service API call. This grouping is called a mini-batch. For more information, see [Azure Machine Learning Studio Web Services](../machine-learning/studio/consume-web-services.md). Support for Azure Machine Learning Studio in Stream Analytics is in preview.
+You can improve the throughput of Machine Learning web service requests by "batching" multiple rows together in the same web service API call. This grouping is called a mini-batch. For more information, see [Azure Machine Learning Studio (classic) Web Services](../machine-learning/studio/consume-web-services.md). Support for Azure Machine Learning Studio (classic) in Stream Analytics is in preview.
 
 ## Configure a Stream Analytics job with Machine Learning functions
 
@@ -29,7 +29,7 @@ There are two parameters to configure the Machine Learning function used by your
 To determine the appropriate values for SUs, decide whether you would like to optimize latency of the Stream Analytics job or the throughput of each SU. SUs may always be added to a job to increase the throughput of a well-partitioned Stream Analytics query. Additional SUs do increase the cost of running the job.
 
 Determine the latency *tolerance* for your Stream Analytics job. 
-Increasing the batch size will increase the latency of your Azure Machine Learning service requests and the latency of the Stream Analytics job.
+Increasing the batch size will increase the latency of your Azure Machine Learning requests and the latency of the Stream Analytics job.
 
 Increasing the batch size allows the Stream Analytics job to process **more events** with the **same number** of Machine Learning web service requests. The increase of Machine Learning web service latency is usually sublinear to the increase of batch size. 
 
