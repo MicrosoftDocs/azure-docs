@@ -475,7 +475,7 @@
       #     - name: SQL on demand
       #       href: article-template.md
         - name: Load WideWorldImporters
-           href: ../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: ../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       #   - name: with the copy activity 
       #     href: article-template.md
       #   - name: with T-SQL
