@@ -29,16 +29,16 @@ Azure subscriptions with credit such as Free Trial and Visual Studio Enterprise 
 > [!NOTE]
 > If you have a Free Trial subscription and you remove the spending limit, your subscription converts to an individual subscription with pay-as-you-go rates at the end of the Free Trial. You keep your remaining credit for the full 30 days after you created the subscription. You also have access to free services for 12 months.
 
-To monitor and manage billing activity for Azure, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md).
+To monitor and manage billing activity for Azure, see [Prevent unexpected costs with Azure billing and cost management](../cost-management-billing/manage/getting-started.md).
 
 
 ## Your bill is past due
 
-To resolve past due balance, see [Resolve past due balance for your Azure subscription after getting an email from Azure](billing-azure-subscription-past-due-balance.md).
+To resolve past due balance, see [Resolve past due balance for your Azure subscription after getting an email from Azure](../cost-management-billing/manage/resolve-past-due-balance.md).
 
 ## The bill exceeds your credit card limit
 
-To resolve this issue, [switch to a different credit card](billing-how-to-change-credit-card.md). Or if you're representing a business, you can [switch to pay by invoice](billing-how-to-pay-by-invoice.md).
+To resolve this issue, [switch to a different credit card](../cost-management-billing/manage/change-credit-card.md). Or if you're representing a business, you can [switch to pay by invoice](../cost-management-billing/manage/pay-by-invoice.md).
 
 ## The subscription was accidentally canceled
 
@@ -57,4 +57,4 @@ For other subscription types, [contact support](https://portal.azure.com/?#blade
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- Learn how to [Monitor and manage billing activity for Azure](billing-getting-started.md).
+- Learn how to [Monitor and manage billing activity for Azure](../cost-management-billing/manage/getting-started.md).

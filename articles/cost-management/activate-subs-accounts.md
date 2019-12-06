@@ -94,7 +94,7 @@ Here's how to fix the problems:
 
 Before you can generate the Azure Enterprise Agreement API key to set up Cloudyn, you must enable the Azure Billing API by following the instructions at:
 
-- [Overview of Reporting APIs for Enterprise customers](../billing/billing-enterprise-api.md)
+- [Overview of Reporting APIs for Enterprise customers](../cost-management-billing/manage/enterprise-api.md)
 - [Microsoft Azure enterprise portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) under **Enabling data access to the API**
 
 You also might need to give department administrators, account owners, and enterprise administrators permissions to _view charges_ with the Billing API.

@@ -166,4 +166,4 @@ Follow these steps to view the Account Administrator.
 
 * [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Manage access to Azure resources using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md)
-* [Add or change Azure subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md)
+* [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)

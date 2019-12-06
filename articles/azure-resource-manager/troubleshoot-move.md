@@ -14,7 +14,7 @@ This article provides suggestions to help resolve problems when moving resources
 If you actually want to upgrade your Azure subscription (such as switching from free to pay-as-you-go), you need to convert your subscription.
 
 * To upgrade a free trial, see [Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md).
-* To change a pay-as-you-go account, see [Change your Azure Pay-As-You-Go subscription to a different offer](../billing/billing-how-to-switch-azure-offer.md).
+* To change a pay-as-you-go account, see [Change your Azure Pay-As-You-Go subscription to a different offer](../cost-management-billing/manage/switch-azure-offer.md).
 
 If you can't convert the subscription, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 

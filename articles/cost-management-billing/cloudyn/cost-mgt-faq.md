@@ -36,7 +36,7 @@ Only an Azure service administrator can enable Cloudyn. Co-administrator permiss
 
 Before you can generate the Azure Enterprise Agreement API key to set up Cloudyn, you must enable the Azure Billing API by following the instructions at:
 
-- [Overview of Reporting APIs for Enterprise customers](../../billing/billing-enterprise-api.md)
+- [Overview of Reporting APIs for Enterprise customers](../manage/enterprise-api.md)
 - [Microsoft Azure enterprise portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) under **Enabling data access to the API**
 
 

@@ -88,7 +88,7 @@ The Azure AD DS managed domain's health automatically updates itself within two 
 
 Azure AD DS requires an active subscription, and can't be moved to a different subscription. If the Azure subscription that the Azure AD DS managed domain was associated with is deleted, you must recreate an Azure subscription and Azure AD DS managed domain.
 
-1. [Create an Azure subscription](../billing/billing-create-subscription.md).
+1. [Create an Azure subscription](../cost-management-billing/manage/create-subscription.md).
 1. [Delete the Azure AD DS managed domain](delete-aadds.md) from your existing Azure AD directory.
 1. [Create a replacement Azure AD DS managed domain](tutorial-create-instance.md).
 

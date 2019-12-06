@@ -44072,6 +44072,156 @@
             "source_path": "articles/cost-management/understand-work-scopes.md",
             "redirect_url": "/azure/cost-management-billing/costs/understand-work-scopes",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-avoid-charges-free-account.md",
+            "redirect_url": "/azure/cost-management-billing/manage/avoid-charges-free-account",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-add-change-azure-subscription-administrator.md",
+            "redirect_url": "/azure/cost-management-billing/manage/add-change-subscription-administrator",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-azure-subscription-states.md",
+            "redirect_url": "/azure/cost-management-billing/manage/subscription-states",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-azure-subscription-past-due-balance.md",
+            "redirect_url": "/azure/cost-management-billing/manage/resolve-past-due-balance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-azurestudents-subscription-disabled.md",
+            "redirect_url": "/azure/cost-management-billing/manage/azurestudents-subscription-disabled",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-check-free-service-usage.md",
+            "redirect_url": "/azure/cost-management-billing/manage/check-free-service-usage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-cost-management-automation-scenarios.md",
+            "redirect_url": "/azure/cost-management-billing/manage/cost-management-automation-scenarios",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-cost-management-budget-scenario.md",
+            "redirect_url": "/azure/cost-management-billing/manage/cost-management-budget-scenario",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-consumption-api-overview.md",
+            "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-create-free-services-included-free-account.md",
+            "redirect_url": "/azure/cost-management-billing/manage/create-free-services",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-create-subscription.md",
+            "redirect_url": "/azure/cost-management-billing/manage/create-subscription",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-download-azure-invoice-daily-usage-date.md",
+            "redirect_url": "/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-ea-portal-administration.md",
+            "redirect_url": "/azure/cost-management-billing/manage/ea-portal-administration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-ea-portal-agreements.md",
+            "redirect_url": "/azure/cost-management-billing/manage/ea-portal-agreements",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-ea-portal-enrollment-invoices.md",
+            "redirect_url": "/azure/cost-management-billing/manage/ea-portal-enrollment-invoices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-ea-portal-get-started.md",
+            "redirect_url": "/azure/cost-management-billing/manage/ea-portal-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-ea-portal-vm-reservations.md",
+            "redirect_url": "/azure/cost-management-billing/manage/ea-portal-vm-reservations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-ea-portal-rest-apis.md",
+            "redirect_url": "/azure/cost-management-billing/manage/ea-portal-rest-apis",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-ea-portal-troubleshoot.md",
+            "redirect_url": "/azure/cost-management-billing/manage/ea-portal-troubleshoot",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-ea-pricing.md",
+            "redirect_url": "/azure/cost-management-billing/manage/ea-pricing",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-enterprise-api.md",
+            "redirect_url": "/azure/cost-management-billing/manage/enterprise-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md",
+            "redirect_url": "/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-export-subscriptions.md",
+            "redirect_url": "/azure/cost-management-billing/manage/export-subscriptions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-getting-started.md",
+            "redirect_url": "/azure/cost-management-billing/manage/getting-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-how-to-cancel-azure-subscription.md",
+            "redirect_url": "/azure/cost-management-billing/manage/cancel-azure-subscription",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-how-to-pay-by-invoice.md",
+            "redirect_url": "/azure/cost-management-billing/manage/pay-by-invoice",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-how-to-change-azure-account-profile.md",
+            "redirect_url": "/azure/cost-management-billing/manage/change-azure-account-profile",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-how-to-change-credit-card.md",
+            "redirect_url": "/azure/cost-management-billing/manage/change-credit-card",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-manage-access.md",
+            "redirect_url": "/azure/cost-management-billing/manage/manage-billing-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-how-to-switch-azure-offer.md",
+            "redirect_url": "/azure/cost-management-billing/manage/switch-azure-offer",
+            "redirect_document_id": true
         }
     ]
 }

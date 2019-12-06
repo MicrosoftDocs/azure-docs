@@ -145,7 +145,7 @@ After you've identified and analyzed your spending patterns, it's important to b
 
 For more information, see [Azure Budgets](tutorial-acm-create-budgets.md).
 
-For more information about budget-based automation, see [Budget Based Automation](../../billing/billing-cost-management-budget-scenario.md).
+For more information about budget-based automation, see [Budget Based Automation](../manage/cost-management-budget-scenario.md).
 
 ## Act to optimize
 Use the following ways to optimize spending.

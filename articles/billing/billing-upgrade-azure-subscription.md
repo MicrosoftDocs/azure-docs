@@ -76,4 +76,4 @@ If you're eligible, use the steps below to upgrade to an Azure free account.
 
 ## Next steps
 
-Now that you've upgraded your account, see [Prevent unexpected charges with Azure billing and cost management.](billing-getting-started.md)
+Now that you've upgraded your account, see [Prevent unexpected charges with Azure billing and cost management.](../cost-management-billing/manage/getting-started.md)

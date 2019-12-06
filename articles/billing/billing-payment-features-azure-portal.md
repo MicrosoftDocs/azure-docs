@@ -96,7 +96,7 @@ If you are eligible to pay by invoice (check/wire transfer), you can switch your
 1. Enter the address for the invoice payment method.
 1. Click **Next**.
 
-If you want to be approved to pay by invoice, see [learn how to pay by invoice](billing-how-to-pay-by-invoice.md).
+If you want to be approved to pay by invoice, see [learn how to pay by invoice](../cost-management-billing/manage/pay-by-invoice.md).
 
 ### Edit invoice payment address
 
@@ -168,4 +168,4 @@ If you have an Azure in Open Licensing subscription, you can add credits to your
 We do not support virtual or prepaid cards. If you are getting errors when adding or updating a valid credit card, try opening your browser in private mode.
 
 ## Next steps
-- Learn more about [analyzing and preventing unexpected costs the Azure portal](billing-getting-started.md)
+- Learn more about [analyzing and preventing unexpected costs the Azure portal](../cost-management-billing/manage/getting-started.md)

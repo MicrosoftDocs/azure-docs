@@ -18,7 +18,7 @@ ms.author: banders
 
 For most subscriptions, you can download your invoice from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or have it sent in email. If you're an Azure customer with an Enterprise Agreement (EA customer), you can't download your organization's invoices. Invoices are sent to whoever is set up to receive invoices for the enrollment.
 
-Only certain roles have permission to view invoices. For example, the Account Administrator or Enterprise Administrator. For more information about getting access to billing information, see [Manage access to Azure billing using roles](billing-manage-access.md).
+Only certain roles have permission to view invoices. For example, the Account Administrator or Enterprise Administrator. For more information about getting access to billing information, see [Manage access to Azure billing using roles](../cost-management-billing/manage/manage-billing-access.md).
 
 If you have a Microsoft Customer Agreement (MCA), you must have one of the following roles to get your invoices:
 
@@ -39,7 +39,7 @@ There could be several reasons that you don't see an invoice:
 
 - Azure bills you at the end of your invoice period. So, an invoice might not have been generated yet. Wait until the end of the billing period.
 
-- You don't have permission to view invoices. If you have an MCA or MPA, you must be the billing profile Owner, Contributor, Reader, or Invoice manager. For other subscriptions, you might not see old invoices if you aren't the Account Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](billing-manage-access.md).
+- You don't have permission to view invoices. If you have an MCA or MPA, you must be the billing profile Owner, Contributor, Reader, or Invoice manager. For other subscriptions, you might not see old invoices if you aren't the Account Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](../cost-management-billing/manage/manage-billing-access.md).
 
 - If you have a Free Trial or a monthly credit amount with your subscription, you only get an invoice when you exceed the monthly credit amount. If you have a Microsoft Customer Agreement or Microsoft Partner Agreement, you always receive an invoice.
 
@@ -53,7 +53,7 @@ There could be several reasons that you don't see an invoice:
 1. Click the download icon or ellipsis (`...`) at the end of the row.
 1. In the download menu, select **Invoice**.
 
-For more information about your invoice, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md). For help with managing your costs, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md).
+For more information about your invoice, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md). For help with managing your costs, see [Prevent unexpected costs with Azure billing and cost management](../cost-management-billing/manage/getting-started.md).
 
 ## Get your subscription's invoices in email
 
@@ -114,7 +114,7 @@ To learn more about your invoice and charges, see:
 - [Understand your bill for Microsoft Azure](billing-understand-your-bill.md)
 - [Understand terms on your Azure invoice](billing-understand-your-invoice.md)
 - [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md)
-- [View your organization's Azure pricing](billing-ea-pricing.md)
+- [View your organization's Azure pricing](../cost-management-billing/manage/ea-pricing.md)
 
 If you have a Microsoft Customer Agreement, see:
 
@@ -122,4 +122,4 @@ If you have a Microsoft Customer Agreement, see:
 - [Understand terms on the invoice for your billing profile](billing-mca-understand-your-invoice.md)
 - [Understand the Azure usage and charges file for your billing profile](billing-mca-understand-your-usage.md)
 - [View and download tax documents for your billing profile](billing-mca-download-tax-document.md)
-- [View your organization's Azure pricing](billing-ea-pricing.md)
+- [View your organization's Azure pricing](../cost-management-billing/manage/ea-pricing.md)

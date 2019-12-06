@@ -69,7 +69,7 @@ A monthly invoice is generated for each billing profile in your billing account.
 
 To learn how to download Azure usage and charges csv file, see [download usage for your Microsoft Customer Agreement](billing-download-azure-daily-usage.md).
 
-To learn how to download price sheet, see [download pricing for your Microsoft Customer Agreement](billing-ea-pricing.md).
+To learn how to download price sheet, see [download pricing for your Microsoft Customer Agreement](../cost-management-billing/manage/ea-pricing.md).
 
 To learn how to download tax documents, see [view the tax documents for your Microsoft Customer Agreement](billing-mca-download-tax-document.md#view-and-download-tax-documents).
 

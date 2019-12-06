@@ -19,7 +19,7 @@ ms.author: banders
 
 This article applies to customers with a Microsoft Customer Agreement who signed up for Azure through the Azure website. [Check your access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
-The default payment method of your billing profile can either be a credit card or check/wire transfer. If you have Azure credits, those are automatically applied to your invoice each billing period. To become eligible to pay by check/wire transfer, see [how to pay by invoice](billing-how-to-pay-by-invoice.md).
+The default payment method of your billing profile can either be a credit card or check/wire transfer. If you have Azure credits, those are automatically applied to your invoice each billing period. To become eligible to pay by check/wire transfer, see [how to pay by invoice](../cost-management-billing/manage/pay-by-invoice.md).
 
 If your default payment method is check/wire transfer, you can send your payment to the address listed at the bottom of your invoice. Alternatively, you can pay online with a credit card in the Azure portal.
 

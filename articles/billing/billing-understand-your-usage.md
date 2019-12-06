@@ -28,7 +28,7 @@ Pay-as-you-go (PAYG) | Yes | Yes | No | No
 
 To learn more about Marketplace orders (also known as external services), see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
-For download instructions, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
+For download instructions, see [How to get your Azure billing invoice and daily usage data](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 You can open your usage and charges CSV file in Microsoft Excel or another spreadsheet application.
 
 ## List of terms and descriptions
