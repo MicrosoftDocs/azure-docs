@@ -82,7 +82,7 @@
       href: faq-stt.md
       displayName: "FAQ,STT FAQ,SR FAQ,frequently asked questions"
 - name: Text-to-speech
-  exanded: false
+  expanded: false
   items:
   - name: Overview
     items:
@@ -141,7 +141,7 @@
       href: faq-text-to-speech.md
       displayName: "FAQ,TTS FAQ,SS FAQ,frequently asked questions"
 - name: Intent recognition
-  exanded: false
+  expanded: false
   items:
   - name: Quickstarts
     items:
@@ -181,7 +181,7 @@
       - name: LUIS Developer Resources
         href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
 - name: Speech translation
-  exanded: false
+  expanded: false
   items:
   - name: Overview
     items:
@@ -316,7 +316,7 @@
     - name: Voice assistants FAQ
       href: faq-voice-assistants.md
 - name: Customization
-  exanded: false
+  expanded: false
   items:
   - name: Speech-to-text
     items:
@@ -387,7 +387,7 @@
     - name: Create Speech Service Resource
       href: get-started.md#create-a-speech-resource-in-azure
     - name: Containers
-      exanded: false
+      expanded: false
       items:
       - name: Install and run containers
         href: speech-container-howto.md
@@ -471,7 +471,7 @@
     - name: Speech SDK Release notes
       href: releasenotes.md
 - name: Devices
-  exanded: false
+  expanded: false
   items:
   - name: Overview
     items:
@@ -502,7 +502,7 @@
     - name: Speech Devices SDK Release notes
       href: devices-sdk-release-notes.md
 - name: Migration
-  exanded: false
+  expanded: false
   items:
   - name: From Bing Speech
     href: how-to-migrate-from-bing-speech.md
@@ -511,7 +511,7 @@
   - name: From the Translator Speech API
     href: how-to-migrate-from-translator-speech-api.md
 - name: Resources
-  exanded: false
+  expanded: false
   items:
   - name: Support
     href: support.md
