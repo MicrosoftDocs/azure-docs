@@ -61,6 +61,7 @@ You need the instrumentation key for creating the telemetry client for your appl
 This step is where you instrument your own search application, using the Application Insights resource your created in the step above. There are four steps to this process:
 
 **Step 1: Create a telemetry client**
+
 This is the object that sends events to the Application Insights Resource.
 
 *C#*
@@ -80,6 +81,7 @@ This is the object that sends events to the Application Insights Resource.
 For other languages and platforms, see the complete [list](https://docs.microsoft.com/azure/application-insights/app-insights-platforms).
 
 **Step 2: Request a Search ID for correlation**
+
 To correlate search requests with clicks, it's necessary to have a correlation ID that relates these two distinct events. Azure Cognitive Search provides you with a Search ID when you request it with a header:
 
 *C#*
