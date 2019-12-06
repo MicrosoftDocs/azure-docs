@@ -65,7 +65,7 @@ To onboard access reviews, follow these steps.
 
 1. Search for and select **Azure Active Directory**.
 
-      ![Azure portal search for Azure Active Directory](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
+      ![Azure portal search for Azure Active Directory](media/access-reviews-overview/search-azure-active-directory.png)
 
 1. Select **Identity Governance**.
 
