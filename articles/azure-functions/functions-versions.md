@@ -107,7 +107,7 @@ The version of the Functions runtime used by published apps in Azure is dictated
 >[!IMPORTANT]
 > Don't arbitrarily change this setting, because other app setting changes and changes to your function code may be required.
 
-### Migrating a locally developed application
+### Locally developed application versions
 
 You can make the following updates function apps locally change targeted versions.
 
