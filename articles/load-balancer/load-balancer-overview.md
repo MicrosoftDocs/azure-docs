@@ -26,23 +26,9 @@ Azure Load Balancer operates at layer four of the Open Systems Interconnection (
 With Azure Load Balancer, you can scale your applications and create high availabile services. 
 Load Balancer supports both, inbound and outbound scenarios, provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications.
 
-A **public Load Balancer** can provide outbound connections for virtual machines (VMs) inside your virtual network by translating their private IP addresses to public IP addresses.
-A **private (or internal) Load Balancer** can be used for scenarios where only private IP addresses are needed at the front end.
+A **[public Load Balancer](#publicloadbalancer)** can provide outbound connections for virtual machines (VMs) inside your virtual network by translating their private IP addresses to public IP addresses. Public Load Balancers are used to load balancer internet traffic to your VMs.
 
-## Why use Load Balancer?
-
-You can use Azure Load Balancer to:
-
-* Load balance incoming internet traffic to your VMs. This configuration is known as a [public Load Balancer](#publicloadbalancer).
-* Load balance traffic across VMs inside a virtual network. You can also reach a Load Balancer front end from an on-premises network in a hybrid scenario. Both of these scenarios use a configuration that is known as an [internal Load Balancer](#internalloadbalancer).
-* Port forward traffic to a specific port on specific VMs with inbound network address translation (NAT) rules.
-* Provide [outbound connectivity](load-balancer-outbound-connections.md) for VMs inside your virtual network by using a public Load Balancer.
-
-## What are Load Balancer resources?
-
-Load Balancer resources are objects specifying how Azure should program its multi-tenant infrastructure to achieve the scenario that you want to create. There's no direct relationship between Load Balancer resources and actual infrastructure. Creating a Load Balancer doesn't create an instance, and capacity is always available.
-
-A Load Balancer resource can be either a public Load Balancer or an internal Load Balancer. The Load Balancer resource's functions are defined by a front end, a rule, a health probe, and a back-end pool definition. You place VMs in the back-end pool by specifying the back-end pool from the VM.
+An **[internal (or private) Load Balancer](#internalloadbalancer)** can be used for scenarios where only private IP addresses are needed at the front end. Internal Load Balancers are used to load balance traffic inside a virtual network. You can also reach a Load Balancer front end from an on-premises network in a hybrid scenario.
 
 ## Fundamental Load Balancer features
 
