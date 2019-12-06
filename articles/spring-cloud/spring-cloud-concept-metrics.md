@@ -50,7 +50,7 @@ First, select metrics to view:
 
 ## Service-level metric queries
 
-Azure Spring Cloud allows you to monitor a variety of application metrics. Review the [guide to getting started](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) with Azure Monitor Metrics to learn more about this service.
+Azure Spring Cloud allows you to monitor a variety of application metrics. 
 
 To review metric data, you will select your metric, your **Aggregation**, and your time range.  These concepts are explained below.
 
@@ -73,3 +73,107 @@ Select **Add filter**, set the property to **App** and select the target applica
 
 >[!TIP]
 > You can build your own charts in metrics page and pin them to your **Dashboard**. Start by naming your chart.  Next, select **Pin to dashboard in the top right corner**. You can now check on your application at your Portal **Dashboard**.
+
+## User portal metrics options
+
+All User Metrics provide 3 aggregation types:
+* Average
+* Max
+* Min
+
+You can use 2 kinds of filters (properties):
+* App: filter by app name
+* Instance: filter by app instance
+
+The following table shows the available metrics and details.
+
+<table>
+   <tr>
+    <th>Name</th>
+    <th>Display Name</th> 
+    <th>Spring Actuator Metric Name</th>
+    <th>Unit</th>
+    <th>Details</th>
+  </tr>
+  <tr>
+    <td>SystemCpuUsagePercentage</td>
+    <td>System CPU Usage Percentage</td>
+    <td>system.cpu.usage</td>
+    <td>Percent</td>
+    <td>Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed. All values betweens 0.0 and 1.0 are possible depending of the activities going on in the system. If the system recent cpu usage is not available, the method returns a negative value.</td>
+   </tr>
+  <tr>
+    <td>AppCpuUsagePercentage</td>
+    <td>App CPU Usage Percentage</td>
+    <td>process.cpu.usage</td>
+    <td></td>
+    <td>Percent</td>
+    <td>Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads. All values betweens 0.0 and 1.0 are possible depending of the activities going on in the JVM process and the whole system. If the Java Virtual Machine recent CPU usage is not available, the method returns a negative value.</td>
+   </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+   </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+   </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+   </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+   </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+   </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+   </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+   </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+   </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+   </tr>
+</table>
+
+## See also
+[Azure Monitor Metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
