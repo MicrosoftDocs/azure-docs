@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services concepts | Microsoft Docs
-description: This topic gives an overview of Azure Media Services Concepts
+description: This article gives a brief overview of Microsoft Azure Media Services concepts and links to other articles for details.
 services: media-services
 documentationcenter: ''
 author: Juliako
