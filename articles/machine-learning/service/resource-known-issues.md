@@ -90,9 +90,10 @@ These are known issues for Azure Machine Learning Datasets.
 
 ### TypeError: File not found
 
-This error occurs if you attempt to use the relative path instead of the absolute path for the file(s) from your datastore or dataset that you want to mount. When you use `as_mount()` or `mount()` include a leading forward slash, `/`, to ensure you are mounting your dataset to your compute target, instead of your working directory. 
+This error occurs if you attempt to use the relative path instead of the absolute path of the file(s) in your datastore or dataset that you want to mount to your compute target. When you use `as_mount()` or `mount()` include a leading forward slash, `/`, to ensure you are mounting your dataset relative to your compute target, instead of your working directory. 
 
 ```python
+# Note the leading / in '/tmp/dataset'
 script_params = {
     '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
 } 
