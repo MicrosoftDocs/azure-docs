@@ -397,7 +397,7 @@ Currently, pre-seeding approach has a few limitations -
 ## Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)
 
 > [!IMPORTANT]
-> The following information can only be used with version 9 (or above) of the storage sync agent, which is in the process of rolling out. Existing versions will not have the StorageSyncSelfService cmdlets.
+> The following information can only be used with version 9 (or above) of the storage sync agent. Versions lower than 9 will not have the StorageSyncSelfService cmdlets.
 
 Previous Versions is a Windows feature that allows you to utilize server-side VSS snapshots of a volume to present restorable versions of a file to an SMB client.
 This enables a powerful scenario, commonly referred to as self-service restore, directly for information workers instead of depending on the restore from an IT admin.
