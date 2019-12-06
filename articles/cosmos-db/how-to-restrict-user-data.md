@@ -19,24 +19,24 @@ Each authentication method gives access to different sets of operations, with so
 
 In some scenarios, you may want to restrict some users of your organization to perform data operations (that is CRUD requests and queries) only. This is typically the case for developers who don't need to create or delete resources, or change the provisioned throughput of the containers they are working on.
 
-This can be achieved by:
-1. Creating, for these users, a custom Azure Active Directory role with fine-grained access level to operations using Cosmos DB's [granular actions](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb).
-1. Removing non-data operations from being performed with key access. This is done by restricting these operations to Azure Resource Manager calls only.
+You can restrict the access by applying the following steps:
+1. Creating a custom Azure Active Directory role for the users whom you want to restrict access. The custom Active Directory role should have fine-grained access level to operations using Azure Cosmos DB's [granular actions](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb).
+1. Disallowing the execution of non-data operations with keys. You can achieve this by restricting these operations to Azure Resource Manager calls only.
 
-The remainder of this article shows how to perform these steps.
+The next sections of this article show how to perform these steps.
 
 > [!NOTE]
-> In order to execute the commands below, you need to have the Azure PowerShell Module 3.0.0 or later, as well as the [Azure Owner Role](../role-based-access-control/built-in-roles.md#owner) on the subscription you are trying to modify.
+> In order to execute the commands in the next sections, you need to install Azure PowerShell Module 3.0.0 or later, as well as the [Azure Owner Role](../role-based-access-control/built-in-roles.md#owner) on the subscription that you are trying to modify.
 
-In the following code examples, substitute these placeholders with your specific values:
-- `$MySubscriptionId` is the subscription ID that contains the Azure Cosmos DB account where you want to limit permissions. Example: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
-- `$MyResourceGroupName` is the resource group containing the Azure Cosmos DB account. Example: `myresourcegroup`
-- `$MyAzureCosmosDBAccountName` is the name of your Azure Cosmos DB account. Example: `mycosmosdbsaccount`
-- `$MyUserName` is the login (username@domain) of the user which you want to limit access. Example: `cosmosdbuser@contoso.com`.
+In the PowerShell scripts in the next sections, substitute the following placeholders with values specific to your environment:
+- `$MySubscriptionId` - The subscription ID that contains the Azure Cosmos account where you want to limit the permissions. For example: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
+- `$MyResourceGroupName` - The resource group containing the Azure Cosmos account. For example: `myresourcegroup`.
+- `$MyAzureCosmosDBAccountName` - The name of your Azure Cosmos account. For example: `mycosmosdbsaccount`.
+- `$MyUserName` - The login (username@domain) of the user for whom you want to limit access. For example: `cosmosdbuser@contoso.com`.
 
 ## Select your Azure subscription
 
-Azure PowerShell commands require you to login and select the subscription affected by the commands you will execute:
+Azure PowerShell commands require you to login and select the subscription to execute the commands:
 
 ```azurepowershell
 Login-AzAccount
@@ -45,28 +45,28 @@ Select-AzSubscription $MySubscriptionId
 
 ## Create the custom AAD role
 
-The steps below create an AAD role assignment with "Key Only" access for Azure Cosmos DB accounts. They are based on [Custom Roles for Azure Resources](../role-based-access-control/custom-roles.md) and [granular actions for Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb), which are part of the Microsoft.DocumentDB Azure Active Directory namespace.
+The following script creates an AAD role assignment with "Key Only" access for Azure Cosmos accounts. The role is based on [Custom roles for Azure resources](../role-based-access-control/custom-roles.md) and [Granular actions for Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). These roles and actions are part of the `Microsoft.DocumentDB` Azure Active Directory namespace.
 
-- First, create a JSON document named AzureCosmosKeyOnlyAccess.json with the following content:
+- First, create a JSON document named `AzureCosmosKeyOnlyAccess.json` with the following content:
 
     ```
-        {
-            "Name": "Azure Cosmos DB Key Only Access Custom Role",
-            "Id": "00000000-0000-0000-0000-0000000000",
-            "IsCustom": true,
-            "Description": "This role restricts the user to only being able to read the account keys.",
-            "Actions":
-            [
-                "Microsoft.DocumentDB/databaseAccounts/listKeys/action"
-            ],
-            "NotActions": [],
-            "DataActions": [],
-            "NotDataActions": [],
-            "AssignableScopes":
-            [
-                "/subscriptions/$MySubscriptionId"
-            ]
-        }
+    {
+        "Name": "Azure Cosmos DB Key Only Access Custom Role",
+        "Id": "00000000-0000-0000-0000-0000000000",
+        "IsCustom": true,
+        "Description": "This role restricts the user to read the account keys only.",
+        "Actions":
+        [
+            "Microsoft.DocumentDB/databaseAccounts/listKeys/action"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": [],
+        "AssignableScopes":
+        [
+            "/subscriptions/$MySubscriptionId"
+        ]
+    }
     ```
 
 - Run the following commands to create the Role assignment and assign it to a user named CosmosDBUser1:
@@ -76,9 +76,9 @@ The steps below create an AAD role assignment with "Key Only" access for Azure C
     New-AzRoleAssignment -SignInName $MyUserName -RoleDefinitionName "Azure Cosmos DB Key Only Access Custom Role" -ResourceGroupName $MyResourceGroupName -ResourceName $MyAzureCosmosDBAccountName -ResourceType "Microsoft.DocumentDb/databaseAccounts"
     ```
 
-## Remove non-data operations from being performed with key access
+## Disallow the execution of non-data operations with keys
 
-The commands below remove the ability to:
+The following commands remove the ability to:
 - use keys to create, modify or delete resources
 - update container settings (including indexing policies, throughput, consistency level etc.).
 
