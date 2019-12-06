@@ -14,7 +14,7 @@
     - name: 2 - Install
       href: azure-stack-edge-r-series-deploy-install.md
     - name: 3 - Connect, set up, activate
-      href: azure-stack-edge-r-series-placeholder.md
+      href: azure-stack-edge-r-series-deploy-connect-setup-activate.md
     - name: 4A - Add, connect to share
       href: azure-stack-edge-r-series-deploy-add-shares.md
     - name: 4B - Add, connect to storage accounts

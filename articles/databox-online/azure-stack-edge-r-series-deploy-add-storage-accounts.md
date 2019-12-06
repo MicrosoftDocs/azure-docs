@@ -128,7 +128,7 @@ Each of these steps is described in the following sections.
 
 ### Get certificate
 
-Accessing Blob storage over HTTPS requires an SSL certificate for the device. You will also upload this certificate to your Azure Stack Edge device as *.pfx* file with a private key attached to it. For more information on how to create (for test and dev purposed only) and upload these certificates to your Azure Stack Edge device, go to:
+Accessing Blob storage over HTTPS requires an SSL certificate for the device. You will also upload this certificate to your Azure Stack Edge device as *.pfx* file with a private key attached to it. For more information on how to create (for test and dev purposes only) and upload these certificates to your Azure Stack Edge device, go to:
 
 - [Create the blob endpoint certificate](azure-stack-edge-r-series-manage-certificates.md#create-certificates-optional).
 - [Upload the blob endpoint certificate](azure-stack-edge-r-series-manage-certificates.md#upload-certificates).
