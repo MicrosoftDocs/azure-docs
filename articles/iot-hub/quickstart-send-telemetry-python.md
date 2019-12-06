@@ -33,7 +33,7 @@ az extension add --name azure-cli-iot-ext
 
 Download the sample Python project from https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip and extract the ZIP archive.
 
-Have Python version 3.5.3+ installed on your development machine. 
+Have [Python version 3.7 or later](https://www.python.org/downloads/) installed on your development machine. For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features) in the SDK documentation.
 
 ## Create an IoT hub
 
