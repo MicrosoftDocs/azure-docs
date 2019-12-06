@@ -1,5 +1,5 @@
 ---
-title: Deploy associations for a managed application using policy
+title: Deploy associations for Azure Managed Application using policy
 description: Learn about deploying associations for a managed application using Azure Policy service.
 author: msHich
 ms.service: managed-applications
@@ -14,23 +14,23 @@ Azure policies can be used to deploy associations to associate resources to a ma
 
 ## Built-in policy to deploy associations
 
-Deploy associations for a managed application is a built-in policy that can be used to deploy association to associate a resource to a managed application. The policy accepts three paramaters:
+Deploy associations for a managed application is a built-in policy that can be used to deploy association to associate a resource to a managed application. The policy accepts three parameters:
 
-- Managed application Id - This is the resource Id of the managed application to which the resources need to be associated.
-- Resource types to associate - These are the list of resource types to be associated to the managed application. You can associate multiple resource types to a managed application using the same policy.
-- Association name prefix - This is the prefix to be added to the name of the association resource being created. The default value is "DeployedByPolicy".
+- Managed application Id - This ID is the resource ID of the managed application to which the resources need to be associated.
+- Resource types to associate - These resource types are the list of resource types to be associated to the managed application. You can associate multiple resource types to a managed application using the same policy.
+- Association name prefix - This string is the prefix to be added to the name of the association resource being created. The default value is "DeployedByPolicy".
 
-The policy uses DeployIfNotExists evaluation which runs after a Resource Provider has handled a create or update resource request of the selected resource type(s) and has returned a success status code. After that, the association resource gets deployed using a template deployment.
+The policy uses DeployIfNotExists evaluation. It runs after a Resource Provider has handled a create or update resource request of the selected resource type(s) and the evaluation has returned a success status code. After that, the association resource gets deployed using a template deployment.
 For more information on associations, see [Azure Custom Providers resource onboarding](./concepts-custom-providers-resourceonboarding.md)
 
-## How to use deploy associations built-in policy 
+## How to use the deploy associations built-in policy 
 
 ### Prerequisites
 If the managed application needs permissions to the subscription to perform an action, the policy deployment of association resource wouldn't work without granting the permissions.
 
 ### Policy assignment
 To use the built-in policy, create a policy assignment and assign the Deploy associations for a managed application policy. Once the policy has been assigned successfully, 
-the policy will identify non-compliant resources and deploy association for resources that are non-compliant.
+the policy will identify non-compliant resources and deploy association for those resources.
 
 ![Assign built-in policy](media/builtin-policy/assign-builtin-policy-managedapp.png)
 

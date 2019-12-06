@@ -1,5 +1,5 @@
 ---
-title: Deploy associations for a custom provider using policy
+title: Deploy associations for Azure Custom Provider using policy
 description: Learn about deploying associations for a custom provider using Azure Policy service.
 author: msHich
 ms.service: managed-applications
@@ -14,23 +14,22 @@ Azure policies can be used to deploy associations to associate resources to a cu
 
 ## Built-in policy to deploy associations
 
-Deploy associations for a custom provider is a built-in policy that can be used to deploy association to associate a resource to a custom provider. The policy accepts three paramaters:
+Deploy associations for a custom provider is a built-in policy that can be used to deploy association to associate a resource to a custom provider. The policy accepts three parameters:
 
-- Custom provider Id - This is the resource Id of the custom provider to which the resources need to be associated.
-- Resource types to associate - These are the list of resource types to be associated to the custom provider. You can associate multiple resource types to a custom provider using the same policy.
-- Association name prefix - This is the prefix to be added to the name of the association resource being created. The default value is "DeployedByPolicy".
+- Custom provider Id - This ID is the resource ID of the custom provider to which the resources need to be associated.
+- Resource types to associate - These resource types are the list of resource types to be associated to the custom provider. You can associate multiple resource types to a custom provider using the same policy.
+- Association name prefix - This string is the prefix to be added to the name of the association resource being created. The default value is "DeployedByPolicy".
 
-The policy uses DeployIfNotExists evaluation which runs after a Resource Provider has handled a create or update resource request of the selected resource type(s) and has returned a success status code. After that, the association resource gets deployed using a template deployment.
+The policy uses DeployIfNotExists evaluation. It runs after a Resource Provider has handled a create or update resource request and the evaluation has returned a success status code. After that, the association resource gets deployed using a template deployment.
 For more information on associations, see [Azure Custom Providers resource onboarding](./concepts-custom-providers-resourceonboarding.md)
 
-## How to use deploy associations built-in policy 
+## How to use the deploy associations built-in policy 
 
 ### Prerequisites
-If the custom provider needs permissions to the subscription to perform an action, the policy deployment of association resource wouldn't work without granting the permissions.
+If the custom provider needs permissions to the scope of the policy to perform an action, the policy deployment of association resource wouldn't work without granting the permissions.
 
 ### Policy assignment
-To use the built-in policy, create a policy assignment and assign the Deploy associations for a custom provider policy. Once the policy has been assigned successfully, 
-the policy will identify non-compliant resources and deploy association for resources that are non-compliant.
+To use the built-in policy, create a policy assignment and assign the Deploy associations for a custom provider policy. The policy will then identify non-compliant resources and deploy association for those resources.
 
 ![Assign built-in policy](media/builtin-policy/assign-builtin-policy-customprovider.png)
 
