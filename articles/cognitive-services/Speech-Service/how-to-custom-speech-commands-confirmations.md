@@ -3,7 +3,7 @@ title: 'How To: Add a confirmation to a Custom Command (Preview)'
 titleSuffix: Azure Cognitive Services
 description: In this article, add confirmation to a Custom Command
 services: cognitive-services
-author: encorona 
+author: encorona-ms
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
