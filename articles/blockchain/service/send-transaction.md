@@ -1,7 +1,7 @@
 ---
 title: Create, build, & deploy smart contracts tutorial - Azure Blockchain Service
 description: Tutorial on how to use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service.
-ms.date: 12/05/2019
+ms.date: 12/06/2019
 ms.topic: tutorial
 ms.reviewer: chrisseg
 
@@ -10,7 +10,7 @@ ms.reviewer: chrisseg
 
 # Tutorial: Create, build, and deploy smart contracts on Azure Blockchain Service
 
-In this tutorial, use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service. You also use Truffle to execute a smart contract function via a transaction.
+In this tutorial, use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service. You also use the development kit to execute a smart contract function via a transaction.
 
 You use Azure Blockchain Development Kit for Ethereum to:
 
@@ -18,7 +18,6 @@ You use Azure Blockchain Development Kit for Ethereum to:
 > * Create a smart contract
 > * Deploy a smart contract
 > * Execute a smart contract function via a transaction
-> * Query contract state
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -88,68 +87,19 @@ The **HelloBlockchain** contract's **SendRequest** function changes the **Reques
 
     ![Choose Show Smart Contract Interaction Page from menu](./media/send-transaction/contract-interaction.png)
 
-When you execute a contract's function via a transaction, the transaction isn't processed until a block is created. Functions meant to be executed via a transaction return a transaction ID instead of a return value.
+1. The interaction page allows you to choose a deployed contract version, call functions, view current state, and view metadata.
 
-## Query contract state
+    ![Example Smart Contract Interaction Page](./media/send-transaction/interaction-page.png)
 
-Smart contract functions can return the current value of state variables. Let's add a function to return the value of a state variable.
+1. To call smart contract function, select the contract action and pass your arguments. Choose **SendRequest** contract action and enter **Hello, Blockchain!** for the **requestMessage** parameter. Select **Execute** to call the **SendRequest** function via a transaction.
 
-1. In **HelloBlockchain.sol**, add a **getMessage** function to the **HelloBlockchain** smart contract.
+    ![Execute SendRequest action](./media/send-transaction/sendrequest-action.png)
 
-    ``` solidity
-    function getMessage() public view returns (string memory)
-    {
-        if (State == StateType.Request)
-            return RequestMessage;
-        else
-            return ResponseMessage;
-    }
-    ```
+Once the transaction is processed, the interaction section reflects the state changes.
 
-    The function returns the message stored in a state variable based on the current state of the contract.
+![Contract state changes](./media/send-transaction/contract-state.png)
 
-1. Right-click **HelloBlockchain.sol** and choose **Build Contracts** from the menu to compile the changes to the smart contract.
-1. To deploy, right-click **HelloBlockchain.sol** and choose **Deploy Contracts** from the menu. When prompted, choose your Azure Blockchain consortium network in the command palette.
-1. Next, create a script using to call the **getMessage** function. Create a new file in the root of your Truffle project and name it `getmessage.js`. Add the following Web3 JavaScript code to the file.
-
-    ```javascript
-    var HelloBlockchain = artifacts.require("HelloBlockchain");
-    
-    module.exports = function(done) {
-      console.log("Getting the deployed version of the HelloBlockchain smart contract")
-      HelloBlockchain.deployed().then(function(instance) {
-        console.log("Calling getMessage function for contract ", instance.address);
-        return instance.getMessage();
-      }).then(function(result) {
-        console.log("Request message value: ", result);
-        console.log("Request complete");
-        done();
-      }).catch(function(e) {
-        console.log(e);
-        done();
-      });
-    };
-    ```
-
-1. In VS Code's terminal pane, use Truffle to execute the script on your blockchain network. In the terminal pane menu bar, select the **Terminal** tab and **PowerShell** in the dropdown.
-
-    ```bash
-    truffle exec getmessage.js --network <blockchain network>
-    ```
-
-    Replace \<blockchain network\> with the name of the blockchain network defined in the **truffle-config.js**.
-
-The script queries the smart contract by calling the getMessage function. The current value of the **RequestMessage** state variable is returned.
-
-![Script output](./media/send-transaction/execute-get.png)
-
-Notice the value is not **Hello, blockchain!**. Instead, the returned value is a placeholder. When you change and deploy the contract, the changed contract is deployed at a new address and the state variables are assigned values in the smart contract constructor. The Truffle sample **2_deploy_contracts.js** migration script deploys the smart contract and passes a placeholder value as an argument. The constructor sets the **RequestMessage** state variable to the placeholder value and that's what is returned.
-
-1. To set the **RequestMessage** state variable and query the value, run the **sendrequest.js** and **getmessage.js** scripts again.
-
-    ![Script output](./media/send-transaction/execute-set-get.png)
-
-    **sendrequest.js** sets the **RequestMessage** state variable to **Hello, blockchain!** and **getmessage.js** queries the contract for value of **RequestMessage** state variable and returns **Hello, blockchain!**.
+The SendRequest function sets the **RequestMessage** and **State** fields. The current state for **RequestMessage** is the argument you passed **Hello, Blockchain**. The **State** field value remains **Request**.
 
 ## Clean up resources
 
