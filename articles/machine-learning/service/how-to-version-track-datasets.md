@@ -123,6 +123,7 @@ Because Machine Learning pipelines populate the output of each step into a new f
 from azureml.core import Dataset
 from azureml.pipeline.steps import PythonScriptStep
 from azureml.pipeline.core import Pipeline, PipelineData
+from azureml.core. runconfig import CondaDependencies, RunConfiguration
 
 # get input dataset 
 input_ds = Dataset.get_by_name(workspace, 'weather_ds')
@@ -131,10 +132,19 @@ input_ds = Dataset.get_by_name(workspace, 'weather_ds')
 output_ds = PipelineData('prepared_weather_ds', datastore=datastore).as_dataset()
 output_ds = output_ds.register(name='prepared_weather_ds', create_new_version=True)
 
+conda = CondaDependencies.create(
+    pip_packages=['azureml-defaults', 'azureml-dataprep[fuse,pandas]'], 
+    pin_sdk_version=False)
+
+run_config = RunConfiguration()
+run_config.environment.docker.enabled = True
+run_config.environment.python.conda_dependencies = conda
+
 # configure pipeline step to use dataset as the input and output
 prep_step = PythonScriptStep(script_name="prepare.py",
                              inputs=[input_ds.as_named_input('weather_ds')],
                              outputs=[output_ds],
+                             runconfig=run_config,
                              compute_target=compute_target,
                              source_directory=project_folder)
 ```
