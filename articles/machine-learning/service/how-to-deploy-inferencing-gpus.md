@@ -142,6 +142,7 @@ dependencies:
 - python=3.6.2
 
 - pip:
+  # You must list azureml-defaults as a pip dependency
   - azureml-defaults
 - numpy
 - tensorflow-gpu=1.12
@@ -168,7 +169,7 @@ For more information, see the reference documentation for [AksService.deploy_con
 
 ## Define the inference configuration
 
-The inference configuration points to the entry script and an environment object, which uses a docker image with GPU support:
+The inference configuration points to the entry script and an environment object, which uses a docker image with GPU support. Please note that the YAML file used for environment definition must list azureml-defaults with version >= 1.0.53 as a pip dependency. This package contains tools necessary for running inferencing logic:
 
 ```python
 from azureml.core.model import InferenceConfig
