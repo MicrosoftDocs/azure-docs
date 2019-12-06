@@ -11,7 +11,7 @@ The major versions of the Azure Functions runtime are related to the version of 
 
 | Runtime version | Release level<sup>1</sup> | .NET version | 
 | --------------- | ------------- | ------------ |
-| 3.x  | GA | .NET Core 3.1 | 
+| 3.x | GA | .NET Core 3.1 | 
 | 2.x | GA | .NET Core 2.2 |
 | 1.x | GA<sup>2</sup> | .NET Framework 4.6<sup>3</sup> |
 
@@ -92,7 +92,7 @@ The following are the changes to be aware of before upgrading a 2.x app to 3.x.
 
 #### .NET
 
-* Synchronous server operations are disabled by default.
+* [Synchronous server operations are disabled by default](https://docs.microsoft.com/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
 
 ### Changing version of apps in Azure
 
@@ -138,7 +138,12 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 > [!NOTE]
 > Azure Functions 3.x and .NET requires the `Microsoft.Sdk.NET.Functions` extension be at least `3.0.0`.
 
-When you debug or publish your project, the correct version of the runtime is used.
+###### Updating 2.x apps to 3.x in Visual Studio
+
+You can open an existing function targeting 2.x and move to 3.x by editing the `.csproj` file and updating the values above.  Visual Studio manages runtime versions automatically for you based on project metadata.  However, it's possible if you have never created a 3.x app before Visual Studio doesn't yet have the templates and runtime for 3.x on your machine.  This may present itself with an error like "no Functions runtime available that matches the version specified in the project."  To fetch the latest templates and runtime, go through the experience to create a new function project.  When you get to the version and template select screen, wait for Visual Studio to complete fetching the latest templates.  Once the latest .NET Core 3 templates are available and displayed you should be able to run and debug any project configured for version 3.x.
+
+> [!IMPORTANT]
+> Version 3.x functions can only be developed in Visual Studio if using version 16.4 or newer.
 
 #### VS Code and Azure Functions Core Tools
 
