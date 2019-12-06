@@ -27,14 +27,14 @@ Use the following services to host your application data in the cloud.
 [GitHub](https://github.com/) is an open-source repository hosting service that hosts source code projects in a variety of different programming languages. GitHub keeps track of the various changes made to every iteration.
 
 **Key features**
-- **Use code hosting** to keep all your code in one place. Private, public, and open source repositories are all equipped with tools to help you host, version, and release code.
+- **Use code hosting** to keep all your code in one place. Private, public, and open-source repositories are all equipped with tools to help you host, version, and release code.
 - **Review code** and use the built-in review tools to make code review an essential part of any team's process:
     - Protect branches, propose changes, and request reviews.
     - Spot differences, comment in context, and get clear feedback.
 - **Coordinate early, stay aligned, and get more done** with GitHub's project management tools:
     - See the project's big picture.
     - Use task boards that are right next to your code inside GitHub.
-    - Drag and drop cards to assign issues or pull requests to team members.
+    - Drag cards to assign issues or pull requests to team members.
     - Set milestones to organize and track progress.
     - Write notes to capture ideas that might be useful but don't belong to a particular issue or pull request.
 - **Easily discover and choose the right tools** for better communication and automation of work by buying applications from [GitHub Marketplace](https://github.com/marketplace).
@@ -62,11 +62,11 @@ Use the following services to host your application data in the cloud.
     - Collaborate to build better code by using threaded discussion and continuous integration for each change.
     - Set up continuous integration/continuous delivery (CI/CD) to automatically trigger builds, tests, and deployments with every completed pull request. You can use Azure Pipelines or your tools.
     - Protect your code quality with branch policies.
-- **Maintain centralized version control with Team Foundation Version Control**, which includes code review.
+- **Maintain centralized version control with Team Foundation Version Control,** which includes code review.
 - **Connect to your code** by using Xcode, Eclipse, IntelliJ, Android Studio, Visual Studio, Visual Studio Code, and more.
-- **Use powerful semantic code search**.
-- **Enterprise ready**. Azure DevOps has native integration with Azure Active Directory, which simplifies the process of managing access to your code repositories.
-- **Ensure code quality** with branch policies such as a minimum number of code reviews, requirements for  successful builds, and enforcement of Git merge strategies.
+- **Use powerful semantic code search.**
+- **Gain benefits from enterprise-ready features.** Azure DevOps has native integration with Azure Active Directory, which simplifies the process of managing access to your code repositories.
+- **Ensure code quality** with branch policies such as a minimum number of code reviews, requirements for successful builds, and enforcement of Git merge strategies.
 - **Connect your favorite development environment** to access repos and manage work.
 
 **References**
