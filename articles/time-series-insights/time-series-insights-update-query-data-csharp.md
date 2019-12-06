@@ -25,7 +25,7 @@ The sample shows several basic examples of Query API usage:
 1. Provides an example of SDK auto-generation support from [Azure AutoRest](https://github.com/Azure/AutoRest).
 
 > [!NOTE]
-> This example code and the steps to compile and run it are available at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
+> The example code as well as the steps to compile and run it are available at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
 
 ## C# example
 
