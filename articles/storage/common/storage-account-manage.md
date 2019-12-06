@@ -1,12 +1,13 @@
 ---
-title: Manage storage account settings in the Azure portal - Azure Storage | Microsoft Docs
+title: Manage storage account settings in the Azure portal
+titleSuffix: Azure Storage
 description: Learn how to manage storage account settings in the Azure portal, including configuring access control settings, regenerating account access keys, changing the access tier, or modifying the type of replication used by the account. Also learn how to delete a storage account in the portal.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 11/06/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ---
 
