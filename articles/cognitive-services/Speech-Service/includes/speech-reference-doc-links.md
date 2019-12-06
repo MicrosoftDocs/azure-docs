@@ -31,7 +31,7 @@ Use the following list to find the appropriate Speech SDK reference docs:
 
 ### Speech Devices SDK reference docs
 
-The [Speech Devices SDK](../speech-devices-sdk.md) is a superset of the Speech SDK, with extended functionality for specific devices. To download the Speech Devices SDK, you must first [choose your development kit](../get-speech-devices-sdk#choose-a-development-kit).
+The [Speech Devices SDK](../speech-devices-sdk.md) is a superset of the Speech SDK, with extended functionality for specific devices. To download the Speech Devices SDK, you must first [choose a development kit](../get-speech-devices-sdk.md#choose-a-development-kit).
 
 ### REST API references
 
