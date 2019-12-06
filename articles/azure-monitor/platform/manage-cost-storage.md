@@ -230,7 +230,7 @@ union withsource = tt *
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| billableNodes=dcount(computerName)
+| summarize billableNodes=dcount(computerName)
 ```
 
 > [!NOTE]

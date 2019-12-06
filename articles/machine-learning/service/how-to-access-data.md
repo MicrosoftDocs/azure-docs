@@ -56,7 +56,7 @@ When you register an Azure storage solution as a datastore, you automatically cr
 
 All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*.
 
-The information you need to populate the register() method can be found via  [Azure Machine Learning studio](https://ml.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication information, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left. 
+The information you need to populate the register() method can be found via  [Azure portal](https://portal.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication information, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left. 
 
 The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
 
@@ -100,7 +100,7 @@ Create a new datastore in a few steps in Azure Machine Learning studio.
 1. Select **+ New datastore**.
 1. Complete the New datastore form. The form intelligently updates based on the Azure storage type and authentication type selections.
   
-The information you need to populate the form can be found via [Azure Machine Learning studio](https://ml.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication items, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left.
+The information you need to populate the form can be found via  [Azure portal](https://portal.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication items, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left.
 
 The following example demonstrates what the form would look like for creating an Azure blob datastore. 
     

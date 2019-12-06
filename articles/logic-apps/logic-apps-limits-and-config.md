@@ -1,13 +1,9 @@
 ---
-title: Limits and configuration - Azure Logic Apps
+title: Limits and configuration
 description: Service limits, such as duration, throughput, and capacity, plus configuration values, such as IP addresses to allow, for Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.author: estfan
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/19/2019
 ---
@@ -69,7 +65,7 @@ To change the default limit for run duration and storage retention, follow these
 
    > [!NOTE]
    > For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
-   > For logic apps in an integration service environment, you can decreause or increase the 90-day default limit.
+   > For logic apps in an integration service environment, you can decrease or increase the 90-day default limit.
 
 <a name="looping-debatching-limits"></a>
 

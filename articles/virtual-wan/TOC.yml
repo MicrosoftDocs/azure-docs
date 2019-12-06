@@ -24,8 +24,6 @@
       href: migrate-from-hub-spoke-topology.md
     - name: Global transit network architecture
       href: virtual-wan-global-transit-network-architecture.md
-    - name: Office 365 control plane in Virtual WAN
-      href: virtual-wan-office365-overview.md
 - name: How-to guides
   items:
   - name: Connect virtual network gateway to Virtual WAN
@@ -40,6 +38,12 @@
     href: virtual-wan-custom-ipsec-portal.md
   - name: Configure certificates for User VPN (point-to-site)
     href: certificates-point-to-site.md
+  - name: Configure Azure AD tenant for User VPN
+    href: openvpn-azure-ad-tenant.md
+  - name: Enable Multi-Factor Authentication(MFA) for User VPN
+    href: openvpn-azure-ad-mfa.md   
+  - name: Configure Azure AD authentication for User VPN (Preview)
+    href: virtual-wan-point-to-site-azure-ad.md
   - name: Configure automation (Virtual WAN partners)
     href: virtual-wan-configure-automation-providers.md
   - name: Configure routing

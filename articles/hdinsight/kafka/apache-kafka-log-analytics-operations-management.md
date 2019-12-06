@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.custom: hdinsightactive
+ms.date: 12/04/2019
 ---
 
 # Analyze logs for Apache Kafka on HDInsight
@@ -51,7 +51,7 @@ The steps to enable Azure Monitor logs for HDInsight are the same for all HDInsi
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
 
-* Incoming messages per second:
+* Incoming messages per second: (Replace `your_kafka_cluster_name` with your cluster name.)
 
     ```kusto
     metrics_kafka_CL 
@@ -59,7 +59,7 @@ The steps to enable Azure Monitor logs for HDInsight are the same for all HDInsi
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)
     ```
 
-* Incoming bytes per second:
+* Incoming bytes per second: (Replace `wn0-kafka` with a worker node host name.)
 
     ```kusto
     metrics_kafka_CL 
@@ -67,16 +67,13 @@ The steps to enable Azure Monitor logs for HDInsight are the same for all HDInsi
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-* Outgoing bytes per second:
+* Outgoing bytes per second: (Replace `your_kafka_cluster_name` with your cluster name.)
 
     ```kusto
     metrics_kafka_CL 
     | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" 
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
-
-    > [!IMPORTANT]  
-    > Replace the query values with your cluster specific information. For example, `ClusterName_s` must be set to the name of your cluster. `HostName_s` must be set to the domain name of a worker node in the cluster.
 
     You can also enter `*` to search all types logged. Currently the following logs are available for queries:
 
@@ -95,6 +92,6 @@ For more information on Azure Monitor, see [Azure Monitor overview](../../log-an
 For more information on working with Apache Kafka, see the following documents:
 
 * [Mirror Apache Kafka between HDInsight clusters](apache-kafka-mirroring.md)
-* [Increase the scalability of Apache Kafka on HDInsight](apache-kafka-scalability.md)
+* [Increase the scale of Apache Kafka on HDInsight](apache-kafka-scalability.md)
 * [Use Apache Spark streaming (DStreams) with Apache Kafka](../hdinsight-apache-spark-with-kafka.md)
 * [Use Apache Spark structured streaming with Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
