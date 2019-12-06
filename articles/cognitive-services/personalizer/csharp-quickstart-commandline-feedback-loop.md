@@ -160,7 +160,7 @@ The following code in the `main` method of the program loops through a cycle of 
 
 [!code-csharp[Learning loop](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=mainLoop)]
 
-Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), before running the code file:
+Add the following methods, which [get the content choices](#get-food-items-as-rankable-actions), before running the code file:
 
 * `GetActions`
 * `GetUsersTimeOfDay`
