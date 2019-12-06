@@ -43,8 +43,6 @@ require 'json'
 
 A few variables must be set before we can continue. `uri` can be the global endpoint below, or the [custom subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) endpoint displayed in the Azure portal for your resource. Confirm that the `uri` and `path` are valid and replace the `accessKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `term`.
 
-[!INCLUDE [bing-endpoint-information](../../../../includes/bing-endpoints.md)]
-
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"
 uri  = "https://api.cognitive.microsoft.com"
