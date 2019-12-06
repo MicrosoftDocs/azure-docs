@@ -115,7 +115,7 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 ## Next steps
 
-In this article, you've read about the supported FHIR features in Azure API for FHIR. Next deploy an FHIR API in Azure.
+In this article, you've read about the supported FHIR features in Azure API for FHIR. Next deploy the Azure API for FHIR.
  
 >[!div class="nextstepaction"]
->[Deploy Open Source FHIR server](fhir-oss-powershell-quickstart.md)
+>[Getting started with Azure API for FHIR](tutorial-2-setup-environment.md)

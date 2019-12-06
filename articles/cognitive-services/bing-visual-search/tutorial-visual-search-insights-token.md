@@ -9,8 +9,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.author: rosh
+ms.date: 11/29/2019
+ms.author: aahi
 ---
 # Find similar images from previous searches using ImageInsightsToken
 

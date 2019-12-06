@@ -38,6 +38,10 @@
       href: class-type-shell-scripting-linux.md
     - name: Ethical hacking
       href: class-type-ethical-hacking.md
+    - name: Database management
+      href: class-type-database-management.md
+    - name: Python and Jupyter Notebooks
+      href: class-type-jupyter-notebook.md
   - name: Create and configure lab accounts (lab account owner)
     items:
     - name: Create and manage lab accounts
@@ -68,8 +72,8 @@
       href: how-to-enable-remote-desktop-linux.md
     - name: Enable nested virtualization on a template VM
       href: how-to-enable-nested-virtualization-template-vm.md
-    - name: Create an environment with multiple VMs inside a template VM
-      href: how-to-enable-multi-vm-environment.md
+    - name: Prepare a Windows template VM
+      href: how-to-prepare-windows-template.md
   - name: Connect to VMs in classroom labs (student)
     items:        
     - name: Access classroom labs

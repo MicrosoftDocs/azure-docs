@@ -186,7 +186,7 @@ When an assigned user tries to log in to Lynda.com using the access panel, Lynda
 If there is no user account available yet, it is automatically created by Lynda.com.
 
 > [!NOTE]
-> You can use any other Lynda.com user account creation tools or APIs provided by Lynda.com to provision AAD user accounts.
+> You can use any other Lynda.com user account creation tools or APIs provided by Lynda.com to provision Azure AD user accounts.
 
 ### Test single sign-on 
 

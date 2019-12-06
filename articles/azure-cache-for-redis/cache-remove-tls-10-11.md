@@ -1,18 +1,10 @@
 ---
-title: Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis | Microsoft Docs
+title: Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis
 description: Learn how to remove TLS 1.0 and 1.1 from your application when communicating with Azure Cache for Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
 
-ms.assetid:
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
 
@@ -38,7 +30,7 @@ Most applications use Redis client libraries to handle communication with their 
 
 Redis .NET clients use the earliest TLS version by default on .NET Framework 4.5.2 or earlier, and use the latest TLS version on .NET Framework 4.6 or later. If you're using an older version of .NET Framework, you can enable TLS 1.2 manually:
 
-* **StackExchange.Redis:** Set `ssl=true` and `sslprotocls=tls12` in the connection string.
+* **StackExchange.Redis:** Set `ssl=true` and `sslprotocols=tls12` in the connection string.
 * **ServiceStack.Redis:** Follow the [ServiceStack.Redis instructions](https://github.com/ServiceStack/ServiceStack.Redis/pull/247).
 
 ### .NET Core

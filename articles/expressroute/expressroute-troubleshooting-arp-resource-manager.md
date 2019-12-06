@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Get ARP tables - Troubleshooting'
+title: 'Azure ExpressRoute: ARP tables - Troubleshooting'
 description: This page provides instructions on getting the ARP tables for an ExpressRoute circuit
 services: expressroute
 author: ganesr

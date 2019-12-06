@@ -22,7 +22,7 @@ While emulation of the Azure Cosmos DB service is faithful, the emulator's imple
 
 You can migrate data between the Azure Cosmos Emulator and the Azure Cosmos DB service by using the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
 
-You can run Azure Cosmos Emulator on the Windows Docker container, see the [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) for the docker pull command and [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) for the emulator source code.
+You can run Azure Cosmos Emulator on the Windows Docker container, see the [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) for the docker pull command and [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) for the `Dockerfile` and more information.
 
 ## Differences between the emulator and the service
 
@@ -411,6 +411,24 @@ Closing the interactive shell once the emulator has been started will shut down 
 To open the Data Explorer, navigate to the following URL in your browser. The emulator endpoint is provided in the response message shown above.
 
     https://<emulator endpoint provided in response>/_explorer/index.html
+
+If you have a .NET client application running on a Linux docker container and if you are running Azure Cosmos emulator on a host machine, in this case you can’t connect to the Azure Cosmos account from the emulator. Because the app is not running on the host machine, the certificate registered on the Linux container that matches the emulator’s endpoint cannot be added. 
+
+As a workaround, you can disable the server’s SSL certificate validation from your client application by passing a `HttpClientHandler` instance as shown in the following .Net code sample. This workaround is only applicable if you are using the `Microsoft.Azure.DocumentDB` Nuget package, it isn't supported with the `Microsoft.Azure.Cosmos` Nuget package:
+ 
+ ```csharp
+var httpHandler = new HttpClientHandler()
+{
+    ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+};
+ 
+using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+{
+    RunDatabaseDemo(client).GetAwaiter().GetResult();
+}
+```
+
+In addition to disabling the SSL certificate validation, it is important that you start the emulator with the `/allownetworkaccess` option and the emulator’s endpoint is accessible from the host IP address rather than `host.docker.internal` DNS.
 
 ## Running on Mac or Linux<a id="mac"></a>
 

@@ -14,6 +14,8 @@
         href: per-vm-quota-requests.md
       - name: Total regional vCPU limit increase
         href: regional-quota-requests.md
+      - name: Spot quota limit increase
+        href: low-priority-quota.md
     - name: Classic Deployment Model 
       href: classic-deployment-model-quota-increase-requests.md 
   - name: Networking limit increase
