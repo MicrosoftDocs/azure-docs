@@ -95,7 +95,7 @@ If your database is encrypted with TDE, the backups are automatically encrypted 
 
 ## How does Microsoft ensure backup integrity
 
-On an ongoing basis, the Azure SQL Database engineering team automatically tests the restore of automated database backups of databases placed in Logical servers and Elastic pools (this is not available in Managed Instance). Upon point-in-time restore, databases also receive integrity checks using DBCC CHECKDB.
+On an ongoing basis, the Azure SQL Database engineering team automatically tests the restore of automated database backups of databases placed in Logical servers and Elastic pools (this is not available in Managed Instance). Upon point-in-time restore, databases also receive integrity checks using DBCC CHECKDB.  If a customer implements a customer managed key for Transaparent Data Encryption (TDE) this feature will be disabled.  In this scenario the customer should plan to perform their own CHECKDBs on a regular basis.
 
 Managed Instance takes automatic initial backup with `CHECKSUM` of the databases restored using native `RESTORE` command or Data Migration Service once the migration is completed.
 
