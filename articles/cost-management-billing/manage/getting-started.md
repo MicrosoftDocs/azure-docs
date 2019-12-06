@@ -21,7 +21,7 @@ When you sign up for Azure, there are several things you can do to get a better 
 - Review the charges on your invoice by comparing them with [detailed usage files](download-azure-invoice-daily-usage-date.md).
 - Integrate billing and cost data with your own reporting system using [billing](https://docs.microsoft.com/rest/api/billing/) and [consumption](https://docs.microsoft.com/rest/api/consumption/) APIs.
 - Use additional resources and tools for Enterprise Agreement (EA), Cloud Solution Provider (CSP), and Azure Sponsorship customers.
-- Make use of [some of the most popular Azure services for free for 12 months](create-free-services.md) available with the [Azure free account](https://azure.microsoft.com/free/). Along with the recommendations listed below, see [Avoid getting charged for free account](../cost-management-billing/manage/avoid-charges-free-account.md).
+- Make use of [some of the most popular Azure services for free for 12 months](create-free-services.md) available with the [Azure free account](https://azure.microsoft.com/free/). Along with the recommendations listed below, see [Avoid getting charged for free account](avoid-charges-free-account.md).
 
 ## Get estimated costs before adding Azure services
 
@@ -115,7 +115,7 @@ If you are using Azure through a Microsoft Customer Agreement (MCA), you can als
 
 ## Integrate with billing and consumption APIs
 
-Use the Azure [billing](https://docs.microsoft.com/rest/api/billing/) and [consumption](https://docs.microsoft.com/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md).
+Use the Azure [billing](https://docs.microsoft.com/rest/api/billing/) and [consumption](https://docs.microsoft.com/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](../../billing/billing-usage-rate-card-overview.md).
 
 ## <a name="other-offers"></a> Additional resources and special cases
 

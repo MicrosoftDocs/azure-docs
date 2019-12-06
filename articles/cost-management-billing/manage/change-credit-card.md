@@ -45,7 +45,7 @@ If you have a [Microsoft Customer Agreement](#check-access-to-a-microsoft-custom
 
 1. Select **Next**.
 
-If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](billing-credit-card-fails-during-azure-sign-up.md).
+If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
 
 ## Update existing credit card
 

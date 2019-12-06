@@ -80,7 +80,7 @@ You can also create additional subscriptions programmatically. For more informat
 
 - [Add or change Azure subscription administrators](add-change-subscription-administrator.md)
 - [Move resources to new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json)
-- [Create management groups for resource organization and management](../governance/management-groups/create.md?toc=/azure/billing/TOC.json)
+- [Create management groups for resource organization and management](../../governance/management-groups/create.md?toc=/azure/billing/TOC.json)
 - [Cancel your subscription for Azure](cancel-azure-subscription.md)
 
 ## Need help? Contact us.
