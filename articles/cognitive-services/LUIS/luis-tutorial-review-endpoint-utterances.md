@@ -18,7 +18,7 @@ ms.author: diberry
 # Tutorial: Fix unsure predictions by reviewing endpoint utterances
 In this tutorial, improve app predictions by verifying or correcting utterances, received via the LUIS HTTPS endpoint, that LUIS is unsure of. You should review endpoint utterances as a regular part of your scheduled LUIS maintenance.
 
-This review process is another way for LUIS to learn your app domain. LUIS selectes the utterances that appear in the review list. This list is:
+This review process allows LUIS to learn your app domain. LUIS selects the utterances that appear in the review list. This list is:
 
 * Specific to the app.
 * Is meant to improve the app's prediction accuracy.
@@ -92,34 +92,22 @@ Review the endpoint utterances for correctly aligned intent. While there is a si
 
     This utterance, `I'm looking for a job with Natural Language Processing`, is not in the correct intent.
 
-    The reason the utterance was mispredicted is that the **ApplyForJob** intent has 21 utterances compared to the 7 utterances in **GetJobInformation**. The intent with more utterances will have a higher prediction. It is important that the quantity and quality of the utterances across intents is balanced.
-
 1.  To align this utterance, on the utterance row, select the correct **Aligned Intent** of `GetJobInformation`. Add the changed utterance to the app by selecting the checkmark.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of Review endpoint utterances button in left navigation](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
 
-    Review the remaining utterances in this intent, correcting the aligned intent as needed. Use the initial utterance table to view the aligned intent in this tutorial.
+    Review the remaining utterances in this intent, correcting the aligned intent as needed. Use the initial utterance table in this tutorial to view the aligned intent.
 
     The **Review endpoint utterances** list should no longer have the corrected utterances. If more utterances appear, continue to work through the list, correcting aligned intents until the list is empty.
 
     Any correction of entity labeling is done after the intent is aligned, from the Intent details page.
 
-## Train
-
-LUIS doesn't know about the changes until it is trained.
-
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
-
-## Publish
-
-If you imported this app, you need to select **Sentiment analysis**.
-
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+1. Train and publish the app again.
 
 ## Get intent prediction from endpoint
 
-Try an utterance close to the corrected utterance.
+To verify the correctly aligned example utterances improved the app's prediction, try an utterance close to the corrected utterance.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
