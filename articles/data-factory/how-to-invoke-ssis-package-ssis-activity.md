@@ -12,7 +12,7 @@ ms.author: sawinark
 author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 11/14/2019
 ---
 

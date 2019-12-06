@@ -9,7 +9,7 @@ manager: shwang
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 8/04/2019
 ---
 # Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage 

@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 manager: shwang
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 07/31/2018
 ---
 

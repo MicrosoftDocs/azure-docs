@@ -10,7 +10,7 @@ ms.author: wenjiefu
 author: wenjiefu
 ms.reviewer: sawinark
 manager: shwang
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 04/15/2019
 ---
 

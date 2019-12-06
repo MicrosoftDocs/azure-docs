@@ -11,7 +11,7 @@ author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
 manager: mflasko
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ---
 

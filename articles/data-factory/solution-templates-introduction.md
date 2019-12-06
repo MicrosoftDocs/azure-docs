@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: daperlov
 author: djpmsft
 manager: craigg
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 01/04/2019
 ---
 

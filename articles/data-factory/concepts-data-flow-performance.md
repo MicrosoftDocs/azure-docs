@@ -5,7 +5,7 @@ author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 10/07/2019
 ---
 

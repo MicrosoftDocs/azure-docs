@@ -6,7 +6,7 @@ ms.author: makromer
 ms.review: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 08/30/2019
 ---
 

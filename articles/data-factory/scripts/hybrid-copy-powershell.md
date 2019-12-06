@@ -9,7 +9,7 @@ ms.topic: article
 ms.author: jingwang
 author: linda33wj
 manager: shwang
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 10/31/2017
 ---
 

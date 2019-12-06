@@ -8,7 +8,7 @@ manager: shwang
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 10/31/2017
 ---
 

@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 04/09/2018
 ---
 

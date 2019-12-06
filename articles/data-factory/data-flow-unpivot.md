@@ -6,7 +6,7 @@ ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ---
 

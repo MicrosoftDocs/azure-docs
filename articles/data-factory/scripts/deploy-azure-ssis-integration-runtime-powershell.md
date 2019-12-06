@@ -9,7 +9,7 @@ ms.topic: article
 ms.author: sawinark
 author: swinarko
 manager: shwang
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ---
 

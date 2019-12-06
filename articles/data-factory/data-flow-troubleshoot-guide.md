@@ -7,7 +7,7 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 10/08/2019
 ---
 

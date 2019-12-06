@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 12/24/2018
 ---
 

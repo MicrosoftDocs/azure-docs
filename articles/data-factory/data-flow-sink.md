@@ -6,7 +6,7 @@ ms.author: makromer
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: "seo-lt-2019"​
+ms.custom: seo-lt-2019
 ms.date: 02/03/2019
 ---
 
