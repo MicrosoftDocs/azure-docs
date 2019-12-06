@@ -84,4 +84,4 @@ A-series VMs could cause ESP cluster issues due to relatively low CPU and memory
 HDInsight continues to make cluster reliability and performance improvements. 
 
 ## Component version change
-There is no component version change for this release. You could find the current component versions for HDInsight 4.0 ad HDInsight 3.6 [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+There is no component version change for this release. You could find the current component versions for HDInsight 4.0 and HDInsight 3.6 [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
