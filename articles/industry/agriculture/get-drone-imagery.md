@@ -1,6 +1,6 @@
 ---
 title: Get drone imagery
-description: Describes how to get the drone imagery from the partners
+description: This article describes how to get drone imagery from partners.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
@@ -9,43 +9,43 @@ ms.author: v-umha
 
 # Get drone imagery from drone partners
 
-This article describes how you can bring in orthomosaic data from your drone imagery partners in to Azure FarmBeats Data hub. An orthomosaic is an aerial illustration/image that is geometrically corrected and stitched from the data collected by drone.
+This article describes how you can bring in orthomosaic data from your drone imagery partners to Azure FarmBeats Datahub. An orthomosaic is an aerial illustration or image that's geometrically corrected and stitched from data collected by a drone.
 
-Currently the following imagery partners are supported.
+Currently, the following imagery partners are supported.
 
-  ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-partner-1.png)
+  ![FarmBeats drone imagery partners](./media/get-drone-imagery-from-drone-partner/drone-partner-1.png)
 
-Integrating drone imagery data with Azure FarmBeats helps you get orthomosaic data from the drone flights you conduct on your farm into the Data hub. After the data is available you can view it in the FarmBeats Accelerator, and it can be used for data fusion and AI/ML model building.
+Integrating drone imagery data with Azure FarmBeats helps you get orthomosaic data from the drone flights you conduct on your farm into the data hub. After the data is available, you can view it in the FarmBeats Accelerator. The data can be used for data fusion and artificial intelligence and machine learning model building.
 
 ## Before you begin
 
-  - Make sure you have deployed Azure FarmBeats. To deploy, visit [Deploy FarmBeats](prepare-for-deployment.md).
-  - Ensure you have the farm (for which you want drone imagery) defined in your FarmBeats system.
+  - Make sure that you deployed Azure FarmBeats. For information on how to deploy FarmBeats, see [Deploy FarmBeats](prepare-for-deployment.md).
+  - Ensure that you have the farm for which you want drone imagery defined in your FarmBeats system.
 
-## Enable drone imagery integration with FarmBeats   
+## Enable drone imagery integration with FarmBeats 
 
-You need to provide the following information to your device provider to enable the integration with FarmBeats:  
- - API Endpoint  
- - Tenant ID  
- - Client ID  
- - Client Secret  
+Provide the following information to your device provider to enable integration with FarmBeats: 
+ - API endpoint 
+ - Tenant ID 
+ - Client ID 
+ - Client secret 
 
-Use the following steps:
+Follow these steps.
 
-1. Download this [script](https://aka.ms/farmbeatspartnerscript) and extract it in on your local drive. You will find two files inside this ZIP file.  
-2. Sign in to [Azure portal](https://portal.azure.com/) and open Cloud Shell (This option is available on the top-right bar of the portal).   
+1. Download this [script](https://aka.ms/farmbeatspartnerscript), and extract it to your local drive. Two files are inside the zip file. 
+2. Sign in to the [Azure portal](https://portal.azure.com/) and open Azure Cloud Shell. This option is available on the toolbar in the upper-right corner of the portal.
 
-    ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
+    ![Open Azure Cloud Shell on upper-right bar of the portal](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-3. Ensure the environment is set to **PowerShell**
+3. Make sure the environment is set to **PowerShell**.
 
-    ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/power-shell-new-1.png)
+    ![PowerShell setting](./media/get-drone-imagery-from-drone-partner/power-shell-new-1.png)
 
-4. Upload the two files that you downloaded (from step 1 above) in your Cloud Shell.  
+4. Upload the two files that you downloaded from step 1 in your Cloud Shell instance. 
 
-    ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
+    ![Upload files](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded. (By default it gets uploaded to the home directory > username.)  
+5. Go to the directory where the files were uploaded. By default, they're uploaded to the home directory under the username. 
 6. Run the following script:
 
     ```azurepowershell-interactive 
@@ -54,36 +54,36 @@ Use the following steps:
 
     ```
 
-7. Follow the onscreen instructions to capture the values of API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String.
+7. Follow the onscreen instructions to capture the values of API Endpoint, Tenant ID, Client ID, Client Secret, and EventHub Connection String.
 
-    Once you enter the required credentials into the partner’s drone software system, you will be able to import all farms from the FarmBeats system and use the Farm details to do your flight path planning and drone image collection.
+    After you enter the required credentials into the partner's drone software system, you can import all farms from the FarmBeats system. Then you can use the farm details to do your flight path planning and drone image collection.
 
-    After the raw images are processed by the drone providers’ software, the drone software system uploads the stitched orthomosaic and other processed images into the Data hub.
+    After the raw images are processed by the drone providers' software, the drone software system uploads the stitched orthomosaic and other processed images into the data hub.
 
 ## View drone imagery
 
-Once the data is sent to the FarmBeats data hub, you should be able to query the Scene Store using the FarmBeats Data hub APIs.
+After the data is sent to the FarmBeats data hub, you can query the Scene Store by using FarmBeats Datahub APIs.
 
-Alternatively, you should be able to view the latest drone image in the **Farm Details** page. To view, follow the steps:  
+Alternatively, you can view the latest drone image on the **Farm Details** page. To view the image, follow the steps. 
 
-1. Select the farm to which your imagery has been uploaded. The **Farm** details page displays.
+1. Select the farm to which your imagery was uploaded. The **Farm** details page appears.
 2. Scroll down to the latest **Precision Maps** section.
-3. You should be able to view the image in the **Drone Imagery** section.
+3. View the image in the **Drone Imagery** section.
 
-    ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-imagery-1.png)
+    ![Drone Imagery section](./media/get-drone-imagery-from-drone-partner/drone-imagery-1.png)
 
 ## Download drone imagery
 
 When you select the Drone Imagery section, a pop-up opens to show a high-resolution image of the drone orthomosaic.
 
-![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/download-drone-imagery-1.png)
+![High-resolution orthomosaic](./media/get-drone-imagery-from-drone-partner/download-drone-imagery-1.png)
 
 ## View all drone maps
 
-Files and images uploaded by the drone provider appear in the Maps section. Select the **Maps** section, filter by **Farm** and choose the appropriate files to view and download:
+Files and images uploaded by the drone provider appear in the **Maps** section. Select the **Maps** section, filter by **Farm**, and select the appropriate files to view and download.
 
-  ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/view-drone-maps-1.png)
+  ![Maps section](./media/get-drone-imagery-from-drone-partner/view-drone-maps-1.png)
 
 ## Next steps
 
-Learn how to use the FarmBeats data hub [APIs](references-for-farmbeats.md#rest-api) to get your drone imagery.
+Learn how to use FarmBeats Datahub [APIs](references-for-farmbeats.md#rest-api) to get your drone imagery.

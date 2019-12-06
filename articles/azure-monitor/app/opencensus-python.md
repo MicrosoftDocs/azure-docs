@@ -264,7 +264,7 @@ The SDK uses three Azure Monitor exporters to send different types of telemetry 
     90
     ```
 
-3. Although entering values is helpful for demonstration purposes, ultimately we want to emit the metric data to Azure Monitor. Modify your code from the previous step based on the following code sample:
+3. Although entering values is helpful for demonstration purposes, ultimately we want to emit the log data to Azure Monitor. Modify your code from the previous step based on the following code sample:
 
     ```python
     import logging
@@ -291,7 +291,53 @@ The SDK uses three Azure Monitor exporters to send different types of telemetry 
 
 4. The exporter will send log data to Azure Monitor. You can find the data under `traces`.
 
-5. For details on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
+5. To format your log messages, you can use `formatters` in the built-in Python [logging API](https://docs.python.org/3/library/logging.html#formatter-objects).
+
+    ```python
+    import logging
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    
+    format_str = '%(asctime)s - %(levelname)-8s - %(message)s'
+    date_format = '%Y-%m-%d %H:%M:%S'
+    formatter = logging.Formatter(format_str, date_format)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    handler = AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    
+    def valuePrompt():
+        line = input("Enter a value: ")
+        logger.warning(line)
+    
+    def main():
+        while True:
+            valuePrompt()
+    
+    if __name__ == "__main__":
+        main()
+    ```
+
+6. You can also add custom dimensions to your logs. These will appear as key-value pairs in `customDimensions` in Azure Monitor.
+> [!NOTE]
+> For this feature to work, you need to pass a dictionary as an argument to your logs, any other data structure will be ignored. To maintain string formatting, store them in a dictionary and pass them as arguments.
+
+    ```python
+    import logging
+    
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    logger.addHandler(AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    )
+    logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
+    ```
+
+7. For details on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
 
 ## View your data with queries
 
