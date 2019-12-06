@@ -45,17 +45,29 @@ Before you can use a custom keyword, you'll need to create a keyword using the [
 
 1. Go to the [Speech Studio](https://aka.ms/sdsdk-speechportal) and **Sign in** or, if you do not yet have a speech subscription, choose [**Create a subscription**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
-1. At the [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) page, type in the keyword of your choice and click **Add keyword**. We have some [guidelines](#choose-an-effective-keyword) to help choose an effective keyword. Support is currently limited to the en-US language.
+1. At the [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) page, create a **New project**. 
 
-    ![Enter your keyword](media/speech-devices-sdk/custom-kws-portal-enter-keyword.png)
+1. Enter a **Name**, an optional **Description**, and select the language. You will need one project per language and support is currently limited to the en-US language.
 
-1. The portal will now create candidate pronunciations for your keyword. Listen to each candidate by clicking the play buttons and remove the checks next to any pronunciations that are incorrect. Once only good pronunciations are checked, select **Submit** to begin generating the keyword. If you want to change the keyword, first remove the existing one by clicking on the delete button that appears on the right side of the row while hovering over it.
+    ![Describe your keyword project](media/custom-keyword/custom-kws-portal-new-project.png)
 
-    ![Review your keyword](media/speech-devices-sdk/custom-kws-portal-review-keyword.png)
+1. Select your project from the list. 
 
-1. It may take up to one minute for the model to be generated. You will then be prompted to download the file.
+    ![Select your keyword project](media/custom-keyword/custom-kws-portal-project-list.png)
 
-    ![Download your keyword](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
+1. To start a new keyword model click **Train model**.
+
+1. Enter a **Name** for the keyword model, and optional **Description** and type in the **Keyword** of your choice, and click **Next**. We have some [guidelines](#choose-an-effective-keyword) to help choose an effective keyword.
+
+    ![Enter your keyword](media/custom-keyword/custom-kws-portal-new-model.png) 
+
+1. The portal will now create candidate pronunciations for your keyword. Listen to each candidate by clicking the play buttons and remove the checks next to any pronunciations that are incorrect. Once only good pronunciations are checked, click **Train** to begin generating the keyword. 
+
+    ![Review your keyword](media/custom-keyword/custom-kws-portal-choose-prons.png) 
+
+1. It may take up to ten minutes for the model to be generated. The keyword list will change from **Processing** to **Succeeded** when the model is complete. You can then download the file.
+
+    ![Review your keyword](media/custom-keyword/custom-kws-portal-download-model.png) 
 
 1. Save the .zip file to your computer. You will need this file to deploy your custom keyword to your device.
 

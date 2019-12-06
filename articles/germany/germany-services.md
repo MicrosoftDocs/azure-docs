@@ -1,6 +1,6 @@
 ---
 title: Azure Germany available services | Microsoft Docs
-description: Provides an overview of the available services in Azure Germany
+description: This article provides an overview of the available services in Azure Germany.
 services: germany
 cloud: na
 documentationcenter: na
