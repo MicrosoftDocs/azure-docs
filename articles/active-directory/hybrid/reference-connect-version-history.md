@@ -35,7 +35,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ## 1.4.38.0
 ### Release status
-12/6/2019: Release for download. Not available through auto-upgrade
+12/6/2019: Release for download. Not available through auto-upgrade.
 ### New features and improvements
 - We updated Password Hash Sync for Azure AD Domain Services to properly account for padding in Kerberos hashes.  This will provide a performance improvement during password synchronization from AAD to Azure AD Domain Services.
 - We added support for reliable sessions between the authentication agent and service bus.
@@ -49,7 +49,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ## 1.4.32.0
 ### Release status
-11/08/2019: Released for download. Not available through auto-upgrade
+11/08/2019: Released for download. Not available through auto-upgrade.
 
 >[!IMPORTANT]
 >Due to an internal schema change in this release of Azure AD Connect, if you manage ADFS trust relationship configuration settings using MSOnline PowerShell then you must update your MSOnline PowerShell module to version 1.1.183.57 or higher
