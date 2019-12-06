@@ -22,8 +22,8 @@ ms.author: zchia
 
 The tutorial demonstrate the steps to be performed in ServiceNow and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to [ServiceNow](https://www.servicenow.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
 
+<img src="media/servicenow-provisioning-tutorial/ServiceNowLogo.png" width="100">
 
-![ServiceNowLogo.png](media/servicenow-provisioning-tutorial/ServiceNowLogo.png)
 
 ## Capabilities Supported
 * Create users in ServiceNow
@@ -148,13 +148,18 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## 6. Monitor your deployment
 Once you've configured provisioing, use the following resources to monitor your deployment. 
 
-1. Use the provisioning logs to determine which users have been provisioned successfully or unsuccessfully
-Quarnatine doc
+1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the progress bar to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarnatine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## Troubleshooting Tips
 * Review the [ServiceNow SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) to understand any requirements or limitations (e.g. format to specify country code for a user )
+
+* Describe how to configure referential attributes
+
+* When provisioning certain attributes such as Department and Location in ServiceNow, the values must already exist in a reference table in ServiceNow. For example, you may have 2 locations (Seattle, Los Angelas) and 3 departments (Sales, Finance, Marketing) in the **insert table name** table in ServiceNow. If you attempt to provision a user wher his deparment is "Sales" and location is "Seattle" he will be provisioned successfully. If you attempt to provision a user with department "Sales" and location "LA" the user won't be provisioned. The location LA must either be added to the reference table in ServiceNow or the user attribute in Azure AD must be updated to match the format in ServiceNow. 
+
+* Some ServiceNow deployments require whitelisting IP ranges for the Azure AD provisioning service. The reserved IP ranges for the Azure AD provisioning service can be found [here](https://www.microsoft.com/download/details.aspx?id=56519) under "AzureActiveDirectoryDomainServices."
 
 ## Additional resources
 
