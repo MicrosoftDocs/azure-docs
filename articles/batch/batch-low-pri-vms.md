@@ -9,7 +9,7 @@ ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.topic: article
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 12/05/2019
 ms.author: markscu
 ms.custom: seodec18
 
@@ -252,7 +252,7 @@ To view metrics in the Azure portal:
 
 ## Migrating to Spot VMs
 
-[Azure spot VMs](https://azure.microsoft.com/pricing/spot/) are an evolution of low-priority VMs. As with low-priority VMs, Spot VMs utilize spare Azure capacity and are available at a significantly reduced price compared to pay-as-you-go VMs, but they do have a number of important differences from low-priority VMs:
+[Azure Spot VMs](https://azure.microsoft.com/pricing/spot/) are an evolution of low-priority VMs. As with low-priority VMs, Spot VMs utilize spare Azure capacity and are available at a significantly reduced price compared to pay-as-you-go VMs, but they do have a number of important differences from low-priority VMs:
 - The price of Spot VMs can vary, compared to the fixed pricing for low-priority VMs.
 - To enable predictable costs, a maximum price can be specified when allocating Spot VMs. If the current price exceeds the maximum price, then new VMs will not be allocated and existing VMs will be evicted.
 
