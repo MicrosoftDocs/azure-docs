@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/06/2019
 ms.author: erhopf
 ---
 
 # What is speech-to-text?
 
-Speech-to-text from the Speech service, also known as speech-to-text, enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products, and works seamlessly with the translation and text-to-speech. For a full list of available speech-to-text languages, see [supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Speech-to-text from the Speech service, also known as speech recognition, enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products, and works seamlessly with the translation and text-to-speech service offerings. For a full list of available speech-to-text languages, see [supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
 By default, the speech-to-text service uses the Universal language model. This model was trained using Microsoft-owned data and is deployed in the cloud. It's optimal for conversational and dictation scenarios. If you are using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary.
 
