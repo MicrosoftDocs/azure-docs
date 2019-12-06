@@ -95,14 +95,6 @@ This article shows how to download, install, and set up your on-premises data ga
 
 1. [Download and run the gateway installer on a local computer](https://aka.ms/on-premises-data-gateway-installer).
 
-1. After the installer opens, select **Next**.
-
-   ![Intro screen for gateway installer](./media/logic-apps-gateway-install/gateway-intro-screen.png)
-
-1. Select **On-premises data gateway (recommended)**, which is standard mode, and then select **Next**.
-
-   ![Select run mode for data gateway](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
-
 1. Review the minimum requirements, keep the default installation path, accept the terms of use, and then select **Install**.
 
    ![Review requirements and accept terms of use](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
