@@ -178,7 +178,7 @@
         href: dealing-with-duplicates.md
   - name: Deploy
     items:
-    - name: Deploy your cluster into your VNet
+    - name: Deploy your cluster to your virtual network
       href: vnet-deployment.md  
   - name: Monitor
     items:

@@ -1,12 +1,13 @@
 ---
-title: Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data | Microsoft Docs
+title: Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data
+titleSuffix: Azure Storage
 description: Azure CLI and PowerShell support signing in with Azure AD credentials to run commands on Azure Storage blob and queues data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the RBAC role assigned to the Azure AD security principal.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/03/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common

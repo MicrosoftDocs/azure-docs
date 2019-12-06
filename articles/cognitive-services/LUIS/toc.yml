@@ -54,15 +54,12 @@
     - name: Regular expression entities
       href: tutorial-regex-entity.md
     - name: List entities
-      href: luis-quickstart-intent-and-list-entity.md
+      href: tutorial-list-entity.md
     - name: Entity roles
       href: tutorial-entity-roles.md
       displayName: roles, geographyV2, context
     - name: Group and extract related data with composite entities
       href: luis-tutorial-composite-entity.md
-      displayName: roles
-    - name: Get names with simple entities
-      href: luis-quickstart-primary-and-secondary-data.md
       displayName: roles
   - name: Improve app
     items:
