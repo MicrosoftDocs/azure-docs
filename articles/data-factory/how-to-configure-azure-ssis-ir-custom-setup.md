@@ -1,19 +1,19 @@
 ---
-title: "Customize setup for the Azure-SSIS integration runtime | Microsoft Docs"
+title: Customize setup for the Azure-SSIS integration runtime
 description: "This article describes how to use the custom setup interface for the Azure-SSIS integration runtime to install additional components or change settings"
 services: data-factory
 documentationcenter: ""
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 1/25/2019
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
+ms.custom: seo-lt-2019
+ms.date: 1/25/2019
 ---
+
 # Customize setup for the Azure-SSIS integration runtime
 
 The custom setup interface for the Azure-SSIS Integration Runtime provides an interface to add your own setup steps during the provisioning or reconfiguration of your Azure-SSIS IR. Custom setup lets you alter the default operating configuration or environment (for example, to start additional Windows services or persist access credentials for file shares) or install additional components (for example, assemblies, drivers, or extensions) on each node of your Azure-SSIS IR.

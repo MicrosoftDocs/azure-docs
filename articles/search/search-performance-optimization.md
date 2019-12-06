@@ -1,5 +1,5 @@
 ---
-title: Deployment strategies and best practices for optimizing performance
+title: Deployment and performance optimization
 titleSuffix: Azure Cognitive Search
 description: Learn techniques and best practices for tuning Azure Cognitive Search performance and configuring optimum scale.
 

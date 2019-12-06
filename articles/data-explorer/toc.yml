@@ -21,7 +21,7 @@
         href: end-to-end-csharp.md
       - name: Python
         href: end-to-end-python.md
-  - name: Ingest data without using code
+  - name: Ingest and query monitoring data
     href: ingest-data-no-code.md  
   - name: Visualize data in Power BI
     href: visualize-power-bi.md  
@@ -52,26 +52,32 @@
       items:
       - name: Azure portal
         href: ingest-data-event-hub.md
-      - name: python
+      - name: Python
         href: data-connection-event-hub-python.md
       - name: C#
         href: data-connection-event-hub-csharp.md
+      - name: Azure Resource Manager template
+        href: data-connection-event-hub-resource-manager.md
     - name: Event Grid
       items:
       - name: Azure portal
         href: ingest-data-event-grid.md
-      - name: python
+      - name: Python
         href: data-connection-event-grid-python.md
       - name: C#
         href: data-connection-event-grid-csharp.md
+      - name: Azure Resource Manager template
+        href: data-connection-event-grid-resource-manager.md
     - name: IoT Hub
       items:
       - name: Azure portal
         href: ingest-data-iot-hub.md
-      - name: python
+      - name: Python
         href: data-connection-iot-hub-python.md
       - name: C#
         href: data-connection-iot-hub-csharp.md
+      - name: Azure Resource Manager template
+        href: data-connection-iot-hub-resource-manager.md
     - name: One-click ingestion
       href: ingest-data-one-click.md
     - name: Streaming ingestion
@@ -95,9 +101,13 @@
     - name: Query data in Azure Data Lake
       href: data-lake-query-data.md  
     - name: Query data in Azure Monitor
-      href: query-monitor-data.md  
-    - name: Python
-      href: python-query-data.md
+      href: query-monitor-data.md
+    - name: Debug KQL inline Python
+      href: debug-inline-python.md
+    - name: using SDKs
+      items:  
+      - name: Python
+        href: python-query-data.md
     - name: Time Series Analysis and Machine Learning
       items:
       - name: Time series analysis
@@ -150,6 +160,8 @@
         href: check-cluster-health.md
     - name: Database
       items:
+      - name: Follower databases
+        href: follower.md  
       - name: Manage database permissions
         href: manage-database-permissions.md
       - name: Policies
@@ -166,7 +178,7 @@
         href: dealing-with-duplicates.md
   - name: Deploy
     items:
-    - name: Deploy your cluster into your VNet
+    - name: Deploy your cluster to your virtual network
       href: vnet-deployment.md  
   - name: Monitor
     items:
@@ -178,6 +190,8 @@
     items:
     - name: Azure Data Factory
       items:
+      - name: Integration with Data Factory 
+        href: data-factory-integration.md 
       - name: Bulk copy data using Azure Data Factory template
         href: data-factory-template.md 
       - name: Run control commands using Azure Data Factory

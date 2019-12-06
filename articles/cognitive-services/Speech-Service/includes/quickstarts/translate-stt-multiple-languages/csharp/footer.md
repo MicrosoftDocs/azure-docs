@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech to multiple languages, C# (.NET Framework Windows) - Speech Service'
+title: 'Quickstart: Translate speech to multiple languages, C# (.NET Framework Windows) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

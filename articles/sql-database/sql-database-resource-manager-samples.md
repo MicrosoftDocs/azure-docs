@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager templates for SQL Database | Microsoft Docs
+title: Azure Resource Manager templates
 description: Use Azure Resource Manager templates to create and configure Azure SQL Database. 
 services: sql-database
 ms.service: sql-database

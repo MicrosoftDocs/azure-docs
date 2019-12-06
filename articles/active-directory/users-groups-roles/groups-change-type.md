@@ -1,20 +1,17 @@
 ---
-title: Change static group membership type to dynamic - Azure Active Directory | Microsoft Docs
+title: Change static group membership to dynamic - Azure AD | Microsoft Docs
 description: How to create membership rules to automatically populate groups, and a rule reference.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
-
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---

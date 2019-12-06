@@ -18,6 +18,8 @@ You can now configure collection of the Azure Activity log using the same [diagn
 - Consistent method for collecting all platform logs.
 - Collect Activity log across multiple subscriptions and tenants.
 - Filter collection to only collect logs for particular categories.
+- Collect all Activity log categories. Some categories are not collected using previous method.
+- Faster latency for log ingestion. The previous method has about 15 minutes latency while diagnostic settings adds only about 1 minute.
 
 ## Considerations
 Consider the following details of Activity log collection using diagnostic settings before enabling this feature.

@@ -1,5 +1,5 @@
 ---
-title: Azure Spatial Anchors overview | Microsoft Docs
+title: Azure Spatial Anchors overview
 description: Learn how Azure Spatial Anchors helps you develop cross-platform mixed reality experiences.
 author: craigktreasure
 manager: aliemami

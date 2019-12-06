@@ -1,22 +1,21 @@
 ---
-title: Azure Site Recovery-Frequently asked questions
-description: This article discusses popular questions about Azure Site Recovery.
-services: site-recovery
+title: General questions about the Azure Site Recovery service
+description: This article discusses popular general questions about Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 11/14/2019
 ms.author: raynew
 
 ---
-# Azure Site Recovery: frequently asked questions (FAQ)
-This article summarizes frequently asked questions about Azure Site Recovery.</br>
-For specific queries on different ASR scenarios please refer scenario specific FAQs.<br>
+# General questions about Azure Site Recovery
 
-- [Azure VM Disaster Recovery to Azure](azure-to-azure-common-questions.md)
-- [VMware VM Disaster Recovery to Azure](vmware-azure-common-questions.md)
-- [Hyper-V VM Disaster Recovery to Azure](hyper-v-azure-common-questions.md)
+This article summarizes frequently asked questions about Azure Site Recovery. For specific scenarios review these articles
+
+- [Questions about Azure VM disaster recovery to Azure](azure-to-azure-common-questions.md)
+- [Questions about VMware VM disaster recovery to Azure](vmware-azure-common-questions.md)
+- [Questions about Hyper-V VM disaster recovery to Azure](hyper-v-azure-common-questions.md)
  
 ## General
 

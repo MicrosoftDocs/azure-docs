@@ -246,10 +246,10 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 To set the data retention to 365 days using the template above, run:
 
 ```PS
-        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
-               -TemplateFile .\template1.json `
-               -retentionInDays 365 `
-               -appName myApp
+New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
+       -TemplateFile .\template1.json `
+       -retentionInDays 365 `
+       -appName myApp
 ```
 
 The following script can also be used to change retention. Copy this script to save as `Set-ApplicationInsightsRetention.ps1`.
@@ -591,7 +591,7 @@ Azure should set up the resources in strict order. To make sure one setup comple
 ## Next steps
 Other automation articles:
 
-* [Create an Application Insights resource](powershell-script-create-resource.md) - quick method without using a template.
+* [Create an Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) - quick method without using a template.
 * [Set up Alerts](powershell-alerts.md)
 * [Create web tests](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Send Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)

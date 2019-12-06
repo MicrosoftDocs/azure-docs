@@ -1,6 +1,6 @@
 ---
-title: Prepare a Spring application for deployment in Azure Spring Cloud | Microsoft Docs
-description: In this quickstart, you prepare a Java Spring application for deployment.
+title: Tutorial - Prepare a Spring application for deployment in Azure Spring Cloud
+description: In this tutorial, you prepare a Java Spring application for deployment.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
@@ -88,8 +88,18 @@ Spring Boot version | Spring Cloud version | Azure Spring Cloud version
 2.0.x | Finchley.RELEASE | 2.0.x
 2.1.x | Greenwich.RELEASE | 2.1.x
 
-Include this snippet in  your `pom.xml` with the correct Azure Spring Cloud version in the 'dependency':
+Include one of the snippets below in  your `pom.xml`.  Select the snippet whose version matches your own.
 
+### Version 2.0.x:
+```xml
+<dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.0.0</version>
+</dependency>
+```
+
+### Version 2.1.x:
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -162,3 +172,4 @@ In this tutorial, you learned how to configure your Java Spring application for 
 > [!div class="nextstepaction"]
 > [Learn how to set up your Config Server](spring-cloud-tutorial-config-server.md).
 
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

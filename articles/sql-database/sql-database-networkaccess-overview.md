@@ -1,9 +1,10 @@
 ---
-title: Azure SQL Database and Data Warehouse Network Access Controls | Microsoft Docs
+title: Network Access Controls 
 description: Overview of network access controls for Azure SQL Database and Data Warehouse to manage access, and configure a single or pooled database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

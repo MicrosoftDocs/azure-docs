@@ -4,6 +4,7 @@ description: Overview of the process for publishing a VM offer on the Azure Mark
 services: Azure, Marketplace, Cloud Partner Portal
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: pabutler

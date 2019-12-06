@@ -86,18 +86,15 @@ You can upgrade your workspace from Basic edition to Enterprise edition to take 
 
 ## <a name="view"></a>Find a workspace
 
-1. In top left corner of the portal, select **All services**.
+1. In the top search field, type **Machine Learning**.  
 
-1. In the **All services** filter field, type **machine learning**.  
+1. Select **Machine Learning**.
 
-1. Select **Azure Machine Learning**.
-
-   ![Search for Azure Machine Learning workspace](media/how-to-manage-workspace/all-services.png)
+   ![Search for Azure Machine Learning workspace](media/how-to-manage-workspace/find-workspaces.png)
 
 1. Look through the list of workspaces found. You can filter based on subscription, resource groups, and locations.  
 
 1. Select a workspace to display its properties.
-   ![Workspace properties](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## Delete a workspace
 

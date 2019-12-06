@@ -1,14 +1,14 @@
 ---
-title: 'Quickstart: Synthesize speech into audio file - Speech Service'
+title: 'Quickstart: Synthesize speech into audio file - Speech service'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: In this quickstart, you'll use the Speech SDK to convert text to synthesized speech in an audio file.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---

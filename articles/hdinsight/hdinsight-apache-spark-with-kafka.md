@@ -1,15 +1,13 @@
 ---
 title: Apache Spark streaming with Apache Kafka - Azure HDInsight
 description: Learn how to use Apache Spark to stream data into or out of Apache Kafka using DStreams. In this example, you stream data using a Jupyter notebook from Spark on HDInsight.
-keywords: kafka example,kafka zookeeper,spark streaming kafka,spark streaming kafka example 
 author: hrasheed-msft
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 11/06/2018
 ms.author: hrasheed
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: hdinsightactive
+ms.date: 11/21/2019
 ---
 
 # Apache Spark streaming (DStream) example with Apache Kafka on HDInsight
@@ -26,7 +24,7 @@ Learn how to use [Apache Spark](https://spark.apache.org/) to stream data into o
 
 ## Create the clusters
 
-Apache Kafka on HDInsight does not provide access to the Kafka brokers over the public internet. Anything that talks to Kafka must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka and Spark clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
+Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the public internet. Anything that talks to Kafka must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka and Spark clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
 
 ![Diagram of Spark and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png)
 
@@ -46,27 +44,23 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
     This template creates an HDInsight 3.6 cluster for both Kafka and Spark.
 
-2. Use the following information to populate the entries on the **Custom deployment** section:
+1. Use the following information to populate the entries on the **Custom deployment** section:
+
+    |Property |Value |
+    |---|---|
+    |Resource group|Create a group or select an existing one.|
+    |Location|Select a location geographically close to you.|
+    |Base Cluster Name|This value is used as the base name for the Spark and Kafka clusters. For example, entering **hdistreaming** creates a Spark cluster named __spark-hdistreaming__ and a Kafka cluster named **kafka-hdistreaming**.|
+    |Cluster Login User Name|The admin user name for the Spark and Kafka clusters.|
+    |Cluster Login Password|The admin user password for the Spark and Kafka clusters.|
+    |SSH User Name|The SSH user to create for the Spark and Kafka clusters.|
+    |SSH Password|The password for the SSH user for the Spark and Kafka clusters.|
 
     ![HDInsight custom deployment parameters](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
 
-    * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
+1. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
-    * **Location**: Select a location geographically close to you.
-
-    * **Base Cluster Name**: This value is used as the base name for the Spark and Kafka clusters. For example, entering **hdistreaming** creates a Spark cluster named __spark-hdistreaming__ and a Kafka cluster named **kafka-hdistreaming**.
-
-    * **Cluster Login User Name**: The admin user name for the Spark and Kafka clusters.
-
-    * **Cluster Login Password**: The admin user password for the Spark and Kafka clusters.
-
-    * **SSH User Name**: The SSH user to create for the Spark and Kafka clusters.
-
-    * **SSH Password**: The password for the SSH user for the Spark and Kafka clusters.
-
-3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
-
-4. Finally, select **Purchase**. It takes about 20 minutes to create the clusters.
+1. Finally, select **Purchase**. It takes about 20 minutes to create the clusters.
 
 Once the resources have been created, a summary page appears.
 
@@ -78,8 +72,6 @@ Once the resources have been created, a summary page appears.
 ## Use the notebooks
 
 The code for the example described in this document is available at [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
-
-To complete this example, follow the steps in the `README.md`.
 
 ## Delete the cluster
 
@@ -94,4 +86,3 @@ In this example, you learned how to use Spark to read and write to Kafka. Use th
 * [Get started with Apache Kafka on HDInsight](kafka/apache-kafka-get-started.md)
 * [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](kafka/apache-kafka-mirroring.md)
 * [Use Apache Storm with Apache Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
-

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database managed instance overview | Microsoft Docs
+title: SQL managed instance overview
 description: This article describes Azure SQL Database managed instance.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 11/04/2019
+ms.date: 11/27/2019
 ---
 # What is Azure SQL Database managed instance?
 
@@ -71,7 +71,7 @@ The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for mana
 In vCore model, you can choose between generations of hardware.
 
 - **Gen4** Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD, physical cores, 7-GB RAM per core, and compute sizes between 8 and 24 vCores.
-- **Gen5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
+- **Gen5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz and Intel SP-8160 (Skylake) processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
 
 Find more information about the difference between hardware generations in [managed instance resource limits](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -244,7 +244,7 @@ The managed instance deployment option targets user scenarios with mass database
 
 The migration approach leverages SQL backups to Azure Blob storage. Backups stored in Azure storage blob can be directly restored into a managed instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
-- For a quickstart showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a managed instance](sql-database-managed-instance-get-started-restore.md). This quickstart shows you have to upload a backup file to Azure blog storage and secure it using a Shared access signature (SAS) key.
+- For a quickstart showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a managed instance](sql-database-managed-instance-get-started-restore.md). This quickstart shows you have to upload a backup file to Azure blob storage and secure it using a Shared access signature (SAS) key.
 - For information about restore from URL, see [Native RESTORE from URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]

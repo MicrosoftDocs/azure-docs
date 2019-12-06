@@ -1,5 +1,5 @@
 ---
-title: How to use Batch Transcription - Speech Service
+title: How to use Batch transcription - Speech service
 titleSuffix: Azure Cognitive Services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
@@ -23,7 +23,7 @@ Batch transcription is ideal if you want to transcribe a large quantity of audio
 As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](get-started.md). If you plan to get transcriptions from our baseline models, creating a key is all you need to do.
 
 >[!NOTE]
-> A standard subscription (S0) for Speech Services is required to use batch transcription. Free subscription keys (F0) will not work. For additional information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) will not work. For additional information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### Custom models
 
@@ -60,7 +60,7 @@ Configuration parameters are provided as JSON:
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
   "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
-  "locale": "<locale to us, for example en-US>",
+  "locale": "<locale to use, for example en-US>",
   "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
@@ -91,12 +91,6 @@ Use these optional properties to configure transcription:
 
 Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) for reading audio and writing transcriptions to storage.
 
-## Webhooks
-
-Polling for transcription status may not be the most performant, or provide the best user experience. To poll for status, you can register callbacks, which will notify the client when long-running transcription tasks have completed.
-
-For more details, see [Webhooks](webhooks.md).
-
 ## Speaker Separation (Diarization)
 
 Diarization is the process of separating speakers in a piece of audio. Our Batch pipeline supports Diarization and is capable of recognizing two speakers on mono channel recordings.
@@ -117,7 +111,7 @@ To request that your audio transcription request is processed for diarization, y
 }
 ```
 
-Word level timestamps would also have to be 'turned on' as the parameters in the above request indicate.
+Word level timestamps would also have to be 'turned on' as the parameters in the above request indicate. 
 
 The corresponding audio will contain the speakers identified by a number (currently we support only two voices, so the speakers will be identified as 'Speaker 1 'and 'Speaker 2') followed by the transcription output.
 
@@ -185,7 +179,7 @@ You have to customize the sample code with your subscription information, the se
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
-The sample code will setup the client and submit the transcription request. It will then poll for status information and print details about the transcription progress.
+The sample code will set up the client and submit the transcription request. It will then poll for status information and print details about the transcription progress.
 
 [!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchstatus)]
 

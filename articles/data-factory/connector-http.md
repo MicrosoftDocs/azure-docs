@@ -1,18 +1,18 @@
 ---
-title: Copy data from an HTTP source by using Azure Data Factory | Microsoft Docs
+title: Copy data from an HTTP source by using Azure Data Factory 
 description: Learn how to copy data from a cloud or on-premises HTTP source to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/20/2019
 ms.author: jingwang
 
 ---
@@ -175,7 +175,7 @@ The following properties are supported for HTTP under `location` settings in for
 | Property    | Description                                                  | Required |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | The type property under `location` in dataset must be set to **HttpServerLocation**. | Yes      |
-| relativeUrl | A relative URL to the resource that contains the data.       | No       |
+| relativeUrl | A relative URL to the resource that contains the data. The HTTP connector copies data from the combined URL: `[URL specified in linked service]/[relative URL specified in dataset]`.   | No       |
 
 > [!NOTE]
 > The supported HTTP request payload size is around 500 KB. If the payload size you want to pass to your web endpoint is larger than 500 KB, consider batching the payload in smaller chunks.
@@ -281,7 +281,7 @@ The following properties are supported for HTTP under `storeSettings` settings i
 | requestMethod            | The HTTP method. <br>Allowed values are **Get** (default) and **Post**. | No       |
 | addtionalHeaders         | Additional HTTP request headers.                             | No       |
 | requestBody              | The body for the HTTP request.                               | No       |
-| requestTimeout           | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**. | No       |
+| httpRequestTimeout           | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**. | No       |
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
 
 **Example:**

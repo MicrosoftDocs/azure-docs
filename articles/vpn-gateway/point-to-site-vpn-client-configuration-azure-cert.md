@@ -1,5 +1,6 @@
 ---
-title: 'Create and install P2S VPN client configuration files for Azure certificate authentication: Azure'
+title: 'Create & install P2S VPN client configuration files: certificate authentication'
+titleSuffix: Azure VPN Gateway
 description: Create and install Windows, Linux, Linux (strongSwan), and Mac OS X VPN client configuration files for P2S certificate authentication.
 services: vpn-gateway
 author: cherylmc

@@ -11,18 +11,19 @@ ms.date: 10/31/2019
 
 # Use one-click ingestion to ingest data into Azure Data Explorer
 
-This article shows how to use one-click ingestion for quick ingestion of a new table in json or csv formats from storage into Azure Data Explorer. Once the data is ingested, you can edit the table and run queries using the Web UI.
+This article shows you how to use one-click ingestion for quick ingestion of a new table in json or csv formats from storage or local file into an existing table or a new table in Azure Data Explorer. Use the intuitive wizard and within a few minutes, your data is ingested, you can edit the table, and run queries using the Web UI.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * Sign in to [the application](https://dataexplorer.azure.com/).
 * Create [an Azure Data Explorer cluster and database](create-cluster-database-portal.md)
+* Sign in to the [Web UI](https://dataexplorer.azure.com/) and [add a connection to your cluster](/azure/data-explorer/web-query-data#add-clusters)
 * Source of data in Azure Storage.
 
 ## Ingest new data
 
-1. Right-click on the *database* or *table* row in left hand menu and select **Ingest new data (Preview)**
+1. Right-click on the *database* or *table* row in left hand menu of the Web UI and select **Ingest new data (Preview)**
 
     ![select one click ingestion in web UI](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
  

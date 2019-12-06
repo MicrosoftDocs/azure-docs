@@ -1,11 +1,8 @@
 ---
 title: Sample - Enforce like pattern 
-description: This sample policy definition requires that resources meet the like pattern for naming conventions.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
+description: This sample policy definition requires that resources meet the like pattern defined in a parameter for naming conventions.
 ms.date: 01/23/2019
-ms.author: dacoulte
+ms.topic: sample
 ---
 # Sample - Enforce like pattern for naming conventions
 

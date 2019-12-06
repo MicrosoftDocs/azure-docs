@@ -7,7 +7,7 @@ ms.date: 10/16/2019
 ms.author: marsma
 # Used by the identity provider (IdP) setup articles under "Custom policy"
 ---
-To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
+To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the new experience](https://aka.ms/b2cappregintro).
 
 #### [Applications](#tab/applications/)
 
@@ -36,5 +36,5 @@ Once the application registration is complete, enable the implicit grant flow:
 
 1. Under **Manage**, select **Authentication**.
 1. Select **Try out the new experience** (if shown).
-1. Under **IMPLICIT GRANT**, select both the **Access tokens** and **ID tokens** check boxes.
+1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.
 1. Select **Save**.

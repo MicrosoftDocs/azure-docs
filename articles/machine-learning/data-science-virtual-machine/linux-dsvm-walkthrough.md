@@ -55,8 +55,8 @@ Then, concatenate the two files together:
 
 The dataset has several types of statistics for each email:
 
-* Columns like **word\_freq\_*WORD*** indicate the percentage of words in the email that match *WORD*. For example, if **word\_freq\_make** is **1**, then 1% of all words in the email were *make*.
-* Columns like **char\_freq\_*CHAR*** indicate the percentage of all characters in the email that are *CHAR*.
+* Columns like **word\_freq\__WORD_** indicate the percentage of words in the email that match *WORD*. For example, if **word\_freq\_make** is **1**, then 1% of all words in the email were *make*.
+* Columns like **char\_freq\__CHAR_** indicate the percentage of all characters in the email that are *CHAR*.
 * **capital\_run\_length\_longest** is the longest length of a sequence of capital letters.
 * **capital\_run\_length\_average** is the average length of all sequences of capital letters.
 * **capital\_run\_length\_total** is the total length of all sequences of capital letters.

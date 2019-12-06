@@ -212,7 +212,7 @@ This code generates four tables:
 ## References
 
 ### How to check Diagnostics extension configuration
-The easiest way to check your extension configuration is to go to [Azure Resource Explorer](http://resources.azure.com), and then go to the virtual machine or cloud service where the Azure Diagnostics extension (IaaSDiagnostics / PaaDiagnostics) is.
+The easiest way to check your extension configuration is to go to [Azure Resource Explorer](https://resources.azure.com), and then go to the virtual machine or cloud service where the Azure Diagnostics extension (IaaSDiagnostics / PaaDiagnostics) is.
 
 Alternatively, remote desktop into the machine and look at the Azure Diagnostics Configuration file that's described in the Log artifacts path section.
 

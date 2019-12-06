@@ -1,7 +1,7 @@
 ---
 title: OData search.score function reference
 titleSuffix: Azure Cognitive Search
-description: OData search.score function in Azure Cognitive Search queries.
+description: Syntax and reference documentation for using the search.score function in Azure Cognitive Search queries.
 
 manager: nitinme
 author: brjohnstmsft

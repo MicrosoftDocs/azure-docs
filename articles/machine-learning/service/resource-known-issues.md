@@ -20,7 +20,7 @@ This article helps you find and correct errors or failures encountered when usin
 
 Azure Compute will be updating the NCv3 SKUs starting early November 2019 to support all MPI implementations and versions, and RDMA verbs for InfiniBand-equipped virtual machines. This will require a short downtime - [read more about the SR-IOV upgrade](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
 
-As a customer of Azure Machine Learning's managed compute offering (AmlCompute), you are not required to make any changes at this time. Based on the [update schedule](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) you would need to plan for a short break in your training. The service will take responsibility to update the VM images on your cluster nodes and automatically scale up your cluster. Once the upgrade completes you may be able to use all other MPI discibutions (like OpenMPI with Pytorch) besides getting higher InfiniBand bandwidth, lower latencies, and better distributed application performance.
+As a customer of Azure Machine Learning's managed compute offering (AmlCompute), you are not required to make any changes at this time. Based on the [update schedule](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) you would need to plan for a short break in your training. The service will take responsibility to update the VM images on your cluster nodes and automatically scale up your cluster. Once the upgrade completes you may be able to use all other MPI distributions (like OpenMPI with Pytorch) besides getting higher InfiniBand bandwidth, lower latencies, and better distributed application performance.
 
 ## Azure Machine Learning designer issues
 
@@ -86,9 +86,19 @@ Binary classification charts (precision-recall, ROC, gain curve etc.) shown in a
 
 ## Datasets and Data Preparation
 
+These are known issues for Azure Machine Learning Datasets.
+
 ### Fail to read Parquet file from HTTP or ADLS Gen 2
 
-There is a known issue in AzureML DataPrep SDK version 1.1.25 that causes a failure when creating a dataset by reading Parquet files from HTTP or ADLS Gen 2. To fix this issue, please upgrade to a version higher than 1.1.26, or downgrade to a version lower than 1.1.24.
+There is a known issue in AzureML DataPrep SDK version 1.1.25 that causes a failure when creating a dataset by reading Parquet files from HTTP or ADLS Gen 2. It will fail with `Cannot seek once reading started.`. To fix this issue, please upgrade `azureml-dataprep` to a version higher than 1.1.26, or downgrade to a version lower than 1.1.24.
+
+```python
+pip install --upgrade azureml-dataprep
+```
+
+### TypeError: mount() got an unexpected keyword argument 'invocation_id'
+
+This error occurs if you have an incompatible version between `azureml-core` and `azureml-dataprep`. If you see this error, upgrade `azureml-dataprep` package to a newer version (greater than or equal to 1.1.29).
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -144,16 +154,8 @@ If these steps don't solve the issue, try restarting the cluster.
 If you see a `FailToSendFeather` error when reading data on Azure Databricks cluster, refer to the following solutions:
 
 * Upgrade `azureml-sdk[automl]` package to the latest version.
-* Add `azure-dataprep` version 1.1.8 or above.
+* Add `azureml-dataprep` version 1.1.8 or above.
 * Add `pyarrow` version 0.11 or above.
-
-
-## Datasets
-
-These are known issues for Azure Machine Learning Datasets.
-
-+ **Failed to read parquet files on Azure Data Lake Storage Gen2**
-  Reading parquet files from Azure Data Lake Storage Gen2 datastores does not work if you have `azureml-dataprep==1.1.25` installed. It will fail with `Cannot seek once reading started.`. If you see this error, you can either install `azureml-dataprep<=1.1.24` or install `azureml-dataprep>=1.1.26`.
 
 ## Azure portal
 
@@ -275,10 +277,10 @@ This is a known limitation of the current release.
 
 Manually refresh the page. Initialization should proceed at roughly 20 datapoints per second. The lack of autorefresh is a known issue. 
 
-### Bounding box cannot be drawn all the way to right edge of image 
-
-Try resizing the browser window. We are investigating to determine the cause of this behavior. 
-
 ### When reviewing images, newly labeled images are not shown
 
 To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.
+
+### Pressing Esc key while labeling for object detection creates a zero size label on the top left corner. Submitting labels in this state fails.
+
+Delete the label by clicking on the cross mark next to it.

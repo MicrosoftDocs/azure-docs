@@ -1,10 +1,10 @@
 ---
-title: View audit history for Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+title: View audit report for Azure AD roles in PIM - Azure AD | Microsoft Docs
 description: Learn how to view the audit history for Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory

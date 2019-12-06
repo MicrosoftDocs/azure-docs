@@ -1,18 +1,18 @@
 ---
-title: Copy activity in Azure Data Factory | Microsoft Docs
+title: Copy activity in Azure Data Factory 
 description: Learn about the Copy activity in Azure Data Factory. You can use it to copy data from a supported source data store to a supported sink data store.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 11/13/2019
 ms.author: jingwang
 
 ---
@@ -49,20 +49,7 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 
 You can use the Copy activity to copy files as is between two file-based data stores. In this case, the data is copied efficiently without any serialization or deserialization.
 
-The Copy activity can also read from and write to files in these formats:
-- Text
-- JSON
-- Avro
-- ORC
-- Parquet
-
-The Copy activity can compress and decompress files with these codecs: 
-- Gzip
-- Deflate
-- Bzip2
-- ZipDeflate
-
-For more information, see [Supported file and compression formats](supported-file-formats-and-compression-codecs.md).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
 For example, you can perform the following copy activities:
 

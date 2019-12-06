@@ -1,5 +1,5 @@
 ---
-title: 'Use Azure Virtual WAN to create a Site-to-Site connection to Azure | Microsoft Docs'
+title: 'Azure Virtual WAN: Create Site-to-Site connections'
 description: In this tutorial, learn how to use Azure Virtual WAN to create a Site-to-Site VPN connection to Azure.
 services: virtual-wan
 author: cherylmc
@@ -244,7 +244,7 @@ If you need instructions to configure your device, you can use the instructions 
 * The instructions on the VPN devices page are not written for Virtual WAN, but you can use the Virtual WAN values from the configuration file to manually configure your VPN device. 
 * The downloadable device configuration scripts that are for VPN Gateway do not work for Virtual WAN, as the configuration is different.
 * A new Virtual WAN can support both IKEv1 and IKEv2.
-* Virtual WAN can only use route-based VPN devices and device instructions.
+* Virtual WAN can use both policy based and route-based VPN devices and device instructions.
 
 ## <a name="viewwan"></a>View your virtual WAN
 

@@ -26,11 +26,13 @@ To complete this tutorial, you need:
 
 1. Navigate to your Azure Spring Cloud **Overview** page.
 
+1. Select the resource group that contains your service.
+
 1. Go to the **Apps**  tab under the **Settings** heading in the menu on the left side.
 
 1. Select the application you want to scale. In this example, we will be scaling the application named "account-service". This should take you to the application's **Overview** page.
 
-1. Go to the **Scale** tab under the **Settings** heading in the menu on the left side. You should see a form with lines for each of the scaling attributes we mentioned earlier.
+1. Go to the **Scale** tab under the **Settings** heading in the menu on the left side. You should see options for the scaling attributes shown in the following section.
 
 ## Scale your application
 
@@ -40,9 +42,11 @@ You can modify the scaling attributes. Keep the following notes in mind.
 
 * **Memory/GB**: The maximum amount of memory allowed is 8GB per application instance.  The total amount of memory for an application will be the value set here multiplied by the number of application instances.
 
-* **Instance count**: You can scale out up to 20 instances in the Standard tier. This value changes the number of separate running instances of the microservice application.
+* **App instance count**: You can scale out up to 20 instances in the Standard tier. This value changes the number of separate running instances of the microservice application.
 
-Be sure to click the **Save** button apply your scaling settings.
+Be sure to click the **Save** button to apply your scaling settings.
+
+![Scale service in Azure portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
 After a few seconds, the changes you made will be displayed in the **Overview** page, with more details available in the **Application instances** tab. Scaling does not require any code changes or redeployment.
 

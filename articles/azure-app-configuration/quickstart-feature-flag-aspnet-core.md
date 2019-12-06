@@ -30,7 +30,7 @@ The .NET Core Feature Management libraries extend the framework with comprehensi
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download).
 
-## Create an app configuration store
+## Create an App Configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -77,7 +77,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 1. Save the file.
 
-## Connect to an app configuration store
+## Connect to an App Configuration store
 
 1. Add reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` and the `Microsoft.FeatureManagement.AspNetCore` NuGet packages by running the following commands:
 
@@ -127,7 +127,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
                 var settings = config.Build();
                 config.AddAzureAppConfiguration(options => {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                            .UseFeatureFlags();
+                        .UseFeatureFlags();
                 });
             })
             .UseStartup<Startup>();
@@ -142,8 +142,10 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
         webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
         {
             var settings = config.Build();
-            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"])
-                .UseFeatureFlags();
+            config.AddAzureAppConfiguration(options => {
+                options.Connect(settings["ConnectionStrings:AppConfig"])
+                    .UseFeatureFlags();
+            });
         })
         .UseStartup<Startup>());
     ```

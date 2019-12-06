@@ -1,5 +1,5 @@
 ---
-title: SQL Database Audit Log Format | Microsoft Docs
+title: Audit Log Format
 description: Understand how SQL Database audit logs are structured.
 services: sql-database
 ms.service: sql-database
@@ -25,6 +25,9 @@ Audit logs stored in Blob storage are stored in a container named `sqldbauditlog
 For example, for database `Database1` on `Server1` the following is a possible valid path:
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
+
+[Read-only Replicas](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out) Audit logs are stored in the same container. The directory hierarchy within the container is of the form `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. The Blob filename shares the same format. The Audit Logs of Read-only Replicas are stored in the same container.
+
 
 ### Event Hub
 

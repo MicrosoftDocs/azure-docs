@@ -6,7 +6,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 10/18/2019
+ms.date: 11/20/2019
 ms.author: diberry
 ---
 
@@ -14,7 +14,7 @@ ms.author: diberry
 
 * [Node.js](https://nodejs.org/) programming language 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## Get LUIS key
 
@@ -22,7 +22,7 @@ ms.author: diberry
 
 ## Get intent programmatically
 
-Use Node.js to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-prediction) to get the prediction result.
+Use Node.js to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
 
 1. Copy the following code snippet to a file named `predict.js`:
 
@@ -71,24 +71,24 @@ Use Node.js to query the prediction endpoint GET [API](https://aka.ms/luis-apim-
     getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-1. Set the following values:
+1. Replace the following values:
 
-    * `YOUR-KEY` to your starter key
-    * `YOUR-ENDPOINT` to your endpoint URL
+    * `YOUR-KEY` to your starter key.
+    * `YOUR-ENDPOINT` to your endpoint URL. For example, `westus2.api.cognitive.microsoft.com`.
 
-1. Install dependencies by running the following command at the command-line: 
+1. Install the `request`, `request-promise`, and `querystring` dependencies with this command: 
 
     ```console
     npm install request request-promise querystring
     ```
 
-1. Run the code with the following command:
+1. Run your app with this command:
 
     ```console
     node predict.js
     ```
 
- 1. Review prediction response in JSON format:   
+ 1. Review the prediction response, which is returned as JSON:   
     
     ```console
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}
@@ -148,4 +148,4 @@ When you are finished with this quickstart, delete the file from the file system
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train](../luis-get-started-node-add-utterance.md)
+> [Add utterances and train](../get-started-get-model-rest-apis.md)

@@ -1,7 +1,7 @@
 ---
 title: Improve knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. Your knowledge base doesn't change automatically. You must accept the suggestions for any change to take effect. These suggestions add questions but don't change or remove existing questions.
+description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
 author: diberry
 manager: nitinme 
 services: cognitive-services

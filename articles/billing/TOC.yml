@@ -5,8 +5,6 @@
   items:
   - name: Understand your bill
     href: billing-understand-your-bill.md
-  - name: Understand your EA bill
-    href: billing-understand-your-bill-ea.md
   - name: Understand your bill - Microsoft Customer Agreement
     href: billing-mca-understand-your-bill.md
   - name: Understand your bill - Microsoft Partner Agreement
@@ -74,7 +72,7 @@
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: Azure Data Explorer
-        href: ../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json  
+        href: ../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: Azure Databricks
         href: billing-prepay-databricks-reserved-capacity.md
       - name: App Service
@@ -98,15 +96,15 @@
       - name: SQL Data Warehouse
         href: billing-how-reservation-discount-is-applied-to-azure-sql-dw.md
       - name: Azure Data Explorer
-        href: billing-understand-kusto-azuredataexplorer-reservation-charges.md  
+        href: billing-understand-kusto-azuredataexplorer-reservation-charges.md
       - name: Azure Databricks
         href: billing-reservation-discount-databricks.md
       - name: Azure Database for MySQL
-        href: billing-understand-reservation-charges-mysql.md 
+        href: billing-understand-reservation-charges-mysql.md
       - name: Azure Database for PostgreSQL
-        href: billing-understand-reservation-charges-postgresql.md 
+        href: billing-understand-reservation-charges-postgresql.md
       - name: Azure Database for MariaDB
-        href: billing-understand-reservation-charges-mariadb.md  
+        href: billing-understand-reservation-charges-mariadb.md
       - name: App Service
         href: billing-reservation-discount-app-service-isolated-stamp.md
       - name: Azure software plans
@@ -159,6 +157,8 @@
     items:
     - name: Get started in the Azure EA portal
       href: billing-ea-portal-get-started.md
+    - name: Understand your EA bill
+      href: billing-understand-your-bill-ea.md
     - name: EA roles in Azure
       href: billing-understand-ea-roles.md
     - name: Azure EA portal administration

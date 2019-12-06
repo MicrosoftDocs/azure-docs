@@ -1,6 +1,6 @@
 ---
-title: Set up security info (preview) to use phone calls - Azure Active Directory | Microsoft Docs
-description: How to set up your security info to verify your identity using phone calls.
+title: Set up your phone number as your verification method - Azure AD
+description: How to set up your Security info (preview) page to verify your identity using your phone number and mobile device as your verification method.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,7 +15,7 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Set up security info (preview) to use phone calls
+# Set up a phone number as your verification method
 
 You can follow these steps to add your two-factor verification and password reset methods. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
 

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Asynchronous synthesis for long-form audio (Preview) - Speech Service"
+title: "Quickstart: Asynchronous synthesis for long-form audio (Preview) - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Use the Long Audio API to asynchronously convert text to speech, and retrieve the audio output from a URI provided by the service. This REST API is ideal for content providers that need to convert text files greater than 10,000 characters or 50 paragraphs into synthesized speech.
 services: cognitive-services
@@ -16,13 +16,16 @@ ms.author: erhopf
 
 In this quickstart, you'll use the Long Audio API to asynchronously convert text to speech, and retrieve the audio output from a URI provided by the service. This REST API is ideal for content providers that need to convert text files greater than 10,000 characters or 50 paragraphs into synthesized speech. For more information, see [Long Audio API](../../long-audio-api.md).
 
+> [!NOTE]
+> Asynchronous synthesis for long-form audio can only be used with [Custom Neural Voices](../../how-to-custom-voice.md#custom-neural-voices).
+
 ## Prerequisites
 
 This quickstart requires:
 
 * Python 2.7.x or 3.x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor.
-* An Azure subscription and a Speech service subscription key. [Create an Azure account](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) and [create a speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) to get the key. When creating the Speech resource, make sure that your pricing tier is set to **S0**, and location is set to a [supported region](../../regions.md#standard-and-neural-voices).
+* An Azure subscription and a Speech service subscription key. [Create an Azure account](../../get-started.md#try-the-speech-service-using-a-new-azure-account) and [create a speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) to get the key. When creating the Speech resource, make sure that your pricing tier is set to **S0**, and location is set to a [supported region](../../regions.md#standard-and-neural-voices).
 
 ## Create a project and import required modules
 
@@ -42,7 +45,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ```
 
 > [!NOTE]
-> If you haven't used these modules you'll need to install them before running your program. To install these packages, run: `pip install requests`.
+> If you haven't used these modules you'll need to install them before running your program. To install these packages, run: `pip install requests urllib3`.
 
 These modules are used to parse arguments, construct the HTTP request, and call the text-to-speech long audio REST API.
 

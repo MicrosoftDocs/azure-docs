@@ -17,9 +17,11 @@ ms.author: tomfitz
 
 ---
 # Microsoft.Network.VirtualNetworkCombo UI element
+
 A group of controls for selecting a new or existing virtual network.
 
 ## UI sample
+
 When the user picks a new virtual network, the user can customize each subnet's name and address prefix. Configuring subnets is optional.
 
 ![Microsoft.Network.VirtualNetworkCombo new](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
@@ -29,6 +31,7 @@ When the user picks an existing virtual network, the user must map each subnet t
 ![Microsoft.Network.VirtualNetworkCombo existing](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
 ## Schema
+
 ```json
 {
   "name": "element1",
@@ -81,16 +84,6 @@ When the user picks an existing virtual network, the user must map each subnet t
 }
 ```
 
-## Remarks
-- If specified, the first non-overlapping address prefix of size `defaultValue.addressPrefixSize` is determined automatically based on the existing virtual networks in the user's subscription.
-- The default value for `defaultValue.name` and `defaultValue.addressPrefixSize` is **null**.
-- `constraints.minAddressPrefixSize` must be specified. Any existing virtual networks with an address space smaller than the specified value are unavailable for selection.
-- `subnets` must be specified, and `constraints.minAddressPrefixSize` must be specified for each subnet.
-- When creating a new virtual network, each subnet's address prefix is calculated automatically based on the virtual network's address prefix and the respective `addressPrefixSize`.
-- When using an existing virtual network, any subnets smaller than the respective `constraints.minAddressPrefixSize` are unavailable for selection. Additionally, if specified, subnets that don't have at least `minAddressCount` available addresses are unavailable for selection. The default value is **0**. To ensure that the available addresses are contiguous, specify **true** for `requireContiguousAddresses`. The default value is **true**.
-- Creating subnets in an existing virtual network isn't supported.
-- If `options.hideExisting` is **true**, the user can't choose an existing virtual network. The default value is **false**.
-
 ## Sample output
 
 ```json
@@ -114,6 +107,18 @@ When the user picks an existing virtual network, the user must map each subnet t
 }
 ```
 
+## Remarks
+
+- If specified, the first non-overlapping address prefix of size `defaultValue.addressPrefixSize` is determined automatically based on the existing virtual networks in the user's subscription.
+- The default value for `defaultValue.name` and `defaultValue.addressPrefixSize` is **null**.
+- `constraints.minAddressPrefixSize` must be specified. Any existing virtual networks with an address space smaller than the specified value are unavailable for selection.
+- `subnets` must be specified, and `constraints.minAddressPrefixSize` must be specified for each subnet.
+- When creating a new virtual network, each subnet's address prefix is calculated automatically based on the virtual network's address prefix and the respective `addressPrefixSize`.
+- When using an existing virtual network, any subnets smaller than the respective `constraints.minAddressPrefixSize` are unavailable for selection. Additionally, if specified, subnets that don't have at least `minAddressCount` available addresses are unavailable for selection. The default value is **0**. To ensure that the available addresses are contiguous, specify **true** for `requireContiguousAddresses`. The default value is **true**.
+- Creating subnets in an existing virtual network isn't supported.
+- If `options.hideExisting` is **true**, the user can't choose an existing virtual network. The default value is **false**.
+
 ## Next steps
+
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

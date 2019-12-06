@@ -1,5 +1,5 @@
 ---
-title: Upload a custom Linux disk with Azure CLI | Microsoft Docs
+title: Upload a custom Linux disk with Azure CLI 
 description: Create and upload a virtual hard disk (VHD) to Azure using the Resource Manager deployment model and the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''

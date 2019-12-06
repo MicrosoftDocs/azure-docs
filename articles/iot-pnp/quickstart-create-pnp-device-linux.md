@@ -54,11 +54,11 @@ You can find your _company model repository connection string_ in the [Azure Cer
 
 ## Prepare an IoT hub
 
-You need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. If you don't already have an IoT hub to use, follow the rest of this section to create one.
 
 If you're using the Azure CLI locally, the `az` version should be **2.0.75** or later, the Azure Cloud Shell uses the latest version. Use the `az --version` command to check the version installed on your machine.
 
-Add the Microsoft Azure IoT Extension for Azure CLI:
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance:
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -66,11 +66,11 @@ az extension add --name azure-cli-iot-ext
 
 The steps in this quickstart require version **0.8.5** or later of the extension. Use the `az extension list` command to check the version you have installed, and the `az extension update` command to update if necessary.
 
-If don't have an IoT hub, create one using the following commands, replacing `{YourIoTHubName}` with a unique name of your choice. If you're running these commands locally, first sign in to your Azure subscription using `az login`. If you're running these commands in the Azure cloud shell, you're signed in automatically:
+If don't have an IoT hub, create one using the following commands, replacing `<YourIoTHubName>` with a unique name of your choice. If you're running these commands locally, first sign in to your Azure subscription using `az login`. If you're running these commands in the Azure cloud shell, you're signed in automatically:
 
   ```azurecli-interactive
   az group create --name pnpquickstarts_rg --location centralus
-  az iot hub create --name {YourIoTHubName} \
+  az iot hub create --name <YourIoTHubName> \
     --resource-group pnpquickstarts_rg --sku S1
   ```
 
@@ -79,23 +79,39 @@ The previous commands create a resource group called `pnpquickstarts_rg` and an 
 > [!IMPORTANT]
 > During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
 
-Run the following command to create a device identity for a device called `mypnpdevice` in your IoT hub. Replace the `{YourIoTHubName}` placeholder with the name of your IoT hub:
+Run the following command to create a device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDeviceID** placeholders with your own _IoT Hub name_ and a _device ID_ of your choice.
 
 ```azurecli-interactive
-az iot hub device-identity create --hub-name {YourIoTHubName} --device-id mypnpdevice
+az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
-Run the following commands to get the _device connection string_ for the device you just registered. You need this connection string later in this quickstart:
+Run the following commands to get the _device connection string_ for the device you just registered (note for use later).
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id mypnpdevice --output table
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
 ```
+
+## Prepare the development environment
+
+In this quickstart, you use the [Vcpkg](https://github.com/microsoft/vcpkg) library manager to install the Azure IoT C device SDK in your development environment.
+
+Open a shell. Execute the following command to install Vcpkg:
+
+```bash
+cd ~
+git clone https://github.com/microsoft/vcpkg
+cd vcpkg
+./bootstrap-vcpkg.sh
+./vcpkg install azure-iot-sdk-c[public-preview,use_prov_client]
+```
+
+You should expect this operation to take several minutes to complete.
 
 ## Author your model
 
 In this quickstart, you use an existing sample device capability model and associated interfaces.
 
-1. Create a `pnp_app` directory in your home directory. You use this folder for the device model files and device code stub.
+1. Create a `pnp_app` directory in your local drive. You use this folder for the device model files and device code stub.
 
     ```bash
     cd ~
@@ -110,7 +126,7 @@ In this quickstart, you use an existing sample device capability model and assoc
     curl -O -L https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensor.interface.json
     ```
 
-1. Open `pnp_app` folder with VS Code. You can view the files with intellisense:
+1. Open `pnp_app` folder with VS Code. You can view the files with IntelliSense:
 
     ![Device capability model](media/quickstart-create-pnp-device-linux/dcm.png)
 
@@ -118,16 +134,16 @@ In this quickstart, you use an existing sample device capability model and assoc
 
 ## Generate the C code stub
 
-Now you have a DCM and its associated interfaces, you can generate the device code that implements the model. To generate the C code stub in VS code:
+Now that you have a DCM and its associated interfaces, you can generate the device code that implements the model. To generate the C code stub in VS Code:
 
-1. With the `pnp_app` folder open in VS code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub**.
+1. With the `pnp_app` folder open in VS Code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub**.
 
     > [!NOTE]
-    > The first time you use the IoT Plug and Play Code Generator utility, it takes a few seconds to download.
+    > The first time you use the IoT Plug and Play Code Generator utility, it takes a few seconds to download and install automatically.
 
-1. Choose the **SampleDevice.capabilitymodel.json** file to use to generate the device code stub.
+1. Choose the **SampleDevice.capabilitymodel.json** file to use for generating the device code stub.
 
-1. Enter the project name **sample_device**, it will be the name of your device application.
+1. Enter the project name **sample_device**. This will be the name of your device application.
 
 1. Choose **ANSI C** as your language.
 
@@ -135,21 +151,14 @@ Now you have a DCM and its associated interfaces, you can generate the device co
 
 1. Choose **CMake Project on Linux** as your project template.
 
-1. Choose **Via Source Code** as the way to include the SDK.
+1. Choose **Via Vcpkg** as the way to include the device SDK.
 
-1. VS Code opens a new window with generated device code stub files.
+1. A new folder called **sample_device** is created in the same location as the DCM file, and in it are the generated device code stub files. VS Code opens a new window to display these.
     ![Device code](media/quickstart-create-pnp-device-linux/device-code.png)
 
 ## Build and run the code
 
 You use the device SDK source code to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
-
-1. Run the following commands to download the device SDK source code:
-
-    ```bash
-    cd ~/pnp_app/sample_device
-    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
-    ```
 
 1. Create a **CMake** build folder for the **sample_device** application:
 
@@ -159,10 +168,10 @@ You use the device SDK source code to build the generated device code stub. The 
     cd cmake
     ```
 
-1. Run CMake to build your app with the SDK:
+1. Run CMake to build your app with the SDK. The following command assumes you installed **vcpkg** in your home folder:
 
     ```bash
-    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -Dskip_samples:BOOL=ON
+    cmake .. -DCMAKE_TOOLCHAIN_FILE=~/vcpkg/scripts/buildsystems/vcpkg.cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
     cmake --build .
     ```
 
@@ -170,7 +179,7 @@ You use the device SDK source code to build the generated device code stub. The 
 
     ```sh
     cd ~/pnp_app/sample_device/cmake
-    ./sample_device "{IoT Hub device connection string}"
+    ./sample_device "<YourDeviceConnectionString>"
     ```
 
 1. The device application starts sending data to IoT Hub.
@@ -192,26 +201,28 @@ To validate the device code with the **az** CLI, you need to publish the files t
     > [!NOTE]
     > The connection string is only required the first time you connect to the repository.
 
-1. In VS Code output window and notification, you can check the files have been published successfully.
+1. In VS Code output window and notification, you can check that the files have been published successfully.
 
     > [!NOTE]
     > If you get errors on publishing the device model files, you can try use command **IoT Plug and Play: Sign out Model Repository** to sign out and go through the steps again.
 
 ### Use the Azure IoT CLI to validate the code
 
-After the device client sample starts, you can check it's working with the Azure CLI.
+After the device client sample starts, you can check that it's working with the Azure CLI.
 
 Use the following command to view the telemetry the sample device is sending. You may need to wait a minute or two before you see any telemetry in the output:
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name {your IoT hub} --device-id mypnpdevice
+az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDevice>
 ```
 
 Use the following command to view all the properties sent by the device:
 
 ```azurecli-interactive
-az iot dt list-properties --device-id mypnpdevice --hub-name {Your IoT hub name} --source private --repo-login "{Your company model repository connection string}"
+az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
 ```
+
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## Next steps
 
@@ -220,4 +231,4 @@ In this quickstart, you learned how to create an IoT Plug and Play device using 
 To learn more about DCMs and how to create your own models, continue to the tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a test a device capability model using Visual Studio Code](tutorial-pnp-visual-studio-code.md)
+> [Tutorial: Create and test a device capability model using Visual Studio Code](tutorial-pnp-visual-studio-code.md)

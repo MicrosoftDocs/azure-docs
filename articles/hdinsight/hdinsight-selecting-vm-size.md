@@ -39,7 +39,7 @@ Virtual machine families in Azure are optimized to suit different use cases. In 
 | [Compute optimized](../virtual-machines/linux/sizes-compute.md)        | F           | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
 | [Memory optimized](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3  | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 
-- For information about pricing of available VM instances across HDInsight supported regions, see [HDInsight Pricing](https://azure.microsoft.com/en-us/pricing/details/hdinsight/).
+- For information about pricing of available VM instances across HDInsight supported regions, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## Cost saving VM types for light workloads
 

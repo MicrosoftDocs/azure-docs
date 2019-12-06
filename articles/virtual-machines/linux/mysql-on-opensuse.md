@@ -1,5 +1,5 @@
 ---
-title: Install MySQL on an OpenSUSE VM in Azure | Microsoft Docs
+title: Install MySQL on an OpenSUSE VM in Azure 
 description: Learn to install MySQL on an OpenSUSE Linux Virtual machine in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
