@@ -40,12 +40,17 @@ In your Ruby file, import the following packages.
 
 [!code-ruby[Import statements](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=includeStatement)]
 
-Create variables for your resource's Azure endpoint and key, named `TEXT_ANALYTICS_ENDPOINT` and `TEXT_ANALYTICS_SUBSCRIPTION_KEY`. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. 
+Create variables for your resource's Azure endpoint and key. 
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-
+<!--
 [!code-ruby[endpoint, key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)]
+-->
+```ruby
+const key = '<paste-your-text-analytics-key-here>'
+const endpoint = `<paste-your-text-analytics-endpoint-here>`
+```
 
 ## Object model 
 
