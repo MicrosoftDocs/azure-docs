@@ -151,7 +151,7 @@ Pooled databases generally support the same [business continuity features](sql-d
 
 There are two ways you can create an elastic pool in the Azure portal.
 
-1. Select **Azure SQL** in the left-hand menu of the Azure portal. If Azure SQL is not in the list, select **All services**, then type *Azure SQL* in the search box.
+1. Go to the [Azure portal](https://portal.azure.com) to create an elastic pool. Search for and select **Azure SQL**.
 2. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about elastic pools by selecting **Show details** on the **Databases** tile.
 3. On the **Databases** tile, select **Elastic pool** in the **Resource type** dropdown, then select **Create**:
 
