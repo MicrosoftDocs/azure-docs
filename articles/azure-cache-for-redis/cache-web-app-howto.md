@@ -141,7 +141,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+            IDatabase cache = lazyConnection.GetDatabase();
 
             // Perform cache operations using the cache object...
 
@@ -164,7 +164,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
             ViewBag.command5 = "CLIENT LIST";
             ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
 
-            lazyConnection.Value.Dispose();
+            lazyConnection.Dispose();
 
             return View();
         }
