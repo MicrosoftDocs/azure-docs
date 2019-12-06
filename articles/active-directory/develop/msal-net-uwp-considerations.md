@@ -1,5 +1,5 @@
 ---
-title: Universal Windows Platform considerations (Microsoft Authentication Library for .NET) 
+title: UWP considerations (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about specific considerations when using Universal Windows Platform with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
