@@ -245,7 +245,7 @@ Ensure that the schema of your target index is compatible with the schema of the
 > [!NOTE]
 > For partitioned collections, the default document key is Azure Cosmos DB's `_rid` property, which Azure Cognitive Search automatically renames to `rid` because field names cannot start with an underscore character. Also, Azure Cosmos DB `_rid` values contain characters that are invalid in Azure Cognitive Search keys. For this reason, the `_rid` values are Base64 encoded.
 > 
-> For MongoDB collections, Azure Cognitive Search automatically renames the `_id` property to `doc_id`.  
+> For MongoDB collections, Azure Cognitive Search automatically renames the `_id` property to `id`.  
 
 ### Mapping between JSON Data Types and Azure Cognitive Search Data Types
 | JSON data type | Compatible target index field types |
@@ -293,7 +293,7 @@ The generally available .NET SDK has full parity with the generally available RE
 
 ## Indexing changed documents
 
-The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` (timestamp) property provided by Azure Cosmos DB, which is specified as follows:
+The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB, which is specified as follows:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",

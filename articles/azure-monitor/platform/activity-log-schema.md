@@ -770,6 +770,7 @@ resource.
 | properties.policies | Includes details about the policy definition, assignment, effect, and parameters that this Policy evaluation is a result of. |
 | relatedEvents | This field is blank for Policy events. |
 
+
 ## Schema from storage account and event hubs
 When streaming the Azure Activity log to a storage account or event hub, the data follows the [resource log schema](diagnostic-logs-schema.md). The table below provides a mapping of properties from the schema above to the resource logs schema.
 

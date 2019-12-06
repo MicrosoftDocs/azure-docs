@@ -47,10 +47,12 @@ You can add, edit, or remove a policy by using any of the following methods:
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [REST APIs](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
-This article shows how to manage policy by using the portal and PowerShell methods.  
+A policy can be read or written in full. Partial updates are not supported. 
 
 > [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+
+This article shows how to manage policy by using the portal and PowerShell methods.  
 
 # [Portal](#tab/azure-portal)
 

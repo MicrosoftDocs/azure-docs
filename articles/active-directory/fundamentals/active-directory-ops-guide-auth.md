@@ -358,7 +358,7 @@ Having access to sign-in activity, audits and risk events for Azure AD is crucia
 - [Get data using the Azure AD Reporting API with certificates](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
 - [Microsoft Graph for Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 - [Office 365 Management Activity API reference](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
-- [How to use the Azure Active Directory Power BI Content Pack](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-power-bi-content-pack-how-to)
+- [How to use the Azure Active Directory Power BI Content Pack](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## Summary
 
