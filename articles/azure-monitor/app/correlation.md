@@ -214,7 +214,7 @@ For definitions of OpenTracing concepts, see the OpenTracing [specification](htt
 
 ## Telemetry correlation in OpenCensus Python
 
-OpenCensus Python follows the `OpenTracing` data model specifications outlined earlier. It also supports the [W3C Trace-Context](https://w3c.github.io/trace-context/) without requiring any configuration.
+OpenCensus Python follows the `OpenTracing` data model specifications outlined earlier. It also supports [W3C Trace-Context](https://w3c.github.io/trace-context/) without requiring any configuration.
 
 ### Incoming request correlation
 
@@ -265,7 +265,7 @@ The `operation_ParentId` field is in the format `<trace-id>.<parent-id>`, where 
 
 ### Log correlation
 
-OpenCensus Python enables you to correlate logs by adding a trace ID, a span ID, and a sampling flag to log records. You add these attributes by installing OpenCensus [logging integration](https://pypi.org/project/opencensus-ext-logging/). These attributes will be added to Python `LogRecord` objects: `traceId`, `spanId`, and `traceSampled`. Note that this takes effect only for loggers that are created after the integration.
+OpenCensus Python enables you to correlate logs by adding a trace ID, a span ID, and a sampling flag to log records. You add these attributes by installing OpenCensus [logging integration](https://pypi.org/project/opencensus-ext-logging/). The following attributes will be added to Python `LogRecord` objects: `traceId`, `spanId`, and `traceSampled`. Note that this takes effect only for loggers that are created after the integration.
 
 Here's a sample application that demonstrates this:
 
@@ -320,7 +320,7 @@ The Application Insights SDK, starting with version 2.4.0-beta1, uses `Diagnosti
 <a name="java-correlation"></a>
 ## Telemetry correlation in the Java SDK
 
-[Application Insights SDK for Java](../../azure-monitor/app/java-get-started.md) version 2.0.0 or later supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also takes care of propagating the correlation headers (described earlier) for service-to-service calls via HTTP, if the [Java SDK agent](../../azure-monitor/app/java-agent.md) is configured.
+[Application Insights SDK for Java](../../azure-monitor/app/java-get-started.md) version 2.0.0 or later supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers (described earlier) for service-to-service calls via HTTP, if the [Java SDK agent](../../azure-monitor/app/java-agent.md) is configured.
 
 > [!NOTE]
 > Only calls made via Apache HttpClient are supported for the correlation feature. Both Spring RestTemplate and Feign can be used with Apache HttpClient under the hood.
