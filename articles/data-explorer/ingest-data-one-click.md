@@ -11,21 +11,21 @@ ms.date: 10/31/2019
 
 # Use one-click ingestion to ingest data into Azure Data Explorer
 
-This article shows how to use one-click ingestion for new tables, in either JSON or CSV formats, from storage into Azure Data Explorer. When you use the intuitive wizard, your data ingests within a few minutes. Then, you can edit the table and run queries using the web UI.
+This article shows you how to use one-click ingestion for quick ingestion of a new table in either JSON or CSV format. The data can be ingested from storage or a local file into an existing table or a new table. Use the intuitive one-click wizard, and your data ingests within a few minutes. Then, you can edit the table and run queries using the Azure Data Explorer Web UI.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * Sign in to [the application](https://dataexplorer.azure.com/).
 * Create [an Azure Data Explorer cluster and database](create-cluster-database-portal.md).
-* Sign in to the [web UI](https://dataexplorer.azure.com/) and [add a connection to your cluster](/azure/data-explorer/web-query-data#add-clusters).
+* Sign in to the [Web UI](https://dataexplorer.azure.com/) and [add a connection to your cluster](/azure/data-explorer/web-query-data#add-clusters).
 * Source of data in Azure Storage.
 
 ## Ingest new data
 
-1. Right-click on the *database* or *table* row in left menu of the web UI and select **Ingest new data (Preview)**.
+1. Right-click on the *database* or *table* row in left menu of the Web UI and select **Ingest new data (Preview)**.
 
-    ![Select one-click ingestion in web UI.](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
+    ![Select one-click ingestion in the Web UI.](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
  
 1. In the **Ingest new data (Preview)** window, select the **Source** tab and complete the **Project Details**:
 
@@ -73,12 +73,12 @@ This article shows how to use one-click ingestion for new tables, in either JSON
  
     ![One-click data ingestion complete.](media/ingest-data-one-click/one-click-data-ingestion-complete.png)
 
-1. Select the **v** button to open the query. Copy to the web UI to edit the query.
+1. Select the **v** button to open the query. Copy to the Web UI to edit the query.
 
 1. The menu on the right contains **Quick queries** and **Tools** options. 
 
-    * **Quick queries** includes links to the web UI with example queries.
-    * **Tools** includes a link to **Drop commands** on the web UI, which allow you to troubleshoot issues by running the relevant `.drop` commands.
+    * **Quick queries** includes links to the Web UI with example queries.
+    * **Tools** includes a link to **Drop commands** on the Web UI, which allow you to troubleshoot issues by running the relevant `.drop` commands.
 
     > [!TIP]
     > Data may be lost by using `.drop` commands. Use them carefully.
