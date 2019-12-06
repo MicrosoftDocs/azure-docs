@@ -1,8 +1,7 @@
 ---
-title: Copy data to and from Azure Database for MySQL using Azure Data Factory 
+title: Copy data to and from Azure Database for MySQL
 description: Learn how to copy data to and from Azure Database for MySQL by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
 manager: shwang
