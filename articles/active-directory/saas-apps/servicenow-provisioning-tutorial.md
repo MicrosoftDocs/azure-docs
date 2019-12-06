@@ -64,17 +64,17 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 Add ServiceNow from the Azure AD application gallery to start managing provisioning to ServiceNow. If you have previously setup ServiceNow for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-## 4. Assign users to ServiceNow
+## 4. Assign users to ServiceNow 
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
+The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. 
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to SAP Cloud Platform Identity Authentication. Once decided, you can assign these users and/or groups to ServiceNow by following the instructions here:
-* [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
+#### Important tips for assigning users to ServiceNow
+* When assigning users and groups to ServiceNow, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning. If the only role available on the application is the default access role, you can [update the application manifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to add additional roles. 
 
-## Important tips for assigning users to ServiceNow
+* When assigning users and groups to ServiceNow, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+
 * It is recommended that a single Azure AD user is assigned to TestApp to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
-* When assigning a user to TestAoo, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## 5. Configure automatic user provisioning to ServiceNow 
 
