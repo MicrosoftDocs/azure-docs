@@ -500,7 +500,7 @@ To make changes to files in the image, you can attach to the running container, 
     docker exec -it debug /bin/bash
     ```
 
-1. To find the files used by the service, use the following command from the bash shell in the container:
+1. To find the files used by the service, use the following command from the bash shell in the container if the default directory is different than `/var/azureml-app`:
 
     ```bash
     cd /var/azureml-app
