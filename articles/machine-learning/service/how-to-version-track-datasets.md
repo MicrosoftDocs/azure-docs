@@ -143,7 +143,24 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## Track datasets in experiments
 
-For each Machine Learning experiment, you can easily trace the datasets used as the input through the registered model's  `Run` object.
+For each Machine Learning experiment, you can easily trace the datasets used as the input through the experiment `Run` object.
+
+The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) method to track which input datasets were used with the experiment run:
+
+```Python
+# get input datasets
+inputs = run.get_details()['inputDatasets']
+input_dataset = inputs[0]['dataset']
+
+# list the files referenced by input_dataset
+input_dataset.to_path()
+```
+
+You can also find the `input_datasets` from experiments by using [Azure Machine Learning Studio](https://ml.azure.com/). 
+
+The following image shows where to find the input dataset of an experiment on Azure Machine Learning Studio. For this example, go to your **Experiments** pane and open the **Properties** tab for a specific run of your experiment, `keras-mnist`.
+
+![Input datasets](media/how-to-version-datasets/input-datasets.png)
 
 Use the following code to register models with datasets:
 
@@ -153,26 +170,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-After registration, you can see the list of models registered with the dataset by using Python or [Azure Machine Learning Studio](https://ml.azure.com/).
-
-The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) method to track which input datasets were used with the experiment run:
-
-```Python
-# get input datasets
-inputs = run.get_details()['inputDatasets']
-train_dataset = inputs[0]['dataset']
-
-# list the files referenced by train_dataset
-train_dataset.to_path()
-```
-
-You can also find the `input_datasets` from experiments by using [Azure Machine Learning Studio](https://ml.azure.com/). 
-
-The following image shows where to find the input dataset of an experiment on Azure Machine Learning Studio. For this example, go to your **Experiments** pane and open the **Properties** tab for a specific run of your experiment, `keras-mnist`.
-
-![Input datasets](media/how-to-version-datasets/input-datasets.png)
-
-You can also find the models that used your dataset. The following view is from the **Datasets** pane under **Assets**. Select the dataset and then select the **Models** tab for a list of the models that are using that dataset. 
+After registration, you can see the list of models registered with the dataset by using Python or [Azure Machine Learning Studio](https://ml.azure.com/). The following view is from the **Datasets** pane under **Assets**. Select the dataset and then select the **Models** tab for a list of the models that are registered with the dataset. 
 
 ![Input datasets models](media/how-to-version-datasets/dataset-models.png)
 
