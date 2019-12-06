@@ -1,6 +1,6 @@
 ---
 title: Maintenance control for Azure virtual machines using PowerShell
-description: Learn how to control when maintenace is applied to your Azure VMs using Maintenance Control and PowerShell.
+description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control and PowerShell.
 services: virtual-machines-linux
 author: cynthn
 
@@ -12,7 +12,7 @@ ms.date: 12/06/2019
 ms.author: cynthn
 ---
 
-# Preview: Control updates with Maintenance Control and the Azure PowerShell
+# Preview: Control updates with Maintenance Control and Azure PowerShell
 
 Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can’t tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
 
@@ -89,7 +89,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ## Assign the configuration
 
-Use [New-AzConfigurationAssignment] createhttps://docs.microsoft.com/powershell/module/az.maintenance/new-azconfigurationassignment) to assign the configuration to your isolated VM or Azure Dedicated Host.
+Use [New-AzConfigurationAssignment](https://docs.microsoft.com/powershell/module/az.maintenance/new-azconfigurationassignment) to assign the configuration to your isolated VM or Azure Dedicated Host.
 
 ### Isolated VM
 
