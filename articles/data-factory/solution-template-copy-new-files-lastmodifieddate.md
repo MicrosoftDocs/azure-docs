@@ -59,7 +59,7 @@ The template defines six parameters:
    - **LastModified_From** =  2019-02-01T00:00:00Z
    - **LastModified_To** = 2019-03-01T00:00:00Z
 	
-    The example is indicating that the files which have been last modified within the timespan (**2019-02-01T00:00:00Z** to **2019-03-01T00:00:00Z**) will be copied from the source path **sourcefolder/subfolder** to the destination path **destinationfolder/subfolder**.  You can replace these with your own parameters.
+    The example is indicating that the files, which have been last modified within the timespan (**2019-02-01T00:00:00Z** to **2019-03-01T00:00:00Z**) will be copied from the source path **sourcefolder/subfolder** to the destination path **destinationfolder/subfolder**.  You can replace these with your own parameters.
 
     ![Run the pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
 
@@ -73,7 +73,7 @@ The template defines six parameters:
 	
 8. In the **Add Triggers** window, select **+ New**.
 
-9. Select **Tumbling Window** for the trigger type, set **Every 15 minute(s)** as the recurrence (you can change to any interval time). Select **Yes** for Activated box, and and then select **OK**.
+9. Select **Tumbling Window** for the trigger type, set **Every 15 minute(s)** as the recurrence (you can change to any interval time). Select **Yes** for Activated box, and then select **OK**.
 
     ![Create trigger](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)	
 	
