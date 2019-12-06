@@ -27,9 +27,25 @@ To complete this quickstart, you must have:
 
 ## Set up the sample labeling tool
 
-There are two ways to get access to the sample labeling tool. 
-* You can deploy an Azure web app and run it in your browser. Click the button below to deploy the sample labeling tool in your Azure subscription. (TBD)
-* You can run the labeling tool as a docker container. Use the following command to deploy the container to your device. (TBD)
+You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
+* First, install Docker on a host computer. This can be your local computer ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/), or [Linux](https://docs.docker.com/install/)). Or, you can use a Docker hosting service in Azure, such as the [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index), or a Kubernetes cluster [deployed to an Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). The host computer must meet the following hardware requirements:
+    | Container | Minimum | Recommended|
+    |:--|:--|:--|
+    |Sample labeling tool|2 core, 4-GB memory|4 core, 8-GB memory
+* Next, you'll need the [Azure command-line interface (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Install it on your machine if you haven't already.
+* Then enter the following command in a command prompt. The values for `<username>` and `<password>` are in your Welcome to Form Recognizer email.
+    ```
+    docker login containerpreview.azurecr.io -u <username> -p <password>
+    ```
+* Get the sample labeling tool container with the `docker pull` command.
+    ```
+    docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool:latest
+    ```
+* Now you're ready to run the container with `docker run`.
+    ```
+    docker run -it -p 3000:80 containerpreview.azurecr.io//microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool:latest -amd64-preview eula=accept
+    ```
+    This will make the sample labeling tool available through a web browser. Go to [https://localhost:3000](https://localhost:3000).
 
 > [!NOTE]
 > You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](./python-labeled-data.md).
