@@ -50,31 +50,31 @@ Take the following steps to load data into your Edge storage account on the devi
 
 1. Select the container to which you want to load the data in your Edge storage account. Select **Upload** and then select **Upload files**.
 
-    ![Verfiy data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-1.png)
+    ![Verify data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-1.png)
 
 2. In the **Upload files** dialog, navigate to and select the files that you want to upload. Select **Next**.
 
-    ![Verfiy data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-2.png)
+    ![Verify data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-2.png)
 
 3. Verify that the files have uploaded. The uploaded files show up in the container.
 
-    ![Verfiy data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-3.png)
+    ![Verify data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-3.png)
 
-4. Next, you will connect to the Azure Storage account that was mapped to this Edge storage account. Any data that is uploaded to the Edge storage account should automatically tier to the the Azure Storage account. 
+4. Next, you will connect to the Azure Storage account that was mapped to this Edge storage account. Any data that is uploaded to the Edge storage account should automatically tier to the Azure Storage account. 
     
     To get the connection string for the Azure Storage account, go to the **Azure Storage account > Access keys** and copy the connection string.
 
-    ![Verfiy data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-5.png)
+    ![Verify data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-5.png)
 
     Use the connection string to attach to the Azure Storage account.  
 
-    ![Verfiy data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-4.png)
+    ![Verify data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-4.png)
 
 
 5. In the **Connection Summary** dialog, review the provided information. Select **Connect**.
 
-    ![Verfiy data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-6.png)
+    ![Verify data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-6.png)
 
 6. You will see that the files you uploaded in the Edge storage account were transferred to the Azure Storage account.
 
-    ![Verfiy data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-7.png)
+    ![Verify data transfer](media/azure-stack-edge-gateway-verify-connection-storage-explorer/verify-data-transfer-7.png)
