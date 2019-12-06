@@ -71,9 +71,9 @@ public class BingWebSearch {
 
 ## Define variables
 
-This code sets the `subscriptionKey`, `host`, `path`, and `searchTerm`. Confirm that the endpoint is correct and replace the `subscriptionKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`. Remember to add this code to the `BingWebSearch` class as noted above.
+This code sets the `subscriptionKey`, `host`, `path`, and `searchTerm`. `host` can be the global endpoint below, or the [custom subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) endpoint displayed in the Azure portal for your resource.
 
-[!INCLUDE [bing-endpoint-information](../../../../includes/bing-endpoints.md)]
+Confirm that the endpoint is correct and replace the `subscriptionKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`. Remember to add this code to the `BingWebSearch` class as noted above.
 
 ```java
 // Enter a valid subscription key.

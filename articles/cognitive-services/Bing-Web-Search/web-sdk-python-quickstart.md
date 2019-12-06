@@ -163,9 +163,7 @@ If the response contains web pages, images, news, or videos, the first result fo
 
 1. Replace `SUBSCRIPTION_KEY` with a valid subscription key.
 
-1. Replace `YOUR_ENDPOINT` with your endpoint url.
-
-    [!INCLUDE [bing-endpoint-information](../../../includes/bing-endpoints.md)]
+1. Replace `YOUR_ENDPOINT` with your endpoint url. You can use the Bing global endpoint, or the [custom subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) endpoint displayed in the Azure portal for your resource.
 
 1. Run the program. For example: `python your_program.py`.
 

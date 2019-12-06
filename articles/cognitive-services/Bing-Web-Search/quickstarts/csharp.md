@@ -60,9 +60,7 @@ namespace BingSearchApisQuickstart
 
 ## Define variables
 
-A few variables must be set before we can continue. Confirm that the `uriBase` is valid and replace the `accessKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`. Remember to add this code to the `Program` class as noted above.
-
-[!INCLUDE [bing-endpoint-information](../../../../includes/bing-endpoints.md)]
+A few variables must be set before we can continue. `uriBase` can be the global endpoint below, or the [custom subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) endpoint displayed in the Azure portal for your resource. Replace the `accessKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`. Remember to add this code to the `Program` class as noted above.
 
 ```csharp
 // Enter a valid subscription key.
