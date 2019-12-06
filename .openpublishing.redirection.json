@@ -1943,11 +1943,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/search/search-traffic-analytics.md",
-      "redirect_url": "/azure/search/search-monitor-usage",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/search/knowledge-store-howto.md",
       "redirect_url": "/azure/search/knowledge-store-create-rest",
       "redirect_document_id": false
@@ -10035,6 +10030,11 @@
     {
       "source_path": "articles/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways.md",
       "redirect_url": "/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-wan/virtual-wan-office365-overview.md",
+      "redirect_url": "/azure/virtual-wan/virtual-wan-about",
       "redirect_document_id": false
     },
     {
