@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 11/28/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -168,7 +168,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 Akamai Header Based Authentication
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure05.png)
+1. Choose **Custom HTTP** form the Add Applications Wizard.
+
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure05.png)
 
 ![Configuring Akamai](./media/header-akamai-tutorial/configure06.png)
 
@@ -184,39 +186,61 @@ Akamai Header Based Authentication
 
 #### Services
 
+1. Click Save and Go to Authentication.
+
 ![Configuring Akamai](./media/header-akamai-tutorial/configure11.png)
 
 #### Advanced Settings
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure12.png)
+1. Under the **Customer HTTP Headers**, specify the **CustomerHeader** and **SAML Attrtibute**.
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure13.png)
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure12.png)
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure14.png)
+1. Click **Save and go to Deployment** button.
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure15.png)
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure13.png)
+
+#### Deploy the Application
+
+1. Click **Deploy Application** button.
+
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure14.png)
+
+1. Verify the Application was deployed successfully.
+
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure15.png)
 
 ### Kerberos Authentication
 
 #### Remote Desktop
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure16.png)
+1. Choose **RDP** from the ADD Applications Wizard.
+    
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure16.png)
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure17.png)
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure17.png)
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure18.png)
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure18.png)
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure19.png)
+1. Specify the Connector that will be servicing this.
+
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure19.png)
 
 #### Authentication
+
+Click **Save and go to Services**.
 
 ![Configuring Akamai](./media/header-akamai-tutorial/configure20.png)
 
 #### Services
 
+Click **Save and go to Advanced Settings**.
+
 ![Configuring Akamai](./media/header-akamai-tutorial/configure21.png)
 
 #### Advanced Settings
+
+Click **Save and go to Deployment**.
 
 ![Configuring Akamai](./media/header-akamai-tutorial/configure22.png)
 
@@ -228,19 +252,49 @@ Akamai Header Based Authentication
 
 #### SSH
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure25.png)
+1. Go to Add Applications , Choose **SSH**.
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure26.png)
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure25.png)
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure27.png)
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure26.png)
+
+1. Configure Application Identity.
+
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure27.png)
+
+    a. Specify Name / Description.
+
+    b. Specify Application Server IP/FQDN and port for SSH.
+
+    c. Specify SSH username / passphrase *Check Akamai EAA.
+
+    d. Specify the External host Name.
+
+    e. Specify the Location for the connector and choose the connector.
+
+#### Authencation
+
+Click on **Save and go to Services**.
 
 ![Configuring Akamai](./media/header-akamai-tutorial/configure28.png)
 
+#### Services
+
+Click **Save and go to Advanced Settings**.
+
 ![Configuring Akamai](./media/header-akamai-tutorial/configure29.png)
+
+#### Advanced Settings
+
+Click Save and to go Deployment
 
 ![Configuring Akamai](./media/header-akamai-tutorial/configure30.png)
 
 ![Configuring Akamai](./media/header-akamai-tutorial/configure31.png)
+
+#### Deployment
+
+Click **Deploy application**.
 
 ![Configuring Akamai](./media/header-akamai-tutorial/configure32.png)
 
