@@ -112,9 +112,7 @@ At this point, you have created your applications in Azure AD, and have granted 
 
 In this example, the Developer Console is the client-app. The following steps describe how to enable OAuth 2.0 user authorization in the Developer Console. 
 
-1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
-
-1. Choose your API Management instance.
+1. In Azure portal, browse to your API Management instance.
 
 1. Select **OAuth 2.0** > **Add**.
 
