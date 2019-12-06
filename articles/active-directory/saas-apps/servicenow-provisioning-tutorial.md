@@ -71,9 +71,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 #### Important tips for assigning users to ServiceNow
 * When assigning users and groups to ServiceNow, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning. If the only role available on the application is the default access role, you can [update the application manifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to add additional roles. 
 
-* When assigning users and groups to ServiceNow, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
-
-* It is recommended that a single Azure AD user is assigned to TestApp to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users / groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
 ## 5. Configure automatic user provisioning to ServiceNow 
@@ -101,7 +99,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://www.leapsome.com/api/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to ServiceNow. If the connection fails, ensure your ServiceNow account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input your ServiceNow admin credentials and username. Click **Test Connection** to ensure Azure AD can connect to ServiceNow. If the connection fails, ensure your ServiceNow account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -153,12 +151,10 @@ Once you've configured provisioing, use the following resources to monitor your 
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarnatine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## Troubleshooting Tips
+* **InvalidLookupReference:** When provisioning certain attributes such as Department and Location in ServiceNow, the values must already exist in a reference table in ServiceNow. For example, you may have 2 locations (Seattle, Los Angelas) and 3 departments (Sales, Finance, Marketing) in the **insert table name** table in ServiceNow. If you attempt to provision a user wher his deparment is "Sales" and location is "Seattle" he will be provisioned successfully. If you attempt to provision a user with department "Sales" and location "LA" the user won't be provisioned. The location LA must either be added to the reference table in ServiceNow or the user attribute in Azure AD must be updated to match the format in ServiceNow. 
+* **EntryJoiningPropertyValueIsMissing:** Review your [attribute mappings](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) to identify the matching attribute. This value must be present on the user or group you're attempting to provision. 
 * Review the [ServiceNow SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) to understand any requirements or limitations (e.g. format to specify country code for a user )
-
 * Describe how to configure referential attributes
-
-* When provisioning certain attributes such as Department and Location in ServiceNow, the values must already exist in a reference table in ServiceNow. For example, you may have 2 locations (Seattle, Los Angelas) and 3 departments (Sales, Finance, Marketing) in the **insert table name** table in ServiceNow. If you attempt to provision a user wher his deparment is "Sales" and location is "Seattle" he will be provisioned successfully. If you attempt to provision a user with department "Sales" and location "LA" the user won't be provisioned. The location LA must either be added to the reference table in ServiceNow or the user attribute in Azure AD must be updated to match the format in ServiceNow. 
-
 * Some ServiceNow deployments require whitelisting IP ranges for the Azure AD provisioning service. The reserved IP ranges for the Azure AD provisioning service can be found [here](https://www.microsoft.com/download/details.aspx?id=56519) under "AzureActiveDirectoryDomainServices."
 
 ## Additional resources
@@ -169,6 +165,3 @@ Once you've configured provisioing, use the following resources to monitor your 
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
-
-
-
