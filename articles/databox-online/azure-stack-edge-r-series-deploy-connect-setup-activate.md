@@ -44,14 +44,14 @@ Before you configure and set up your Azure Stack Edge device, make sure that:
 
     You see an error or a warning indicating that there is a problem with the website’s security certificate. 
    
-    ![Website security certificate error message](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/image2.png)
+    <!--![Website security certificate error message](./media/data-box-edge-deploy-connect-setup-activate/image2.png)-->
 
 4. Select **Continue to this webpage**.  
     These steps might vary depending on the browser you're using.
 
 5. Sign in to the web UI of your device. The default password is *Password1*.
    
-    ![Azure Stack Edge device sign-in page](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/image3.png)
+    <!--![Azure Stack Edge device sign-in page](./media/data-box-edge-deploy-connect-setup-activate/image3.png)-->
 
 6. At the prompt, change the device administrator password.  
     The new password must contain between 8 and 16 characters. It must contain three of the following characters: uppercase, lowercase, numeric, and special characters.
@@ -64,23 +64,23 @@ Your **Get started** page displays the various settings that are required to con
 
 1. In the local web UI of your device, go to the **Get started** page.  
 
-    ![Local web UI "Get started" page](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-activate-1.png)
+    <!--![Local web UI "Get started" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)-->
 
 2. (Optional) On the **Network settings** tile, select **Configure**.  
     
-    ![Local web UI "Network settigs" tile](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-activate-1.png)
+    <!--![Local web UI "Network settigs" tile](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)-->
 
     On your physical device, there are four network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3 and PORT 4 are all 10-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 4 are all data ports. The **Network settings** page is as shown below.
     
-    ![Local web UI "Network settings" page](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-activate-3.png)
+    <!--![Local web UI "Network settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)-->
    
     To change the network settings, select a port and in the right pane that appears, modify the IP address, subnet, gateway, primary DNS, and secondary DNS. If you select Port 1, you can see that it is preconfigured as static. 
 
-    ![Local web UI "Port 1 Network settings"](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-activate-3.png)
+    <!--![Local web UI "Port 1 Network settings"](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)-->
 
     If you select Port 2, Port 3, or Port 4, all of these ports are configured as DHCP by default.
 
-    ![Local web UI "Port 2 Network settings"](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-activate-3.png)
+    <!--![Local web UI "Port 2 Network settings"](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)-->
 
     As you configure the network settings, keep in mind:
 
@@ -95,7 +95,7 @@ Your **Get started** page displays the various settings that are required to con
 
 3. (Optional) On the Web proxy & time tile, configure your web proxy server settings. Although web proxy configuration is optional, if you use a web proxy, you can configure it on this page only.
    
-   ![Local web UI "Web proxy settings" page](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-activate-4.png)
+   <!--![Local web UI "Web proxy settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)-->
    
    On the **Web proxy settings** page, do the following:
    
@@ -124,7 +124,7 @@ Your **Get started** page displays the various settings that are required to con
 
     4. To validate and apply the configured time settings, select **Apply**.
 
-        ![Local web UI "Time settings" page](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-activate-5.png)
+        <!--![Local web UI "Time settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)-->
 
     5. After the settings are applied, go back to **Get started**.
 
@@ -138,7 +138,7 @@ Your **Get started** page displays the various settings that are required to con
 
     4. To validate and apply the configured device settings, select **Apply**.
 
-        ![Local web UI "Device" page](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-activate-5.png)
+        <!--![Local web UI "Device" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)-->
 
     5. After the settings are applied, go back to **Get started**.
 
@@ -154,21 +154,21 @@ Your **Get started** page displays the various settings that are required to con
 
 7. On the **Activation** tile, select **Activate**. The activate option is grayed out until the encryption-at-rest is successfully configured. 
     
-    1. In the **Activate** pane, enter the **Activation key** that you got in [Get the activation key for Azure Stack Edge](azure-stack-edge-r-series-deploy-prep.md#get-the-activation-key).
+    1. In the **Activate** pane, enter the **Activation key** that you got in [Get the activation key for Azure Stack Edge](data-box-edge-deploy-prep.md#get-the-activation-key).
 
     2. Select **Apply**.
        
-        ![Local web UI "Cloud settings" page](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-activate-6.png)
+        <!--![Local web UI "Cloud settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)-->
 
     3. First the device is activated. The device is then scanned for any critical updates and if available, the updates are automatically applied. You see a notification to that effect. Monitor the update progress via the Azure portal.
 
         The dialog also has a recovery key that you should copy and save it in a safe location. This key is used to recover your data in the event the device can't boot up.
 
-        ![Local web UI "Cloud settings" page updated](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-activate-7.png)
+        <!--![Local web UI "Cloud settings" page updated](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)-->
 
     4. You may need to wait several minutes after the update is successfully completed. The page updates to indicate that the device is successfully activated.
 
-        ![Local web UI "Cloud settings" page updated](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-activate-8.png)
+        <!--![Local web UI "Cloud settings" page updated](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)-->
 
     5. Select download key file and save the *keys.json* file in a safe location. This key file contains the recovery keys for the OS disk, data disks, and for the BIOS on your device. Here are the contents of the *keys.json* file:
 
