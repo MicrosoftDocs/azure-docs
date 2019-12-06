@@ -1,18 +1,19 @@
 ---
-title: Configure customer-managed keys with Azure Key Vault by using Azure CLI - Azure Storage
+title: Use Azure CLI to configure customer-managed keys
+titleSuffix: Azure Storage
 description: Learn how to use Azure CLI to configure customer-managed keys with Azure Key Vault for Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/20/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Configure customer-managed keys for Azure Storage by using Azure CLI
+# Configure customer-managed keys with Azure Key Vault by using Azure CLI
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
@@ -87,7 +88,7 @@ az keyvault key create
 
 By default, Azure Storage encryption uses Microsoft-managed keys. Configure your Azure Storage account for customer-managed keys and specify the key to associate with the storage account.
 
-To update the storage account's encryption settings, call [az storage account update](/cli/azure/storage/account#az-storage-account-update). This example also queries for the key vault URI and key version, both of which values are needed to associate the key with the storage account. Remember to replace the placeholder values in brackets with your own values.
+To update the storage account's encryption settings, call [az storage account update](/cli/azure/storage/account#az-storage-account-update). This example also queries for the key vault URI and the latest key version, both of which values are needed to associate the key with the storage account. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -98,7 +99,7 @@ key_vault_uri=$(az keyvault show \
 key_version=$(az keyvault key list-versions \
     --name <key> \
     --vault-name <key-vault> \
-    --query [].kid \
+    --query [-1].kid \
     --output tsv | cut -d '/' -f 6)
 az storage account update 
     --name <storage-account> \

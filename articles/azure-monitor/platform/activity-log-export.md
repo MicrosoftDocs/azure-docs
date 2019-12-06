@@ -28,7 +28,7 @@ Archiving the Activity Log to a storage account is useful if you would like to r
 ## Prerequisites
 
 ### Storage account
-If you're archiving your Activity Log, you need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving Diagnostic Logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
+If you're archiving your Activity Log, you need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
 
 The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 > [!NOTE]
@@ -164,7 +164,7 @@ If a log profile already exists, you first need to remove the existing log profi
 Whether sent to Azure storage or Event Hub, the Activity log data will be written to JSON with the following format.
 
 
-> The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor diagnostic logs archived to a storage account](diagnostic-logs-append-blobs.md) for details on this format change.
+> The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor resource logs archived to a storage account](diagnostic-logs-append-blobs.md) for details on this format change.
 
 ``` JSON
 {

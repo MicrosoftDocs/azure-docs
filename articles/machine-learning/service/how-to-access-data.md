@@ -106,7 +106,7 @@ Create a new datastore in a few steps in Azure Machine Learning studio.
 1. Select **+ New datastore**.
 1. Complete the New datastore form. The form intelligently updates based on the Azure storage type and authentication type selections.
   
-The information you need to populate the form can be found via [Azure Machine Learning studio](https://ml.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication items, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left.
+The information you need to populate the form can be found via  [Azure portal](https://portal.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication items, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left.
 
 The following example demonstrates what the form looks like for Azure blob datastore creation. 
     

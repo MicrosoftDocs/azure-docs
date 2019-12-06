@@ -512,6 +512,7 @@ This type of streaming logs requires that you [enable Application Insights integ
 
 ## Next steps
 
+Learn how to develop, test, and publish Azure Functions by using Azure Functions Core Tools [Microsoft learn module](https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-core-tools/)
 Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli).  
 To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues).
 

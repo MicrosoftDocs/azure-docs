@@ -1,6 +1,6 @@
 ---
 title: Azure Germany compute services | Microsoft Docs
-description: Provides a comparision of compute services for Azure Germany
+description: This topic provides a detailed comparison of compute services for Azure Germany.
 services: germany
 cloud: na
 documentationcenter: na

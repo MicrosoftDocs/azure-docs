@@ -1,7 +1,7 @@
 ---
 title: Stream codec compressed audio with the Speech SDK on Android
 titleSuffix: Azure Cognitive Services
-description: Learn how to stream compressed audio to Azure Speech Services with the Speech SDK on Android.
+description: Learn how to stream compressed audio to the Speech service with the Speech SDK on Android.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: amishu
 
 # How to: Use codec compressed audio input with the Speech SDK on Android
 
-The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech Service using PullStream or PushStream.
+The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech service using PullStream or PushStream.
 
 > [!IMPORTANT]
 > Streaming compressed input audio is currently supported for [C++, C#, and Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md). It is also supported for Java in Android and [Objective-C in iOS](how-to-use-codec-compressed-audio-input-streams-ios.md) platform.
@@ -129,7 +129,7 @@ Once the shared object (libgstreamer_android.so) is built application developer 
 
 ## Example code using codec compressed audio input
 
-To stream in a compressed audio format to the Speech Services, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
+To stream in a compressed audio format to the Speech service, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
 
 Let's assume that you have an input stream class called `myPullStream` and are using OPUS/OGG. Your code may look like this:
 

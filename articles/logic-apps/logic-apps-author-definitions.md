@@ -1,12 +1,9 @@
 ---
-title: Create, edit, or extend logic app definitions - Azure Logic Apps
+title: Create, edit, or extend logic app definitions
 description: How to write, edit, and extend logic app JSON definitions in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ---
