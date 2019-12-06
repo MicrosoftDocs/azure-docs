@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/06/2019
+ms.date: 11/19/2019
 ms.author: dumartin
 
 #Customer intent: As the chairman of the municipal council, I want to find out if Azure Government will meet our security and compliance requirements.
@@ -65,6 +65,7 @@ For the most current list of services, see the [Products available by region](ht
 
 ## Web + Mobile
 
+* [Azure Cognitive Search](documentation-government-services-webandmobile.md#azure-cognitive-search)
 * [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services)
 * [App Service: Mobile Apps](documentation-government-services-webandmobile.md#app-services)
 * [API Management](documentation-government-services-webandmobile.md#api-management)
@@ -122,7 +123,7 @@ For the most current list of services, see the [Products available by region](ht
 * [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler)
 * [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor)
-* [Azure Portal](documentation-government-services-monitoringandmanagement.md#azure-portal)
+* [Azure portal](documentation-government-services-monitoringandmanagement.md#azure-portal)
 * [Azure Resource Manager](documentation-government-services-monitoringandmanagement.md#azure-resource-manager)
 * [Azure Migrate](documentation-government-services-monitoringandmanagement.md#azure-migrate)
 

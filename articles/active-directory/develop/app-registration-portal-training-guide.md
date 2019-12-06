@@ -3,16 +3,12 @@ title: Transitioning from Application Registration Portal to the new App registr
 titleSuffix: Microsoft identity platform
 description: An introduction to the new App registration experience in the Azure portal
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/8/2019
 ms.author: aragra

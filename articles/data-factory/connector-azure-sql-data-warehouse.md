@@ -1,5 +1,5 @@
 ---
-title: Copy and transform data in Azure SQL Data Warehouse by using Azure Data Factory 
+title: Copy and transform data in Azure SQL Data Warehouse
 description: Learn how to copy data to and from Azure SQL Data Warehouse, and transform data in Azure SQL Data Warehouse by using Data Factory.
 services: data-factory
 documentationcenter: ''

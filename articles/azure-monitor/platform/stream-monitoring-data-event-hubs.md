@@ -24,7 +24,6 @@ Before you configure streaming for any data source, you need to [create an Event
 * For the Azure Activity log, you pick an Event Hubs namespace, and Azure Monitor creates an event hub within that namespace called _insights-logs-operational-logs_. For other log types, you can either choose an existing event hub or have Azure Monitor create an event hub per log category.
 * Outbound port 5671 and 5672 must typically be opened on the computer or VNET consuming data from the event hub.
 
-
 ## Monitoring data available
 [Sources of monitoring data for Azure Monitor](data-sources.md) describes the different tiers of data for Azure applications and the kinds of monitoring data available for each. The following table lists each of these tiers and a description of how that data can be streamed to an event hub. Follow the links provided for further detail.
 
@@ -32,7 +31,7 @@ Before you configure streaming for any data source, you need to [create an Event
 |:---|:---|:---|
 | [Azure tenant](data-sources.md#azure-tenant) | Azure Active Directory audit logs | Configure a tenant diagnostic setting on your AAD tenant. See  [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) for details. |
 | [Azure subscription](data-sources.md#azure-subscription) | Azure Activity Log | Create a log profile to export Activity Log events to Event Hubs.  See [Export Azure Activity log to storage or Azure Event Hubs](activity-log-export.md) for details. |
-| [Azure resources](data-sources.md#azure-resources) | Platform metrics<br>Diagnostic logs |Both types of data are sent to an event hub using a resource diagnostic setting. See [Stream Azure Diagnostic logs to an event hub](resource-logs-stream-event-hubs.md) for details. |
+| [Azure resources](data-sources.md#azure-resources) | Platform metrics<br> Resource logs |Both types of data are sent to an event hub using a resource diagnostic setting. See [Stream Azure resource  logs to an event hub](resource-logs-stream-event-hubs.md) for details. |
 | [Operating system (guest)](data-sources.md#operating-system-guest) | Azure virtual machines | Install the [Azure Diagnostics Extension](diagnostics-extension-overview.md) on Windows and Linux virtual machines in Azure. See [Streaming Azure Diagnostics data in the hot path by using Event Hubs](diagnostics-extension-stream-event-hubs.md) for details on Windows VMs and [Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) for details on Linux VMs. |
 | [Application code](data-sources.md#application-code) | Application Insights | Application Insights doesn't provide a direct method to stream data to event hubs. You can [set up continuous export](../../azure-monitor/app/export-telemetry.md) of the Application Insights data to a storage account and then use a Logic App to send the data to an event hub as described in [Manual streaming with Logic App](#manual-streaming-with-logic-app). |
 
@@ -51,7 +50,7 @@ Routing your monitoring data to an event hub with Azure Monitor enables you to e
 | SumoLogic | Instructions for setting up SumoLogic to consume data from an event hub are available at [Collect Logs for the Azure Audit App from Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
 | ArcSight | The ArcSight Azure Event Hub smart connector is available as part of [the ArcSight smart connector collection](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
 | Syslog server | If you want to stream Azure Monitor data directly to a syslog server, you can use a [solution based on an Azure function](https://github.com/miguelangelopereira/azuremonitor2syslog/).
-| LogRhythm | Instructions to sett up LogRhythm to collect logs from an event hub are available [here](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+| LogRhythm | Instructions to set up LogRhythm to collect logs from an event hub are available [here](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 
 
 ## Next Steps

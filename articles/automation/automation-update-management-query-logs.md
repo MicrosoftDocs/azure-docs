@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/05/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 manager: carmonm
 ---

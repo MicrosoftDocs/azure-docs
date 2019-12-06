@@ -7,7 +7,6 @@ ms.date: 08/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Understand extended offline capabilities for IoT Edge devices, modules, and child devices

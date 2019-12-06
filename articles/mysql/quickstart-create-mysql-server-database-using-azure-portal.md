@@ -1,12 +1,12 @@
 ---
-title: 'Quickstart: Create Azure Database for MySQL server - Azure portal'
+title: 'Quickstart: Create a server - Azure portal - Azure Database for MySQL'
 description: This article steps you through using the Azure portal to quickly create a sample Azure Database for MySQL server in about five minutes. 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/15/2019
+ms.date: 12/02/2019
 ---
 
 # Create an Azure Database for MySQL server by using the Azure portal

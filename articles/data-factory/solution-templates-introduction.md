@@ -1,5 +1,5 @@
 ---
-title: Overview of templates for Azure Data Factory 
+title: Overview of templates
 description:  Learn how to use a pre-defined template to get started quickly with Azure Data Factory.
 services: data-factory
 documentationcenter: ''

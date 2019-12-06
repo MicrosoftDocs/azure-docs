@@ -28,6 +28,9 @@ You can create a copy of any application, minus any device instances, device dat
 
 Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see the [Create an application](quick-deploy-iot-central.md) quickstart.
 
+> [!NOTE]
+> You can **Copy your application** to **Europe** and **US** locations only.
+
 ![Application settings page](media/howto-use-app-templates/appcopy2.png)
 
 After the app copy operation succeeds, you can navigate to the new application using the link.
@@ -78,6 +81,9 @@ To use an application template to create a new IoT Central application, you need
 ![Create an application from a template](media/howto-use-app-templates/create-app.png)
 
 Select your payment plan and fill out the other fields on the form. Then select **Create** to create a new IoT Central application from the application template.
+
+> [!NOTE]
+> When an application is created using **Shareable Link** the available locations are **Europe** and **US**.
 
 ### Manage application templates
 
