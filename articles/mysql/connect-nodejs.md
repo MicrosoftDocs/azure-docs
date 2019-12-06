@@ -1,13 +1,13 @@
 ---
-title: 'Connect to Azure Database for MySQL from Node.js'
+title: 'Connect using Node.js - Azure Database for MySQL'
 description: This quickstart provides several Node.js code samples you can use to connect and query data from Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/21/2018
+ms.date: 12/02/2019
 ---
 # Quickstart: Use Node.js to connect and query data in Azure Database for MySQL
 This quickstart demonstrates how to connect to an Azure Database for MySQL using [Node.js](https://nodejs.org/) from Windows, Ubuntu Linux, and Mac platforms. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with developing using Node.js and that you are new to working with Azure Database for MySQL.
@@ -80,7 +80,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Select the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for MySQL server name](./media/connect-nodejs/1_server-overview-name-login.png)
+ ![Azure Database for MySQL server name](./media/connect-nodejs/server-name-azure-database-mysql.png)
 
 ## Running the JavaScript code in Node.js
 1. Paste the JavaScript code into text files, and then save it into a project folder with file extension .js (such as C:\nodejsmysql\createtable.js or /home/username/nodejsmysql/createtable.js).

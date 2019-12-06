@@ -1,13 +1,8 @@
 ---
 title: Azure Queue storage bindings for Azure Functions
 description: Understand how to use the Azure Queue storage trigger and output binding in Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
@@ -236,7 +231,7 @@ def main(msg: func.QueueMessage):
 
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a queue trigger:
 
-* [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)
+* [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueTriggerAttribute.cs)
 
   The attribute's constructor takes the name of the queue to monitor, as shown in the following example:
 

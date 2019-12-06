@@ -49,16 +49,18 @@
       href: routing-coverage.md
     - name: Mobility coverage
       href: mobility-coverage.md
+    - name: Weather coverage
+      href: weather-coverage.md  
   - name: Localization support
     href: supported-languages.md
   - name: Supported map styles
     href: supported-map-styles.md
-  - name: Web SDK supported browsers
-    href: supported-browsers.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
   - name: Mobility Service data structure
     href: mobility-service-data-structure.md
+  - name: Weather Service concepts
+    href: weather-services-concepts.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
@@ -105,6 +107,8 @@
         href: map-add-line-layer.md
       - name: Add a polygon layer
         href: map-add-shape.md
+      - name: Add an extrusion polygon layer
+        href: map-extruded-polygon.md
       - name: Add a heat map layer
         href: map-add-heat-map-layer.md  
       - name: Add a popup
@@ -123,7 +127,7 @@
         href: map-add-custom-html.md
       - name: Show traffic 
         href: map-show-traffic.md
-      - name: Interacting with mouse events
+      - name: Reacting to events
         href: map-events.md
       - name: Make your app accessible
         href: map-accessibility.md
@@ -145,6 +149,8 @@
         href: map-get-information-from-coordinate.md
       - name: Show directions from A to B
         href: map-route.md
+    - name: Web SDK supported browsers
+      href: supported-browsers.md
   - name: Develop with the Android SDK
     items:
     - name: Getting started with Android map control
@@ -183,6 +189,8 @@
       href: https://docs.microsoft.com/rest/api/maps/mobility
     - name: Render service
       href: https://docs.microsoft.com/rest/api/maps/render
+    - name: Render service V2
+      href: https://docs.microsoft.com/rest/api/maps/renderv2
     - name: Route service
       href: https://docs.microsoft.com/rest/api/maps/route
     - name: Search service
@@ -193,6 +201,8 @@
       href: https://docs.microsoft.com/rest/api/maps/timezone
     - name: Traffic service
       href: https://docs.microsoft.com/rest/api/maps/traffic
+    - name: Weather service
+      href: https://docs.microsoft.com/rest/api/maps/weather
     - name: Maps account management
       href: https://docs.microsoft.com/rest/api/maps-management
   - name: JavaScript

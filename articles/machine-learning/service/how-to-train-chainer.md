@@ -1,5 +1,5 @@
 ---
-title: Train deep learning neural network with Chainer 
+title: Train deep learning Chainer models 
 titleSuffix: Azure Machine Learning
 description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning's Chainer estimator class.  The example script classifies handwritten digit images to build a deep learning neural network using the Chainer Python library running on top of numpy. 
 services: machine-learning
@@ -14,6 +14,7 @@ ms.date: 08/02/2019
 ---
 
 # Train and register Chainer models at scale with Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to run your [Chainer](https://chainer.org/) training scripts at enterprise scale using Azure Machine Learning's [Chainer estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) class. 
 The example training script in this article uses the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network (DNN) built using the Chainer Python library running on top of [numpy](https://www.numpy.org/).
@@ -37,7 +38,7 @@ Run this code on either of these environments:
 
     - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
     - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
-    - Download the sample script file [chainer_mnist.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py).
+    - Download the sample script file [chainer_mnist.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer).
      - You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) of this guide on GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
 ## Set up the experiment
@@ -189,7 +190,9 @@ model = run.register_model(model_name='chainer-dnn-mnist', model_path='outputs/m
 ```
 
 > [!TIP]
-> If you receive an error that the model is not found, give it a minute and try again.  Sometimes there is a slight lag between the end of the training run and the availability of the model in the outputs directory.
+> The model you just registered is deployed the exact same way as any other registered model in Azure 
+Machine Learning, regardless of which estimator you used for training. The deployment how-to
+contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 You can also download a local copy of the model. This can be useful for doing additional model validation work locally. In the training script, `chainer_mnist.py`, a saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy from datastore.
 

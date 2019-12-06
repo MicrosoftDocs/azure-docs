@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 10/25/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -78,7 +78,6 @@ To configure the integration of Amazon Web Services (AWS) into Azure AD, you nee
 1. In the **Add from the gallery** section, type **Amazon Web Services (AWS)** in the search box.
 1. Select **Amazon Web Services (AWS)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD single sign-on for Amazon Web Services (AWS)
 
 Configure and test Azure AD SSO with Amazon Web Services (AWS) using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Amazon Web Services (AWS).
@@ -90,6 +89,7 @@ To configure and test Azure AD SSO with Amazon Web Services (AWS), complete the 
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Amazon Web Services (AWS) SSO](#configure-amazon-web-services-aws-sso)** - to configure the single sign-on settings on application side.
     1. **[Create Amazon Web Services (AWS) test user](#create-amazon-web-services-aws-test-user)** - to have a counterpart of B.Simon in Amazon Web Services (AWS) that is linked to the Azure AD representation of user.
+	1. **[How to configure role provisioning in Amazon Web Services (AWS)](#how-to-configure-role-provisioning-in-amazon-web-services-aws)**
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -309,11 +309,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	c. Select **Close**.
 
-21. In the Azure AD management portal, in the AWS app, go to **Provisioning**.
+### How to configure role provisioning in Amazon Web Services (AWS)
+
+1. In the Azure AD management portal, in the AWS app, go to **Provisioning**.
 
 	![Screenshot of AWS app, with Provisioning highlighted](./media/amazon-web-service-tutorial/provisioning.png)
 
-22. Enter the access key and secret in the **clientsecret** and **Secret Token** fields, respectively.
+2. Enter the access key and secret in the **clientsecret** and **Secret Token** fields, respectively.
 
 	![Screenshot of Admin Credentials dialog box](./media/amazon-web-service-tutorial/provisioning1.png)
 
@@ -325,7 +327,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	d. Save the setting by selecting **Save**.
 
-23. In the **Settings** section, for **Provisioning Status**, select **On**. Then select **Save**.
+3. In the **Settings** section, for **Provisioning Status**, select **On**. Then select **Save**.
 
 	![Screenshot of Settings section, with On highlighted](./media/amazon-web-service-tutorial/provisioning2.png)
 

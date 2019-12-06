@@ -57,7 +57,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * If you plan to use the feature **password synchronization**, then the Azure AD Connect server must be on Windows Server 2008 R2 SP1 or later.
 * If you plan to use a **group managed service account**, then the Azure AD Connect server must be on Windows Server 2012 or later.
 * The Azure AD Connect server must have [.NET Framework 4.5.1](#component-prerequisites) or later and [Microsoft PowerShell 3.0](#component-prerequisites) or later installed.
-* The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled.
+* The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled if you are using Azure AD Connect wizard to manage ADFS configuration. You can enable PowerShell transcription if you are using Azure AD Connect wizard to manage sync configuration.
 * If Active Directory Federation Services is being deployed, the servers where AD FS or Web Application Proxy are installed must be Windows Server 2012 R2 or later. [Windows remote management](#windows-remote-management) must be enabled on these servers for remote installation.
 * If Active Directory Federation Services is being deployed, you need [SSL Certificates](#ssl-certificate-requirements).
 * If Active Directory Federation Services is being deployed, then you need to configure [name resolution](#name-resolution-for-federation-servers).
@@ -146,7 +146,7 @@ Azure AD Connect depends on Microsoft PowerShell and .NET Framework 4.5.1. You n
 ### Enable TLS 1.2 for Azure AD Connect
 Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypting the communication between the sync engine server and Azure AD. You can change this by configuring .NET applications to use TLS 1.2 by default on the server. More information about TLS 1.2 can be found in [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1. TLS 1.2 cannot be enabled prior to Windows Server 2008 R2 or later. Make sure you have the .NET 4.5.1 hotfix installed for your operating system, see [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). You might have this hotfix or a later release installed on your server already.
+1. TLS 1.2 cannot be enabled prior to Windows Server 2008 R2 or earlier. Make sure you have the .NET 4.5.1 hotfix installed for your operating system, see [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). You might have this hotfix or a later release installed on your server already.
 2. If you use Windows Server 2008 R2, then make sure TLS 1.2 is enabled. On Windows Server 2012 server and later versions, TLS 1.2 should already be enabled.
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
@@ -216,7 +216,7 @@ The table below shows the minimum requirements for the Azure AD Connect sync com
 | 300,000–600,000 |1.6 GHz |32 GB |450 GB |
 | More than 600,000 |1.6 GHz |32 GB |500 GB |
 
-The minimum requirements for computers running AD FS or Web Application Servers is the following:
+The minimum requirements for computers running AD FS or Web Application Proxy Servers is the following:
 
 * CPU: Dual core 1.6 GHz or higher
 * MEMORY: 2 GB or higher

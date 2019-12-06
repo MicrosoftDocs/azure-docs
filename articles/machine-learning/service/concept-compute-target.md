@@ -1,5 +1,5 @@
 ---
-title: 'Compute targets: where to train and deploy models'
+title: What are compute targets
 titleSuffix: Azure Machine Learning
 description: Define where you want to train or deploy your model with Azure Machine Learning.
 services: machine-learning
@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/10/2019
+ms.date: 11/04/2019
 # As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -42,16 +42,20 @@ Learn [where and how to deploy your model to a compute target](how-to-deploy-and
 <a name="amlcompute"></a>
 ## Azure Machine Learning compute (managed)
 
-A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning Compute is the only managed compute as of May 30, 2019. Additional managed compute resources may be added in the future.
+A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters. Additional managed compute resources may be added in the future.
 
-You can use Azure Machine Learning Compute for training and for batch inferencing (preview).  With this compute resource, you have:
+You can create Azure Machine Learning compute clusters in Azure Machine Learning studio, Azure portal, the SDK, a Resource Manager template, or the CLI.
+
+When created these compute resources are automatically part of your workspace unlike other kinds of compute targets.
+
+You can use Azure Machine Learning compute clusters for training and for batch inferencing (preview).  With this compute resource, you have:
 
 * Single- or multi-node cluster
 * Autoscales each time you submit a run 
 * Automatic cluster management and job scheduling 
 * Support for both CPU and GPU resources
 
-You can create Azure Machine Learning Compute instances in Azure portal or your [workspace landing page (preview)](https://ml.azure.com), with the SDK, or with the CLI. When created it is automatically part of your workspace unlike other kinds of compute targets.
+
 
 ## Unmanaged compute
 

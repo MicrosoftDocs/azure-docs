@@ -1,11 +1,7 @@
 ---
-title: Tutorial - use parameter file to help deploy an Azure Resource Manager template
+title: Tutorial - use parameter file to deploy template
 description: Use parameter files that contain the values to use for deploying your Azure Resource Manager template.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
@@ -21,7 +17,7 @@ We recommend that you complete the [tutorial about tags](template-tutorial-add-t
 
 You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## Review your template
+## Review template
 
 Your template has many parameters you can provide during deployment. At the end of the previous tutorial, your template looked like:
 
@@ -45,11 +41,11 @@ Again, create a new file with the following content. Save the file with the name
 
 This file is your parameter file for the production environment. Notice that it uses Standard_GRS for the storage account, names resources with a **contoso** prefix, and sets the **Environment** tag to **Production**. In a real production environment, you would also want to use an app service with a SKU other than free, but we'll continue to use that SKU for this tutorial.
 
-## Deploy the template
+## Deploy template
 
-Use either Azure CLI or Azure PowerShell to deploy a template.
+Use either Azure CLI or Azure PowerShell to deploy the template.
 
-As final test of your template, let's create two new resource groups. One for the dev environment and on for the production environment.
+As a final test of your template, let's create two new resource groups. One for the dev environment and one for the production environment.
 
 First, we'll deploy to the dev environment.
 
@@ -79,7 +75,7 @@ az group deployment create \
   --name devenvironment \
   --resource-group myResourceGroupDev \
   --template-file $templateFile \
-  --parameters @azuredeploy.parameters.dev.json
+  --parameters azuredeploy.parameters.dev.json
 ```
 
 ---
@@ -110,14 +106,14 @@ az group deployment create \
   --name prodenvironment \
   --resource-group myResourceGroupProd \
   --template-file $templateFile \
-  --parameters @azuredeploy.parameters.prod.json
+  --parameters azuredeploy.parameters.prod.json
 ```
 
 ---
 
 ## Verify deployment
 
-You can verify the deployment by exploring the resource group from the Azure portal.
+You can verify the deployment by exploring the resource groups from the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. From the left menu, select **Resource groups**.

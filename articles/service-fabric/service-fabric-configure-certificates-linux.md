@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2019
-ms.author: chackdan
+ms.author: pepogors
 
 ---
 # Certificates and security on Linux clusters

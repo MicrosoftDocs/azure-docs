@@ -1,5 +1,5 @@
 ---
-title: Integration runtime in Azure Data Factory | Microsoft Docs
+title: Integration runtime in Azure Data Factory 
 description: 'Learn about integration runtime in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
@@ -72,10 +72,13 @@ For information about creating and configuring an Azure IR, see How to create an
 A self-hosted IR is capable of:
 
 - Running copy activity between a cloud data stores and a data store in private network.
-- Dispatching the following transform activities against compute resources in On-Premise or Azure Virtual Network: HDInsight Hive activity (BYOC-Bring Your Own Cluster), HDInsight Pig activity (BYOC), HDInsight MapReduce activity (BYOC), HDInsight Spark activity (BYOC), HDInsight Streaming activity (BYOC), Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, Custom activity (runs on Azure Batch), Lookup activity, and Get Metadata activity.
+- Dispatching the following transform activities against compute resources in on-premises or Azure Virtual Network: HDInsight Hive activity (BYOC-Bring Your Own Cluster), HDInsight Pig activity (BYOC), HDInsight MapReduce activity (BYOC), HDInsight Spark activity (BYOC), HDInsight Streaming activity (BYOC), Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, Custom activity (runs on Azure Batch), Lookup activity, and Get Metadata activity.
 
 > [!NOTE] 
 > Use self-hosted integration runtime to support data stores that requires bring-your-own driver such as SAP Hana, MySQL, etc.  For more information, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+
+> [!NOTE] 
+> Java Runtime Environment (JRE) is a dependency of Self Hosted IR. Please make sure you have JRE installed on the same host.
 
 ### Self-hosted IR network environment
 If you want to perform data integration securely in a private network environment, which does not have a direct line-of-sight from the public cloud environment, you can install a self-hosted IR on premises environment behind your corporate firewall, or inside a virtual private network.  The self-hosted integration runtime only makes outbound HTTP-based connections to open internet.

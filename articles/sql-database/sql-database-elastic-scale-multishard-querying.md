@@ -1,5 +1,5 @@
 ---
-title: Query sharded Azure SQL databases | Microsoft Docs
+title: Query sharded databases
 description: Run queries across shards using the elastic database client library.
 services: sql-database
 ms.service: sql-database

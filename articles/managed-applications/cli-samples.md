@@ -1,6 +1,6 @@
 ---
 title: Azure CLI Samples - Azure Managed Applications | Microsoft Docs
-description: Azure CLI Samples - Azure Managed Applications
+description: Provides Azure CLI sample scripts to use when working with Azure Managed Applications.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac

@@ -25,16 +25,14 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a vault
 
-1. Select the **Create a resource** option on the upper left-hand corner of the Azure portal
-
-    ![Output after Key Vault creation completes](./media/quick-create-portal/search-services.png)
+1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
 2. In the Search box, enter **Key Vault**.
 3. From the results list, choose **Key Vault**.
 4. On the Key Vault section, choose **Create**.
 5. On the **Create key vault** section provide the following information:
-    - **Name**: A unique name is required. For this quickstart we use **Contoso-vault2**. 
+    - **Name**: A unique name is required. For this quickstart, we use **Contoso-vault2**. 
     - **Subscription**: Choose a subscription.
-    - Under **Resource Group** choose **Create new** and enter a resource group name.
+    - Under **Resource Group**, choose **Create new** and enter a resource group name.
     - In the **Location** pull-down menu, choose a location.
     - Leave the other options to their defaults.
 6. After providing the information above, select **Create**.
@@ -52,7 +50,7 @@ At this point, your Azure account is the only one authorized to perform operatio
 
 To add a secret to the vault, you just need to take a couple of additional steps. In this case, we add a password that could be used by an application. The password is called **ExamplePassword** and we store the value of **hVFkk965BuUv** in it.
 
-1. On the Key Vault properties pages select **Secrets**.
+1. On the Key Vault properties pages, select **Secrets**.
 2. Click on **Generate/Import**.
 3. On the **Create a secret** screen choose the following values:
     - **Upload options**: Manual.
@@ -80,7 +78,7 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 
 ## Next steps
 
-In this quickstart you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](key-vault-overview.md)
 - See the [Azure Key Vault developer's guide](key-vault-developers-guide.md)

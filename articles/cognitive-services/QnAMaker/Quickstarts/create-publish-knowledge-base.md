@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
@@ -41,7 +41,7 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 
 1. Add a sample word document as a URL: 
 
-    `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`
+    `https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`
 
 1. Select `+ Add URL`.
 
@@ -62,7 +62,7 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 
 1. Add the answer formatted with _markdown_:
 
-    ` * Azure QnA Maker service\n* Azure Search\n* Azure web app\n* Azure app plan`
+    ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
     ![ Add the question as text and the answer formatted with markdown.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
 

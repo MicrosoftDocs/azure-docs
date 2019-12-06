@@ -1,5 +1,5 @@
 ---
-title: Copy data from/to Azure File Storage by using Azure Data Factory | Microsoft Docs
+title: Copy data from/to Azure File Storage by using Azure Data Factory 
 description: Learn how to copy data from Azure File Storage to supported sink data stores (or) from supported source data stores to Azure File Storage by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
 
 ---
@@ -43,7 +43,7 @@ The following properties are supported for Azure File Storage linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to: **FileServer**. | Yes |
+| type | The type property must be set to: **AzureFileStorage**. | Yes |
 | host | Specifies the Azure File Storage endpoint as: <br/>-Using UI: specify `\\<storage name>.file.core.windows.net\<file service name>`<br/>- Using JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Yes |
 | userid | Specify the user to access the Azure File Storage as: <br/>-Using UI: specify `AZURE\<storage name>`<br/>-Using JSON: `"userid": "AZURE\\<storage name>"`. | Yes |
 | password | Specify the storage access key. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
@@ -62,7 +62,7 @@ The following properties are supported for Azure File Storage linked service:
 {
     "name": "AzureFileStorageLinkedService",
     "properties": {
-        "type": "FileServer",
+        "type": "AzureFileStorage",
         "typeProperties": {
             "host": "\\\\<storage name>.file.core.windows.net\\<file service name>",
             "userid": "AZURE\\<storage name>",
@@ -83,22 +83,15 @@ The following properties are supported for Azure File Storage linked service:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-- For **Parquet, delimited text, Avro and binary format**, refer to [Parquet, delimited text, Avro, and binary format dataset](#format-based-dataset) section.
-- For other formats like **ORC/JSON format**, refer to [Other format dataset](#other-format-dataset) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Parquet, delimited text, JSON, Avro and binary format dataset
-
-To copy data to and from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for Azure File Storage under `location` settings in format-based dataset:
+The following properties are supported for Azure File Storage under `location` settings in format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | The type property under `location` in dataset must be set to **FileServerLocation**. | Yes      |
 | folderPath | The path to folder. If you want to use wildcard to filter folder, skip this setting and specify in activity source settings. | No       |
 | fileName   | The file name under the given folderPath. If you want to use wildcard to filter files, skip this setting and specify in activity source settings. | No       |
-
-> [!NOTE]
->
-> **FileShare** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup/GetMetadata activity for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -126,9 +119,10 @@ To copy data to and from **Parquet, delimited text, JSON, Avro and binary format
 }
 ```
 
-### Other format dataset
+### Legacy dataset model
 
-To copy data to and from Azure File Storage in **ORC format**, the following properties are supported:
+>[!NOTE]
+>The following dataset model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above section going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -182,12 +176,9 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure File Storage as source
 
-- To copy from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format source](#format-based-source) section.
-- To copy from other formats like **ORC format**, refer to [Other format source](#other-format-source) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Parquet, delimited text, JSON, Avro and binary format source
-
-To copy data from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for Azure File Storage under `storeSettings` settings in format-based copy source:
+The following properties are supported for Azure File Storage under `storeSettings` settings in format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -198,9 +189,6 @@ To copy data from **Parquet, delimited text, JSON, Avro and binary format**, ref
 | modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time is within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL, which means no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected. | No                                            |
 | modifiedDatetimeEnd      | Same as above.                                               | No                                            |
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                            |
-
-> [!NOTE]
-> For Parquet/delimited text format, **FileSystemSource** type copy activity source mentioned in next section is still supported as-is for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -243,9 +231,10 @@ To copy data from **Parquet, delimited text, JSON, Avro and binary format**, ref
 ]
 ```
 
-#### Other format source
+#### Legacy source model
 
-To copy data from Azure File Storage in **ORC format**, the following properties are supported in the copy activity **source** section:
+>[!NOTE]
+>The following copy source model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -287,21 +276,15 @@ To copy data from Azure File Storage in **ORC format**, the following properties
 
 ### Azure File Storage as sink
 
-- To copy to **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format sink](#format-based-sink) section.
-- To copy to other formats like **ORC format**, refer to [Other format sink](#other-format-sink) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-sink"></a> Parquet, delimited text, JSON, Avro and binary format sink
-
-To copy data to **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity sink and supported settings. The following properties are supported for Azure File Storage under `storeSettings` settings in format-based copy sink:
+The following properties are supported for Azure File Storage under `storeSettings` settings in format-based copy sink:
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | The type property under `storeSettings` must be set to **FileServerWriteSetting**. | Yes      |
 | copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
 | maxConcurrentConnections | The number of the connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
-
-> [!NOTE]
-> For Parquet/delimited text format, **FileSystemSink** type copy activity sink mentioned in next section is still supported as-is for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -338,9 +321,10 @@ To copy data to **Parquet, delimited text, JSON, Avro and binary format**, refer
 ]
 ```
 
-#### Other format sink
+#### Legacy sink model
 
-To copy data to Azure File Storage in **ORC format**, the following properties are supported in the **sink** section:
+>[!NOTE]
+>The following copy sink model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

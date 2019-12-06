@@ -1,11 +1,8 @@
 ---
-title: Troubleshoot errors when moving Azure resources to new subscription or resource group
+title: Troubleshoot move errors
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: tomfitz
 ---
 
 # Troubleshoot moving Azure resources to new resource group or subscription

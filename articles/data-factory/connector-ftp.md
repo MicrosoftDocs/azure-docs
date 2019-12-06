@@ -1,5 +1,5 @@
 ---
-title: Copy data from an FTP server by using Azure Data Factory | Microsoft Docs
+title: Copy data from an FTP server by using Azure Data Factory 
 description: Learn how to copy data from an FTP server to a supported sink data store by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
 
 ---
@@ -120,21 +120,15 @@ The following properties are supported for FTP linked service:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-- For **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format dataset](#format-based-dataset) section.
-- For other formats like **ORC format**, refer to [Other format dataset](#other-format-dataset) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Parquet, delimited text, JSON, Avro and binary format dataset
-
-To copy data from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for FTP under `location` settings in format-based dataset:
+The following properties are supported for FTP under `location` settings in format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | The type property under `location` in dataset must be set to **FtpServerLocation**. | Yes      |
 | folderPath | The path to folder. If you want to use wildcard to filter folder, skip this setting and specify in activity source settings. | No       |
 | fileName   | The file name under the given folderPath. If you want to use wildcard to filter files, skip this setting and specify in activity source settings. | No       |
-
-> [!NOTE]
-> **FileShare** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup/GetMetadata activity for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -162,9 +156,10 @@ To copy data from **Parquet, delimited text, JSON, Avro and binary format**, ref
 }
 ```
 
-### Other format dataset
+### Legacy dataset model
 
-To copy data from FTP in **ORC format**, the following properties are supported:
+>[!NOTE]
+>The following dataset model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above section going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -215,12 +210,9 @@ For a full list of sections and properties available for defining activities, se
 
 ### FTP as source
 
-- To copy from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format source](#format-based-source) section.
-- To copy from other formats like **ORC format**, refer to [Other format source](#other-format-source) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Parquet, delimited text, JSON, Avro and binary format source
-
-To copy data from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for FTP under `storeSettings` settings in format-based copy source:
+The following properties are supported for FTP under `storeSettings` settings in format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -228,13 +220,8 @@ To copy data from **Parquet, delimited text, JSON, Avro and binary format**, ref
 | recursive                | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are **true** (default) and **false**. | No                                            |
 | wildcardFolderPath       | The folder path with wildcard characters to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
 | wildcardFileName         | The file name with wildcard characters under the given folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes if `fileName` is not specified in dataset |
-| modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected. | No                                            |
-| modifiedDatetimeEnd      | Same as above.                                               | No                                            |
-| useBinaryTransfer        | Specify whether to use the binary transfer mode for FTP stores. The values are true for binary mode (default), and false for ASCII. | No                                            |
-| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                            |
-
-> [!NOTE]
-> For Parquet/delimited text format, **FileSystemSource** type copy activity source mentioned in next section is still supported as-is for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
+| useBinaryTransfer | Specify whether to use the binary transfer mode. The values are true for binary mode (default), and false for ASCII. |No |
+| maxConcurrentConnections | The number of the connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No |
 
 **Example:**
 
@@ -277,9 +264,10 @@ To copy data from **Parquet, delimited text, JSON, Avro and binary format**, ref
 ]
 ```
 
-#### Other format source
+#### Legacy source model
 
-To copy data from FTP in **ORC format**, the following properties are supported in the copy activity **source** section:
+>[!NOTE]
+>The following copy source model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

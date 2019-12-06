@@ -1,10 +1,10 @@
 ---
 title: Create a container in Azure Cosmos DB
-description: Learn how to create a container in Azure Cosmos DB
+description: Learn how to create a container in Azure Cosmos DB by using Azure portal, .Net, Java, Python, Node.js and other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ---
 
@@ -106,10 +106,10 @@ The links below show how to create container resources for Azure Cosmos DB using
 For a listing of all Azure CLI samples across all Azure Cosmos DB APIs see, [SQL API](cli-samples.md), [Cassandra API](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md), and [Table API](cli-samples-table.md)
 
 * [Create a container with Azure CLI](manage-with-cli.md#create-a-container)
-* [Create a collection for Azure Cosmos DB for MongoDB API with Azure CLI](/scripts/cli/mongodb/create.md)
-* [Create a Cassandra table with Azure CLI](/scripts/cli/cassandra/create.md)
-* [Create a Gremlin graph with Azure CLI](/scripts/cli/gremlin/create.md)
-* [Create a Table API table with Azure CLI](/scripts/cli/table/create.md)
+* [Create a collection for Azure Cosmos DB for MongoDB API with Azure CLI](./scripts/cli/mongodb/create.md)
+* [Create a Cassandra table with Azure CLI](./scripts/cli/cassandra/create.md)
+* [Create a Gremlin graph with Azure CLI](./scripts/cli/gremlin/create.md)
+* [Create a Table API table with Azure CLI](./scripts/cli/table/create.md)
 
 ## Create a container using PowerShell<a id="ps-sql"></a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
 
@@ -118,10 +118,10 @@ The links below show how to create container resources for Azure Cosmos DB using
 For a listing of all Azure CLI samples across all Azure Cosmos DB APIs see, [SQL API](powershell-samples-sql.md), [Cassandra API](powershell-samples-cassandra.md), [MongoDB API](powershell-samples-mongodb.md), [Gremlin API](powershell-samples-gremlin.md), and [Table API](powershell-samples-table.md)
 
 * [Create a container with Powershell](manage-with-powershell.md#create-container)
-* [Create a collection for Azure Cosmos DB for MongoDB API with Powershell](/scripts/powershell/mongodb/ps-mongodb-create.md)
-* [Create a Cassandra table with Powershell](/scripts/powershell/cassandra/ps-cassandra-create.md)
-* [Create a Gremlin graph with Powershell](/scripts/powershell/gremlin/ps-gremlin-create.md)
-* [Create a Table API table with Powershell](/scripts/powershell/table/ps-table-create.md)
+* [Create a collection for Azure Cosmos DB for MongoDB API with Powershell](./scripts/powershell/mongodb/ps-mongodb-create.md)
+* [Create a Cassandra table with Powershell](./scripts/powershell/cassandra/ps-cassandra-create.md)
+* [Create a Gremlin graph with Powershell](./scripts/powershell/gremlin/ps-gremlin-create.md)
+* [Create a Table API table with Powershell](./scripts/powershell/table/ps-table-create.md)
 
 ## Create a container using .NET SDK
 

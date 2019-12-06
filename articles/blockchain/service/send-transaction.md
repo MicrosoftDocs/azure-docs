@@ -1,19 +1,14 @@
 ---
-title: Use Visual Studio Code to create, build, and deploy smart contracts using Azure Blockchain Service
+title: Create, build, & deploy smart contracts tutorial - Azure Blockchain Service
 description: Tutorial on how to use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service.
-services: azure-blockchain
-
-author: PatAltimore
-ms.author: patricka
-ms.date: 09/10/2019
+ms.date: 11/20/2019
 ms.topic: tutorial
-ms.service: azure-blockchain
 ms.reviewer: chrisseg
 
 #Customer intent: As a developer, I want to use Azure Blockchain Service so that I can execute smart contract functions on a consortium blockchain network.
 ---
 
-# Tutorial: Use Visual Studio Code to create, build, and deploy smart contracts
+# Tutorial: Create, build, and deploy smart contracts on Azure Blockchain Service
 
 In this tutorial, use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service. You also use Truffle to execute a smart contract function via a transaction.
 
@@ -30,6 +25,21 @@ You use Azure Blockchain Development Kit for Ethereum to:
 ## Prerequisites
 
 * Complete [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
+* [Azure Blockchain Development Kit for Ethereum extension](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
+* [Node.js 10.15.x or higher](https://nodejs.org/download)
+* [Git 2.10.x or higher](https://git-scm.com)
+* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) Add python.exe to your path. Python version 2.7.15 in your path is required for Azure Blockchain Development Kit.
+* [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
+* [Ganache CLI 6.0.0](https://github.com/trufflesuite/ganache-cli)
+
+On Windows, an installed C++ compiler is required for the node-gyp module. You can use the MSBuild tools:
+
+* If Visual Studio 2017 is installed, configure npm to use the MSBuild tools with the command `npm config set msvs_version 2017 -g`
+* If Visual Studio 2019 is installed, set the MS build tools path for npm. For example, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
+* Otherwise, install the stand-alone VS Build tools using `npm install --global windows-build-tools` in an elevated *Run as administrator* command shell.
+
+For more information about node-gyp, see the [node-gyp repository on GitHub](https://github.com/node-gyp).
 
 ## Create a smart contract
 
@@ -163,7 +173,7 @@ The script queries the smart contract by calling the getMessage function. The cu
 
 ![Script output](./media/send-transaction/execute-get.png)
 
-Notice the value is not **Hello, blockchain!**. Instead, the returned value is a placeholder. When you change and deploy the contract, the contract gets a new contract address and the state variables are assigned values in the smart contract constructor. The Truffle sample **2_deploy_contracts.js** migration script deploys the smart contract and passes a placeholder value as an argument. The constructor sets the **RequestMessage** state variable to the placeholder value and that's what is returned.
+Notice the value is not **Hello, blockchain!**. Instead, the returned value is a placeholder. When you change and deploy the contract, the changed contract is deployed at a new address and the state variables are assigned values in the smart contract constructor. The Truffle sample **2_deploy_contracts.js** migration script deploys the smart contract and passes a placeholder value as an argument. The constructor sets the **RequestMessage** state variable to the placeholder value and that's what is returned.
 
 1. To set the **RequestMessage** state variable and query the value, run the **sendrequest.js** and **getmessage.js** scripts again.
 

@@ -1,16 +1,16 @@
 ---
-title: Source transformation in Mapping Data Flow - Azure Data Factory | Microsoft Docs
-description: Learn how to set up a source transformation in Mapping Data Flow. 
+title: Source transformation in mapping data flow
+description: Learn how to set up a source transformation in mapping data flow. 
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/06/2019
 ---
 
-# Source transformation for Mapping Data Flow 
-
-
+# Source transformation for mapping data flow 
 
 A source transformation configures your data source for the data flow. When designing data flows, your first step will always be configuring a source transformation. To add a source, click on the **Add Source** box in the data flow canvas.
 
@@ -18,15 +18,16 @@ Every data flow requires at least one source transformation, but you can add as 
 
 Each source transformation is associated with exactly one Data Factory dataset. The dataset defines the shape and location of the data you want to write to or read from. If using a file-based dataset, you can use wildcards and file lists in your source to work with more than one file at a time.
 
-## Supported connectors in Mapping Data Flow
+## Supported connectors in mapping data flow
 
 Mapping Data Flow follows an extract, load, transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently the following datasets can be used in a source transformation:
     
-* Azure Blob Storage
-* Azure Data Lake Storage Gen1
-* Azure Data Lake Storage Gen2
+* Azure Blob Storage (JSON, Avro, Text, Parquet)
+* Azure Data Lake Storage Gen1 (JSON, Avro, Text, Parquet)
+* Azure Data Lake Storage Gen2 (JSON, Avro, Text, Parquet)
 * Azure SQL Data Warehouse
 * Azure SQL Database
+* Azure CosmosDB
 
 Azure Data Factory has access to over 80 native connectors. To include data from those other sources in your data flow, use the Copy Activity to load that data into one of the supported staging areas.
 
@@ -47,6 +48,8 @@ Once you have added a source, configure via the **Source Settings** tab. Here yo
 **Skip line count:** The skip line count field specifies how many lines to ignore at the beginning of the dataset.
 
 **Sampling:** Enable sampling to limit the number of rows from your source. Use this setting when you test or sample data from your source for debugging purposes.
+
+**Multiline rows:** Select multiline rows if your source text file contains string values that span multiple rows, i.e. newlines inside a value.
 
 To validate your source is configured correctly, turn on debug mode and fetch a data preview. For more information, see [Debug mode](concepts-data-flow-debug-mode.md).
 
@@ -123,11 +126,11 @@ If your source is in SQL Database or SQL Data Warehouse, additional SQL-specific
 
 **Input:** Select whether you point your source at a table (equivalent of ```Select * from <table-name>```) or enter a custom SQL query.
 
-**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow.
+**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups. Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
 **Batch size**: Enter a batch size to chunk large data into reads.
 
-**Isolation Level**: The default for SQL sources in Mapping Data Flow is read uncommitted. You can change the isolation level here to one of these values:
+**Isolation Level**: The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:
 * Read Committed
 * Read Uncommitted
 * Repeatable Read
@@ -146,6 +149,19 @@ If your text file has no defined schema, select **Detect data type** so that Dat
 
 You can modify the column data types in a down-stream derived-column transformation. Use a select transformation to modify the column names.
 
+### Import schema
+
+Datasets like Avro and CosmosDB that support complex data structures do not require schema definitions to exist in the dataset. Therefore, you will be able to click the **Import Schema** button on the **Projection** tab for these types of sources.
+
+## CosmosDB specific settings
+
+When using CosmosDB as a source type, there are a few options to consider:
+
+* Include system columns: If you check this, ```id```, ```_ts```, and other system columns will be included in your data flow metadata from CosmosDB. When updating collections, it is important to include this so that you can grab the existing row id.
+* Page size: The number of documents per page of the query result. Default is "-1" which uses the service dynamic page up to 1000.
+* Throughput: Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow during the read operation. Minimum is 400.
+* Preferred regions: You can choose the preferred read regions for this process.
+
 ## Optimize the source transformation
 
 On the **Optimize** tab for the source transformation, you might see a **Source** partition type. This option is available only when your source is Azure SQL Database. This is because Data Factory tries to make connections parallel to run large queries against your SQL Database source.
@@ -162,7 +178,7 @@ From your source table, select a column to partition on. Also set the number of 
 
 You can choose to partition the connections based on a query. Enter the contents of a WHERE predicate. For example, enter year > 1980.
 
-For more information on optimization within Mapping Data Flow, see the [Optimize tab](concepts-data-flow-overview.md#optimize).
+For more information on optimization within mapping data flow, see the [Optimize tab](concepts-data-flow-overview.md#optimize).
 
 ## Next steps
 

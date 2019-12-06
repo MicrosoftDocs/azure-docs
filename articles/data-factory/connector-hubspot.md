@@ -1,5 +1,5 @@
 ---
-title: Copy data from HubSpot using Azure Data Factory (Preview) | Microsoft Docs
+title: Copy data from HubSpot using Azure Data Factory (Preview) 
 description: Learn how to copy data from HubSpot to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''

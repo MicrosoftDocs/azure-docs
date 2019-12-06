@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory Mapping Data Flow Sort Transformation
+title: Azure Data Factory mapping data flow Sort Transformation
 description: Azure Data Factory Mapping Data Sort Transformation
 author: kromerm
 ms.author: makromer

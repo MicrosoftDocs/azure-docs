@@ -203,7 +203,7 @@ In order to enable Azure AD users to sign in to Sugar CRM, they must be provisio
     b. Click **Save**.
 
 > [!NOTE]
-> You can use any other Sugar CRM user account creation tools or APIs provided by Sugar CRM to provision AAD user accounts.
+> You can use any other Sugar CRM user account creation tools or APIs provided by Sugar CRM to provision Azure AD user accounts.
 
 ## Test SSO 
 

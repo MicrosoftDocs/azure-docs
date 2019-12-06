@@ -1,9 +1,9 @@
 ---
-title: Implement IoT spatial analytics using Azure Maps | Microsoft Docs
-description: Integrate IoT Hub with Azure Maps service APIs.
+title: 'Tutorial: Implement IoT spatial analytics using Azure Maps'
+description: 'Tutorial: Integrate IoT Hub with Azure Maps service APIs.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -13,7 +13,7 @@ ms.custom: mvc
 #Customer intent: As a customer, I want to build an IoT system so that I can use Azure Maps APIs for spatial analytics on the device data.
 ---
 
-# Implement IoT spatial analytics using Azure Maps
+# Tutorial: Implement IoT spatial analytics using Azure Maps
 
 Tracking and capturing relevant events that occur in space and time is a common IoT scenario. For example, in fleet management, asset tracking, mobility, and smart city applications. This tutorial guides you through a solution pattern for using Azure Maps APIs against relevant events captured by IoT Hub, using the event subscription model provided by Event Grid.
 

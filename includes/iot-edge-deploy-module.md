@@ -32,7 +32,7 @@ To deploy your first module from the Azure Marketplace, use the following steps:
 
 3. Now that you've chosen an IoT Edge module from the Azure Marketplace, and chosen an IoT Edge device to receive the module, you're taken to a three-step wizard that helps you define exactly how to deploy the module. In the **Add Modules** step of the wizard, notice that the **SimulatedTemperatureSensor** module is autopopulated. In the tutorials, you use this page to add additional modules to your deployment. For this quickstart, only deploy this one module. Select **Next** to continue to the next step of the wizard.
 
-4. In the **Specify Routes** step of the wizard, you define how messages are passed between modules and to IoT Hub. For the quickstart, you want all messages from all modules to go to IoT Hub (`$upstream`). If it's not autopopulated, add the following code then select **Next**:
+4. In the **Specify Routes** step of the wizard, you define how messages are passed between modules and to IoT Hub. For the quickstart, you want all messages from all modules to go to IoT Hub (`$upstream`). If it's not autopopulated, add the following code:
 
    ```json
     {
@@ -41,6 +41,7 @@ To deploy your first module from the Azure Marketplace, use the following steps:
         }
     }
    ```
+   Then select **Next**.
 
 5. In the **Review Deployment** step of the wizard, you can preview the JSON file that defines all the modules that get deployed to your IoT Edge device. Notice that the **SimulatedTemperatureSensor** module is included, and two additional system modules called **edgeAgent** and **edgeHub**. Select **Submit** when you're done reviewing.
 

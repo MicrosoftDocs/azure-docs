@@ -1,13 +1,9 @@
 ---
 title: Overview of Jenkins and Azure
 description: Host the Jenkins build and deploy automation server in Azure and use Azure compute and storage resources to extend your continuous integration and deployment (CI/CD) pipelines.
-ms.service: jenkins
 keywords: jenkins, azure, devops, overview
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: overview
-ms.date: 07/25/2018
+ms.date: 10/23/2019
 ---
 
 # Azure and Jenkins
@@ -28,11 +24,11 @@ Monitor and manage your Azure Jenkins deployment using [Azure Monitor logs](/azu
 
 ## Scale your build automation on demand
 
-Add build agents to your existing Jenkins deployment to scale your Jenkins build capacity as the number of builds and complexity of your jobs and pipelines increase. You can run these build agents on Azure virtual machines by using the [Azure VM Agents plugin](jenkins-azure-vm-agents.md). See our [tutorial](/azure/jenkins/jenkins-azure-vm-agents) for more details.
+Add build agents to your existing Jenkins deployment to scale your Jenkins build capacity as the number of builds and complexity of your jobs and pipelines increase. You can run these build agents on Azure virtual machines by using the [Azure VM Agents plug-in](https://plugins.jenkins.io/azure-vm-agents). See our [tutorial](/azure/jenkins/jenkins-azure-vm-agents) for more details.
 
 Once configured with an [Azure service principal](/azure/azure-resource-manager/resource-group-overview), Jenkins jobs and pipelines can use this credential to:
 
-- Securely store and archive build artifacts in [Azure Storage](/azure/storage/common/storage-introduction) using the [Azure Storage plugin](https://plugins.jenkins.io/windows-azure-storage). Review the [Jenkins storage how-to](/azure/storage/common/storage-java-jenkins-continuous-integration-solution) to learn more.
+- Securely store and archive build artifacts in [Azure Storage](/azure/storage/common/storage-introduction) using the [Azure Storage plug-in](https://plugins.jenkins.io/windows-azure-storage). Review the [Jenkins storage how-to](/azure/storage/common/storage-java-jenkins-continuous-integration-solution) to learn more.
 - Manage and configure Azure resources with the [Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline).
 
 ## Deploy your code into Azure services

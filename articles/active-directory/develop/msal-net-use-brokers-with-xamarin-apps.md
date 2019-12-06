@@ -1,5 +1,6 @@
 ---
-title: Use Microsoft Authenticator or Microsoft Intune Company Portal on Xamarin iOS and Android applications | Azure
+title: Brokered authentication on Xamarin, iOS & Android | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to migrate Xamarin iOS applications that can use Microsoft Authenticator from the Azure AD Authentication Library for .NET (ADAL.NET) to the Microsoft Authentication Library for .NET (MSAL.NET)
 documentationcenter: dev-center-name
 author: jmprieur
@@ -177,7 +178,9 @@ The portal has a new experience app registration portal to help you compute the 
 
 ## Brokered authentication for Android
 
-The broker support isn't available for Android.
+MSAL.NET only support the Xamarin.iOS platform at the moment. It doesn't yet support brokers for the Xamarin.Android platform.
+
+The MSAL Android native library already supports it. For details see [Brokered auth in Android](brokered-auth.md)
 
 ## Next steps
 

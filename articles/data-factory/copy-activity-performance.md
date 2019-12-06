@@ -1,5 +1,5 @@
 ---
-title: Copy activity performance and scalability guide in Azure Data Factory | Microsoft Docs
+title: Copy activity performance and scalability guide in Azure Data Factory 
 description: Learn about key factors that affect the performance of data movement in Azure Data Factory when you use the copy activity.
 services: data-factory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 10/24/2019
 ms.author: jingwang
 
 ---
@@ -145,7 +145,7 @@ To override this default, specify a value for the **dataIntegrationUnits** prope
 You can see the DIUs used for each copy run in the copy activity output when you monitor an activity run. For more information, see [Copy activity monitoring](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Setting of DIUs larger than four currently applies only when you copy multiple files from Azure Storage, Azure Data Lake Storage, Amazon S3, Google Cloud Storage, cloud FTP, or cloud SFTP to any other cloud data stores.
+> Setting of DIUs larger than four currently applies only when you copy multiple files from Azure Blob/ADLS Gen1/ADLS Gen2/Amazon S3/Google Cloud Storage/cloud FTP/cloud SFTP or from partition-option-enabled cloud relational data store (including [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)) to any other cloud data stores.
 
 **Example:**
 

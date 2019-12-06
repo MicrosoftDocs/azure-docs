@@ -1,6 +1,6 @@
 ---
-title: Mapping Data Flow performance and tuning guide in Azure Data Factory | Microsoft Docs
-description: Learn about key factors that affect the performance of Mapping Data Flows in Azure Data Factory.
+title: Mapping data flow performance and tuning guide in Azure Data Factory 
+description: Learn about key factors that affect the performance of mapping data flows in Azure Data Factory.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
@@ -8,9 +8,9 @@ ms.service: data-factory
 ms.date: 10/07/2019
 ---
 
-# Mapping Data Flows performance and tuning guide
+# Mapping data flows performance and tuning guide
 
-Mapping Data Flows in Azure Data Factory provide a code-free interface to design, deploy, and orchestrate data transformations at scale. If you're not familiar with Mapping Data Flows, see the [Mapping Data Flow Overview](concepts-data-flow-overview.md).
+Mapping Data Flows in Azure Data Factory provide a code-free interface to design, deploy, and orchestrate data transformations at scale. If you're not familiar with mapping data flows, see the [Mapping Data Flow Overview](concepts-data-flow-overview.md).
 
 When designing and testing Data Flows from the ADF UX, make sure to switch on debug mode to execute your data flows in real time without waiting for a cluster to warm up. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
@@ -20,7 +20,7 @@ While designing mapping data flows, you can unit test each transformation by cli
 
 ![Data Flow Monitor](media/data-flow/mon002.png "Data Flow Monitor 2")
 
- You can use this information to estimate the performance of your data flow against different-sized data sources. For more information, see [Monitoring Mapping Data Flows](concepts-data-flow-monitoring.md).
+ You can use this information to estimate the performance of your data flow against different-sized data sources. For more information, see [Monitoring mapping data flows](concepts-data-flow-monitoring.md).
 
 ![Data Flow Monitoring](media/data-flow/mon003.png "Data Flow Monitor 3")
 
@@ -100,7 +100,7 @@ When debugging in data preview and pipeline debug, the limit and sampling sizes 
 
 ### File naming options
 
-The most common way to write transformed data in Mapping Data Flows writing Blob or ADLS file store. In your sink, you must select a dataset that points to a container or folder, not a named file. As Mapping Data Flow uses Spark for execution, your output is split over multiple files based on your partitioning scheme.
+The most common way to write transformed data in mapping data flows writing Blob or ADLS file store. In your sink, you must select a dataset that points to a container or folder, not a named file. As mapping data flow uses Spark for execution, your output is split over multiple files based on your partitioning scheme.
 
 A common partitioning scheme is to choose _Output to single file_, which merges all output PART files into a single file in your sink. This operation requires the output reduces to a single partition on a single cluster node. You can run out of cluster node resources if you're combining many large source files into a single output file.
 
@@ -108,13 +108,21 @@ To avoid exhausting compute node resources, keep the default, optimized scheme i
 
 ### Looping through file lists
 
-A Mapping Data Flow will execute better when the Source transformation iterates over multiple files instead of looping via the For Each activity. We recommend using wildcards or file lists in your source transformation. The Data Flow process will execute faster by allowing the looping to occur inside the Spark cluster. For more information, see [Wildcarding in Source Transformation](data-flow-source.md#file-based-source-options).
+A mapping data flow will execute better when the Source transformation iterates over multiple files instead of looping via the For Each activity. We recommend using wildcards or file lists in your source transformation. The Data Flow process will execute faster by allowing the looping to occur inside the Spark cluster. For more information, see [Wildcarding in Source Transformation](data-flow-source.md#file-based-source-options).
 
 For example, if you have a list of data files from July 2019 that you wish to process in a folder in Blob Storage, below is a wildcard you can use in your Source transformation.
 
 ```DateFiles/*_201907*.txt```
 
 By using wildcarding, your pipeline will only contain one Data Flow activity. This will perform better than a Lookup against the Blob Store that then iterates across all matched files using a ForEach with an Execute Data Flow activity inside.
+
+### Optimizing for CosmosDB
+
+Setting throughput and batch properties on CosmosDB sinks only take effect during the execution of that data flow from a pipeline data flow activity. The original collection settings will be honored by CosmosDB after your data flow execution.
+
+* Batch size: Calculate the rough row size of your data, and make sure that rowSize * batch size is less than two million. If it is, increase the batch size to get better throughput
+* Througput: Set a higher throughput setting here to allow documents to write faster to CosmosDB. Please keep in mind the higher RU costs based upon a high throughput setting.
+*	Write Throughput Budget: Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitiongs, setting a a budget throughput will allow more balance across those partitions.
 
 ## Next steps
 

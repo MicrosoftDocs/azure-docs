@@ -1,20 +1,20 @@
 ---
-title: Create an index definition and concepts - Azure Search
-description: Introduction to index terms and concepts in Azure Search, including component parts and physical structure.
-author: HeidiSteen
+title: Create an index definition and concepts
+titleSuffix: Azure Cognitive Search
+description: Introduction to index terms and concepts in Azure Cognitive Search, including component parts and physical structure.
+
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.custom: seodec2018
+ms.date: 11/04/2019
 ---
-# Create a basic index in Azure Search
+# Create a basic index in Azure Cognitive Search
 
-In Azure Search, an *index* is a persistent store of *documents* and other constructs used for filtered and full text search on an Azure Search service. Conceptually, a document is a single unit of searchable data in your index. For example, an e-commerce retailer might have a document for each item they sell, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: an *index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
+In Azure Cognitive Search, an *index* is a persistent store of *documents* and other constructs used for filtered and full text search on an Azure Cognitive Search service. Conceptually, a document is a single unit of searchable data in your index. For example, an e-commerce retailer might have a document for each item they sell, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: an *index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
-When you add or upload an index, Azure Search creates physical structures based on the schema you provide. For example, if a field in your index is marked as searchable, an inverted index is created for that field. Later, when you add or upload documents, or submit search queries to Azure Search, you are sending requests to a specific index in your search service. Loading fields with document values is called *indexing* or data ingestion.
+When you add or upload an index, Azure Cognitive Search creates physical structures based on the schema you provide. For example, if a field in your index is marked as searchable, an inverted index is created for that field. Later, when you add or upload documents, or submit search queries to Azure Cognitive Search, you are sending requests to a specific index in your search service. Loading fields with document values is called *indexing* or data ingestion.
 
 You can create an index in the portal, [REST API](search-create-index-rest-api.md), or [.NET SDK](search-create-index-dotnet.md).
 
@@ -34,7 +34,7 @@ Arriving at the right index design is typically achieved through multiple iterat
 
    You are switching to a code-based approach at this point. The portal is not well-suited for iteration because you cannot edit an index that is already created. But you can use Postman and REST for the remaining tasks.
 
-4. [Load your index with data](search-what-is-data-import.md). Azure Search accepts JSON documents. To load your data programmatically, you can use Postman with JSON documents in the request payload. If your data is not easily expressed as JSON, this step will be the most labor intensive.
+4. [Load your index with data](search-what-is-data-import.md). Azure Cognitive Search accepts JSON documents. To load your data programmatically, you can use Postman with JSON documents in the request payload. If your data is not easily expressed as JSON, this step will be the most labor intensive.
 
 5. Query your index, examine results, and further iterate on the index schema until you begin to see the results you expect. You can use [**Search explorer**](search-explorer.md) or Postman to query your index.
 
@@ -46,7 +46,7 @@ Code, rather than a portal approach, is recommended for iterative design. If you
 
 ## Components of an index
 
-Schematically, an Azure Search index is composed of the following elements. 
+Schematically, an Azure Cognitive Search index is composed of the following elements. 
 
 The [*fields collection*](#fields-collection) is typically the largest part of an index, where each field is named, typed, and attributed with allowable behaviors that determine how it is used. Other elements include [suggesters](#suggesters), [scoring profiles](#scoring-profiles), [analyzers](#analyzers) with component parts to support customization, [CORS](#cors) and [encryption key](#encryption-key) options.
 
@@ -151,7 +151,7 @@ As you define your schema, you must specify the name, type, and attributes of ea
 | *Edm.DateTimeOffset* |Date time values represented in the OData V4 format (for example, `yyyy-MM-ddTHH:mm:ss.fffZ` or `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |A point representing a geographic location on the globe. |
 
-You can find more detailed information about Azure Search's [supported data types here](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+You can find more detailed information about Azure Cognitive Search's [supported data types here](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### Index attributes
 
@@ -184,7 +184,7 @@ Although these index variants are artificial, we can refer to them for broad com
 Indexes that support filter and sort are proportionally larger than indexes that support just full text search. The reason is that filter and sort query on exact matches so documents are stored intact. In contrast, searchable fields supporting full-text and fuzzy search use inverted indexes, which are populated with tokenized terms that consume less space than whole documents.
 
 > [!Note]
-> Storage architecture is considered an implementation detail of Azure Search and could change without notice. There is no guarantee that current behavior will persist in the future.
+> Storage architecture is considered an implementation detail of Azure Cognitive Search and could change without notice. There is no guarantee that current behavior will persist in the future.
 
 ## Suggesters
 A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically, partial search strings are sent to the [Suggestions (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) while the user is typing a search query, and the API returns a set of suggested phrases. 
@@ -199,7 +199,7 @@ A default scoring profile operates behind the scenes to compute a search score f
 
 ## Analyzers
 
-The analyzers element sets the name of the language analyzer to use for the field. For more information about the range of analyzers available to you, see [Adding analyzers to an Azure Search index](search-analyzers.md). Analyzers can only be used with searchable fields. Once the analyzer is assigned to a field, it cannot be changed unless you rebuild the index.
+The analyzers element sets the name of the language analyzer to use for the field. For more information about the range of analyzers available to you, see [Adding analyzers to an Azure Cognitive Search index](search-analyzers.md). Analyzers can only be used with searchable fields. Once the analyzer is assigned to a field, it cannot be changed unless you rebuild the index.
 
 ## CORS
 
@@ -215,7 +215,7 @@ The following options can be set for CORS:
 
 ## Encryption Key
 
-While all Azure search indexes are encrypted by default using Microsoft managed keys, indexes can be configured to be encrypted with **customer managed keys** in Key Vault. To learn more, see [Manage encryption keys in Azure Search](search-security-manage-encryption-keys.md).
+While all Azure Cognitive Search indexes are encrypted by default using Microsoft managed keys, indexes can be configured to be encrypted with **customer managed keys** in Key Vault. To learn more, see [Manage encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
 ## Next steps
 

@@ -5,9 +5,9 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: adwise
 ms.custom: seodec18
 ---
@@ -73,7 +73,7 @@ Based on the fields chosen in the budget so far, a graph is shown to help you se
 
 ![Example showing budget creation with monthly cost data ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-After you configure the budget amount, click **Next** to configure budget alerts. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally received in less than 20 hours. For more information about notifications, see [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md). In the example below, an email alert gets generated when 90% of the budget is reached.
+After you configure the budget amount, click **Next** to configure budget alerts. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally received in less than 20 hours. For more information about notifications, see [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md). In the example below, an email alert gets generated when 90% of the budget is reached. If you create a budget with the Budgets API, you can also assign roles to people to receive alerts. Assigning roles to people isn't supported in the Azure portal. For more about the Azure budgets API, see [Budgets API](/rest/api/consumption/budgets).
 
 ![Example showing alert conditions](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
@@ -85,7 +85,9 @@ In the preceding example, you created a budget for a subscription. However, you 
 
 ## Trigger an action group
 
-When you create or edit a budget for a subscription or resource group scope, you can configure it to call an action group. The action group can perform a variety of different actions when your budget threshold is met. For more information about Action Groups, see [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md). For more information about using budget-based automation with action groups, see [Manage costs with Azure budgets](../billing/billing-cost-management-budget-scenario.md).
+When you create or edit a budget for a subscription or resource group scope, you can configure it to call an action group. The action group can perform a variety of different actions when your budget threshold is met. Action Groups are currently only supported for subscription and resource group scopes. For more information about Action Groups, see [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md). For more information about using budget-based automation with action groups, see [Manage costs with Azure budgets](../billing/billing-cost-management-budget-scenario.md).
+
+
 
 To create or update action groups, click **Manage action groups** while you're creating or editing a budget.
 
@@ -106,6 +108,8 @@ Configure your budget to use your action group when an individual threshold is m
 The following example shows budget thresholds set to 50%, 75% and 100%. Each is configured to trigger the specified actions within the designated action group.
 
 ![Example showing alert conditions configured with various action groups and type of actions](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
+
+Budget integration with action groups only works for action groups that have the common alert schema disabled. For more information about disabling the schema, see [How do I enable the common alert schema?](../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
 
 ## Next steps
 

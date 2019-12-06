@@ -1,5 +1,5 @@
 ---
-title: SSIS migration with Azure SQL Database managed instance as the database workload destination | Microsoft Docs
+title: SSIS migration with Azure SQL Database managed instance as the database workload destination 
 description: SSIS migration with Azure SQL Database managed instance as the database workload destination.
 services: data-factory
 documentationcenter: ''

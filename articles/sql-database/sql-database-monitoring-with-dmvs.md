@@ -1,5 +1,5 @@
 ---
-title: Monitoring performance Azure SQL Database Using DMVs | Microsoft Docs
+title: Monitor performance using DMVs
 description: Learn how to detect and diagnose common performance problems by using dynamic management views to monitor Microsoft Azure SQL Database.
 services: sql-database
 ms.service: sql-database

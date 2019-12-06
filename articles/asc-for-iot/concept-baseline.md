@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 ms.author: mlottner
 
 ---
@@ -52,7 +52,7 @@ To configure baseline custom checks:
         "baselineCustomChecksFilePath": {
           "value" : "/home/user/full_path.xml"
         },
-        "baselineCustomChecksFilePath": {
+        "baselineCustomChecksFileHash": {
           "value" : "#hashexample!"
         }
       }

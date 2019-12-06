@@ -1,16 +1,12 @@
 ---
-title: Deploy resources with Azure CLI and template | Microsoft Docs
+title: Deploy resources with Azure CLI and template
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.author: tomfitz
-
+ms.date: 10/09/2019
 ---
 # Deploy resources with Resource Manager templates and Azure CLI
 
-This article explains how to use Azure CLI with Resource Manager templates to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).  
+This article explains how to use Azure CLI with Resource Manager templates to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
@@ -32,9 +28,11 @@ To deploy to a **subscription**, use [az deployment create](/cli/azure/deploymen
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-Currently, management group deployments are only supported through the REST API. See [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md).
+For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
 
-The examples in this article use resource group deployments. For more information about subscription deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
+Currently, management group deployments are only supported through the REST API. For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
+
+The examples in this article use resource group deployments.
 
 ## Deploy local template
 
@@ -44,7 +42,7 @@ When deploying resources to Azure, you:
 2. Create a resource group that serves as the container for the deployed resources. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
 3. Deploy to the resource group the template that defines the resources to create
 
-A template can include parameters that enable you to customize the deployment. For example, you can provide values that are tailored for a particular environment (such as dev, test, and production). The sample template defines a parameter for the storage account SKU. 
+A template can include parameters that enable you to customize the deployment. For example, you can provide values that are tailored for a particular environment (such as dev, test, and production). The sample template defines a parameter for the storage account SKU.
 
 The following example creates a resource group, and deploys a template from your local machine:
 
@@ -144,9 +142,31 @@ az group deployment create \
   --parameters @storage.parameters.json
 ```
 
+## Handle extended JSON format
+
+To deploy a template with multi-line strings or comments, you must use the `--handle-extended-json-format` switch.  For example:
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[
+    parameters('location')
+    ]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  /*
+    storage account and network interface
+    must be deployed first
+  */
+  "dependsOn": [
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
 ## Test a template deployment
 
-To test your template and parameter values without actually deploying any resources, use [az group deployment validate](/cli/azure/group/deployment#az-group-deployment-validate). 
+To test your template and parameter values without actually deploying any resources, use [az group deployment validate](/cli/azure/group/deployment#az-group-deployment-validate).
 
 ```azurecli-interactive
 az group deployment validate \
@@ -171,8 +191,8 @@ If an error is detected, the command returns an error message. For example, pass
   "error": {
     "code": "InvalidTemplate",
     "details": null,
-    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter 
-      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed 
+    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter
+      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed
       value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
     "target": null
   },

@@ -1,16 +1,14 @@
 ---
-title: Quickstart - Create HoloLens app with Azure Spatial Anchors | Microsoft Docs
+title: 'Quickstart: Create a HoloLens app with DirectX'
 description: In this quickstart, you learn how to build a HoloLens app using Spatial Anchors.
 author: craigktreasure
-manager: aliemami
+manager: virivera
 services: azure-spatial-anchors
 
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my HoloLens app (in C++/WinRT and DirectX) that can place and locate a 3D object that persists across devices and platforms.
 ---
 # Quickstart: Create a HoloLens app with Azure Spatial Anchors, in C++/WinRT and DirectX
 
@@ -55,7 +53,7 @@ Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account
 
 Change the **Solution Configuration** to **Release**, change **Solution Platform** to **x86**, and select **Device** from the deployment target options.
 
-If using HoloLens 2, use **ARM** as the **Solution Platform**, instead of **x86**.
+If using HoloLens 2, use **ARM64** as the **Solution Platform**, instead of **x86**.
 
 ![Visual Studio Configuration](./media/get-started-hololens/visual-studio-configuration.png)
 

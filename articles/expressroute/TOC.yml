@@ -26,7 +26,7 @@
       href: expressroute-locations-providers.md
     - name: Locations by provider
       href: expressroute-locations.md
-  - name: Virtual network gateway and FastPath
+  - name: About virtual network gateways
     href: expressroute-about-virtual-network-gateways.md
   - name: Prerequisites
     href: expressroute-prerequisites.md
@@ -40,10 +40,14 @@
     href: expressroute-qos.md
   - name: About moving circuits from classic to Resource Manager
     href: expressroute-move.md
+  - name: About ExpressRoute FastPath
+    href: about-fastpath.md
   - name: About ExpressRoute Direct
     href: expressroute-erdirect-about.md
   - name: About ExpressRoute Global Reach
     href: expressroute-global-reach.md
+  - name: About ExpressRoute encryption
+    href: expressroute-about-encryption.md
   - name: Connect Azure to public cloud
     href: expressroute-connect-azure-to-public-cloud.md
   - name: Backend Connectivity Interoperability
@@ -121,6 +125,8 @@
       href: expressroute-howto-erdirect.md
     - name: Azure CLI
       href: expressroute-howto-expressroute-direct-cli.md
+  - name: Configure MACsec for ExpressRoute Direct ports
+    href: expressroute-howto-macsec.md
   - name: Configure route filters for Microsoft peering
     items:
     - name: Azure portal

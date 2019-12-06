@@ -1,21 +1,19 @@
 ---
-title: Copy data to and from Azure SQL Database Managed Instance by using Azure Data Factory | Microsoft Docs
+title: Copy data to and from Azure SQL Database Managed Instance
 description: Learn how to move data to and from Azure SQL Database Managed Instance by using Azure Data Factory.
 services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 09/09/2019
 ms.author: jingwang
-
+author: linda33wj
+manager: shwang
+ms.reviewer: douglasl
+ms.custom: seo-lt-2019
+ms.date: 09/09/2019
 ---
+
 # Copy data to and from Azure SQL Database Managed Instance by using Azure Data Factory
 
 This article outlines how to use the copy activity in Azure Data Factory to copy data to and from Azure SQL Database Managed Instance. It builds on the [Copy activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
@@ -545,7 +543,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
     )
     ```
 
-2. In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure is the same as **tableName** defined in the dataset.
+2. In your database, define the stored procedure with the same name as **sqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure is the same as **tableName** defined in the dataset.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -567,9 +565,9 @@ The following sample shows how to use a stored procedure to do an upsert into a 
     ```json
     "sink": {
         "type": "SqlMISink",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "sqlWriterStoredProcedureName": "spOverwriteMarketing",
         "storedProcedureTableTypeParameterName": "Marketing",
-        "SqlWriterTableType": "MarketingType",
+        "sqlWriterTableType": "MarketingType",
         "storedProcedureParameters": {
             "category": {
                 "value": "ProductA"

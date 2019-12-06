@@ -1,5 +1,5 @@
 ---
-title: Use Azure Data Factory to migrate data from an on-premises Netezza server to Azure | Microsoft Docs
+title: Use Azure Data Factory to migrate data from an on-premises Netezza server to Azure 
 description: Use Azure Data Factory to migrate data from an on-premises Netezza server to Azure.
 services: data-factory
 documentationcenter: ''
@@ -184,7 +184,7 @@ Based on the preceding assumptions, here's the estimated price:
 
 For more information, see the following articles and guides:
 
-- [Migrate data from an on-premises relational Data Warehouse database to Azure by using Azure Data Factory](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf)
+- [Migrate data from an on-premises relational Data Warehouse database to Azure by using Azure Data Factory](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/)
 - [Netezza connector](https://docs.microsoft.com/azure/data-factory/connector-netezza)
 - [ODBC connector](https://docs.microsoft.com/azure/data-factory/connector-odbc)
 - [Azure Blob storage connector](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)

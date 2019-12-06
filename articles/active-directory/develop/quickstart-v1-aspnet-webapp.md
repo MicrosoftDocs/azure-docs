@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2019
+ms.date: 10/25/2019
 ms.author: ryanwi
 #Customer intent: As an application developer, I want to learn how to implement Microsoft sign-in with an ASP.NET solution with a browser-based app using the OpenID Connect standard.
 ms.collection: M365-identity-device-management
@@ -27,4 +27,6 @@ ms.collection: M365-identity-device-management
 
 [Microsoft Authentication Library (MSAL)](msal-overview.md) enables developers to acquire tokens from the Microsoft identity platform endpoint in order to access secured Web APIs. Active Directory Authentication Library (ADAL) integrates with the Azure AD for developers (v1.0) endpoint, where MSAL integrates with the Microsoft identity platform (v2.0) endpoint.
 
-For new web applications, we recommend you use Microsoft identity platform (v2.0) and MSAL to acquire tokens and access secured web APIs: [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md).
+## Next steps
+
+For new web applications, we recommend you use Microsoft identity platform (v2.0) and MSAL to acquire tokens and access secured web APIs. See [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md) to get started.

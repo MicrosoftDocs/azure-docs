@@ -1,11 +1,7 @@
 ---
-title: Tutorial - Export Azure Resource Manager template from the Azure portal
+title: Tutorial - Export template from the Azure portal
 description: Learn how to use an exported template to complete your template development.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
@@ -13,7 +9,7 @@ ms.author: jgao
 
 # Tutorial: Use exported template from the Azure portal
 
-In this tutorial series, you've created a template to deploy an Azure storage account. In the next two tutorials, you add an *App Service plan* and a *website*. Instead of creating templates from scratch, you learn how to export templates from the Azure portal and how to use sample templates from the [Azure Quickstart templates](/resources/templates/). You customize those templates for your use. This tutorial focuses on exporting templates, and customizing the result for your template. It takes about **14 minutes** to complete.
+In this tutorial series, you've created a template to deploy an Azure storage account. In the next two tutorials, you add an *App Service plan* and a *website*. Instead of creating templates from scratch, you learn how to export templates from the Azure portal and how to use sample templates from the [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/). You customize those templates for your use. This tutorial focuses on exporting templates, and customizing the result for your template. It takes about **14 minutes** to complete.
 
 ## Prerequisites
 
@@ -21,7 +17,7 @@ We recommend that you complete the [tutorial about outputs](template-tutorial-ad
 
 You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## Review your template
+## Review template
 
 At the end of the previous tutorial, your template had the following JSON:
 
@@ -42,7 +38,7 @@ This template works well for deploying storage accounts, but you might want to a
     - **Name**: enter a name for the App service plan.
     - **Operating System**: select **Linux**.
     - **Region**: select an Azure location. For example, **Central US**.
-    - **Pricing tier**: to save costs, change the SKU to **Basic**.
+    - **Pricing tier**: to save costs, change the SKU to **Basic B1** (under Dev/Test).
 
     ![Resource Manager template export template portal](./media/template-tutorial-export-template/resource-manager-template-export.png)
 1. Select **Review and create**.
@@ -58,7 +54,7 @@ This template works well for deploying storage accounts, but you might want to a
 
     ![Resource Manager template export template](./media/template-tutorial-export-template/resource-manager-template-export-template.png)
 
-   The export template feature takes the current state of a resource and generates a template to deploy it. Exporting a template can be a helpful of quickly getting the JSON you need to deploy a resource.
+   The export template feature takes the current state of a resource and generates a template to deploy it. Exporting a template can be a helpful way of quickly getting the JSON you need to deploy a resource.
 
 1. Copy the **Microsoft.Web/serverfarms** definition and the parameter definition to your template.
 

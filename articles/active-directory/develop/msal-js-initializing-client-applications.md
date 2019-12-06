@@ -1,5 +1,6 @@
 ---
-title: Initialize client applications (Microsoft Authentication Library for JavaScript) | Azure
+title: Initialize MSAL.js client apps | Azure
+titleSuffix: Microsoft identity platform
 description: Learn about initializing client applications using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
 documentationcenter: dev-center-name
@@ -42,7 +43,7 @@ For authentication methods with redirect flows (`loginRedirect` and `acquireToke
 // Configuration object constructed
 const config = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”
+        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
     }
 }
 
@@ -87,6 +88,7 @@ export type SystemOptions = {
     logger?: Logger;
     loadFrameTimeout?: number;
     tokenRenewalOffsetSeconds?: number;
+    navigateFrameWait?: number;
 };
 
 // Developer App Environment Support
@@ -135,6 +137,8 @@ Below is the total set of configurable options that are supported currently in t
 - **loadFrameTimeout**: Optional.  The number of milliseconds of inactivity before a token renewal response from Azure AD should be considered timed out. Default is 6 seconds.
 
 - **tokenRenewalOffsetSeconds**: Optional. The number of milliseconds which sets the window of offset needed to renew the token before expiry. Default is 300 milliseconds.
+
+- **navigateFrameWait**: Optional. The number of milliseconds which sets the wait time before hidden iframes navigate to their destination. Default is 500 milliseconds.
 
 These are only applicable to be passed down from the MSAL Angular wrapper library:
 - **unprotectedResources**: Optional.  Array of URIs that are unprotected resources. MSAL will not attach a token to outgoing requests that have these URI. Defaults to `null`.

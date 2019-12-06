@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory Mapping Data Flow Pivot Transformation
-description: Pivot data from rows to columns using Azure Data Factory Mapping Data Flow Pivot Transformation
+title: Azure Data Factory mapping data flow Pivot Transformation
+description: Pivot data from rows to columns using Azure Data Factory mapping data flow Pivot Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory

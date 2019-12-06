@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for Eclipse: Create Scala applications for HDInsight Spark '
+title: 'Azure Toolkit for Eclipse: Create Scala apps for HDInsight Spark'
 description: Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications written in Scala and submit them to an HDInsight Spark cluster, directly from the Eclipse IDE.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -79,7 +79,10 @@ You can link a normal cluster by using the Ambari managed username. Similarly, f
    > [!NOTE]  
    > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
    > ![Azure Explorer storage accounts](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
-
+   >
+   > For the keyboard only user, when the current focus is at **Storage Key**, you need to use **Ctrl+TAB** to focus on the next field in the dialog.
+   
+   
 1. You can see a Linked cluster in **HDInsight** node after clicking OK button, if the input information are right. Now you can submit an application to this linked cluster.
 
    ![Azure Explorer hdi linked cluster](./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png)

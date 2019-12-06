@@ -1,19 +1,16 @@
 ---
-title: Create and manage integration accounts for B2B solutions - Azure Logic Apps
-description: Create, link, move, and delete integration accounts for enterprise integration and B2B solutions by using Azure Logic Apps
+title: Create or manage B2B integration accounts
+description: Create, link, and manage integration accounts for enterprise integration with Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-ms.workload: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
 ---
 
-# Create and manage integration accounts for B2B solutions by using Azure Logic Apps
+# Create and manage integration accounts for B2B enterprise integrations in Azure Logic Apps
 
 Before you can build [enterprise integration and B2B solutions](../logic-apps/logic-apps-enterprise-integration-overview.md) by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you need to create an integration account, which is a separate Azure resource that provides a secure, scalable, and manageable container for the integration artifacts that you define and use with your logic app workflows.
 
@@ -37,7 +34,7 @@ This topic shows you how to perform these tasks:
 
 ## Create integration account
 
-For this task, you can use either the Azure portal by following the steps in this section, [Azure PowerShell](https://docs.microsoft.com//powershell/module/azurerm.logicapp/New-AzureRmIntegrationAccount), or [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create).
+For this task, you can use either the Azure portal by following the steps in this section, [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount), or [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
@@ -252,7 +249,7 @@ For this task, you can use either the Azure portal by following the steps in thi
 
 ## Delete integration account
 
-For this task, you can use either the Azure portal by following the steps in this section, [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete), or [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/Remove-AzureRmIntegrationAccount).
+For this task, you can use either the Azure portal by following the steps in this section, [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete), or [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 

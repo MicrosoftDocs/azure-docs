@@ -1,5 +1,6 @@
 ---
-title: Get consent for several resources (Microsoft Authentication Library for .NET) | Azure
+title: Get consent for several resources (MSAL.NET) | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how a user can get pre-consent for several resources using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name

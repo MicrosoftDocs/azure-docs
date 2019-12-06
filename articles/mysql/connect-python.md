@@ -1,5 +1,5 @@
 ---
-title: 'Connect to Azure Database for MySQL from Python'
+title: 'Connect using Python - Azure Database for MySQL'
 description: This quickstart provides several Python code samples you can use to connect and query data from Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,14 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/02/2019
+ms.custom: seo-python-october2019
 ---
-# Azure Database for MySQL: Use Python to connect and query data
-This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for MySQL. It uses SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. This topic assumes that you are familiar with developing using Python and that you are new to working with Azure Database for MySQL.
+
+# Quickstart: Use Python to connect and query data with Azure Database for MySQL
+This article demonstrates how to use [Python](https://python.org) to connect to an Azure Database for MySQL. It uses SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. 
+
+This topic assumes that you are familiar with developing using Python and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
@@ -60,7 +64,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Select the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for MySQL server name](./media/connect-python/1_server-overview-name-login.png)
+ ![Azure Database for MySQL server name](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
 
 ## Run Python code
 - Paste the code into a text file, and then save the file into a project folder with file extension .py (such as C:\pythonmysql\createtable.py or /home/username/pythonmysql/createtable.py).

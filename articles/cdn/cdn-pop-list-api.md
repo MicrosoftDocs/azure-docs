@@ -37,7 +37,6 @@ Configure IP ACLing for your backends to accept traffic from Azure CDN from Micr
 
 IP Ranges and Service tags for Microsoft services can be found [here](https://www.microsoft.com/download/details.aspx?id=56519)
 
-Filter on the values for the incoming header 'X-Forwarded-Host' sent by Azure CDN from Microsoft. The only allowed values for the header should be all of the endpoint hosts as defined in your CDN config. In fact even more specifically, only the host names for which you want to accept traffic from, on this particular origin of yours.
 
 ## Typical use case
 

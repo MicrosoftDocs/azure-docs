@@ -1,10 +1,10 @@
 ---
-title: Azure Migrate appliance architecture | Microsoft Docs
-description: Provides an overview of the Azure Migrate appliance
+title: Azure Migrate appliance architecture
+description: Provides an overview of the Azure Migrate appliance used in server assessment and migration.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 
@@ -38,7 +38,7 @@ The appliance has these agents installed.
 
 **Agent** | **Details**
 --- | ---
-Discovery agent | Gathers configuration data of on-premise virtual machines
+Discovery agent | Gathers configuration data of on-premises virtual machines
 Assessment agent | Profiles the on-premises environment to collect VM performance data.
 Migration adapter | Orchestrates VM replication, and coordinates communication between VMs and Azure.
 Migration gateway | Sends replicated VM data to Azure.
@@ -125,7 +125,7 @@ Host details per VM | ((HostSystem)container).VM
 > [!NOTE]
 > Metadata discovered by the Azure Migrate appliance is used to help you right-size your applications as you migrate them to Azure, perform Azure suitability analysis, application dependency analysis, and cost planning. Microsoft does not use this data in relation to any license compliance audit.
 
-Here's the VMware VM performance data that the appliance collects and sends to Azure.
+Here's the Hyper VM performance data that the appliance collects and sends to Azure.
 
 **Performance counter class** | **Counter** | **Assessment impact**
 --- | --- | ---

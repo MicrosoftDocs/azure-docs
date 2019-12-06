@@ -336,7 +336,7 @@ In this article, you learned how to use Jenkins as part of a CI/CD solution. AKS
 
 <!-- LINKS - internal -->
 [az-acr-list]: /cli/azure/acr#az-acr-list
-[acr-authentication]: ../container-registry/container-registry-auth-aks.md#grant-aks-access-to-acr
+[acr-authentication]: cluster-container-registry-integration.md
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-credentials]: /cli/azure/aks#az-aks-get-credentials
 [aks-quickstart]: kubernetes-walkthrough.md

@@ -1,5 +1,5 @@
 ---
-title: Move data from an HTTP source - Azure | Microsoft Docs
+title: Move data from an HTTP source - Azure 
 description: Learn how to move data from an on-premises or cloud HTTP source by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''

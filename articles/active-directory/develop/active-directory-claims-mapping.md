@@ -1,5 +1,6 @@
 ---
-title: Customize claims for an app in an Azure AD tenant (Public Preview)
+title: Customize claims for an Azure AD tenant app (Public Preview) 
+titleSuffix: Microsoft identity platform
 description: This page describes Azure Active Directory claims mapping.
 services: active-directory
 author: rwike77
@@ -8,10 +9,8 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
@@ -460,7 +459,7 @@ In this example, you create a policy that removes the basic claim set from token
       Get-AzureADPolicy
       ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal.
-   1. To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
+   1. To see all your organization's service principals, you can [query Microsoft Graph](/graph/traverse-the-graph). Or, in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
    2. When you have the ObjectId of your service principal, run the following command:  
 	 
       ``` powershell
@@ -484,7 +483,7 @@ In this example, you create a policy that adds the EmployeeID and TenantCountry 
       Get-AzureADPolicy
       ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
-   1. To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
+   1. To see all your organization's service principals, you can [query Microsoft Graph](/graph/traverse-the-graph). Or, in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
    2. When you have the ObjectId of your service principal, run the following command:  
 	 
       ``` powershell
@@ -508,7 +507,7 @@ In this example, you create a policy that emits a custom claim “JoinedData” 
       Get-AzureADPolicy
       ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
-   1. To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
+   1. To see all your organization's service principals, you can [query Microsoft Graph](/graph/traverse-the-graph). Or, in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
    2. When you have the ObjectId of your service principal, run the following command: 
 	 
       ``` powershell

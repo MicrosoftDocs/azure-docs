@@ -1,5 +1,5 @@
 ---
-title: "Troubleshoot SSIS Integration Runtime management in Azure Data Factory | Microsoft Docs"
+title: "Troubleshoot SSIS Integration Runtime management in Azure Data Factory "
 description: "This article provides troubleshooting guidance for management issues of SSIS Integration Runtime (SSIS IR)"
 services: data-factory
 documentationcenter: ""
@@ -102,7 +102,7 @@ This error means the execution of custom setup script (main.cmd) failed. Try the
 
 ### CustomSetupScriptTimeout
 
-This error indicates an execute custom setup script timeout. Make sure that your blob container contains only the necessary custom setup files. You should also check the custom setup execution logs in your blob container. The maximum period for custom setup is 45 minutes before it times out, and the maximum period includes the time to download all files from your container and install them on SSIS IR. If you need a longer period, raise a support ticket.
+This error indicates an execute custom setup script timeout. Make sure that your script can be executed silently, and no interactive input needed, and make sure your blob container contains only the necessary custom setup files. It is recommended to test the script on local machine first. You should also check the custom setup execution logs in your blob container. The maximum period for custom setup is 45 minutes before it times out, and the maximum period includes the time to download all files from your container and install them on SSIS IR. If you need a longer period, raise a support ticket.
 
 ### CustomSetupScriptLogUploadFailure
 

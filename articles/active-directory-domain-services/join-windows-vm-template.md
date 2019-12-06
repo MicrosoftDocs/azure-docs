@@ -1,5 +1,5 @@
 ---
-title: Use a template to join a Windows Server VM to Azure AD DS | Microsoft Docs
+title: Use a template to join a Windows VM to Azure AD DS | Microsoft Docs
 description: Learn how to use Azure Resource Manager templates to join a new or existing Windows Server VM to an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
 author: iainfoulds
@@ -89,7 +89,7 @@ To create a Windows Server VM then join it to an Azure AD DS managed domain, com
     | Existing Subnet Name      | The name of the existing virtual network subnet, such as *Workloads*. |
     | DNS Label Prefix          | Enter a DNS name to use for the VM, such as *myvm*. |
     | VM size                   | Specify a VM size, such as *Standard_DS2_v2*. |
-    | Domain To Join            | The Azure AD DS managed domain DNS name, such as *contoso.com*. |
+    | Domain To Join            | The Azure AD DS managed domain DNS name, such as *aadds.contoso.com*. |
     | Domain Username           | The user account in the Azure AD DS managed domain that should be used to join the VM to the managed domain. This account must be a member of the *Azure AD DC administrators* group. |
     | Domain Password           | The password for the user account specified in the previous setting. |
     | Optional OU Path          | The custom OU in which to add the VM. If you don't specify a value for this parameter, the VM is added to the default *AAD DC Computers* OU. |

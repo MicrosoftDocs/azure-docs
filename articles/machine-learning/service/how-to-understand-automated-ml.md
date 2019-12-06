@@ -256,7 +256,6 @@ A good model will typically have a bell curve or errors around zero.
 
 ## <a name="explain-model"></a> Model interpretability and feature importance
 Automated ML provides a machine learning interpretability dashboard for your runs.
-  
 For more information on enabling interpretability features, see the [how-to](how-to-machine-learning-interpretability-automl.md) on enabling interpretability in automated ML experiments.
 
 ## Next steps

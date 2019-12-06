@@ -1,5 +1,6 @@
 ---
-title: Microsoft Authentication Library (MSAL) for iOS & macOS  | Azure
+title: Microsoft Authentication Library (MSAL) for iOS & macOS  
+titleSuffix: Microsoft identity platform
 description: Describes Microsoft Authentication Library (MSAL) usage differences between iOS and macOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -43,7 +44,7 @@ On macOS 10.15+, MSAL's behavior is the same between iOS and macOS. MSAL uses [k
 
 ### Conditional access authentication differences
 
-For conditional access scenarios, there will be fewer user prompts when you use MSAL for iOS. This is because iOS uses the broker app (Microsoft Authenticator) which negates the need to prompt the user in some cases.
+For Conditional Access scenarios, there will be fewer user prompts when you use MSAL for iOS. This is because iOS uses the broker app (Microsoft Authenticator) which negates the need to prompt the user in some cases.
 
 ### Project setup differences
 

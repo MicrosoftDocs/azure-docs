@@ -1,5 +1,5 @@
 ---
-title: Server logs for Azure Database for MySQL
+title: Slow query logs - Azure Database for MySQL
 description: Describes the slow query logs available in Azure Database for MySQL, and the available parameters for enabling different logging levels.
 author: ajlam
 ms.author: andrela
@@ -17,7 +17,7 @@ You can list and download Azure Database for MySQL slow query logs using the Azu
 
 In the Azure portal, select your Azure Database for MySQL server. Under the **Monitoring** heading, select the **Server Logs** page.
 
-For more information on Azure CLI, see [Configure and access server logs using Azure CLI](howto-configure-server-logs-in-cli.md).
+For more information on Azure CLI, see [Configure and access slow query logs using Azure CLI](howto-configure-server-logs-in-cli.md).
 
 ## Log retention
 Logs are available for up to seven days from their creation. If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available. 
@@ -33,6 +33,9 @@ Other parameters you can adjust include:
 - **log_slow_admin_statements**: if ON includes administrative statements like ALTER_TABLE and ANALYZE_TABLE in the statements written to the slow_query_log.
 - **log_queries_not_using_indexes**: determines whether queries that do not use indexes are logged to the slow_query_log
 - **log_throttle_queries_not_using_indexes**: This parameter limits the number of non-index queries that can be written to the slow query log. This parameter takes effect when log_queries_not_using_indexes is set to ON.
+
+> [!Note]
+> For `sql_text`, log will be truncated if it exceeds 2048 characters.
 
 See the MySQL [slow query log documentation](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) for full descriptions of the slow query log parameters.
 
@@ -60,8 +63,8 @@ The following table describes what's in each log. Depending on the output method
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Name of the server |
 | `start_time_t` [UTC] | Time the query began |
-| `query_time_s` | Total time the query took to execute |
-| `lock_time_s` | Total time the query was locked |
+| `query_time_s` | Total time in seconds the query took to execute |
+| `lock_time_s` | Total time in seconds the query was locked |
 | `user_host_s` | Username |
 | `rows_sent_s` | Number of rows sent |
 | `rows_examined_s` | Number of rows examined |

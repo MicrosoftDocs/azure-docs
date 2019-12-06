@@ -11,6 +11,10 @@ ms.subservice: logs
 ---
 
 # Export Azure Activity log to storage or Azure Event Hubs
+
+> [!NOTE]
+> You can now collect the Activity log into a Log Analytics workspace using a diagnostic setting similar to how you collect resource logs. See [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](activity-log-collect.md).
+
 The [Azure Activity Log](activity-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. In addition to viewing the Activity log in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can create a log profile to archive the Activity log to an Azure storage account or stream it to an Event Hub.
 
 ## Archive Activity Log
@@ -24,7 +28,7 @@ Archiving the Activity Log to a storage account is useful if you would like to r
 ## Prerequisites
 
 ### Storage account
-If you're archiving your Activity Log, you need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving Diagnostic Logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
+If you're archiving your Activity Log, you need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
 
 The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 > [!NOTE]
@@ -150,7 +154,7 @@ If a log profile already exists, you first need to remove the existing log profi
     | name |Yes |Name of your log profile. |
     | storage-account-id |Yes |Resource ID of the Storage Account to which Activity Logs should be saved. |
     | locations |Yes |Space-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions for your subscription using `az account list-locations --query [].name`. |
-    | days |Yes |Number of days for which events should be retained, between 1 and 365. A value of zero will store the logs indefinitely (forever).  If zero, then the enabled parameter should be set to true. |
+    | days |Yes |Number of days for which events should be retained, between 1 and 365. A value of zero will store the logs indefinitely (forever).  If zero, then the enabled parameter should be set to false. |
     |enabled | Yes |True or False.  Used to enable or disable the retention policy.  If True, then the days parameter must be a value greater than 0.
     | categories |Yes |Space-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
@@ -160,7 +164,7 @@ If a log profile already exists, you first need to remove the existing log profi
 Whether sent to Azure storage or Event Hub, the Activity log data will be written to JSON with the following format.
 
 
-> The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor diagnostic logs archived to a storage account](diagnostic-logs-append-blobs.md) for details on this format change.
+> The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor resource logs archived to a storage account](diagnostic-logs-append-blobs.md) for details on this format change.
 
 ``` JSON
 {

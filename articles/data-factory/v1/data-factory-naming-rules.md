@@ -1,5 +1,5 @@
 ---
-title: Rules for naming Azure Data Factory entities | Microsoft Docs
+title: Rules for naming Azure Data Factory entities 
 description: Describes naming rules for Data Factory entities.
 services: data-factory
 documentationcenter: ''

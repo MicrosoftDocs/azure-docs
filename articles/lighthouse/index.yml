@@ -5,7 +5,7 @@ summary: Azure Lighthouse lets service providers manage Azure resources across a
 
 metadata:
   title: Azure Lighthouse Documentation
-  description: Learn how to manage customer resources at scale
+  description: Azure Lighthouse lets service providers manage Azure resources across all their customers with higher automation, scalability, and enhanced governance.
   ms.service: lighthouse
   ms.topic: landing-page
   ms.collection: collection

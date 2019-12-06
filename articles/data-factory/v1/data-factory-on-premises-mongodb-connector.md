@@ -1,5 +1,5 @@
 ---
-title: Move data from MongoDB using Data Factory | Microsoft Docs
+title: Move data from MongoDB using Data Factory 
 description: Learn about how to move data from MongoDB database using Azure Data Factory.
 services: data-factory
 documentationcenter: ''

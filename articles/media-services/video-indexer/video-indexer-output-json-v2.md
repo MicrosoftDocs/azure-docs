@@ -1,7 +1,7 @@
 ---
 title: Examine the Azure Media Services Video Indexer output produced by v2 API
-titlesuffix: Azure Media Services
-description: This topic examines the Video Indexer output produced by v2 API.
+titleSuffix: Azure Media Services
+description: This topic examines the Azure Media Services Video Indexer output produced by v2 API.
 services: media-services
 author: Juliako
 manager: femila
@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 10/11/2019
 ms.author: juliako
 ---
 
@@ -756,7 +756,7 @@ Video Indexer identifies emotions based on speech and audio cues. The identified
 
 #### topics
 
-Video Indexer makes inference of main topics from transcripts. When possible, the 1st-level [IPTC](https://iptc.org/standards/media-topics/) taxonomy is included. 
+Video Indexer makes inference of main topics from transcripts. When possible, the 2nd-level [IPTC](https://iptc.org/standards/media-topics/) taxonomy is included. 
 
 |Name|Description|
 |---|---|
