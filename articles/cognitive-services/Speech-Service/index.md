@@ -586,7 +586,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Use Custom Commands</h3>
-                                                    <p>Learn to build simple and robust command and control interactions with language understanding and error correction.</p>
+                                                    <p>Learn to easily build robust command and control voice applications, so that users can complete tasks using their voice.</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -97,11 +97,11 @@ Now add a Completion Rule to respond to the user indicating that an action is be
 > [!div class="mx-imgBorder"]
 > ![Create a Completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-| Setting    | Suggested value                        | Description                                        |
-| ---------- | -------------------------------------- | -------------------------------------------------- |
-| Rule Name  | "ConfirmationResponse"                 | A name describing the purpose of the rule          |
-| Conditions | None                                   | Conditions that determine when the rule can run    |
-| Actions    | SpeechResponse "Ok, turning on the TV" | The action to take when the rule condition is true |
+| Setting    | Suggested value                          | Description                                        |
+| ---------- | ---------------------------------------- | -------------------------------------------------- |
+| Rule Name  | "ConfirmationResponse"                   | A name describing the purpose of the rule          |
+| Conditions | None                                     | Conditions that determine when the rule can run    |
+| Actions    | SpeechResponse "- Ok, turning on the TV" | The action to take when the rule condition is true |
 
 ## Try it out
 
