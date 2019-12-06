@@ -1,7 +1,7 @@
 ---
 title: View service provider activity
 description: Customers can view logged activity to see actions performed by service providers through Azure delegated resource management.
-ms.date: 12/3/2019
+ms.date: 12/6/2019
 ms.topic: conceptual
 ---
 
@@ -20,7 +20,7 @@ In the activity log, you'll see the name of the operation and its status, along 
 
 Logged activity is available in the Azure portal for the past 90 days. To learn how to store this data for longer than 90 days, see [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect)
 
-## Set up alerts for critical operations
+## Set alerts for critical operations
 
 To stay aware of critical operations that service providers (or users in your own tenant) are performing, we recommend creating [activity log alerts](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts). For example, you may want to track all administrative actions for a subscription, or be notified when any virtual machine in a particular resource group is deleted. When you create alerts, they will include actions taken by users in the customer's own tenant as well as in any managing tenants.
 
