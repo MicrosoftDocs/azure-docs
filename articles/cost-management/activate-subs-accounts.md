@@ -129,4 +129,4 @@ $url = "https://login.windows.net/"+$tenant+"/oauth2/authorize?api-version=1&res
 
 ## Next steps
 
-- If you haven't already completed the first tutorial for Cloudyn, read it at [Review usage and costs](tutorial-review-usage.md).
+- If you haven't already completed the first tutorial for Cloudyn, read it at [Review usage and costs](../cost-management-billing/cloudyn/tutorial-review-usage.md).

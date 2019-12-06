@@ -67,11 +67,11 @@ To enable access for indirect CSP customers or partners, follow the steps in [Re
 Indirect CSP partners sign in to the Cloudyn portal using the accounts that you created for them.
 
 
-[!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
+[!INCLUDE [cost-management-create-account-view-data](../../../includes/cost-management-create-account-view-data.md)]
 
 ## Next steps
 
 In this quickstart, you used your CSP information to register with Cloudyn. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Cloudyn, continue to the tutorial for Cloudyn.
 
 > [!div class="nextstepaction"]
-> [Review usage and costs](./tutorial-review-usage.md)
+> [Review usage and costs](tutorial-review-usage.md)

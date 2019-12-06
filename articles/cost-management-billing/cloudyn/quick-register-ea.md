@@ -18,7 +18,7 @@ manager: benshy
 
 You use your Azure Enterprise Agreement to register with Cloudyn. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
 
-Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information, see [Azure Cost Management](overview-cost-mgt.md).
+Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information, see [Azure Cost Management](../../cost-management/overview-cost-mgt.md).
 
 ## Sign in to Azure
 
@@ -43,11 +43,11 @@ Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Manage
 
 To watch a tutorial video about registering your Enterprise Agreement, see [How to Find Your EA Enrollment ID and API Key for use in Cloudyn](https://youtu.be/u_phLs_udig).
 
-[!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
+[!INCLUDE [cost-management-create-account-view-data](../../../includes/cost-management-create-account-view-data.md)]
 
 ## Next steps
 
 In this quickstart, you used your Azure Enterprise Agreement information to register with Cloudyn. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Cloudyn, continue to the tutorial for Cloudyn.
 
 > [!div class="nextstepaction"]
-> [Review usage and costs](./tutorial-review-usage.md)
+> [Review usage and costs](tutorial-review-usage.md)
