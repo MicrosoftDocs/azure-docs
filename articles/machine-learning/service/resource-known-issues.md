@@ -90,8 +90,13 @@ These are known issues for Azure Machine Learning Datasets.
 
 ### TypeError: File not found
 
-When mounting your dataset or datastore, the mounted path in your datastore is not 
+This error occurs if you attempt to use the relative path instead of the absolute path for the file(s) from your datastore or dataset that you want to mount. When you use `as_mount()` or `mount()` include a leading forward slash, `/`, to ensure you are mounting your dataset to your compute target, instead of your working directory. 
 
+```python
+script_params = {
+    '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+} 
+```
 ### Fail to read Parquet file from HTTP or ADLS Gen 2
 
 There is a known issue in AzureML DataPrep SDK version 1.1.25 that causes a failure when creating a dataset by reading Parquet files from HTTP or ADLS Gen 2. It will fail with `Cannot seek once reading started.`. To fix this issue, please upgrade `azureml-dataprep` to a version higher than 1.1.26, or downgrade to a version lower than 1.1.24.
