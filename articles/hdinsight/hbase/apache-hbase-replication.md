@@ -291,7 +291,8 @@ The following steps describe how to call the script action script from the Azure
     
       > [!NOTE]
       > Use hostname instead of FQDN for both the source and destination cluster DNS name.
-      > This walkthrough assumes hn1 as active headnode. Please check your cluster to identify the active head node 
+      >
+      > This walkthrough assumes hn1 as active headnode. Please check your cluster to identify the active head node.
 
 6. Select **Create**. The script can take a while to run, especially when you use the **-copydata** argument.
 
