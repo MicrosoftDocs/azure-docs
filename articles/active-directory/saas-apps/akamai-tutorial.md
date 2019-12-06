@@ -172,11 +172,11 @@ Akamai Header Based Authentication
 
     ![Configuring Akamai](./media/header-akamai-tutorial/configure05.png)
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure06.png)
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure06.png)
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure07.png)
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure07.png)
 
-![Configuring Akamai](./media/header-akamai-tutorial/configure08.png)
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure08.png)
 
 #### Authentication
 
@@ -215,7 +215,7 @@ Akamai Header Based Authentication
 #### Remote Desktop
 
 1. Choose **RDP** from the ADD Applications Wizard.
-    
+
     ![Configuring Akamai](./media/header-akamai-tutorial/configure16.png)
 
     ![Configuring Akamai](./media/header-akamai-tutorial/configure17.png)
