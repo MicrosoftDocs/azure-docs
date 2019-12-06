@@ -17,7 +17,7 @@
   items:
   - name: Identity secure score
     href: identity-secure-score.md 
-  - name: 'Concepts'
+  - name: 'Security'
     items:
     - name: Enable MFA
       href: concept-fundamentals-mfa-get-started.md

@@ -107,10 +107,10 @@ You can use Conditional Access to configure policies that provide the same behav
 
 Here are step-by-step guides on how you can use Conditional Access to configure equivalent policies:
 
-- [Require MFA for administrators](..conditional-access/howto-conditional-access-policy-admin-mfa.md)
-- [Require MFA for Azure management](..conditional-access/howto-conditional-access-policy-azure-management.md)
-- [Block legacy authentication](..conditional-access/howto-conditional-access-policy-block-legacy.md)
-- [Require MFA for all users](..conditional-access/howto-conditional-access-policy-all-users-mfa.md)
+- [Require MFA for administrators](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
+- [Require MFA for Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md)
+- [Block legacy authentication](../conditional-access/howto-conditional-access-policy-block-legacy.md)
+- [Require MFA for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 - [Require Azure MFA registration](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requires Azure AD Identity Protection
 
 ## Enabling security defaults
@@ -139,4 +139,4 @@ To disable security defaults in your directory:
 
 ## Next steps
 
-[Common Conditional Access policies](..conditional-access/concept-conditional-access-policy-common.md)
+[Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md)

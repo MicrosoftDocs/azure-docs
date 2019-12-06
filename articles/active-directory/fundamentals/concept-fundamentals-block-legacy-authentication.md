@@ -97,4 +97,4 @@ Steps for enabling modern authentication can be found in the following articles:
 
 - [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 - [How to use Modern Authentication (ADAL) with Skype for Business](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
-- [Block legacy authentication](..conditional-access/block-legacy-authentication.md)
+- [Block legacy authentication](../conditional-access/block-legacy-authentication.md)
