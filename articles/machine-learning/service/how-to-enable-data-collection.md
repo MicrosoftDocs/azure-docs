@@ -20,7 +20,7 @@ ms.custom: seodec18
 >[!IMPORTANT]
 > The Azure Machine Learning Monitoring SDK will be retired soon. The SDK is still appropriate for developers who monitor data drift in models. But most developers should use the simplified [data monitoring with Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights).
 
-This article shows how to collect input model data from Azure Machine Learning. It also shows how to deploy the input data into Azure Kubernetes Cluster (AKS) and store the output data in Azure Blob storage.
+This article shows how to collect input model data from Azure Machine Learning. It also shows how to deploy the input data into an Azure Kubernetes Service (AKS) cluster and store the output data in Azure Blob storage.
 
 Once collection is enabled, the data you collect helps you:
 
@@ -34,7 +34,7 @@ Once collection is enabled, the data you collect helps you:
 
 The following data can be collected:
 
-* Model input data from web services deployed in Azure Kubernetes Cluster (AKS). Voice audio, images, and video are *not* collected.
+* Model input data from web services deployed in an AKS cluster. Voice audio, images, and video are *not* collected.
   
 * Model predictions using production input data.
 
@@ -60,9 +60,9 @@ The path to the output data in the blob follows this syntax:
 
 - A AzureMachine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](how-to-configure-environment.md).
 
-- You need a trained machine-learning model to be deployed to Azure Kubernetes Service (AKS). If you don't have a model, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
+- You need a trained machine-learning model to be deployed to AKS. If you don't have a model, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
-- You need an Azure Kubernetes Service (AKS) cluster. For information on how to create one and deploy to it, see [How to deploy and where](how-to-deploy-and-where.md).
+- You need an AKS cluster. For information on how to create one and deploy to it, see [How to deploy and where](how-to-deploy-and-where.md).
 
 - [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
 
