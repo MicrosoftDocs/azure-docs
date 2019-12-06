@@ -39,11 +39,11 @@ You use your Azure subscription to register with Cloudyn. Your registration prov
 
 To watch a tutorial video about registering your Azure subscription, see [Finding your Directory GUID and Rate ID for use in Cloudyn](https://youtu.be/PaRjnyaNGMI).
 
-[!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
+[!INCLUDE [cost-management-create-account-view-data](../../../includes/cost-management-create-account-view-data.md)]
 
 ## Next steps
 
 In this quickstart, you used your Azure subscription information to register with Cloudyn. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Cloudyn, continue to the tutorial for Cloudyn.
 
 > [!div class="nextstepaction"]
-> [Review usage and costs](./tutorial-review-usage.md)
+> [Review usage and costs](tutorial-review-usage.md)

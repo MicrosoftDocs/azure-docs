@@ -159,4 +159,4 @@ You can now save reports to Azure storage. In any report, click **Actions**  and
 
 ## Next steps
 
-- Review [Understanding Cloudyn reports](understanding-cost-reports.md) to learn about the basic structure and functions of Cloudyn reports.
+- Review [Understanding Cloudyn reports](../cost-management-billing/cloudyn/understanding-cost-reports.md) to learn about the basic structure and functions of Cloudyn reports.

@@ -80,4 +80,4 @@ If you provisioned AWS Reserved Instances, you can improve your reserved instanc
 
 Now that you’re familiar with Cloudyn, the next step is to register your cloud environment and start exploring your data.
 
-- [Register an individual Azure subscription](quick-register-azure-sub.md)
+- [Register an individual Azure subscription](../cost-management-billing/cloudyn/quick-register-azure-sub.md)

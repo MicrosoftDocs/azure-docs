@@ -43,4 +43,4 @@ If you're a legacy Cloudyn user without an Azure account, you can open a support
 
 ## Next steps
 
-- To learn more about Cloudyn, continue to the [Review usage and costs](tutorial-review-usage.md) tutorial for Cloudyn.
+- To learn more about Cloudyn, continue to the [Review usage and costs](../cost-management-billing/cloudyn/tutorial-review-usage.md) tutorial for Cloudyn.

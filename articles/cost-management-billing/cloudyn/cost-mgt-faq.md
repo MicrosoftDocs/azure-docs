@@ -36,7 +36,7 @@ Only an Azure service administrator can enable Cloudyn. Co-administrator permiss
 
 Before you can generate the Azure Enterprise Agreement API key to set up Cloudyn, you must enable the Azure Billing API by following the instructions at:
 
-- [Overview of Reporting APIs for Enterprise customers](../billing/billing-enterprise-api.md)
+- [Overview of Reporting APIs for Enterprise customers](../../billing/billing-enterprise-api.md)
 - [Microsoft Azure enterprise portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) under **Enabling data access to the API**
 
 
@@ -95,7 +95,7 @@ Avoid using the Cloudyn direct URL https://app.cloudyn.com.
 
 ## How do I activate unactivated accounts with Azure credentials?
 
-As soon as your Azure accounts are discovered by Cloudyn, cost data is immediately provided in cost-based reports. However, for Cloudyn to provide usage and performance data, you need to register your Azure credentials for the accounts. For instructions, see [Add an account or update a subscription](activate-subs-accounts.md#add-an-account-or-update-a-subscription).
+As soon as your Azure accounts are discovered by Cloudyn, cost data is immediately provided in cost-based reports. However, for Cloudyn to provide usage and performance data, you need to register your Azure credentials for the accounts. For instructions, see [Add an account or update a subscription](../../cost-management/activate-subs-accounts.md#add-an-account-or-update-a-subscription).
 
 To add Azure credentials for an account, in the Cloudyn portal, select the edit symbol to the right of the account name, not the subscription.
 
