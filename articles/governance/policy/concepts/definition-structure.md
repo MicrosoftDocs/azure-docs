@@ -705,6 +705,32 @@ engine gets the property path for that API version.
 The list of aliases is always growing. To find what aliases are currently supported by Azure
 Policy, use one of the following methods:
 
+- Azure Policy extension for Visual Studio Code (recommended)
+
+  Use the [Azure Policy extension for Visual Studio Code](../how-to/extension-for-vscode.md) to view
+  and discover aliases for resource properties.
+
+  ![Azure Policy extension for Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+
+- Azure Resource Graph
+
+  Use the `project` operator to display the **alias** of a resource.
+
+  ```kusto
+  Resources
+  | where type=~'microsoft.storage/storageaccounts'
+  | limit 1
+  | project aliases
+  ```
+  
+  ```azurecli-interactive
+  az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
+  
+  ```azurepowershell-interactive
+  Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
+
 - Azure PowerShell
 
   ```azurepowershell-interactive
