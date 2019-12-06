@@ -225,6 +225,7 @@ myenv.docker.base_image_registry.username = "username"
 myenv.docker.base_image_registry.password = "password"
 
 # Define the packages needed by the model and scripts
+from azureml.core.environment import CondaDependencies
 conda_dep = CondaDependencies()
 # Unless you are using your own custom inferencing stack,
 # you must list azureml-defaults as a pip dependency
