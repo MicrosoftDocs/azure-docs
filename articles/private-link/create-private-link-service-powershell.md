@@ -99,7 +99,7 @@ $privateLinkService = New-AzPrivateLinkService `
 ```
 
 ### Get private link service
-Get details about your private link service with [New-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) as follows:
+Get details about your private link service with [Get-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) as follows:
 
 ```azurepowershell
 $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName 
