@@ -23,16 +23,6 @@ Citrix extends the value of Windows Virtual Desktop with robust enterprise tools
 
 - [Go to the partner website](https://more.citrix.com/wvd).
 
-## Cloudhouse
-
-![Cloudhouse logo](./media/partners/cloudhouse.png)
-
-Cloudhouse is a Windows Virtual Desktop value-added services provider that offers customers a turnkey application migration service that can move all applications, including ones that are incompatible with modern Windows operating systems, to the Windows Virtual Desktop environment, allowing customers to truly leverage multi-session Windows 10. 
-
-By leveraging proven Cloudhouse containerization technology, the Cloudhouse service takes all applications, including ones designed for Windows XP, Windows 7, or Windows 8, and deploys them to a modern Windows Virtual Desktop without needing to change code or impact user experience. Cloudhouse further adds to the value of Windows Virtual Desktop by isolating applications from the underlying operating system, allowing Windows Servicing updates to be rolled out without affecting the containerized application. 
-
-- [Go to the partner website](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
-
 ## VMware
 
 ![VMware Logo](./media/partners/vmware.png)
@@ -43,6 +33,17 @@ As an approved provider, the benefits of Windows Virtual Desktop will be extende
 
 - [Register for the Tech Preview of Horizon Cloud on Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Go to the partner website](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+
+
+## Cloudhouse
+
+![Cloudhouse logo](./media/partners/cloudhouse.png)
+
+Cloudhouse is a Windows Virtual Desktop value-added services provider that offers customers a turnkey application migration service that can move all applications, including ones that are incompatible with modern Windows operating systems, to the Windows Virtual Desktop environment, allowing customers to truly leverage multi-session Windows 10. 
+
+By leveraging proven Cloudhouse containerization technology, the Cloudhouse service takes all applications, including ones designed for Windows XP, Windows 7, or Windows 8, and deploys them to a modern Windows Virtual Desktop without needing to change code or impact user experience. Cloudhouse further adds to the value of Windows Virtual Desktop by isolating applications from the underlying operating system, allowing Windows Servicing updates to be rolled out without affecting the containerized application. 
+
+- [Go to the partner website](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
 
 ## CloudJumper
 
