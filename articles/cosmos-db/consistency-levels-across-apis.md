@@ -1,6 +1,6 @@
 ---
 title: Consistency levels and Azure Cosmos DB APIs
-description: Understanding the consistency levels across APIs in Azure Cosmos DB.
+description: Understanding the consistency level mapping between different APIs in Azure Cosmos DB and Apache Cassandra, MongoDB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
