@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 12/04/2019
+ms.date: 12/06/2019
 ms.author: cynthn
 ---
 
@@ -59,12 +59,17 @@ You may also be asked to confirm that you want to install from an *untrusted rep
 
 ## Create a maintenance configuration
 
-Use [New-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/new-azmaintenanceconfiguration) to create a maintenance configuration. This example creates a resource group, and a maintenance configuration named *myConfig* scoped to the host. 
+Create a resource group as a container for your configuration. In this example, a resource group named *myMaintenanceRG* is created in *eastus*. If you already have a resource group that you want to use, you can skip this part and replace the resource group name with you own in the rest of the examples.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
    -Location eastus `
    -Name myMaintenanceRG
+```
+
+Use [New-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/new-azmaintenanceconfiguration) to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
+
+```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
    -ResourceGroup myMaintenanceRG `
    -Name myConfig `
