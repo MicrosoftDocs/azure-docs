@@ -80,6 +80,29 @@ df_cosmos.head(10)
 8	Viewed	33.00	Tuvalu	Red Top
 9	Viewed	14.00	Cape Verde	Flip Flop Shoes
 ```
+## Upload JSON items to a container
+You can use the ``%%upload`` magic command to upload data from a JSON file to a specified Cosmos container. Use the syntax:
+
+```bash
+%%upload --databaseName {database_id} --containerName {container_id} --url {url_location_of_file}
+```
+
+- Replace ``{database_id}`` and ``{container_id}`` with the name of the database and container in your Cosmos account. If the ``--database`` and ``--container`` arguments are not provided, the query will be executed on the [default database and container](#set-default-database-for-queries).
+- Replace ``{url_location_of_file}`` with the location of your JSON file. The file must be an array of valid JSON objects and be accessible over public Internet.
+
+For example:
+
+```bash
+%%upload --database databaseName --container containerName --url 
+https://contoso.com/path/to/data.json
+```
+```bash
+Documents successfully uploaded to ContainerName
+Total number of documents imported : 2654
+Total time taken : 00:00:38.1228087 hours
+Total RUs consumed : 25022.58
+```
+With the output statistics, you can calculate the effective RU/s of the upload. For example, if 25,000 RUs were consumed over 38 seconds, the effective RU/s is 25,000 RUs / 38 seconds = 658 RU/s.
 
 ## Set default database for queries
 You can set the default database ```%%sql``` commands will use for the notebook. Replace ```{database_id}``` with the name of your database.
@@ -96,6 +119,18 @@ You can set the default container ```%%sql``` commands will use for the notebook
 %container {container_id}
 ```
 Run ```%container?``` in a cell to see documentation in the notebook.
+
+## Use built-in nteract data explorer
+You can use the built-in [nteract data explorer](https://blog.nteract.io/designing-the-nteract-data-explorer-f4476d53f897) to filter and visualize a DataFrame. To enable this feature, set the option ``pd.options.display.html.table_schema`` to ``True`` and ``pd.options.display.max_rows`` to the desired value (``None`` to show all results).
+
+```python
+import pandas as pd
+pd.options.display.html.table_schema = True
+pd.options.display.max_rows = None
+
+df_cosmos.groupby("Item").size()
+```
+![nteract data explorer](media/use-notebook-features-and-commands/nteract-built-in-chart.png)
 
 ## Use the built-in Python SDK
 Version 4 of the [Azure Cosmos DB Python SDK for SQL API](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) is installed and included in the notebook environment for the Cosmos account.
@@ -140,7 +175,7 @@ custom_connection_policy = documents.ConnectionPolicy()
 custom_connection_policy.PreferredLocations = [region_1, region_2] # Set the order of regions the SDK will route requests to. The regions should be regions you've added for Cosmos, otherwise this will error.
 
 # Create a new instance of CosmosClient, getting the endpoint and key from the environment variables
-custom_client = cosmos.CosmosClient(os.environ["COSMOS_ENDPOINT"], {'masterKey': os.environ["COSMOS_KEY"]}, connection_policy=custom_connection_policy)
+custom_client = cosmos.CosmosClient(url=os.environ["COSMOS_ENDPOINT"], credential=os.environ["COSMOS_KEY"], connection_policy=custom_connection_policy)
 ```
 ## Access the account endpoint and primary key env variables
 ```python
