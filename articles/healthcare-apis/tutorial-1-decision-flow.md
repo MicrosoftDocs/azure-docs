@@ -32,7 +32,13 @@ If you're deploying FHIR Server for Azure (the OSS version), use this decision f
 
 In this tutorial, you've gone through the decision flow on how to register applications based on the version of the FHIR service you're deploying.
 
-You can now register a confidential client application and provision the FHIR service.
+Based on the decisions you made above, please see the how-to-guides to register your applications
+
+* [Register a resource application](register-resource-azure-ad-client-app.md)
+* [Register a confidential client application](register-confidential-azure-ad-client-app.md)
+* [Register a public client application](register-public-azure-ad-client-app.md)
+
+Once this is complete, you can deploy the Azure API for FHIR.
 
 >[!div class="nextstepaction"]
->[Register a confidential client app](register-confidential-azure-ad-client-app.md)
+>[Deploy Azure API for FHIR](fhir-paas-powershell-quickstart.md)

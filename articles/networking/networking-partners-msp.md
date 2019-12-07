@@ -24,12 +24,13 @@ Customers can purchase MSP-managed services offers in the Azure Marketplace, or 
 
 Use the links in this section for more information about managed cloud networking services offered by Azure Networking MSP partners. If your cloud network services partner is not listed in the section below, have the provider contact us. They can contact us by sending an email to ManagedVirtualWAN@microsoft.com. 
 
-| **MSP** | **Cloud Network Transformation Services** | **Managed ExpressRoute** | **Managed Virtual WAN** | **Managed Network Security Services** |**Managed Network Edge Compute** |
+| **MSP** | **Cloud Network Transformation Services** | **Managed ExpressRoute** | **Managed Virtual WAN** | **Managed Network Security Services** |**Managed Multi-Access Edge Compute** |
 | ---| ---| ---| ---| ---| ---|
 |[Amdocs](https://www.amdocs.com/)|||||Yes|
 |[ANS Group UK](https://www.ans.co.uk/)|Yes|Yes||||
 |[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|Yes |Yes |Yes | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|Yes|Yes|Yes|||
+|[Coevolve](https://www.coevolve.com/services/azure-networking-services/)|Yes||Yes|Yes||
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|Yes|||||
 |[Dimension Data](https://www.dimensiondata.com/)|Yes|||||
 |[Equinix](https://www.equinix.com/)|Yes|Yes||||

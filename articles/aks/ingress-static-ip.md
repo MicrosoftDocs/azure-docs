@@ -159,7 +159,10 @@ spec:
     email: user@contoso.com
     privateKeySecretRef:
       name: letsencrypt-staging
-    http01: {}
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
 ```
 
 To create the issuer, use the `kubectl apply -f cluster-issuer.yaml` command.

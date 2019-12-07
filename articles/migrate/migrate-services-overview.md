@@ -4,7 +4,7 @@ description: Learn about server assessment and migration with the Azure Migrate 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/19/2019
+ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
 ---

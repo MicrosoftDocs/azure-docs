@@ -1,7 +1,7 @@
 ---
 title: Stream codec compressed audio with the Speech SDK on iOS
 titleSuffix: Azure Cognitive Services
-description: Learn how to stream compressed audio to Azure Speech Services with the Speech SDK on iOS.
+description: Learn how to stream compressed audio to the Speech service with the Speech SDK on iOS.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: chlandsi
 
 # How to: Use codec compressed audio input with the Speech SDK on iOS
 
-The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech Service using a pull or push stream.
+The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech service using a pull or push stream.
 
 > [!IMPORTANT]
 > Speech SDK version 1.7.0 or higher is required for streaming compressed audio on iOS. It is also supported for [C++, C#, and Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md) and [Java in Android.](how-to-use-codec-compressed-audio-input-streams-android.md)
@@ -38,7 +38,7 @@ Open the project in Xcode and build it for the **Generic iOS Device** target -- 
 
 The build step will generate a dynamic framework bundle with a dynamic library for all necessary architectures with the name of `GStreamerWrapper.framework`.
 
-This framework must be included in all apps that use compressed audio streams with the Speech Services SDK.
+This framework must be included in all apps that use compressed audio streams with the Speech service SDK.
 
 Apply the following settings in your Xcode project to accomplish this:
 
@@ -50,7 +50,7 @@ Apply the following settings in your Xcode project to accomplish this:
 
 ## Example code using codec compressed audio input
 
-To stream in a compressed audio format to the Speech Services, create a `SPXPullAudioInputStream` or `SPXPushAudioInputStream`.
+To stream in a compressed audio format to the Speech service, create a `SPXPullAudioInputStream` or `SPXPushAudioInputStream`.
 
 The following snippet shows how to create an `SPXAudioConfiguration` from an instance of a `SPXPushAudioInputStream`, specifying mp3 as the compression format of the stream.
 

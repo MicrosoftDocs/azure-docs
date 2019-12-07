@@ -32,8 +32,6 @@ No. You can use any VPN-capable device that adheres to the Azure requirements fo
 
 ### How do Virtual WAN partners automate connectivity with Azure Virtual WAN?
 
-Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. For more information, see Virtual WAN partner automation.
-
 Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. The automation includes uploading branch information, downloading the Azure configuration, setting up IPSec tunnels into Azure Virtual hubs, and automatically setting up connectivity form the branch device to Azure Virtual WAN. When you have hundreds of branches, connecting using Virtual WAN CPE Partners is easy because the onboarding experience takes away the need to set up, configure, and manage large-scale IPsec connectivity. For more information, see [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
 ### Am I required to use a preferred partner device?
@@ -110,7 +108,9 @@ You can connect a VNet in a different region than your virtual WAN.
 
 ### Can spoke VNets connected to a virtual hub communicate with each other?
 
-Yes. Spoke VNets can communicate directly via Virtual Network Peering. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md). We also support VNets communicating transitively through the hub.
+Yes. Standard Virtual WAN supports Vnet to Vnet transitive connectivity via the Virtual WAN hub that the Vnets are connected to. In Virtual WAN terminology, we refer to these paths as “local Virtual WAN VNet transit” for VNets connected to a Virtual Wan Hub within a single region, and “global Virtual WAN VNet transit” for VNets connected through multiple Virtual WAN Hubs across two or more regions. VNet transit supports up to 3 Gbps of throughput during public preview. Throughput will expanded when global transit goes GA.   
+
+For some scenarios, spoke Vnets can also be directly peered with each other using [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md) in addition to local or global Virtual WAN VNet transit. In this case, Vnet Peering takes precedence over the transitive connection via the Virtual WAN hub. 
 
 ### What is a branch connection to Azure Virtual WAN?
 

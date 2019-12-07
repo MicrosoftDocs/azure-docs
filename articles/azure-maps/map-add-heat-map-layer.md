@@ -22,6 +22,10 @@ Heat maps, also known as point density maps, are a type of data visualization us
 > [!TIP]
 > Heat map layers by default will render the coordinates of all geometries in a data source. To limit the layer so that it only renders point geometry features, set the `filter` property of the layer to `['==', ['geometry-type'], 'Point']` or `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` if you want to include MultiPoint features as well.
 
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+
 ## Add a heat map layer
 
 To render a data source of points as a heat map, pass your data source into an instance of the `HeatMapLayer` class and add it to the map as shown here.

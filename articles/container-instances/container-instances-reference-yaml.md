@@ -1,14 +1,8 @@
 ---
-title: Azure Container Instances YAML reference    
+title: YAML reference for container group   
 description: Reference for the YAML file supported by Azure Container Instances to configure a container group
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: danlep
 ---
 
 # YAML reference: Azure Container Instances
@@ -39,7 +33,7 @@ properties: # Properties of container group
       image: string # Container image used to create the instance
       command:
       - string
-      ports: # Exposed ports on the instance
+      ports: # External-facing ports exposed on the instance, must also be set in group ipAddress property 
       - protocol: string
         port: integer
       environmentVariables:

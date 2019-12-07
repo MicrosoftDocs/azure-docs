@@ -1,5 +1,5 @@
 ---
-title: Execute Azure Machine Learning pipelines in your Azure Data Factory pipelines 
+title: Execute Azure Machine Learning pipelines 
 description: Learn how to run your Azure Machine Learning pipelines in your Azure Data Factory pipelines. 
 services: data-factory
 documentationcenter: ''
@@ -7,10 +7,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/10/2019
-author: djpmsft
 ms.author: daperlov
+author: djpmsft
+manager: anandsub
+ms.date: 10/10/2019
 ---
+
 # Execute Azure Machine Learning pipelines in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]

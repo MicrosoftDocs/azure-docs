@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,7 +23,7 @@ Securing when and how users register for Azure Multi-Factor Authentication and s
 
 The following policy applies to all selected users, who attempt to register using the combined registration experience, and blocks access unless they are connecting from a location marked as trusted network.
 
-1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional Access**.
+1. In the **Azure portal**, browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**.
 1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to.
