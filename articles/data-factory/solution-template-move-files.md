@@ -2,7 +2,6 @@
 title: Move files between file-based storage
 description: Learn how to use a solution template to move files between file-based storage by using Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
