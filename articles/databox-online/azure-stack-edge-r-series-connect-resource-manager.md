@@ -33,12 +33,12 @@ The process of connecting to local APIs of the device using Azure Resource Manag
 
 | Step # | You'll do this step ... | .. on this location. |
 | --- | --- | --- |
-| 1. | [Configure your Azure Stack Edge device](#step-1-configure-azure-stack-edge-device-local-web-ui) | Local web UI |
+| 1. | [Configure your Azure Stack Edge device](#step-1-configure-azure-stack-edge-device) | Local web UI |
 | 2. | [Create and install certificates](#step-2-create-and-install-certificates) | Windows client/local web UI |
-| 3. | [Review and configure the prerequisites](#step-3-review-and-configure-the-prerequisites-client) | Windows client |
-| 4. | [Set up Azure PowerShell on the client](#step-4-set-up-the-development-environment-client) | Windows client |
-| 5. | [Modify host file for endpoint name resolution](#step-5-modify-host-file-for-endpoint-name-resolution-client-or-dns-server) | Windows client or DNS server |
-| 6. | [Check that the endpoint name is resolved](#step-6-verify-endpoint-name-resolution-client) | Windows client |
+| 3. | [Review and configure the prerequisites](#step-3-review-and-configure-the-prerequisites-on-the-client) | Windows client |
+| 4. | [Set up Azure PowerShell on the client](#step-4-set-up-the-azure-powershell-on-the-client) | Windows client |
+| 5. | [Modify host file for endpoint name resolution](#step-5-modify-host-file-for-endpoint-name-resolution) | Windows client or DNS server |
+| 6. | [Check that the endpoint name is resolved](#step-6-verify-endpoint-name-resolution-on-the-client) | Windows client |
 | 7. | [Use Azure PowerShell cmdlets to verify connection to Azure Resource Manager](#step-7-use-azure-powershell-cmdlets-to-create-a-vm-client) | Windows client |
 
 The following sections detail each of the above steps in connecting to Azure Resource Manager.
@@ -96,7 +96,7 @@ To connect to Azure Resource Manager, you will need to create or get signing cha
 
 For test and development use only, you can use Windows PowerShell to create certificates on your local system. While creating the certificates for the client, follow these guidelines:
 
-1. You first need to create a root certificate for the signing chain. For more information, see See steps to [Create signing chain certificates](azure-stack-edge-r-series-manage-certificates.md#create-signing-chain-certificates).
+1. You first need to create a root certificate for the signing chain. For more information, see See steps to [Create signing chain certificates](azure-stack-edge-r-series-manage-certificates.md#create-signing-chain-certificate).
 
 2. You can next create the endpoint certificates for the local UI, blob, and Azure Resource Manager. See the steps to [Create endpoint certificates](azure-stack-edge-r-series-manage-certificates.md#create-signed-endpoint-certificates).
 
@@ -116,7 +116,7 @@ For more information on certificates, go to how to [Manage certifcates](azure-st
 
 The certificates that you created in the previous step will be in the Personal store on your client. These certificates need to be exported on your client into appropriate format files that can then be uploaded to your device.
 
-1. The root certificate must be exported as a .cer format file. For detailed steps, see [Export certificates as a .cer format file](azure-stack-edge-r-series-manage-certificates.md#export-certificate-to-.cer-format).
+1. The root certificate must be exported as a .cer format file. For detailed steps, see [Export certificates as a .cer format file](azure-stack-edge-r-series-manage-certificates.md#export-certificates-as-der-format).
 
 2. The endpoint certificates must be exported as *.pfx* files with private keys. For detailed steps, see [Export certificates as .pfx file with private keys](azure-stack-edge-r-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 
