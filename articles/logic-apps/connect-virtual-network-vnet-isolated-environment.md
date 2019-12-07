@@ -203,7 +203,7 @@ In the search box, enter "integration service environment" as your filter.
 
    ![After successful validation, choose "Create"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
-   Azure starts deploying your environment, but this process *might* take up to two hours before finishing. To check deployment status, on your Azure toolbar, choose the notifications icon, which opens the notifications pane.
+   Azure starts deploying your environment, which usually takes within two hours to finish. Occasionally, deployment might take up to four hours. To check deployment status, on your Azure toolbar, choose the notifications icon, which opens the notifications pane.
 
    ![Check deployment status](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
