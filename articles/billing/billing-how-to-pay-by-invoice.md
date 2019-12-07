@@ -40,7 +40,6 @@ If you switch to pay by invoice, that means you pay your bill within 30 days of 
 
 5. Enter the following information in the **Details** box, and then select **Next**.
 
-         ```details
          New or existing customer:
          If existing, current payment method:
          Order ID (requesting for invoice option):
@@ -63,7 +62,6 @@ If you switch to pay by invoice, that means you pay your bill within 30 days of 
          (Old quota) Existing Cores:
          (New quota) Requested cores:
          Specific region & series of Subscription:
-         ```
 
     - The **Company name** and **Company address** should match the information that you provided for the Azure account. To view or update the information, see [Change your Azure account profile information](billing-how-to-change-azure-account-profile.md).
     - Add your billing contact information in the Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department. To update the billing contact information, go to [Azure Account Center](https://account.azure.com/Profile).
