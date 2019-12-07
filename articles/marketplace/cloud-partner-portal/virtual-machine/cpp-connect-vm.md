@@ -28,20 +28,21 @@ The following article details how to use the built-in Windows RDP support to con
 
 In order to connect the Linux-based VM, you need a secure shell protocol (SSH) client.  This discussion will use the free [PuTTY](https://www.ssh.com/ssh/putty/) SHH terminal.
 
-1. In the **Virtual machines** blade of the [Azure portal](https://ms.portal.azure.com), select the VM you want to connect to.  
-2. **Start** the VM if it is not already running.
-3. Click on the name of the VM to open its **Overview** page.
-4. Note the Public IP address and DNS name of your VM.  (If these values are not set, then you must [Create a network interface](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)
+1. Go to the [Azure portal](https://ms.portal.azure.com). Search for and select **Virtual machines**. 
+2. Select the VM you want to connect to.  
+3. **Start** the VM if it is not already running.
+4. Click on the name of the VM to open its **Overview** page.
+5. Note the Public IP address and DNS name of your VM.  (If these values are not set, then you must [Create a network interface](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)
 
    ![VM Overview settings](./media/publishvm_019.png)
  
-5. Open the PuTTY application.  
-6. In the PuTTY Configuration dialog, enter the IP address or DNS name of your VM. 
+6. Open the PuTTY application.  
+7. In the PuTTY Configuration dialog, enter the IP address or DNS name of your VM. 
 
    ![PuTTY terminal settings](./media/publishvm_020.png)
  
-7. Click **Open** to open a PuTTY terminal.  
-8. When you are prompted, enter the account name and password of your Linux VM account. 
+8. Click **Open** to open a PuTTY terminal.  
+9. When you are prompted, enter the account name and password of your Linux VM account. 
 
    If you are having connection problems, refer to the documentation for your SSH client, for example [Chapter 10: Common error messages](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
 
