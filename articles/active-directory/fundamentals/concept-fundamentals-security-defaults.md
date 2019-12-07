@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/06/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,7 +23,7 @@ Security defaults in Azure Active Directory (Azure AD) make it easier to be secu
 
 Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You turn on security defaults in the Azure portal.
 
-![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-conditional-access-security-defaults/security-defaults-azure-ad-portal.png)
+![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
  
 The following security configurations will be turned on in your tenant. 
 
@@ -97,20 +97,20 @@ Mail clients use older authentication protocols (like IMAP, SMTP, and POP3) to m
 To ensure that Multi-Factor Authentication is required for signing in to an administrative account and that attackers can't bypass it, security defaults block all authentication requests made to administrator accounts from older protocols.
 
 > [!WARNING]
-> Before you enable this setting, make sure your administrators aren't using older authentication protocols. For more information, see [How to move away from legacy authentication](concept-conditional-access-block-legacy-authentication.md).
+> Before you enable this setting, make sure your administrators aren't using older authentication protocols. For more information, see [How to move away from legacy authentication](concept-fundamentals-block-legacy-authentication.md).
 
 ### Conditional Access
 
 You can use Conditional Access to configure policies that provide the same behavior enabled by security defaults. If you're using Conditional Access and have Conditional Access policies enabled in your environment, security defaults won't be available to you. If you have a license that provides Conditional Access but don't have any Conditional Access policies enabled in your environment, you are welcome to use security defaults until you enable Conditional Access policies.
 
-![Warning message that you can have security defaults or Conditional Access not both](./media/concept-conditional-access-security-defaults/security-defaults-conditional-access.png)
+![Warning message that you can have security defaults or Conditional Access not both](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 
 Here are step-by-step guides on how you can use Conditional Access to configure equivalent policies:
 
-- [Require MFA for administrators](howto-conditional-access-policy-admin-mfa.md)
-- [Require MFA for Azure management](howto-conditional-access-policy-azure-management.md)
-- [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
-- [Require MFA for all users](howto-conditional-access-policy-all-users-mfa.md)
+- [Require MFA for administrators](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
+- [Require MFA for Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md)
+- [Block legacy authentication](../conditional-access/howto-conditional-access-policy-block-legacy.md)
+- [Require MFA for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 - [Require Azure MFA registration](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requires Azure AD Identity Protection
 
 ## Enabling security defaults
@@ -127,7 +127,7 @@ To enable security defaults in your directory:
 
 Organizations that choose to implement Conditional Access policies that replace security defaults must disable security defaults. 
 
-![Warning message disable security defaults to enable Conditional Access](./media/concept-conditional-access-security-defaults/security-defaults-disable-before-conditional-access.png)
+![Warning message disable security defaults to enable Conditional Access](./media/concept-fundamentals-security-defaults/security-defaults-disable-before-conditional-access.png)
 
 To disable security defaults in your directory:
 
@@ -139,6 +139,4 @@ To disable security defaults in your directory:
 
 ## Next steps
 
-[Common Conditional Access policies](concept-conditional-access-policy-common.md)
-
-[What is Conditional Access?](overview.md)
+[Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md)
