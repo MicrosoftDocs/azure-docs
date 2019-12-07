@@ -76,7 +76,7 @@ You can upgrade your workspace from Basic edition to Enterprise edition to take 
 
 1. Select **Learn more**  at the top right of the page.
 
-    ![Upgrade a workspace](media/how-to-manage-workspace/upgrade.png)
+[ ![Upgrade a workspace](media/how-to-manage-workspace/upgrade.png) ](media/how-to-manage-workspace/upgrade.png#lightbox)
 
 1. Select **Upgrade** in the window that appears.
 
