@@ -1,5 +1,5 @@
 ---
-title: MSAL & scopes for a v1.0 application | Azure
+title: MSAL scopes for a v1.0 application | Azure
 description: Learn about the scopes for a v1.0 application using the Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
