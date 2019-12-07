@@ -3,16 +3,12 @@ title: Client application configuration (Microsoft Authentication Library)
 titleSuffix: Microsoft identity platform
 description: Learn about the configuration options for public client and confidential client applications in the Microsoft Authentication Library (MSAL).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/27/2019
 ms.author: twhitney
