@@ -75,6 +75,8 @@ do {
 }       
 ```
 
+---
+
 ## Disable keychain sharing
 
 If you don't want to share SSO state between multiple apps, or use any keychain access group, disable keychain sharing by passing the application bundle ID as your keychainGroup:
@@ -92,6 +94,8 @@ if let bundleIdentifier = Bundle.main.bundleIdentifier {
     config.cacheConfig.keychainSharingGroup = bundleIdentifier
 }
 ```
+
+---
 
 ## Handle -34018 error (failed to set item into keychain)
 
