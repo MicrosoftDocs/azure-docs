@@ -57,7 +57,7 @@ Create a bot as a client application for the knowledge base.
     |Application Insights|**Do not change**|Logging is sent to Application Insights.|
     |Microsoft App ID|**Do not change**|Active directory user and password is required.|
 
-    ![Create the knowledge base bot with these settings.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
+    ![Create the knowledge base bot with these settings.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)  // The above image is old , please update the updated picture
 
     Wait a couple of minutes until the bot creation process notification reports success.
 
@@ -87,11 +87,11 @@ If you created a new resource group for the bot's resources, delete the resource
 
 If you didn't create a new resource group, you need to find the resources associated with the bot. The easiest way is to search by the name of the bot and bot app. The bot resources include:
 
-* The App Service plan
-* The Search service
-* The Cognitive service
-* The App service
-* Optionally, it may also include the application insights service and storage for the application insights data
+* The App Service Plan
+* The Search Service
+* The Cognitive Service
+* The App Service
+* Optionally, it may also include the application insights service and storage for the application insights data.
 
 
 ## Related to QnA Maker bots
