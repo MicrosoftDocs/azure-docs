@@ -5,12 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: athinanthny
 manager: chackdan
-editor: 
-ms.assetid: 
 ms.service: service-fabric
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 12/10/2018
 ms.author: atsenthi
 ---
@@ -89,7 +85,7 @@ def writeOverviewFile(filename, namedElements, namedComplexTypes, namedElementGr
         file.write('\n')
 
         file.write('## Component summary \n')
-        file.write('The following components are defined in the http://schemas.microsoft.com/2011/01/fabric namespace in ServiceFabricServiceModel.xsd:\n')
+        file.write('The following components are defined in the https://schemas.microsoft.com/2011/01/fabric namespace in ServiceFabricServiceModel.xsd:\n')
         file.write('- [%i elements](service-fabric-service-model-schema-elements.md)\n' % len(namedElements))
         file.write('- [%i complexTypes](service-fabric-service-model-schema-complex-types.md)\n' % len(namedComplexTypes))
         file.write('- [%i simpleTypes](service-fabric-service-model-schema-simple-types.md)\n' % len(namedSimpleTypes))

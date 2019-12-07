@@ -1,8 +1,8 @@
 ---
-title: Tutorial - Share Azure Spatial Anchors across sessions and devices | Microsoft Docs
+title: 'Tutorial: Share anchors across sessions and devices'
 description: In this tutorial, you learn how to share Azure Spatial Anchor identifiers between Android/iOS devices in Unity with a back-end service.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: rgarcia

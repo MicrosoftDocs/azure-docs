@@ -105,7 +105,7 @@ CQLSH command-line utility comes with Apache Cassandra 3.1.1 and works out of bo
 
 **Windows:**
 
-If using windows, we recommend you enable the [Windows filesystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
+If using windows, we recommend you enable the [Windows filesystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
 
 **Unix/Linux/Mac:**
 

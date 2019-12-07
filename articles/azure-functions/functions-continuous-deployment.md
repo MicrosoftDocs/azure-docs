@@ -1,16 +1,9 @@
 ---
-title: Continuous deployment for Azure Functions | Microsoft Docs
+title: Continuous deployment for Azure Functions
 description: Use the continuous deployment features of Azure App Service to publish your functions.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/25/2016
-ms.author: glenga
+ms.date: 09/25/2019
 #Customer intent: As a developer, I want to learn how to set up a continuous integration environment so that function app updates are deployed automatically when I check in my code changes.
 ---
 
@@ -31,6 +24,9 @@ The unit of deployment for functions in Azure is the function app. All functions
 For continuous deployment to succeed, your directory structure must be compatible with the basic folder structure that Azure Functions expects.
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+
+>[!NOTE]  
+> Continuous deployment is not yet supported for Linux apps running on a Consumption plan. 
 
 ## <a name="credentials"></a>Set up continuous deployment
 

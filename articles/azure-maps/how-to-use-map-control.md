@@ -105,7 +105,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
 
     A list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps can be found [here](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
     
-    For more information, see the [Authentication with Azure Maps](azure-maps-authentication.md) document.
+    For more information, see the [Authentication with Azure Maps](azure-maps-authentication.md) document and also the [Azure Maps Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples).
 
 6. Optionally, you may find adding the following meta tag elements to the head of your page helpful:
 
@@ -229,4 +229,4 @@ To add more data to your map:
 For a list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps, see:
 
 > [!div class="nextstepaction"]
-> [AAD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

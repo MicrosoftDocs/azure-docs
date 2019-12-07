@@ -1,11 +1,8 @@
 ---
 title: How to manage assignments with PowerShell
 description: Learn how to manage blueprint assignments with the official Azure Blueprints PowerShell module, Az.Blueprint.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/30/2019
-ms.topic: conceptual
-ms.service: blueprints
+ms.topic: how-to
 ---
 # How to manage assignments with PowerShell
 
@@ -24,7 +21,7 @@ with the [Azure PowerShell Docker image](https://hub.docker.com/r/azuresdk/azure
 The Azure Blueprints module requires the following software:
 
 - Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-az-ps).
-- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow [these instructions](/powershell/gallery/installing-psget).
+- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow [these instructions](/powershell/scripting/gallery/installing-psget).
 
 ### Install the module
 

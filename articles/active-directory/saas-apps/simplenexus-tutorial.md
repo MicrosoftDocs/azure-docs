@@ -184,7 +184,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In order to enable Azure AD users to log in to SimpleNexus, they must be provisioned into SimpleNexus. In the case of SimpleNexus, provisioning is a manual task performed by the tenant administrator.
 
 > [!NOTE]
-> You can use any other SimpleNexus user account creation tools or APIs provided by SimpleNexus to provision AAD user accounts.
+> You can use any other SimpleNexus user account creation tools or APIs provided by SimpleNexus to provision Azure AD user accounts.
 
 ### Test single sign-on
 

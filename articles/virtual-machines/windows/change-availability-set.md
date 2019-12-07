@@ -1,5 +1,5 @@
 ---
-title: Change a VMs availability set | Microsoft Docs
+title: Change a VMs availability set 
 description: Learn how to change the availability set for your virtual machines using Azure PowerShell and the Resource Manager deployment model.
 keywords: ''
 services: virtual-machines-windows

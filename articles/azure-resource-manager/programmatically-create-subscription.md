@@ -1,10 +1,7 @@
 ---
-title: Programmatically create Azure subscriptions| Microsoft Docs
+title: Programmatically create Azure subscriptions
 description: Learn how to create additional Azure subscriptions programmatically.
-services: azure-resource-manager
 author: amberb
-
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: banders
@@ -155,7 +152,7 @@ In the response, you get back a `subscriptionOperation` object for monitoring. W
 
 ### [PowerShell](#tab/azure-powershell)
 
-First, install this preview module by running `Install-Module Az.Subscription -AllowPrerelease`. To make sure `-AllowPrerelease` works, install a recent version of PowerShellGet from [Get PowerShellGet Module](/powershell/gallery/installing-psget).
+First, install this preview module by running `Install-Module Az.Subscription -AllowPrerelease`. To make sure `-AllowPrerelease` works, install a recent version of PowerShellGet from [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
 
 Run the [New-AzSubscription](/powershell/module/az.subscription) command below, replacing `<enrollmentAccountObjectId>` with the `ObjectId` collected in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). If you'd like to specify owners, learn [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
 
@@ -487,7 +484,7 @@ Use the `description` property to identify the reseller who will be associated w
 
 The following example creates a subscription named *Dev Team subscription*  for *Fabrikam toys* and associate *Wingtip* reseller to the subscription. T
 
-Make the following request, replacing `<customerId>` with the `id` copied from the first step (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Pass the optional *resellerId* copied from the second step in the request parameters of the API. 
+Make the following request, replacing `<customerId>` with the `id` copied from the second step (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Pass the optional *resellerId* copied from the second step in the request parameters of the API. 
 
 ```json
 POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-11-01-preview

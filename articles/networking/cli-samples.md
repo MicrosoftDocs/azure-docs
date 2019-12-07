@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Samples | Microsoft Docs
+title: Azure CLI Samples - Networking
 description: Azure CLI Samples
 services: virtual-network
 documentationcenter: virtual-network

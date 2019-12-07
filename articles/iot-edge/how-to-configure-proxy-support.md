@@ -2,13 +2,11 @@
 title: Configure devices for network proxies - Azure IoT Edge | Microsoft Docs
 description: How to configure the Azure IoT Edge runtime and any internet-facing IoT Edge modules to communicate through a proxy server. 
 author: kgremban
-manager: 
 ms.author: kgremban
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Configure an IoT Edge device to communicate through a proxy server

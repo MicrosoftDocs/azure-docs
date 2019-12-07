@@ -1,5 +1,5 @@
 ---
-title: Create a Tenant Model (Preview) - Speech Service
+title: Create a Tenant Model (Preview) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Automatically generate a Tenant Model (Custom Speech with Office 365 data) that leverages your Office 365 data to deliver optimal speech recognition for organization-specific terms that is both secure and compliant.
 services: cognitive-services
@@ -91,7 +91,7 @@ When your Tenant Model is ready, follow these steps to deploy your model:
 
 ## Use your model with the Speech SDK
 
-Now that you've deployed your model, you can use it with the Speech SDK. In this section, you'll use the sample code provided to call the Speech Service using Azure AD authentication.
+Now that you've deployed your model, you can use it with the Speech SDK. In this section, you'll use the sample code provided to call the Speech service using Azure AD authentication.
 
 Let's look at the code you'll use to call the Speech SDK in C#. In this example, you'll perform speech recognition using a Tenant Model. This guide presumes that your platform is already set up. If you need help with setting up, see [Quickstart: Recognize speech, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
 

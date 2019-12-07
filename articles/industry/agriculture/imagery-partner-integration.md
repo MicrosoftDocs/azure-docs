@@ -1,6 +1,6 @@
 ---
 title: Imagery partner integration
-description: Describes about imagery partner integration
+description: This article describes imagery partner integration.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
@@ -9,53 +9,51 @@ ms.author: v-umha
 
 # Imagery partner integration
 
-This article describes how to use the Azure FarmBeats Translator component to send imagery data to FarmBeats. Agricultural imagery data can be from various sources, including multispectral cameras, satellites, and drones. Agricultural imagery partners can integrate with FarmBeats to provide customers with custom-generated maps for their farms.
+This article describes how to use the Azure FarmBeats Translator component to send imagery data to FarmBeats. Agricultural imagery data can be generated from various sources, such as multispectral cameras, satellites, and drones. Agricultural imagery partners can integrate with FarmBeats to provide customers with custom-generated maps for their farms.
 
-Data, once available, can be visualized through the FarmBeats Accelerator and potentially be used for data fusion and (Machine Learning/Artificial Intelligence) ML/AI model building by agricultural businesses, or customer system integrators.
+Data, once available, can be visualized through the FarmBeats Accelerator and potentially be used for data fusion and machine learning/artificial intelligence (ML/AI) model building by agricultural businesses or customer system integrators.
 
 FarmBeats provides the ability to:
 
-- Define custom image types, source, file format using Extended Type APIs
-- Ingest imagery data from various sources via the Scene & SceneFile APIs.
+- Define custom image types, source, and file format by using /ExtendedType APIs.
+- Ingest imagery data from various sources via the /Scene and /SceneFile APIs.
 
-The below information focuses on getting any form of imagery into the FarmBeats system.
+The following information focuses on getting any form of imagery into the FarmBeats system.
 
-When you select the Drone Imagery section, a pop-up opens to show a high-resolution image of the drone orthomosaic. You can access the partner software, which helps to plan drone flights and get raw data. You'll continue to use the partner’s software for path planning and orthomosaic image stitching.
+When you select the **Drone Imagery** section, a pop-up opens to show a high-resolution image of the drone orthomosaic. You can access the partner software, which helps to plan drone flights and get raw data. You'll continue to use the partner's software for path planning and orthomosaic image stitching.
 
-Drone partners need to enable customers, to link their customer account with their FarmBeats instance on Azure.
+Drone partners need to enable customers to link their customer account with their FarmBeats instance on Azure.
 
-You must use the following credentials in the drone partner software for linking FarmBeats:
+You must use the following credentials in the drone partner software to link FarmBeats:
 
-- API Endpoint
+- API endpoint
 - Tenant ID
 - Client ID
-- Client Secret
+- Client secret
 
 ## API development
 
-The APIs contain Swagger technical documentation. Review [Swagger](https://aka.ms/FarmBeatsDatahubSwagger) for information about the APIs and corresponding requests/responses.
+The APIs contain Swagger technical documentation. For information about the APIs and corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
 ## Authentication
 
-FarmBeats leverages Microsoft Azure’s [Active Directory]((https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)). Authentication Azure App Service provides built-in authentication and authorization support. 
+FarmBeats uses Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure AD). Azure App Service provides built-in authentication and authorization support. 
 
-For more information about, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
+For more information about Azure AD, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
 
-FarmBeats Data hub uses bearer authentication, which needs the following credentials:
+FarmBeats Datahub uses bearer authentication, which needs the following credentials:
 
 - Client ID
-- Client Secret
+- Client secret
 - Tenant ID
 
-Using the above credentials, the caller can request an access token, which needs to be sent in the subsequent API requests, in the header section as follows:
+Using the previous credentials, the caller can request an access token, which needs to be sent in the subsequent API requests, in the header section, as follows:
 
 ```
 headers = {"Authorization": "Bearer " + access_token, …} 
 ```
 
-Below is a Python code sample that retrieves the access token. You can then use the token for subsequent API calls to FarmBeat: 
- 
-import azure 
+The following Python code sample retrieves the access token. You can then use the token for subsequent API calls to FarmBeats.
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials 
@@ -76,24 +74,29 @@ access_token = token_response.get('accessToken') 
 
 ## HTTP request headers
 
-Here are the most common request headers that need to be specified when making an API call to FarmBeats Data hub:
+Here are the most common request headers that need to be specified when you make an API call to FarmBeats Datahub.
 
-**Header** | **Description and Example**
+**Header** | **Description and example**
 --- | ---
-Content-Type  | The request format (Content-Type: application/<format>) For FarmBeats Data hub API's format is json. Content-Type: application/json
+Content-Type  | The request format (Content-Type: application/<format>). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
 Authorization | Specifies the access token required to make an API call. Authorization: Bearer <Access-Token>
-Accept  | The response format. For FarmBeats Data hub APIs the format is json  Accept: application/json
+Accept  | The response format. For FarmBeats Datahub APIs, the format is JSON. Accept: application/json
 
 
 ## API requests
 
-To make a REST API request, you combine the HTTP method (GET/POST/PUT), the URL to the API service, the resource URI (to query, submit data, update, or delete), and one or more HTTP request headers.
+To make a REST API request, you combine:
+
+- The HTTP method (GET, POST, and PUT).
+- The URL to the API service.
+- The resource URI (to query, submit data, update, or delete).
+- One or more HTTP request headers.
 
 Optionally, you can include query parameters on GET calls to filter, limit the size of, and sort the data in the responses.
 
-The below sample request is to get the list of devices:
+The following sample request is to get the list of devices:
 
-```azurepowershell-interactive
+```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>”
@@ -101,10 +104,10 @@ curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 
 Most GET, POST, and PUT calls require a JSON request body.
 
-The below sample request is to create a device (This has an input JSON with the request body).
+The following sample request is to create a device. This sample has an input JSON with the request body.
 
 
-```azurepowershell-interactive
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  
 "accept: application/json" -H  
 "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d
@@ -112,36 +115,36 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
-## Data Format
+## Data format
 
-JSON (JavaScript Object Notation) is a common, language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see [JSON org](https://JSON.org).
+JSON is a common language-independent data format that provides a simple text representation of arbitrary data structures. For more information, see [JSON org](https://JSON.org).
 
-## Ingesting imagery into FarmBeats
+## Ingest imagery into FarmBeats
 
-After the partner has credentials to connect to the FarmBeats Data hub, the partner does the following in the Translator component:
+After the partner has credentials to connect to FarmBeats Datahub, the partner takes the following steps in the Translator component.
 
-1.	Create a new extended type for the following fields, in accordance with the type of imagery that will be uploaded:
+1.	Create a new extended type for the following fields, in accordance with the type of imagery to be uploaded:
 
-    - Scene Source: For example, <drone_partner_name>
-    - Scene Type: For example, <drone>
-    - Scene File Type: For example, <chlorophyll index>
-    - Scene File Content Type: For example, <image/tiff>
+    - **Scene Source**: For example, drone_partner_name
+    - **Scene Type**: For example, drone
+    - **Scene File Type**: For example, chlorophyll index
+    - **Scene File Content Type**: For example, image/tiff
 
-2.	Call the Farms API to get the list of Farms from within the Azure FarmBeats system.
-3.	Provide the customer with an ability to choose a single farm from the list of Farms.
+2.	Call the /Farms API to get the list of farms from within the Azure FarmBeats system.
+3.	Provide the customer with an ability to choose a single farm from the list of farms.
 
     The partner system must show the farm within the partner software to do the path planning and drone flight and image collection.
 
-4.	Call the Scene API and provide required details to create a new Scene with a unique SceneID.
-5.	Receive a Blob SAS URL to upload the required images into the FarmBeats data hub, in the context of the chosen farm, into the FarmBeats system.
+4.	Call the /Scene API and provide required details to create a new scene with a unique scene ID.
+5.	Receive a blob SAS URL to upload the required images into FarmBeats Datahub, in the context of the chosen farm, in the FarmBeats system.
 
-Here is a detailed flow on the API calls:
+Here's a detailed flow on the API calls.
 
 ### Step 1: ExtendedType
 
-Check in the ExtendedType API, if the type and file source are available on FarmBeats. You can do this by calling a GET on the /ExtendedType API.
+Check in the /ExtendedType API to see whether the type and file source are available on FarmBeats. To do so, call a GET on the /ExtendedType API.
 
-Following are the system defined values:
+Here are the system-defined values:
 
 ```json
 {
@@ -322,9 +325,10 @@ Following are the system defined values:
   ]
 }
 ```
-This will be a one-time setup, and the scope of this new scenetype is limited to the subscription in which FarmBeats project is deployed.
 
-Example: To add SceneSource: “SlantRange”, you do PUT on the ID of the /ExtendedType with key: “SceneSource” Input payload:
+This step is a one-time setup. The scope of this new scene type is limited to the subscription in which the FarmBeats project is deployed.
+
+For example, to add SceneSource: “SlantRange,” you do a PUT on the ID of the /ExtendedType API with the key "SceneSource" input payload.
 
 ```json
 {
@@ -342,13 +346,13 @@ Example: To add SceneSource: “SlantRange”, you do PUT on the ID of the /Exte
 
 ```
 
-Green field is the new addition to the system-defined scene source values.
+The green field is the new addition to the system-defined scene source values.
 
-### Step 2: Get FarmDetails
+### Step 2: Get farm details
 
-The scenes (tiff or .csv files) will be in the context of a farm. You need to get the farm details by doing a get on /Farm API. The API will return you the list of farms available in FarmBeats, and you can select the farm you want to ingest the data for.
+The scenes (.tiff or .csv files) are in the context of a farm. You need to get the farm details by doing a GET on the /Farm API. The API returns the list of farms that are available in FarmBeats. You can select the farm you want to ingest the data for.
 
-Get /Farm response:
+GET /Farm response:
 
 ```json
 {
@@ -394,13 +398,13 @@ Get /Farm response:
 }
  ```
 
-### Step 3: Create a/scene ID (post call)
+### Step 3: Create a scene ID (POST call)
 
-Create a new scene (tiff or .csv file) with the given information, providing the date, sequence and farm ID with which the scene will be associated. The metadata associated with the scene can be defined under properties, including the duration and type of measure.
+Create a new scene (.tiff or .csv file) with the given information, which provides the date, sequence, and farm ID with which the scene is associated. The metadata associated with the scene can be defined under properties, which includes the duration and type of measure.
 
-This creates a new SceneID, which will be associated with the farm. Once the SceneID is created, the user can use the same to create a new file (tiff or .csv) & store the content of the file.
+Creating a new scene creates a new scene ID, which is associated with the farm. After the scene ID is created, the user can use the same to create a new file (.tiff or .csv) and store the contents of the file.
 
-Example input payload for the Post call on/Scene API
+Example input payload for the POST call on the /Scene API:
 
 ```json
 {
@@ -436,13 +440,13 @@ API response:
 
 ```
 
-**Create/SceneFile**
+**Create a scene file**
 
-The Scene ID returned in step three is the input for the SceneFile. The SceneFile returns a SAS URL token, which is valid for 24 hours.
+The scene ID returned in step 3 is the input for the scene file. The scene file returns an SAS URL token, which is valid for 24 hours.
 
-If the user requires a programmatic way of uploading a stream of images, the blob storage SDK can be used to define a method using the Scenefile ID, location & URL.
+If the user requires a programmatic way of uploading a stream of images, the blob storage SDK can be used to define a method by using the scene file ID, location, and URL.
 
-Example input payload for the Post call on /Scenefile API :
+Example input payload for the POST call on the /SceneFile API:
 
 ```json
 {
@@ -458,7 +462,7 @@ Example input payload for the Post call on /Scenefile API :
   }
 }
 ```
-API Response:
+API response:
 
 ```json
 {
@@ -478,9 +482,9 @@ API Response:
 
 ```
 
-The Post call to /SceneFile API returns a SAS upload URL, which can be used to upload the csv or tiff file using the Azure Blob Storage client/library.
+The POST call to the /SceneFile API returns an SAS upload URL, which can be used to upload the .csv or .tiff file by using the Azure Blob storage client or library.
 
 
 ## Next steps
 
-For more information on Rest API-based integration details, see [REST API](references-for-farmbeats.md#rest-api).
+For more information on REST API-based integration details, see [REST API](references-for-farmbeats.md#rest-api).

@@ -124,7 +124,7 @@ val config = Config(Map(
   "queryCustom"  -> query
 ))
 
-sqlContext.SqlDBQuery(config)
+sqlContext.sqlDBQuery(config)
 ```
 
 ## Connect Spark to Azure SQL Database using AAD authentication

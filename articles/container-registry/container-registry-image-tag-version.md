@@ -1,10 +1,7 @@
 ---
-title: Tag and version images in Azure Container Registry
-description: Best practices for tagging and versioning Docker container images
-services: container-registry
+title: Image tag best practices
+description: Best practices for tagging and versioning Docker container images when pushing images to and pulling images from an Azure container registry
 author: stevelasker
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas

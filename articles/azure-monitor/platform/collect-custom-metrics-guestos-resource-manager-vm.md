@@ -1,5 +1,5 @@
 ---
-title: Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
+title: Collect Windows VM metrics in Azure Monitor with template
 description: Send guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
 author: anirudhcavale
 services: azure-monitor

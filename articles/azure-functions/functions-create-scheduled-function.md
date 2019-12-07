@@ -1,16 +1,10 @@
 ---
-title: Create a function that runs on a schedule in Azure | Microsoft Docs
+title: Create a function that runs on a schedule in Azure 
 description: Learn how to create a function in Azure that runs based on a schedule that you define.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/28/2018
-ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function in Azure that is triggered by a timer

@@ -2,8 +2,6 @@
 title: Azure Functions networking options
 description: An overview of all networking options available in Azure Functions.
 author: alexkarcher-msft
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
@@ -111,6 +109,12 @@ To provide a higher level of security, you can restrict a number of Azure servic
 When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can't currently use any virtual network restrictions on this account. If you configure a virtual network service endpoint on the storage account you're using for your function app, that will break your app.
 
 [Learn more about storage account requirements.](./functions-create-function-app-portal.md#storage-account-requirements)
+
+### Using Key Vault references 
+
+Key Vault references allow you to use secrets from Azure Key Vault in your Azure Functions application without requiring any code changes. Azure Key Vault is a service that provides centralized secrets management, with full control over access policies and audit history.
+
+Currently [Key Vault references](../app-service/app-service-key-vault-references.md) will not work if your Key Vault is secured with service endpoints. To connect to a Key Vault using virtual network integration you will need to call key vault in your application code.
 
 ## Virtual network triggers (non-HTTP)
 

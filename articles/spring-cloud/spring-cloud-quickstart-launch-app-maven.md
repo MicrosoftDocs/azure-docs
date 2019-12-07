@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Launch an application using Maven - Azure Spring Cloud"
-description: Launch a sample application using Maven
+title: "Quickstart - Launch an application using Maven with Azure Spring Cloud"
+description: In this quickstart, launch a sample application using Maven
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
@@ -34,22 +34,11 @@ To complete this quickstart:
 1. [Install Git](https://git-scm.com/).
 2. [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable).
 3. [Install Maven 3.0 or later](https://maven.apache.org/download.cgi).
-4. [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-5. [Sign up for a free Azure subscription](https://azure.microsoft.com/free/).
-
-## Install the Azure CLI extension
-
-Install the Azure Spring Cloud extension for the Azure CLI by using the following command:
-
-```Azure CLI
-az extension add --name spring-cloud
-```
+4. [Sign up for a free Azure subscription](https://azure.microsoft.com/free/).
 
 ## Provision a service instance on the Azure portal
 
 1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform), and sign in to your account.
-
-1. Select **Create** on the **Overview** page to open the creation dialog.
 
 1. Provide the **Project Details** for the sample application as follows:
 
@@ -120,3 +109,5 @@ In this quickstart, you've deployed a Spring Cloud application from a Maven repo
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
 > [Learn more about Maven plug-ins for Azure](https://github.com/microsoft/azure-maven-plugin)
+
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

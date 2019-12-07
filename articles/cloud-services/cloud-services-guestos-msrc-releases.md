@@ -10,11 +10,53 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/1/2019
+ms.date: 12/5/2019
 ms.author: raiye
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## November 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [2.92]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525233]  |  Windows Security   |  [2.92]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [3.79]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525253]  |  Windows Security   |  [3.79]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [4.72]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525250]  |  Windows Security   |  [4.72]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525236]  |  Latest Cumulative update   |  [5.37]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4523205]  |  Latest Cumulative update   |  [6.13]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4519976]  |  Non-Security   |  [2.92]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4520007]  |  Non-Security   |  [3.79]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521857]  |  ServicingStackUpdate   |  [3.79]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4520005]  |  Non-Security   |  [4.72]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521864]  |  ServicingStackUpdate   |  [4.72]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521858]  |  ServicingStackUpdate   |  [5.37]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521862]  |  ServicingStackUpdate   |  [6.13]  |  Oct 8, 2019  |
+
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525233]: https://support.microsoft.com/kb/4525233
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525253]: https://support.microsoft.com/kb/4525253
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525250]: https://support.microsoft.com/kb/4525250
+[4525236]: https://support.microsoft.com/kb/4525236
+[4523205]: https://support.microsoft.com/kb/4523205
+[4519976]: https://support.microsoft.com/kb/4519976
+[4520007]: https://support.microsoft.com/kb/4520007
+[4521857]: https://support.microsoft.com/kb/4521857
+[4520005]: https://support.microsoft.com/kb/4520005
+[4521864]: https://support.microsoft.com/kb/4521864
+[4521858]: https://support.microsoft.com/kb/4521858
+[4521862]: https://support.microsoft.com/kb/4521862
+[6.13]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.37]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.72]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.92]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+
 
 ## October 2019 Guest OS
 
@@ -58,11 +100,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4512574]: https://support.microsoft.com/kb/4512574
 [4512577]: https://support.microsoft.com/kb/4512577
 
-[6.12]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.36]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.71]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.78]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.91]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.12]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.36]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.71]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.91]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## September 2019 Guest OS
@@ -100,11 +142,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4512488]: https://support.microsoft.com/kb/4512488
 [4512518]: https://support.microsoft.com/kb/4512518
 [4512506]: https://support.microsoft.com/kb/4512506
-[6.11]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.35]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.70]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.77]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.90]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.11]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.35]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.70]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.90]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## August 2019 Guest OS
@@ -157,11 +199,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4507001]: https://support.microsoft.com/kb/4507001
 [4507704]: https://support.microsoft.com/kb/4507704
 
-[6.1]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.34]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.69]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.76]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.89]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.1]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.34]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.69]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.76]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.89]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## July 2019 Guest OS

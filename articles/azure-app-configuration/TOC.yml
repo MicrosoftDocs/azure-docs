@@ -17,8 +17,8 @@
           href: quickstart-dotnet-core-app.md
         - name: .NET Framework
           href: quickstart-dotnet-app.md
-        - name: Azure Function in .NET Core
-          href: quickstart-azure-function-csharp.md
+        - name: Azure Functions in .NET Core
+          href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
     - name: Feature management
@@ -36,7 +36,9 @@
     - name: Enable dynamic configuration in a .NET Core app
       href: enable-dynamic-configuration-dotnet-core.md
     - name: Enable dynamic configuration in .NET Framework
-      href: enable-dynamic-configuration-dotnet.md      
+      href: enable-dynamic-configuration-dotnet.md
+    - name: Enable dynamic configuration in Azure Functions
+      href: enable-dynamic-configuration-azure-functions-csharp.md
     - name: Use feature flags in a .NET Core app
       href: use-feature-flags-dotnet-core.md
     - name: Use feature flags in a Spring Boot app
@@ -67,7 +69,7 @@
           href: concept-disaster-recovery.md
 - name: How-to guides
   items:
-    - name: Integrate with Azure Managed Service Identity
+    - name: Integrate with Azure Managed Identity
       href: howto-integrate-azure-managed-service-identity.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
@@ -106,7 +108,7 @@
 - name: Resources
   items:
     - name: Pricing
-      href: https://azure.microsoft.com/en-us/pricing/details/app-configuration/
+      href: https://azure.microsoft.com/pricing/details/app-configuration/
     - name: Videos
       items:
         - name: Getting started

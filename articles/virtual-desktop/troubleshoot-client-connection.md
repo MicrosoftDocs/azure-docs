@@ -114,7 +114,7 @@ Follow these general troubleshooting instructions for client connection error co
 6. Using the **ActivityId** from the previous cmdlet output, run the command below:
 
     ```PowerShell
-    (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
+    (Get-RdsDiagnosticActivities -TenantName <TenantName> -ActivityId <ActivityId> -Detailed).Errors
     ```
 
 7. The command produces output similar to the output shown below. Use **ErrorCodeSymbolic** and **ErrorMessage** to troubleshoot the root cause.

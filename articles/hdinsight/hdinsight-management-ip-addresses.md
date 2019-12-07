@@ -7,10 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 10/22/2019
 ---
 
 # HDInsight management IP addresses
+
+> [!Important]
+> Use the [service tag](hdinsight-service-tags.md) feature for network security groups. New regions will only be added for service tags and the static IP addresses will eventually be deprecated.
 
 If you use network security groups (NSGs) or user defined routes (UDRs) to control inbound traffic to your HDInsight cluster, you must ensure that your cluster can communicate with critical Azure health and management services.  Some of the IP addresses for these services are region specific, and some of them apply to all Azure regions. You may also need to allow traffic from the Azure DNS service if you aren't using custom DNS.
 
@@ -36,7 +39,7 @@ Allow traffic from the following IP addresses for Azure HDInsight health and man
 Allow traffic from the IP addresses listed for the Azure HDInsight health and management services in the specific Azure region where your resources are located:
 
 > [!IMPORTANT]  
-> If the Azure region you are using is not listed, then only use the four IP addresses from previous section.
+> If the Azure region you are using is not listed, then use the [service tag](hdinsight-service-tags.md) feature for network security groups.
 
 | Country | Region | Allowed Source IP addresses | Allowed Destination | Direction |
 | ---- | ---- | ---- | ---- | ----- |

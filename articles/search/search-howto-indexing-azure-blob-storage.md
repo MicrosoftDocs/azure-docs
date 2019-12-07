@@ -1,5 +1,5 @@
 ---
-title: Index Azure Blob storage content for full text search
+title: Search over Azure Blob storage content
 titleSuffix: Azure Cognitive Search
 description: Learn how to index Azure Blob Storage and extract text from documents with Azure Cognitive Search.
 

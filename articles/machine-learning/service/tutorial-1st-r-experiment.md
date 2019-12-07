@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Your first ML experiment with R"
+title: "Tutorial: Your first ML model with R"
 titleSuffix: Azure Machine Learning
 description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a logistic regression model model using R packages azuremlsdk and caret to predict likelihood of a fatality in an automobile accident. 
 services: machine-learning
@@ -264,7 +264,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## Deploy as a web service
 
-With your model, you can predict the danger of death from a collision. Use Azure ML to deploy your model as a prediction service. In this tutorial, you will deploy the web service in [Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/) (ACI).
+With your model, you can predict the danger of death from a collision. Use Azure ML to deploy your model as a prediction service. In this tutorial, you will deploy the web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI).
 
 ### Register the model
 
@@ -348,17 +348,17 @@ aci_service$scoring_uri
 Delete the resources once you no longer need them. Don't delete any resource you plan to still use. 
 
 Delete the web service:
-```{r delete_service, eval=FALSE}
+```R
 delete_webservice(aci_service)
 ```
 
 Delete the registered model:
-```{r delete_model, eval=FALSE}
+```R
 delete_model(model)
 ```
 
 Delete the compute cluster:
-```{r delete_compute, eval=FALSE}
+```R
 delete_compute(compute)
 ```
 

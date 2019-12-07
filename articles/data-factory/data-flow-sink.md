@@ -1,10 +1,12 @@
 ---
-title:  Set up a sink transformation in the mapping data flow feature of Azure Data Factory 
+title: Set up a sink transformation in mapping data flow
 description: Learn how to set up a sink transformation in the mapping data flow.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/03/2019
 ---
 
@@ -23,7 +25,7 @@ To sink all incoming fields, turn on **Auto Map**. To choose the fields to sink 
 ## Output 
 For Azure Blob storage or Data Lake Storage sink types, output the transformed data into a folder. Spark generates partitioned output data files based on the partitioning scheme that the sink transformation uses. 
 
-You can set the partitioning scheme from the **Optimize** tab. If you want Data Factory to merge your output into a single file, select **Single partition**.
+You can set the partitioning scheme from the **Optimize** tab. If you want Data Factory to merge your output into a single file, select **Single partition**. If you wish to maintain or create partitioned folders, use **Key partitioning** and set the keys you wish to use for partitioned folder structures.
 
 ![Options on the Optimize tab](media/data-flow/opt001.png "sink options")
 

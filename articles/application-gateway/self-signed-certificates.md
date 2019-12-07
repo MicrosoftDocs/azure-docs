@@ -1,5 +1,6 @@
 ---
-title: Generate an Azure Application Gateway self-signed certificate with a custom root CA
+title: Generate self-signed certificate with a custom root CA
+titleSuffix: Azure Application Gateway
 description: Learn how to generate an Azure Application Gateway self-signed certificate with a custom root CA
 services: application-gateway
 author: vhorne

@@ -1,11 +1,11 @@
 ---
-title: Use PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
-description: Describes the ability to extend the functionality of your database using extensions in Azure Database for PostgreSQL - Single Server.
+title: Extensions - Azure Database for PostgreSQL - Single Server
+description: Learn about the available Postgres extensions in Azure Database for PostgreSQL - Single Server
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 12/03/2019
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions function like built-in features.
@@ -218,7 +218,7 @@ The pgAudit extension provides session and object audit logging. To learn how to
 ## TimescaleDB
 TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
 
-[Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/)
+[Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/). Azure Database for PostgreSQL provides the open-source version of Timescale. To learn which Timescale features are available in this version, see [the Timescale product comparison](https://www.timescale.com/products/).
 
 ### Installing TimescaleDB
 To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).

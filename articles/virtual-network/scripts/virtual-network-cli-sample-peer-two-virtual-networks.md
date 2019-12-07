@@ -1,14 +1,10 @@
 ---
-title: Azure CLI script sample - Peer two virtual networks | Microsoft Docs
+title:  Peer two virtual networks - Azure CLI script sample
 description: Azure CLI script sample - Peer two virtual networks.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags:
-
-ms.assetid:
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: sample

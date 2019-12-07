@@ -1,13 +1,8 @@
 ---
 title: Create your first durable function in Azure using C#
 description: Create and publish an Azure Durable Function using Visual Studio.
-services: functions
-documentationcenter: na
 author: jeffhollan
-manager: jeconnoc
-keywords: azure functions, functions, event processing, compute, serverless architecture
 
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 11/02/2019
 ms.author: azfuncdf
