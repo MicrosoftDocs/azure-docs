@@ -1,7 +1,7 @@
 ---
 title: What is Azure Load Balancer?
 titleSuffix: Azure Load Balancer
-description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and leverage it in the cloud.
+description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and how to leverage it in the cloud.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -21,9 +21,9 @@ ms.author: allensu
 
 *Load balancing* refers to efficiently distributing load or incoming network traffic across a group of backend resources or servers. Azure offers a [variety of load balancing options](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) that you can choose from based on your need. This document covers the Azure Load Balancer.
 
-Azure Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model. It is the single point of contact for clients. Load Balancer distributes new inbound flows that arrive at the Load Balancer's front end to back-end pool instances, according to specified load balacing rules and health probes. The back-end pool instances can be Azure Virtual Machines or instances in a Virtual Machine Scale Set (VMSS). 
+Azure Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model. It is the single point of contact for clients. Load Balancer distributes new inbound flows that arrive at the Load Balancer's front end to back-end pool instances, according to specified load balancing rules and health probes. The back-end pool instances can be Azure Virtual Machines or instances in a virtual machine scale set. 
 
-With Azure Load Balancer, you can scale your applications and create high availabile services. 
+With Azure Load Balancer, you can scale your applications and create high available services. 
 Load Balancer supports both, inbound and outbound scenarios, provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications.
 
 A **[public Load Balancer](#publicloadbalancer)** can provide outbound connections for virtual machines (VMs) inside your virtual network by translating their private IP addresses to public IP addresses. Public Load Balancers are used to load balancer internet traffic to your VMs.
@@ -32,7 +32,7 @@ An **[internal (or private) Load Balancer](#internalloadbalancer)** can be used 
 
 ## Load Balancer components
 * **Frontend IP configurations**: The IP address of the Load Balancer. It is the point of contact for clients. These can be either public or private IP addresses, thus creating either Public or Internal Load Balancers respectively.
-* **Backend pool**: The group of Virtual Machines or instances in the Virtual Machine Scale Set that are going to serve the incoming request. To scale cost-effectively in order to meet high volumes of incoming traffic computing best practises generally reccomends adding more instances to the backend pool. Load Balancer instantly reconfigures itself via automatic reconfigratio when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the Load Balancer without additional operations on the Load Balancer resource.
+* **Backend pool**: The group of Virtual Machines or instances in the Virtual Machine Scale Set that are going to serve the incoming request. To scale cost-effectively in order to meet high volumes of incoming traffic computing best practices generally recommends adding more instances to the backend pool. Load Balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the Load Balancer without additional operations on the Load Balancer resource.
 * **Health probes**: A health probe is used to determine the health of the instances in the backend pool. You can define the unhealthy threshold for your health probes. When a probe fails to respond, the Load Balancer stops sending new connections to the unhealthy instances. A probe failure doesn't affect existing connections. The connection continues until the application terminates the flow, an idle timeout occurs, or the VM shuts down. Load Balancer provides different health probe types for TCP, HTTP, and HTTPS endpoints. For more information, see [Probe types](load-balancer-custom-probe-overview.md#types).
 * **Load balancing rules**: Load Balancing rules are the ones that tell the Load Balancer what needs to be done when. 
 * **Inbound NAT rules**: An Inbound NAT rule forwards traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. Port forwarding is done by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside an Azure Virtual Network. You can map multiple internal endpoints to ports on the same front-end IP address. You can use the front-end IP addresses to remotely administer your VMs without an additional jump box.
