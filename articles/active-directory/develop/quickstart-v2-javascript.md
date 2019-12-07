@@ -1,7 +1,7 @@
 ---
-title: Sign in users and get an access token in a JavaScript SPA | Azure
+title: Sign in users in JavaScript single-page apps | Azure
 titleSuffix: Microsoft identity platform 
-description: Learn how JavaScript applications can call an API that requires access tokens by using Microsoft identity platform.
+description: Learn how  a Javascript app can an API that requires access tokens using the Microsoft identity platform.
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
