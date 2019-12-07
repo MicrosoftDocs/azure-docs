@@ -1,7 +1,7 @@
 ---
 title: 'How To: Add validations to Custom Command parameters (Preview)'
 titleSuffix: Azure Cognitive Services
-description: In this article, add validations to Custom Command parameters
+description: In this article, we explain how to add validations to a parameter in Custom Commands.
 services: cognitive-services
 author: donkim
 manager: yetian

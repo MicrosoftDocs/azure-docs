@@ -1,7 +1,7 @@
 ---
 title: 'How To: Add a one-step correction to a Custom Command (Preview) - Speech service'
 titleSuffix: Azure Cognitive Services
-description: In this article, add confirmation to a Custom Command
+description: In this article, we explain how to implement one-step corrections for a command in Custom Commands.
 services: cognitive-services
 author: encorona-ms
 manager: yetian
