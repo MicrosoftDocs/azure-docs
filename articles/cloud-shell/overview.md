@@ -39,7 +39,7 @@ Users can choose between Bash or PowerShell.
 1. Select the shell dropdown.
 ![Bash in Cloud Shell](media/overview/overview-bash-pic.png)
 
-1. Choose Bash or Power Shell. 
+1. Choose Bash or PowerShell. 
 ![PowerShell in Cloud Shell](media/overview/overview-ps-pic.png)
 
 ### Authenticated and configured Azure workstation
