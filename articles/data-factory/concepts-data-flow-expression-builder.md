@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/17/2019
+ms.date: 12/06/2019
 ---
 
 # Mapping data flow Expression Builder
@@ -46,6 +46,16 @@ Click the Refresh button to update the results of your expression against a live
 Add comments to your expressions using single line and multi-line comment syntax:
 
 ![Comments](media/data-flow/comments.png "Comments")
+
+## String interpolation
+
+Use double-quotes to enclose literal string text together with expressions. You can include expression functions, columns, and parameters. This is very useful to avoid extensive use of string concatenation when including parameters in query strings.
+
+* ```"My favorite movie is {iif(instr(title,', The')>0,"The {split(title,', The')[1]}",title)}"```
+
+* ```"select * from {$tablename} where orderyear > {$year}"```
+
+* ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 ## Regular Expressions
 

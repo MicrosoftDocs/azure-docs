@@ -1943,11 +1943,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/search/search-traffic-analytics.md",
-      "redirect_url": "/azure/search/search-monitor-usage",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/search/knowledge-store-howto.md",
       "redirect_url": "/azure/search/knowledge-store-create-rest",
       "redirect_document_id": false

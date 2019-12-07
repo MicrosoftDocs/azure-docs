@@ -2,7 +2,6 @@
 title: Copy data from Microsoft Access sources
 description: Learn how to copy data from Microsoft Access sources to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
 manager: shwang
