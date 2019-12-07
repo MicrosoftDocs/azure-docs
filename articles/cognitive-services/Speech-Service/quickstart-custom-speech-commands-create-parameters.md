@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a Custom Command with Parameters (Preview) - Speech Service'
+title: 'Quickstart: Create a Custom Command with Parameters (Preview) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you'll add parameters to a Custom Commands application.
 services: cognitive-services
@@ -108,4 +108,3 @@ Open the Test chat panel and try a few interactions.
 ## Next steps
 > [!div class="nextstepaction"]
 > [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
-
