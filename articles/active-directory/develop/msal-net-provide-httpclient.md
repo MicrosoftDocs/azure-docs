@@ -1,5 +1,5 @@
 ---
-title: Provide an HttpClient and proxy (MSAL.NET) 
+title: Provide a HttpClient & proxy (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about providing your own HttpClient and proxy to connect to Azure AD using Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
