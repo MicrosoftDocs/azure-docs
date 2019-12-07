@@ -14,7 +14,7 @@ ms.author: banders
 ---
 # Understand charges on your Microsoft Customer Agreement invoice
 
-You can understand the charges on your invoice by analyzing the individual transactions. In the billing account for a Microsoft Customer Agreement, an invoice is generated every month for each billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal. For more information, see [download invoices for a Microsoft Customer Agreement](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
+You can understand the charges on your invoice by analyzing the individual transactions. In the billing account for a Microsoft Customer Agreement, an invoice is generated every month for each billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal. For more information, see [download invoices for a Microsoft Customer Agreement](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -117,7 +117,7 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 ## Analyze your Azure usage charges
 
-Use the Azure usage and charges CSV file to analyze your usage-based charges. You can download the file for an invoice or for pending charges. For more information, see [get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
+Use the Azure usage and charges CSV file to analyze your usage-based charges. You can download the file for an invoice or for pending charges. For more information, see [get your Azure billing invoice and daily usage data](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 
 ### View detailed usage by invoice section
 
@@ -171,6 +171,6 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 To learn more about your invoice and detailed usage, see:
 
-- [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md)
+- [How to get your Azure billing invoice and daily usage data](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
 - [Understand terms on your Microsoft Customer Agreement invoice](billing-mca-understand-your-invoice.md)
 - [Understand terms on your Microsoft Customer Agreement usage CSV](billing-mca-understand-your-usage.md)

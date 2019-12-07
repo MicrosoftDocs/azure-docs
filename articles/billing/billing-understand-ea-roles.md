@@ -82,7 +82,7 @@ You may see different pricing in the Azure portal depending on your administrati
 - DA view charges
 - AO view charges
 
-To learn how to set these policies, see [Manage access to billing information for Azure](billing-manage-access.md).
+To learn how to set these policies, see [Manage access to billing information for Azure](../cost-management-billing/manage/manage-billing-access.md).
 
 The following table shows the relationship between the Enterprise Agreement admin roles, the view charges policy, the role-based access control (RBAC) role in the Azure portal, and the pricing that you see in the Azure portal. The Enterprise Administrator always sees usage details based on the organization's EA pricing. However, the Department Administrator and Account Owner see different pricing views based on the view charge policy and their RBAC role. The Department Admin role listed in the following table refers to both Department Admin and Department Admin (read only) roles.
 
@@ -98,6 +98,6 @@ You set the Enterprise admin role and view charges policies in the Enterprise po
 
 ## Next steps
 
-- [Manage access to billing information for Azure](billing-manage-access.md)
+- [Manage access to billing information for Azure](../cost-management-billing/manage/manage-billing-access.md)
 - [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md)
 - [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md)

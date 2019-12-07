@@ -61,7 +61,7 @@ EA customers can see external service spending and download reports in the EA po
 
 ## Manage payment for external services
 
-When purchasing an external service, you choose an Azure subscription for the resource. The payment method of the selected Azure subscription becomes the payment method for the external service. To change the payment method for an external service, you must [change the payment method of the Azure subscription](billing-how-to-change-credit-card.md) tied to that external service. You can figure out which subscription your external service order is tied to by following these steps:
+When purchasing an external service, you choose an Azure subscription for the resource. The payment method of the selected Azure subscription becomes the payment method for the external service. To change the payment method for an external service, you must [change the payment method of the Azure subscription](../cost-management-billing/manage/change-credit-card.md) tied to that external service. You can figure out which subscription your external service order is tied to by following these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Click on **All Resources** in the left navigation menu.
@@ -69,7 +69,7 @@ When purchasing an external service, you choose an Azure subscription for the re
 1. Search for your external service.
 1. Look for the name of the subscription in the **Subscription** column.
     ![screenshot of subscription name for resource](./media/billing-understand-your-azure-marketplace-charges/sub-selected.png)
-1. Click on the subscription name and [update the active payment method](billing-how-to-change-credit-card.md).
+1. Click on the subscription name and [update the active payment method](../cost-management-billing/manage/change-credit-card.md).
 
 <!-- Update your payment methods for external service orders from the [Account Center](https://account.windowsazure.com/).
 

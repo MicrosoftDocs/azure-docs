@@ -84,7 +84,7 @@ Have you used an Azure subscription in the past? The Azure Terms of Use agreemen
 
 ### I saw a charge on my Free Trial account
 
-You may see a small verification hold on your credit card account after you sign-up. This is removed within three to five days. If you are worried about managing costs, read more about [preventing unexpected costs](billing-getting-started.md).
+You may see a small verification hold on your credit card account after you sign-up. This is removed within three to five days. If you are worried about managing costs, read more about [preventing unexpected costs](../cost-management-billing/manage/getting-started.md).
 
 ### Can't activate Azure benefit plan like MSDN, BizSpark, BizSparkPlus, or MPN
 
@@ -125,7 +125,7 @@ Other troubleshooting articles for Azure Billing and Subscriptions
 - [Declined card](billing-troubleshoot-declined-card.md)
 - [Subscription sign-in issues](billing-troubleshoot-sign-in-issue.md)
 - [No subscriptions found](billing-no-subscriptions-found.md)
-- [Enterprise cost view disabled](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Enterprise cost view disabled](../cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## Contact us for help
 

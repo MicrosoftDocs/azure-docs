@@ -16,7 +16,7 @@ ms.author: banders
 
 # View and download your Azure usage and charges
 
-You can download a daily breakdown of your Azure usage and charges in the Azure portal. Only certain roles have permission to get Azure usage information, like the Account Administrator or Enterprise Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](billing-manage-access.md).
+You can download a daily breakdown of your Azure usage and charges in the Azure portal. Only certain roles have permission to get Azure usage information, like the Account Administrator or Enterprise Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](../cost-management-billing/manage/manage-billing-access.md).
 
 If you have a Microsoft Customer Agreement (MCA), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view your Azure usage and charges.  If you have a Microsoft Partner Agreement (MPA), only the Global Admin and Admin Agent role in the partner organization Microsoft can view and download Azure usage and charges. [Check your billing account type in the Azure portal](#check-your-billing-account-type).
 
@@ -71,7 +71,7 @@ To learn more about your invoice and usage charges, see:
 - [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md)
 - [Understand your bill for Microsoft Azure](billing-understand-your-bill.md)
 - [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md)
-- [View and download your organization's Azure pricing](billing-ea-pricing.md)
+- [View and download your organization's Azure pricing](../cost-management-billing/manage/ea-pricing.md)
 
 If you have a Microsoft Customer Agreement, see:
 
@@ -79,4 +79,4 @@ If you have a Microsoft Customer Agreement, see:
 - [Understand the charges on your Microsoft Customer Agreement invoice](billing-mca-understand-your-bill.md)
 - [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md)
 - [View and download tax documents for your Microsoft Customer Agreement](billing-mca-download-tax-document.md)
-- [View and download your organization's Azure pricing](billing-ea-pricing.md)
+- [View and download your organization's Azure pricing](../cost-management-billing/manage/ea-pricing.md)

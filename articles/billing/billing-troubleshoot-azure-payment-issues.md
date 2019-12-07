@@ -29,7 +29,7 @@ If an existing card has to be deleted, either a new card must be added to the su
 
 ## Unable to delete an old payment method after adding a new payment method
 
-The new payment instrument might not be associated with the subscription. To help associate the payment instrument with the subscription, see [Add, update, or remove a credit or debit card for Azure](billing-how-to-change-credit-card.md).
+The new payment instrument might not be associated with the subscription. To help associate the payment instrument with the subscription, see [Add, update, or remove a credit or debit card for Azure](../cost-management-billing/manage/change-credit-card.md).
 
 To troubleshoot issues regarding a declined card, see [How to troubleshoot a declined card at Azure sign-up](billing-troubleshoot-declined-card.md).
 
@@ -59,7 +59,7 @@ Please check with your bank for the following issues:
 
 Log out of all active Azure sessions, and then follow the steps in the [Browse InPrivate in Microsoft Edge article](https://support.microsoft.com/help/4026200/microsoft-edge-browse-inprivate)  to start an InPrivate session within Microsoft Edge or Internet Explorer.
 
-In the private session, follow the steps at [How to change a credit card](billing-how-to-change-credit-card.md) to update or change the credit card information.
+In the private session, follow the steps at [How to change a credit card](../cost-management-billing/manage/change-credit-card.md) to update or change the credit card information.
 
 You can also try to do the following:
 
@@ -84,7 +84,7 @@ Other troubleshooting articles for Azure Billing and Subscriptions
 - [Declined card](billing-troubleshoot-declined-card.md)
 - [Subscription sign-in issues](billing-troubleshoot-sign-in-issue.md)
 - [No subscriptions found](billing-no-subscriptions-found.md)
-- [Enterprise cost view disabled](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Enterprise cost view disabled](../cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## Contact us for help
 

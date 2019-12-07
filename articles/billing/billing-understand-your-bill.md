@@ -30,7 +30,7 @@ If there's a charge on your invoice that you want more information about, you ca
 
 ### Option 1: Compare usage and costs with usage file
 
-The detailed usage CSV file shows your charges by billing period and daily usage. To download or view the file, see [Get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
+The detailed usage CSV file shows your charges by billing period and daily usage. To download or view the file, see [Get your Azure billing invoice and daily usage data](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 
 Your usage charges are displayed at the meter level. The following terms mean the same thing in both the invoice and the detailed usage file. For example, the billing cycle on the invoice is the same as the billing period shown in the detailed usage file.
 
@@ -79,7 +79,7 @@ The Azure portal can also help you verify your charges. To get a quick overview 
 
    ![Cost history view in Azure portal](./media/billing-understand-your-bill/cost-history-view.png)
 
-To learn more, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md#costs).
+To learn more, see [Prevent unexpected costs with Azure billing and cost management](../cost-management-billing/manage/getting-started.md#costs).
 
 ## <a name="external"></a>External services billed separately
 
@@ -112,9 +112,9 @@ When the VM is created, each meter begins emitting usage records. This usage and
 
 If you set up a credit card card as your payment method, the payment is charged automatically within 10 days after the billing period ends. On your credit card statement, the line item would say **MSFT Azure**.
 
-To change the credit card that's charged, see [Add, update, or remove a credit card for Azure](billing-how-to-change-credit-card.md).
+To change the credit card that's charged, see [Add, update, or remove a credit card for Azure](../cost-management-billing/manage/change-credit-card.md).
 
-If you [pay by invoice](billing-how-to-pay-by-invoice.md), send your payment to the location listed at the bottom of your invoice.
+If you [pay by invoice](../cost-management-billing/manage/pay-by-invoice.md), send your payment to the location listed at the bottom of your invoice.
 
 To check the status of your payment, [create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -125,7 +125,7 @@ To check the status of your payment, [create a support ticket](https://portal.az
   - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/)
   - [Total cost of ownership calculator](https://aka.ms/azure-tco-calculator)
   - [Detailed pricing information for each service](https://azure.microsoft.com/pricing/)
-- [Review your usage and costs regularly in the Azure portal](billing-getting-started.md#costs)
+- [Review your usage and costs regularly in the Azure portal](../cost-management-billing/manage/getting-started.md#costs)
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
@@ -136,8 +136,8 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 ## Learn more
 
-- [Get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md)
+- [Get your Azure billing invoice and daily usage data](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
 - [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice.md)
 - [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md)
 - [Azure portal cost management](https://docs.microsoft.com/azure/billing/billing-getting-started)
-- [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md#costs)
+- [Prevent unexpected costs with Azure billing and cost management](../cost-management-billing/manage/getting-started.md#costs)

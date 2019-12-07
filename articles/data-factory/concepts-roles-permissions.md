@@ -25,7 +25,7 @@ To create and manage child resources for Data Factory - including datasets, link
 - To create and manage child resources in the Azure portal, you must belong to the **Data Factory Contributor** role at the resource group level or above.
 - To create and manage child resources with PowerShell or the SDK, the **contributor** role at the resource level or above is sufficient.
 
-For sample instructions about how to add a user to a role, see the [Add roles](../billing/billing-add-change-azure-subscription-administrator.md) article.
+For sample instructions about how to add a user to a role, see the [Add roles](../cost-management-billing/manage/add-change-subscription-administrator.md) article.
 
 ## Set up permissions
 

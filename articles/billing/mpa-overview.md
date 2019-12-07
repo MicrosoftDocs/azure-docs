@@ -79,6 +79,6 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 See the following articles to learn about your billing account:
 
-- [Create an additional Azure subscription for Microsoft Partner Agreement](billing-create-subscription.md)
+- [Create an additional Azure subscription for Microsoft Partner Agreement](../cost-management-billing/manage/create-subscription.md)
 - Integrate billing data with your own reporting system using the [Azure Billing APIs](https://docs.microsoft.com/rest/api/billing/)
 - [Azure Cost Management quickstart guide for partners](https://go.microsoft.com/fwlink/?linkid=2106482)

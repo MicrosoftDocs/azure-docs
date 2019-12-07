@@ -13,7 +13,7 @@
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
 | vCPUs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md)<sup>1</sup> |20 |10,000 |
-| [Coadministrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |200 |200 |
+| [Coadministrators](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) per subscription |200 |200 |
 | [Storage accounts](../articles/storage/common/storage-create-storage-account.md) per subscription<sup>2</sup> |100 |100 |
 | [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |20 |200 |
 | [Local networks](/previous-versions/azure/reference/jj157100(v=azure.100)) per subscription |10 |500 |

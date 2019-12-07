@@ -173,7 +173,7 @@ Administrators can access Azure PowerShell and Azure CLI through a browser-acces
 
 ## Azure subscriptions
 
-A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an Account Administrator, who has full control over the subscription, and a Service Administrator, who has control over all services in the subscription. For information about classic subscription administrators, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md). In addition to administrators, individual accounts can be granted detailed control of Azure resources using [role-based access control (RBAC)](../../role-based-access-control/overview.md).
+A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an Account Administrator, who has full control over the subscription, and a Service Administrator, who has control over all services in the subscription. For information about classic subscription administrators, see [Add or change Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md). In addition to administrators, individual accounts can be granted detailed control of Azure resources using [role-based access control (RBAC)](../../role-based-access-control/overview.md).
 
 ### Select and enable an Azure subscription
 
@@ -201,7 +201,7 @@ For more information, see [Manage access using RBAC and the Azure portal](../../
 
 An important component of using Azure is the ability to view billing information. The Azure portal provides detailed insight into Azure billing information.
 
-For more information, see [How to download your Azure billing invoice and daily usage data](../../billing/billing-download-azure-invoice-daily-usage-date.md).
+For more information, see [How to download your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 
 ### Get billing information from billing APIs
 

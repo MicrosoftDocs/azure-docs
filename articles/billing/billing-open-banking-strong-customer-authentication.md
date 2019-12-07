@@ -35,7 +35,7 @@ You can change the active payment method of your Azure account by following thes
 2. In the **Overview** page, select the corresponding subscription from the **My subscriptions** grid.
 3. Under 'Billing', select **Payment methods**. You can add a new credit card or set an existing card as the active payment method for the subscription. If your bank requires multi-factor authentication, you're prompted to complete an authentication challenge during the process.
 
-For more details, see [Add, update, or remove a credit card for Azure](billing-how-to-change-credit-card.md).
+For more details, see [Add, update, or remove a credit card for Azure](../cost-management-billing/manage/change-credit-card.md).
 
 ### Settle outstanding charges for Azure services
 
@@ -58,4 +58,4 @@ Marketplace and reservation purchases are billed separately from Azure services.
 6. In the invoices grid, review the status column. If the invoice is **Due** or **Past due**, click **Pay now.** You're prompted to complete multi-factor authentication during the process.
 
 ## Next steps
-- See [Resolve past due balance for your Azure subscription](billing-azure-subscription-past-due-balance.md) if you need to pay an Azure bill.
+- See [Resolve past due balance for your Azure subscription](../cost-management-billing/manage/resolve-past-due-balance.md) if you need to pay an Azure bill.
