@@ -40,7 +40,7 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 ## Verify driver installation
 You can verify driver installation in Device Manager. The following example shows successful configuration of the Radeon Instinct MI25 card on an Azure NVv4 VM.
-![GPU driver properties](./media/n-series-amd-driver-setup/gpu_driver_properties.png)
+![GPU driver properties](./media/n-series-amd-driver-setup/device_manager.png)
 
 You can use dxdiag to verify the GPU display properties including the video RAM. The following example shows a 1/8th partition of the Radeon Instinct MI25 card on an Azure NVv4 VM.
-![GPU driver properties](./media/n-series-amd-driver-setup/nvv4_dxdiag_verification.png)
+![GPU driver properties](./media/n-series-amd-driver-setup/dxdiag.png)
