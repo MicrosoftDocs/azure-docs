@@ -39,7 +39,7 @@ The process of connecting to local APIs of the device using Azure Resource Manag
 | 4. | [Set up Azure PowerShell on the client](#step-4-set-up-the-azure-powershell-on-the-client) | Windows client |
 | 5. | [Modify host file for endpoint name resolution](#step-5-modify-host-file-for-endpoint-name-resolution) | Windows client or DNS server |
 | 6. | [Check that the endpoint name is resolved](#step-6-verify-endpoint-name-resolution-on-the-client) | Windows client |
-| 7. | [Use Azure PowerShell cmdlets to verify connection to Azure Resource Manager](#step-7-use-azure-powershell-cmdlets-to-create-a-vm-client) | Windows client |
+| 7. | [Use Azure PowerShell cmdlets to verify connection to Azure Resource Manager](#step-7-verify-the-connection-to-azure-resource-manager) | Windows client |
 
 The following sections detail each of the above steps in connecting to Azure Resource Manager.
 
@@ -325,7 +325,7 @@ Check if the endpoint name is resolved on the client that you are using to conne
     AzDBE https:// management.dbe-n6hugc2ra.microsoftdatabox.com:30005 https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
     
-## Step 7: Verify the connection to Azure Resource Manager (client)
+## Step 7: Verify the connection to Azure Resource Manager
 
 Verify that your device to client communication via Azure Resource Manager is working fine. Take the following steps for this verification:
 
