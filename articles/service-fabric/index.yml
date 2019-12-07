@@ -167,7 +167,7 @@ landingContent:
             url: service-fabric-security-controls.md
           - text: Service Fabric Secrets Store
             url: service-fabric-application-secret-store.md
-      - linkListType: how-to
+      - linkListType: how-to-guide
         links:
           - text: Connect to a secure cluster
             url: service-fabric-connect-to-secure-cluster.md
