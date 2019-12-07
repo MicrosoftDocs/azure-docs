@@ -4,7 +4,7 @@ description: Learn how to use built-in commands and features to do common operat
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 12/07/2019
 ms.author: dech
 
 ---
