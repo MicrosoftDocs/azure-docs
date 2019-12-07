@@ -49,7 +49,7 @@ Add comments to your expressions using single line and multi-line comment syntax
 
 ## String interpolation
 
-Use double-quotes to enclose literal string text together with expressions. You can include expression functions, columns, and parameters. This is very useful to avoid extensive use of string concatination when including parameters in query strings.
+Use double-quotes to enclose literal string text together with expressions. You can include expression functions, columns, and parameters. This is very useful to avoid extensive use of string concatenation when including parameters in query strings.
 
 * ```"My favorite movie is {iif(instr(title,', The')>0,"The {split(title,', The')[1]}",title)}"```
 
