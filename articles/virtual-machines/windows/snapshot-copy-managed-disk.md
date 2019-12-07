@@ -26,8 +26,9 @@ If you are going to use the snapshot to create a new VM, we recommend that you c
 
 ## Use the Azure portal 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. From the left menu, select **Create a resource**, and then search for and select **snapshot**.
+To create a snapshot, complete the following steps: 
+1.	On the [Azure portal](https://portal.azure.com), select **Create a resource**.
+2. Search for and select **Snapshot**.
 3. In the **Snapshot** window, select **Create**. The **Create snapshot** window appears.
 4. Enter a **Name** for the snapshot.
 5. Select an existing [Resource group](../../azure-resource-manager/resource-group-overview.md#resource-groups) or enter the name of a new one. 
