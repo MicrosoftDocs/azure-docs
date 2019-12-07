@@ -1,7 +1,7 @@
 ---
 title: Create RHEL Virtual machines in Azure and set up HA with STONITH - Linux Virtual Machines | Microsoft Docs
 description: Learn about setting up High Availability in a RHEL cluster environment and set up STONITH
-ms.service: virtual-machine-linux
+ms.service: virtual-machines-linux
 ms.subservice: ???
 ms.topic: tutorial
 author: VanMSFT
@@ -267,7 +267,7 @@ sudo systemctl restart mssql-server
 1. Connect to the primary replica using SQL Server Management Studio (SSMS) or SQL CMD. 
 
     > [!IMPORTANT]
-    > If you are connecting remotely to your SQL Server instance, you will need to have port 1433 open on your firewall. You'll also need to allow inbound connections to port 1433 in your NSG for each VM. For more information, see [Create a security rule](../virtual-network/manage-network-security-group.md#create-a-security-rule) for creating an inbound security rule.
+    > If you are connecting remotely to your SQL Server instance, you will need to have port 1433 open on your firewall. You'll also need to allow inbound connections to port 1433 in your NSG for each VM. For more information, see [Create a security rule](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) for creating an inbound security rule.
 
 1. The below commands will create a certificate at `/var/opt/mssql/data/dbm_certificate.cer` and a private key at `var/opt/mssql/data/dbm_certificate.pvk` on your primary SQL Server replica:
 
@@ -654,9 +654,9 @@ To ensure that the configuration has succeeded so far, we will test a failover. 
  
 ## Configure the fencing agent
 
-A STONITH device provides a fencing agent. Follow the guide to [create a STONITH device](../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#create-stonith-device) for this cluster in Azure. The below instructions are modified for this tutorial.
+A STONITH device provides a fencing agent. Follow the guide to [create a STONITH device](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#create-stonith-device) for this cluster in Azure. The below instructions are modified for this tutorial.
  
-[Check the version of the Azure Fence Agent to ensure that it's updated](../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#cluster-installation).
+[Check the version of the Azure Fence Agent to ensure that it's updated](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#cluster-installation).
 
 ```bash
 [<username>@<VM1> ~]$  sudo yum info fence-agents-azure-arm
@@ -691,7 +691,7 @@ Go to Properties and write down the Directory ID. This is the `tenant ID`
  
 ### Create a custom role for the fence agent
 
-Follow the tutorial to [Create a custom role for Azure resources using Azure CLI](../role-based-access-control/tutorial-custom-role-cli.md).
+Follow the tutorial to [Create a custom role for Azure resources using Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md).
 
 Your json file should look similar to the following:
 
