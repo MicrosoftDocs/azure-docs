@@ -1,5 +1,5 @@
 ---
-title: AD FS support in Microsoft Authentication Library for .NET 
+title: AD FS support in MSAL.NET  | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about Active Directory Federation Services (AD FS) support in Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory

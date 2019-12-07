@@ -1,5 +1,5 @@
 ---
-title: Azure AD B2C (Microsoft Authentication Library for Android)  
+title: Azure AD B2C (MSAL Android) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about specific considerations when using Azure AD B2C with the Microsoft Authentication Library for Android (MSAL.Android)
 services: active-directory
