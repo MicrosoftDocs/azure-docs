@@ -26,7 +26,7 @@ If you switch to pay by invoice, that means you pay your bill within 30 days of 
 
 1. Go to the [Azure portal](https://portal.azure.com) to submit a support request. Search for and select **Help + support**.
 
-    ![Search for help and support, Microsoft Azure portal](./media/billing-how-to-pay-by-invoice/search-for-help-and-support.png)
+    ![Search for Help and support, Microsoft Azure portal](./media/billing-how-to-pay-by-invoice/search-for-help-and-support.png)
 
 2. Select **New support request**.
 
@@ -58,7 +58,7 @@ If you switch to pay by invoice, that means you pay your bill within 30 days of 
          Contact Email:
          Justification on why you prefer Invoice option over credit card:
 
-        For cores increase, provide the following additional information:
+         For cores increase, provide the following additional information:
 
          (Old quota) Existing Cores:
          (New quota) Requested cores:
@@ -80,7 +80,7 @@ If you have a Microsoft Online Services Program account, you can switch your Azu
 
 ### Switch Azure subscription to check/wire transfer
 
-Follow the steps below to switch your Azure subscription to invoice pay (check/wire transfer). **Once you switch to invoice pay (check/wire transfer), you can't switch back to credit card**.
+Follow the steps below to switch your Azure subscription to invoice pay (check/wire transfer). *Once you switch to invoice pay (check/wire transfer), you can't switch back to credit card*.
 
 1. Go to the [Azure portal](https://portal.azure.com) to sign in as the Account Administrator. Search for and select **Cost Management + Billing**.
 
@@ -102,7 +102,7 @@ Follow the steps below to switch a billing profile to check/wire transfer. Only 
     ![Billing profiles menu item, Cost Management and Billing, Microsoft Azure portal](./media/billing-how-to-pay-by-invoice/billing-profile.png)
 
 1. Select a billing profile.
-1. In the menu, select **Payment methods**.
+1. In the **Billing profile** menu, select **Payment methods**.
 
    ![Payment methods menu item, Billing profiles, Cost Management, Microsoft Azure portal](./media/billing-how-to-pay-by-invoice/billing-profile-payment-methods.png)
 
