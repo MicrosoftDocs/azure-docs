@@ -1,10 +1,6 @@
 ---
 title: "How Visual Studio Code works with Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: "conceptual"
 description: "How Visual Studio Code works with Azure Dev Spaces"

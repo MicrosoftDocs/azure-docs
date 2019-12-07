@@ -1,11 +1,8 @@
 ---
-title: Azure resources without 800 count limit
+title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.author: tomfitz
 ---
 
 # Resources not limited to 800 instances per resource group

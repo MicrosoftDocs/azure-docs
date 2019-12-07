@@ -1,12 +1,8 @@
 ---
 title: host.json reference for Azure Functions 1.x
 description: Reference documentation for the Azure Functions host.json file with the v1 runtime.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: glenga
 ---
 
 # host.json reference for Azure Functions 1.x

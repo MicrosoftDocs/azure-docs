@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect Body Tracking SDK download
-description: Download links for the Body Tracking SDK
+description: Understand how to download each version of the Azure Kinect Sensor SDK on Windows or Linux.
 author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
@@ -23,6 +23,7 @@ This document provides links to install each version of the Azure Kinect Body Tr
 
 Version       | Download
 --------------|----------
+0.9.5 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100636) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.5)
 0.9.4 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100415) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.4)
 0.9.3 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100307) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.3)
 0.9.2 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100128) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.2)
@@ -45,9 +46,16 @@ The basic tutorials require the `libk4abt<major>.<minor>-dev` package. To instal
 If the command succeeds, the SDK is ready for use.
 
 > [!NOTE]
-> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect Body Tracking SDK 0.9.4". You will find the samples referenced in articles in this path.
+> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect Body Tracking SDK 0.9.5". You will find the samples referenced in articles in this path.
 
 ## Change log
+
+### v0.9.5
+* [Feature] C# support. C# wrapper is packed in the nuget package.
+* [Feature] Multi-tracker support. Creating multiple trackers is allowed. Now user can create multiple trackers to track bodies from different Azure Kinect devices.
+* [Feature] Multi-thread processing support for CPU mode. When running on CPU mode, all cores will be used to maximize the speed.
+* [Feature] Add `gpu_device_id` to `k4abt_tracker_configuration_t` struct. Allow users to specify GPU device that is other than the default one to run the body tracking algorithm.
+* [Bug Fix/Breaking Change] Fix typo in a joint name. Change joint name from `K4ABT_JOINT_SPINE_NAVAL` to `K4ABT_JOINT_SPINE_NAVEL`.
 
 ### v0.9.4
 * [Feature] Add hand joints support. The SDK will provide information for three additional joints for each hand: HAND, HANDTIP, THUMB.

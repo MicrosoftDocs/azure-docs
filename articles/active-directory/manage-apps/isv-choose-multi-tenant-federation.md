@@ -1,5 +1,5 @@
 ---
-title: Choose the right federation protocol for your multi-tenant application
+title: Choose right federation protocol for multi-tenant application
 description: Guidance for independent software vendors on integrating with Azure Active Directory
 services: active-directory
 author: barbaraselden

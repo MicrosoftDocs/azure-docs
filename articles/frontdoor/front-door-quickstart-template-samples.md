@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager template samples - Azure Front Door Service | Microsoft Docs
+title: Azure Resource Manager template samples - Azure Front Door Service
 description: Azure Resource Manager template samples for Azure Front Door Service
 services: frontdoor
 documentationcenter: ""

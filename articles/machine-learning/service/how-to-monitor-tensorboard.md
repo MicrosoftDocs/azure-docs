@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
-ms.date: 06/28/2019
+ms.date: 11/08/2019
 ---
 
 # Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning
@@ -36,16 +36,18 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
 
         * Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
 
-        * In the samples folder on the notebook server, find  two completed and expanded notebooks by navigating to this directory: **how-to-use-azureml > training-with-deep-learning**.
-        * export-run-history-to-run-history.ipynb
-        * tensorboard.ipynb
+        * In the samples folder on the notebook server, find  two completed and expanded notebooks by navigating to these directories:
+            * **how-to-use-azureml > training-with-deep-learning > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
+
+            * **how-to-use-azureml > track-and-monitor-experiments > tensorboard.ipynb**
 
     * Your own Juptyer notebook server
-          * [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) with the `tensorboard` extra
-          * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  
-          * [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+       * [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) with the `tensorboard` extra
+        * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  
+        * [Create a workspace configuration file](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
+
 ## Option 1: Directly view run history in TensorBoard
 
 This option works for experiments that natively outputs log files consumable by TensorBoard, such as PyTorch, Chainer, and TensorFlow experiments. If that is not the case of your experiment, use [the `export_to_tensorboard()` method](#export) instead.

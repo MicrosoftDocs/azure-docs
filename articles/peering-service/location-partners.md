@@ -29,7 +29,7 @@ The table in this article provides information on the Peering Service connectivi
 
 | **Partners** | **Market**|
 |-----------|---------|
-| BBIX |Japan |
+| [BBIX](https://www.bbix.net/service/mpr/) |Japan |
 | [CCL](https://concepts.co.nz/news/general-news/) |Oceania |
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe|
 | [DE-CIX](https://www.de-cix.net/microsoft)|Europe, North America |

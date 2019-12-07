@@ -1,5 +1,5 @@
 ---
-title: Azure How to - How to use different attestation mechanisms with the Device Provisioning Service Client SDK in Azure 
+title: Use different attestation mechanisms with the Azure IoT Hub Device Provisioning Service Client SDK
 description: Azure How to - How to use different attestation mechanisms with the Device Provisioning Service Client SDK in Azure
 author: robinsh
 ms.author: robinsh

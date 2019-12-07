@@ -1,5 +1,5 @@
 ---
-title: Limits in Azure Database for PostgreSQL - Single Server
+title: Limits - Azure Database for PostgreSQL - Single Server
 description: This article describes limits in Azure Database for PostgreSQL - Single Server, such as number of connection and storage engine options.
 author: rachel-msft
 ms.author: raagyema
@@ -15,21 +15,21 @@ The following sections describe capacity and functional limits in the database s
 ## Maximum connections
 The maximum number of connections per pricing tier and vCores are as follows: 
 
-|**Pricing Tier**| **vCore(s)**| **Max Connections** |
-|---|---|---|
-|Basic| 1| 50 |
-|Basic| 2| 100 |
-|General Purpose| 2| 150|
-|General Purpose| 4| 250|
-|General Purpose| 8| 480|
-|General Purpose| 16| 950|
-|General Purpose| 32| 1500|
-|General Purpose| 64| 1900|
-|Memory Optimized| 2| 300|
-|Memory Optimized| 4| 500|
-|Memory Optimized| 8| 960|
-|Memory Optimized| 16| 1900|
-|Memory Optimized| 32| 1987|
+|**Pricing Tier**| **vCore(s)**| **Max Connections** | **Max User Connections** |
+|---|---|---|---|
+|Basic| 1| 55 | 50|
+|Basic| 2| 105 | 100|
+|General Purpose| 2| 150| 145|
+|General Purpose| 4| 250| 245|
+|General Purpose| 8| 480| 475|
+|General Purpose| 16| 950| 945|
+|General Purpose| 32| 1500| 1495|
+|General Purpose| 64| 1900| 1895|
+|Memory Optimized| 2| 300| 295|
+|Memory Optimized| 4| 500| 495|
+|Memory Optimized| 8| 960| 955|
+|Memory Optimized| 16| 1900| 1895|
+|Memory Optimized| 32| 1987| 1982|
 
 When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already

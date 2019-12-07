@@ -1,5 +1,6 @@
 ---
-title: Azure Australia additional documentation and resources by focus area
+title: Additional documentation and resources
+titleSuffix: Azure Australia
 description: Additional documentation, tutorials or references relevant to Australian Government agencies operating securely in Azure.
 author: galey801
 ms.service: azure-australia

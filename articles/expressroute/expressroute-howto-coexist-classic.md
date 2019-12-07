@@ -1,5 +1,5 @@
 ---
-title: 'Configure ExpressRoute and Site-to-Site VPN connections - coexist: classic: Azure | Microsoft Docs'
+title: 'Configure ExpressRoute and S2S VPN coexisting connections: classic'
 description: This article walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist for the classic deployment model.
 documentationcenter: na
 services: expressroute

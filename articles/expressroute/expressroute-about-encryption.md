@@ -1,5 +1,5 @@
 ---
-title: About Encryption - Azure ExpressRoute| Microsoft Docs
+title: 'Azure ExpressRoute: About Encryption'
 description: Learn about ExpressRoute encryption. 
 services: expressroute
 author: cherylmc

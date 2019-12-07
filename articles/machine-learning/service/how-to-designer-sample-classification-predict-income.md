@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Classify, predict income'
+title: 'Designer: Classify, predict income example'
 titleSuffix: Azure Machine Learning
-description: Learn how to build a machine learning classifier without writing a single line of code using the designer (preview).
+description: Follow this example build a no-code classifier to predict income with Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,8 +11,10 @@ ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
 ---
+# Build a classifier & use feature selection to predict income with Azure Machine Learning designer
 
-# Sample 3 - Classification with feature selection: Income Prediction
+**Designer (preview) sample 3**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Learn how to build a machine learning classifier without writing a single line of code using the designer (preview). This sample trains a **two-class boosted decision tree** to predict adult census income (>=50K or <=50K).
@@ -21,7 +23,7 @@ Because the question is answering "Which one?" this is called a classification p
 
 Here's the final pipeline graph for this sample:
 
-![Graph of the pipeline](media/how-to-ui-sample-classification-predict-income/overall-graph.png)
+![Graph of the pipeline](media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
 ## Prerequisites
 
@@ -34,7 +36,7 @@ Here's the final pipeline graph for this sample:
 ## Data
 
 The dataset contains 14 features and one label column. There are multiple types of features, including numerical and categorical. The following diagram shows an excerpt from the dataset:
-![data](media/how-to-ui-sample-classification-predict-income/data.png)
+![data](media/how-to-designer-sample-classification-predict-income/data.png)
 
 
 
@@ -48,7 +50,7 @@ Follow these steps to create the pipeline:
 1. Add a **Two-Class Boosted Decision Tree** module to initialize a boosted decision tree classifier.
 1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model**. Connect the filtered dataset from Filter Based Feature Selection module as training dataset.  The **Train Model** will train the classifier.
 1. Add Select Columns Transformation and Apply Transformation module to apply the same transformation (filtered based feature selection) to test dataset.
-![apply-transformation](media/how-to-ui-sample-classification-predict-income/transformation.png)
+![apply-transformation](media/how-to-designer-sample-classification-predict-income/transformation.png)
 1. Add **Score Model** module and connect the **Train Model** module to it. Then add the test set (the output of Apply Transformation module which apply feature selection to test set too) to the **Score Model**. The **Score Model** will make the predictions. You can select its output port to see the predictions and the positive class probabilities.
 
 
@@ -58,7 +60,7 @@ Follow these steps to create the pipeline:
 
 ## Results
 
-![Evaluate the results](media/how-to-ui-sample-classification-predict-income/evaluate-result.png)
+![Evaluate the results](media/how-to-designer-sample-classification-predict-income/evaluate-result.png)
 
 In the evaluation results, you can see that the curves like ROC, Precision-recall and confusion metrics. 
 

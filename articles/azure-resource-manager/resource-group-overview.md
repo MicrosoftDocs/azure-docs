@@ -1,12 +1,8 @@
 ---
-title: Azure Resource Manager Overview | Microsoft Docs
+title: Overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: overview
 ms.date: 08/29/2019
-ms.author: tomfitz
-
 ---
 # Azure Resource Manager overview
 

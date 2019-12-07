@@ -66,7 +66,7 @@ We provide an [automated modeling and reporting tool](https://github.com/Azure/A
 ## Artifacts
 The artifacts produced in this stage include:
 
-   * [Feature sets](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): The features developed for the modeling are described in the **Feature sets** section of the **Data definition** report. It contains pointers to the code to generate the features and a description of how the feature was generated.
+   * [Feature sets](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): The features developed for the modeling are described in the **Feature sets** section of the **Data definition** report. It contains pointers to the code to generate the features and a description of how the feature was generated.
    * [Model report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): For each model that's tried, a standard, template-based report that provides details on each experiment is produced.
    * **Checkpoint decision**: Evaluate whether the model performs well enough to deploy it to a production system. Some key questions to ask are:
      * Does the model answer the question with sufficient confidence given the test data? 

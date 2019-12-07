@@ -49,6 +49,8 @@
       href: routing-coverage.md
     - name: Mobility coverage
       href: mobility-coverage.md
+    - name: Weather coverage
+      href: weather-coverage.md  
   - name: Localization support
     href: supported-languages.md
   - name: Supported map styles
@@ -57,6 +59,8 @@
     href: zoom-levels-and-tile-grid.md
   - name: Mobility Service data structure
     href: mobility-service-data-structure.md
+  - name: Weather Service concepts
+    href: weather-services-concepts.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
@@ -123,7 +127,7 @@
         href: map-add-custom-html.md
       - name: Show traffic 
         href: map-show-traffic.md
-      - name: Interacting with mouse events
+      - name: Reacting to events
         href: map-events.md
       - name: Make your app accessible
         href: map-accessibility.md
@@ -185,6 +189,8 @@
       href: https://docs.microsoft.com/rest/api/maps/mobility
     - name: Render service
       href: https://docs.microsoft.com/rest/api/maps/render
+    - name: Render service V2
+      href: https://docs.microsoft.com/rest/api/maps/renderv2
     - name: Route service
       href: https://docs.microsoft.com/rest/api/maps/route
     - name: Search service
@@ -195,6 +201,8 @@
       href: https://docs.microsoft.com/rest/api/maps/timezone
     - name: Traffic service
       href: https://docs.microsoft.com/rest/api/maps/traffic
+    - name: Weather service
+      href: https://docs.microsoft.com/rest/api/maps/weather
     - name: Maps account management
       href: https://docs.microsoft.com/rest/api/maps-management
   - name: JavaScript
