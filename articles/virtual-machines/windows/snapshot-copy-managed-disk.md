@@ -1,5 +1,5 @@
 ---
-title: Create a snapshot of a VHD in Azure 
+title: Create a snapshot of a virtual hard drive (VHD) in Azure 
 description: Learn how to create a copy of an Azure VM to use as a back up or for troubleshooting issues.
 documentationcenter: ''
 author: roygara
@@ -39,7 +39,7 @@ To create a snapshot, complete the following steps:
 
 ## Use PowerShell
 
-The following steps show how to copy the VHD disk, create the snapshot configuration, and take a snapshot of the disk by using the [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
+The following steps show how to copy the VHD disk and create the snapshot configuration. You can then take a snapshot of the disk by using the [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
 
  
 
