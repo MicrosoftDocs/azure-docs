@@ -16,6 +16,11 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Create a new resource group, Availability Set, and Azure Linux Virtual Machines (VM)
 > - Register a RHEL subscription and enable High Availability (HA)
+> - Install SQL Server, mssql-tools, and SQL HA agents on RHEL
+> - Configure SQL Server Always On Availability Group
+> - Create a Pacemaker cluster and configure availability group (AG) resources
+> - Configure a fencing agent by creating a STONITH device
+> - Test a failover and the fencing agent
 
 This tutorial will use Azure command-line interface (CLI) to deploy resources in Azure.
 
@@ -128,67 +133,66 @@ If the connection is successful, you should see the following output representin
 [<username>@<VM1> ~]$
 ```
 
+Type `exit` to leave the SSH session.
+
 ## Register VMs to a RHEL subscription and enable HA
 
 > [!IMPORTANT]
-> In order to complete this portion of the tutorial, you must have a subscription for RHEL and the High Availability Add on.
+> In order to complete this portion of the tutorial, you must have a subscription for RHEL and the High Availability Add-on. You can register for a developer account at <https://developers.redhat.com>.
  
 Connect to each VM node and follow the guide to [enable the high availability subscription for RHEL](/sql/linux/sql-server-linux-availability-group-cluster-rhel#enable-the-high-availability-subscription-for-rhel).
 
+> [!TIP]
+> It will be easier if you open an SSH session to each of the VMs simultaneously as the same commands will need to be run on each VM throughout the article.
 
-```bash
-[<username>@<VM1> ~]$ sudo subscription-manager register
-Registering to: subscription.rhsm.redhat.com:443/subscription
-Username:
-Password:
-The system has been registered with ID: <ID>
-The registered system name is: <VM1>
+
+1. Run the following commands on each VM to open the Pacemaker firewall ports:
+
+    ```bash
+    sudo firewall-cmd --permanent --add-service=high-availability
+    sudo firewall-cmd --reload
+    ```
+
+1. Update and install Pacemaker packages on all nodes using the following commands:
+
+    ```bash
+    sudo yum update -y
+    sudo yum install -y pacemaker pcs fence-agents-all resource-agents fence-agents-azure-arm nmap
+    sudo reboot
+    ```
+
+1. Set the password for the default user that is created when installing Pacemaker packages. Use the same password on all nodes.
+
+    ```bash
+    sudo passwd hacluster
+    ```
+
+1. Use the following command to open the hosts file and set up host name resolution. For more information, see [Configure AG](/sql/linux/sql-server-linux-availability-group-configure-ha#prerequisites) on configuring the hosts file.
+
+    ```
+    sudo vi /etc/hosts
+    ```
+
+    In the **vi** editor, enter `i` to insert text, and on a blank line, add the **Private IP** of the corresponding VM. Then add the VM name after a space next to the IP. Each line should have a separate entry.
+
+    ```output
+    <IP1> <VM1>
+    <IP2> <VM2>
+    <IP3> <VM3>
+    ```
+
+    > [!IMPORTANT]
+    > We recommend that you use your **Private IP** address above. Using the Public IP address in this configuration will cause the setup to fail if you have not configured your Network Security Groups (NSG) and firewall appropriately.
+
+    To exit the **vi** editor, first hit the **Esc** key, and then enter the command `:wq` to write the file and quit.
+
+## Install SQL Server, mssql-tools, and SQL HA agents
  
-WARNING
- 
-The yum/dnf plugins: /etc/yum/pluginconf.d/subscription-manager.conf were automatically enabled for the benefit of Red Hat Subscription Management. If not desired, use "subscription-manager config --rhsm.auto_enable_yum_plugins=0" to block this behavior.
- 
-# get Pool ID by running
-subscription-manager list --available --all | less
+Follow the guide to [install SQL Server on the Red Hat VM](/sql/linux/quickstart-install-connect-red-hat). Perform each of these actions on all nodes.
 
-[<username>@<VM1> ~]$ sudo subscription-manager attach --pool=<Pool ID>
-Successfully attached a subscription for: Red Hat Developer Subscription
-[<username>@<VM1> ~]$ sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-rpms
-Repository 'rhel-ha-for-rhel-7-server-rpms' is enabled for this system.
-[<username>@<VM1> ~]$ sudo firewall-cmd --permanent --add-service=high-availability
-success
-[<username>@<VM1> ~]$ sudo firewall-cmd --reload
-success
-```
+### Installing SQL Server on the VMs
 
-```
-[<username>@<VM1> ~]$ sudo yum update -y
-[<username>@<VM1> ~]$ sudo yum install -y pacemaker pcs fence-agents-all resource-agents fence-agents-azure-arm nmap
-[<username>@<VM1> ~]$ sudo reboot
-```
-
-Change hacluster password to the same password on all nodes
-
-```bash
-sudo passwd hacluster
-```
-
-Setup host name resolution
-
-```
-sudo vi /etc/hosts
-```
-
-```
-<IP1> <VM1>
-<IP2> <VM2>
-<IP3> <VM3>
-```
-
-## Install SQL Server, SQLcmd and SQL HA agents
- 
-Following <https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-red-hat?view=sql-server-2017>
-Point to the repo first:
+The following commands are used to install SQL Server:
 
 ```bash
 sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/7/mssql-server-2017.repo
@@ -197,111 +201,140 @@ sudo /opt/mssql/bin/mssql-conf setup
 sudo yum install mssql-server-ha mssql-server-agent
 ```
 
-### Install mssql-tools, and open firewall 1433 for remote connection
-Following <https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-red-hat?view=sql-server-2017>
+### Open firewall port 1433 for remote connections
 
-Open port 1433
+You'll need to open port 1433 on the VM in order to connect remotely. Use the following commands to open port 1433 in the firewall of each VM:
 
-```
+```bash
 sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
 sudo firewall-cmd --reload
 ```
 
-```
-# Download the Microsoft Red Hat repository configuration file.
+### Installing SQL Server command-line tools
+
+Follow the guide to [install the SQL Server command-line tools](/sql/linux/quickstart-install-connect-red-hat#tools).
+
+The following commands are used to install SQL Server command-line tools:
+
+```bash
 sudo curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/7/prod.repo
-# If you had a previous version of mssql-tools installed, remove any older unixODBC packages.
-sudo yum remove unixODBC-utf16 unixODBC-utf16-devel
 sudo yum install -y mssql-tools unixODBC-devel
+```
  
-# For convenience, add /opt/mssql-tools/bin/ to your PATH environment variable. This enables you to run the tools without specifying the full path. Run the following commands to modify the PATH for both login sessions and interactive/non-login sessions:
-echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
-echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
-source ~/.bashrc
-```
+> [!NOTE] 
+> For convenience, add /opt/mssql-tools/bin/ to your PATH environment variable. This enables you to run the tools without specifying the full path. Run the following commands to modify the PATH for both login sessions and interactive/non-login sessions:</br></br>
+`echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile`</br>
+`echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc`</br>
+`source ~/.bashrc`
 
-### Check status for SQL server
 
-```
+### Check the status of the SQL Server
+
+Once you are done with the configuration, you can check the status of SQL Server and verify that it is running:
+
+```bash
 systemctl status mssql-server --no-pager
 ```
 
-Expecting:
+You should see the following output:
 
-```
+```output
 ● mssql-server.service - Microsoft SQL Server Database Engine
    Loaded: loaded (/usr/lib/systemd/system/mssql-server.service; enabled; vendor preset: disabled)
-   Active: active (running) since Wed 2019-08-21 18:20:55 UTC; 15min ago
+   Active: active (running) since Thu 2019-12-05 17:30:55 UTC; 20min ago
+     Docs: https://docs.microsoft.com/en-us/sql/linux
+ Main PID: 11612 (sqlservr)
+   CGroup: /system.slice/mssql-server.service
+           ├─11612 /opt/mssql/bin/sqlservr
+           └─11640 /opt/mssql/bin/sqlservr
 ```
+
+## Configure SQL Server Always On Availability Group
+
+Use the following steps to configure SQL Server Always On Availability Group for your VMs. For more information, see [configure SQL Server Always On Availability Group for high availability on Linux](/sql/linux/sql-server-linux-availability-group-configure-ha)
 
 ### Enable AlwaysOn availability groups and restart mssql-server
 
 Enable AlwaysOn availability groups on each node that hosts a SQL Server instance. Then restart mssql-server. Run the following script:
 
 ```
-sudo /opt/mssql/bin/mssql-conf set hadr.hadrenabled  1
+sudo /opt/mssql/bin/mssql-conf set hadr.hadrenabled 1
 sudo systemctl restart mssql-server
 ```
 
-### Create certificate
+### Create a certificate
  
-Connect on SQL Server Management Studio, on the primary replica:
+1. Connect to the primary replica using SQL Server Management Studio (SSMS) or SQL CMD. 
 
-```
-ALTER EVENT SESSION  AlwaysOn_health ON SERVER WITH (STARTUP_STATE=ON);
-GO
-```
+    > [!IMPORTANT]
+    > If you are connecting remotely to your SQL Server instance, you will need to have port 1433 open on your firewall. You'll also need to allow inbound connections to port 1433 in your NSG for each VM. For more information, see [Create a security rule](../virtual-network/manage-network-security-group.md#create-a-security-rule) for creating an inbound security rule.
 
-On new query,
+1. The below commands will create a certificate at `/var/opt/mssql/data/dbm_certificate.cer` and a private key at `var/opt/mssql/data/dbm_certificate.pvk` on your primary SQL Server replica:
+
+    - Replace the `<Master_Key_Password>` and `<Private_Key_Password>` with your own passwords.
 
 ```sql
 ALTER EVENT SESSION  AlwaysOn_health ON SERVER WITH (STARTUP_STATE=ON);
 GO
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = '**<Master_Key_Password>**';
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Master_Key_Password>';
 CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
 BACKUP CERTIFICATE dbm_certificate
    TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
    WITH PRIVATE KEY (
            FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
-           ENCRYPTION BY PASSWORD = '**<Private_Key_Password>**'
+           ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
        );
 ```
 
-At this point, your primary SQL Server replica has a certificate at `/var/opt/mssql/data/dbm_certificate.cer` and a private key at `var/opt/mssql/data/dbm_certificate.pvk`. Copy these two files to the same location on all servers that will host availability replicas.
+Exit the SQL CMD session by running the `exit` command, and return back to your SSH session.
  
-### Copy certificate
+### Copy the certificate to the secondary replicas and create the certificates on the server
+
+1. Copy the two files that were created to the same location on all servers that will host availability replicas.
  
-On primary server, copy certificate to target servers
+    On the primary server, run the following `scp` command to copy the certificate to the target servers:
 
-```
-sudo -i
-scp /var/opt/mssql/data/dbm_certificate.* <username>@<VM2>:/home/<username>
-```
+    - Replace `<username>` and `<VM2>` with the user name and target VM name that you are using.
+    - Run this command for all secondary replicas.
 
-On target Server
+    ```bash
+    # The below command allows you to run commands as the root user
+    sudo -i
+    ```
 
-```
-sudo -i
-mv /home/<username>/dbm_certificate.* /var/opt/mssql/data/
-cd /var/opt/mssql/data
-chown mssql:mssql dbm_certificate.*
-```
+    ```bash
+    scp /var/opt/mssql/data/dbm_certificate.* <username>@<VM2>:/home/<username>
+    ```
 
-### Create the certificate on secondary servers
-The following Transact-SQL script creates a master key and a certificate from the backup that you created on the primary SQL Server replica. Update the script with strong passwords. The decryption password is the same password that you used to create the .pvk file in a previous step. To create the certificate, run the following script on all secondary servers:
+1. On the target Server, run the following command:
 
-```sql
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = '**<Master_Key_Password>**';
-CREATE CERTIFICATE dbm_certificate
-    FROM FILE = '/var/opt/mssql/data/dbm_certificate.cer'
-    WITH PRIVATE KEY (
-    FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
-    DECRYPTION BY PASSWORD = '**<Private_Key_Password>**'
-            );
-```
+    - Replace `<username>` with your user name.
+    - The `mv` command moves the files or directory from one place to another.
+    - The `chown` command is used to change the owner and group of files, directories, or links.
+    - Run these commands for all secondary replicas.
+
+    ```bash
+    sudo -i
+    mv /home/<username>/dbm_certificate.* /var/opt/mssql/data/
+    cd /var/opt/mssql/data
+    chown mssql:mssql dbm_certificate.*
+    ```
+
+1. The following Transact-SQL script creates a master key and a certificate from the backup that you created on the primary SQL Server replica. Update the script with strong passwords. The decryption password is the same password that you used to create the .pvk file in the previous step. To create the certificate, run the following script using SQL CMD or SSMS on all secondary servers:
+
+    ```sql
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Master_Key_Password>';
+    CREATE CERTIFICATE dbm_certificate
+        FROM FILE = '/var/opt/mssql/data/dbm_certificate.cer'
+        WITH PRIVATE KEY (
+        FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
+        DECRYPTION BY PASSWORD = '<Private_Key_Password>'
+                );
+    ```
 
 ### Create the database mirroring endpoints on all replicas
-Run on all SQL instances (SSMS connect database engine)
+
+Run the following script on all SQL instances using SQL CMD or SSMS:
 
 ```sql
 CREATE ENDPOINT [Hadr_endpoint]
@@ -314,10 +347,14 @@ ENCRYPTION = REQUIRED ALGORITHM AES
 ALTER ENDPOINT [Hadr_endpoint] STATE = STARTED;
 ```
 
-### Create the AG `ag1`
-Run on the SQL Server instance that hosts the primary replica.
+### Create the Availability Group
 
-```
+Connect to the SQL Server instance that hosts the primary replica using SQL CMD or SSMS. Run the following command to create the Availability Group:
+
+- Replace `ag1` with your desired Availability Group name.
+- Replace the `<VM1>`, `<VM2>`, and `<VM3>` values with the names of the SQL Server instances that host the replicas.
+
+```sql
 CREATE AVAILABILITY GROUP [ag1]
      WITH (DB_FAILOVER = ON, CLUSTER_TYPE = EXTERNAL)
      FOR REPLICA ON
@@ -347,79 +384,78 @@ ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
 ```
 
 ### Create a SQL Server login for Pacemaker
-On all SQL Servers, create a Server login for Pacemaker. The following Transact-SQL creates a login:
+
+On all SQL Servers, create a SQL login for Pacemaker. The following Transact-SQL creates a login.
+
+- Replace `<password>` with your own complex password.
 
 ```sql
 USE [master]
 GO
-CREATE LOGIN [pacemakerLogin] with PASSWORD= N'ComplexP@$$w0rd!'
+CREATE LOGIN [pacemakerLogin] with PASSWORD= N'<password>'
  
 ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin]
 ```
 
-On all SQL Servers, save the credentials for the SQL Server login.
+On all SQL Servers, save the credentials used for the SQL Server login.
 
-```
+```bash
 sudo vi /var/opt/mssql/secrets/passwd
 
 # Add the following 2 lines to the file
 pacemakerLogin
-ComplexP@$$w0rd!
+<password>
 
 sudo chown root:root /var/opt/mssql/secrets/passwd
-sudo chmod 400 /var/opt/mssql/secrets/passwd # Only readable by root
+sudo chmod 400 /var/opt/mssql/secrets/passwd # Makes it only readable by root
 ```
 
-### On each SQL Server instance that hosts a secondary replica, run the following Transact-SQL to join the AG.
+### Join secondary replicas to the availability group
 
-Need to open port 5022 to join the AG
+1. In order to join the secondary replicas to the AG, you'll need to open port 5022 on the firewall for all servers. Run the following command in your SSH session:
 
-```
-sudo firewall-cmd --zone=public --add-port=5022/tcp --permanent
-sudo firewall-cmd --reload
-```
+    ```bash
+    sudo firewall-cmd --zone=public --add-port=5022/tcp --permanent
+    sudo firewall-cmd --reload
+    ```
 
-On SSMS
+1. Run the following Transact-SQL script on the primary replica and each secondary replicas:
 
-```
-ALTER AVAILABILITY GROUP [ag1] JOIN WITH (CLUSTER_TYPE = EXTERNAL);
- 
-ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
-```
+    ```sql
+    GRANT ALTER, CONTROL, VIEW DEFINITION ON AVAILABILITY GROUP::ag1 TO pacemakerLogin
+    GRANT VIEW SERVER STATE TO pacemakerLogin
+    ```
 
-Otherwise, receiving: Msg 47106, Level 16, State 3, Line 1
-Cannot join availability group 'ag1'. Download configuration timeout. Please check primary configuration, network connectivity and firewall setup, then retry the operation.
- 
-### Join secondary replicas to the AG
+1. On your secondary replicas, run the following commands to join them to the AG:
 
-The pacemaker user requires ALTER, CONTROL, and VIEW DEFINITION permissions on the availability group on all replicas. To grant permissions, run the following Transact-SQL script after the availability group is created on the primary replica and each secondary replica immediately after they are added to the availability group. Before you run the script, replace <pacemakerLogin> with the name of the pacemaker user account.
+    ```sql
+    ALTER AVAILABILITY GROUP [ag1] JOIN WITH (CLUSTER_TYPE = EXTERNAL);
+     
+    ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
+    ```
 
-```
-GRANT ALTER, CONTROL, VIEW DEFINITION ON AVAILABILITY GROUP::ag1 TO <pacemakerLogin>
-GRANT VIEW SERVER STATE TO <pacemakerLogin>
-```
+1. Once the secondary replicas are joined, you can see them in SSMS Object Explorer by expanding the **Always On High Availability** node:
 
-Grant permissions and all 3 replicas should be online
+    ![availability-group-joined.png](media/sql-server-linux-rhel-ha-stonith-tutorial/availability-group-joined.png)
 
-### Add a database to the AG
+### Add a database to the availability group
 
-On the primary SQL Server, run the following Transact-SQL script to create and back up a database called db1:
+Follow the [configure availability group article on adding a database](/sql/linux/sql-server-linux-availability-group-configure-ha#add-a-database-to-the-availability-group).
 
-```
-CREATE DATABASE [db1];
-ALTER DATABASE [db1] SET RECOVERY FULL;
-BACKUP DATABASE [db1]
+The following Transact-SQL commands are used in this step. These commands are run on the primary replica:
+
+```sql
+CREATE DATABASE [db1]; -- creates a database named db1
+ALTER DATABASE [db1] SET RECOVERY FULL; -- set the database in full recovery mode
+BACKUP DATABASE [db1] -- backs up the database to disk
    TO DISK = N'/var/opt/mssql/data/db1.bak';
-```
 
-add a database called db1 to an availability group called ag1:
-
-```
-ALTER AVAILABILITY GROUP [ag1] ADD DATABASE [db1];
+ALTER AVAILABILITY GROUP [ag1] ADD DATABASE [db1]; -- adds the database db1 to the AG
 ```
 
 ### Verify that the database is created on the secondary servers
-On each secondary SQL Server replica, run the following query to see if the db1 database was created and is synchronized:
+
+On each secondary SQL Server replica, run the following query to see if the db1 database was created and is in a SYNCHRONIZED state:
 
 ```
 SELECT * FROM sys.databases WHERE name = 'db1';
@@ -427,200 +463,200 @@ GO
 SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.dm_hadr_database_replica_states;
 ```
 
-This means the replicas are synchronized. Secondaries are showing `db1` in Primary.
- 
-## Create the Cluster
+If the `synchronization_state_desc` list SYNCHRONIZED for `db1`, this means the replicas are synchronized. The secondaries are showing `db1` in the primary replica.
+
+## Create the Pacemaker cluster
+
+In this section, we will enable and start the pcsd service, and then configure the cluster. For more information, see the article on [configuring a failover cluster instance for RHEL](/sql/linux/sql-server-linux-shared-disk-cluster-red-hat-7-configure#install-and-configure-pacemaker-on-each-cluster-node)
 
 ### Enable and start pcsd service and Pacemaker
 
-The following command enables and starts pcsd service. Run on all nodes. This allows the nodes to rejoin the cluster after reboot.
+1. Run the commands on all nodes. These commands allow the nodes to rejoin the cluster after reboot.
 
-`sudo systemctl enable --now pcsd`
+    ```bash
+    sudo systemctl enable pcsd
+    sudo systemctl start pcsd
+    sudo systemctl enable pacemaker
+    ``` 
 
-Remove any existing cluster configuration from all nodes
+1. Remove any existing cluster configuration from all nodes. Run the following command:
 
-`sudo pcs cluster destroy --all`
+    ```bash
+    sudo pcs cluster destroy 
+    sudo systemctl enable pacemaker 
+    ```
 
-On the primary node (auth and enable Pacemaker on boot) with the following commands.
+1. On the primary node, run the following commands to set up the cluster.
+
+    - When running the `pcs cluster auth` command to authenticate the cluster nodes, you will be prompted for a password. Enter the password for the **hacluster** user created earlier.
+
+    ```bash
+    sudo pcs cluster auth <VM1> <VM2> <VM3> -u hacluster
+    sudo pcs cluster setup --name az-hacluster <VM1> <VM2> <VM3> --token 30000
+    sudo pcs cluster start --all
+    sudo pcs cluster enable --all
+    ```
+
+1. Run the following command to check that all nodes are online.
+
+    ```bash
+    sudo pcs status
+    ```
+
+    If all nodes are online, you will see the following output:
+
+    ```output
+    Cluster name: az-hacluster
+     
+    WARNINGS:
+    No stonith devices and stonith-enabled is not false
+     
+    Stack: corosync
+    Current DC: <VM2> (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
+    Last updated: Fri Aug 23 18:27:57 2019
+    Last change: Fri Aug 23 18:27:56 2019 by hacluster via crmd on <VM2>
+     
+    3 nodes configured
+    0 resources configured
+     
+    Online: [ <VM1> <VM2> <VM3> ]
+     
+    No resources
+     
+     
+    Daemon Status:
+          corosync: active/enabled
+          pacemaker: active/enabled
+          pcsd: active/enabled
+    ```
+
+1. Set expected votes in the live cluster to 3. This command only affects the live cluster, and does not change the configuration files.
+
+    On all nodes, set the expected votes with the following command:
+
+    ```bash
+    sudo pcs quorum expected-votes 3
+    ```
+
+## Create availability group resources in the Pacemaker cluster
+
+We will be following the guide to [create the availability group resources in the Pacemaker cluster](/sql/linux/sql-server-linux-create-availability-group]#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only).
+
+### Create the AG cluster resource
+
+Use the following command to create the resource `ag_cluster` in the available group `ag1`..
 
 ```bash
-sudo pcs cluster auth <VM1> <VM2> <VM3> -u hacluster
-sudo pcs cluster setup --name az-hacluster <VM1> <VM2> <VM3> --token 30000
-sudo pcs cluster start --all
-sudo pcs cluster enable --all
+sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
 ```
 
-Run `sudo pcs status` until all nodes online. From:
+### Create a virtual IP resource
 
-```
-Node <VM1>: UNCLEAN (offline)
-Node <VM2>: UNCLEAN (offline)
-Node <VM3>: UNCLEAN (offline)
-```
+1. Use an available static IP address from your network to create a virtual IP resource. You can find one using the command tool `nmap`.
 
-to:
+    ```bash
+    nmap -sP <IPRange>
+    # For example: nmap -sP 10.0.0.*
+    # The above will scan for all IP addresses that are already occupied in the 10.0.0.x space.
+    ```
 
-```bash
-Cluster name: az-hacluster
- 
-WARNINGS:
-No stonith devices and stonith-enabled is not false
- 
-Stack: corosync
-Current DC: <VM2> (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
-Last updated: Fri Aug 23 18:27:57 2019
-Last change: Fri Aug 23 18:27:56 2019 by hacluster via crmd on <VM2>
- 
-3 nodes configured
-0 resources configured
- 
-Online: [ <VM1> <VM2> <VM3> ]
- 
-No resources
- 
- 
-Daemon Status:
-  corosync: active/enabled
-  pacemaker: active/enabled
-  pcsd: active/enabled
- 
-```
+1. Set the **stonith-enabled** property to false
 
->> NOT SURE IF THIS IS NEEDED, AND IT DOESNT APPEAR LIKE IT GETS SAVED
+    ```bash
+    sudo pcs property set stonith-enabled=false
+    ```
 
-```
-    expected-votes <votes>
-        Set expected votes in the live cluster to specified value.  This only
-        affects the live cluster, not changes any configuration files.
-```
+1. Create the virtual IP resource by using the following command:
 
-On all nodes, Set Expected Votes
+    - Replace the `<availableIP>` value below with an unsured IP address.
 
-```bash
-sudo pcs quorum expected-votes 3
-```
-
-### Create availability group resource
-create a `ocf:mssql:ag` master/slave type resource for availability group with name `ag1`
-
-```
-sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s --master meta notify=true
-```
-
-### Create virtual IP resource
-Use an available static IP address from the network. Find one with `nmap`
-
-```
-nmap -sP <IPRange>
-```
-
->> DISABLED STONITH HERE TO LET RESOURCES START (IT'S ENABLED AFTER SETUP LATER)
-
-```
-sudo pcs property set stonith-enabled=false
-sudo pcs resource create virtualip ocf:heartbeat:IPaddr2 ip=<availableIP>
-```
+    ```bash
+    sudo pcs resource create virtualip ocf:heartbeat:IPaddr2 ip=<availableIP>
+    ```
 
 ### Add Constraints
-Add colocation constraint
 
-```
-sudo pcs constraint order promote ag_cluster-master then start virtualip
-```
+1. To ensure that the IP address and the AG resource are running on the same node, a colocation constraint must be configured. Run the following command:
 
-### Test Failover
-Before
+    ```bash
+    sudo pcs constraint colocation add virtualip ag_cluster-master INFINITY with-rsc-role=Master
+    ```
 
-```
-Location Constraints:
-Ordering Constraints:
-  promote ag_cluster-master then start virtualip (kind:Mandatory) (id:order-ag_cluster-master-virtualip-mandatory)
-Colocation Constraints:
-  virtualip with ag_cluster-master (score:INFINITY) (with-rsc-role:Master) (id:colocation-virtualip-ag_cluster-master-INFINITY)
-Ticket Constraints:
-```
+1. Create an ordering constraint to ensure that the AG resource is up and running before the IP address. While the colocation constraint implies an ordering constraint, this enforces it.
 
-```
-sudo pcs resource move ag_cluster-master <VM2> --master
- 
-sudo pcs constraint list --full
-```
+    ```bash
+    sudo pcs constraint order promote ag_cluster-master then start virtualip
+    ```
 
-```
-Location Constraints:
-  Resource: ag_cluster-master
-    Enabled on: <VM2> (score:INFINITY) (role: Master) (id:cli-prefer-ag_cluster-master)
-Ordering Constraints:
-  promote ag_cluster-master then start virtualip (kind:Mandatory) (id:order-ag_cluster-master-virtualip-mandatory)
-Colocation Constraints:
-  virtualip with ag_cluster-master (score:INFINITY) (with-rsc-role:Master) (id:colocation-virtualip-ag_cluster-master-INFINITY)
-Ticket Constraints:
-```
+1. To verify the constraints, run the following command:
 
-`sudo pcs constraint remove cli-prefer-ag_cluster-master`
- 
-Current status
+    ```bash
+    sudo pcs constraint list --full
+    ```
 
-```bash
- 
-[<username>@<VM1> ~]$ sudo pcs status
-Cluster name: az-hacluster
- 
-WARNINGS:
-No stonith devices and stonith-enabled is not false
- 
-Stack: corosync
-Current DC: <VM2> (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
-Last updated: Fri Aug 23 18:32:53 2019
-Last change: Fri Aug 23 18:30:41 2019 by root via cibadmin on <VM1>
- 
-3 nodes configured
-4 resources configured
- 
-Online: [ <VM1> <VM2> <VM3> ]
- 
-Full list of resources:
- 
-Master/Slave Set: ag_cluster-master [ag_cluster]
-     Masters: [ <VM1> ]
-     Slaves: [ <VM2> <VM3> ]
-virtualip      (ocf::heartbeat:IPaddr2):       Stopped
- 
-Daemon Status:
-  corosync: active/enabled
-  pacemaker: active/enabled
-  pcsd: active/enabled
-```
+    You should see the following output:
 
-after fail VM1
+    ```
+    Location Constraints:
+    Ordering Constraints:
+          promote ag_cluster-master then start virtualip (kind:Mandatory) (id:order-ag_cluster-master-virtualip-mandatory)
+    Colocation Constraints:
+          virtualip with ag_cluster-master (score:INFINITY) (with-rsc-role:Master) (id:colocation-virtualip-ag_cluster-master-INFINITY)
+    Ticket Constraints:
+    ```
 
-```
-[<username>@<VM1> ~]$ sudo pcs resource
-Master/Slave Set: ag_cluster-master [ag_cluster]
-     Slaves: [ <VM1> <VM2> <VM3> ]
-virtualip      (ocf::heartbeat:IPaddr2):       Stopped
-```
+### Test failover
 
-To
+To ensure that the configuration has succeeded so far, we will test a failover. For more information, see [Always On Availability Group failover on Linux](/sql/linux/sql-server-linux-availability-group-failover-ha).
 
-```
-[<username>@<VM1> ~]$ sudo pcs resource
-Master/Slave Set: ag_cluster-master [ag_cluster]
-     ag_cluster (ocf::mssql:ag):        FAILED <VM1> (Monitoring)
-     Masters: [ <VM2> ]
-     Slaves: [ <VM3> ]
-virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
-[<username>@<VM1> ~]$ sudo pcs resource
-Master/Slave Set: ag_cluster-master [ag_cluster]
-     Masters: [ <VM2> ]
-     Slaves: [ <VM1> <VM3> ]
-virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
+1. Run the following command to manually failover the primary replica to `<VM2>`. Replace `<VM2>` with the value of your server name.
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master
+    ```
+
+1. If you check your constraints again, you'll see that another constraint was added because of the manual failover:
+
+    ```output
+    [<username>@VM1 ~]$ sudo pcs constraint list --full
+    Location Constraints:
+          Resource: ag_cluster-master
+            Enabled on: VM2 (score:INFINITY) (role: Master) (id:cli-prefer-ag_cluster-master)
+    Ordering Constraints:
+            promote ag_cluster-master then start virtualip (kind:Mandatory) (id:order-ag_cluster-master-virtualip-mandatory)
+    Colocation Constraints:
+            virtualip with ag_cluster-master (score:INFINITY) (with-rsc-role:Master) (id:colocation-virtualip-ag_cluster-master-INFINITY)
+    Ticket Constraints:
+    ```
+
+1. Remove the constraint with ID `cli-prefer-ag_cluster-master` using the following command:
+
+    ```bash
+    sudo pcs constraint remove cli-prefer-ag_cluster-master
+    ```
+
+1. Check your cluster resources using the command `sudo pcs resource`, and you should see that the primary instance is now `<VM2>`.
+
+    ```output
+    [<username>@<VM1> ~]$ sudo pcs resource
+    Master/Slave Set: ag_cluster-master [ag_cluster]
+         ag_cluster (ocf::mssql:ag):        FAILED <VM1> (Monitoring)
+         Masters: [ <VM2> ]
+         Slaves: [ <VM3> ]
+    virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
+    [<username>@<VM1> ~]$ sudo pcs resource
+    Master/Slave Set: ag_cluster-master [ag_cluster]
+         Masters: [ <VM2> ]
+         Slaves: [ <VM1> <VM3> ]
+    virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
+     
+    ```
  
-```
+## Configure the fencing agent
+
+A STONITH device provides a fencing agent. Follow the guide to [create a STONITH device](../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#create-stonith-device) for this cluster in Azure. The below instructions are modified for this tutorial.
  
-## Fencing
- 
-Check the version of the Azure Fence Agent
+[Check the version of the Azure Fence Agent to ensure that it's updated](../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#cluster-installation).
 
 ```bash
 [<username>@<VM1> ~]$  sudo yum info fence-agents-azure-arm
@@ -639,24 +675,28 @@ License     : GPLv2+ and LGPLv2+
 Description : The fence-agents-azure-arm package contains a fence agent for Azure instances.
 ```
 
-## Create STONITH device
-The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
+### Register a new application in Azure Active Directory
  
  1. Go to https://portal.azure.com
  2. Open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
 Go to Properties and write down the Directory ID. This is the `tenant ID`
- 3. Click [App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
- 4. Click New Registration
- 5. Enter a Name (<resourceGroupName>-app), select "Accounts in this organization directory only"
- 6. Select Application Type "Web", enter a sign-on URL (for example http://localhost) and click Add
-The sign-on URL is not used and can be any valid URL
- 7. Select Certificates and Secrets, then click New client secret
- 8. Enter a description for a new key (client secret), select "Never expires" and click Add
- 9. Write down the Value. It is used as the password for the Service Principal
-10. Select Overview. Write down the Application ID. It is used as the username (login ID in the steps below) of the Service Principal
+ 3. Click [**App registrations**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
+ 4. Click **New registration**
+ 5. Enter a **Name** like `<resourceGroupName>-app`, select **Accounts in this organization directory only**
+ 6. Select Application Type **Web**, enter a sign-on URL (for example http://localhost) and click Add. The sign-on URL is not used and can be any valid URL
+ 7. Select **Certificates and secrets**, then click **New client secret**
+ 8. Enter a description for a new key (client secret), select **Never expires** and click **Add**
+ 9. Write down the value of the secret. It is used as the password for the Service Principal
+10. Select **Overview**. Write down the Application ID. It is used as the username (login ID in the steps below) of the Service Principal
  
 ### Create a custom role for the fence agent
-on Node1, following https://docs.microsoft.com/en-us/azure/role-based-access-control/tutorial-custom-role-cli
+
+Follow the tutorial to [Create a custom role for Azure resources using Azure CLI](../role-based-access-control/tutorial-custom-role-cli.md).
+
+Your json file should look similar to the following:
+
+- Replace `<username>` with a name of your choice. This is to avoid any duplication when creating this role definition.
+- Replace `<subscriptionId>` with your Azure Subscription ID.
 
 ```json
 {
@@ -677,11 +717,18 @@ on Node1, following https://docs.microsoft.com/en-us/azure/role-based-access-con
 }
 ```
 
-Created a `LinuxFenceAgentRole.json` on `/home/<user>/clouddrive/CustomRoles`, run `az role definition create --role-definition "~/CustomRoles/LinuxFenceAgentRole.json"`
-Update the `Name` to avoid "A role definition cannot be updated with a name that already exists."
+To add the role, run the following command:
+
+- Replace `<filename>` with the name of the file.
+- If you are executing the command from a path other than the folder that the file is saved to, include the folder path of the file in the command.
 
 ```bash
-<user>@Azure:~/clouddrive/CustomRoles$ az role definition create --role-definition "LinuxFenceAgentRole.json"
+az role definition create --role-definition "<filename>.json"
+```
+
+You should see the following output:
+
+```output
 {
   "assignableScopes": [
     "/subscriptions/<subscriptionId>"
@@ -708,17 +755,27 @@ Update the `Name` to avoid "A role definition cannot be updated with a name that
 ```
 
 ### Assign the custom role to the Service Principal
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore!
+
+Assign the custom role `Linux Fence Agent Role-<username>` that was created in the last step to the Service Principal. Do not use the Owner role anymore!
  
 1. Go to https://portal.azure.com
 2. Open the [All resources blade](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll)
 3. Select the virtual machine of the first cluster node
-4. Click Access control (IAM)
-5. Click Add role assignment
-6. Select the role "Linux Fence Agent Role"
-7. Enter the name of the application you created above (<resourceGroupName>-app)
-8. Click Save
-Repeat the steps above for the all cluster node. (<resourceGroupName>-app was added as Linux Fence Agent Role-<username> for <VM3>.)
+4. Click **Access control (IAM)**
+5. Click **Add a role assignment**
+6. Select the role `Linux Fence Agent Role-<username>` from the **Role** list
+7. In the **Select** list, enter the name of the application you created above, `<resourceGroupName>-app`
+8. Click **Save**
+9. Repeat the steps above for the all cluster node.
+
+### Create and enable the STONITH devices
+
+Run the following commands on node 1:
+
+- Replace the `<ApplicationID>` with the ID value from your application registration.
+- Replace the `<servicePrincipalPassword>` with the value from the client secret.
+- Replace the `<resourceGroupName>` with the Resource Group from your subscription used for this tutorial.
+- Replace the `<tenantID>` and the `<subscriptionId>` from your Azure Subscription.
 
 ```bash
 sudo pcs property set stonith-timeout=900
@@ -726,70 +783,67 @@ sudo pcs stonith create rsc_st_azure fence_azure_arm login="<ApplicationID>" pas
 sudo pcs property set stonith-enabled=true
 ```
 
-Current
+Check the status of your cluster:
 
-```
+```output
+[<username>@VM1 ~]$ sudo pcs status
 Cluster name: az-hacluster
 Stack: corosync
-Current DC: <VM2> (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
-Last updated: Fri Aug 23 18:44:43 2019
-Last change: Fri Aug 23 18:44:38 2019 by root via cibadmin on <VM1>
+Current DC: <VM3> (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
+Last updated: Sat Dec  7 00:18:38 2019
+Last change: Sat Dec  7 00:18:02 2019 by root via cibadmin on VM1
+
 3 nodes configured
 5 resources configured
+
 Online: [ <VM1> <VM2> <VM3> ]
+
 Full list of resources:
- 
-Master/Slave Set: ag_cluster-master [ag_cluster]
-     Masters: [ <VM1> ]
-     Slaves: [ <VM2> <VM3> ]
-virtualip      (ocf::heartbeat:IPaddr2):       Started <VM1>
-rsc_st_azure   (stonith:fence_azure_arm):      Started <VM2>
+
+ Master/Slave Set: ag_cluster-master [ag_cluster]
+     Masters: [ <VM2> ]
+     Slaves: [ <VM1> <VM3> ]
+ virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
+ rsc_st_azure   (stonith:fence_azure_arm):      Started <VM1>
+
 Daemon Status:
   corosync: active/enabled
   pacemaker: active/enabled
   pcsd: active/enabled
 ```
 
-Open port 2224, 3121, 21064, 5405
+Open the following firewall ports on all nodes 2224, 3121, 21064, 5405:
 
-```
+```bash
 sudo firewall-cmd --zone=public --add-port=2224/tcp --add-port=3121/tcp --add-port=21064/tcp --add-port=5405/tcp --permanent
 sudo firewall-cmd --reload
 ```
 
 ## Test Fencing
-For Azure Fencing
 
-```
-[<username>@<VM2> ~]$ sudo pcs stonith describe fence_azure_arm
-fence_azure_arm - Fence agent for Azure Resource Manager
-```
+You can test STONITH by running the following command. Try running the below command from `<VM1>` for `<VM3>`.
 
-By default, the fence action bring the node off then on. If you want to bring the node offline only, use option `--off`
-
-```
-sudo pcs stonith fence <VM2> --debug
+```bash
+sudo pcs stonith fence <VM3> --debug
 ```
 
-Get
+> [!NOTE]
+> By default, the fence action brings the node off and then on. If you only want to bring the node offline, use the option `--off` in the command.
 
-```
-[<username>@<VM1> ~]$ sudo pcs stonith fence <VM2> --debug
-Running: stonith_admin -B <VM2>
+You should get the following output:
+
+```output
+[<username>@<VM1> ~]$ sudo pcs stonith fence <VM3> --debug
+Running: stonith_admin -B <VM3>
 Return Value: 0
 --Debug Output Start--
 --Debug Output End--
  
-Node: <VM2> fenced
+Node: <VM3> fenced
 ```
+For more information on testing a fence device, see the following [Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/s1-stonithtest-haar) article.
 
- 
-From [Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/s1-stonithtest-haar), test fencing with the pcs stonith fence command from any node (or even multiple times from different nodes). The `pcs stonith fence` command reads the cluster configuration from the CIB and calls the fence agent as configured to execute the fence action. This verifies that the cluster configuration is correct.
-`pcs stonith fence node_name`
-If the pcs stonith fence command works properly, that means the fencing configuration for the cluster should work when a fence event occurs.
- 
-# Add listener
- 
-Following <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener>
-<https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener>
-An availability group listener is a virtual network name that clients connect to for database access. On Azure virtual machines, a load balancer holds the IP address for the listener. The load balancer routes traffic to the instance of SQL Server that is listening on the probe port.
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Configure an availability group listener for your environment](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group)
