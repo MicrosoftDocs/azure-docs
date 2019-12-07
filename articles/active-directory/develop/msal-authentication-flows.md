@@ -39,7 +39,7 @@ This article describes the different authentication flows provided by Microsoft 
 
 ## How each flow emits tokens and codes
  
-Depending on how your client is built, it can use one (or several) of the authentication flows supported by the Microsoft identity platform.  These flows can produce a variety of tokens (id_tokens, refresh tokens, access tokens) as well as authorization codes, and require different tokens to make them work. This chart proides an overview:
+Depending on how your client is built, it can use one (or several) of the authentication flows supported by the Microsoft identity platform.  These flows can produce a variety of tokens (id_tokens, refresh tokens, access tokens) as well as authorization codes, and require different tokens to make them work. This chart provides an overview:
  
 |Flow | Requires | id_token | access token | refresh token | authorization code | 
 |-----|----------|----------|--------------|---------------|--------------------|
