@@ -1,5 +1,5 @@
 ---
-title: Custom Commands (Preview) - Speech Service
+title: Custom Commands (Preview) - Speech service
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for Custom Commands (Preview), a solution for creating voice assistants.
 services: cognitive-services
@@ -45,6 +45,6 @@ Once you are done with the quickstarts, explore our how-tos.
 
 ## Next steps
 
-* [Get a Speech Services subscription key for free](get-started.md)
+* [Get a Speech service subscription key for free](get-started.md)
 * [Go to the Speech Studio to try out Custom Commands](https://speech.microsoft.com)
 * [Get the Speech SDK](speech-sdk.md)
