@@ -1,5 +1,5 @@
 ---
-title: 'How To: Add a one-step correction to a Custom Command (Preview)'
+title: 'How To: Add a one-step correction to a Custom Command (Preview) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, add confirmation to a Custom Command
 services: cognitive-services
