@@ -29,9 +29,9 @@ Low-priority VMs are offered at a significantly reduced price compared with dedi
 > [!NOTE]
 > [Spot VMs](https://azure.microsoft.com/pricing/spot/) are now available for [single instance VMs](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) and [VM scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot). Spot VMs are an evolution of low-priority VMs, but differ in that pricing can vary and an optional maximum price can be set when allocating Spot VMs.
 >
-> Azure Batch will continue to support low-priority VMs for at least 12 months, to allow sufficient time for migration to Spot VMs. Azure Batch will start supporting Spot VMs in the first quarter of 2020 with new versions of the Batch APIs and tooling.
+> Azure Batch pools will start supporting Spot VMs in the first quarter of 2020 with new versions of the [Batch APIs and tools](https://docs.microsoft.com/azure/batch/batch-apis-tools). Low-priority VMs will continue to be supported, using current API and tool versions, for at least 12 months, to allow sufficient time for migration to Spot VMs. 
 >
-> Spot VMs will not be supported for [Cloud Service Configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) pools. To migrate to Spot VMs, Cloud Service pools will need to be migrated to [Virtual Machine Configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
+> Spot VMs will not be supported for [Cloud Service Configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) pools. To use Spot VMs, Cloud Service pools will need to be migrated to [Virtual Machine Configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
 
 
 ## Use cases for low-priority VMs
