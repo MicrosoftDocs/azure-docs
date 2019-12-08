@@ -14,33 +14,17 @@ ms.author: alkohli
 
 # Deploy VMs on your Azure Stack Edge device via Azure PowerShell
 
-You can create and manage virtual machines (VMs) on an Azure Stack Edge device using APIs. These APIs are standard Azure Resource Manager APIs called using the local Azure Stack Edge endpoint. The Azure Resource Manager APIs provide a consistent management layer that in this case enables you to create, update, and delete VMs in a local subscription that exists on the device. You can connect to the Azure Resource Manager running on Azure Stack Edge via Azure PowerShell cmdlets.
+[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-vm-overview.md)]
 
 This tutorial describes how to create and manage a VM on your Azure Stack Edge device using Azure PowerShell.
 
 ## VM deployment workflow
 
-
+<!--insert a diagram here for steps in VM deployment-->
 
 ## Prerequisites
 
-Before you can deploy VMs on your Azure Stack Edge device, you must configure your client to connect to the device via Azure Resource Manager over Azure PowerShell. For detailed steps, go to [Connect to your Azure Stack Edge device via Azure Resource Manager](azure-stack-edge-r-series-connect-resource-manager.md).
-
-Complete all the steps described in the procedure. Ensure that the following steps can be performed on your client that is accessing the device: 
-
-1. Verify that Azure Resource Manager communication is working. Type:     
-
-    ```powershell
-    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>:30005/
-    ```
-
-2. Call local device APIs to authenticate. Type: 
-
-    `login-AzureRMAccount -EnvironmentName <Environment Name>`
-
-    Provide the username - *EdgeARMuser* and the password to connect via Azure Resource Manager. 
-
-After the prerequisites are completely configured, proceed to deploy the VMs.
+[!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-vm-prerequisites.md)]
 
 
 ## Query for built in subscription on the device
@@ -446,17 +430,17 @@ Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 
 For more information on this cmdlet, go to [Remove-AzureRmVm cmdlet](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
 
-### Unsupported VM operations and cmdlets
-
-Extension, scale sets, availability sets, snapshots are not supported.
-
 ### List VMs running on the device
 
 To return a list of all the VMs running on your Azure Stack Edge device, run the following command.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName <String> -Name <String>  
-```
+Get-AzureRmVM -ResourceGroupName <String> -Name <String>
+```  
+
+### Unsupported VM operations and cmdlets
+
+Extension, scale sets, availability sets, snapshots are not supported.
 
 ## Supported VM sizes
 
