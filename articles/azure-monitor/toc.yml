@@ -497,21 +497,21 @@
         - name: Event Hubs
           displayname: Resource logs, Activity log, Platform logs
           href: platform/resource-logs-stream-event-hubs.md
-        - name: Legacy Activity log collection
-          items:
-          - name: Overview
-            href: platform/diagnostic-settings-legacy.md
-          - name: Collect and analyze
-            displayname: Activity log
-          - name: Collect and analyze
-            displayname: Activity log
-            href: platform/activity-log-collect.md
-          - name: Collect across tenants
-            displayname: Activity log
-            href: platform/activity-log-collect-tenants.md
-          - name: Export 
-            displayname: Activity log
-            href: platform/activity-log-export.md
+      - name: Legacy Activity log collection
+        items:
+        - name: Overview
+          href: platform/diagnostic-settings-legacy.md
+        - name: Collect and analyze
+          displayname: Activity log
+        - name: Collect and analyze
+          displayname: Activity log
+          href: platform/activity-log-collect.md
+        - name: Collect across tenants
+          displayname: Activity log
+          href: platform/activity-log-collect-tenants.md
+        - name: Export 
+          displayname: Activity log
+          href: platform/activity-log-export.md
     - name: Diagnostic settings
       items: 
       - name: Create diagnostic setting
