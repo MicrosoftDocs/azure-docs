@@ -117,7 +117,7 @@ If you want to bring your own static public IP addresses for the Azure-SSIS IR w
 
 -   The static public IP addresses should both have DNS names. If you have not setup the DNS name when creating the public IP address, you can also setup this in the Azure portal.
 
-![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicIP-DNS-name.png)
+![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicip-dns-name.png)
 
 -   The static public IP addresses and the virtual network should be under the same subscription and in the same region.
 
@@ -191,7 +191,7 @@ Make sure that you don't have an Azure policy that prevents the following resour
  
 - Can I add the static IP address of the Azure-SSIS IR to the firewall's allow list for the data source?
 
-    You are now able to bring your own static public IP addresses for the Azure-SSIS IR. In this case, you can add the provided IP addresses to the firewall's allow lists of your data sources. You can also consider below options to whitelist Azure-SSIS IR to access your data source depending on your scenario:
+    You are now able to bring your own static public IP addresses for the Azure-SSIS IR. In this case, you can add the provided IP addresses to the firewall's allow lists of your data sources. You can also consider below options to allow Azure-SSIS IR to access your data source depending on your scenario:
 
     - If your data source is on-premises, after you connect the virtual network to your on-premises network and join your Azure-SSIS IR into the virtual network subnet, you can add the IP range of that subnet to the allow list.
     - If your data source is an Azure service supported with a virtual network service endpoint, you can configure a virtual network service point on your virtual network and join your Azure-SSIS IR into that virtual network subnet. Then you can allow access by using the virtual network rule of the Azure services instead of the IP range.
@@ -203,9 +203,9 @@ Make sure that you don't have an Azure policy that prevents the following resour
     Azure-SSIS IR is automatically updated on a regular basis. New IR nodes are created during upgrade and the old nodes will be deleted. However, to avoid downtime, the old nodes will not be deleted until the new nodes are ready. Thus, your first public IP address used by the old nodes cannot be released immediately and we need another public IP address to create the new IR nodes.
 - I have brought my own static public IP addresses for the Azure-SSIS IR, but the IR still cannot access the data sources or resources.
 
-    - Confirm that the two static public IP addresses are both added to the allow list of your data sources or resources. After upgrade of the Azure-SSIS IR, the IR's public IP address is switched to the secondary public IP address. If you only whitelist one of them, the access may be broken after upgrade.
+    - Confirm that the two static public IP addresses are both added to the allow list of your data sources or resources. After upgrade of the Azure-SSIS IR, the IR's public IP address is switched to the secondary public IP address. If you only add one of them to the allow list, the access may be broken after upgrade.
 
-    - If you data source is an Azure service, please check whether you have setup the virtual network subnet with service endpoint. If service endpoints are set, the service traffic switches to use private addresses managed by Azure services as the source IP addresses when accessing the Azure service from a virtual network. In this case, the whitelisting of your own public IP addresses will not make effect.
+    - If your data source is an Azure service, please check whether you have setup the virtual network subnet with service endpoint. If service endpoints are set, the service traffic switches to use private addresses managed by Azure services as the source IP addresses when accessing the Azure service from a virtual network. In this case, the whitelisting of your own public IP addresses will not make effect.
 
 ## Azure portal (Data Factory UI)
 This section shows you how to join an existing Azure-SSIS IR to a virtual network (classic or Azure Resource Manager) by using the Azure portal and Data Factory UI. 

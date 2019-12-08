@@ -165,14 +165,14 @@ Besides the above virtual network issues, you may also meet static public IP add
 
 This error can occur for a variety of reasons when you start the Azure-SSIS IR:
 
-| Error Message | Solution|
+| Error message | Solution|
 |:--- |:--- |
 | The provided static public IP address is already used, please provide two unused ones for your Azure-SSIS Integration Runtime. | You should select two unused static public IP addresses or remove current references to the specified public IP address, and then restart the Azure-SSIS IR. |
 | The provided static public IP address has no DNS name, please provide two of them with DNS name for your Azure-SSIS Integration Runtime. | You can setup the DNS name of the public IP address in Azure portal, as the picture below shows. Specific steps are as follows: (1) Open Azure portal and goto the resource page of this public IP address; (2) Select the **Configuration** section and set up the DNS name, then click **Save** button; (3) Restart your Azure-SSIS IR. |
 | The provided VNet and static public IP addresses for your Azure-SSIS Integration Runtime must be in the same location. | According to the Azure Network's requirements, the static public IP address and the virtual network should be in the same location and subscription. Please provide two valid static public IP addresses and restart the Azure-SSIS IR. |
 | The provided static public IP address is a basic one, please provide two standard ones for your Azure-SSIS Integration Runtime. | Refer to [SKUs of Public IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) for help. |
 
-![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicIP-DNS-name.png)
+![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicip-dns-name.png)
 
 ### PublicIPResourceGroupLockedDuringStart
 
