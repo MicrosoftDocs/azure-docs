@@ -27,8 +27,11 @@ You need to [create a new workspace](../learn/quick-create-workspace.md) if you 
 ## Create a diagnostic setting
 Resource logs are not collected by default. Collect them in a Log Analytics workspace and other destinations by creating a diagnostic setting for an Azure resource. See [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md) for details.
 
-## Collection mode
-Data collected in a Log Analytics workspace is stored in tables as described in [Structure of Azure Monitor Logs](../log-query/logs-structure.md). The tables used by resource logs depend on what type of collection the resource is using:
+## Activity log collection
+Resource log data collected in a Log Analytics workspace is stored in the **AzureActivity** table. You can send the Activity log from any single subscription to up to five Log Analytics workspaces.
+
+## Resource log collection mode
+Resource log data collected in a Log Analytics workspace is stored in tables as described in [Structure of Azure Monitor Logs](../log-query/logs-structure.md). The tables used by resource logs depend on what type of collection the resource is using:
 
 - Azure diagnostics - All data written is to the _AzureDiagnostics_ table.
 - Resource-specific - Data is written to individual table for each category of the resource.

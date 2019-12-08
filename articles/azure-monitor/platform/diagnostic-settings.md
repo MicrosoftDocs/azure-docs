@@ -41,7 +41,7 @@ Platform logs can be sent to the destinations in the following table. The config
 ## Create diagnostic settings in Azure portal
 You can configure diagnostic settings in the Azure portal either from the Azure Monitor menu or from the menu for the resource.
 
-1. Where you condifure diagnostic settings in the Azure portal depends on the resource.
+1. Where you configure diagnostic settings in the Azure portal depends on the resource.
 
    - For a single resource, click **Diagnostic settings** under **Monitor** in the resource's menu.
 
@@ -76,7 +76,7 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
     ![Add diagnostic setting - existing settings](media/diagnostic-settings/setting-details.png)
 
-5. Check the box for each of the categories of data to send to the specified destinations. If you selected the option to **Archive to a storage account**, then you will also need to specify the [retention period](resource-logs-collect-storage.md#data-retention).
+5. Check the box for each of the categories of data to send to the specified destinations.
 
 
 
