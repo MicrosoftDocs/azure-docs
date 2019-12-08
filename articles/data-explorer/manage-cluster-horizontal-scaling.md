@@ -59,9 +59,9 @@ When your cluster approaches a state of over-utilization, scale out to maintain 
 
 **Scale in**
 
-When your cluster approaches a state of under-utilization, scale in to lower costs but maintain performance. Multiple metrics are used to verify that it's safe to scale in the cluster. The following rules are evaluated daily for 7 days prior to scale in:
+When your cluster approaches a state of under-utilization, scale in to lower costs but maintain performance. Multiple metrics are used to verify that it's safe to scale in the cluster. The following rules are evaluated daily for 7 days before scale in is performed:
 * The number of instances is above 2 but not above the maximum instance count.
-* To ensure that there is no overloading of resources, the following metrics must be verified prior to scale in: 
+* To ensure that there's no overloading of resources, the following metrics must be verified before scale in is performed: 
     * Cache utilization isn't high
     * Below average CPU
     * Below average ingestion utilization
@@ -71,7 +71,7 @@ When your cluster approaches a state of under-utilization, scale in to lower cos
     * Number of failed queries are below a defined minimum.
 
 > [!NOTE]
-> The scale in logic currently requires a 7-day evaluation prior to implementation of optimized scale in. This evaluation takes place once every 24 hours. If a quick change is needed, use [manual scale](#manual-scale).
+> The scale in logic currently requires a 7-day evaluation before implementation of optimized scale in. This evaluation takes place once every 24 hours. If a quick change is needed, use [manual scale](#manual-scale).
 
 ### Custom autoscale
 
