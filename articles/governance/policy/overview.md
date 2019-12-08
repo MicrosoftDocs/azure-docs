@@ -3,6 +3,7 @@ title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
 ms.date: 11/25/2019
 ms.topic: overview
+ms:custom: fasttrack-edit
 ---
 # What is Azure Policy?
 
@@ -91,10 +92,11 @@ To learn more about the structures of policy definitions, review
 
 A policy assignment is a policy definition that has been assigned to take place within a specific
 scope. This scope could range from a [management group](../management-groups/overview.md) to a
-resource group. The term *scope* refers to all the resource groups, subscriptions, or management
-groups that the policy definition is assigned to. Policy assignments are inherited by all child
-resources. This design means that a policy applied to a resource group is also applied to resources
-in that resource group. However, you can exclude a subscope from the policy assignment.
+resource group or an individual resource. The term *scope* refers to all the resources, resource
+groups, subscriptions, or management groups that the policy definition is assigned to. Policy
+assignments are inherited by all child resources. This design means that a policy applied to a
+resource group is also applied to resources in that resource group. However, you can exclude a
+subscope from the policy assignment.
 
 For example, at the subscription scope, you can assign a policy that prevents the creation of
 networking resources. You could exclude a resource group in that subscription that is intended for
