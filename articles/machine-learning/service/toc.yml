@@ -153,7 +153,7 @@
   - name: Work with data
     items:
     - name: Get data from a datastore
-      displayName: blob, get, fileshare, access storage
+      displayName: blob, get, fileshare, access storage, mount, download
       href: how-to-access-data.md
     - name: Add & register datasets
       displayName: data, dataset
@@ -301,11 +301,14 @@
       displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
     - name: Run batch predictions
-      displayName: score scoring asynchronous consume pipeline parallelrunstep inference
+      displayName: score scoring batch consume pipeline parallelrunstep inference
       href: how-to-run-batch-predictions.md
     - name: Designer batch predictions
       displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
       href: how-to-run-batch-predictions-designer.md
+    - name: Debug & troubleshoot batch predictions
+      displayName: debug_batch consume pipeline parallelrunstep inference
+      href: how-to-debug-batch-predictions.md
   - name: Monitor models
     items:
     - name: Collect & evaluate model data

@@ -1,18 +1,19 @@
 ---
-title: Configure customer-managed keys with Azure Key Vault by using the Azure portal - Azure Storage
+title: Use the Azure portal to configure customer-managed keys
+titleSuffix: Azure Storage
 description: Learn how to use the Azure portal to configure customer-managed keys with Azure Key Vault for Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/20/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Configure customer-managed keys for Azure Storage by using the Azure portal
+# Configure customer-managed keys with Azure Key Vault by using the Azure portal
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
