@@ -484,12 +484,10 @@
       - name: Overview
         displayName: Platform logs, Resource logs, Activity log
         href: platform/platform-logs-overview.md 
-      - name: Resource logs overview
+      - name: Resource logs
         href: platform/resource-logs-overview.md 
-      - name: Activity log overview
+      - name: Activity log
         href: platform/activity-logs-overview.md
-      - name: View Activity log
-        href: platform/activity-log-view.md
       - name: Collect in Azure Monitor Logs
         displayname: Resource logs, Activity log, Platform logs
         href: platform/resource-logs-collect-workspace.md
