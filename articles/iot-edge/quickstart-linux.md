@@ -8,7 +8,7 @@ ms.date: 07/09/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: "mvc, seodec18"
+ms.custom: mvc
 ---
 
 # Quickstart: Deploy your first IoT Edge module to a virtual Linux device

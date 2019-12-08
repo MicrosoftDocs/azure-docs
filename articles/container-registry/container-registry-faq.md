@@ -1,11 +1,7 @@
 ---
-title: Azure Container Registry - frequently asked questions
+title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Registry service 
-services: container-registry
 author: sajayantony
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya

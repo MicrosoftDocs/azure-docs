@@ -114,7 +114,7 @@ New-AzSqlDatabase `
 
 Required Parameters are:
 
-* **RequestedServiceObjectiveName**: The amount of [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) you're requesting. Increasing this amount increases compute cost. For a list of supported values, see [memory and concurrency limits]memory-concurrency-limits.md).
+* **RequestedServiceObjectiveName**: The amount of [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) you're requesting. Increasing this amount increases compute cost. For a list of supported values, see [memory and concurrency limits](memory-concurrency-limits.md).
 * **DatabaseName**: The name of the SQL Data Warehouse that you're creating.
 * **ServerName**: The name of the server that you're using for creation.
 * **ResourceGroupName**: Resource group you're using. To find available resource groups in your subscription use Get-AzureResource.

@@ -2,7 +2,7 @@
 title: How to create Guest Configuration policies
 description: Learn how to create an Azure Policy Guest Configuration policy for Windows or Linux VMs with Azure PowerShell.
 ms.date: 11/21/2019
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # How to create Guest Configuration policies
 
@@ -12,9 +12,8 @@ create the configuration for auditing of the Azure machines. The DSC configurati
 condition that the machine should be in. If the evaluation of the configuration fails, the Policy
 effect **auditIfNotExists** is triggered and the machine is considered **non-compliant**.
 
-[Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration) can only
-be used to audit settings inside machines. Remediation of settings inside machines isn't yet
-available.
+[Azure Policy Guest Configuration](../concepts/guest-configuration.md) can only be used to audit
+settings inside machines. Remediation of settings inside machines isn't yet available.
 
 Use the following actions to create your own configuration for validating the state of an Azure
 machine.

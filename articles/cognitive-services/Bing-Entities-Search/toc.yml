@@ -1,5 +1,5 @@
 - name: Bing Entity Search Documentation
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Overview
   items:
     - name: What is Bing Entity Search?

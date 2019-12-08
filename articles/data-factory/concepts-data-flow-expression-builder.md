@@ -1,11 +1,12 @@
 ---
-title: Azure Data Factory mapping data flow Expression Builder
+title: Mapping data flow Expression Builder
 description: The Expression Builder for Azure Data Factory mapping data flows
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/17/2019
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
 ---
 
 # Mapping data flow Expression Builder
@@ -45,6 +46,16 @@ Click the Refresh button to update the results of your expression against a live
 Add comments to your expressions using single line and multi-line comment syntax:
 
 ![Comments](media/data-flow/comments.png "Comments")
+
+## String interpolation
+
+Use double-quotes to enclose literal string text together with expressions. You can include expression functions, columns, and parameters. This is very useful to avoid extensive use of string concatenation when including parameters in query strings.
+
+* ```"My favorite movie is {iif(instr(title,', The')>0,"The {split(title,', The')[1]}",title)}"```
+
+* ```"select * from {$tablename} where orderyear > {$year}"```
+
+* ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 ## Regular Expressions
 
@@ -99,7 +110,13 @@ If you put a comment at the top of your expression, it will appear in the transf
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Note that to include string literals in your timestamp output, you need to wrap your conversion inside of a toString()
+Note that to include string literals in your timestamp output, you need to wrap your conversion inside of ```toString()```.
+
+Here is how to convert seconds from Epoch to a date or timestamp:
+
+```toTimestamp(1574127407*1000l)```
+
+Notice the trailing "l" at the end of the expression above. That signifies conversion to long as in-line syntax.
 
 ## Handling column names with special characters
 
