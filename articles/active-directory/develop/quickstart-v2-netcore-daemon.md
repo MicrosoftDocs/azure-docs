@@ -3,17 +3,13 @@ title: Get token & call Microsoft Graph with console app identity | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to get a token and call a protected Microsoft Graph API with it from a .NET Core app
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
