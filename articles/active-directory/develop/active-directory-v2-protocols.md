@@ -1,5 +1,5 @@
 ---
-title: Learn about the authorization protocols supported by Microsoft identity platform | Azure
+title: Authorization protocols supported by the Microsoft identity platform | Azure
 description: A guide to OAuth 2.0 and OpenID Connect protocols that are supported by the Microsoft identity platform endpoint.
 services: active-directory
 author: rwike77
