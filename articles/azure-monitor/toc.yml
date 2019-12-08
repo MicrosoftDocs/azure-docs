@@ -499,6 +499,10 @@
           href: platform/resource-logs-stream-event-hubs.md
         - name: Legacy Activity log collection
           items:
+          - name: Overview
+            href: platform/diagnostic-settings-legacy.md
+          - name: Collect and analyze
+            displayname: Activity log
           - name: Collect and analyze
             displayname: Activity log
             href: platform/activity-log-collect.md

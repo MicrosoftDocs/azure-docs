@@ -79,7 +79,7 @@ You should disable existing collection of the Activity before enabling it using 
 
 ### Disable log profile
 
-1. Use the procedure described in [Work with legacy settings](work-with-legacy-settings.md) to open legacy settings.
+1. Use the procedure described in [Work with legacy settings](#work-with-legacy-settings) to open legacy settings.
 2. Disable any current collection to storage or event hubs. 
 
 
