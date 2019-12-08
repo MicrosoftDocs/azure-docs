@@ -117,7 +117,7 @@ If you want to bring your own static public IP addresses for the Azure-SSIS IR w
 
 -   The static public IP addresses should both have DNS names. If you have not setup the DNS name when creating the public IP address, you can also setup this in the Azure portal.
 
-![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicip-dns-name.png)
+![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
 
 -   The static public IP addresses and the virtual network should be under the same subscription and in the same region.
 
