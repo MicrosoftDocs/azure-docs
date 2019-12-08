@@ -503,8 +503,6 @@
           href: platform/diagnostic-settings-legacy.md
         - name: Collect and analyze
           displayname: Activity log
-        - name: Collect and analyze
-          displayname: Activity log
           href: platform/activity-log-collect.md
         - name: Collect across tenants
           displayname: Activity log
