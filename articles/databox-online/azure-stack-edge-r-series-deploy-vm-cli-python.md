@@ -26,25 +26,13 @@ This tutorial describes how to create and manage a VM on your Azure Stack Edge d
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-vm-prerequisites.md)]
 
-## Step 1: Set up Azure CLI/Python development environment (client) 
+## Step 1: Set up Azure CLI/Python on the client
 
 ### Verify profile and install Azure CLI
 
 1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).
 
-2. Define the environment as Azure Stack Edge and the port to be used for Azure Resource Manager calls as -- 30005. You define the environment in two ways:
-
-    a. Set the environment. Type the following command:
-
-    ```powershell
-    Set-AzureRMEnvironment -Name <Environment Name>
-    ```
-    
-    For more information, go to [Set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
-
-    b. Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. If you didn't specify an environment, then by default, the calls would go through the Azure public.
-
-3. Install Azure CLI on your client. In this example, Azure CLI 2.0.76 was installed.
+2. Install Azure CLI on your client. In this example, Azure CLI 2.0.76 was installed.
 
     Verify the version of Azure CLI by running the `az --version` command. A sample output is shown below.
 
@@ -180,6 +168,8 @@ This tutorial describes how to create and manage a VM on your Azure Stack Edge d
     --debug 
     ```
     
-## Step 2: Use Azure CLI (Python) to create a VM (client)
+## Step 2: Create a VM 
+
+<!--Python script to create a VM-->
 
 ## Next steps
