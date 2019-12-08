@@ -484,30 +484,30 @@
       - name: Overview
         displayName: Platform logs, Resource logs, Activity log
         href: platform/platform-logs-overview.md 
-      - name: Resource logs
-        href: platform/resource-logs-overview.md 
-      - name: Activity log
-        href: platform/activity-logs-overview.md
-      - name: Collect in Azure Monitor Logs
-        displayname: Resource logs, Activity log, Platform logs
-        href: platform/resource-logs-collect-workspace.md
-      - name: Archive to storage
-        displayname: Resource logs, Activity log, Platform logs
-        href: platform/resource-logs-collect-storage.md
-      - name: Stream to Event Hubs
-        displayname: Resource logs, Activity log, Platform logs
-        href: platform/resource-logs-stream-event-hubs.md
-      - name: Legacy Activity log collection
+      - name: View Activity log
+        href: platform/activity-log-view.md
+      - name: Send to destinations
         items:
-        - name: Collect and analyze
-          displayname: Activity log
-          href: platform/activity-log-collect.md
-        - name: Collect across tenants
-          displayname: Activity log
-          href: platform/activity-log-collect-tenants.md
-        - name: Export 
-          displayname: Activity log
-          href: platform/activity-log-export.md
+        - name: Azure Monitor Logs
+          displayname: Resource logs, Activity log, Platform logs
+          href: platform/resource-logs-collect-workspace.md
+        - name: Azure storage
+          displayname: Resource logs, Activity log, Platform logs
+          href: platform/resource-logs-collect-storage.md
+        - name: Event Hubs
+          displayname: Resource logs, Activity log, Platform logs
+          href: platform/resource-logs-stream-event-hubs.md
+        - name: Legacy Activity log collection
+          items:
+          - name: Collect and analyze
+            displayname: Activity log
+            href: platform/activity-log-collect.md
+          - name: Collect across tenants
+            displayname: Activity log
+            href: platform/activity-log-collect-tenants.md
+          - name: Export 
+            displayname: Activity log
+            href: platform/activity-log-export.md
     - name: Diagnostic settings
       items: 
       - name: Create diagnostic setting
