@@ -77,6 +77,8 @@
   items:
   - name: Improve your secure score
     href: security-center-secure-score.md
+  - name: Use the enhanced Secure Score
+    href: secure-score-security-controls.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
   - name: Protect your servers with Microsoft Defender ATP

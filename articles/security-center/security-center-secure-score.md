@@ -21,7 +21,7 @@ ms.author: memildin
 > [!NOTE]
 > There is an enhanced Secure Score available in preview. The enhanced Secure Score will eventually replace the existing Secure Score, but for a while they will be running side-by-side to ease the transition.
 >
-> For details of the benefits of the enhanced Secure Score, see [here](secure-score-and-controls.md).
+> For details of the benefits of the enhanced Secure Score, see [here](secure-score-security-controls.md).
 >
 > To take part in the preview, open Azure Portal, launch Azure Security Center, and select Secure Score. From there, you will see a banner at the top of the page offering the new Secure Score experience. Alternatively, click [here](https://aka.ms/ascnewscore).
 

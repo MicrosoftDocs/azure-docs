@@ -101,9 +101,6 @@ No; it won't change until you remediate all of the recommendation for a single r
 ### Will this enhanced Secure Score replace the existing Secure Score? 
 Yes, but for a while they will be running side by side to ease the transition.
 
-### Can I access Secure Score via an API?
-An upcoming API will allow you to query a subscription's overall score as well as the current score per Security Control.
-
 ### If a recommendation is not applicable to me, and I disable it in the policy, will my Security Control be fulfilled and my Secure Score updated?
 Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security policies](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).
 
