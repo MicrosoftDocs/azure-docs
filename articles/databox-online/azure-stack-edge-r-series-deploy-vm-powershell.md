@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
+ms.topic: article
 ms.date: 12/04/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge device using APIs so that I can efficiently manage my VMs.
@@ -38,7 +38,7 @@ Complete all the steps described in the procedure. Ensure that the following ste
 
     `login-AzureRMAccount -EnvironmentName <Environment Name>`
 
-    Provide the username - EdgeARMuser and the password to connect via Azure Resource Manager. 
+    Provide the username - *EdgeARMuser* and the password to connect via Azure Resource Manager. 
 
 After the prerequisites are completely configured, proceed to deploy the VMs.
 
@@ -113,7 +113,7 @@ This subscription will be used to deploy the VMs.
 Create an Azure resource group with [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which the Azure resources such as storage account, disk, managed disk are deployed and managed.
 
 > [!IMPORTANT]
-> All the resources are created in the same location as that of the device and the location is set to DBELocal.
+> All the resources are created in the same location as that of the device and the location is set to **DBELocal**.
 
 ```powershell
 New-AzureRmResourceGroup -Name <Resource group name> -Location DBELocal
@@ -128,14 +128,14 @@ Successfully created Resource Group:rg191113014333
 
 ## Create a storage account
 
-Create a new storage account using the resource group created in the previous step. This is a local storage account that will be used to upload the virtual disk image for the VM.
+Create a new storage account using the resource group created in the previous step. This is a **local storage account** that will be used to upload the virtual disk image for the VM.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
 ```
 
 > [!NOTE]
-> Only local storage accounts such as Locally redundant storage (Standard\_LRS or Premium\_LRS) are supported.
+> Only the local storage accounts such as Locally redundant storage (Standard_LRS or Premium_LRS) can be created via Azure Resource Manager. To create tiered storage accounts, see the steps in [Add, connect to storage accounts on your Azure Stack Edge](azure-stack-edge-r-series-deploy-add-storage-accounts.md).
 
 A sample output is shown below.
 
@@ -192,11 +192,10 @@ You already added the blob URI in hosts file for the client that you are using t
 
 \<Azure consistent network services VIP \> \<storage name\>.blob.\<appliance name\>.\<dnsdomain\>
 
-The highlighted value corresponds to the blob service endpoint string.
 
 ## Install certificates
 
-If you are using *https*, then you need to install appropriate certificates on your device. In this case, install the blob endpoint certificate. For more information, see [Create and install certificates](#_Step_2:_Create_1).
+If you are using *https*, then you need to install appropriate certificates on your device. In this case, install the blob endpoint certificate. For more information, see how to create and upload certificates in [Manage certificates](azure-stack-edge-r-series-manage-certificates.md).
 
 ## Upload a VHD
 
@@ -379,7 +378,8 @@ You can now use the managed disk to create a VM and attach it to the virtual net
 ```powershell
 $pass = ConvertTo-SecureString "<Password>" -AsPlainText -Force;
 $cred = New-Object System.Management.Automation.PSCredential("<Enter username>", $pass)
-You will use this username, password to login to the VM, once created and powered up.
+
+You will use this username, password to login to the VM, once it is created and powered up.
 
 $VirtualMachine = New-AzureRmVMConfig -VMName <VM name> -VMSize "Standard_D1_v2"
 
@@ -399,6 +399,8 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 ```
 
 ## Connect to a VM
+
+After you have deployed a VM< you will connect to this VM.
 
 ## Manage VM
 
@@ -444,7 +446,7 @@ Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 
 For more information on this cmdlet, go to [Remove-AzureRmVm cmdlet](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
 
-### Unsupported VM operations/cmdlets
+### Unsupported VM operations and cmdlets
 
 Extension, scale sets, availability sets, snapshots are not supported.
 
@@ -476,3 +478,4 @@ The following Standard Dv2 series VMs are supported for creation on Azure Stack 
 For more information, go to [Dv2 series on General Purpose VM sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dv2-series).
 
 ## Next steps
+
