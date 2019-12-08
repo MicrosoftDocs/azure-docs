@@ -410,4 +410,4 @@ Verify that your device to client communication via Azure Resource Manager is wo
 
 ## Next steps
 
-[Deploy VMs on your Azure Stack Edge device](azure-stack-edge-r-series-placeholder.md).
+[Deploy VMs on your Azure Stack Edge device](azure-stack-edge-r-series-deploy-vm-powershell.md).
