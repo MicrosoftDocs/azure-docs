@@ -54,7 +54,7 @@ The following sections provide various exceptions/errors that are surfaced throu
 | BadRequest | none | The namespace 'namespace name' doesn't exist. | The namespace provided couldn't be found. | Double check that the namespace name is correct and can be found in your subscription. If it isn't, [create an Event Hubs namespace](event-hubs-create.md). | 
 | BadRequest | none | The location property of the resource doesn't match its containing Namespace. | Creating an event hub in a specific region failed because it didn't match the region of the namespace. | Try creating the event hub in the same region as the namespace. | 
 
-## Error code: Internal Server Error
+## Error code: Internal server error
 
 | Error code | Error subcode | Error message | Description | Recommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
