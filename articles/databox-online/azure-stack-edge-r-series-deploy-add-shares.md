@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/03/2019
+ms.date: 12/08/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
 ---
@@ -83,6 +83,34 @@ To create a share, do the following procedure:
 
 You can now connect to one or more of the shares that you created in the last step. Depending upon whether you have an SMB or an NFS share, the steps can vary.
 
+The first step is to ensure that the device name can be resolved when you are using SMB or NFS share.
+
+### Modify host file for name resolution
+
+You will now add the IP of the device and the device friendly name that you defined on the local web UI of device to:
+
+- The host file on the client, OR,
+- The host file on the DNS server
+
+> [!IMPORTANT]
+> We recommend that you modify the host file on the DNS server for the device name resolution.
+
+On your Windows client that you are using to connect to the device, take the following steps:
+
+1. Start **Notepad** as an administrator, and then open the **hosts** file located at `C:\Windows\System32\Drivers\etc`.
+
+    ![Windows Explorer hosts file](media/azure-stack-edge-r-series-deploy-add-shares/client-hosts-file-1.png)
+
+
+2. Add the following entry to your **hosts** file replacing with appropriate values for your device: 
+
+    ```
+    <Device IP>   <device friendly name>
+    ``` 
+    You can get the device IP from the **Network** and the device friendly name from the **Device** page in the local web UI. The following screenshot of the hosts file shows the entry:
+
+    ![Windows Explorer hosts file](media/azure-stack-edge-r-series-deploy-add-shares/client-hosts-file-1.png)
+
 ### Connect to an SMB share
 
 On your Windows Server client connected to your Azure Stack Edge device, connect to an SMB share by entering the commands:
@@ -99,23 +127,25 @@ On your Windows Server client connected to your Azure Stack Edge device, connect
    The sample output of this command is presented here.
 
     ```powershell
-    Microsoft Windows [Version 10.0.16299.192)
+    Microsoft Windows [Version 10.0.18363.476)
     (c) 2017 Microsoft Corporation. All rights reserved.
     
-    C: \Users\AzureStackEdgeUser>net use \\mytea1node\newtestuser /u:Tota11yNewUser
-    Enter the password for 'TotallyNewUser' to connect to 'mytea1node':
+    C: \Users\AzureStackEdgeUser>net use \\myasetest1\myasesmbshare1 /u:aseuser
+    Enter the password for 'aseuser' to connect to 'myasetest1':
     The command completed successfully.
     
     C: \Users\AzureStackEdgeUser>
     ```   
 
-
 3. On your keyboard, select Windows + R.
 
-4. In the **Run** window, specify the `\\<device IP address>`, and then select **OK**.  
+4. In the **Run** window, specify the `\\<device name>`, and then select **OK**.  
+
+    ![Windows Run dialog](media/azure-stack-edge-r-series-deploy-add-shares/run-window-1.png)
+
    File Explorer opens. You should now be able to view the shares that you created as folders. In File Explorer, double-click a share (folder) to view the content.
  
-    ![Connect to SMB share](./media/azure-stack-edge-r-series-deploy-add-shares/connect-to-share2.png)
+    ![Connect to SMB share](./media/azure-stack-edge-r-series-deploy-add-shares/file-explorer-smbshare-1.png)
 
     The data is written to these shares as it is generated and the device pushes the data to cloud.
 
