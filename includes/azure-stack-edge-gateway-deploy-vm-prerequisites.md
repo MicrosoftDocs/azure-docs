@@ -6,7 +6,7 @@ ms.date: 12/07/2019
 ms.author: alkohli
 ---
 
-Before you can deploy VMs on your Azure Stack Edge device, you must configure your client to connect to the device via Azure Resource Manager over Azure PowerShell. For detailed steps, go to [Connect to your Azure Stack Edge device via Azure Resource Manager](azure-stack-edge-r-series-connect-resource-manager.md).
+Before you can deploy VMs on your Azure Stack Edge device, you must configure your client to connect to the device via Azure Resource Manager over Azure PowerShell. For detailed steps, go to [Connect to Azure Resource Manager on your Azure Stack Edge device](../articles/databox-online/azure-stack-edge-r-series-connect-resource-manager.md).
 
 Complete all the steps described in the procedure. Ensure that the following steps can be performed on your client that is accessing the device: 
 
