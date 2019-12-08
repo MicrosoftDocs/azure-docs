@@ -38,7 +38,7 @@ For this tutorial, we'll be using the following:
 
 We'll be creating a vault named *saphanaVault*.
 
-```azurecli
+```azurecli-interactive
 az backup vault create --resource-group saphanaResourceGroup \
     --name saphanaVault \
     --location westus2
@@ -67,7 +67,7 @@ For the SAP HANA instance (the VM with SAP HANA installed on it) to be discovere
 
 Once the script is run, the SAP HANA instance can be registered with the recovery services vault we created earlier. To register the instance, use the [az backup container register]() cmdlet. *VMResourceId* is the resource ID of the VM that you created to install SAP HANA.
 
-```azurecli
+```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \
     --vault-name saphanaVault \
     --location westus2 \
@@ -95,7 +95,7 @@ Note that “name” in the above output refers to the container name, this cont
 
 The [az backup protectable-item list]() cmdlet lists out all the databases discovered on the SAP HANA instance that you registered in the previous step.
 
-```azurecli
+```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \
     --vault-name saphanaVault \
     --workload-type SAPHANA \
@@ -116,7 +116,7 @@ As you can see from the above output, the SID of the SAP HANA system is HXE. In 
 
 To protect and configure backup on a database, one at a time, we use the [az backup protection enable-for-azurewl]() cmdlet. Provide the name of the policy that you want to use. To create a policy using CLI, use the [az backup policy create](https://docs.microsoft.com//cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create) cmdlet. For this tutorial, we will be using the “sapahanaPolicy”policy.
 
-```azurecli
+```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
     --policy-name saphanaPolicy \
     --protectable-item-name saphanadatabase;hxe;hxe  \
@@ -145,7 +145,7 @@ While the above section details how to configure a scheduled backup, this sectio
 >[!NOTE]
 > The retention policy of an on-demand backup is determined by the underlying retention policy for the database.
 
-```azurecli
+```azurecli-interactive
 az backup protection backup-now --resource-group saphanaResourceGroup \
     --item-name saphanadatabase;hxe;hxe \
     --vault-name saphanaVault \
