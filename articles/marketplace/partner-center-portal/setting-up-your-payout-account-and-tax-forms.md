@@ -1,7 +1,7 @@
 ---
 Description: In order to receive money from offer sales in the commercial marketplace, you need to set up your payout account and fill out the necessary tax forms.
 title: Set up your payout account and tax forms
-ms.date: 09/24/2019
+ms.date: 12/10/2019
 ms.topic: article
 author: qianw211
 manager: evansma
@@ -152,10 +152,10 @@ Once the payout has been submitted to your bank, you have 30 days to submit a Fo
 
 #### Russia
 
-If you’re a developer who lives in Russia, you may need to provide documentation to your bank before your bank will deposit funds into your account. When you’re eligible to be paid, we will provide you with the following documentation in an email message:
+If you’re a publisher who lives in Russia, you may need to provide documentation to your bank before your bank will deposit funds into your account. When you’re eligible to be paid, we will provide you with the following documentation in an email message:
 
 1. Acceptance Certificate (AC) – contains the amount of payout being transferred to your account.
-2. [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560)  – a signed copy of the developer agreement that needs to be counter signed.
+2. [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560)  – a signed copy of the publisher agreement that needs to be counter signed.
 
 To ensure your payout is successful, please also keep in mind the following:
 
@@ -166,10 +166,10 @@ To ensure your payout is successful, please also keep in mind the following:
 
 #### Ukraine
 
-If you’re a developer who lives in Ukraine, you may need to provide documentation to your bank before your bank will deposit funds into your account. When you’re eligible to be paid, we will provide you with the following documentation in an email message:
+If you’re a publisher who lives in Ukraine, you may need to provide documentation to your bank before your bank will deposit funds into your account. When you’re eligible to be paid, we will provide you with the following documentation in an email message:
 
 1. Acceptance Certificate (AC) – contains the amount of payout being transferred to your account.
-2. [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) – a signed copy of the developer agreement that needs to be counter signed.
+2. [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) – a signed copy of the publisher agreement that needs to be counter signed.
 3. Amendment Agreement (AA) – this document can be used by your bank to help identify your payout funds.
 
 Microsoft provides all three documents when your first payout is attempted. For any subsequent payouts, you will only receive the AC document. Please retain the ADA and AA documents in case you need them to receive future payouts from your bank.

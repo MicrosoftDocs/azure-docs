@@ -6,7 +6,7 @@ manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 12/10/2019
 ---
 # Getting paid
 Here’s some important info about receiving payment for your offers, add-ons, and advertising earnings.

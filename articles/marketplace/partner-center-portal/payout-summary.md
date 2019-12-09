@@ -6,7 +6,7 @@ manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: guide
-ms.date: 11/21/2019
+ms.date: 12/10/2019
 ---
 
 # Payout reporting
@@ -18,16 +18,23 @@ If you sell offerings in the Azure Marketplace, you’ll also see info on succes
 > [!NOTE]
 > To be eligible for payout, your proceeds must reach the [payment threshold](payment-thresholds-methods-and-timeframes.md) of $50. For details about the payment threshold see this page and review the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
+- Payout report: difference between Cloud Partner Portal and Partner Center
+- Customer types
+- Corelation between Payout and Usage
+- Transaction history download
+- Billing questions and support
+
 ## Payout report: difference between Cloud Partner Portal and Partner Center
 
-| | |
-|---------|---------|
-| https://cloudpartner.azure.com/ | https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory and https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| Payout reporting provided in Insights Payout | Payout reporting provided in Partner Center – Payout Icon |
-| Scope of Payout <br> <ul> <li>Transaction per line item is visible, for collection in progress, collected, and paid </li> <li>Reporting – shows all line items once purchase order is created, including collection in progress  and billing in Progress, and collection status and line items that are not yet eligible to be paid. </li> </ul> | Scope of Payout <br> <ul> <li>Shows the line items once they are deemed as eligible earnings.</li> <li>The customers pay to Microsoft first, and then ISVs can see the payout report starting.</li> <li>Payout report will not show collection in progress and billing in progress.  </li> </ul>  |
-| Billing in Progress | Next estimated payment: This means the payout status is in the unprocessed state.  |
+| | Cloud Partner Portal | Partner Center |
+|---------|---------|---------|
+| Links | https://cloudpartner.azure.com/ | https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory and https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| Navigation | Payout reporting provided in Insights Payout | Payout reporting provided in Partner Center – Payout Icon |
+| Scope | <ul> <li>Transaction per line item is visible, for collection in progress, collected, and paid </li> <li>Reporting – shows all line items once purchase order is created, including collection in progress  and billing in Progress, and collection status and line items that are not yet eligible to be paid. </li> </ul> | <ul> <li>Shows the line items once they are deemed as eligible earnings.</li> <li>The customers pay to Microsoft first, and then ISVs can see the payout report starting.</li> <li>Payout report will not show collection in progress and billing in progress.  </li> </ul>  |
+| Transaction not ready for payout | Billing in Progress | Next estimated payment: This means the payout status is in the unprocessed state.  |
+| Payout status |  | Unprocessed: <br> The earning is eligible for payment. It stays in this state for a cooling period as defined in the program guide for the Incentive program. <br> <br> Upcoming: <br> Payment order generated pending internal reviews before payment is processed. <br> <br> Sent: <br> The payment has been sent to your bank. |
 
-## Customer invoicing, payment, billing and collections 
+## Customer types 
 
 ### Enterprise agreement
 
@@ -39,11 +46,13 @@ Customers can also pay using a credit card and a monthly invoice. In this case, 
 
 ### CSP and Direct Pay Users
 
-For example, if the customer purchases using a credit card:
+For example, if the customer purchases using a credit card.
+
+## Corelation between payout and usage 
 
 |Description    |    Date  | Orders/Usage  | Payout |
 |----------|----------|-----------|-------------|
-|Order Period   | Aug 15, 2019 - Aug 30, 2019 | **Orders report** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Usage report** <br> <ul> <li>CustomerId </li> <li>Customer Name</li> <li>(UsageReference)PurchaseRecordId/LineItemId</li> <li> Estimated Extended Charge <br> Estimated Payout (PC) </li> </ul> |  |
+|Order Period   | Aug 15, 2019 - Aug 30, 2019 | **Correlation Attributes Orders** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Usage** <br> <ul> <li>CustomerId </li> <li>Customer Name</li> <li>(UsageReference)PurchaseRecordId/LineItemId</li> <li> Estimated Extended Charge <br> Estimated Payout (PC) </li> </ul> |  |
 |Term Ending (month)   | Aug 30, 2019 | | |
 |Billing Date | Sept 1, 2019 | | |
 |Customer Payment Date | Sept 1, 2019 | | |
@@ -57,7 +66,7 @@ For example, if the customer purchases using a credit card:
 
 | Description |    Date  | Usage | Payout |
 |----------|----------|---------|-----------|
-|Order Period | Aug 15, 2019 - Aug 30, 2019 | **Orders report** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Usage report** <br> <ul> <li>CustomerId </li> <li>Customer Name</li> <li>(UsageReference)PurchaseRecordId/LineItemId</li> <li> Estimated Extended Charge <br> Estimated Payout (PC) </li> </ul> | |
+|Order Period | Aug 15, 2019 - Aug 30, 2019 | **Correlation attributes orders** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Usage report** <br> <ul> <li>CustomerId </li> <li>Customer Name</li> <li>(UsageReference)PurchaseRecordId/LineItemId</li> <li> Estimated Extended Charge <br> Estimated Payout (PC) </li> </ul> | |
 |Term Ending (quarter) | Sept 30, 2019 | | |
 |Billing Date | Oct 15, 2019 | | |
 |Escrow Period (credit cards only, 30 days) | n/a | | |
@@ -164,8 +173,7 @@ When subscription or Pay-as-You-Go pricing models are selected, Microsoft acts a
 
 ## Transaction history download export
 
-- The Store users the threshold is $50. 
-- This option provides a download of each earning line item you see in the Transaction history page, earning type, date, associated transaction amount, customer, product, and other transactional details applicable to the Incentives program. 
+This option provides a download of each earning line item you see in the Transaction history page, earning type, date, associated transaction amount, customer, product, and other transactional details applicable to the Incentives program. 
 
 | Column name     | Description    | 
 |-------------|-------------------------------|
