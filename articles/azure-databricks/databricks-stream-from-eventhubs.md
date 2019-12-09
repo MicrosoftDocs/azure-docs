@@ -134,7 +134,7 @@ In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You als
 
    ![Add library dialog box](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "Add library install new")
 
-2. In the New Library page, for **Source** select **Maven**. Individually enter the following coordinates for the Spark Event Hubs connector and the Twitter API into **Coordinates** and select **Install**.
+2. In the New Library page, for **Source** select **Maven**. Individually enter the following coordinates for the Spark Event Hubs connector and the Twitter API into **Coordinates**.
 
    * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.12`
    * Twitter API - `org.twitter4j:twitter4j-core:4.0.7`
