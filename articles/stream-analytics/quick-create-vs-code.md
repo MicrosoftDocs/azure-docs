@@ -142,7 +142,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 Before running the query in the cloud, you can test your query locally with an existing local sample data file or data captured from live input to verify the query logic.
 
-Follow the instructions in [Test query locally with sample data](vscode-local-run.md) for more details.
+Follow the instructions in [Test query locally with sample data](visual-studio-code-local-run.md) for more details.
 
  ![Test with sample data in VS Code](./media/vscode-local-run/localrun-localinput.gif)
 
@@ -273,7 +273,7 @@ In this quickstart, you deployed a simple Stream Analytics job using Visual Stud
 
 To learn about Azure Stream Analytics tools for Visual Studio Code, continue to the following article:
 
-* [Test Azure Stream Analytics jobs locally with live input with Visual Studio Code](vscode-local-run-live-input.md)
+* [Test Azure Stream Analytics jobs locally with live input with Visual Studio Code](visual-studio-code-local-run-live-input.md)
 
 * [Use Visual Studio Code to view Azure Stream Analytics jobs](vscode-explore-jobs.md)
 

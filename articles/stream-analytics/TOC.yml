@@ -189,9 +189,9 @@
   - name: Visual Studio Code
     items:
     - name: Test locally with sample data
-      href: vscode-local-run.md
+      href: visual-studio-code-local-run.md
     - name: Test locally with live data
-      href: vscode-local-run-live-input.md
+      href: visual-studio-code-local-run-live-input.md
     - name: Set up CI/CD pipeline
       href: setup-cicd-vs-code.md
     - name: Explore jobs

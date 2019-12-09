@@ -76,6 +76,6 @@ The result is shown in the right window. You can click **Run** to test again. Yo
 
 ## Next steps
 
-* [Test Azure Stream Analytics jobs locally with live input using Visual Studio Code](vscode-local-run-live-input.md)
+* [Test Azure Stream Analytics jobs locally with live input using Visual Studio Code](visual-studio-code-local-run-live-input.md)
 
 * [Explore Azure Stream Analytics jobs with Visual Studio Code (Preview)](vscode-explore-jobs.md)
