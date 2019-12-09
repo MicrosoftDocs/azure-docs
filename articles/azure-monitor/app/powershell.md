@@ -357,75 +357,7 @@ You can also set the pricing plan on an existing Application Insights resource u
 
 ## Add a metric alert
 
-To set up a metric alert at the same time as your app resource, merge code like this into the template file:
-
-```JSON
-{
-    parameters: { ... // existing parameters ...
-            "responseTime": {
-              "type": "int",
-              "defaultValue": 3,
-              "minValue": 1,
-              "metadata": {
-                "description": "Enter response time threshold in seconds."
-              }
-    },
-    variables: { ... // existing variables ...
-      // Alert names must be unique within resource group.
-      "responseAlertName": "[concat('ResponseTime-', toLower(parameters('appName')))]"
-    }, 
-    resources: { ... // existing resources ...
-     {
-      //
-      // Metric alert on response time
-      //
-      "name": "[variables('responseAlertName')]",
-      "type": "Microsoft.Insights/alertrules",
-      "apiVersion": "2014-04-01",
-      "location": "[parameters('appLocation')]",
-      // Ensure this resource is created after the app resource:
-      "dependsOn": [
-        "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
-      ],
-      "tags": {
-        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
-      },
-      "properties": {
-        "name": "[variables('responseAlertName')]",
-        "description": "response time alert",
-        "isEnabled": true,
-        "condition": {
-          "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
-          "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
-          "dataSource": {
-            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
-            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-            "resourceUri": "[resourceId('microsoft.insights/components', parameters('appName'))]",
-            "metricName": "request.duration"
-          },
-          "threshold": "[parameters('responseTime')]", //seconds
-          "windowSize": "PT15M" // Take action if changed state for 15 minutes
-        },
-        "actions": [
-          {
-            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
-            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-            "sendToServiceOwners": true,
-            "customEmails": []
-          }
-        ]
-      }
-    }
-}
-```
-
-When you invoke the template, you can optionally add this parameter:
-
-    `-responseTime 2`
-
-You can of course parameterize other fields. 
-
-To find out the type names and configuration details of other alert rules, create a rule manually and then inspect it in [Azure Resource Manager](https://resources.azure.com/). 
+To automate the creation of metric alerts consult the [metric alerts template article](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
 
 
 ## Add an availability test
