@@ -124,13 +124,13 @@ Once the client is created, use this client to access functionality including:
 
 These code snippets show you how to do the following with the Language Understanding (LUIS) prediction runtime client library for .NET:
 
-* [Prediction by slot](#prediction-by-slot)
+* [Prediction by slot](#get-prediction-by-runtime)
 
 ## Add the dependencies
 
 From the project directory, open the *Program.cs* file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
 
-[!code-csharp[Using statements](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3xLUIS.cs?name=snippet_using)]
+[!code-csharp[Using statements](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/LUIS.cs?name=snippet_using)]
 
 ## Authenticate the client
 
@@ -142,27 +142,27 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 
     Create a variable for the app ID as an environment variable named `LUIS_APP_ID`. Set the environment variable to the public IoT app, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`.
 
-       [!code-csharp[Create variables](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3xLUIS.cs?name=snippet_variables)]
+       [!code-csharp[Create variables](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/LUIS.cs?name=snippet_variables)]
 
-1. Create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [LUISRuntimeClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) object.
+1. Create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [LUISRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) object.
 
-    [!code-csharp[Create LUIS client object](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3xLUIS.cs?name=snippet_create_client)]
+    [!code-csharp[Create LUIS client object](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/LUIS.cs?name=snippet_create_client)]
 
 ## Get prediction from runtime
 
 Add the following method to create the request to the prediction runtime.
 
-The user utterance is part of the [PredictionRequest](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.predictionrequest?view=azure-dotnet) object.
+The user utterance is part of the [PredictionRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.predictionrequest?view=azure-dotnet) object.
 
 The **GetSlotPredictionAsync** method needs several parameters such as the app ID, the slot name, the prediction request object to fulfill the request. The other options such as verbose, show all intents, and log are optional.
 
-[!code-csharp[Create method to get prediction runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3xLUIS.cs?name=snippet_maintask)]
+[!code-csharp[Create method to get prediction runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/LUIS.cs?name=snippet_maintask)]
 
 ## Main code for the prediction
 
 Use the following main method to tie the variables and methods together to get the prediction.
 
-[!code-csharp[Create method to get prediction runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3xLUIS.cs?name=snippet_main)]
+[!code-csharp[Create method to get prediction runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/LUIS.cs?name=snippet_main)]
 
 ## Run the application
 
@@ -174,7 +174,7 @@ dotnet run
 
 ## Clean up resources
 
-When you are done with your predictions, clean up the work from this quickstart by deleting the program.cs file and its subdirectories. 
+When you are done with your predictions, clean up the work from this quickstart by deleting the program.cs file and its subdirectories.
 
 ## Next steps
 
