@@ -18,11 +18,11 @@ If you sell offerings in the Azure Marketplace, you’ll also see info on succes
 > [!NOTE]
 > To be eligible for payout, your proceeds must reach the [payment threshold](payment-thresholds-methods-and-timeframes.md) of $50. For details about the payment threshold see this page and review the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
-- Payout report: difference between Cloud Partner Portal and Partner Center
-- Customer types
-- Corelation between Payout and Usage
-- Transaction history download
-- Billing questions and support
+- [Payout report: difference between Cloud Partner Portal and Partner Center](#payout-report-difference-between-cloud-partner-portal-and-partner-center)
+- [Customer types](#customer-types)
+- [Corelation between payout and usage](#corelation-between-payout-and-usage)
+- [Transaction history download](#transaction-history-download-export)
+- [Billing questions and support](#billing-questions-and-support)
 
 ## Payout report: difference between Cloud Partner Portal and Partner Center
 
