@@ -49,4 +49,4 @@ To assign the policy to the required scope, please follow the below steps:
 
 ## Next Steps
 
-[Learn more about Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview)
+[Learn more about Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
