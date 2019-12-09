@@ -35,7 +35,7 @@ In cases where an expression or a literal value are valid inputs, 'add dynamic c
 
 Mapping data flows has built in functions and operators that can be used in expressions. A list of available functions is found in the [mapping data flow expression language](data-flow-expression-functions.md) reference page.
 
-## Handling column names with special characters
+## Column names with special characters
 
 When you have column names that include special characters or spaces, surround the name with curly braces to reference them in an expression.
 
