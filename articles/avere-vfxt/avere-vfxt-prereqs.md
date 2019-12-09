@@ -32,7 +32,7 @@ There are some workaround scenarios that allow a non-owner to create an Avere vF
 | Scenario | Restrictions | Access roles required to create the Avere vFXT cluster |
 |----------|--------|-------|
 | Resource group administrator | The virtual network, cluster controller, and cluster nodes must be created within the resource group | [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles, both scoped to the target resource group |
-| External vnet | The cluster controller and cluster nodes are created within the resource group but an existing virtual network in a different resource group is used | (1) [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles scoped to the vFXT resource group; and (2) [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator), and [Avere Contributor](../role-based-access-control/built-in-roles.md#avere-contributor) roles scoped to the VNET resource group. |
+| External virtual network | The cluster controller and cluster nodes are created within the resource group but an existing virtual network in a different resource group is used | (1) [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles scoped to the vFXT resource group; and (2) [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator), and [Avere Contributor](../role-based-access-control/built-in-roles.md#avere-contributor) roles scoped to the virtual network's resource group. |
 
 An alternative is to create a custom role-based access control (RBAC) role ahead of time and assign privileges to the user, as explained in [this article](avere-vfxt-non-owner.md). This method gives significant permissions to these users.
 
@@ -76,7 +76,7 @@ To accept the software terms in advance:
 
 A [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) keeps Azure Blob traffic local instead of routing it outside the virtual network. It is recommended for any Avere vFXT for Azure cluster that uses Azure Blob for back-end data storage.
 
-If you are providing an existing vnet and creating a new Azure Blob container for your back-end storage as part of the cluster creation, you must have a service endpoint in the vnet for Microsoft storage. This endpoint must exist before creating the cluster, or the creation will fail.
+If you are providing an existing virtual network and creating a new Azure Blob container for your back-end storage as part of the cluster creation, you must have a service endpoint in the network for Microsoft storage. This endpoint must exist before creating the cluster, or the creation will fail.
 
 A storage service endpoint is recommended for any Avere vFXT for Azure cluster that uses Azure Blob storage, even if you add the storage later.
 
@@ -87,11 +87,12 @@ A storage service endpoint is recommended for any Avere vFXT for Azure cluster t
 
 Create the storage service endpoint from the Azure portal.
 
-1. From the portal, click **Virtual networks** on the left.
-1. Select the vnet for your cluster.
-1. Click **Service endpoints** on the left.
+1. In the portal, open your list of virtual networks.
+1. Select the virtual network for your cluster.
+1. Click **Service endpoints** from the left menu.
 1. Click **Add** at the top.
-1. Leave the service as ``Microsoft.Storage`` and choose the cluster's subnet.
+1. Choose the service ``Microsoft.Storage``.
+1. Select the cluster's subnet.
 1. At the bottom, click **Add**.
 
    ![Azure portal screenshot with annotations for the steps of creating the service endpoint](media/avere-vfxt-service-endpoint.png)

@@ -92,17 +92,17 @@ The second page of the deployment template allows you to set the cluster size, n
 
   The recommended configuration is to use 4 TB per node for Standard_E32s_v3 nodes.
 
-* **Virtual network** - Define a new vnet to house the cluster, or select an existing vnet that meets the prerequisites described in [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md#subscription-resource-group-and-network-infrastructure).
+* **Virtual network** - Define a new virtual network to house the cluster, or select an existing network that meets the prerequisites described in [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md#subscription-resource-group-and-network-infrastructure).
 
   > [!NOTE]
-  > If you create a new vnet, the cluster controller will have a public IP address so that you can access the new private network. If you choose an existing vnet, the cluster controller is configured without a public IP address.
+  > If you create a new virtual network, the cluster controller will have a public IP address so that you can access the new private network. If you choose an existing virtual network, the cluster controller is configured without a public IP address.
   >
   > A publicly visible IP address on the cluster controller provides easier access to the vFXT cluster, but creates a small security risk.
   >* A public IP address on the cluster controller allows you to use it as a jump host to connect to the Avere vFXT cluster from outside the private subnet.
   >* If you do not set up a public IP address on the controller, you must use another jump host, a VPN connection, or ExpressRoute to access the cluster. For example, create the controller within a virtual network that already has a VPN connection configured.
   >* If you create a controller with a public IP address, you should protect the controller VM with a network security group. By default, the Avere vFXT for Azure deployment creates a network security group and restricts inbound access to only port 22 for controllers with public IP addresses. You can further protect the system by locking down access to your range of IP source addresses - that is, only allow connections from machines you intend to use for cluster access.
 
-  The deploy template also configures the new vnet with a storage service endpoint for Azure Blob storage and with network access control locked to only IPs from the cluster subnet.
+  The deploy template also configures the new virtual network with a storage service endpoint for Azure Blob storage and with network access control locked to only IPs from the cluster subnet.
 
 * **Subnet** - Choose a subnet from your existing virtual network, or create a new one.
 
