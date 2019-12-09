@@ -1,5 +1,5 @@
 ---
-title: Getting paid in commercial marketplace
+title: Getting paid in commercial marketplace | Azure Marketplace
 description: Learn about receiving payments for your earnings in the commercial marketplace.
 author: qianw211
 manager: evansma

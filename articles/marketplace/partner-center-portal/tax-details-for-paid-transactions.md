@@ -1,6 +1,6 @@
 ---
 Description: To understand your tax considerations for price selection, payout implications, and tax responsibility, see your countries/regions of distribution in the tables below.
-title: Tax details
+title: Tax details | Azure Marketplace
 ms.date: 12/10/2019
 ms.topic: article
 author: qianw211

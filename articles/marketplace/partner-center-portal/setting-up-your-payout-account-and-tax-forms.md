@@ -1,6 +1,6 @@
 ---
 Description: In order to receive money from offer sales in the commercial marketplace, you need to set up your payout account and fill out the necessary tax forms.
-title: Set up your payout account and tax forms
+title: Set up your payout account and tax forms | Azure Marketplace
 ms.date: 12/10/2019
 ms.topic: article
 author: qianw211
@@ -39,10 +39,10 @@ You can complete and submit your tax forms electronically in Partner Center; in 
 > [!IMPORTANT]
 > Different countries and regions have different tax requirements. The exact amount that you must pay in taxes depends on the countries and regions where you sell your offer. See the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) to find out for which countries Microsoft remits sales and use tax on your behalf. In other countries, depending on where you are registered, you may need to remit sales and use tax for your offer sales directly to the local taxing authority. In addition, the app sales proceeds you receive may be taxable as income. We strongly encourage you to contact the relevant authority for your country or region that can best help you determine the right tax info for your commercial marketplace activities.
 
-1. In [Partner Center](https://partner.microsoft.com/dashboard), select the **Account settings** icon in the top right corner, then select **Developer settings**.
+1. In [Partner Center](https://partner.microsoft.com/dashboard), select the **Account settings** icon in the top-right corner, then select **Developer settings**.
 2. In the left navigation menu, select **Payout and tax**, then select **Payout and tax assignments**.
 
-3. Select the program and seller id combination for which you want to configure tax information.
+3. Select the program and seller ID combination for which you want to configure tax information.
 
 4. If you would like to use an existing tax profile, select it from the dropdown. Otherwise, select **Create new profile** and press **Submit**. You will be taken to the tax profiles page.
 5. Click the **Edit** button to edit your tax information.
@@ -69,11 +69,11 @@ If you are outside the United States, you may be able to take advantage of tax t
 A payout account is the bank account to which we send the proceeds from your sales. You can view all payment accounts that you have entered on the Profile page.
 
 > [!NOTE]
-> In some markets, PayPal can be used for your payout account. See [Payment thresholds, methods, and timeframes](payment-thresholds-methods-and-timeframes.md) to find out if PayPal is supported for a specific market, and read the [PayPal info](#paypal-info) below for more details.
+> In some markets, PayPal can be used for your payout account. To find out if PayPal is supported for a specific market, see [Payment thresholds, methods, and timeframes](payment-thresholds-methods-and-timeframes.md) and the [PayPal info](#paypal-info) below for more details.
 
 ### Create a payment profile
 
-1. In [Partner Center](https://partner.microsoft.com/dashboard), select the **Settings** gear icon in the top right corner, then select **Developer settings**.
+1. In [Partner Center](https://partner.microsoft.com/dashboard), select the **Settings** gear icon in the top-right corner, then select **Developer settings**.
 2. Underneath the *Payout and tax* heading, select **Payout and tax profile assignment**.
 
     > [!NOTE]
@@ -106,7 +106,7 @@ If you elected to use a bank account to receive payouts, you'll complete the fol
 > [!NOTE]
 > Microsoft may take up to 48 hours to validate the information in your profile. When this process is complete *verification status* will show **Complete**
 
-To ensure your payout is successful, please also keep in mind the following:
+To ensure your payout is successful, make sure:
 
 - The **Account holder name** entered for your payout account in Partner Center must be the exact same name associated with your bank account. For example, if your bank account name contains a middle name, add a middle name to your **Account holder name**.
 - Payouts are transferred directly from Microsoft to your bank account in USD currency.
@@ -116,7 +116,7 @@ To ensure your payout is successful, please also keep in mind the following:
 
 You can edit existing payment profiles if you need to make changes or correct any incorrect information.
 
-1. In [Partner Center](https://partner.microsoft.com/dashboard), select the **Settings** gear icon in the top right corner, then select **Developer settings**.
+1. In [Partner Center](https://partner.microsoft.com/dashboard), select the **Settings** gear icon in the top-right corner, then select **Developer settings**.
 2. Underneath the *Payout and tax* heading, select **Payout and tax profiles**.
 3. Your payment profiles will be listed along with their status. Find the profile you wish to edit and click **Edit** at the far right
 
@@ -132,15 +132,15 @@ In select countries and regions, you can create a payment account by entering yo
 
 Common questions about using PayPal as a payment method:
 
-- **What PayPal settings do I need to have in order to receive payments?** You must ensure that your PayPal account does not block eCheck payments. This setting is managed in PayPal’s Payment Receiving Preferences page. See [PayPal’s account setup page](https://go.microsoft.com/fwlink/p/?linkid=513139) for more info.
+- **What PayPal settings do I need to have in order to receive payments?** Ensure that your PayPal account does not block eCheck payments. This setting is managed in PayPal’s Payment Receiving Preferences page. See [PayPal’s account setup page](https://go.microsoft.com/fwlink/p/?linkid=513139) for more info.
 - **Is my country/region supported?** See [Payment thresholds, methods, and timeframes](payment-thresholds-methods-and-timeframes.md) to find out where PayPal is a supported payment method.
 - **Does my PayPal account have to be registered in the same country/region as my Partner Center account?** No. When you set up a PayPal account, you can accept the default configuration. You shouldn’t have any issues with other countries/regions and currencies unless you have blocked payment in some currencies. This setting is managed in PayPal’s Payment Receiving Preferences page.
 - **Do I have to accept PayPal payments manually?** No. PayPal accounts are set by default to require users to accept payments manually, which means if you don’t accept the payment within 30 days, it is returned. You can change this setting by turning off “Ask Me” in PayPal’s More Settings page.
-- **What currencies does PayPal support?** Please see [PayPal's support page](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) for the current list
+- **What currencies does PayPal support?** See [PayPal's support page](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) for the current list
 
 ### Specific requirements for certain countries/regions
 
-In some countries and regions, additional requirements for payout accounts must be followed. If you are a resident of Pakistan, Russia, or Ukraine, please note the following requirements.
+In some countries and regions, additional requirements for payout accounts must be followed. If you are a resident of Pakistan, Russia, or Ukraine, note the following requirements.
 
 #### Pakistan
 
@@ -154,10 +154,10 @@ Once the payout has been submitted to your bank, you have 30 days to submit a Fo
 
 If you’re a publisher who lives in Russia, you may need to provide documentation to your bank before your bank will deposit funds into your account. When you’re eligible to be paid, we will provide you with the following documentation in an email message:
 
-1. Acceptance Certificate (AC) – contains the amount of payout being transferred to your account.
-2. [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560)  – a signed copy of the publisher agreement that needs to be counter signed.
+- Acceptance Certificate (AC) – contains the amount of payout being transferred to your account.
+- [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560)  – a signed copy of the publisher agreement that needs to be counter signed.
 
-To ensure your payout is successful, please also keep in mind the following:
+To ensure your payout is successful, make sure:
 
 - The **Account holder name** entered for your payout account in Partner Center must be the exact same name associated with your bank account. For example, if your bank account name contains a middle name, add a middle name to your **Account holder name**.
 - Payouts are transferred directly from Microsoft to your bank account in Ruble (RUB) currency.
@@ -168,18 +168,18 @@ To ensure your payout is successful, please also keep in mind the following:
 
 If you’re a publisher who lives in Ukraine, you may need to provide documentation to your bank before your bank will deposit funds into your account. When you’re eligible to be paid, we will provide you with the following documentation in an email message:
 
-1. Acceptance Certificate (AC) – contains the amount of payout being transferred to your account.
-2. [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) – a signed copy of the publisher agreement that needs to be counter signed.
-3. Amendment Agreement (AA) – this document can be used by your bank to help identify your payout funds.
+- Acceptance Certificate (AC) – contains the amount of payout being transferred to your account.
+- [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) – a signed copy of the publisher agreement that needs to be counter signed.
+- Amendment Agreement (AA) – this document can be used by your bank to help identify your payout funds.
 
-Microsoft provides all three documents when your first payout is attempted. For any subsequent payouts, you will only receive the AC document. Please retain the ADA and AA documents in case you need them to receive future payouts from your bank.
+Microsoft provides all three documents when your first payout is attempted. For any subsequent payouts, you will only receive the AC document. Retain the ADA and AA documents in case you need them to receive future payouts from your bank.
 
 ### Create a PayPal payment profile
 
 If you elected to use a bank account to receive payouts, you'll complete the following process to configure your bank account.
 
 1. On the *PayPal* page, provide the required information about your PayPal account.
-2. Provide your paypal account details.
+2. Provide your PayPal account details.
 
     > [!NOTE]
     > The fields you use to provide your account info accept only alphanumeric characters.

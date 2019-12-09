@@ -1,5 +1,5 @@
 ---
-title: Commercial marketplace payout summary
+title: Commercial marketplace payout summary | Azure Marketplace
 description: The Payout summary shows you details about the money you’ve earned with your offer. It also lets you know when you’ll receive payments and how much you'll be paid.
 author: qianw211
 manager: evansma
@@ -13,7 +13,7 @@ ms.date: 12/10/2019
 
 The **Payout summary** shows you details about the money you’ve earned with Microsoft. It also lets you know when you’ll receive payments and how much you'll be paid.
 
-If you sell offerings in the Azure Marketplace, you’ll also see info on successful payouts in the **Payout summary**. For more details regarding Azure Marketplace payment, see the [Microsoft Azure Marketplace Participation Policies](https://go.microsoft.com/fwlink/p/?LinkId=722436) and the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
+If you sell offerings in the Azure Marketplace, you’ll also see info on successful payouts in the **Payout summary**. For more information regarding Azure Marketplace payment, see the [Microsoft Azure Marketplace Participation Policies](https://go.microsoft.com/fwlink/p/?LinkId=722436) and the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
 > [!NOTE]
 > To be eligible for payout, your proceeds must reach the [payment threshold](payment-thresholds-methods-and-timeframes.md) of $50. For details about the payment threshold see this page and review the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
@@ -31,8 +31,8 @@ If you sell offerings in the Azure Marketplace, you’ll also see info on succes
 | Links | https://cloudpartner.azure.com/ | https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory and https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
 | Navigation | Payout reporting provided in Insights Payout | Payout reporting provided in Partner Center – Payout Icon |
 | Scope | <ul> <li>Transaction per line item is visible, for collection in progress, collected, and paid </li> <li>Reporting – shows all line items once purchase order is created, including collection in progress  and billing in Progress, and collection status and line items that are not yet eligible to be paid. </li> </ul> | <ul> <li>Shows the line items once they are deemed as eligible earnings.</li> <li>The customers pay to Microsoft first, and then ISVs can see the payout report starting.</li> <li>Payout report will not show collection in progress and billing in progress.  </li> </ul>  |
-| Transaction not ready for payout | Billing in Progress | Next estimated payment: This means the payout status is in the unprocessed state.  |
-| Payout status |  | Unprocessed: <br> The earning is eligible for payment. It stays in this state for a cooling period as defined in the program guide for the Incentive program. <br> <br> Upcoming: <br> Payment order generated pending internal reviews before payment is processed. <br> <br> Sent: <br> The payment has been sent to your bank. |
+| Transaction not ready for payout | Billing in Progress | Next estimated payment: The payout status is in the unprocessed state.  |
+| Payout status |  | Unprocessed: <br> The earning is eligible for payment. It stays in this state for a cooling period as defined in the program guide for the Incentive program. <br> <br> Upcoming: <br> Payment order-generated pending internal reviews before payment is processed. <br> <br> Sent: <br> The payment has been sent to your bank. |
 
 ## Customer types 
 
@@ -56,11 +56,11 @@ For example, if the customer purchases using a credit card.
 |Term Ending (month)   | Aug 30, 2019 | | |
 |Billing Date | Sept 1, 2019 | | |
 |Customer Payment Date | Sept 1, 2019 | | |
-|Escrow Period (credit cards only, 30 days) | Sept 1, 2019 - Sept 30, 2019 | | **Correlation Attributes Orders:** <br> <ul><li>AssetId</li> <li>Customer Id</li> <li> Customer Name</li> </ul> <br> **Usage** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Payout Status:** Unprocessed |
+|Escrow Period (credit cards only, 30 days) | Sept 1, 2019 - Sept 30, 2019 | | **Correlation Attributes Orders:** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li> Customer Name</li> </ul> <br> **Usage** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Payout Status:** Unprocessed |
 |Collection Period Start | Sept 1, 2019 | | |
 |Collection Period End (maximum, 30 days) | Sept 30, 2019 | | |
-|Payout Calculation Date (monthly on the 15th) | Oct 1, 2019 | | **Correlation Attributes** <br> <ul><li>AssetId</li> <li>Customer Id</li> <li>Customer Name</li> </ul> <br> **Usage** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Payout Status:** UpComing |
-|Payout Date | Oct 15, 2019 | | **Correlation Attributes** <br> <ul><li>AssetId</li> <li>Customer Id</li> <li> Customer Name</li> </ul> <br> **Usage** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Payout Status:** Payment sent |
+|Payout Calculation Date (monthly on the 15th) | Oct 1, 2019 | | **Correlation Attributes** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li>Customer Name</li> </ul> <br> **Usage** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Payout Status:** UpComing |
+|Payout Date | Oct 15, 2019 | | **Correlation Attributes** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li> Customer Name</li> </ul> <br> **Usage** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Payout Status:** Payment sent |
 
 ### Enterprise agreement (quarterly/monthly customers)
 
@@ -71,11 +71,11 @@ For example, if the customer purchases using a credit card.
 |Billing Date | Oct 15, 2019 | | |
 |Escrow Period (credit cards only, 30 days) | n/a | | |
 |Collection Period Start | Oct 15, 2019 | | |
-|Credit cards only, 30 days | Nov 1st, 2019 - Nov 30th, 2019 | | |
+|Credit cards only, 30 days | Nov 1, 2019 - Nov 30, 2019 | | |
 |Collection Period End (maximum, 90 days) | Jan 15, 2020 | | |
 |Customer Payment Date | Dec 30, 2019 | | |
 |Payout Calculation | Jan 15, 2020 | | |
-|Payout Date | Feb 15, 2020 | | **For quarterly based customers** <br> <br> **Orders report** <br> <ul><li>AssetId</li> <li>Customer Id</li> <li> Customer Name</li> </ul> <br> **Usage** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Payout Status:** sent |
+|Payout Date | Feb 15, 2020 | | **For quarterly based customers** <br> <br> **Orders report** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li> Customer Name</li> </ul> <br> **Usage** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Payout Status:** sent |
 
 <!---
 ## Billing
@@ -184,7 +184,7 @@ This option provides a download of each earning line item you see in the Transac
 | partnerCountryCode             | Location/country of the earning partner                                                                                                  |
 | programName                    | Incentive/store program name                                                                                                             | 
 | transactionId                  | Unique identifier for the transaction                                                                                                    | 
-| transactionCurrency            | Currency in which the original customer transaction occurred (this is not partner location currency)                                     | 
+| transactionCurrency            | Currency in which the original customer transaction occurred (it is not the partner location currency)                                     | 
 | transactionDate                | Date of the transaction. Useful for programs where many transactions contribute to one earning                                           | 
 | transactionExchangeRate        | Exchange rate used to show the corresponding transaction USD amount                                                                 | 
 | transactionAmount              | Transaction amount in the original transaction currency based on which earning is generated                                              | 
@@ -192,7 +192,7 @@ This option provides a download of each earning line item you see in the Transac
 | lever                          | Indicates business rule for the earning                                                                                                  | 
 | earningRate                    | Incentive rate applied on transaction amount to generate an earning                                                                      | 
 | quantity                       | Varies based on program. Indicates billed quantity for transactional programs                                                            | 
-| quantityType                   | Indicates type of quantity e.g. Billed quantity, MAU                                                                                     |
+| quantityType                   | Indicates type of quantity, for example: Billed quantity, MAU                                                                                     |
 | earningType                    | Indicates if it is fee, rebate, coop, sell etc.                                                                                          | 
 | earningAmount                  | Earning Amount in the original transaction currency                                                                                      |
 | earningAmountUSD               | Earning Amount in USD                                                                                                                    |
@@ -203,7 +203,7 @@ This option provides a download of each earning line item you see in the Transac
 | paymentAmountWOTax             | Earning amount (without tax) in Pay To currency for “Sent” payments only                                                                 |
 | paymentCurrency                | Pay to currency chosen by partner in the Payment profile. Shown only for sent payments                                                   |
 | paymentExchangeRate            | Exchange rate used to calculate paymentAmountWOTax in payment currency using ExchangeRateDate                                            |
-| paymentId            | Unique identifier for the payment. This number is usually visible in your bank statement                                            |
+| paymentId            | Unique identifier for the payment. This number is visible in your bank statement                                            |
 | paymentStatus            | Payment status                                            |
 | paymentStatusDescription            | Friendly description of payment status                                            |
 | customerId                     | Will always be blank                                                                                                                     |
@@ -211,8 +211,8 @@ This option provides a download of each earning line item you see in the Transac
 | partNumber                     | Will always be blank                                                                                                                     |
 | productName                    | Product name linked to transaction                                                                                                       |
 | productId                      | Unique product identifier                                                                                                                |
-| parentProductId                | Unique parent product identifier. Please note: if there isn’t a parent product for the transaction, then Parent Product ID = Product ID. |
-| parentProductName              | Name of the parent product. Please note: if there isn’t a parent product for the transaction, then Parent Product Name = Product Name.   |
+| parentProductId                | Unique parent product identifier. Note: if there isn’t a parent product for the transaction, then Parent Product ID = Product ID. |
+| parentProductName              | Name of the parent product. Note: if there isn’t a parent product for the transaction, then Parent Product Name = Product Name.   |
 | productType                    | Type of product (such as App, Add-on, Game, etc.)                                                                                        |
 | invoiceNumber                  | Invoice number (applicable for EA only)                                                                                                  |
 | resellerId                     | Reseller identifier                                                                                                                      |
@@ -238,14 +238,14 @@ This option provides a download of each earning line item you see in the Transac
 | taxZipCode       | Sold To Customer Zip                                                                                                                  |
 | LicensingProgramName       |                                                                                                                   |
 | Program Code       | String to map with the program name                                                                                                                   |
-| earningAmountInLastPaymentCurrency       | Earning amount in the last payment currency (field will be empty, if no prior payment have been paid)                                                                                                                   |
-| lastPaymentCurrency       | Last payment currency (field will be empty, if no prior payment have been paid)                                                                                                                   |
+| earningAmountInLastPaymentCurrency       | Earning amount in the last payment currency (field will be empty, if no prior payments have been paid)                                                                                                                   |
+| lastPaymentCurrency       | Last payment currency (field will be empty, if no prior payment has been paid)                                                                                                                   |
 | AssetId       | The unique identifier for the customer orders for your marketplace service.  It represents the transacted purchase line items. There can be multiple assets.                                                                                                                   |
 | OrderId       | relates to a customer's invoice                                                                                                                   |
 | LineItemId       | individual line in a customer's invoice                                                                                                                   |
 | Customer Country       | The country name provided by the customer.  This could be different than the country in a customer’s Azure Subscription.                                                                                                                   |
 | Customer EmailAddress       | The e-mail address provided by the end customer.  This could be different from the e-mail address in a customer’s Azure Subscription.                                                                                                                   |
-| SkuId       | SKU Id as defined during publishing. An offer may have many SKUs, but a SKU can only be associated with a single offer.                                                                                                                   |
+| SkuId       | SKU ID as defined during publishing. An offer may have many SKUs, but a SKU can only be associated with a single offer.                                                                                                                   |
 
 >[!Note]
 >All reporting and insights for the transact publishing option are available via the Insights section of the Cloud Partner Portal or Analytics section of Partner Center.
