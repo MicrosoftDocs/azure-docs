@@ -43959,7 +43959,7 @@
     },
 	    {
       "source_path": "articles/azure-monitor/azure-monitor-app-hub.md",
-      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub.yml",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
     }
   ]
