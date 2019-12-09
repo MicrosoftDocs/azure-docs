@@ -19,7 +19,7 @@ This article shows you how to use one-click ingestion for quick ingestion of a n
 * Sign in to [the application](https://dataexplorer.azure.com/).
 * Create [an Azure Data Explorer cluster and database](create-cluster-database-portal.md).
 * Sign in to the [Web UI](https://dataexplorer.azure.com/) and [add a connection to your cluster](/azure/data-explorer/web-query-data#add-clusters).
-* Source of data in Azure Storage.
+* Create a source of data in Azure Storage.
 
 ## Ingest new data
 
