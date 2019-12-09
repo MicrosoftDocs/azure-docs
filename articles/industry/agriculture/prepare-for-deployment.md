@@ -28,7 +28,7 @@ A quick deployment of Azure FarmBeats should take less than an hour. Costs for D
 
 Azure FarmBeats deployment creates the following resources within your subscription:
 
-| S. no.  | Resource name  | FarmBeats component  |
+| Serial. no.  | Resource name  | FarmBeats component  |
 |---------|---------|---------|
 |1  |       Azure Cosmos DB   |  Datahub       |
 |2  |    Application Insights      |     Datahub/Accelerator     |
@@ -44,7 +44,6 @@ Azure FarmBeats deployment creates the following resources within your subscript
 |12|      Azure App Service      |  Datahub/Accelerator       |
 |13 |    App service plan        |     Datahub/Accelerator      |
 |14 |Azure Maps account     |Accelerator    |
-|15 |       Azure Time Series Insights      |  Datahub     |
 
 Azure FarmBeats is available for download in Azure Marketplace, which you can access directly from the Azure portal.  
 
@@ -78,7 +77,7 @@ Before you start the deployment, ensure that the following prerequisites are in 
 
 An account with Sentinel helps you to download the Sentinel satellite imagery from their official website to your device. To create a free account, do the following:
 
-1. Go to the [Sentinel account registration page](https://scihub.copernicus.eu/dhus/#/self-registration). 
+1. Go to the [Sentinel account registration page](https://scihub.copernicus.eu/dhus/#/self-registration).
 1. On the registration form, provide your first name, last name, username, password, and email address.
 
 A verification email will be sent to the registered email address for confirmation. Select the link to confirm your email address. Your registration process is complete.
@@ -206,7 +205,7 @@ In this scenario, which is described earlier in "Option 1," Installer creates th
     > The token expires after 60 minutes. If it expires, you can restart by retyping the deployment command.
 
 1. At the prompt, enter your Sentinel account password.
-   
+
    The installer validates and starts the deployment, which can take about 20 minutes.
 
    After the deployment finishes successfully, you'll receive the following output links:
@@ -277,12 +276,8 @@ If you encounter any issues, review [Troubleshoot](troubleshoot-project-farmbeat
 After the Datahub installation is complete, you'll receive the URL to access Azure FarmBeats APIs via the Swagger interface in the format https://\<yourdatahub-website-name>.azurewebsites.net/swagger.
 
 1. To sign in via Swagger, copy and paste the URL in your browser.
-1. Sign in with your Azure portal credentials.
-1. (Optional) Try this "sanity test": 
-
-     - Sign in successfully to the Swagger portal by using the Datahub link, which you received as an output to a successful deployment.
-     - Extended types Get API- Select "Try it out /Execute"
-     - You should receive the server response Code 200 and not an exception, such as "403 unauthorized user."
+2. Sign in with your Azure portal credentials.
+3. You can see the swagger and perform all REST operations on the Azure FarmBeats   APIs. This indicates successful deployment of Azure FarmBeats.
 
 ### Accelerator
 

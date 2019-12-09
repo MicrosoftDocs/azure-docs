@@ -1,6 +1,6 @@
 ---
-title: Desktop app that calls web APIs (move to production) - Microsoft identity platform
-description: Learn how to build a Desktop app that calls web APIs (move to production)
+title: Move desktop app calling web APIs to production - Microsoft identity platform | Azure
+description: Learn how to move a desktop app that calls web APIs to production
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Desktop app that calls web APIs - move to production
 
-This article provides you details to improve your application further and move it to production.
+This article provides you details to move your desktop app that calls web APIs to production.
 
 ## Handling errors in desktop applications
 
