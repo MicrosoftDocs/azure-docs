@@ -46,13 +46,10 @@ On the **Authentication methods** page for an Azure AD user in the Azure portal,
 
 ![Authentication contact info on a user in Azure AD][Contact]
 
-If the **Phone** field is populated and **Mobile phone** is enabled in the SSPR policy, the user will see that number on the password reset registration page and during the password reset workflow.
-
-The **Alternate phone*** field is not used for password reset.
-
-If the **Email** field is populated and **Email** is enabled in the SSPR policy, the user will see that email on the password reset registration page and during the password reset workflow.
-
-If the **Alternate email** field is populated and **Email** is enabled in the SSPR policy, the user will **not** see that email on the password reset registration page, but they will see it during the password reset workflow.
+* If the **Phone** field is populated and **Mobile phone** is enabled in the SSPR policy, the user sees that number on the password reset registration page and during the password reset workflow.
+* The **Alternate phone** field isn't used for password reset.
+* If the **Email** field is populated and **Email** is enabled in the SSPR policy, the user sees that email on the password reset registration page and during the password reset workflow.
+* If the **Alternate email** field is populated and **Email** is enabled in the SSPR policy, the user **won't** see that email on the password reset registration page, but they see it during the password reset workflow.
 
 ## Security questions and answers
 
@@ -66,7 +63,7 @@ When a user registers, the registration page sets the following fields:
 * **Authentication Email**
 * **Security Questions and Answers**
 
-If you have provided a value for **Mobile phone** or **Alternate email**, users can immediately use those values to reset their passwords, even if they haven't registered for the service. In addition, users see those values when they register for the first time, and they can modify them if they want to. After they register successfully, these values will be persisted in the **Authentication Phone** and **Authentication Email** fields, respectively.
+If you have provided a value for **Mobile phone** or **Alternate email**, users can immediately use those values to reset their passwords, even if they haven't registered for the service. In addition, users see those values when they register for the first time, and they can modify them if they want to. After they register successfully, these values are persisted in the **Authentication Phone** and **Authentication Email** fields, respectively.
 
 ## Set and read the authentication data through PowerShell
 
