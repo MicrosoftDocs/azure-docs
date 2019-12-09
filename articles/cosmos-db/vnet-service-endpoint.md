@@ -38,9 +38,9 @@ Once service endpoint for Azure Cosmos DB is enabled on a subnet, the source of 
 
 ### Are additional RBAC permissions needed for Azure Cosmos accounts with VNET service endpoints?
 
-After you add the VNET service endpoints to an Azure Cosmos account, to make any changes to the account settings, you need access to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` action for all the VNETs configured on your Azure Cosmos account. This action is required because the authorization process validates for actions corresponding to the database and virtual network resources before evaluating any properties.
+After you add the VNet service endpoints to an Azure Cosmos account, to make any changes to the account settings, you need access to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` action for all the VNETs configured on your Azure Cosmos account. This permission is required because the authorization process validates access to resources (such as database and virtual network resources) before evaluating any properties.
  
-The authorization validates for actions even if the user doesn't specify the VNET ACLs using Azure CLI. Currently, the Azure Cosmos account's control plane supports setting the complete state of the Azure Cosmos account. One of the parameters to the Control plane calls is `virtualNetworkRules`. If this is parameter is not specified, the Azure CLI makes a get database call to retrieves the `virtualNetworkRules` and uses this value in the update call.
+The authorization validates permission for VNet resource action even if the user doesn't specify the VNET ACLs using Azure CLI. Currently, the Azure Cosmos account's control plane supports setting the complete state of the Azure Cosmos account. One of the parameters to the control plane calls is `virtualNetworkRules`. If this parameter is not specified, the Azure CLI makes a get database call to retrieves the `virtualNetworkRules` and uses this value in the update call.
 
 ### Do the peered virtual networks also have access to Azure Cosmos account? 
 Only virtual network and their subnets added to Azure Cosmos account have access. Their peered VNets cannot access the account until the subnets within peered virtual networks are added to the account.
