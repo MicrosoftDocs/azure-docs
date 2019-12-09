@@ -27,19 +27,21 @@ If you're considering a migration to Data Lake Storage Gen2, We recommend the fo
 
 :four: Update workloads and applications
 
-### Assess whether to migrate
+### Step 1: Assess whether to migrate
 
-:one: Learn about Data Lake Storage Gen2. 
+At this phase, evaluate Data Lake Storage Gen2 and determine if it will satisfy your scenarios. 
 
-:two: Compare the capabilities of Data Lake Storage Gen2 with those of Data Lake Storage Gen2. 
+1. Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); it's benefits, costs, and general architecture. 
 
-:three: Understand any gaps in functionality. 
+2. [Compare the capabilities](#gen1-gen2-feature-comparison) of Data Lake Storage Gen2 with those of Data Lake Storage Gen2. 
 
-#### Resources related to this phase
+3. Review a [list of known issues](data-lake-storage-known-issues.md) to gauge product state and stability and assess any gaps.
+
+#### Resources related to this Step
 
 > [!div class="checklist"]
 > * [Learn about Azure Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/)
-> * [Comparison of Gen1 vs Gen2 capabilities](#gen1-gen2-feature-comparison)
+> * [Gen1 vs Gen2 capabilities](#gen1-gen2-feature-comparison)
 > * [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 
 
@@ -47,17 +49,14 @@ If you're considering a migration to Data Lake Storage Gen2, We recommend the fo
 
 1. Identify the data sets that you'll migrate.
 
-2. Evaluate whether Data Lake Storage Gen2 will satisfy your scenarios.
-
 3. Determine the impact that a migration will have on your business.
 
-4. Create a migration plan. 
+4. Create a migration plan, and choose a data transfer tool.
 
-   See the [Migration patterns](#migration-patterns) section of this article.
-
-5. Choose a data transfer tool.
-
-   See the [Data transfer tools](#data-transfer-tools) section of this article.
+|Resources related to this phase|
+|--|
+|[Migration patterns](#migration-patterns)|
+|[Data transfer tools](#data-transfer-tools)|
 
 ### Step 3: Migrate data
 
@@ -102,7 +101,7 @@ To read about other issues, see [Known issues](data-lake-storage-known-issues.md
 
 <a id="migration-patterns" />
 
-## Migration patterns
+## Gen1 to Gen2 migration patterns
 
 > [!div class="checklist"]
 > * Lift and shift
@@ -128,7 +127,7 @@ Put something here.
 
 <a id="data-transfer-tools" />
 
-## Data transfer tools
+## Gen1 to Gen2 data transfer tools
 
 ## Get help
 
