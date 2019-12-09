@@ -4,8 +4,6 @@ description: Use Azure SQL database auditing to track database events into an au
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
-ms.devlang: 
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
@@ -149,7 +147,7 @@ If you chose to write audit logs to Event Hub:
 If you chose to write audit logs to an Azure storage account, there are several methods you can use to view the logs:
 
 > [!NOTE] 
-> Auditing on [Read-Only Replicas](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out) is automatically enabled. For further details about the hierarchy of the storage folders, naming conventions, and log format, see the [SQL Database Audit Log Format](sql-database-audit-log-format.md). 
+> Auditing on [Read-Only Replicas](sql-database-read-scale-out.md) is automatically enabled. For further details about the hierarchy of the storage folders, naming conventions, and log format, see the [SQL Database Audit Log Format](sql-database-audit-log-format.md). 
 
 - Audit logs are aggregated in the account you chose during setup. You can explore audit logs by using a tool such as [Azure Storage Explorer](https://storageexplorer.com/). In Azure storage, auditing logs are saved as a collection of blob files within a container named **sqldbauditlogs**. For further details about the hierarchy of the storage folders, naming conventions, and log format, see the [SQL Database Audit Log Format](https://go.microsoft.com/fwlink/?linkid=829599).
 
