@@ -1,5 +1,5 @@
 ---
-title: Join an Azure-SSIS integration runtime to a virtual network 
+title: Join an Azure-SSIS integration runtime to a virtual network
 description: Learn how to join an Azure-SSIS integration runtime to an Azure virtual network. 
 services: data-factory
 documentationcenter: ''
@@ -24,6 +24,8 @@ When using SQL Server Integration Services (SSIS) in Azure Data Factory, you sho
 
 - You're hosting an SSIS catalog database (SSISDB) in Azure SQL Database with virtual network service endpoints or managed instance in a virtual network. 
 
+- You want to connect to data sources or resources that only allow access from specific static public IP addresses from SSIS packages that run on your Azure-SSIS IR.
+
 Data Factory lets you join your Azure-SSIS IR to a virtual network created through the classic deployment model or the Azure Resource Manager deployment model. 
 
 > [!IMPORTANT]
@@ -45,6 +47,10 @@ When joining your Azure-SSIS IR to a virtual network, remember these important p
 ## Access to Azure services
 If your SSIS packages access Azure service resources supported with [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) and you want to secure those resources to Azure-SSIS IR, you can join your Azure-SSIS IR to the virtual network subnet configured with virtual network service endpoints. Meanwhile, add a virtual network rule to the Azure service resources to allow access from same subnet.
 
+## Access to data sources protected by IP firewall rule
+
+If you want to secure data sources or resources by only allowing access from specific static public IP addresses, you can bring your own [public IP addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address) while joining your Azure-SSIS IR to the virtual network subnet. In this case, the Azure-SSIS IR's IP addresses will be fixed to your provided ones. Then, add an IP address firewall rule to the data sources or resources to allow access from these IP addresses.
+
 ## Hosting the SSIS catalog in SQL Database
 If you host your SSIS catalog in Azure SQL Database with virtual network service endpoints, make sure that you join your Azure-SSIS IR to the same virtual network and subnet.
 
@@ -64,13 +70,15 @@ Set up your virtual network to meet these requirements:
 
 -   Select the proper subnet to host the Azure-SSIS IR. For more information, see [Select the subnet](#subnet). 
 
+-   If you bring your own public IP addresses for the Azure-SSIS IR, see [Select the static public IP addresses](#publicIP)
+
 -   If you use your own Domain Name System (DNS) server on the virtual network, see [Set up the DNS server](#dns_server). 
 
 -   If you use a network security group (NSG) on the subnet, see [Set up an NSG](#nsg). 
 
 -   If you use Azure ExpressRoute or a user-defined route (UDR), see [Use Azure ExpressRoute or a UDR](#route). 
 
--   Make sure the virtual network's resource group can create and delete certain Azure network resources. For more information, see [Set up the resource group](#resource-group). 
+-   Make sure the virtual network's resource group (or the public IP addresses' resource group if you bring your own public IP addresses) can create and delete certain Azure network resources. For more information, see [Set up the resource group](#resource-group). 
 
 -   If you customize your Azure-SSIS IR as described in [Custom setup for Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup), your Azure-SSIS IR nodes will get private IP addresses from a predefined range of 172.16.0.0 to 172.31.255.255. So make sure that the private IP address ranges of your virtual or on-premises networks don't collide with this range.
 
@@ -86,7 +94,7 @@ The user who creates the Azure-SSIS IR must have the following permissions:
 
   - Use the built-in Network Contributor role. This role comes with the _Microsoft.Network/\*_ permission, which has a much larger scope than necessary.
 
-  - Create a custom role that includes only the necessary _Microsoft.Network/virtualNetworks/\*/join/action_ permission. 
+  - Create a custom role that includes only the necessary _Microsoft.Network/virtualNetworks/\*/join/action_ permission. If you also want to bring your own public IP addresses for your SSIS IR besides joining it to an Azure Resource Manager virtual network, please also include _Microsoft.Network/publicIPAddresses/*/join/action_ permission in the role.
 
 - If you're joining your SSIS IR to a classic virtual network, we recommend that you use the built-in Classic Virtual Machine Contributor role. Otherwise you have to define a custom role that includes the permission to join the virtual network.
 
@@ -99,6 +107,19 @@ As you choose a subnet:
 -   Ensure that the subnet you select has enough available address space for the Azure-SSIS IR to use. Leave available IP addresses for at least two times the IR node number. Azure reserves some IP addresses within each subnet. These addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, and three more addresses are used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) 
 
 -   Don’t use a subnet that is exclusively occupied by other Azure services (for example, SQL Database managed instance, App Service, and so on). 
+
+### <a name="publicIP"></a>Select the static public IP addresses
+If you want to bring your own static public IP addresses for the Azure-SSIS IR while joining it to a virtual network, make sure they meet the following requirements:
+
+-   Provide two unused static public IP addresses, which are not already associated with other Azure service resources. The extra one will be used when we upgrade your Azure-SSIS IR.
+
+-   The public IP addresses should be static and standard ones. Refer to [SKUs of Public IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) for more details.
+
+-   The static public IP addresses should both have DNS names. If you have not setup the DNS name when creating the public IP address, you can also setup this in the Azure portal.
+
+![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+
+-   The static public IP addresses and the virtual network should be under the same subscription and in the same region.
 
 ### <a name="dns_server"></a> Set up the DNS server 
 If you need to use your own DNS server in a virtual network joined by your Azure-SSIS IR, make sure it can resolve global Azure host names (for example, an Azure Storage blob named `<your storage account>.blob.core.windows.net`). 
@@ -148,11 +169,14 @@ The Azure-SSIS IR needs to create certain network resources under the same resou
    -   An Azure public IP address, with the name *\<Guid>-azurebatch-cloudservicepublicip*.
    -   A network work security group, with the name *\<Guid>-azurebatch-cloudservicenetworksecuritygroup*. 
 
-Those resources will be created when the IR starts. They'll be deleted when the IR stops. To avoid blocking the IR stop, don't reuse these network resources in your other resources. 
+> [!NOTE]
+> You can bring your own static public IP addresses now for your Azure-SSIS IR. In this scenario, we will only create the Azure load balancer and network security group for you. Besides, the resources will be created under the same resource group as your public IP addresses instead of the virtual network.
 
-Make sure that you have no resource lock on the resource group or subscription to which the virtual network belongs. If you configure a read-only lock or a delete lock, starting and stopping the IR might fail, or the IR might stop responding. 
+Those resources will be created when the IR starts. They'll be deleted when the IR stops. Note that if you bring your own public IP addresses, the public IP addresses won't be deleted after IR stops. To avoid blocking the IR stop, don't reuse these network resources in your other resources. 
 
-Make sure that you don't have an Azure policy that prevents the following resources from being created under the resource group or subscription to which the virtual network belongs: 
+Make sure that you have no resource lock on the resource group or subscription to which the virtual network (or public IP addresses if you bring your own ones) belongs. If you configure a read-only lock or a delete lock, starting and stopping the IR might fail, or the IR might stop responding. 
+
+Make sure that you don't have an Azure policy that prevents the following resources from being created under the resource group or subscription to which the virtual network (or public IP addresses if you bring your own ones) belongs: 
    -   Microsoft.Network/LoadBalancers 
    -   Microsoft.Network/NetworkSecurityGroups 
    -   Microsoft.Network/PublicIPAddresses 
@@ -166,11 +190,22 @@ Make sure that you don't have an Azure policy that prevents the following resour
     If you don't want the public IP address to be exposed, consider [configuring the self-hosted IR as a proxy for the Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis) instead of the virtual network, if this applies to your scenario.
  
 - Can I add the static IP address of the Azure-SSIS IR to the firewall's allow list for the data source?
- 
+
+    You are now able to bring your own static public IP addresses for the Azure-SSIS IR. In this case, you can add the provided IP addresses to the firewall's allow lists of your data sources. You can also consider below options to allow Azure-SSIS IR to access your data source depending on your scenario:
+
     - If your data source is on-premises, after you connect the virtual network to your on-premises network and join your Azure-SSIS IR into the virtual network subnet, you can add the IP range of that subnet to the allow list.
     - If your data source is an Azure service supported with a virtual network service endpoint, you can configure a virtual network service point on your virtual network and join your Azure-SSIS IR into that virtual network subnet. Then you can allow access by using the virtual network rule of the Azure services instead of the IP range.
     - If your data source is a different kind of cloud data source, you can use UDR to route outbound traffic from the Azure-SSIS IR to the NVA or to Azure Firewall by using a static public IP address. You can add the public IP address of the NVA or Azure Firewall to the allow list.
     - If the previous answers don't meet your needs, consider providing data source access by [configuring a self-hosted IR as a proxy for the Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis). Then you can add the IP address of the machine that hosts the self-hosted IR to the allow list instead of joining the Azure-SSIS IR into the virtual network.
+
+- Why do I need to provide two static public addresses if I want to bring my own public IP addresses for the Azure-SSIS IR?
+
+    Azure-SSIS IR is automatically updated on a regular basis. New IR nodes are created during upgrade and the old nodes will be deleted. However, to avoid downtime, the old nodes will not be deleted until the new nodes are ready. Thus, your first public IP address used by the old nodes cannot be released immediately and we need another public IP address to create the new IR nodes.
+- I have brought my own static public IP addresses for the Azure-SSIS IR, but the IR still cannot access the data sources or resources.
+
+    - Confirm that the two static public IP addresses are both added to the allow list of your data sources or resources. After upgrade of the Azure-SSIS IR, the IR's public IP address is switched to the secondary public IP address. If you only add one of them to the allow list, the access may be broken after upgrade.
+
+    - If your data source is an Azure service, please check whether you have setup the virtual network subnet with service endpoint. If service endpoints are set, the service traffic switches to use private addresses managed by Azure services as the source IP addresses when accessing the Azure service from a virtual network. In this case, adding your own public IP addresses to the allow list will not make effect.
 
 ## Azure portal (Data Factory UI)
 This section shows you how to join an existing Azure-SSIS IR to a virtual network (classic or Azure Resource Manager) by using the Azure portal and Data Factory UI. 
@@ -298,9 +333,11 @@ After you've configured your Azure Resource Manager virtual network or classic v
 
    d. For **Subnet Name**, select your subnet in the virtual network. 
 
-   e. If you also want to configure or manage a self-hosted IR as a proxy for your Azure-SSIS IR, select the **Set-up Self-Hosted** check box. For more information, see [Configure a self-hosted IR as a proxy for an Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis).
+   e. If you want to bring your own static public IP address for the Azure-SSIS IR, select the **Bring static public IP addresses** checkbox. Then, please provide the first and second static public IP address for your Azure-SSIS IR. You can also click **Create new** button to create new public IP address, see [Select the static public IP addresses](#publicIP) for requirements of the public IP addresses.
 
-   f. Select the **VNet Validation** button. If the validation is successful, select the **Next** button. 
+   f. If you also want to configure or manage a self-hosted IR as a proxy for your Azure-SSIS IR, select the **Set-up Self-Hosted** check box. For more information, see [Configure a self-hosted IR as a proxy for an Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis).
+
+   g. Select the **VNet Validation** button. If the validation is successful, select the **Next** button. 
 
    ![Advanced settings for IR setup](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-advanced-settings.png)
 
