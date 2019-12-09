@@ -20,9 +20,7 @@ ms.author: zchia
 
 # Tutorial: Configure ServiceNow for automatic user provisioning
 
-The tutorial demonstrate the steps to be performed in ServiceNow and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to [ServiceNow](https://www.servicenow.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
-
-
+The tutorial demonstrate the steps to be performed in ServiceNow and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to [ServiceNow](https://www.servicenow.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). <br/>
 <img src="media/servicenow-provisioning-tutorial/ServiceNowLogo.png" width="100">
 
 
@@ -52,8 +50,12 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Identify your ServiceNow instance name. You can find the instance name in the URL that you use to access ServiceNow. In the example below, the instance name is dev35214.
 
+<img src="media/servicenow-provisioning-tutorial/servicenow_instance.png" width="600">
+
 	
 2. Obtain credentials for an admin in ServiceNow. Navigate to the user profile in ServiceNow and verify that the user has the admin role. 
+
+<img src="media/servicenow-provisioning-tutorial/servicenow-admin-role.png" width="1100">
 
 ## 3. Add ServiceNow from the Azure AD application gallery
 
