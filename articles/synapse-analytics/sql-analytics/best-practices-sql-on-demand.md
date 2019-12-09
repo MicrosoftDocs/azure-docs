@@ -32,7 +32,7 @@ Multiple applications and services may access your storage account. Storage thro
 Once throttling is detected, SQL on-demand has built-in handling of this scenario. SQL on-demand will make requests to storage at a slower pace until throttling is resolved. 
 
 > [!TIP]
-For optimal query execution, you shouldn't stress the storage account with other workloads during query execution.
+> For optimal query execution, you shouldn't stress the storage account with other workloads during query execution.
 
 ## Prepare files for querying
 
