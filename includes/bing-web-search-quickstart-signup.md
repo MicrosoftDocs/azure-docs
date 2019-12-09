@@ -3,7 +3,7 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/03/2019
+ms.date: 12/09/2019
 ---
 
 Start using the Bing Web Search API by creating one of the Azure resources below.
