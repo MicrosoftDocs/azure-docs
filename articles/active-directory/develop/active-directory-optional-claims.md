@@ -243,7 +243,7 @@ This section covers the configuration options under optional claims for changing
 1. Select the application you want to configure optional claims for in the list
 1. Under the **Manage** section, select **Token configuration (preview)**
 2. Select **Add groups claim**
-3. Select the group types to return (**All Groups**, **SecurityGroup** or **DirectoryRole**). Note: the **All Groups** option includes **SecurityGroup**, **DirectoryRole** and **DistributionList**
+3. Select the group types to return (**All Groups**, **SecurityGroup** or **DirectoryRole**). The **All Groups** option includes **SecurityGroup**, **DirectoryRole** and **DistributionList**
 4. Optional: click on the specific token type properties to modify the groups claim value to contain on premises group attributes or to change the claim type to a role
 5. Click **Save**
 
