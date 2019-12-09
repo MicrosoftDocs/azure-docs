@@ -185,7 +185,7 @@ Write-Host "Press [ENTER] to continue ..."
 ```
 
 Use a generated password. See [Prerequisites](#prerequisites).
-For the values of _artifactsLocation, _artifactsLocationSasToken and bacpacFileName, see [Generate a SAS token](#generate-a-sas-token). The SAS token 
+For the values of _artifactsLocation, _artifactsLocationSasToken and bacpacFileName, see [Prepare a BACPAC file](#prepare-a-bacpac-file).
 
 ## Verify the deployment
 
