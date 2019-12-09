@@ -29,7 +29,7 @@ In this tutorial, learn how to create a basic Azure virtual network (classic) th
 Learn more about all [virtual network](manage-virtual-network.md) and [subnet](virtual-network-manage-subnet.md) settings.
 
 > [!WARNING]
-> Virtual networks (classic) are immediately deleted by Azure when a [subscription is disabled](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Virtual networks (classic) are deleted regardless of whether resources exist in the virtual network. If you later re-enable the subscription, resources that existed in the virtual network must be recreated.
+> Virtual networks (classic) are immediately deleted by Azure when a [subscription is disabled](../cost-management-billing/manage/subscription-disabled.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Virtual networks (classic) are deleted regardless of whether resources exist in the virtual network. If you later re-enable the subscription, resources that existed in the virtual network must be recreated.
 
 You can create a virtual network (classic) by using the [Azure portal](#portal), the [Azure command-line interface (CLI) 1.0](#azure-cli), or [PowerShell](#powershell).
 

@@ -206,7 +206,7 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 
 ### Prerequisites
 
-You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. For more information, see [Subscription billing roles and tasks](../billing/billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).
+You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. For more information, see [Subscription billing roles and tasks](../cost-management-billing/manage/understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
 The example shown below use REST APIs. Currently, PowerShell and Azure CLI are not supported.
 

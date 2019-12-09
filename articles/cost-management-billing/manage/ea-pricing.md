@@ -20,7 +20,7 @@ Azure customers with an Azure Enterprise Agreement (EA), Microsoft Customer Agre
 
 ## Download pricing for an Enterprise Agreement
 
-Depending on the policies set for your organization by the Enterprise Admin, only certain administrative roles provide access to your organization's EA pricing information. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](../../billing/billing-understand-ea-roles.md).
+Depending on the policies set for your organization by the Enterprise Admin, only certain administrative roles provide access to your organization's EA pricing information. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
 
 1. As an Enterprise Admin, sign-in to the [Azure portal](https://portal.azure.com/).
 1. Search for *Cost Management + Billing*.
@@ -93,11 +93,11 @@ If you're an EA customer, see:
 - [Manage access to your EA billing information for Azure](manage-billing-access.md)
 - [View and download your Microsoft Azure invoice](../../billing/billing-download-azure-invoice.md)
 - [View and download your Microsoft Azure usage and charges](../../billing/billing-download-azure-daily-usage.md)
-- [Understand your bill for Enterprise Agreement customers](../../billing/billing-understand-your-bill-ea.md)
+- [Understand your bill for Enterprise Agreement customers](understand-ea-bill.md)
 
 If you have a Microsoft Customer Agreement, see:
 
-- [Understand the terms in your price sheet for a Microsoft Customer Agreement](../../billing/billing-mca-understand-pricesheet.md)
+- [Understand the terms in your price sheet for a Microsoft Customer Agreement](mca-understand-pricesheet.md)
 - [View and download your Microsoft Azure invoice](../../billing/billing-download-azure-invoice.md)
 - [View and download your Microsoft Azure usage and charges](../../billing/billing-download-azure-daily-usage.md)
 - [View and download tax documents for your billing profile](../../billing/billing-mca-download-tax-document.md)

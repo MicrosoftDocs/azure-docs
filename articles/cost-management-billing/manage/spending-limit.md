@@ -27,7 +27,7 @@ If your subscription type includes credits over multiple months, your subscripti
 
 Azure sends email notifications when you reach the spending limit. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) to see notifications about subscriptions that have reached the spending limit.
 
-If you signed up for an Azure free account and reach the spending limit, you can upgrade to a [pay-as-you-go](billing-upgrade-azure-subscription.md) pricing to remove the spending limit and automatically re-enable your subscription.
+If you signed up for an Azure free account and reach the spending limit, you can upgrade to a [pay-as-you-go](upgrade-azure-subscription.md) pricing to remove the spending limit and automatically re-enable your subscription.
 
 <a id="remove"></a>
 
@@ -42,7 +42,7 @@ To remove your spending limit, follow these steps:
 1. Select **Remove spending limit** from the top of the page.
 1. Select an option that is appropriate for you.
 
-![Selecting an option for remove spending limit](./media/billing-spending-limit/remove-spending-limit01.png)
+![Selecting an option for remove spending limit](./media/spending-limit/remove-spending-limit01.png)
 
 | Option | Effect |
 | --- | --- |
@@ -71,13 +71,13 @@ Custom spending limits aren't available.
 
 ## A spending limit doesn't prevent all charges
 
-[Some external services published in the Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) can't be used with your subscription credits, and can incur separate charges even when your spending limit is set. Examples include Visual Studio licenses, Azure Active Directory premium, support plans, and most third-party branded services. When you provision a new external service, a warning is shown to let you know the services are billed separately:
+[Some external services published in the Azure Marketplace](../../billing/billing-understand-your-azure-marketplace-charges.md) can't be used with your subscription credits, and can incur separate charges even when your spending limit is set. Examples include Visual Studio licenses, Azure Active Directory premium, support plans, and most third-party branded services. When you provision a new external service, a warning is shown to let you know the services are billed separately:
 
-![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning01.png)
+![Marketplace purchase warning](./media/spending-limit/marketplace-warning01.png)
 
 ## Need help? Contact us.
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- Upgrade to a plan with [pay-as-you-go](billing-upgrade-azure-subscription.md) pricing.
+- Upgrade to a plan with [pay-as-you-go](upgrade-azure-subscription.md) pricing.

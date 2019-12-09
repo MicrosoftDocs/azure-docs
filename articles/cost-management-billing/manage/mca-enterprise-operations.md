@@ -22,20 +22,20 @@ If your organization has signed a Microsoft Customer Agreement to renew your Ent
 
 The following diagram describes how billing is organized in your new billing account.
 
-![Image of ea-mca-post-transition-hierarchy](./media/mca-setup-account/mca-post-transition-hierarchy.png)
+![Image of ea-mca-post-transition-hierarchy](./media/mca-enterprise-operations/mca-post-transition-hierarchy.png)
 
 | Enterprise Agreement   | Microsoft Customer Agreement    |
 |------------------------|--------------------------------------------------------|
-| Enrollment            | You use a billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [Understand billing profiles](billing-mca-overview.md#billing-profiles).
-| Department            | You use an invoice section to organize your costs, similar to departments in your Enterprise Agreement enrollment. Department becomes invoice sections and department administrators become owners of the respective invoice sections. To learn more about invoice sections, see [Understand invoice sections](billing-mca-overview.md#invoice-sections). |
+| Enrollment            | You use a billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [Understand billing profiles](../../billing/billing-mca-overview.md#billing-profiles).
+| Department            | You use an invoice section to organize your costs, similar to departments in your Enterprise Agreement enrollment. Department becomes invoice sections and department administrators become owners of the respective invoice sections. To learn more about invoice sections, see [Understand invoice sections](../../billing/billing-mca-overview.md#invoice-sections). |
 | Account               | The accounts that were created in your Enterprise Agreement aren’t supported in the new billing account. The account's subscriptions belong to the respective invoice section for their department. Account owners can create and manage subscriptions for their invoice sections. |
 
 ## Changes for enterprise administrators
 
 The following changes apply to enterprise administrators on an Enterprise Agreement that got renewed to a Microsoft Customer Agreement.
 
-- A billing profile is created for your enrollment. You’ll use the billing profile to manage billing for your organization, like your Enterprise Agreement enrollment. To learn more about billing profiles, [understand billing profiles](billing-mca-overview.md#billing-profiles).
-- An invoice section is created for each department in your Enterprise Agreement enrollment. You’ll use the invoice sections to manage your departments. You can create new invoice sections to set up additional departments. To learn more about invoice sections, see [understand invoice sections](billing-mca-overview.md#invoice-sections).
+- A billing profile is created for your enrollment. You’ll use the billing profile to manage billing for your organization, like your Enterprise Agreement enrollment. To learn more about billing profiles, [understand billing profiles](../../billing/billing-mca-overview.md#billing-profiles).
+- An invoice section is created for each department in your Enterprise Agreement enrollment. You’ll use the invoice sections to manage your departments. You can create new invoice sections to set up additional departments. To learn more about invoice sections, see [understand invoice sections](../../billing/billing-mca-overview.md#invoice-sections).
 - You’ll use the Azure subscription creator role on invoice sections to give others permission to create Azure subscription, like the accounts that were created in Enterprise Agreement enrollment.
 - You’ll use the [Azure portal](https://portal.azure.com) to manage billing for your organization, instead of the Azure EA portal.
 
@@ -49,13 +49,13 @@ You are given the following roles on the new billing account:
 
 You use your billing profile to track charges and Azure credits balance for your organization similar to your Enterprise Agreement enrollment.
 
-To learn how to view credit balance for a billing profile, see [track Azure credit balance for your billing profile](billing-mca-check-azure-credits-balance.md).
+To learn how to view credit balance for a billing profile, see [track Azure credit balance for your billing profile](mca-check-azure-credits-balance.md).
 
-To learn how to view charges for a billing profile, see [understand the charges on your Microsoft Customer Agreement's invoice](billing-mca-understand-your-bill.md).
+To learn how to view charges for a billing profile, see [understand the charges on your Microsoft Customer Agreement's invoice](../../billing/billing-mca-understand-your-bill.md).
 
 ### View charges for a department
 
-An invoice section is created for each department you had in your Enterprise Agreement. You can view charges for an invoice section in the Azure portal. For more information, see [view transactions by invoice sections](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
+An invoice section is created for each department you had in your Enterprise Agreement. You can view charges for an invoice section in the Azure portal. For more information, see [view transactions by invoice sections](../../billing/billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
 
 ### View charges for an account
 
@@ -67,31 +67,31 @@ To view aggregate cost for subscriptions that belonged to an account, you must s
 
 A monthly invoice is generated for each billing profile in your billing account. For each invoice, you can download Azure usage and charges csv file, price sheet, and tax document (if applicable). You can also download Azure usage and charges csv file for the current month's charges.
 
-To learn how to download Azure usage and charges csv file, see [download usage for your Microsoft Customer Agreement](billing-download-azure-daily-usage.md).
+To learn how to download Azure usage and charges csv file, see [download usage for your Microsoft Customer Agreement](../../billing/billing-download-azure-daily-usage.md).
 
-To learn how to download price sheet, see [download pricing for your Microsoft Customer Agreement](../cost-management-billing/manage/ea-pricing.md).
+To learn how to download price sheet, see [download pricing for your Microsoft Customer Agreement](ea-pricing.md).
 
-To learn how to download tax documents, see [view the tax documents for your Microsoft Customer Agreement](billing-mca-download-tax-document.md#view-and-download-tax-documents).
+To learn how to download tax documents, see [view the tax documents for your Microsoft Customer Agreement](../../billing/billing-mca-download-tax-document.md#view-and-download-tax-documents).
 
 ### Add an additional enterprise administrator
 
-Give users access to the billing profile to let them view and manage billing for your organization. You can use the **Access Control (IAM)** page in the Azure portal to give access.  To learn more about billing profile roles, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Give users access to the billing profile to let them view and manage billing for your organization. You can use the **Access Control (IAM)** page in the Azure portal to give access.  To learn more about billing profile roles, see [Billing profile roles and tasks](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-To learn how to provide,  access to your billing profile, see [manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+To learn how to provide,  access to your billing profile, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
 ### Create a new department
 
-Create an invoice section to organize your costs based on your needs, like departments in your Enterprise Agreement enrollment. You can create a new invoice section in the Azure portal. To learn more, see [create sections on your invoice to organize your costs](billing-mca-section-invoice.md).
+Create an invoice section to organize your costs based on your needs, like departments in your Enterprise Agreement enrollment. You can create a new invoice section in the Azure portal. To learn more, see [create sections on your invoice to organize your costs](mca-section-invoice.md).
 
 ### Create a new account
 
-Assign users the Azure subscription creator role on invoice sections to give them permission to create Azure subscription, like the accounts that are created in Enterprise Agreement enrollment. For more information on assigning roles, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
+Assign users the Azure subscription creator role on invoice sections to give them permission to create Azure subscription, like the accounts that are created in Enterprise Agreement enrollment. For more information on assigning roles, see [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ## Changes for department administrators
 
 The following changes apply to department administrators on an Enterprise Agreement that got renewed to a Microsoft Customer Agreement.
 
-- An invoice section is created for each department in your Enterprise Agreement enrollment. You’ll use the invoice section(s) to manage your department(s). To learn more about invoice sections, see [understand invoice sections](billing-mca-overview.md#invoice-sections).
+- An invoice section is created for each department in your Enterprise Agreement enrollment. You’ll use the invoice section(s) to manage your department(s). To learn more about invoice sections, see [understand invoice sections](../../billing/billing-mca-overview.md#invoice-sections).
 - You’ll use the Azure subscription creator role on the invoice section to give others permission to create Azure subscription, like the accounts that are created in Enterprise Agreement enrollment.
 - You’ll use the Azure portal to manage billing for your organization, instead of the Azure EA portal.
 
@@ -105,13 +105,13 @@ You can view charges for the invoice section that’s created for your departmen
 
 ### Add an additional department administrator
 
-An invoice section is created for each department you had in your Enterprise Agreement. You can use the **Access Control(IAM)** page in the Azure portal to give others access to view and manage the invoice section. To learn more about invoice section roles, see [invoice section roles and tasks](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
+An invoice section is created for each department you had in your Enterprise Agreement. You can use the **Access Control(IAM)** page in the Azure portal to give others access to view and manage the invoice section. To learn more about invoice section roles, see [invoice section roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
 
-To learn how to provide, access to your invoice section, see [manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+To learn how to provide, access to your invoice section, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
 ### Create a new account in your department
 
-Assign users the Azure subscription creator role on invoice section that’s created for your department. For more information on assigning roles, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
+Assign users the Azure subscription creator role on invoice section that’s created for your department. For more information on assigning roles, see [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ### View charges for accounts in your departments
 
@@ -129,7 +129,7 @@ To create additional Azure subscriptions, you are given the following role on th
 
 ### Create an Azure subscription
 
-You can create Azure subscriptions for your invoice section in the Azure portal. For more information, see [create an additional Azure subscription for Microsoft Customer Agreement](billing-mca-create-subscription.md)
+You can create Azure subscriptions for your invoice section in the Azure portal. For more information, see [create an additional Azure subscription for Microsoft Customer Agreement](create-subscription.md)
 
 ### View charges for your account
 
@@ -137,7 +137,7 @@ To view charges for subscriptions that belonged to an account, go to the [subscr
 
 ### View charges for a subscription
 
-You can view charges for a subscription either on the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or the Azure cost analysis. For more information on Azure cost analysis, see [explore and analyze costs with Cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+You can view charges for a subscription either on the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or the Azure cost analysis. For more information on Azure cost analysis, see [explore and analyze costs with Cost analysis](../costs/quick-acm-cost-analysis.md).
 
 ## Need help? Contact support
 
@@ -145,7 +145,7 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 ## Next steps
 
-- [Understand billing account for a Microsoft Customer Agreement](billing-mca-overview.md)
-- [Understand your invoice](billing-understand-your-bill.md)
-- [Understand your bill](billing-understand-your-invoice.md)
-- [Get billing ownership of Azure subscriptions from other users](billing-mca-request-billing-ownership.md)
+- [Understand billing account for a Microsoft Customer Agreement](../../billing/billing-mca-overview.md)
+- [Understand your invoice](../../billing/billing-understand-your-bill.md)
+- [Understand your bill](../../billing/billing-understand-your-invoice.md)
+- [Get billing ownership of Azure subscriptions from other users](mca-request-billing-ownership.md)

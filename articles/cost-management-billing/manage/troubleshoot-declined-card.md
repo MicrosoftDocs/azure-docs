@@ -27,42 +27,42 @@ When you choose a card, Azure displays the card options that are valid in the co
 >[!Note]
 >American Express credit cards are not currently supported as a payment instrument in India. We have no time frame as to when it may be an accepted form of payment.
 
-## You're using a virtual or prepaid card 
+## You're using a virtual or prepaid card
 
 Virtual or prepaid credit or debit cards aren't accepted as payment for Azure subscriptions.
 
-## Your credit information is inaccurate or incomplete 
+## Your credit information is inaccurate or incomplete
 
 The name, address, and CVV code that you enter must match exactly what’s printed on the card.
 
-## The card is inactive or blocked 
+## The card is inactive or blocked
 
 Contact your bank to make sure that your card is active.
 
-You may be experiencing other sign-up issues 
+You may be experiencing other sign-up issues
 
-For more information about how to troubleshoot Azure sign-up issues, see the following Knowledge Base article: 
+For more information about how to troubleshoot Azure sign-up issues, see the following Knowledge Base article:
 
-[You can't sign-up for Azure in the Azure portal or Azure account center](billing-troubleshoot-azure-sign-up.md)
+[You can't sign-up for Azure in the Azure portal or Azure account center](troubleshoot-azure-sign-up.md)
 
-## You represent a business that doesn't want to pay by card 
+## You represent a business that doesn't want to pay by card
 
 If you represent a business, you can use invoice payment methods such as checks, overnight checks, or wire transfers to pay for your Azure subscription. After you set up the account to pay by invoice, you can’t change to another payment option, unless you have a Microsoft Customer Agreement and signed up for Azure through the Azure website.
 
-For more information about how to pay by invoice, see [Submit a request to pay Azure subscription by invoice](../cost-management-billing/manage/pay-by-invoice.md).
+For more information about how to pay by invoice, see [Submit a request to pay Azure subscription by invoice](pay-by-invoice.md).
 
-## Your credit card information is outdated 
+## Your credit card information is outdated
 
-For information about how to manage your card information, including changing or removing a card, see [Add, update, or remove a credit for Azure](../cost-management-billing/manage/change-credit-card.md).
+For information about how to manage your card information, including changing or removing a card, see [Add, update, or remove a credit for Azure](change-credit-card.md).
 
 ## Additional help resources
 
 Other troubleshooting articles for Azure Billing and Subscriptions
 
-- [Sign-up issues](billing-troubleshoot-azure-sign-up.md)
-- [Subscription sign-in issues](billing-troubleshoot-sign-in-issue.md)
-- [No subscriptions found](billing-no-subscriptions-found.md)
-- [Enterprise cost view disabled](../cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Sign-up issues](troubleshoot-azure-sign-up.md)
+- [Subscription sign-in issues](troubleshoot-sign-in-issue.md)
+- [No subscriptions found](no-subscriptions-found.md)
+- [Enterprise cost view disabled](enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## Contact us for help
 
@@ -70,4 +70,4 @@ If you have questions or need help, [create a support request](https://ms.portal
 
 ## Next steps
 
-- [Azure Billing documentation](index.md)
+- [Azure Billing documentation](../../billing/index.md)

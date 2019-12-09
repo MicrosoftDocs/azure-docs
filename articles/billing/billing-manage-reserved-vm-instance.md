@@ -171,7 +171,7 @@ Buy a software plan:
 - [Prepay for SUSE software plans from Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Understand discount and usage:
-- [Understand how the VM reservation discount is applied](billing-understand-vm-reservation-charges.md)
+- [Understand how the VM reservation discount is applied](../cost-management-billing/manage/understand-vm-reservation-charges.md)
 - [Understand how the Red Hat Enterprise Linux software plan discount is applied](../billing/billing-understand-rhel-reservation-charges.md)
 - [Understand how the SUSE Linux Enterprise software plan discount is applied](../billing/billing-understand-suse-reservation-charges.md)
 - [Understand how other reservation discounts are applied](billing-understand-reservation-charges.md)

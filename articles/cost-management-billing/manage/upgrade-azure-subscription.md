@@ -29,12 +29,12 @@ When you upgrade your Azure free account, you keep your remaining credit for the
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Search for **Subscriptions.**
 
-    ![Screenshot that shows search](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+    ![Screenshot that shows search](./media/upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. Select the subscription that was created when you signed up for Azure free account.
 1. In the subscription overview, click **Upgrade subscription** button in the command bar. If you don't see the upgrade subscription button, click on the upgrade banner at the top of the page.
 
-    ![Screenshot that shows upgrade button](./media/billing-upgrade-azure-subscription/free-upgrade-button.png)
+    ![Screenshot that shows upgrade button](./media/upgrade-azure-subscription/free-upgrade-button.png)
 
 1. If you don't have a payment method for your account, you'll be prompted to add one.
 
@@ -42,7 +42,7 @@ When you upgrade your Azure free account, you keep your remaining credit for the
 
 1. Type a name for your subscription.
 
-     ![Screenshot that shows name](./media/billing-upgrade-azure-subscription/free-upgrade-name.png)
+     ![Screenshot that shows name](./media/upgrade-azure-subscription/free-upgrade-name.png)
 
 1. Choose a support plan for your subscription. To learn more about support plans, see [Azure support plans](https://azure.microsoft.com/us/support/plans/).
 
@@ -59,12 +59,12 @@ If you're eligible, use the steps below to upgrade to an Azure free account.
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Search for **Subscriptions.**
 
-    ![Screenshot that shows search](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+    ![Screenshot that shows search](./media/upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. Select the subscription that got created when you signed up for your Azure for Students Starter account.
 1. In the subscription overview, click **Upgrade subscription** in the command bar.
 
-    ![Screenshot that shows upgrade button for students](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
+    ![Screenshot that shows upgrade button for students](./media/upgrade-azure-subscription/student-upgrade-ibiza.png)
 
 ### Upgrade to pay-as-you-go rates
 
@@ -76,4 +76,4 @@ If you're eligible, use the steps below to upgrade to an Azure free account.
 
 ## Next steps
 
-Now that you've upgraded your account, see [Prevent unexpected charges with Azure billing and cost management.](../cost-management-billing/manage/getting-started.md)
+Now that you've upgraded your account, see [Prevent unexpected charges with Azure billing and cost management.](getting-started.md)

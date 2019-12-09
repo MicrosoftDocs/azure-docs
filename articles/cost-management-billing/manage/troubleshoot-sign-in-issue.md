@@ -17,7 +17,7 @@ ms.author: v-miegge
 
 # Troubleshoot Azure subscription sign-in issues
 
-This guide helps to resolve the issues in which you can't sign-in the Azure portal or Azure account center. 
+This guide helps to resolve the issues in which you can't sign-in the Azure portal or Azure account center.
 
 ## Issues
 
@@ -48,7 +48,7 @@ This problem occurs if you selected at the wrong directory, or if your account d
 To fix this issue:
 
 - Make sure that the correct Azure directory is selected by clicking your account at the top right.
-- If the right Azure directory is selected but you still receive the error message, have your account [added as an Owner](../cost-management-billing/manage/add-change-subscription-administrator.md).
+- If the right Azure directory is selected but you still receive the error message, have your account [added as an Owner](add-change-subscription-administrator.md).
 
 **Scenario 2:** Error message is received in the [Azure Account Center](https://account.windowsazure.com/Subscriptions)
 
@@ -64,10 +64,10 @@ Check whether the account that you used is the Account Administrator. To verify 
 
 Other troubleshooting articles for Azure Billing and Subscriptions
 
-- [Declined card](billing-troubleshoot-declined-card.md)
-- [Subscription sign-up issues](billing-troubleshoot-azure-sign-up.md)
-- [No subscriptions found](billing-no-subscriptions-found.md)
-- [Enterprise cost view disabled](../cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Declined card](troubleshoot-declined-card.md)
+- [Subscription sign-up issues](troubleshoot-azure-sign-up.md)
+- [No subscriptions found](no-subscriptions-found.md)
+- [Enterprise cost view disabled](enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## Contact us for help
 
@@ -75,4 +75,4 @@ If you have questions or need help, [create a support request](https://ms.portal
 
 ## Next steps
 
-- [Azure Billing documentation](index.md)
+- [Azure Billing documentation](../../billing/index.md)

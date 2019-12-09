@@ -29,7 +29,7 @@ If you have a Microsoft Customer Agreement (MCA), you must have one of the follo
 
 If you have a Microsoft Partner Agreement (MPA), you must be the Global Admin or Admin Agent in the partner organization to view and download Azure invoices. [Check your billing account type](#check-your-billing-account-type) to figure out what permissions you need.
 
-<!-- For more information about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks). -->
+<!-- For more information about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](../cost-management-billing/manage/understand-mca-roles.md#billing-profile-roles-and-tasks). -->
 
 ## <a name="noinvoice"></a> Why you might not get an invoice
 

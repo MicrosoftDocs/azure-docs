@@ -157,6 +157,6 @@ To learn more about Azure Reservations, see the following articles:
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
 - [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
-- [Understand how the reservation discount is applied](billing-understand-vm-reservation-charges.md)
+- [Understand how the reservation discount is applied](../cost-management-billing/manage/understand-vm-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)

@@ -156,4 +156,4 @@ Here are some of the scenarios that are made possible via the consumption APIs:
 
 ## Next Steps
 
-- For information about using Azure Billing APIs to programmatically get insight into your Azure usage, see [Azure Billing API Overview](../../billing/billing-usage-rate-card-overview.md).
+- For information about using Azure Billing APIs to programmatically get insight into your Azure usage, see [Azure Billing API Overview](usage-rate-card-overview.md).

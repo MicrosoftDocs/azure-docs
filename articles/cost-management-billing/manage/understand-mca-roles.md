@@ -13,7 +13,7 @@ ms.author: banders
 ---
 # Understand Microsoft Customer Agreement administrative roles in Azure
 
-To manage your billing account for a Microsoft Customer Agreement, use the roles described in the following sections. These roles are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
+To manage your billing account for a Microsoft Customer Agreement, use the roles described in the following sections. These roles are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
 This article applies to a billing account for a Microsoft Customer Agreement. Check if you have access to a Microsoft Customer Agreement.
 
@@ -37,7 +37,7 @@ The following table describes the billing roles you use to manage your billing a
 
 ## Billing account roles and tasks
 
-A billing account lets you manage billing for your organization. You use billing account to organize costs, monitor charges, and invoices and control billing access for your organization. For more information, see [Understand billing account](billing-mca-overview.md#your-billing-account).
+A billing account lets you manage billing for your organization. You use billing account to organize costs, monitor charges, and invoices and control billing access for your organization. For more information, see [Understand billing account](../../billing/billing-mca-overview.md#your-billing-account).
 
 The following tables show what role you need to complete tasks in the context of the billing account.
 
@@ -83,7 +83,7 @@ The following tables show what role you need to complete tasks in the context of
 
 ## Billing profile roles and tasks
 
-A billing profile lets you manage your invoices and payment methods. A monthly invoice is generated for the Azure subscriptions and other products purchased using the billing profile. You use the payments methods to pay the invoice. For more information, see [Understand billing profiles](billing-mca-overview.md#billing-profiles).
+A billing profile lets you manage your invoices and payment methods. A monthly invoice is generated for the Azure subscriptions and other products purchased using the billing profile. You use the payments methods to pay the invoice. For more information, see [Understand billing profiles](../../billing/billing-mca-overview.md#billing-profiles).
 
 The following tables show what role you need to complete tasks in the context of the billing profile.
 
@@ -133,7 +133,7 @@ The following tables show what role you need to complete tasks in the context of
 
 ## Invoice section roles and tasks
 
-An invoice section allows you to organize the costs on your invoice. You can create a section to organize your costs by department, development environment, or based on your organization's needs. Give others permission to create Azure subscriptions for the section. Any usage charges and purchases for the subscriptions then show on the section of the invoice. For more information, see [Understand invoice section](billing-mca-overview.md#invoice-sections).
+An invoice section allows you to organize the costs on your invoice. You can create a section to organize your costs by department, development environment, or based on your organization's needs. Give others permission to create Azure subscriptions for the section. Any usage charges and purchases for the subscriptions then show on the section of the invoice. For more information, see [Understand invoice section](../../billing/billing-mca-overview.md#invoice-sections).
 
 The following tables show what role you need to complete tasks in the context of invoice sections.
 
@@ -178,24 +178,24 @@ The following table shows what role you need to complete tasks in the context of
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
+   ![Screenshot that shows Azure portal search](./media/understand-mca-roles/billing-search-cost-management-billing.png)
 
 3. Select **Access control (IAM)** at a scope such as billing account, billing profile, or invoice section, where you want to give access.
 
 4. The Access control (IAM) page lists users and groups that are assigned to each role for that scope.
 
-   ![Screenshot that shows list of admins for billing account](./media/billing-understand-mca-roles/billing-list-admins.png)
+   ![Screenshot that shows list of admins for billing account](./media/understand-mca-roles/billing-list-admins.png)
 
 5. To give access to a user, Select **Add** from the top of the page. In the Role drop-down list, select a role. Enter the email address of the user to whom you want to give access. Select **Save** to assign the role.
 
-   ![Screenshot that shows adding an admin to a billing account](./media/billing-understand-mca-roles/billing-add-admin.png)
+   ![Screenshot that shows adding an admin to a billing account](./media/understand-mca-roles/billing-add-admin.png)
 
 6. To remove access for a user, select the user with the role assignment you want to remove. Select Remove.
 
-   ![Screenshot that shows removing an admin from a billing account](./media/billing-understand-mca-roles/billing-remove-admin.png)
+   ![Screenshot that shows removing an admin from a billing account](./media/understand-mca-roles/billing-remove-admin.png)
 
 ## Check access to a Microsoft Customer Agreement
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+[!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
 ## Need help? Contact support
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
@@ -204,5 +204,5 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 See the following articles to learn about your billing account:
 
-- [Get stated with your billing account for Microsoft Customer Agreement](billing-mca-overview.md)
-- [Create an Azure subscription for your billing account for Microsoft Customer Agreement](billing-mca-create-subscription.md)
+- [Get stated with your billing account for Microsoft Customer Agreement](../../billing/billing-mca-overview.md)
+- [Create an Azure subscription for your billing account for Microsoft Customer Agreement](create-subscription.md)

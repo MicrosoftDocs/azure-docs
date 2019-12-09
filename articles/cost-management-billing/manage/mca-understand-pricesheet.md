@@ -16,7 +16,7 @@ ms.author: banders
 
 This article applies to an Azure billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
-If you are a billing profile Owner, Contributor, Reader, or Invoice Manager you can download your organization's price sheet from the Azure portal. See [View and download your organization's pricing](../cost-management-billing/manage/ea-pricing.md).
+If you are a billing profile Owner, Contributor, Reader, or Invoice Manager you can download your organization's price sheet from the Azure portal. See [View and download your organization's pricing](ea-pricing.md).
 
 ## Terms and descriptions in your price sheet
 
@@ -52,7 +52,7 @@ The following section describes the important terms shown in your Microsoft Cust
 
 
 ## Check access to a Microsoft Customer Agreement
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+[!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
 ## Need help? Contact us.
 
@@ -60,4 +60,4 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [View and download your organization's pricing](../cost-management-billing/manage/ea-pricing.md)
+- [View and download your organization's pricing](ea-pricing.md)

@@ -16,7 +16,7 @@ ms.author: banders
 
 This document applies to customers who signed up for Azure online with a credit card.
 
-In the Azure portal, you can add a new credit card, update an existing credit card, or delete a credit card that you don't use. You must be an [Account Administrator](../../billing/billing-subscription-transfer.md#whoisaa) to make these changes.
+In the Azure portal, you can add a new credit card, update an existing credit card, or delete a credit card that you don't use. You must be an [Account Administrator](billing-subscription-transfer.md#whoisaa) to make these changes.
 
 If you have a [Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement), your payment methods are associated with billing profiles. Learn how to [change the default payment method for a billing profile](#change-payment-method-for-a-billing-profile). Only the user who signed up for Azure can update the payment method.
 
@@ -134,7 +134,7 @@ The following sections answer commonly asked questions about changing your credi
 
 After your subscription is disabled or canceled, we wait 90 days before permanently deleting your subscription. We keep your payment method on file during the retention period in case you want to reactivate the subscription. After that, the subscription is permanently deleted.
 
-If you need to remove your credit card before the 90-day retention period ends, [reactivate your subscription](../../billing/billing-subscription-become-disable.md). If you can't reactivate, [contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+If you need to remove your credit card before the 90-day retention period ends, [reactivate your subscription](subscription-disabled.md). If you can't reactivate, [contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Why do I keep getting "Your login session has expired. Please click here to log back in"?
 

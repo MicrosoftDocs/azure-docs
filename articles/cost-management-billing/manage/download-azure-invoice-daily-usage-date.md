@@ -25,7 +25,7 @@ If you're an EA customer or have a [Microsoft Customer Agreement](#check-access-
 
 Only certain roles have permission to get billing invoice and usage information, like the Account Administrator or Enterprise Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](manage-billing-access.md).
 
-If you have a Microsoft Customer Agreement, you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view billing and usage information. To learn more about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](../../billing/billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+If you have a Microsoft Customer Agreement, you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view billing and usage information. To learn more about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

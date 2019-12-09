@@ -17,7 +17,7 @@ ms.author: banders
 
 After you buy an Azure SQL Database reserved capacity, the reservation discount is automatically applied to SQL Databases that match the attributes and quantity of the reservation. A reservation covers the compute costs of your SQL Database. You're charged for software, storage, and networking at the normal rates. You can cover the licensing costs for SQL Databases with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-For Reserved Virtual Machine Instances, see [Understand Azure Reserved VM Instances discount](billing-understand-vm-reservation-charges.md).
+For Reserved Virtual Machine Instances, see [Understand Azure Reserved VM Instances discount](../cost-management-billing/manage/understand-vm-reservation-charges.md).
 
 ## How reservation discount is applied
 

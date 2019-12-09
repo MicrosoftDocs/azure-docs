@@ -358,7 +358,7 @@ To improve upon your plan, Microsoft recommends you regularly validate that your
 
 ### Additional steps for organizations managing access to Azure 
 
-Determine if you need to [transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md).
+Determine if you need to [transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md).
 ‎
 
 ## "Break glass": what to do in an emergency

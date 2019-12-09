@@ -25,7 +25,7 @@ To help manage your organization's usage and spend, Azure customers with an Ente
 - Department Administrator (read only)
 - Account Owner
  
-These roles are specific to managing Azure Enterprise Agreements and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
+These roles are specific to managing Azure Enterprise Agreements and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
 The following sections describe the limitations and capabilities of each role.
 
@@ -82,7 +82,7 @@ You may see different pricing in the Azure portal depending on your administrati
 - DA view charges
 - AO view charges
 
-To learn how to set these policies, see [Manage access to billing information for Azure](../cost-management-billing/manage/manage-billing-access.md).
+To learn how to set these policies, see [Manage access to billing information for Azure](manage-billing-access.md).
 
 The following table shows the relationship between the Enterprise Agreement admin roles, the view charges policy, the role-based access control (RBAC) role in the Azure portal, and the pricing that you see in the Azure portal. The Enterprise Administrator always sees usage details based on the organization's EA pricing. However, the Department Administrator and Account Owner see different pricing views based on the view charge policy and their RBAC role. The Department Admin role listed in the following table refers to both Department Admin and Department Admin (read only) roles.
 
@@ -94,10 +94,10 @@ The following table shows the relationship between the Enterprise Agreement admi
 |Account Owner OR Department Admin|✘ Disabled |none|No pricing|
 |None|Not applicable |Owner|Retail pricing|
 
-You set the Enterprise admin role and view charges policies in the Enterprise portal. The RBAC role can be updated in the Azure portal. For more information, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+You set the Enterprise admin role and view charges policies in the Enterprise portal. The RBAC role can be updated in the Azure portal. For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Next steps
 
-- [Manage access to billing information for Azure](../cost-management-billing/manage/manage-billing-access.md)
-- [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md)
-- [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md)
+- [Manage access to billing information for Azure](manage-billing-access.md)
+- [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md)

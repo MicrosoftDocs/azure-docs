@@ -18,7 +18,7 @@ ms.author: banders
 This article applies to customers with a Microsoft Online Services Program account.
 
 If your payment isn't received or if we can't process your payment, you might get an email or see an alert in the Azure portal or Account Center.
-If you are the [Account Administrator](../../billing/billing-subscription-transfer.md#whoisaa), you can settle the outstanding charges in the [Azure portal](https://portal.azure.com). If you are on an invoice mode of payment, send your payment to the location listed at the bottom of your invoice.
+If you are the [Account Administrator](billing-subscription-transfer.md#whoisaa), you can settle the outstanding charges in the [Azure portal](https://portal.azure.com). If you are on an invoice mode of payment, send your payment to the location listed at the bottom of your invoice.
 
 > [!IMPORTANT]
 > * If you have multiple subscriptions using the same credit card and they are all past due, you must pay the entire outstanding balance at once.

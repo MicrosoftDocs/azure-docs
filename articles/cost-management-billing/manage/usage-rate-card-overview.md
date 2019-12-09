@@ -23,7 +23,7 @@ ms.custom: seodec18
 Use Azure Billing APIs to pull usage and resource data into your preferred data analysis tools. The Azure Resource Usage and RateCard APIs can help you accurately predict and manage your costs. The APIs are implemented as a Resource Provider and part of the family of APIs exposed by the Azure Resource Manager.  
 
 ## Azure Invoice Download API (Preview)
-Once the [opt-in has been complete](../cost-management-billing/manage/manage-billing-access.md#opt-in), download invoices using the preview version of [Invoice API](/rest/api/billing). The features include:
+Once the [opt-in has been complete](manage-billing-access.md#opt-in), download invoices using the preview version of [Invoice API](/rest/api/billing). The features include:
 
 * **Azure Role-based Access Control** - Configure access policies on the [Azure portal](https://portal.azure.com) or through [Azure PowerShell cmdlets](/powershell/azure/overview) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
 * **Date Filtering** - Use the `$filter` parameter to get all the invoices in reverse chronological order by the invoice period end date.
@@ -67,4 +67,4 @@ Here are some of the scenarios that are made possible with the combination of th
 
   * [RateCard API code sample](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
-* To learn more about the Azure Resource Manager, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
+* To learn more about the Azure Resource Manager, see [Azure Resource Manager Overview](../../azure-resource-manager/resource-group-overview.md).

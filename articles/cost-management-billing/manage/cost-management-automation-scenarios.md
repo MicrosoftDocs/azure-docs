@@ -133,7 +133,7 @@ These APIs provide similar sets of data but have different audiences:
 
 ## Next steps
 
-- For information about using Azure APIs to programmatically get insight into your Azure usage, see [Azure Consumption API overview](consumption-api-overview.md) and [Azure Billing API overview](../../billing/billing-usage-rate-card-overview.md).
+- For information about using Azure APIs to programmatically get insight into your Azure usage, see [Azure Consumption API overview](consumption-api-overview.md) and [Azure Billing API overview](usage-rate-card-overview.md).
 
 - To compare your invoice with the detailed daily usage file and the cost management reports in the Azure portal, see [Understand your bill for Microsoft Azure](../../billing/billing-understand-your-bill.md).
 

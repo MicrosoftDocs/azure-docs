@@ -20,7 +20,7 @@ You might want to take over ownership of Azure subscriptions if the existing bil
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-for-access).
 
-To request the billing ownership, you must be an **invoice section owner** or **invoice section contributor**. To learn more, see [invoice section roles tasks](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
+To request the billing ownership, you must be an **invoice section owner** or **invoice section contributor**. To learn more, see [invoice section roles tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
 
 ## Request billing ownership
 
@@ -28,29 +28,29 @@ To request the billing ownership, you must be an **invoice section owner** or **
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
 3. Select **Invoice sections** from the left-hand side. Depending on your access, you may need to select a billing account or billing profile. From the billing account or profile, select **Invoice sections**.
    
-   ![Screenshot that shows selecting invoice sections](./media/billing-mca-request-billing-ownership/mca-select-invoice-sections.png)        
+   ![Screenshot that shows selecting invoice sections](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)        
 
 4. Select an invoice section from the list. Once you take over the ownership of the subscriptions, they will be billed to this invoice section.
 
 5. Select **Transfer requests** from the lower-left side and then select **Add**.
  
-   ![Screenshot that shows selecting transfer requests](./media/billing-mca-request-billing-ownership/mca-select-transfer-requests.png)
+   ![Screenshot that shows selecting transfer requests](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)
 
-6. Enter the email address of the user you're requesting billing ownership from. The user must be an Account Administrator on a Microsoft Online Service Program billing account or an account owner on an Enterprise Agreement. For more information, see [view your billing accounts in Azure portal](billing-view-all-accounts.md). Select **Send transfer request**.
+6. Enter the email address of the user you're requesting billing ownership from. The user must be an Account Administrator on a Microsoft Online Service Program billing account or an account owner on an Enterprise Agreement. For more information, see [view your billing accounts in Azure portal](view-all-accounts.md). Select **Send transfer request**.
 
-   ![Screenshot that shows sending a transfer request](./media/billing-mca-request-billing-ownership/mca-send-transfer-requests.png)
+   ![Screenshot that shows sending a transfer request](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)
 
 7. The user gets an email with instructions to review your transfer request.
 
-   ![Screenshot that shows review transfer request email](./media/billing-mca-request-billing-ownership/mca-review-transfer-request-email.png)
+   ![Screenshot that shows review transfer request email](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
 
 8. To approve the transfer request, the user selects the link in the email and follows the instructions.
 
-    ![Screenshot that shows review transfer request email](./media/billing-mca-request-billing-ownership/mca-review-transfer-request.png)
+    ![Screenshot that shows review transfer request email](./media/mca-request-billing-ownership/mca-review-transfer-request.png)
 
 ## Check the transfer request status
 
@@ -58,18 +58,18 @@ To request the billing ownership, you must be an **invoice section owner** or **
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
 
 3. Select **Invoice sections** from the left-hand side. Depending on your access, you may need to select a billing account or billing profile. From the billing account or profile, select **Invoice sections**.
    
-   ![Screenshot that shows selecting invoice sections](./media/billing-mca-request-billing-ownership/mca-select-invoice-sections.png)        
+   ![Screenshot that shows selecting invoice sections](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)        
 
 4. Select the invoice section from the list for which you sent the transfer request.
 
 5. Select **Transfer requests** from the lower-left side. The Transfer requests page displays the following information:
 
-    ![Screenshot that shows list of transfer requests](./media/billing-mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)
+    ![Screenshot that shows list of transfer requests](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)
 
    |Column|Definition|
    |---------|---------|
@@ -92,7 +92,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
 
 7. Select a transfer request to view details. The transfer details page displays the following information:
    
-   ![Screenshot that shows list of transferred subscriptions](./media/billing-mca-request-billing-ownership/mca-transfer-completed.png)
+   ![Screenshot that shows list of transferred subscriptions](./media/mca-request-billing-ownership/mca-transfer-completed.png)
     
    |Column  |Definition|
    |---------|---------|
@@ -175,7 +175,7 @@ You can cancel the transfer request until the request is approved or declined. T
 SaaS products don't transfer with the subscriptions. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS products. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you perform management operations like deleting and viewing the details of the product. User must be a resource owner on the SaaS product to transfer resource ownership.
 
 ## Check for access
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+[!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
 ## Need help? Contact support
 
@@ -184,4 +184,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 - The billing ownership of the Azure subscriptions is transferred to your invoice section. Keep track of the charges for these subscriptions in the [Azure portal](https://portal.azure.com).
-- Give others permissions to view and manage billing for these subscriptions. For more information, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
+- Give others permissions to view and manage billing for these subscriptions. For more information, see [Invoice section roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).

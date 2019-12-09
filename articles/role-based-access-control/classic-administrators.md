@@ -148,7 +148,7 @@ For more information about Microsoft accounts and Azure AD accounts, see [What i
 
 ## View the Account Administrator
 
-The Account Administrator is the user that initially signed up for the Azure subscription, and is responsible as the billing owner of the subscription. To change the Account Administrator of a subscription, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md).
+The Account Administrator is the user that initially signed up for the Azure subscription, and is responsible as the billing owner of the subscription. To change the Account Administrator of a subscription, see [Transfer ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md).
 
 Follow these steps to view the Account Administrator.
 

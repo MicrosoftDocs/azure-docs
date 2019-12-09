@@ -211,7 +211,7 @@ In addition to viewing the billing in the portal, you can access the billing inf
 
 - You can use the Azure Rate Card API to list all the available resources, along with the metadata and pricing information about each of those resources.
 
-For more information, see [Gain insights into your Microsoft Azure resource consumption](../../billing/billing-usage-rate-card-overview.md).
+For more information, see [Gain insights into your Microsoft Azure resource consumption](../../cost-management-billing/manage/usage-rate-card-overview.md).
 
 ### Forecast cost with the pricing calculator
 
