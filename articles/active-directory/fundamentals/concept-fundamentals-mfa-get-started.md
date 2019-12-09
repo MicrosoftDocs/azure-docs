@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 12/06/2019
 
 ms.author: iainfou
 author: iainfoulds
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 There are multiple ways to enable Azure Multi-Factor Authentication (MFA) for your Azure Active Directory (AD) users based on the licenses that your organization owns. 
 
-![Investigate signals and enforce MFA if needed](./media/concept-mfa-get-started/verify-signals-and-perform-mfa-if-required.png)
+![Investigate signals and enforce MFA if needed](./media/concept-fundamentals-mfa-get-started/verify-signals-and-perform-mfa-if-required.png)
 
 Based on our studies, your account is more than 99.9% less likely to be compromised if you use MFA.
 
@@ -27,13 +27,13 @@ So how does your organization turn on multi-factor authentication even for free,
 
 ## Free option
 
-Customers who are utilizing the free benefits of Azure AD can use [security defaults](../conditional-access/concept-conditional-access-security-defaults.md) to enable multi-factor authentication in their environment.
+Customers who are utilizing the free benefits of Azure AD can use [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to enable multi-factor authentication in their environment.
 
 ## Office 365
 
 For customers with Office 365, there are two options:
 
-- [Security defaults](../conditional-access/concept-conditional-access-security-defaults.md) can be enabled through Azure AD to protect all of your users with Azure Multi-Factor Authentication.
+- [Security defaults](concept-fundamentals-security-defaults.md) can be enabled through Azure AD to protect all of your users with Azure Multi-Factor Authentication.
 - If your organization requires more granularity in providing multi-factor authentication, your Office licenses include [per-user MFA](../authentication/howto-mfa-userstates.md) capabilities. Per-user MFA is enabled and enforced on each user individually by administrators.
 
 ## Azure AD Premium P1
