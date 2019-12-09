@@ -104,7 +104,7 @@ After you create the bounding boxes for an image, select **Submit** to save your
 
 ## Finish up
 
-When you submit a page of tagged data, Azure new unlabeled data to you from a work queue. If there's no more unlabeled data available, you'll get a message noting this along with a link to the portal home page.
+When you submit a page of tagged data, Azure assigns new unlabeled data to you from a work queue. If there's no more unlabeled data available, you'll get a message noting this along with a link to the portal home page.
 
 When you're done labeling, select your name in the upper-right corner of the labeling portal and then select **sign-out**. If you don't sign out, eventually Azure will "time you out" and assign your data to another labeler.
 
