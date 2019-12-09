@@ -1,5 +1,5 @@
 ---
-title: Migrate Azure compute resources from Azure Germany to global Azure
+title: Migrate Azure compute resource from Azure Germany to global Azure
 description: This article provides information about migrating your Azure compute resources from Azure Germany to global Azure.
 author: gitralf
 services: germany

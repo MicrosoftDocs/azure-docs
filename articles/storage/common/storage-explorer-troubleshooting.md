@@ -296,7 +296,7 @@ You can also download the application as a .tar.gz file, but you'll have to inst
 
 These packages are the most common requirements for Storage Explorer on Linux:
 
-* [.NET Core 2.2 Runtime](https://docs.microsoft.com/en-us/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
+* [.NET Core 2.2 Runtime](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
 * `libgconf-2-4`
 * `libgnome-keyring0` or `libgnome-keyring-dev`
 * `libgnome-keyring-common`
