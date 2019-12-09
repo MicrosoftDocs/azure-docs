@@ -192,7 +192,7 @@ Akamai Header Based Authentication
 
 #### Advanced Settings
 
-1. Under the **Customer HTTP Headers**, specify the **CustomerHeader** and **SAML Attrtibute**.
+1. Under the **Customer HTTP Headers**, specify the **CustomerHeader** and **SAML Attribute**.
 
     ![Configuring Akamai](./media/header-akamai-tutorial/configure12.png)
 
@@ -272,7 +272,7 @@ Click **Save and go to Deployment**.
 
     e. Specify the Location for the connector and choose the connector.
 
-#### Authencation
+#### Authentication
 
 Click on **Save and go to Services**.
 
