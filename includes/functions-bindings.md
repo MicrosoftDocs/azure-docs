@@ -7,6 +7,7 @@ ms.author: glenga
 ---
 This table shows the bindings that are supported in the major versions of the Azure Functions runtime:
 
+
 | Type | 1.x | 2.x and higher<sup>1</sup> | Trigger | Input | Output |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob storage](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
