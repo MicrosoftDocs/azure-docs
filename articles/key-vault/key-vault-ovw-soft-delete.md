@@ -33,6 +33,8 @@ With this feature, the DELETE operation on a key vault or key vault object is a 
 
 Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. It can be turned on via [CLI](key-vault-soft-delete-cli.md) or [Powershell](key-vault-soft-delete-powershell.md).
 
+> **NOTE**: If an ARM template is used to provision a Key Vault instance, the soft-delete feature is enabled by default, unless specified the value of the property, `enableSoftDelete`, to `null`.
+
 ### Purge protection 
 
 When purge protection is on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. These vaults and objects can still be recovered, assuring customers that the retention policy will be followed. 
