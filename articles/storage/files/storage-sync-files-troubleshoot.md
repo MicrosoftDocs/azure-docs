@@ -4,7 +4,7 @@ description: Troubleshoot common issues with Azure File Sync.
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -809,6 +809,17 @@ To resolve this issue, delete and recreate the sync group by performing the foll
 | **Remediation required** | Yes |
 
 This error occurs because Azure File Sync does not support HTTP redirection (3xx status code). To resolve this issue, disable HTTP redirect on your proxy server or network device.
+
+<a id="-2134364027"></a>**A timeout occurred during offline data transfer, but it is still in progress.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83085 |
+| **HRESULT (decimal)** | -2134364027 |
+| **Error string** | ECS_E_DATA_INGESTION_WAIT_TIMEOUT |
+| **Remediation required** | No |
+
+This error occurs when a data ingestion operation exceeds the timeout. This error can be ignored if sync is making progress (AppliedItemCount is greater than 0). See [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
