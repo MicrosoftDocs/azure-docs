@@ -1,5 +1,5 @@
 ---
-title: Get token & call Microsoft Graph API from a console app (v1.0) | Microsoft Docs
+title: Get token & call Microsoft Graph APIs from console apps (v1.0) | Azure
 description: Build a .NET daemon application that integrates with Azure AD & calls Azure AD protected APIs using OAuth 2.0
 services: active-directory
 documentationcenter: .net
