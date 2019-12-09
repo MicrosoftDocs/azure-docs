@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/8/2019
+ms.date: 12/6/2019
 ms.author: wgries
 ms.subservice: files
 ---
@@ -72,7 +72,8 @@ The following release notes are for version 9.0.0.0 of the Azure File Sync agent
 	- Reduced recall failures. Recall size is now automatically adjusted based on network bandwidth. 
 	- Improved download performance when adding a new server to a sync group. 
 	- Reduced files not syncing due to constraint conflicts. 
-
+	- Files fail to tier or are unexpectedly recalled in certain scenarios if the server endpoint path is a volume mount point.
+	
 ### Evaluation Tool
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) section in the planning guide. 
 

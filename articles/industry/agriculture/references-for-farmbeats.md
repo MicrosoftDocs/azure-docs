@@ -18,7 +18,7 @@ The Azure FarmBeats APIs provide agricultural businesses with a standardized RES
 - APIs to get sensor, camera, drone, weather, satellite, and curated ground data.
 - Normalization and contextualization of data across common data providers.
 - Schematized access and query capabilities on all ingested data.
-- Automatic generation of metadata that can be queried, based on agronomic features. 
+- Automatic generation of metadata that can be queried, based on agronomic features.
 - Automatically generated time sequence aggregates for rapid model building.
 - Integrated Azure Data Factory engine to easily build custom data processing pipelines.
 
@@ -97,7 +97,7 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 ### Query parameters
 
 For REST GET calls, you can filter, limit the size of, and sort the data in an API response by including one or more query parameters on the request URI. For the query parameters, see the API documentation and the individual GET calls.
-For example, when you query the list of devices (GET call on /Device), the following query parameters can be specified: 
+For example, when you query the list of devices (GET call on /Device), the following query parameters can be specified:
 
 ![List of devices](./media/for-references/query-parameters-device-1.png)
 
@@ -158,12 +158,12 @@ Azure FarmBeats APIs can be accessed by a user or an app registration in Azure A
 
 4. Go to your [Datahub Swagger](https://<yourdatahub>.azurewebsites.net/swagger/index.html) and do the following:
     - Go to the **RoleAssignment API**.
-    - Perform a POST to create a **RoleAssignment** object for the **Object ID** you just created. 
+    - Perform a POST to create a **RoleAssignment** object for the **Object ID** you just created.
 
   > [!NOTE]
   > For more information on how to add users and Active Directory registration, see [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-After you finish the previous steps, your app registration (client) can call the Azure FarmBeats APIs by using an access token via bearer authentication. 
+After you finish the previous steps, your app registration (client) can call the Azure FarmBeats APIs by using an access token via bearer authentication.
 
 Use the access token to send it in subsequent API requests in the header section as:
 

@@ -1,5 +1,5 @@
 ---
-title: Web app that calls web APIs (acquire a token for the app) - Microsoft identity platform
+title: Get a token in Web apps that call web APIs - Microsoft identity platform | Azure
 description: Learn how to build a Web app that calls web APIs (acquiring a token for the app)
 services: active-directory
 documentationcenter: dev-center-name
