@@ -125,10 +125,14 @@ Response headers:
 
 ### HTTP parameters
 
-Required URL query string parameters:
+Required URL query string parameters will depend on API version:
 
 - `api-version=2016-12-12`
 - `api-version=2018-11-01-preview`
+- `api-version=2018-08-15-preview`
+
+> [!TIP]
+> The required API query value to use for each API is specified in the [reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/).
 
 Optional URL query string parameters:
 
