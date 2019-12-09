@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot module errors
 titleSuffix: "Azure Machine Learning"
-description: Troubleshoot module exceptions in Azure Machine Learning Studio (classic) using error codes
+description: Troubleshoot module exceptions in Azure Machine Learning designer using error codes
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
