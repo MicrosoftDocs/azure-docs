@@ -25,7 +25,7 @@ Once the *Browser connect* is enabled, lab users can access virtual machines thr
 
 ## Create a lab virtual machine
 
-You first need to create the lab virtual machine within a VNet that has Bastion configured on it. Select the second **subnet** you created, not the AzureBastionSubnet. You can select a VNet during virtual machine creation by going to the **Advanced settings** tab.
+You first need to create the lab virtual machine within a virtual network that has Bastion configured on it. Select the second **subnet** you created, not the AzureBastionSubnet. You can select a virtual network during virtual machine creation by going to the **Advanced settings** tab.
 
 ![Create virtual machine](./media/connect-virtual-machine-through-browser/create-virtual-machine.png)
 
