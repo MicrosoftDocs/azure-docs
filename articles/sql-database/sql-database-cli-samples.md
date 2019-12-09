@@ -37,6 +37,8 @@ The following table includes links to Azure CLI script examples for Azure SQL Da
 | [Scale an elastic pool](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | This CLI script example scales a SQL elastic pool to a different compute size.  |
 |**Failover groups**||
 | [Add single database to failover group](scripts/sql-database-add-single-db-to-failover-group-cli.md?toc=%2fcli%2fazure%2ftoc.json)| This CLI script creates a database, and a failover group, adds the database to the failover group and tests failover to the secondary server.|
+| **Restore a database**||
+| [Restore a database](scripts/sql-database-restore-database-cli.md?toc=%2fcli%2fazure%2ftoc.json)| This CLI script restores an Azure SQL database from a geo-redundant backup and restores a deleted Azure SQL database to the latest backup. |
 |||
 
 Learn more about the [Single Database Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).
