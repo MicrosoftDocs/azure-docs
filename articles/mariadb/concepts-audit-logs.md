@@ -24,7 +24,7 @@ Other parameters you can adjust include:
 - `audit_log_events`: controls the events to be logged. See below table for specific audit events.
 - `audit_log_include_users`: MariaDB users to be included for logging. The default value for this parameter is empty, which will include all the users for logging. This has higher priority over `audit_log_exclude_users`. Max length of the parameter is 512 characters.
 > [!Note]
-> `audit_log_include_users` has higher priority over `audit_log_exclude_users`. For example, if `audit_log_include_users` = `demouser` and `audit_log_exclude_users` = `demouser`, the user will be included in the audit the logs because `audit_log_include_users` has higher priority.
+> `audit_log_include_users` has higher priority over `audit_log_exclude_users`. For example, if `audit_log_include_users` = `demouser` and `audit_log_exclude_users` = `demouser`, the user will be included in the audit logs because `audit_log_include_users` has higher priority.
 - `audit_log_exclude_users`: MariaDB users to be excluded from logging. Allows for at most four users. Max length of the parameter is 256 characters.
 
 | **Event** | **Description** |
