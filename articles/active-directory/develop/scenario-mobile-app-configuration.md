@@ -1,5 +1,5 @@
 ---
-title: Mobile app that calls web APIs (code configuration) - Microsoft identity platform | Azure
+title: Configure mobile apps that call web APIs - Microsoft identity platform | Azure
 description: Learn how to build a mobile app that calls web APIs (app's code configuration)
 services: active-directory
 documentationcenter: dev-center-name

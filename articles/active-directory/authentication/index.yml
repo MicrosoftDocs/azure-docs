@@ -10,8 +10,8 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: landing-page
-  author: MicrosoftGuyJFlo
-  ms.author: joflore
+  author: iainfoulds
+  ms.author: iainfou
   ms.date: 08/20/2019
   ms.collection: M365-identity-device-management
 

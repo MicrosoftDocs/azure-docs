@@ -55,8 +55,7 @@ For details of Security Center's recommendations, see [Virtual Machine protectio
 
 Security Center provides real-time threat detection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
-We detect threats at the host and AKS cluster level. For full details, see [Azure container service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
-
+We detect threats at the host and AKS cluster level. For full details, see [threat detection for Azure containers](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
 ## To view the security posture of your container-related resources
 1.	Open Security Center’s **Compute & apps** page.
