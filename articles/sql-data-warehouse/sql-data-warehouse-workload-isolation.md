@@ -19,13 +19,13 @@ This article explains how workload groups can be used to configure workload isol
 
 ## Workload groups
 
-Workload groups are containers for a set of requests and are the basis for how workload management, including workload isolation, is configured on a system.  Workload groups are created using the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax. A simple workload management configuration can manage data loads and user queries. For example, a workload group named `wgDataLoads` will define workload aspects for data being loaded into the system. Also, a workload group named `wgUserQueries` will define workload aspects for users running queries to read data from the system.
+Workload groups are containers for a set of requests and are the basis for how workload management, including workload isolation, is configured on a system.  Workload groups are created using the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.  A simple workload management configuration can manage data loads and user queries.  For example, a workload group named `wgDataLoads` will define workload aspects for data being loaded into the system. Also, a workload group named `wgUserQueries` will define workload aspects for users running queries to read data from the system.
 
 The following sections will highlight how workload groups provide the ability to define isolation, containment, request resource definition, and adhere to execution rules.
 
 ## Workload isolation
 
-Workload isolation means resources are reserved, exclusively, for a workload group. Workload isolation is achieved by configuring the MIN_PERCENTAGE_RESOURCE parameter to greater than zero in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.  For continuous execution workloads that need to adhere to tight SLAs, isolation ensures resources are always available for the workload group. 
+Workload isolation means resources are reserved, exclusively, for a workload group.  Workload isolation is achieved by configuring the MIN_PERCENTAGE_RESOURCE parameter to greater than zero in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.  For continuous execution workloads that need to adhere to tight SLAs, isolation ensures resources are always available for the workload group. 
 
 Configuring workload isolation implicitly defines a guaranteed level of concurrency. With a MIN_PERCENTAGE_RESOURCE set to 30% and REQUEST_MIN_RESOURCE_GRANT_PERCENT set to 2%, a 15-concurrency level is guaranteed for the workload group.  Consider the below method for determining guaranteed concurrency:
 

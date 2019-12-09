@@ -25,7 +25,11 @@ Business needs can require data warehousing workloads to be more important than 
 
 ## Importance levels
 
+<<<<<<< HEAD
 There are five levels of importance: low, below_normal, normal, above_normal, and high. Requests that don't set importance are assigned the default level of normal. Requests that have the same importance level have the same scheduling behavior that exists today.
+=======
+There are five levels of importance: low, below_normal, normal, above_normal, and high.  Requests that don't set importance are assigned the default level of normal. Requests that have the same importance level have the same scheduling behavior that exists today.
+>>>>>>> 46730a1a8d68db69e5383498a443a8f96dc83eb5
 
 ## Importance scenarios
 
@@ -33,7 +37,11 @@ Beyond the basic importance scenario described above with sales and weather data
 
 ### Locking
 
+<<<<<<< HEAD
 Access to locks for read and write activity is one area of natural contention. Activities such as [partition switching](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) or [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) require elevated locks.  Without workload importance, SQL Data Warehouse optimizes for throughput. Optimizing for throughput means that when running and queued requests have the same locking needs and resources are available, the queued requests can bypass requests with higher locking needs that arrived in the request queue earlier. Once workload importance is applied to requests with higher locking needs. Request with higher importance will be run before request with lower importance.
+=======
+Access to locks for read and write activity is one area of natural contention. Activities such as [partition switching](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) or [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) require elevated locks.  Without workload importance, SQL Data Warehouse optimizes for throughput.  Optimizing for throughput means that when running and queued requests have the same locking needs and resources are available, the queued requests can bypass requests with higher locking needs that arrived in the request queue earlier.  Once workload importance is applied to requests with higher locking needs, requests with higher importance will be run before request with lower importance.
+>>>>>>> 46730a1a8d68db69e5383498a443a8f96dc83eb5
 
 Consider the following example:
 
@@ -45,7 +53,11 @@ If Q2 and Q3 have the same importance and Q1 is still executing, Q3 will begin e
 
 ### Non-uniform requests
 
+<<<<<<< HEAD
 Another scenario where importance can help meet querying demands is when requests with different resource classes are submitted.  As was previously mentioned, under the same importance, SQL Data Warehouse optimizes for throughput. When mixed size requests (such as smallrc or mediumrc) are queued, SQL Data Warehouse will choose the earliest arriving request that fits within the available resources.  If workload importance is applied, the highest importance request is scheduled next.
+=======
+Another scenario where importance can help meet querying demands is when requests with different resource classes are submitted.  As was previously mentioned, under the same importance, SQL Data Warehouse optimizes for throughput. When mixed size requests (such as smallrc or mediumrc) are queued, SQL Data Warehouse will choose the earliest arriving request that fits within the available resources. If workload importance is applied, the highest importance request is scheduled next.
+>>>>>>> 46730a1a8d68db69e5383498a443a8f96dc83eb5
   
 Consider the following example on DW500c:
 
@@ -53,11 +65,19 @@ Q1, Q2, Q3, and Q4 are running smallrc queries.
 Q5 is submitted with the mediumrc resource class at 9am.
 Q6 is submitted with smallrc resource class at 9:01am.
 
+<<<<<<< HEAD
 Because Q5 is mediumrc, it requires two concurrency slots. Q5 needs to wait for two of the running queries to complete. However, when one of the running queries (Q1-Q4) completes, Q6 is scheduled immediately because the resources exist to execute the query. If Q5 has higher importance than Q6, Q6 waits until Q5 is running before it can begin executing.
 
 ## Next steps
 
 - For more information on creating a classifier, see the [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest).  
+=======
+Because Q5 is mediumrc, it requires two concurrency slots. Q5 needs to wait for two of the running queries to complete.  However, when one of the running queries (Q1-Q4) completes, Q6 is scheduled immediately because the resources exist to execute the query.  If Q5 has higher importance than Q6, Q6 waits until Q5 is running before it can begin executing.
+
+## Next steps
+
+- For more information on creating a classifier, see the [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+>>>>>>> 46730a1a8d68db69e5383498a443a8f96dc83eb5
 - For more information about SQL Data Warehouse workload classification, see [Workload Classification](sql-data-warehouse-workload-classification.md).  
 - See the Quickstart [Create workload classifier](quickstart-create-a-workload-classifier-tsql.md) for how to create a workload classifier.
 - See the how-to articles to [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md) and how to [Manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
