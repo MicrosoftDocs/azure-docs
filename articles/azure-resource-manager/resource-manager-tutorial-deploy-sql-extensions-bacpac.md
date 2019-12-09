@@ -39,7 +39,13 @@ To complete this article, you need:
 
 A BACPAC file is shared in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). To create your own, see [Export an Azure SQL database to a BACPAC file](../sql-database/sql-database-export.md). If you choose to publish the file to your own location, you must update the template later in the tutorial.
 
-The BACPAC file must be stored in an Azure Storage account before it can be imported using Resource Manager template.
+The BACPAC file must be stored in an Azure Storage account before it can be imported using Resource Manager template. The following PowerShell script prepares the BACPAC file with these steps:
+
+* Download the BACPAC file.
+* Create an Azure Storage account.
+* Create a Storage account Blob container.
+* Upload the BACPAC file to the container.
+* Display the storage account key and the blob URL.
 
 1. Open the [Cloud shell](https://shell.azure.com).
 1. Select **Upload/Download files**, and then select **Upload**.
@@ -59,11 +65,15 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
     $storageAccountName = "${projectName}store"
     $containerName = "bacpacfiles"
     $bacpacFileName = "SQLDatabaseExtension.bacpac"
+    $bacpacUrl = "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac"
 
     # Download the bacpac file
-    Invoke-WebRequest -Uri $bacpacURL -OutFile "$HOME/$bacpacFileName"
+    Invoke-WebRequest -Uri $bacpacUrl -OutFile "$HOME/$bacpacFileName"
 
+    # Create a resource group
     New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a storage account
     $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
                                            -Name $storageAccountName `
                                            -SkuName Standard_LRS `
@@ -71,8 +81,10 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
     $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
                                                   -Name $storageAccountName).Value[0]
 
+    # Create a container
     New-AzStorageContainer -Name $containerName -Context $storageAccount.Context
 
+    # Upload the BACPAC file to the container
     Set-AzStorageBlobContent -File $HOME/$bacpacFileName `
                              -Container $containerName `
                              -Blob $bacpacFileName `
