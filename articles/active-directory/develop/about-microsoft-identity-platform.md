@@ -2,16 +2,12 @@
 title: Evolution of Microsoft identity platform - Azure 
 description: Learn about Microsoft identity platform, an evolution of the Azure Active Directory (Azure AD) identity service and developer platform.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/03/2019
 ms.author: ryanwi

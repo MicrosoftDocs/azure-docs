@@ -25,11 +25,11 @@ Projections can be tabular, with data stored in rows and columns in Azure Table 
 
 The knowledge store supports three types of projections:
 
-+ **Tables**: For data that's best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage.
++ **Tables**: For data that's best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage. Only valid JSON objects can be projected as tables, the enriched document can contain nodes that are not named JSON objects and when projecting these objects, create a valid JSON object with a shaper skill or inline shaping.
 
-+ **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
++ **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs. Only valid JSON objects can be projected as objects, the enriched document can contain nodes that are not named JSON objects and when projecting these objects, create a valid JSON object with a shaper skill or inline shaping.
 
-+ **Files**: When you need to save the images extracted from the documents, file projections allow you to save the normalized images.
++ **Files**: When you need to save the images extracted from the documents, file projections allow you to save the normalized images to blob storage.
 
 To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md).
 
@@ -44,7 +44,7 @@ This independence implies that you can have the same data shaped differently, ye
 
 ### Relatedness
 
-Projection groups now allow you to project your documents across projection types while preserving the relationships across projection types. All content projected within a single projection group preserves relationships within the data across projection types. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. Across types (tables, objects, and files), relationships are preserved when a single node is projected across different types. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a property containing the file URL.
+Projection groups now allow you to project your documents across projection types while preserving the relationships across projection types. All content projected within a single projection group preserves relationships within the data across projection types. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. Across types (tables, objects and files), relationships are preserved when a single node is projected across different types. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a column/property containing the file URL.
 
 ## Input shaping
 

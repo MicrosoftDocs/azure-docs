@@ -1,22 +1,18 @@
 ---
-title: Client assertions in Microsoft Authentication Library for .NET 
+title: Client assertions (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about signed client assertions support for confidential client applications in Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/18/2019
 ms.author: jmprieur
-ms.reviewer: 
+ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to use client assertions to prove the identity of my confidential client application
 ms.collection: M365-identity-device-management
