@@ -28,7 +28,7 @@ LUIS understands utterances in the following languages:
 | Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment and<br>Keywords)|
 |--|--|:--:|:--:|:--:|:--:|
 | American English |`en-US` | ✔ | ✔  |✔|✔|
-| Arabic (preview) |`ar-EG`|||||
+| Arabic (preview - modern standard Arabic) |`ar-AR`|-|-|-|-|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Dutch |`nl-NL` |✔|  -   |-|✔|
 | French (France) |`fr-FR` |✔| ✔ |✔ |✔|
