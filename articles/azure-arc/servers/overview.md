@@ -121,13 +121,11 @@ Services installed:
 Files added to the server:
 
 * `%ProgramFiles%\AzureConnectedMachineAgent\*.*` - Location of **Azure Connected Machine Agent** files.
-* `%SystemDrive%:\Packages\Plugins\*.*` - **Azure Arc for Servers** extension packages location.
 * `%ProgramData%\GuestConfig\*.*` - **Guest Configuration** logs.
 
 Registry key locations:
 
 * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Connected Machine Agent` - Registry keys for **Azure Connected Machine Agent**.
-* `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure\ScriptHandler` - Registry keys for Custom Script Extension.
 
 ### Linux
 
@@ -135,12 +133,10 @@ Services installed:
 
 * `Himdsd` - The **Azure Connected Machine Agent** service.
 * `dscd` or `gcd` - The **Guest Configuration** service.
-* `extd` - The **Azure Arc for Servers** extension manager service.
 
 Files added to the server:
 
 * `/var/opt/azcmagent/**` - Location of **Azure Connected Machine Agent** files.
-* `/var/lib/extmgragent/**` - **Azure Arc for Servers** extension packages location.
 * `/var/lib/GuestConfig/**` - **Guest Configuration** logs.
 
 ## Supported Scenarios
