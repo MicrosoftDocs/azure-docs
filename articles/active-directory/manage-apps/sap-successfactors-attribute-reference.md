@@ -17,7 +17,7 @@ ms.author: chmutali
 ---
 # SAP SuccessFactors Attribute Reference
 
-## List of supported SuccessFactors Attribute
+## Supported SuccessFactors Entities and Attributes
 
 The table below captures the list of SuccessFactors attributes supported by the following two provisioning apps: 
 * [SuccessFactors to Active Directory User Provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
