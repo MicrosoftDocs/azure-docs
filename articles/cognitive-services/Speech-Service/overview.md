@@ -5,7 +5,6 @@ description: The Speech service is the unification of speech-to-text, text-to-sp
 services: cognitive-services
 author: erhopf
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
