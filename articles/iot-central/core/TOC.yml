@@ -23,10 +23,10 @@
   items:
     - name: Get connected
       items:
-      - name: Build and manage an IoT device template
-        href: tutorial-define-iot-device-type.md
       - name: Connect a device
         href: tutorial-connect-pnp-device.md
+      - name: Create a gateway device template
+        href: tutorial-define-gateway-device-type.md
       - name: Build and manage an IoT Edge device template
         href: tutorial-define-edge-device-type.md
       - name: Connect an IoT Edge device

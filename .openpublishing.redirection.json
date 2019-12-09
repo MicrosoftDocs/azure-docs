@@ -42037,7 +42037,7 @@
     },
     {
       "source_path": "articles/iot-central/core/tutorial-define-iot-device-type-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-define-iot-device-type/",
+      "redirect_url": "/azure/iot-central/core/howto-set-up-template/",
       "redirect_document_id": false
     },
     {
@@ -42424,7 +42424,7 @@
     },
     {
       "source_path": "articles/iot-central/preview/tutorial-define-iot-device-type.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-define-iot-device-type/",
+      "redirect_url": "/azure/iot-central/core/howto-set-up-template/",
       "redirect_document_id": true
     },
     {

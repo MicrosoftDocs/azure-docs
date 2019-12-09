@@ -3,7 +3,7 @@ title: Quickstart - Configure rules and actions in Azure IoT Central
 description: This quickstart shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/07/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -15,31 +15,29 @@ manager: philmea
 
 *This article applies to operators, builders, and administrators.*
 
-
-
-In this quickstart, you create a rule that sends an email when the temperature in an environmental sensor device exceeds 90&deg; F.
+In this quickstart, you create a rule that sends an email when the temperature reported by a device sensor exceeds 90&deg; F.
 
 ## Prerequisites
 
-Before you begin, you should complete the two previous quickstarts [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) to create the **Environment Sensor** device template to work with.
+Before you begin, you should complete the two previous quickstarts [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) to create the **MXChip IoT DevKit** device template to work with.
 
 ## Create a telemetry-based rule
 
 1. To add a new telemetry-based rule to your application, in the left pane, select **Rules**.
 
-1. To create a new rule, select **+ New**.
+1. To create a new rule, select **+**.
 
 1. Enter **Environmental temperature** as the rule name.
 
-1. In the **Target devices** section, select the **Environment Sensor** as the device template. This option filters the devices the rule applies to by device template type. You can add more filter criteria choosing **+ Filter**.
+1. In the **Target devices** section, select **MXChip IoT DevKit** as the device template. This option filters the devices the rule applies to by device template type. You can add more filter criteria selecting **+ Filter**.
 
 1. In the **Conditions** section, you define what triggers your rule. Use the following information to define a condition based on temperature telemetry:
 
-    | Field                                        | Value                             |
-    | -------------------------------------------- | ------------------------------    |
-    | Measurement                                  | Temperature                       |
-    | Operator                                     | is greater than                   |
-    | Value                                        | 90                                |
+    | Field        | Value            |
+    | ------------ | ---------------- |
+    | Measurement  | Temperature      |
+    | Operator     | is greater than  |
+    | Value        | 90               |
 
     To add more conditions, select **+ Condition**.
 
@@ -47,7 +45,7 @@ Before you begin, you should complete the two previous quickstarts [Create an Az
 
 1. To add an email action to run when the rule triggers, select **+ Email**.
 
-1. Use the information in the following table to define your action:
+1. Use the information in the following table to define your action and then select **Done**:
 
     | Setting   | Value                                             |
     | --------- | ------------------------------------------------- |
