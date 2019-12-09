@@ -184,7 +184,7 @@ On the data factory **Let's get started** page, select **Create pipeline from te
          }
          ```
 
-      3. Add a **Create blob** action. For **Folder path** and **Blob name**, use the same values that you configured previously in **HighWatermarkBlobPath** and **HighWatermarkBlobName**.
+      3. Add a **Create blob** action. For **Folder path** and **Blob name**, use the same values that you configured previously in *HighWatermarkBlobContainer+HighWatermarkBlobDirectory* and *HighWatermarkBlobName*.
 
       4. Select **Save**. Then, copy the value of **HTTP POST URL** to use in the Data Factory pipeline.
 
