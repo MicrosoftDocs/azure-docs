@@ -3,10 +3,10 @@ title: Manage cluster horizontal scaling (scale out) in Azure Data Explorer to a
 description: This article describes steps to scale out and scale in an Azure Data Explorer cluster based on changing demand.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/14/2019
+ms.date: 12/09/2019
 ---
 
 # Manage cluster horizontal scaling (scale out) in Azure Data Explorer to accommodate changing demand
