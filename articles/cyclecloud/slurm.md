@@ -39,21 +39,24 @@ Slurm can easily be enabled on a CycleCloud cluster by modifying the "run_list" 
 ```
 
 ## Slurm Clusters in CycleCloud versions >= 7.8
+
 Slurm clusters running in CycleCloud versions 7.8 and later implement an updated version of the autoscaling APIs that allows the clusters to utilize multiple nodearrays and partitions. To facilitate this functionality in Slurm, CycleCloud pre-populates the execute nodes in the cluster. Because of this, you need to run a command on the Slurm master node after making any changes to the cluster, such as autoscale limits or VM types.
 
 ### Making Cluster Changes
-The Slurm cluster deployed in CycleCloud contains a script that facilitates this. After making any changes to the cluster, run the following command as root on the Slurm master node to rebuild the `slurm.conf` and update the nodes in the cluster:
+
+The Slurm cluster deployed in CycleCloud contains a script that facilitates this. After making any changes to the cluster, run the following command as root (e.g., by running `sudo -i`) on the Slurm master node to rebuild the `slurm.conf` and update the nodes in the cluster:
 
 ``` bash
-$ sudo -i
-# cd /opt/cycle/jetpack/system/bootstrap/slurm
-# ./cyclecloud_slurm.sh scale
+cd /opt/cycle/jetpack/system/bootstrap/slurm
+./cyclecloud_slurm.sh scale
 ```
 
 ### Removing all execute nodes
+
 As all the Slurm compute nodes have to be pre-created, it's required that all nodes in a cluster be completely removed when making big changes (such as VM type or Image). It is possible to remove all nodes via the UI, but the `cyclecloud_slurm.sh` script has a `remove_nodes` option that will remove any nodes that aren't currently running jobs.
 
 ### Creating additional partitions
+
 The default template that ships with Azure CycleCloud has two partitions (`hpc` and `htc`), and you can define custom nodearrays that map directly to Slurm partitions. For example, to create a GPU partition, add the following section to your cluster template:
 
 ``` ini
@@ -74,6 +77,14 @@ The default template that ships with Azure CycleCloud has two partitions (`hpc` 
         AssociatePublicIpAddress = $ExecuteNodesPublic
 ```
 
+### Memory settings
+
+CycleCloud automatically sets the amount of available memory for Slurm to use for scheduling purposes. Because the amount of available memory can change slightly due to different Linux kernel options, and the OS and VM can use up a small amount of memory that would otherwise be available for jobs, CycleCloud automatically reduces the amount of memory in the Slurm configuration. By default, CycleCloud holds back 5% of the reported available memory in a VM, but this value can be overridden in the cluster template by setting `slurm.dampen_memory` to the percentage of memory to hold back. For example, to hold back 20% of a VM's memory:
+
+``` ini
+    slurm.dampen_memory=20
+```
+
 ## Troubleshooting
 
 ### UID conflicts for Slurm and Munge users
@@ -91,7 +102,6 @@ And the `execute` nodearray:
 
 ![Edit Configuration](~/images/slurmnodearrayedit.png "Edit configuration")
 
-
 ## Slurm Configuration Reference
 
 The following are the Slurm specific configuration options you can toggle to customize functionality:
@@ -102,6 +112,7 @@ The following are the Slurm specific configuration options you can toggle to cus
 | slurm.autoscale                      | Default: 'false'. This is a per-nodearray setting that controls whether Slurm should automatically stop and start nodes in this nodearray. |
 | slurm.hpc                            | Default: 'true'. This is a per-nodearray setting that controls whether nodes in the nodearray will be placed in the same placement group. Primarily used for nodearrays using VM families with InfiniBand. It only applies when slurm.autoscale is set to 'true'. |
 | slurm.default_partition              | Default: 'false'. This is a per-nodearray setting that controls whether the nodearray should be the default partition for jobs that don't request a partition explicitly. |
+| slurm.dampen_memory                  | Default: '5'. The percentage of memory to hold back for OS/VM overhead. |
 | slurm.suspend_timeout                | Default: '600'. The amount of time (in seconds) between a suspend call and when that node can be used again. |
 | slurm.resume_timeout                 | Default: '1800'. The amount of time (in seconds) to wait for a node to successfully boot. |
 | slurm.user.name                      | Default: 'slurm'. This is the username for the Slurm service to use. |

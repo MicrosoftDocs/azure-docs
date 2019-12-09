@@ -25,7 +25,7 @@ Jetpack runs [HealthCheck](healthcheck.md) on VMs, and terminates them if they a
 
 ## Jetpack Installation
 
-When you first start a cluster using Azure CycleCloud, the software fetches the jetpack installer and caches it into a locker in your Azure Storage Account. When the VMs in the cluster are provisioned, a [custom script extension](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/overview) is executed as part of the boot process. This will download the Jetpack installer from your locker cache and install it on the VM.
+When you first start a cluster using Azure CycleCloud, the software fetches the jetpack installer and caches it into a locker in your Azure Storage Account. When the VMs in the cluster are provisioned, a [custom script extension](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) is executed as part of the boot process. This will download the Jetpack installer from your locker cache and install it on the VM.
 
 ## Jetpack Install Location
 All Jetpack files are installed inside a singular directory tree:
@@ -83,7 +83,7 @@ manipulating the current VM and interacting with Azure CycleCloud.
 
 `jetpack config` is used to fetch information passed into a VM by Azure
 CycleCloud. It exposes all the system properties made available via
-[Ohai](https://docs.getchef.com/ohai.html), a subset of the VM's [Azure metadata](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service), and information about the parent CycleCloud cluster.
+[Ohai](https://docs.getchef.com/ohai.html), a subset of the VM's [Azure metadata](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service), and information about the parent CycleCloud cluster.
 
 ## jetpack converge
 
@@ -101,20 +101,20 @@ period or indefinitely. By default, termination is delayed for one hour.
 To delay system termination by one hour:
 
 ```azurecli-interactive
-$ jetpack keepalive
+jetpack keepalive
 ```
 
 To disable the HealthCheck service entirely, i.e. delay termination
 indefinitely:
 
 ```azurecli-interactive
-$ jetpack keepalive forever
+jetpack keepalive forever
 ```
 
 To delay system termination by six hours:
 
 ```azurecli-interactive
-$ jetpack keepalive 6h
+jetpack keepalive 6h
 ```
 
 ## jetpack log
@@ -136,27 +136,27 @@ Cluster UI page to avoid flooding the page with low priority messages.
 To send an informational log message that will appear on the Cluster UI page:
 
 ```azurecli-interactive
-$ jetpack log 'system is now ready'
+jetpack log 'system is now ready'
 ```
 
 To send a low priority log message that you do not want to appear on the Cluster
 UI page:
 
 ```azurecli-interactive
-$ jetpack log 'system is now ready' --priority low
+jetpack log 'system is now ready' --priority low
 ```
 
 By default, messages with a level of *error* have a high priority. To send an
 error message:
 
 ```azurecli-interactive
-$ jetpack log 'the machine cannot process jobs' --level error
+jetpack log 'the machine cannot process jobs' --level error
 ```
 
 To send a trivial error message:
 
 ```azurecli-interactive
-$ jetpack log 'the machine cannot process jobs' --level error --priority low
+jetpack log 'the machine cannot process jobs' --level error --priority low
 ```
 
 ## jetpack send

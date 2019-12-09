@@ -24,7 +24,7 @@ Each line of ouput from these scripts will generally be prefixed with a correspo
 For example:
 
 ``` script
-$ cstat
+cstat
 external > [output from a cluster named "external"]
 internal > [output from a cluster named "internal"]
 ```
@@ -68,7 +68,7 @@ to `http://localhost:8080`.
 The configure the SubmitOnce CLI for the first time, you should run the "initialize" command:
 
 ```azurecli-interactive
-$ submitonce initialize
+submitonce initialize
 ```
 
 This will ask you a set of questions to configure connectivity to SubmitOnce and the various
@@ -109,7 +109,7 @@ To submit work to clusters via SubmitOnce, the clusters must be configured via e
 the CLI. To configure a cluster from the CLI, use the `add_cluster` command:
 
 ```azurecli-interactive
-$ submitonce add_cluster CLUSTER_NAME
+submitonce add_cluster CLUSTER_NAME
 ```
 
 The `add_cluster` command will prompt you for all the information that SubmitOnce requires to use

@@ -18,7 +18,7 @@ It is still possible to enter the standard set of credentials by simply unchecki
 
 CycleCloud automates many calls to the Azure Resource Manager for the purposes
 of managing HPC clusters. This automation requires certain permissions to be granted
-to CycleCloud. It's recommended to use a [VM with a managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) for this purpose. A sufficient policy for most CycleCloud features is posted below.
+to CycleCloud. It's recommended to use a [VM with a managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) for this purpose. A sufficient policy for most CycleCloud features is posted below.
 
 ```json
 {
@@ -94,7 +94,7 @@ To enable CycleCloud to assign Managed Identities to VMs it creates within clust
 
 ### Creating the Role
 
-A role can be created from the role definitions via the [Azure CLI](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli)
+A role can be created from the role definitions via the [Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli)
 .  Use this role to create a role definition within the Azure Tenant. Once the
 role exists in the tenant, assign the role to an identity with proper scope.
 

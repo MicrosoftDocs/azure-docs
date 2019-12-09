@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Manual Installation
 
-Azure CycleCloud can be installed using an [ARM template](quickstart-install-cyclecloud.md), via [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azurecyclecloud.azure-cyclecloud-vm?tab=Overview) or using a container in the [Azure Container Registry](https://hub.docker.com/r/microsoft/azure-cyclecloud/). For production instances of CycleCloud, we recommend installing the product manually as outlined below.
+Azure CycleCloud can be installed using an [ARM template](quickstart-install-cyclecloud.md), via [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud-vm?tab=Overview) or using a container in the [Azure Container Registry](https://hub.docker.com/r/microsoft/azure-cyclecloud/). For production instances of CycleCloud, we recommend installing the product manually as outlined below.
 
 > [!NOTE]
 > The CycleCloud product encompasses many pieces, including a command line transfer tool called [pogo](pogo-overview.md), node configuration software known as [Jetpack](jetpack.md), and a installable webserver platform called CycleServer. Because of this, you will find CycleServer referenced in many commands and directory names on the machine where the CycleCloud server is installed.
@@ -39,21 +39,21 @@ The default SSH key used in CycleCloud is */opt/cycle_server/.ssh/cyclecloud.pem
 First, install `wget` if its not already installed. This will be used to fetch the Microsoft signing key.
 
 ```CMD
-$ sudo apt update && sudo apt -y install wget
+sudo apt update && sudo apt -y install wget
 ```
 
 Next, download the Microsoft signing key to Apt's trusted keyring
 
 ```CMD
-$ sudo wget -O /etc/apt/trusted.gpg.d/microsoft.asc https://packages.microsoft.com/keys/microsoft.asc
+sudo wget -O /etc/apt/trusted.gpg.d/microsoft.asc https://packages.microsoft.com/keys/microsoft.asc
 ```
 
 Finally, configure a `cyclecloud.list` file, update the Apt cache, and install cyclecloud.
 
 ```CMD
-$ sudo echo "'deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list"
-$ sudo apt update
-$ sudo apt -y install cyclecloud
+sudo echo "'deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list"
+sudo apt update
+sudo apt -y install cyclecloud
 ```
 
 > [!NOTE]
@@ -64,7 +64,7 @@ $ sudo apt -y install cyclecloud
 First, configure a `cyclecloud.repo` file.
 
 ```CMD
-$ sudo cat > /etc/yum.repos.d/cyclecloud.repo <<EOF
+sudo cat > /etc/yum.repos.d/cyclecloud.repo <<EOF
 [cyclecloud]
 name=cyclecloud
 baseurl=https://packages.microsoft.com/yumrepos/cyclecloud
@@ -76,12 +76,12 @@ EOF
 Finally, install cyclecloud with `yum` or `dnf`.
 
 ```CMD
-$ sudo yum -y install cyclecloud
+sudo yum -y install cyclecloud
 ```
 
 ### Installing from the Microsoft Download center
 
-Download the [Azure CycleCloud install file](https://www.microsoft.com/en-us/download/details.aspx?id=57182) from the Microsoft Download Center and install using a package manager.
+Download the [Azure CycleCloud install file](https://www.microsoft.com/download/details.aspx?id=57182) from the Microsoft Download Center and install using a package manager.
 
 For the .rpm install file:
 
@@ -137,7 +137,7 @@ You will now set up the local administrator account for CycleCloud. This account
 
 ### Step 4: Set Your SSH Key
 
-Once you have set up your administrator account, you can set your SSH public key so that you can easily access any Linux machines started by CycleCloud. To set your SSH public key, go to "My Profile" under the user menu in the top right and choose "Edit Profile". [Learn about creating SSH keys here.](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys)
+Once you have set up your administrator account, you can set your SSH public key so that you can easily access any Linux machines started by CycleCloud. To set your SSH public key, go to "My Profile" under the user menu in the top right and choose "Edit Profile". [Learn about creating SSH keys here.](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
 
 
 ## Update CycleCloud

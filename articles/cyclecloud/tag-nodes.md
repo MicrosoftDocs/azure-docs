@@ -23,7 +23,7 @@ ClusterName => "Demo"
 CycleOwner => "username@mysite:92xy4vgh"
 ```
 
-Within a resource that supports [Resource Manager Operations](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags) you can create additional tags to assign to the instance by specifying them with a node definition inside your template:
+Within a resource that supports [Resource Manager Operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) you can create additional tags to assign to the instance by specifying them with a node definition inside your template:
 
 ``` ini
 [cluster Demo]
@@ -45,7 +45,7 @@ Custom Text => "Hello world"
 
 ### Restrictions
 
-There are limits on the number and format of tags applied to each Virtual Machine. Please review the [Tagging Azure Resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags) documentation for full details.
+There are limits on the number and format of tags applied to each Virtual Machine. Please review the [Tagging Azure Resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) documentation for full details.
 
 Do not include quote marks or periods in your tag names.
 

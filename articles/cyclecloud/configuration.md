@@ -41,9 +41,9 @@ This information is required to start using CycleCloud, but can be changed at an
 You will need the following:
 
 - A Microsoft Azure account with an active subscription
-- An [Application Registration](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-scenarios#web-application-to-web-api) with [Contributor access](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for the Subscription used with CycleCloud
-- A [Network Security Group](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group) set up to allow CycleCloud to communicate with Azure
-- A [Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) for CycleCloud
+- An [Application Registration](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios#web-application-to-web-api) with [Contributor access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) for the Subscription used with CycleCloud
+- A [Network Security Group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) set up to allow CycleCloud to communicate with Azure
+- A [Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) for CycleCloud
 
 ### Network Security Group Settings
 

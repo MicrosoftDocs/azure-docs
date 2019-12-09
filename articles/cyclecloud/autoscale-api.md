@@ -57,7 +57,7 @@ There are two easy ways to make this API call: using the Python API or the jetpa
 ### Jetpack CLI
 
 ```azurecli-interactive
-$ jetpack autoscale --name=execute --corecount=128
+jetpack autoscale --name=execute --corecount=128
 ```
 
 ### Jetpack API

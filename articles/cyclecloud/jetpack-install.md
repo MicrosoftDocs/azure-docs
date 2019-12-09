@@ -55,9 +55,9 @@ platform-specific Azure instructions.
 Copy the installer zip to the VM where you intend to perform installation.
 
 ```Powershell
-PS> unzip jetpack.zip
-PS> cd jetpack
-PS> install.cmd
+unzip jetpack.zip
+cd jetpack
+install.cmd
 ```
 
 ### On Linux
@@ -66,9 +66,9 @@ Copy the installer archive to the VM where you intend to perform the installatio
 Un-tar and decompress the archive and run the installer.
 
 ```bash
-$ tar -xf jetpack-7.5.2-ubuntu-16.04.tar.gz
-$ cd jetpack
-$ ./install.sh
+tar -xf jetpack-7.5.2-ubuntu-16.04.tar.gz
+cd jetpack
+./install.sh
 ```
 
 This command will install jetpack to _/opt/cycle/jetpack_ and will log installation
@@ -87,11 +87,14 @@ to _/opt/cycle/home/cyclecloud_ or another locally available directory.
 > The custom cyclecloud home directory must be created before running the installer as shown in example.
 
 ```bash
-$ tar -xf jetpack-7.5.1-centos-7.tar.gz
-$ cd jetpack
-$ find . |xargs perl -pi -e 's/\/home\/cyclecloud/\/opt\/cycle\/home\/cyclecloud/'
-$ mkdir -p /opt/cycle/home/cyclecloud
-$ ./install.sh
+tar -xf jetpack-7.5.1-centos-7.tar.gz
+cd jetpack
+find . |xargs perl -pi -e 's/\/home\/cyclecloud/\/opt\/cycle\/home\/cyclecloud/'
+mkdir -p /opt/cycle/home/cyclecloud
+./install.sh
+```
+
+```Output
 Installing to: /opt/cycle/jetpack
 Installation complete, see install.log for details.
 ```
@@ -118,8 +121,8 @@ the default location to the new *cyclecloud* home directory.
 ## Capturing the Custom Image and Using it with CycleCloud
 
 After installing Jetpack and performing any other custom image configurations the
-VM is ready for image capture. Note the instructions differ between [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource)
-and [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image) VMs.
+VM is ready for image capture. Note the instructions differ between [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
+and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image) VMs.
 
 Using these instructions a VM image will be available in the subscription
 and location where the image was capture. To use the image

@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Run Azure CycleCloud in a Container Instance
 
-Running Azure CycleCloud in a [Container Instance](https://azure.microsoft.com/en-us/services/container-instances/) is an excellent solution for customers who use CycleCloud intermittently and wish to shut it down between job runs to avoid the costs associated with long-running virtual machines.
+Running Azure CycleCloud in a [Container Instance](https://azure.microsoft.com/services/container-instances/) is an excellent solution for customers who use CycleCloud intermittently and wish to shut it down between job runs to avoid the costs associated with long-running virtual machines.
 
 ## Prerequisites
 
@@ -35,14 +35,14 @@ docker run -m 2G -e "JAVA_HEAP_SIZE=1024" -p 8080:80 -p 8443:443 myrepo/cycleclo
 
 ## Persistent Storage
 
-If the Azure Container Instance should fail, your data could be lost. Recovering the managed running state your of HPC clusters would not be possible. It is strongly advised to configure the Azure Container Instance to be backed with durable storage from [Azure File Share](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share).
+If the Azure Container Instance should fail, your data could be lost. Recovering the managed running state your of HPC clusters would not be possible. It is strongly advised to configure the Azure Container Instance to be backed with durable storage from [Azure File Share](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 Provided that an Azure File Share is mounted at `/azurecyclecloud`, the CycleCloud container will use durable storage for:
 
 * Logs
 * Backup Recovery Points
 
-For a better understanding of Azure File Share, please see the documentation demonstrating the [integration with Azure Container Instance](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-volume-azure-files).
+For a better understanding of Azure File Share, please see the documentation demonstrating the [integration with Azure Container Instance](https://docs.microsoft.com/azure/container-instances/container-instances-volume-azure-files).
 
 In the example below, a storage share will be mounted at /azurecyclecloud and will collect logs and backup points. With this configuration, the Azure CycleCloud data can be recovered from failure or used to migrate to hosting in another service, such as a Virtual Machine.
 
@@ -121,7 +121,7 @@ mVa3tFI9HfSz2qjsB1YLRfZYiMR+BzCI9uOyu9bIu2VLUX1fjgIDJ6XYtcOQAJP0
 To bring up an Azure CycleCloud container with a user pre-created, add the following environment variables to the docker run command:
 
 ```azurecli-interactive
-$ docker run -m 4G -p 80:80 -p 443:443 \
+docker run -m 4G -p 80:80 -p 443:443 \
 -e "JAVA_HEAP_SIZE=2048" \
 -e CYCLECLOUD_AUTOCONFIG=true \
 -e CYCLECLOUD_USERNAME=$YOUR-USER-NAME \

@@ -10,7 +10,7 @@ ms.author: mirequa
 
 It is possible to upgrade the Azure CycleCloud application in place as new versions become
 available. CycleCloud versions _7.5.0_ and later are released via
-[Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=57182) as either a Debian or RPM package.
+[Download Center](https://www.microsoft.com/download/details.aspx?id=57182) as either a Debian or RPM package.
 
 To upgrade, copy the installer to the host running CycleCloud and run the platform-specific
 package upgrade command.

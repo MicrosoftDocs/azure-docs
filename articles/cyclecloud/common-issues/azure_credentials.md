@@ -16,7 +16,7 @@ Verify that the service principal configured for Azure CycleCloud is valid. This
 
 To reset the service principal's secret:
 ```azurecli-interactive
-$> az ad sp credential reset --name "0000000000-0000-0000-0000-00000000" --years 2  --password {Application Secret} --credential-description "My New Credential"
+az ad sp credential reset --name "0000000000-0000-0000-0000-00000000" --years 2  --password {Application Secret} --credential-description "My New Credential"
 ```
 
 ## More Information

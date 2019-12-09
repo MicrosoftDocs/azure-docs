@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Environments
 
-An **environment** in Azure CycleCloud is a set of resources created by an external source, such as an [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) deployment. ​You can create an environment that will pull in relevant properties from any resource that ARM supports, and integrate them with your cluster template. You can also set up dependencies between deployments and nodes that work in either direction.
+An **environment** in Azure CycleCloud is a set of resources created by an external source, such as an [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) deployment. ​You can create an environment that will pull in relevant properties from any resource that ARM supports, and integrate them with your cluster template. You can also set up dependencies between deployments and nodes that work in either direction.
 
 ## Create an Environment
 

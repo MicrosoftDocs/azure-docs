@@ -190,13 +190,13 @@
 - name: Resources
   items:
   - name: Get Azure CycleCloud
-    href: https://azure.microsoft.com/en-us/features/azure-cyclecloud/
+    href: https://azure.microsoft.com/features/azure-cyclecloud/
   - name: CycleCloud Cluster Templates
     href: download-cluster-templates.md
   - name: CycleCloud Community GitHub
     href: https://github.com/CycleCloudCommunity
   - name: Azure Community Forums
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecyclecloud
+    href: https://social.msdn.microsoft.com/Forums/home?forum=azurecyclecloud
   - name: Azure CycleCloud Feedback
     href: https://feedback.azure.com/forums/914491--azure-cyclecloud
   - name: Release Notes

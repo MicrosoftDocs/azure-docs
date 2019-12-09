@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Cluster Templates
 
-Azure CycleCloud uses templates to define cluster configurations. A number of templates are included in CycleCloud by default and a full list of supported templates is [available in GitHub](https://github.com/Azure?q=cyclecloud). You can create new templates or you can customize existing ones. For instance, you may want to customize an existing template to take advantage of [low-priority](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) VMs, or you might want to add a VPC to extend your own network.
+Azure CycleCloud uses templates to define cluster configurations. A number of templates are included in CycleCloud by default and a full list of supported templates is [available in GitHub](https://github.com/Azure?q=cyclecloud). You can create new templates or you can customize existing ones. For instance, you may want to customize an existing template to take advantage of [low-priority](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) VMs, or you might want to add a VPC to extend your own network.
 
 ## Configuration Notation
 
@@ -87,9 +87,9 @@ This will create a JSON file containing the parameters for dev and a .properties
 You can now import the template using the parameters file to fill in the missing pieces:
 
 ```azurecli-interactive
-$ cyclecloud import_cluster gridengine-dev -f template.txt -p dev-params.json -c gridengine
+cyclecloud import_cluster gridengine-dev -f template.txt -p dev-params.json -c gridengine
 
-$ cyclecloud import_cluster gridengine-prod -f template.txt -p prod-params.properties -c gridengine
+cyclecloud import_cluster gridengine-prod -f template.txt -p prod-params.properties -c gridengine
 ```
 
 It is also possible to define some or all of the parameters within the cluster template itself:
@@ -176,7 +176,7 @@ Once this parameter has been added to your cluster template, your user can use t
 
 To reduce the cost of your workloads, you can set `interruptible = true`. This will flag your instance as low-priority, and will use surplus capacity when available. It is important to note that these instances are not always available and can be preempted at any time, meaning they are not always appropriate for your workload.
 
-If you have an existing [Azure Batch account](https://azure.microsoft.com/en-us/services/batch/), you can add `BatchAccount = foo` to your node. This will allow low-priority VMs via Batch nodes for your job(s).
+If you have an existing [Azure Batch account](https://azure.microsoft.com/services/batch/), you can add `BatchAccount = foo` to your node. This will allow low-priority VMs via Batch nodes for your job(s).
 
 ## Lookup Tables
 
