@@ -21,7 +21,7 @@ ms.date: 11/04/2019
 > The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
 > [!WARNING]
-> Only Cosmos DB collections with an [indexing policy](https://docs.microsoft.com/azure/cosmos-db/index-policy) set to [Consistent](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) are supported by Azure Cognitive Search. Indexing collections with a Lazy indexing mode is not recommended and may result in missing data. Collections with indexing disabled are not supported.
+> Only Cosmos DB collections with an [indexing policy](https://docs.microsoft.com/azure/cosmos-db/index-policy) set to [Consistent](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) are supported by Azure Cognitive Search. Indexing collections with a Lazy indexing policy is not recommended and may result in missing data. Collections with indexing disabled are not supported.
 
 This article shows you how to configure an Azure Cosmos DB [indexer](search-indexer-overview.md) to extract content and make it searchable in Azure Cognitive Search. This workflow creates an Azure Cognitive Search index and loads it with existing text extracted from Azure Cosmos DB. 
 
