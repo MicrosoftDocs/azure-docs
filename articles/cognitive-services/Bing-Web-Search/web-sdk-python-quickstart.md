@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ---
 
@@ -77,7 +77,7 @@ If the response contains web pages, images, news, or videos, the first result fo
 
 1. Create a new Python project using your favorite IDE or editor.
 
-1. Copy this sample code into your project:  
+1. Copy this sample code into your project. `endpoint` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.:  
 
     ```python
     # Import required modules.
