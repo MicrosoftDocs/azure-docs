@@ -18,7 +18,7 @@ After creating a hosted Custom Commands application, you can begin talking to it
 
 In this article, you'll:
 
-- Publish a Custom Commands application and get an application identifier (app id)
+- Publish a Custom Commands application and get an application identifier (App ID)
 - Create a client app using the Speech SDK to allow you to talk to your Custom Commands application
 
 ## Prerequisites
@@ -44,7 +44,7 @@ This quickstart describes, step by step, how to make a client application to con
    > [!div class="mx-imgBorder"] 
    > ![Publish application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
-1. Copy the app id from the publish notification for later use
+1. Copy the App ID from the publish notification for later use
 
 ## Step 2: Create a Visual Studio project
 

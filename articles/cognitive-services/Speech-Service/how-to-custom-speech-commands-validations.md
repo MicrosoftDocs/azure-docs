@@ -75,3 +75,8 @@ Select the Test panel and try a few interactions.
 - Output: "Sorry, I can only set between 60 and 80 degrees"
 - Input: make it 72 degrees instead
 - Output: "Ok, setting to 72 degrees"
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [How To: Add a confirmation to a Custom Command (Preview)](./how-to-custom-speech-commands-confirmations.md)

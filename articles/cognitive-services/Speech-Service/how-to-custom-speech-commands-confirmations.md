@@ -1,5 +1,5 @@
 ---
-title: 'How To: Add a confirmation to a Custom Command (Preview)'
+title: 'How to: Add a confirmation to a custom command (Preview)'
 titleSuffix: Azure Cognitive Services
 description: In this article, how to implements confirmations for a command in Custom Commands.
 services: cognitive-services
@@ -23,7 +23,7 @@ You must have completed the steps in the following articles:
 - [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
 - [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
 
-## Create a SetAlarm Command
+## Create a SetAlarm command
 
 To demonstrate validations, let's create a new Command allowing the user to set an alarm.
 
@@ -81,7 +81,7 @@ Select the Test panel and try a few interactions.
    | State after execution | Wait for input                                                                   | State for the user after the turn                  |
    | Expectations          | Confirmation                                                                     | Expectation for the next turn                      |
 
-1. Add an advanced rule to handle a successful confirmation (a.k.a. user said yes!)
+1. Add an advanced rule to handle a successful confirmation (user said yes)
 
    | Setting               | Suggested value                                                                  | Description                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
@@ -89,7 +89,7 @@ Select the Test panel and try a few interactions.
    | Conditions            | SuccessfulConfirmation & Required Parameter - DateTime                           | Conditions that determine when the rule can run    |   
    | State after execution | Ready for Completion                                                             | State of the user after the turn                   |
 
-1. Add an advanced rule to handle a confirmation denied (a.k.a. user said no!)
+1. Add an advanced rule to handle a confirmation denied (user said no)
 
    | Setting               | Suggested value                                                                  | Description                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
@@ -111,3 +111,8 @@ Select the Test panel and try a few interactions.
 - Output: "Are you sure you want to set an alarm for 12/06/2019 17:00:00?"
 - Input: Yes
 - Output: "Ok, alarm set for 12/06/2019 17:00:00"
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [How To: Add a one-step correction to a Custom Command (Preview)](./how-to-custom-speech-commands-one-step-correction.md)
