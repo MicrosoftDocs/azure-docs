@@ -81,4 +81,4 @@ Visit [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/
 
 ## Next steps
 
-You have deployed Azure FarmBeats. Now, learn how to [create farms](manage-farms.md#create-farms).
+You have successfully added users to Azure FarmBeats instance. Now, learn how to [create farms](manage-farms.md#create-farms).
