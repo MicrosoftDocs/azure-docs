@@ -68,7 +68,7 @@ If you prefer service tag option two, and your cluster is located in one of the 
 | Japan | Japan West | HDInsight.JapanWest |
 | France | France Central| HDInsight.FranceCentral |
 | UK | UK South | HDInsight.UKSouth |
-| Azure Government (Fairfax) | USDoD Central   | HDInsight.USDoDCentral |
+| Azure Government | USDoD Central   | HDInsight.USDoDCentral |
 | &nbsp; | USGov Texas | HDInsight.USGovTexas |
 | &nbsp; | UsDoD East | HDInsight.USDoDEast |
 
