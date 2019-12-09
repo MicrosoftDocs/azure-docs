@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/05/2019
+ms.date: 12/09/2019
 ms.author: helohr
 ---
 # Troubleshoot the Remote Desktop client

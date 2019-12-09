@@ -113,7 +113,7 @@
   - name: Remote Desktop service connections
     href: troubleshoot-service-connection.md
   - name: Remote Desktop client issues
-    href: troubleshoot-rdp-client.md
+    href: troubleshoot-client.md
   - name: Windows Virtual Desktop PowerShell
     href: troubleshoot-powershell.md
   - name: Diagnosing graphics performance issues
