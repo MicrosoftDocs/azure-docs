@@ -217,7 +217,8 @@
         "articles/dev-spaces/**/*.md": "zr-msft",
         "articles/site-recovery/*.md": "rayne-wiselman",
         "articles/migrate/*.md": "rayne-wiselman",
-        "articles/notebooks/*.md": "kraigb"
+        "articles/notebooks/*.md": "kraigb",
+        "articles/service-fabric/*.md": "athinanthny"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -433,7 +434,8 @@
         "articles/dev-spaces/**/*.md": "zarhoads",
         "articles/site-recovery/*.md": "raynew",
         "articles/migrate/*.md": "raynew",
-        "articles/notebooks/*.md": "kraigb"
+        "articles/notebooks/*.md": "kraigb",
+        "articles/service-fabric/*.md": "atsenthi"
       },
       "ms.service": {
         "articles/governance/*.md": "governance",
@@ -458,7 +460,8 @@
         "articles/dev-spaces/**/*.md": "azure-dev-spaces",
         "articles/site-recovery/*.md": "site-recovery",
         "articles/migrate/*.md": "azure-migrate",
-        "articles/notebooks/*.md": "azure-notebooks"
+        "articles/notebooks/*.md": "azure-notebooks",
+        "articles/service-fabric/*.md": "service-fabric"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture"
@@ -528,7 +531,8 @@
         "articles/app-service/environment/*.md": "Azure App Service Environment",
         "articles/app-service/environment/*.yml": "Azure App Service Environment",
         "articles/app-service-mobile/**/*.md": "Azure Mobile Apps",
-        "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps"
+        "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps",
+        "articles/service-fabric/*.md": "Azure Service Fabric"
       },
       "featureFlags": {
         "articles/**/*.md": [
