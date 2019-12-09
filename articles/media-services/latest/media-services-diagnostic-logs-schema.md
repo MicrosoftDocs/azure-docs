@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services diagnostic logs schemas - Azure
-description: This article shows the Azure Media Services diagnostic logs schemas.
+description: This article demonstrates the Azure Media Services diagnostic logs schemas.
 services: media-services
 documentationcenter: ''
 author: Juliako
