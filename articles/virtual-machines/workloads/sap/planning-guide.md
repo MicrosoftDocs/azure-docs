@@ -1,5 +1,5 @@
 ---
-title: SAP on Azure: Planning and Implementation Guide
+title: 'SAP on Azure: Planning and Implementation Guide'
 description: Azure Virtual Machines planning and implementation for SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
