@@ -186,7 +186,9 @@ If you are using *https*, then you need to install appropriate certificates on y
 
 ## Upload a VHD
 
-Copy any disk images to be used into page blobs in the local storage account that you created in the earlier steps. You can use a tool such as Az copy to upload the VHD to the storage account that you created in earlier steps.
+Copy any disk images to be used into page blobs in the local storage account that you created in the earlier steps. You can use a tool such as [AzCopy[(https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)] to upload the VHD to the storage account that you created in earlier steps. 
+
+Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge device.
 
 ```powershell
 AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
@@ -199,6 +201,7 @@ A sample output is shown below. For more information on this command, go to [Upl
 ```powershell
 AzCopy /Source:\\hcsfs\scratch\vm_vhds\linux /Dest: http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages /DestKey:gJKoyX2Amg0Zytd1ogA1kQ2xqudMHn7ljcDtkJRHwMZbMK== /Y /S /V /NC:32 /BlobType:page /destType:blob /z:2e7d7d27-c983-410c-b4aa-b0aa668af0c6
 ```
+
 
 ## Create managed disks from the VHD
 
@@ -437,10 +440,9 @@ For more information on this cmdlet, go to [Remove-AzureRmVm cmdlet](https://doc
 
 To return a list of all the VMs running on your Azure Stack Edge device, run the following command.
 
-    ```powershell
-    Get-AzureRmVM -ResourceGroupName <String> -Name <String>
-    ```  
-
+```powershell
+Get-AzureRmVM -ResourceGroupName <String> -Name <String>`  
+```
 
 ## Supported VM sizes
 
@@ -464,6 +466,25 @@ For more information, go to [Dv2 series on General Purpose VM sizes](https://doc
 ## Unsupported VM operations and cmdlets
 
 Extension, scale sets, availability sets, snapshots are not supported.
+
+## Configure AzCopy
+
+When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge device.
+
+On the client used to access your Azure Stack Edge device, set up a global variable to match the blob storage REST API version.
+
+### On Windows client 
+
+`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
+
+### On Linux client
+
+`export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`
+
+To verify if the environment variable for AzCopy was set correctly, take the following steps:
+
+1. Run "azcopy env"
+2. Find `AZCOPY_DEFAULT_SERVICE_API_VERSION` parameter. This should have the value you set in the preceding steps.
 
 
 ## Next steps
