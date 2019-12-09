@@ -4,7 +4,7 @@ description: Symptoms, causes, and resolutions of Azure Backup failures related 
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-
+ms.service: backup
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension
@@ -21,8 +21,8 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 The Azure VM agent might be stopped, outdated, in an inconsistent state, or not installed and prevent Azure Backup service to trigger snapshots.
 
 - **Open Azure Portal > VM > Settings > Properties blade** > ensure VM **Status** is **Running** and **Agent status** is **Ready**. If the VM agent is stopped or is in an inconsistent state, restart the agent<br>
-  - For Windows VMs follow these [steps](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) to restart the Guest Agent.<br>
-  - For Linux VMs follow these [steps](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) to restart the Guest Agent.
+  - For Windows VMs follow these [steps](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) to restart the Guest Agent.<br>
+  - For Linux VMs follow these [steps](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) to restart the Guest Agent.
 
 
 ## GuestAgentSnapshotTaskStatusError - Could not communicate with the VM agent for snapshot status

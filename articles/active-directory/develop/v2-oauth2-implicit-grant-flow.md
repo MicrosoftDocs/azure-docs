@@ -1,5 +1,5 @@
 ---
-title: Secure single-page applications using the Microsoft identity platform implicit flow | Azure
+title: Secure single-page apps with Microsoft identity platform implicit flow | Azure
 description: Building web applications using Microsoft identity platform implementation of the implicit flow for single-page apps.
 services: active-directory
 documentationcenter: ''
