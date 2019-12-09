@@ -209,7 +209,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 
 > [!NOTE]
-  > If Azure Database Migration Service shows error ‘System Error 53’ or ‘System Error 57’, the cause might result frm an inability of Azure Database Migration Service to access Azure file share. If you encounter one of these errors, please grant access to storage the account from the virtual network using the instructions [here](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
+  > If Azure Database Migration Service shows error ‘System Error 53’ or ‘System Error 57’, the cause might result frm an inability of Azure Database Migration Service to access Azure file share. If you encounter one of these errors, please grant access the storage account from the virtual network using the instructions [here](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 
 2. Select **Save**.
