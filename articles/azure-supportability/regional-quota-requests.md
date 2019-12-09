@@ -11,7 +11,7 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ---
 # Standard quota: regional vCPU limit increase 
 
-Resource Manager supports two types of vCPU quotas for virtual machines. **Pay-as-you-go VMs** and **Reserved VM Instances** use standard quota. **Low priority VMs** use Low priority quota. 
+Resource Manager supports two types of vCPU quotas for virtual machines. **Pay-as-you-go VMs** and **Reserved VM Instances** use standard quota. **Spot VMs** use Spot quota. 
 
 Standard vCPU quota for pay-as-you-go and Reserved VM Instances are enforced at two tiers for each subscription in each region.
  
@@ -21,7 +21,7 @@ When a new subscription is created, the default Total Regional vCPUs may not be 
 
 Learn more about standard vCPU quotas on the [Virtual machine vCPU quotas page](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) and [Azure subscription and service limits](https://aka.ms/quotalimits) page.
 
-Learn more about **increasing Low priority VM vCPU limits** [here](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Learn more about **increasing Spot VM vCPU limits** [here](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
 You can request an increase in **Standard VM Total Regional vCPU Limit** via **Help + Support** blade or the **Usages + Quota** blade in the portal.
 

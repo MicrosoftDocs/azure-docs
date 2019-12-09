@@ -568,6 +568,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-list-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-list-entity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-regex-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-regex-entity",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-sentiment-analysis.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-publish-settings",
       "redirect_document_id": false
@@ -1925,11 +1940,6 @@
     {
       "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
       "redirect_url": "/azure/cosmos-db/sql-api-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/search/search-traffic-analytics.md",
-      "redirect_url": "/azure/search/search-monitor-usage",
       "redirect_document_id": false
     },
     {
@@ -5295,6 +5305,16 @@
     {
       "source_path": "articles/azure-functions/tutorial-vs-code-serverless-python.md",
       "redirect_url": "/azure/python/tutorial-vs-code-serverless-python-01",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/scripts/functions-cli-configure-custom-domain.md",
+      "redirect_url": "/azure/app-service/scripts/cli-configure-custom-domain?toc=%2fcli%2fazure%2ftoc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/scripts/functions-cli-configure-ssl-certificate.md",
+      "redirect_url": "/azure/app-service/scripts/cli-configure-ssl-certificate?toc=%2fcli%2fazure%2ftoc.json",
       "redirect_document_id": false
     },
     {
@@ -10013,6 +10033,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-wan/virtual-wan-office365-overview.md",
+      "redirect_url": "/azure/virtual-wan/virtual-wan-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-stack/azure-stack-vpn-gateway-settings.md",
       "redirect_url": "/azure-stack/user/azure-stack-vpn-gateway-settings",
       "redirect_document_id": false
@@ -12430,6 +12455,11 @@
     {
       "source_path": "articles/cosmos-db/monitor-accounts.md",
       "redirect_url": "/azure/cosmos-db/monitor-cosmos-db",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/create-firewall-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/common/ipfirewall",
       "redirect_document_id": false
     },
     {
@@ -34072,6 +34102,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/concept-mfa-get-started.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-mfa-get-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/concept-conditional-access-block-legacy-authentication.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-block-legacy-authentication",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/concept-conditional-access-security-defaults.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-security-defaults",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.experimental.md",
       "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-app-passwords",
       "redirect_document_id": false
@@ -43372,52 +43417,52 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-churn.md",
-      "redirect_url": "how-to-designer-sample-classification-churn",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-churn",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-basic.md",
-      "redirect_url": "how-to-designer-sample-classification-predict-income",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-predict-income",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md",
-      "redirect_url": "how-to-designer-sample-classification-credit-risk-cost-sensitive",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-credit-risk-cost-sensitive",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-flight-delay.md",
-      "redirect_url": "how-to-designer-sample-classification-flight-delay",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-flight-delay",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-basic.md",
-      "redirect_url": "how-to-designer-sample-regression-automobile-price-basic",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-regression-automobile-price-basic",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md",
-      "redirect_url": "how-to-designer-sample-regression-automobile-price-compare-algorithms",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-regression-automobile-price-compare-algorithms",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-text-classification.md",
-      "redirect_url": "how-to-designer-sample-text-classification",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-text-classification",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-deploy.md",
-      "redirect_url": "tutorial-designer-automobile-price-deploy",
+      "redirect_url": "/azure/machine-learning/service/tutorial-designer-automobile-price-deploy",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-train-score.md",
-      "redirect_url": "tutorial-designer-automobile-price-train-score",
+      "redirect_url": "/azure/machine-learning/service/tutorial-designer-automobile-price-train-score",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-concept-visual-interface.md",
-      "redirect_url": "concept-designer",
+      "redirect_url": "/azure/machine-learning/service/concept-designer",
       "redirect_document_id": true
     },
     {
