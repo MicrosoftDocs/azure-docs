@@ -27,17 +27,19 @@ Generally, you'll follow these steps:
 
 ### Step 1: Assess whether to migrate
 
-1. Learn about Data Lake Storage Gen2. 
+:one: Learn about Data Lake Storage Gen2. 
 
-   See [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
+:two: Compare the capabilities of Data Lake Storage Gen2 with those of Data Lake Storage Gen2. 
 
-2. Compare the capabilities of Data Lake Storage Gen2 with those of Data Lake Storage Gen2. 
+:three: Understand any gaps in functionality. 
 
-   See the [Gen1 vs Gen2 capabilities](#gen1-gen2-feature-comparison) section of this article.
+#### Related resources (Assess)
 
-3. Understand gaps in functionality. 
-
-   See [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
+|Task|Guidance|
+|---|--|
+|Learn about Data Lake Storage Gen2 |[Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)|
+|Compare capabilities|[Gen1 vs Gen2 capabilities](#gen1-gen2-feature-comparison)|
+|Understand gaps in functionality|[Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)|
 
 ### Step 2: Prepare to migrate
 
