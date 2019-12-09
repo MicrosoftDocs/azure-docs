@@ -46,7 +46,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     import com.google.gson.JsonParser;
     ```
 
-2. create a class named `CustomSrchJava`, and create variables for your subscription key, custom search endpoint, and your search instance's Custom Configuration ID. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create a class named `CustomSrchJava`, and create variables for your subscription key, custom search endpoint, and your search instance's Custom Configuration ID. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
     ```java
     public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";
