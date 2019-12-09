@@ -37,9 +37,9 @@ Access to locks for read and write activity is one area of natural contention. A
 
 Consider the following example:
 
-Q1 is actively running and selecting data from SalesFact.
-Q2 is queued waiting for Q1 to complete.  It was submitted at 9am and is attempting to partition switch new data into SalesFact.
-Q3 is submitted at 9:01am and wants to select data from SalesFact.
+- Q1 is actively running and selecting data from SalesFact.
+- Q2 is queued waiting for Q1 to complete.  It was submitted at 9am and is attempting to partition switch new data into SalesFact.
+- Q3 is submitted at 9:01am and wants to select data from SalesFact.
 
 If Q2 and Q3 have the same importance and Q1 is still executing, Q3 will begin executing. Q2 will continue to wait for an exclusive lock on SalesFact.  If Q2 has higher importance than Q3, Q3 will wait until Q2 is finished before it can begin execution.
 
@@ -49,9 +49,9 @@ Another scenario where importance can help meet querying demands is when request
   
 Consider the following example on DW500c:
 
-Q1, Q2, Q3, and Q4 are running smallrc queries.
-Q5 is submitted with the mediumrc resource class at 9am.
-Q6 is submitted with smallrc resource class at 9:01am.
+1. Q1, Q2, Q3, and Q4 are running smallrc queries.
+1. Q5 is submitted with the mediumrc resource class at 9am.
+1. Q6 is submitted with smallrc resource class at 9:01am.
 
 Because Q5 is mediumrc, it requires two concurrency slots. Q5 needs to wait for two of the running queries to complete.  However, when one of the running queries (Q1-Q4) completes, Q6 is scheduled immediately because the resources exist to execute the query.  If Q5 has higher importance than Q6, Q6 waits until Q5 is running before it can begin executing.
 
