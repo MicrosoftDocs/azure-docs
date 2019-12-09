@@ -57,7 +57,7 @@ The default view is a list of the Custom Commands applications you created.
          > You can create resource groups by entering the desired resource group name into the "Resource Group" field. The resource group will be created when **Create** is selected.
 
 1. Click **Create** to create your project.
-1. Once created, select your project
+1. Once created, select your project.
 
 Your view should now be an overview of your Custom Commands application.
 
