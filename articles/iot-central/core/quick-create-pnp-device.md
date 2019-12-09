@@ -20,7 +20,6 @@ A device template defines the capabilities of a device that connects to your IoT
 
 In this quickstart, you add a device template for an *MXChip IoT DevKit* (DevKit) board and create a simulated device. To complete this quickstart you don't need a real device, you work with a simulation of the device. A DevKit device:
 
-TODO REVIEW THIS
 * Sends telemetry such as temperature.
 * Reports device-specific properties such as brightness level.
 * Responds to commands such as turn on and turn off.
