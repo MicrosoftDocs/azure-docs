@@ -123,7 +123,7 @@ No. Instances are distributed across upgrade domains and fault domains.
 
 ### Does Application Gateway support connection draining?
 
-Yes. You can set up connection draining to change members within a backend pool without disruption. For specifics visit [connection draining section of Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining).
+Yes. You can set up connection draining to change members within a backend pool without disruption. For more information, see [connection draining section of Application Gateway](overview.md#connection-draining).
 
 ### Can I change instance size from medium to large without disruption?
 
