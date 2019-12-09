@@ -19,21 +19,21 @@ ms.subservice: data-lake-storage-gen2
 
 If you're considering a migration to Data Lake Storage Gen2, We recommend the following path.
 
-:one: Assess whether to migrate
+:heavy_check_mark: Assess whether to migrate
 
-:two: Prepare to migrate
+:heavy_check_mark: Prepare to migrate
 
-:three: Migrate data
+:heavy_check_mark: Migrate data
 
-:four: Update workloads and applications
+:heavy_check_mark: Update workloads and applications
 
 ### Step 1: Assess whether to migrate
 
-1. Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); it's benefits, costs, and general architecture. 
+:one: Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); it's benefits, costs, and general architecture. 
 
-2. [Compare the capabilities](#gen1-gen2-feature-comparison) of Data Lake Storage Gen2 with those of Data Lake Storage Gen2. 
+:two: [Compare the capabilities](#gen1-gen2-feature-comparison) of Data Lake Storage Gen2 with those of Data Lake Storage Gen2. 
 
-3. Review a list of [known issues](data-lake-storage-known-issues.md) to gauge product state and stability and assess any gaps.
+:three: Review a list of [known issues](data-lake-storage-known-issues.md) to gauge product state and stability and assess any gaps.
 
 ### Step 2: Prepare to migrate
 
