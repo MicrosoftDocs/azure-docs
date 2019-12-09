@@ -390,7 +390,7 @@ conceptualContent:
         - url: ./app/export-power-bi.md
           itemType: how-to-guide
           text:  PowerBI  integration
-        - url: ./platform/monitoring-metric-charts.md
+        - url: ./platform/metrics-charts.md
           itemType: how-to-guide
           text:  Metric charts
         - url: ./app/usage-workbooks.md

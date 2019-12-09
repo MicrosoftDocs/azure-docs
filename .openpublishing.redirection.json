@@ -43956,6 +43956,11 @@
       "source_path": "articles/mysql/howto-redirection.md",
       "redirect_url": "/azure/mysql/concepts-connectivity-architecture",
       "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/azure-monitor/azure-monitor-app-hub.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub.yml",
+      "redirect_document_id": false
     }
   ]
 }
