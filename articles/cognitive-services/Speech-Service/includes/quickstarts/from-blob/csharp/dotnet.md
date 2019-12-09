@@ -23,6 +23,8 @@ Before you get started, make sure to:
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
 
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
+
 ## Open your project in Visual Studio
 
 The first step is to make sure that you have your project open in Visual Studio.

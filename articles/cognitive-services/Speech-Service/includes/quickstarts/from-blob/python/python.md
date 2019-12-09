@@ -23,6 +23,8 @@ Before you get started, make sure to:
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md)
 
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
+
 ## Download and install the API client library
 
 To execute the sample you need to generate the Python library for the REST API which is generated through [Swagger](https://swagger.io).
