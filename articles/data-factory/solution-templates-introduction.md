@@ -5,13 +5,14 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/04/2019
-author: djpmsft
 ms.author: daperlov
-manager: craigg
+author: djpmsft
+manager: anandsub
+ms.custom: seo-lt-2019
+ms.date: 01/04/2019
 ---
+
 # Templates
 
 Templates are predefined Azure Data Factory pipelines that allow you to get started quickly with Data Factory. Templates are useful when you're new to Data Factory and want to get started quickly. These templates reduce the development time for building data integration projects thereby improving developer productivity.

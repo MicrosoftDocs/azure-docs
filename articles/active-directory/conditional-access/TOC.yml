@@ -17,8 +17,6 @@
   items:
   - name: Common Conditional Access policies
     href: concept-conditional-access-policy-common.md
-  - name: Security defaults
-    href: concept-conditional-access-security-defaults.md
   - name: Conditional Access policy components
     href: concept-conditional-access-policies.md
   - name: Conditions
@@ -64,8 +62,6 @@
       href: howto-conditional-access-policy-compliant-device.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
-  - name: Conditional Access for MFA registration
-    href: ../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration
   - name: Require approved client apps
     href: app-based-conditional-access.md
   - name: Require app protection policy
