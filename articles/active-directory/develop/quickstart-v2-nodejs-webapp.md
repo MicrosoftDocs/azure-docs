@@ -2,17 +2,12 @@
 title: Microsoft identity platform OIDC Node.js web app quickstart | Azure
 description: Learn how to implement authentication in a Node.js web application using OpenID Connect.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur

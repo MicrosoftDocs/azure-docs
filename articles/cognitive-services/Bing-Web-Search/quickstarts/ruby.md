@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/03/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Ruby.
@@ -25,8 +25,6 @@ Here are a few things that you'll need before running this quickstart:
 * [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/)
 * A subscription key
 
-## Create a Bing Web Search resource
-
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Create a project and declare required modules
@@ -41,7 +39,7 @@ require 'json'
 
 ## Define variables
 
-A few variables must be set before we can continue. `uri` can be the global endpoint below, or the [custom subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) endpoint displayed in the Azure portal for your resource. Confirm that the `uri` and `path` are valid and replace the `accessKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `term`.
+A few variables must be set before we can continue. Confirm that the `$uri` and `path` are valid and replace the `accessKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `term`.
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"
