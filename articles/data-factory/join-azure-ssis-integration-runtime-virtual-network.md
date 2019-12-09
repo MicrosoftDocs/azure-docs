@@ -205,7 +205,7 @@ Make sure that you don't have an Azure policy that prevents the following resour
 
     - Confirm that the two static public IP addresses are both added to the allow list of your data sources or resources. After upgrade of the Azure-SSIS IR, the IR's public IP address is switched to the secondary public IP address. If you only add one of them to the allow list, the access may be broken after upgrade.
 
-    - If your data source is an Azure service, please check whether you have setup the virtual network subnet with service endpoint. If service endpoints are set, the service traffic switches to use private addresses managed by Azure services as the source IP addresses when accessing the Azure service from a virtual network. In this case, the whitelisting of your own public IP addresses will not make effect.
+    - If your data source is an Azure service, please check whether you have setup the virtual network subnet with service endpoint. If service endpoints are set, the service traffic switches to use private addresses managed by Azure services as the source IP addresses when accessing the Azure service from a virtual network. In this case, adding your own public IP addresses to the allow list will not make effect.
 
 ## Azure portal (Data Factory UI)
 This section shows you how to join an existing Azure-SSIS IR to a virtual network (classic or Azure Resource Manager) by using the Azure portal and Data Factory UI. 
@@ -389,8 +389,6 @@ $AzureSSISName = "<your Azure-SSIS IR name>"
 # Specify the information about your classic or Azure Resource Manager virtual network.
 $VnetId = "<your Azure virtual network resource ID>"
 $SubnetName = "<the name of subnet in your virtual network>"
-# Specify the public IP addresses if you want to bring your own public IP addresses for Azure-SSIS IR
-$PublicIPs = @("the resource ID of 1th public IP address", "the resource ID of the 2th public IP address")
 ```
 
 ### Stop the Azure-SSIS IR
@@ -437,18 +435,6 @@ Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -Type Managed `
                                            -VnetId $VnetId `
                                            -Subnet $SubnetName
-```
-
-If you want to bring your own public IP addresses for the Azure-SSIS IR, run the `Set-AzDataFactoryV2IntegrationRuntime` command with following parameters:
-
-```powershell
-Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                           -DataFactoryName $DataFactoryName `
-                                           -Name $AzureSSISName `
-                                           -Type Managed `
-                                           -VnetId $VnetId `
-                                           -Subnet $SubnetName
-                                           -PublicIPs $PublicIPs
 ```
 
 ### Start the Azure-SSIS IR
