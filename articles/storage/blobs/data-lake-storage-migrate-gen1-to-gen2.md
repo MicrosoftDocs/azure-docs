@@ -29,11 +29,11 @@ If you're considering a migration to Data Lake Storage Gen2, We recommend the fo
 
 ### Step 1: Assess whether to migrate
 
-:one: Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); it's benefits, costs, and general architecture. 
+1. Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); it's benefits, costs, and general architecture. 
 
-:two: [Compare the capabilities](#gen1-gen2-feature-comparison) of Data Lake Storage Gen2 with those of Data Lake Storage Gen2. 
+2. [Compare the capabilities](#gen1-gen2-feature-comparison) of Data Lake Storage Gen2 with those of Data Lake Storage Gen2. 
 
-:three: Review a list of [known issues](data-lake-storage-known-issues.md) to gauge product state and stability and assess any gaps.
+3. Review a list of [known issues](data-lake-storage-known-issues.md) to gauge product state and stability and assess any gaps.
 
 ### Step 2: Prepare to migrate
 
@@ -57,20 +57,17 @@ If you're considering a migration to Data Lake Storage Gen2, We recommend the fo
 
    For a complete guide to security, see [Azure Storage security guide](../common/storage-security-guide.md).
 
-### Step 4: Update workloads and applications
+### Step 4: Update analytic workloads and applications
 
-Update analytics workloads. See the old upgrade article for any guidance that you can get from that.
-Update your SDKs from Gen1 to Gen2. See these articles.
+1. Update analytics workloads. 
 
-- .NET
-- Java
-- Python
-- Powershell
-- CLI
+2. Update [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), and [Python](data-lake-storage-directory-file-acl-python.md)-based applications to use the Data Lake Storage Gen2 SDK. 
 
-Validate end to end scenarios on Gen2.
+3. Update REST calls in applications.
 
-Decommission your ADLS Gen1 account. How do they do this?
+4. Update [Azure CLI scripts](data-lake-storage-directory-file-acl-cli.md) to use Data Lake Storage Gen2 commands.
+
+5. Update [PowerShell scripts](data-lake-storage-directory-file-acl-powershell.md) to use Data Lake Storage Gen2 cmdlets. 
 
 <a id="gen1-gen2-feature-comparison" />
 
