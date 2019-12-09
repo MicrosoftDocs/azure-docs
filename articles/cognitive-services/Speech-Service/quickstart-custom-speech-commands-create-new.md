@@ -51,7 +51,7 @@ The default view is a list of the Custom Commands applications you created.
    > [!div class="mx-imgBorder"]
    > ![Create a resource](media/custom-speech-commands/create-new-resource.png)
 
-   1. Enter the resource name, group, location, and pricing tier
+   1. Enter the resource name, group, location, and pricing tier.
 
          > [!NOTE]
          > You can create resource groups by entering the desired resource group name into the "Resource Group" field. The resource group will be created when **Create** is selected.
