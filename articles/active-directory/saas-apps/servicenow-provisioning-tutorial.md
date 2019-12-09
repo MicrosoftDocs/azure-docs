@@ -40,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A [ServiceNow instance](https://www.servicenow.com/) of Calgary or higher
 * A [ServiceNow Express instance](https://www.servicenow.com/) of Helsinki or higher
-* A user account in ServiceNow with the following permissions:
+* A user account in ServiceNow with the admin role
 
 ## 1. Plan your provisioning deployment
 1. Learn about how provisioning the provisioning service works
@@ -49,17 +49,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## 2. Configure ServiceNow to support provisioning with Azure AD
 
-1. Sign in to your [TestApp Admin Console](https://www.Leapsome.com/app/#/login). Navigate to **Settings > Admin Settings**.
+1. Identify your ServiceNow instance name. You can find the instance name in the URL that you use to access ServiceNow. In the example below, the instance name is dev35214.
 
-	![TestApp Admin Console](media/Leapsome-provisioning-tutorial/leapsome-admin-console.png)
-
-2.	Navigate to **Integrations > SCIM User provisioning**.
-
-	![TestApp Add SCIM](media/Leapsome-provisioning-tutorial/leapsome-add-scim.png)
-
-3.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your TestApp application in the Azure portal.
-
-	![TestApp Create Token](media/Leapsome-provisioning-tutorial/leapsome-create-token.png)
+	
+2. Obtain credentials for an admin in ServiceNow. Navigate to the user profile in ServiceNow and verify that the user has the admin role. 
 
 ## 3. Add ServiceNow from the Azure AD application gallery
 
