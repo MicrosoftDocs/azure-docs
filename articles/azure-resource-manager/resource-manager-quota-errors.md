@@ -1,20 +1,8 @@
 ---
-title: Azure quota errors | Microsoft Docs
-description: Describes how to resolve resource quota errors.
-services: azure-resource-manager
-documentationcenter: ''
-author: tfitzmac
-manager: timlt
-editor: ''
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Quota errors
+description: Describes how to resolve resource quota errors when deploying resources with Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.author: tomfitz
-
 ---
 # Resolve errors for resource quotas
 

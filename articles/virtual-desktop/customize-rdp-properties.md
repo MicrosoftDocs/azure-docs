@@ -1,5 +1,5 @@
 ---
-title: Customize RDP Properties with PowerShell  - Azure
+title: Customize RDP Properties with PowerShell - Azure
 description: How to customize RDP Properties for Windows Virtual Desktop with PowerShell cmdlets.
 services: virtual-desktop
 author: Heidilohr
@@ -13,7 +13,7 @@ ms.author: helohr
 
 Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience and audio redirection, lets you deliver an optimal experience for your users based on their needs. You can customize RDP properties in Windows Virtual Desktop using the **-CustomRdpProperty** parameter in the **Set-RdsHostPool** cmdlet.
 
-See [Remote Desktop RDP file settings](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files) for a full list of supported properties and their default values.
+See [supported RDP file settings](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) for a full list of supported properties and their default values.
 
 First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
 

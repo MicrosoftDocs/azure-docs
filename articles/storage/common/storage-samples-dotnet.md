@@ -94,5 +94,6 @@ Check out the following guides if you are looking for instructions on how to ins
 For information on samples for other languages:
 
 * Java: [Azure Storage samples using Java](storage-samples-java.md)
+* JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 * Python: [Azure Storage samples using Python](storage-samples-python.md)
 * All other languages: [Azure Storage samples](../storage-samples.md)

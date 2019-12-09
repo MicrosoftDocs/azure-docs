@@ -1,14 +1,14 @@
 ---
 title: Improve knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. Your knowledge base doesn't change automatically. You must accept the suggestions for any change to take effect. These suggestions add questions but don't change or remove existing questions.
+description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
 author: diberry
 manager: nitinme 
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
@@ -184,7 +184,7 @@ Content-Type: application/json
 |HTTP request property|Name|Type|Purpose|
 |--|--|--|--|
 |URL route parameter|Knowledge base ID|string|The GUID for your knowledge base.|
-|Host subdomain|QnAMaker resource name|string|The hostname for your QnA Maker in your Azure subscription. This is available on the Settings page after you publish the knowledge base. |
+|Custom subdomain|QnAMaker resource name|string|The resource name is used as the custom subdomain for your QnA Maker. This is available on the Settings page after you publish the knowledge base. It is listed as the `host`.|
 |Header|Content-Type|string|The media type of the body sent to the API. Default value is: `application/json`|
 |Header|Authorization|string|Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Post Body|JSON object|JSON|The training feedback|
@@ -293,14 +293,14 @@ public class FeedbackRecord
 /// <summary>
 /// Method to call REST-based QnAMaker Train API for Active Learning
 /// </summary>
-/// <param name="host">Endpoint host of the runtime</param>
+/// <param name="endpoint">Endpoint URI of the runtime</param>
 /// <param name="FeedbackRecords">Feedback records train API</param>
 /// <param name="kbId">Knowledgebase Id</param>
 /// <param name="key">Endpoint key</param>
 /// <param name="cancellationToken"> Cancellation token</param>
-public async static void CallTrain(string host, FeedbackRecords feedbackRecords, string kbId, string key, CancellationToken cancellationToken)
+public async static void CallTrain(string endpoint, FeedbackRecords feedbackRecords, string kbId, string key, CancellationToken cancellationToken)
 {
-    var uri = host + "/knowledgebases/" + kbId + "/train/";
+    var uri = endpoint + "/knowledgebases/" + kbId + "/train/";
 
     using (var client = new HttpClient())
     {

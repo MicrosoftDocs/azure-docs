@@ -1,5 +1,5 @@
 ---
-title: Data Factory Functions and System Variables | Microsoft Docs
+title: Data Factory Functions and System Variables 
 description: Provides a list of Azure Data Factory functions and system variables
 documentationcenter: ''
 author: djpmsft

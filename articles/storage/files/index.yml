@@ -4,7 +4,7 @@ title: Azure Files documentation # < 60 chars
 summary: Azure Files offers fully managed cross-platform file shares in the cloud that are accessible via the Server Message Block (SMB) protocol. # < 160 chars
 
 metadata:
-  title: Azure Files # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure Files documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for local access.  # Required; article description that is displayed in search results. < 160 chars.
   services: storage
   ms.service: storage #Required; service per approved list. service slug assigned to your service by ACOM.

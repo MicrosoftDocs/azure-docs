@@ -86,7 +86,7 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ```
 
-For the complete sample, see the [.Net samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub repository.
+For the complete sample, see the [.Net samples][1] GitHub repository.
                       
 ## Migrate the documents
 
@@ -94,7 +94,7 @@ While the container definition is enhanced with a partition key property, the do
 
 ## Access documents that don't have a partition key
 
-Applications can access the existing documents that don’t have a partition key by using the special system property called "CosmosContainerSettings.NonePartitionKeyValue", this is the value of the non-migrated documents. You can use this property in all the CRUD and query operations. The following example shows a sample to read a single Document from the NonePartitionKey. 
+Applications can access the existing documents that don’t have a partition key by using the special system property called "PartitionKey.None", this is the value of the non-migrated documents. You can use this property in all the CRUD and query operations. The following example shows a sample to read a single Document from the NonePartitionKey. 
 
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 
@@ -105,7 +105,7 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```
 
-For the complete sample on how to repartition the documents, see the [.Net samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub repository. 
+For the complete sample on how to repartition the documents, see the [.Net samples][1] GitHub repository. 
 
 ## Compatibility with SDKs
 
@@ -119,3 +119,5 @@ If a migrated container is consumed by the latest/V3 version of SDK and you star
 * [Request Units in Azure Cosmos DB](request-units.md)
 * [Provision throughput on containers and databases](set-throughput.md)
 * [Work with Azure Cosmos account](account-overview.md)
+
+[1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

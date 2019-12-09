@@ -30,54 +30,59 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 To install the Python package for Azure Data Explorer (Kusto), open a command prompt that has Python in its path. Run this command:
 
 ```
+pip install azure-common
 pip install azure-mgmt-kusto
-pip install adal
-pip install msrestazure
 ```
+## Authentication
+For running the examples in this article, we need an Azure AD Application and service principal that can access resources. Check [create an Azure AD application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
 
 ## Create the Azure Data Explorer cluster
 
 1. Create your cluster by using the following command:
 
     ```Python
-    from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
+    from azure.mgmt.kusto import KustoManagementClient
     from azure.mgmt.kusto.models import Cluster, AzureSku
-    from adal import AuthenticationContext
-    from msrestazure.azure_active_directory import AdalAuthentication
+    from azure.common.credentials import ServicePrincipalCredentials
 
+    #Directory (tenant) ID
     tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    #Application ID
     client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    #Client Secret
     client_secret = "xxxxxxxxxxxxxx"
     subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
-    context = AuthenticationContext('https://login.microsoftonline.com/{}'.format(tenant_id))
-    credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
-                                         resource="https://management.core.windows.net/",
-                                         client_id=client_id,
-                                         client_secret=client_secret)
+    credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
 
     location = 'Central US'
-    sku = 'D13_v2'
+    sku_name = 'Standard_D13_v2'
     capacity = 5
+    tier = "Standard"
     resource_group_name = 'testrg'
     cluster_name = 'mykustocluster'
-    cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity))
+    cluster = Cluster(location=location, sku=AzureSku(name=sku_name, capacity=capacity, tier=tier))
     
     kustoManagementClient = KustoManagementClient(credentials, subscription_id)
     
     cluster_operations = kustoManagementClient.clusters
     
-    cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
+    poller = cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
     ```
 
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
    | cluster_name | *mykustocluster* | The desired name of your cluster.|
-   | sku | *D13_v2* | The SKU that will be used for your cluster. |
+   | sku_name | *Standard_D13_v2* | The SKU that will be used for your cluster. |
+   | tier | *Standard* | The SKU tier. |
+   | capacity | *number* | The number of instances of the cluster. |
    | resource_group_name | *testrg* | The resource group name where the cluster will be created. |
 
-    There are additional optional parameters that you can use, such as the capacity of the cluster.
-	
-1. Set [*your credentials*](/azure/python/python-sdk-azure-authenticate)
+    > [!NOTE]
+    > **Create a cluster** is a long running operation. Method **create_or_update** returns an instance of LROPoller, see [LROPoller class](/python/api/msrest/msrest.polling.lropoller?view=azure-python) to get more information.
 
 1. Run the following command to check whether your cluster was successfully created:
 
@@ -104,7 +109,8 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
 						soft_delete_period=softDeletePeriod,
 						hot_cache_period=hotCachePeriod)
 	
-	database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
+	#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+    poller =database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
     ```
 
    |**Setting** | **Suggested value** | **Field description**|

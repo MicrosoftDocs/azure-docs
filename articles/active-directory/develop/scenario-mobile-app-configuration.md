@@ -1,5 +1,5 @@
 ---
-title: Mobile app that calls web APIs (code configuration) - Microsoft identity platform | Azure
+title: Configure mobile apps that call web APIs - Microsoft identity platform | Azure
 description: Learn how to build a mobile app that calls web APIs (app's code configuration)
 services: active-directory
 documentationcenter: dev-center-name
@@ -149,12 +149,16 @@ On UWP, you can use corporate networks. For additional information about using t
 On Android and iOS, brokers enable:
 
 - Single Sign On (SSO) when device is registered with AAD. Your users won't need to sign-in to each application.
-- Device identification. Enables Azure AD device related conditional access policies, by accessing the device certificate that was created on the device when it was workplace joined.
+- Device identification. Enables Azure AD device related Conditional Access policies, by accessing the device certificate that was created on the device when it was workplace joined.
 - Application identification verification. When an application calls the broker, it passes its redirect url, and the broker verifies it.
 
-### Enable the brokers on Xamarin
+### Enable the broker on Xamarin
 
 To enable one of these features, use the `WithBroker()` parameter when calling the `PublicClientApplicationBuilder.CreateApplication` method. `.WithBroker()` is set to true by default. Follow the steps below for [Xamarin.iOS](#brokered-authentication-for-xamarinios).
+
+### Enable the broker for MSAL for Android
+
+See [Brokered auth in Android](brokered-auth.md) for information about enabling a broker on Android. 
 
 ### Enable the broker for MSAL for iOS and macOS
 

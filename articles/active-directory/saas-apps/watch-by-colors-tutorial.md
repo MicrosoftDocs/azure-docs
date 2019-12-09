@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Watch by Colors | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Watch by Colors.
 services: active-directory
@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
+1. On the **Basic SAML Configuration** section the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 

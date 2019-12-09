@@ -1,5 +1,5 @@
 ---
-title: Writing Expressions for Attribute Mappings in Azure Active Directory | Microsoft Docs
+title: Writing Expressions for Attribute Mappings in Azure AD
 description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -236,7 +236,7 @@ Removes all space (" ") characters from the source string.
 Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Description:**<br> 
-When **source** value matches a **key**, returns **value** for that **key**. If **source** value doesn't match any keys, returns **defaultValue**.  **Key** and **value** parameters must always come in pairs. The function always expects an even number of parameters.
+When **source** value matches a **key**, returns **value** for that **key**. If **source** value doesn't match any keys, returns **defaultValue**.  **Key** and **value** parameters must always come in pairs. The function always expects an even number of parameters. The function should not be used for referential attributes such as manager. 
 
 **Parameters:**<br> 
 

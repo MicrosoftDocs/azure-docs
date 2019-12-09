@@ -2,19 +2,17 @@
 title: Quickstart - Create an Azure private DNS zone using the Azure portal
 description: In this quickstart, you create and test a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using the Azure portal.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: quickstart
-ms.date: 09/20/2019
-ms.author: victorh
+ms.date: 10/11/2019
+ms.author: allensu
 #Customer intent: As an experienced network administrator I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
 ---
 
 # Quickstart: Create an Azure private DNS zone using the Azure portal
 
 This quickstart walks you through the steps to create your first private DNS zone and record using the Azure portal.
-
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  These are called *linked* virtual networks. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted.
 
@@ -123,7 +121,7 @@ You can use the ping command to test name resolution. So, configure the firewall
 2. Run the following command:
 
    ```powershell
-   New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+   New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
    ```
 
 Repeat for myVM02.

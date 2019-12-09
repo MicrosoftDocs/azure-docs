@@ -1,8 +1,6 @@
 ---
-title: "Business continuity and disaster recovery in Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
+title: "Business continuity and disaster recovery"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: "lisaguthrie"
 ms.author: "lcozzens"
 ms.date: "01/28/2019"

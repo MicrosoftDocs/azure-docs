@@ -23,8 +23,6 @@ DevTest Labs integrates with [Azure Bastion](https://docs.microsoft.com/azure/ba
 
 As an owner of a lab you can enable accessing all lab virtual machines through a browser. You don't need an additional client, agent, or piece of software. Azure Bastion provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines don't need a public IP address. For more information, see [What is Azure Bastion?](../bastion/bastion-overview.md)
 
-> [!NOTE]
-> Enabling browser connection on lab virtual machines is in preview.
 
 This article shows how to enable browser connection on lab virtual machines.
 
@@ -41,7 +39,8 @@ To learn how to connect your lab with a Bastion configured VNet, see [Configure 
 1. From the list of labs, select *your lab*. 
 
     > [!NOTE]
-    > Azure Bastion is currently in preview. It's limited to the following regions: West US, East US, West Europe, South Central US, Australia East, and Japan East. So, create a lab in one of these regions if your lab isn't in one of them. 
+    > Azure Bastion is now generally available in the following regions: West US, East US, West Europe, South Central US, Australia East, and Japan East. So, create a lab in one of these regions if your lab isn't in one of them. 
+    
 1. Select **Configuration and policies** in the **Settings** section on the left menu. 
 1. Select **Virtual networks**.
 1. Select **Add** from the toolbar. 

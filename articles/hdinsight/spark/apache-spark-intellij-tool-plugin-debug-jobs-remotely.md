@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for IntelliJ: Debug applications remotely in HDInsight Spark '
+title: 'Azure Toolkit: Debug Apache Spark apps remotely - Azure HDInsight'
 description: Learn how to use HDInsight Tools in Azure Toolkit for IntelliJ to remotely debug Spark applications that run on HDInsight clusters through VPN.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -198,7 +198,7 @@ We recommend that you also create an Apache Spark cluster in Azure HDInsight tha
                             "wasb:///HVACOut")
         }
     }
-        ```
+    ```
 
 1. Repeat steps 8 and 9 to add a new Scala object called `*SparkSample`. Add the following code to this class. This code reads the data from the HVAC.csv (available in all HDInsight Spark clusters). It retrieves the rows that only have one digit in the seventh column in the CSV file, and then writes the output to **/HVACOut** under the default storage container for the cluster.
 

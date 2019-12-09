@@ -1,21 +1,20 @@
 ---
-title: Copy data to or from Azure Data Lake Storage Gen1 using Data Factory | Microsoft Docs
+title: Copy data to or from Azure Data Lake Storage Gen1
 description: Learn how to copy data from supported source data stores to Azure Data Lake Store, or from Data Lake Store to supported sink stores, by using Data Factory.
 services: data-factory
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/09/2019
-ms.author: jingwang
-
+ms.custom: seo-lt-2019
+ms.date: 10/24/2019
 ---
+
 # Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
 > * [Version 1](v1/data-factory-azure-datalake-connector.md)
 > * [Current version](connector-azure-data-lake-store.md)
@@ -63,22 +62,18 @@ The following properties are supported for the Azure Data Lake Store linked serv
 
 ### Use service principal authentication
 
-To use service principal authentication, register an application entity in Azure Active Directory and grant it access to Data Lake Store. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
+To use service principal authentication, follow these steps.
 
-- Application ID
-- Application key
-- Tenant ID
+1. Register an application entity in Azure Active Directory and grant it access to Data Lake Store. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
 
->[!IMPORTANT]
-> Grant the service principal proper permission in Data Lake Store:
->- **As source**: In **Data explorer** > **Access**, grant at least **Read + Execute** permission to list and copy the files in folders and subfolders. Or, you can grant **Read** permission to copy a single file. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. There's no requirement on account-level access control (IAM).
->- **As sink**: In **Data explorer** > **Access**, grant at least **Write + Execute** permission to create child items in the folder. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. If you use an Azure integration runtime to copy (both source and sink are in the cloud), in IAM, grant at least the **Reader** role in order to let Data Factory detect the region for Data Lake Store. If you want to avoid this IAM role, explicitly [create an Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) with the location of Data Lake Store. For example, if your Data Lake Store is in West Europe, create an Azure integration runtime with location set to "West Europe." Associate them in the Data Lake Store linked service as shown in the following example.
+    - Application ID
+    - Application key
+    - Tenant ID
 
->[!NOTE]
->To list folders starting from the root, you must set the permission of the service principal being granted to **at root level with "Execute" permission**. This is true when you use the:
->- **Copy data tool** to author copy pipeline.
->- **Data Factory UI** to test connection and navigating folders during authoring.
->If you have concerns about granting permission at root level, during authoring, skip testing connection, and input a paraent path with permission granted then choose to browse from that specified path. Copy activity works as long as the service principal is granted with proper permission at the files to be copied.
+2. Grant the service principal proper permission. See examples on how permission works in Data Lake Storage Gen1 from [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
+
+    - **As source**: In **Data explorer** > **Access**, grant at least **Execute** permission for ALL upstream folders including the root, along with **Read** permission for the files to copy. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. There's no requirement on account-level access control (IAM).
+    - **As sink**: In **Data explorer** > **Access**, grant at least **Execute** permission for ALL upstream folders including the root, along with **Write** permission for the sink folder. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. If you use an Azure integration runtime to copy (both source and sink are in the cloud), in IAM, grant at least the **Reader** role in order to let Data Factory detect the region for Data Lake Store. If you want to avoid this IAM role, explicitly [create an Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) with the location of Data Lake Store. For example, if your Data Lake Store is in West Europe, create an Azure integration runtime with location set to "West Europe." Associate them in the Data Lake Store linked service as shown in the following example.
 
 The following properties are supported:
 
@@ -118,21 +113,14 @@ The following properties are supported:
 
 A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this managed identity for Data Lake Store authentication, similar to using your own service principal. It allows this designated factory to access and copy data to or from Data Lake Store.
 
-To use managed identities for Azure resources authentication:
+To use managed identities for Azure resources authentication, follow these steps.
 
 1. [Retrieve the data factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the "Service Identity Application ID" generated along with your factory.
-2. Grant the managed identity access to Data Lake Store, the same way you do for service principal, following these notes.
 
->[!IMPORTANT]
-> Make sure you grant the data factory managed identity proper permission in Data Lake Store:
->- **As source**: In **Data explorer** > **Access**, grant at least **Read + Execute** permission to list and copy the files in folders and subfolders. Or, you can grant **Read** permission to copy a single file. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. There's no requirement on account-level access control (IAM).
->- **As sink**: In **Data explorer** > **Access**, grant at least **Write + Execute** permission to create child items in the folder. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. If you use an Azure integration runtime to copy (both source and sink are in the cloud), in IAM, grant at least the **Reader** role in order to let Data Factory detect the region for Data Lake Store. If you want to avoid this IAM role, explicitly [create an Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) with the location of Data Lake Store. Associate them in the Data Lake Store linked service as shown in the following example.
+2. Grant the managed identity access to Data Lake Store. See examples on how permission works in Data Lake Storage Gen1 from [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
 
->[!NOTE]
->To list folders starting from the root, you must set the permission of the managed identity being granted to **at root level with "Execute" permission**. This is true when you use the:
->- **Copy data tool** to author copy pipeline.
->- **Data Factory UI** to test connection and navigating folders during authoring.
->If you have concerns about granting permission at root level, during authoring, skip testing connection, and input a parent path with permission granted then choose to browse from that specified path. Copy activity works as long as the service principal is granted with proper permission at the files to be copied.
+    - **As source**: In **Data explorer** > **Access**, grant at least **Execute** permission for ALL upstream folders including the root, along with **Read** permission for the files to copy. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. There's no requirement on account-level access control (IAM).
+    - **As sink**: In **Data explorer** > **Access**, grant at least **Execute** permission for ALL upstream folders including the root, along with **Write** permission for the sink folder. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. If you use an Azure integration runtime to copy (both source and sink are in the cloud), in IAM, grant at least the **Reader** role in order to let Data Factory detect the region for Data Lake Store. If you want to avoid this IAM role, explicitly [create an Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) with the location of Data Lake Store. Associate them in the Data Lake Store linked service as shown in the following example.
 
 In Azure Data Factory, you don't need to specify any properties besides the general Data Lake Store information in the linked service.
 
@@ -160,23 +148,15 @@ In Azure Data Factory, you don't need to specify any properties besides the gene
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-- For **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format dataset](#format-based-dataset) section.
-- For other formats like **ORC format**, refer to [Other format dataset](#other-format-dataset) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Parquet, delimited text, JSON, Avro and binary format dataset
-
-To copy data to and from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings.
- The following properties are supported for Azure Data Lake Store Gen1 under `location` settings in the format-based dataset:
+The following properties are supported for Azure Data Lake Store Gen1 under `location` settings in the format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | The type property under `location` in the dataset must be set to **AzureDataLakeStoreLocation**. | Yes      |
 | folderPath | The path to a folder. If you want to use a wildcard to filter folders, skip this setting and specify it in activity source settings. | No       |
 | fileName   | The file name under the given folderPath. If you want to use a wildcard to filter files, skip this setting and specify it in activity source settings. | No       |
-
-> [!NOTE]
->
-> The **AzureDataLakeStoreFile** type dataset with parquet or text format mentioned in the following section is still supported as is for copy, lookup, and GetMetadata activity for backward compatibility. But it doesn't work with the mapping data flow feature. We recommend that you use this new model going forward. The Data Factory authoring UI generates these new types.
 
 **Example:**
 
@@ -204,9 +184,10 @@ To copy data to and from **Parquet, delimited text, JSON, Avro and binary format
 }
 ```
 
-### Other format dataset
+### Legacy dataset model
 
-To copy data to and from Azure Data Lake Store Gen1 in **ORC format**, the following properties are supported:
+>[!NOTE]
+>The following dataset model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above section going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -217,7 +198,6 @@ To copy data to and from Azure Data Lake Store Gen1 in **ORC format**, the follo
 | modifiedDatetimeEnd | Files filter based on the attribute Last Modified. The files are selected if their last modified time is within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The overall performance of data movement is affected by enabling this setting when you want to do file filter with huge amounts of files. <br/><br/> The properties can be NULL, which means no file attribute filter is applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal to the datetime value are selected. When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value are selected.| No |
 | format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs.md#text-format), [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |
-
 
 >[!TIP]
 >To copy all files under a folder, specify **folderPath** only.<br>To copy a single file with a particular name, specify **folderPath** with a folder part and **fileName** with a file name.<br>To copy a subset of files under a folder, specify **folderPath** with a folder part and **fileName** with a wildcard filter. 
@@ -258,12 +238,9 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Data Lake Store as source
 
-- To copy from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format source](#format-based-source) section.
-- To copy from other formats like **ORC format**, refer to [Other format source](#other-format-source) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Parquet, delimited text, JSON, Avro and binary format source
-
-To copy data from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings.  The following properties are supported for Azure Data Lake Store Gen1 under `storeSettings` settings in the format-based copy source:
+The following properties are supported for Azure Data Lake Store Gen1 under `storeSettings` settings in the format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -274,9 +251,6 @@ To copy data from **Parquet, delimited text, JSON, Avro and binary format**, ref
 | modifiedDatetimeStart    | Files filter based on the attribute Last Modified. The files are selected if their last modified time is within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL, which means no file attribute filter is applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal to the datetime value are selected. When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value are selected. | No                                            |
 | modifiedDatetimeEnd      | Same as above.                                               | No                                            |
 | maxConcurrentConnections | The number of connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                            |
-
-> [!NOTE]
-> For parquet or delimited text format, the **AzureDataLakeStoreSource** type copy activity source mentioned in the following section is still supported as is for backward compatibility. We recommend that you use this new model going forward. The Data Factory authoring UI generates these new types.
 
 **Example:**
 
@@ -319,9 +293,10 @@ To copy data from **Parquet, delimited text, JSON, Avro and binary format**, ref
 ]
 ```
 
-#### Other format source
+#### Legacy source model
 
-To copy data from Azure Data Lake Store Gen1 in **ORC format**, the following properties are supported in the copy activity **source** section:
+>[!NOTE]
+>The following copy source model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -363,21 +338,15 @@ To copy data from Azure Data Lake Store Gen1 in **ORC format**, the following pr
 
 ### Azure Data Lake Store as sink
 
-- To copy to **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format sink](#format-based-sink) section.
-- To copy to other formats like **ORC/JSON format**, refer to [Other format sink](#other-format-sink) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-sink"></a> Parquet, delimited text, JSON, Avro and binary format sink
-
-To copy data to **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity sink and supported settings.  The following properties are supported for Azure Data Lake Store Gen1 under `storeSettings` settings in the format-based copy sink:
+The following properties are supported for Azure Data Lake Store Gen1 under `storeSettings` settings in the format-based copy sink:
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | The type property under `storeSettings` must be set to **AzureDataLakeStoreWriteSetting**. | Yes      |
 | copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
 | maxConcurrentConnections | The number of connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
-
-> [!NOTE]
-> For parquet or delimited text format, the **AzureDataLakeStoreSink** type copy activity sink mentioned in the following section is still supported as is for backward compatibility. We recommend that you use this new model going forward. The Data Factory authoring UI generates these new types.
 
 **Example:**
 
@@ -414,9 +383,10 @@ To copy data to **Parquet, delimited text, JSON, Avro and binary format**, refer
 ]
 ```
 
-#### Other format sink
+#### Legacy sink model
 
-To copy data to Azure Data Lake Store Gen1 in **ORC format**, the following properties are supported in the **sink** section:
+>[!NOTE]
+>The following copy sink model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

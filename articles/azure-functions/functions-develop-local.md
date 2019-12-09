@@ -1,15 +1,9 @@
 ---
-title: Develop and run Azure functions locally | Microsoft Docs
+title: Develop and run Azure functions locally 
 description: Learn how to code and test Azure functions on your local computer before you run them on Azure Functions.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.author: glenga
 
 ---
 # Code and test Azure Functions locally
@@ -34,7 +28,7 @@ Each of these local development environments lets you create function app projec
 ## Next steps
 
 + To learn more about local development of compiled C# functions using Visual Studio 2019, see [Develop Azure Functions using Visual Studio](functions-develop-vs.md).
-+ To learn more about local development of functions using VS Code on a Mac, Linux, or Windows computer, see the [VS Code documentation for Azure Functions](https://code.visualstudio.com/tutorials/functions-extension/getting-started).
++ To learn more about local development of functions using VS Code on a Mac, Linux, or Windows computer, see [Deploy Azure Functions from VS Code](/azure/javascript/tutorial-vscode-serverless-node-01).
 + To learn more about developing functions from the command prompt or terminal, see [Work with Azure Functions Core Tools](functions-run-local.md).
 
 <!-- LINKS -->

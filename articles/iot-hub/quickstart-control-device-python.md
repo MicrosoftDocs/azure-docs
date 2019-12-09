@@ -17,13 +17,17 @@ ms.date: 06/21/2019
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud and manage your devices from the cloud. In this quickstart, you use a *direct method* to control a simulated device connected to your IoT hub. You can use direct methods to remotely change the behavior of a device connected to your IoT hub.
+IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud, and ingest high volumes of device telemetry to the cloud for storage or processing. In this quickstart, you use a *direct method* to control a simulated device connected to your IoT hub. You can use direct methods to remotely change the behavior of a device connected to your IoT hub.
 
 The quickstart uses two pre-written Python applications:
 
 * A simulated device application that responds to direct methods called from a back-end application. To receive the direct method calls, this application connects to a device-specific endpoint on your IoT hub.
 
 * A back-end application that calls the direct methods on the simulated device. To call a direct method on a device, this application connects to service-side endpoint on your IoT hub.
+
+> [!IMPORTANT]
+> In this article, the back-end application uses the Python V1 service client and the device application uses the Python V2 device client. The V1 service client is located in the [v1-deprecated branch](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated) of the Azure IoT Python SDK GitHub repository. The Pip package for the V1 service client, *azure-iothub-service-client*, has strict, platform-specific requirements -- including the version of Python installed on your development machine. These requirements are noted in the **Prerequisites** section.
+>
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -38,6 +42,14 @@ az extension add --name azure-cli-iot-ext
 ```
 
 If you haven't already done so, download the sample Python project from https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip and extract the ZIP archive.
+
+**For Windows**, the following prerequisites are required to install the V1 IoT Hub service client Pip package:
+
+* Make sure you have [Python version **3.6.x**](https://www.python.org/downloads/) installed.
+
+* Make sure you have the [Microsoft Visual C++ Redistributable for Visual Studio](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) installed.
+
+**For non-Windows platforms**, see the [Python Pip package distribution table](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md#python-pip-package-distribution-table) in the V1 SDK documentation. Make sure the Python 3.x version specified for your platform and any associated requirements are installed on your development machine. Installing Python 3.x rather than 2.7 enables async operations in the V2 device client, which is also used in this quickstart.
 
 ## Create an IoT hub
 
@@ -55,10 +67,10 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
-    **MyPythonDevice**: This is the name given for the registered device. Use MyPythonDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+    **MyPythonDevice**: This is the name of the device you're registering. It's recommended to use **MyPythonDevice** as shown. If you choose a different name for your device, you also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
@@ -66,7 +78,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyPythonDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
     ```
 
     Make a note of the device connection string, which looks like:
@@ -81,8 +93,8 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --name YourIoTHubName \
       --policy-name service \
+      --name {YourIoTHubName} \
       --output table
     ```
 
@@ -90,7 +102,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-    You use this value later in the quickstart. The service connection string is different from the device connection string.
+    You use this value later in the quickstart. This service connection string is different from the device connection string you noted in the previous step.
 
 ## Listen for direct method calls
 
@@ -100,12 +112,12 @@ The simulated device application connects to a device-specific endpoint on your 
 
 1. Open the **SimulatedDevice.py** file in a text editor of your choice.
 
-    Replace the value of the `CONNECTION_STRING` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.py** file.
+    Replace the value of the `CONNECTION_STRING` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDevice.py**.
 
 1. In the local terminal window, run the following commands to install the required libraries for the simulated device application:
 
     ```cmd/sh
-    pip install azure-iothub-device-client
+    pip install azure-iot-device
     ```
 
 1. In the local terminal window, run the following commands to run the simulated device application:
@@ -126,7 +138,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
 1. Open the **BackEndApplication.py** file in a text editor of your choice.
 
-    Replace the value of the `CONNECTION_STRING` variable with the service connection string you made a note of previously. Then save your changes to the **BackEndApplication.py** file.
+    Replace the value of the `CONNECTION_STRING` variable with the service connection string you made a note of earlier. Then save your changes to **BackEndApplication.py**.
 
 1. In the local terminal window, run the following commands to install the required libraries for the simulated device application:
 
@@ -147,6 +159,10 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
     After you run the back-end application, you see a message in the console window running the simulated device, and the rate at which it sends messages changes:
 
     ![Change in simulated client](./media/quickstart-control-device-python/SimulatedDevice-2.png)
+
+    > [!NOTE]
+    > If you get an error on the import of *iothub_service_client*, make sure you've installed the exact version of Python and any other associated artifacts specified for your platform in [Prerequisites](#prerequisites). If, after verifying the prerequisites, you still get an error, you may need to build the service client for your platform. To learn how to build the SDK for your platform, see the [devbox setup instructions](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) in the V1 SDK documentation.
+    >
 
 ## Clean up resources
 

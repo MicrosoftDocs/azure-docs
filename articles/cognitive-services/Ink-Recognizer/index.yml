@@ -49,7 +49,7 @@ landingContent:
         - text: Azure PowerShell
           url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
         - text: Azure CLI
-          url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+          url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
 
 - title: Samples
   linkLists:

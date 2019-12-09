@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 10/24/2019
 ms.author: celested
 ms.reviewer: japere
 ---
@@ -51,7 +51,7 @@ To publish the SecretAPI web API through Application Proxy:
    
 1. At the top of the **Enterprise applications - All applications** page, select **New application**.
    
-1. On the **Add an application** page, under **Add your own app**, select **On-premises application**. 
+1. On the **Browse Azure AD Gallery** page, under **On-premises applications**, select **Add an on-premises application**. The **Add your own on-premises application** page appears.
    
 1. If you don't have an Application Proxy Connector installed, you'll be prompted to install it. Select **Download Application Proxy Connector** to download and install the connector. 
    

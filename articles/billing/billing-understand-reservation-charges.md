@@ -5,12 +5,12 @@ documentationcenter: ''
 author: yashesvi
 manager: yashar
 editor: ''
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 09/30/2019
 ms.author: banders
 ---
 # How a reservation discount is applied to Azure SQL Databases

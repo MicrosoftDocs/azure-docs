@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 10/01/2019
 ms.author: aahi
 ---
 

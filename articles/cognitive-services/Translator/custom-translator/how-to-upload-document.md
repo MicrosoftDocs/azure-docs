@@ -1,7 +1,7 @@
 ---
 title: How to upload a document - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Using the document upload feature you can upload parallel document for your trainings. Parallel documents are pairs of documents where one is the translation of the other. One document in the pair contains sentences in the source language and the other document contains these sentences translated into the target language.  
+description: The document upload feature uploads parallel documents (two documents where one is the origin and the other is the translation) into the service.  
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services

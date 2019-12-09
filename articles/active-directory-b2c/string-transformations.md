@@ -25,8 +25,8 @@ Compare two claims, and throw an exception if they are not equal according to th
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | First claim's type, which is to be compared. |
-| inputClaim | inputClaim2 | string | Second claim's type, which is to be compared. |
+| InputClaim | inputClaim1 | string | First claim's type, which is to be compared. |
+| InputClaim | inputClaim2 | string | Second claim's type, which is to be compared. |
 | InputParameter | stringComparison | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 
 The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **UserMessageIfClaimsTransformationStringsAreNotEqual** self-asserted technical profile metadata controls the error message that is presented to the user.
@@ -150,8 +150,8 @@ Determine whether one string claim is equal to another. The result is a new bool
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | First claim type, which is to be compared. |
-| inputClaim | inputClaim2 | string | Second claim type, which is to be compared. |
+| InputClaim | inputClaim1 | string | First claim type, which is to be compared. |
+| InputClaim | inputClaim2 | string | Second claim type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The ClaimType that is produced after this claims transformation has been invoked. |
@@ -191,7 +191,7 @@ Determines whether a claim value is equal to the input parameter value.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
+| InputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
 | InputParameter | compareTo | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
@@ -500,7 +500,7 @@ Checks that a string claim and `matchTo` input parameter are equal, and sets the
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | string | The claim type, which is to be compared. |
+| InputClaim | inputClaim | string | The claim type, which is to be compared. |
 | InputParameter | matchTo | string | The string to be compared with `inputClaim`. |
 | InputParameter | stringComparison | string | Possible values: `Ordinal` or `OrdinalIgnoreCase`. |
 | InputParameter | stringMatchMsg | string | First value to be set if strings are equal. |
@@ -549,7 +549,7 @@ Checks that a string claim and `matchTo` input parameter are equal, and sets the
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | claimToMatch | string | The claim type, which is to be compared. |
+| InputClaim | claimToMatch | string | The claim type, which is to be compared. |
 | InputParameter | matchTo | string | The string to be compared with inputClaim. |
 | InputParameter | stringComparison | string | Possible values: `Ordinal` or `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | string | The value to be set if strings are equal. |

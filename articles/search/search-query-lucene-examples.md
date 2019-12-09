@@ -1,20 +1,20 @@
 ---
-title: Use full Lucene query syntax - Azure Search
-description: Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard searches in an Azure Search service.
-author: HeidiSteen
+title: Use full Lucene query syntax
+titleSuffix: Azure Cognitive Search
+description: Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard searches in an Azure Cognitive Search service.
+
 manager: nitinme
-tags: Lucene query analyzer syntax
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
+tags: Lucene query analyzer syntax
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Use the "full" Lucene search syntax (advanced queries in Azure Search)
+# Use the "full" Lucene search syntax (advanced queries in Azure Cognitive Search)
 
-When constructing queries for Azure Search, you can replace the default [simple query parser](query-simple-syntax.md) with the more expansive [Lucene Query Parser in Azure Search](query-lucene-syntax.md) to formulate specialized and advanced query definitions. 
+When constructing queries for Azure Cognitive Search, you can replace the default [simple query parser](query-simple-syntax.md) with the more expansive [Lucene Query Parser in Azure Cognitive Search](query-lucene-syntax.md) to formulate specialized and advanced query definitions. 
 
 The Lucene parser supports complex query constructs, such as field-scoped queries, fuzzy and prefix wildcard search, proximity search, term boosting, and regular expression search. The additional power comes with additional processing requirements so you should expect a slightly longer execution time. In this article, you can step through examples demonstrating query operations available when using the full syntax.
 
@@ -24,7 +24,7 @@ The Lucene parser supports complex query constructs, such as field-scoped querie
 
 ## Formulate requests in Postman
 
-The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://opendata.cityofnewyork.us/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Search to try these queries.
+The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://opendata.cityofnewyork.us/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Cognitive Search to try these queries.
 
 What you do need is Postman or an equivalent tool for issuing HTTP request on GET. For more information, see [Explore with REST clients](search-get-started-postman.md).
 
@@ -40,13 +40,13 @@ After you specify the request header, you can reuse it for all of the queries in
 
 ### Set the request URL
 
-Request is a GET command paired with a URL containing the Azure Search endpoint and search string.
+Request is a GET command paired with a URL containing the Azure Cognitive Search endpoint and search string.
 
   ![Postman request header](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 URL composition has the following elements:
 
-+ **`https://azs-playground.search.windows.net/`** is a sandbox search service maintained by the Azure Search development team. 
++ **`https://azs-playground.search.windows.net/`** is a sandbox search service maintained by the Azure Cognitive Search development team. 
 + **`indexes/nycjobs/`** is the NYC Jobs index in the indexes collection of that service. Both the service name and index are required on the request.
 + **`docs`** is the documents collection containing all searchable content. The query api-key provided in the request header only works on read operations targeting the documents collection.
 + **`api-version=2019-05-06`** sets the api-version, which is a required parameter on every request.
@@ -143,7 +143,7 @@ You can define a fielded search operation with the **fieldName:searchExpression*
 
 Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, as in this case searching for two distinct locations in the `state` field. Also, ensure the operator is capitalized as you see with NOT and AND.
 
-The field specified in **fieldName:searchExpression** must be a searchable field. See [Create Index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.
+The field specified in **fieldName:searchExpression** must be a searchable field. See [Create Index (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.
 
 > [!NOTE]
 > In the example above, we did not need to use the `searchFields` parameter because each part of the query has a field name explicitly specified. However, you can still use the `searchFields` parameter if you want to run a query where some parts are scoped to a specific field, and the rest could apply to several fields. For example, the query `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` would match `senior NOT junior` only to the `business_title` field, while it would match "external" with the `posting_type` field. The field name provided in **fieldName:searchExpression** always takes precedence over the `searchFields` parameter, which is why in this example, we do not need to include `business_title` in the `searchFields` parameter.
@@ -281,12 +281,12 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## Next steps
 Try specifying the Lucene Query Parser in your code. The following links explain how to set up search queries for both .NET and the REST API. The links use the default simple syntax so you will need to apply what you learned from this article to specify the **queryType**.
 
-* [Query your Azure Search Index using the .NET SDK](search-query-dotnet.md)
-* [Query your Azure Search Index using the REST API](search-create-index-rest-api.md)
+* [Query your index using the .NET SDK](search-query-dotnet.md)
+* [Query your index using the REST API](search-create-index-rest-api.md)
 
 Additional syntax reference, query architecture, and examples can be found in the following links:
 
 + [Simple syntax query examples](search-query-simple-examples.md)
-+ [How full text search works in Azure Search](search-lucene-query-architecture.md)
++ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)

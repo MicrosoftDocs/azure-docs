@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for entities with the Bing Entity Search SDK for Python"
+title: "Quickstart: Search for entities with the SDK for Python - Bing Entity Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search for entities with the Bing Entity Search SDK for Python.
 services: cognitive-services

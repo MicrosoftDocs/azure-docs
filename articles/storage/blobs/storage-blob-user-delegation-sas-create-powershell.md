@@ -1,12 +1,13 @@
 ---
-title: Create a user delegation SAS for a container or blob with PowerShell (preview) - Azure Storage
-description: Learn how to create a shared access signature (SAS) using Azure Active Directory credentials in Azure Storage using PowerShell.
+title: Use PowerShell to create a user delegation SAS for a container or blob
+titleSuffix: Azure Storage
+description: Learn how to create a user delegation SAS (preview) with Azure Active Directory credentials by using PowerShell.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 08/29/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs

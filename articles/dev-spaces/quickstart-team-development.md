@@ -1,17 +1,13 @@
 ---
-title: "Team development on Kubernetes using Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
-author: zr-msft
+title: "Team development on Kubernetes"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 04/25/2019
 ms.topic: quickstart
 description: "Team Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
-# Quickstart: Team development on Kubernetes using Azure Dev Spaces
+# Quickstart: Team development on Kubernetes - Azure Dev Spaces
 
 In this guide, you will learn how to:
 
@@ -25,7 +21,7 @@ In this guide, you will learn how to:
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- [Helm 2.13 or greater installed](https://github.com/helm/helm/blob/master/docs/install.md).
+- [Helm 2.13 - 2.16 installed][helm-installed].
 
 ## Create an Azure Kubernetes Service cluster
 
@@ -36,11 +32,12 @@ az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
-The *MyAKS* cluster is also created with one node, using the *Standard_DS2_v2* size, and with RBAC disabled.
-
 ## Enable Azure Dev Spaces on your AKS cluster
 
 Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and follow the prompts. The below command enables Dev Spaces on the *MyAKS* cluster in the *MyResourceGroup* group and creates a dev space called *dev*.
+
+> [!NOTE]
+> The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
 ```cmd
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space dev --yes
@@ -232,5 +229,5 @@ Learn how Azure Dev Spaces helps you develop more complex apps across multiple c
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-nodejs.md)
 
-
+[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [supported-regions]: about.md#supported-regions-and-configurations

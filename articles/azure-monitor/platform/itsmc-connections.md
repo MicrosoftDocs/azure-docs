@@ -1,17 +1,13 @@
 ---
 title: Supported connections with IT Service Management Connector in Azure Log Analytics | Microsoft Docs
 description: This article provides information about how to connect your ITSM products/services with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage the ITSM work items.
-documentationcenter: ''
-author: jyothirmaisuri
-manager: riyazp
-editor: ''
-ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/24/2018
+author: JYOTHIRMAISURI
 ms.author: v-jysur
+ms.date: 05/24/2018
+
 ---
 
 # Connect ITSM products/services with IT Service Management Connector
@@ -185,6 +181,7 @@ Ensure the following prerequisites are met:
 **ServiceNow Admins must do the following in their ServiceNow instance**:
 - Generate client ID and client secret for the ServiceNow product. For information on how to generate client ID and secret, see the following information as required:
 
+    - [Set up OAuth for New York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

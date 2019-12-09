@@ -49,7 +49,7 @@ You also need to install the [Gremlin Console](https://tinkerpop.apache.org/). U
 
     Setting|Suggested value|Description
     ---|---|---
-    hosts|[*account-name*.gremlin.cosmos.azure.com]|See the following screenshot. This is the Gremlin URI value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed.
+    hosts|[*account-name*.**gremlin**.cosmos.azure.com]|See the following screenshot. This is the **Gremlin URI** value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed. Note: Be sure to use the Gremlin value, and **not** the URI that ends with [*account-name*.documents.azure.com] which would likely result in a "Host did not respond in a timely fashion" exception when attempting to execute Gremlin queries later. 
     port|443|Set to 443.
     username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>` where `<db>` is your database name and `<coll>` is your collection name.
     password|*Your primary key*| See second screenshot below. This is your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the left side of the box to copy the value.
@@ -81,7 +81,7 @@ make sure to wrap the value of hosts parameter within brackets [].
 1. In your terminal, run `:remote connect tinkerpop.server conf/remote-secure.yaml` to connect to your app service.
 
     > [!TIP]
-    > If you receive the error `No appenders could be found for logger` ensure that you updated the serializer value in the remote-secure.yaml file as described in step 2. 
+    > If you receive the error `No appenders could be found for logger` ensure that you updated the serializer value in the remote-secure.yaml file as described in step 2. If your configuration is correct, then this warning can be safely ignored as it should not impact the use of the console. 
 
 1. Next run `:remote console` to redirect all console commands to the remote server.
 

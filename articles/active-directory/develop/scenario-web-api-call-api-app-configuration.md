@@ -1,5 +1,6 @@
 ---
-title: Web API that calls downstream web APIs (app's code configuration) - Microsoft identity platform
+title: Configure a web API that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web API that calls web APIs (app's code configuration)
 services: active-directory
 documentationcenter: dev-center-name
@@ -107,40 +108,42 @@ In practice, the OBO flow is often used to acquire a token for a downstream API 
 ```CSharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
 {
- try
- {
-  UserAssertion userAssertion;
-  IEnumerable<string> requestedScopes;
-  if (jwtToken != null)
-  {
-   userAssertion = new UserAssertion(jwtToken.RawData, "urn:ietf:params:oauth:grant-type:jwt-bearer");
-   requestedScopes = scopes ?? jwtToken.Audiences.Select(a => $"{a}/.default");
-  }
-  else
-  {
-   throw new ArgumentOutOfRangeException("tokenValidationContext.SecurityToken should be a JWT Token");
-  }
+    try
+    {
+        UserAssertion userAssertion;
+        IEnumerable<string> requestedScopes;
+        if (jwtToken != null)
+        {
+            userAssertion = new UserAssertion(jwtToken.RawData, "urn:ietf:params:oauth:grant-type:jwt-bearer");
+            requestedScopes = scopes ?? jwtToken.Audiences.Select(a => $"{a}/.default");
+        }
+        else
+        {
+            throw new ArgumentOutOfRangeException("tokenValidationContext.SecurityToken should be a JWT Token");
+        }
 
-  // Create the application
-  var application = BuildConfidentialClientApplication(httpContext, principal);
+        // Create the application
+        var application = BuildConfidentialClientApplication(httpContext, principal);
 
-  // .Result to make sure that the cache is filled-in before the controller tries to get access tokens
-  var result = application.AcquireTokenOnBehalfOf(requestedScopes.Except(scopesRequestedByMsalNet),
-                                                  userAssertion)
-                                        .ExecuteAsync()
-                                        .GetAwaiter().GetResult();
- }
- catch (MsalException ex)
- {
-  Debug.WriteLine(ex.Message);
-  throw;
- }
+        // .Result to make sure that the cache is filled-in before the controller tries to get access tokens
+        var result = application.AcquireTokenOnBehalfOf(requestedScopes.Except(scopesRequestedByMsalNet),
+                                                        userAssertion)
+                                .ExecuteAsync()
+                                .GetAwaiter().GetResult();
+     }
+     catch (MsalException ex)
+     {
+         Debug.WriteLine(ex.Message);
+         throw;
+     }
 }
 ```
 
+You can also see an example of on behalf of flow implementation in [NodeJS and Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
+
 ## Protocol
 
-For more information about the on-behalf-of protocol, see [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
+For more information about the on-behalf-of protocol, see [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
 
 ## Next steps
 

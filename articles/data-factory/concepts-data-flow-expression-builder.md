@@ -1,39 +1,43 @@
 ---
-title: Azure Data Factory Mapping Data Flow Expression Builder
-description: The Expression Builder for Azure Data Factory Mapping Data Flows
+title: Mapping data flow Expression Builder
+description: The Expression Builder for Azure Data Factory mapping data flows
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
 ---
 
-# Mapping Data Flow Expression Builder
+# Mapping data flow Expression Builder
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-In Azure Data Factory Mapping Data Flow, you'll find expression boxes where you can enter expressions for data transformation. Use columns, fields, variables, parameters, functions from your data flow in these boxes. To build the expression, use the Expression Builder, which is launched by clicking in the expression text box inside the transformation. You'll also sometimes see "Computed Column" options when selecting columns for transformation. When you click that, you'll also see the Expression Builder launched.
 
-![Expression Builder](media/data-flow/expression.png "Expression Builder")
+In Azure Data Factory mapping data flow, you'll find expression boxes where you can enter expressions for data transformation. Use columns, fields, variables, parameters, functions from your data flow in these boxes. To build the expression, use the Expression Builder, which is launched by clicking in the expression text box inside the transformation. You'll also sometimes see "Computed Column" options when selecting columns for transformation. When you click that, you'll also see the Expression Builder launched.
+
+![Expression Builder](media/data-flow/xpb1.png "Expression Builder")
 
 The Expression Builder tool defaults to the text editor option. the auto-complete feature reads from the entire Azure Data Factory Data Flow object model with syntax checking and highlighting.
 
 ![Expression Builder auto-complete](media/data-flow/expb1.png "Expression Builder auto-complete")
 
-## Currently Working on Field
+## Build schemas in Output Schema pane
 
-![Expression Builder](media/data-flow/exp3.png "Currently Working On")
+![Add complex column](media/data-flow/complexcolumn.png "Add columns")
 
-At the top left of the Expression Builder UI, you will see a field called "Currently Working On" with the name of the field that you are currently working on. The expression that you build in the UI will be applied just to that currently working field. If you wish to transform another field, save your current work and use this drop-down to select another field and build an expression for the other fields.
+In the left-hand Output Schema pane, you will see the columns that you are modifying and adding to your schema. You can interactively build simple and complex data structures here. Add additional fields using "Add column" and build hierarchies by using "Add subcolumn".
 
-## Data Preview in Debug mode
+![Add subcolumn](media/data-flow/addsubcolumn.png "Add Subcolumn")
+
+## Data Preview in debug mode
 
 ![Expression Builder](media/data-flow/exp4b.png "Expression Data Preview")
 
-When you are working on your expressions, you can optionally switch on Debug mode from the Azure Data Factory Data Flow design surface, enabling live in-progress preview of your data results from the expression that you are building. Real-time live debugging is enabled for your expressions.
+When you are working on your data flow expressions, switch on Debug mode from the Azure Data Factory Data Flow design surface, enabling live in-progress preview of your data results from the expression that you are building. Real-time live debugging is enabled for your expressions.
 
 ![Debug Mode](media/data-flow/debugbutton.png "Debug Button")
 
+Click the Refresh button to update the results of your expression against a live sample of your source in real-time.
 
 ![Expression Builder](media/data-flow/exp5.png "Expression Data Preview")
 
@@ -42,6 +46,16 @@ When you are working on your expressions, you can optionally switch on Debug mod
 Add comments to your expressions using single line and multi-line comment syntax:
 
 ![Comments](media/data-flow/comments.png "Comments")
+
+## String interpolation
+
+Use double-quotes to enclose literal string text together with expressions. You can include expression functions, columns, and parameters. This is very useful to avoid extensive use of string concatenation when including parameters in query strings.
+
+* ```"My favorite movie is {iif(instr(title,', The')>0,"The {split(title,', The')[1]}",title)}"```
+
+* ```"select * from {$tablename} where orderyear > {$year}"```
+
+* ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 ## Regular Expressions
 
@@ -69,6 +83,46 @@ With expression functions that return arrays, use square brackets [] to address 
 
 When you have column names that include special characters or spaces, surround the name with curly braces.
 * ```{[dbo].this_is my complex name$$$}```
+
+## Keyboard shortcuts
+
+* ```Ctrl-K Ctrl-C```: Comments entire line
+* ```Ctrl-K Ctrl-U```: Uncomment
+* ```F1```: Provide editor help commands
+* ```Alt-Down Arrow```: Move current line down
+* ```Alt-Up Arrow```: Move current line up
+* ```Cntrl-Space```: Show context help
+
+## Manual comments
+
+* ```/* This is my comment */```
+
+* ```/* This is a```
+*   ```multi-line comment */```
+   
+* ```// This is a single line comment```
+
+If you put a comment at the top of your expression, it will appear in the transformation text box to document your transformation expressions:
+
+![Comments](media/data-flow/comments2.png "Comments")
+
+## Convert to dates or timestamps
+
+```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+
+Note that to include string literals in your timestamp output, you need to wrap your conversion inside of ```toString()```.
+
+Here is how to convert seconds from Epoch to a date or timestamp:
+
+```toTimestamp(1574127407*1000l)```
+
+Notice the trailing "l" at the end of the expression above. That signifies conversion to long as in-line syntax.
+
+## Handling column names with special characters
+
+When you have column names that include special characters or spaces, surround the name with curly braces.
+
+```{[dbo].this_is my complex name$$$}```
 
 ## Next steps
 

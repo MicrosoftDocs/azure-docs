@@ -59,7 +59,7 @@ A *security principal* is an object that represents a user, group, service princ
 
 ### Role definition
 
-A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader.
+A *role definition* is a collection of permissions. It's typically just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader.
 
 ![Role definition for a role assignment](./media/overview/rbac-role-definition.png)
 
@@ -137,4 +137,4 @@ The following are the high-level steps that RBAC uses to determine if you have a
 - [Quickstart: View the access a user has to Azure resources using the Azure portal](check-access.md)
 - [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md)
 - [Understand the different roles in Azure](rbac-and-directory-admin-roles.md)
-- [Enterprise Cloud Adoption: Resource access management in Azure](/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)
+- [Enterprise Cloud Adoption: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

@@ -1,17 +1,9 @@
 ---
 title: Azure Functions C# developer reference
 description: Understand how to develop Azure Functions using C#.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
-ms.service: azure-functions
-ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
-ms.author: glenga
 
 ---
 # Azure Functions C# developer reference
@@ -26,6 +18,10 @@ This article assumes that you've already read the following articles:
 
 * [Azure Functions developers guide](functions-reference.md)
 * [Azure Functions Visual Studio 2019 Tools](functions-develop-vs.md)
+
+## Supported versions
+
+The Azure Functions 2.x runtime uses .NET Core 2.2. Your function code can use .NET Core 2.2 APIs by updating the Visual Studio project settings. The Function templates do not default to .NET Core 2.2 to avoid adversely affecting customers that do not have .NET Core 2.2 installed.
 
 ## Functions class library project
 
@@ -50,6 +46,7 @@ This directory is what gets deployed to your function app in Azure. The binding 
 
 > [!IMPORTANT]
 > The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [How to disable functions](disable-function.md#functions-2x---c-class-libraries).
+
 
 ## Methods recognized as functions
 
@@ -367,7 +364,7 @@ public static class IBinderExample
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs)
 defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and
 [TextWriter](/dotnet/api/system.io.textwriter) is a supported output binding type.
 

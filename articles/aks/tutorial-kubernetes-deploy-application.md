@@ -113,7 +113,7 @@ To see the application in action, open a web browser to the external IP address 
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-If the application didn't load, it might be due to an authorization problem with your image registry. To view the status of your containers, use the `kubectl get pods` command. If the container images can't be pulled, see [allow access to Container Registry with a Kubernetes secret](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+If the application didn't load, it might be due to an authorization problem with your image registry. To view the status of your containers, use the `kubectl get pods` command. If the container images can't be pulled, see [Authenticate with Azure Container Registry from Azure Kubernetes Service](cluster-container-registry-integration.md).
 
 ## Next steps
 

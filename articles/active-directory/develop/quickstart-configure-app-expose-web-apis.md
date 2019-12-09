@@ -2,16 +2,12 @@
 title: Configure an application to expose web APIs - Microsoft identity platform
 description: Learn how to configure an application to expose a new permission/scope and role to make the application available to client applications.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/14/2019
 ms.author: ryanwi

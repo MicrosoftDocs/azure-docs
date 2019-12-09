@@ -1,5 +1,5 @@
 ---
-title: Tutorial - High availability for Linux VMs in Azure | Microsoft Docs
+title: Tutorial - High availability for Linux VMs in Azure 
 description: In this tutorial, you learn how to use the Azure CLI to deploy highly available virtual machines in Availability Sets
 documentationcenter: ''
 services: virtual-machines-linux
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 > * Create a VM in an availability set
 > * Check available VM sizes
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 

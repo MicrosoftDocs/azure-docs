@@ -119,28 +119,7 @@ Azure datacenters in Australia have an additional security notification. All the
 2. Make sure that the data copy to device is complete and **Prepare to ship run** is successful.
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device.
-5. Email Quantium Solutions to request a pickup. Refer to the service reference number specified on the Azure portal. Use the following email template: - *Request for reverse shipping label with TAU code*. Make sure to include the following details in the email: 
-
-    ```
-    To: Azure@quantiumsolutions.com
-    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
-    Body: 
-    - Company name：
-    - Address:
-    - Contact name:
-    - Contact number:
-    - Requested pickup date: mm/dd
-    ```
-6. Quantium Solutions Australia will email you a return shipping label.
-7. Print the return label and affix it on the shipping box.
-8. Hand over the package to the courier.
-
-If needed, you can email Quantium Solution Support at Azure@quantiumsolutions.com or phone.
-
-For inquiry regarding your order via the phone:
-
-- Send an email for pickup first.
-- Provide your order name on the phone.
+5. Book a pick-up online at the [DHL Link](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
 ::: zone target="chromeless"
 

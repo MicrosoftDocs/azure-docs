@@ -1,18 +1,15 @@
 ---
-title: Certificate credentials in Azure AD | Microsoft Docs
+title: Certificate credentials in Azure AD 
+titleSuffix: Microsoft identity platform
 description: This article discusses the registration and use of certificate credentials for application authentication
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: ryanwi
@@ -128,5 +125,8 @@ In the Azure app registration for the client application:
    The `keyCredentials` property is multi-valued, so you may upload multiple certificates for richer key management.
    
 ## Code sample
+
+> [!NOTE]
+> You must calculate the X5T header by using the certificate's hash and  converting it to a base64 string. In C# it would look something similar to that of : `System.Convert.ToBase64String(cert.GetCertHash());`
 
 The code sample on [Authenticating to Azure AD in daemon apps with certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) using the `New-SelfSignedCertificate` Powershell command. You can also take advantage and use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) to create the certificates, compute the thumbprint, and so on.

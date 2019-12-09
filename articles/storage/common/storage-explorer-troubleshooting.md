@@ -1,10 +1,10 @@
 ---
 title: Azure Storage Explorer troubleshooting guide | Microsoft Docs
 description: Overview of debugging techniques for Azure Storage Explorer
-services: virtual-machines
+services: storage
 author: Deland-Han
 manager: dcscontentpm
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
@@ -53,7 +53,7 @@ If you don’t have a role that grants any management layer permissions, Storage
 
 ### What if I can't get the management layer permissions I need from my administrator?
 
-We don't currently have an RBAC-related solution for this issue. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
+We don't currently have an RBAC-related solution for this issue. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ## Error: Self-signed certificate in certificate chain (and similar errors)
 
@@ -90,7 +90,7 @@ If you can't find any self-signed certificates by following these steps, contact
 
 Blank sign-in dialog boxes most often occur when Active Directory Federation Services (AD FS) prompts Storage Explorer to perform a redirect, which is unsupported by Electron. To work around this issue, you can try to use Device Code Flow for sign-in. To do so, follow these steps:
 
-1. On the menu, go to **Preview** > **Use Device Code Sign-In**.
+1. On the left vertical tool bar, open **Settings**. In the Settings Panel, go to **Application** > **Sign in**. Enable **Use device code flow sign-in**.
 2. Open the **Connect** dialog box (either through the plug icon on the left-side vertical bar or by selecting **Add Account** on the account panel).
 3. Choose the environment you want to sign in to.
 4. Select **Sign In**.
@@ -296,7 +296,7 @@ You can also download the application as a .tar.gz file, but you'll have to inst
 
 These packages are the most common requirements for Storage Explorer on Linux:
 
-* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.2 Runtime](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
 * `libgconf-2-4`
 * `libgnome-keyring0` or `libgnome-keyring-dev`
 * `libgnome-keyring-common`

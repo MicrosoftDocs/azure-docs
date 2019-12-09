@@ -1,12 +1,12 @@
 ---
 title: Create, view, and manage log alerts Using Azure Monitor | Microsoft Docs
 description: Use the Azure Monitor to author, view, and manage log alert rules in Azure.
-author: msvijayn
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
 ---
 # Create, view, and manage log alerts using Azure Monitor

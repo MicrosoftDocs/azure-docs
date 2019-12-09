@@ -18,7 +18,7 @@ Following solid error handling practices is important to avoid loss of data or m
 - [Enable Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [Use structured error handling](#use-structured-error-handling)
 - [Design for idempotency](../articles/azure-functions/functions-idempotent.md)
-- Implement retry policies (where appropriate)
+- [Implement retry policies](../articles/azure-functions/functions-reliable-event-processing.md) (where appropriate)
 
 ### Use structured error handling
 

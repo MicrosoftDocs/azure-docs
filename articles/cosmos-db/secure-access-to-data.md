@@ -1,11 +1,11 @@
 ---
 title: Learn how to secure access to data in Azure Cosmos DB
 description: Learn about access control concepts in Azure Cosmos DB, including master keys, read-only keys, users, and permissions.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
 
 ---
 # Secure access to data in Azure Cosmos DB
@@ -51,7 +51,7 @@ The following code sample illustrates how to use a Cosmos DB account endpoint an
 //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
 private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
-private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
+private static readonly string authorizationKey = ConfigurationManager.AppSettings["AuthorizationKey"];
 
 client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
 
