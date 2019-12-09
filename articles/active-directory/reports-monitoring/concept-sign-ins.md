@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2019
+ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -75,7 +75,7 @@ You can customize the list view by clicking **Columns** in the toolbar.
 
 ![Sign-in activity](./media/concept-sign-ins/19.png "Sign-in activity")
 
-Displays additional fields or remove fields that are already displayed.
+The **Columns** dialog gives you access to the selectable attributes. In a sign-in report, you can only have attributes that don't have a one-to-many relationship to other attributes as column.
 
 ![Sign-in activity](./media/concept-sign-ins/columns.png "Sign-in activity")
 

@@ -259,11 +259,11 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
 
    ![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/run-details-widget.png)
 
-You can also get a link to the same display in your workspace.
+   You can also get a link to the same display in your workspace.
 
-```python
-print(run.get_portal_url())
-```
+   ```python
+   print(run.get_portal_url())
+   ```
 
 2. **[For automated machine learning runs]** To access the charts from a previous run. Replace `<<experiment_name>>` with the appropriate experiment name:
 

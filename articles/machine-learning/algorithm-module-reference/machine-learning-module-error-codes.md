@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot module errors
 titleSuffix: "Azure Machine Learning"
-description: Troubleshoot module exceptions in Azure Machine Learning Studio using error codes
+description: Troubleshoot module exceptions in Azure Machine Learning Studio (classic) using error codes
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -1363,17 +1363,16 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 
 ## Error 0105  
  This error is displayed when a module definition file contains an unsupported parameter type  
-
+  
  This error in Azure Machine Learning is produced when the you create a custom module xml definition and the type of a parameter or argument in the definition does not match a supported type.  
-
+  
 **Resolution:**
  Make sure that the type property of any **Arg** element in the custom module xml definition file is a supported type.  
-
-|Exception Messages|
-|------------------------|
-|Unsupported parameter type.|
-|Unsupported parameter type '{parameter_name}' specified.|
-|Unsupported parameter type '{parameter_name}' specified. Reason: {reason}.|
+  
+|Exception Messages|  
+|------------------------|  
+|Unsupported parameter type.|  
+|Unsupported parameter type '{0}' specified.|  
 
 
 ## Error 0125  
