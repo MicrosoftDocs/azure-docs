@@ -17,7 +17,7 @@ ms.author: v-miegge
 
 # Troubleshoot Azure subscription sign-in issues
 
-This guide helps to resolve the issues in which you can't sign-in the Azure portal or Azure account center. 
+This guide helps to resolve the issues in which you can't sign-in the Azure portal or Azure account center.
 
 ## Issues
 
@@ -75,4 +75,4 @@ If you have questions or need help, [create a support request](https://ms.portal
 
 ## Next steps
 
-- [Azure Billing documentation](index.md)
+- [Azure Billing documentation](../../billing/index.md)

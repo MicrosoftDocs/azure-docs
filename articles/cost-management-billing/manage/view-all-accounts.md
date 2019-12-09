@@ -27,12 +27,12 @@ Azure portal currently supports the following type of billing accounts:
 
 - **Enterprise Agreement**: A billing account for an Enterprise Agreement is created when your organization signs an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) to use Azure.
 
-- **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or upgrade their [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) may have a billing account for a Microsoft Customer Agreement as well. For more information, see [Get started with your billing account for Microsoft Customer Agreement](billing-mca-overview.md).
+- **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or upgrade their [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) may have a billing account for a Microsoft Customer Agreement as well. For more information, see [Get started with your billing account for Microsoft Customer Agreement](../../billing/billing-mca-overview.md).
 
 <!--Todo Add section to identify the type of accounts -->
 
 ## Scopes for billing accounts
-A scope is a node within a billing account that users use to view and manage billing. It is where users manage billing data, payments, invoices, and conduct general account management. 
+A scope is a node within a billing account that users use to view and manage billing. It is where users manage billing data, payments, invoices, and conduct general account management.
 
 ### Microsoft Online Services Program
 

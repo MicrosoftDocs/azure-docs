@@ -205,4 +205,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 See the following articles to learn about your billing account:
 
 - [Get stated with your billing account for Microsoft Customer Agreement](../../billing/billing-mca-overview.md)
-- [Create an Azure subscription for your billing account for Microsoft Customer Agreement](billing-mca-create-subscription.md)
+- [Create an Azure subscription for your billing account for Microsoft Customer Agreement](create-subscription.md)

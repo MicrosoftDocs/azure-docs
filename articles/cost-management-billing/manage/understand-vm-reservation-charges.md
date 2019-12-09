@@ -50,7 +50,7 @@ To understand and view the application of your Azure Reservations in billing usa
 
 ## Reservation discount for Windows VMs
 
-When you're running Windows VM instances, the reservation is applied to cover the infrastructure costs. The application of the reservation to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You're charged separately for Windows software on a per vCPU basis. See [Windows software costs with Reservations](../../billing/../../billing/billing-reserved-instance-windows-software-costs.md). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server](../../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+When you're running Windows VM instances, the reservation is applied to cover the infrastructure costs. The application of the reservation to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You're charged separately for Windows software on a per vCPU basis. See [Windows software costs with Reservations](../../billing/billing-reserved-instance-windows-software-costs.md). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server](../../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 ## Discount can apply to different sizes
 

@@ -34,7 +34,7 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
 4. From the top of the page, select **Add**.
 
-5. Enter a name for the invoice section and select a billing profile. You’ll see the section on this billing profile's invoice reflecting the usage of each subscription and purchases you’ve assigned to the section. 
+5. Enter a name for the invoice section and select a billing profile. You’ll see the section on this billing profile's invoice reflecting the usage of each subscription and purchases you’ve assigned to the section.
 
    ![Screenshot that shows invoice section creation page](./media/mca-section-invoice/mca-create-invoice-section.png)
 
@@ -49,6 +49,6 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 ## Next steps
 
-- [Create an additional Azure subscription for Microsoft Customer Agreement](billing-mca-create-subscription.md)
+- [Create an additional Azure subscription for Microsoft Customer Agreement](create-subscription.md)
 - [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 - [Get billing ownership of Azure subscriptions from users in other billing accounts](mca-request-billing-ownership.md)

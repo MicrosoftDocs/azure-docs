@@ -42,7 +42,7 @@ If you're an Enterprise Agreement(EA) customer, your enterprise administrators c
 
     > [!IMPORTANT]
     >
-    > If you choose to move the subscription to the new account's Azure AD tenant, all [role-based access control (RBAC)](../role-based-access-control/overview.md) assignments to manage resources in the subscription are permanently removed. Only the user in the new account who accepts your transfer request will have access to manage resources in the subscription. For more information, see [Transferring subscription to a user in another Azure AD tenant](../../cognitive-services/acoustics/known-issues.md). Alternatively, you can uncheck the box for Subscription Azure AD tenant to transfer billing ownership without moving the subscription to the new account's tenant. If you do so, existing RBAC permissions to manage Azure resources will be maintained.
+    > If you choose to move the subscription to the new account's Azure AD tenant, all [role-based access control (RBAC)](../../role-based-access-control/overview.md) assignments to manage resources in the subscription are permanently removed. Only the user in the new account who accepts your transfer request will have access to manage resources in the subscription. For more information, see [Transferring subscription to a user in another Azure AD tenant](../../cognitive-services/acoustics/known-issues.md). Alternatively, you can uncheck the box for Subscription Azure AD tenant to transfer billing ownership without moving the subscription to the new account's tenant. If you do so, existing RBAC permissions to manage Azure resources will be maintained.
 
     ![Send transfer page](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 
@@ -89,9 +89,9 @@ If you have accepted the billing ownership of an Azure subscription, we recommen
 1. Review and update the Service Admin, Co-Admins, and other RBAC roles. To learn more, see [Add or change Azure subscription administrators](add-change-subscription-administrator.md) and [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 1. Update credentials associated with this subscription's services including:
    1. Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](../../cloud-services/cloud-services-certs-create.md)
-   1. Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md)
+   1. Access keys for services like Storage. For more information, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md)
    1. Remote Access credentials for services like Azure Virtual Machines.
-1. If you're working with a partner, consider updating the partner ID on this subscription. You can update the partner ID in the [Azure portal](https://portal.azure.com). For more information, see [Link a partner ID to your Azure accounts](../cost-management-billing/manage/link-partner-id.md)
+1. If you're working with a partner, consider updating the partner ID on this subscription. You can update the partner ID in the [Azure portal](https://portal.azure.com). For more information, see [Link a partner ID to your Azure accounts](link-partner-id.md)
 
 <a id="supported"></a>
 
@@ -139,7 +139,7 @@ If you're not sure who the account administrator is for a subscription, use the 
 
 ### Does everything transfer? Including resource groups, VMs, disks, and other running services?
 
-All your resources like VMs, disks, and websites transfer to the new account. However, if you transfer subscription to an account in another Azure AD tenant, any [administrator roles](add-change-subscription-administrator.md) and [Role-based Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) assignments on the subscription [do not transfer](#transferring-subscription-to-an-account-in-another-azure-ad-tenant). Also, [app registrations](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) and other tenant-specific services don't transfer along with the subscription.
+All your resources like VMs, disks, and websites transfer to the new account. However, if you transfer subscription to an account in another Azure AD tenant, any [administrator roles](add-change-subscription-administrator.md) and [Role-based Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) assignments on the subscription [do not transfer](#transferring-subscription-to-an-account-in-another-azure-ad-tenant). Also, [app registrations](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) and other tenant-specific services don't transfer along with the subscription.
 
 ### Can I transfer ownership to an account in another country?
 Unfortunately, cross country transfers can't be performed in the Azure portal. To transfer your subscription across countries, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -149,7 +149,7 @@ Yes, you can transfer subscription between your accounts. Your accounts are conc
 
 ### Does a subscription transfer result in any service downtime?
 
-If you transfer a subscription to an account in the same Azure AD tenant, there is no impact to the resources running in the subscription. However, if you transfer the subscription to an account in another tenant and decide to move the subscription to the tenant, all users, groups, and service principals who had [role based access (RBAC)](../role-based-access-control/overview.md) to manage resources in the subscription lose their access. This can result in service downtime.
+If you transfer a subscription to an account in the same Azure AD tenant, there is no impact to the resources running in the subscription. However, if you transfer the subscription to an account in another tenant and decide to move the subscription to the tenant, all users, groups, and service principals who had [role based access (RBAC)](../../role-based-access-control/overview.md) to manage resources in the subscription lose their access. This can result in service downtime.
 
 ### Do users in new account have access to usage and billing history?
 
@@ -170,7 +170,7 @@ These FAQs apply to users, who are accepting the billing ownership of an Azure s
 
 ### If I take over billing ownership of a subscription from another account, do users in that account continue to have access to my resources?
 
-Yes. However, if your account is in an Azure AD tenant that is different from the subscription's tenant and the user who sent the transfer request moves the subscription to your account's tenant, any [administrator roles](add-change-subscription-administrator.md) and [Role-based Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) assignments are removed. To view users who have [role based access (RBAC)](../role-based-access-control/overview.md) access to manage resources in the subscription, use the following steps:
+Yes. However, if your account is in an Azure AD tenant that is different from the subscription's tenant and the user who sent the transfer request moves the subscription to your account's tenant, any [administrator roles](add-change-subscription-administrator.md) and [Role-based Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) assignments are removed. To view users who have [role based access (RBAC)](../../role-based-access-control/overview.md) access to manage resources in the subscription, use the following steps:
 
 1. Visit the [Subscription page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Select the subscription you want to check, and then select **Access control (IAM)** from the left-hand pane.
@@ -179,7 +179,7 @@ Yes. However, if your account is in an Azure AD tenant that is different from th
 Even if the [Role-based Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) assignments are removed during transfer, users in the original owner account might still have access to the subscription through some security mechanisms, including:
 
 * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](../../cloud-services/cloud-services-certs-create.md).
-* Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
+* Access keys for services like Storage. For more information, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
 * Remote Access credentials for services like Azure Virtual Machines.
 
 If the recipient needs to restrict,  access to their resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:

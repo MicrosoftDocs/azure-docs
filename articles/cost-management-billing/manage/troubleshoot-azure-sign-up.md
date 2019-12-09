@@ -46,7 +46,7 @@ If you continue to receive the error message, try to sign-up by using a differen
 To complete the identity verification by card, third-party cookies must be allowed for your browser.
 
 ![Identity verification by card](./media/troubleshoot-azure-sign-up/identify-verification-by-card.png)
- 
+
 Use the following steps to update your browser's cookie settings.
 
 1. If you're using Chrome, select **Settings** > **Show advanced settings** > **Privacy** > **Content settings**. Clear **Block third-party cookies and site data**.
@@ -90,13 +90,13 @@ You may see a small verification hold on your credit card account after you sign
 
 Make sure that you're using the correct sign-in credentials. Then, check the benefit program to make sure that you're eligible.
 
-- MSDN 
+- MSDN
   - Verify your eligibility status on your [MSDN account page](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
   - If you can't verify your status, contact the [MSDN Subscriptions Customer Service Centers](https://msdn.microsoft.com/library/aa493452.aspx).
 - Microsoft for Startups
   - Sign in to the [Microsoft for Startups portal](https://startups.microsoft.com/#start-two) to verify your eligibility status for Microsoft for Startups.
   - If you can't verify your status, you can get help on the [Microsoft for Startups forums](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
-- MPN 
+- MPN
   - Sign in to the [MPN portal](https://mspartner.microsoft.com/Pages/Locale.aspx) to verify your eligibility status. If you have the appropriate [Cloud Platform Competencies](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx), you may be eligible for additional benefits.
   - If you can't verify your status, contact [MPN Support](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
 
@@ -114,10 +114,10 @@ To resolve this issue, double-check whether the following items are true:
 
 ### Error: *Your current account type is not supported*
 
-This issue can occur if the account is registered in an [unmanaged Azure AD directory](../../active-directory/users-groups-roles/directory-self-service-signup.md), and it is not in your organization’s Azure AD directory. 
+This issue can occur if the account is registered in an [unmanaged Azure AD directory](../../active-directory/users-groups-roles/directory-self-service-signup.md), and it is not in your organization’s Azure AD directory.
 
 To resolve this issue, sign-up the Azure account by using another account, or take over the unmanaged AD directory. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
- 
+
 ## Additional help resources
 
 Other troubleshooting articles for Azure Billing and Subscriptions
@@ -133,4 +133,4 @@ If you have questions or need help, [create a support request](https://ms.portal
 
 ## Next steps
 
-- [Azure Billing documentation](index.md)
+- [Azure Billing documentation](../../billing/index.md)
