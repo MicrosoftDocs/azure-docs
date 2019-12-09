@@ -29,21 +29,11 @@ If you're considering a migration to Data Lake Storage Gen2, We recommend the fo
 
 ### Step 1: Assess whether to migrate
 
-At this phase, evaluate Data Lake Storage Gen2 and determine if it will satisfy your scenarios. 
-
 1. Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); it's benefits, costs, and general architecture. 
 
 2. [Compare the capabilities](#gen1-gen2-feature-comparison) of Data Lake Storage Gen2 with those of Data Lake Storage Gen2. 
 
-3. Review a [list of known issues](data-lake-storage-known-issues.md) to gauge product state and stability and assess any gaps.
-
-#### Resources related to this Step
-
-> [!div class="checklist"]
-> * [Learn about Azure Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/)
-> * [Gen1 vs Gen2 capabilities](#gen1-gen2-feature-comparison)
-> * [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
-
+3. Review a list of [known issues](data-lake-storage-known-issues.md) to gauge product state and stability and assess any gaps.
 
 ### Step 2: Prepare to migrate
 
@@ -51,30 +41,21 @@ At this phase, evaluate Data Lake Storage Gen2 and determine if it will satisfy 
 
 3. Determine the impact that a migration will have on your business.
 
-4. Create a migration plan, and choose a data transfer tool.
+4. Create a migration plan. We recommend any of these [migration patterns](#migration-patterns).
 
-|Resources related to this phase|
-|--|
-|[Migration patterns](#migration-patterns)|
-|[Data transfer tools](#data-transfer-tools)|
+5. Choose a [data transfer tool](#data-transfer-tools).
 
 ### Step 3: Migrate data
 
-1. Create a storage account and enable the hierarchical namespace feature. 
+1. [Create a storage account](data-lake-storage-quickstart-create-account.md) and enable the hierarchical namespace feature. 
 
-   See [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
+2. Migrate data by using the [data transfer tool](#data-transfer-tool) that you've chosen.
 
-2. Migrate data by using the data transfer tool that you've chosen.
+3. Secure the data in the storage account. First, [assign role based access security (RBAC) roles](../common/storage-auth-aad-rbac-portal.md) to security principles in the context of your storage account, resource group, or subscription. 
 
-3. Secure the data in the storage account. First, assign role based access security (RBAC) roles to security principles in the context of your storage account, resource group, or subscription. 
+4. Optionally [apply file and folder level security](data-lake-storage-access-control.m).
 
-   See [Use the Azure portal to assign an RBAC role for access to blob and queue data](../common/storage-auth-aad-rbac-portal.md).
-
-4. Optionally apply file and folder level security.
-
-   See [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
-
-   For a complete guide to security, see [Azure Storage security guide](../common/storage-security-guide.md)
+   For a complete guide to security, see [Azure Storage security guide](../common/storage-security-guide.md).
 
 ### Step 4: Update workloads and applications
 
