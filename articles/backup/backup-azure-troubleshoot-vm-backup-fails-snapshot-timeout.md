@@ -23,7 +23,7 @@ The Azure VM agent might be stopped, outdated, in an inconsistent state, or not 
 - **Open Azure Portal > VM > Settings > Properties blade** > ensure VM **Status** is **Running** and **Agent status** is **Ready**. If the VM agent is stopped or is in an inconsistent state, restart the agent<br>
   - For Windows VMs follow these [steps](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) to restart the Guest Agent.<br>
   - For Linux VMs follow these [steps](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) to restart the Guest Agent.
-- **Open  Azure Portal > VM > Settings > Extensions >** ensure all extensions are in **provisioning succeeded** state. If not follow these [steps](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to resolve the issue.
+- **Open  Azure Portal > VM > Settings > Extensions** > ensure all extensions are in **provisioning succeeded** state. If not follow these [steps](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to resolve the issue.
 
 
 ## GuestAgentSnapshotTaskStatusError - Could not communicate with the VM agent for snapshot status
