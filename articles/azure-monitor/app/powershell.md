@@ -430,7 +430,7 @@ To find out the type names and configuration details of other alert rules, creat
 
 ## Add an availability test
 
-To automate availability tests consult the [metric alerts template article](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-availability-test-along-with-availability-test-alert).
+To automate availability tests consult the [metric alerts template article](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## Add more resources
 
