@@ -33,7 +33,7 @@ Beyond the basic importance scenario described above with sales and weather data
 
 ### Locking
 
-Access to locks for read and write activity is one area of natural contention.  Activities such as [partition switching](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) or [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) require elevated locks.  Without workload importance, SQL Data Warehouse optimizes for throughput.  Optimizing for throughput means that when running and queued requests have the same locking needs and resources are available, the queued requests can bypass requests with higher locking needs that arrived in the request queue earlier.  Once workload importance is applied to requests with higher locking needs. Request with higher importance will be run before request with lower importance.
+Access to locks for read and write activity is one area of natural contention.  Activities such as [partition switching](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) or [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) require elevated locks.  Without workload importance, SQL Data Warehouse optimizes for throughput.  Optimizing for throughput means that when running and queued requests have the same locking needs and resources are available, the queued requests can bypass requests with higher locking needs that arrived in the request queue earlier.  Once workload importance is applied to requests with higher locking needs, requests with higher importance will be run before request with lower importance.
 
 Consider the following example:
 
