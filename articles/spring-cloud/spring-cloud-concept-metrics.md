@@ -17,18 +17,18 @@ In Azure Spring Cloud, there are two view point for metrics.
 * Charts in each application overview page
 * Common metrics page
 
- ![Metrics views](media/metrics/metrics-1.png)
+ ![Metrics Charts](media/metrics/metrics-1.png)
 
 Charts in the application **Overview** provides quick status check for each application. The common **Metrics** page contains all metrics available for reference. You can build your own charts in the common metrics page and pin them in Dashboard.
 
 ## Application overview page
 Select an app in **App Management** to find charts in the overview page.  
 
- ![App Management](media/metrics/metrics-2.png)
+ ![Application Metrics Management](media/metrics/metrics-2.png)
 
 Each application's **Application Overview** page presents a metrics chart that allows you to perform a quick status check of your application.  
 
- ![App Management](media/metrics/metrics-3.png)
+ ![Application Metrics Overview](media/metrics/metrics-3.png)
 
 We provide 5 charts with metrics updated every minute for the following:
 
@@ -46,44 +46,38 @@ The **Metrics** in the left navigation pane links to the common metrics page.
 
 First, select metrics to view:
 
-![App Management](media/metrics/metrics-4.png)
+![Select Metric View](media/metrics/metrics-4.png)
 
-## Service-level metric queries
+Next, select aggregation type for each metric:
 
-Azure Spring Cloud allows you to monitor a variety of application metrics. 
+![Metric Aggregation](media/metrics/metrics-5.png)
 
-To review metric data, select your metric, **Aggregation**, and time range.  These concepts are explained below.
+The aggregation type indicates how to aggregate time. There is one metric point every minute.
+* Total: Sum all metrics as target output.
+* Average: Use the Average value in the period as target output.
+* Max/Min: Use the Max/Min value in the period as target output.
 
-### Aggregation 
+Time range to show can also be modified.  The time range can be chosen from last 30 minutes to last 30 days, or a custom time range.
 
-Azure polls and updates metrics every minute. Azure provides three ways to aggregate data for a chosen time period:
+![Metric Modification](media/metrics/metrics-6.png)
 
-* **Total**: Sum all metrics as target output.
-* **Average**: Use the Average value in the period as target output.
-* **Max/Min**: Use the Max/Min value in the period as target output.
+The default view includes all of an Azure Spring Cloud service's application's metrics together. Metrics of one app or instance can be filtered in the display.  Click **Add filter**, set the property to **App**, and select the target application you want to monitor in the **Values** text box. 
 
-### Time range
+You can use 2 kinds of filters (properties):
+* App: filter by app name
+* Instance: filter by app instance
 
-Select a default time range or define your own.
+![Metric Filters](media/metrics/metrics-7.png)
 
-### Modifying the granularity of your metric query
+YOu can also use the **Apply splitting** option, which will draw multiple lines for one app:
 
-By default, Azure aggregates metrics for all of an Azure Spring Cloud service's applications. To review metrics at the application or instance level, use the filter function.  
-Select **Add filter**, set the property to **App** and select the target application you want to monitor. Optionally, use the **Apply splitting** option to draw separate lines for each app in the chart.
+![Metric Splitting](media/metrics/metrics-8.png)
+
 
 >[!TIP]
 > You can build your own charts in metrics page and pin them to your **Dashboard**. Start by naming your chart.  Next, select **Pin to dashboard in the top right corner**. You can now check on your application at your Portal **Dashboard**.
 
 ## User portal metrics options
-
-All User Metrics provide 3 aggregation types:
-* Average
-* Max
-* Min
-
-You can use 2 kinds of filters (properties):
-* App: filter by app name
-* Instance: filter by app instance
 
 The following table shows the available metrics and details.
 
