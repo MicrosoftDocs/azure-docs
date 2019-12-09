@@ -22,27 +22,23 @@ A Privileged role administrator can customize Privileged Identity Management (PI
 
 ## Determine your version of PIM
 
-After November 2019, the way that Azure AD roles are assigned in Privileged Identity Management is being updated to a new version that matches the way Azure resource access roles are assigned. While the new version is being rolled out, procedures that you must follow in this article will depend on version of Privileged Identity Management you currently have. Follow the steps in this section to determine which version of Privileged Identity Management you have. After you know your version of Privileged Identity Management, you can select the procedures in this article that match that version.
+Beginning in November 2019, the Azure AD roles portion of Privileged Identity Management is being updated to a new version that matches the experiences for Azure resource roles. This creates additional features as well as [changes to the existing API](azure-ad-roles-features.md#api-changes). While the new version is being rolled out, which procedures that you follow in this article depend on version of Privileged Identity Management you currently have. Follow the steps in this section to determine which version of Privileged Identity Management you have. After you know your version of Privileged Identity Management, you can select the procedures in this article that match that version.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
-
+1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 1. Open **Azure AD Privileged Identity Management**.
-
 1. Select **Azure AD roles**.
 
-    If your user interface looks like the following, you have the **Current version** of Privileged Identity Management.
+   - If your user interface looks like the following, you have the **Previous version** of Privileged Identity Management. Follow the content in the **Previous version** tab of this article.
 
-    ![Azure AD roles current version](./media/pim-how-to-add-role-to-user/pim-current-version.png)
+      ![Azure AD roles previous version](./media/pim-how-to-add-role-to-user/pim-current-version.png)
 
-    If your user interface looks like the following, you have the **New version** of Privileged Identity Management.
+   - If your user interface looks like the following, you have the **New version** of Privileged Identity Management. Follow the content in the **New version** tab of this article.
 
-    ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
-
-1. If you have the current version of Privileged Identity Management, select the following **Current version** tab. If you have the new version of Privileged Identity Management, select the following **New version** tab.
+      ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
 Follow the steps in this article to approve or deny requests for Azure AD roles.
 
-# [Current version](#tab/current)
+# [Previous version](#tab/previous)
 
 ## Open role settings
 
@@ -133,17 +129,13 @@ If you want to delegate the required approval to activate a role, follow these s
 
 ## Open role settings
 
-Follow these steps to open the settings for an Azure resource role.
+Follow these steps to open the settings for an Azure AD role.
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Select **Azure resources**.
-
-1. Select the resource you want to manage, such as a subscription or management group.
-
-    ![Azure resources page listing resources that can be managed](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+1. Select **Azure AD roles**.
 
 1. Select **Role settings**.
 
@@ -153,7 +145,7 @@ Follow these steps to open the settings for an Azure resource role.
 
     ![Role setting details page listing several assignment and activation settings](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Select **Edit** to open the Role settings pane.
+1. Select **Edit** to open the Role settings page.
 
     ![Edit role settings page with options to update assignment and activation settings](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
 

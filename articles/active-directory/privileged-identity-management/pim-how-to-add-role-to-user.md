@@ -23,25 +23,21 @@ The Azure AD Privileged Identity Management (PIM) service also allows Privileged
 
 ## Determine your version of PIM
 
-After November 2019, the way that Azure AD roles are assigned in Privileged Identity Management is being updated to a new version that matches the way Azure resource access roles are assigned. While the new version is being rolled out, procedures that you must follow in this article will depend on version of Privileged Identity Management you currently have. After you know your version of Privileged Identity Management, you can select the procedures in this article that match that version. The following steps can help you determine which version of Privileged Identity Management you have.
+Beginning in November 2019, the Azure AD roles portion of Privileged Identity Management is being updated to a new version that matches the experiences for Azure resource roles. This creates additional features as well as [changes to the existing API](azure-ad-roles-features.md#api-changes). While the new version is being rolled out, which procedures that you follow in this article depend on version of Privileged Identity Management you currently have. Follow the steps in this section to determine which version of Privileged Identity Management you have. After you know your version of Privileged Identity Management, you can select the procedures in this article that match that version.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
-
+1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 1. Open **Azure AD Privileged Identity Management**.
-
 1. Select **Azure AD roles**.
 
-    If your user interface looks like the following, you have the **Current version** of Privileged Identity Management.
+   - If your user interface looks like the following, you have the **Previous version** of Privileged Identity Management. Follow the content in the **Previous version** tab of this article.
 
-    ![Azure AD roles current version](./media/pim-how-to-add-role-to-user/pim-current-version.png)
+      ![Azure AD roles previous version](./media/pim-how-to-add-role-to-user/pim-current-version.png)
 
-    If your user interface looks like the following, you have the **New version** of Privileged Identity Management.
+   - If your user interface looks like the following, you have the **New version** of Privileged Identity Management. Follow the content in the **New version** tab of this article.
 
-    ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+      ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
-1. If you have the current version of Privileged Identity Management, select the following **Current version** tab. If you have the new version of Privileged Identity Management, select the following **New version** tab.
-
-# [Current version](#tab/current)
+# [Previous version](#tab/previous)
 
 ## Make a user eligible for a role
 
@@ -169,25 +165,19 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. Select **Azure AD roles**.
 
-1. Use the **Resource filter** to filter the list of managed resources.
+1. Select **Roles** to see the list of roles for Azure AD permissions.
 
-    ![List of Azure resources to manage](./media/pim-resource-roles-assign-roles/resources-list.png)
+    ![Azure AD roles](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-1. Select the resource you want to manage, such as a subscription or management group.
+1. Select **Add member** to open the **New assignment** page.
 
-1. Under Manage, select **Roles** to see the list of roles for Azure resources.
-
-    ![Azure resources roles](./media/pim-resource-roles-assign-roles/resources-roles.png)
-
-1. Select **Add member** to open the New assignment pane.
-
-1. Select **Select a role** to open the Select a role pane.
+1. Select **Select a role** to open the Select a role page.
 
     ![New assignment pane](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
-1. Select a role you want to assign and then select **Select**.
+1. Select a role you want to assign and then click **Select**.
 
-    The Select a member or group pane opens.
+    The **Select a member or group** page opens.
 
 1. Select a member or group you want to assign to the role and then select **Select**.
 
@@ -232,8 +222,6 @@ Follow these steps to update or remove an existing role assignment.
 1. Select the resource you want to manage, such as a subscription or management group.
 
 1. Under Manage, select **Roles** to see the list of roles for Azure resources.
-
-    ![Azure resource roles - Select role](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 
 1. Select the role that you want to update or remove.
 

@@ -23,27 +23,25 @@ You can use the Privileged Identity Management (PIM) audit history to see all ro
 
 ## Determine your version of PIM
 
-After November 2019, the way that Azure AD roles are assigned in Privileged Identity Management is being updated to a new version that matches the way Azure resource access roles are assigned. While the new version is being rolled out, procedures that you must follow in this article will depend on version of Privileged Identity Management you currently have. Follow the steps in this section to determine which version of Privileged Identity Management you have. After you know your version of Privileged Identity Management, you can select the procedures in this article that match that version.
+Beginning in November 2019, the Azure AD roles portion of Privileged Identity Management is being updated to a new version that matches the experiences for Azure resource roles. This creates additional features as well as [changes to the existing API](azure-ad-roles-features.md#api-changes). While the new version is being rolled out, which procedures that you follow in this article depend on version of Privileged Identity Management you currently have. Follow the steps in this section to determine which version of Privileged Identity Management you have. After you know your version of Privileged Identity Management, you can select the procedures in this article that match that version.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
-
+1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 1. Open **Azure AD Privileged Identity Management**.
-
 1. Select **Azure AD roles**.
 
-    If your user interface looks like the following, you have the **Current version** of Privileged Identity Management.
+   - If your user interface looks like the following, you have the **Previous version** of Privileged Identity Management. Follow the content in the **Previous version** tab of this article.
 
-    ![Azure AD roles current version](./media/pim-how-to-add-role-to-user/pim-current-version.png)
+      ![Azure AD roles previous version](./media/pim-how-to-add-role-to-user/pim-current-version.png)
 
-    If your user interface looks like the following, you have the **New version** of Privileged Identity Management.
+   - If your user interface looks like the following, you have the **New version** of Privileged Identity Management. Follow the content in the **New version** tab of this article.
 
-    ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
-
-1. If you have the current version of Privileged Identity Management, select the following **Current version** tab. If you have the new version of Privileged Identity Management, select the following **New version** tab.
+      ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
 Follow the steps in this article to approve or deny requests for Azure AD roles.
 
-# [Current version](#tab/current)
+Follow the steps in this article to approve or deny requests for Azure AD roles.
+
+# [Previous version](#tab/previous)
 
 ## View audit history
 
@@ -91,71 +89,19 @@ Follow these steps to view the audit history for Azure AD roles.
 
 # [New version](#tab/new)
 
-## View activity and activations
-
-To see what actions a specific user took in various resources, you can view the Azure resource activity that's associated with a given activation period.
-
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Click **Azure resources**.
-
-1. Click the resource you want to view activity and activations for.
-
-1. Click **Roles** or **Members**.
-
-1. Click a user.
-
-    You see a graphical view of the user's actions in Azure resources by date. It also shows the recent role activations over that same time period.
-
-    ![User details with resource activity summary and role activations](media/azure-pim-resource-rbac/rbac-user-details.png)
-
-1. Click a specific role activation to see details and corresponding Azure resource activity that occurred while that user was active.
-
-    ![Role activation selected and activity details displayed by date](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
-
-## Export role assignments with children
-
-You may have a compliance requirement where you must provide a complete list of role assignments to auditors. Privileged Identity Management enables you to query role assignments at a specific resource, which includes role assignments for all child resources. Previously, it was difficult for administrators to get a complete list of role assignments for a subscription and they had to export role assignments for each specific resource. Using Privileged Identity Management, you can query for all active and eligible role assignments in a subscription including role assignments for all resource groups and resources.
-
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Click **Azure resources**.
-
-1. Click the resource you want to export role assignments for, such as a subscription.
-
-1. Click **Members**.
-
-1. Click **Export** to open the Export membership pane.
-
-    ![Export membership pane to export all members](media/azure-pim-resource-rbac/export-membership.png)
-
-1. Click **Export all members** to export all role assignments in a CSV file.
-
-    ![Exported role assignments in CSV file as display in Excel](media/azure-pim-resource-rbac/export-csv.png)
-
 ## View resource audit history
 
-Resource audit gives you a view of all role activity for a resource.
+Resource audit gives you a view of all activity associated with your Azure AD roles.
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Click **Azure resources**.
+1. Select **Azure AD roles**.
 
-1. Click the resource you want to view audit history for.
-
-1. Click **Resource audit**.
+1. Select **Resource audit**.
 
 1. Filter the history using a predefined date or custom range.
 
     ![Resource audit list with filters](media/azure-pim-resource-rbac/rbac-resource-audit.png)
-
-1. For **Audit type**, select **Activate (Assigned + Activated)**.
-
-    ![Resource audit list that is filtered by Activate audit type](media/azure-pim-resource-rbac/rbac-audit-activity.png)
-
-1. Under **Action**, click **(activity)** for a user to see that user's activity detail in Azure resources.
-
-    ![User activity details for a particular action](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 ## View my audit
 
@@ -163,11 +109,11 @@ My audit enables you to view your personal role activity.
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Click **Azure resources**.
+1. Select **Azure AD roles**.
 
-1. Click the resource you want to view audit history for.
+1. Select the resource you want to view audit history for.
 
-1. Click **My audit**.
+1. Select **My audit**.
 
 1. Filter the history using a predefined date or custom range.
 
