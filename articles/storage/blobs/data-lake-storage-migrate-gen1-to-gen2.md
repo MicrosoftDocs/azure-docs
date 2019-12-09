@@ -15,49 +15,65 @@ ms.subservice: data-lake-storage-gen2
 - Statement of how this is not an upgrade. These are separate things. 
 - This article lays out the migration flow and contains information that helps you compare Gen1 to Gen2 and pick and implement a pattern that works for your setup.
 
-## Migrate flow
+## Migration road map
 
 Generally, you'll follow these steps:
 
 > [!div class="checklist"]
-> * Assess
-> * Prepare
-> * Migrate
-> * Cutover
+> * Assess whether to migrate
+> * Prepare to migrate
+> * Migrate data
+> * Update workloads and applications
 
-### Step 1: Assess
+### Step 1: Assess whether to migrate
 
--Learn about the offering. See overview article.
-- Understand the gaps and evaluate the readiness to move. 
+1. Learn about Data Lake Storage Gen2. 
 
-  See [Gen1 vs Gen2 capabilities](#gen1-gen2-feature-comparison)
+   See [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
-### Step 2: Prepare
+2. Compare the capabilities of Data Lake Storage Gen2 with those of Data Lake Storage Gen2. 
 
-Identify your data sets to migrate
-Evaluate ADLS Gen2 for your scenarios with a PoC
-Determine the impact to your business with the migration
-Formulate your migration plan. See [Migration patterns](#migration-patterns)
-Choose your data movement tool. See [Data transfer tools](#data-transfer-tools)
+   See the [Gen1 vs Gen2 capabilities](#gen1-gen2-feature-comparison) section of this article.
 
+3. Understand gaps in functionality. 
 
-### Step 3: Migrate
+   See [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 
-Provision your ADLS Gen2 resources. See [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md)
-Configure the ADLS Gen2 environment – VNET, ACLs, RBAC etc.
-See these articles:
+### Step 2: Prepare to migrate
 
-- article 1
-- article 2
-- article 3.
+1. Identify the data sets that you'll migrate.
 
-Perform the data migration by using the pattern that you chose.
+2. Evaluate whether Data Lake Storage Gen2 will satisfy your scenarios.
 
-Validate your scenarios on Gen2
+3. Determine the impact that a migration will have on your business.
 
-Test, test, test.
+4. Create a migration plan. 
 
-### Step 4: Cutover
+   See the [Migration patterns](#migration-patterns) section of this article.
+
+5. Choose a data transfer tool.
+
+   See the [Data transfer tools](#data-transfer-tools) section of this article.
+
+### Step 3: Migrate data
+
+1. Create a storage account and enable the hierarchical namespace feature. 
+
+   See [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
+
+2. Migrate data by using the data transfer tool that you've chosen.
+
+3. Secure the data in the storage account. First, assign role based access security (RBAC) roles to security principles in the context of your storage account, resource group, or subscription. 
+
+   See [Use the Azure portal to assign an RBAC role for access to blob and queue data](../common/storage-auth-aad-rbac-portal.md).
+
+4. Optionally apply file and folder level security.
+
+   See [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+
+   For a complete guide to security, see [Azure Storage security guide](../common/storage-security-guide.md)
+
+### Step 4: Update workloads and applications
 
 Update analytics workloads. See the old upgrade article for any guidance that you can get from that.
 Update your SDKs from Gen1 to Gen2. See these articles.
