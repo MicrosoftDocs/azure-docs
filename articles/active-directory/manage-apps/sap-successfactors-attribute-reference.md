@@ -133,7 +133,3 @@ The table below provides the default attribute mapping between SuccessFactors at
 | 19 | EmpJob\.Location                       | officeLocationZipCode    | postalCode                              | NA                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | if activeEmploymentsCount=0, disable the account\.                                           |
 
-## Next steps
-
-* [Learn more about supported SuccessFactors Attributes for inbound provisioning](../manage-apps/sap-successfactors-attribute-reference.md)
-
