@@ -12,7 +12,7 @@ ms.date: 12/10/2019
 Here’s some important info about receiving payment for your offers, add-ons, and advertising earnings.
 
 > [!IMPORTANT]
-> Before you can receive money from offer sales in the commercial marketplace, you need to [set up your payout account and fill out the necessary tax forms](setting-up-your-payout-account-and-tax-forms.md).
+> Before you can receive money from offer sales in the commercial marketplace, you need to [set up your payout account and fill out the necessary tax forms](set-up-your-payout-account-tax-forms.md).
 
 ## Store fee
 
@@ -35,7 +35,7 @@ Each price tier has a corresponding value in each of the currencies offered by t
 
 You also have the option to enter a free-form price of your choosing in a specific market’s local currency. When you do this, the price will not be adjusted (even if conversion rates change) unless you submit an update with a new price. 
 
-Keep in mind that the price you select may include sales or value-added tax that your customers must pay. See [Tax details for paid offer](tax-details-for-paid-transactions.md) for more info.
+Keep in mind that the price you select may include sales or value-added tax that your customers must pay. See [Tax details for paid offer](tax-details-paid-transactions.md) for more info.
 
 
 ## Payout reporting
@@ -45,7 +45,7 @@ You can access details about your payment info and download reports in the **Pay
 
 ## Payout timeframe
 
-Payments are made on a monthly basis (provided the applicable payment threshold has been met and you haven’t placed your payout on hold as described below). We'll typically send any payment due in a given month by the 15th day of that month. Note that payments generally take between 3 to 10 additional business days to reach your payout account. For more info, see [Payment thresholds, methods, and timeframes](payment-thresholds-methods-and-timeframes.md).
+Payments are made on a monthly basis (provided the applicable payment threshold has been met and you haven’t placed your payout on hold as described below). We'll typically send any payment due in a given month by the 15th day of that month. Note that payments generally take between 3 to 10 additional business days to reach your payout account. For more info, see [Payment thresholds, methods, and timeframes](payment-thresholds-methods-timeframes.md).
 
 
 ##  Payout hold status

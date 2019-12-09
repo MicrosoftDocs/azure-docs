@@ -23,7 +23,7 @@ After you have set up your account, there are two things you need to do before y
 - [Set up your payout account](#payout-account)
 
 > [!NOTE]
-> For details about how and when you will be paid for the money your offer make, see [Getting paid](getting-paid.md).
+> For details about how and when you will be paid for the money your offer make, see [Getting paid](get-paid.md).
 
 ## Tax forms
 
@@ -69,7 +69,7 @@ If you are outside the United States, you may be able to take advantage of tax t
 A payout account is the bank account to which we send the proceeds from your sales. You can view all payment accounts that you have entered on the Profile page.
 
 > [!NOTE]
-> In some markets, PayPal can be used for your payout account. To find out if PayPal is supported for a specific market, see [Payment thresholds, methods, and timeframes](payment-thresholds-methods-and-timeframes.md) and the [PayPal info](#paypal-info) below for more details.
+> In some markets, PayPal can be used for your payout account. To find out if PayPal is supported for a specific market, see [Payment thresholds, methods, and timeframes](payment-thresholds-methods-timeframes.md) and the [PayPal info](#paypal-info) below for more details.
 
 ### Create a payment profile
 
@@ -121,19 +121,19 @@ You can edit existing payment profiles if you need to make changes or correct an
 3. Your payment profiles will be listed along with their status. Find the profile you wish to edit and click **Edit** at the far right
 
 > [!IMPORTANT]
-> Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we did when you first set up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one. See [Getting paid](getting-paid.md) for more info.
+> Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we did when you first set up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one. See [Getting paid](get-paid.md) for more info.
 
 ### PayPal info
 
 In select countries and regions, you can create a payment account by entering your PayPal info. However, before choosing PayPal as a payment account option:
 
-- Check [Payment thresholds, methods, and timeframes](payment-thresholds-methods-and-timeframes.md) to confirm whether PayPal is a supported payment method in your country or region.
+- Check [Payment thresholds, methods, and timeframes](payment-thresholds-methods-timeframes.md) to confirm whether PayPal is a supported payment method in your country or region.
 - Review the following FAQs. Depending on your situation, PayPal may not be the best payment account option for you, and a bank account may be preferred.
 
 Common questions about using PayPal as a payment method:
 
 - **What PayPal settings do I need to have in order to receive payments?** Ensure that your PayPal account does not block eCheck payments. This setting is managed in PayPal’s Payment Receiving Preferences page. See [PayPal’s account setup page](https://go.microsoft.com/fwlink/p/?linkid=513139) for more info.
-- **Is my country/region supported?** See [Payment thresholds, methods, and timeframes](payment-thresholds-methods-and-timeframes.md) to find out where PayPal is a supported payment method.
+- **Is my country/region supported?** See [Payment thresholds, methods, and timeframes](payment-thresholds-methods-timeframes.md) to find out where PayPal is a supported payment method.
 - **Does my PayPal account have to be registered in the same country/region as my Partner Center account?** No. When you set up a PayPal account, you can accept the default configuration. You shouldn’t have any issues with other countries/regions and currencies unless you have blocked payment in some currencies. This setting is managed in PayPal’s Payment Receiving Preferences page.
 - **Do I have to accept PayPal payments manually?** No. PayPal accounts are set by default to require users to accept payments manually, which means if you don’t accept the payment within 30 days, it is returned. You can change this setting by turning off “Ask Me” in PayPal’s More Settings page.
 - **What currencies does PayPal support?** See [PayPal's support page](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) for the current list

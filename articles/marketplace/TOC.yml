@@ -527,7 +527,7 @@
     - name: Getting paid
       href: ./partner-center-portal/get-paid.md
     - name: Set up your payout account and tax forms
-      href: ./partner-center-portal/set-up-your-payout-account-and-tax-forms.md
+      href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
     - name: Payment thresholds, methods, and time frames
       href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
     - name: Payout summary
