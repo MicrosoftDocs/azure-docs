@@ -1,18 +1,19 @@
 ---
-title: Copy and transform data in Azure Blob storage by using Data Factory 
+title: Copy and transform data in Azure Blob storage
 description: Learn how to copy data to and from Blob storage, and transform data in Blob storage by using Data Factory.
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/13/2019
-ms.author: jingwang
-
 ---
+
 # Copy and transform data in Azure Blob storage by using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-blob-connector.md)
 > * [Current version](connector-azure-blob-storage.md)
