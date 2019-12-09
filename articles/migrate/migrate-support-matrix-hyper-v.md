@@ -1,11 +1,11 @@
 ---
-title: Azure Migrate support matrix for Hyper-V assessment and migration
-description: Summarizes settings and limitations for Hyper-V assessment and migration using the Azure Migrate service.
+title: Support for Hyper-V assessment/migration in Azure Migrate
+description: Learn about support for Hyper-V assessment/migration with Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 
@@ -24,34 +24,13 @@ The table summarizes supported scenarios for Hyper-V VMs.
 **Assess on-premises Hyper-V VMs** | [Set up](tutorial-prepare-hyper-v.md) your first assessment.<br/><br/> [Run](scale-hyper-v-assessment.md) a large-scale assessment.
 **Migrate Hyper-V VMs to Azure** | [Try out](tutorial-migrate-hyper-v.md) migration to Azure.
 
-Migration of Hyper-V servers managed with System Center Virtual Machine Manager (VMM) isn't supported by Azure Migrate Server Migration.
-
 ## Azure Migrate projects
 
 **Support** | **Details**
 --- | ---
 Azure permissions | You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
 Hyper-V VMs | Assess up to 35,000 Hyper-V VMs in a single project. You can have multiple projects in an Azure subscription. A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
-Geography | You can create Azure Migrate projects in a number of geographies. Although you can create projects in specific geographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
-
-  **Geography** | **Metadata storage location**
-  --- | ---
-  Azure Government | US Gov Virginia
-  Asia Pacific | East Asia or Southeast Asia
-  Australia | Australia East or Australia Southeast
-  Brazil | Brazil South
-  Canada | Canada Central or Canada East
-  Europe | North Europe or West Europe
-  France | France Central
-  India | Central India or South India
-  Japan |  Japan East or Japan West
-  Korea | Korea Central or Korea South
-  United Kingdom | UK South or UK West
-  United States | Central US or West US 2
-
-
- > [!NOTE]
- > Support for Azure Government is currently only available for the [older version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
+Geography | [Review](migrate-support-matrix.md#supported-geographies) supported geographies.
 
 
 ## Assessment-Hyper-V host requirements

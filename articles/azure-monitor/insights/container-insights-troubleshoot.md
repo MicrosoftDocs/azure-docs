@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/27/2018
+ms.date: 10/15/2019
 
 ---
 
@@ -102,10 +102,30 @@ The table below summarizes known errors you may encounter while using Azure Moni
 | Error messages  | Action |  
 | ---- | --- |  
 | Error Message `No data for selected filters`  | It may take some time to establish monitoring data flow for newly created clusters. Allow at least 10 to 15 minutes for data to appear for your cluster. |   
-| Error Message `Error retrieving data` | While Azure Kubenetes Service cluster is setting up for health and performance monitoring, a connection is established between the cluster and Azure Log Analytics workspace. A Log Analytics workspace is used to store all monitoring data for your cluster. This error may occur when your Log Analytics workspace has been deleted. Check if the workspace was deleted and if it was, you will need to re-enable monitoring of your cluster with Azure Monitor for containers and specify an existing or create a new workspace. To re-enable, you will need to [disable](container-insights-optout.md) monitoring for the cluster and [enable](container-insights-enable-new-cluster.md) Azure Monitor for containers again. |  
+| Error Message `Error retrieving data` | While Azure Kubernetes Service cluster is setting up for health and performance monitoring, a connection is established between the cluster and Azure Log Analytics workspace. A Log Analytics workspace is used to store all monitoring data for your cluster. This error may occur when your Log Analytics workspace has been deleted. Check if the workspace was deleted and if it was, you will need to re-enable monitoring of your cluster with Azure Monitor for containers and specify an existing or create a new workspace. To re-enable, you will need to [disable](container-insights-optout.md) monitoring for the cluster and [enable](container-insights-enable-new-cluster.md) Azure Monitor for containers again. |  
 | `Error retrieving data` after adding Azure Monitor for containers through az aks cli | When enable monitoring using `az aks cli`, Azure Monitor for containers may not be properly deployed. Check whether the solution is deployed. To do this, go to your Log Analytics workspace and see if the solution is available by selecting **Solutions** from the pane on the left-hand side. To resolve this issue, you will need to redeploy the solution by following the instructions on [how to deploy Azure Monitor for containers](container-insights-onboard.md) |  
 
-To help diagnose the problem, we have provided a troubleshooting script available [here](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
+To help diagnose the problem, we have provided a troubleshooting script available [here](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).
+
+## Azure Monitor for containers agent ReplicaSet Pods are not scheduled on non-Azure Kubernetes cluster
+
+Azure Monitor for containers agent ReplicaSet Pods has a dependency on the following node selectors on the worker (or agent) nodes for the scheduling:
+
+```
+nodeSelector:
+  beta.kubernetes.io/os: Linux
+  kubernetes.io/role: agent
+```
+
+If your worker nodes don’t have node labels attached, then agent ReplicaSet Pods will not get scheduled. Refer to [Kubernetes assign label selectors](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) for instructions on how to attach the label.
+
+## Performance charts don't show CPU or memory of nodes and containers on a non-Azure cluster
+
+Azure Monitor for containers agent Pods uses the cAdvisor endpoint on the node agent to gather the performance metrics. Verify the containerized agent on the node is configured to allow `cAdvisor port: 10255` to be opened on all nodes in the cluster to collect performance metrics.
+
+## Non-Azure Kubernetes cluster are not showing in Azure Monitor for containers
+
+To view the non-Azure Kubernetes cluster in Azure Monitor for containers, Read access is required on the Log Analytics workspace supporting this Insight and on the Container Insights solution resource **ContainerInsights (*workspace*)**.
 
 ## Next steps
 

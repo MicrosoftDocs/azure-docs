@@ -1,6 +1,6 @@
 ---
-title: Run a Spark job on Azure Databricks using Azure portal
-description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
+title: Quickstart - Run a Spark job on Azure Databricks using Azure portal
+description: This quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
 services: azure-databricks
 ms.service: azure-databricks
 author: mamccrea
@@ -26,7 +26,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 > [!Note]
 > This tutorial cannot be carried out using **Azure Free Trial Subscription**.
-> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center), and [request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
+> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), and [request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
 
 ## Create an Azure Databricks workspace
 
@@ -80,7 +80,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     
      Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
-For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](/azure/databricks/clusters/create).
 
 ## Run a Spark SQL job
 
@@ -159,7 +159,7 @@ If you do not manually terminate the cluster it will automatically stop, provide
 
 ## Next steps
 
-In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data from Azure Open Datasets. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
+In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data from Azure Open Datasets. You can also look at [Spark data sources](/azure/databricks/data/data-sources/index) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Extract, transform, and load data using Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

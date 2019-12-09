@@ -4,7 +4,7 @@ description: Learn how to avoid unexpected charges on your Azure bill. Use cost-
 author: bandersmsft
 manager: amberb
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -62,11 +62,11 @@ You can monitor costs with the following tools:
 
 ### Track costs with budgets and cost alerts
 
-Create [budgets](../cost-management/tutorial-acm-create-budgets.md) to manage costs and create [alerts](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) that automatically notify you are your stakeholders of spending anomalies and overspending. 
+Create [budgets](../cost-management/tutorial-acm-create-budgets.md) to manage costs and create [alerts](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) that automatically notify you are your stakeholders of spending anomalies and overspending.
 
 ### <a name="costs"></a> Explore and analyze costs with cost analysis
 
-After you have your Azure services running, regularly check costs to track your Azure spending. You can use cost analysis to understand where costs originated for your Azure usage. 
+After you have your Azure services running, regularly check costs to track your Azure spending. You can use cost analysis to understand where costs originated for your Azure usage.
 
 1. Visit the [Cost Management + Billing page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade).
 
@@ -160,7 +160,7 @@ The Service Level Agreement (SLA) describes Microsoft’s commitments for uptime
 
 To request a credit:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). If you have multiple accounts, make sure that you use the one that was affected by Azure downtime. 
+1. Sign in to the [Azure portal](https://portal.azure.com/). If you have multiple accounts, make sure that you use the one that was affected by Azure downtime.
 2. Create a new support request.
 3. Under **Issue type**, select **Billing**.
 4. Under **Problem type**, select **Refund Request**.

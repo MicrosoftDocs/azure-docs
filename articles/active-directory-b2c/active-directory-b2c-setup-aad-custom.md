@@ -43,7 +43,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 
 1. Select **Register**. Record the **Application (client) ID** for use in a later step.
 1. Select **Certificates & secrets**, and then select **New client secret**.
-1. Enter a **Description** for the secret, select an expiration, and then select **Add**. Record the **VALUE** of the secret for use in a later step.
+1. Enter a **Description** for the secret, select an expiration, and then select **Add**. Record the **Value** of the secret for use in a later step.
 
 ## Create a policy key
 

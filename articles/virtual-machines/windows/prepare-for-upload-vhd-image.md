@@ -1,5 +1,5 @@
 ---
-title: Prepare a Windows VHD to upload to Azure | Microsoft Docs
+title: Prepare a Windows VHD to upload to Azure 
 description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -353,7 +353,7 @@ Make sure the VM is healthy, secure, and RDP accessible:
 12. Uninstall any other third-party software or driver that's related to physical components or any other virtualization technology.
 
 ### Install Windows updates
-Ideally, you should keep the machine updated at the *patch level*. If this isn't possible, make sure the following updates are installed:
+Ideally, you should keep the machine updated at the *patch level*. If this isn't possible, make sure the following updates are installed. To get the latest updates, see the Windows update history pages: [Windows 10 and Windows Server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 and Windows Server 2012 R2](https://support.microsoft.com/help/4009470) and [Windows 7 SP1 and Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 | Component               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
@@ -443,7 +443,7 @@ The following settings don't affect VHD uploading. However, we strongly recommen
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -Force
    ```
   If a data disk is attached to the VM, the temporal drive volume's letter is typically *D*. This designation could be different, depending on your settings and the number of available drives.
-  * We recommend disabling script blockers that might be provided by anti-virus software. They might interfer and block the Windows Provisioning Agent scripts executed when you deploy a new VM from your image.
+  * We recommend disabling script blockers that might be provided by anti-virus software. They might interfere and block the Windows Provisioning Agent scripts executed when you deploy a new VM from your image.
   
 ## Next steps
 * [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)

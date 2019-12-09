@@ -101,7 +101,7 @@ Refer to the following Conditional Access courses and more on [Pluralsight.com](
 * O'Reilly- [Implementing Azure Solutions - Second Edition.](https://www.oreilly.com/library/view/implementing-azure-solutions/9781789343045/b7ead3db-eb1c-4ace-897e-86ee25ea86be.xhtml)
    * "Get up and running with Azure services and learn how to implement them in your organization. Azure AD Conditional Access is covered in the chapter [Deploying and Synchronizing Azure Active Directory](https://learning.oreilly.com/library/view/implementing-azure-solutions/9781789343045/02ca8bba-08cf-4691-a7d0-1b96e286e7ea.xhtml)."
 
-* Wiley- [Mastering Microsoft Azure Infrastructure Services](https://www.wiley.com/Mastering+Microsoft+Azure+Infrastructure+Services-p-9781119003298)
+* Wiley- [Microsoft Azure Infrastructure Services for Architects: Designing Cloud Solutions](https://www.wiley.com/Microsoft+Azure+Infrastructure+Services+for+Architects%3A+Designing+Cloud+Solutions-p-9781119596547)
    * "Here's everything you need to understand, evaluate, deploy, and maintain environments that utilize Microsoft Azure."
 
 ## White papers

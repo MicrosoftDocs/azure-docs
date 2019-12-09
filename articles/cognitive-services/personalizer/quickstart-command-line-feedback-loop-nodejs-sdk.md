@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/23/2019
 ms.author: diberry
 #Customer intent: As a developer, I want implement a Personalizer loop so that I can understand how to use the Rank and Reward calls.
 
@@ -36,7 +36,7 @@ Get started with the Personalizer client library for Node.js. Follow these steps
 There are several steps to use this quickstart:
 
 * In the Azure portal, create a Personalizer resource
-* In the Azure portal, for the Personalizer resource, on the **Settings** page, change the model update frequency
+* In the Azure portal, for the Personalizer resource, on the **Configuration** page, change the model update frequency
 * In a code editor, create a code file and edit the code file
 * In the command line or terminal, install the SDK from the command line
 * In the command line or terminal, run the code file
@@ -87,7 +87,7 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 ## Change the model update frequency
 
-In the Azure portal, in the Personalizer resource on the **Settings** page, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
+In the Azure portal, in the Personalizer resource on the **Configuration** page, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
 
 ![Change model update frequency](./media/settings/configure-model-update-frequency-settings.png)
 

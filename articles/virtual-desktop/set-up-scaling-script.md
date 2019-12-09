@@ -1,5 +1,5 @@
 ---
-title: Automatically scale Windows Virtual Desktop session hosts - Azure
+title: Dynamic scale Windows Virtual Desktop session hosts - Azure
 description: Describes how to set up the automatic scaling script for Windows Virtual Desktop session hosts.
 services: virtual-desktop
 author: Heidilohr

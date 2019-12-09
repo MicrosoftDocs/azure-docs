@@ -25,7 +25,8 @@ After you create an Azure Cosmos account under your subscription, you can manage
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
-| Maximum attachment size per Account (Attachment feature is being depreciated) | 2 GB | 
+| Maximum attachment size per Account (Attachment feature is being depreciated) | 2 GB |
+| Minimum RUs required per 1 GB | 10 RU/s |
 
 > [!NOTE]
 > To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
@@ -33,7 +34,7 @@ After you create an Azure Cosmos account under your subscription, you can manage
 
 A Cosmos container (or shared throughput database) must have a minimum throughput of 400 RUs. As the container grows, the minimum supported throughput also depends on the following factors:
 
-* The minimum throughput that you can set on a container depends on the maximum throughput ever provisioned on the container. The service supports lowering throughput of a container to 10% of the provisioned maximum. For example, if your throughput was increased to 10000 RUs, then the lowest possible provisioned throughput would be 1000 RUs
+* The minimum throughput that you can set on a container depends on the maximum throughput ever provisioned on the container. For example, if your throughput was increased to 10000 RUs, then the lowest possible provisioned throughput would be 1000 RUs
 * The minimum throughput on a shared throughput database also depends on the total number of containers that you have ever created in a shared throughput database, measured at 100 RUs per container. For example, if you have created five containers within a shared throughput database, then the throughput must be at least 500 RUs
 
 The current and minimum throughput of a container or a database can be retrieved from the Azure portal or the SDKs. For more information, see [Provision throughput on containers and databases](set-throughput.md). 
@@ -129,6 +130,10 @@ Cosmos DB uses HMAC for authorization. You can use either a master key, or a [re
 | Maximum clock skew for token authorization| 15 min |
 
 Cosmos DB supports execution of triggers during writes. The service supports a maximum of one pre-trigger and one post-trigger per write operation. 
+
+## Autopilot mode limits
+
+See the [Autopilot](provision-throughput-autopilot.md#autopilot-limits) article for the throughput and storage limits in autopilot mode.
 
 ## SQL query limits
 

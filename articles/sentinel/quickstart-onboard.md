@@ -1,33 +1,27 @@
 ---
-title: Onboard in Azure Sentinel| Microsoft Docs
-description: Learn how to collect data in Azure Sentinel.
+title: 'Quickstart: Onboard in Azure Sentinel'
+description: Learn how to collect data in Azure Sentinel by following this Quickstart document.
 services: sentinel
-documentationcenter: na
 author: rkarlin
-manager: rkarlin
-editor: ''
-
+ms.author: rkarlin
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/23/2019
-ms.author: rkarlin
+ms.topic: quickstart
+ms.date: 12/05/2019
 #As a security operator, connect all my data sources in one place so I can monitor and protect my environment
 ---
-# On-board Azure Sentinel
+# Quickstart: On-board Azure Sentinel
 
-
-
-In this quickstart you will learn how to on-board Azure Sentinel. 
+In this quickstart, learn how to on-board Azure Sentinel. 
 
 To on-board Azure Sentinel, you first need to enable Azure Sentinel, and then connect your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft Threat Protection solutions, Microsoft 365 sources, including Office 365, Azure AD, Azure ATP, and Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog or REST-API to connect your data sources with Azure Sentinel.  
 
 After you connect your data sources, choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
 
+>[!IMPORTANT] 
+> For information about the charges incurred when using Azure Sentinel, see [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+  
 
 ## Global prerequisites
 
@@ -35,7 +29,7 @@ After you connect your data sources, choose from a gallery of expertly created w
 
 - Log Analytics workspace. Learn how to [create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../azure-monitor/platform/design-logs-deployment.md).
 
--  To enable Azure Sentinel, you need contributor permissions to the subscription in which the Azure Sentinel workspace resides. 
+- To enable Azure Sentinel, you need contributor permissions to the subscription in which the Azure Sentinel workspace resides. 
 - To use Azure Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
 - Additional permissions may be needed to connect specific data sources.
 - Azure Sentinel is a paid service. For pricing information see [About Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).

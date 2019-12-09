@@ -1,19 +1,21 @@
 ---
-title: C# tutorial on using facets to aid navigation - Azure Search
-description: This tutorial builds on the "Search results pagination - Azure Search" project, to add facet navigation. Learn that facets can be used to easily narrow a search.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: C# tutorial on using facets to aid navigation
+titleSuffix: Azure Cognitive Search
+description: This tutorial builds on the "Search results pagination - Azure Cognitive Search" project, to add facet navigation. Learn how facets can be used to easily narrow a search.
+
+manager: nitinme
 author: PeterTurcan
-ms.date: 06/20/2019
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
 ---
 
-# C# tutorial: Use facets to aid navigation - Azure Search
+# C# tutorial: Use facets to aid navigation - Azure Cognitive Search
 
 Facets are used to aid navigation, by providing the user with a set of links to use to focus their search. Facets are attributes of the data (such as the category, or a specific feature, of a hotel in our sample data).
 
-This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) tutorial.
+This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md) tutorial.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -24,7 +26,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running. This project can either be your own version, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Have the [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md) project up and running. This project can either be your own version, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## Set model properties as IsFacetable
 
@@ -554,4 +556,4 @@ Consider the following takeaways from this project:
 In the next tutorial, we look at ordering results. Up to this point, results are ordered simply in the order that they are located in the database.
 
 > [!div class="nextstepaction"]
-> [C# tutorial: Order the results- Azure Search](tutorial-csharp-orders.md)
+> [C# tutorial: Order the results- Azure Cognitive Search](tutorial-csharp-orders.md)

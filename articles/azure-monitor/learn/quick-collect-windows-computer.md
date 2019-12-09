@@ -1,5 +1,5 @@
 ---
-title: Collect data from a hybrid Windows computer with Azure Monitor | Microsoft Docs
+title: Collect data from hybrid Windows computer with Azure Monitor
 description: In this quickstart, you'll learn how to deploy the Log Analytics agent for Windows computers running outside of Azure and enable data collection with Azure Monitor Logs.
 services: azure-monitor
 documentationcenter: azure-monitor

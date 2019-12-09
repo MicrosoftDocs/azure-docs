@@ -2,8 +2,8 @@
 title: Troubleshoot errors with Update Management
 description: Learn how to troubleshoot issues with Update Management.
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
@@ -328,7 +328,7 @@ You can also download and run the [Windows Update troubleshooter](https://suppor
 > [!NOTE]
 > The [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) documentation indicates that it's for use on Windows clients, but it also works on Windows Server.
 
-## Scenario: Update run returns "Failed" status
+## Scenario: Update run returns "Failed" status (Linux)
 
 ### Issue
 
@@ -361,7 +361,7 @@ If you can't resolve a patching issue, make a copy of the following log file and
 ### Machines don't install updates
 
 * Try running updates directly on the machine. If the machine can't apply the updates, consult the [list of potential errors in the troubleshooting guide](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
-* If updates run locally, try removing and reinstalling the agent on the machine by following the guidance at [Remove a VM from Update Management](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management).
+* If updates run locally, try removing and reinstalling the agent on the machine by following the guidance at [Remove a VM from Update Management](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-browse#clean-up-resources).
 
 ### I know updates are available, but they don't show as available on my machines
 

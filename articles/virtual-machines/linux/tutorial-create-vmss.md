@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create a virtual machine scale set for Linux in Azure | Microsoft Docs
+title: Tutorial - Create a virtual machine scale set for Linux in Azure 
 description: In this tutorial, you learn how to use the Azure CLI to create and deploy a highly available application on Linux VMs using a virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''

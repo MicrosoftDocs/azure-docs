@@ -1,19 +1,9 @@
 ---
-title: Create Node.js web app - Azure App Service | Microsoft Docs
-description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-
+title: 'QuickStart: Create a Node.js web app'
+description: Deploy your first Node.js Hello World to Azure App Service in minutes. You deploy using Visual Studio Code, which is one of many ways to deploy to App Service.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 09/30/2019
-ms.author: cephalin
 ms.custom: mvc, devcenter
 ms.custom: seodec18
 
@@ -125,13 +115,13 @@ In the **AZURE APP SERVICE** explorer, select the blue up arrow icon to deploy y
 1. Choose a creation option based on the operating system to which you want to deploy:
 
     - Linux: Choose **Create new Web App**.
-    - Windows: Choose **Create new Web App...Advanced**.
+    - Windows: Choose **Create new Web App** and select the **Advanced** option.
 
 1. Type a globally unique name for your Web App and press ENTER. Valid characters for an app name are 'a-z', '0-9', and '-'.
 
 1. If targeting Linux, select a Node.js version when prompted. An **LTS** version is recommended.
 
-1. If targeting Windows using the *Advanced** option, follow the additional prompts:
+1. If targeting Windows using the **Advanced** option, follow the additional prompts:
     1. Select **Create a new resource group**, then enter a name for the resource group.
     1. Select **Windows** for the operating system.
     1. Select an existing App Service Plan or create a new one. You can select a pricing tier when creating a new plan.

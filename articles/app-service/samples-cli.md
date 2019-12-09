@@ -1,20 +1,11 @@
 ---
-title: Azure CLI Samples - App Service | Microsoft Docs
-description: Azure CLI Samples - App Service
-services: app-service
-documentationcenter: app-service
-author: syntaxc4
-manager: erikre
-editor: ggailey777
+title: CLI Samples
+description: Find Azure CLI samples for some of the common App Service scenarios. Learn how to automate your App Service deployment or management tasks.
 tags: azure-service-management
 
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: app-service
 ms.date: 12/12/2017
-ms.author: cfowler
 ms.custom: mvc
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub device streams C quickstart for SSH and RDP (preview) | Microsoft Docs
+title: Azure IoT Hub device streams C quickstart for SSH and RDP
 description: In this quickstart, you run a sample C application that acts as a proxy to enable SSH and RDP scenarios over IoT Hub device streams.
 author: robinsh
 ms.service: iot-hub
@@ -51,6 +51,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
   * Central US
   * Central US EUAP
+  * North Europe
+  * Southeast Asia
 
 * Install [Visual Studio 2019](https://www.visualstudio.com/vs/) with the [Desktop development with C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 * Install the latest version of [Git](https://git-scm.com/download/).

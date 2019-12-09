@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Monitor a space with Azure Digital Twins | Microsoft Docs'
+title: 'Tutorial: Monitor an IoT device space - Azure Digital Twins| Microsoft Docs'
 description: Learn how to provision your spatial resources and monitor the working conditions with Azure Digital Twins by using the steps in this tutorial.
 services: digital-twins
 ms.author: alinast
@@ -8,7 +8,7 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 09/20/2019
+ms.date: 11/13/2019
 #Customer intent: As an Azure IoT developer, I want to walk through a sample application to monitor a space using Azure Digital Twins. 
 ---
 

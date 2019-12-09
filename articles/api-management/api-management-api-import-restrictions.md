@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 11/06/2019
 ms.author: apimpm
 ---
 
@@ -36,6 +36,8 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 -   Source file URL (if available) is applied to relative server URLs.
 -   Security definitions are ignored.
 -   Inline schema definitions for API operations are not supported. Schema definitions are defined in the API scope and can be referenced in API operations request or response scopes.
+-   A defined URL parameter needs to be part of the URL template.
+-   **Produces** keyword, which describes MIME types returned by an API, is not supported. 
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2
 

@@ -1,5 +1,5 @@
 ---
-title: Technical deep dive on platform-supported migration from classic to Azure Resource Manager | Microsoft Docs
+title: Technical deep dive on platform-supported migration from classic to Azure Resource Manager 
 description: This article does a technical deep dive on platform-supported migration of resources from classic to Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''

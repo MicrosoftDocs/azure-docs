@@ -1,14 +1,8 @@
 ---
-title: 'Azure Backup: Monitor Azure Backup with Azure Monitor'
+title: Monitor Azure Backup with Azure Monitor
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Log Analytics; Azure Backup; Alerts; Diagnostic Settings; Action groups
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 ---
 
@@ -24,7 +18,7 @@ Azure Backup provides [built-in monitoring and alerting capabilities](backup-azu
 ## Using Log Analytics workspace
 
 > [!NOTE]
-> Data from Azure VM backups, the Azure Backup agent, System Center Data Protection Manager, SQL backups in Azure VMs, and Azure Files share backups is pumped to the Log Analytics workspace through diagnostic settings.
+> Data from Azure VM backups, the Azure Backup agent, System Center Data Protection Manager, SQL backups in Azure VMs, and Azure Files share backups is pumped to the Log Analytics workspace through diagnostic settings. Support for Microsoft Azure Backup Server (MABS) will be added soon
 
 To monitor/report at scale, you need the capabilities of two Azure services. *Diagnostic settings* send data from multiple Azure Resource Manager resources to another resource. *Log Analytics* generates custom alerts where you can use action groups to define other notification channels.
 
@@ -36,9 +30,9 @@ Azure Resource Manager resources, such as the Recovery Services vault, record in
 
 In the monitoring section, select **Diagnostic settings** and specify the target for the Recovery Services vault's diagnostic data.
 
-![The Recovery Services vault's diagnostic setting, targeting Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
+![The Recovery Services vault's diagnostic setting, targeting Log Analytics](media/backup-azure-monitoring-laworkspace/diagnostic-setting-new.png)
 
-You can target a Log Analytics workspace from another subscription. To monitor vaults across subscriptions in a single place, select the same Log Analytics workspace for multiple Recovery Services vaults. To channel all the information that's related to Azure Backup to the Log Analytics workspace, select **AzureBackupReport** as the log.
+You can target a Log Analytics workspace from another subscription. To monitor vaults across subscriptions in a single place, select the same Log Analytics workspace for multiple Recovery Services vaults. To channel all the information that's related to Azure Backup to the Log Analytics workspace, choose **Resource Specific** in the toggle that appears, and select the following events - **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, **AddonAzureBackupProtectedInstance**. Please refer to [this article](backup-azure-diagnostic-events.md) for more details on configuring LA Diagnostics Settings.
 
 > [!IMPORTANT]
 > After you finish the configuration, you should wait 24 hours for the initial data push to finish. After that initial data push, all the events are pushed as described later in this article, in the [frequency section](#diagnostic-data-update-frequency).
@@ -52,7 +46,8 @@ After the data is inside the Log Analytics workspace, [deploy a GitHub template]
 
 ### View Azure Backup data by using Log Analytics
 
-After the template is deployed, the solution for monitoring and reporting in Azure Backup will show up in the workspace summary region. To go to the summary, follow one of these paths:
+> [!IMPORTANT]
+> The LA Reporting Template currently supports data from the legacy event AzureBackupReport in AzureDiagnostics mode. To use this template, you will need to [configure vault diagnostic settings in the Azure Diagnostics Mode](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event). 
 
 - **Azure Monitor**: In the **Insights** section, select **More** and then choose the relevant workspace.
 - **Log Analytics workspaces**: Select the relevant workspace, and then under **General**, select **Workspace summary**.
@@ -69,7 +64,7 @@ When you select any of the overview tiles, you can view further information. Her
 
    ![Log Analytics graph for restore jobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
-Similarly, by clicking on the other tiles, you will be able to see reports on Restore Jobs, Cloud Storage, Backup Items, Alerts from On-Premises Resources Backup, and Log Backup Jobs.
+Similarly, by clicking on the other tiles, you will be able to see reports on Restore Jobs, Cloud Storage, Backup Items, Alerts from on-premises Resources Backup, and Log Backup Jobs.
 
 These graphs are provided with the template. You can edit the graphs or add more graphs if you need to.
 
@@ -113,90 +108,65 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
 - All successful backup jobs
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | where OperationName == "Job" and JobOperation_s == "Backup"
-    | where JobStatus_s == "Completed"
+    AddonAzureBackupJobs
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
     ````
 
 - All failed backup jobs
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | where OperationName == "Job" and JobOperation_s == "Backup"
-    | where JobStatus_s == "Failed"
+    AddonAzureBackupJobs
+    | where JobOperation=="Backup"
+    | where JobStatus=="Failed"
     ````
 
 - All successful Azure VM backup jobs
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
+    AddonAzureBackupJobs
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
     | join kind=inner
     (
-        AzureDiagnostics
-        | where Category == "AzureBackupReport"
+        CoreAzureBackup
         | where OperationName == "BackupItem"
-        | where SchemaVersion_s == "V2"
-        | where BackupItemType_s == "VM" and BackupManagementType_s == "IaaSVM"
-        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
+        | where BackupItemType=="VM" and BackupManagementType=="IaaSVM"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
     )
-    on BackupItemUniqueId_s
-    | extend Vault= Resource
-    | project-away Resource
+    on BackupItemUniqueId
     ````
 
 - All successful SQL log backup jobs
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s == "Log"
+    AddonAzureBackupJobs
+    | where JobOperation=="Backup" and JobOperationSubType=="Log"
+    | where JobStatus=="Completed"
     | join kind=inner
     (
-        AzureDiagnostics
-        | where Category == "AzureBackupReport"
+        CoreAzureBackup
         | where OperationName == "BackupItem"
-        | where SchemaVersion_s == "V2"
-        | where BackupItemType_s == "SQLDataBase" and BackupManagementType_s == "AzureWorkload"
-        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
+        | where BackupItemType=="SQLDataBase" and BackupManagementType=="AzureWorkload"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
     )
-    on BackupItemUniqueId_s
-    | extend Vault= Resource
-    | project-away Resource
+    on BackupItemUniqueId
     ````
 
 - All successful Azure Backup agent jobs
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
+    AddonAzureBackupJobs
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
     | join kind=inner
     (
-        AzureDiagnostics
-        | where Category == "AzureBackupReport"
+        CoreAzureBackup
         | where OperationName == "BackupItem"
-        | where SchemaVersion_s == "V2"
-        | where BackupItemType_s == "FileFolder" and BackupManagementType_s == "MAB"
-        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
+        | where BackupItemType=="FileFolder" and BackupManagementType=="MAB"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
     )
-    on BackupItemUniqueId_s
-    | extend Vault= Resource
-    | project-away Resource
+    on BackupItemUniqueId
     ````
 
 ### Diagnostic data update frequency
@@ -204,7 +174,7 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
 The diagnostic data from the vault is pumped to the Log Analytics workspace with some lag. Every event arrives at the Log Analytics workspace *20 to 30 minutes* after it's pushed from the Recovery Services vault. Here are further details about the lag:
 
 - Across all solutions, the backup service's built-in alerts are pushed as soon as they're created. So they usually appear in the Log Analytics workspace after 20 to 30 minutes.
-- Across all solutions, ad hoc backup jobs and restore jobs are pushed as soon as they *finish*.
+- Across all solutions, on-demand backup jobs and restore jobs are pushed as soon as they *finish*.
 - For all solutions except SQL backup, scheduled backup jobs are pushed as soon as they *finish*.
 - For SQL backup, because log backups can occur every 15 minutes, information for all the completed scheduled backup jobs, including logs, is batched and pushed every 6 hours.
 - Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on, is pushed at least *once per day.*

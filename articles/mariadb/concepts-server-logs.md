@@ -1,11 +1,11 @@
 ---
-title: Server logs for Azure Database for MariaDB
+title: Slow query logs - Azure Database for MariaDB
 description: Describes the logs available in Azure Database for MariaDB, and the available parameters for enabling different logging levels.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 12/02/2019
 ---
 # Slow query logs in Azure Database for MariaDB
 In Azure Database for MariaDB, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting.

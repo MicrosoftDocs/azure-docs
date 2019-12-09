@@ -54,7 +54,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // the GenerateThumbnail method endpoint
-        const string uriBase = endpoint + "vision/v2.1/generateThumbnail";
+        static string uriBase = endpoint + "vision/v2.1/generateThumbnail";
 
         static void Main()
         {

@@ -18,6 +18,9 @@ Before you begin, see the [Get started with AzCopy](storage-use-azcopy-v10.md) a
 
 You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a file share. The example in this section creates a file share named `myfileshare`.
 
+> [!TIP]
+> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy make 'https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>'` |
@@ -41,6 +44,9 @@ This section contains the following examples:
 > AzCopy doesn't automatically calculate and store the file's md5 hash code. If you want AzCopy to do that, then append the `--put-md5` flag to each copy command. That way, when the file is downloaded, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the file's `Content-md5` property matches the calculated hash.
 
 For detailed reference docs see [azcopy copy](storage-ref-azcopy-copy.md).
+
+> [!TIP]
+> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 ### Upload a file
 
@@ -127,11 +133,14 @@ This section contains the following examples:
 
 For detailed reference docs see [azcopy copy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
 ### Download a file
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>?<SAS-token>?<SAS-token>' '<local-file-path>'` |
+| **Syntax** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>?<SAS-token>' '<local-file-path>'` |
 | **Example** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory\myTextFile.txt'` |
 
 ### Download a directory
@@ -201,6 +210,9 @@ This section contains the following examples:
 
 For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
 ### Copy a file to another storage account
 
 |    |     |
@@ -241,6 +253,9 @@ The [sync](storage-ref-azcopy-sync.md) command compares file names and last modi
 If you set the `--delete-destination` flag to `true` AzCopy deletes files without providing a prompt. If you want a prompt to appear before AzCopy deletes a file, set the `--delete-destination` flag to `prompt`.
 
 For detailed reference docs, see [azcopy sync](storage-ref-azcopy-sync.md).
+
+> [!TIP]
+> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 ### Update a file share with changes to another file share
 

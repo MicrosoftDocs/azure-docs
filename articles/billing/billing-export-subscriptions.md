@@ -9,7 +9,7 @@ manager: adpick
 editor: ''
 tags: billing
 
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

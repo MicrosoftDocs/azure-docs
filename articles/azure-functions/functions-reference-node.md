@@ -1,18 +1,10 @@
 ---
-title: JavaScript developer reference for Azure Functions | Microsoft Docs
+title: JavaScript developer reference for Azure Functions 
 description: Understand how to develop functions by using JavaScript.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
-ms.service: azure-functions
-ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
-ms.author: glenga
 
 ---
 # Azure Functions JavaScript developer guide
@@ -673,8 +665,9 @@ const util = require('util');
 const readFileAsync = util.promisify(fs.readFile);
 
 module.exports = async function (context) {
+    let data;
     try {
-        const data = await readFileAsync('./hello.txt');
+        data = await readFileAsync('./hello.txt');
     } catch (err) {
         context.log.error('ERROR', err);
         // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation

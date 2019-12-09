@@ -1,21 +1,21 @@
 ---
-title: Index large data set using built-in indexers - Azure Search
-description: Learn strategies for large data indexing or computationally intensive indexing through batch mode, resourcing, and techniques for scheduled, parallel, and distributed indexing.
-services: search
-author: HeidiSteen
+title: Index large data set using built-in indexers
+titleSuffix: Azure Cognitive Search
+description: Strategies for large data indexing or computationally intensive indexing through batch mode, resourcing, and techniques for scheduled, parallel, and distributed indexing.
+
 manager: nitinme
-
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/19/2019
+author: HeidiSteen
 ms.author: heidist
-
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# How to index large data sets in Azure Search
 
-As data volumes grow or processing needs change, you might find that simple or default indexing strategies are no longer practical. For Azure Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
+# How to index large data sets in Azure Cognitive Search
 
-The same techniques also apply to long-running processes. In particular, the steps outlined in [parallel indexing](#parallel-indexing) are helpful for computationally intensive indexing, such as image analysis or natural language processing in [cognitive search pipelines](cognitive-search-concept-intro.md).
+As data volumes grow or processing needs change, you might find that simple or default indexing strategies are no longer practical. For Azure Cognitive Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
+
+The same techniques also apply to long-running processes. In particular, the steps outlined in [parallel indexing](#parallel-indexing) are helpful for computationally intensive indexing, such as image analysis or natural language processing in an [AI enrichment pipeline](cognitive-search-concept-intro.md).
 
 The following sections explore three techniques for indexing large amounts of data.
 
@@ -40,7 +40,7 @@ Increasing replicas and partitions are billable events that increase your cost, 
 
 + Schedulers allow you to parcel out indexing at regular intervals so that you can spread it out over time.
 + Scheduled indexing can resume at the last known stopping point. If a data source is not fully crawled within a 24-hour window, the indexer will resume indexing on day two at wherever it left off.
-+ Partitioning data into smaller individual data sources enables parallel processing. You can break up source data into smaller components, such as into multiple containers in Azure Blob storage, and then create corresponding, multiple [data source objects](https://docs.microsoft.com/rest/api/searchservice/create-data-source) in Azure Search that can be indexed in parallel.
++ Partitioning data into smaller individual data sources enables parallel processing. You can break up source data into smaller components, such as into multiple containers in Azure Blob storage, and then create corresponding, multiple [data source objects](https://docs.microsoft.com/rest/api/searchservice/create-data-source) in Azure Cognitive Search that can be indexed in parallel.
 
 > [!NOTE]
 > Indexers are data-source-specific, so using an indexer approach is only viable for selected data sources on Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob storage](search-howto-indexing-azure-blob-storage.md), [Table storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
@@ -51,7 +51,7 @@ Indexer scheduling is an important mechanism for processing large data sets, as 
 
 By design, scheduled indexing starts at specific intervals, with a job typically completing before resuming at the next scheduled interval. However, if processing does not complete within the interval, the indexer stops (because it ran out of time). At the next interval, processing resumes where it last left off, with the system keeping track of where that occurs. 
 
-In practical terms, for index loads spanning several days, you can put the indexer on a 24-hour schedule. When indexing resumes for the next 24-hour cycle, it restarts at the last known good document. In this way, an indexer can work its way through a document backlog over a series of days until all unprocessed documents are processed. For more information about this approach, see [Indexing large datasets in Azure Blob storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). For more information about setting schedules in general, see [Create Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) or see [How to schedule indexers for Azure Search](search-howto-schedule-indexers.md).
+In practical terms, for index loads spanning several days, you can put the indexer on a 24-hour schedule. When indexing resumes for the next 24-hour cycle, it restarts at the last known good document. In this way, an indexer can work its way through a document backlog over a series of days until all unprocessed documents are processed. For more information about this approach, see [Indexing large datasets in Azure Blob storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). For more information about setting schedules in general, see [Create Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) or see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 
@@ -70,17 +70,17 @@ Parallel processing has these elements:
 + Schedule all indexers to run at the same time.
 
 > [!NOTE]
-> Azure Search does not support dedicating replicas or partitions to specific workloads. The risk of heavy concurrent indexing is overburdening your system to the detriment of query performance. If you have a test environment, implement parallel indexing there first to understand the tradeoffs.
+> Azure Cognitive Search does not support dedicating replicas or partitions to specific workloads. The risk of heavy concurrent indexing is overburdening your system to the detriment of query performance. If you have a test environment, implement parallel indexing there first to understand the tradeoffs.
 
 ### How to configure parallel indexing
 
-For indexers, processing capacity is loosely based on one indexer subsystem for each service unit (SU) used by your search service. Multiple concurrent indexers are possible on Azure Search services provisioned on Basic or Standard tiers having at least two replicas. 
+For indexers, processing capacity is loosely based on one indexer subsystem for each service unit (SU) used by your search service. Multiple concurrent indexers are possible on Azure Cognitive Search services provisioned on Basic or Standard tiers having at least two replicas. 
 
 1. In the [Azure portal](https://portal.azure.com), on your search service dashboard **Overview** page, check the **Pricing tier** to confirm it can accommodate parallel indexing. Both Basic and Standard tiers offer multiple replicas.
 
 2. In **Settings** > **Scale**, [increase replicas](search-capacity-planning.md) for parallel processing: one additional replica for each indexer workload. Leave a sufficient number for existing query volume. Sacrificing query workloads for indexing is not a good tradeoff.
 
-3. Distribute data into multiple containers at a level that Azure Search indexers can reach. This could be multiple tables in Azure SQL Database, multiple containers in Azure Blob storage, or multiple collections. Define one data source object for each table or container.
+3. Distribute data into multiple containers at a level that Azure Cognitive Search indexers can reach. This could be multiple tables in Azure SQL Database, multiple containers in Azure Blob storage, or multiple collections. Define one data source object for each table or container.
 
 4. Create and schedule multiple indexers to run in parallel:
 
@@ -90,7 +90,7 @@ For indexers, processing capacity is loosely based on one indexer subsystem for 
 
    + Within each indexer definition, schedule the same run-time execution pattern. For example, `"schedule" : { "interval" : "PT8H", "startTime" : "2018-05-15T00:00:00Z" }` creates a schedule on 2018-05-15 on all indexers, running at eight-hour intervals.
 
-At the scheduled time, all indexers begin execution, loading data, applying enrichments (if you configured a cognitive search pipeline), and writing to the index. Azure Search does not lock the index for updates. Concurrent writes are managed, with retry if a particular write does not succeed on first attempt.
+At the scheduled time, all indexers begin execution, loading data, applying enrichments (if you configured a cognitive search pipeline), and writing to the index. Azure Cognitive Search does not lock the index for updates. Concurrent writes are managed, with retry if a particular write does not succeed on first attempt.
 
 > [!Note]
 > When increasing replicas, consider increasing the partition count if index size is projected to increase significantly. Partitions store slices of indexed content; the more partitions you have, the smaller the slice each one has to store.
@@ -103,4 +103,4 @@ At the scheduled time, all indexers begin execution, loading data, applying enri
 + [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
 + [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
 + [Azure Table Storage indexer](search-howto-indexing-azure-tables.md)
-+ [Security in Azure Search](search-security-overview.md)
++ [Security in Azure Cognitive Search](search-security-overview.md)

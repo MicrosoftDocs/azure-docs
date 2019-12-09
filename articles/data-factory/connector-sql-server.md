@@ -1,22 +1,21 @@
 ---
-title: Copy data to and from SQL Server by using Azure Data Factory | Microsoft Docs
+title: Copy data to and from SQL Server
 description: Learn about how to move data to and from SQL Server database that is on-premises or in an Azure VM by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 09/09/2019
-ms.author: jingwang
-
+ms.custom: seo-lt-2019
+ms.date: 10/24/2019
 ---
+
 # Copy data to and from SQL Server by using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
 > * [Version 1](v1/data-factory-sqlserver-connector.md)
 > * [Current version](connector-sql-server.md)
@@ -458,7 +457,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
     )
     ```
 
-2. In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure is the same as **tableName** defined in the dataset.
+2. In your database, define the stored procedure with the same name as **sqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure is the same as **tableName** defined in the dataset.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -480,9 +479,9 @@ The following sample shows how to use a stored procedure to do an upsert into a 
     ```json
     "sink": {
         "type": "SqlSink",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "sqlWriterStoredProcedureName": "spOverwriteMarketing",
         "storedProcedureTableTypeParameterName": "Marketing",
-        "SqlWriterTableType": "MarketingType",
+        "sqlWriterTableType": "MarketingType",
         "storedProcedureParameters": {
             "category": {
                 "value": "ProductA"

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 10/24/2019
 ms.author: pafarley
 #As a C# developer of content-providing software, I want to analyze text content for terms that are particular to my product, so that I can categorize and handle it accordingly.
 ---
@@ -67,11 +67,7 @@ using System.Threading;
 
 ### Create the Content Moderator client
 
-Add the following code to create a Content Moderator client for your subscription.
-
-> [!IMPORTANT]
-> Update the **AzureRegion** and **CMSubscriptionKey** fields with 
-> the values of your region identifier and subscription key.
+Add the following code to create a Content Moderator client for your subscription. Update the `AzureEndpoint` and `CMSubscriptionKey` fields with the values of your endpoint URL and subscription key. You can find these in the **Quick start** tab of your resource in the Azure portal.
 
 ```csharp
 /// <summary>
@@ -83,16 +79,9 @@ Add the following code to create a Content Moderator client for your subscriptio
 public static class Clients
 {
     /// <summary>
-    /// The region/location for your Content Moderator account, 
-    /// for example, westus.
-    /// </summary>
-    private static readonly string AzureRegion = "YOUR API REGION";
-
-    /// <summary>
     /// The base URL fragment for Content Moderator calls.
     /// </summary>
-    private static readonly string AzureBaseURL =
-        $"https://{AzureRegion}.api.cognitive.microsoft.com";
+    private static readonly string AzureEndpoint = "YOUR ENDPOINT URL";
 
     /// <summary>
     /// Your Content Moderator subscription key.
@@ -111,7 +100,7 @@ public static class Clients
         // Create and initialize an instance of the Content Moderator API wrapper.
         ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-        client.Endpoint = AzureBaseURL;
+        client.Endpoint = AzureEndpoint;
         return client;
     }
 }

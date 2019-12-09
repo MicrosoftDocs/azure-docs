@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 12/03/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -31,7 +31,7 @@ This policy compliance information is forwarded to Azure AD where Conditional Ac
 The following steps will help create a Conditional Access policy to require devices accessing resources be marked as compliant with your organization's Intune compliance policies.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-1. Browse to **Azure Active Directory** > **Conditional Access**.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**

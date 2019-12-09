@@ -245,5 +245,5 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 This sample on GitHub is intended to help get you started with Azure AD B2C in a simple web application built on [hello.js][github-hello-js] and using pop-up-style authentication.
 
 <!-- Links - EXTERNAL -->
-[github-hello-js-example]: https://github.com/azure-ad-b2c/apps/tree/master/spa/javascript-hellojs-singlepageapp-popup
+[github-hello-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-hellojs-singlepageapp
 [github-hello-js]: https://github.com/MrSwitch/hello.js

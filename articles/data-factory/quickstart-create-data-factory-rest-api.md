@@ -1,10 +1,10 @@
 ---
-title: Create an Azure data factory using REST API | Microsoft Docs
+title: Create an Azure data factory using REST API 
 description: Create an Azure data factory to copy data from one location in Azure Blob storage to another location.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
@@ -299,7 +299,7 @@ Here is the sample output:
 In this example, this pipeline contains one activity and takes two parameters - input blob path and output blob path. The values for these parameters are set when the pipeline is triggered/run. The copy activity refers to the same blob dataset created in the previous step as input and output. When the dataset is used as an input dataset, input path is specified. And, when the dataset is used as an output dataset, the output path is specified.
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
+$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
 $body = @"
 {
     "name": "Adfv2QuickStartPipeline",

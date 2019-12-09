@@ -30,6 +30,13 @@ The sync command differs from the copy command in several ways:
 2. When syncing between virtual directories, add a trailing slash to the path (refer to examples) if there's a blob with the same name as one of the virtual directories.
 3. If the 'deleteDestination' flag is set to true or prompt, then sync will delete files and blobs at the destination that are not present at the source.
 
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+
 ### Advanced
 
 If you don't specify a file extension, AzCopy automatically detects the content type of the files when uploading from the local disk, based on the file extension or content (if no extension is specified).
@@ -43,7 +50,7 @@ The built-in lookup table is small, but on Unix, it's augmented by the local sys
 On Windows, MIME types are extracted from the registry.
 
 ```azcopy
-azcopy sync [flags]
+azcopy sync <source> <destination> [flags]
 ```
 
 ## Examples

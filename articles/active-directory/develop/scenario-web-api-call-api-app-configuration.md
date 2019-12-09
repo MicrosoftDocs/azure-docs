@@ -1,5 +1,6 @@
 ---
-title: Web API that calls downstream web APIs (app's code configuration) - Microsoft identity platform
+title: Configure a web API that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web API that calls web APIs (app's code configuration)
 services: active-directory
 documentationcenter: dev-center-name
@@ -137,6 +138,8 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
      }
 }
 ```
+
+You can also see an example of on behalf of flow implementation in [NodeJS and Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
 
 ## Protocol
 

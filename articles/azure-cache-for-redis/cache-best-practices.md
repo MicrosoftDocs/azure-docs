@@ -1,18 +1,10 @@
 ---
 title: Best practices for Azure Cache for Redis
 description: Learn how to use your Azure Cache for Redis effectively by following these best practices.
-services: cache
-documentationcenter: na
 author: joncole
-manager: jhubbard
-editor: tysonn
 
-ms.assetid: 3e4905e3-89e3-47f7-8cfb-12caf1c6e50e
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: joncole
 ---
@@ -29,7 +21,7 @@ By following these best practices, you can help maximize the performance and cos
 
  * **Configure your [maxmemory-reserved setting](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) to improve system responsiveness** under memory pressure conditions.  This setting is especially important for write-heavy workloads or if you're storing larger values (100 KB or more) in Redis. It's recommended that you start with 10% of the size of your cache and then increase the percentage if you have write-heavy loads.
 
- * **Redis works best with smaller values**, so consider chopping up bigger data into multiple keys.  In [this Redis discussion](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/), some considerations are listed that you should consider carefully.  Read [this article](cache-how-to-troubleshoot-client.md#large-request-or-response-size) for an example problem that can be caused by large values.
+ * **Redis works best with smaller values**, so consider chopping up bigger data into multiple keys.  In [this Redis discussion](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/), some considerations are listed that you should consider carefully.  Read [this article](cache-troubleshoot-client.md#large-request-or-response-size) for an example problem that can be caused by large values.
 
  * **Locate your cache instance and your application in the same region.**  Connecting to a cache in a different region can significantly increase latency and reduce reliability.  While you can connect from outside of Azure, it  not recommended *especially when using Redis as a cache*.  If you're using Redis as just a key/value store, latency may not be the primary concern. 
 
@@ -39,7 +31,7 @@ By following these best practices, you can help maximize the performance and cos
      > [!NOTE]
      > This guidance is specific to the *connection attempt* and not related to the time you're willing to wait for an *operation* like GET or SET to complete.
  
- * **Avoid expensive operations** - Some Redis operations, like the [KEYS](https://redis.io/commands/keys) command, are *very* expensive and should be avoided.  For more information, see some considerations around [long-running commands](cache-how-to-troubleshoot-server.md#long-running-commands)
+ * **Avoid expensive operations** - Some Redis operations, like the [KEYS](https://redis.io/commands/keys) command, are *very* expensive and should be avoided.  For more information, see some considerations around [long-running commands](cache-troubleshoot-server.md#long-running-commands)
 
  * **Use TLS encryption** - Azure Cache for Redis requires TLS encrypted communications by default.  TLS versions 1.0, 1.1 and 1.2 are currently supported.  However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.  If your client library or tool doesn't support TLS, then enabling unencrypted connections can be done [through the Azure portal](cache-configure.md#access-ports) or [management APIs](https://docs.microsoft.com/rest/api/redis/redis/update).  In such cases where encrypted connections aren't possible, placing your cache and client application into a virtual network would be recommended.  For details on which ports are used for 
  

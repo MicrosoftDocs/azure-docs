@@ -1,15 +1,11 @@
 ---
 title: How to start, stop, and delete your Azure Spring Cloud application | Microsoft Docs
 description:  How to start, stop, and delete your Azure Spring Cloud application
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
-
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/07/2019
-ms.author: v-vasuke
+ms.topic: conceptual
+ms.date: 10/31/2019
+ms.author: jeconnoc
 
 ---
 # How to start, stop, and delete your Azure Spring Cloud application
@@ -28,24 +24,30 @@ Once you have an application deployed, you can **Start**, **Stop**, and **Delete
 ## Using the Azure CLI
 
 > [!NOTE]
-> You can use optional parameters and configure defaults with the Azure CLI. Learn more about by reading our [reference documentation](spring-cloud-cli-reference.md).
+> You can use optional parameters and configure defaults with the Azure CLI. Learn more about by reading our [reference documentation](spring-cloud-cli-reference.md).  
+
+Install the Spring Cloud extension for the Azure CLI:
+
+```azurecli
+az extension add --name spring-cloud
+```
 
 * To start your application:
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app start -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
 * To stop your application:
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app stop -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
 * To restart your application:
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app restart -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
 * To delete your application:
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app delete -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```

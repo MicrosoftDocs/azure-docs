@@ -21,7 +21,7 @@ ms.author: genli
 
 ## Tools for troubleshooting
 
-- [Serial Console](serial-console-windows.md)
+- [Serial Console](serial-console-overview.md)
 - [Boot diagnostics](boot-diagnostics.md)
 - [Windows VM: Attach the OS disk to another VM for troubleshooting](troubleshoot-recovery-disks-portal-windows.md)
 - [Linux VM: Attach the OS disk to another VM for troubleshooting](troubleshoot-recovery-disks-portal-linux.md)
@@ -45,7 +45,7 @@ ms.author: genli
 
 **VM boot errors**
 
-* [BitLocker boot errors](troubleshoot-bitlocker-boot-error.md) 
+* [BitLocker boot errors](troubleshoot-bitlocker-boot-error.md)
 * [Windows show "Checking file system" during boot](troubleshoot-check-disk-boot-error.md)
 * [Blue screen errors](troubleshoot-common-blue-screen-error.md)
 * [VM startup is stuck on "Getting Windows Ready](troubleshoot-vm-boot-configure-update.md)

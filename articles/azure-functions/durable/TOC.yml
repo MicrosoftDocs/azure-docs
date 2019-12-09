@@ -8,8 +8,8 @@
     href: durable-functions-overview.md
   - name: Serverless comparison
     href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-  - name: Preview features
-    href: durable-functions-preview.md
+  - name: Durable Functions versions
+    href: durable-functions-versions.md
 - name: Quickstarts
   expanded: true
   items:
@@ -81,8 +81,8 @@
     href: durable-functions-bindings.md
   - name: HTTP API
     href: durable-functions-http-api.md
-  - name: Durable extension API
-    href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet-preview
+  - name: .NET API
+    href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
 - name: How-to guides
   items:
   - name: Develop

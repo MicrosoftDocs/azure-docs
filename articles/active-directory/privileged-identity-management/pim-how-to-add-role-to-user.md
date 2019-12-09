@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ---
@@ -33,25 +33,25 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
     If you haven't started Privileged Identity Management in the Azure portal yet, go to [Start using Privileged Identity Management](pim-getting-started.md).
 
-1. Click **Azure AD roles**.
+1. Select **Azure AD roles**.
 
-1. Click **Roles** or **Members**.
+1. Select **Roles** or **Members**.
 
     ![Azure AD roles with Roles and Members menu options highlighted](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
-1. Click **Add member** to open Add managed members.
+1. Select **Add member** to open Add managed members.
 
-1. Click **Select a role**, click a role you want to manage, and then click **Select**.
+1. Select **Select a role**, select a role you want to manage, and then select **Select**.
 
     ![Select a role pane listing Azure AD roles](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
-1. Click **Select members**, select the users you want to assign to the role, and then click **Select**.
+1. Select **Select members**, select the users you want to assign to the role, and then select **Select**.
 
     ![Select members pane where you can select a user](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
-1. In Add managed members, click **OK** to add the user to the role.
+1. In Add managed members, select **OK** to add the user to the role.
 
-1. In the list of roles, click the role you just assigned to see the list of members.
+1. In the list of roles, select the role you just assigned to see the list of members.
 
      When the role is assigned, the user you selected will appear in the members list as **Eligible** for the role.
 
@@ -67,15 +67,15 @@ By default, new users are only Eligible for an Azure AD admin role. Follow these
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Click **Azure AD roles**.
+1. Select **Azure AD roles**.
 
-1. Click **Members**.
+1. Select **Members**.
 
     ![Azure AD roles - Members list showing role and activation state](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
-1. Click an **Eligible** role that you want to make permanent.
+1. Select an **Eligible** role that you want to make permanent.
 
-1. Click **More** and then click **Make perm**.
+1. Select **More** and then select **Make perm**.
 
     ![Pane listing a user that is eligible for a role with the More menu options open](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
@@ -111,7 +111,9 @@ Follow these steps to remove a specific user from an Azure AD admin role.
 
 ## Authorization error when assigning roles
 
-If you recently enabled Privileged Identity Management for an Azure subscription and you get an authorization error when you try to make a user eligible for an Azure AD admin role, it might be because the MS-PIM service principal does not yet have the appropriate permissions. To assign roles, the MS-PIM service principal must be assigned the [User Access Administrator role](../../role-based-access-control/built-in-roles.md#user-access-administrator) in Azure role-based access control for Azure resource access (as opposed to Azure AD administration roles). Instead of waiting until MS-PIM is assigned the User Access Administrator role, you can assign it manually.
+Scenario: As an active owner or user access administrator for an Azure resource, you are able to see your resource inside Privileged Identity Management but can't perform any actions such as making an eligible assignment or viewing a list of role assignments from the resource overview page. Any of these actions results in an authorization error.
+
+To assign roles, the MS-PIM service principal must be assigned the [User Access Administrator role](../../role-based-access-control/built-in-roles.md#user-access-administrator) in Azure role-based access control for Azure resource access (as opposed to Azure AD administration roles). Instead of waiting until MS-PIM is assigned the User Access Administrator role, you can assign it manually.
 
 The following steps assign the User Access Administrator role to the MS-PIM service principal for a subscription.
 
@@ -142,7 +144,6 @@ The following steps assign the User Access Administrator role to the MS-PIM serv
    After a few moments, the MS-PIM service principal is assigned the User Access Administrator role at the subscription scope.
 
    ![Access control (IAM) blade showing User Access Administrator role assignment for MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
-
 
 ## Next steps
 

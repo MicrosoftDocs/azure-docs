@@ -7,6 +7,7 @@ author: qianw211
 manager: evansma
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 
 
 

@@ -1,11 +1,7 @@
 ---
-title: Tutorial - add variable to Azure Resource Manager template
+title: Tutorial - add variable to template
 description: Add variables to your Azure Resource Manager template to simplify the syntax.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
@@ -21,7 +17,7 @@ We recommend that you complete the [tutorial about functions](template-tutorial-
 
 You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## Review your template
+## Review template
 
 At the end of the previous tutorial, your template had the following JSON:
 
@@ -49,7 +45,7 @@ The **storagePrefix** parameter enables you to pass in a prefix that helps you i
 
 Finally, notice that the storage name is now set to the variable instead of a parameter.
 
-## Deploy the template
+## Deploy template
 
 Let's deploy the template. Deploying this template is easier than the previous templates because you provide just the prefix for the storage name.
 
@@ -78,7 +74,7 @@ az group deployment create \
 
 ---
 
-## Verify the deployment
+## Verify deployment
 
 You can verify the deployment by exploring the resource group from the Azure portal.
 

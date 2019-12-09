@@ -1,18 +1,18 @@
 ---
-title: Copy data from Amazon Simple Storage Service (S3) using Azure Data Factory | Microsoft Docs
+title: Copy data from Amazon Simple Storage Service (S3)
 description: Learn about how to copy data from Amazon Simple Storage Service (S3) to supported sink data stores by using Azure Data Factory.
 services: data-factory
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
-ms.author: jingwang
-
+ms.custom: seo-lt-2019
+ms.date: 10/24/2019
 ---
+
 # Copy data from Amazon Simple Storage Service using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 >
@@ -98,12 +98,9 @@ Here is an example:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-- For **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format dataset](#format-based-dataset) section.
-- For other formats like **ORC format**, refer to [Other format dataset](#other-format-dataset) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Parquet, delimited text, JSON, Avro and binary format dataset
-
-To copy data from Amazon S3 in **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for Amazon S3 under `location` settings in format-based dataset:
+The following properties are supported for Amazon S3 under `location` settings in format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -112,9 +109,6 @@ To copy data from Amazon S3 in **Parquet, delimited text, JSON, Avro and binary 
 | folderPath | The path to folder under the given bucket. If you want to use wildcard to filter folder, skip this setting and specify in activity source settings. | No       |
 | fileName   | The file name under the given bucket + folderPath. If you want to use wildcard to filter files, skip this setting and specify in activity source settings. | No       |
 | version | The version of the S3 object, if S3 versioning is enabled. If not specified, the latest version will be fetched. |No |
-
-> [!NOTE]
-> **AmazonS3Object** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup/GetMetadata activity for backward compatibility, but it doesn't work with mapping data flow. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -143,9 +137,10 @@ To copy data from Amazon S3 in **Parquet, delimited text, JSON, Avro and binary 
 }
 ```
 
-### Other format dataset
+### Legacy dataset model
 
-To copy data from Amazon S3 in **ORC format**, the following properties are supported:
+>[!NOTE]
+>The following dataset model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -227,12 +222,9 @@ For a full list of sections and properties available for defining activities, se
 
 ### Amazon S3 as source
 
-- To copy from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format source](#format-based-source) section.
-- To copy from other formats like **ORC format**, refer to [Other format source](#other-format-source) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Parquet, delimited text, JSON, Avro and binary format source
-
-To copy data from Amazon S3 in **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for Amazon S3 under `storeSettings` settings in format-based copy source:
+The following properties are supported for Amazon S3 under `storeSettings` settings in format-based copy source:
 
 | Property                 | Description                                                  | Required                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
@@ -244,9 +236,6 @@ To copy data from Amazon S3 in **Parquet, delimited text, JSON, Avro and binary 
 | modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected. | No                                                          |
 | modifiedDatetimeEnd      | Same as above.                                               | No                                                          |
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                                          |
-
-> [!NOTE]
-> For Parquet/delimited text format, **FileSystemSource** type copy activity source mentioned in next section is still supported as-is for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -289,9 +278,10 @@ To copy data from Amazon S3 in **Parquet, delimited text, JSON, Avro and binary 
 ]
 ```
 
-#### Other format source
+#### Legacy source model
 
-To copy data from Amazon S3 in **ORC format**, the following properties are supported in the copy activity **source** section:
+>[!NOTE]
+>The following copy source model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

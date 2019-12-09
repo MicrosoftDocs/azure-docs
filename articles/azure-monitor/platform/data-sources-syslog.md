@@ -1,18 +1,13 @@
 ---
 title: Collect and analyze Syslog messages in Azure Monitor | Microsoft Docs
 description: Syslog is an event logging protocol that is common to Linux. This article describes how to configure collection of Syslog messages in Log Analytics and details of the records they create.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/22/2019
+author: MGoedtel
 ms.author: magoedte
+ms.date: 03/22/2019
+
 ---
 
 # Syslog data sources in Azure Monitor
