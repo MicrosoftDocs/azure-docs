@@ -1,6 +1,6 @@
 ---
-title: Web API that calls web APIs (call APIs) - Microsoft identity platform
-description: Learn how to build a web API that calls downstream web APIs (calling a web API).
+title: Web API that calls web APIs - Microsoft identity platform | Azure
+description: Learn how to build a web API that calls web APIs.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur

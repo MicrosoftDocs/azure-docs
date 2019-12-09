@@ -1,19 +1,18 @@
 ---
-title: Load data from SAP Business Warehouse by using Azure Data Factory 
+title: Load data from SAP Business Warehouse
 description: 'Use Azure Data Factory to copy data from SAP Business Warehouse (BW)'
 services: data-factory
-documentationcenter: ''
 author: linda33wj
+ms.author: jingwang
 manager: shwang
 ms.reviewer:
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.author: jingwang
-
 ---
+
 # Copy data from SAP Business Warehouse by using Azure Data Factory
 
 This article shows how to use Azure Data Factory to copy data from SAP Business Warehouse (BW) via Open Hub to Azure Data Lake Storage Gen2. You can use a similar process to copy data to other [supported sink data stores](copy-activity-overview.md#supported-data-stores-and-formats).
