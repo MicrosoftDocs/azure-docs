@@ -1,5 +1,5 @@
 ---
-title: Known issues on Internet Explorer and Microsoft Edge (MSAL for JavaScript) 
+title: MSAL.js issues on Internet Explorer & Microsoft Edge | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about know issues when using the Microsoft Authentication Library for JavaScript (MSAL.js) with Internet Explorer and Microsoft Edge browsers.
 services: active-directory

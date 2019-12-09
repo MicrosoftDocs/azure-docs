@@ -64,7 +64,7 @@ To bulk-register devices in your application:
 1. On the left panel, choose the device template for which you want to bulk create the devices.
 
     > [!NOTE]
-    > If you don’t have a device template yet then you can import devices under **All devices** and register them without a template. After devices have been imported, you can then migrate them to a template.
+    > If you don't have a device template yet then you can import devices under **All devices** and register them without a template. After devices have been imported, you can then migrate them to a template.
 
 1. Select **Import**.
 
@@ -140,7 +140,7 @@ To bulk export devices from your application:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-For more information about connection strings and connecting real devices to your IoT Central application, see [Device connectivity in Azure IoT Central](overview-iot-central-get-connected.md).
+For more information about connection strings and connecting real devices to your IoT Central application, see [Device connectivity in Azure IoT Central](concepts-get-connected.md).
 
 ## Delete a device
 

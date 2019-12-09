@@ -8,12 +8,6 @@
       href: overview-iot-options.md
     - name: Tour of the UI
       href: overview-iot-central-tour.md
-    - name: Get connected
-      href: overview-iot-central-get-connected.md
-    - name: Stay connected
-      href: overview-iot-central-stay-connected.md
-    - name: Transform
-      href: overview-iot-central-transform.md
 - name: Quickstarts
   expanded: true
   items:
@@ -53,6 +47,8 @@
       href: concepts-architecture.md
     - name: What are application templates?
       href: concepts-app-templates.md
+    - name: Get connected
+      href: concepts-get-connected.md
 - name: How-to guides
   items:
     - name: Get connected

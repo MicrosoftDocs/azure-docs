@@ -3,7 +3,7 @@ title: Copy data to or from Azure Data Lake Storage Gen1 using Data Factory
 description: Learn how to copy data from supported source data stores to Azure Data Lake Store, or from Data Lake Store to supported sink stores, by using Data Factory.
 services: data-factory
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory

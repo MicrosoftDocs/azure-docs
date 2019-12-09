@@ -9,7 +9,7 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 
-# As an administrator, I want to customize the themes and help links within Central so that my company’s brand is represented within the app. 
+# As an administrator, I want to customize the themes and help links within Central so that my company's brand is represented within the app. 
 
 ---
 
