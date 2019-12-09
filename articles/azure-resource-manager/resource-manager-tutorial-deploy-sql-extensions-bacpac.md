@@ -2,7 +2,7 @@
 title: Import SQL BACPAC files with templates
 description: Learn how to use SQL Database extension to import SQL BACPAC files with Azure Resource Manager templates.
 author: mumian
-ms.date: 11/21/2019
+ms.date: 12/06/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -58,8 +58,10 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
     $resourceGroupName = "${projectName}rg"
     $storageAccountName = "${projectName}store"
     $containerName = "bacpacfiles"
-    $bacpacFile = "$HOME/SQLDatabaseExtension.bacpac"
-    $blobName = "SQLDatabaseExtension.bacpac"
+    $bacpacFileName = "SQLDatabaseExtension.bacpac"
+
+    # Download the bacpac file
+    Invoke-WebRequest -Uri $bacpacURL -OutFile "$HOME/$bacpacFileName"
 
     New-AzResourceGroup -Name $resourceGroupName -Location $location
     $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
@@ -71,9 +73,9 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
 
     New-AzStorageContainer -Name $containerName -Context $storageAccount.Context
 
-    Set-AzStorageBlobContent -File $bacpacFile `
+    Set-AzStorageBlobContent -File $HOME/$bacpacFileName `
                              -Container $containerName `
-                             -Blob $blobName `
+                             -Blob $bacpacFileName `
                              -Context $storageAccount.Context
 
     Write-Host "The storage account key is $storageAccountKey"
@@ -96,10 +98,9 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
 
 3. Select **Open** to open the file.
 
-    There are three resources defined in the template:
+    There are two resources defined in the template:
 
    * `Microsoft.Sql/servers`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-   * `Microsoft.SQL/servers/securityAlertPolicies`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
    * `Microsoft.SQL.servers/databases`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
      It is helpful to get some basic understanding of the template before customizing it.
@@ -133,19 +134,21 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
     * To allow the SQL database extension to import BACPAC files, you need to allow traffic from Azure services. Add the following firewall rule definition under the SQL server definition:
 
         ```json
-        {
-          "type": "firewallrules",
-          "apiVersion": "2015-05-01-preview",
-          "name": "AllowAllAzureIps",
-          "location": "[parameters('location')]",
-          "dependsOn": [
-            "[variables('databaseServerName')]"
-          ],
-          "properties": {
-            "startIpAddress": "0.0.0.0",
-            "endIpAddress": "0.0.0.0"
+        "resources": [
+          {
+            "type": "firewallrules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "AllowAllAzureIps",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+              "[parameters('databaseServerName')]"
+            ],
+            "properties": {
+              "startIpAddress": "0.0.0.0",
+              "endIpAddress": "0.0.0.0"
+            }
           }
-        }
+        ]
         ```
 
         The template shall look like:
@@ -156,22 +159,22 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
 
         ```json
         "resources": [
-            {
-              "type": "extensions",
-              "apiVersion": "2014-04-01",
-              "name": "Import",
-              "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', variables('databaseServerName'), variables('databaseName'))]"
-              ],
-              "properties": {
-                "storageKeyType": "StorageAccessKey",
-                "storageKey": "[parameters('storageAccountKey')]",
-                "storageUri": "[parameters('bacpacUrl')]",
-                "administratorLogin": "[variables('databaseServerAdminLogin')]",
-                "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
-                "operationMode": "Import"
-              }
+          {
+            "type": "extensions",
+            "apiVersion": "2014-04-01",
+            "name": "Import",
+            "dependsOn": [
+              "[resourceId('Microsoft.Sql/servers/databases', parameters('databaseServerName'), parameters('databaseName'))]"
+            ],
+            "properties": {
+              "storageKeyType": "StorageAccessKey",
+              "storageKey": "[parameters('storageAccountKey')]",
+              "storageUri": "[parameters('bacpacUrl')]",
+              "administratorLogin": "[parameters('adminUser')]",
+              "administratorLoginPassword": "[parameters('adminPassword')]",
+              "operationMode": "Import"
             }
+          }
         ]
         ```
 

@@ -2,14 +2,14 @@
 title: Secure artifacts in templates
 description: Learn how to secure the artifacts used in your Azure Resource Manager templates.
 author: mumian
-ms.date: 10/08/2019
+ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
 
 # Tutorial: Secure artifacts in Azure Resource Manager template deployments
 
-Learn how to secure the artifacts used in your Azure Resource Manager templates using Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file, that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database; it also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact. The artifact is stored in an Azure storage account with public access. In this tutorial, you use SAS to grant limited access to the BACPAC file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Learn how to secure the artifacts used in your Azure Resource Manager templates using Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file, that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database; it also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact is stored in an Azure storage account. Storage account key was used to access the artifact. In this tutorial, you use SAS to grant limited access to the BACPAC file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 To learn how to secure linked template, see [Tutorial: Create linked Azure Resource Manager templates](./resource-manager-tutorial-create-linked-templates.md).
 
@@ -35,6 +35,7 @@ To complete this article, you need:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Prepare a BACPAC file
@@ -47,77 +48,59 @@ In this section, you prepare the BACPAC file so the file is accessible securely 
 * Upload the BACPAC file to the container.
 * Retrieve the SAS token of the BACPAC file.
 
-To automate these steps using a PowerShell script, see the script from [Upload the linked template](./resource-manager-tutorial-create-linked-templates.md#upload-the-linked-template).
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter a project name"   # This name is used to generate names for Azure resources, such as storage account name.
+$location = Read-Host -Prompt "Enter a location (i.e. centralus)"
 
-### Download the BACPAC file
+$resourceGroupName = $projectName + "rg"
+$storageAccountName = $projectName + "store"
+$containerName = "bacpacfile" # The name of the Blob container to be created.
 
-Download the [BACPAC file](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac), and save the file to your local computer with the same name, **SQLDatabaseExtension.bacpac**.
+$bacpacURL = "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac"
+$bacpacFileName = "SQLDatabaseExtension.bacpac" # A file name used for downloading and uploading the BACPAC file.
 
-### Create a storage account
+# Download the bacpac file
+Invoke-WebRequest -Uri $bacpacURL -OutFile "$home/$bacpacFileName"
 
-1. Select the following image to open a Resource Manager template in the Azure portal.
+# Create a resource group
+New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json" target="_blank"><img src="./media/resource-manager-tutorial-secure-artifacts/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Enter the following properties:
+# Create a storage account
+$storageAccount = New-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName `
+    -Location $location `
+    -SkuName "Standard_LRS"
 
-    * **Subscription**: Select your Azure subscription.
-    * **Resource Group**: Select **Create new** and give it a name. A resource group is a container for Azure resources for the management purpose. In this tutorial, you can use the same resource group for the storage account and the Azure SQL Database. Make a note of this resource group name, you need it when you create the Azure SQL Database later in the tutorials.
-    * **Location**: Select a region. For example, **Central US**.
-    * **Storage Account Type**: use the default value, which is **Standard_LRS**.
-    * **Location**: Use the default value, which is **[resourceGroup().location]**. That means you use the resource group location for the storage account.
-    * **I agree to the terms and conditions started above**: (selected)
-3. Select **Purchase**.
-4. Select the notification icon (the bell icon) on the upper right corner of the portal to see the deployment status.
+$context = $storageAccount.Context
 
-    ![Resource Manager tutorial portal notifications pane](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-portal-notifications-pane.png)
-5. After the storage account is deployed successfully, select **Go to resource group** from the notification pane to open the resource group.
+# Create a container
+New-AzStorageContainer -Name $containerName -Context $context
 
-### Create a Blob container
+# Upload the bacpac file
+Set-AzStorageBlobContent `
+    -Container $containerName `
+    -File "$home/$bacpacFileName" `
+    -Blob $bacpacFileName `
+    -Context $context
 
-A Blob container is needed before you can upload any files.
+# Generate a SAS token
+$bacpacURI = New-AzStorageBlobSASToken `
+    -Context $context `
+    -Container $containerName `
+    -Blob $bacpacFileName `
+    -Permission r `
+    -ExpiryTime (Get-Date).AddHours(8.0) `
+    -FullUri
 
-1. Select the storage account to open it. You shall see only one storage account listed in the resource group. Your storage account name is different from the one shown in the following screenshot.
+$str = $bacpacURI.split("?")
 
-    ![Resource Manager tutorial storage account](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-storage-account.png)
+Write-Host "You need the blob url and the SAS token later in the tutorial:"
+Write-Host $str[0]
+Write-Host (-join ("?", $str[1]))
 
-2. Select the **Blobs** tile.
-
-    ![Resource Manager tutorial blobs](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-blobs.png)
-3. Select **+ Container** from the top to create a new container.
-4. Enter the following values:
-
-    * **Name**: enter **sqlbacpac**.
-    * **Public access level**: use the default value, **Private (no anonymous access)**.
-5. Select **OK**.
-6. Select **sqlbacpac** to open the newly created container.
-
-### Upload the BACPAC file to the container
-
-1. Select **Upload**.
-2. Enter the following values:
-
-    * **Files**: Following the instructions to select the BACPAC file you downloaded earlier. The default name is **SQLDatabaseExtension.bacpac**.
-    * **Authentication type**: Select **SAS**.  *SAS* is the default value.
-3. Select **Upload**.  Once the file is uploaded successfully, the file name shall be listed in the container.
-
-### <a name="generate-a-sas-token" />Generate a SAS token
-
-1. Right-click **SQLDatabaseExtension.bacpac** from the container, and then select **Generate SAS**.
-2. Enter the following values:
-
-    * **Permission**: Use the default, **Read**.
-    * **Start and expiry date/time**: The default value gives you eight hours to use the SAS token. If you need more time to complete this tutorial, update **Expiry**.
-    * **Allowed IP addresses**: Leave this field blank.
-    * **Allowed protocols**: use the default value: **HTTPS**.
-    * **Signing key**: use the default value: **Key 1**.
-3. Select **Generate blob SAS token and URL**.
-4. Make a copy of **Blob SAS URL**. In the middle of the URL is the file name **SQLDatabaseExtension.bacpac**.  The file name divides the URL into three parts:
-
-   - **Artifact location**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Make sure the location ends with a "/".
-   - **BACPAC file name**: SQLDatabaseExtension.bacpac.
-   - **Artifact location SAS token**: Make sure the token precedes with a "?."
-
-     You need these three values in [Deploy the template](#deploy-the-template).
+Write-Host "Press [ENTER] to continue ..."
+```
 
 ## Open an existing template
 
@@ -127,15 +110,15 @@ In this session, you modify the template you created in [Tutorial: Import SQL BA
 2. In **File name**, paste the following URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy2.json
     ```
+
 3. Select **Open** to open the file.
 
-    There are five resources defined in the template:
+    There are four resources defined in the template:
 
    * `Microsoft.Sql/servers`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
-   * `Microsoft.SQL/servers/securityAlertPolicies`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
-   * `Microsoft.SQL/servers/filewallRules`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
+   * `Microsoft.SQL/servers/firewallRules`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
    * `Microsoft.SQL/servers/databases`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
    * `Microsoft.SQL/server/databases/extensions`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
 
@@ -144,38 +127,25 @@ In this session, you modify the template you created in [Tutorial: Import SQL BA
 
 ## Edit the template
 
-Add the following additional parameters:
+1. Replace the storageAccountKey parameter definition with the following parameter definition:
 
-```json
-"_artifactsLocation": {
-    "type": "string",
-    "metadata": {
-        "description": "The base URI where artifacts required by this template are located."
-    }
-},
-"_artifactsLocationSasToken": {
-    "type": "securestring",
-    "metadata": {
-        "description": "The sasToken required to access _artifactsLocation."
+    ```json
+    "_artifactsLocationSasToken": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Specifies the SAS token required to access the artifact location."
+      }
     },
-    "defaultValue": ""
-},
-"bacpacFileName": {
-    "type": "string",
-    "defaultValue": "SQLDatabaseExtension.bacpac",
-    "metadata": {
-        "description": "The bacpac for configure the database and tables."
-    }
-}
-```
+    ```
 
-![Resource Manager tutorial secure artifacts parameters](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-secure-artifacts-parameters.png)
+    ![Resource Manager tutorial secure artifacts parameters](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-secure-artifacts-parameters.png)
 
-Update the value of the following two elements:
+2. Update the value of the following three elements:
 
 ```json
+"storageKeyType": "SharedAccessKey",
 "storageKey": "[parameters('_artifactsLocationSasToken')]",
-"storageUri": "[uri(parameters('_artifactsLocation'), parameters('bacpacFileName'))]",
+"storageUri": "[parameters('bacpacUrl')]",
 ```
 
 ## Deploy the template
@@ -185,23 +155,25 @@ Update the value of the following two elements:
 Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure. Use the following PowerShell deployment script instead:
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
+$projectName = Read-Host -Prompt "Enter a project name"   # This name is used to generate names for Azure resources, such as storage account name.
+$location = Read-Host -Prompt "Enter a location (i.e. centralus)"
+$adminUsername = Read-Host -Prompt "Enter the sql database admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
-$artifactsLocation = Read-Host -Prompt "Enter the artifacts location"
+$bacpacUrl = Read-Host -Prompt "Enter the BACPAC url"
 $artifactsLocationSasToken = Read-Host -Prompt "Enter the artifacts location SAS token" -AsSecureString
-$bacpacFileName = Read-Host -Prompt "Enter the BACPAC file name"
+
+$resourceGroupName = $projectName + "rg"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `
-    -_artifactsLocation $artifactsLocation `
     -_artifactsLocationSasToken $artifactsLocationSasToken `
-    -bacpacFileName $bacpacFileName `
+    -bacpacUrl $bacpacUrl `
     -TemplateFile "$HOME/azuredeploy.json"
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 Use a generated password. See [Prerequisites](#prerequisites).
