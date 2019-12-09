@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone, Java (Android) - Speech Service'
+title: 'Quickstart: Recognize speech from a microphone, Java (Android) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in Java on Android by using the Speech SDK
 services: cognitive-services
@@ -67,7 +67,7 @@ The text and graphical representation of your UI should now look like this:
 
    ![Screenshot of Select Deployment Target window](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-12-deploy.png)
 
-Select the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to Speech Services and transcribed. The result appears in the Android application, and in the logcat window in Android Studio.
+Select the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to the Speech service and transcribed. The result appears in the Android application, and in the logcat window in Android Studio.
 
 ![Screenshot of the Android application](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-gui-on-device.png)
 
