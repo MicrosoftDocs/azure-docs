@@ -41,59 +41,39 @@ A compute instance is a managed virtual machine (VM), optimized to be your machi
 
 Azure Machine Learning compute instance enables you to author, train, and deploy models in a fully integrated notebook experience in your workspace.
 
-The following tools and environments are installed on the compute instance:-
 
-* CUDA, cuDNN, NVIDIA Drivers
-* Intel MPI library
-* RStudio Server Open Source Edition
-* R kernel
-* [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html)
-* Anaconda Python
-* Jupyter and extensions
-* Jupyterlab and extensions
-* Deep learning packages:
-    * `PyTorch`
-    * `TensorFlow`
-    * `Keras`
-    * `Horovod`
-    * `MLFlow`
-    * `pandas-ml`
-    * `scrapbook`
-* Conda packages:
-    * `cython`
-    * `numpy`
-    * `ipykernel`
-    * `scikit-learn`
-    * `matplotlib`
-    * `tqdm`
-    * `joblib`
-    * `nodejs`
-    * `nb_conda_kernels`
-* [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) from PyPI:
-    * `azureml-sdk[notebooks,contrib,automl,explain]`
-    * `azureml-contrib-datadrift`
-    * `azureml-telemetry`
-    * `azureml-tensorboard`
-    * `azureml-contrib-opendatasets`
-    * `azureml-opendatasets`
-    * `azureml-contrib-reinforcementlearning`
-    * `azureml-mlflow`
-    * `azureml-contrib-interpret`
-* Other PyPI packages:
-    * `jupytext`
-    * `jupyterlab-git`
-    * `tensorboard`
-    * `nbconvert`
-    * `notebook`
-    * `Pillow`
-* Azure Machine Learning CLI
-* Onnx packages: keras2onnx, onnx, onnxconverter-common, skl2onnx, onnxmltools                                            
-* Docker
-* Blob FUSE driver
-* Nginx
-* NCCL 2.0
-* Protobuf
-* Azure Machine Learning Python and R samples
+These tools and environments are installed on the compute instance: 
+
+
+
+|General tools & environments|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|----|:----:|
+|Drivers|`CUDA`</br>`cuDNN`</br>`NVIDIA`</br>`Blob FUSE` |
+|Intel MPI library||
+|Azure Machine Learning CLI ||
+|Azure Machine Learning samples ||
+|Azure Machine Learning EDAT engine ||            
+|Docker||
+|Nginx NCCL 2.0 ||
+|Protobuf|| 
+
+|**R** tools & environments|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|----|:----:|
+|RStudio Server Open Source Edition||
+|R kernel||
+|Azure Machine Learning SDK for R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>SDK samples|
+
+|**PYTHON** tools & environments|Details|
+|----|----|
+|Anaconda Python||
+|Jupyter and extensions||
+|Jupyterlab and extensions||
+[Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>from PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
+|Other PyPI packages|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
+|Conda packages|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
+|Deep learning packages|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
+|ONNX packages|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|                           
+|Azure Machine Learning SDK samples||
 
 Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
