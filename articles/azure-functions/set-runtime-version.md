@@ -25,9 +25,9 @@ The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each majo
 
 | Major version | `FUNCTIONS_EXTENSION_VERSION` value |
 | ------------- | ----------------------------------- |
-| 3.x (preview) | `~3` |
+| 3.x  | `~3` |
 | 2.x  | `~2` |
-| 1.x | `~1` |
+| 1.x  | `~1` |
 
 A change to the runtime version causes a function app to restart.
 

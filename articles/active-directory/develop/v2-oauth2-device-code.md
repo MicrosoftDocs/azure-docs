@@ -1,5 +1,6 @@
 ---
-title: Use Microsoft identity platform to sign in users on browser-less devices | Azure
+title: Sign in users without a browser | Azure
+titleSuffix: Microsoft identity platform
 description: Build embedded and browser-less authentication flows using the device authorization grant.
 services: active-directory
 documentationcenter: ''
