@@ -49,9 +49,9 @@ Another scenario where importance can help meet querying demands is when request
   
 Consider the following example on DW500c:
 
-1. Q1, Q2, Q3, and Q4 are running smallrc queries.
-1. Q5 is submitted with the mediumrc resource class at 9am.
-1. Q6 is submitted with smallrc resource class at 9:01am.
+- Q1, Q2, Q3, and Q4 are running smallrc queries.
+- Q5 is submitted with the mediumrc resource class at 9am.
+- Q6 is submitted with smallrc resource class at 9:01am.
 
 Because Q5 is mediumrc, it requires two concurrency slots. Q5 needs to wait for two of the running queries to complete.  However, when one of the running queries (Q1-Q4) completes, Q6 is scheduled immediately because the resources exist to execute the query.  If Q5 has higher importance than Q6, Q6 waits until Q5 is running before it can begin executing.
 
