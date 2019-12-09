@@ -20,7 +20,7 @@
     - name: 4B - Add, connect to storage accounts
       href: azure-stack-edge-r-series-deploy-add-storage-accounts.md
     - name: 5A - Configure compute (simple)
-      href: azure-stack-edge-r-series-placeholder.md
+      href: azure-stack-edge-r-series-deploy-configure-compute.md
     - name: 5B - Configure compute (advanced)
       href: azure-stack-edge-r-series-placeholder.md
   - name: Concepts
