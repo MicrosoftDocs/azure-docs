@@ -107,16 +107,16 @@ Some optional claims can be configured to change the way the claim is returned. 
 #### Additional properties example
 
 	```json
- "optionalClaims": 
-   {
-       "idToken": [ 
-             { 
-                "name": "upn", 
-                "essential": false,
-                "additionalProperties": [ "include_externally_authenticated_upn"]  
-              }
-        ]
-}
+ 		"optionalClaims": 
+  		 {
+  		     "idToken": [ 
+  			{ 
+          		      "name": "upn", 
+          		      "essential": false,
+			      "additionalProperties": [ "include_externally_authenticated_upn"]  
+            		}
+	       	     ]
+		}
 	```
 
 This OptionalClaims object causes the ID token returned to the client to include another upn with the additional home tenant and resource tenant information. This will only change the `upn` claim in the token if the user is a guest in the tenant (that uses a different IDP for authentication). 
