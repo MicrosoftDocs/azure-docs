@@ -57,7 +57,7 @@ We wait 90 days before permanently deleting your data in case you need to access
 
 ## Reactivate subscription
 
-If you cancel your subscription with Pay-As-You-Go rates accidentally, you can [reactivate it in the Accounts Center](../../billing/billing-subscription-become-disable.md).
+If you cancel your subscription with Pay-As-You-Go rates accidentally, you can [reactivate it in the Accounts Center](subscription-disabled.md).
 
 If your subscription is not a subscription with Pay-As-You-Go rates, contact support within 90 days of cancellation to reactivate your subscription.
 

@@ -66,7 +66,7 @@ This article applies to billing accounts for Microsoft Partner Agreements. These
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 
 3. Select **Customers** from the left-hand side.
 
@@ -175,7 +175,7 @@ If these two directories don’t match, the subscriptions couldn't be transferre
 
 
 ## Check access to a Microsoft Partner Agreement
-[!INCLUDE [billing-check-mpa](../../includes/billing-check-mpa.md)]
+[!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
 
 ## Need help? Contact support
 

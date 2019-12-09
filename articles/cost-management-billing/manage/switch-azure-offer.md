@@ -17,7 +17,7 @@ ms.author: banders
 
 As a customer with an [individual subscription with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/), you can switch your Azure subscription to another offer in the [Account Center](https://account.windowsazure.com/Subscriptions). For example, you can use this feature to take advantage of the [monthly credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-**Just want to upgrade from Free Trial?** See [upgrade your subscription](../../billing/billing-upgrade-azure-subscription.md).
+**Just want to upgrade from Free Trial?** See [upgrade your subscription](upgrade-azure-subscription.md).
 
 ## What's supported:
 
@@ -71,7 +71,7 @@ An Azure offer is the *type* of the Azure subscription you have. For example, [a
 You might not see the **Switch to another offer** option if:
 
 * You don't have a [subscription with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/). Currently only subscriptions with pay-as-you-go rates can be converted to another offer.
-  * If you have a [Free Trial](https://azure.microsoft.com/free/), learn how to [upgrade to Pay-As-You-Go](../../billing/billing-upgrade-azure-subscription.md).
+  * If you have a [Free Trial](https://azure.microsoft.com/free/), learn how to [upgrade to Pay-As-You-Go](upgrade-azure-subscription.md).
   * To switch offer from a different subscription, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 * You're still in your first billing period; you must wait for your first billing period to end before you can switch offers.
 
@@ -104,7 +104,7 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 ### Can I migrate data and services to a new subscription?
 
 * You can migrate the resources directly to the new subscription, see [Move resources to new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md).
-* To transfer ownership of an Azure subscription and everything in it to someone else, see [Transferring ownership of an Azure subscription](../../billing/billing-subscription-transfer.md)
+* To transfer ownership of an Azure subscription and everything in it to someone else, see [Transferring ownership of an Azure subscription](billing-subscription-transfer.md)
 
 ## Need help? Contact us.
 

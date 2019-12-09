@@ -43,7 +43,7 @@ You receive an Azure invoice when any of the following events occur during your 
 ## Review charges for most customers
 This section doesn't apply to Azure customers in Australia, Japan, or Singapore. If you are in one of those countries, see [Review charges for other customers](#review-charges-for-other-customers).
 
-To review and verify the charges on your invoice, you must be an Enterprise Administrator. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md). If you don't know who the Enterprise Administrator is for your organization, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+To review and verify the charges on your invoice, you must be an Enterprise Administrator. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md). If you don't know who the Enterprise Administrator is for your organization, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 Your invoice shows all of your Azure usage, followed by any Marketplace charges. If you have a credit balance, it's applied to Azure usage.
 
@@ -52,10 +52,10 @@ Compare your combined total amount shown in the Enterprise portal in **Reports**
 1. Sign in to the [Enterprise portal](https://ea.azure.com).
 1. Select **Reports**.
 1. On the top-right corner of the tab, switch the view from **M** to **C** and match the period on the invoice.  
-    ![Screenshot that shows M + C option in Usage summary.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
+    ![Screenshot that shows M + C option in Usage summary.](./media/understand-ea-bill/ea-portal-usage-sumary-cm-option.png)
 1. The combined amount of **Total Usage** and **Azure Marketplace** should match the **Total Extended Amount** on your invoice.
 1. To get more details about your charges, go to **Download Usage**.  
-    ![Screenshot showing the Download Usage tab](./media/billing-understand-your-bill-ea/ea-portal-download-usage.png)
+    ![Screenshot showing the Download Usage tab](./media/understand-ea-bill/ea-portal-download-usage.png)
 
 ## Invoices for other customers
 
@@ -84,7 +84,7 @@ When you have charges due for service overages and charges that are billed separ
 
 This section only applies if you are in Australia, Japan, or Singapore.
 
-To review and verify the charges on your invoice, you must be an Enterprise Administrator. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md). If you don't know who the Enterprise Administrator is for your organization, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+To review and verify the charges on your invoice, you must be an Enterprise Administrator. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md). If you don't know who the Enterprise Administrator is for your organization, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Review service overage invoice
 
@@ -93,10 +93,10 @@ Compare your total usage amount in the Enterprise portal in **Reports** > **Usag
 1. Sign-in to the [Enterprise portal](https://ea.azure.com).
 1. Select **Reports**.
 1. On the top-right corner of the tab, switch the view from **M** to **C** and match the period on the invoice.  
-    ![Screenshot that shows M + C option in Usage summary.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
+    ![Screenshot that shows M + C option in Usage summary.](./media/understand-ea-bill/ea-portal-usage-sumary-cm-option.png)
 1. The **Total Usage** amount should match the **Total Extended Amount** on your service overage invoice.  
 1. To get more information about your charges, go to **Download Usage** > **Advanced Report Download**. The report doesn't include taxes or charges for reservations or marketplace charges.  
-      ![Screenshot that shows Advanced report Download on the Download usage tab.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-advanced.png)
+      ![Screenshot that shows Advanced report Download on the Download usage tab.](./media/understand-ea-bill/ea-portal-download-usage-advanced.png)
 
 The following table lists the terms and descriptions shown on the invoice and on the **Usage Summary** in the Enterprise portal:
 
@@ -117,14 +117,14 @@ Compare your Azure Marketplace total on **Reports** > **Usage Summary** in the E
 1. Sign-in to the [Enterprise portal](https://ea.azure.com).
 1. Select **Reports**.
 1. On the top-right corner of the tab, switch the view from **M** to **C** and match the period on the invoice.  
-     ![Screenshot that shows M + C option  on Usage summary.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  
+     ![Screenshot that shows M + C option  on Usage summary.](./media/understand-ea-bill/ea-portal-usage-sumary-cm-option.png)  
 1. The **Azure Marketplace** total should match the **Total Sale** on your marketplace invoice.
 1. To get more information about your usage-based charges, go to **Download Usage**. Under **Marketplace Charges**, select **Download**. This report doesn't include taxes or show one-time purchases.  
-     ![Screenshot that shows download option under Marketplace charges.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-marketplace.png)
+     ![Screenshot that shows download option under Marketplace charges.](./media/understand-ea-bill/ea-portal-download-usage-marketplace.png)
 
 ## Need help? Contact us.
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- [View and download your Azure usage and charges](billing-download-azure-daily-usage.md)
+- [View and download your Azure usage and charges](../../billing/billing-download-azure-daily-usage.md)

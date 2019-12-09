@@ -107,7 +107,7 @@ To change the scope programmatically, use the API [Reservation - Update](/rest/a
 ## Learn more
 
 - [What are reservations for Azure](billing-save-compute-costs-reservations.md)
-- [Understand how the VM reservation discount is applied](billing-understand-vm-reservation-charges.md)
+- [Understand how the VM reservation discount is applied](../cost-management-billing/manage/understand-vm-reservation-charges.md)
 - [Understand how the SUSE Linux Enterprise software plan discount is applied](billing-understand-suse-reservation-charges.md)
 - [Understand how other reservation discounts are applied](billing-understand-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)

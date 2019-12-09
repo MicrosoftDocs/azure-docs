@@ -115,7 +115,7 @@ If you are using Azure through a Microsoft Customer Agreement (MCA), you can als
 
 ## Integrate with billing and consumption APIs
 
-Use the Azure [billing](https://docs.microsoft.com/rest/api/billing/) and [consumption](https://docs.microsoft.com/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](../../billing/billing-usage-rate-card-overview.md).
+Use the Azure [billing](https://docs.microsoft.com/rest/api/billing/) and [consumption](https://docs.microsoft.com/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](usage-rate-card-overview.md).
 
 ## <a name="other-offers"></a> Additional resources and special cases
 
@@ -146,13 +146,13 @@ Enterprise cost views are currently in Public Preview. Items to note:
 
 ### Check your subscription and access
 
-To view costs, you need account or subscription level access to cost or billing information. The access varies by type of billing account. To learn more about billing accounts and check the type of your billing account, see [View billing accounts in Azure portal](../../billing/billing-view-all-accounts.md).
+To view costs, you need account or subscription level access to cost or billing information. The access varies by type of billing account. To learn more about billing accounts and check the type of your billing account, see [View billing accounts in Azure portal](view-all-accounts.md).
 
 If you have access to Azure through a Microsoft Online Service Program (MOSP) billing account, see [Manage access to billing information for Azure](manage-billing-access.md).
 
-If you have access to Azure through an Enterprise Agreement (EA) billing account, see [Understand Azure Enterprise Agreement administrative roles in Azure](../../billing/billing-understand-ea-roles.md).
+If you have access to Azure through an Enterprise Agreement (EA) billing account, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
 
-If you have access to Azure through a Microsoft Customer Agreement (MCA) billing account, see [Understand Microsoft Customer Agreement administrative roles in Azure](../../billing/billing-understand-mca-roles.md).
+If you have access to Azure through a Microsoft Customer Agreement (MCA) billing account, see [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md).
 
 ### Request a Service Level Agreement credit for a service incident
 
@@ -178,5 +178,5 @@ For more information, see [Service Level Agreements](https://azure.microsoft.com
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- Learn about using [spending limits](../../billing/billing-spending-limit.md) to prevent overspending.
+- Learn about using [spending limits](spending-limit.md) to prevent overspending.
 - Start [analyzing your Azure costs](../costs/quick-acm-cost-analysis.md).

@@ -50,4 +50,4 @@ You're not charged for services included for free with your Azure free account, 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- [Upgrade your Azure free account](../../../billing/billing-upgrade-azure-subscription.md)
+- [Upgrade your Azure free account](../../../cost-management-billing/manage/upgrade-azure-subscription.md)

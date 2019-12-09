@@ -20,7 +20,7 @@ Let's look at some of the reasons you can incur charges on your Azure free accou
 
 ## Your credit runs out or is expired
 
-Your subscription and services are disabled when your credit runs out or expires at the end of 30 days. To continue using Azure services, you must upgrade your account. For more information, see [Upgrade your Azure free account](../../billing/billing-upgrade-azure-subscription.md). After you upgrade, you still have access to free services for 12 month and you get charged only for usage beyond the free services and quantities.
+Your subscription and services are disabled when your credit runs out or expires at the end of 30 days. To continue using Azure services, you must upgrade your account. For more information, see [Upgrade your Azure free account](upgrade-azure-subscription.md). After you upgrade, you still have access to free services for 12 month and you get charged only for usage beyond the free services and quantities.
 
 
 ## Usage exceeds the limits of free services
@@ -55,4 +55,4 @@ Once your free services and quantities expire, you are charged pay-as-you-go rat
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- [Upgrade your Azure free account](../../billing/billing-upgrade-azure-subscription.md)
+- [Upgrade your Azure free account](upgrade-azure-subscription.md)

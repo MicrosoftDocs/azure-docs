@@ -97,4 +97,4 @@ When you opt out of marketing communications, you still receive service notifica
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- [View your billing accounts](../../billing/billing-view-all-accounts.md)
+- [View your billing accounts](view-all-accounts.md)

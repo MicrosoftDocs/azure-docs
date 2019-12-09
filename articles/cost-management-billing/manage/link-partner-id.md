@@ -17,7 +17,7 @@ ms.workload: na
 
 Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link, partners can associate their partner network ID with the credentials used for service delivery.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Get access from your customer
 
@@ -41,11 +41,11 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 3. Enter the Microsoft partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization.
 
-   ![Screenshot that shows Link to a partner ID](./media/billing-link-partner-id/link-partner-id01.png)
+   ![Screenshot that shows Link to a partner ID](./media/link-partner-id/link-partner-id01.png)
 
 4. To link a partner ID for another customer, switch the directory. Under **Switch directory**, select your directory.
 
-   ![Screenshot that shows Switch directory](./media/billing-link-partner-id/directory-switcher.png)
+   ![Screenshot that shows Switch directory](./media/link-partner-id/directory-switcher.png)
 
 ### Use PowerShell to link to a new partner ID
 

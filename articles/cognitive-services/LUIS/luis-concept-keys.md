@@ -93,7 +93,7 @@ You can move your LUIS app. Use the following documentation resources in the Azu
 * [Move resource to new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md)
 * [Move resource within same subscription or across subscriptions](../../azure-resource-manager/move-limitations/app-service-move-limitations.md)
 
-To transfer [ownership](../../billing/billing-subscription-transfer.md) of your subscription: 
+To transfer [ownership](../../cost-management-billing/manage/billing-subscription-transfer.md) of your subscription: 
 
 **For users who have migrated - [authoring resource migrated](luis-migration-authoring.md) apps**: As the owner of the resource, you can add a `contributor`.
 

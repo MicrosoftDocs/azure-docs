@@ -44222,6 +44222,156 @@
             "source_path": "articles/billing/billing-how-to-switch-azure-offer.md",
             "redirect_url": "/azure/cost-management-billing/manage/switch-azure-offer",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-mca-check-azure-credits-balance.md",
+            "redirect_url": "/azure/cost-management-billing/manage/mca-check-azure-credits-balance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-mca-request-billing-ownership.md",
+            "redirect_url": "/azure/cost-management-billing/manage/mca-request-billing-ownership",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-mca-section-invoice.md",
+            "redirect_url": "/azure/cost-management-billing/manage/mca-section-invoice",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-mca-enterprise-operations.md",
+            "redirect_url": "/azure/cost-management-billing/manage/mca-enterprise-operations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-mca-understand-pricesheet.md",
+            "redirect_url": "/azure/cost-management-billing/manage/mca-understand-pricesheet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-open-banking-strong-customer-authentication.md",
+            "redirect_url": "/azure/cost-management-billing/manage/open-banking-strong-customer-authentication",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-no-subscriptions-found.md",
+            "redirect_url": "/azure/cost-management-billing/manage/no-subscriptions-found",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-partner-admin-link-started.md",
+            "redirect_url": "/azure/cost-management-billing/manage/link-partner-id",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-payment-features-azure-portal.md",
+            "redirect_url": "/azure/cost-management-billing/manage/account-admin-tasks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-review-enterprise-billing.md",
+            "redirect_url": "/azure/cost-management-billing/manage/review-enterprise-billing",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-review-service-usage-api.md",
+            "redirect_url": "/azure/cost-management-billing/manage/review-service-usage-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-review-subscription-billing.md",
+            "redirect_url": "/azure/cost-management-billing/manage/review-subscription-billing",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-subscription-become-disable.md",
+            "redirect_url": "/azure/cost-management-billing/manage/subscription-disabled",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-spending-limit.md",
+            "redirect_url": "/azure/cost-management-billing/manage/spending-limit",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-subscription-transfer.md",
+            "redirect_url": "/azure/cost-management-billing/manage/billing-subscription-transfer",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-troubleshoot-azure-payment-issues.md",
+            "redirect_url": "/azure/cost-management-billing/manage/billing-troubleshoot-azure-payment-issues",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-troubleshoot-azure-sign-up.md",
+            "redirect_url": "/azure/cost-management-billing/manage/troubleshoot-azure-sign-up",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-troubleshoot-declined-card.md",
+            "redirect_url": "/azure/cost-management-billing/manage/troubleshoot-declined-card",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-troubleshoot-sign-in-issue.md",
+            "redirect_url": "/azure/cost-management-billing/manage/troubleshoot-sign-in-issue",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-ea-roles.md",
+            "redirect_url": "/azure/cost-management-billing/manage/understand-ea-roles",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-mca-roles.md",
+            "redirect_url": "/azure/cost-management-billing/manage/understand-mca-roles",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-vm-reservation-charges.md",
+            "redirect_url": "/azure/cost-management-billing/manage/understand-vm-reservation-charges",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-your-bill-ea.md",
+            "redirect_url": "/azure/cost-management-billing/manage/understand-ea-bill",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-upgrade-azure-subscription.md",
+            "redirect_url": "/azure/cost-management-billing/manage/upgrade-azure-subscription",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-usage-rate-card-overview.md",
+            "redirect_url": "/azure/cost-management-billing/manage/usage-rate-card-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-use-existing-azure-account-for-office-365-subscription.md",
+            "redirect_url": "/azure/cost-management-billing/manage/azure-account-for-office-365-subscription",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-use-existing-office-365-account-azure-subscription.md",
+            "redirect_url": "/azure/cost-management-billing/manage/office-365-account-for-azure-subscription",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-view-all-accounts.md",
+            "redirect_url": "/azure/cost-management-billing/manage/view-all-accounts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/mca-setup-account.md",
+            "redirect_url": "/azure/cost-management-billing/manage/mca-setup-account",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/mpa-request-ownership.md",
+            "redirect_url": "/azure/cost-management-billing/manage/mpa-request-ownership",
+            "redirect_document_id": true
         }
     ]
 }

@@ -30,11 +30,11 @@ Save time and avoid account proliferation by signing up for Azure using your Off
 1. Sign up at [Azure.com](https://account.azure.com/signup?offer=MS-AZR-0044p&appId=docs). 
 2. Sign in by using your Office 365 user name and password. The account you use doesn't need to have administrator permissions. If you have more than one Office 365 account, make sure you use the credentials for the Office 365 account that you want to associate with your Azure subscription. 
 
-   ![Screenshot that shows the sign-in page.](./media/billing-use-existing-office-365-account-azure-subscription/billing-sign-in-with-office-365-account.png)
+   ![Screenshot that shows the sign-in page.](./media/office-365-account-for-azure-subscription/billing-sign-in-with-office-365-account.png)
 
 3. Enter the required information and complete the sign-up process. Some information may not be required if you already have an Office 365 account.
 
-    ![Screenshot that shows the sign-up form.](./media/billing-use-existing-office-365-account-azure-subscription/billing-azure-sign-up-fill-information.png)
+    ![Screenshot that shows the sign-up form.](./media/office-365-account-for-azure-subscription/billing-azure-sign-up-fill-information.png)
 
 - If you need to add other people in your organization to the Azure subscription, see [Get started with access management in the Azure portal](../role-based-access-control/overview.md). 
 
@@ -47,9 +47,9 @@ Office 365 and Azure use the Azure AD service to manage users and subscriptions.
 * Azure subscriptions are owned by individual users in the directory
 * Office 365 subscriptions are owned by the directory itself. Users with the right permissions within the directory can manage these subscriptions.
 
-![Screenshot that shows the relationship of the directory, users, and subscriptions.](./media/billing-use-existing-office-365-account-azure-subscription/19-background-information.png)
+![Screenshot that shows the relationship of the directory, users, and subscriptions.](./media/office-365-account-for-azure-subscription/19-background-information.png)
 
-For more information, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+For more information, see [How Azure subscriptions are associated with Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## Need help? Contact us.
 

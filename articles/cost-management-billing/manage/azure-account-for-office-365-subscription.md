@@ -28,16 +28,16 @@ If you already have both an Office 365 account and an Azure subscription, you ca
 1. Go to the [Office 365 product page](https://products.office.com/business), and select a plan.
 2. Click **Sign in** on the upper-right corner of the page.
 
-    ![screenshot of Office 365 trial page](./media/billing-use-existing-azure-account-office-365-subscription/12-office-365-trial-page.png)
+    ![screenshot of Office 365 trial page](./media/azure-account-for-office-365-subscription/12-office-365-trial-page.png)
 3. Sign in with your Azure account credentials. If you're creating a subscription for your organization, use an Azure account that's a member of the Global Admin or Billing Admin directory role in your Azure Active Directory tenant.
 
-    ![Screenshot of Office 365 sign-in](./media/billing-use-existing-azure-account-office-365-subscription/13-office-365-sign-in.png)
+    ![Screenshot of Office 365 sign-in](./media/azure-account-for-office-365-subscription/13-office-365-sign-in.png)
 4. Click **Try now**.
 
-    ![Screenshot that confirms your order for Office 365.](./media/billing-use-existing-azure-account-office-365-subscription/14-office-365-confirm-your-order.png)
+    ![Screenshot that confirms your order for Office 365.](./media/azure-account-for-office-365-subscription/14-office-365-confirm-your-order.png)
 5. On the order receipt page, click **Continue**.
 
-    ![Screenshot of the Office 365 order receipt](./media/billing-use-existing-azure-account-office-365-subscription/15-office-365-order-receipt.png)
+    ![Screenshot of the Office 365 order receipt](./media/azure-account-for-office-365-subscription/15-office-365-order-receipt.png)
 
 Now you're all set.
 If you created the Office 365 subscription for your organization, use the following steps to check that your Azure AD users are now in Office 365.
@@ -45,26 +45,26 @@ If you created the Office 365 subscription for your organization, use the follow
 1. Open the Microsoft 365 admin center.
 2. Expand **USERS**, and then click **Active Users**.
 
-    ![Screenshot of the Microsoft 365 admin center users](./media/billing-use-existing-azure-account-office-365-subscription/16-microsoft-365-admin-center-users.png)
+    ![Screenshot of the Microsoft 365 admin center users](./media/azure-account-for-office-365-subscription/16-microsoft-365-admin-center-users.png)
 
-After you sign up, the Office 365 subscription is added to the same Azure Active Directory instance that your Azure subscription belongs to. For more information, see [More about Azure and Office 365 subscriptions](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) and [How Azure subscriptions are associated with Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+After you sign up, the Office 365 subscription is added to the same Azure Active Directory instance that your Azure subscription belongs to. For more information, see [More about Azure and Office 365 subscriptions](office-365-account-for-azure-subscription.md#more-about-subs) and [How Azure subscriptions are associated with Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a id="RoleInAzureAD"></a>Check my account permissions in Azure AD
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **All services**, and then search for **Active Directory**.
 
-    ![Screenshot of Active Directory in the Azure portal](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
+    ![Screenshot of Active Directory in the Azure portal](./media/azure-account-for-office-365-subscription/billing-more-services-active-directory.png)
 3. Click **Users and groups** > **All users**.
 4. Select the user name.
 
-    ![Screenshot that shows the Azure Active Directory users](./media/billing-use-existing-azure-account-office-365-subscription/billing-users-groups.png)
+    ![Screenshot that shows the Azure Active Directory users](./media/azure-account-for-office-365-subscription/billing-users-groups.png)
 
 5. Click **Directory role**.
 
-    ![Screenshot that shows the Azure portal directory role](./media/billing-use-existing-azure-account-office-365-subscription/billing-user-directory-role.png)
+    ![Screenshot that shows the Azure portal directory role](./media/azure-account-for-office-365-subscription/billing-user-directory-role.png)
 6.  The role **Global administrator** or **Limited administrator** > **Billing administrator** is required to create an Office 365 subscription for users in your existing Azure Active Directory.
 
-    ![Screenshot that shows Azure portal directory role Billing Admin](./media/billing-use-existing-azure-account-office-365-subscription/billing-directoryrole-limited.png)
+    ![Screenshot that shows Azure portal directory role Billing Admin](./media/azure-account-for-office-365-subscription/billing-directoryrole-limited.png)
 
 ## Need help? Contact us.
 

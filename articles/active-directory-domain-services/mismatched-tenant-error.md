@@ -52,7 +52,7 @@ In this example deployment scenario, the Contoso Azure AD DS managed domain is e
 The following two options resolve the mismatched directory error:
 
 * [Delete the Azure AD DS managed domain](delete-aadds.md) from your existing Azure AD directory. [Create a replacement Azure AD DS managed domain](tutorial-create-instance.md) in the same Azure AD directory as the virtual network you wish to use. When ready, join all machines previously joined to the deleted domain to the recreated managed domain.
-* [Move the Azure subscription](../billing/billing-subscription-transfer.md) containing the virtual network to the same Azure AD directory as the Azure AD DS managed domain.
+* [Move the Azure subscription](../cost-management-billing/manage/billing-subscription-transfer.md) containing the virtual network to the same Azure AD directory as the Azure AD DS managed domain.
 
 ## Next steps
 

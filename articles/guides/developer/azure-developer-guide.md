@@ -332,10 +332,10 @@ In the move from on-premises computing to cloud-hosted services, tracking and es
 
 Azure provides a set of Billing REST APIs that give access to resource consumption and metadata information for Azure subscriptions. These Billing APIs give you the ability to better predict and manage Azure costs. You can track and analyze spending in hourly increments and create spending alerts. You can also predict future billing based on current usage trends.
 
->**Get started**: To learn more about using the Billing APIs, see [Azure Billing Usage and RateCard APIs overview](../../billing-usage-rate-card-overview.md).
+>**Get started**: To learn more about using the Billing APIs, see [Azure Billing Usage and RateCard APIs overview](../../cost-management-billing/manage/usage-rate-card-overview.md).
 
 #### Predict future costs
 
 Although it's challenging to estimate costs ahead of time, Azure has tools that can help. It has a [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help estimate the cost of deployed resources. You can also use the Billing resources in the portal and the Billing REST APIs to estimate future costs, based on current consumption.
 
->**Get started**: See [Azure Billing Usage and RateCard APIs overview](../../billing-usage-rate-card-overview.md).
+>**Get started**: See [Azure Billing Usage and RateCard APIs overview](../../cost-management-billing/manage/usage-rate-card-overview.md).

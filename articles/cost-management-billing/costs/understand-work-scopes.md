@@ -68,7 +68,7 @@ Cost Management Contributor is the recommended least-privilege role. It allows p
 
 Enterprise Agreement (EA) billing accounts, also called enrollments, have the following scopes:
 
-- [**Billing account**](../../billing/billing-view-all-accounts.md) - Represents an EA enrollment. Invoices are generated at this scope. Purchases that aren't usage-based, such as Marketplace and reservations, are only available at this scope. They aren't represented in departments or enrollment accounts.
+- [**Billing account**](../manage/view-all-accounts.md) - Represents an EA enrollment. Invoices are generated at this scope. Purchases that aren't usage-based, such as Marketplace and reservations, are only available at this scope. They aren't represented in departments or enrollment accounts.
 
     Resource type: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 - **Department** - Optional grouping of enrollment accounts.
@@ -99,7 +99,7 @@ Billing users don't have access to management groups because they don't fall exp
 
 Azure subscriptions created from individual offers like pay-as-you-go and related types like Free Trial and dev/test offers, don't have an explicit billing account scope. Instead, each subscription has an account owner or account admin, like the EA account owner.
 
-- [**Billing account**](../../billing/billing-view-all-accounts.md) -
+- [**Billing account**](../manage/view-all-accounts.md) -
 Represents a single account owner for one or more Azure subscriptions. It doesn't currently support granting access to multiple people or access to aggregated cost views.
 
     Resource type: Not applicable

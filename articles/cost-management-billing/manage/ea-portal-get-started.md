@@ -90,7 +90,7 @@ Users with the role can:
 - Manage service administrators
 - View usage for subscriptions
 
-Each account requires a unique Work, School, or Microsoft Account. For more information about Azure EA Portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](../../billing/billing-understand-ea-roles.md).
+Each account requires a unique Work, School, or Microsoft Account. For more information about Azure EA Portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
 
 ### Service administrator
 
@@ -123,7 +123,7 @@ If your EA administrator can't assist you, create an [Azure EA portal support re
 - Email approval from an existing EA administrator
   - If the existing EA admin isn't available, contact your partner or software advisor to request that they change the contact details through the VLSC tool.
 
-For more information about enterprise administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](../../billing/billing-understand-ea-roles.md).
+For more information about enterprise administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
 
 ## Create an Azure EA department
 
