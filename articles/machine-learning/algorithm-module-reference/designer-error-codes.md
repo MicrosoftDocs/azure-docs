@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot module errors
 titleSuffix: "Azure Machine Learning"
-description: Troubleshoot module exceptions in Azure Machine Learning Studio (classic) using error codes
+description: Troubleshoot module exceptions in Azure Machine Learning designer using error codes
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,18 +11,15 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 12/03/2019
 ---
-# Exceptions and error codes for Algorithm & Module Reference
+# Exceptions and error codes for the designer (preview)
 
-Learn about the error messages and exception codes you might encounter using  modules in Azure Machine Learning designer (preview). 
+This article describes the error messages and exception codes in Azure Machine Learning designer (preview) to help you troubleshoot your machine learning pipelines.
 
-To resolve the issue, look for the error in this article to read about common causes. There are two ways to get the full text of an error message in the designer:  
+There are two ways to get the full text of an error message in the designer:  
 
 - Click the link, **View Output Log**, in the right pane and scroll to the bottom. The detailed error message is displayed in the last two lines of the window.  
   
-- Select the module that has the error, and click the red X. Only the pertinent error text is displayed.  
-  
-If the error message text is not helpful, send us information about the context and any desired additions or changes by submitting feedback.
-
+- Select the module that has the error, and click the red X. Only the pertinent error text is displayed.
 
 ## Error 0001  
  Exception occurs if one or more specified columns of data set couldn't be found.  
@@ -469,12 +466,13 @@ For columns that you intend to use for grouping or categorization, take steps to
 
 
 ## Error 0023  
- Exception occurs if target column of input dataset is not valid for the current trainer module.  
 
- This error in Azure Machine Learning  occurs if the target column (as selected in the module parameters) is not of the valid data-type, contained all missing values, or was not categorical as expected.  
+Exception occurs if target column of input dataset is not valid for the current trainer module.  
+
+This error in Azure Machine Learning  occurs if the target column (as selected in the module parameters) is not of the valid data-type, contained all missing values, or was not categorical as expected.  
 
 **Resolution:**
- Revisit the module input to inspect the content of the label/target column. Make sure it does not have all missing values. If the module is expecting target column to be categorical, make sure that there are more than one distinct values in the target column.  
+Revisit the module input to inspect the content of the label/target column. Make sure it does not have all missing values. If the module is expecting target column to be categorical, make sure that there are more than one distinct values in the target column.  
 
 |Exception Messages|
 |------------------------|
@@ -506,7 +504,7 @@ It can also happen that a label column is present in the dataset, but not detect
 ## Error 0025  
  Exception occurs if dataset does not contain a score column.  
 
- This error in Azure Machine Learning occurs if the input to the evaluate model does not contain valid score columns. For example, the user attempts to evaluate a dataset before it was scored with a correct trained model, or the score column was explicitly dropped upstream. This exception also occurs if the score columns on the two datasets are incompatible. For example, you might be trying to compare the accuracy of a linear regressor with that of a binary classifier.  
+ This error in Azure Machine Learning occurs if the input to the evaluate model does not contain valid score columns. For example, the user attempts to evaluate a dataset before it was scored with a correct trained model, or the score column was explicitly dropped upstream. This exception also occurs if the score columns on the two datasets are incompatible. For example, you might be trying to compare the accuracy of a linear regressor with a binary classifier.  
 
 **Resolution:**
  Revisit the input to the evaluate model and examine if it contains one or more score columns. If not, the dataset was not scored or the score columns were dropped in an upstream module.  
@@ -535,7 +533,7 @@ It can also happen that a label column is present in the dataset, but not detect
 ## Error 0027  
  Exception occurs in case when two objects have to be of the same size but are not.  
 
- This is an common error in Azure Machine Learning and can be caused by many conditions.  
+ This is a common error in Azure Machine Learning and can be caused by many conditions.  
 
 **Resolution:**
  There is no specific resolution. However, you can check for conditions such as  the following:  
@@ -571,7 +569,7 @@ It can also happen that a label column is present in the dataset, but not detect
 ## Error 0029  
  Exception occurs in case when invalid URI is passed.  
 
- This error in Azure Machine Learning occurs in case when invalid URI is passed.  You will receive this error if any of the following conditions are true:, or.  
+ This error in Azure Machine Learning occurs in case when invalid URI is passed.  You will receive this error if any of the following conditions are true:  
 
 -   The Public or SAS URI provided for Azure Blob Storage for read or write contains an error.  
   
@@ -644,7 +642,7 @@ It can also happen that a label column is present in the dataset, but not detect
 
 |Exception Messages|
 |------------------------|
-|Argument is must be finite.|
+|Argument must be finite.|
 |"{0}" is not finite.|
 
 
@@ -658,7 +656,7 @@ It can also happen that a label column is present in the dataset, but not detect
 
 |Exception Messages|
 |------------------------|
-|More than one rating exist for the value(s) in dataset.|
+|More than one rating exists for the value(s) in dataset.|
 |More than one rating for user {user} and item {item} in rating prediction data table.|
 |More than one rating for user {user} and item {item} in {dataset}.|
 
@@ -670,7 +668,7 @@ It can also happen that a label column is present in the dataset, but not detect
 
 **Resolution:**
 
-The Matchbox recommender has certain requirements that must be met when using either item features or user features.  This error indicates that a feature vector is missing for a user or item that you provided as input.  You must ensure that a vector of features is available in the data for each user or item.  
+The Matchbox recommender has certain requirements that must be met when using either item features or user features.  This error indicates that a feature vector is missing for a user or item that you provided as input. Ensure that a vector of features is available in the data for each user or item.  
 
  For example, if you trained a recommendation model using features such as the user's age, location, or income, but now want to create scores for new users who were not seen during training, you must provide some equivalent set of features (namely, age, location, and income values) for the new users in order to make appropriate predictions for them. 
 
@@ -823,7 +821,7 @@ Another reason you might get this error if you try to use a column containing fl
  This error in Azure Machine Learning occurs if the input dataset to training does not contain the minimum number of columns required by the algorithm. Typically either the dataset is empty or only contains training columns.  
 
 **Resolution:**
- Revisit the input dataset to make sure there one or more additional columns apart from the label column.  
+ Revisit the input dataset to make sure there are one or more additional columns apart from the label column.  
 
 |Exception Messages|
 |------------------------|
@@ -1284,7 +1282,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 
 |Exception Messages|
 |------------------------|
-|Model could not be deserialized because it is likely serialized with an older serialization format. Please retrain and re-save the model.|
+|Model could not be deserialized because it is likely serialized with an older serialization format. Please retrain and resave the model.|
 
 
 ## Error 0083  
@@ -1488,7 +1486,7 @@ Resolution:
 
 
 ## Error 0154  
- Exception occurs when user try to join data on key columns with incompatible column type.
+ Exception occurs when user tries to join data on key columns with incompatible column type.
 
 |Exception Messages|
 |------------------------|

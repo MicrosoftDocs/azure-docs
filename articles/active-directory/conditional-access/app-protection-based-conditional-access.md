@@ -329,7 +329,7 @@ Any Intune app protection policies are required before access is granted to corp
 
 ### Configuration
 
-**Step 1: Configure an Azure AD Conditional Access policy for Exchange Online**
+**Step 1: Configure an Azure AD Conditional Access policy for Exchange Online and SharePoint Online**
 
 For the Conditional Access policy in this step, configure the following components:
 
@@ -337,7 +337,7 @@ For the Conditional Access policy in this step, configure the following componen
 
 1. Enter the name of your Conditional Access policy.
 1. Under **Assignments**, in **Users and groups**, select at least one user or group for each Conditional Access policy.
-1. In **Cloud apps**, select **Office 365 Exchange Online**. 
+1. In **Cloud apps**, select **Office 365 Exchange Online** and **Office 365 SharePoint Online**. 
 
    ![Conditional Access](./media/app-protection-based-conditional-access/02.png)
 
