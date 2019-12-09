@@ -34102,6 +34102,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/concept-mfa-get-started.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-mfa-get-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/concept-conditional-access-block-legacy-authentication.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-block-legacy-authentication",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/concept-conditional-access-security-defaults.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-security-defaults",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.experimental.md",
       "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-app-passwords",
       "redirect_document_id": false
