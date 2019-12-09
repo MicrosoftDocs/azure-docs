@@ -13443,6 +13443,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/algorithm-module-reference/machine-learning-module-error-codes.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/designer-error-codes",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-use-data-from-an-on-premises-sql-server.md",
       "redirect_url": "/azure/machine-learning/studio/use-data-from-an-on-premises-sql-server",
       "redirect_document_id": false
