@@ -22,7 +22,7 @@ If you already know the translation you want to apply to a word or a phrase, you
 
 **Requirements:**
 
-* The `From` and `To` languages must include English and another language. 
+* The `From` and `To` languages must include English and another supported language. 
 * You must include the `From` parameter in your API translation request instead of using the auto-detect feature. 
 
 **Example: en-de:**
