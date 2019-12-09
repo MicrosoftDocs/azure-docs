@@ -18,7 +18,6 @@ ms.author: takamath
 ---
 
 # Enable browser connection on lab virtual machines 
-
 DevTest Labs integrates with [Azure Bastion](https://docs.microsoft.com/azure/bastion/), which enables you to connect to your virtual machines through a browser. You first need to enable browser connection on lab virtual machines.
 
 As an owner of a lab you can enable accessing all lab virtual machines through a browser. You don't need an additional client, agent, or piece of software. Azure Bastion provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines don't need a public IP address. For more information, see [What is Azure Bastion?](../bastion/bastion-overview.md)
@@ -31,7 +30,15 @@ Either deploy a Bastion host in your existing lab's virtual network **(OR)** con
 
 To learn how to deploy a Bastion host in a VNet, see  [Create an Azure Bastion host](../bastion/bastion-create-host-portal.md). When creating the Bastion host, select the lab's virtual network. 
 
-To learn how to connect your lab with a Bastion configured VNet, see [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md). Select the VNet that has the Bastion host deployed and the **AzureBastionSubnet** in it. Here are the detailed steps: 
+First, you need to create a second subnet in the Bastion VNet because the AzureBastionSubnet doesn't allow creation of non-Bastion resources in it. 
+
+## Create a second sub net in the Baston VNet
+You can't create lab VMs in an Azure Bastion subnet. Create another subnet within the Bastion VNet as shown in the following image:
+
+![Second subnet in Azure Bastion VNet](./media/connect-virtual-machine-through-browser/second-subnet.png)
+
+## Enable VM creation in the subnet
+Now, enable the creation of VMs in this subnet by following these stesp: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **All Services** on the left navigational menu. 
@@ -45,9 +52,9 @@ To learn how to connect your lab with a Bastion configured VNet, see [Configure 
 1. Select **Virtual networks**.
 1. Select **Add** from the toolbar. 
 1. Select the **VNet** that has the Bastion host deployed. 
-1. Select the subnet: **AzureBastionSubnet**. 
+1. Select the subnet for VMs, not the **AzureBastionSubnet**, the other one you created earlier. Close the page and reopen it if you don't see the subnet in the list at the bottom. 
 
-    ![Subnet](./media/enable-browser-connection-lab-virtual-machines/subnet.png)
+    ![Enable VM creation in the subnet](./media/connect-virtual-machine-through-browser/enable-vm-creation-subnet.png)
 1. Select **Use in virtual machine creation** option. 
 1. Select **Save** on the toolbar. 
 1. If you have an old VNet for the lab, remove it by selecting **...*  and **Remove**. 
