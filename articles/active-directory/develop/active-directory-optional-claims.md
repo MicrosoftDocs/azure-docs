@@ -144,7 +144,7 @@ You can configure optional claims for your application through the UI or applica
 4. Select the optional claims to add
 5. Click **Add**
 
-**Configuring optional cliams through the application manifest:**
+**Configuring optional claims through the application manifest:**
 
 [![Shows how to configure optional claims using the app manifest](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
@@ -152,9 +152,7 @@ You can configure optional claims for your application through the UI or applica
 
     The following application manifest entry adds the auth_time, ipaddr and upn optional claims to ID, access and SAML tokens.
 
-
-
-        ```json
+	```json
         "optionalClaims":  
            {
               "idToken": [
@@ -181,7 +179,7 @@ You can configure optional claims for your application through the UI or applica
                        }
                ]
            }
-        ```
+	```
 
 2. When finished, click **Save**. Now the specified optional claims will be included in the tokens for your application.    
 
@@ -245,7 +243,7 @@ This section covers the configuration options under optional claims for changing
 1. Select the application you want to configure optional claims for in the list
 1. Under the **Manage** section, select **Token configuration (preview)**
 2. Select **Add groups claim**
-3. Select the group types to return (All Groups, SecurityGroup or DirectoryRole). Note: the 'All Groups' option includes SecurityGroup, DirectoryRole and DistributionList
+3. Select the group types to return (**All Groups**, **SecurityGroup** or **DirectoryRole**). Note: the **All Groups** option includes **SecurityGroup**, **DirectoryRole** and **DistributionList**
 4. Optional: click on the specific token type properties to modify the groups claim value to contain on premises group attributes or to change the claim type to a role
 5. Click **Save**
 
@@ -314,7 +312,7 @@ This section covers the configuration options under optional claims for changing
     
     **UI configuration:**
 
-        [![Shows how to configure optional claims using the UI](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
+    [![Shows how to configure optional claims using the UI](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
 
     **Application manifest entry:**
@@ -333,7 +331,7 @@ This section covers the configuration options under optional claims for changing
 
     **UI configuration:**
 
-          [![Shows how to configure optional claims using the UI](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
+    [![Shows how to configure optional claims using the UI](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
 
     **Application manifest entry:**
     ```json
