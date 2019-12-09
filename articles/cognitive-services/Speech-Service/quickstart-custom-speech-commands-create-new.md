@@ -45,7 +45,7 @@ The default view is a list of the Custom Commands applications you created.
    > [!div class="mx-imgBorder"]
    > ![Create a project](media/custom-speech-commands/create-new-project.png)
 
-1. Enter the project name and language
+1. Enter the project name and language.
 1. Select an authoring resource (if there are no valid authoring resources, create one by clicking **Create new resource**)
 
    > [!div class="mx-imgBorder"]
