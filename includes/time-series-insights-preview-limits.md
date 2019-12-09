@@ -4,7 +4,7 @@ description: include file
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 10/16/2019
+ms.date: 12/06/2019
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
