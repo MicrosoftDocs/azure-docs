@@ -18,9 +18,9 @@ ms.author: alkohli
 
 This tutorial describes how to create and manage a VM on your Azure Stack Edge device using Azure PowerShell.
 
-## VM deployment workflow
+<!--## VM deployment workflow
 
-<!--insert a diagram here for steps in VM deployment-->
+insert a diagram here for steps in VM deployment-->
 
 ## Prerequisites
 
@@ -31,7 +31,10 @@ This tutorial describes how to create and manage a VM on your Azure Stack Edge d
 
 For Azure Resource Manager, only a single user-visible fixed subscription is supported. This subscription is unique per device and this subscription name or subscription ID cannot be changed.
 
-This subscription contains all the resources that are created required for VM creation. This subscription is not connected or related to your Azure subscription and lives locally on your device.
+This subscription contains all the resources that are created required for VM creation. 
+
+> [!IMPORTANT]
+> This subscription is not connected or related to your Azure subscription and lives locally on your device.
 
 This subscription will be used to deploy the VMs.
 
@@ -382,9 +385,9 @@ $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -Id $image
 New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $VirtualMachine -Verbose
 ```
 
-## Connect to a VM
+<!--## Connect to a VM
 
-After you have deployed a VM< you will connect to this VM.
+After you have deployed a VM< you will connect to this VM.-->
 
 ## Manage VM
 
@@ -434,13 +437,10 @@ For more information on this cmdlet, go to [Remove-AzureRmVm cmdlet](https://doc
 
 To return a list of all the VMs running on your Azure Stack Edge device, run the following command.
 
-```powershell
-Get-AzureRmVM -ResourceGroupName <String> -Name <String>
-```  
+    ```powershell
+    Get-AzureRmVM -ResourceGroupName <String> -Name <String>
+    ```  
 
-### Unsupported VM operations and cmdlets
-
-Extension, scale sets, availability sets, snapshots are not supported.
 
 ## Supported VM sizes
 
@@ -461,5 +461,11 @@ The following Standard Dv2 series VMs are supported for creation on Azure Stack 
 
 For more information, go to [Dv2 series on General Purpose VM sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dv2-series).
 
+## Unsupported VM operations and cmdlets
+
+Extension, scale sets, availability sets, snapshots are not supported.
+
+
 ## Next steps
 
+[Azure Resource Manager cmdlets](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
