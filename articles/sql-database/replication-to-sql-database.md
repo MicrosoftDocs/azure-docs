@@ -26,7 +26,8 @@ SQL Server replication can be configured to single and pooled databases on a [SQ
 
 ## Versions  
 
-- The publisher and distributor must be at least at one of the following versions:  
+The publisher and distributor must be at least at one of the following versions:  
+- SQL Server 2019 (15.x)
 - SQL Server 2017 (14.x)
 - SQL Server 2016 (13.x)
 - SQL Server 2014 (12.x) SP1 CU3
