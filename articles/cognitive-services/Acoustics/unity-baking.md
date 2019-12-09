@@ -14,237 +14,243 @@ ms.author: noelc
 ROBOTS: NOINDEX
 ---
 # Project Acoustics Unity Bake Tutorial
-This tutorial describes acoustics baking with Project Acoustics in Unity.
+This tutorial describes acoustics baking by using Project Acoustics in Unity.
 
 Software requirements:
 * [Unity 2018.2+](https://unity3d.com) for Windows or MacOS
-* [Project Acoustics plugin integrated in your Unity project](unity-integration.md) or the [Project Acoustics Unity sample content](unity-quickstart.md)
-* Optional: An [Azure Batch account](create-azure-account.md) to accelerate bakes using cloud computing
+* [Project Acoustics plug-in integrated in your Unity project](unity-integration.md) or the [Project Acoustics Unity sample content](unity-quickstart.md)
+* *Optional:* An [Azure Batch account](create-azure-account.md) to accelerate bakes by using cloud computing
 
 ## Open the Project Acoustics bake window
-Choose **Window > Acoustics** from the Unity menu:
+In Unity, select **Acoustics** from the **Window** menu.
 
-![Screenshot of Unity editor with Acoustics window menu option highlighted](media/window-acoustics.png)
+![The Unity editor with the Acoustics option highlighted on the Window menu](media/window-acoustics.png)
 
 ## Create a navigation mesh
-Project Acoustics uses a navigation mesh to place listener probe points for simulation. You can use Unity's [navigation mesh workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html), or use another 3D modeling package to design your own mesh. 
+Project Acoustics uses a navigation mesh to place listener probe points for simulation. You can use the Unity [navigation mesh workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html). Or you can use a different 3D modeling package to design your own mesh.
 
 ## Mark acoustic scene objects
-Project Acoustics relies on two types of scene objects for simulation: the objects that will reflect and occlude sound in the simulation, and the player navigation mesh that constrains listener probe points in simulation. Both object types are marked using the **Objects** tab. 
+Project Acoustics relies on two types of scene objects for simulation:
+- The objects that reflect and occlude sound in the simulation
+- The player navigation mesh that constrains listener probe points in simulation
 
-Because marking objects simply adds the **AcousticsGeometry** or **AcousticsNavigation** components to the object, you can also use the [standard Unity component workflow](https://docs.unity3d.com/Manual/UsingComponents.html) to mark or unmark objects. Only Mesh Renderers and Terrains can be marked. All other object types will be ignored. The checkboxes will mark or unmark all of the affected objects.
+Both object types are marked by using the **Objects** tab.
+
+Because marking objects simply adds the *AcousticsGeometry* or *AcousticsNavigation* components to the object, you can also use the [standard Unity component workflow](https://docs.unity3d.com/Manual/UsingComponents.html) to mark or unmark objects. You can only mark mesh renderers and terrains. All other object types will be ignored. The check boxes mark or unmark all affected objects.
 
 ### Mark acoustic occlusion and reflection geometry
-Open the **Objects** tab of the **Acoustics** window. Mark any objects as **Acoustics Geometry** if they should occlude, reflect, or absorb sound. Acoustics geometry can include things like ground, walls, roofs, windows & window glass, rugs, and large furniture. You can use any arbitrary level of complexity for these objects. Because the scene is voxelized before simulation, highly detailed meshes, such as trees with many small leaves, aren't more costly to bake than simplified objects.
+Open the **Objects** tab of the **Acoustics** window. Mark any objects as *Acoustics Geometry* if they should occlude, reflect, or absorb sound. Acoustics geometry can include things like ground, walls, roofs, windows and window glass, rugs, and large furniture. You can use any arbitrary level of complexity for these objects. Because the scene is voxelized before simulation, highly detailed meshes, such as trees that have many leaves, aren't more costly to bake than simplified objects.
 
 Don't include things that shouldn't affect the acoustics, such as invisible collision meshes.
 
-An object's transform at the time of the probe calculation (via the **Probes** tab, below) is fixed in the bake results. Moving any of the marked objects in the scene will require redoing the probe calculation and rebaking the scene.
+An object's transform during probe calculation (through the **Probes** tab) is fixed in the bake results. If any marked objects in the scene are moved later, probe calculation and baking have to be redone.
 
 ### Mark the navigation mesh
-Navigation meshes created with Unity's workflow will be picked up by the acoustics system. To use your own meshes, mark them from the **Objects** tab.
+Navigation meshes that were created through the Unity workflow will be picked up by the Acoustics system. To use your own meshes, mark them from the **Objects** tab.
 
 ### For reference: The Objects tab parts
-The parts of the tab page are:
+The parts of the tab page (pictured after the descriptions) are:
 
-1. The tab selection buttons (**Objects** tab selected). Use these buttons to walk through the various steps of doing an acoustics bake, from left to right.
-2. A brief description of what you need to do using this page.
-3. Available filters for the hierarchy window. Use this to filter the hierarchy window to objects of the specified type so you can more easily mark them. If you have not yet marked anything for acoustics, selecting the last two options will show you nothing. However, they can be useful to find marked objects once you have done so.
-4. When no objects are selected, this section shows the status of all objects in the scene:
-    * Total - The total number of active, non-hidden objects in the scene.
-    * Ignored - The number of objects that are not Mesh Renderers or Terrains.
-    * Mesh - The number of Mesh Renderer objects in the scene
-    * Terrain - The number of Terrain objects in the scene
-    * Geometry - The number of Mesh or Terrain objects in the scene marked as "Acoustics Geometry"
-    * Navigation - The number of Mesh or Terrain objects in the scene marked as "Acoustics Navigation". This number doesn't include Unity's NavMesh.
-5. Shows the total number of 'mark-able' objects in the scene, which is only Mesh Renderers and Terrains. Shows checkboxes you can use to mark (add the appropriate component to) those objects as geometry or navigation for acoustics
-6. When nothing is selected, this note reminds you to select objects for marking if needed. You can also check one or both checkboxes to mark all the objects in the scene without selecting anything.
-7. When objects are selected, this section shows the status of only the selected objects.
-8. Shows the total number of 'mark-able' selected objects. Checking or unchecking the checkboxes will mark or unmark only the selected objects.
+1. The tab selection buttons (with the **Objects** tab selected). Use these buttons to move through the various steps of an acoustics bake, from left to right.
+1. A brief description of what you can do by using this tab.
+1. Available filters for the hierarchy window. Use these options to filter the hierarchy window to objects of the specified type so that you can easily mark them. If you haven't yet marked anything for acoustics, selecting the last two options will show you nothing. However, these options help you find objects after they're marked.
+1. When no objects are selected, this section shows the status of all objects in the scene.
+    * Total: The total number of active, non-hidden objects.
+    * Ignored: The number of objects that aren't mesh renderers or terrains.
+    * Mesh: The number of mesh renderer objects.
+    * Terrain: The number of terrain objects.
+    * Geometry: The number of mesh or terrain objects that are marked as **Acoustics Geometry**.
+    * Navigation: The number of mesh or terrain objects marked as **Acoustics Navigation**. This number doesn't include the Unity NavMesh.
+1. The total number of "markable" objects in the scene, which are only mesh renderers and terrains. Use the check boxes to mark (add the appropriate component to) those objects as geometry or navigation for acoustics.
+1. When nothing is selected, this note reminds you to select objects for marking, if needed. You can also select one or both check boxes to mark all the objects in the scene.
+1. When objects are selected, this section shows the status of only the selected objects.
+1. The total number of "markable" selected objects. Selecting or clearing the check boxes marks or unmarks only the selected objects.
 
-If you have nothing selected in your scene, the Objects tab will look like the following picture:
+If you have nothing selected in your scene, the **Objects** tab looks like the following picture.
 
-![Screenshot of Acoustics Objects tab with no selection](media/objects-tab-no-selection-detail.png)
+![The Acoustics Objects tab with nothing selected](media/objects-tab-no-selection-detail.png)
 
-If you have something selected in your scene or hierarchy window, it will look like the following picture:
+If you have something selected in your scene or hierarchy window, the tab looks like the following picture.
 
-![Screenshot of Acoustics Objects Tab with selection shown](media/objects-tab-selection-detail.png)
+![The Acoustics Objects tab with selections](media/objects-tab-selection-detail.png)
 
-If some objects are marked and some aren't, the appropriate checkbox will show a "mixed" value:
+If some objects are marked and some aren't, the appropriate check boxes show a "mixed" value, like the following picture.
 
-![Screenshot of Acoustics Objects tab with mixed selection icon highlighted](media/mixed-object-selection-detail.png)
+![The Acoustics Objects tab with a mixed selection of icons highlighted](media/mixed-object-selection-detail.png)
 
-Clicking the checkbox will force all objects to be marked, and clicking again will unmark all the objects.
+Select the check box to mark all the items. Unselect it to unmark all the objects.
 
 Objects can be marked for both geometry and navigation.
 
 ## Select acoustic materials
-Once your objects are marked, click the **Materials** button and assign acoustic materials. The Project Acoustics materials system is tied to the Unity visual materials system: for two objects to have separate acoustic materials, they must have separate visual materials.
+After your objects are marked, select the **Materials** button. Then assign acoustic materials. The Project Acoustics materials system is tied to the Unity visual materials system. For two objects to have separate acoustic materials, they must have separate visual materials.
 
-The acoustic materials control the amount of sound energy reflected back from each surface. The default acoustic material has absorption similar to concrete. Project Acoustics suggests materials based on the visual material name. You can assign the acoustic material 'Custom' to a material to enable an absorption coefficient slider.
+The acoustic material selection determines the amount of sound energy that's reflected back from each surface. The default acoustic material has absorption similar to steel. Project Acoustics suggests materials based on the visual material name. You can also assign the acoustic material **Custom** to a material to activate an adjustable absorption-coefficient slider.
 
-The reverberation time of a given material in a room is inversely related to its absorption coefficient, with most materials having absorption values in the 0.01 to 0.20 range. Materials with absorption coefficients outside this range are very absorbent.
+The reverberation time of a given material in a room is inversely related to its absorption coefficient. Most materials have absorption values in a range of 0.01 to 0.20. Materials that have absorption coefficients outside this range are very absorbent.
 
-![Graph showing negative correlation of reverberation time with absorption coefficient](media/reverb-time-graph.png)
+![A graph shows the negative correlation of the reverberation time and the absorption coefficient.](media/reverb-time-graph.png)
 
 ### For reference: Parts of the Materials tab
-![Screenshot of Acoustics Materials tab in Unity](media/materials-tab-detail.png)
-
-1. The **Materials** tab button, used to bring up this page.
-2. A brief description of what you need to do using this page.
-3. When checked, only materials used by objects marked as **Acoustics Geometry** will be listed. Otherwise, all materials used in the scene will be listed.
-4. Use these options to change the order of the dropdown menu that is shown when you click a dropdown in the Acoustics column below (#6). **Name** sorts the acoustic materials by name. "Absorptivity" sorts them in order of absorptivity from low to high.
-5. The list of materials used in the scene, sorted alphabetically. If the **Show Marked Only** checkbox is checked (#3), only materials used by objects marked as **Acoustics Geometry** are shown. Clicking on a material here will select all objects in the scene that use that material.
-6. Shows the acoustic material that the scene material has been assigned to. Click a dropdown to reassign a scene material to a different acoustic material. You can change the sorting order of the menu shown when you click an item here using the **Sort Acoustics By:** options above (#4).
-7. Shows the acoustic absorption coefficient of the material selected in the previous column. A value of zero means perfectly reflective (no absorption), while a value of 1 means perfectly absorptive (no reflection). The absorption coefficient can't be changed unless the selected material is "Custom".
-8. For a material assigned to "Custom", the slider is no longer disabled and you can choose the absorption coefficient using the slider or by typing in a value.
+![The Acoustics Materials tab in Unity](media/materials-tab-detail.png)
+1. The **Materials** button displays this tab.
+2. A brief description of what you can do by using this tab.
+3. When this check box is selected, only materials that are used by objects marked as **Acoustics Geometry** are listed. Otherwise, all materials that are used in the scene are listed.
+4. Use these options to change the order of the options on a menu in the **Acoustics** column (#6). Sort acoustic materials by **Name** or by **Absorptivity**, from low to high.
+5. An alphabetically sorted list of materials that are used in the scene. If the **Show Marked Only** check box is selected (#3), only materials used by objects marked as **Acoustics Geometry** are shown. Select a material here to select all objects in the scene that use that material.
+6. The acoustic material that the scene material has been assigned to. Select any item to change the acoustic material assigned to that scene material. To change the sorting order of these menus, use the **Sort Acoustics By** options (#4).
+7. The acoustic absorption coefficient of the material selected in the column to the left (#6). A value of 0 means perfectly reflective (no absorption), while 1 means perfectly absorptive (no reflection). The absorption coefficient can't be changed unless the selected material is **Custom.**
+8. For a material marked as **Custom**, the slider is activated. You can move the slider or type a value to assign an absorption coefficient.
 
 ## Calculate and review listener probe locations
-After assigning the materials, switch to the **Probes** tab and click **Calculate** to place listener probe points for simulation.
+After you assign the materials, switch to the **Probes** tab. Select **Calculate** to place listener probe points for simulation.
 
-### What the "Calculate..." button calculates
-The **Calculate...** button uses your selected acoustic scene geometry to prepare your scene for simulation:
+### What the "Calculate" button does
+The **Calculate** button uses your selected acoustic scene geometry to prepare your scene for simulation:
 
-1. It takes the geometry from the scene meshes and calculates a voxel volume. The voxel volume is a 3-dimensional volume that encloses your entire scene, and is made up of small cubic "voxels". The size of the voxels is determined by the simulation frequency, which is set by the **Simulation Resolution** setting. Each voxel is marked as being either "open air" or containing scene geometry. If a voxel contains geometry then the voxel is tagged with the absorption coefficient of the material assigned to that geometry.
-2. It uses the navigation mesh(es) to place listener probe points. The algorithm balances the competing concerns of spatial coverage and simulation time and file size, while ensuring that narrow corridors and small spaces always have some amount of coverage. Typical probe point counts range from 100 for small scenes to a few thousand for large scenes.
+- It takes the geometry from the scene meshes and calculates a *voxel volume*. The voxel volume is a volume of your entire scene comprised of small cubic "voxels." Voxel size is determined by the simulation frequency, which is controlled by the **Simulation Resolution** setting. Each voxel is marked as "open air" or containing scene geometry. If a voxel contains geometry, the voxel is tagged with the absorption coefficient of the material that's assigned to that geometry.
+- It uses the navigation meshes to place listener probe points. The algorithm balances the competing concerns of spatial coverage and simulation time and file size. It aims to ensure that narrow corridors and small spaces always have some coverage. Typical probe point counts range from 100 for small scenes to a few thousand for large scenes.
 
 Depending on the size of your scene and the speed of your machine, these calculations can take several minutes.
 
 ### Review voxel and probe placement
-Preview both the voxel data and the probe point locations to ensure you're ready to bake your scene. An incomplete navigation mesh or missing or extra acoustic geometry will usually be quickly visible in the preview. Voxel and probe placement can be enabled or disabled using the Gizmos menu:
+Preview both the voxel data and probe point locations to make sure you're ready to bake your scene. An incomplete navigation mesh or missing or extra acoustic geometry is usually easily visible in the preview. Enable or disable voxel and probe placement by using the **Gizmos** menu.
 
-![Screenshot of Gizmos menu in Unity](media/gizmos-menu.png)
+![The Gizmos menu in Unity](media/gizmos-menu.png)
 
-Voxels containing acoustic geometry are shown as green cubes. Explore your scene and verify that everything that should be geometry has voxels. The scene camera has to be within about 5 meters of the object for the voxels to show.
+Voxels that contain acoustic geometry are shown as green cubes. Explore your scene, and verify that everything that should be geometry has voxels. The scene camera has to be within about 5 meters of the object for the voxels to show.
 
-If you compare the voxels created with coarse resolution vs fine resolution, you will see that the coarse voxels are twice as large.
+If you compare voxels created with coarse resolution versus fine resolution, you'll see that the coarse voxels are twice as large.
 
-![Screenshot of coarse voxels preview in Unity editor](media/voxel-cubes-preview.png)
+![The coarse voxels preview in the Unity editor](media/voxel-cubes-preview.png)
 
-Simulation results are interpolated between listener probe point locations at runtime. Check there are probe points near any place the player is expected to travel in the scene.
+Simulation results are interpolated between listener probe point locations at runtime. Check that there are probe points near any places where the player is expected go in the scene.
 
-![Screenshot of probes preview in Unity editor](media/probes-preview.png)
+![The probes preview in the Unity editor](media/probes-preview.png)
 
 ### Take care with scene renames
-The scene name is used to connect the scene to files storing the probe point placement and voxelization. If the scene is renamed after probe points are calculated, the material assignment and placement data is lost and should be rerun.
+The scene name is used to connect the scene to files that store the probe point placement and voxelization. If you rename the scene after probe points are calculated, the material assignment and placement data are lost and should be rerun.
 
 ### For reference: Parts of the Probes tab
-![Screenshot of Acoustics Probes tab in Unity](media/probes-tab-detail.png)
+![The Acoustics Probes tab in Unity](media/probes-tab-detail.png)
 
-1. The **Probes** tab button used to bring up this page
-2. A brief description of what you need to do using this page
-3. Use these to choose a coarse or fine simulation resolution. Coarse is faster, but has certain tradeoffs. See [Bake Resolution](bake-resolution.md) below for details.
-4. Choose the location where the acoustics data files should be placed using this field. Click the button with "..." to use a folder picker. The default is **Assets/AcousticsData**. An **Editor** subfolder will also be created under this location. For more information about data files, see [Data Files](#Data-Files) below.
-5. The data files for this scene will be named using the prefix provided here. The default is "Acoustics_[Scene Name]".
-6. After the probes have been calculated, the controls above will be disabled. Click the **Clear** button to erase the calculations and enable the controls so that you can recalculate using new settings.
-7. Click the **Calculate...** button to voxelize the scene and calculate the probe point locations. This is done locally on your machine, and must be done prior to doing a bake.
+1. The **Probes** button brings up this tab.
+2. A brief description of what you can do on this tab.
+3. Use these options to set coarse or fine simulation resolution. Coarse is faster, but there are  tradeoffs. For details, see [Bake resolution](bake-resolution.md).
+4. Specifies where to put acoustics data files. Select the "**...**" button to access a folder picker. The default location is *Assets/AcousticsData*. An *Editor* subfolder is also created at this location. For more information, see [Data files added by the bake process](#Data-Files), later in this article.
+5. The prefix that's specified here is used to name the  data files for this scene. The default is "Acoustics_*[Scene Name]*".
+6. After the probes are calculated, the controls that we just described are disabled. Select the **Clear** button to erase the calculations and enable the controls so you can recalculate with new settings.
+7. Select **Calculate** to voxelize the scene and calculate probe point locations. Calculation is done locally on your machine. It must be done before doing a bake.
 
-In this version of Project Acoustics, probes can't be placed manually and must be placed through the automated process provided in the **Probes** tab.
+In this version of Project Acoustics, probes can't be placed manually. Use the automated process on the **Probes** tab.
 
-See [Bake Resolution](bake-resolution.md) for more details on coarse vs fine resolution.
+For more information about coarse versus fine resolution, see [Bake resolution](bake-resolution.md).
 
-## Bake your scene using Azure Batch
-You can bake your scene with a compute cluster in the cloud using the Azure Batch service. The Project Acoustics Unity plugin connects directly to Azure Batch to instantiate, manage, and tear down an Azure Batch cluster for each bake. On the **Bake** tab, enter your Azure credentials, select a cluster machine type and size, and click **Bake**.
+## Bake your scene by using Azure Batch
+You can bake your scene on a compute cluster in the cloud by using the Azure Batch service. The Project Acoustics Unity plug-in connects directly to Azure Batch to instantiate, manage, and tear down an Azure Batch cluster for each bake. On the **Bake** tab, enter your Azure credentials, select a cluster machine type and size, and then select **Bake**.
 
 ### For reference: Parts of the Bake tab
-![Screenshot of Acoustics Bake tab in Unity](media/bake-tab-details.png)
+![The Acoustics Bake tab in Unity](media/bake-tab-details.png)
 
-1. The Bake Tab button used to bring up this page.
-2. A brief description of what to do on this page.
-3. Fields to enter your Azure Credentials once your Azure account has been created. For more information, see [Create an Azure Batch Account](create-azure-account.md).
-4. Docker image tag for the acoustics toolset.
-5. Launch Azure portal to manage your subscriptions, monitor usage and view billing information etc. 
-6. Azure batch compute node type to use for the calculation. The node type must be supported by your Azure data center location. If not sure, leave at **Standard_F8s_v2**.
-7. Number of nodes to use for this calculation. The number you enter here affects the time to complete the bake and is limited by your Azure Batch core allocation. The default allocation only allows for two 8 core nodes or one 16 core node, but can be expanded. For more information on core allocation constraints, see [Create an Azure Batch Account](create-azure-account.md).
-8. Select this checkbox to configure your compute pool to use [low-priority nodes](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Low-priority compute nodes have much lower cost but they may not always be available or may be preempted at any time.
-9. The probe count for your scene as calculated on the **Probes** tab. The number of probes determines the number of simulations that need to be run in the cloud. You cannot specify more nodes than there are probes.
-10. The amount of elapsed time it's expected to take for your job to run in the cloud. This does not include node startup time. Once the job starts running, this is about how long it should be before you get back the results. Note that this is only an estimate.
-11. The total amount of computing time needed to run the simulations. This is the total amount of node compute time that will be used in Azure. See [Estimating bake cost](#Estimating-bake-cost) below for more information on using this value.
-12. This message tells you where the results of the bake will be saved once the job completes.
-13. (Advanced Use Only) If for some reason you need to force Unity to forget about a bake you submitted (e.g. you downloaded the results using another machine), click the **Clear State** button to forget about the job that was submitted. Note that this means the result file, when ready, will **not** be downloaded, and **this is not the same as canceling the job**. The job, if running, will continue to run in the cloud.
-14. Click the **Bake** button to submit the bake to the cloud. While a job is running, this shows **Cancel Job** instead.
-15. Prepares for processing [acoustics simulation on your PC](#Local-bake).
-16. This area shows the status of the bake. When completed, it should show **Downloaded**.
+1. The **Bake** button displays this tab.
+2. A brief description of what you can do on this page.
+3. Enter your Azure credentials in these fields, after your Azure account is created. For more information, see [Create an Azure Batch account](create-azure-account.md).
+4. The Docker image tag field for the Acoustics toolset.
+5. Opens the Azure portal to manage your subscriptions, monitor usage, and view billing information.
+6. Specifies the Azure Batch compute node type to use for calculation. The node type must be supported by your Azure datacenter location. If you're not sure, leave as **Standard_F8s_v2**.
+7. The number of nodes to use for the calculation. This number affects the bake time. It's limited by your Azure Batch core allocation. The default allocation only allows for two 8-core nodes or one 16-core node, but it can be expanded. For more information about core allocation constraints, see [Create an Azure Batch account](create-azure-account.md).
+8. Select this check box to configure your compute pool to use [low-priority nodes](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Low-priority compute nodes have much lower cost. But they may not always be available or may be preempted at any time.
+9. The probe count for your scene as calculated on the **Probes** tab. The number of probes determines the number of simulations that have to be run in the cloud. You can't specify more nodes than there are probes.
+10. An estimate of the time that your job will take to run in the cloud, excluding node startup time. After the job starts running, this field shows an estimate of how long until you get back the results.
+11. The total amount of computing time needed to run the simulations. This value is the total amount of node compute time that will be used in Azure. For more information, see [Estimate Azure bake cost](#Estimating-bake-cost) later in this article.
+12. This message tells you where the results of the bake will be saved when the job is finished.
+13. *(Advanced use only:)* This button forces Unity to forget about a bake that you submitted. For example, if you downloaded the results by using another machine, select the **Clear State** button to forget that job. The result file, when ready, will *not* be downloaded. *This is not the same as canceling the job. The job, if running, will continue to run in the cloud.*
+14. Select this button to submit the bake to the cloud. While a job is running, this button becomes **Cancel Job**.
+15. Select this button to prepare for processing [acoustics simulation on your PC](#Local-bake).
+16. This area shows the status of the bake. When the bake is completed, it shows "Downloaded."
 
-You can always get complete information about active jobs, compute pools, and storage at the [Azure portal](https://portal.azure.com).
+You can always get complete information about active jobs, compute pools, and storage in the [Azure portal](https://portal.azure.com).
 
-While a job is running the **Bake** button changes to **Cancel Job**. Use this button to cancel the job in progress. You will be asked to confirm before the job is canceled. Canceling a job cannot be undone, no results will be available, and you will still be charged for any Azure compute time used.
+While a job is running, the **Bake** button label changes to **Cancel Job**. Use this button to cancel the job that's in progress. You'll be prompted to confirm. Canceling a job can't be undone. When you cancel, no results will be available, but you'll still be charged for any Azure compute time used.
 
-Once you've started a bake, you can close Unity. Depending on the project, node type, and number of nodes, a cloud bake can take several hours. The bake job status will be updated when you reload the project and open the Acoustics window. If the job has completed, the output file will be downloaded.
+After you've started a bake, you can close Unity. Depending on the project, node type, and number of nodes, a cloud bake can take several hours. The bake job status will be updated when you reload the project and open the Acoustics window. If the job is completed, the output file will be downloaded.
 
-The Azure credentials are stored securely on your local machine and associated with your Unity editor. They are used solely to establish a secure connection to Azure.
+For security, Azure credentials are stored on your local machine and associated with your Unity editor. They're used only to establish a secure connection to Azure.
 
-## To find the status of a running job on the Azure portal
+## Find the status of a running job on the Azure portal
 
-1. Find the bake job ID on the bake tab:
+1. Find the bake job ID on the **Bake** tab.
 
-![Screenshot of Unity bake job ID](media/unity-job-id.png)  
+    ![The Unity bake job ID highlighted on the Bake tab](media/unity-job-id.png)  
 
-2. Open the [Azure portal](https://portal.azure.com), navigate to the Batch account used for the bake and select **Jobs**
+2. Open the [Azure portal](https://portal.azure.com), go to the Batch account that was used for the bake, and select **Jobs**.
 
-![Screenshot of Jobs link](media/azure-batch-jobs.png)  
+    ![The Jobs link in the Azure portal](media/azure-batch-jobs.png)  
 
-3. Search for the job id in the list of jobs
+3. Search for the job ID in the list of jobs.
 
-![Screenshot of bake job status](media/azure-bake-job-status.png)  
+   ![The bake job status highlighted in the Azure portal](media/azure-bake-job-status.png)  
 
-4. Click on the job id to see the status of the related tasks and overall job status
+4. Select the job ID to see the status of the related tasks and the overall job status.
 
-![Screenshot of bake task status](media/azure-batch-task-state.png)  
+   ![The bake task status](media/azure-batch-task-state.png)  
 
 
-### <a name="Estimating-bake-cost"></a> Estimating Azure bake cost
+### <a name="Estimating-bake-cost"></a> Estimate Azure bake cost
 
-To estimate what a given bake will cost, take the value shown for **Estimated Compute Cost**, which is a duration, and multiply that by the hourly cost in your local currency of the **VM Node Type** you selected. The result will not include the node time needed to get the nodes up and running. For example, if you select **Standard_F8s_v2** for your node type, which has a cost of $0.40/hr, and the Estimated Compute Cost is 3 hours and 57 minutes, the estimated cost to run the job will be $0.40 * ~4 hours = ~$1.60. The actual cost will likely be a bit higher due to the extra time to get the nodes started. You can find the hourly node cost on the [Azure Batch Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux) page (select "Compute optimized" or "High performance compute" for the category).
+To estimate what a bake will cost, start with the **Estimated Compute Cost** value, which is a duration. Multiply that value by the hourly cost in your local currency for the **VM Node Type** that you select. Note that the result won't include the node time that's needed to get the nodes up and running.
+
+For example, say you select **Standard_F8s_v2** for your node type, which has a cost of $0.40/hr. If the **Estimated Compute Cost** is 3 hours and 57 minutes, the estimated cost to run the job will be $0.40 * ~4 hours = ~$1.60. The actual cost will likely be a bit higher because of the extra time to get the nodes started.
+
+Find hourly nodes cost at [Azure Batch pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux). (Select **Compute optimized** or **High performance compute** as the category.)
 
 ## <a name="Local-bake"></a> Bake your scene on your PC
-You can bake your scene on your own PC. This can be useful for experimenting with acoustics with small scenes before creating an Azure Batch account. Note the acoustics simulation can take a long time depending on the size of the scene.
+You can also bake your scene on your own PC. This method can be useful for experimenting with acoustics for small scenes before you create an Azure Batch account. But note that local acoustics simulation can take a long time depending on the size of the scene.
 
 ### Minimum hardware requirements
 * An x86-64 processor with at least 8 cores and 32 GB of RAM
 * [Hyper-V enabled](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) to run Docker
 
-As an example, in our testing on an 8 core machine with Intel Xeon E5-1660 @ 3 GHz and 32 GB RAM -
-* A small scene with 100 probes can take about 2 hours for a coarse bake or 32 hours for a fine bake.
-* A medium-sized scene with 1000 probes can take about 20 hours for a coarse bake or 21 days for a fine bake.
+As an example, in our testing on an 8-core machine, Intel Xeon E5-1660 @ 3 GHz and 32 GB of RAM:
+* A small scene with 100 probes took about 2 hours for a coarse bake or 32 hours for a fine bake.
+* A medium-sized scene with 1,000 probes took about 20 hours for a coarse bake or 21 days for a fine bake.
 
-### Setup Docker
-Install and configure Docker on the PC that will process the simulation -
-1. Install the [Docker Desktop](https://www.docker.com/products/docker-desktop).
-2. Launch Docker settings, navigate to the "Advanced" options and configure resources to have at least 8GB RAM. The more CPUs you can allocate to Docker, the faster the bake will complete.  
-![Screenshot of example Docker settings](media/docker-settings.png)
-1. Navigate to "Shared Drives" and turn on sharing for the drive used for processing.  
-![Screenshot of Docker shared drive options](media/docker-shared-drives.png)
+### Set up Docker
+Install and configure Docker on the PC that will process the simulation:
+1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop).
+2. Open Docker settings, go to **Advanced**, and configure the resources for at least 8 GB of RAM. The more CPUs that you can allocate to Docker, the faster the bake will be completed.  
+![Sample Docker settings](media/docker-settings.png)
+1. Go to **Shared Drives**, and turn on sharing for the drive that's used for processing.  
+![Docker shared drive options](media/docker-shared-drives.png)
 
-### Run local bake
-1. Click on "Prepare Local Bake" button on the **Bake** tab and select a folder where the input files and execution scripts will be saved. You can then run the bake on any machine as long as it meets the minimum hardware requirements and has Docker installed by copying the folder to that machine.
-2. Launch the simulation using the "runlocalbake.bat" script on Windows or using the "runlocalbake.sh" script on MacOS. This script will fetch the Project Acoustics Docker image with the toolset necessary for simulation processing and start the simulation. 
-3. Once the simulation has finished, copy the resulting .ace file back to your Unity project. To make sure Unity recognizes this as a binary file, append ".bytes" to the file extension (for example, "Scene1.ace.bytes"). The detailed logs for the simulation are stored in "AcousticsLog.txt." If you run into any issues, share this file to assist with diagnosis.
+### Run the local bake
+1. Select the **Prepare Local Bake** button on the **Bake** tab. Then, select a folder location to save the input files and execution scripts to. You can then run the bake on any machine as long as it meets the minimum hardware requirements and you install Docker by copying the folder to that machine.
+2. To start the simulation, run the *runlocalbake.bat* script on Windows or the *runlocalbake.sh* script on MacOS. This script fetches the Project Acoustics Docker image with the toolset necessary for simulation processing and starts the simulation.
+3. After the simulation has finished, copy the resulting *.ace* file back to your Unity project. To make sure that Unity recognizes it as a binary file, append ".bytes" to the file extension (for example, "Scene1.ace.bytes"). The detailed logs for the simulation are stored in *AcousticsLog.txt.* If you run into any issues, inspect this file to help diagnose the problem.
 
 ## <a name="Data-Files"></a> Data files added by the bake process
 
-There are four data files created during the bake process. One contains the simulation results and ships with your title. The others store Unity Editor-related data.
+The following four data files are created during the bake process. One contains the simulation results and ships with your title. The others store Unity editor-related data.
 
 Simulation result:
-* **Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes**: This is the runtime lookup table and contains simulation results and the voxelized acoustic scene elements. The location and name of this file can be changed using the fields on the **Probes** Tab.
+* *Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes*: This file is the runtime lookup table. It contains the simulation results and voxelized acoustic scene elements. You can change the name and location of this file on the **Probes** tab.
 
-Take care not to delete the simulation result file. It isn't recoverable except by rebaking the scene.
+   *Be careful not to delete the simulation result file. It's not recoverable except by rebaking the scene.*
 
 Editor data files:
-* **Assets/Editor/[SceneName]\_AcousticsParameters.asset**: This file stores the data you enter in fields in the Acoustics UI. The location and name of this file can't be changed.
-* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: This file stores the voxelized acoustics geometry and the material properties that are computed using the **Calculate...** button on the Probes Tab. The location and name of this file can be changed using the fields on the **Probes** Tab.
-* **Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml**: This file stores simulation parameters computed using the **Calculate...** button on the **Probes** Tab. The location and name of this file can be changed using the fields on the **Probes** Tab.
+* *Assets/Editor/[SceneName]\_AcousticsParameters.asset*: This file stores the data that you enter in fields in the Acoustics UI. You can't change the name and location of this file.
+* *Assets/AcousticsData/Editor/Acoustics_[SceneName].vox*: This file stores the voxelized acoustics geometry and the material properties that are computed when you select the **Calculate**  button on the **Probes** tab. You can change the name and location of this file on the **Probes** tab.
+* *Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml*: This file stores simulation parameters that are computed when you select **Calculate**. You can change the name and location of this file on the **Probes** tab.
 
 ## Set up the acoustics lookup table
-Drag and drop the **Project Acoustics** prefab from the project panel into your scene:
+Drag the **Project Acoustics** prefab from the project panel into your scene:
 
-![Screenshot of Acoustics prefab in Unity](media/acoustics-prefab.png)
+![The Acoustics prefab in Unity](media/acoustics-prefab.png)
 
-Click on the **ProjectAcoustics** Game Object and go to its inspector panel. Specify the location of your bake result (the .ACE file, in **Assets/AcousticsData**) by drag-and-dropping it into the Acoustics Manager script, or by clicking on the circle button next to the text box.
+Select the **ProjectAcoustics** game object, and go to its inspector panel. Specify the location of your bake result (the .ace file, in *Assets/AcousticsData*): Drag it into the Acoustics Manager script or select the circle button next to the text box.
 
-![Screenshot of Acoustics Manager prefab in Unity](media/acoustics-manager.png)  
+![The Acoustics Manager prefab in Unity](media/acoustics-manager.png)
 
 ## Next steps
-* Explore the [design controls for Unity](unity-workflow.md)
-* Explore the [Project Acoustics design concepts](design-process.md)
-
+* Explore the [Unity design controls](unity-workflow.md).
+* Explore [Project Acoustics design concepts](design-process.md).

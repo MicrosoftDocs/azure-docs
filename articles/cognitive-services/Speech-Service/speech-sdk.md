@@ -1,5 +1,5 @@
 ---
-title: About the Speech SDK - Speech Service
+title: About the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech Software Development Kit (SDK) gives your applications native access to the functions of the Speech service, making it easier to develop software. This article provides additional details about the SDK for Windows, Linux, and Android.
 services: cognitive-services
@@ -14,7 +14,7 @@ ms.author: wolfma
 
 # About the Speech SDK
 
-The Speech Software Development Kit (SDK) gives your applications access to the functions of the Speech Services, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **speech-to-text**, **text-to-speech**, **speech translation**, **intent recognition**, and **Bot Framework’s Direct Line Speech channel**. A general overview about the capabilities and supported platforms can be found on the documentation [entry page](https://aka.ms/csspeech).
+The Speech Software Development Kit (SDK) gives your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **speech-to-text**, **text-to-speech**, **speech translation**, **intent recognition**, and **Bot Framework’s Direct Line Speech channel**. A general overview about the capabilities and supported platforms can be found on the documentation [entry page](https://aka.ms/csspeech).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -103,4 +103,4 @@ The Java SDK is also part of the [Speech Devices SDK](speech-devices-sdk.md).
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+* [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

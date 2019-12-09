@@ -1,14 +1,13 @@
 ---
 title: 'Advanced Threat Protection for Azure Cosmos DB'
 description: Learn how Azure Cosmos DB provides encryption of data at rest and how it's implemented.
-author: monhaber
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: rimman
-ms.author: sngun
-ms.author: v-mohabe
 ms.custom: seodec18
+ms.author: memildin
+author: memildin
+manager: rkarlin
 ---
 
 # Advanced Threat Protection for Azure Cosmos DB
@@ -58,7 +57,7 @@ Use the following PowerShell cmdlets:
 
 Use an Azure Resource Manager template to set up Cosmos DB with Advanced Threat Protection enabled.
 For more information, see
-[Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/en-us/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/).
+[Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/).
 
 ### Using Azure Policy
 
@@ -98,5 +97,5 @@ An email notification is also sent with the alert details and recommended action
 
 ## Next steps
 
-* Learn more about [Diagnostic logging in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
+* Learn more about [Diagnostic logging in Azure Cosmos DB](monitor-cosmos-db.md#diagnostic-settings)
 * Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

@@ -34,6 +34,8 @@ landingContent:
             url: geo-ai-dsvm-overview.md
           - text: Tools Included on the DSVM
             url: tools-included.md
+          - text: Release Notes
+            url: release-notes.md
       - linkListType: get-started
         links:
           - text: Create a Windows DSVM
@@ -66,7 +68,7 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Azure Machine Learning service
+          - text: Azure Machine Learning
             url: /azure/machine-learning/
           - text: Compare our ML products
             url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context

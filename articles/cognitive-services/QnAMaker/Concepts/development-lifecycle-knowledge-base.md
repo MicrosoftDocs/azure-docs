@@ -19,7 +19,7 @@ QnA Maker learns best in an iterative cycle of model changes, utterance examples
 ![Authoring cycle](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
 
 ## Creating a QnA Maker knowledge base
-QnA Maker knowledge base (KB) endpoint provides a best-match answer to a user query based on the content of the KB. Creating a knowledge base is a one-time action to setting up a content repository of questions, answers and associated metadata. A knowledge base can be created by crawling pre-existing content such as FAQ pages, product manuals or structured Q-A pairs. Learn how to [create a knowledge base](../How-To/create-knowledge-base.md).
+QnA Maker knowledge base (KB) endpoint provides a best-match answer to a user query based on the content of the KB. Creating a knowledge base is a one-time action to setting up a content repository of questions, answers and associated metadata. A knowledge base can be created by crawling pre-existing content such as FAQ pages, product manuals or structured Q-A pairs. Learn how to [create a knowledge base](../quickstarts/create-publish-knowledge-base.md).
 
 ## Testing and updating the knowledge base
 
@@ -42,7 +42,7 @@ For large KBs, use automated testing with the [generateAnswer API](../how-to/met
 ```
 
 ## Publish the knowledge base
-Once you are done testing the knowledge base, you can publish it. Publish pushes the latest version of the tested knowledge base  to a dedicated Azure Search index representing the **published** knowledge base. It also creates an endpoint that can be called in your application or chat bot.
+Once you are done testing the knowledge base, you can publish it. Publish pushes the latest version of the tested knowledge base  to a dedicated Azure Cognitive Search index representing the **published** knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 
 This way, any changes being made to the test version of the knowledge base do not affect the published version that might be live in a production application.
 
@@ -69,8 +69,3 @@ When you need to go back to a specific version, you need to import that file fro
 
 > [!div class="nextstepaction"]
 > [Confidence score](./confidence-score.md)
-
-## See also 
-
-[Knowledge base](./knowledge-base.md)
-[QnA Maker overview](../Overview/overview.md)

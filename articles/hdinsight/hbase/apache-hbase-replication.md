@@ -1,5 +1,5 @@
 ---
-title: Set up HBase cluster replication in Azure virtual networks - Azure HDInsight
+title: HBase cluster replication in virtual networks - Azure HDInsight
 description: Learn how to set up HBase replication from one HDInsight version to another for load balancing, high availability, zero-downtime migration and updates, and disaster recovery.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 12/06/2019
 ---
 
 # Set up Apache HBase cluster replication in Azure virtual networks
@@ -291,6 +291,8 @@ The following steps describe how to call the script action script from the Azure
     
       > [!NOTE]
       > Use hostname instead of FQDN for both the source and destination cluster DNS name.
+      >
+      > This walkthrough assumes hn1 as active headnode. Please check your cluster to identify the active head node.
 
 6. Select **Create**. The script can take a while to run, especially when you use the **-copydata** argument.
 
@@ -310,7 +312,7 @@ Optional arguments:
 |-su, --src-ambari-user | Specifies the admin user name for Ambari on the source HBase cluster. The default value is **admin**. |
 |-du, --dst-ambari-user | Specifies the admin user name for Ambari on the destination HBase cluster. The default value is **admin**. |
 |-t, --table-list | Specifies the tables to be replicated. For example: --table-list="table1;table2;table3". If you don't specify tables, all existing HBase tables are replicated.|
-|-m, --machine | Specifies the head node where the script action runs. The value is either **hn0** or **hn1** and should be chosen based on which is the active head node. Use this option when you're running the $0 script as a script action from the HDInsight portal or Azure PowerShell.|
+|-m, --machine | Specifies the head node where the script action runs. The value should be chosen based on which is the active head node. Use this option when you're running the $0 script as a script action from the HDInsight portal or Azure PowerShell.|
 |-cp, -copydata | Enables the migration of existing data on the tables where replication is enabled. |
 |-rpm, -replicate-phoenix-meta | Enables replication on Phoenix system tables. <br><br>*Use this option with caution.* We recommend that you re-create Phoenix tables on replica clusters before you use this script. |
 |-h, --help | Displays usage information. |

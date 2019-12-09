@@ -1,10 +1,10 @@
 ---
 title: Define unique keys for an Azure Cosmos container
-description: Learn how to define unique keys for an Azure Cosmos container
+description: Learn how to define unique keys for an Azure Cosmos container using Azure portal, PowerShell, .Net, Java and various other SDKs. 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 12/02/2019
 ms.author: thweiss
 ---
 
@@ -28,7 +28,11 @@ This article presents the different ways to define [unique keys](unique-keys.md)
 
 1. If needed, add more unique key entries by clicking on **+ Add unique key**
 
-![Screenshot of unique key constraint entry on Azure portal](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    ![Screenshot of unique key constraint entry on Azure portal](./media/how-to-define-unique-keys/unique-keys-portal.png)
+
+## Use Powershell
+
+To create a container with unique keys see, [Create an Azure Cosmos container with unique key and TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## Use the .NET SDK V2
 
@@ -75,6 +79,7 @@ When creating a new container using the [Java SDK](https://mvnrepository.com/art
 // create a new DocumentCollection object
 DocumentCollection container = new DocumentCollection();
 container.setId("container");
+
 // create array of strings and populate them with the unique key paths
 Collection<String> uniqueKey1Paths = new ArrayList<String>();
 uniqueKey1Paths.add("/firstName");
@@ -82,19 +87,23 @@ uniqueKey1Paths.add("/lastName");
 uniqueKey1Paths.add("/emailAddress");
 Collection<String> uniqueKey2Paths = new ArrayList<String>();
 uniqueKey2Paths.add("/address/zipCode");
+
 // create UniqueKey objects and set their paths
 UniqueKey uniqueKey1 = new UniqueKey();
 UniqueKey uniqueKey2 = new UniqueKey();
 uniqueKey1.setPaths(uniqueKey1Paths);
 uniqueKey2.setPaths(uniqueKey2Paths);
+
 // create a new UniqueKeyPolicy object and set its unique keys
 UniqueKeyPolicy uniqueKeyPolicy = new UniqueKeyPolicy();
 Collection<UniqueKey> uniqueKeys = new ArrayList<UniqueKey>();
 uniqueKeys.add(uniqueKey1);
 uniqueKeys.add(uniqueKey2);
 uniqueKeyPolicy.setUniqueKeys(uniqueKeys);
+
 // set the unique key policy
 container.setUniqueKeyPolicy(uniqueKeyPolicy);
+
 // create the container
 client.createCollection(String.format("/dbs/%s", "database"), container, null);
 ```

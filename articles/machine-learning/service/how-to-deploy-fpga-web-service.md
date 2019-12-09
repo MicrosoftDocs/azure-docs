@@ -8,13 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: larryfr
-ms.author: tedway
-author: tedway
-ms.date: 07/25/2019
+ms.author: jordane
+author: jpe316
+ms.date: 10/25/2019
 ms.custom: seodec18
 ---
 
 # What are field-programmable gate arrays (FPGA) and how to deploy
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This article provides an introduction to field-programmable gate arrays (FPGA), and shows you how to deploy your models using Azure Machine Learning to an Azure FPGA. 
 
@@ -315,7 +316,7 @@ for i in Image.list(workspace=ws):
 
 ### Deploy to the cloud
 
-To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can create a new one using the Azure Machine Learning SDK, CLI, the [Azure portal](https://portal.azure.com) or [workspace landing page (preview)](https://ml.azure.com).
+To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can create a new one using the Azure Machine Learning SDK, CLI, or [Azure Machine Learning studio](https://ml.azure.com).
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

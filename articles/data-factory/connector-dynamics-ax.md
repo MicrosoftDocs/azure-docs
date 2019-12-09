@@ -1,22 +1,20 @@
 ---
-title: Copy data from Dynamics AX by using Azure Data Factory (Preview) | Microsoft Docs
+title: Copy data from Dynamics AX
 description: Learn how to copy data from Dynamics AX to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.author: jingwang
-
 ---
-# Copy data from Dynamics AX by using Azure Data Factory (Preview)
+
+# Copy data from Dynamics AX by using Azure Data Factory
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from Dynamics AX source. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 

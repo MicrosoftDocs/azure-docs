@@ -1,5 +1,5 @@
 ---
-title: User provisioning management for enterprise apps in the Azure Active Directory | Microsoft Docs
+title: User provisioning management for enterprise apps in Azure AD
 description: Learn how to manage user account provisioning for enterprise apps using the Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -81,9 +81,4 @@ If provisioning is being enabled for the first time for an application, turn on 
 
 Change the **Provisioning Status** to **Off**  to pause the provisioning service. In this state, Azure doesn't create, update, or remove any user or group objects in the app. Change the state back to **On** and the service picks up where it left off.
 
-Select the **Clear current state and restart synchronization** checkbox and select **Save** to:
-
-* Stop the provisioning service
-* Restart the services and run the initial cycle again
-
-This option lets admins start the provisioning deployment process over again.
+**Clear current state and restart synchronization** triggers an initial cycle. The service will then evaluate all the users in the source system again and determine if they are in scope for provisioning. This can be useful when your application is currently in quarantine or you need to make a change to your attribute mappings. Note that the initial cycle takes longer to complete than the typical incremental cycle due to the number of objects that need to be evaluated. You can learn more about the performance of initial and incremental cycles [here.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user). 

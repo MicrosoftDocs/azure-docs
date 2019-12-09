@@ -72,14 +72,10 @@ If your Service Fabric applications are running on a Service Fabric cluster in A
 
 > [!NOTE]
 > The feature requires [Service Fabric SDK 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) and [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/).    
-> 
-> 
 
 <!-- -->
 > [!WARNING]
 > Remote debugging is meant for dev/test scenarios and not to be used in production environments, because of the impact on the running applications.
-> 
-> 
 
 1. Navigate to your cluster in **Cloud Explorer**. Right-click and choose **Enable Debugging**
    
@@ -124,8 +120,6 @@ You're also able to stream traces directly from a remote cluster node to Visual 
 > [!WARNING]
 > Streaming traces is meant for dev/test scenarios and not to be used in production environments, because of the impact on the running applications.
 > In a production scenario, you should rely on forwarding events using Azure Diagnostics.
-> 
-> 
 
 1. Navigate to your cluster in **Cloud Explorer**. Right-click and choose **Enable Streaming Traces**
    

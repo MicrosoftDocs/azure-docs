@@ -135,7 +135,7 @@ In both standalone Service Fabric clusters and Azure, the "Primary Node Type" is
 ## Next steps
 - Learn how to simulate various failures using the [testability framework](service-fabric-testability-overview.md)
 - Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. While some of these documents refer to specific techniques for use in other products, they contain many general best practices you can apply in the Service Fabric context as well:
-  - [Availability checklist](../best-practices-availability-checklist.md)
+  - [Availability checklist](/azure/architecture/checklist/resiliency-per-service)
   - [Performing a disaster recovery drill](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Disaster recovery and high availability for Azure applications][dr-ha-guide]
 - Learn about [Service Fabric support options](service-fabric-support.md)

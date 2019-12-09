@@ -1,6 +1,6 @@
 ---
-title: Identify issues with the Windows Virtual Desktop diagnostics feature  - Azure
-description: Describes the Windows Virtual Desktop diagnostics feature and how to use it.
+title: Windows Virtual Desktop diagnose issues - Azure
+description: How to use the Windows Virtual Desktop diagnostics feature to diagnose issues.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
 ---
-# Identify issues with the diagnostics feature
+# Identify and diagnose issues
 
 Windows Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity whenever a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end-user and administrative actions, and can be categorized into three main buckets:
 

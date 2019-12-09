@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 8c2101d4-1779-4b36-8464-5c1ff780da18
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -239,7 +240,7 @@ To enable Azure AD users to log in to Egnyte, they must be provisioned into Egny
     >
 
 >[!NOTE]
->You can use any other Egnyte user account creation tools or APIs provided by Egnyte to provision AAD user accounts.
+>You can use any other Egnyte user account creation tools or APIs provided by Egnyte to provision Azure AD user accounts.
 >
 
 ### Test single sign-on 

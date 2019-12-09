@@ -51,7 +51,7 @@ To change the user-managed identity assigned to the lab, remove the identity att
 1. After creating an identity, note the resource ID of this identity. It should look like the following sample: 
 
     `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-1. Using **Fiddler**, run a PUT command similar to the following example. For the service runner name, we recommend that you use the name of the identity even though you can specify any name you want. 
+1. Perform a PUT Https method to add a new `ServiceRunner` resource to the lab similar to the following example. Service runner resource is a proxy resource to manage and control managed identities in DevTest Labs. The service runner name can be any valid name but we recommend that you use the name of the managed identity resource. 
  
     ```json
     PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{yourlabname}/serviceRunners/{serviceRunnerName}
@@ -64,6 +64,10 @@ To change the user-managed identity assigned to the lab, remove the identity att
                 "[userAssignedIdentityResourceId]":{}
             }
         }
+        "properties":{
+            "identityUsageType":"Environment"
+                     }
+          
     }
     ```
  
@@ -80,6 +84,9 @@ To change the user-managed identity assigned to the lab, remove the identity att
                 "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sampleuseridentity":{}
             }
         }
+        "properties":{
+            "identityUsageType":"Environment"
+                     }
     }
     ```
  

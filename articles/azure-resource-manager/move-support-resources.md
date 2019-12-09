@@ -1,11 +1,8 @@
 ---
-title: Move operation support by Azure resource type
+title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 09/30/2019
-ms.author: tomfitz
+ms.date: 10/24/2019
 ---
 
 # Move operation support for resources
@@ -25,7 +22,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
-> - [Microsoft.Backup](#microsoftbackup)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.BatchAI](#microsoftbatchai)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -49,6 +45,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
+> - [Microsoft.CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
@@ -60,6 +57,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
 > - [Microsoft.DataMigration](#microsoftdatamigration)
+> - [Microsoft.DataShare](#microsoftdatashare)
 > - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
 > - [Microsoft.DBforMySQL](#microsoftdbformysql)
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
@@ -123,7 +121,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
-> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
@@ -240,13 +237,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | registrations | Yes | Yes |
-
-## Microsoft.Backup
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | backupvault | No | No |
 
 ## Microsoft.Batch
 
@@ -458,6 +448,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | hubs | Yes | Yes |
 
+## Microsoft.CustomProviders
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | resourceproviders | Yes | Yes |
+
 ## Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
@@ -539,6 +536,13 @@ Jump to a resource provider namespace:
 > | services | No | No |
 > | services / projects | No | No |
 > | slots | No | No |
+
+## Microsoft.DataShare
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | accounts | No | No |
 
 ## Microsoft.DBforMariaDB
 
@@ -929,7 +933,6 @@ Jump to a resource provider namespace:
 > | publicipprefixes | Yes | Yes |
 > | routefilters | No | No |
 > | routetables | Yes | Yes |
-> | securegateways | Yes | Yes |
 > | serviceendpointpolicies | Yes | Yes |
 > | trafficmanagerprofiles | Yes | Yes |
 > | virtualhubs | No | No |
@@ -1119,16 +1122,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | signalr | Yes | Yes |
 
-## Microsoft.SiteRecovery
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | siterecoveryvault | No | No |
-
-> [!IMPORTANT]
-> See [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
-
 ## Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
@@ -1270,9 +1263,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | account | Yes | Yes |
-> | account / extension | Yes | Yes |
-> | account / project | Yes | Yes |
+> | account | No | No |
+> | account / extension | No | No |
+> | account / project | No | No |
 
 > [!IMPORTANT]
 > To change the subscription for Azure DevOps, see [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
@@ -1282,9 +1275,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | dedicatedcloudnodes | Yes | Yes |
-> | dedicatedcloudservices | Yes | Yes |
-> | virtualmachines | Yes | Yes |
+> | dedicatedcloudnodes | No | No |
+> | dedicatedcloudservices | No | No |
+> | virtualmachines | No | No |
 
 ## Microsoft.Web
 

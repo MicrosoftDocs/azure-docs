@@ -1,12 +1,12 @@
 ---
-title: Apache Spark workloads performance with Azure HDInsight IO Cache (Preview)
+title: Apache Spark performance - Azure HDInsight IO Cache (Preview)
 description: Learn about Azure HDInsight IO Cache and how to use it to improve Apache Spark performance.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 10/29/2019
 ---
 
 # Improve performance of Apache Spark workloads using Azure HDInsight IO Cache
@@ -17,6 +17,7 @@ Most SSDs provide more than 1 GByte per second of bandwidth. This bandwidth, com
 
 > [!Note]  
 > IO Cache currently uses RubiX as a caching component, but this may change in future versions of the service. Please use IO Cache interfaces and don't take any dependencies directly on the RubiX implementation.
+>IO Cache is only supported with Azure BLOB Storage at this time. 
 
 ## Benefits of Azure HDInsight IO Cache
 

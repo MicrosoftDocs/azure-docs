@@ -1,14 +1,9 @@
 ---
-title: Guidance for developing Azure Functions | Microsoft Docs
+title: Guidance for developing Azure Functions 
 description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
-author: ggailey777
-manager: gwallace
-keywords: developer guide, azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.author: glenga
 
 ---
 # Azure Functions developers guide

@@ -65,3 +65,7 @@ Azure Data Explorer provides two options for connecting to data in Excel: use th
 1. Now your data is in Excel. Select the **Refresh** button to refresh the query.
 
     ![View data in excel](media/excel-blank-query/data-in-excel.png)
+
+## Next steps
+
+[Visualize data using the Azure Data Explorer connector for Excel](excel-connector.md)

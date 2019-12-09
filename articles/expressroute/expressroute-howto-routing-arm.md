@@ -1,5 +1,5 @@
 ﻿---
-title: 'Configure peering for a circuit - ExpressRoute: PowerShell: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Configure peering: PowerShell'
 description: This article walks you through the steps for creating and provisioning the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
 services: expressroute
 author: jaredr80
@@ -8,7 +8,6 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jaredro
-ms.custom: seodec18
 
 ---
 # Create and modify peering for an ExpressRoute circuit using PowerShell
@@ -42,7 +41,7 @@ You can configure one, two, or all three peerings (Azure private, Azure public a
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -116,6 +115,13 @@ This section helps you create, get, update, and delete the Microsoft peering con
    * Optional:
      * Customer ASN: If you are advertising prefixes that are not registered to the peering AS number, you can specify the AS number to which they are registered.
      * An MD5 hash if you choose to use one.
+
+> [!IMPORTANT]
+> Microsoft verifies if the specified 'Advertised public prefixes' and 'Peer ASN' (or 'Customer ASN') are assigned to you in the Internet Routing Registry. If you are getting the public prefixes from another entity and if the assignment is not recorded with the routing registry, the automatic validation will not complete and will require manual validation. If the automatic validation fails, you will see 'AdvertisedPublicPrefixesState' as 'Validation needed' on the output of "Get-AzExpressRouteCircuitPeeringConfig" (see "To get Microsoft peering details" below) command. 
+> 
+> If you see the message 'Validation needed', collect the document(s) that show the public prefixes are assigned to your organization by the entity that is listed as the owner of the prefixes in the routing registry and submit these documents for manual validation by opening a support ticket as shown below. 
+> 
+>
 
    Use the following example to configure Microsoft peering for your circuit:
 

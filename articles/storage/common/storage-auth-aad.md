@@ -1,18 +1,19 @@
 ---
-title: Authorize access to Azure blobs and queues using Azure Active Directory | Microsoft Docs
+title: Authorize access to blobs and queues using Active Directory
+titleSuffix: Azure Storage
 description: Authorize access to Azure blobs and queues using Azure Active Directory.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Authorize access to Azure blobs and queues using Azure Active Directory
+# Authorize access to blobs and queues using Azure Active Directory
 
 Azure Storage supports using Azure Active Directory (AD) to authorize requests to Blob and Queue storage. With Azure AD, you can use role-based access control (RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can be used to authorize a request to access a resource in Blob or Queue storage.
 
@@ -30,7 +31,7 @@ The authorization step requires that one or more RBAC roles be assigned to the s
 
 Native applications and web applications that make requests to the Azure Blob or Queue service can also authorize access with Azure AD. To learn how to request an access token and use it to authorize requests for blob or queue data, see [Authorize access to Azure Storage with Azure AD from an Azure Storage application](storage-auth-aad-app.md).
 
-## Assigning RBAC roles for access rights
+## Assign RBAC roles for access rights
 
 Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access blob and queue data. You can also define custom roles for access to blob and queue data.
 

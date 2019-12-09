@@ -1,12 +1,8 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
 ---
 # Azure Policy assignment structure
 
@@ -15,9 +11,7 @@ initiatives. The policy assignment can determine the values of parameters for th
 resources at assignment time, making it possible to reuse policy definitions that address the same
 resource properties with different needs for compliance.
 
-The schema used by Azure Policy can be found here: [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policyassignments](/azure/templates/microsoft.authorization/2019-01-01/policyassignments)
-
-You use JSON to create a policy assignment. The policy definition contains elements for:
+You use JSON to create a policy assignment. The policy assignment contains elements for:
 
 - display name
 - description
@@ -61,8 +55,11 @@ characters and **description** a maximum length of _512_ characters.
 ## Enforcement Mode
 
 The **enforcementMode** property provides customers the ability to test the outcome of a policy on
-existing resources without initiating the policy effect or triggering entries in the [Azure Activity log](../../../azure-monitor/platform/activity-logs-overview.md).
-This scenario is commonly referred to as "What If" and aligns to safe deployment practices.
+existing resources without initiating the policy effect or triggering entries in the
+[Azure Activity log](../../../azure-monitor/platform/activity-logs-overview.md). This scenario is
+commonly referred to as "What If" and aligns to safe deployment practices. **enforcementMode** is
+different from the [Disabled](./effects.md#disabled) effect, as that effect prevents resource
+evaluation from happening at all.
 
 This property has the following values:
 
@@ -107,6 +104,6 @@ reducing the duplication and complexity of policy definitions while providing fl
 
 - Learn about the [policy definition structure](./definition-structure.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: cherylmc
 ---
-# Azure Bastion FAQ (Preview)
+# Azure Bastion FAQ
 
 This is the FAQ for Azure Bastion.
 

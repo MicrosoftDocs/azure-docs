@@ -4,8 +4,8 @@ description: This article describes how to compile Desired State Configuration (
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
@@ -57,7 +57,7 @@ configuration, waits until it has completed, and then displays its streams.
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 
-while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)
+while($null -eq $CompilationJob.EndTime -and $null -eq $CompilationJob.Exception)
 {
     $CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
     Start-Sleep -Seconds 3
@@ -133,7 +133,7 @@ For information about passing PSCredentials as parameters, see [Credential Asset
 
 **Composite Resources** allow you to use DSC configurations as nested resources inside of a
 configuration. This enables you to apply multiple configurations to a single resource. See
-[Composite resources: Using a DSC configuration as a resource](/powershell/dsc/authoringresourcecomposite)
+[Composite resources: Using a DSC configuration as a resource](/powershell/scripting/dsc/resources/authoringresourcecomposite)
 to learn more about **Composite Resources**.
 
 > [!NOTE]
@@ -216,7 +216,7 @@ following:
 
 #### Credential Assets
 
-DSC configurations in Azure Automation can reference Automation credential assets using the 
+DSC configurations in Azure Automation can reference Automation credential assets using the
 `Get-AutomationPSCredential` cmdlet. If a configuration has a parameter that has a **PSCredential**
 type, then you can use the `Get-AutomationPSCredential` cmdlet by passing the string name
 of an Azure Automation credential asset to the cmdlet to retrieve the credential. You can then use
@@ -299,7 +299,7 @@ For more information about how to sign node configurations, see [Improvements in
 ### Compiling a configuration in Windows PowerShell
 
 The process to compile DSC configurations in Windows PowerShell is included in the PowerShell DSC documentation
-[Write, Compile, and Apply a Configuration](/powershell/dsc/configurations/write-compile-apply-configuration#compile-the-configuration).
+[Write, Compile, and Apply a Configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration#compile-the-configuration).
 This can be executed from a developer workstation or within a build service such as
 [Azure DevOps](https://dev.azure.com).
 

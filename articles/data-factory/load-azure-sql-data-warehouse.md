@@ -1,19 +1,18 @@
 ---
-title: Load data into Azure SQL Data Warehouse by using Azure Data Factory | Microsoft Docs
-description: 'Use Azure Data Factory to copy data into Azure SQL Data Warehouse'
+title: Load data into Azure SQL Data Warehouse
+description: Use Azure Data Factory to copy data into Azure SQL Data Warehouse
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 06/22/2018
-ms.author: jingwang
-
 ---
+
 # Load data into Azure SQL Data Warehouse by using Azure Data Factory
 
 [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database that's capable of processing massive volumes of data, both relational and non-relational. SQL Data Warehouse is built on the massively parallel processing (MPP) architecture that's optimized for enterprise data warehouse workloads. It offers cloud elasticity with the flexibility to scale storage and compute independently.

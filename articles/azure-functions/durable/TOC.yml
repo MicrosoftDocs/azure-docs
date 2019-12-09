@@ -1,5 +1,5 @@
 - name: Durable Functions Documentation
-  href: durable-functions-overview.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Azure Functions
@@ -8,8 +8,8 @@
     href: durable-functions-overview.md
   - name: Serverless comparison
     href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-  - name: Preview features
-    href: durable-functions-preview.md
+  - name: Durable Functions versions
+    href: durable-functions-versions.md
 - name: Quickstarts
   expanded: true
   items:
@@ -34,7 +34,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=functions&sort=0&term=durable+
+    href: /samples/browse/?products=azure-functions&term=durable
   - name: Azure CLI
     href: ../functions-cli-samples.md   
 - name: Concepts
@@ -81,6 +81,8 @@
     href: durable-functions-bindings.md
   - name: HTTP API
     href: durable-functions-http-api.md
+  - name: .NET API
+    href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
 - name: How-to guides
   items:
   - name: Develop
@@ -93,6 +95,8 @@
       href: durable-functions-unit-testing.md
     - name: Create as WebJobs
       href: durable-functions-webjobs-sdk.md 
+    - name: Durable entities in .NET
+      href: durable-functions-dotnet-entities.md
   - name: Deploy
     items:
     - name: Continuous deployment
@@ -101,6 +105,8 @@
       href: ../deployment-zip-push.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
     - name: Run from package
       href: ../run-functions-from-deployment-package.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+    - name: Zero downtime deployment
+      href: durable-functions-zero-downtime-deployment.md
   - name: Monitor
     items:
     - name: Diagnostics
