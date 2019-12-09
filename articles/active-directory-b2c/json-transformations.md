@@ -1,5 +1,5 @@
 ---
-title: JSON claims transformation examples for the Identity Experience Framework Schema
+title: JSON claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: JSON claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/22/2019
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -289,4 +289,3 @@ Output claim:
   }
 }
 ```
-

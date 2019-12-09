@@ -1,5 +1,5 @@
 ---
-title: Display control reference
+title: Display Control reference
 titleSuffix: Azure AD B2C
 description: Reference for Azure AD B2C display controls. Use display controls for customizing user journeys defined in your custom policies.
 services: active-directory-b2c
@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/22/2019
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A **Display Control** is a user interface element that has special functionality and interacts with the Azure Active Directory B2C (Azure AD B2C) back-end service. It allows the user to perform actions on the page that invokes a [validation technical profile](validation-technical-profile.md) at the back end. Display Controls are displayed on the page and are referenced by a [self-asserted technical profile](self-asserted-technical-profile.md).
+A **Display Control** is a user interface element that has special functionality and interacts with the Azure Active Directory B2C (Azure AD B2C) back-end service. It allows the user to perform actions on the page that invoke a [validation technical profile](validation-technical-profile.md) at the back end. Display Controls are displayed on the page and are referenced by a [self-asserted technical profile](self-asserted-technical-profile.md).
 
 The following image illustrates a self-asserted sign-up page with two display controls that validate a primary and secondary email address.
 
