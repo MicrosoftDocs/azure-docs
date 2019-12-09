@@ -112,7 +112,7 @@ Some optional claims can be configured to change the way the claim is returned. 
        "idToken": [ 
              { 
                 "name": "upn", 
-	     	"essential": false,
+                "essential": false,
                 "additionalProperties": [ "include_externally_authenticated_upn"]  
               }
         ]
@@ -213,7 +213,7 @@ If supported by a specific claim, you can also modify the behavior of the Option
 
 In addition to the standard optional claims set, you can also configure tokens to include directory schema extensions. For more info, see [Directory schema extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). This feature is useful for attaching additional user information that your app can use – for example, an additional identifier or important configuration option that the user has set. See the bottom of this page for an example.
 
-> [!Note]
+> [!NOTE]
 > - Directory schema extensions are an Azure AD-only feature, so if your application manifest requests a custom extension and an MSA user logs into your app, these extensions will not be returned.
 > - Azure AD optional claims only work with Azure AD Graph extensions and do not work with Microsoft Graph directory extensions. Both APIs require the `Directory.ReadWriteAll` permission, which can only be consented by admins.
 
@@ -316,12 +316,12 @@ This section covers the configuration options under optional claims for changing
 
 
     **Application manifest entry:**
-    	```json
+    ```json
 	    "optionalClaims": {
-		"accessToken": [{
+		    "accessToken": [{
 		    "name": "groups",
 		    "additionalProperties": ["dns_domain_and_sam_account_name"]
-		}]
+		    }]
 	    }
 	```
 
