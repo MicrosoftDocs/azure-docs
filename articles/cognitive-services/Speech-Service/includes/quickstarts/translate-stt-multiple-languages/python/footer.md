@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, Python - Speech Service'
+title: 'Quickstart: Recognize speech, Python - Speech service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

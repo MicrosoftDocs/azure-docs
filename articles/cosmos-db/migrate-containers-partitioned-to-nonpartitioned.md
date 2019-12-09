@@ -86,7 +86,7 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ```
 
-For the complete sample, see the [.Net samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub repository.
+For the complete sample, see the [.Net samples][1] GitHub repository.
                       
 ## Migrate the documents
 
@@ -105,7 +105,7 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```
 
-For the complete sample on how to repartition the documents, see the [.Net samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub repository. 
+For the complete sample on how to repartition the documents, see the [.Net samples][1] GitHub repository. 
 
 ## Compatibility with SDKs
 
@@ -119,3 +119,5 @@ If a migrated container is consumed by the latest/V3 version of SDK and you star
 * [Request Units in Azure Cosmos DB](request-units.md)
 * [Provision throughput on containers and databases](set-throughput.md)
 * [Work with Azure Cosmos account](account-overview.md)
+
+[1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

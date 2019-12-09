@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
@@ -46,7 +46,7 @@ The service levels range from DW100c to DW30000c.
 The maximum service level is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
 
 ## Concurrency maximums for workload groups
-With the introduction of workload groups-LINK TBD, the concept of concurrency slots no longer applies.  Resources per request are allocated on a percentage basis and specified in the workload group definition.  However, even with the removal of concurrency slots, there are minimum amounts of resources needed per queries based on the service level.  The below table defined the minimum amount of resources needed per query across service levels and the associated concurrency that can be achieved. 
+With the introduction of [workload groups](sql-data-warehouse-workload-isolation.md), the concept of concurrency slots no longer applies.  Resources per request are allocated on a percentage basis and specified in the workload group definition.  However, even with the removal of concurrency slots, there are minimum amounts of resources needed per queries based on the service level.  The below table defined the minimum amount of resources needed per query across service levels and the associated concurrency that can be achieved. 
 
 |Service Level|Maximum concurrent queries|Min % supported for REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|

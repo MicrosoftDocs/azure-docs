@@ -1,6 +1,6 @@
 ---
 title: LOWER in Azure Cosmos DB query language
-description: Learn about SQL system function LOWER in Azure Cosmos DB.
+description: Learn about the LOWER SQL system function in Azure Cosmos DB to return a string expression after converting uppercase character data to lowercase
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
