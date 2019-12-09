@@ -75,12 +75,12 @@ The preview also has the following restrictions:
     When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
     ```powershell
-    $ResourceGroupName="ssecmktesting"
+    $ResourceGroupName="yourResourceGroupName"
     $LocationName="westcentralus"
-    $keyVaultName="myTestKeyVault45678"
-    $keyName="myTestKeyName"
+    $keyVaultName="yourKeyVaultName"
+    $keyName="yourKeyName"
     $keyDestination="Software"
-    $diskEncryptionSetName="mytestdes"
+    $diskEncryptionSetName="yourDiskEncryptionSetName"
 
     $keyVault = New-AzKeyVault -Name $keyVaultName -ResourceGroupName $ResourceGroupName -Location $LocationName -EnableSoftDelete -EnablePurgeProtection
 
@@ -108,18 +108,18 @@ The preview also has the following restrictions:
 ### Create a VM using a marketplace image, encrypting the OS and data disks with customer-managed keys
 
 ```powershell
-$VMLocalAdminUser = "LocalAdminUser"
-$VMLocalAdminSecurePassword = ConvertTo-SecureString Password@123 -AsPlainText -Force
+$VMLocalAdminUser = "yourVMLocalAdminUserName"
+$VMLocalAdminSecurePassword = ConvertTo-SecureString <password> -AsPlainText -Force
 $LocationName = "westcentralus"
-$ResourceGroupName = "ssecmktesting"
-$ComputerName = "MyVM"
-$VMName = "MyVM"
+$ResourceGroupName = "yourResourceGroupName"
+$ComputerName = "yourComputerName"
+$VMName = "yourVMName"
 $VMSize = "Standard_DS3_v2"
-$diskEncryptionSetName="mytestdes"
+$diskEncryptionSetName="yourdiskEncryptionSetName"
     
-$NetworkName = "MyNet"
-$NICName = "MyNIC"
-$SubnetName = "MySubnet"
+$NetworkName = "yourNetworkName"
+$NICName = "yourNICName"
+$SubnetName = "yourSubnetName"
 $SubnetAddressPrefix = "10.0.0.0/24"
 $VnetAddressPrefix = "10.0.0.0/16"
     
@@ -146,14 +146,14 @@ New-AzVM -ResourceGroupName $ResourceGroupName -Location $LocationName -VM $Virt
 ### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
 
 ```PowerShell
-$vmName = "MyVM"
+$vmName = "yourDiskName"
 $LocationName = "westcentralus"
-$ResourceGroupName = "ssecmktesting"
+$ResourceGroupName = "yourResourceGroupName"
 $diskName = "yourDiskName"
 $diskSKU = "Premium_LRS"
 $diskSizeinGiB = 30
 $diskLUN = 1
-$diskEncryptionSetName="mytestdes"
+$diskEncryptionSetName="yourDiskEncryptionSetName"
 
 
 $vm = Get-AzVM -Name $vmName -ResourceGroupName $ResourceGroupName 
