@@ -69,7 +69,7 @@ The following script creates an AAD role assignment with "Key Only" access for A
     }
     ```
 
-- Run the following commands to create the Role assignment and assign it to a user named CosmosDBUser1:
+- Run the following commands to create the Role assignment and assign it to the user:
 
     ```azurepowershell
     New-AzRoleDefinition -InputFile "AzureCosmosKeyOnlyAccess.json"
