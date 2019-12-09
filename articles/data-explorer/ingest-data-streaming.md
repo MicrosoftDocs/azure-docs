@@ -68,8 +68,7 @@ There are two supported streaming ingestion types:
 
 ## Limitations
 
-* Streaming ingestion performance and capacity scales with increased VM and cluster sizes. For a single D14 node, the recommended load is up to 150 requests per second.
-* Currently, support is only for 8 and 16 core SKUs (D13, D14, L8, and L16).
+* Streaming ingestion performance and capacity scales with increased VM and cluster sizes. Concurrent ingestions are limited to 6 ingestions per core. For example, for 16 core SKUs, such as D14 and L16, the maximal supported load is 96 concurrent ingestions. For 2 core SKUs, such as D11, the maximal supported load is 12 concurrent ingestions.
 * The data size limitation per ingestion request is 4 MB.
 * Schema updates, such as creation and modification of tables and ingestion mappings, may take up to 5 minutes for the streaming ingestion service.
 * Enabling streaming ingestion on a cluster, even when data isn't ingested via streaming, uses part of the local SSD disk of the cluster machines for streaming ingestion data and reduces the storage available for hot cache.

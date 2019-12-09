@@ -86,15 +86,15 @@ In this example, users and or groups are created in an HR database connected to 
 
 1. Users/groups are created in an on-premises HR application/system, such as SAP. 
 
-1. Azure AD Connect agent runs scheduled synchronizations of identities (users and groups) from the local AD to Azure AD.
+1. **Azure AD Connect agent** runs scheduled synchronizations of identities (users and groups) from the local AD to Azure AD.
 
-1. Azure AD provisioning service begins an [initial cycle](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) against the source system and target system. 
+1. **Azure AD provisioning service** begins an [initial cycle](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) against the source system and target system. 
 
-1. Azure AD provisioning service queries the source system for any users and groups changed since the initial cycle, and pushes changes in [incremental cycles](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. **Azure AD provisioning service** queries the source system for any users and groups changed since the initial cycle, and pushes changes in [incremental cycles](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 #### Automatic user provisioning for cloud-only enterprises
 
-In this example, user creation occurs in Azure AD and the  Azure AD provisioning service manages automatic user provisioning to the target (SaaS) applications:
+In this example, user creation occurs in Azure AD and the  Azure AD provisioning service manages automatic user provisioning to the target (SaaS) applications.
 
 ![Picture 2](media/auto-user-provision-dp/cloudprovisioning.png)
 
@@ -102,22 +102,23 @@ In this example, user creation occurs in Azure AD and the  Azure AD provisioning
 
 1. Users/groups are created in Azure AD.
 
-1. Azure AD provisioning service begins an [initial cycle](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) against the source system and target system. 
+1. **Azure AD provisioning service** begins an [initial cycle](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) against the source system and target system. 
 
-1. Azure AD provisioning service queries the source system for any users and groups updated since the initial cycle, and performs any [incremental cycles](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. **Azure AD provisioning service** queries the source system for any users and groups updated since the initial cycle, and performs any [incremental cycles](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 #### Automatic user provisioning for cloud HR applications 
 
-In this example, the users and or groups are created in a cloud HR application like Workday.
+In this example, the users and or groups are created in a cloud HR application like such as Workday and SuccessFactors. The Azure AD provisioning service and Azure AD Connect provisioning agent provisions the user data from the cloud HR app tenant into AD. Once the accounts are updated in AD, it is synced with Azure AD through Azure AD Connect, and the email addresses and username attributes can be written back to the cloud HR app tenant.
 
 ![Picture 2](media/auto-user-provision-dp/workdayprovisioning.png)
 
-1. Accounts created in cloud HR system
-1. Data flows into on-premises AD through Azure AD provisioning service and the provisioning agent.
-1. Azure AD Connect syncs data to Azure AD
-1. Email and username attribute can be written back to the cloud HR application.
-
-For more information on solution architecture and deployment, see [Tutorial: Configure Workday for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial).
+1.	**HR team** performs the transactions in the cloud HR app tenant.
+2.	**Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes that need to be processed for sync with AD.
+3.	**Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload containing AD account create/update/enable/disable operations.
+4.	**Azure AD Connect provisioning agent** uses a service account to manage AD account data.
+5.	**Azure AD Connect** runs delta sync to pull updates in AD.
+6.	**AD** updates are synced with Azure AD. 
+7.	**Azure AD provisioning service** writebacks email attribute and username from Azure AD to the cloud HR app tenant.
 
 ## Plan the deployment project
 

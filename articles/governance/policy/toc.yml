@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Overview of Azure Policy
+  - name: What is Azure Policy?
     displayName: rbac, assign, initiative, parameters, count
     href: overview.md
 - name: Quickstarts

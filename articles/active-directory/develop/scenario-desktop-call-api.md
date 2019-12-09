@@ -1,6 +1,6 @@
 ---
-title: Desktop app that calls web APIs (calling a web API) - Microsoft identity platform
-description: Learn how to build a Desktop app that calls web APIs (calling a web API)
+title: Call web APIs from a desktop app - Microsoft identity platform | Azure
+description: Learn how to build a desktop app that calls web APIs
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur

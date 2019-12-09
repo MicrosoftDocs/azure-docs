@@ -58,8 +58,6 @@
         href: configure-host-pool-load-balancing.md
   - name: Use Windows Virtual Desktop license
     href: apply-windows-license.md
-  - name: Create a profile container for a host pool using a file share
-    href: create-host-pools-user-profile.md
   - name: Customize session host image
     items:
       - name: Set up a master VHD image
@@ -72,7 +70,7 @@
     href: customize-feed-for-virtual-desktop-users.md
   - name: Deploy the diagnostics tool
     href: deploy-diagnostics.md
-  - name: Publish apps
+  - name: Publish built-in apps
     href: publish-apps.md
   - name: Set up MSIX app attach
     href: app-attach.md
@@ -124,12 +122,16 @@
     href: /powershell/windows-virtual-desktop/overview
   - name: REST API
     href: /rest/api/virtual-desktop/
+  - name: Supported RDP file settings
+    href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
 - name: Resources
   items:
   - name: Experience estimator
     href: https://azure.microsoft.com/services/virtual-desktop/assessment/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Learning path
+    href: https://docs.microsoft.com/learn/paths/m365-wvd/
   - name: Tech Community support group
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
   - name: UserVoice forum

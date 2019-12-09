@@ -17,7 +17,7 @@ This article shows you how to configure Azure Dev Spaces to use a custom traefik
 * [Azure CLI installed][az-cli].
 * [Azure Kubernetes Service (AKS) cluster with Azure Dev Spaces enabled][qs-cli].
 * [kubectl][kubectl] installed.
-* [Helm 2.13 or greater installed][helm-installed].
+* [Helm 2.13 - 2.16 installed][helm-installed].
 * [A custom domain][custom-domain] with a [DNS Zone][dns-zone] in the same resource group as your AKS cluster.
 
 ## Configure a custom traefik ingress controller
@@ -279,7 +279,7 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free
-[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
+[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [helpers-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/pages/helpers.js#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
