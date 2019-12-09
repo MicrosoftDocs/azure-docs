@@ -34,7 +34,7 @@ Follow these steps.
 > You must be an administrator to do the following steps.
 
 1. Download this [script](https://aka.ms/farmbeatspartnerscript), and extract it on your local drive. Two files are inside the zip file.
-2. Sign in to the [Azure portal](https://portal.azure.com/), and open Azure Cloud Shell. This option is available on the toolbar in the upper-right corner of the portal. 
+2. Sign in to the [Azure portal](https://portal.azure.com/), and open Azure Cloud Shell. This option is available on the toolbar in the upper-right corner of the portal.
 
     ![Azure portal toolbar](./media/for-tutorials/navigation-bar-1.png)
 
@@ -42,7 +42,7 @@ Follow these steps.
 
     ![PowerShell setting](./media/for-tutorials/power-shell-new-1.png)
 
-4. Upload the two files that you downloaded from step 1 in your Cloud Shell instance. 
+4. Upload the two files that you downloaded from step 1 in your Cloud Shell instance.
 
     ![Upload button on the toolbar](./media/for-tutorials/power-shell-two-1.png)
 
@@ -50,7 +50,7 @@ Follow these steps.
 
    >[!NOTE]
    > By default, files get uploaded to the home directory/home/username.
-6. Run the script by using this command: 
+6. Run the script by using this command:
 
     ```azurepowershell-interactive
     ./generateCredentials.ps1
@@ -62,10 +62,10 @@ Follow these steps.
 
  Now that you have the required credentials, you can define the device and sensors. To do this, create the metadata by using FarmBeats APIs.
 
- FarmBeats Datahub has the following APIs that enable creation and management of device or sensor metadata. 
+ FarmBeats Datahub has the following APIs that enable creation and management of device or sensor metadata.
 
-- /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either a gateway or a node. 
-- /**Device**: Device corresponds to a physical device present on the farm. 
+- /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either a gateway or a node.
+- /**Device**: Device corresponds to a physical device present on the farm.
 - /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measurement, such as ambient temperature and pressure.
 - /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.  
 
@@ -264,7 +264,7 @@ Sensor
   }
 }
 ```
-The following sample request creates a device. This request has input JSON as payload with the request body. 
+The following sample request creates a device. This request has input JSON as payload with the request body.
 
 ```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
@@ -287,7 +287,7 @@ You must send the telemetry to Azure Event Hubs for processing. Azure Event Hubs
 
 ### Send a telemetry message as the client
 
-After you have a connection established as an Event Hubs client, you can send messages to the event hub as JSON. 
+After you have a connection established as an Event Hubs client, you can send messages to the event hub as JSON.
 
 Here's sample Python code that sends telemetry as a client to a specified event hub:
 
@@ -308,7 +308,7 @@ write_client.stop()
 
 ```
 
-Convert the historical sensor data format to a canonical format that Azure FarmBeats understands. The canonical message format is as follows: 
+Convert the historical sensor data format to a canonical format that Azure FarmBeats understands. The canonical message format is as follows:
 
 ```json
 {
