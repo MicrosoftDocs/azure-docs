@@ -276,7 +276,7 @@ Follow the steps below to register the node.
 
 #### Issue
 
-When registering a node, you see the error.
+When registering a node, you see the error:
 
 ```error
 Provisioning has failed
