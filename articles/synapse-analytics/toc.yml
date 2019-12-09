@@ -270,10 +270,10 @@
         href: ../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Resource consumption models
         href: sql-analytics/resource-consumption-models.md
-      # - name: Best practices SQL pool
-      #   href: sql-analytics/best-practices-sql-pool.md
-      # - name: Best practices SQL on demand
-      #   href: sql-analytics/best-practices-sql-on-demand.md
+      - name: Best practices SQL on-demand
+        href: sql-analytics/best-practices-sql-on-demand.md
+      - name: Best practices SQL pools
+        href: sql-analytics/best-practices-sql-pool.md
     - name: Data loading
       items:
       - name: Overview
