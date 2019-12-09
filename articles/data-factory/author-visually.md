@@ -1,18 +1,17 @@
 ---
-title: Visual authoring in Azure Data Factory 
+title: Visual authoring
 description: Learn how to use visual authoring in Azure Data Factory
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/09/2019
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: 
-manager: craigg
+manager: anandsub
+ms.date: 01/09/2019
 ---
+
 # Visual authoring in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

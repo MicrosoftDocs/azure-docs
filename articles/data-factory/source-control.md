@@ -5,7 +5,7 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: naF
 ms.topic: conceptual
 ms.date: 01/09/2019
 author: djpmsft
@@ -140,7 +140,7 @@ The configuration pane shows the following GitHub repository settings:
 | **GitHub Enterprise URL** | The GitHub Enterprise root URL. For example: https://github.mydomain.com. Required only if **Use GitHub Enterprise** is selected | `<your GitHub enterprise url>` |                                                           
 | **GitHub account** | Your GitHub account name. This name can be found from https:\//github.com/{account name}/{repository name}. Navigating to this page prompts you to enter GitHub OAuth credentials to your GitHub account. | `<your GitHub account name>` |
 | **Repository Name**  | Your GitHub code repository name. GitHub accounts contain Git repositories to manage your source code. You can create a new repository or use an existing repository that's already in your account. | `<your repository name>` |
-| **Collaboration branch** | Your GitHub collaboration branch that is used for publishing. By default, its master. Change this setting in case you want to publish resources from another branch. | `<your collaboration branch>` |
+| **Collaboration branch** | Your GitHub collaboration branch that is used for publishing. By default, it's master. Change this setting in case you want to publish resources from another branch. | `<your collaboration branch>` |
 | **Root folder** | Your root folder in your GitHub collaboration branch. |`<your root folder name>` |
 | **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX authoring canvas into a GitHub repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 | **Branch to import resource into** | Specifies into which branch the data factory resources (pipelines, datasets, linked services etc.) are imported. You can import resources into one of the following branches: a. Collaboration b. Create new c. Use Existing |  |
@@ -227,11 +227,11 @@ Typically you don’t want every team member to have permissions to update the f
 *   All team members should have read permissions to the data factory.
 *   Only a select set of people should be allowed to publish to the factory. To do so, they must have the **Data Factory contributor** role on the factory. For more information on permissions, see [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
    
-its recommended to not allow direct check-ins into the collaboration branch. This restriction can help prevent bugs as every check-in will go through a Pull Request process.
+It's recommended to not allow direct check-ins to the collaboration branch. This restriction can help prevent bugs as every check-in will go through a pull request review process described in [Creating feature branches](source-control.md#creating-feature-branches).
 
 ### Using passwords from Azure Key Vault
 
-its recommended to use Azure Key Vault to store any connection strings or passwords for Data Factory Linked Services. For security reasons, we don’t store any such secret information in Git, so any changes to Linked Services are published immediately to the Azure Data Factory service.
+It's recommended to use Azure Key Vault to store any connection strings or passwords for Data Factory Linked Services. For security reasons, we don’t store any such secret information in Git, so any changes to Linked Services are published immediately to the Azure Data Factory service.
 
 Using Key Vault also makes continuous integration and deployment easier as you will not have to provide these secrets during Resource Manager template deployment.
 
@@ -244,7 +244,7 @@ If the publish branch is out of sync with the master branch and contains out-of-
 1. Remove your current Git repository
 1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **New branch**
 1. Delete all resources from your collaboration branch
-1. Create a Pull Request to merge the changes to the collaboration branch 
+1. Create a pull request to merge the changes to the collaboration branch 
 
 ## Provide feedback
 Select **Feedback** to comment about features or to notify Microsoft about issues with the tool:

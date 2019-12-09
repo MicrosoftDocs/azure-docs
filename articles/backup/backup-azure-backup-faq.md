@@ -171,7 +171,7 @@ Azure Backup storage architecture gives you the best of both worlds by optimally
 
 You can create up to 9999 recovery points per protected instance. A protected instance is a computer, server (physical or virtual), or workload that backs up to Azure.
 
-- Learn more about [backup and retention](./backup-overview.md#backup-and-retention).
+- Learn more about [backup and retention](./backup-support-matrix.md).
 
 ### How many times can I recover data that's backed up to Azure?
 

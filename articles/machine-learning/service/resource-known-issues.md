@@ -277,10 +277,10 @@ This is a known limitation of the current release.
 
 Manually refresh the page. Initialization should proceed at roughly 20 datapoints per second. The lack of autorefresh is a known issue. 
 
-### Bounding box cannot be drawn all the way to right edge of image 
-
-Try resizing the browser window. We are investigating to determine the cause of this behavior. 
-
 ### When reviewing images, newly labeled images are not shown
 
 To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.
+
+### Pressing Esc key while labeling for object detection creates a zero size label on the top left corner. Submitting labels in this state fails.
+
+Delete the label by clicking on the cross mark next to it.

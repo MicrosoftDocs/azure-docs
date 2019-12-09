@@ -79,16 +79,18 @@
       href: concepts-limits.md
   - name: Data access & security
     items:
-    - name: Firewall rules
-      href: concepts-firewall-rules.md
+    - name: Security overview
+      href: concepts-security.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
-    - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md
+    - name: Connectivity architecture
+      href: concepts-connectivity-architecture.md
+    - name: Firewall rules
+      href: concepts-firewall-rules.md
     - name: Virtual Network
       href: concepts-data-access-and-security-vnet.md
-    - name: Connectivity architecture
-      href: concepts-connectivity-architecture.md      
+    - name: Advanced Threat Protection
+      href: concepts-data-access-and-security-threat-protection.md   
   - name: Business continuity
     items:
     - name: Business continuity intro
@@ -168,8 +170,6 @@
       href: howto-configure-ssl.md
     - name: Web apps
       href: howto-connect-webapp.md
-    - name: Connect with redirection
-      href: howto-redirection.md
   - name: Configure server parameters
     items:
     - name: Azure portal

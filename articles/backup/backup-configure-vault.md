@@ -224,7 +224,7 @@ You can run an initial backup automatically over the network, or offline. Offlin
 You can control how network bandwidth is used by the MARS agent by enabling network throttling. Throttling is helpful if you need to back up data during work hours but want to control how much bandwidth is used for backup and restore activity.
 
 * Azure Backup network throttling uses [Quality of Service (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) on the local operating system.
-* Network throttling for backup is available on Windows Server 2008 R2 onwards, and Windows 7 onwards. Operating systems should be running the latest service packs.
+* Network throttling for backup is available on Windows Server 2012 onwards, and Windows 8 onwards. Operating systems should be running the latest service packs.
 
 Enable network throttling as follows:
 

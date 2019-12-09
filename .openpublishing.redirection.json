@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/sql-database/sql-database-feature-restrictions.md",
+      "redirect_url": "/azure/sql-database",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/digital-twins/how-to-use-legacy-aad.md",
       "redirect_url": "/azure/digital-twins/quickstart-view-occupancy-dotnet#set-permissions-for-your-app",
       "redirect_document_id": false
@@ -38,6 +43,26 @@
     {
       "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md",
       "redirect_url": "/azure//virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/maintenance-and-updates.md",
+      "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/maintenance-and-updates.md",
+      "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/maintenance-notifications.md",
+      "redirect_url": "/azure/virtual-machines/maintenance-notifications?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/maintenance-notifications.md",
+      "redirect_url": "/azure/virtual-machines/maintenance-notifications?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json",
       "redirect_document_id": false
     },
     {
@@ -533,10 +558,40 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-kb-using-postman.md",
+      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-kb-using-curl.md",
+      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-list-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-list-entity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-regex-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-regex-entity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-sentiment-analysis.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-publish-settings",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
@@ -5255,6 +5310,16 @@
     {
       "source_path": "articles/azure-functions/tutorial-vs-code-serverless-python.md",
       "redirect_url": "/azure/python/tutorial-vs-code-serverless-python-01",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/scripts/functions-cli-configure-custom-domain.md",
+      "redirect_url": "/azure/app-service/scripts/cli-configure-custom-domain?toc=%2fcli%2fazure%2ftoc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/scripts/functions-cli-configure-ssl-certificate.md",
+      "redirect_url": "/azure/app-service/scripts/cli-configure-ssl-certificate?toc=%2fcli%2fazure%2ftoc.json",
       "redirect_document_id": false
     },
     {
@@ -11428,6 +11493,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-create-kafka-enabled.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-create",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
       "redirect_document_id": false
@@ -12385,6 +12455,11 @@
     {
       "source_path": "articles/cosmos-db/monitor-accounts.md",
       "redirect_url": "/azure/cosmos-db/monitor-cosmos-db",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/create-firewall-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/common/ipfirewall",
       "redirect_document_id": false
     },
     {
@@ -15581,6 +15656,11 @@
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-advanced-autoscale.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-spot",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-cli-quick-create-cli-nodejs.md",
@@ -26303,7 +26383,7 @@
     },
     {
       "source_path": "articles/security-center/security-center-policies-overview.md",
-      "redirect_url": "/azure/security-center/tutorial-security-policy.md",
+      "redirect_url": "/azure/security-center/tutorial-security-policy",
       "redirect_document_id": false
     },
     {
@@ -29472,8 +29552,53 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/index.yml",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Image-Search/search-the-web.md",
-      "redirect_url": "/azure/cognitive-services/bing-image-search",
+      "redirect_url": "/azure/cognitive-services/Bing-Image-Search/overview",
       "redirect_document_id": false
     },
     {
@@ -29483,7 +29608,7 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Web-Search/search-the-web.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/overview",
       "redirect_document_id": false
     },
     {
@@ -43272,52 +43397,52 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-churn.md",
-      "redirect_url": "how-to-designer-sample-classification-churn",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-churn",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-basic.md",
-      "redirect_url": "how-to-designer-sample-classification-predict-income",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-predict-income",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md",
-      "redirect_url": "how-to-designer-sample-classification-credit-risk-cost-sensitive",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-credit-risk-cost-sensitive",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-flight-delay.md",
-      "redirect_url": "how-to-designer-sample-classification-flight-delay",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-flight-delay",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-basic.md",
-      "redirect_url": "how-to-designer-sample-regression-automobile-price-basic",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-regression-automobile-price-basic",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md",
-      "redirect_url": "how-to-designer-sample-regression-automobile-price-compare-algorithms",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-regression-automobile-price-compare-algorithms",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-text-classification.md",
-      "redirect_url": "how-to-designer-sample-text-classification",
+      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-text-classification",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-deploy.md",
-      "redirect_url": "tutorial-designer-automobile-price-deploy",
+      "redirect_url": "/azure/machine-learning/service/tutorial-designer-automobile-price-deploy",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-train-score.md",
-      "redirect_url": "tutorial-designer-automobile-price-train-score",
+      "redirect_url": "/azure/machine-learning/service/tutorial-designer-automobile-price-train-score",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-concept-visual-interface.md",
-      "redirect_url": "concept-designer",
+      "redirect_url": "/azure/machine-learning/service/concept-designer",
       "redirect_document_id": true
     },
     {
@@ -43760,6 +43885,56 @@
     {
       "source_path": "articles/healthcare-apis/configure-cosmos-db.md",
       "redirect_url": "/azure/healthcare-apis/configure-database",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-portal.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-getting-started.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-load-assets.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-keyboard-shortcuts.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-localization.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-submit-job.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-overview.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/classroom-labs/how-to-enable-multi-vm-environment.md",
+      "redirect_url": "/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus-messaging/migrate-java-apps-wild-fly.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java#use-service-bus-as-a-message-broker",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/howto-redirection.md",
+      "redirect_url": "/azure/mysql/concepts-connectivity-architecture",
       "redirect_document_id": false
     }
   ]

@@ -1,11 +1,11 @@
 ---
-title: Monitoring in Azure Database for MariaDB
+title: Monitoring - Azure Database for MariaDB
 description: This article describes the metrics for monitoring and alerting for Azure Database for MariaDB, including CPU, storage, and connection statistics.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/02/2019
 ---
 # Monitoring in Azure Database for MariaDB
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MariaDB provides various metrics that give insight into the behavior of your server.
@@ -56,7 +56,7 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 You can view scheduled maintenance events for Azure Database for MariaDB by using the **planned maintenance** event type. To learn how to create **service health alerts**, visit the [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
 
 > [!IMPORTANT]
-> The planned maintenance notifications is available in limited public preview for EAST US and UK South only.
+> The planned maintenance notifications is available in preview for EAST US and UK South only.
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 12/03/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -77,7 +77,7 @@ You can customize the list view by clicking **Columns** in the toolbar.
 
 Displays additional fields or remove fields that are already displayed.
 
-![Sign-in activity](./media/concept-sign-ins/02.png "Sign-in activity")
+![Sign-in activity](./media/concept-sign-ins/columns.png "Sign-in activity")
 
 Select an item in the list view to get more detailed information.
 
@@ -153,7 +153,8 @@ Click the **Download** option to create a CSV or JSON file of the most recent 25
 ![Download](./media/concept-sign-ins/71.png "Download")
 
 > [!IMPORTANT]
-> The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
+> The number of records you can download is constrained by the [Azure Active 
+> Directory report retention policies](reference-reports-data-retention.md).  
 
 
 ## Sign-ins data shortcuts

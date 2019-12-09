@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Deploy Azure IoT Edge modules with Azure CLI
