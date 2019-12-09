@@ -2,7 +2,7 @@
 title: Import SQL BACPAC files with templates
 description: Learn how to use SQL Database extension to import SQL BACPAC files with Azure Resource Manager templates.
 author: mumian
-ms.date: 12/06/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -47,15 +47,7 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
 * Upload the BACPAC file to the container.
 * Display the storage account key and the blob URL.
 
-1. Open the [Cloud shell](https://shell.azure.com).
-1. Select **Upload/Download files**, and then select **Upload**.
-1. Specify the following URL and then select **Open**.
-
-    ```url
-    https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac
-    ```
-
-1. Copy and paste the following PowerShell script into the shell window.
+1. Select **Try it** to open the cloud shell, and then paste the following PowerShell script into the shell window.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -91,11 +83,11 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
                              -Context $storageAccount.Context
 
     Write-Host "The storage account key is $storageAccountKey"
-    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$blobName"
+    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. Write down storage account key and the BACPAC file URL. You need these values when you deploy the template.
+1. Write down the storage account key and the BACPAC file URL. You need these values when you deploy the template.
 
 ## Open a Quickstart template
 
@@ -202,6 +194,10 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
         * **storageUri**: Specify the URL of the BACPAC file stored in a storage account.
         * **administratorLoginPassword**: The password of the SQL administrator. Use a generated password. See [Prerequisites](#prerequisites).
 
+The completed template looks like:
+
+[!code-json[](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy2.json?range=1-106&highlight=38-49,62-76,86-103)]
+
 ## Deploy the template
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -209,7 +205,7 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
 Refer to the [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) section for the deployment procedure. Use the following PowerShell deployment script instead:
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+$projectName = Read-Host -Prompt "Enter the same project name that is used earlier"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
@@ -217,7 +213,7 @@ $storageAccountKey = Read-Host -Prompt "Enter the storage account key"
 $bacpacUrl = Read-Host -Prompt "Enter the URL of the BACPAC file"
 $resourceGroupName = "${projectName}rg"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+#New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `

@@ -2,7 +2,7 @@
 title: Secure artifacts in templates
 description: Learn how to secure the artifacts used in your Azure Resource Manager templates.
 author: mumian
-ms.date: 12/04/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -48,59 +48,63 @@ In this section, you prepare the BACPAC file so the file is accessible securely 
 * Upload the BACPAC file to the container.
 * Retrieve the SAS token of the BACPAC file.
 
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name"   # This name is used to generate names for Azure resources, such as storage account name.
-$location = Read-Host -Prompt "Enter a location (i.e. centralus)"
+1. Select **Try it** to open the cloud shell, and then paste the following PowerShell script into the shell window.
 
-$resourceGroupName = $projectName + "rg"
-$storageAccountName = $projectName + "store"
-$containerName = "bacpacfile" # The name of the Blob container to be created.
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name"   # This name is used to generate names for Azure resources, such as storage account name.
+    $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
 
-$bacpacURL = "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac"
-$bacpacFileName = "SQLDatabaseExtension.bacpac" # A file name used for downloading and uploading the BACPAC file.
+    $resourceGroupName = $projectName + "rg"
+    $storageAccountName = $projectName + "store"
+    $containerName = "bacpacfile" # The name of the Blob container to be created.
 
-# Download the bacpac file
-Invoke-WebRequest -Uri $bacpacURL -OutFile "$home/$bacpacFileName"
+    $bacpacURL = "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac"
+    $bacpacFileName = "SQLDatabaseExtension.bacpac" # A file name used for downloading and uploading the BACPAC file.
 
-# Create a resource group
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+    # Download the bacpac file
+    Invoke-WebRequest -Uri $bacpacURL -OutFile "$home/$bacpacFileName"
 
-# Create a storage account
-$storageAccount = New-AzStorageAccount `
-    -ResourceGroupName $resourceGroupName `
-    -Name $storageAccountName `
-    -Location $location `
-    -SkuName "Standard_LRS"
+    # Create a resource group
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-$context = $storageAccount.Context
+    # Create a storage account
+    $storageAccount = New-AzStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageAccountName `
+        -Location $location `
+        -SkuName "Standard_LRS"
 
-# Create a container
-New-AzStorageContainer -Name $containerName -Context $context
+    $context = $storageAccount.Context
 
-# Upload the bacpac file
-Set-AzStorageBlobContent `
-    -Container $containerName `
-    -File "$home/$bacpacFileName" `
-    -Blob $bacpacFileName `
-    -Context $context
+    # Create a container
+    New-AzStorageContainer -Name $containerName -Context $context
 
-# Generate a SAS token
-$bacpacURI = New-AzStorageBlobSASToken `
-    -Context $context `
-    -Container $containerName `
-    -Blob $bacpacFileName `
-    -Permission r `
-    -ExpiryTime (Get-Date).AddHours(8.0) `
-    -FullUri
+    # Upload the bacpac file
+    Set-AzStorageBlobContent `
+        -Container $containerName `
+        -File "$home/$bacpacFileName" `
+        -Blob $bacpacFileName `
+        -Context $context
 
-$str = $bacpacURI.split("?")
+    # Generate a SAS token
+    $bacpacURI = New-AzStorageBlobSASToken `
+        -Context $context `
+        -Container $containerName `
+        -Blob $bacpacFileName `
+        -Permission r `
+        -ExpiryTime (Get-Date).AddHours(8.0) `
+        -FullUri
 
-Write-Host "You need the blob url and the SAS token later in the tutorial:"
-Write-Host $str[0]
-Write-Host (-join ("?", $str[1]))
+    $str = $bacpacURI.split("?")
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    Write-Host "You need the blob url and the SAS token later in the tutorial:"
+    Write-Host $str[0]
+    Write-Host (-join ("?", $str[1]))
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+1. Write down the BACPAC file URL and the SAS token. You need these values when you deploy the template.
 
 ## Open an existing template
 
@@ -140,13 +144,17 @@ In this session, you modify the template you created in [Tutorial: Import SQL BA
 
     ![Resource Manager tutorial secure artifacts parameters](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-secure-artifacts-parameters.png)
 
-2. Update the value of the following three elements:
+2. Update the value of the following three elements of the SQL extension resource:
 
-```json
-"storageKeyType": "SharedAccessKey",
-"storageKey": "[parameters('_artifactsLocationSasToken')]",
-"storageUri": "[parameters('bacpacUrl')]",
-```
+    ```json
+    "storageKeyType": "SharedAccessKey",
+    "storageKey": "[parameters('_artifactsLocationSasToken')]",
+    "storageUri": "[parameters('bacpacUrl')]",
+    ```
+
+The completed template looks like:
+
+[!code-json[](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy3.json?range=1-106&highlight=38-43,95-97)]
 
 ## Deploy the template
 
@@ -155,7 +163,7 @@ In this session, you modify the template you created in [Tutorial: Import SQL BA
 Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure. Use the following PowerShell deployment script instead:
 
 ```azurepowershell
-$projectName = Read-Host -Prompt "Enter a project name"   # This name is used to generate names for Azure resources, such as storage account name.
+$projectName = Read-Host -Prompt "Enter the project name that is used earlier"   # This name is used to generate names for Azure resources, such as storage account name.
 $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the sql database admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
@@ -164,7 +172,7 @@ $artifactsLocationSasToken = Read-Host -Prompt "Enter the artifacts location SAS
 
 $resourceGroupName = $projectName + "rg"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+#New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
@@ -177,7 +185,7 @@ Write-Host "Press [ENTER] to continue ..."
 ```
 
 Use a generated password. See [Prerequisites](#prerequisites).
-For the values of _artifactsLocation, _artifactsLocationSasToken and bacpacFileName, see [Generate a SAS token](#generate-a-sas-token).
+For the values of _artifactsLocation, _artifactsLocationSasToken and bacpacFileName, see [Generate a SAS token](#generate-a-sas-token). The SAS token 
 
 ## Verify the deployment
 
