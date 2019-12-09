@@ -17,15 +17,17 @@ ms.subservice: data-lake-storage-gen2
 
 ## Migration road map
 
-Generally, you'll follow these steps:
+If you're considering a migration to Data Lake Storage Gen2, We recommend the following path.
 
-> [!div class="checklist"]
-> * Assess whether to migrate
-> * Prepare to migrate
-> * Migrate data
-> * Update workloads and applications
+:one: Assess whether to migrate
 
-### Step 1: Assess whether to migrate
+:two: Prepare to migrate
+
+:three: Migrate data
+
+:four: Update workloads and applications
+
+### Assess whether to migrate
 
 :one: Learn about Data Lake Storage Gen2. 
 
@@ -33,13 +35,13 @@ Generally, you'll follow these steps:
 
 :three: Understand any gaps in functionality. 
 
-#### Related resources (Assess)
+#### Resources related to this phase
 
-|Task|Guidance|
-|---|--|
-|Learn about Data Lake Storage Gen2 |[Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)|
-|Compare capabilities|[Gen1 vs Gen2 capabilities](#gen1-gen2-feature-comparison)|
-|Understand gaps in functionality|[Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)|
+> [!div class="checklist"]
+> * [Learn about Azure Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/)
+> * [Comparison of Gen1 vs Gen2 capabilities](#gen1-gen2-feature-comparison)
+> * [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
+
 
 ### Step 2: Prepare to migrate
 
