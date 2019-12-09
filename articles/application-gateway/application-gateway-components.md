@@ -70,7 +70,7 @@ There are two types of listeners:
 
 After you create a listener, you associate it with a request routing rule. This rule determines how the request received on the listener should be routed to the backend.
 
-Application Gateway processes listeners in the order shown. If basic listener matches an incoming request, it's processed first. To route traffic to the correct backend, configure a multi-site listener before a basic listener.
+Application Gateway processes listeners in the [order shown](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
 ## Request routing rules
 
