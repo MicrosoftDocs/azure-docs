@@ -19,7 +19,7 @@ By providing the Speech service with a list of phrases, you can improve the accu
 
 As an example, if you have a command "Move to" and a possible destination of "Ward" that may be spoken, you can add an entry of "Move to Ward". Adding a phrase will increase the probability that when the audio is recognized that "Move to Ward" will be recognized instead of "Move toward".
 
-Single words or complete phrases can be added to a Phrase List. During recognition, an entry in a phrase list is used if an exact match for the entire phrase is included in the audio as a separate phrase. If an exact match to the phrase is not found, regcognition is not assisted.
+Single words or complete phrases can be added to a Phrase List. During recognition, an entry in a phrase list is used if an exact match for the entire phrase is included in the audio as a separate phrase. If an exact match to the phrase is not found, recognition is not assisted.
 
 >[!Note]
 > Currently, Phrase Lists supports only English for speech-to-text.
