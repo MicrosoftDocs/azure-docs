@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
+zone_pivot_groups: programming-languages-set-two
 ---
 
 # Phrase Lists for speech-to-text
