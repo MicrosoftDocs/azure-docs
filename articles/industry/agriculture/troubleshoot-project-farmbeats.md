@@ -11,15 +11,18 @@ ms.author: v-umha
 
 This article provides solutions to common Azure FarmBeats issues.
 
-For additional help, contact us at farmbeatssupport@microsoft.com. Be sure to include the *deployer.log* file in your email.
+For additional help, contact us at farmbeatssupport@microsoft.com. Be sure to include the **deployer.log** file in your email.
 
-To download the *deployer.log* file, do the following:
+To download the **deployer.log** file, do the following:
 
-1. Select the highlighted icon and then, in the drop-down list, select **Download**.
+1. Sign-in to **Azure portal** and select your subscription and Azure AD tenant.
+2. Launch Cloud Shell from the top navigation of the Azure portal.
+3. Select **Bash** as the preferred Cloud Shell experience.
+4. Select the highlighted icon and then, in the drop-down list, select **Download**.
 
     ![Project FarmBeats](./media/troubleshooting-farmbeats/download-deployer-log-1.png)
 
-1. In the next pane, enter the path to your *deployer.log* file. For example, enter **farmbeats-deployer.log**.
+5. In the next pane, enter the path to your **deployer.log** file. For example, enter **farmbeats-deployer.log**.
 
 ## Sensor telemetry
 
@@ -27,7 +30,7 @@ To download the *deployer.log* file, do the following:
 
 **Symptom**: Devices or sensors are deployed, and you've linked FarmBeats with your device partner, but you can't get or view telemetry data on FarmBeats.
 
-**Corrective action**: 
+**Corrective action**:
 
 1. Go to your FarmBeats Datahub resource group.   
 1. Select the **Event Hub** (DatafeedEventHubNamespace), and then check for the number of incoming messages.
@@ -39,14 +42,14 @@ To understand how to download logs, go to the ["Collect logs manually"](#collect
 
 ### Don't have the Azure Event Hubs connection string
 
-**Corrective action**: 
+**Corrective action**:
 
 1. In Datahub Swagger, go to the Partner API.
 1. Select **Get** > **Try it out** > **Execute**.
 1. Note the partner ID of the sensor partner you're interested in.
 1. Go back to the Partner API, and select **Get/\<ID>**.
 1. Specify the partner ID from step 3, and then select **Execute**.
-   
+
    The API response should have the Event Hubs connection string.
 
 ### Device appears offline
@@ -124,7 +127,7 @@ If the error persists, add the error message in a post on the FarmBeats forum, o
 **Issue**: FarmBeats Accelerator isn't showing the latest version, even after you've upgraded FarmBeatsDeployment.
 
 **Corrective action**: This error occurs because of service worker persistence in the browser. Do the following:
-1. Close all browser tabs that have Accelerator open, and close the browser window. 
+1. Close all browser tabs that have Accelerator open, and close the browser window.
 1. Start a new instance of the browser, and reload the Accelerator URI. This action loads the new version of Accelerator.
 
 ## Sentinel: Imagery-related issues
@@ -133,7 +136,7 @@ If the error persists, add the error message in a post on the FarmBeats forum, o
 
 **Job failure message**: "Full authentication is required to access this resource."
 
-**Corrective action**: 
+**Corrective action**:
 
 Do one of the following:
 * Rerun the installer for upgrading Datahub with the correct username and password.
@@ -204,7 +207,7 @@ Try either of the following:
 
     ![Project FarmBeats](./media/troubleshooting-farmbeats/collecting-logs-manually-1.png)
 
-### Collect Azure Data Factory job logs in Accelerator 
+### Collect Azure Data Factory job logs in Accelerator
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** box, search for the FarmBeats Accelerator resource group.

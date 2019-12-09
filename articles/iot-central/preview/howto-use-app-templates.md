@@ -3,7 +3,7 @@ title: Export an Azure IoT Central application | Microsoft Docs
 description: As a solution manager, I want to export an application template to be able to reuse it.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central

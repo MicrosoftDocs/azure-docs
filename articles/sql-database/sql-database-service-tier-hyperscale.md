@@ -191,25 +191,25 @@ If you want to create Hyperscale database in a region that is not listed as supp
 
 To request the ability to create Hyperscale databases in regions not listed:
 
-1. Navigate to [Azure Help and Support Blade](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+1. From the Azure portal menu, select **Help + support**, or search for and select **Help + support** from any page.
 
-2. Click on [**New support request**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+2. In [Azure Help and Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview), select [**New support request**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-    ![Azure Help and Support Blade](media/sql-database-service-tier-hyperscale/request-screen-1.png)
+3. For **Issue Type**, select **Service and subscription limits (quotas)**.
 
-3. For **Issue Type**, select **Service and subscription limits (quotas)**
+4. Choose the subscription you would use to create the database(s).
 
-4. Choose the subscription you would use to create the database(s)
+5. For **Quota Type**, select **SQL database**.
 
-5. For **Quota Type**, select **SQL database**
+    ![Azure Help and Support Blade](media/sql-database-service-tier-hyperscale/new-support-request-screen.png)
 
-6. Click **Next: Solutions**
+6. Click **Next: Solutions**.
 
-1. Click **Provide Details**
+7. Click **Provide Details**.
 
     ![Problem details](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
-8. Choose **SQL Database quota type**: **Other quota request**
+8. Choose **SQL Database quota type**: **Other quota request**.
 
 9. Fill in the following template:
 
@@ -223,11 +223,11 @@ To request the ability to create Hyperscale databases in regions not listed:
     > Number of TB estimated 
     >
 
-10. Choose **Severity C**
+10. Choose **Severity C**.
 
 11. Choose the appropriate contact method and fill in details.
 
-12. Click **Save** and **Continue**
+12. Click **Save** and **Continue**.
 
 ## Known limitations
 These are the current limitations to the Hyperscale service tier as of GA.  We are actively working to remove as many of these limitations as possible.
@@ -236,7 +236,7 @@ These are the current limitations to the Hyperscale service tier as of GA.  We a
 | :---- | :--------- |
 | The Manage Backups pane for a logical server does not show Hyperscale databases will be filtered from SQL server  | Hyperscale has a separate method for managing backups, and as such the Long-Term Retention and Point in Time backup Retention settings do not apply / are invalidated. Accordingly, Hyperscale databases do not appear in the Manage Backup pane. |
 | Point-in-time restore | Once a database is migrated into the Hyperscale service tier, restore to a point-in-time prior to the migration is not supported.|
-| Restore of non-Hyperscale DB to Hypserscale and vice-versa | You cannot restore a Hyperscale database into a non-Hyperscale database, nor can you restore a non-Hyperscale database into a Hyperscale database.|
+| Restore of non-Hyperscale DB to Hyperscale and vice-versa | You cannot restore a Hyperscale database into a non-Hyperscale database, nor can you restore a non-Hyperscale database into a Hyperscale database.|
 | If a database has one or more data files larger than 1 TB, migration fails | In some cases, it may be possible to work around this issue by shrinking the large files to be less than 1 TB. If migrating a database being used during the migration process, make sure that no file gets larger than 1 TB. Use the following query to determine the size of database files. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Managed Instance | Azure SQL Database Managed Instance is not currently supported with Hyperscale databases. |
 | Elastic Pools |  Elastic Pools are not currently supported with SQL Database Hyperscale.|
@@ -247,7 +247,8 @@ These are the current limitations to the Hyperscale service tier as of GA.  We a
 | Database Copy | You cannot yet use Database Copy to create a new database in Azure SQL Hyperscale. |
 | TDE/AKV Integration | Transparent Database Encryption using Azure Key Vault (commonly referred to as Bring-Your-Own-Key or BYOK) is not yet supported for Azure SQL Database Hyperscale, however TDE with Service Managed Keys is fully supported. |
 |Intelligent Database Features | With the exception of the "Force Plan" option, all other Automatic tuning options are not yet supported on Hyperscale: options may appear to be enabled, but there won't be any recommendations or actions made. |
-| Shrink Database | DBCC SHRINKDATABASE or DBCC SHRINKFILE is not currently supported with Azure SQL Hyperscale databases. |
+| Shrink Database | DBCC SHRINKDATABASE or DBCC SHRINKFILE is not currently supported for Hyperscale databases. |
+| Database integrity check | DBCC CHECKDB is not currently supported for Hyperscale databases. See [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) for details on data integrity management in Azure SQL Database. |
 
 ## Next steps
 
