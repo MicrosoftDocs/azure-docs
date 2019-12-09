@@ -34107,6 +34107,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/conditional-access/howto-conditional-access-adoption-kit.md",
+      "redirect_url": "/azure/active-directory/conditional-access/overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/conditional-access/concept-conditional-access-block-legacy-authentication.md",
       "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-block-legacy-authentication",
       "redirect_document_id": true
