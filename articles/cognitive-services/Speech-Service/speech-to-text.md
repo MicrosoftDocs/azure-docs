@@ -12,6 +12,33 @@ ms.date: 12/06/2019
 ms.author: erhopf
 ---
 
+<!-- 
+Top level - high point of view... for "overview"
+
+four core feautre
+
+1 speech recognition 
+2 transcripition
+    run once/short burst (more advanced, long running)
+3 batch transcription
+4 customization
+
+Recipe
+conceptual intro
+but what can it do, scenarios
+
+ACOM > HUB > Service Offering
+
+supported audio formats and languages
+new article audio support... for speech service
+don't over / under write
+
+what it is
+what it can do
+
+..(SR & STT)..
+ -->
+
 # What is speech-to-text?
 
 Speech-to-text from the Speech service, also known as speech recognition, enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products, and works seamlessly with the translation and text-to-speech service offerings. For a full list of available speech-to-text languages, see [supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
