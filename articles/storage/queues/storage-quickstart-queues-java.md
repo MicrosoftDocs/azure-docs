@@ -40,13 +40,13 @@ This section walks you through preparing a project to work with the Azure Queue 
 
 Create a Java application named *queues-quickstart-v12*.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *queues-quickstart-v12*. Type the following **mvn** command all on a single line to create a "Hello world!" Java project. The command is displayed here on multiple lines for readability.
+1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *queues-quickstart-v12*. Type the following **mvn** command to create a "Hello world!" Java project.
 
    ```console
-   mvn archetype:generate -DgroupId=com.queues.quickstart
-                          -DartifactId=queues-quickstart-v12
-                          -DarchetypeArtifactId=maven-archetype-quickstart
-                          -DarchetypeVersion=1.4
+   mvn archetype:generate -DgroupId=com.queues.quickstart \
+                          -DartifactId=queues-quickstart-v12 \
+                          -DarchetypeArtifactId=maven-archetype-quickstart \
+                          -DarchetypeVersion=1.4 \
                           -DinteractiveMode=false
    ```
 

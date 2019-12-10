@@ -44,13 +44,13 @@ This section walks you through preparing a project to work with the Azure Blob s
 
 Create a Java application named *blob-quickstart-v12*.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command all on a single line to create a simple "Hello world!" Java project. The command is displayed here on multiple lines for readability.
+1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command to create a simple "Hello world!" Java project.
 
    ```console
-   mvn archetype:generate -DgroupId=com.blobs.quickstart
-                          -DartifactId=blob-quickstart-v12
-                          -DarchetypeArtifactId=maven-archetype-quickstart
-                          -DarchetypeVersion=1.4
+   mvn archetype:generate -DgroupId=com.blobs.quickstart \
+                          -DartifactId=blob-quickstart-v12 \
+                          -DarchetypeArtifactId=maven-archetype-quickstart \
+                          -DarchetypeVersion=1.4 \
                           -DinteractiveMode=false
    ```
 

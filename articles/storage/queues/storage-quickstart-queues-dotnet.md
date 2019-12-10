@@ -127,7 +127,7 @@ These example code snippets show you how to do the following actions with the Az
 
 ### Get the connection string
 
-The code below retrieves the connection string for the storage account. The connection string is stored the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
+The code below retrieves the connection string for the storage account. The connection string is stored in the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
 Add this code inside the `Main` method:
 
