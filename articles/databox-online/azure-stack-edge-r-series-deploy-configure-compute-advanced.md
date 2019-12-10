@@ -252,7 +252,7 @@ Take the following steps to verify data transform and transfer to Azure.
 
     The data is then pushed from the cloud share to the storage account. To view the data, go to your storage account and then select **Storage Explorer**. You can view the uploaded data in your storage account.
 
-    ![Verify data transform](./media/azure-stack-edge-r-series-deploy-configure-compute-advanced/verify-data-5.png)
+<!--![Verify data transform](./media/azure-stack-edge-r-series-deploy-configure-compute-advanced/verify-data-5.png)-->
  
 You have completed the validation process.
 
