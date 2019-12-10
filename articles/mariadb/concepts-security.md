@@ -1,14 +1,14 @@
 ---
-title: Security in Azure Database for MariaDB - Single Server
-description: An overview of the security features in Azure Database for MariaDB - Single Server.
+title: Security - Azure Database for MariaDB
+description: An overview of the security features in Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ---
 
-# Security in Azure Database for MariaDB - Single Server
+# Security in Azure Database for MariaDB
 
 There are multiple layers of security that are available to protect the data on your Azure Database for MariaDB server. This article outlines those security options.
 

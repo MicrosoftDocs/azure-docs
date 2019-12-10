@@ -111,6 +111,8 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 | Indexer |  A crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source for document cracking. For AI enrichments, the indexer invokes a skillset, and contains the field mappings associating enrichment output to target fields in the index. The indexer definition contains all of the instructions and references for pipeline operations, and the pipeline is invoked when you run the indexer. With additional configuration, you can re-use existing processing and execute only those steps and skills that are changed. | See [Indexers](search-indexer-overview.md) and [Incremental indexing (preview)](cognitive-search-incremental-indexing-conceptual.md). |
 | Data Source  | An object used by an indexer to connect to an external data source of supported types on Azure. | See [Indexers overview](search-indexer-overview.md) |
 | Index | A persisted search index in Azure Cognitive Search, built from an index schema that defines field structure and usage. | See [Create a basic index](search-what-is-an-index.md) | 
+| Knowledge store | A storage account where the enriched documents can be shaped and projected in addition to the search index | See [Introduction to knowledge store](knowledge-store-concept-intro.md) | 
+| Indexer cache | A storage account skill outputs are cached by the indexer. The cache enables the indexeer to minimize the cost of reprocessing a large number of documents when a skillset is edited. | See [Incremental indexing](cognitive-search-incremental-indexing-conceptual.md) | 
 
 <a name="where-do-i-start"></a>
 

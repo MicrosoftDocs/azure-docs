@@ -1,18 +1,14 @@
 ---
-title: Use Internet Explorer (Microsoft Authentication Library for JavaScript) 
+title: Use Internet Explorer (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about using the Microsoft Authentication Library for JavaScript (MSAL.js) with Internet Explorer browser.
+description: Use the Microsoft Authentication Library for JavaScript (MSAL.js) with Internet Explorer browser.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2019
 ms.author: nacanuma
