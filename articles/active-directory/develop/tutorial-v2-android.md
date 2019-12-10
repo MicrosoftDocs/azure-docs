@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/26/2019
-ms.author: jmprieur, hahamil 
+ms.author: hahamil 
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40 
 ms.collection: M365-identity-device-management
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 # Tutorial: Sign in users and call the Microsoft Graph from an Android application 
 
 >[!NOTE]
->This tutorial demonstrates simplified examples of how to work with MSAL for Android. For simplicity, this tutorial only uses Single Account Mode. You can also [download the preconfigured sample app](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip) to explore Multi Account or B2C mode. View the [Quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-android) for more on the sample app, configuration, and registration. 
+>This tutorial demonstrates simplified examples of how to work with MSAL for Android. For simplicity, this tutorial only uses Single Account Mode. You can also view the repo and clone [the preconfigured sample app](https://github.com/Azure-Samples/ms-identity-android-java/) to explore Multi Account or B2C mode. View the [Quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-android) for more on the sample app, configuration, and registration. 
 
 In this tutorial, you'll learn how to integrate your android app with the Microsoft identity platform using the Microsoft Authentication Library for Android. You'll learn how to sign in and sign out a user, get an access token to call the Microsoft Graph API, and make a request to the Graph API. 
 
@@ -59,6 +59,17 @@ This sample uses the Microsoft Authentication library for Android (MSAL) to impl
 
 * This tutorial requires Android Studio version 3.5.
 
+## Create a Project
+If you do not already have an Android application, follow these steps to set up a new project. 
+
+1. Open Android Studio, and select **Start a new Android Studio project**.
+2. Select **Basic Activity** and select **Next**.
+3. Name your application.
+4. Save the package name. You will enter it later into the Azure portal.
+5. Change the language from **Kotlin** to **Java**.
+6. Set the **Minimum API level** to **API 19** or higher, and click **Finish**.
+7. In the project view, choose **Project** in the dropdown to display source and non-source project files, open **app/build.gradle** and set `targetSdkVersion` to `28`.
+
 ## Integrate with Microsoft Authentication Library 
 
 ### Register your application
@@ -82,7 +93,7 @@ This sample uses the Microsoft Authentication library for Android (MSAL) to impl
 2. Right-click **res** and choose **New** > **Directory**. Enter `raw` as the new directory name and click **OK**.
 3. In **app** > **src** > **main** > **res** > **raw**, create a new JSON file called `auth_config_single_account.json` and paste the MSAL Configuration that you saved earlier. 
 
-    Bellow the redirect URI, paste: 
+    Below the redirect URI, paste: 
     ```json
       "account_mode" : "SINGLE",
       "broker_redirect_uri_registered": true,
@@ -162,7 +173,7 @@ final static String AUTHORITY = "https://login.microsoftonline.com/common";
 private ISingleAccountPublicClientApplication mSingleAccountApp;
 ```
 ### onCreate
-Inside the `MainActivity` class, refer to the following onCreate() method to instantiate MSAL using the SingleAccount PublicClientApplication.
+Inside the `MainActivity` class, refer to the following onCreate() method to instantiate MSAL using the `SingleAccountPublicClientApplication`.
 
 ```java
 @Override
