@@ -39,7 +39,7 @@
   - name: Avere vFXT for Azure FAQ
     href: avere-vfxt-faq.md
   - name: Disaster recovery guidance
-    href: avere-vfxt-disaster-recovery.md
+    href: disaster-recovery.md
   - name: Additional documentation
     items:
     - name: Supplemental documentation
