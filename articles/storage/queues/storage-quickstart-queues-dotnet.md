@@ -309,10 +309,10 @@ Press the **Enter** key to receive and delete the messages. When prompted, press
 
 In this quickstart, you learned how to create a queue and add messages to it using asynchronous .NET code. Then you learned to view, retrieve, and delete messages. Finally, you learned how to delete a message queue.
 
-To see more Azure Queue storage sample apps, continue to:
+For tutorials, samples, quick starts and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure Queue storage v12 .NET client library samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
+> [Azure for .NET and .NET Core developers](https://docs.microsoft.com/dotnet/azure/)
 
-* For tutorials, samples, quick starts and other documentation, visit [Azure for .NET and .NET Core developers](/dotnet/azure/).
+* To see more Azure Queue storage sample apps, continue to [Azure Queue storage v12 .NET client library samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
 * To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).

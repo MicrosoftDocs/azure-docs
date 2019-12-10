@@ -359,9 +359,9 @@ Press the **Enter** key to receive and delete the messages. When prompted, press
 
 In this quickstart, you learned how to create a queue and add messages to it using Java code. Then you learned to view, retrieve, and delete messages. Finally, you learned how to delete a message queue.
 
-To see more Azure Queue storage sample apps, continue to:
+For tutorials, samples, quick starts, and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure Queue storage SDK v12 Java client library samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
+> [Azure for Java cloud developers](https://docs.microsoft.com/azure/java/)
 
-* For tutorials, samples, quick starts, and other documentation, visit [Azure for Java cloud developers](https://docs.microsoft.com/azure/java/).
+* To see more Azure Queue storage sample apps, continue to [Azure Queue storage SDK v12 Java client library samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).
