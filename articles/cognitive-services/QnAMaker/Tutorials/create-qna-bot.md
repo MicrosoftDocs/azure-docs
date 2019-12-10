@@ -56,7 +56,8 @@ Create a bot as a client application for the knowledge base.
     |Application Insights|**Do not change**|Logging is sent to Application Insights.|
     |Microsoft App ID|**Do not change**|Active directory user and password is required.|
 
-    ![Create the knowledge base bot with these settings.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
+    > [!div class="mx-imgBorder"]
+    > ![Create the knowledge base bot with these settings.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
 
     Wait a couple of minutes until the bot creation process notification reports success.
 
