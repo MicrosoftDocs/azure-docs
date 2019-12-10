@@ -22,7 +22,7 @@ Budgets reset automatically at the end of a period (monthly, quarterly, or annua
 
 The examples in this tutorial walk you through creating and editing a budget for an Azure Enterprise Agreement (EA) subscription.
 
-Watch the [How to create a budget to monitor your spending with Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) video to see how you can create budgets in Azure to monitor spending.
+Watch the [Apply budgets to subscriptions using the Azure portal](https://www.youtube.com/watch?v=UrkHiUx19Po) video to see how you can create budgets in Azure to monitor spending.
 
 
 In this tutorial, you learn how to:
