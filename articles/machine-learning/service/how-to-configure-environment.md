@@ -166,7 +166,7 @@ When you're using a local computer (which might also be a remote virtual machine
     Then run the following command to create the kernel:
 
     ```shell
-    ipython kernel install --user
+    ipython kernel install --user --name myenv --display-name "Python (myenv)"
     ```
 
 1. Use the following commands to install packages:
