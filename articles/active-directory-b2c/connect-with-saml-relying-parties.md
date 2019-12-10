@@ -67,15 +67,19 @@ You can use a certificate issued by a public certificate authority or, for this 
 
 ### 1.1 Prepare a self-signed certificate
 
-If you don't already have a certificate, you can create a self-signed certificate using `makecert`. The following steps outline the procedure on Windows.
+If you don't already have a certificate, you can create a self-signed certificate by using PowerShell's [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet.
 
-1. Run the `makecert` command to generate a self-signed certificate:
+1. Execute this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
 
-    > [!WARNING]
-    > MakeCert is deprecated - see https://docs.microsoft.com/windows/win32/seccrypto/makecert. Need to update these steps to use PowerShell [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate?view=win10-ps).
-
-    ```Console
-    makecert -r -pe -n "CN=yourappname.yourtenant.onmicrosoft.com" -a sha256 -sky signature -len 2048 -e 12/12/2025 -sr CurrentUser -ss My YourAppNameSamlCert.cer
+    ```PowerShell
+    New-SelfSignedCertificate `
+        -KeyExportPolicy Exportable `
+        -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
+        -KeyAlgorithm RSA `
+        -KeyLength 2048 `
+        -KeyUsage DigitalSignature `
+        -NotAfter (Get-Date).AddMonths(12) `
+        -CertStoreLocation "Cert:\CurrentUser\My"
     ```
 
 1. Open **Manage user certificates** > **Current User** > **Personal** > **Certificates** > *yourappname.yourtenant.onmicrosoft.com*
