@@ -72,7 +72,7 @@ If you don't already have a certificate, you can create a self-signed certificat
 1. Run the `makecert` command to generate a self-signed certificate:
 
     > [!WARNING]
-    > MakeCert is deprecated - see https://docs.microsoft.com/windows/win32/seccrypto/makecert. Need to update these steps to use PowerShell [New-SelfSignedCertificate](https://docs.microsoft.com/en-us/powershell/module/pkiclient/new-selfsignedcertificate?view=win10-ps).
+    > MakeCert is deprecated - see https://docs.microsoft.com/windows/win32/seccrypto/makecert. Need to update these steps to use PowerShell [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate?view=win10-ps).
 
     ```Console
     makecert -r -pe -n "CN=yourappname.yourtenant.onmicrosoft.com" -a sha256 -sky signature -len 2048 -e 12/12/2025 -sr CurrentUser -ss My YourAppNameSamlCert.cer
