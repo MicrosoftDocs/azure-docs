@@ -16,14 +16,14 @@ ms.date: 12/06/2019
 This tutorial demonstrates how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to a Synapse Spark Pools directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
 
 * Develop and submit a Scala Spark application on a Synapse Spark Pool.
-* Access your Azure Synapse Spark Pools resources.
+* Access your Synapse Spark Pools resources.
 * Develop and run a Scala Spark application locally.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Use the Azure Toolkit for IntelliJ plug-in
 > * Develop Apache Spark applications
-> * Submit application to Azure Spark Pools
+> * Submit application to Synapse Spark Pools
 
 ## Prerequisites
 
@@ -35,22 +35,17 @@ In this tutorial, you learn how to:
 
 * Scala Plugin – Install from IntelliJ Plugin repository. [More details](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea).
 
-* Enable the Synapse feature – Put [AadProvider.json](https://msdata.visualstudio.com/A365/_wiki/wikis/A365.wiki?path=%2F.attachments%2FAadProvider-6b733bf0-a0e8-4eea-ad88-940908fcfe1f.json&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1&sanitize=true&wikiVersion=GBwikiMaster&pagePath=%2FArcadia%20Wiki%2FBugBash%2FIntelliJ%20Toolkit%20for%20Synapse%20(Arcadia)) to user/AzureToolsForIntelliJ/AadProvider.json
-
-     ![IntelliJ IDEA New Project dialog box](./media/apache-spark-intellij-tool-synapse/add-ada-file.png)
-
-* Subscription **Arcadia Web Tooling** (ID = 051ddeca-1ed6-4d8b-ba6f-1ff561e5f3b3).
-  Request access to this subscription.
-
-* Prerequisite for Windows. 
-  Download [WinUtils executable](https://msdata.visualstudio.com/A365/_wiki/wikis/A365.wiki?path=%2F.attachments%2FAadProvider-6b733bf0-a0e8-4eea-ad88-940908fcfe1f.json&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1&sanitize=true&wikiVersion=GBwikiMaster&pagePath=%2FArcadia%20Wiki%2FBugBash%2FIntelliJ%20Toolkit%20for%20Synapse%20(Arcadia))  to a location such as **C:\WinUtils\bin**. Then, add the environment variable **HADOOP_HOME**, and set the value of the variable to **C:\WinUtils**
+* This prerequisite is only for windows users.
+  While you're running the local Spark Scala application on a Windows computer, you might get an exception, as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). The exception occurs because WinUtils.exe is missing on Windows.
+  To resolve this error, download the [executable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe
+) to a location such as **C:\WinUtils\bin**. Then, add the environment variable **HADOOP_HOME**, and set the value of the variable to **C:\WinUtils**.
 
 
 ## Create a Spark Scala application for a Synapse Spark Pool
 
 1. Start IntelliJ IDEA, and select **Create New Project** to open the **New Project** window.
 
-2. Select **Azure Spark/HDInsight** from the left pane.
+2. Select **Apache Spark/HDInsight** from the left pane.
 
 3. Select **Spark Project with Samples(Scala)** from the main window.
 
@@ -91,7 +86,7 @@ In this tutorial, you learn how to:
 
 ## Connect to your Synapse Spark Pools
 
-User can sign in to Azure subscription to connect to your Synapse Spark Pools.
+You can sign in to Azure subscription to connect to your Synapse Spark Pools.
 
 ### Sign in to your Azure subscription
 
@@ -169,15 +164,17 @@ After creating a Scala application, you can remote run it.
 
 ## Local Run/Debug Apache Spark applications 
 
+You can follow the instructions below to set up your local run and local debug for your Apache Spark job.
+
 ### Scenario 1: Do local run
 
 1. Open the **Run/Debug Configurations** dialog, select the plus sign (**+**). Then select the **Apache Spark on Synapse** option. Enter information for **Name**, **Main class name** to save.
 
     ![Intellij Run debug configurations local run](./media/apache-spark-intellij-tool-synapse/local-run-synapse.png)
 
-    - Environment variables: If you already set the system environment variable **HADOOP_HOME** to **C:\WinUtils**, it can auto detect that no need to manually add.
-    - [WinUtils.exe Location](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): If you have not set the system environment variable, you can find the location by clicking its button.
-    - Just choose either of two options and they aren't needed on MacOS and Linux.
+    - Environment variables and WinUtils.exe Location are only for windows users.
+    - Environment variables: The system environment variable can be auto detected if you have set it before and no need to manually add.
+    - [WinUtils.exe Location](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): You can specify the WinUtils location by clicking the button on the right.
 
 2. Then click the local run button.
 
@@ -196,7 +193,7 @@ After creating a Scala application, you can remote run it.
 
 ## Access and manage Synapse Workspace
 
-You can do various operations by using Azure Toolkit for IntelliJ.  Most of the operations are started from **Azure Explorer**.  From the menu bar, navigate to **View** > **Tool Windows** > **Azure Explorer**.
+ You can perform different operations in Azure Explorer within Azure Toolkit for IntelliJ. From the menu bar, navigate to **View** > **Tool Windows** > **Azure Explorer**.
 
 ### Launch workspace
 
@@ -279,10 +276,6 @@ It's only supported on IntelliJ 2018.2 and 2018.3.
 It's convenient for you to foresee the script result by sending some code to the local console or Livy Interactive Session Console(Scala). You can highlight some code in the Scala file, then right-click **Send Selection To Spark Console**. The selected code will be sent to the console and be done. The result will be displayed after the code in the console. The console will check the errors if existing.  
 
    ![Send Selection to Spark Console](./media/apache-spark-intellij-tool-synapse/send-selection-to-console.png)
-
-## Next steps
-
-In this tutorial, you learn how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to a Synapse Spark Pool directly from the IntelliJ integrated development environment (IDE). Advance to the next article to see **Use Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight cluster**.
 
 > [!div class="nextstepaction"]
 > [Use Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
