@@ -31,7 +31,13 @@ The maximum number of knowledge bases is based on [Azure Cognitive Search tier l
 
 ### Maximum file size
 
-10 MB per file or URL
+|Format|Max file size (MB)|
+|--|--|
+|`.docx`|10|
+|`.pdf`|25|
+|`.tsv`|10|
+|`.txt`|10|
+|`.xlsx`|3|
 
 ### Maximum number of files
 
