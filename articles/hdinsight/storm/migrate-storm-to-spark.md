@@ -11,7 +11,7 @@ ms.date: 12/05/2019
 
 # Migrate Azure HDInsight 3.6 Apache Storm to HDInsight 4.0 Apache Spark
 
-This document describes how to migrate Apache Storm workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 4.0 doesn't support Apache Storm cluster type and need to be migrated to other streaming platform. This document describes the differences and migration flow for migrating Apache Storm workloads to Apache Spark Streaming or Spark Structured Streaming.
+This document describes how to migrate Apache Storm workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 4.0 doesn't support the Apache Storm cluster type and you will need to migrate to another streaming data platform. Two suitable options are Apache Spark Streaming and Spark Structured Streaming. This document describes the differences between these platforms and also recommends a workflow for migrating Apache Storm workloads.
 
 ## Storm migration paths in HDInsight
 
