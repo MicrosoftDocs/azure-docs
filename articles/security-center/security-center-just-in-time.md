@@ -173,7 +173,7 @@ For your convenience, you can connect to a VM using JIT directly from within the
 To make it easy to roll out just-in-time access across your VMs, you can set a VM to allow only just-in-time access directly from within the VM.
 
 1. Go to the [Azure portal](https://ms.portal.azure.com). Search for and select **Virtual machines**. 
-2. Selet the virtual machine you want to limit to just-in-time access.
+2. Select the virtual machine you want to limit to just-in-time access.
 3. In the menu, select **Configuration**.
 4. Under **Just-in-time-access**, select **Enable just-in-time policy**. 
 
