@@ -323,7 +323,7 @@ As part of the configuration of the NPS extension, you must supply administrator
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
 
-2. In the Azure Portal menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
+2. In the Azure portal menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
 
 3. Select **Properties**.
 
