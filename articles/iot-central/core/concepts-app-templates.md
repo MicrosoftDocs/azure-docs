@@ -46,6 +46,9 @@ Currently, the application templates that use _public preview_ features are:
 - Government > Water quality monitoring
 - Healthcare > Continuous patient monitoring
 
+> [!NOTE]
+> The **Custom application, Sample Contoso, Sample Devkits** templates are currently  available in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations, while other templates are currently available only in **Europe** and **US** locations.
+
 ## Industry focused templates
 
 Azure IoT Central is an industry agnostic application platform. Application templates are industry focused examples available for these industries today, with more to come in the future:

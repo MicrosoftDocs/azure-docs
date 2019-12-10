@@ -49,7 +49,7 @@ Accelerated Writes uses Azure premium SSD managed disks to improve performance o
 
 ### Custom Ambari DB
 
-HDInsight now offers a new capacity to enable customers to use their own SQL DB for Ambari. Now customers can choose the right SQL DB for Ambari and  easily upgrade the it based on their own business growth requirement. The deployment is done with an Azure Resource Manager template. For more information, see [Set up HDInsight clusters with a custom Ambari DB](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
+HDInsight now offers a new capacity to enable customers to use their own SQL DB for Ambari. Now customers can choose the right SQL DB for Ambari and  easily upgrade it based on their own business growth requirement. The deployment is done with an Azure Resource Manager template. For more information, see [Set up HDInsight clusters with a custom Ambari DB](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
 
 ### F-series virtual machines are now available with HDInsight
 
@@ -84,4 +84,4 @@ A-series VMs could cause ESP cluster issues due to relatively low CPU and memory
 HDInsight continues to make cluster reliability and performance improvements. 
 
 ## Component version change
-There is no component version change for this release. You could find the current component versions for HDInsight 4.0 ad HDInsight 3.6 [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+There is no component version change for this release. You could find the current component versions for HDInsight 4.0 and HDInsight 3.6 [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).

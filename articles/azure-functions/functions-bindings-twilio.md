@@ -15,7 +15,13 @@ This article explains how to send text messages by using [Twilio](https://www.tw
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Packages - Functions 2.x
+## Packages - Functions 1.x
+
+The Twilio bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet package, version 1.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/) GitHub repository.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+## Packages - Functions 2.x and higher
 
 The Twilio bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub repository.
 
@@ -207,9 +213,15 @@ module.exports = function (context, myQueueItem) {
 
 ---
 
-## Example - Functions 1.x
+## Example - Functions 2.x and higher
 
 # [C#](#tab/csharp)
+
+* [2.x+ C#](#2x+-c-example)
+* [2.x+ C# script (.csx)](#2x+-c-script-example)
+* [2.x+ JavaScript](#2x+-javascript-example)
+
+### 2.x+ C# example
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a text message when triggered by a queue message.
 

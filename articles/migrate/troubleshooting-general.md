@@ -226,7 +226,9 @@ Error 50004: "Can't connect to a host or cluster because the server name can't b
 
 ## Application discovery issues
 
-Discovery of applications is currently only supported for VMware VMs. Support for Hyper-V VMs and physical servers will be enabled in future. The discovery of applications require you to provide VM credentials in the appliance. Learn more about the access privileges needed for vCenter Server and for VMware VMs. The discovery can fail due to one of the following issues, please review the recommended action as prescribed below to resolve the issue:
+Discovery of applications is currently only supported for VMware VMs. Support for Hyper-V VMs and physical servers will be enabled in future.
+
+The discovery of applications requires you to provide VM credentials in the appliance, if you have not provided VM credentials in the appliance, application discovery will not work. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) about the access privileges needed for vCenter Server and for VMware VMs. If you have provided VM credentials in the appliance and the application discovery is failing, review the following table to identify the cause for the failure and remediation action:
 
 **Error code** | **Message** | **Possible cause** | **Recommended action**
 --- | --- | --- | ---

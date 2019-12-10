@@ -1,5 +1,5 @@
 ---
-title: Mobile app that calls web APIs - calling a web API 
+title: Call a web API from a mobile app | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a mobile app that calls web APIs (calling a web API)
 services: active-directory

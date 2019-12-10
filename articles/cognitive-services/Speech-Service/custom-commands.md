@@ -1,5 +1,5 @@
 ---
-title: Custom Commands (Preview) - Speech Service
+title: Custom Commands (Preview) - Speech service
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for Custom Commands (Preview), a solution for creating voice assistants.
 services: cognitive-services
@@ -44,7 +44,7 @@ Sample code for creating a voice assistant with Custom Commands (Preview) is ava
 
 ## Customization
 
-Voice assistants built using Azure Speech Services can use the full range of customization options available for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), and [custom keyword selection](speech-devices-sdk-create-kws.md).
+Voice assistants built using the Speech service can use the full range of customization options available for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), and [custom keyword selection](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > Customization options vary by language/locale (see [Supported languages](supported-languages.md)).
@@ -55,5 +55,5 @@ Voice assistants built using Azure Speech Services can use the full range of cus
 
 ## Next steps
 
-* [Get a Speech Services subscription key for free](get-started.md)
+* [Get a Speech service subscription key for free](get-started.md)
 * [Get the Speech SDK](speech-sdk.md)
