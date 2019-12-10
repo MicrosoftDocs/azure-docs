@@ -1,6 +1,6 @@
 ---
 title: ARRAY_LENGTH in Azure Cosmos DB query language
-description: Learn about SQL system function ARRAY_LENGTH in Azure Cosmos DB.
+description: Learn about how the Array length SQL system function in Azure Cosmos DB returns the number of elements of the specified array expression
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
