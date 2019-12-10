@@ -75,7 +75,7 @@ The following is the expected response:
 
 > [!NOTE] 
 > Proxy considerations:
-> *	Check whether the proxy server requires whitelisting. If so, have [these domains](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) whitelisted.
+> *	Check whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
 > *	Check whether the TLS/SSL certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
 > *	If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
 
@@ -105,7 +105,9 @@ This behavior occurs when nodes can't communicate with each other.
                
     at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
        
-1. If you see this error, run the following on a command line: **telnet 10.2.4.10 8060**.
+1. If you see this error, run the following on a command line: 
+
+   **telnet 10.2.4.10 8060**.
 1. If you receive the following error, contact your IT department for help with fixing this issue. After you can successfully telnet, contact Microsoft Support if you still have issues with the integrative runtime node status.
         
    ![Command-line error](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
