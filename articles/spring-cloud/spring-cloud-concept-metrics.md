@@ -267,9 +267,11 @@ The following table shows the available metrics and details.
 </table>
 
 ## See also
-[Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
-[Analyze logs and metrics with diagnostics settings](https://docs.microsoft.com/en-us/azure/spring-cloud/diagnostic-services)
+* [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
+
+* [Analyze logs and metrics with diagnostics settings](https://docs.microsoft.com/en-us/azure/spring-cloud/diagnostic-services)
 
 ## Next steps
-[Tutorial: Monitor Spring Cloud resources using alerts and action groups](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
-[Quotas and Service Plans for Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-quotas)
+* [Tutorial: Monitor Spring Cloud resources using alerts and action groups](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
+
+* [Quotas and Service Plans for Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-quotas)
