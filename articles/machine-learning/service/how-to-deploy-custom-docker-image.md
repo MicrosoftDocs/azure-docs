@@ -208,7 +208,7 @@ To use an image stored in the **Azure Container Registry for your workspace**, o
 + `docker.base_image`: Set to the registry and path to the image.
 
 ```python
-from azureml.core import Environment
+from azureml.core.environment import Environment
 # Create the environment
 myenv = Environment(name="myenv")
 # Enable Docker and reference an image
