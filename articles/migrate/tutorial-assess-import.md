@@ -1,6 +1,6 @@
 ---
-title: Assess servers by using imported server data with Azure Migrate Server Assessment
-description: Describes how to assess on-premises servers for migration to Azure with Azure Migrate Server Assessment using imported data.
+title: Assess servers by using imported server data with Azure Migrate: Server Assessment
+description: Describes how to assess on-premises servers for migration to Azure with Azure Migrate: Server Assessment using imported data.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
@@ -11,7 +11,7 @@ ms.author: raynew
 
 # Assess servers by using imported data
 
-This article explains how to assess on-premises servers with the [Azure Migrate Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool, by importing server metadata in comma-separated values (CSV) format. This assessment method doesn't require you to set up the Azure Migrate appliance to create an assessment. It's useful if:
+This article explains how to assess on-premises servers with the [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool, by importing server metadata in comma-separated values (CSV) format. This assessment method doesn't require you to set up the Azure Migrate appliance to create an assessment. It's useful if:
 
 - You want to create a quick, initial assessment before you deploy the appliance.
 - You can't deploy the Azure Migrate appliance in your organization.
@@ -24,14 +24,14 @@ Be aware of these points:
 
 - You can add up to a maximum of 20,000 servers in a single CSV file.
 - You can add up to 20,000 servers in an Azure Migrate project by using CSV.
-- You can upload server information to Azure Migrate Server Assessment multiple times by using CSV.
-- Gathering application information is useful in evaluating your on-premises environment for migration. However, Azure Migrate Server Assessment doesn't currently perform application-level assessment or take applications into account when creating an assessment.
+- You can upload server information to Server Assessment multiple times by using CSV.
+- Gathering application information is useful in evaluating your on-premises environment for migration. However, Server Assessment doesn't currently perform application-level assessment or take applications into account when creating an assessment.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set up an Azure Migrate project.
 > * Fill in a CSV file with server information.
-> * Import the file to add server information into Azure Migrate Server Assessment.
+> * Import the file to add server information into Server Assessment.
 > * Create and review an assessment.
 
 > [!NOTE]
@@ -175,7 +175,7 @@ Optionally, you can add specific fields only for an app.
 
 ## Import the server information
 
-After adding information to the CSV template, import the servers into Azure Migrate Server Assessment.
+After adding information to the CSV template, import the servers into Server Assessment.
 
 1. In Azure Migrate, in **Discover machines**, go to the completed template.
 2. Select **Import**.
@@ -203,7 +203,7 @@ To verify that the servers appear in the Azure portal after discovery:
 
 ## Set up and run an assessment
 
-You can create two types of assessments by using Azure Migrate Server Assessment.
+You can create two types of assessments by using Server Assessment.
 
 **Assessment type** | **Details** | **Data**
 --- | --- | ---
@@ -256,7 +256,7 @@ An assessment describes:
     - **Not ready for Azure**: Shows problems and suggested remediation.
     - **Readiness unknown**: Azure Migrate can't assess readiness, due to data-availability issues.
 
-2. Select an **Azure readiness** status. You can view server-readiness details and drill down to see server details, including compute, storage, and network settings.
+3. Select an **Azure readiness** status. You can view server-readiness details and drill down to see server details, including compute, storage, and network settings.
 
 ### Review cost details
 
@@ -266,16 +266,17 @@ This view shows the estimated compute and storage cost of running VMs in Azure. 
 
     - Cost estimates are based on the size recommendations for a machine, and its disks and properties.
     - Estimated monthly costs for compute and storage are shown.
-    - The cost estimate is for running the on-premises servers as infrastructure-as-a-service (IaaS) VMs. Azure Migrate Server Assessment doesn't consider platform-as-a-service (PaaS) or software-as-a-service (SaaS) costs.
+    - The cost estimate is for running the on-premises servers as infrastructure-as-a-service (IaaS) VMs. Server Assessment doesn't consider platform-as-a-service (PaaS) or software-as-a-service (SaaS) costs.
 
 - Review monthly storage-cost estimates. This view shows aggregated storage costs for the assessed group, split among different types of storage disks.
 - Drill down to see details for specific VMs.
 
 > [!NOTE]
-> Confidence ratings are not assigned to assessments of servers imported into Azure Migrate Server Assessment by using CSV.
+> Confidence ratings are not assigned to assessments of servers imported into Server Assessment by using CSV.
 
 ## Supported operating system names
 
+<!--
 Name | Name
 --- | ---
 **A - H** |
@@ -294,13 +295,168 @@ Ubuntu Linux | VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6
 Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003 | Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
 
 Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
+-->
+
+<!-- BEGIN A - H -->
+
+:::row:::
+   :::column span="2":::
+      **A - H**
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Apple Mac OS X 10
+   :::column-end:::
+   :::column span="":::
+      Asianux 3
+      Asianux 4
+      Asianux 5
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      CentOS
+      CentOS 4/5
+   :::column-end:::
+   :::column span="":::
+      CoreOS Linux
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Debian GNU/Linux 4
+      Debian GNU/Linux 5
+      Debian GNU/Linux 6
+      Debian GNU/Linux 7
+      Debian GNU/Linux 8
+   :::column-end:::
+   :::column span="":::
+      FreeBSD
+   :::column-end:::
+:::row-end:::
+
+<!-- BEGIN I - R -->
+
+:::row:::
+   :::column span="2":::
+      **I - R**
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      IBM OS/2
+   :::column-end:::
+   :::column span="":::
+      MS-DOS
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Novell NetWare 5
+      Novell NetWare 6
+   :::column-end:::
+   :::column span="":::
+      Oracle Linux
+       Oracle Linux 4/5
+      Oracle Solaris 10
+       Oracle Solaris 11
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Red Hat Enterprise Linux 2
+      Red Hat Enterprise Linux 3
+      Red Hat Enterprise Linux 4
+      Red Hat Enterprise Linux 5
+      Red Hat Enterprise Linux 6
+      Red Hat Enterprise Linux 7
+      Red Hat Fedora
+   :::column-end:::
+:::row-end:::
+
+<!-- BEGIN S - T -->
+
+:::row:::
+   :::column span="2":::
+      **S - T**
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      SCO OpenServer 5
+      SCO OpenServer 6
+      SCO UnixWare 7
+   :::column-end:::
+   :::column span="":::
+      Serenity Systems eComStation 1
+      Serenity Systems eComStation 2
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Sun Microsystems Solaris 8
+      Sun Microsystems Solaris 9
+   :::column-end:::
+   :::column span="":::
+      SUSE Linux Enterprise 10
+      SUSE Linux Enterprise 11
+      SUSE Linux Enterprise 12
+      SUSE Linux Enterprise 8/9
+      SUSE Linux Enterprise 11
+      SUSE openSUSE
+   :::column-end:::
+:::row-end:::
+
+<!-- BEGIN U - Z -->
+:::row:::
+   :::column span="2":::
+      **U - Z**
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Ubuntu Linux
+   :::column-end:::
+   :::column span="":::
+      VMware ESXi 4
+      VMware ESXi 5
+      VMware ESXi 6
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Windows 10
+      Windows 2000
+      Windows 3
+      Windows 7 
+      Windows 8
+      Windows 95
+      Windows 98
+      Windows NT
+      Windows Server (R) 2008
+      Windows Server 2003
+   :::column-end:::
+   :::column span="":::
+      Windows Server 2008
+      Windows Server 2008 R2
+      Windows Server 2012
+      Windows Server 2012 R2
+      Windows Server 2016
+      Windows Server 2019
+      Windows Server Threshold
+      Windows Vista
+      Windows Web Server 2008 R2
+      Windows XP Professional
+   :::column-end:::
+:::row-end:::
 
 ## Next steps
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Imported servers into Azure Migrate Server Assessment by using CSV.
+> * Imported servers into Azure Migrate: Server Assessment by using CSV.
 > * Created and reviewed an assessment.
 
 Now, [deploy an appliance](./migrate-appliance.md) for more accurate assessments, and gather servers together into groups for deeper assessment by using [dependency analysis](./concepts-dependency-visualization.md).
