@@ -1,6 +1,6 @@
 ---
-title: Build a multitenant daemon by using the Microsoft identity platform endpoint
-description: In this quickstart, learn how to call an ASP.NET web API protected by Azure Active Directory from a Windows desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
+title: Build a multitenant daemon that uses the Microsoft identity platform endpoint
+description: In this tutorial, learn how to call an ASP.NET web API protected by Azure Active Directory from a Windows desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -21,7 +21,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:A
 ms.collection: M365-identity-device-management
 ---
 
-# Build a multitenant daemon by using the Microsoft identity platform endpoint
+# Build a multitenant daemon that uses the Microsoft identity platform endpoint
 
 In this tutorial, you learn how to use the Microsoft identity platform to access the data of Microsoft business customers in a long-running, non-interactive process. The sample daemon uses the [OAuth2 client credentials grant](v2-oauth2-client-creds-grant-flow.md) to acquire an access token. The daemon then uses the token to call [Microsoft Graph](https://graph.microsoft.io) and access organizational data.
 
@@ -104,7 +104,7 @@ If you don't want to use the automation, use the steps in the following sections
        - **https://localhost:44316/**
        - **https://localhost:44316/Account/GrantPermissions**
           
-     If there's more than one redirect URI, you'll need to add them from the **Authentication** tab later, after the app is created successfully.
+     If there are more than two redirect URIs, you'll need to add them from the **Authentication** tab later, after the app is created successfully.
 1. Select **Register** to create the application.
 1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
 1. In the list of pages for the app, select **Authentication**. Then:
@@ -188,7 +188,7 @@ The relevant code for this sample is in the following files:
 1. Right-click the project, select **Add**, and then select **Class**.
 1. In the search box, enter **OWIN**. **OWIN Startup class** appears as a selection. Select it, and name the class **Startup.cs**.
 1. In **Startup.cs**, replace the code for the **Startup** class with the code from the same file of the sample app. Again, note that the definition changes from **public class Startup** to **public partial class Startup**.
-1. In the folder, add a new class called **MsGraphUser.cs**. Replace the implementation with the contents of the file of the same name from the sample.
+1. In the **Models** folder, add a new class called **MsGraphUser.cs**. Replace the implementation with the contents of the file of the same name from the sample.
 1. Add a new **MVC 5 Controller - Empty** instance called **AccountController**. Replace the implementation with the contents of the file of the same name from the sample.
 1. Add a new **MVC 5 Controller - Empty** instance called **UserController**. Replace the implementation with the contents of the file of the same name from the sample.
 1. Add a new **Web API 2 Controller - Empty** instance called **SyncController**. Replace the implementation with the contents of the file of the same name from the sample.
