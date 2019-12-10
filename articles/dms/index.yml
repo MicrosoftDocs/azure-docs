@@ -111,10 +111,10 @@ landingContent:
             url: https://www.microsoft.com/handsonlabs/selfpacedlabs/details/SP-AZ100092
           - text: Migrate MySQL to Azure
             url: https://www.microsoft.com/handsonlabs/selfpacedlabs/details/SP-AZ100091
-          - text: Create a new Azure Database for MySQL and WordPress app
-            url: https://www.microsoft.com/handsonlabs/selfpacedlabs/details/SP-AZ100049
           - text: NoSQL Migration Lab from MongoDB to Azure Cosmos DB
             url: https://www.microsoft.com/handsonlabs/selfpacedlabs/details/SP-AZ100047
+          - text: Create a new Azure Database for MySQL and WordPress app
+            url: https://www.microsoft.com/handsonlabs/selfpacedlabs/details/SP-AZ100049
 # Card 4
   - title: Tools and guidance
     linkLists:
