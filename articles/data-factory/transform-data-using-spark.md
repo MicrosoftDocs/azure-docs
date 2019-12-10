@@ -1,17 +1,17 @@
 ---
-title: Transform data using Spark activity in Azure Data Factory 
+title: Transform data using Spark activity
 description: Learn how to transform data by running Spark programs from an Azure data factory pipeline using the Spark Activity. 
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/31/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: shwang
+ms.custom: seo-lt-2019
+ms.date: 05/31/2018
 ---
+
 # Transform data using Spark activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-spark.md)
