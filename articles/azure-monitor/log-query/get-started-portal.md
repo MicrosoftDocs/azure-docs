@@ -69,12 +69,14 @@ Run a query by clicking the **Run** button or pressing **Shift+Enter**. Consider
 - Time range - A time range of _last 24 hours_ is set by default. To use a different range, use the time-picker or add an explicit time range filter to your query.
 
 
-## Understand the schema
-The schema is a collection of tables visually grouped under a logical category. Several of the categories are from monitoring solutions. The _LogManagement_ category contains common data such as Windows and Syslog events, performance data, and agent heartbeats.
+## Understand the schema pane
+The schema pane shows a collection of tables visually grouped by resource. Tables that apply to multiple resources appear in more than one location. 
 
 ![Schema](media/get-started-portal/schema.png)
 
 In each table, data is organized in columns with different data types as indicated by icons next to the column name. For example, the _Event_ table shown in the screenshot contains columns such as _Computer_ which is text, _EventCategory_ which is a number, and _TimeGenerated_ which is date/time.
+
+The schema 
 
 ## Filter the results
 Start by getting everything in the _Event_ table.
