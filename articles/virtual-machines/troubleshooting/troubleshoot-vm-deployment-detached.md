@@ -34,14 +34,14 @@ This error happens when you try reattaching a data disk whose last detach operat
 ### Step 1: Get the virtual machine and disk details
 
 ```azurepowershell-interactive
-PS D:> $vm = Get-AzureRmVM -ResourceGroupName "varsha_newRG" -Name "varshaVM22October" 
+PS D:> $vm = Get-AzureRmVM -ResourceGroupName "Example Resource Group" -Name "ERGVM999999" 
 
 PS D:> $vm.StorageProfile.DataDisks 
 lun          : 0
 name         : f94901ef-75ee-4477-9ad6-1c74da50e7ef
 createOption : Attach
 caching      : ReadOnly
-managedDisk  : @{storageAccountType=Premium_LRS; id=/subscriptions/11ceafd0-fa99-4f18-a6b7-ced6ad02e323/resourceGroups/ mc_acse-jhub_acsejhub_westeurope/providers/Microsoft.Compute/disks/f94901ef-75ee-4477-9ad6-1c74da50e7ef}
+managedDisk  : @{storageAccountType=Premium_LRS; id=/subscriptions/<subscription ID>/resourceGroups/<Resource Group name>}
 diskSizeGB   : 8
 toBeDetached : False 
 ```
@@ -60,13 +60,13 @@ PS D:> $vm.StorageProfile.DataDisks[0].ToBeDetached = $true
 Alternately, you can also detach this disk using the command below, which will be helpful for users using API versions before March 01, 2019.
 
 ```azurepowershell-interactive
-PS D:> Remove-AzureRmVMDataDisk -VM $vm -Name "f94901ef-75ee-4477-9ad6-1c74da50e7ef" 
+PS D:> Remove-AzureRmVMDataDisk -VM $vm -Name "<disk ID>" 
 ```
 
 ### Step 3: Update the virtual machine
 
 ```azurepowershell-interactive
-PS D:> Update-AzureRmVM -ResourceGroupName "mc_acse-jhub_acsejhub_westeurope" -VM $vm 
+PS D:> Update-AzureRmVM -ResourceGroupName "<updated resource group name>" -VM $vm 
 ```
 
 ## Solution 2: REST
@@ -74,7 +74,7 @@ PS D:> Update-AzureRmVM -ResourceGroupName "mc_acse-jhub_acsejhub_westeurope" -V
 ### Step 1: Get the virtual machine payload.
 
 ```azurepowershell-interactive
-GET https://management.azure.com/subscriptions/11ceafd0-fa99-4f18-a6b7-ced6ad02e323/providers/Microsoft.Compute/virtualMachines/aks-systempool-23089071-vm_4?api-version=2019-03-01
+GET https://management.azure.com/subscriptions/<example Resource Group name>/providers/Microsoft.Compute/virtualMachines/aks-systempool-23089071-vm_4?api-version=2019-03-01
 ```
 
 ### Step 2: Set the flag for failing disks to "true".
