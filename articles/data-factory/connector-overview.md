@@ -14,7 +14,7 @@ ms.reviewer: craigg
 
 # Azure Data Factory connector overview
 
-Azure Data Factory support the following data stores and formats via Copy activity, Data Flow, Lookup activity, Get Metadata activity and Delete activity. Click each data store to learn the supported capabilities in details and the corresponding configurations.
+Azure Data Factory support the following data stores and formats via Copy, Data Flow, Look-up, Get Metadata, and Delete activities. Click each data store to learn the supported capabilities and the corresponding configurations in details.
 
 ## Supported data stores
 
