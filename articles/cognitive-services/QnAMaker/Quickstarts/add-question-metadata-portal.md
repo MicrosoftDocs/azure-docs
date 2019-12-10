@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 11/22/2019
 ms.author: diberry
 ---
 
@@ -171,4 +171,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get answer with Postman](get-answer-from-kb-using-postman.md)
+> [Get answer with Postman or cURL](get-answer-from-knowledge-base-using-url-tool.md)

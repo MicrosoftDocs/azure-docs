@@ -1,5 +1,6 @@
 ---
-title: Desktop app that calls web APIs (acquiring a token for the app) - Microsoft identity platform
+title: Get token for desktop apps that call web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a Desktop app that calls web APIs (acquiring a token for the app |)
 services: active-directory
 documentationcenter: dev-center-name

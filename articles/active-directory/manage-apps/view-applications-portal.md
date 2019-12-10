@@ -1,6 +1,6 @@
 ---
-title: View tenant applications - Azure Active Directory | Microsoft Docs
-description: Use the Azure portal to view the applications in your Azure Active Directory (Azure AD) tenant.
+title: Quickstart - View tenant applications using Azure Active Directory
+description: In this Quickstart, use the Azure portal to view the applications in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -20,7 +20,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# View your Azure Active Directory tenant applications
+# Quickstart: View your Azure Active Directory tenant applications
 
 This quickstart uses the Azure portal to view the applications in your Azure Active Directory (Azure AD) tenant.
 

@@ -49,6 +49,8 @@
       href: ./hdinsight-selecting-vm-size.md
     - name: Cluster capacity planning
       href: ./hdinsight-capacity-planning.md
+    - name: Cluster management best practices
+      href: ./cluster-management-best-practices.md
     - name: Availability and reliability
       href: ./hdinsight-high-availability-linux.md
     - name: Compare storage options
@@ -243,14 +245,8 @@
       href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
     - name: Understand and resolve WebHCat errors
       href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
-    - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
     - name: Get help on the forum
       href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
-    - name: Learning path
-      href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
-    - name: Microsoft Professional Program for Big Data
-      href: https://academy.microsoft.com/en-us/professional-program/tracks/big-data/
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Windows tools for HDInsight
@@ -279,8 +275,6 @@
         href: ./spark/apache-spark-intellij-tool-failure-debug.md
       - name: Analyze data using BI tools
         href: ./spark/apache-spark-use-bi-tools.md
-      - name: Run a streaming job
-        href: ./spark/apache-spark-eventhub-streaming.md
       - name: Create a machine learning app
         href: ./spark/apache-spark-ipython-notebook-machine-learning.md
       - name: Create an Apache Spark app in IntelliJ

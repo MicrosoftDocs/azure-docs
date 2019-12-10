@@ -1,15 +1,9 @@
 ---
 title: Use Geth to attach to Azure Blockchain Service
 description: Attach to a Geth instance on Azure Blockchain Service transaction node
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/20/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
 #Customer intent: As a developer, I want to connect to my blockchain member transaction node so that I can perform actions on a blockchain.
 ---
 
@@ -66,4 +60,4 @@ You can get the Geth connection string for an Azure Blockchain Service transacti
 In this quickstart, you used the Geth client to attach to a Geth instance on an Azure Blockchain Service transaction node. Try the next tutorial to use Azure Blockchain Development Kit for Ethereum to create, build, deploy, and execute a smart contract function via a transaction.
 
 > [!div class="nextstepaction"]
-> [Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md)
+> [Create, build, and deploy smart contracts on Azure Blockchain Service](send-transaction.md)

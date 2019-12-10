@@ -2,7 +2,7 @@
 title: ORC format in Azure Data Factory 
 description: 'This topic describes how to deal with ORC format in Azure Data Factory.'
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 
 ms.service: data-factory
