@@ -102,7 +102,7 @@ Adopting best practices can help the optimal operation of on-premises agents. Co
 #### On-premises agents management recommended reading
 
 - [Understand Azure AD Application Proxy connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
-- [Azure AD Pass-through Authentication - quickstart](../hybrid/how-to-connect-pta-quick-start.md#step-5-ensure-high-availability)
+- [Azure AD Pass-through Authentication - quickstart](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## Management at scale
 
