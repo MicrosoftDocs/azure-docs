@@ -44,13 +44,181 @@ ws = Workspace.from_config()
 The `from_config()` function looks for a JSON file containing your workspace connection information. You can also specify the connection details explicitly by using the `Workspace` constructor, which will also prompt for interactive authentication. Both calls are equivalent.
 
 ```python
-ws = Workspace(subscription_id="<your_sub-id>",
-               resource_group="<your-resource-grp-id>",
-               workspace_name="<your-workspace-name>"))
+ws = Workspace(subscription_id="your_sub-id",
+               resource_group="your-resource-group-id",
+               workspace_name="your-workspace-name"
+              )
+```
+
+If you have access to multiple tenants, you may need to import the class and explicitly define what tenant you are targeting. Calling the constructor for `InteractiveLoginAuthentication` will also prompt you to login similar to the calls above.
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
 ```
 
 While useful for testing and learning, interactive authentication will not help you with building automated or headless workflows. Setting up service principal authentication is the best approach for automated requirements.
 
 ## Setup service principal authentication
 
+This setup process is necessary for enabling authentication that is decoupled from a specific user login, which allows you to authenticate to Azure Machine Learning in automated workflows. To set up service principal authentication, you first create an app registration in Azure Active Directory, and then grant your app role-based access to your ML workspace. The easiest way to complete this setup is through the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) in the Azure Portal. After you login to the portal, click the `>_` icon in the top right of the page near your name to open the shell.
 
+If you haven't used the cloud shell before in your Azure account, you will need to create a storage account resource for storing any files that are written. In general this storage account will incur a negligible monthly cost. Additionally, install the machine learning extension if you haven't used it previously with the following command.
+
+```azurecli-interactive
+az extension add -n azure-cli-ml
+```
+
+> [!NOTE]
+> You must be an admin on the subscription to perform the following steps.
+
+Next, run the following command to create the service principle. Give it a name, in this case **ml-auth**.
+
+```azurecli-interactive
+az ad sp create-for-rbac --sdk-auth --name ml-auth
+```
+
+The output will be a JSON similar to the following. Take note of the `clientId`, `clientSecret`, and `tenantId` fields, as you will need them for other steps in this article.
+
+```json
+{
+    "clientId": "your-client-id",
+    "clientSecret": "your-client-secret",
+    "subscriptionId": "your-sub-id",
+    "tenantId": "your-tenant-id",
+    "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+    "resourceManagerEndpointUrl": "https://management.azure.com",
+    "activeDirectoryGraphResourceId": "https://graph.windows.net",
+    "sqlManagementEndpointUrl": "https://management.core.windows.net:5555",
+    "galleryEndpointUrl": "https://gallery.azure.com/",
+    "managementEndpointUrl": "https://management.core.windows.net"
+}
+```
+
+Next run the following command to get the details on the service principle you just created, using the `clientId` value from above as the input to the `--id` parameter.
+
+```azurecli-interactive
+az ad sp show --id your-client-id
+```
+
+The following is a simplified example of the JSON output from the command. Take note of the `objectId` field, as you will need its value for the next step.
+
+```json
+{
+    "accountEnabled": "True",
+    "addIns": [],
+    "appDisplayName": "ml-auth",
+    ...
+    ...
+    ...
+    "objectId": "your-sp-object-id",
+    "objectType": "ServicePrincipal"
+}
+```
+
+Next, use the following command to assign your service principle access to your machine learning workspace. You will need your workspace name, and it's resource group name for the `-w` and `-g` parameters, respectively. For the `--user` parameter, use the `objectId` value from the previous step. The `--role` parameter allows you to set the access role for the service principle, and in general you will use either **owner** or **contributor**. Both have write access to existing resources like compute clusters and datastores, but only **owner** can provision these resources. 
+
+```azurecli-interactive
+az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
+```
+
+This call does not produce any output, but you now have service principal authentication set up for your workspace.
+
+## Authenticate to your workspace
+
+Now that you have service principal auth setup, you can authenticate to your workspace in the SDK without physical logging in as a user. Use the `ServicePrincipalAuthentication` class constructor, and use the values you got from the previous steps as the parameters. The `tenant_id` parameter maps to `tenantId` from above, `service_principal_id` maps to `clientId`, and `service_principal_password` maps to `clientSecret`.
+
+```python
+from azureml.core.authentication import ServicePrincipalAuthentication
+
+sp = ServicePrincipalAuthentication(tenant_id="your-tenant-id", # tenantID
+                                    service_principal_id="your-client-id", # clientId
+                                    service_principal_password="your-client-secret") # clientSecret
+```
+
+The `sp` variable now holds an authentication object that you use directly in the SDK. In general, it is a good idea to store the ids/secrets used above in environment variables rather than embedding them as plain text. For automated workflows that run in Python and use the SDK primarily, you can use this object as-is in most cases for your authentication. The following code authenticates to your workspace using the auth object you just created.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.get(name="ml-example", 
+                   auth=sp,
+                   subscription_id="your-sub-id")
+ws.get_details()
+```
+
+## Get OAuth2.0 bearer-type header
+
+For interacting with Azure Machine Learning endpoints from platforms other than Python, you likely need to grab the authorization token explicitly. This is as simple as using the `ServicePrincipalAuthentication` object you created above and calling the `get_authentication_header()` function.
+
+```python
+auth_header = sp.get_authentication_header()
+print(auth_header)
+```
+
+```json
+{
+    "Authorization": "Bearer random-sample-token"
+}
+```
+
+If you need to make REST calls in Python, you can use the returned dictionary directly in an HTTP call with the `requests` library. The following example can be found in the [pipelines tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint), and triggers a pipeline run with a REST call. 
+
+```python
+import requests
+
+rest_endpoint = published_pipeline.endpoint
+response = requests.post(rest_endpoint, 
+                         headers=auth_header, 
+                         json={"ExperimentName": "batch_scoring",
+                               "ParameterAssignments": {"param_batch_size": 50}})
+run_id = response.json()["Id"]
+```
+
+If you need to make REST calls in another language, grab the raw bearer token, and ideally store it in an environment variable in whatever platform you're developing in.
+
+```python
+raw_token = auth_header.get("Authorization")
+print(raw_token)
+```
+    Bearer random-sample-token
+
+A common use-case for making REST calls to Azure Machine Learning from another platform is to consume ML web-services. The following code sample can be found in the [deployment how-to](how-to-deploy-and-where.md#consume-web-services) and shows how to authenticate and call a web-service. The example in the how-to gets the auth header from the in-memory deployed web-service object, but you can modify it as shown below to use the service principal auth header you just generated above.
+
+```python
+import requests
+import json
+
+# use service principal auth header from above, add in content-type to dict
+auth_header["Content-Type"] = "application/json"
+
+test_sample = json.dumps({'data': [
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+]})
+
+response = requests.post(service.scoring_uri, data=test_sample, headers=auth_header)
+print(response.status_code)
+print(response.elapsed)
+print(response.json())
+```
+
+The following code makes the same call as above in but in Javascript, using the raw bearer token. 
+
+```javascript
+const http = new XMLHttpRequest();
+const url = "https://your-webservice-url";
+const payload = {
+    "data": [
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+    ]
+}
+
+http.open("POST", url);
+http.setRequestHeader("Content-Type", "application/json");
+http.setRequestHeader("Authorization", "Bearer random-sample-token");
+http.send(JSON.stringify(payload))
+```
+
+## Azure Machine Learning REST API auth
