@@ -1,31 +1,39 @@
 ---
-title: Quickstart Azure AD self-service password reset
-description: In this quickstart, you will quickly configure Azure AD self-service password reset to allow users to reset their own passwords
+title: Quickstart - Azure AD self-service password reset
+description: In this quickstart, you learn how to configure Azure AD self-service password reset to allow users to reset their own passwords and reduce IT department overhead.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: quickstart
-ms.date: 07/17/2018
+ms.date: 12/10/2019
 
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 
-# Customer intent: As an Azure AD Administrator, I want to protect user authentication so I deploy SSPR so that when users have trouble signing-in they can reset their passwords using something they know.
+# Customer intent: As an Azure AD Administrator, I want to protect user authentication and reduce IT department overhead by deploying self-service password reset (SSPR) so that users can reset their own passwords when they have problems.
 ms.collection: M365-identity-device-management
 ---
-# Quickstart: Self-service password reset
+# Quickstart: Configure Azure Active Directory self-service password reset
 
-In this quickstart, you walk through configuring self-service password reset (SSPR) as a simple means for IT administrators to enable users to reset their passwords or unlock their accounts.
+In this quickstart, you configure Azure Active Directory (AD) self-service password reset (SSPR) to enable users to reset their passwords or unlock their accounts. With SSPR, users can reset their own credentials without helpdesk or administrator assistance. This ability lets users regain access to their account without waiting for additional support.
+
+> [!IMPORTANT]
+> This quickstart shows an administrator how to enable self-service password reset. If your IT team hasn't already enabled the ability to reset your own password, reach out to your helpdesk for additional assistance.
+>
+> If your IT has enabled password reset, you first need to [register for self-service password reset][register-sspr] and then learn how to [reset your work or school password][reset-password]. If you're not already registered for self-service password reset, reach out to your helpdesk for additional assistance.
 
 ## Prerequisites
 
 * A working Azure AD tenant with at least a trial license enabled.
+    * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with Global Administrator privileges.
-* A non-administrator test user with a password you know, if you need to create a user see the article [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md).
-* A pilot group to test with that the non-administrator test user is a member of, if you need to create a group see the article [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+* A non-administrator test user with a password you know.
+    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md).
+* A pilot group to test with that the non-administrator test user is a member of.
+    * If you need to create a group, see how to [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## Enable self-service password reset
 
@@ -73,3 +81,7 @@ In this quickstart, you’ve learned how to quickly configure self-service passw
 > [Roll out self-service password reset](howto-sspr-deployment.md)
 
 [Authentication]: ./media/quickstart-sspr/sspr-authentication-methods.png "Azure AD authentication methods available and the quantity required"
+
+<!-- INTERNAL LINKS -->
+[register-sspr]: ../user-help/active-directory-passwords-reset-register.md
+[reset-password]: ../user-help/active-directory-passwords-update-your-own-password.md
