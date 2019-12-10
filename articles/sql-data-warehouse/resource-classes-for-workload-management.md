@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
@@ -19,7 +19,7 @@ Guidance for using resource classes to manage memory and concurrency for queries
 
 ## What are resource classes
 
-The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in Azure SQL Data Warehouse that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
+The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in Azure SQL Data Warehouse that govern compute resources and concurrency for query execution. Resource classes can help you configure resources for your queries by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
 
 - Smaller resource classes reduce the maximum memory per query, but increase concurrency.
 - Larger resource classes increase the maximum memory per query, but reduce concurrency.
@@ -31,7 +31,7 @@ There are two types of resource classes:
 
 Resource classes use concurrency slots to measure resource consumption.  [Concurrency slots](#concurrency-slots) are explained later in this article.
 
-- To view the resource utilization for the resource classes, see [Memory and concurrency limits]memory-concurrency-limits.md).
+- To view the resource utilization for the resource classes, see [Memory and concurrency limits](memory-concurrency-limits.md).
 - To adjust the resource class, you can run the query under a different user or [change the current user's resource class](#change-a-users-resource-class) membership.
 
 ### Static resource classes
@@ -60,14 +60,18 @@ The dynamic resource classes are implemented with these pre-defined database rol
 - largerc
 - xlargerc
 
-The memory allocation for each resource class is as follows, **regardless of service level**.  The minimum concurrency queries is also listed.  For some service levels, more than the minimum concurrency can be achieved.
+The memory allocation for each resource class is as follows. 
 
-| Resource Class | Percentage Memory | Min Concurrent Queries |
-|:--------------:|:-----------------:|:----------------------:|
-| smallrc        | 3%                | 32                     |
-| mediumrc       | 10%               | 10                     |
-| largerc        | 22%               | 4                      |
-| xlargerc       | 70%               | 1                      |
+| Service Level  | smallrc           | mediumrc               | largerc                | xlargerc               |
+|:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
+| DW100c         | 25%               | 25%                    | 25%                    | 70%                    |
+| DW200c         | 12.5%             | 12.5%                  | 22%                    | 70%                    |
+| DW300c         | 8%                | 10%                    | 22%                    | 70%                    |
+| DW400c         | 6.25%             | 10%                    | 22%                    | 70%                    |
+| DW500c         | 20%               | 10%                    | 22%                    | 70%                    |
+| DW1000c to<br> DW30000c | 3%       | 10%                    | 22%                    | 70%                    |
+
+
 
 ### Default resource class
 
@@ -100,6 +104,8 @@ These operations are governed by resource classes:
 
 > [!NOTE]  
 > SELECT statements on dynamic management views (DMVs) or other system views are not governed by any of the concurrency limits. You can monitor the system regardless of the number of queries executing on it.
+>
+>
 
 ### Operations not governed by resource classes
 
@@ -173,6 +179,11 @@ Users can be members of multiple resource classes. When a user belongs to more t
 - Larger resource classes take precedence over smaller resource classes. For example, if a user is a member of mediumrc and largerc, queries run with largerc. Likewise, if a user is a member of both staticrc20 and statirc80, queries run with staticrc80 resource allocations.
 
 ## Recommendations
+
+>[!NOTE]
+>Consider leveraging workload management capabilities ([workload isolation](sql-data-warehouse-workload-isolation.md), [classification](sql-data-warehouse-workload-classification.md) and [importance](sql-data-warehouse-workload-importance.md)) for more control over your workload and predictable performance.  
+>
+>
 
 We recommend creating a user that is dedicated to running a specific type of query or load operation. Give that user a permanent resource class instead of changing the resource class on a frequent basis. Static resource classes afford greater overall control on the workload, so we suggest using static resource classes before considering dynamic resource classes.
 

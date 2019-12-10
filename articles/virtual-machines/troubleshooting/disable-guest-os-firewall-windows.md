@@ -24,7 +24,7 @@ This article provides a reference for situations in which you suspect that the g
 
 ## Solution
 
-The process that is described in this article is intended to be used as a workaround so that you can focus on fixing your real issue, which is how to set up the firewall rules correctly. It\rquote s a Microsoft Best Practice to have the Windows Firewall component enabled. How you configure the firewall rules \cf3 depends on the level of access to the VM that\rquote s required.
+The process that is described in this article is intended to be used as a workaround so that you can focus on fixing your real issue, which is how to set up the firewall rules correctly. It is a Microsoft Best Practice to have the Windows Firewall component enabled. How you configure the firewall rules depends on the level of access to the VM that is required.
 
 ### Online Solutions 
 

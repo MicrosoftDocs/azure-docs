@@ -1,19 +1,9 @@
 ---
-title: Authentication and authorization - Azure App Service | Microsoft Docs
-description: Conceptual reference and overview of the Authentication / Authorization feature for Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-
+title: Authentication and authorization
+description: Find out about the built-in authentication and authorization support in Azure App Service, and how it can help secure your app against unauthorized access.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
 
@@ -28,8 +18,10 @@ Azure App Service provides built-in authentication and authorization support, so
 
 Secure authentication and authorization require deep understanding of security, including federation, encryption, [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) management, [grant types](https://oauth.net/2/grant-types/), and so on. App Service provides these utilities so that you can spend more time and energy on providing business value to your customer.
 
-> [!NOTE]
-> You're not required to use App Service for authentication and authorization. Many web frameworks are bundled with security features, and you can use them if you like. If you need more flexibility than App Service provides, you can also write your own utilities.  
+> [!IMPORTANT]
+> You're not required to use App Service for AuthN/AuthO. Many web frameworks are bundled with security features, and you can use them if you like. If you need more flexibility than App Service provides, you can also write your own utilities.  
+>
+> However, if you go with any of the non-App Service options for remote authentication, keep in mind that [Chrome 80 is making breaking changes to its implementation of SameSite for cookies](https://www.chromestatus.com/feature/5088147346030592) (release date around March 2020), and your app's authentication mechanism may break when client browsers are updated. The ASP.NET Core documentation has information on how to address this in your app, at [HTTP: Browser SameSite changes impact authentication](/dotnet/core/compatibility/3.0-3.1#http-browser-samesite-changes-impact-authentication). It contains helpful guidance on how to test for this breaking change against the major browsers, regardless if you're using ASP.NET Core or not.
 >
 
 For information specific to native mobile apps, see [User authentication and authorization for mobile apps with Azure App Service](../app-service-mobile/app-service-mobile-auth.md).

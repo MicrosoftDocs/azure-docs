@@ -1,6 +1,6 @@
 ---
 title: Confidence score in Azure Security Center | Microsoft Docs
-description: " Learn how to work with the Azure Security Center confidence score. "
+description: Security Center generates confidence scores to help your team determine whether a threat is legitimate and how to triage and prioritize alerts.
 services: security-center
 documentationcenter: na
 author: memildin
