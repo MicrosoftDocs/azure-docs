@@ -1,7 +1,6 @@
 ---
 title: Copy or back up Azure Stream Analytics jobs 
 description: This article describes how to copy or back up an Azure Stream Analytics job.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
