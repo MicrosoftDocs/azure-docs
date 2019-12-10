@@ -31,7 +31,7 @@ There are two types of resource classes:
 
 Resource classes use concurrency slots to measure resource consumption.  [Concurrency slots](#concurrency-slots) are explained later in this article.
 
-- To view the resource utilization for the resource classes, see [Memory and concurrency limits]memory-concurrency-limits.md).
+- To view the resource utilization for the resource classes, see [Memory and concurrency limits](memory-concurrency-limits.md).
 - To adjust the resource class, you can run the query under a different user or [change the current user's resource class](#change-a-users-resource-class) membership.
 
 ### Static resource classes
