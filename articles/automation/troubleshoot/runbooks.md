@@ -2,8 +2,8 @@
 title: Troubleshoot errors with Azure Automation Runbooks
 description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation

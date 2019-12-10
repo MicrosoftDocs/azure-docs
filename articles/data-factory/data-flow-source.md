@@ -151,7 +151,7 @@ You can modify the column data types in a down-stream derived-column transformat
 
 ### Import schema
 
-Datasets like Avro and CosmosDB that support complex data structures do not require schema definitions to exist in the dataset. Therefore, you will be able to click the "Import Schema" button the Projection tab for these types of sources.
+Datasets like Avro and CosmosDB that support complex data structures do not require schema definitions to exist in the dataset. Therefore, you will be able to click the **Import Schema** button on the **Projection** tab for these types of sources.
 
 ## CosmosDB specific settings
 

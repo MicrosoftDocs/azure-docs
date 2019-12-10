@@ -32,7 +32,7 @@ In the monitoring section, select **Diagnostic settings** and specify the target
 
 ![The Recovery Services vault's diagnostic setting, targeting Log Analytics](media/backup-azure-monitoring-laworkspace/diagnostic-setting-new.png)
 
-You can target a Log Analytics workspace from another subscription. To monitor vaults across subscriptions in a single place, select the same Log Analytics workspace for multiple Recovery Services vaults. To channel all the information that's related to Azure Backup to the Log Analytics workspace, choose **Resource Specific** in the toggle that appears, and select the following events - **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, **AddonAzureBackupProtectedInstance**. Please refer to [this article](https://aka.ms/AA6jkus) for more details on configuring LA Diagnostics Settings.
+You can target a Log Analytics workspace from another subscription. To monitor vaults across subscriptions in a single place, select the same Log Analytics workspace for multiple Recovery Services vaults. To channel all the information that's related to Azure Backup to the Log Analytics workspace, choose **Resource Specific** in the toggle that appears, and select the following events - **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, **AddonAzureBackupProtectedInstance**. Please refer to [this article](backup-azure-diagnostic-events.md) for more details on configuring LA Diagnostics Settings.
 
 > [!IMPORTANT]
 > After you finish the configuration, you should wait 24 hours for the initial data push to finish. After that initial data push, all the events are pushed as described later in this article, in the [frequency section](#diagnostic-data-update-frequency).
@@ -46,7 +46,8 @@ After the data is inside the Log Analytics workspace, [deploy a GitHub template]
 
 ### View Azure Backup data by using Log Analytics
 
-After the template is deployed, the solution for monitoring and reporting in Azure Backup will show up in the workspace summary region. To go to the summary, follow one of these paths:
+> [!IMPORTANT]
+> The LA Reporting Template currently supports data from the legacy event AzureBackupReport in AzureDiagnostics mode. To use this template, you will need to [configure vault diagnostic settings in the Azure Diagnostics Mode](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event). 
 
 - **Azure Monitor**: In the **Insights** section, select **More** and then choose the relevant workspace.
 - **Log Analytics workspaces**: Select the relevant workspace, and then under **General**, select **Workspace summary**.

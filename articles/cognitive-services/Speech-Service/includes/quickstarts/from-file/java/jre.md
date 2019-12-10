@@ -13,6 +13,8 @@ ms.author: erhopf
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
 
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
+
 ## Add sample code
 
 1. To add a new empty class to your Java project, select **File** > **New** > **Class**.
@@ -103,6 +105,9 @@ ms.author: erhopf
 1. Replace the string `whatstheweatherlike.wav` with your own filename.
 
 1. Save changes to the project.
+
+> [!NOTE]
+> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 ## Build and run the app
 

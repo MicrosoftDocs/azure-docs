@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Overview of Azure Blueprints
+  - name: What is Azure Blueprints?
     displayName: templates, policy, definition, assignment, rbac
     href: overview.md
 - name: Quickstarts
@@ -203,7 +203,7 @@
 - name: Troubleshoot
   displayName: errors, violation
   href: ./troubleshoot/general.md
-- name: References
+- name: Reference
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.blueprint/#blueprint

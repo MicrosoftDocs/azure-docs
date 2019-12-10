@@ -126,6 +126,9 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
     "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Succeeded",
+    "billingDetails": {
+        "resourceUsageId":"<resourceUsageId>"
+    },
     "plan": {
         "publisher": "publisherId",
         "product": "offer",
@@ -146,6 +149,9 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
     "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Failed",
+    "billingDetails": {
+        "resourceUsageId":"<resourceUsageId>"
+    },
     "plan": {
         "publisher": "publisherId",
         "product": "offer",
@@ -172,6 +178,7 @@ eventType | The type of event that triggered the notification. (e.g. "PUT", "PAT
 applicationId | The fully qualified resource identifier of the managed application for which the notification was triggered. 
 eventTime | The timestamp of the event that triggered the notification. (Date and time in UTC ISO 8601 format.)
 provisioningState | The provisioning state of the managed application instance. (e.g. "Succeeded", "Failed", "Deleting", "Deleted")
+billingDetails | The billing details of the managed application instance. Contains the resourceUsageId that can be used to query marketplace for usage details.
 error | *Only specified when the provisioningState is Failed*. Contains the error code, message, and details of the issue that caused the failure.
 applicationDefinitionId | *Only specified for Service Catalog managed applications*. Represents the fully qualified resource identifier of the application definition for which the managed application instance was provisioned.
 plan | *Only specified for Marketplace managed applications*. Represents the publisher, offer, sku, and version of the managed application instance.

@@ -207,6 +207,7 @@ Use the [Alert Management REST API](https://aka.ms/alert-management-api) to get 
 - [Learn about action groups](../../azure-monitor/platform/action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups)
+- [Learn more about Azure alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 

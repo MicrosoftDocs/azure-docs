@@ -46,7 +46,7 @@ Similarly to the [confidential client application](register-confidential-azure-a
 
 ## Next steps
 
-In this article, you've learned how to register a public client application in Azure Active Directory. Next, deploy an FHIR API in Azure.
+In this article, you've learned how to register a public client application in Azure Active Directory. Next, learn more about using SMART on FHIR.
  
 >[!div class="nextstepaction"]
->[Deploy Open Source FHIR server](fhir-oss-powershell-quickstart.md)
+>[Azure API for FHIR SMART on FHIR proxy](use-smart-on-fhir-proxy.md)

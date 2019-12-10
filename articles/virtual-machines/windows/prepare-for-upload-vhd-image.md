@@ -353,7 +353,7 @@ Make sure the VM is healthy, secure, and RDP accessible:
 12. Uninstall any other third-party software or driver that's related to physical components or any other virtualization technology.
 
 ### Install Windows updates
-Ideally, you should keep the machine updated at the *patch level*. If this isn't possible, make sure the following updates are installed:
+Ideally, you should keep the machine updated at the *patch level*. If this isn't possible, make sure the following updates are installed. To get the latest updates, see the Windows update history pages: [Windows 10 and Windows Server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 and Windows Server 2012 R2](https://support.microsoft.com/help/4009470) and [Windows 7 SP1 and Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 | Component               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|

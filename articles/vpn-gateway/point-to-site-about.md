@@ -39,6 +39,21 @@ When using the native Azure certificate authentication, a client certificate tha
 
 The validation of the client certificate is performed by the VPN gateway and happens during establishment of the P2S VPN connection. The root certificate is required for the validation and must be uploaded to Azure.
 
+### Authenticate using native Azure Active Directory authentication
+
+Azure AD  authentication allows users to connect to Azure using their Azure Active Directory credentials. Native Azure AD authentication is only supported for OpenVPN protocol and Windows 10 and requires the use of the [Azure VPN Client (Preview)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab).
+
+With native Azure AD authentication, you can leverage Azure AD's conditional access as well as Multi-Factor Authentication(MFA) features for VPN.
+
+At a high level, you need to perform the following steps to configure Azure AD authentication:
+
+[1. Configure an Azure AD tenant](openvpn-azure-ad-tenant.md)
+
+[2. Enable Azure AD authentication on the gateway](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
+
+[3. Download and configure Azure VPN Client (Preview)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
+
+
 ### Authenticate using Active Directory (AD) Domain Server
 
 AD Domain authentication allows users to connect to Azure using their organization domain credentials. It requires a RADIUS server that integrates with the AD server. Organizations can also leverage their existing RADIUS deployment.   
