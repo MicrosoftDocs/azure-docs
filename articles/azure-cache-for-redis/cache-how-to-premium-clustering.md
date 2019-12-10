@@ -118,8 +118,7 @@ The Redis clustering protocol requires each client to connect to each shard dire
 
 > [!NOTE]
 > If you are using StackExchange.Redis as your client, ensure you are using the latest version of [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 or later for clustering to work correctly. If you have any issues with move exceptions, see [move exceptions](#move-exceptions) for more information.
-> 
-> 
+>
 
 ### How do I connect to my cache when clustering is enabled?
 You can connect to your cache using the same [endpoints](cache-configure.md#properties), [ports](cache-configure.md#properties), and [keys](cache-configure.md#access-keys) that you use when connecting to a cache that does not have clustering enabled. Redis manages the clustering on the backend so you don't have to manage it from your client.
@@ -138,7 +137,7 @@ For non-ssl, use the following commands.
 For ssl, replace `1300N` with `1500N`.
 
 ### Can I configure clustering for a previously created cache?
-Yes. First ensure that your cache is premium, by scaling if is not. Next, you should be able to see the cluster configuration options, including an option to enable clsuter. You can change the cluster size after the cache is created, or after you have enabled clustering for the first time.
+Yes. First ensure that your cache is premium, by scaling if is not. Next, you should be able to see the cluster configuration options, including an option to enable cluster. You can change the cluster size after the cache is created, or after you have enabled clustering for the first time.
 
    >[!IMPORTANT]
    >You can't undo enabling clustering. And a cache with clustering enabled and only one shard behaves *differently* than a cache of the same size with *no* clustering.
