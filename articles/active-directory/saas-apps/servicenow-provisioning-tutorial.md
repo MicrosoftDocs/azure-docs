@@ -20,7 +20,7 @@ ms.author: zchia
 
 # Tutorial: Configure ServiceNow for automatic user provisioning
 
-The tutorial demonstrate the steps to be performed in ServiceNow and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to [ServiceNow](https://www.servicenow.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). <br/>
+This tutorial describes the steps you need to perform in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [ServiceNow](https://www.servicenow.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). <br/>
 <img src="media/servicenow-provisioning-tutorial/ServiceNowLogo.png" width="100">
 
 
