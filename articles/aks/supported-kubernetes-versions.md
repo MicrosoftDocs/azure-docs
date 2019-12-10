@@ -109,7 +109,7 @@ AKS defines a "released version" as the generally available versions, enabled in
 
 #### Notification channels for AKS changes
 
-AKS publishes regular service updates which summarize new Kubernetes versions, service changes, and component updates that have been released on the service on [github](https://github.com/Azure/AKS/releases).
+AKS publishes regular service updates which summarize new Kubernetes versions, service changes, and component updates that have been released on the service on [GitHub](https://github.com/Azure/AKS/releases).
 
 These changes are rolled to all customers as part of regular maintenance that is offered as part of the managed service, some require explicit upgrades while others require no action.
 
