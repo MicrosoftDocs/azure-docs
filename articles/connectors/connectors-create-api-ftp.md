@@ -126,7 +126,7 @@ The **Get file metadata** action gets the properties for a file that's on your F
 
    ![Create FTP server connection](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
 
-1. After the **Get file metadata** action appears, click inside the **File** box so that the dynamic content list appears. You can now select properties for the outputs from previous steps. In the dynamic content list, under **Get file metadata**, select the **List of Files Id** property, which lets you reference the ID for the added or updated file.
+1. After the **Get file metadata** action appears, click inside the **File** box so that the dynamic content list appears. You can now select properties for the outputs from previous steps. In the dynamic content list, under **Get file metadata**, select the **List of Files Id** property, which references the collection where the file was added or updated.
 
    ![Find and select "List of Files Id" property](./media/connectors-create-api-ftp/select-list-of-files-id-output.png)
 
@@ -138,13 +138,13 @@ The **Get file metadata** action gets the properties for a file that's on your F
 
    ![Find and select the "Get file content" action](./media/connectors-create-api-ftp/select-get-file-content-ftp-action.png)
 
-1. After the **Get file content** action appears, click inside the **File** box so that the dynamic content list appears. You can now select properties for the outputs from previous steps. In the dynamic content list, under **Get file metadata**, select the **Id** property, which lets you reference the content in the file associated with that ID.
+1. After the **Get file content** action appears, click inside the **File** box so that the dynamic content list appears. You can now select properties for the outputs from previous steps. In the dynamic content list, under **Get file metadata**, select the **Id** property, which references the file that was added or updated.
 
    ![Find and select "Id" property](./media/connectors-create-api-ftp/get-file-content-id-output.png)
 
    The **Id** property now appears in the **File** box.
 
-   ![Selected "List of Files Name" property](./media/connectors-create-api-ftp/selected-get-file-content-id-ftp-action.png)
+   ![Selected "Id" property](./media/connectors-create-api-ftp/selected-get-file-content-id-ftp-action.png)
 
 1. Save your logic app.
 
