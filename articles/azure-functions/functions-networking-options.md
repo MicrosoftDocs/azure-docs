@@ -147,7 +147,7 @@ Virtual network triggers are supported in version 2.x and above of the Functions
 
 ### App Service Plan and App Service Environment with virtual network triggers
 
-When using either an App Service Plan or an App Service Environment, you just need to be connected to a virtual network with access to your desired trigger resource and your functions will trigger correctly. 
+When using either an App Service Plan or an App Service Environment, you only need to be connected to a virtual network with access to your desired trigger resource and your functions will trigger correctly. 
 
 For example, assume you want to configure Azure Cosmos DB to accept traffic only from a virtual network. You would need to deploy your function app in an app service plan that provides virtual network integration with that virtual network in order to configure Azure Cosmos DB triggers from that resource. 
 
