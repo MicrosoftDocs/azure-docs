@@ -25,14 +25,14 @@ Today, Azure Backup provides a built-in policy (using Azure Policy) that can be 
 
 To assign the policy to the required scope, please follow the below steps:
 
-1. Login to the Azure Portal and navigate to the **Policy** Dashboard.
+1. Sign in to the Azure Portal and navigate to the **Policy** Dashboard.
 2. Select **Definitions** in the left menu to get a list of all built-in policies across Azure Resources.
 3. Filter the list for **Category=Backup**. You will see the list filtered down to a single policy named 'Configure backup on VMs of a location to an existing central Vault in the same location'.
 ![Policy Dashboard](./media/backup-azure-auto-enable-backup/policy-dashboard.png)
 4. Click on the name of the policy. You will be redirected to the detailed definition for this policy.
 ![Policy Definition Blade](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
 5. Click on the **Assign** button at the top of the blade. This redirects you to the **Assign Policy** blade.
-6. Under basics, click on the three dots next to the **Scope** field. This opens up a right context blade where you can select the subscription for the policy to be applied on. You can also optionally select a resource group, so that the policy is applied only for VMs in a particular resource group.
+6. Under **Basics**, click on the three dots next to the **Scope** field. This opens up a right context blade where you can select the subscription for the policy to be applied on. You can also optionally select a resource group, so that the policy is applied only for VMs in a particular resource group.
 ![Policy Assignment Basics](./media/backup-azure-auto-enable-backup/policy-assignment-basics.png)
 7. In the **Parameters** tab, choose a location from the drop-down, and select the vault and backup policy to which the VMs in the scope must be associated.
 ![Policy Assignment Parameters](./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png)
@@ -45,7 +45,7 @@ To assign the policy to the required scope, please follow the below steps:
 
 > [!NOTE]
 >
-> It is recommended that this policy is assigned to not more than 200 VMs. If the policy is assigned for more than 200 VMs, it can result in the backup getting triggered a few hours later than that specified by the schedule.
+> It is recommended that this policy is not assigned to more than 200 VMs at a time. If the policy is assigned to more than 200 VMs, it can result in the backup getting triggered a few hours later than that specified by the schedule.
 
 ## Next Steps
 

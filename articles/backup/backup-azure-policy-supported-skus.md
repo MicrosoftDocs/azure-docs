@@ -1,13 +1,8 @@
 ---
 title: Supported VM SKUs for Azure Policy
 description: 'An article describing the supported VM SKUs (by Publisher, Image Offer and Image SKU) which are supported for the built-in Azure Policies provided by Backup'
-ms.reviewer: dcurwin
-author: adbalaji
-manager: sivan
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.author: adbalaji
 ---
 
 # Supported VM SKUs for Azure Policy
@@ -16,7 +11,7 @@ Azure Backup provides a built-in policy (using Azure Policy) that can be assigne
 
 ### **Supported VMs**
 
-**Policy Name:** Deploy prerequisites to backup VMs of a location to an existing central Vault in the same location
+**Policy Name:** Configure backup on VMs of a location to an existing central vault in the same location
 
 Image Publisher | Image Offer | Image SKU
 --- | --- | ---
