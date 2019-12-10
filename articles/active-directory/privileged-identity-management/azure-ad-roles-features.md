@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 Welcome to the enhanced management experience for Azure AD roles from the Azure AD Privileged Identity Management team. If you have been using Privileged Identity Management for both Azure AD roles and Azure Resource roles, you may have recognized the discrepancy between the two wherein Privileged Identity Management for Azure resource roles has a couple of key features that are not available for Azure AD roles.
 
-With the refresh being currently rolled out, we are merging the two so that Azure AD Privileged Identity Management for Azure AD Roles customers can get all the additional benefits available inside the Azure AD Privileged Identity Management for Azure Resources. This enhancement also creates an extensible model that can eventually be used to manage role assignments beyond the roles that are available today. Learn more about the main features below:
+With the refresh being currently rolled out, we are merging the two so that Azure AD Privileged Identity Management customers using Azure AD roles can get all the functionality that is available for Azure resource roles. This enhancement also creates an extensible model that can eventually be used to manage role assignments beyond the roles that are available today. Learn more about the main features below:
 
 ## Time-bound assignments
 
