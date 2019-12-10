@@ -136,6 +136,8 @@ This example shows how you can start a logic app workflow when new alerts are se
 
 5.	Now continue adding one or more actions to your logic app for the tasks you want to perform with the trigger results.
 
+[!NOTE] When a trigger fires, the trigger processes all the new alerts. If no alerts are received, the trigger run is skipped. The next trigger poll happens based on the recurrence interval that you specify in the trigger's properties.
+
 ## Add actions
 
 Here are more specific details about using the various actions 
