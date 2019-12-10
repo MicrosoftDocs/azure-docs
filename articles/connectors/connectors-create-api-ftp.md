@@ -156,7 +156,7 @@ To check that your workflow returns the content that you expect, add another act
 
    ![Add an action for sending email](./media/connectors-create-api-ftp/select-send-email-action.png)
 
-1. After the action appears, provide the information and include the properties that you want to test, for example, the **File content** property.
+1. After the action appears, provide the information and include the properties that you want to test. For example, include the **File content** property, which appears in the dynamic content list after you select **See more** in the **Get file content** section.
 
    ![Provide information about email action](./media/connectors-create-api-ftp/selected-send-email-action.png)
 
