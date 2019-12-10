@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/10/2019
 ms.author: rhurey
+zone_pivot_groups: programming-languages-set-two
 ---
 
 # Object tracking for the Speech SDK
@@ -36,54 +37,94 @@ You have the option to create a warning threshold, and if that threshold is exce
 
 To enable a warning threshold, it must be specified on a `SpeechConfig` object. This object is checked when a new recognizer is created. In the following examples, let's assume that you've created an instance of `SpeechConfig` called `config`:
 
+::: zone pivot="programming-language-csharp"
+
 ```csharp
 config.SetProperty("SPEECH-ObjectCountWarnThreshold", "10000");
 ```
 
-```java
-config.setProperty("SPEECH-ObjectCountWarnThreshold", "10000");
-```
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
 
 ```C++
 config->SetProperty("SPEECH-ObjectCountWarnThreshold", "10000");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+config.setProperty("SPEECH-ObjectCountWarnThreshold", "10000");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
 ```Python
 speech_config.set_property_by_name(“SPEECH-ObjectCountWarnThreshold", "10000")?
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-more"
+
 ```ObjectiveC
 [config setPropertyTo:@"10000" byName:"SPEECH-ObjectCountWarnThreshold"];
 ```
+
+::: zone-end
 
 > [!TIP]
 > The default value for this property is 10,000.
 
 ## Set an error threshold 
 
-Using the Speech SDK, you can set the maximum number of objects allowed at a given time. If this setting is enabled, when the maximum number is hit, attempts to create new recognition objects will fail. Existing objects will continue to work.
+Using the Speech SDK, you can set the maximum number of objects allowed at a given time. If this setting is enabled, when the maximum number is hit, attempts to create new recognizer objects will fail. Existing objects will continue to work.
 
 To enable an error threshold, it must be specified on a `SpeechConfig` object. This object is checked when a new recognizer is created. In the following examples, let's assume that you've created an instance of `SpeechConfig` called `config`:
+
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 config.SetProperty("SPEECH-ObjectCountErrorThreshold", "10000");
 ```
 
-```java
-config.setProperty("SPEECH-ObjectCountErrorThreshold", "10000");
-```
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
 
 ```C++
 config->SetProperty("SPEECH-ObjectCountErrorThreshold", "10000");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+config.setProperty("SPEECH-ObjectCountErrorThreshold", "10000");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
 ```Python
 speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000")?
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-more"
+
 ```objc
 [config setPropertyTo:@"10000" byName:"SPEECH-ObjectCountErrorThreshold"];
 ```
+
+::: zone-end
 
 > [!TIP]
 > The default value for this property is the platform-specific maximum value for a `size_t` data type. A typical recognition will consume between 7 and 10 internal objects.
