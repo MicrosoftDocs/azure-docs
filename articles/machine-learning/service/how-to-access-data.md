@@ -288,7 +288,7 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
 ```
-If you prefer to use a RunConfig object for training, you need to set up a [DataReference](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) object. 
+If you prefer to use a RunConfig object for training, you need to set up a [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) object. 
 
 The following code shows how to work with a DataReference object in an estimation pipeline. For the full example, see this [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb).
 
