@@ -21,7 +21,7 @@ ms.author: jingwang
 
 You can use the [Copy activity](copy-activity-overview.md) to copy files as-is between two file-based data stores, in which case the data is copied efficiently without any serialization or deserialization. 
 
-In addition, you can also parse or generate files of a given format, for example, you can perform the following:
+In addition, you can also parse or generate files of a given format. For example, you can perform the following:
 
 * Copy data from an on-premises SQL Server database and write to Azure Data Lake Storage Gen2 in Parquet format.
 * Copy files in text (CSV) format from an on-premises file system and write to Azure Blob storage in Avro format.

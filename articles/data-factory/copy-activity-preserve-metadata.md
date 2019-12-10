@@ -27,7 +27,7 @@ Copy activity supports preserving the following attributes during data copy:
 - **All the customer specified metadata** 
 - And the following **five data store built-in system properties**: `contentType`, `contentLanguage`, `contentEncoding`, `contentDisposition`, `cacheControl`.
 
-When you copy files as-is **from Amazon S3/Azure Blob/Azure Data Lake Storage Gen2 to Azure Blob/Azure Data Lake Storage Gen2** with binary format, you can find the **Preserve** option on the **Copy Activity** > **Settings** tab for activity authoring or the **Settings** page in Copy Data Tool.
+When you copy files as-is from Amazon S3/Azure Data Lake Storage Gen2/Azure Blob to Azure Data Lake Storage Gen2/Azure Blob with binary format, you can find the **Preserve** option on the **Copy Activity** > **Settings** tab for activity authoring or the **Settings** page in Copy Data Tool.
 
 ![Copy activity preserve metadata](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 

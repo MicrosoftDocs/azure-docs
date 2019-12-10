@@ -370,7 +370,7 @@ This section describes the resulting behavior of the copy operation for differen
 
 ## Preserve metadata during copy
 
-When you copy files from Amazon S3/Azure Blob/Azure Data Lake Storage Gen2 to Azure Blob/Azure Data Lake Storage Gen2, you can choose to preserve the file metadata along with data. Learn more from [Preserve metadata](copy-activity-preserve-metadata.md#preserve-metadata).
+When you copy files from Amazon S3/Azure Blob/Azure Data Lake Storage Gen2 to Azure Data Lake Storage Gen2/Azure Blob, you can choose to preserve the file metadata along with data. Learn more from [Preserve metadata](copy-activity-preserve-metadata.md#preserve-metadata).
 
 ## Preserve ACLs from Data Lake Storage Gen1
 

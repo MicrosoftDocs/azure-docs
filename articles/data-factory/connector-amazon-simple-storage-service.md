@@ -212,7 +212,7 @@ This section describes the resulting behavior of the folder path and file name w
 
 ## Preserve metadata during copy
 
-When you copy files from Amazon S3 to Azure Blob/Azure Data Lake Storage Gen2, you can choose to preserve the file metadata along with data. Learn more from [Preserve metadata](copy-activity-preserve-metadata.md#preserve-metadata).
+When you copy files from Amazon S3 to Azure Data Lake Storage Gen2/Azure Blob, you can choose to preserve the file metadata along with data. Learn more from [Preserve metadata](copy-activity-preserve-metadata.md#preserve-metadata).
 
 ## Lookup activity properties
 
