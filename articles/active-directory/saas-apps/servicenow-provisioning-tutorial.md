@@ -100,7 +100,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Notification Email](common/provisioning-notification-email.png)
 
-7. Click **Save**.
+7. Select **Save**.
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to ServiceNow**.
 
