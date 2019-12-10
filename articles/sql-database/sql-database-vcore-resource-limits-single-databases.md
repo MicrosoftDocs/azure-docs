@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 11/04/2019
+ms.date: 12/09/2019
 ---
 # Resource limits for single databases using the vCore purchasing model
 
@@ -371,7 +371,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Memory (GB)|3767.1|
 |Columnstore support|Yes|
 |In-memory OLTP storage (GB)|227.02|
-|Max data size (GB)|4096|
+|Max data size (GB)|8192|
 |Max log size (GB)|2048|
 |TempDB max data size (GB)|4096|
 |Storage type|Local SSD|
