@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 12/10/2019
 ms.author: jingwang
 
 ---
@@ -47,15 +47,13 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 
 ### Supported file formats
 
-You can use the Copy activity to copy files as is between two file-based data stores. In this case, the data is copied efficiently without any serialization or deserialization.
-
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-For example, you can perform the following copy activities:
+You can use the Copy activity to copy files as-is between two file-based data stores, in which case the data is copied efficiently without any serialization or deserialization. In addition, you can also parse or generate files of a given format, for example, you can perform the following:
 
-* Copy data from an on-premises SQL Server database and write the data to Azure Data Lake Storage Gen2 in Parquet format.
+* Copy data from an on-premises SQL Server database and write to Azure Data Lake Storage Gen2 in Parquet format.
 * Copy files in text (CSV) format from an on-premises file system and write to Azure Blob storage in Avro format.
-* Copy zipped files from an on-premises file system, decompress them, and write them to Azure Data Lake Storage Gen2.
+* Copy zipped files from an on-premises file system, decompress them on-the-fly, and write extracted files to Azure Data Lake Storage Gen2.
 * Copy data in Gzip compressed-text (CSV) format from Azure Blob storage and write it to Azure SQL Database.
 * Many more activities that require serialization/deserialization or compression/decompression.
 

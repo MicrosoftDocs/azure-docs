@@ -397,6 +397,8 @@
       href: copy-activity-schema-and-type-mapping.md
     - name: Fault tolerance
       href: copy-activity-fault-tolerance.md
+    - name: Format and compression support (legacy)
+      href: supported-file-formats-and-compression-codecs-legacy.md
   - name: Transform data
     href: transform-data.md
     items:
