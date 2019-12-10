@@ -11,7 +11,7 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Join sensor data with weather forecast data by using Azure Notebooks (Python)
+# Tutorial: Join sensor data with weather forecast data by using Azure Notebooks (Python)
 
 Wind power is one alternative energy source for fossil fuels to combat against climate change. Because wind itself is not consistent by nature, wind power operators need to build ML (machine learning) models to predict the wind power capacity to meet electricity demand and ensure the grid stability. In this tutorial, we walk through how Azure Maps weather forecast data can be combined with demo data set of sensor locations with weather readings. Weather forecast data is requested by calling Azure Maps Weather service.
 
