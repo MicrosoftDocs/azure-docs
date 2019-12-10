@@ -1,5 +1,5 @@
 ---
-title: 'How To: Add a one-step correction to a Custom Command (Preview) - Speech service'
+title: 'How to: Add a one-step correction to a custom command (Preview) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, we explain how to implement one-step corrections for a command in Custom Commands.
 services: cognitive-services
@@ -54,7 +54,8 @@ To demonstrate one-step correction, let's extend the **SetAlarm** command create
    > [!div class="mx-imgBorder"]
    > ![Add a range validation](media/custom-speech-commands/one-step-correction-rules.png)
 
-*Note: In a real application, in the Actions section of this rule you'll also send back an activity to the client or call an HTTP endpoint to update the alarm in your system.*
+> [!NOTE]
+> In a real application, in the Actions section of this rule you'll also send back an activity to the client or call an HTTP endpoint to update the alarm in your system.
 
 ## Try it out
 
