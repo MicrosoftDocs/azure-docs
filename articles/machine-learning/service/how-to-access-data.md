@@ -62,7 +62,7 @@ The information you need to populate the register() method can be found via the 
 2. The **Overview** page provides information such as, the account name and container or file share name. 
 3. For authentication information, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left. 
 
->[IMPORTANT]
+> [!IMPORTANT]
 > If your storage account is in a VNET, only Azure blob datastore creation is supported. Set the parameter, `grant_workspace_access` to `True` to grant your workspace access to your storage account.
 
 The following examples show how to register an Azure Blob Container,   an Azure File Share or an Azure SQL data as a datastore.
