@@ -39,7 +39,7 @@ This section walks you through preparing a project to work with the Azure Queue 
 
 Create a Python application named *queues-quickstart-v12*.
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project.
+1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project.
 
     ```console
     mkdir queues-quickstart-v12
@@ -109,7 +109,7 @@ These example code snippets show you how to do the following actions with the Az
 * [Get the connection string](#get-the-connection-string)
 * [Create a queue](#create-a-queue)
 * [Add messages to a queue](#add-messages-to-a-queue)
-* [Peek at messages in a queue](#peek-at-messages -in-a-queue)
+* [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 * [Update a message in a queue](#update-a-message-in-a-queue)
 * [Receive and delete messages from a queue](#receive-and-delete-messages-from-a-queue)
 * [Delete a queue](#delete-a-queue)
@@ -121,13 +121,15 @@ The code below retrieves the connection string for the storage account. The conn
 Add this code inside the `try` block:
 
 ```python
-# Retrieve the connection string for use with the application. The storage
-# connection string is stored in an environment variable on the machine
-# running the application called CONNECT_STR. If the environment variable is
-# created after the application is launched in a console or with Visual Studio,
-# the shell or application needs to be closed and reloaded to take the
-# environment variable into account.
-connect_str = os.getenv('CONNECT_STR')
+    print("Azure Queue storage v12 - Python quickstart sample")
+
+    # Retrieve the connection string for use with the application. The storage
+    # connection string is stored in an environment variable on the machine
+    # running the application called CONNECT_STR. If the environment variable is
+    # created after the application is launched in a console or with Visual Studio,
+    # the shell or application needs to be closed and reloaded to take the
+    # environment variable into account.
+    connect_str = os.getenv('CONNECT_STR')
 ```
 
 ### Create a queue
@@ -135,62 +137,56 @@ connect_str = os.getenv('CONNECT_STR')
 Decide on a name for the new queue. The code below appends a UUID value to the queue name to ensure that it's unique.
 
 > [!IMPORTANT]
-> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/naming-queues-and-metadata).
+> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming Queues and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-queues-and-metadata).
 
 Create an instance of the [QueueClient](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient) class. Then, call the [create_queue](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) method to create the queue in your storage account.
 
 Add this code to the end of the `try` block:
 
 ```python
-# Create a unique name for the queue
-queue_name = "quickstartqueues-" + str(uuid.uuid4())
+    # Create a unique name for the queue
+    queue_name = "quickstartqueues-" + str(uuid.uuid4())
 
-print("Creating queue: " + queue_name)
+    print("Creating queue: " + queue_name)
 
-# Instantiate a QueueClient which will be
-# used to create and manipulate the queue
-QueueClient queue_client = new QueueClient(connect_str, queue_name)
+    # Instantiate a QueueClient which will be
+    # used to create and manipulate the queue
+    queue_client = QueueClient.from_connection_string(connect_str, queue_name)
 
-# Create the queue
-queue_client.create_queue()
+    # Create the queue
+    queue_client.create_queue()
 ```
 
 ### Add messages to a queue
 
-The following code snippet adds messages to queue by calling the [send_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) method.
+The following code snippet adds messages to queue by calling the [send_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) method. It also saves the [QueueMessage](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queuemessage) returned from the third `send_message` call. The `saved_message` is used to update the message content later in the program.
 
 Add this code to the end of the `try` block:
 
 ```python
-print("\nAdding messages to the queue...")
+    print("\nAdding messages to the queue...")
 
-# Send several messages to the queue
-queue_client.send_message(u"First message")
-queue_client.send_message(u"Second message", visibility_timeout=30)  # wait 30s before becoming visible
-queue_client.send_message(u"Third message")
+    # Send several messages to the queue
+    queue_client.send_message(u"First message")
+    queue_client.send_message(u"Second message")
+    saved_message = queue_client.send_message(u"Third message")
 ```
 
 ### Peek at messages in a queue
 
 Peek at the messages in the queue by calling the [peek_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) method. The `peek_messages` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
 
-The following code snippet also saves one of the peeked messages. The saved message is used to update the queue message later in the program.
-
 Add this code to the end of the `try` block:
 
 ```python
-print("\nPeek at the messages in the queue...")
+    print("\nPeek at the messages in the queue...")
 
-# Peek at messages in the queue
-peeked_messages = queue_client.peek_messages(max_messages=5)
+    # Peek at messages in the queue
+    peeked_messages = queue_client.peek_messages(max_messages=5)
 
-for peeked_message in peeked_messages
-    if (peeked_message.content == "Third message")
-        # Save the receipt so we can update this message later
-        saved_message = peeked_message
-
-    # Display the message
-    print("Message: " + peeked_message.content)
+    for peeked_message in peeked_messages:
+        # Display the message
+        print("Message: " + peeked_message.content)
 ```
 
 ### Update a message in a queue
@@ -198,10 +194,11 @@ for peeked_message in peeked_messages
 Update the contents of a message by calling the [update_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) method. The `update_message` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content for the message, pass in the values from the `saved_message` that was saved earlier in the code. The `saved_message` values identify which message to update.
 
 ```python
-print("\nUpdating the third message in the queue...")
+    print("\nUpdating the third message in the queue...")
 
-# Update a message using the saved receipt from sending the message
-queue_client.update_message(saved_message, pop_receipt=saved_message.pop_receipt, content="Third message has been updated")
+    # Update a message using the saved message from calling send_message earlier
+    queue_client.update_message(saved_message, pop_receipt=saved_message.pop_receipt, \
+        content="Third message has been updated")
 ```
 
 ### Receive and delete messages from a queue
@@ -213,19 +210,19 @@ The app pauses for user input by calling `input` before it receives and deletes 
 Add this code to the end of the `try` block:
 
 ```python
-print("\nPress Enter key to receive messages and delete them from the queue...")
-input()
+    print("\nPress Enter key to receive messages and delete them from the queue...")
+    input()
 
-# Get messages from the queue
-messages = queue_client.receive_messages(messages_per_page=5)
+    # Get messages from the queue
+    messages = queue_client.receive_messages(messages_per_page=5)
 
-for msg_batch in messages.by_page():
-        for msg in msg_batch:
-            # "Process" the message
-            print(msg.content)
-            # Let the service know we're finished with
-            # the message and it can be safely deleted.
-            queue.delete_message(msg)
+    for msg_batch in messages.by_page():
+            for msg in msg_batch:
+                # "Process" the message
+                print(msg.content)
+                # Let the service know we're finished with
+                # the message and it can be safely deleted.
+                queue_client.delete_message(msg)
 ```
 
 ### Delete a queue
@@ -235,14 +232,14 @@ The following code cleans up the resources the app created by deleting the queue
 Add this code to the end of the `try` block:
 
 ```python
-print("\nPress Enter key to delete the queue...")
-input()
+    print("\nPress Enter key to delete the queue...")
+    input()
 
-# Clean up
-print("Deleting queue...")
-queue_client.delete_queue()
+    # Clean up
+    print("Deleting queue...")
+    queue_client.delete_queue()
 
-print("Done")
+    print("Done")
 ```
 
 ## Run the code
@@ -259,8 +256,7 @@ The output of the app is similar to the following example:
 
 ```output
 Azure Queue storage v12 - Python quickstart sample
-
-Creating queue: quickstartqueues-bdeeaa05-a9c4-4c40-943b-7f7a700d3e55
+Creating queue: quickstartqueues-39e40600-56e7-4e2c-8723-d4345595a6f3
 
 Adding messages to the queue...
 
@@ -273,13 +269,13 @@ Updating the third message in the queue...
 
 Press Enter key to receive messages and delete them from the queue...
 
-Message: First message
-Message: Second message
-Message: Third message has been updated
+First message
+Second message
+Third message has been updated
 
 Press Enter key to delete the queue...
 
-Deleting queue: quickstartqueues-bdeeaa05-a9c4-4c40-943b-7f7a700d3e55
+Deleting queue...
 Done
 ```
 
