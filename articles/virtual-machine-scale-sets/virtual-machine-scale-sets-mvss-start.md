@@ -1,6 +1,6 @@
 ---
-title: Learn about virtual machine scale set templates | Microsoft Docs
-description: Learn to create a basic scale set template for virtual machine scale sets
+title: Learn about virtual machine scale set templates
+description: Learn how to create a basic scale set template for Azure virtual machine scale sets through several simple steps.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
