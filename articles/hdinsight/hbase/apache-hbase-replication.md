@@ -270,7 +270,9 @@ When you replicate a cluster, you must specify the tables that you want to repli
 
 To create a **Contacts** table and insert some data in the table, follow the instructions at [Apache HBase tutorial: Get started using Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
-**Note: If you want to replicate tables from a custom namespace, you need to ensure that the appropriate custom namespaces are defined on the destination cluster as well.**
+>[!NOTE]
+> If you want to replicate tables from a custom namespace, you need to ensure that the appropriate custom namespaces are defined on the destination cluster as well.
+>
 
 ## Enable replication
 
