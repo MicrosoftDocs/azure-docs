@@ -1,6 +1,6 @@
 ---
 title: How to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
-description: How to provision devices for multitenancy with your device provisioning service instance
+description: How to provision devices for multitenancy with your Device Provisioning Service (DPS) instance
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019

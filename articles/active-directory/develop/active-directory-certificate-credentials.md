@@ -1,5 +1,5 @@
 ---
-title: Certificate credentials in Azure AD 
+title: Azure AD certificate credentials
 titleSuffix: Microsoft identity platform
 description: This article discusses the registration and use of certificate credentials for application authentication
 services: active-directory
@@ -18,13 +18,14 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Certificate credentials for application authentication
+# Azure AD application authentication certificate credentials
 
 Azure Active Directory (Azure AD) allows an application to use its own credentials for authentication, for example, in the OAuth 2.0 Client Credentials Grant flow ([v1.0](v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) and the On-Behalf-Of flow ([v1.0](v1-oauth2-on-behalf-of-flow.md), [v2.0](v2-oauth2-on-behalf-of-flow.md)).
 
 One form of credential that an application can use for authentication is a JSON Web Token(JWT) assertion signed with a certificate that the application owns.
 
 ## Assertion format
+
 To compute the assertion, you can use one of the many [JSON Web Token](https://jwt.ms/) libraries in the language of your choice. The information carried by the token are as follows:
 
 ### Header
