@@ -32,11 +32,11 @@ Beginning in November 2019, the Azure AD roles portion of Privileged Identity Ma
 
     ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
-Follow the steps in this article to approve or deny requests for Azure AD roles.
+Follow the steps in this article to investigate security alerts for Azure AD roles.
 
 # [Previous version](#tab/previous)
 
-![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/view-alerts.png)
+![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## Security alerts
 
@@ -141,7 +141,7 @@ You can customize some of the security alerts in Privileged Identity Management 
 
 # [New version](#tab/new)
 
-![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## Security alerts
 
