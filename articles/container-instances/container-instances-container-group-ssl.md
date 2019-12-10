@@ -1,16 +1,8 @@
 ---
-title: Enable SSL in Azure Container Instances
+title: Enable SSL in a container group
 description: Create an SSL or TLS endpoint for a container group running in Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: danlep
-ms.custom: 
-
 ---
 # Enable an SSL endpoint in a container group
 

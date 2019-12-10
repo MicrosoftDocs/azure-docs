@@ -16,7 +16,7 @@ The Azure Functions extension provides these benefits:
 * Publish your Azure Functions project directly to Azure.
 * Write your functions in various languages while taking advantage of the benefits of Visual Studio Code.
 
-The extension can be used with the following languages, which are supported by the Azure Functions version 2.x runtime:
+The extension can be used with the following languages, which are supported by the Azure Functions runtime starting with version 2.x:
 
 * [C# compiled](functions-dotnet-class-library.md)
 * [C# script](functions-reference-csharp.md)<sup>*</sup>
@@ -259,7 +259,7 @@ The Azure Functions extension lets you run a Functions project on your local dev
 
 To run your Functions project locally, you must meet these additional requirements:
 
-* Install version 2.x of [Azure Functions Core Tools](functions-run-local.md#v2). The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
+* Install version 2.x or later of [Azure Functions Core Tools](functions-run-local.md#v2). The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
 
 * Install the specific requirements for your chosen language:
 

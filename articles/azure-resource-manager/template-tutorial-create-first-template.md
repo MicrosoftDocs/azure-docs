@@ -92,7 +92,7 @@ az login
 ---
 ## Create resource group
 
-When you deploy a template, you specify a resource group that will contain the resources. Before running the deployment command, create the resource group with either Azure CLI or Azure PowerShell. Select the tabs in the following code section to choose between Azure PowerShell and Azure CLI.
+When you deploy a template, you specify a resource group that will contain the resources. Before running the deployment command, create the resource group with either Azure CLI or Azure PowerShell. Select the tabs in the following code section to choose between Azure PowerShell and Azure CLI. The CLI examples in this article are written for the Bash shell.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -129,7 +129,7 @@ New-AzResourceGroupDeployment `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-$templateFile="{provide-the-path-to-the-template-file}"
+templateFile="{provide-the-path-to-the-template-file}"
 az group deployment create \
   --name blanktemplate \
   --resource-group myResourceGroup \

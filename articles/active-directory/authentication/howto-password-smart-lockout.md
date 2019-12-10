@@ -1,15 +1,15 @@
 ---
-title: Preventing brute-force attacks using Azure AD smart lockout - Azure Active Directory
+title: Preventing attacks using smart lockout - Azure Active Directory
 description: Azure Active Directory smart lockout helps protect your organization from brute-force attacks trying to guess passwords
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 

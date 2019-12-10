@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 09/08/2018
 ---
 
-# host.json reference for Azure Functions 2.x  
+# host.json reference for Azure Functions 2.x and later 
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
-The *host.json* metadata file contains global configuration options that affect all functions for a function app. This article lists the settings that are available for the v2 runtime.  
+The *host.json* metadata file contains global configuration options that affect all functions for a function app. This article lists the settings that are available starting with version 2.x of the Azure Functions runtime.  
 
 > [!NOTE]
-> This article is for Azure Functions 2.x.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
+> This article is for Azure Functions 2.x and later versions.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
 Other function app configuration options are managed in your [app settings](functions-app-settings.md).
 
@@ -149,7 +149,10 @@ A list of functions that the job host runs. An empty array means run all functio
 ## functionTimeout
 
 Indicates the timeout duration for all functions. It follows the timespan string format. In a serverless Consumption plan, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes.  
-In a Dedicated (App Service) plan, there is no overall limit, and the default value is 30 minutes. A value of `-1` indicates unbounded execution.
+
+In the Premium plan the valid range is from 1 second to 60 minutes, and the default value is 30 minutes.
+
+In a Dedicated (App Service) plan, there is no overall limit, and the default value is 30 minutes. A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
 
 ```json
 {
@@ -208,7 +211,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 |Property  |Default | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Defines what level of file logging is enabled.  Options are `never`, `always`, `debugOnly`. |
-|logLevel|n/a|Object that defines the log category filtering for functions in the app. Version 2.x follows the ASP.NET Core layout for log category filtering. This lets you filter logging for specific functions. For more information, see [Log filtering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in the ASP.NET Core documentation. |
+|logLevel|n/a|Object that defines the log category filtering for functions in the app. Versions 2.x and later follow the ASP.NET Core layout for log category filtering. This lets you filter logging for specific functions. For more information, see [Log filtering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in the ASP.NET Core documentation. |
 |console|n/a| The [console](#console) logging setting. |
 |applicationInsights|n/a| The [applicationInsights](#applicationinsights) setting. |
 

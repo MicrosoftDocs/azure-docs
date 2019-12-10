@@ -1,5 +1,5 @@
 ---
-title: "Debug and iterate with Visual Studio Code and Node.js on Kubernetes using Azure Dev Spaces"
+title: "Debug and iterate on Kubernetes: Visual Studio Code & Node.js"
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
@@ -7,7 +7,7 @@ description: "Rapid Kubernetes development with containers, microservices, and N
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
-# Quickstart: Debug and iterate with Visual Studio Code and Node.js on Kubernetes using Azure Dev Spaces
+# Quickstart: Debug and iterate on Kubernetes with Visual Studio Code and Node.js - Azure Dev Spaces
 
 In this guide, you will learn how to:
 
