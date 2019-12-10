@@ -459,8 +459,7 @@ JavaScript and Java functions load the entire blob into memory, and C# functions
 
 ## Trigger - polling
 
-The polling strategy is a hybrid between inspecting logs and running periodic container scans. Blobs are scanned in groups of 10,000 at a time with a continuation token used at each interval. As the host starts, individual blob containers that need to be monitored are identified, and then periodic log and container scans begin.
-
+Polling works as a hybrid between inspecting logs and running periodic container scans. Blobs are scanned in groups of 10,000 at a time with a continuation token used between intervals.
 
 > [!WARNING]
 > In addition, [storage logs are created on a "best effort"](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. There's no guarantee that all events are captured. Under some conditions, logs may be missed.
