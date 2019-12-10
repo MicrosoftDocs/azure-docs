@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: quickstart
 ms.date: 07/17/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 

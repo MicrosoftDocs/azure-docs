@@ -37,7 +37,7 @@ Using the two services together provides:
 
 * **Environment hardening** - Security Center constantly monitors the configuration of your Kubernetes clusters, and generates security recommendations that reflect industry standards.
 
-* **Run-time protection** - Through continuous analysis of the following AKS sources, Security Center alerts you to threats and malicious activity detected at the host *and* AKS cluster level (for more information, see [Azure container service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)):
+* **Run-time protection** - Through continuous analysis of the following AKS sources, Security Center alerts you to threats and malicious activity detected at the host *and* AKS cluster level (for more information, see [threat detection for Azure containers](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)):
     * Raw security events, such as network data and process creation
     * The Kubernetes audit log
 

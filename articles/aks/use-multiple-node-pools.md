@@ -34,7 +34,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 * You can't add or delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
 * The AKS cluster can have a maximum of eight node pools.
-* The AKS cluster can have a maximum of 400 nodes across those eight node pools.
+* The AKS cluster can have a maximum of 800 nodes across those eight node pools.
 * All node pools must reside in the same subnet.
 
 ## Create an AKS cluster
