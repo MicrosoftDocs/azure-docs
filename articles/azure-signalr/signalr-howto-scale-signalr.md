@@ -13,12 +13,12 @@ This article shows you how to scale your instance of Azure SignalR Service. Ther
 * [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more units, connections, messages, and more. You scale up by changing the pricing tier from Free to Standard.
 * [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of SignalR units. You can scale out to as many as 100 units.
 
-The scale settings take a few minutes to apply. They don't require you to change your code or redeploy your server application.
+The scale settings take a few minutes to apply. In rare cases it may take up to around 30 minutes to apply. They don't require you to change your code or redeploy your server application.
 
 For information about the pricing and capacities of individual SignalR Service, see [Azure SignalR Service Pricing Details](https://azure.microsoft.com/pricing/details/signalr-service/).  
 
 > [!NOTE]
-> Changing SignalR Service from **Free** tier to **Standard** tier or vice versa, the public service IP will be changed and it usually takes 3-60 minutes to propagate the change to DNS servers across the entire internet. 
+> Changing SignalR Service from **Free** tier to **Standard** tier or vice versa, the public service IP will be changed and it usually takes 30-60 minutes to propagate the change to DNS servers across the entire internet. 
 > Your service might be unreachable before DNS gets updated. Generally it’s not recommended to change your pricing tier too often.
 
 
