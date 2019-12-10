@@ -34,14 +34,6 @@ As an approved provider, the benefits of Windows Virtual Desktop will be extende
 - [Register for the Tech Preview of Horizon Cloud on Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Go to the partner website](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
 
-## HP
-
-![HP logo](./media/partners/hp.png)
-
-HP Thin Client is an approved and verified partner of Microsoft's Azure and Windows Virtual Desktop services. HP Thin Clients with Windows 10 IoT Enterprise offer out-of-box support for Azure-based workloads and Windows Virtual Desktop hosted desktops. The hardware and OS are optimized to provide a best-in-class experience that effectively delivers remote workloads while reducing the OS footprint, hardware, and maintenance costs.
-
-As HP looked at industry trends, customer challenges, and the solutions virtualization offered during the development process, they were inspired to invent the ideal cloud endpoint using a four-pillar value proposition: design, manageability, security, and versatility. Every HP Thin Client is purpose-built with ITDMs in mind. HP Thin Clients are long-lasting, secure, easy to deploy and manage, and powerful so you can effortlessly transition to VDI or cloud computing. HP's versatile portfolio gives you the freedom to choose the modern endpoint solution that’s right for you.
-
 ## Cloudhouse
 
 ![Cloudhouse logo](./media/partners/cloudhouse.png)
@@ -83,6 +75,14 @@ deviceTRUST is a Windows Virtual Desktop value-added services provider that cont
 deviceTRUST extends the value of Windows Virtual Desktop with their contextual security technology. deviceTRUST enables conditional access for a secure Windows Virtual Desktop access, conditional application access within Windows Virtual Desktop and to apply conditional Windows Virtual Desktop policies without any additional infrastructure. Using deviceTRUST enables a mobile, flexible workspace that meets all security, compliance, and regulatory requirements. 
 
 - [Go to the partner website](https://devicetrust.com/wvd).
+
+## HP
+
+![HP logo](./media/partners/hp.png)
+
+HP Thin Client is an approved and verified partner of Microsoft's Azure and Windows Virtual Desktop services. HP Thin Clients with Windows 10 IoT Enterprise offer out-of-box support for Azure-based workloads and Windows Virtual Desktop hosted desktops. The hardware and OS are optimized to provide a best-in-class experience that effectively delivers remote workloads while reducing the OS footprint, hardware, and maintenance costs.
+
+As HP looked at industry trends, customer challenges, and the solutions virtualization offered during the development process, they were inspired to invent the ideal cloud endpoint using a four-pillar value proposition: design, manageability, security, and versatility. Every HP Thin Client is purpose-built with ITDMs in mind. HP Thin Clients are long-lasting, secure, easy to deploy and manage, and powerful so you can effortlessly transition to VDI or cloud computing. HP's versatile portfolio gives you the freedom to choose the modern endpoint solution that’s right for you.
 
 ## IGEL
 
