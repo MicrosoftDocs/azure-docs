@@ -1,13 +1,9 @@
 ---
-title: Limits and configuration - Azure Logic Apps
+title: Limits and configuration
 description: Service limits, such as duration, throughput, and capacity, plus configuration values, such as IP addresses to allow, for Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.author: estfan
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/19/2019
 ---
@@ -69,7 +65,7 @@ To change the default limit for run duration and storage retention, follow these
 
    > [!NOTE]
    > For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
-   > For logic apps in an integration service environment, you can decreause or increase the 90-day default limit.
+   > For logic apps in an integration service environment, you can decrease or increase the 90-day default limit.
 
 <a name="looping-debatching-limits"></a>
 
@@ -288,7 +284,7 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 
 * To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, set up your firewall with *all* the [outbound](#outbound) IP addresses used by these connectors, based on the regions where your logic apps exist. These addresses appear under the **Outbound** heading in this section, and are sorted by region. 
 
-* To enable communication for logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+* To enable communication for logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 
 * If your logic apps have problems accessing Azure storage accounts that use [firewalls and firewall rules](../storage/common/storage-network-security.md), you have [various options to enable access](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 

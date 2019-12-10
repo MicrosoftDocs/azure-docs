@@ -303,8 +303,7 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
 
     $packageManager = [Windows.Management.Deployment.PackageManager]::new()
 
-    $path = $msixJunction + $parentFolder + $packageName # needed if we do the
-    pbisigned.vhd
+    $path = $msixJunction + $parentFolder + $packageName # needed if we do the pbisigned.vhd
 
     $path = ([System.Uri]$path).AbsoluteUri
 
@@ -334,7 +333,7 @@ $path = "C:\Program Files\WindowsApps\" + $packageName + "\AppxManifest.xml"
 
 #region register
 
-Add-AppxPackage -Path \$path -DisableDevelopmentMode -Register
+Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 
 #endregion
 ```

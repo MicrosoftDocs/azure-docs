@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 11/06/2019
+ms.date: 11/29/2019
 ms.author: aahi
 ---
 # Quickstart: Send a query to the Bing Local Business Search API in Python
@@ -35,7 +35,7 @@ The following code gets localized results. It is implemented in the following st
 
 The complete code for this demo follows:
 
-```
+```python
 import http.client, urllib.parse
 import json
 

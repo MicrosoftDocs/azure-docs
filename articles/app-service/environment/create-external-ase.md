@@ -1,15 +1,9 @@
 ---
-title: Create an External App Service environment - Azure
-description: Explains how to create an App Service environment while you create an app or standalone
-services: app-service
-documentationcenter: na
+title: Create an external ASE
+description: Learn how to create an App Service environment with an app in it, or create a standalone (empty) ASE.
 author: ccompy
-manager: stefsch
 
 ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy

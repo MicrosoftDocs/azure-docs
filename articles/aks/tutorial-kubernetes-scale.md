@@ -71,7 +71,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] is used to provide resource utilization to Kubernetes, and is automatically deployed in AKS clusters versions 1.10 and higher. To see the version of your AKS cluster, use the [az aks show][az-aks-show] command, as shown in the following example:
 
 ```azurecli
-az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
+az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion --output table
 ```
 
 > [!NOTE]

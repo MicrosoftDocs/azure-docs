@@ -1,5 +1,5 @@
 ---
-title: Web app that calls web APIs (calling a web API) - Microsoft identity platform
+title: Call a web api from a web app - Microsoft identity platform | Azure
 description: Learn how to build a Web app that calls web APIs (calling a web API)
 services: active-directory
 documentationcenter: dev-center-name

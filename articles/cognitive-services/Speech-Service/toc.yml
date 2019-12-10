@@ -374,8 +374,6 @@
         href: rest-speech-to-text.md
       - name: Text-to-speech REST API
         href: rest-text-to-speech.md
-      - name: Webhooks REST API
-        href: webhooks.md
     - name: Swagger documentation
       href: swagger-documentation.md
 - name: Speech SDK
