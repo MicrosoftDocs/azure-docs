@@ -84,7 +84,7 @@ In the search box, find and select your integration account.
    |----------|-------|-------------|
    | **Name** | JsonToJsonTemplate | The name for your map, which is "JsonToJsonTemplate" in this example | 
    | **Map type** | **liquid** | The type for your map. For JSON to JSON transformation, you must select **liquid**. | 
-   | **Map** | "SimpleJsonToJsonTemplate.liquid" | An existing Liquid template or map file to use for transformation, which is "SimpleJsonToJsonTemplate.liquid" in this example. To find this file, you can use the file picker. For map size limits, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config#integration-account-limits.md#artifact-capacity-limits). |
+   | **Map** | "SimpleJsonToJsonTemplate.liquid" | An existing Liquid template or map file to use for transformation, which is "SimpleJsonToJsonTemplate.liquid" in this example. To find this file, you can use the file picker. For map size limits, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
    ||| 
 
    ![Add liquid template](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
