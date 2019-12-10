@@ -132,7 +132,7 @@ This file is named `score.py`. For more information on entry scripts, see [How a
 
 ## Define the conda environment
 
-The conda environment file specifies the dependencies for the service. It includes dependencies required by both the model and the entry script. The following YAML defines the environment for a Tensorflow model. It specifies `tensorflow-gpu`, which will make use of the GPU used in this deployment:
+The conda environment file specifies the dependencies for the service. It includes dependencies required by both the model and the entry script. Please note that you must indicate azureml-defaults with verion >= 1.0.45 as a pip dependency, because it contains the functionality needed to host the model as a web service. The following YAML defines the environment for a Tensorflow model. It specifies `tensorflow-gpu`, which will make use of the GPU used in this deployment:
 
 ```yaml
 name: project_environment
@@ -169,7 +169,7 @@ For more information, see the reference documentation for [AksService.deploy_con
 
 ## Define the inference configuration
 
-The inference configuration points to the entry script and an environment object, which uses a docker image with GPU support. Please note that the YAML file used for environment definition must list azureml-defaults with version >= 1.0.45 as a pip dependency because it contains tools necessary for running inferencing logic.
+The inference configuration points to the entry script and an environment object, which uses a docker image with GPU support. Please note that the YAML file used for environment definition must list azureml-defaults with version >= 1.0.45 as a pip dependency, because it contains the functionality needed to host the model as a web service.
 
 ```python
 from azureml.core.model import InferenceConfig

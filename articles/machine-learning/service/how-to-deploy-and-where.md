@@ -254,7 +254,7 @@ To use schema generation, include the `inference-schema` package in your Conda e
 
 ##### Example dependencies file
 
-The following YAML is an example of a Conda dependencies file for inference. Please note that you must indicate azureml-defaults with verion >= 1.0.45 as a pip dependency, because it contains tools necessary for running inferencing logic.
+The following YAML is an example of a Conda dependencies file for inference. Please note that you must indicate azureml-defaults with verion >= 1.0.45 as a pip dependency, because it contains the functionality needed to host the model as a web service.
 
 ```YAML
 name: project_environment
@@ -483,7 +483,7 @@ inference_config = InferenceConfig(entry_script="x/y/score.py",
                                    environment=myenv)
 ```
 
-If you are using a custom environment, make sure that it includes azureml-defaults package with version >= 1.0.45 as a pip dependency. This package contains tools necessary for running inferencing logic.
+If you are using a custom environment, make sure that it includes azureml-defaults package with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
 
 For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 

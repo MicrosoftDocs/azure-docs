@@ -45,7 +45,7 @@ Environments can broadly be divided into three categories: **curated**, **user-m
 
 Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They contain collections of Python packages and settings to help you get started different machine learning frameworks. 
 
-For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. Conda will not check your environment or install anything for you. Please note that if you are defining your own environment, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains tools necessary for running inferencing logic.
+For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. Conda will not check your environment or install anything for you. Please note that if you are defining your own environment, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
 
 System-managed environments are used when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. The service assumes this type of environment by default, due to its usefulness on remote compute targets that are not manually configurable.
 

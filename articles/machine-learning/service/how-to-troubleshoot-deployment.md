@@ -186,7 +186,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Please note that if you are defining your own conda specification YAML, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains tools necessary for running inferencing logic.
+Please note that if you are defining your own conda specification YAML, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
 
 At this point, you can work with the service as normal. For example, the following code demonstrates sending data to the service:
 

@@ -153,7 +153,7 @@ scoring_explainer_model = automl_run.register_model(model_name='scoring_explaine
 
 ### Create the conda dependencies for setting up the service
 
-Next, create the necessary environment dependencies in the container for the deployed model. Please note that azureml-defaults with version >= 1.0.45 must be listed as a pip dependency, because it contains tools necessary for running inferencing logic.
+Next, create the necessary environment dependencies in the container for the deployed model. Please note that azureml-defaults with version >= 1.0.45 must be listed as a pip dependency, because it contains the functionality needed to host the model as a web service.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
