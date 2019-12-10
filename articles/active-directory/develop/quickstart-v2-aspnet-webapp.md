@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform ASP.NET web server quickstart | Azure
-description: Learn how to implement Microsoft Sign-in on an ASP.NET web app using OpenID Connect.
+title: Add Microsoft identity platform sign-in to an ASP.NET web app | Azure
+description: Learn how to implement Microsoft sign-in on an ASP.NET web app using OpenID Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
