@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create a virtual machine scale set in the Azure portal | Microsoft Docs
-description: Learn how to quickly create a virtual machine scale in the Azure portal
+title: Quickstart - Create a virtual machine scale set in the Azure portal
+description: Learn how to quickly create a virtual machine scale in the Azure portal.
 services: virtual-machine-scale-sets
 author: cynthn
 manager: gwallace
