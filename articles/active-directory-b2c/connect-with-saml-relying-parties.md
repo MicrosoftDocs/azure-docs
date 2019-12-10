@@ -42,7 +42,7 @@ Summarizing the two non-exclusive core scenarios with SAML:
 
 * Complete the steps in [Get started with custom policies in Azure AD B2C](active-directory-b2c-get-started-custom.md). You need the *SocialAndLocalAccounts* custom policy from the custom policy starter pack discussed in the article.
 * Basic understanding of the Security Assertion Markup Language (SAML) protocol.
-* An application configured as a SAML service provider (SP). For this tutorial, you can use the [simulator application](https://samltestapp2.azurewebsites.net/).
+* An application configured as a SAML service provider (SP). For this tutorial, you can use a [SAML test application][samltest] we provide.
 
 ## Components of the solution
 
@@ -52,7 +52,7 @@ There are three main components required for this scenario:
 * Publicly available SAML **metadata endpoint** for your application.
 * [Azure AD B2C tenant](tutorial-create-tenant.md)
 
-If you don't yet have a SAML application and an associated metadata endpoint, you can use this sample SAML application that we've made available:
+If you don't yet have a SAML application and an associated metadata endpoint, you can use this sample SAML application that we've made available for testing:
 
 [SAML test application][samltest]
 
@@ -179,7 +179,7 @@ Now that your tenant can issue SAML tokens, you need to create the SAML relying 
 1. Make a copy of the *SignUpOrSignin.xml* file in your starter pack working directory, and name the copy with the ID of the new journey you created. For example,*SignUpOrSigninSAML.xml*. This is your relying party policy file.
 1. Open the *SignUpOrSigninSAML.xml* file in your preferred editor.
 1. Replace the policy name `B2C_1A_signup_signin` with `B2C_1A_signup_signin_SAML`.
-1. Replace the entire `<TechnicalProfile>` element in the `<RelyingParty>` element with the following. Update `tenant-name` with the name of your Azure AD B2C tenant.
+1. Replace the entire `<TechnicalProfile>` element in the `<RelyingParty>` element with the following technical profile XML. Update `tenant-name` with the name of your Azure AD B2C tenant.
 
     ```XML
     <TechnicalProfile Id="PolicyProfile">
@@ -202,27 +202,26 @@ Now that your tenant can issue SAML tokens, you need to create the SAML relying 
 
 ### 3.2 Update the metadata
 
-You can configure the metadata in both parties "Static Metadata" or "Dynamic Metadata." In static mode, you copy the entire metadata from one party and set it in the other party. In dynamic mode, you set the URL to the metadata, while the other party reads the configuration dynamically. The principle is the same, you provide the Azure B2C policy's metadata in your service provider (relying party). And provide your service provider's metadata to Azure AD B2C.
+You can configure the metadata in both parties' "Static Metadata" or "Dynamic Metadata." In static mode, you copy the entire metadata from one party and set it in the other party. In dynamic mode, you set the URL to the metadata and other party reads the configuration dynamically. The principle is the same: you provide the Azure B2C policy's metadata in your service provider (relying party), and provide your service provider's metadata to Azure AD B2C.
 
-Each SAML relying party application has different steps to set and read the identity provider metadata. Azure AD B2C can read the service providers metadata. Look at your relying party application's documentation for guidance on how to do so. You need your relying party applications' metadata URL or XML document to set in Azure AD B2C relying party policy file.
+Each SAML relying party application has different steps to set and read the identity provider metadata, and Azure AD B2C can read the service provider's metadata. Check your relying party application's documentation for guidance on how to set and read the identity provider metadata. You need your relying party applications' metadata URL or XML document to set in the Azure AD B2C relying party policy file.
 
-We will use  dynamic metadata for this example. Update the `<Item>` with `Key="PartnerEntity"` by adding the URL of the SAML RP's metadata, if such exists:
+This example uses dynamic metadata. Update the `<Item>` element with `Key="PartnerEntity"` by adding the URL of the SAML relying party's metadata, if it exists:
 
 ```XML
 <Item Key="PartnerEntity">https://app.com/metadata</Item>
 ```
 
+The Service Provider metadata must be publicly available.
+
 > [!TIP]
-> The Service Provider metadata should be publicly available. If your app is running under https://localhost, copy and upload the metadata file to an anonymous web server.
+> If your app is running at https://localhost, you can serve the metadata file from a publicly accessible web server that allows anonymous requests.
 
 ### 3.3 Upload and test your policy metadata
 
-Save your changes and upload this new policy. After you uploaded both policies (the extension and the relying party), open a web browser and navigate to the policy metadata. The Azure AD B2C policy metadata is available in following URL address, replace the:
+Save your changes and upload the new policy file. After you've uploaded both policies (the extension and the relying party), open a web browser and navigate to the policy metadata. The Azure AD B2C policy metadata is available at following URL. Replace `tenant-name` with the name of your Azure AD B2C tenant, and `policy-name` with the name (ID) of the policy:
 
-* tenant-name with your tenant name
-* policy-name with your policy name
-
-https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata
+`https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
 Your custom policy and Azure AD B2C tenant are now ready. Next, create an application registration in Azure AD B2C.
 
@@ -230,22 +229,26 @@ Your custom policy and Azure AD B2C tenant are now ready. Next, create an applic
 
 ### 4.1 Register your application in Azure Active Directory
 
-1. In your Azure AD B2C directory navigate to Azure AD B2C > App Registrations (Preview) >
-1. Select + New registration
-1. Name your application (e.g. mySAMLApp)
-1. Supported account types: "Accounts for any organizational directory or any identity provider"
-1. The Redirect URI will be addressed later in the manifest. For now choose https://localhost
-1. Permissions: Make sure the box is checked to "Grant consent to openid and off_line access"
-Select Register
-1. Select your application from the menu to open its registration and select on "Manifest"
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Select **App registrations (Preview)**, and then select **New registration**.
+1. Enter a **Name** for the application. For example, *SAMLApp1*.
+1. Under **Supported account types**, select **Accounts in any organizational directory or any identity provider.**
+1. Under **Redirect URI**, select **Web**, and then enter `https://localhost`. You modify this value later in the application registration's manifest.
+1. Select **Grant admin consent to openid and offline_access permissions**.
+1. Select **Register**.
+1. Under **Manage**, select **Manifest** to open the manifest editor. You modify several properties in the next section.
 
 ### 4.2 Update the app manifest
 
-For SAML Apps we need to read following properties
+For SAML apps, there are several properties you need to configure in the application registration's manifest.
 
 #### ReplyUrlWithType (only with type ‘Web')
 
-For the walkthrough with the SAML App Simulator use:
+This property represents `AssertionConsumerServiceUrl` (`SingleSignOnService` URL in the R metadata) and the `BindingType` is assumed to be `HTTP POST`.
+
+For this walkthrough, in which you use the SAML test application, set the `url` property of `replyUrlsWithType` to the value shown in the following JSON snippet.
 
 ```JSON
 "replyUrlsWithType":[
@@ -256,41 +259,40 @@ For the walkthrough with the SAML App Simulator use:
 ],
 ```
 
-This represents to AssertionConsumerServiceUrl (SingleSignOnService Url in RP metadata) and BindingType for this is assumed to be `Http-PoST`.
-
 #### LogoutUrl
 
+This property represents the `Logout` URL (`SingleLogoutService` URL in the RP metadata), and the `BindingType` for this is assumed to be `HttpDirect`.
+
+For this walkthrough which uses the SAML test application, leave `logoutUrl` set to `null`:
+
 ```JSON
-logoutUrl":null,
+"logoutUrl":null,
 ```
-
-BindingType for this is assumed to be HttpDirect. Logout url (SingleLogoutService url in rp metadata)
-
-For the SAML App Simulator leave this as null
 
 #### SamlMetadataUrl
 
-This Url represents RP's meta data. (http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf specifies the contents in the url)
+This property represents RP's publicly available metadata URL. The metadata URL can point to a a metadata file uploaded to any anonymously accessible endpoint, for example blob storage.
 
-The metadata Url can be a file uploaded to blob storage.
-
-For the walkthrough with the SAML Simulator use:
+For this walkthrough which uses the SAML test application, use the following value for `samlMetadataUrl`:
 
 ```JSON
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
+For more information about the contents of the metadata, see [Metadata for the OASIS Security Assertion Markup Language (SAML) V2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf) (PDF), available on the OASIS website.
+
 #### IdentifierUri
 
-This field is used to uniquely identify the application in the tenant.
+This field is used to uniquely identify the application in your Azure AD B2C tenant.
 
-This value corresponds to Identifier (EntityId) while configuring Azure AD applications.
+This value corresponds to `Identifier` (`EntityId`) while configuring Azure AD applications.
 
-In this case application lookup happens with `IdentifierUri` https://cpim3.ccsctp.net/samlAPPUITest
+For this walkthrough which using the SAML test application, the application lookup uses the `IdentifierUri` of `https://cpim3.ccsctp.net/samlAPPUITest`.
 
-NOTE: Inheritance rule... When some properties are represented both in Saml Metadata Url and in Application Object(the manifest), they are merged together. The one's in the metadata url are processed first and take precedence.
+When an authentication is made with `AssertionConsumerServiceIndex`, only values from `metadataUrl` are considered.
 
-When a AuthnRequest is made with AssertionConsumerServiceIndex, only values from metadataUrl are considered.
+> [!NOTE]
+> If there are properties specified in both the SAML metadata URL and in the application object (the app registration's manifest), they are merged. The properties specified in the metadata URL are processed first and take precedence.
 
 ## 5. Update your application code
 
