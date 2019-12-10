@@ -104,7 +104,7 @@ The **E3_SendGoodWeatherAlert** function uses the Twilio binding to send an SMS 
 
 # [C#](#tab/csharp)
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96)]
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
 
 > [!NOTE]
 > You will need to install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package to run the sample code.
