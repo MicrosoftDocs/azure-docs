@@ -2,11 +2,10 @@
 title: How to clone an Azure IoT hub
 description: How to clone an Azure IoT hub
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 12/09/2019
 ms.author: robinsh
 # intent: As a customer using IoT Hub, I need to clone my IoT hub to another region. 
 ---
@@ -68,9 +67,7 @@ This is the general method we recommend for moving an IoT hub from one region to
    1. Add anything that wasn't exported to the template. 
    
        For example, consumer groups are not exported to the template. You need to add the consumer groups to the template manually or use the [Azure portal](https://portal.azure.com) after the hub is created. There is an example of adding one consumer group to a template in the article [Use an Azure Resource Manager template to configure IoT Hub message routing](tutorial-routing-config-message-routing-rm-template.md).
-
-       [Message enrichments](iot-hub-message-enrichments-overview.md) are also not exported to the template. These are used in conjunction with routing messages, and will have to be updated manually on the new hub when the message routing configuration is updated.
-
+       
    1. Copy the devices from the original hub to the clone. This is covered in the section [Managing the devices registered to the IoT hub](#managing-the-devices-registered-to-the-iot-hub).
 
 ## How to handle message routing
@@ -98,9 +95,6 @@ If the hub uses message routing, you have two choices.
    * The hub still references the original routing resources and routes messages to them as configured.
 
    * You will have a small performance hit because the hub and the routing endpoint resources are not in the same location.
-
-> [!NOTE]
-> If your hub uses [message enhancements](iot-hub-message-enrichments-overview.md), you will have to set them up manually on the new IoT hub, as they are not exported with the Resource Manager template.
 
 ## Prepare to migrate the hub to another region
 
