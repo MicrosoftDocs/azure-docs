@@ -224,7 +224,7 @@ def run(raw_data):
 
 ### Create environment file
 
-Next create an environment file, called **myenv.yml**, that specifies all of the script's package dependencies. This file is used to make sure that all of those dependencies are installed in the Docker image. This model needs `scikit-learn` and `azureml-sdk`. All environment files need to list azureml-defaults with verion >= 1.0.53 as a pip dependency. This package contains tools necessary for running inferencing logic.
+Next create an environment file, called **myenv.yml**, that specifies all of the script's package dependencies. This file is used to make sure that all of those dependencies are installed in the Docker image. This model needs `scikit-learn` and `azureml-sdk`. All environment files need to list azureml-defaults with verion >= 1.0.45 as a pip dependency. This package contains tools necessary for running inferencing logic.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies 
@@ -271,15 +271,16 @@ Configure the image and deploy. The following code goes through these steps:
 1. Start up a container in Container Instances by using the image.
 1. Get the web service HTTP endpoint.
 
-Please note that if you are defining your own environment file, you must list azureml-defaults with version >= 1.0.53 as a pip dependency. This package contains tools necessary for running inferencing logic.
+Please note that if you are defining your own environment file, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains tools necessary for running inferencing logic.
 
 ```python
 %%time
 from azureml.core.webservice import Webservice
-from azureml.core.model import InferenceConfig, Environment
+from azureml.core.model import InferenceConfig
+from azureml.core.environment import Environment
 
-env = Environment.from_conda_specification(name="env", file_path="myenv.yml")
-inference_config = InferenceConfig(entry_script="score.py", environment=env)
+myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
+inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 
 service = Model.deploy(workspace=ws,
                        name='sklearn-mnist-svc',

@@ -254,7 +254,7 @@ To use schema generation, include the `inference-schema` package in your Conda e
 
 ##### Example dependencies file
 
-The following YAML is an example of a Conda dependencies file for inference. Please note that you must indicate azureml-defaults with verion >= 1.0.53 as a pip dependency, because it contains tools necessary for running inferencing logic.
+The following YAML is an example of a Conda dependencies file for inference. Please note that you must indicate azureml-defaults with verion >= 1.0.45 as a pip dependency, because it contains tools necessary for running inferencing logic.
 
 ```YAML
 name: project_environment
@@ -263,7 +263,7 @@ dependencies:
   - scikit-learn=0.20.0
   - pip:
       # You must list azureml-defaults as a pip dependency
-    - azureml-defaults>=1.0.53
+    - azureml-defaults>=1.0.45
     - inference-schema[numpy-support]
 ```
 
@@ -475,15 +475,15 @@ The inference configuration describes how to configure the model to make predict
 Inference configuration uses Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. The following example demonstrates loading an environment from your workspace and then using it with the inference configuration:
 
 ```python
-from azureml.core import Environment
+from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig
 
-deploy_env = Environment.get(workspace=ws, name="myenv", version="1")
+myenv = Environment.get(workspace=ws, name="myenv", version="1")
 inference_config = InferenceConfig(entry_script="x/y/score.py",
-                                   environment=deploy_env)
+                                   environment=myenv)
 ```
 
-If you are using a custom environment, make sure that it includes azureml-defaults package with version >= 1.0.53 as a pip dependency. This package contains tools necessary for running inferencing logic.
+If you are using a custom environment, make sure that it includes azureml-defaults package with version >= 1.0.45 as a pip dependency. This package contains tools necessary for running inferencing logic.
 
 For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 

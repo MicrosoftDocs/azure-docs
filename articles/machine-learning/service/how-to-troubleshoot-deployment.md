@@ -167,12 +167,13 @@ If you encounter problems deploying a model to ACI or AKS, try deploying it as a
 To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the `model` variable) as a local web service:
 
 ```python
-from azureml.core.model import InferenceConfig, Model, Environment
+from azureml.core.model import InferenceConfig, Model
+from azureml.core.environment import Environment
 from azureml.core.webservice import LocalWebservice
 
 # Create inference configuration based on the environment definition and the entry script
-env = Environment.from_conda_specification(name="env", file_path="myenv.yml")
-inference_config = InferenceConfig(entry_script="score.py", environment=env)
+myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
+inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 
 # Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
@@ -185,7 +186,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Please note that if you are defining your own conda specification YAML, you must list azureml-defaults with version >= 1.0.53 as a pip dependency. This package contains tools necessary for running inferencing logic.
+Please note that if you are defining your own conda specification YAML, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains tools necessary for running inferencing logic.
 
 At this point, you can work with the service as normal. For example, the following code demonstrates sending data to the service:
 

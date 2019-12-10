@@ -224,8 +224,10 @@ myenv.docker.base_image_registry.address = "myregistry.azurecr.io"
 myenv.docker.base_image_registry.username = "username"
 myenv.docker.base_image_registry.password = "password"
 
+myenv.inferencing_stack_version = "latest"  # This will install the inference specific apt packages.
+
 # Define the packages needed by the model and scripts
-from azureml.core.environment import CondaDependencies
+from azureml.core.conda_dependencies import CondaDependencies
 conda_dep = CondaDependencies()
 # Unless you are using your own custom inferencing stack,
 # you must list azureml-defaults as a pip dependency
@@ -233,7 +235,7 @@ conda_dep.add_pip_package("azureml-defaults")
 myenv.python.conda_dependencies=conda_dep
 ```
 
-Please note that unless you are using you own custom inferencing stack, you must list azureml-defaults with version >= 1.0.53 as a pip dependency. This package contains tools necessary for running inferencing logic.
+Please note that unless you are using you own custom inferencing stack, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains tools necessary for running inferencing logic.
 
 After defining the environment, use it with an [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) object to define the inference environment in which the model and web service will run.
 
