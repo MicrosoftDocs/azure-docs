@@ -10,7 +10,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 12/10/2019
 ms.author: bwren
 ---
 
