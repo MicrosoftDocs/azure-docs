@@ -4,7 +4,7 @@ description: This article describe the concept of inputs in an Azure Stream Anal
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019

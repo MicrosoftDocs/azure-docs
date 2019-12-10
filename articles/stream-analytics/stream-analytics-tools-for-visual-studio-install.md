@@ -5,7 +5,7 @@ services: stream-analytics
 author: su-jie
 ms.author: sujie
 manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018

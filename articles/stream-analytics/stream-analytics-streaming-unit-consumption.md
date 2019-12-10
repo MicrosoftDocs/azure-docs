@@ -5,7 +5,7 @@ services: stream-analytics
 author: JSeb225
 ms.author: jeanb
 manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019

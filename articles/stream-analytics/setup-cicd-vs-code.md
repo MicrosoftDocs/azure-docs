@@ -4,7 +4,7 @@ description: This article describes how to use Azure Stream Analytics CI/CD npm 
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019

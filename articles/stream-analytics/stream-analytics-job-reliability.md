@@ -4,7 +4,7 @@ description: This article describes guidance on making your Stream Analytics job
 services: stream-analytics
 author: jseb225
 ms.author: sidram
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019

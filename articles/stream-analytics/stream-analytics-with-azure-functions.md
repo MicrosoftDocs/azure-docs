@@ -9,7 +9,7 @@ ms.custom: mvc
 ms.workload: data-services
 ms.date: 06/05/2019
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 
 #Customer intent: "As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs."
 ---

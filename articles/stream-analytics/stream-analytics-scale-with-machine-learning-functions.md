@@ -4,7 +4,7 @@ description: This article describes how to scale Stream Analytics jobs that use 
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019

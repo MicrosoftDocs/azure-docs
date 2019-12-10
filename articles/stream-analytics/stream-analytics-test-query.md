@@ -4,7 +4,7 @@ description: This article describes how to use the Azure portal to test an Azure
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019

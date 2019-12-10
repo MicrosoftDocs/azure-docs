@@ -4,7 +4,7 @@ description: Learn about setting up a data connection in Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
