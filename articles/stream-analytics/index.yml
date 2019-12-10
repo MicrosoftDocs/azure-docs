@@ -162,6 +162,10 @@ landingContent:
           url: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - text: Develop an IoT Edge job in Visual Studio
           url: stream-analytics-tools-for-visual-studio-edge-jobs.md
+      - linkListType: video
+        links:
+        - text: Author, manage and test with Visual Studio Code
+          url: https://www.youtube.com/watch?v=N9ak_9ZaHms
   - title: Try Stream Analytics tutorials and solutions 
     linkLists:
       - linkListType: tutorial

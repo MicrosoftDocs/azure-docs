@@ -4,8 +4,8 @@ description: Monitor system and custom .NET/.NET Core EventCounters in Applicati
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cithomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/20/2019
 
 ---

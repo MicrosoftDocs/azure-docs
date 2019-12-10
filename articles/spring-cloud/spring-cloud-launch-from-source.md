@@ -1,6 +1,6 @@
 ---
-title:  "Quickstart: Launch your Spring Cloud application from source code"
-description: Learn how to launch your Azure Spring Cloud application directly from your source code
+title:  "Quickstart - Launch your Spring Cloud application from source code"
+description: In this quickstart, learn how to launch your Azure Spring Cloud application directly from your source code
 author:  jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
@@ -8,7 +8,7 @@ ms.date: 10/30/2019
 ms.author: jeconnoc
 ---
 
-# Launch your Spring Cloud application from source code
+# Quickstart: Launch your Spring Cloud application from source code
 
 Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure.
 
@@ -153,3 +153,5 @@ In this quickstart, you learned how to:
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
+
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

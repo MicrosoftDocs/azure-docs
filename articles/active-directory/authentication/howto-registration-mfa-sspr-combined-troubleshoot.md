@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot combined registration for Azure AD SSPR and Multi-Factor Authentication (preview) - Azure Active Directory
+title: Troubleshoot combined registration - Azure Active Directory
 description: Troubleshoot Azure AD Multi-Factor Authentication and self-service password reset combined registration (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 02/20/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 

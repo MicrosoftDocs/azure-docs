@@ -2,7 +2,7 @@
 title: Recommended security practices
 description: When using Azure delegated resource management, it’s important to consider security and access control.
 ms.date: 07/11/2019
-ms.topic: overview
+ms.topic: conceptual
 ---
 
 # Recommended security practices

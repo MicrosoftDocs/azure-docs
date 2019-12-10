@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure IoT Edge device - Machine Learning on Azure IoT Edge'
-description: 'Tutorial: Configure an Azure Virtual Machine running Linux as an Azure IoT Edge device that acts as a transparent gateway.'
+description: 'In this tutorial, you will configure an Azure Virtual Machine running Linux as an Azure IoT Edge device that acts as a transparent gateway.'
 author: kgremban
 manager: philmea
 ms.author: kgremban

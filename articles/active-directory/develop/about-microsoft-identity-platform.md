@@ -2,16 +2,12 @@
 title: Evolution of Microsoft identity platform - Azure 
 description: Learn about Microsoft identity platform, an evolution of the Azure Active Directory (Azure AD) identity service and developer platform.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/03/2019
 ms.author: ryanwi
@@ -49,7 +45,7 @@ The following diagram shows the Microsoft identity experience at a high level, i
 
 The Azure portal **[App registrations](https://go.microsoft.com/fwlink/?linkid=2083908)** experience is the one portal experience for managing all applications you’ve integrated with Microsoft identity platform. If you have been using the Application Registration Portal, start using the Azure portal app registration experience instead.
 
-For integration with Azure AD B2C (when authenticating social or local identities), you’ll need to register your application in a B2C tenant. This experience is also part of the Azure portal.
+For integration with Azure AD B2C (when authenticating social or local identities), you’ll need to register your application in an Azure AD B2C tenant. This experience is also part of the Azure portal.
 
 The **application API in Microsoft Graph** is currently in preview. Use this API to programmatically configure your applications integrated with Microsoft identity platform for authenticating any Microsoft identity. However, until this API reaches general availability, you should use the Azure AD Graph 1.6 API and the application manifest.
 

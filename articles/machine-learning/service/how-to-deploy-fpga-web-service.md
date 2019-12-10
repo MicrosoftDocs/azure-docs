@@ -132,9 +132,9 @@ Follow the instructions to:
 
 Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) to create a service definition. A service definition is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command automatically compresses the definition and graphs into a ZIP file, and uploads the ZIP to Azure Blob storage. The DNN is already deployed to run on the FPGA.
 
-### Load Azure ML workspace
+### Load Azure Machine Learning workspace
 
-Load your Azure ML workspace.
+Load your Azure Machine Learning workspace.
 
 ```python
 import os
@@ -376,7 +376,7 @@ ssl_enabled = address.startswith("https")
 address = address[address.find('/')+2:].strip('/')
 port = 443 if ssl_enabled else 80
 
-# Initialize AzureML Accelerated Models client
+# Initialize Azure ML Accelerated Models client
 client = PredictionClient(address=address,
                           port=port,
                           use_ssl=ssl_enabled,
@@ -428,9 +428,9 @@ To secure your FPGA web services, see the [Secure web services](how-to-secure-we
 
 Check out these notebooks, videos, and blogs:
 
-+ Several [sample notebooks](https://aka.ms/aml-accel-models-notebooks).
++ Several [sample notebooks](https://aka.ms/aml-accel-models-notebooks)
 
-+ [Hyperscale hardware: ML at scale on top of Azure + FPGA : Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
++ [Hyperscale hardware: ML at scale on top of Azure + FPGA: Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
 
