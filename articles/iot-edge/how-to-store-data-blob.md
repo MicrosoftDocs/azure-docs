@@ -9,7 +9,6 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Store data at the edge with Azure Blob Storage on IoT Edge

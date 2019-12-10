@@ -47,9 +47,9 @@ To bulk assign tags to multiple resources:
 
 To view all resources with a tag:
 
-1. Select **All services** and **Tags**.
+1. On the Azure portal menu, select **All services**. Select **General**, then **Tags**.
 
-     ![Find by tag](./media/resource-manager-tag-resources/find-tags.png)
+     ![Find by tag](./media/resource-manager-tag-resources/find-tags-general.png)
 
 1. Select the tag for viewing resources.
 
@@ -65,4 +65,4 @@ To view all resources with a tag:
 
 1. The view is available from the dashboard.
 
-     ![Dashboard](./media/resource-manager-tag-resources/dashboard.png)
+     ![Dashboard](./media/resource-manager-tag-resources/dashboard-with-view.png)

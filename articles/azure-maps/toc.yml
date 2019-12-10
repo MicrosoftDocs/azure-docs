@@ -29,6 +29,8 @@
       href: tutorial-iot-hub-maps.md
     - name: EV routing using Azure Notebooks (Python)
       href: tutorial-ev-routing.md
+    - name: Analyze weather data using Azure Notebooks (Python)
+      href: weather-service-tutorial.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
@@ -127,7 +129,7 @@
         href: map-add-custom-html.md
       - name: Show traffic 
         href: map-show-traffic.md
-      - name: Interacting with mouse events
+      - name: Reacting to events
         href: map-events.md
       - name: Make your app accessible
         href: map-accessibility.md

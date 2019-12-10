@@ -1,20 +1,20 @@
 ---
-title: Troubleshooting in Azure AD password protection - Azure Active Directory
+title: Troubleshooting password protection - Azure Active Directory
 description: Understand Azure AD password protection common troubleshooting
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
+
 ms.collection: M365-identity-device-management
 ---
-
 # Azure AD Password Protection troubleshooting
 
 After the deployment of Azure AD Password Protection, troubleshooting may be required. This article goes into detail to help you understand some common troubleshooting steps.

@@ -1,12 +1,12 @@
 ---
-title: Conditional Access baseline protection policies - Azure Active Directory
+title: Conditional Access baseline policies - Azure Active Directory
 description: Baseline Conditional Access policies to protect organizations from common attacks
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,7 +23,7 @@ Managing customized Conditional Access policies requires an Azure AD Premium lic
 
 ## Baseline policies
 
-![Conditional Access baseline policies in the Azure portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
+![Conditional Access baseline policies in the Azure portal](./media/concept-baseline-protection/conditional-access-policies.png)
 
 There are four baseline policies:
 
