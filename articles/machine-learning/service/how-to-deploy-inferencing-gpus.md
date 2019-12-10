@@ -175,9 +175,9 @@ The inference configuration points to the entry script and an environment object
 from azureml.core.model import InferenceConfig
 from azureml.core.environment import Environment, DEFAULT_GPU_IMAGE
 
-deploy_env = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
-deploy_env.docker.base_image = DEFAULT_GPU_IMAGE
-inference_config = InferenceConfig(entry_script="score.py", environment=deploy_env)
+myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
+myenv.docker.base_image = DEFAULT_GPU_IMAGE
+inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 ```
 
 For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
