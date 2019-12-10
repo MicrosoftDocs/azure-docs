@@ -94,7 +94,7 @@ The following examples show how to register an Azure Blob Container,   an Azure 
     account_name=os.getenv("FILE_SHARE_ACCOUNTNAME", "<my-account-name>") # Storage account name
     account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage Account Key
 
-file_datastore = Datastore.register_azure_file_share(workspace=ws,
+    file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      datastore_name=file_datastore_name, 
                                                      file_share_name=file_share_name, 
                                                      account_name=account_name,
