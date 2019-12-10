@@ -26,8 +26,6 @@ The **Orders dashboard** of the **Analyze** menu displays the current orders for
 - [Orders trend per site versus per seat](#orders-trend-per-site-versus-per-seat)
 - [Orders by SKUs](#orders-by-skus)
 - [Orders and seats trend](orders-and-seats-trend)
-- [Orders organized by marketplace license type](#orders-by-marketplace-license-type)
-- [Orders organized by new and existing customers](#orders-by-customer-type)
 - [Order details table](#order-details-table)
 
 > [!NOTE]
@@ -100,27 +98,6 @@ The **cancelled orders by offers** pie chart organizes all of your cancelled ord
 - The column chart displays month-by-month trends. The columns represent the number of cancelled orders by offer name. You can use the slider on top of the chart to scroll right and left along the x-axis and focus on specific data points. You can display the trend chart by selecting a specific item on the legend.
 
 ![Partner Center Analyze cancelled orders by offers](./media/cancelled-orders-by-offer.png)
-
-### Orders by marketplace license type
-<!-- Section needs review and clarification!  -->
-The **Orders by marketplace license type** chart displays a month-by-month order count based on the license type and billing method of the marketplace offer. License types include:
-
-- **Billed through Azure**: Microsoft bills customers on your behalf when you choose to [sell your offer through Microsoft](./create-new-saas-offer.md#sell-through-microsoft) with this license type. Payment types include pay-as-you-go via credit card or Enterprise invoicing.
-- **Bring your own license**: Microsoft does not bill customers for their usage of this type of marketplace offer. Listed as **[Get it now (Free)](./create-new-saas-offer.md#get-it-now-free)** in the marketplace.
-- **Free**: Microsoft does not bill customers for their usage of this type of marketplace offer. Listed as **[Free trial](./create-new-saas-offer.md##free-trial-listing)** in the marketplace.
-- **Microsoft as reseller**: Represents offers sold by Microsoft resellers as a part of the **[Cloud Solution Provider (CSP) program](./create-new-saas-offer.md)**.
-
-![Partner Center Analyze orders by license type](./media/analyze-license-type.png)
-
-### Orders by customer type
-
-The **Orders by customer type** bar chart displays the number of orders divided between **New Customers** and **Existing Customers**. 
-
-- A **New customer** has acquired one or more of your offers for the first time within the same calendar month (y-axis). An **Existing customer** has previously acquired an offer from you prior to the calendar month reported (on the y-axis). 
-- An additional pie chart represents all orders created by the new or existing customer for the date range selected.
-- In both charts, you can choose to view only new or only existing customers by selecting the respective legend.
-
-![Partner Center Analyze orders by customer type](./media/analyze-order-by-customer.png)
 
 ### Order details table
 
