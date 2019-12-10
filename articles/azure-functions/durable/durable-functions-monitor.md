@@ -23,11 +23,13 @@ This sample monitors a location's current weather conditions and alerts a user b
 * Monitors are scalable. Because each monitor is an orchestration instance, multiple monitors can be created without having to create new functions or define more code.
 * Monitors integrate easily into larger workflows. A monitor can be one section of a more complex orchestration function, or a [sub-orchestration](durable-functions-sub-orchestrations.md).
 
-## Configuring Twilio integration
+## Configuration
+
+### Configuring Twilio integration
 
 [!INCLUDE [functions-twilio-integration](../../../includes/functions-twilio-integration.md)]
 
-## Configuring Weather Underground integration
+### Configuring Weather Underground integration
 
 This sample involves using the Weather Underground API to check current weather conditions for a location.
 
