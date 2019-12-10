@@ -13,7 +13,7 @@ ms.date: 04/02/2019
 
 # Tutorial: Azure Active Directory SMART on FHIR proxy
 
-[SMART on FHIR](https://docs.smarthealthit.org/) is a set of open specifications to integrate partner applications with FHIR servers and electronic medical records systems that have FHIR interfaces. One of the main purposes of the specifications is to describe how an application should discover authentication endpoints for a FHIR server and start an authentication sequence. 
+[SMART on FHIR](https://docs.smarthealthit.org/) is a set of open specifications to integrate partner applications with FHIR servers and electronic medical records systems that have FHIR interfaces. One of the main purposes of the specifications is to describe how an application should discover authentication endpoints for an FHIR server and start an authentication sequence. 
 
 Authentication is based on OAuth2. But because SMART on FHIR uses parameter naming conventions that are not immediately compatible with Azure Active Directory (Azure AD), the Azure API for FHIR has a built-in Azure AD SMART on FHIR proxy that enables a subset of the SMART on FHIR launch sequences. Specifically, the proxy enables the [EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence).
 
@@ -34,7 +34,7 @@ After you set up a resource application, you also need a client application regi
 
 After you complete these steps, you should have:
 
-- A resource application that has the identifier URI `https://MYFHIRAPI.azurehealthcareapis.com`, where `MYFHIRAPI` is the name of your Azure API for FHIR instance.
+- A resource application with the identifier URI `https://MYFHIRAPI.azurehealthcareapis.com`, where `MYFHIRAPI` is the name of your Azure API for FHIR instance.
 - A public client application registration. Make a note of the application ID for this client application.
 
 ## Enable the SMART on FHIR proxy
@@ -87,7 +87,7 @@ To test the Azure API for FHIR and the SMART on FHIR proxy, you'll need to have 
 
 ## Download the SMART app launcher
 
-The open-source [FHIR server for Azure repository](https://github.com/Microsoft/fhir-server) includes a simple SMART on FHIR app launcher and a sample SMART on FHIR app. In this tutorial, use this SMART on FHIR launcher locally to test the setup.
+The open-source [FHIR Server for Azure repository](https://github.com/Microsoft/fhir-server) includes a simple SMART on FHIR app launcher and a sample SMART on FHIR app. In this tutorial, use this SMART on FHIR launcher locally to test the setup.
 
 You can clone the GitHub repository and go to the application by using these commands:
 
@@ -145,7 +145,7 @@ Inspect the token response to see how the launch context fields are passed on to
 
 ## Next steps
 
-In this tutorial, you've configured the Azure Active Directory SMART on FHIR proxy. To explore the use of SMART on FHIR applications with the Azure API for FHIR and the open-source FHIR server for Azure, go to the repository of FHIR server samples on GitHub:
+In this tutorial, you've configured the Azure Active Directory SMART on FHIR proxy. To explore the use of SMART on FHIR applications with the Azure API for FHIR and the open-source FHIR Server for Azure, go to the repository of FHIR server samples on GitHub:
 
 >[!div class="nextstepaction"]
 >[FHIR server samples](https://github.com/Microsoft/fhir-server-samples)
