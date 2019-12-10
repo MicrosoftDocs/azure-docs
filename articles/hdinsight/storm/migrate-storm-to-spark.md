@@ -120,7 +120,7 @@ In Structured Streaming, data arrives at the system and is immediately ingested 
 
 ## Spark structured streaming
 
-You can write the basic operations of Spark Structured Streaming code as follows. See [Overview of Apache Spark Structured Streaming](../spark/apache-spark-structured-streaming-overview.md) in details.
+You can write the basic operations of Spark Structured Streaming code as follows. See [Overview of Apache Spark Structured Streaming](../spark/apache-spark-structured-streaming-overview.md) for more details.
 
 ```spark
 case class DeviceData(device: String, deviceType: String, signal: Double, time: DateTime)
