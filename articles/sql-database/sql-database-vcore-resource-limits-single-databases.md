@@ -79,7 +79,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 
 \* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
-## Hyperscale - provisioned compute - Gen 4
+## Hyperscale - provisioned compute - Gen4
 
 ### Gen4 compute generation (part 1)
 
@@ -131,7 +131,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 
 \* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
-## Hyperscale - provisioned compute - Gen 5
+## Hyperscale - provisioned compute - Gen5
 
 ### Gen5 compute generation (part 1)
 
