@@ -38,7 +38,7 @@ Looking for more documentation?
 Using your key, and the region for the key, create two environment variables for authentication:
 
 * `LUIS_PREDICTION_KEY` - The resource key for authenticating your requests.
-* `LUIS_ENDPOINT` - The resource name associated with your key. For example `westus`.
+* `LUIS_ENDPOINT_NAME` - The resource name associated with your key. For example `westus`.
 
 Use the instructions for your operating system.
 
@@ -46,7 +46,7 @@ Use the instructions for your operating system.
 
 ```console
 setx LUIS_PREDICTION_KEY <replace-with-your-resource-key>
-setx LUIS_ENDPOINT <replace-with-your-resource-name>
+setx LUIS_ENDPOINT_NAME <replace-with-your-resource-name>
 ```
 
 After you add the environment variable, restart the console window.
@@ -55,7 +55,7 @@ After you add the environment variable, restart the console window.
 
 ```bash
 export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
-export LUIS_ENDPOINT=<replace-with-your-resource-name>
+export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
 ```
 
 After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
@@ -66,7 +66,7 @@ Edit your `.bash_profile`, and add the environment variable:
 
 ```bash
 export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
-export LUIS_ENDPOINT=<replace-with-your-resource-name>
+export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
 ```
 
 After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
@@ -138,11 +138,13 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 
     A variables to manage your prediction key pulled from an environment variable named `LUIS_PREDICTION_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
 
-    Create a variable to hold your resource name `LUIS_ENDPOINT`.
+    Create a variable to hold your resource name `LUIS_ENDPOINT_NAME`.
 
-    Create a variable for the app ID as an environment variable named `LUIS_APP_ID`. Set the environment variable to the public IoT app, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`.
+    Create a variable for the app ID as an environment variable named `LUIS_APP_ID`. Set the environment variable to the public IoT app:
 
-       [!code-csharp[Create variables](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_variables)]
+    **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`**
+
+    [!code-csharp[Create variables](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_variables)]
 
 1. Create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [LUISRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) object.
 
