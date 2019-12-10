@@ -198,16 +198,3 @@ You can also call a REST API technical profile with your business logic, overwri
 ## Cryptographic keys
 
 The **CryptographicKeys** element is not used.
-
-
-
-
-
-
-
-
-
-
-
-
-
