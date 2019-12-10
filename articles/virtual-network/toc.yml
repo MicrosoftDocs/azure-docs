@@ -35,6 +35,18 @@
     href: policy-samples.md
 - name: Concepts
   items:
+  - name: NAT Service
+    items:
+    - name: What is NAT Service?
+      href: nat-service-overview.md
+    - name: Quickstart
+      items:
+      - name: Create NAT Gateway - Portal
+        href: quickstart-create-nat-gateway-portal.md
+    - name: Tutorials
+      items:
+      - name: Create and validate NAT Gateway - Portal
+        href: tutorial-create-validate-nat-gateway-portal.md
   - name: Security groups
     href: security-overview.md
   - name: Routing
