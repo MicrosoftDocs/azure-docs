@@ -4,8 +4,6 @@ description: This article describes how to use reference data to achieve an aler
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018

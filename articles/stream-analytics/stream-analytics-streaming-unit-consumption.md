@@ -4,7 +4,6 @@ description: This article describes the Streaming Units setting and other factor
 services: stream-analytics
 author: JSeb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual

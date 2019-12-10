@@ -4,7 +4,6 @@ description: This article describes how to perform advanced query mechanics with
 services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual

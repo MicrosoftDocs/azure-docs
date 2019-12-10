@@ -4,7 +4,6 @@ description: This article describes how to troubleshoot your Azure Stream Analyt
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual

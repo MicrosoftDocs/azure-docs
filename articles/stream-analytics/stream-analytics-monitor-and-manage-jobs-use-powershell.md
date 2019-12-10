@@ -4,7 +4,6 @@ description: This article describes how to use Azure PowerShell and cmdlets to m
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual

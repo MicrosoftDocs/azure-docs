@@ -4,7 +4,6 @@ description: Learn how to view, start and stop, test connections, check results,
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
