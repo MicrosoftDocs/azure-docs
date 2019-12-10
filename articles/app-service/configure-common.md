@@ -26,7 +26,7 @@ This topic explains how to configure common settings for web apps, mobile back e
 
 In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container.
 
-On the [Azure portal] menu or from the **Home** page, go to your app's management page. In the app's left menu, select **Configuration** > **Application settings**.
+In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **Application settings**.
 
 ![Application Settings](./media/configure-common/open-ui.png)
 
@@ -87,7 +87,7 @@ App settings have the following JSON formatting:
 
 ## Configure connection strings
 
-On the [Azure portal] menu or from the **Home** page, go to the app's management page. In the app's left menu, select **Configuration** > **Application settings**.
+In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **Application settings**.
 
 ![Application Settings](./media/configure-common/open-ui.png)
 
@@ -158,7 +158,7 @@ Connection strings have the following JSON formatting:
 
 ## Configure general settings
 
-In the [Azure portal] menu or from the **Home** page, go to the app's management page. In the app's left menu, select **Configuration** > **General settings**.
+In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **General settings**.
 
 ![General settings](./media/configure-common/open-general.png)
 
@@ -181,7 +181,7 @@ Here, you can configure some common settings for the app. Some settings require 
 
 This setting is only for Windows apps.
 
-On the [Azure portal] menu or from the **Home** page, go to your app's management page. In the app's left menu, select **Configuration** > **Default documents**.
+In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **Default documents**.
 
 ![Default documents](./media/configure-common/open-documents.png)
 
@@ -191,7 +191,7 @@ If the app uses modules that route based on URL instead of serving static conten
 
 ## Configure path mappings
 
-On the [Azure portal] menu or from the **Home** page, go to your app's management page. In the app's left menu, select **Configuration** > **Path mappings**.
+In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **Path mappings**.
 
 ![Path mappings](./media/configure-common/open-path.png)
 
