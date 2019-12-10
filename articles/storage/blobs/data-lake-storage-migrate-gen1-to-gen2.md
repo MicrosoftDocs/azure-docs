@@ -39,19 +39,19 @@ To migrate to Gen2, we recommend the following path.
 
 ### Step 1: Assess whether to migrate
 
-1. Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); it's benefits, costs, and general architecture. 
+:one:    Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); it's benefits, costs, and general architecture. 
 
-2. [Compare the capabilities](#gen1-gen2-feature-comparison) of Gen1 with those of Gen2. 
+:two:    [Compare the capabilities](#gen1-gen2-feature-comparison) of Gen1 with those of Gen2. 
 
-3. Review a list of [known issues](data-lake-storage-known-issues.md) to gauge product state and stability and assess any gaps.
+:three:    Review a list of [known issues](data-lake-storage-known-issues.md) to gauge product state and stability and assess any gaps.
 
-4. If you're interested in leveraging blob storage features, review the [current level of support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-feature-support) for those features.
+:four:    If you're interested in leveraging blob storage features, review the [current level of support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-feature-support) for those features.
 
-5. Review the current state of [Azure ecoysystem support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-ecosystem-support) to ensure that services that your solutions depend upon support  Gen2.
+:five:    Review the current state of [Azure ecoysystem support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-ecosystem-support) to ensure that services that your solutions depend upon support  Gen2.
 
 ### Step 2: Prepare to migrate
 
-1. Identify the data sets that you'll migrate.
+:one: &nbsp;&nbsp;&nbsp;&nbsp; Identify the data sets that you'll migrate.
 
 3. Determine the impact that a migration will have on your business.
 
