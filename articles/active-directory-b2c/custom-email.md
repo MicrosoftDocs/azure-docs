@@ -216,7 +216,7 @@ Under [ClaimsSchema](claimsschema.md), add the following [DisplayControl](displa
 
 ## Add OTP technical profiles
 
-The `GenerateOtp` technical profile generates a code for the email address. The `VerifyOtp` technical profile verifies the code associated with the email address. You can change the configuration of the format and the expiration of the one-time password. For more information, see [One-time password technical profile](json-transformations.md).
+The `GenerateOtp` technical profile generates a code for the email address. The `VerifyOtp` technical profile verifies the code associated with the email address. You can change the configuration of the format and the expiration of the one-time password. For more information about OTP technical profiles, see [Define a one-time password technical profile](otp-technical-profile.md).
 
 ```XML
 <ClaimsProvider>
@@ -261,7 +261,7 @@ The `GenerateOtp` technical profile generates a code for the email address. The 
 
 ## Add a REST API technical profile
 
-This REST API technical profile generates the email content (using the SendGrid format).
+This REST API technical profile generates the email content (using the SendGrid format). For more information about RESTful technical profiles, see [Define a RESTful technical profile](restful-technical-profile.md).
 
 ```XML
 <ClaimsProvider>
@@ -294,7 +294,7 @@ This REST API technical profile generates the email content (using the SendGrid 
 
 Add the following claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid.
 
-The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties.
+The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties. For more information about JSON claims transformations, see [JSON claims transformations](json-transformations.md).
 
 ```XML
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
