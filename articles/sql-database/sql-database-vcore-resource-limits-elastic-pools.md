@@ -325,7 +325,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB max data size (GB)|4096|
 |Storage type|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|
-|Target IOPS (64 KB)|40,000|
+|Target IOPS *|40,000|
 |Log rate limits (MBps)|120|
 |Max concurrent workers per pool (requests) *|1680|
 |Max concurrent logins per pool (requests) *|1680|

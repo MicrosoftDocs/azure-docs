@@ -42,7 +42,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |TempDB max data size (GB)|32|64|128|192|256|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data IOPS (64 KB)|320|640|1280|1920|2560|
+|Max data IOPS *|320|640|1280|1920|2560|
 |Max log rate (MBps)|3.8|7.5|15|22.5|30|
 |Max concurrent workers (requests)|75|150|300|450|600|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
@@ -50,6 +50,8 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### Gen5 compute generation (part 2)
 
@@ -452,7 +454,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |TempDB max data size (GB)|4096|
 |Storage type|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|
-|Max data IOPS (64 KB)|160000|
+|Max data IOPS *|160000|
 |Max log rate (MBps)|264|
 |Max concurrent workers (requests)|12800|
 |Max concurrent sessions|30000|
