@@ -1,6 +1,6 @@
 ---
-title: Use Azure Image Builder with an image gallery for Windows virtual machines (preview)
-description: Create Windows images with Azure Image Builder and Shared Image Gallery.
+title: Use Azure Image Builder with an image gallery for Windows VMs (preview)
+description: Create Windows VM images with Azure Image Builder and Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
