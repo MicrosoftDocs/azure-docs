@@ -3,12 +3,12 @@ title: Disclosure Design Patterns
 titleSuffix: Azure Cognitive Services
 description: Design patterns and best practices for disclosure.
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/03/2019
 ms.author: angle
 ---
 

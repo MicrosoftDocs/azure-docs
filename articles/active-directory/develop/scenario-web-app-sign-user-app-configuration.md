@@ -1,5 +1,5 @@
 ---
-title: Web app that signs in users (code configuration) - Microsoft identity platform
+title: Configure a web app that signs in users - Microsoft identity platform | Azure
 description: Learn how to build a web app that signs in users (code configuration)
 services: active-directory
 documentationcenter: dev-center-name

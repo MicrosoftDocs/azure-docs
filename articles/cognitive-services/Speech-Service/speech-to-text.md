@@ -1,5 +1,5 @@
 ---
-title: Speech-to-text - Speech Service
+title: Speech-to-text - Speech service
 titleSuffix: Azure Cognitive Services
 description: The speech-to-text feature enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service works seamlessly with the text-to-speech (speech synthesis), and speech translation features.
 services: cognitive-services
@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # What is speech-to-text?
 
-Speech-to-text from Azure Speech Services, also known as speech-to-text, enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products, and works seamlessly with the translation and text-to-speech. For a full list of available speech-to-text languages, see [supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Speech-to-text from the Speech service, also known as speech-to-text, enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products, and works seamlessly with the translation and text-to-speech. For a full list of available speech-to-text languages, see [supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
 By default, the speech-to-text service uses the Universal language model. This model was trained using Microsoft-owned data and is deployed in the cloud. It's optimal for conversational and dictation scenarios. If you are using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary.
 
@@ -49,7 +49,7 @@ If you prefer to use the speech-to-text REST service, see [REST APIs](https://do
 
 ## Tutorials and sample code
 
-After you've had a chance to use the Speech Services, try our tutorial that teaches you how to recognize intents from speech using the Speech SDK and LUIS.
+After you've had a chance to use the Speech service, try our tutorial that teaches you how to recognize intents from speech using the Speech SDK and LUIS.
 
 - [Tutorial: Recognize intents from speech with the Speech SDK and LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 
@@ -60,7 +60,7 @@ Sample code for the Speech SDK is available on GitHub. These samples cover commo
 
 ## Customization
 
-In addition to the standard baseline model used by the Speech Services, you can customize models to your needs with available data, to overcome speech recognition barriers such as speaking style, vocabulary and background noise, see [Custom Speech](how-to-custom-speech.md)
+In addition to the standard baseline model used by the Speech service, you can customize models to your needs with available data, to overcome speech recognition barriers such as speaking style, vocabulary and background noise, see [Custom Speech](how-to-custom-speech.md)
 
 > [!NOTE]
 > Customization options vary by language/locale (see [Supported languages](supported-languages.md)).
@@ -70,10 +70,10 @@ In addition to the standard baseline model used by the Speech Services, you can 
 > [!WARNING]
 > Bing Speech was decommissioned on October 15, 2019.
 
-If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to Speech Services.
+If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to the Speech service.
 
-- [Migrate from Bing Speech to the Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
-- [Migrate from Custom Speech to the Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
+- [Migrate from Bing Speech to the Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
+- [Migrate from Custom Speech to the Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
 
 ## Reference docs
 
@@ -85,5 +85,5 @@ If your applications, tools, or products are using the Bing Speech APIs or Custo
 
 ## Next steps
 
-- [Get a Speech Services subscription key for free](get-started.md)
+- [Get a Speech service subscription key for free](get-started.md)
 - [Get the Speech SDK](speech-sdk.md)

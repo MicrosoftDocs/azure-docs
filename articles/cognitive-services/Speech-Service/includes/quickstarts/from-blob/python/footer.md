@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech stored in blob storage, Python - Speech Service"
+title: "Quickstart: Recognize speech stored in blob storage, Python - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

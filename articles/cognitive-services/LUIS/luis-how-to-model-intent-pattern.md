@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 12/09/2019
 ms.author: diberry
 ---
 
@@ -19,6 +19,9 @@ After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patt
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
+> [!CAUTION]
+> Patterns only include machine-learned entity parents, not subcomponents.
+
 ## Add template utterance to create pattern
 
 1. Open your app by selecting its name on **My Apps** page, and then select **Patterns** in the left panel, under **Improve app performance**.
@@ -26,14 +29,14 @@ After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patt
     > [!div class="mx-imgBorder"]
     > ![Screenshot of Patterns List](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 
-1. Select the correct intent for the pattern. 
+1. Select the correct intent for the pattern.
 
-1. In the template textbox, type the template utterance and select Enter. When you want to enter the entity name, use the correct pattern entity syntax. Begin the entity syntax with `{`. The list of entities displays. Select the correct entity. 
+1. In the template textbox, type the template utterance and select Enter. When you want to enter the entity name, use the correct pattern entity syntax. Begin the entity syntax with `{`. The list of entities displays. Select the correct entity.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of entity for pattern](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    If your entity includes a [role](luis-concept-roles.md), indicate the role with a single colon, `:`, after the entity name, such as `{Location:Origin}`. The list of roles for the entities displays in a list. Select the role, and then select Enter. 
+    If your entity includes a [role](luis-concept-roles.md), indicate the role with a single colon, `:`, after the entity name, such as `{Location:Origin}`. The list of roles for the entities displays in a list. Select the role, and then select Enter.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of entity with role](./media/luis-how-to-model-intent-pattern/patterns-4.png)
@@ -44,7 +47,7 @@ After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patt
     > ![Screenshot of entered pattern with both types of entities](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
 ## Train your app after changing model with patterns
-After you add, edit, remove, or reassign a pattern, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
+After you add, edit, remove, or reassign a pattern, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries.
 
 <a name="search-patterns"></a>
 <a name="edit-a-pattern"></a>
