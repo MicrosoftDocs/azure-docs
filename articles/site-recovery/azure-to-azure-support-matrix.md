@@ -72,7 +72,7 @@ Azure Storage firewalls for virtual networks  | Supported | If you are using fir
 
 ## Replicated machine operating systems
 
-Site Recovery supports replication of Azure VMs running the operating systems listed in this section.
+Site Recovery supports replication of Azure VMs running the operating systems listed in this section. Please note that if an already replicating machine is subsequently upgraded (or downgraded) to a different major kernel, you need to disable replication and re-enable replication after the upgrade.
 
 ### Windows
 
