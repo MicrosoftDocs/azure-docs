@@ -41,12 +41,12 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A [ServiceNow Express instance](https://www.servicenow.com/) of Helsinki or higher
 * A user account in ServiceNow with the admin role
 
-## 1. Plan your provisioning deployment
-1. Learn about how the provisioning service works (add link when public).
+## Step 1. Plan your provisioning deployment
+1. Learn about [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 2. Determine who will be in [scope for provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determine what data to [map between Azure AD and ServiceNow](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## 2. Configure ServiceNow to support provisioning with Azure AD
+## Step 2. Configure ServiceNow to support provisioning with Azure AD
 
 1. Identify your ServiceNow instance name. You can find the instance name in the URL that you use to access ServiceNow. In the example below, the instance name is dev35214.
 
@@ -57,11 +57,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 <img src="media/servicenow-provisioning-tutorial/servicenow-admin-role.png" width="1100">
 
-## 3. Add ServiceNow from the Azure AD application gallery
+## Step 3. Add ServiceNow from the Azure AD application gallery
 
 Add ServiceNow from the Azure AD application gallery to start managing provisioning to ServiceNow. If you have previously setup ServiceNow for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-## 4. Define who will be in scope for provisioning 
+## Step 4. Define who will be in scope for provisioning 
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
@@ -70,7 +70,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
-## 5. Configure automatic user provisioning to ServiceNow 
+## Step 5. Configure automatic user provisioning to ServiceNow 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
@@ -94,7 +94,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input your ServiceNow admin credentials and username. Click **Test Connection** to ensure Azure AD can connect to ServiceNow. If the connection fails, ensure your ServiceNow account has Admin permissions and try again.
 
-	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
+ 	![provisioning](./media/servicenow-provisioning-tutorial/provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
@@ -104,19 +104,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to ServiceNow**.
 
-	![TestApp User Mappings](media/Leapsome-provisioning-tutorial/Leapsome-user-mappings.png)
-
 9. Review the user attributes that are synchronized from Azure AD to ServiceNow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in ServiceNow for update operations. If you choose to change the [mattching target attribute](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), you will need to ensure that the ServiceNow API supports filtering users based on that attribute. X, Y, and Z have been tested as supported matching attributes. Select the **Save** button to commit any changes.
-
-	![TestApp User Attributes](media/Leapsome-provisioning-tutorial/Leapsome-user-attributes.png)
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to ServiceNow**.
 
-	![TestApp Group Mappings](media/Leapsome-provisioning-tutorial/Leapsome-group-mappings.png)
-
 11. Review the group attributes that are synchronized from Azure AD to ServiceNow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in ServiceNow for update operations. Select the **Save** button to commit any changes.
-
-	![TestApp Group Attributes](media/Leapsome-provisioning-tutorial/Leapsome-group-attributes.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -140,7 +132,7 @@ ServiceNow has a rich user and group schema. **Danny to fill**
 * If you're trying to do this .... then ....
 * If you're trying to do this ... then ...
 
-## 6. Monitor your deployment
+## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
