@@ -27,7 +27,7 @@ If [Speech SDK logging is enabled](how-to-use-logging.md), tracking tags are emi
 
 Here's a sample log: 
 
-```
+```terminal
 (284): 8604ms SPX_DBG_TRACE_VERBOSE:  handle_table.h:90 TrackHandle type=Microsoft::CognitiveServices::Speech::Impl::ISpxRecognitionResult handle=0x0x7f688401e1a0, ptr=0x0x7f688401e1a0, total=19
 ```
 
@@ -83,6 +83,21 @@ speech_config.set_property_by_name(“SPEECH-ObjectCountWarnThreshold", "10000")
 ## Set an error threshold 
 
 Using the Speech SDK, you can set the maximum number of objects allowed at a given time. If this setting is enabled, when the maximum number is hit, attempts to create new recognizer objects will fail. Existing objects will continue to work.
+
+Here's a sample error:
+
+```terminal
+Runtime error: The maximum object count of 500 has been exceeded.
+The threshold can be adjusted by setting the SPEECH-ObjectCountErrorThreshold property on the SpeechConfig object.
+See http://https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-object-tracking-speech-sdk for more detailed information.
+Handle table dump by ojbect type:
+class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognitionResult 0
+class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognizer 0
+class Microsoft::CognitiveServices::Speech::Impl::ISpxAudioConfig 0
+class Microsoft::CognitiveServices::Speech::Impl::ISpxSpeechConfig 0
+
+...
+```
 
 To enable an error threshold, it must be specified on a `SpeechConfig` object. This object is checked when a new recognizer is created. In the following examples, let's assume that you've created an instance of `SpeechConfig` called `config`:
 
