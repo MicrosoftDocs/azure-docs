@@ -30,7 +30,7 @@ The scope to request for a client credential flow is the name of the resource fo
 
 # [.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
@@ -67,7 +67,7 @@ To acquire a token for the app, you'll use `AcquireTokenForClient` or the equiva
 
 # [.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 
 // With client credentials flows the scopes is ALWAYS of the shape "resource/.default", as the
