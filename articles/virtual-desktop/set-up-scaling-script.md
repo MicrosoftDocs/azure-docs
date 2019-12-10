@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 12/10/2019
 ms.author: helohr
 ---
 # Scale session hosts dynamically
