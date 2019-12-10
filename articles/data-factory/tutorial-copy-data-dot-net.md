@@ -4,12 +4,13 @@ description: 'This tutorial provides step-by-step instructions for copying  data
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 02/20/2019
 ms.author: jingwang
 ---

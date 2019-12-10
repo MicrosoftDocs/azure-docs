@@ -17,7 +17,7 @@ We recommend that you complete the [tutorial about variables](template-tutorial-
 
 You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## Review your template
+## Review template
 
 At the end of the previous tutorial, your template had the following JSON:
 
@@ -41,7 +41,7 @@ It uses the [reference](resource-group-template-functions-resource.md#reference)
 
 Finally, it returns the **primaryEndpoints** property from the storage account
 
-## Deploy the template
+## Deploy template
 
 You're ready to deploy the template and look at the returned value.
 

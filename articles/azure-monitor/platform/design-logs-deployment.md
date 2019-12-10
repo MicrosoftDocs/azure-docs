@@ -143,7 +143,7 @@ This scenario covers a single workspace design in your IT organizations subscrip
 
 All resources, monitoring solutions, and Insights such as Application Insights and Azure Monitor for VMs, supporting infrastructure and applications maintained by the different teams are configured to forward their collected log data to the IT organizations centralized shared workspace. Users on each team are granted access to logs for resources they have been given access to.
 
-Once you have deployed your workspace architecture, you can enforce this on Azure resources with [Azure Policy](../../governance/policy/overview.md). It provides a way to define policies and ensure compliance with your Azure resources so they send all their diagnostic logs to a particular workspace. For example, with Azure virtual machines or virtual machine scale sets, you can use existing policies that evaluate workspace compliance and report results, or customize to remediate if non-compliant.  
+Once you have deployed your workspace architecture, you can enforce this on Azure resources with [Azure Policy](../../governance/policy/overview.md). It provides a way to define policies and ensure compliance with your Azure resources so they send all their resource logs to a particular workspace. For example, with Azure virtual machines or virtual machine scale sets, you can use existing policies that evaluate workspace compliance and report results, or customize to remediate if non-compliant.  
 
 ## Workspace consolidation migration strategy
 

@@ -1,9 +1,9 @@
 ---
-title: Create and manage rules in your Azure IoT Central application | Microsoft Docs
-description: Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
+title: Tutorial - Create and manage rules in your Azure IoT Central application
+description: This tutorial shows you how Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central

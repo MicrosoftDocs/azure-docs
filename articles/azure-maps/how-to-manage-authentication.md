@@ -107,4 +107,4 @@ Learn how to see the API usage metrics for your Azure Maps account:
 For a list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps, see:
 
 > [!div class="nextstepaction"]
-> [AAD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
