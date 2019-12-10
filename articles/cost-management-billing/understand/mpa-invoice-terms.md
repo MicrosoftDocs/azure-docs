@@ -17,7 +17,7 @@ ms.author: banders
 
 This article applies to an Azure billing account for a Microsoft Partner Agreement. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 
-Your invoice provides a summary of your charges and instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [View and download your Microsoft Azure invoice](../cost-management-billing/understand/download-azure-invoice.md).
+Your invoice provides a summary of your charges and instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [View and download your Microsoft Azure invoice](download-azure-invoice.md).
 
 The following sections list important terms that you see on your invoice and provide descriptions for each term.
 

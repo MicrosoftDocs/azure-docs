@@ -85,5 +85,5 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 See the following articles to learn about your billing account:
 
 - [Understand Microsoft Customer Agreement administrative roles in Azure](../manage/understand-mca-roles.md)
-- [Create an additional Azure subscription for Microsoft Customer Agreement](billing-mca-create-subscription.md)
+- [Create an additional Azure subscription for Microsoft Customer Agreement](../manage/create-subscription.md)
 - [Create sections on your invoice to organize your costs](../manage/mca-section-invoice.md)
