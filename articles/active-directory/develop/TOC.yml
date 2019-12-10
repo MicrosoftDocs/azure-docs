@@ -213,7 +213,8 @@
             href: msal-net-system-browser-android-considerations.md
           - name: Xamarin iOS
             href: msal-net-xamarin-ios-considerations.md
-          - name: Use brokers with Xamarin iOS and Android Applications
+          - name: Use brokers with Xamarin iOS and Android
+            displayName: Microsoft Authenticator Microsoft Intune
             href: msal-net-use-brokers-with-xamarin-apps.md
           - name: Universal Windows Platform
             href: msal-net-uwp-considerations.md
@@ -247,7 +248,7 @@
           href: migrate-python-adal-msal.md
         - name: Migrate to MSAL for Java
           href: migrate-adal-msal-java.md
-        - name: Migrate Xamarin apps using brokers from ADAL.NET to MSAL.NET
+        - name: Migrate Xamarin apps using brokers to MSAL.NET
           href: msal-net-migration-ios-broker.md
       - name: Supported authentication flows
         href: msal-authentication-flows.md
@@ -313,7 +314,7 @@
             items:
             - name: Considerations using IE
               href: msal-js-use-ie-browser.md
-            - name: Known issues- IE and Microsoft Edge
+            - name: Known issues-IE and Microsoft Edge
               href: msal-js-known-issues-ie-edge-browsers.md
             - name: Known issues- Safari 
               href: msal-js-known-issues-safari-browser.md
@@ -388,7 +389,7 @@
     items:
     - name: Authentication
       items:
-      - name: Configure role claims
+      - name: Configure role claim
         href: active-directory-enterprise-app-role-management.md
       - name: Customize claims - Portal
         href: active-directory-saml-claims-customization.md
@@ -432,7 +433,7 @@
               href: msal-net-token-cache-serialization.md
             - name: Clear the token cache
               href: msal-net-clear-token-cache.md
-            - name: Instantiate a public client with options
+            - name: Instantiate a public client app
               href: msal-net-instantiate-public-client-config-options.md
             - name: Instantiate a confidential client with options
               href: msal-net-instantiate-confidential-client-config-options.md
