@@ -1,11 +1,11 @@
 ---
-title: Azure Security Center's enhanced Secure Score
+title: Enhanced Secure Score (preview) in Azure Security Center
 description: Description of the enhanced Secure Score (Preview) and Security Controls in Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
+ms.assetd: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -16,7 +16,7 @@ ms.author: memildin
 
 ---
 
-# Security Center's enhanced Secure Score (Preview) 
+# The enhanced Secure Score (Preview) 
 
 This article introduces the enhanced Secure Score (currently in preview), the accompanying Security Controls, and the advantages they bring.
 
@@ -50,7 +50,7 @@ The contribution of each Security Control towards the overall Secure Score is sh
 
 [![The enhanced Secure Score (preview) introduces Security Controls](media/secure-score-and-controls/security-controls.png)](media/secure-score-and-controls/security-controls.png#lightbox)
 
-To get all the possible points for a Security Control, all your resources must comply with all of the security recommendations within the Security Control. For example, Security Center has multiple recommendations regarding how to secure your management ports. In the past, you could remediate some of those related and interdependent recommendations while leaving others unsolved, and your Secure Score would improve. When looked at objectively, it's easy to argue that your security hadn't improved until you had resolved them all. Now, you must remediate them all to make a difference to your Secure Score.  
+To get all the possible points for a Security Control, all your resources must comply with all of the security recommendations within the Security Control. For example, Security Center has multiple recommendations regarding how to secure your management ports. In the past, you could remediate some of those related and interdependent recommendations while leaving others unsolved, and your Secure Score would improve. When looked at objectively, it's easy to argue that your security hadn't improved until you had resolved them all. Now, you must remediate them all to make a difference to your Secure Score.
 
 For example, the Security Control called "Apply system updates" has a maximum score of six points:
 
@@ -62,7 +62,7 @@ If you have three virtual machines, each one can potentially contribute a score 
 
 To improve your Secure Score, remediate security recommendations from your recommendations list. You can remediate each recommendation manually for each resource, or by using the **quick fix** option (when available) to apply a remediation for a recommendation to a group of resources quickly. For more information, see [Remediate recommendations](security-center-remediate-recommendations.md).
 
-Only built-in recommendations have an impact on the Secure Score.  
+Only built-in recommendations have an impact on the Secure Score.
 
 ## Security Controls and their recommendations
 
