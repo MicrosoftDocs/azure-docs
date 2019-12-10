@@ -25,11 +25,11 @@ The speech-to-text service defaults to using the Universal language model. This 
 
 ## Get started with speech-to-text
 
-The speech-to-text service is available via the [Speech SDK](speech-sdk.md). There are several common scenarios available as quickstarts:
+The speech-to-text service is available via the [Speech SDK](speech-sdk.md). There are several common scenarios available as quickstarts, in various languages and platforms:
 
- - [Quickstart: Recognize speech from a microphone](quickstarts/speech-to-text-from-microphone.md)
+ - [Quickstart: Recognize speech with microphone input](quickstarts/speech-to-text-from-microphone.md)
  - [Quickstart: Recognize speech from a file](quickstarts/speech-to-text-from-file.md)
- - [Quickstart: Recognize speech from a blob](quickstarts/speech-to-text-from-blob.md)
+ - [Quickstart: Recognize speech stored in blob storage](quickstarts/from-blob.md)
 
 If you prefer to use the speech-to-text REST service, see [REST APIs](rest-apis.md).
 
