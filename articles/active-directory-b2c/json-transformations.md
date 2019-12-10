@@ -30,7 +30,7 @@ Use either claim values or constants to generate a JSON string. The path string 
 | InputParameter | Any string following dot notation | string | The JsonPath of the JSON where the constant string value will be inserted into. |
 | OutputClaim | outputClaim | string | The generated JSON string. |
 
-The following example generates a JSON string based on the claim value of "name" and "email" as well as constant strings.
+The following example generates a JSON string based on the claim value of "email" and "otp" as well as constant strings.
 
 ```XML
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
