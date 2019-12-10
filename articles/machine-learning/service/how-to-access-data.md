@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sihhu
-author: MayMSFT
+ms.author: ylxiong
+author: YLXiong1125
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
@@ -65,7 +65,7 @@ The information you need to populate the register() method can be found via the 
 >[IMPORTANT]
 > If your storage account is in a VNET, only Azure blob datastore creation is supported. Set the parameter, `grant_workspace_access` to `True` to grant your workspace access to your storage account.
 
-The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
+The following examples show how to register an Azure Blob Container,   an Azure File Share or an Azure SQL data as a datastore.
 
 + For an **Azure Blob Container Datastore**, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)
 
@@ -91,6 +91,47 @@ The following examples show you to register an Azure Blob Container or an Azure 
                                                       account_name='my_storage account', 
                                                       account_key='your storage account key',
                                                       create_if_not_exists=True)
+    ```
+
++ For an **Azure SQL Datastore**, register a credential Datastore connected to an Azure SQL database with SQL authentication or service principal permissions. 
+
+    #### By SQL authentication
+
+    ```python
+    sql_datastore_name="azsqlsdksql"
+    server_name=os.getenv("SQL_SERVERNAME", "<my-server-name>") # Name of Azure SQL server
+    database_name=os.getenv("SQL_DATBASENAME", "<my-database-name>") # Name of Azure SQL database
+    username=os.getenv("SQL_USER_NAME", "<my-sql-user-name>") # The username of the database user to access the database.
+    password=os.getenv("SQL_USER_PASSWORD", "<my-sql-user-password>") # The password of the database user to access the database.
+
+    sql_datastore = Datastore.register_azure_sql_database(workspace=ws,
+                                                      datastore_name=sql_datastore_name,
+                                                      server_name=server_name,
+                                                      database_name=database_name,
+                                                      username=username,
+                                                      password=password)
+
+    print("Registered Azure SQL Databse datastore using SQL Authentication with name: %s" % sql_datastore_name)
+    ```
+
+    #### By service principal
+
+    ```python 
+    sql_datastore_name="azsqlsdksp"
+    server_name=os.getenv("SQL_SERVERNAME", "<my-server-name>") # Name of SQL server
+    database_name=os.getenv("SQL_DATBASENAME", "<my-database-name>") # Name of SQL database
+    client_id=os.getenv("SQL_CLIENTNAME", "<my-client-id>") # client id of service principal with permissions to access database
+    client_secret=os.getenv("SQL_CLIENTSECRET", "<my-client-secret>") # the secret of service principal
+    tenant_id=os.getenv("SQL_TENANTID", "<my-tenant-id>") # tenant id of service principal
+
+    sql_datastore = Datastore.register_azure_sql_database(workspace=ws,
+                                                          datastore_name=sql_datastore_name,
+                                                          server_name=server_name,
+                                                          database_name=database_name,
+                                                          client_id=client_id,
+                                                          client_secret=client_secret,
+                                                          tenant_id=tenant_id)
+    print("Registered Azure SQL Databse datastore using Service Principal with name: %s" % sql_datastore_name)
     ```
 
 ####  Storage guidance
