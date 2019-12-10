@@ -132,21 +132,24 @@ For the advanced deployment in this tutorial, you'll need two shares: one Edge s
 
     ![Add trigger](./media/azure-stack-edge-r-series-deploy-configure-compute-advanced/add-trigger-2.png)
 
-3. You are notified after the trigger is created. The list of triggers is updated to display the newly created trigger. Select the trigger you just created.
+3. You are notified after the trigger is created. The list of triggers is updated to display the newly created trigger. 
 
     ![Add trigger](./media/azure-stack-edge-r-series-deploy-configure-compute-advanced/add-trigger-3.png)
+
+
+<!--Select the trigger you just created.
 
 4. Copy and save the sample route. You will modify this sample route and use it later in the IoT Hub.
 
     `"sampleroute": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
 
-    ![Add trigger](./media/azure-stack-edge-r-series-deploy-configure-compute-advanced/add-trigger-4.png)
+    ![Add trigger](./media/azure-stack-edge-r-series-deploy-configure-compute-advanced/add-trigger-4.png)-->
 
 ## Add a module
 
-There are no custom modules on this Edge device. You could add a custom or a pre-built module. To learn how to create a custom module, go to [Develop a C# module for your Azure Stack Edge device](azure-stack-edge-r-series-create-iot-edge-module.md).
+There are no custom modules on this Edge device. You could add a custom or a pre-built module. To learn how to create a custom module, go to [Develop a C# module for your Azure Stack Edge device](azure-stack-edge-r-series-placeholder.md).
 
-In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Azure Stack Edge](azure-stack-edge-r-series-create-iot-edge-module.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
+In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Azure Stack Edge](azure-stack-edge-r-series-placeholder.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
 
 1. Go to **Edge compute > Get started**. On the **Add modules** tile, select the scenario type as **advanced**. Select **Go to IoT Hub**.
 
