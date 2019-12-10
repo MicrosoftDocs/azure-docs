@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot self-hosted integration runtime in Azure Data Factory
-description: Learn how to troubleshoot Self-hosted integration runtime issues in Azure Data Factory. 
+description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory. 
 services: data-factory
 author: nabhishek
 ms.service: data-factory
@@ -17,7 +17,7 @@ This article explores common troubleshooting methods for self-hosted integration
 
 ### Error message: Self-hosted integration runtime can't connect to cloud service
 
-![Self-Hosted IR connection issue](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
+![Self-hosted IR connection issue](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
 #### Cause 
 
@@ -27,11 +27,11 @@ The self-hosted integration runtime can't connect to the Data Factory service (b
 
 1. Check whether the integration runtime service is running.
     
-![Self-Hosted IR service running status](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
+![Self-hosted IR service running status](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
     
-2. If the service is running, go on to step 3.
+1. If the service is running, go on to step 3.
 
-1. If there's no proxy configured on the self-hosted integration runtime (which is the default setting), run the following PowerShell command on the machine where self-hosted integration runtime is installed:
+1. If there's no proxy configured on the self-hosted integration runtime (which is the default setting), run the following PowerShell command on the machine where the self-hosted integration runtime is installed:
 
     ```powershell
     (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
@@ -42,7 +42,7 @@ The self-hosted integration runtime can't connect to the Data Factory service (b
             
     The following is the expected response:
             
-    ![Powershell command response](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+    ![PowerShell command response](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
             
 1. If you don't receive the expected response, use one of the following methods as appropriate to your situation:
             
@@ -131,4 +131,4 @@ For more help with troubleshooting, try the following resources:
 *  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
 *  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-*  [ADF mapping data flows Performance Guide](concepts-data-flow-performance.md)
+*  [Mapping data flows performance guide](concepts-data-flow-performance.md)
