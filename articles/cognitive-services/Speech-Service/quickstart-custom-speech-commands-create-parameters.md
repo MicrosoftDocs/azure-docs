@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a Custom Command with Parameters (Preview)'
+title: 'Quickstart: Create a Custom Command with Parameters (Preview) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you'll add parameters to a Custom Commands application.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: donkim
 ---
 

@@ -8,7 +8,6 @@ ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Understand the Azure IoT Edge runtime and its architecture

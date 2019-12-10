@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
+ms.date: 11/19/2019
 ---
 # Evaluate Model module
 
@@ -21,7 +21,6 @@ Use this module to measure the accuracy of a trained model. You provide a datase
   
 -   **Classification Models**    
 -   **Regression Models**    
-
 
 
 > [!TIP]
@@ -102,7 +101,7 @@ The following metrics are reported when evaluating classification models. If you
 
 ##  <a name="bkmk_regression"></a> Metrics for regression models
  
-The metrics returned for regression models are generally designed to estimate the amount of error.  A model is considered to fit the data well if the difference between observed and predicted values is small. However, looking at the pattern of the residuals (the difference between any one predicted point and its corresponding actual value) can tell you a lot about potential bias in the model.  
+The metrics returned for regression models are designed to estimate the amount of error.  A model is considered to fit the data well if the difference between observed and predicted values is small. However, looking at the pattern of the residuals (the difference between any one predicted point and its corresponding actual value) can tell you a lot about potential bias in the model.  
   
  The following metrics are reported for evaluating regression models. When you compare models, they are ranked by the metric you select for evaluation.  
   

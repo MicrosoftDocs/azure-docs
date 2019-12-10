@@ -1,6 +1,6 @@
 ---
 title: Use parameters to creating dynamic blueprints
-description: Learn about static and dynamic parameters and how using them creates dynamic blueprints.
+description: Learn about static and dynamic parameters and how to use them to create secure and dynamic blueprints.
 ms.date: 03/12/2019
 ms.topic: conceptual
 ---

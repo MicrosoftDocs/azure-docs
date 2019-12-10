@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 10/15/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -64,10 +64,10 @@ Configure and test Azure AD SSO with ePlatform using a test user called **B.Simo
 To configure and test Azure AD SSO with ePlatform, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure ePlatform SSO](#configure-eplatform-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create ePlatform test user](#create-eplatform-test-user)** - to have a counterpart of B.Simon in ePlatform that is linked to the Azure AD representation of user.
+    * **[Create ePlatform test user](#create-eplatform-test-user)** - to have a counterpart of B.Simon in ePlatform that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -81,6 +81,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
+
+1. ePlatform application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/default-attributes.png)
+
+1. In addition to above, ePlatform application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+
+    | Name | Source Attribute |
+	| ---------------| --------------- |
+	| upn | user.userprincipalname |
 
 1. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
@@ -132,7 +142,7 @@ To configure single sign-on on **ePlatform** side, you need to send the **Thumbp
 
 In this section, you create a user called B.Simon in ePlatform. Work with [ePlatform support team](https://help.eplatform.co/hc/en-us) to add the users in the ePlatform platform. Users must be created and activated before you use single sign-on.
 
-## Test SSO 
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 

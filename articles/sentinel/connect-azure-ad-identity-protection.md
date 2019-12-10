@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/17/2019
 ms.author: rkarlin
 
 ---
@@ -42,7 +42,7 @@ If Azure AD Identity Protection is deployed and getting data, the alert data can
 2. Click **Connect** to start streaming Azure AD Identity Protection events into Azure Sentinel.
 
 
-6. To use the relevant schema in Log Analytics for the Azure AD Identity Protection alerts, search for **IdentityProtectionLogs_CL**.
+6. To use the relevant schema in Log Analytics for the Azure AD Identity Protection alerts, search for **SecurityAlert**.
 
 ## Next steps
 In this document, you learned how to connect Azure AD Identity Protection to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:

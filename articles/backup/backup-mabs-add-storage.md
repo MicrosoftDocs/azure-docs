@@ -1,13 +1,8 @@
 ---
 title: Use Modern Backup Storage with Azure Backup Server
 description: Learn about the new features in Azure Backup Server. This article describes how to upgrade your Backup Server installation.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: dacurwin
 ---
 
 # Add storage to Azure Backup Server
@@ -17,6 +12,8 @@ Azure Backup Server V2 and later supports Modern Backup Storage that offers stor
 > [!NOTE]
 > To use Modern Backup Storage, you must run Backup Server V2 or V3 on Windows Server 2016 or V3 on Windows Server 2019.
 > If you run Backup Server V2 on an earlier version of Windows Server, Azure Backup Server can't take advantage of Modern Backup Storage. Instead, it protects workloads as it does with Backup Server V1. For more information, see the Backup Server version [protection matrix](backup-mabs-protection-matrix.md).
+>
+> To achieve enhanced backup performances we recommend to deploy MABS v3 with tiered storage on Windows Server 2019. Please refer to the DPM article “[Set up MBS with Tiered Storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)” for steps to configure tiered storage.
 
 ## Volumes in Backup Server
 
@@ -59,6 +56,11 @@ Using Backup Server V2 or later with volumes as disk storage can help you mainta
     ![Select the server and disk](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
 ## Add volumes to Backup Server disk storage
+
+> [!NOTE]
+>
+> - Add only one disk to the pool to keep the column count to 1. You can then add disks as needed afterwards.
+> - If you add multiple disks to the storage pool at a go, the number of disks is stored as the number of columns. When more disks are added, they can only be a multiple of the number of columns.
 
 To add a volume to Backup Server, in the **Management** pane, rescan the storage, and then select **Add**. A list of all the volumes available to be added for Backup Server Storage appears. After available volumes are added to the list of selected volumes, you can give them a friendly name to help you manage them. To format these volumes to ReFS so Backup Server can use the benefits of Modern Backup Storage, select **OK**.
 

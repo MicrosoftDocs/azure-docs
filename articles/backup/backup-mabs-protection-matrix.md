@@ -1,13 +1,8 @@
 ---
 title: What can Azure Backup Server back up
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server protects.
-author: dcurwin
-ms.service: backup
-keywords:
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.author: dacurwin
-manager: carmonm
 ---
 
 # Azure Backup Server protection matrix
@@ -56,7 +51,7 @@ This article lists the various servers and workloads that you can protect with A
 |SQL Server|SQL Server 2008|Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
 |SQL Server|SQL Server 2008|Azure virtual machine (when workload is running as Azure virtual machine)<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
 |SQL Server|SQL Server 2008|Windows virtual machine in VMWare (protects workloads running in Windows virtual machine in VMWare)<br /> <br /> Azure Stack|V3, V2|All deployment scenarios: database|
-|Exchange|Exchange 2016|Physical server<br/><br/> On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|V3, V2|Protect (all deployment scenarios): Standalone Exchange server, database under a database availability group (DAG)<br /><br />Recover (all deployment scenarios): Mailbox, mailbox databases under a DAG<br/><br/> Backup of Exchange over ReFS not supported |
+|Exchange|Exchange 2016|Physical server<br/><br/> On-premises Hyper-V virtual machine<br /> <br /> Azure Stack<br /> <br />Azure virtual machine (when workload is running as Azure virtual machine)|V3, V2|Protect (all deployment scenarios): Standalone Exchange server, database under a database availability group (DAG)<br /><br />Recover (all deployment scenarios): Mailbox, mailbox databases under a DAG<br/><br/> Backup of Exchange over ReFS not supported |
 |Exchange|Exchange 2016|Windows virtual machine in VMWare (protects workloads running in Windows virtual machine in VMWare)<br /> <br /> Azure Stack|V3, V2|Protect (all deployment scenarios): Standalone Exchange server, database under a database availability group (DAG)<br /><br />Recover (all deployment scenarios): Mailbox, mailbox databases under a DAG<br/><br/> Backup of Exchange over ReFS not supported |
 |Exchange|Exchange 2013|Physical server<br /><br />On-premises Hyper-V virtual machine<br /> <br /> Azure Stack|V3, V2|Protect (all deployment scenarios): Standalone Exchange server, database under a database availability group (DAG)<br /><br />Recover (all deployment scenarios): Mailbox, mailbox databases under a DAG<br/><br/> Backup of Exchange over ReFS not supported |
 |Exchange|Exchange 2013|Windows virtual machine in VMWare (protects workloads running in Windows virtual machine in VMWare)<br /> <br /> Azure Stack|V3, V2|Protect (all deployment scenarios): Standalone Exchange server, database under a database availability group (DAG)<br /><br />Recover (all deployment scenarios): Mailbox, mailbox databases under a DAG<br/><br/> Backup of Exchange over ReFS not supported |

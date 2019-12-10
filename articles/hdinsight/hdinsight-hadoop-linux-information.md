@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 11/14/2019
 ---
 
 # Information about using HDInsight on Linux
@@ -83,14 +83,14 @@ For more information, see the [Ports used by Apache Hadoop services on HDInsight
 
 Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This directory contains the following subdirectories:
 
-* **2.6.5.3006-29**: The directory name is the version of the Hadoop platform used by HDInsight. The number on your cluster may be different than the one listed here.
-* **current**: This directory contains links to subdirectories under the **2.6.5.3006-29** directory. This directory exists so that you don't have to remember the version number.
+* **2.6.5.3009-43**: The directory name is the version of the Hadoop platform used by HDInsight. The number on your cluster may be different than the one listed here.
+* **current**: This directory contains links to subdirectories under the **2.6.5.3009-43** directory. This directory exists so that you don't have to remember the version number.
 
 Example data and JAR files can be found on Hadoop Distributed File System at `/example` and `/HdiSamples`.
 
 ## HDFS, Azure Storage, and Data Lake Storage
 
-In most Hadoop distributions, the data is stored in HDFS, which is backed by local storage on the machines in the cluster. Using local storage can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
+In most Hadoop distributions, the data is stored in HDFS, which is backed by local storage on the machines in the cluster. Using local storage can be costly for a cloud-based solution where you're charged hourly or by minute for compute resources.
 
 When using HDInsight, the data files are stored in a scalable and resilient way in the cloud using Azure Blob Storage and optionally Azure Data Lake Storage. These services provide the following benefits:
 
@@ -100,7 +100,7 @@ When using HDInsight, the data files are stored in a scalable and resilient way 
 
 For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
-When using either Azure Storage or Data Lake Storage, you don't have to do anything special from HDInsight to access the data. For example, the following command lists files in the `/example/data` folder regardless of whether it is stored on Azure Storage or Data Lake Storage:
+When using either Azure Storage or Data Lake Storage, you don't have to do anything special from HDInsight to access the data. For example, the following command lists files in the `/example/data` folder regardless of whether it's stored on Azure Storage or Data Lake Storage:
 
     hdfs dfs -ls /example/data
 
@@ -244,7 +244,7 @@ For specific information on scaling your HDInsight cluster, see:
 
 ## How do I install Hue (or other Hadoop component)?
 
-HDInsight is a managed service. If Azure detects a problem with the cluster, it may delete the failing node and create a node to replace it. If you manually install things on the cluster, they are not persisted when this operation occurs. Instead, use [HDInsight Script Actions](hdinsight-hadoop-customize-cluster-linux.md). A script action can be used to make the following changes:
+HDInsight is a managed service. If Azure detects a problem with the cluster, it may delete the failing node and create a node to replace it. If you manually install things on the cluster, they aren't persisted when this operation occurs. Instead, use [HDInsight Script Actions](hdinsight-hadoop-customize-cluster-linux.md). A script action can be used to make the following changes:
 
 * Install and configure a service or web site.
 * Install and configure a component that requires configuration changes on multiple nodes in the cluster.
@@ -279,5 +279,4 @@ To use a different version of a component, upload the version you need and use i
 
 * [Manage HDInsight clusters by using the Apache Ambari REST API](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
 * [Use MapReduce jobs with HDInsight](hadoop/hdinsight-use-mapreduce.md)

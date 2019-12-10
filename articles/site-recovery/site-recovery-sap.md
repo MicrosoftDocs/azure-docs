@@ -1,11 +1,9 @@
 ---
-title: Set up disaster recovery for multi-tier SAP NetWeaver app deployment with Azure Site Recovery | Microsoft Docs
+title: Set up SAP NetWeaver disaster recovery with Azure Site Recovery 
 description: This article describes how to set up disaster recovery for SAP NetWeaver application deployments using Azure Site Recovery.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
@@ -107,7 +105,7 @@ To start replicating all the SAP application virtual machines to the Azure disas
 
 * For guidance on protecting Active Directory and DNS, refer to [Protect Active Directory and DNS](site-recovery-active-directory.md) document.
 
-* For guidance on protecting database tier running on SQL server, refer to [Protect SQL Server](site-recovery-active-directory.md) document.
+* For guidance on protecting database tier running on SQL server, refer to [Protect SQL Server](site-recovery-sql.md) document.
 
 ## Networking Configuration
 

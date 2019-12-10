@@ -51,6 +51,10 @@
     href: concepts-custom-role-definition.md
   - name: Resource onboarding
     href: concepts-custom-providers-resourceonboarding.md
+  - name: Azure Policy for custom provider associations
+    href: concepts-custom-providers-built-in-policy.md
+  - name: Azure Policy for managed application associations
+    href: concepts-managed-applications-built-in-policy.md
 - name: How-to guides
   items:
   - name: Custom providers
@@ -75,6 +79,8 @@
       href: key-vault-access.md
     - name: Deploy with Managed Identity
       href: publish-managed-identity.md
+    - name: Deploy with Notifications
+      href: publish-notifications.md    
   - name: Consumers
     items:
     - name: Monitor managed application

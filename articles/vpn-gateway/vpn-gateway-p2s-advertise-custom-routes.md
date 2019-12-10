@@ -1,5 +1,5 @@
 ---
-title: "Advertise custom routes for point-to-site VPN clients | Azure | Microsoft Docs"
+title: 'Azure VPN Gateway: Advertise custom routes for P2S VPN clients'
 description: Steps to advertise custom routes to your point-to-site clients
 services: vpn-gateway
 author: cherylmc

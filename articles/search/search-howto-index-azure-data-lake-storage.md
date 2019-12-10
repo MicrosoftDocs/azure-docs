@@ -1,5 +1,5 @@
 ---
-title: Indexing documents in Azure Data Lake Storage Gen2 (preview)
+title: Search over Azure Data Lake Storage Gen2 (preview)
 titleSuffix: Azure Cognitive Search
 description: Learn how to index content and metadata in Azure Data Lake Storage Gen2. This feature is currently in public preview
 

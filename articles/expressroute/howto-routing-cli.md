@@ -1,5 +1,5 @@
 ---
-title: 'How to configure peering for a circuit - ExpresssRoute: Azure CLI | Microsoft Docs'
+title: 'Azure ExpressRoute: Configure peering: CLI'
 description: This article helps you create and provision the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
 services: expressroute
 author: cherylmc

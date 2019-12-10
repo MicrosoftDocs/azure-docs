@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot failback to on-premises during VMware VM disaster recovery to Azure with Azure Site Recovery 
-description: This article describes ways to troubleshoot failback and reprotection issues during VMware VM disaster recovery to Azure with Azure Site Recovery.
+title: Troubleshoot VMware vCenter discovery failures in Azure Site Recovery 
+description: This article describes how to troubleshooting VMware vCenter discovery failures in Azure Site Recovery. 
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -9,7 +9,7 @@ ms.date: 10/29/2019
 ms.author: mayg
 
 ---
-# Troubleshoot vCenter discovery failures
+# Troubleshoot vCenter Server discovery failures
 
 This article helps you to troubleshoot issues that occur because of VMware vCenter discovery failures.
 

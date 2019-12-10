@@ -23,6 +23,8 @@
       href: tutorial-configure-password-hash-sync.md
     - name: Create an advanced managed domain
       href: tutorial-create-instance-advanced.md
+    - name: Create a forest trust (preview)
+      href: tutorial-create-forest-trust.md
 - name: Samples
   items:
     - name: Create a managed domain using Azure PowerShell
@@ -33,6 +35,12 @@
       href: administration-concepts.md
     - name: Common deployment scenarios
       href: scenarios.md
+    - name: Forests and trusts
+      items:
+        - name: Resource forests
+          href: concepts-resource-forest.md
+        - name: Forest trusts
+          href: concepts-forest-trust.md
     - name: How Azure AD DS synchronization works
       href: synchronization.md
     - name: How password hash synchronization works
@@ -79,7 +87,7 @@
           href: deploy-kcd.md
         - name: Configure password and account lockout policies
           href: password-policy.md
-        - name: Enable security audit events (preview)
+        - name: Enable security audit events
           href: security-audit-events.md
     - name: Domain-join VMs
       items:

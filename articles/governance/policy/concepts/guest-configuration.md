@@ -1,6 +1,6 @@
 ---
 title: Learn to audit the contents of virtual machines
-description: Learn how Azure Policy uses Guest Configuration to audit settings inside an Azure machine. 
+description: Learn how Azure Policy uses the Guest Configuration agent to audit settings inside virtual machines.
 ms.date: 11/04/2019
 ms.topic: conceptual
 ---
@@ -67,7 +67,7 @@ The following table shows a list of the local tools used on each supported opera
 
 |Operating system|Validation tool|Notes|
 |-|-|-|
-|Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
+|Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby and Python are installed by the Guest Configuration extension. |
 
 ### Validation frequency
@@ -154,7 +154,7 @@ Configuration resource provider.
 
 Azure Policy uses the Guest Configuration resource providers **complianceStatus** property to report
 compliance in the **Compliance** node. For more information, see [getting compliance
-data](../how-to/getting-compliance-data.md).
+data](../how-to/get-compliance-data.md).
 
 > [!NOTE]
 > The **DeployIfNotExists** policy is required for the **AuditIfNotExists** policy to return
@@ -275,6 +275,6 @@ Samples for Policy Guest Configuration are available in the following locations:
 - Review the [Azure Policy definition structure](definition-structure.md).
 - Review [Understanding policy effects](effects.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

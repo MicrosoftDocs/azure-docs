@@ -1,14 +1,9 @@
 ---
-title: 'Azure Backup: Restore VMs by using the Azure portal'
+title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal
 ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-keywords: restore backup; how to restore; recovery point;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: dacurwin
 ---
 # How to restore Azure VM data in Azure portal
 

@@ -1,11 +1,6 @@
 ---
 title: Sub-orchestrations for Durable Functions - Azure
 description: How to call orchestrations from orchestrations in the Durable Functions extension for Azure Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf

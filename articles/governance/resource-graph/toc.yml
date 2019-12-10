@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Overview of Azure Resource Graph
+  - name: What is Azure Resource Graph?
     displayName: Resource Manager, query language, rbac, permissions
     href: overview.md
 - name: Quickstarts
@@ -84,6 +84,8 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: GitHub samples repo
+    href: https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance?category_id=345061
   - name: Governance YouTube Channel

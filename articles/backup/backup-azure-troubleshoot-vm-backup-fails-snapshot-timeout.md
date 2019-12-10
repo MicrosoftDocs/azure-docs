@@ -1,14 +1,10 @@
 ---
-title: 'Troubleshoot Azure Backup failure: Agent and extension issues'
-description: 'Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.'
+title: Troubleshoot Agent and extension issues
+description: Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-keywords: Azure backup; VM agent; Network connectivity;
-ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: dacurwin
+ms.service: backup
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension
@@ -22,10 +18,12 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 **Error code**: UserErrorGuestAgentStatusUnavailable <br>
 **Error message**: VM Agent unable to communicate with Azure Backup<br>
 
-The Azure VM agent might be stopped, outdated, in an inconsistent state, or not installed and prevent Azure Backup service to trigger snapshots.  
+The Azure VM agent might be stopped, outdated, in an inconsistent state, or not installed and prevent Azure Backup service to trigger snapshots.
 
-- If the VM agent is stopped or is in an inconsistent state, **Restart the Agent** and retry the backup operation (try an on-demand backup). For steps to restart the agent, see [Windows VMs](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
-- If the VM agent is not installed or is outdated, install/update the VM agent and retry the backup operation. For steps to install/update the agent, see [Windows VMs](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
+- **Open Azure Portal > VM > Settings > Properties blade** > ensure VM **Status** is **Running** and **Agent status** is **Ready**. If the VM agent is stopped or is in an inconsistent state, restart the agent<br>
+  - For Windows VMs follow these [steps](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) to restart the Guest Agent.<br>
+  - For Linux VMs follow these [steps](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) to restart the Guest Agent.
+
 
 ## GuestAgentSnapshotTaskStatusError - Could not communicate with the VM agent for snapshot status
 
@@ -41,6 +39,16 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Cause 4: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**
+
+## UserErrorVmProvisioningStateFailed - The VM is in failed provisioning state
+
+**Error code**: UserErrorVmProvisioningStateFailed<br>
+**Error message**: The VM is in failed provisioning state<br>
+
+This error occurs when one of the extension failures puts the VM into provisioning failed state.<br>**Open  Azure Portal > VM > Settings > Extensions > Extensions status** and check if all extensions are in **provisioning succeeded** state.
+
+- If VMSnapshot extension is in failed state then right click on the failed extension and remove it. Trigger an adhoc-backup, this is will reinstall the extensions and run the backup job.  <br>
+- If any other extension is in failed state then it can interfere with the backup. Ensure those extension issues are resolved and retry the backup operation.  
 
 ## UserErrorRpCollectionLimitReached - The Restore Point collection max limit has reached
 

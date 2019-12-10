@@ -1,13 +1,8 @@
 ---
 title: Back up a SharePoint farm on Azure Stack
 description: Use Azure Backup Server to back up and restore your SharePoint data on Azure Stack. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: dacurwin
 ---
 
 # Back up a SharePoint farm on Azure Stack
@@ -238,7 +233,7 @@ A: Yes, the item can be recovered to the original SharePoint site.
 Q: Can I recover a SharePoint database to the original location if SharePoint is configured by using SQL AlwaysOn?<br>
 A: Because SharePoint databases are configured in SQL AlwaysOn, they cannot be modified unless the availability group is removed. As a result, MABS cannot restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
 
-## Next Steps
+## Next steps
 
 See the [Backup files and application](backup-mabs-files-applications-azure-stack.md) article.
 See the [Backup SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md) article.

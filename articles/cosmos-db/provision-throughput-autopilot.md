@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 Azure Cosmos DB allows you to provision throughput on your containers in either manual or autopilot mode. This article describes the benefits and use cases of autopilot mode.
 
 > [!NOTE]
-> Autopilot mode is currently available in public preview. To enable autopilot feature for your Azure Cosmos account, see the [enable autopilot](#enable-autopilot) section of this article. You can enable autopilot for new databases and containers only,it's not available for existing containers and databases.
+> Autopilot mode is currently available in public preview. To enable autopilot feature for your Azure Cosmos account, see the [enable autopilot](#enable-autopilot) section of this article. You can enable autopilot for new databases and containers only, it's not available for existing containers and databases.
 
 In addition to manual provisioning of throughput, you can now configure Azure cosmos containers in autopilot mode. Azure Cosmos containers and databases configured in autopilot mode will **automatically and instantly scale the provisioned throughput based on your application needs without compromising the SLAs.**
 
@@ -63,7 +63,7 @@ Solutions to the previous problems not only require an enormous amount of time i
 | **Pricing** | Manually provisioned RU/s per hour. | For single write region accounts, you pay for the throughput used on an hourly basis, by using the autopilot RU/s per hour rate. <br/><br/>For accounts with multiple write regions, there is no extra charge for autopilot. You pay for the throughput used on hourly basis using the same multi-master RU/s per hour rate. |
 | **Best suited for workload types** |  Predictable and stable workloads|   Unpredictable and variable workloads  |
 
-## <a id="enable-autopilot"> Enable autopilot from Azure portal
+## <a id="enable-autopilot"></a> Enable autopilot from Azure portal
 
 You can try out autopilot in your Azure Cosmos accounts by enabling in from Azure portal. Use the following steps to enable the autopilot option:
 
@@ -88,6 +88,17 @@ You can configure autopilot for databases or containers while creating them. Use
 1. Select **OK**
 
 With similar steps, you can also create a database with provisioned throughput in autopilot mode.
+
+## <a id="autopilot-limits"></a> Throughput and storage limits for autopilot
+
+The following table shows the maximum throughout and storage limits for different options in autopilot mode:
+
+|Maximum throughput limit  |Maximum storage limit  |
+|---------|---------|
+|4000 RU/s  |   50 GB    |
+|20,000 RU/s  |  200 GB  |
+|100,000 RU/s    |  1 TB   |
+|500,000 RU/s    |  5 TB  |
 
 ## Next steps
 

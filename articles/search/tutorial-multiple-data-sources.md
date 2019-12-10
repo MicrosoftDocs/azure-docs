@@ -1,7 +1,7 @@
 ---
 title: 'C# Tutorial: Index multiple data sources'
 titleSuffix: Azure Cognitive Search
-description: Learn how to import data from multiple data sources into a single Azure Cognitive Search index.
+description: Learn how to import data from multiple data sources into a single Azure Cognitive Search index using indexers. This tutorial and sample code are in C#.
 
 manager: nitinme
 author: HeidiSteen

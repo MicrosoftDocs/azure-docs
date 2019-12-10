@@ -1,6 +1,7 @@
 ---
-title: About technical profiles in Azure Active Directory B2C custom policies | Microsoft Docs
-description: Learn about how technical profiles are used in a custom policy in Azure Active Directory B2C.
+title: Overview of technical profiles in custom policies
+titleSuffix: Azure AD B2C
+description: Learn how technical profiles are used in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg

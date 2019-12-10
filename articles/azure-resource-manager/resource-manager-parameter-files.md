@@ -1,12 +1,8 @@
 ---
-title: Create Azure Resource Manager parameter file
+title: Create parameter file
 description: Create parameter file for passing in values during deployment of an Azure Resource Manager template
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: tomfitz
-
 ---
 # Create Resource Manager parameter file
 

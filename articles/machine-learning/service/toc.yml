@@ -70,6 +70,8 @@
   items:
   - name: Workspace
     href: concept-workspace.md
+  - name: Data
+    href: concept-data.md    
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
@@ -104,7 +106,7 @@
         - name: Manage users and roles
           href: how-to-assign-roles.md
         - name: Use virtual networks
-          displayName: vnet
+          displayName: vnet, blob
           href: how-to-enable-virtual-network.md
         - name: Secure web services with SSL
           href: how-to-secure-web-service.md
@@ -151,7 +153,7 @@
   - name: Work with data
     items:
     - name: Get data from a datastore
-      displayName: blob, get, fileshare, access storage
+      displayName: blob, get, fileshare, access storage, mount, download
       href: how-to-access-data.md
     - name: Add & register datasets
       displayName: data, dataset
@@ -194,7 +196,7 @@
       - name: "Predict flight delays"
         displayName: classification, studio
         href:  how-to-designer-sample-classification-flight-delay.md
-      - name: "Test classification"
+      - name: "Text classification"
         displayName: classification, studio
         href:  how-to-designer-sample-text-classification.md
     - name: Use estimators for ML
@@ -281,6 +283,9 @@
     - name: Azure App Service
       displayName: web app
       href: how-to-deploy-app-service.md
+    - name: Azure Functions
+      displayName: functions app
+      href: how-to-deploy-functions.md
     - name: Notebook VMs
       href: how-to-deploy-local-container-notebook-vm.md
     - name: Use custom Docker image
@@ -296,11 +301,14 @@
       displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
     - name: Run batch predictions
-      displayName: score scoring asynchronous consume pipeline parallelrunstep inference
+      displayName: score scoring batch consume pipeline parallelrunstep inference
       href: how-to-run-batch-predictions.md
-    - name: Use the designer for batch predictions
-      displayName: score scoring asynchronous consume pipeline parallelrunstep inference
-      href: how-to-run-batch-predictions-ui.md
+    - name: Designer batch predictions
+      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+      href: how-to-run-batch-predictions-designer.md
+    - name: Debug & troubleshoot batch predictions
+      displayName: debug_batch consume pipeline parallelrunstep inference
+      href: how-to-debug-batch-predictions.md
   - name: Monitor models
     items:
     - name: Collect & evaluate model data

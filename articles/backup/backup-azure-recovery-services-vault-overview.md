@@ -1,12 +1,8 @@
 ---
 title: Overview of Recovery Services vaults
 description: An overview and comparison between Recovery Services vaults and Azure Backup vaults.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.author: dacurwin
 ---
 # Recovery Services vaults overview
 
@@ -70,7 +66,7 @@ The following sections contain links to articles that explain how to use a Recov
 
 - [Securing cloud backup data in Recovery Services vaults](backup-azure-security-feature.md)
 
-## Next Steps
+## Next steps
 
 Use the following articles to:</br>
 [Back up an IaaS VM](backup-azure-arm-vms-prepare.md)</br>
