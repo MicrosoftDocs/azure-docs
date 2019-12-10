@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone, C++ (Windows) - Speech Service'
+title: 'Quickstart: Recognize speech from a microphone, C++ (Windows) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in C++ on Windows Desktop by using the Speech SDK
 services: cognitive-services
@@ -45,7 +45,7 @@ Before you get started:
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which transcribes to text and sends it back to the application for display.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech service, which transcribes to text and sends it back to the application for display.
 
    ![Console output after successful recognition](~/articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-08-console-output-release.png)
 

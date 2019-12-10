@@ -1,6 +1,6 @@
 ---
 title: Working with Azure Cosmos DB accounts 
-description: This article describes how create and use Azure Cosmos DB accounts
+description: This article describes how create and use Azure Cosmos accounts. It also shows the hierarchy of elements in an Azure Cosmos account 
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db

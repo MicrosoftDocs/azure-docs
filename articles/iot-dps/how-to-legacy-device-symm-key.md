@@ -1,6 +1,6 @@
 ---
 title: Provision legacy devices using symmetric keys - Azure IoT Hub Device Provisioning Service
-description: How to use symmetric keys to provision legacy devices with your device provisioning service instance
+description: How to use symmetric keys to provision legacy devices with your Device Provisioning Service (DPS) instance
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
