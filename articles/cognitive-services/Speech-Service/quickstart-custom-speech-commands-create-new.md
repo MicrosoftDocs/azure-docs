@@ -56,21 +56,24 @@ The default view is a list of the Custom Commands applications you created.
          > [!NOTE]
          > You can create resource groups by entering the desired resource group name into the "Resource Group" field. The resource group will be created when **Create** is selected.
 
-1. Enter the project name and language
-1. Select an authoring resource (if there are no valid authoring resources, create one by clicking **Create new resource**)
-
-   > [!div class="mx-imgBorder"]
-   > ![Create new resource](media/custom-speech-commands/create-new-resource.png)
-
-   1. Enter the resource name, group, location, and pricing tier
-
-         > [!NOTE]
-         > You can create resource groups by entering the desired resource group name into the "Resource Group" field. The resource group will be created when Create is clicked
-
 1. Click **Create** to create your project.
 1. Once created, select your project.
 
 Your view should now be an overview of your Custom Commands application.
+
+## Update LUIS Resources (Optional)
+
+You can update the authoring resource set in the new project window, and set a prediction resource used to recognize inputs during runtime. 
+
+> [!NOTE]
+> You will need to set a prediction resource before your application requests predictions beyond the 1,000 requests provided by the authoring resource.
+
+> [!div class="mx-imgBorder"]
+> ![Set LUIS Resources](media/custom-speech-commands/set-luis-resource.png)
+
+1. Navigate to the LUIS Resources pane by selecting **Settings** from the left pane, and then **LUIS Resources** from the middle pane.
+1. Select a prediction resource, or create one by selecting **Create new resource**
+1. Select **Save**
 
 ## Create a new Command
 
@@ -116,10 +119,6 @@ Now add a Completion Rule to respond to the user indicating that an action is be
 
    > [!div class="mx-imgBorder"]
    > ![Create a Speech response](media/custom-speech-commands/create-speech-response-action.png)
-<<<<<<< HEAD
-=======
-
->>>>>>> 0a6efc91ad89b42deec7ee07810e637629d131c2
 1. Click **Save** to save the rule
 
 > [!div class="mx-imgBorder"]
