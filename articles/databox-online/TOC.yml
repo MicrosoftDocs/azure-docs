@@ -20,9 +20,9 @@
     - name: 4B - Add, connect to storage accounts
       href: azure-stack-edge-r-series-deploy-add-storage-accounts.md
     - name: 5A - Configure compute (simple)
-      href: azure-stack-edge-r-series-placeholder.md
+      href: azure-stack-edge-r-series-deploy-configure-compute.md
     - name: 5B - Configure compute (advanced)
-      href: azure-stack-edge-r-series-placeholder.md
+      href: azure-stack-edge-r-series-deploy-configure-compute-advanced.md
   - name: Concepts
     items:
     - name: Review requirements
@@ -36,7 +36,13 @@
   - name: How to
     items:
     - name: Develop C# module
-      href: azure-stack-edge-r-series-placeholder.md
+      href: azure-stack-edge-r-series-create-iot-edge-module.md
+    - name: Connect to Azure Resource Manager
+      href: azure-stack-edge-r-series-connect-resource-manager.md
+    - name: Deploy VMs - Azure PowerShell
+      href: azure-stack-edge-r-series-deploy-vm-powershell.md
+    - name: Deploy VMs - Azure CLI/Python
+      href: azure-stack-edge-r-series-deploy-vm-cli-python.md
     - name: Manage 
       items:
       - name: Certificates
