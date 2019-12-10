@@ -35,10 +35,10 @@ Looking for more documentation?
 
 ### Create an environment variable
 
-Using your key, and the region for the key, create two environment variables for authentication:
+Using your key, and the name of your resource, create two environment variables for authentication:
 
 * `LUIS_PREDICTION_KEY` - The resource key for authenticating your requests.
-* `LUIS_ENDPOINT_NAME` - The resource name associated with your key. For example `westus`.
+* `LUIS_ENDPOINT_NAME` - The resource name associated with your key.
 
 Use the instructions for your operating system.
 
