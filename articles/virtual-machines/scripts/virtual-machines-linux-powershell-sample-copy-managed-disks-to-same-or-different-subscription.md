@@ -1,5 +1,5 @@
 ---
-title: Copy managed disks to the same or another subscription - PowerShell Sample
+title: Copy managed disks to a subscription - PowerShell Sample
 description: Azure PowerShell Script Sample - Copy (or move) managed disks to the same or a different subscription
 services: virtual-machines-linux
 documentationcenter: storage
