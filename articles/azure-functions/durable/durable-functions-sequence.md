@@ -21,7 +21,7 @@ This article explains the following functions in the sample app:
 * `E1_SayHello`: An activity function that prepends a string with "Hello".
 * `HttpStart`: An HTTP triggered function that starts an instance of the orchestrator.
 
-### E1_HelloSequence orchestrator
+### E1_HelloSequence orchestrator function
 
 # [C#](#tab/csharp)
 

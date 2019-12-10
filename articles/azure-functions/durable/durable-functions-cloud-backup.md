@@ -30,7 +30,7 @@ This article explains the following functions in the sample app:
 * `E2_GetFileList`: An activity function that returns a list of files in a directory.
 * `E2_CopyFileToBlob`: An activity function that backs up a single file to Azure Blob Storage.
 
-### E2_BackupSiteContent orchestrator
+### E2_BackupSiteContent orchestrator function
 
 This orchestrator function essentially does the following:
 
@@ -105,7 +105,7 @@ The function uses the `readdirp` module to recursively read the directory struct
 > [!NOTE]
 > You will need to install the `Microsoft.Azure.WebJobs.Extensions.Storage` NuGet package to run the sample code.
 
-The function uses some advanced features of Azure Functions bindings (that is, the use of the [`Binder` parameter](functions-dotnet-class-library.md#binding-at-runtime)), but you don't need to worry about those details for the purpose of this walkthrough.
+The function uses some advanced features of Azure Functions bindings (that is, the use of the [`Binder` parameter](../functions-dotnet-class-library.md#binding-at-runtime)), but you don't need to worry about those details for the purpose of this walkthrough.
 
 # [JavaScript](#tab/javascript)
 
