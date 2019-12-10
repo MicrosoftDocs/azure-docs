@@ -20,8 +20,9 @@ ms.author: zchia
 
 # Tutorial: Configure ServiceNow for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [ServiceNow](https://www.servicenow.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). <br/>
 <img src="media/servicenow-provisioning-tutorial/ServiceNowLogo.png" width="100">
+<br/>
+This tutorial describes the steps you need to perform in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [ServiceNow](https://www.servicenow.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## Capabilities Supported
@@ -42,7 +43,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A user account in ServiceNow with the admin role
 
 ## 1. Plan your provisioning deployment
-1. Learn about how provisioning the provisioning service works (add link when public).
+1. Learn about how the provisioning service works (add link when public).
 2. Determine who will be in [scope for provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determine what data to [map between Azure AD and ServiceNow](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
