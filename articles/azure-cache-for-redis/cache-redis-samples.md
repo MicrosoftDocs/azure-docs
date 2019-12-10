@@ -2,13 +2,10 @@
 title: Azure Cache for Redis samples
 description: Learn how to use Azure Cache for Redis
 author: yegu-ms
-
+ms.author: yegu
 ms.service: cache
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.author: yegu
-
 ---
 # Azure Cache for Redis samples
 This topic provides a list of Azure Cache for Redis samples, covering scenarios such as connecting to a cache, reading and writing data to and from a cache, and using the ASP.NET Azure Cache for Redis providers. Some of the samples are downloadable projects, and some provide step-by-step guidance and include code snippets but do not link to a downloadable project.
