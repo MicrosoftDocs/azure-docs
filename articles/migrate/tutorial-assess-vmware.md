@@ -167,7 +167,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server instance. You can leave the default port or specify a custom port on which vCenter Server listens.
 1. In **User name** and **Password**, specify the vCenter Server account credentials that the appliance will use to discover VMs on the vCenter Server instance. 
 
-   Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). You can [scope the discovery](tutorial-assess-vmware.md#scoping-discovery) by limiting access to the vCenter account.
+   Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). You can [scope the discovery](tutorial-assess-vmware.md#set-the-scope-of-discovery) by limiting access to the vCenter account.
 1. Select **Validate connection** to make sure that the appliance can connect to vCenter Server.
 
 ### Specify VM credentials
@@ -210,7 +210,7 @@ This procedure is required for agentless server migration.
 
 #### 3. Assign permissions on vCenter objects
 
-There are two approaches to assign permissions on inventory objects in vCenter to the vCenter user account with a role assigned to it.
+There are two approaches for assigning permissions on inventory objects in vCenter to the vCenter user account with a role assigned to it.
 
 For Server Assessment, you must apply the **Read-only** role to the vCenter user account for all the parent objects where the VMs to be discovered are hosted. All parent objects will be included: host, folder of hosts, cluster, and folder of clusters in the hierarchy up to the datacenter. These permissions will be propagated to child objects in the hierarchy.
 
