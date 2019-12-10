@@ -43,26 +43,26 @@ Most tasks and services can be performed on delegated resources across managed t
 - [Connect Windows Server or Linux machines outside Azure](../../azure-arc/servers/quickstart-onboard-portal.md) to delegated subscriptions and/or resource groups in Azure
 - Manage connected machines using Azure constructs, such as Azure Policy and tagging
 
-[Azure Automation](../../automation/):
+[Azure Automation](../../automation/index.yml):
 
 - Use automation accounts to access and work with delegated customer resources
 
-[Azure Backup](../../backup/):
+[Azure Backup](../../backup/index.yml):
 
 - Back up and restore customer data in customer tenants
 
-[Azure Kubernetes Service (AKS)](../../aks/):
+[Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
 - Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
 
-[Azure Monitor](../../azure-monitor/):
+[Azure Monitor](../../azure-monitor/index.yml):
 
 - View alerts for delegated subscriptions, with the ability to view alerts across all subscriptions
 - View activity log details for delegated subscriptions
 - Log analytics: Query data from remote customer workspaces in multiple tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the service provider tenant through webhooks
 
-[Azure Policy](../../governance/policy/):
+[Azure Policy](../../governance/policy/index.yml):
 
 - Compliance snapshots show details for assigned policies within delegated subscriptions
 - Create and edit policy definitions within a delegated subscription
@@ -70,11 +70,11 @@ Most tasks and services can be performed on delegated resources across managed t
 - Customers see policies authored by the service provider alongside any policies they've authored themselves
 - Can [remediate deployIfNotExists or modify assignments within the customer tenant](../how-to/deploy-policy-remediation.md)
 
-[Azure Resource Graph](../../governance/resource-graph/):
+[Azure Resource Graph](../../governance/resource-graph/index.yml):
 
 - Now includes the tenant ID in returned query results, allowing you to identify whether a subscription belongs to the customer tenant or service provider tenant
 
-[Azure Security Center](../../security-center/):
+[Azure Security Center](../../security-center/index.yml):
 
 - Cross-tenant visibility
   - Monitor compliance to security policies and ensure security coverage across all tenants’ resources
@@ -95,23 +95,23 @@ Most tasks and services can be performed on delegated resources across managed t
 
 - Manage Azure Sentinel resources in customer tenants
 
-[Azure Service Health](../../service-health/):
+[Azure Service Health](../../service-health/index.yml):
 
 - Monitor the health of customer resources with Azure Resource Health
 - Track the health of the Azure services used by your customers
 
-[Azure Site Recovery](../../site-recovery/):
+[Azure Site Recovery](../../site-recovery/index.yml):
 
 - Manage disaster recovery options for Azure virtual machines in customer tenants (note that you can't use RunAs accounts to copy VM extensions)
 
-[Azure Virtual Machines](../../virtual-machines/):
+[Azure Virtual Machines](../../virtual-machines/index.yml):
 
 - Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure VMs in customer tenants
 - Use boot diagnostics to troubleshoot Azure VMs in customer tenants
 - Access VMs with serial console in customer tenants
 - Note that you can't use Azure Active Directory for remote login to a VM, and you can't integrate a VM with a Key Vault for passwords, secrets or cryptographic keys for disk encryption
 
-[Azure Virtual Network](../../virtual-network/):
+[Azure Virtual Network](../../virtual-network/index.yml):
 
 - Deploy and manage virtual networks and virtual network interface cards (vNICs) within customer tenants
 
