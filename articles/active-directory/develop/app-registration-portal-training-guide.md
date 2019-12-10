@@ -1,5 +1,5 @@
 ---
-title: The new Azure portal app registration experience
+title: New Azure portal app registration experience
 titleSuffix: Microsoft identity platform
 description: An introduction to the new App registration experience in the Azure portal
 services: active-directory
