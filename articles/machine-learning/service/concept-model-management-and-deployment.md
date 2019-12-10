@@ -32,6 +32,8 @@ Use ML pipelines from Azure Machine Learning to stitch together all of the steps
 
 An ML pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [ML pipelines](concept-ml-pipelines.md).
 
+If you use the [Designer](ßconcept-designer.md) to create your ML pipelines, the Designer will automatically save new draft versions of your pipelines as you modify them.  
+
 ## Register, package, and deploy models from anywhere
 
 ### Register and track ML models
