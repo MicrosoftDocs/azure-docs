@@ -12,7 +12,7 @@ ms.date: 8/2/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ---
 # How to start and stop Azure-SSIS Integration Runtime on a schedule
 

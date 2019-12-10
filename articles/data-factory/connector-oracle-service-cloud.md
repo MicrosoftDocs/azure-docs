@@ -1,21 +1,18 @@
 ---
-title: Copy data from Oracle Service Cloud using Azure Data Factory (Preview) 
+title: Copy data from Oracle Service Cloud (Preview)
 description: Learn how to copy data from Oracle Service Cloud to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.author: jingwang
-
 ---
+
 # Copy data from Oracle Service Cloud using Azure Data Factory (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
