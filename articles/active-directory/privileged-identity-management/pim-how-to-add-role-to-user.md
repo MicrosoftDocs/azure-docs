@@ -29,13 +29,9 @@ Beginning in November 2019, the Azure AD roles portion of Privileged Identity Ma
 1. Open **Azure AD Privileged Identity Management**.
 1. Select **Azure AD roles**.
 
-   - If your user interface looks like the following, you have the **Previous version** of Privileged Identity Management. Follow the content in the **Previous version** tab of this article.
+    If your user interface looks like the following, you have the **New version** of Privileged Identity Management. Follow the content in the **New version** tab of this article. Otherwise, follow the instructions in the **Previous version** tab.
 
-      ![Azure AD roles previous version](./media/pim-how-to-add-role-to-user/pim-current-version.png)
-
-   - If your user interface looks like the following, you have the **New version** of Privileged Identity Management. Follow the content in the **New version** tab of this article.
-
-      ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+    ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
 # [Previous version](#tab/previous)
 
@@ -167,13 +163,13 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. Select **Roles** to see the list of roles for Azure AD permissions.
 
-    ![Azure AD roles](./media/pim-resource-roles-assign-roles/resources-roles.png)
+    ![Azure AD roles](./media/pim-how-to-add-role-to-user/roles-list.png)
 
 1. Select **Add member** to open the **New assignment** page.
 
 1. Select **Select a role** to open the Select a role page.
 
-    ![New assignment pane](./media/pim-resource-roles-assign-roles/resources-select-role.png)
+    ![New assignment pane](./media/pim-how-to-add-role-to-user/select-role.png)
 
 1. Select a role you want to assign and then click **Select**.
 

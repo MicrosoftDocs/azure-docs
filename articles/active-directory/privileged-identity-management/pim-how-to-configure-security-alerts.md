@@ -28,19 +28,15 @@ Beginning in November 2019, the Azure AD roles portion of Privileged Identity Ma
 1. Open **Azure AD Privileged Identity Management**.
 1. Select **Azure AD roles**.
 
-   - If your user interface looks like the following, you have the **Previous version** of Privileged Identity Management. Follow the content in the **Previous version** tab of this article.
+    If your user interface looks like the following, you have the **New version** of Privileged Identity Management. Follow the content in the **New version** tab of this article. Otherwise, follow the instructions in the **Previous version** tab.
 
-      ![Azure AD roles previous version](./media/pim-how-to-add-role-to-user/pim-current-version.png)
-
-   - If your user interface looks like the following, you have the **New version** of Privileged Identity Management. Follow the content in the **New version** tab of this article.
-
-      ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+    ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
 Follow the steps in this article to approve or deny requests for Azure AD roles.
 
 # [Previous version](#tab/previous)
 
-![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## Security alerts
 

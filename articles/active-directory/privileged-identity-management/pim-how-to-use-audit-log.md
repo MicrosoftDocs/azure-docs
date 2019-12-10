@@ -25,22 +25,6 @@ You can use the Privileged Identity Management (PIM) audit history to see all ro
 
 Beginning in November 2019, the Azure AD roles portion of Privileged Identity Management is being updated to a new version that matches the experiences for Azure resource roles. This creates additional features as well as [changes to the existing API](azure-ad-roles-features.md#api-changes). While the new version is being rolled out, which procedures that you follow in this article depend on version of Privileged Identity Management you currently have. Follow the steps in this section to determine which version of Privileged Identity Management you have. After you know your version of Privileged Identity Management, you can select the procedures in this article that match that version.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
-1. Open **Azure AD Privileged Identity Management**.
-1. Select **Azure AD roles**.
-
-   - If your user interface looks like the following, you have the **Previous version** of Privileged Identity Management. Follow the content in the **Previous version** tab of this article.
-
-      ![Azure AD roles previous version](./media/pim-how-to-add-role-to-user/pim-current-version.png)
-
-   - If your user interface looks like the following, you have the **New version** of Privileged Identity Management. Follow the content in the **New version** tab of this article.
-
-      ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
-
-Follow the steps in this article to approve or deny requests for Azure AD roles.
-
-Follow the steps in this article to approve or deny requests for Azure AD roles.
-
 # [Previous version](#tab/previous)
 
 ## View audit history
@@ -88,6 +72,8 @@ Follow these steps to view the audit history for Azure AD roles.
 1. Select **Done** to view the filtered audit history.
 
 # [New version](#tab/new)
+
+Follow these steps to view the audit history for Azure AD roles.
 
 ## View resource audit history
 
