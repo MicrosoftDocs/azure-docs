@@ -1,6 +1,6 @@
 ---
-title: Assess VMware VMs for migration to Azure with Azure Migrate
-description: Describes how to assess on-premises VMware VMs for migration to Azure using Azure Migrate.
+title: Assess VMware VMs for migration to Azure by using Azure Migrate Server Assessment
+description: Describes how to assess on-premises VMware VMs for migration to Azure by using Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
@@ -9,13 +9,11 @@ ms.date: 11/19/2019
 ms.author: hamusa
 ---
 
-# Assess VMware VMs with Azure Migrate: Server Assessment
+# Assess VMware VMs by using Azure Migrate Server Assessment
 
 This article shows you how to assess on-premises VMware virtual machines (VMs) by using the Server Assessment tool in Azure Migrate.
 
 [Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools and independent software vendor (ISV) offerings from Microsoft partners.
-
-
 
 This tutorial is the second in a series that demonstrates how to assess and migrate VMware VMs to Azure. In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -25,17 +23,14 @@ This tutorial is the second in a series that demonstrates how to assess and migr
 > * Group discovered VMs, and assess the VM group.
 > * Review the assessment.
 
-
-
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. Tutorials use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the how-to articles.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
-
 ## Prerequisites
 
-[Complete](tutorial-prepare-vmware.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
+[Complete the first tutorial](tutorial-prepare-vmware.md) in this series. If you don't, the instructions in this tutorial won't work.
 
 Here's what you should have done in the first tutorial:
 
@@ -46,7 +41,6 @@ Here's what you should have done in the first tutorial:
    - Set up an account for VM discovery. 
    - Make required ports available.
    - Be aware of the URLs needed for access to Azure.
-
 
 ## Set up an Azure Migrate project
 
@@ -60,12 +54,11 @@ Set up a new Azure Migrate project as follows:
 
 1. In **Getting started**, select **Add tools**.
 1. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.     
-1. In **Project Details**, specify the project name, and the geography in which you want to create the project. Asia, Europe, UK and the United States are supported.
+1. In **Project Details**, specify the project name and the geography in which you want to create the project. Asia, Europe, United Kingdom, and United States are supported.
 
    The project geography is used only to store the metadata gathered from on-premises VMs. You can select any target region when you run a migration.
 
    ![Boxes for project name and region](./media/tutorial-assess-vmware/migrate-project.png)
-
 
 1. Select **Next**.
 1. In **Select assessment tool**, select **Azure Migrate: Server Assessment** > **Next**.
@@ -75,7 +68,6 @@ Set up a new Azure Migrate project as follows:
 1. In **Select migration tool**, select **Skip adding a migration tool for now** > **Next**.
 1. In **Review + add tools**, review the settings, and select **Add tools**.
 1. Wait a few minutes for the Azure Migrate project to deploy. You'll be taken to the project page. If you don't see the project, you can access it from **Servers** in the Azure Migrate dashboard.
-
 
 ## Set up the appliance VM
 
@@ -97,13 +89,12 @@ You can set up multiple appliances for a single Azure Migrate project. Across al
 
    ![Selections for downloading an OVA file](./media/tutorial-assess-vmware/download-ova.png)
 
-
 ### Verify security
 
 Check that the OVA file is secure, before you deploy it:
 
 1. On the machine to which you downloaded the file, open an administrator command window.
-1. Run the following command to generate the hash for the OVA:
+1. Run the following command to generate the hash for the OVA file:
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
@@ -115,7 +106,6 @@ For version 2.19.07.30, the generated hash should match these values:
 --- | ---
 MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
 SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
-
 
 ### Create the appliance VM
 
@@ -130,14 +120,12 @@ Import the downloaded file, and create a VM:
 1. In **Host/Cluster**, specify the host or cluster on which the VM will run.
 1. In **Storage**, specify the storage destination for the VM.
 1. In **Disk Format**, specify the disk type and size.
-1. In **Network Mapping**, specify the network to which the VM will connect. The network needs internet connectivity, to send metadata to Azure Migrate Server Assessment.
+1. In **Network Mapping**, specify the network to which the VM will connect. The network needs internet connectivity to send metadata to Azure Migrate Server Assessment.
 1. Review and confirm the settings, and then select **Finish**.
-
 
 ### Verify appliance access to Azure
 
 Make sure that the appliance VM can connect to [Azure URLs](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
-
 
 ### Configure the appliance
 
@@ -176,14 +164,14 @@ Set up the appliance by using the following steps:
 The appliance needs to connect to vCenter Server to discover the configuration and performance data of the VMs.
 
 ### Specify vCenter Server details
-1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
-1. In **User name** and **Password**, specify the vCenter Server account credentials that the appliance will use to discover VMs on the vCenter server. 
+1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server instance. You can leave the default port or specify a custom port on which vCenter Server listens.
+1. In **User name** and **Password**, specify the vCenter Server account credentials that the appliance will use to discover VMs on the vCenter Server instance. 
 
    Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). You can [scope the discovery](tutorial-assess-vmware.md#scoping-discovery) by limiting access to the vCenter account.
 1. Select **Validate connection** to make sure that the appliance can connect to vCenter Server.
 
 ### Specify VM credentials
-For discovery of applications, roles, and features, and for visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) about the necessary access permissions.
+For discovery of applications, roles, and features, and for visualizing dependencies of the VMs, you can provide VM credentials that have access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) about the necessary access permissions.
 
 > [!NOTE]
 > This input is optional, but you need it if you want to enable application discovery and agentless dependency visualization.
@@ -194,13 +182,13 @@ For discovery of applications, roles, and features, and for visualizing dependen
 1. In **Username** and **Password**, specify an account that has at least guest access on the VMs.
 1. Select **Add**.
 
-After you've specified the vCenter server and VM credentials (optional), select **Save and start discovery** to start discovery of the on-premises environment.
+After you've specified the vCenter Server instance and the VM credentials (optional), select **Save and start discovery** to start discovery of the on-premises environment.
 
 It takes around 15 minutes for metadata of discovered VMs to appear in the portal. Discovery of installed applications, roles, and features takes some time. The duration depends on the number of VMs being discovered. For 500 VMs, it takes approximately 1 hour for the application inventory to appear in the Azure Migrate portal.
 
 ### Set the scope of discovery
 
-Discovery can be scoped by limiting access of the vCenter account that's used for discovery. You can set the scope to vCenter Server datacenters, clusters, folder of clusters, hosts, folder of hosts, or individual VMs.
+Discovery can be scoped by limiting access of the vCenter account that's used for discovery. You can set the scope to vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs.
 
 To set the scope, perform the following procedures.
 
@@ -214,7 +202,7 @@ To set the scope, perform the following procedures.
 This procedure is required for agentless server migration.
 1.	Log in to vSphere Web Client as the vCenter Server administrator.
 1.	Browse to **Administration** > **Role Manager**.
-1.	Select your vCenter server from the drop-down menu.
+1.	Select your vCenter Server instance from the drop-down menu.
 1.	Select **Create role**.
 1.	Enter a name for the new role (such as <em>Azure_Migrate</em>).
 1.	Assign [permissions](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) to the newly defined role.
@@ -226,16 +214,16 @@ There are two approaches to assign permissions on inventory objects in vCenter t
 
 For Server Assessment, you must apply the **Read-only** role to the vCenter user account for all the parent objects where the VMs to be discovered are hosted. All parent objects will be included: host, folder of hosts, cluster, and folder of clusters in the hierarchy up to the datacenter. These permissions will be propagated to child objects in the hierarchy.
 
-Similarly for Server Migration, you must apply a user-defined role (can be named <em> Azure _Migrate</em>) with [permissions](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) to the vCenter user account for all the parent objects where the VMs to be migrated are hosted.
+Similarly for Server Migration, you must apply a user-defined role with [permissions](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) to the vCenter user account for all the parent objects where the VMs to be migrated are hosted. This role can be named <em> Azure _Migrate</em>.
 
 ![Assign permissions](./media/tutorial-assess-vmware/assign-perms.png)
 
-The alternative approach is to assign the user account and role at the datacenter level and propagate them to the child objects. Then give the account a **No access** role for every object (such as VMs) that you don't want to discover/migrate. 
+The alternative approach is to assign the user account and role at the datacenter level and propagate them to the child objects. Then give the account a **No access** role for every object (such as a VM) that you don't want to discover/migrate. 
 
 This alternative configuration is cumbersome. It exposes accidental access controls, because every new child object is also automatically granted access that's inherited from the parent. So we recommend that you use the first approach.
 
 > [!NOTE]
-> Currently, Server Assessment can't discover VMs if the vCenter account has access granted at vCenter VM folder level. If you want to scope your discovery by VM folders, you can do so by using the following procedure. It ensures that the vCenter account has read-only access assigned at a VM level.
+> Currently, Server Assessment can't discover VMs if the vCenter account has access granted at the vCenter VM folder level. If you want to scope your discovery by VM folders, you can do so by using the following procedure. It ensures that the vCenter account has read-only access assigned at a VM level.
 >
 > 1. Assign read-only permissions on all the VMs in the VM folders to which you want to scope the discovery.
 > 1. Grant read-only access to all the parent objects where the VMs are hosted. All parent objects (host, folder of hosts, cluster, folder of clusters) in the hierarchy up to the datacenter will be included. You don't need to propagate the permissions to all child objects.
@@ -259,13 +247,12 @@ You can create two types of assessments by using Azure Migrate Server Assessment
 **Performance-based** | Assessments based on collected performance data | **Recommended VM size**: Based on CPU and memory utilization data.<br/><br/> **Recommended disk type (standard or premium managed disk)**: Based on the IOPS and throughput of the on-premises disks.
 **As on-premises** | Assessments based on on-premises sizing | **Recommended VM size**: Based on the on-premises VM size.<br/><br> **Recommended disk type**: Based on the storage type setting that you select for the assessment.
 
-
 ## Run an assessment
 
 Run an assessment as follows:
 
 1. Review the [best practices](best-practices-assessment.md) for creating assessments.
-1. On the **Servers** tab, in the **Azure Migrate: Server Assessment** tile, click **Assess**.
+1. On the **Servers** tab, in the **Azure Migrate: Server Assessment** tile, select **Assess**.
 
    ![Location of the Assess button](./media/tutorial-assess-vmware/assess.png)
 
@@ -311,13 +298,12 @@ To view an assessment:
 
 ### Review cost details
 
-The assessment summary shows the estimated compute and storage cost of running VMs in Azure. Costs are aggregated for all VMs in the assessed group. You can drill down to see details for specific VMs.
+The assessment summary shows the estimated compute and storage cost of running VMs in Azure. Costs are aggregated for all VMs in the assessed group. You can drill down to see cost details for specific VMs.
 
 > [!NOTE]
-> Cost estimates are based on the size recommendations for a machine, and its disks and properties. The cost estimation is for running the on-premises VMs as IaaS VMs. Azure Migrate Server Assessment doesn't consider PaaS or SaaS costs.
+> Cost estimates are based on the size recommendations for a machine, its disks, and its properties. Estimates are for running the on-premises VMs as IaaS VMs. Azure Migrate Server Assessment doesn't consider PaaS or SaaS costs.
 
 The aggregated storage costs for the assessed group are split over different types of storage disks. 
-
 
 ### Review confidence rating
 
@@ -330,13 +316,12 @@ The confidence rating helps you estimate the reliability of the assessment's siz
 **Data point availability** | **Confidence rating**
 --- | ---
 0%-20% | 1 star
-21%-40% | 2 star
-41%-60% | 3 star
-61%-80% | 4 star
-81%-100% | 5 star
+21%-40% | 2 stars
+41%-60% | 3 stars
+61%-80% | 4 stars
+81%-100% | 5 stars
 
-[Learn about best practices for confidence ratings](best-practices-assessment.md#best-practices-for-confidence-ratings).
-
+[Learn about best practices](best-practices-assessment.md#best-practices-for-confidence-ratings) for confidence ratings.
 
 ## Next steps
 
