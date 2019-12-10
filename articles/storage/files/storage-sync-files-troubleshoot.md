@@ -180,15 +180,9 @@ On the server that is showing as "Appears offline" in the portal, look at Event 
 
 A server endpoint health status of "No Activity" means the server endpoint has not logged sync activity in the past two hours.
 
-A server endpoint may not log sync activity for the following reasons:
+To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-- Agent version 4.3.0.0 or older is installed and the server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the same volume cannot start a start sync session until the VSS sync session completes. To resolve this issue, install agent version 5.0.2.0 or newer which supports multiple server endpoints syncing on a volume when a VSS sync session is active.
-
-	To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
-
-- The server has reached the maximum number of concurrent sync sessions. 
-	- Agent version 4.x and newer: Limit varies based on available system resources.
-	- Agent version 3.x: 2 active sync sessions per processor or a maximum of 8 active sync sessions per server.
+A server endpoint may not log sync activity for several hours due to insufficient system resources.
 
 > [!Note]  
 > If the server state on the registered servers blade is “Appears Offline,” perform the steps documented in the [Server endpoint has a health status of “No Activity” or “Pending” and the server state on the registered servers blade is “Appears offline”](#server-endpoint-noactivity) section.
