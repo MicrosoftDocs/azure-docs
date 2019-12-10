@@ -50,7 +50,7 @@ If the storage limit associated with the max throughput of the database or conta
 Autopilot will instantaneously scale up or scale down the RU/s within the minimum and maximum RU/s range, based on incoming traffic. Billing is done at a 1 hour granularity, where you are charged for the highest RU/s in a particular hour. 
 
 ### Can I specify a custom max throughput (RU/s) value for autopilot mode?
-Currently, in the preview, you can select between [four options](provision-throughput-autopilot.mdt#autopilot-limits) for max throughput (RU/s). support for custom, user-specified values of max throughput is planned for GA.
+Currently, in the preview, you can select between [four options](provision-throughput-autopilot.mdt#autopilot-limits) for max throughput (RU/s). Support for custom, user-specified values of max throughput is planned for GA.
 
 ### Can I increase the max RU/s (move to a higher tier) on the database or container? 
 Yes. From the **Scale & Settings** option for your container, or **Scale** option for your database, you can select a higher max RU/s for autopilot. This is an asynchronous scale-up operation that may take some to complete (typically 4-6 hours, depending on the RU/s selected) as the service provisions more resources to support the higher scale. 
