@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/22/2019
+ms.date: 12/10/2019
 ms.author: diberry
 ---
 
@@ -52,7 +52,7 @@ Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Mak
     |--|--|
     |Published Host|`https://YOUR-RESOURCE-NAME.azurewebsites.net`|
     |Published Key|`XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` (32 character string shown after `Endpoint` )|
-    |App ID|`e906af8d-YYYY-YYYY-YYYY-2c0ea7b1376e` (36 character string shown as part of `POST`) |
+    |App ID|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (36 character string shown as part of `POST`) |
 
 ## Create batch test file with question IDs
 
@@ -60,7 +60,7 @@ In order to use the batch test tool, create a file named `batch-test-data-1.tsv`
 
 |TSV input file fields|Notes|Example|
 |--|--|--|
-|Knowledge base ID|Your knowledge base ID found on the Publish page. Test several knowledge bases in the same service at one time in a single file.|`e906af8d-YYYY-YYYY-YYYY-2c0ea7b1376e` (36 character string shown as part of `POST`) |
+|Knowledge base ID|Your knowledge base ID found on the Publish page. Test several knowledge bases in the same service at one time in a single file by using different knowledge base IDs in a single file.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (36 character string shown as part of `POST`) |
 |Question|The question text a user would enter. 1,000 character max.|`How do I sign out?`|
 |Metadata tags|optional|`topic:power` uses the _key:value_ format|
 |Top parameter|optional|`25`|
@@ -74,7 +74,9 @@ For this knowledge base, add 3 rows of just the 2 required columns to the file. 
 |`Charge your Surface Pro 4`|
 |`Get to know Windows 10`|
 
-These questions are the exact wording from the knowledge base and should return 100 as the confidence score. Next, add a few questions, similar to these questions but not exactly the same:
+These questions are the exact wording from the knowledge base and should return 100 as the confidence score.
+
+Next, add a few questions, similar to these questions but not exactly the same on 3 more rows, using the same knowledge base ID:
 
 |Column 2 - questions|
 |--|
@@ -83,29 +85,32 @@ These questions are the exact wording from the knowledge base and should return 
 |`What features are in Windows 10?`|
 
 > [!CAUTION]
-> Make sure that each column is separated by a tab delimiter only. Leading or trailing spaces are added to column data and will cause the program to throw exceptions when the type or size is incorrect.
+> Make sure that each column is separated by a tab delimiter only. Leading or trailing spaces are added to the column data and will cause the program to throw exceptions when the type or size is incorrect.
 
-The batch test file, when opened in Excel, looks like the following image.
+The batch test file, when opened in Excel, looks like the following image. The knowledge base ID has been replaced with `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` for security. For your own batch test, make sure the column displays your knowledge base ID.
 
 > [!div class="mx-imgBorder"]
 > ![Input first version of .tsv file from batch test](../media/batch-test/batch-test-1-input.png)
 
 ## Test the batch file
 
-Run the batch testing program using the following CLI format at the command line with your published host and key, found on the **Settings** page.
+Run the batch testing program using the following CLI format at the command line.
+
+Replace `YOUR-RESOURCE-NAME` and `ENDPOINT-KEY` with your own values for service name and endpoint key. These values are found on the **Settings** page in the QnA Maker portal.
 
 ```console
 batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.net ENDPOINT-KEY out.tsv
 ```
-
-The published host includes your resource name. The published key **is not** the same as your QnA Maker resource key.
-
 The test completes and generates the `out.tsv` file:
 
 > [!div class="mx-imgBorder"]
 > ![Output first version of .tsv file from batch test](../media/batch-test/batch-test-1-output.png)
 
-The test output of confidence score, in the 4th column, shows the top 3 questions returned a score of 100 as expected because each question is exactly the same as it appears in the knowledge base. The last 3 questions are new wording of the question and do not return 100 as the confidence score. The last question, `What features are in Windows 10?` returns a score of 63. In order to increase the score both for the test, and your users, you need to add more question variations to the knowledge base.
+The test output of confidence score, in the 4th column, shows the top 3 questions returned a score of 100 as expected because each question is exactly the same as it appears in the knowledge base. The last 3 questions are new wording of the question and do not return 100 as the confidence score. The last question, `What features are in Windows 10?` returns a score of 63. In order to increase the score both for the test, and your users, you need to add more alternate questions to the knowledge base.
+
+## Testing with the optional fields
+
+Once you understand the format and process, you can auto-generate a test file to run against your knowledge base. A common source of data is from chats logs. 
 
 ## Using optional fields in the input batch test file
 
