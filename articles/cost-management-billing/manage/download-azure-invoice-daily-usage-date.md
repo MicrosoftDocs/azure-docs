@@ -49,11 +49,11 @@ For most subscriptions, you can download your invoice from the Azure portal. If 
 
     ![Screenshot that shows Download invoice and usage page](./media/download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
-For more information about your invoice, see [Understand your bill for Microsoft Azure](../../billing/billing-understand-your-bill.md). For help managing your costs, see [Prevent unexpected costs with Azure billing and cost management](getting-started.md).
+For more information about your invoice, see [Understand your bill for Microsoft Azure](../understand/understand-individual-bill.md). For help managing your costs, see [Prevent unexpected costs with Azure billing and cost management](getting-started.md).
 
 ### Download invoices for a Microsoft Customer Agreement
 
-Invoices are generated for each [billing profile](../../billing/billing-mca-overview.md#billing-profiles) in the Microsoft Customer Agreement. You must be a billing profile Owner, Contributor, Reader, or Invoice manager to download invoices from the Azure portal.
+Invoices are generated for each [billing profile](../understand/mca-overview.md#billing-profiles) in the Microsoft Customer Agreement. You must be a billing profile Owner, Contributor, Reader, or Invoice manager to download invoices from the Azure portal.
 
 1. Search for **Cost Management + Billing**.
 2. Select a billing profile.
@@ -174,15 +174,15 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 To learn more about your invoice and charges, see:
 
-- [Understand your bill for Microsoft Azure](../../billing/billing-understand-your-bill.md)
-- [Understand terms on your Azure invoice](../../billing/billing-understand-your-invoice.md)
-- [Understand terms on your Microsoft Azure detailed usage](../../billing/billing-understand-your-usage.md)
+- [Understand your bill for Microsoft Azure](../understand/understand-individual-bill.md)
+- [Understand terms on your Azure invoice](../understand/understand-invoice.md)
+- [Understand terms on your Microsoft Azure detailed usage](../understand/understand-usage.md)
 - [View your organization's Azure pricing](ea-pricing.md)
 
 If you have a Microsoft Customer Agreement, see:
 
-- [Understand the charges on the invoice for your billing profile](../../billing/billing-mca-understand-your-bill.md)
-- [Understand terms on the invoice for your billing profile](../../billing/billing-mca-understand-your-invoice.md)
-- [Understand the Azure usage and charges file for your billing profile](../../billing/billing-mca-understand-your-usage.md)
-- [View and download tax documents for your billing profile](../../billing/billing-mca-download-tax-document.md)
+- [Understand the charges on the invoice for your billing profile](../understand/mca-understand-your-bill.md)
+- [Understand terms on the invoice for your billing profile](../understand/mca-understand-your-invoice.md)
+- [Understand the Azure usage and charges file for your billing profile](../understand/mca-understand-your-usage.md)
+- [View and download tax documents for your billing profile](../understand/mca-download-tax-document.md)
 - [View your organization's Azure pricing](ea-pricing.md)

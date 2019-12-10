@@ -14,7 +14,7 @@ ms.author: banders
 
 # Create sections on your invoice to organize your costs
 
-Create sections on your invoice to organize your costs by a department, development environment, or based on your organization's needs. Then give others permission to create Azure subscriptions that are billed to the section. Any usage charges and purchases for the subscriptions are then billed to the section. You can view the total charges for the section on your invoice, in the Azure portal, or review them in Azure cost analysis. For more information, see [view transactions by invoice sections](../../billing/billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
+Create sections on your invoice to organize your costs by a department, development environment, or based on your organization's needs. Then give others permission to create Azure subscriptions that are billed to the section. Any usage charges and purchases for the subscriptions are then billed to the section. You can view the total charges for the section on your invoice, in the Azure portal, or review them in Azure cost analysis. For more information, see [view transactions by invoice sections](../understand/mca-understand-your-bill.md#view-transactions-by-invoice-sections).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 

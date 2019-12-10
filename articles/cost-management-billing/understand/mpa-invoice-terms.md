@@ -17,7 +17,7 @@ ms.author: banders
 
 This article applies to an Azure billing account for a Microsoft Partner Agreement. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 
-Your invoice provides a summary of your charges and instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md).
+Your invoice provides a summary of your charges and instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [View and download your Microsoft Azure invoice](download-azure-invoice.md).
 
 The following sections list important terms that you see on your invoice and provide descriptions for each term.
 
@@ -59,7 +59,7 @@ The **Billing Summary**  shows the charges against the billing profile since the
 
 ## Billing details by product
 
-The **Billing details by product** section lists the total charges for each product associated with this billing profile. You can view a daily breakdown of each product's charges in the Azure usage and charges CSV. To learn about reconciling the invoice pdf with the Azure usage and charges CSV, see [understand your Microsoft Partner Agreement bill](billing-mpa-understand-your-bill.md).
+The **Billing details by product** section lists the total charges for each product associated with this billing profile. You can view a daily breakdown of each product's charges in the Azure usage and charges CSV. To learn about reconciling the invoice pdf with the Azure usage and charges CSV, see [understand your Microsoft Partner Agreement bill](mpa-understand-your-bill.md).
 
 ## How to pay
 
@@ -70,7 +70,7 @@ At the bottom of the invoice, there are instructions for paying your bill. You c
 If you have third-party services in your bill, the name and address of each publisher is listed at the bottom of your invoice.
 
 ## Check access to a Microsoft Partner Agreement
-[!INCLUDE [billing-check-mpa](../../includes/billing-check-mpa.md)]
+[!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
 
 ## Need help? Contact us.
 
@@ -78,7 +78,7 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [Understand the charges on your billing profile's invoice](billing-mca-understand-your-bill.md)
-- [How to get your Azure billing invoice and daily usage data](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
-- [View your organization's Azure pricing](../cost-management-billing/manage/ea-pricing.md)
-- [View tax documents for your billing profile](billing-mca-download-tax-document.md)
+- [Understand the charges on your billing profile's invoice](mca-understand-your-bill.md)
+- [How to get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md)
+- [View your organization's Azure pricing](../manage/ea-pricing.md)
+- [View tax documents for your billing profile](mca-download-tax-document.md)

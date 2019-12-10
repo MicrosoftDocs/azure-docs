@@ -30,7 +30,7 @@ To set up the billing account, you must transition the billing of Azure subscrip
 Before you start the setup, we recommend you do the following:
 
 - **Understand your new billing account**
-  - Your new account simplifies billing for your organization. [Get a quick overview of your new billing account](../../billing/billing-mca-overview.md)
+  - Your new account simplifies billing for your organization. [Get a quick overview of your new billing account](../understand/mca-overview.md)
 - **Verify your access to complete the setup**
   - Only users with certain administrative permissions can complete the setup. Check if you have the [access required to complete the setup](#access-required-to-complete-the-setup).
 - **Understand changes to your billing hierarchy**
@@ -46,7 +46,7 @@ Before you start the setup, we recommend you do the following:
 
 To complete the setup, you need the following access:
 
-- Owner of the billing profile that was created when the Microsoft Customer Agreement was signed. To learn more about billing profiles, see [understand billing profiles](../../billing/billing-mca-overview.md#billing-profiles).
+- Owner of the billing profile that was created when the Microsoft Customer Agreement was signed. To learn more about billing profiles, see [understand billing profiles](../understand/mca-overview.md#billing-profiles).
 
 - Enterprise administrator on the enrollment that is renewed.
 
@@ -78,9 +78,9 @@ Your new billing account simplifies billing for your organization while providin
 
 ![Image of ea-mca-post-transition-hierarchy](./media/mca-setup-account/mca-post-transition-hierarchy.png)
 
-1. You use the billing account to manage billing for your Microsoft customer agreement. Enterprise administrators become owners of the billing account. To learn more about billing account, see [understand billing account](../../billing/billing-mca-overview.md#your-billing-account).
-2. You use the billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [understand billing profiles](../../billing/billing-mca-overview.md#billing-profiles).
-3. You use an invoice section to organize your costs based on your needs, similar to departments in your Enterprise Agreement enrollment. Department becomes invoice sections and department administrators become owners of the respective invoice sections. To learn more about invoice sections, see [understand invoice sections](../../billing/billing-mca-overview.md#invoice-sections).
+1. You use the billing account to manage billing for your Microsoft customer agreement. Enterprise administrators become owners of the billing account. To learn more about billing account, see [understand billing account](../understand/mca-overview.md#your-billing-account).
+2. You use the billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [understand billing profiles](../understand/mca-overview.md#billing-profiles).
+3. You use an invoice section to organize your costs based on your needs, similar to departments in your Enterprise Agreement enrollment. Department becomes invoice sections and department administrators become owners of the respective invoice sections. To learn more about invoice sections, see [understand invoice sections](../understand/mca-overview.md#invoice-sections).
 4. The accounts that were created in your Enterprise Agreement aren’t supported in the new billing account. The account's subscriptions belong to the respective invoice section for their department. Account owners can create and manage subscriptions for their invoice sections.
 
 ## Changes to billing administrator access
@@ -268,7 +268,7 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 ## Next steps
 
-- [Get started with your new billing account](../../billing/billing-mca-overview.md)
+- [Get started with your new billing account](../understand/mca-overview.md)
 
 - [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](mca-enterprise-operations.md)
 

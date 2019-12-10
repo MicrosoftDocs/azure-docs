@@ -29,9 +29,9 @@ You can download tax documents for your Azure invoice if you have access to invo
 7. Select **Tax document** in the download menu. Depending on the country/region of your billing profile, you might see more than one tax document per invoice.
 
 ## Check billing account type
-[!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
+[!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
 
 ## Next steps
 
-- [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md)
-- [View and download your Microsoft Azure usage and charges](billing-download-azure-daily-usage.md)
+- [View and download your Microsoft Azure invoice](download-azure-invoice.md)
+- [View and download your Microsoft Azure usage and charges](download-azure-daily-usage.md)

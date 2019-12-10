@@ -127,4 +127,4 @@ Compare your Azure Marketplace total on **Reports** > **Usage Summary** in the E
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- [View and download your Azure usage and charges](../../billing/billing-download-azure-daily-usage.md)
+- [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md)

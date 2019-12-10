@@ -19,7 +19,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 The Azure usage and charges CSV file contains daily and meter-level usage charges for the current billing period.
 
-To get your Azure usage and charges file, see [View and download Azure usage and charges for your Microsoft Customer Agreement](billing-download-azure-daily-usage.md). It’s available in a comma-separated values (.csv) file format that you can open in a spreadsheet application.
+To get your Azure usage and charges file, see [View and download Azure usage and charges for your Microsoft Customer Agreement](download-azure-daily-usage.md). It’s available in a comma-separated values (.csv) file format that you can open in a spreadsheet application.
 
 Usage charges are the total **monthly** charges on a subscription. The usage charges don’t take into account any credits or discounts.
 
@@ -111,10 +111,10 @@ tags | Tags you assign to the resource
 
 ### Make sure that charges are correct
 
-If you want to make sure that the charges in your detailed usage file are correct, you can verify them. See [Understand the charges on your billing profile's invoice](billing-mca-understand-your-bill.md)
+If you want to make sure that the charges in your detailed usage file are correct, you can verify them. See [Understand the charges on your billing profile's invoice](mca-understand-your-bill.md)
 
 ## Check access to a Microsoft Customer Agreement
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+[!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
 ## Need help? Contact us.
 
@@ -122,5 +122,5 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md)
-- [View and download your Microsoft Azure usage and charges](billing-download-azure-daily-usage.md)
+- [View and download your Microsoft Azure invoice](download-azure-invoice.md)
+- [View and download your Microsoft Azure usage and charges](download-azure-daily-usage.md)

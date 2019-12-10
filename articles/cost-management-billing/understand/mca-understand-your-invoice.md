@@ -17,7 +17,7 @@ ms.author: banders
 
 This article applies to an Azure billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
-Your invoice provides a summary of your charges and instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md).
+Your invoice provides a summary of your charges and instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [View and download your Microsoft Azure invoice](download-azure-invoice.md).
 
 ## Billing period
 
@@ -31,7 +31,7 @@ The following sections list important terms that you see on your invoice and pro
 
 The **Invoice Summary** is at the top of the first page and shows information about your billing profile and how you pay.
 
-![Invoice summary section](./media/billing-understand-your-invoice-mca/invoicesummary.png)
+![Invoice summary section](./media/mca-understand-your-invoice/invoicesummary.png)
 
 | Term | Description |
 | --- | --- |
@@ -47,7 +47,7 @@ The **Invoice Summary** is at the top of the first page and shows information ab
 
 The **Billing Summary**  shows the charges against the billing profile since the previous billing period, any credits that were applied, tax, and the total amount due.
 
-![Billing summary section](./media/billing-understand-your-invoice-mca/billingsummary.png)
+![Billing summary section](./media/mca-understand-your-invoice/billingsummary.png)
 
 | Term | Description |
 | --- | --- |
@@ -66,12 +66,12 @@ For each invoice section under your billing profile, you'll see the charges, the
 
 ### Details by invoice section
 
-The details show the cost for each invoice section broken down by product order. Within each product order, cost is broken down by the type of service. You can find daily charges for your products and services in the Azure portal and Azure usage and charges CSV. To learn more see [Understand the charges on your invoice for a Microsoft Customer Agreement](billing-mca-understand-your-bill.md).
+The details show the cost for each invoice section broken down by product order. Within each product order, cost is broken down by the type of service. You can find daily charges for your products and services in the Azure portal and Azure usage and charges CSV. To learn more see [Understand the charges on your invoice for a Microsoft Customer Agreement](mca-understand-your-bill.md).
 
 The total amount due for each service family is calculated by subtracting *Azure credits* from *Credits/charges* and adding *Tax*:
 
 
-![Details by invoice section](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
+![Details by invoice section](./media/mca-understand-your-invoice/invoicesectiondetails.png)
 
 | Term |Description |
 | --- | --- |
@@ -92,7 +92,7 @@ At the bottom of the invoice, there are instructions for paying your bill. You c
 If you have third-party services in your bill, the name and address of each publisher is listed at the bottom of your invoice.
 
 ## Check access to a Microsoft Customer Agreement
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+[!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
 ## Need help? Contact us.
 
@@ -100,7 +100,7 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [Understand the charges on your billing profile's invoice](billing-mca-understand-your-bill.md)
-- [How to get your Azure billing invoice and daily usage data](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
-- [View your organization's Azure pricing](../cost-management-billing/manage/ea-pricing.md)
-- [View tax documents for your billing profile](billing-mca-download-tax-document.md)
+- [Understand the charges on your billing profile's invoice](mca-understand-your-bill.md)
+- [How to get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md)
+- [View your organization's Azure pricing](../manage/ea-pricing.md)
+- [View tax documents for your billing profile](mca-download-tax-document.md)
