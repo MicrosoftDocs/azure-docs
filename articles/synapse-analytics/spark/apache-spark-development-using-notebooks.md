@@ -1,11 +1,11 @@
 ---
 title: Using Azure Synapse Analytics studio notebook 
 description: Introduction of how to use Azure Synapse Analytics studio notebook  
-services: sql-data-warehouse 
+services: synapse analytics 
 author: ruixinxu 
-ms.service: sql-data-warehouse 
+ms.service: synapse-analytics 
 ms.topic: conceptual 
-ms.subservice: development
+ms.subservice:
 ms.date: 10/15/2019
 ms.author: ruxu 
 ms.reviewer: 

@@ -1,12 +1,12 @@
 ---
 title: Temporary tables in Azure SQL Analytics | Microsoft Docs
 description: Essential guidance for using temporary tables and highlights the principles of session level temporary tables. 
-services: sql-data-warehouse
+services: synapse analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice:
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan

@@ -1,11 +1,11 @@
 ---
 title: Using external tables in SQL Analytics
 description:
-services: sql-data-warehouse
+services: synapse analytics
 author: julieMSFT
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: design
+ms.subservice:
 ms.date: 10/21/2019
 ms.author: jrasnick
 ms.reviewer: jrasnick

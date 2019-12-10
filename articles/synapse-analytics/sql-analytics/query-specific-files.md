@@ -1,11 +1,11 @@
 ---
 title: Querying specific files
 description: Sometimes you may need to know which row in result set came from which file/folder. In such cases, you can use virtual columns to return file name and/or path in result set, or you can use them to filter data based on file name and/or folder path.
-services: sql-data-warehouse
+services: synapse analytics
 author: azaricstefan
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: design
+ms.subservice:
 ms.date: 10/07/2019
 ms.author: v-stazar
 ms.reviewer: jrasnick

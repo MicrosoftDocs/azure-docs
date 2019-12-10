@@ -1,11 +1,11 @@
 ---
 title: Querying storage files
 description: Describes querying storage files using SQL Analytics on-demand.
-services: sql-data-warehouse
+services: synapse analytics
 author: azaricstefan
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: design
+ms.subservice:
 ms.date: 10/21/2019
 ms.author: v-stazar
 ms.reviewer: jrasnick

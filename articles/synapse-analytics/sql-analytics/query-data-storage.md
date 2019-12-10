@@ -1,11 +1,11 @@
 ---
 title: Overview - Query data in storage
 description: This section contains sample queries you can use to try out SQL on-demand service.
-services: sql-data-warehouse
+services: synapse analytics
 author: azaricstefan
-ms.service: sql-data-warehouse 
+ms.service: synapse-analytics 
 ms.topic: overview
-ms.subservice: design
+ms.subservice:
 ms.date: 10/07/2019
 ms.author: v-stazar
 ms.reviewer: jrasnick

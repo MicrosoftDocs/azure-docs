@@ -1,11 +1,11 @@
 ---
 title: Connect to Azure SQL analytics - SSMS | Microsoft Docs
 description: Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL analytics. 
-services: sql-data-warehouse
+services: synapse analytics
 author: azaricstefan 
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview 
-ms.subservice: design 
+ms.subservice: 
 ms.date: 10/21/2019 
 ms.author: v-stazar 
 ms.reviewer: jrasnick

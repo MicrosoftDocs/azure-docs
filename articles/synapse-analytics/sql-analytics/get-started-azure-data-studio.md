@@ -1,11 +1,11 @@
 ---
 title: Connect to Azure SQL analytics with Azure Data Studio | Microsoft Docs
 description: Use Azure Data Studio to connect to and query an Azure SQL on-demand.
-services: sql-data-warehouse
+services: synapse analytics
 author: azaricstefan 
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview 
-ms.subservice: design 
+ms.subservice: 
 ms.date: 10/22/2019 
 ms.author: v-stazar 
 ms.reviewer: jrasnick

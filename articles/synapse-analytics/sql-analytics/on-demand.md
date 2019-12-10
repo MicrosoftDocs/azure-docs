@@ -1,11 +1,11 @@
 ---
 title: What is SQL Analytics on-demand
 description: SQL Analytics on-demand overview
-services: sql-data-warehouse
+services: synapse analytics
 author: filippopovic
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: design
+ms.subservice:
 ms.date: 09/10/2019
 ms.author: fipopovi
 ms.reviewer: jrasnick

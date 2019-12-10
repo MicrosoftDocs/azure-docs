@@ -1,12 +1,12 @@
 ---
 title: Development best practices for SQL Analytics | Microsoft Docs
 description: Recommendations and best practices you should know as you develop for SQL Analytics. 
-services: sql-data-warehouse
+services: synapse analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice:
 ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
