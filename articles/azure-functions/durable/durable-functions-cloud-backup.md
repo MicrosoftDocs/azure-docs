@@ -30,7 +30,7 @@ This article explains the following functions in the sample app:
 * `E2_GetFileList`: An activity function that returns a list of files in a directory.
 * `E2_CopyFileToBlob`: An activity function that backs up a single file to Azure Blob Storage.
 
-## E2_BackupSiteContent orchestrator
+### E2_BackupSiteContent orchestrator
 
 This orchestrator function essentially does the following:
 
@@ -69,11 +69,11 @@ After yielding from `context.df.Task.all`, we know that all function calls have 
 
 ---
 
-## Helper activity functions
+### Helper activity functions
 
 The helper activity functions, as with other samples, are just regular functions that use the `activityTrigger` trigger binding.
 
-### E2_GetFileList activity function
+#### E2_GetFileList activity function
 
 # [C#](#tab/csharp)
 
@@ -96,7 +96,7 @@ The function uses the `readdirp` module to recursively read the directory struct
 > [!NOTE]
 > You might be wondering why you couldn't just put this code directly into the orchestrator function. You could, but this would break one of the fundamental rules of orchestrator functions, which is that they should never do I/O, including local file system access.
 
-### E2_CopyFileToBlob activity function
+#### E2_CopyFileToBlob activity function
 
 # [C#](#tab/csharp)
 
