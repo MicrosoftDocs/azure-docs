@@ -69,7 +69,7 @@ You can update the authoring resource set in the new project window, and set a p
 > You will need to set a prediction resource before your application requests predictions beyond the 1,000 requests provided by the authoring resource.
 
 > [!div class="mx-imgBorder"]
-> ![Set LUIS Resources](media/custom-speech-commands/set-luis-resource.png)
+> ![Set LUIS Resources](media/custom-speech-commands/set-luis-resources.png)
 
 1. Navigate to the LUIS Resources pane by selecting **Settings** from the left pane, and then **LUIS Resources** from the middle pane.
 1. Select a prediction resource, or create one by selecting **Create new resource**
@@ -119,11 +119,11 @@ Now add a Completion Rule to respond to the user indicating that an action is be
 
    > [!div class="mx-imgBorder"]
    > ![Create a Speech response](media/custom-speech-commands/create-speech-response-action.png)
+
 1. Click **Save** to save the rule
 
 > [!div class="mx-imgBorder"]
 > ![Create a completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
-
 
 
 | Setting    | Suggested value                        | Description                                        |
