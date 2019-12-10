@@ -22,7 +22,7 @@ When you're trying to update a virtual machine whose previous data disk detach f
 
 ```
 Code=\"AttachDiskWhileBeingDetached\" 
-Message=\"Cannot attach data disk 'f94901ef-75ee-4477-9ad6-1c74da50e7ef' to virtual machine 'aks-systempool-23089071-vm_4' because the disk is currently being detached or the last detach  operation failed. Please wait until the disk is completely detached, and then try again or delete/detach the disk explicitly again\” 
+Message=\"Cannot attach data disk '{disk ID}' to virtual machine '{vmName}' because the disk is currently being detached or the last detach  operation failed. Please wait until the disk is completely detached, and then try again or delete/detach the disk explicitly again\” 
 ```
 
 ## Cause
@@ -66,7 +66,7 @@ PS D:> Remove-AzureRmVMDataDisk -VM $vm -Name "<disk ID>"
 ### Step 3: Update the virtual machine
 
 ```azurepowershell-interactive
-PS D:> Update-AzureRmVM -ResourceGroupName "<Example Resource Group>" -VM $vm 
+PS D:> Update-AzureRmVM -ResourceGroupName "Example Resource Group" -VM $vm 
 ```
 
 ## Solution 2: REST
@@ -146,7 +146,7 @@ Alternately you can also remove the failing data disk from the above payload, wh
 Use the request body payload set in Step 2 and update the virtual machine as follows:
 
 ```azurepowershell-interactive
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?$expand=instanceView&api-version=2019-03-01
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2019-03-01
 ```
 
 **Sample Response:**
