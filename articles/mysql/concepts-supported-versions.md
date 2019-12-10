@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 12/09/2019
 ---
 # Supported Azure Database for MySQL server versions
 
@@ -20,15 +20,15 @@ Azure Database for MySQL currently supports the following versions:
 
 ## MySQL Version 5.6
 
-Bug fix release: 5.6.44
+Bug fix release: 5.6.45
 
-Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-44.html) to learn more about improvements and fixes in this version.
+Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html) to learn more about improvements and fixes in this version.
 
 ## MySQL Version 5.7
 
-Bug fix release: 5.7.26
+Bug fix release: 5.7.27
 
-Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-26.html) to learn more about improvements and fixes in this version.
+Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) to learn more about improvements and fixes in this version.
 
 ## MySQL Version 8.0
 

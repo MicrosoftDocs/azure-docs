@@ -2,11 +2,11 @@
 title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template to retrieve deployment information.
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/27/2019
 ---
 # Deployment functions for Azure Resource Manager templates 
 
-Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
+Resource Manager provides the following functions for getting values related to the current deployment:
 
 * [deployment](#deployment)
 * [environment](#environment)
@@ -135,7 +135,7 @@ Returns information about the Azure environment used for deployment.
 
 ### Return value
 
-This function returns properties for the current Azure environment.
+This function returns properties for the current Azure environment. The following example shows the properties for global Azure. Sovereign clouds may return slightly different properties.
 
 ```json
 {

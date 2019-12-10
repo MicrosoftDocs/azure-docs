@@ -81,7 +81,7 @@ Create a new .NET Core application in your preferred editor or IDE.
 
 1. In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `language-understanding-quickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`. 
 
-    ```console
+    ```dotnetcli
     dotnet new console -n language-understanding-quickstart
     ```
 
@@ -89,7 +89,7 @@ Create a new .NET Core application in your preferred editor or IDE.
 
 1. You can build the application with:
 
-    ```console
+    ```dotnetcli
     dotnet build
     ```
 
@@ -108,7 +108,7 @@ Create a new .NET Core application in your preferred editor or IDE.
 
 Within the application directory, install the Language Understanding (LUIS) authoring client library for .NET with the following command:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring --version 3.0.0
 ```
 
@@ -143,7 +143,7 @@ These code snippets show you how to do the following with the Language Understan
 
 ## Add the dependencies
 
-From the project directory, open the **Program.cs** file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
+From the project directory, open the *Program.cs* file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
 
 [!code-csharp[Using statements](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=Dependencies)]
 
@@ -222,9 +222,9 @@ Publish the LUIS app using the [PublishAsync](https://docs.microsoft.com/dotnet/
 
 ## Run the application
 
-Run the application with the dotnet `run` command from your application directory.
+Run the application with the `dotnet run` command from your application directory.
 
-```console
+```dotnetcli
 dotnet run
 ```
 

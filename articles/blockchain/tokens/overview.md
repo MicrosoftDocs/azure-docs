@@ -1,12 +1,8 @@
 ---
 title: What is Azure Blockchain Tokens
 description: Azure Blockchain Tokens is a platform as a service (PaaS) for token issuance and management.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/04/2019
 ms.topic: overview
-ms.service: azure-blockchain
 ms.reviewer: brendal
 #Customer intent: As a developer, I want to use Azure Blockchain Tokens to issue and manage blockchain tokens across blockchain ledgers.
 ---

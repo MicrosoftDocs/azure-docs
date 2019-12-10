@@ -1,15 +1,15 @@
 ---
-title: Authentication methods usage & insights reporting (preview) - Azure Active Directory
+title: Authentication methods usage & insights - Azure Active Directory
 description: Reporting on Azure AD self-service password reset and Multi-Factor Authentication authentication method usage
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 

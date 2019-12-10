@@ -1,10 +1,10 @@
 ---
 title: System functions in Azure Cosmos DB query language
-description: Learn about SQL System functions in Azure Cosmos DB.
+description: Learn about built-in and user defined SQL system functions in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 12/02/2019
 ms.author: girobins
 ms.custom: query-reference
 ---

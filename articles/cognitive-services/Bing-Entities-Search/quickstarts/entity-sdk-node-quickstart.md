@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Send a search request with the Bing Entity Search SDK for Node.js"
+title: "Quickstart: Send a search request with the SDK for Node.js - Bing Entity Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search for entities with the Bing Entity Search SDK for Node.js
 services: cognitive-services

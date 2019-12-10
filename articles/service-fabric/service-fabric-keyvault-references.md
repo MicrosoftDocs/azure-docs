@@ -33,7 +33,7 @@ A common challenge when building cloud applications is how to securely store sec
         ...
     {
         "parameters":  [
-            "name":  "CentralSecretService"
+            "name":  "CentralSecretService",
                 {
                     "name":  "IsEnabled",
                     "value":  "true"

@@ -1,13 +1,8 @@
 ﻿---
-title: Guidance on deploying apps with templates - Azure App Service | Microsoft Docs 
-description: Recommendations for creating Azure Resource Manager templates to deploy web apps.
-services: app-service
-documentationcenter: app-service
+title: Deploy apps with templates
+description: Find guidance on creating Azure Resource Manager templates to provision and deploy App Service apps.
 author: tfitzmac
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz

@@ -1,7 +1,7 @@
 ---
 title: Get the Speech Devices SDK
 titleSuffix: Azure Cognitive Services
-description: The Speech Service works with a wide variety of devices and audio sources. Now, you can take your speech applications to the next level with matched hardware and software. In this article, you'll learn how to get access to the Speech Devices SDK and start developing.
+description: The Speech service works with a wide variety of devices and audio sources. Now, you can take your speech applications to the next level with matched hardware and software. In this article, you'll learn how to get access to the Speech Devices SDK and start developing.
 services: cognitive-services
 author: erhopf
 manager: nitinme

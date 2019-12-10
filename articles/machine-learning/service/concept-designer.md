@@ -15,7 +15,7 @@ ms.date: 11/12/2019
 # What is Azure Machine Learning designer (preview)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Azure Machine Learning designer lets you visually connect [datasets](#datasets) and  [modules](#module) on an interactive canvas to create machine learning models. To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
+Azure Machine Learning designer lets you visually connect [datasets](#datasets) and [modules](#module) on an interactive canvas to create machine learning models. To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 
 ![Azure Machine Learning designer example](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
@@ -41,7 +41,7 @@ The designer gives you a visual canvas to build, test, and deploy machine learni
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
 + [Deploy](#deploy) a **real-time inference pipeline** to a real-time endpoint to make predictions on new data in real time.
 
-![Workflow diagram for training, batch inference, and real-time inference in the designer](media/ui-concept-visual-interface/designer-workflow-diagram.png)
+![Workflow diagram for training, batch inference, and real-time inference in the designer](media/concept-designer/designer-workflow-diagram.png)
 
 ## Pipeline
 
@@ -76,7 +76,7 @@ A module is an algorithm that you can perform on your data. The designer has a n
 
 A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model. You can set the compute resources for individual modules in the designer. 
 
-![Module properties](media/ui-concept-visual-interface/properties.png)
+![Module properties](media/concept-designer/properties.png)
 
 For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](../algorithm-module-reference/module-reference.md)
 
@@ -89,7 +89,7 @@ Use compute resources from your workspace to run your pipeline and host your dep
 | Azure Machine Learning compute | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Compute targets are attached to your Machine Learning [workspace](concept-workspace.md). You manage your compute targets in your workspace in [Azure Machine Learning studio](https://ml.azure.com).
+Compute targets are attached to your [Azure Machine Learning workspace](concept-workspace.md). You manage your compute targets in your workspace in [Azure Machine Learning Studio (classic)](https://ml.azure.com).
 
 ## Deploy
 
@@ -103,7 +103,7 @@ To learn how to deploy your model, see [Tutorial: Deploy a machine learning mode
 
 You can also publish a pipeline to a **pipeline endpoint**. Similar to a real-time endpoint, a pipeline endpoint lets you submit new pipeline runs from external applications using REST calls. However, you cannot send or receive data in real-time using a pipeline endpoint.
 
-Published pipelines are flexible, they can be used to train or retrain models, perform batch inferencing, process new data, and much more. You can publish multiple pipelines to a single pipeline endpoint and specify which pipeline version to run.
+Published pipelines are flexible, they can be used to train or retrain models, [perform batch inferencing](how-to-run-batch-predictions-designer.md), process new data, and much more. You can publish multiple pipelines to a single pipeline endpoint and specify which pipeline version to run.
 
 A published pipeline runs on the compute resources you define in the pipeline draft for each module.
 
