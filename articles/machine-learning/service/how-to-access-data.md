@@ -93,7 +93,7 @@ The following examples show how to register an Azure Blob Container,   an Azure 
                                                       create_if_not_exists=True)
     ```
 
-+ For an **Azure SQL Datastore**, register a credential Datastore connected to an Azure SQL database with SQL authentication or service principal permissions. 
++ For an **Azure MySQL Datastore**, register a credential Datastore connected to an Azure mySQL database with SQL authentication or service principal permissions. 
 
     #### By SQL authentication
 
