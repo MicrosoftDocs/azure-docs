@@ -2,15 +2,13 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/10/2019
 ---
 # Using linked and nested templates when deploying Azure resources
 
-To deploy your solution, you can use either a single template or a main template with many related templates. The related templates can either be separate files that are linked to from the main template, or templates that are nested within the main template.
+To deploy complex solutions, you can break your template into many related templates. You create a main template that connects all of the related templates, and deploy that main template. The related templates can be separate files or template syntax that is embedded within the main template. This article uses the term **linked template** to refer to a separate template file that is linked to from the main template. It uses the term **nested template** to refer to embedded template syntax within the main template.
 
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. You can easily reuse these templates for other scenarios.
-
-When using linked templates, you create a main template that receives the parameter values during deployment. The main template contains all the linked templates and passes values to those templates as needed.
 
 For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./resource-manager-tutorial-create-linked-templates.md).
 
@@ -18,29 +16,9 @@ For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](.
 > For linked or nested templates, you can only use [Incremental](deployment-modes.md) deployment mode.
 >
 
-## Deployments resource
-
-To link to another template, add a **deployments** resource to your main template.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2018-05-01",
-    "name": "linkedTemplate",
-    "properties": {
-        "mode": "Incremental",
-        <nested-template-or-external-template>
-    }
-  }
-]
-```
-
-The properties you provide for the deployment resource vary based on whether you're linking to an external template or nesting an inline template in the main template.
-
 ## Nested template
 
-To nest the template within the main template, use the **template** property and specify the template syntax.
+To create a nested template, add the [deployments resource type](/azure/templates/microsoft.resources/2019-08-01/deployments) to the parent template, and embed all of the template syntax within the resource. To nest the template within the main template, use the **template** property and specify the template syntax.
 
 ```json
 "resources": [
@@ -49,6 +27,9 @@ To nest the template within the main template, use the **template** property and
     "apiVersion": "2018-05-01",
     "name": "nestedTemplate",
     "properties": {
+      "expressionEvaluationOptions": {
+        "scope": "inner"
+      },
       "mode": "Incremental",
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -71,21 +52,15 @@ To nest the template within the main template, use the **template** property and
 ]
 ```
 
+When using a nested template, you must specify whether template expressions are evaluated within the scope of the parent template or the nested template. For example, the preceding example uses a parameter named `storageName`. You can specify whether that parameter comes from the parent template or the nested template. You set the scope through the `expressionEvaluationOptions` property. By default, the `expressionEvaluationOptions` property is set to `outer`, which means it uses the parent template scope.
+
 > [!NOTE]
-> For nested templates, you cannot use parameters or variables that are defined within the nested template. You can use parameters and variables from the main template. In the preceding example, `[variables('storageName')]` retrieves a value from the main template, not the nested template. This restriction does not apply to external templates.
->
-> For two resources defined inside a nested template and one resource depends on the other, the value of the dependency is simply the name of the dependent resource:
-> ```json
-> "dependsOn": [
->   "[variables('storageAccountName')]"
-> ],
-> ```
 >
 > You can't use the `reference` function in the outputs section of a nested template for a resource you have deployed in the nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
 The nested template requires the [same properties](resource-group-authoring-templates.md) as a standard template.
 
-## External template
+## Linked template
 
 To link to an external template, use the **templateLink** property. You can't specify a local file or a file that is only available on your local network. You can only provide a URI value that includes either **http** or **https**. Resource Manager must be able to access the template.
 
@@ -370,7 +345,7 @@ To use the public IP address from the preceding template when deploying a load b
 }
 ```
 
-## Linked and nested templates in deployment history
+## Deployment history
 
 Resource Manager processes each template as a separate deployment in the deployment history. Therefore, a main template with three linked or nested templates appears in the deployment history as:
 
