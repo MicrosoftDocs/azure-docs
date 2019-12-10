@@ -1,5 +1,5 @@
 ---
-title: Build an iOS app integrated with Azure AD for sign-in using OAuth 2.0 | Microsoft Docs
+title: Sign in and call Microsoft Graph from iOS | Azure
 description: Learn how to sign in users and call the Microsoft Graph API from my iOS app.
 services: active-directory
 author: rwike77
