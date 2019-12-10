@@ -42,7 +42,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A user account in ServiceNow with the admin role
 
 ## 1. Plan your provisioning deployment
-1. Learn about how provisioning the provisioning service works (add link when public)
+1. Learn about how provisioning the provisioning service works (add link when public).
 2. Determine who will be in [scope for provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)
 3. Determine what data to [map between Azure AD and ServiceNow](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
