@@ -14,14 +14,14 @@ ms.author: erhopf
 
 # What is speech-to-text?
 
-Speech-to-text from the Speech service, also known as speech recognition, enables real-time transcription of audio streams into text. Your applications, tools, or devices can consume, display, and take action on this text as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products. It seamlessly works with the translation and text-to-speech service offerings. For a full list of available speech-to-text languages, see [supported languages](language-support.md#speech-to-text).
+Speech-to-text from the Speech service, also known as speech recognition, enables real-time transcription of audio streams into text. Your applications, tools, or devices can consume, display, and take action on this text as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products. It seamlessly works with the <a href="speech-translation" target="_blank">translation <span class="docon docon-navigate-external x-hidden-focus"></span></a> and <a href="text-to-speech" target="_blank">text-to-speech</a> service offerings. For a full list of available speech-to-text languages, see [supported languages](language-support.md#speech-to-text).
+
+The speech-to-text service defaults to using the Universal language model. This model was trained using Microsoft-owned data and is deployed in the cloud. It's optimal for conversational and dictation scenarios. When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models. Customization is helpful for addressing ambient noise or industry-specific vocabulary.
 
 > [!NOTE]
 > Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to the Speech service.
 > - [Migrate from Bing Speech to the Speech service](how-to-migrate-from-bing-speech.md)
 > - [Migrate from Custom Speech to the Speech service](how-to-migrate-from-custom-speech-service.md)
-
-The speech-to-text service defaults to using the Universal language model. This model was trained using Microsoft-owned data and is deployed in the cloud. It's optimal for conversational and dictation scenarios. When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models. Customization is helpful for addressing ambient noise or industry-specific vocabulary.
 
 ## Get started with speech-to-text
 
@@ -37,12 +37,12 @@ If you prefer to use the speech-to-text REST service, see [REST APIs](rest-apis.
 
 After you've had a chance to use the Speech service, try our tutorial that teaches you how to recognize intents from speech using the Speech SDK and LUIS.
 
-- [Tutorial: Recognize intents from speech with the Speech SDK and LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
+- [Tutorial: Recognize intents from speech with the Speech SDK and LUIS, using C#](how-to-recognize-intents-from-speech-csharp.md)
 
 Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models.
 
-- [Speech-to-text samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-- [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+- [Speech-to-text samples using the SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+- [Batch transcription samples using REST APIs](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
 ## Customization
 
@@ -67,9 +67,7 @@ If your applications, tools, or products are using the Bing Speech APIs or Custo
 ## Reference docs
 
 - [Speech SDK](speech-sdk.md)
-- [Speech Devices SDK](speech-devices-sdk.md)
 - [REST API: Speech-to-text](rest-speech-to-text.md)
-- [REST API: Text-to-speech](rest-text-to-speech.md)
 - [REST API: Batch transcription and customization](https://cris.ai/swagger/ui/index)
 >>>>>>> Updates to formatting, etc.
 
