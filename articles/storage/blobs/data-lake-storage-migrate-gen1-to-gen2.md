@@ -11,11 +11,33 @@ ms.subservice: data-lake-storage-gen2
 
 # Migrate Azure Data Lake Storage from Gen1 to Gen2
 
-Move from Data Lake Storage Gen1 to Data Lake Storage Gen2 to continue using Gen1 features such as file system semantics, directory and file level security, and scale while receiving the added benefit of low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md). 
+Migrate data, workloads, and applications from Data Lake Storage Gen1 to Data Lake Storage Gen2.
 
-Azure Data Lake Storage Gen2 and Azure Data Lake Storage Gen1 are separate services so there's no way to upgrade in-place. Instead, you'll move data to a new storage account, and then update workloads and applications to use that new account. This article 
+Data Lake Storage Gen2 is Microsoft's latest Data Lake Storage repository. It combines Gen1 features such as file system semantics, directory and file level security, and scale with low-cost, tiered storage, high availability/disaster recovery capabilities from Azure Blob Storage. 
 
-## Assess whether to migrate
+To learn more, see [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
+
+> [!NOTE]
+> For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2.
+
+## Gen1 to Gen2 road map
+
+To migrate to Gen2, we recommend the following path.
+
+:one: Assess whether to migrate
+
+:two: Prepare to migrate
+
+:three: Migrate data
+
+:four: Update analytic workloads
+
+:five: Update applications
+
+> [!NOTE]
+> There's no way to convert a Gen1 account into Gen2 because these accounts run in separate services.
+
+### Step 1: Assess whether to migrate
 
 1. Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); it's benefits, costs, and general architecture. 
 
@@ -27,7 +49,7 @@ Azure Data Lake Storage Gen2 and Azure Data Lake Storage Gen1 are separate servi
 
 5. Review the current state of [Azure ecoysystem support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-ecosystem-support) to ensure that services that your solutions depend upon support Data Lake Storage Gen2.
 
-## Prepare to migrate
+### Step 2: Prepare to migrate
 
 1. Identify the data sets that you'll migrate.
 
@@ -37,7 +59,7 @@ Azure Data Lake Storage Gen2 and Azure Data Lake Storage Gen1 are separate servi
 
 5. Choose a [data transfer tool](#data-transfer-tools).
 
-## Migrate data
+### Step 3: Migrate data
 
 1. [Create a storage account](data-lake-storage-quickstart-create-account.md) and enable the hierarchical namespace feature. 
 
@@ -51,7 +73,7 @@ Azure Data Lake Storage Gen2 and Azure Data Lake Storage Gen1 are separate servi
 
    For a complete guide to security, see [Azure Storage security guide](../common/storage-security-guide.md).
 
-## Update analytic workloads
+### Step 4: Update analytic workloads
 
 1. Configure services in your workloads to point to your Data Lake Storage Gen2 endpoint. 
 
@@ -63,7 +85,7 @@ Azure Data Lake Storage Gen2 and Azure Data Lake Storage Gen1 are separate servi
 
    For example: the Data Lake Storage Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` might become `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`. 
 
-## Update custom applications
+### Step 5: Update applications
 
 1. Update applications to use Data Lake Storage Gen2 APIs. See guides for [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), and [REST](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2). 
 
