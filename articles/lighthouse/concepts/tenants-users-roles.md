@@ -19,11 +19,11 @@ Whichever onboarding method you choose, you will need to define *authorizations*
 
 When defining an authorization, each user account must be assigned one of the [role-based access control (RBAC) built-in roles](../../role-based-access-control/built-in-roles.md). Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
 
-All [built-in roles](../../role-based-access-control/built-in-roles/md) are currently supported with Azure delegated resource management, with the following exceptions:
+All [built-in roles](../../role-based-access-control/built-in-roles.md) are currently supported with Azure delegated resource management, with the following exceptions:
 
 - The [Owner](../../role-based-access-control/built-in-roles.md#owner) role is not supported.
 - Any built-in roles with [DataActions](../../role-based-access-control/role-definitions.md#dataactions) permission are not supported.
-- The [User Access Administrator](../../role-based-access-control/built-in-roles#user-access-administrator.md) built-in role is supported, but only for the limited purpose of [assigning roles to a managed identity in the customer tenant](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). No other permissions typically granted by this role will apply. If you define a user with this role, you must also specify the built-in role(s) that this user can assign to managed identities.
+- The [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) built-in role is supported, but only for the limited purpose of [assigning roles to a managed identity in the customer tenant](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). No other permissions typically granted by this role will apply. If you define a user with this role, you must also specify the built-in role(s) that this user can assign to managed identities.
 
 ## Best practices for defining users and roles
 
