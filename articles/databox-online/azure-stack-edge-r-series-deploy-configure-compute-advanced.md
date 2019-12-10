@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 12/10/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ---
@@ -141,7 +141,7 @@ For the advanced deployment in this tutorial, you'll need two shares: one Edge s
 
 4. Copy and save the sample route. You will modify this sample route and use it later in the IoT Hub.
 
-    `"sampleroute": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
+    `"sampleroute": "FROM /* WHERE topic = 'myasetestsmblocalcomp11' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
 
     ![Add trigger](./media/azure-stack-edge-r-series-deploy-configure-compute-advanced/add-trigger-4.png)-->
 
@@ -197,8 +197,8 @@ In this section, you add a custom module to the IoT Edge device that you created
           {
            "Binds": 
             [
-             "/home/hcsshares/mydbesmbedgelocalshare1:/home/input",
-             "/home/hcsshares/mydbesmbedgeshare1:/home/output"
+             "/home/hcsshares/myasetestsmblocalcomp11:/home/input",
+             "/home/hcsshares/myasetestsmbcomp1:/home/output"
             ]
            }
         }
