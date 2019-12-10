@@ -16,32 +16,20 @@ ms.author: erhopf
 
 Speech-to-text from the Speech service, also known as speech recognition, enables real-time transcription of audio streams into text. Your applications, tools, or devices can consume, display, and take action on this text as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products. It seamlessly works with the translation and text-to-speech service offerings. For a full list of available speech-to-text languages, see [supported languages](language-support.md#speech-to-text).
 
+> [!NOTE]
+> Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to the Speech service.
+> - [Migrate from Bing Speech to the Speech service](how-to-migrate-from-bing-speech.md)
+> - [Migrate from Custom Speech to the Speech service](how-to-migrate-from-custom-speech-service.md)
+
 The speech-to-text service defaults to using the Universal language model. This model was trained using Microsoft-owned data and is deployed in the cloud. It's optimal for conversational and dictation scenarios. When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models. Customization is helpful for addressing ambient noise or industry-specific vocabulary.
-
-## Core features
-
-The Speech service offers REST APIs and SDK support. Here are the core features available:
-
-| Use case | SDK | REST |
-|----------|-----|------|
-| Transcribe short utterances (<15 seconds). Only supports one final transcription result. | Yes | Yes <sup>1</sup> |
-| Continuous transcription of long utterances and streaming audio (>15 seconds). Supports interim and final transcription results. | Yes | No |
-| Derive intents from recognition results with [LUIS](../LUIS/what-is-luis.md). | Yes | No <sup>2</sup> |
-| Batch transcription of audio files asynchronously. | No  | Yes <sup>3</sup> |
-| Create and manage speech models. | No | Yes <sup>3</sup> |
-| Create and manage custom model deployments. | No  | Yes <sup>3</sup> |
-| Create accuracy tests to measure the accuracy of the baseline model versus custom models. | No | Yes <sup>3</sup> |
-| Manage subscriptions. | No  | Yes <sup>3</sup> |
-
-<sup>1</sup> _Using the REST functionality you can transfer up to 60 seconds of audio and will receive one final transcription result._
-
-<sup>2</sup> _LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK calls LUIS for you and provides entity and intent results. With the REST API, you call LUIS yourself to derive intents and entities with your LUIS subscription._
-
-<sup>3</sup> _These services are available using the cris.ai endpoint. See [Swagger reference](https://cris.ai/swagger/ui/index)._
 
 ## Get started with speech-to-text
 
-We offer quickstarts in many popular programming languages, each designed to have you running code in less than 10 minutes. [This table](https://aka.ms/csspeech#5-minute-quickstarts) includes a complete list of Speech SDK quickstarts organized by platform and language. API reference can also be found [here](https://aka.ms/csspeech#reference).
+The speech-to-text service is available via the [Speech SDK](speech-sdk.md). There are several common scenarios available as quickstarts:
+
+ - [Quickstart: Recognize speech from a microphone](speech-to-text-from-microphone.md)
+ - [Quickstart: Recognize speech from a file](speech-to-text-from-file.md)
+ - [Quickstart: Recognize speech from a blob](speech-to-text-from-blob.md)
 
 If you prefer to use the speech-to-text REST service, see [REST APIs](rest-apis.md).
 
@@ -60,9 +48,10 @@ Sample code for the Speech SDK is available on GitHub. These samples cover commo
 
 In addition to the standard Speech service model, you can create custom models. Customization helps to overcome speech recognition barriers such as speaking style, vocabulary and background noise, see [Custom Speech](how-to-custom-speech.md)
 
-> [!NOTE]
+> [!TIP]
 > Customization options vary by language/locale (see [supported languages](supported-languages.md)).
 
+<<<<<<< HEAD
 ## Migration guides
 
 > [!WARNING]
@@ -74,6 +63,15 @@ If your applications, tools, or products are using the Bing Speech APIs or Custo
 - [Migrate from Custom Speech to the Speech service](how-to-migrate-from-custom-speech-service.md)
 
 [!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
+=======
+## Reference docs
+
+- [Speech SDK](speech-sdk.md)
+- [Speech Devices SDK](speech-devices-sdk.md)
+- [REST API: Speech-to-text](rest-speech-to-text.md)
+- [REST API: Text-to-speech](rest-text-to-speech.md)
+- [REST API: Batch transcription and customization](https://cris.ai/swagger/ui/index)
+>>>>>>> Updates to formatting, etc.
 
 ## Next steps
 
