@@ -129,6 +129,8 @@
         href: set-throughput.md
       - name: Provision throughput - autopilot mode
         href: provision-throughput-autopilot.md
+      - name: Autopilot FAQ
+        href: autopilot-faq.md        
     - name: SQL query reference      
       items:
       - name: Getting started

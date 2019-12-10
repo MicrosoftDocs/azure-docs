@@ -74,10 +74,3 @@ Yes. It is possible to see 429s in two scenarios. First, when the overall consum
 Second, if there is a hot partition, i.e. a logical partition key value that has a disproportionately higher amount of requests compared to other partition key values, it is possible for the underlying physical partition to exceed its RU/s budget. As a best practice, to avoid hot partitions, [choose a good partition key](partitioning-overview.md#choose-partitionkey) that results in an even distribution of both storage and throughput. 
 
 For example, if you select the 20,000 RU/s max throughput option and have 200GB of storage, with 4 physical partitions, each physical partition can be auto-scaled up to 5000 RU/s. If there was a hot partition on a particular logical partition key, you will see 429s when the underlying physical partition it resides in exceeds 5000 RU/s, i.e. exceeds 100% normalized utilization.
-
-
-
-
-
-
-
