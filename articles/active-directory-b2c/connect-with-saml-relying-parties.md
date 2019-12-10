@@ -67,7 +67,7 @@ You can use a certificate issued by a public certificate authority or, for this 
 
 ### 1.1 Prepare a self-signed certificate
 
-If you don't already have a certificate, you can create a self-signed certificate by using PowerShell's [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet.
+If you don't already have a certificate, you can use a self-signed certificate for this walkthrough. On Windows, you can use PowerShell's [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
 
 1. Execute this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
 
@@ -300,7 +300,9 @@ When an authentication is made with `AssertionConsumerServiceIndex`, only values
 
 ## 5. Update your application code
 
-You'll need to setup B2C as a SAML IdP in the SAML RP / application. Each application has different steps to do so, look at your app's documentation for guidance on how to do so. You will be required to provide some or all the following data points:
+The last step is to enable Azure AD B2C as a SAML IdP in your SAML relying party application. Each application is different and the steps to do so vary. Consult your app's documentation for details.
+
+Some or all the following are typically required:
 
 * **Metadata**: https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata
 * **Issuer**: https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name
@@ -314,29 +316,29 @@ You'll need to setup B2C as a SAML IdP in the SAML RP / application. Each applic
 
 ### 5.1 Test with the simulator (optional)
 
-To complete this walkt through with our SAML test application:
+To complete this walk through with our SAML test application:
 
-* Update Tenant Name
-* Update B2C policy name. (e.g. B2C_1A_signup_signin_SAML)
-* Issuer Uri as: https://cpim3.ccsctp.net/samlAPPUITest
+* Update the tenant name
+* Update policy name, for example *B2C_1A_signup_signin_SAML*
+* Issuer URI: `https://cpim3.ccsctp.net/samlAPPUITest`
 
-Select LOGIN  and you should be presented with an end user login screen, which upon completion will issue a SAML Assertion back to the sample application...
+Select **LOGIN** and you should be presented with an end user sign-in screen. Upon sign-in, a SAML assertion is issued back to the sample application.
 
 ## Sample policy
 
-A complete sample policy that works with the SAML App simulator (SAMLTEST) is located here:
+A complete sample policy that works with the SAML App Simulator (SAMLTEST) is located here:
 
-1. Download The SAML-SP-initiated login sample here: https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated
-1. Update TenantID to match your tenant name (e.g. contoso.b2clogin.com)
-1. Keep the policy name as:   B2C_1A_SAML2_signup_signin
+1. Download the [SAML-SP-initiated login sample policy](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated)
+1. Update `TenantId` to match your tenant name, for example *contoso.b2clogin.com*
+1. Keep the policy name of *B2C_1A_SAML2_signup_signin*
 
 ## Supported and unsupported SAML modalities
 
-* IdP Initiated logins are not supported in this iteration
 * The following SAML RP scenarios are supported via your own metadata endpoint:
-  * Supporting multiple logout urls or POST binding for logout url in application/service principal object. ( Supported via metadata url)
+  * Supporting multiple logout urls or POST binding for logout url in application/service principal object. (Supported via metadata url)
   * Support specifying signing key to verify RP requests in application/service principal object. (Supported via metadata url)
   * Support for specifying token encryption key in application/service principal. (Supported via metadata url)
+* Identity provider-initiated logins are not currently supported in the preview release.
 
 ## Next steps
 
