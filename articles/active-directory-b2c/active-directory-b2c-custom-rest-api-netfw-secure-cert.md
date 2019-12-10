@@ -1,5 +1,6 @@
 ---
-title: Secure your RESTful service by using client certificates in Azure Active Directory B2C | Microsoft Docs
+title: Secure a RESTful service by using client certificates
+titleSuffix: Azure AD B2C
 description: Secure your custom REST API claims exchanges in your Azure AD B2C by using client certificates
 services: active-directory-b2c
 author: mmacy
