@@ -22,7 +22,7 @@
     - name: 5A - Configure compute (simple)
       href: azure-stack-edge-r-series-deploy-configure-compute.md
     - name: 5B - Configure compute (advanced)
-      href: azure-stack-edge-r-series-placeholder.md
+      href: azure-stack-edge-r-series-deploy-configure-compute-advanced.md
   - name: Concepts
     items:
     - name: Review requirements
