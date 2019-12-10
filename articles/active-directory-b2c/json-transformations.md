@@ -35,13 +35,13 @@ The following example generates a JSON string based on the claim value of "name"
 ```XML
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="name" TransformationClaimType="people.0.name" />
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="people.0.emails.0" />
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
     <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="people.0.title" DataType="string" Value="manager"/>
-    <InputParameter Id="api-version" DataType="string" Value="1.0"/>
+    <InputParameter Id="template_id" DataType="string" Value="d-4c56ffb40fa648b1aa6822283df94f60"/>
+    <InputParameter Id="from.email" DataType="string" Value="service@contoso.com"/>
+    <InputParameter Id="personalizations.0.subject" DataType="string" Value="Contoso account email verification code"/>
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
@@ -51,13 +51,13 @@ The following example generates a JSON string based on the claim value of "name"
 
 ### Example
 
-The following claims transformation outputs a JSON string claim that will be the body of the request sent to SendGrid (a 3rd party email provider). The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims.  Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties.
+The following claims transformation outputs a JSON string claim that will be the body of the request sent to SendGrid (a 3rd party email provider). The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties.
 
 - Input claims :
   - **email**,  transformation claim type  **personalizations.0.to.0.email**: "someone@example.com"
   - **otp**, transformation claim type **personalizations.0.dynamic_template_data.otp** "346349"
 - Input parameter:
-  - **template_id**: "d-989077fbba9746e89f3f6411f596fb96"
+  - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
   - **from.email**: "service@contoso.com"
   - **personalizations.0.subject** "Contoso account email verification code"
 - Output claim:
