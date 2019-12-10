@@ -9,13 +9,18 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 12/09/2019
 ms.author: juliako
 ---
 
 # Examine the Video Indexer output produced by API
 
 When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, OCRs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
+
+1. To retrieve the JSON file, call [Get Video Index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
+1. If you are also interested in specific artifacts, call [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
+
+	In the API call, specify the requested artifact type (OCR, Faces, Key frames etc.)
 
 You can also visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Indexer](https://www.videoindexer.ai/) website. For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
