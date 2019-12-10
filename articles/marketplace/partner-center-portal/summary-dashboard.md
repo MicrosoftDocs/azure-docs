@@ -12,23 +12,21 @@ ms.date: 12/11/2019
 
 # Summary Dashboard in Commercial Marketplace analytics
 
-This article provides information on the Summary dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarizes marketplace activity for your offers. 
+This article provides information on the Summary dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarizes marketplace activity for your offers.
 
 To access the Summary dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
 
 ## Summary dashboard
 
-The **Summary** dashboard presents an overview based on each offer type. **Insights** show critical information at a glance and provide a broad view of the sales activity of your offers. You can visualize these reports using the **Summary** dashboard.
+The **Summary** dashboard presents an overview based on each offer type. **Insights** show critical information at a glance and provide a broad view of the sales activity of your offers. You can visualize these reports using the **Summary** dashboard. This article goes into more details on each of the following elements:
 
-- Summary section
-- [Total orders](#totals)
-- [Geographic location of your customers](#customers-by-geography)
-- Trends emerging based on your customers, order, and usage information
-- [Customer leaderboard with highest orders](#customer-leaderboard)
-- [Number of orders organized by offer name](#offers-by-orders)
-- Orders breakdown by pricing model
-- Trend of seats and orders
-- Number of orders organized by SaaS free offers with 30-day trial period
+- [Date range](#date-range)
+- [Summary section](#summary-section)
+- [Customers by geography](#customers-by-geography)
+- [Growth trend charts](#growth-trend-charts)
+- [Customer leaderboard](#customer-leaderboard)
+- [Seat count trend](#seat-count-trend)
+- [Free trials SaaS orders trend](#free-trials-saas-orders-trend)
 
 ## Elements of the Summary dashboard
 
@@ -68,7 +66,7 @@ The **Customers by geography** heatmap displays a customer count on a world map.
 
 ![Partner Center analyze customers by geography](./media/customers-by-geography.png)
 
-### Growth trend chart
+### Growth trend charts
 
 You can view trends based on the growth of your **orders purchased** (includes cancelled orders), **customers acquired** (includes lost customers), and **usage** reported, which are displayed month by month according to the selected date range. You can further analyze these trends by selecting links below the chart, which navigate to the respective **order**, **usage**, or **customer** pages.
 
