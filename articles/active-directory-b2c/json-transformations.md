@@ -37,6 +37,7 @@ The following example generates a JSON string based on the claim value of "name"
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="name" TransformationClaimType="people.0.name" />
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="people.0.emails.0" />
+    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
   </InputClaims>
   <InputParameters>
     <InputParameter Id="people.0.title" DataType="string" Value="manager"/>
