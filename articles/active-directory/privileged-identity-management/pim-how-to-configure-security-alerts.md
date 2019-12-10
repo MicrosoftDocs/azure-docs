@@ -232,7 +232,7 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 From the Alerts page, go to **Settings**.
 
-![Alerts page with Settings highlighted](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
+![Alerts page with Settings highlighted](media/pim-how-to-configure-security-alerts/alert-settings.png)
 
 Customize settings on the different alerts to work with your environment and security goals.
 
