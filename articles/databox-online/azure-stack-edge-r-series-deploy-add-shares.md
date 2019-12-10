@@ -65,14 +65,13 @@ To create a share, do the following procedure:
     f. Depending on whether you've created an SMB share or an NFS share, do one of the following steps: 
      
     - **SMB share**: Under **All privilege local user**, select **Create new** or **Use existing**. If you create a new local user, enter a username and password, and then confirm the password. This action assigns permissions to the local user. After you've assigned the permissions here, you can use File Explorer to modify them.
-
-        If you select the **Allow only read operations** check box for this share data, you can specify read-only users.
-
-        ![Add SMB share](./media/azure-stack-edge-r-series-deploy-add-shares/add-share-smb-1.png)
+    If you select the **Allow only read operations** check box for this share data, you can specify read-only users.
+    
+            ![Add SMB share](./media/azure-stack-edge-r-series-deploy-add-shares/add-share-smb-1.png)
    
     - **NFS share**: Enter the IP addresses of allowed clients that can access the share.
 
-        ![Add NFS share](./media/azure-stack-edge-r-series-deploy-add-shares/add-share-nfs-1.png)
+            ![Add NFS share](./media/azure-stack-edge-r-series-deploy-add-shares/add-share-nfs-1.png)
    
 4. Select **Create** to create the share.
     

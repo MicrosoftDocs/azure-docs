@@ -18,7 +18,7 @@ Azure Resource Manager provides a management layer that enables you to create, u
 
 ## Endpoints on Azure Stack Edge device
 
-The following table summarizes the various endpoints exposed on your device, the supported protocols, and the ports to access those endpoints. Through out the article, you will find references to these endpoints.
+The following table summarizes the various endpoints exposed on your device, the supported protocols, and the ports to access those endpoints. Throughout the article, you will find references to these endpoints.
 
 | # | Endpoint | Supported protocols | Port used | Used for |
 | --- | --- | --- | --- | --- |
@@ -127,7 +127,7 @@ The certificates that you created in the previous step will be in the Personal s
 
 The certificates that you created in the previous step must be imported on your Windows client into the appropriate certificate store.
 
-1. The root certificate that you exported as the DER fomrat with*.cer* extension should now be imported in the Trusted Root Certificate Authorities on your client system. For detailed steps, see [Import certificates into the Trusted Root Certificate Authorities store.](azure-stack-edge-r-series-manage-certificates.md#import-certificates-as-der-format)
+1. The root certificate that you exported as the DER format with*.cer* extension should now be imported in the Trusted Root Certificate Authorities on your client system. For detailed steps, see [Import certificates into the Trusted Root Certificate Authorities store.](azure-stack-edge-r-series-manage-certificates.md#import-certificates-as-der-format)
 
 2. The endpoint certificates that you exported as the *.pfx* must be exported as *.cer*. This *.cer* is then imported in the **Personal** certificate store on your system. For detailed steps, see [Import certificates into personal store](azure-stack-edge-r-series-manage-certificates.md#import-certificates-as-der-format).
 
@@ -364,7 +364,7 @@ Verify that your device to client communication via Azure Resource Manager is wo
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com:30005 https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. Call local device APIs to authenticate the connections to Azure Resource Mananger. 
+2. Call local device APIs to authenticate the connections to Azure Resource Manager. 
 
     1. These credentials are for a local machine account and are solely used for API access.
 

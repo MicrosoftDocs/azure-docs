@@ -90,7 +90,7 @@ Your **Get started** page displays the various settings that are required to con
    - If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
    - If DHCP isn't enabled, you can assign static IPs if needed.
    - You can configure your network interface as IPv4.
-   - On the 25 gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate. 
+   - On the 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate. 
    - Serial number for any port corresponds to the node serial number. For a 1-node system, only one serial number is displayed.
 
      >[!NOTE] 
@@ -128,7 +128,7 @@ Your **Get started** page displays the various settings that are required to con
 
         ![Local web UI "Device" page](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-device-9.png)
 
-        If you have changed the device name and the DNS domain, the automatically generated self-signed certificates on the device will not work. You msut bring your own certificates for the device.
+        If you have changed the device name and the DNS domain, the automatically generated self-signed certificates on the device will not work. You must bring your own certificates for the device.
         
         ![Local web UI "Device" page](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-device-10.png)
 

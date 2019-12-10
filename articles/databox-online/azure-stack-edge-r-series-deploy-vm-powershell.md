@@ -186,7 +186,7 @@ If you are using *https*, then you need to install appropriate certificates on y
 
 ## Upload a VHD
 
-Copy any disk images to be used into page blobs in the local storage account that you created in the earlier steps. You can use a tool such as [AzCopy[(https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)] to upload the VHD to the storage account that you created in earlier steps. 
+Copy any disk images to be used into page blobs in the local storage account that you created in the earlier steps. You can use a tool such as [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) to upload the VHD to the storage account that you created in earlier steps. 
 
 Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge device.
 

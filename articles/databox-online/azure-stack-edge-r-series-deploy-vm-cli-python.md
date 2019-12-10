@@ -170,6 +170,8 @@ This tutorial describes how to create and manage a VM on your Azure Stack Edge d
     
 ## Step 2: Create a VM 
 
-<!--Python script to create a VM-->
+A Python script is provided to you to create a VM. The directions to use the script are also provided with the script.
 
 ## Next steps
+
+[Az CLI commands in Azure Resource Manager mode](https://docs.microsoft.com/azure/virtual-machines/azure-cli-arm-commands)
