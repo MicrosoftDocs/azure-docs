@@ -43,10 +43,14 @@
       href: quickstart-create-nat-gateway-portal.md
     - name: Create NAT Gateway - PowerShell
       href: quickstart-create-nat-gateway-powershell.md
+    - name: Create NAT Gateway - CLI
+      href: quickstart-create-nat-gateway-cli.md
     - name: Create and validate NAT Gateway - Portal
       href: tutorial-create-validate-nat-gateway-portal.md
     - name: Create and validate NAT Gateway - PowerShell
       href: tutorial-create-validate-nat-gateway-powershell.md
+    - name: Create and validate NAT Gateway - CLI
+      href: tutorial-create-validate-nat-gateway-cli.md
   - name: Security groups
     href: security-overview.md
   - name: Routing
