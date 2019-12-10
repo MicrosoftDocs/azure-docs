@@ -1,0 +1,156 @@
+---
+title: Partner Center Orders Dashboard in Commercial Marketplace analytics
+description: Learn how to access analytic reports about your marketplace offer orders in a graphical and downloadable format.
+author: ChJenk
+manager: evansma
+ms.author: v-chjen
+ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+ms.date: 12/11/2019
+---
+
+# Orders Dashboard in Commercial Marketplace analytics
+
+This article provides information on the Orders dashboard in Partner Center. This dashboard displays information about your orders in a graphical and downloadable format.
+
+To access the **Orders dashboard** in the Partner Center analytics tools, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
+
+## Orders dashboard
+
+The **Orders dashboard** of the **Analyze** menu displays the current orders for all of your SaaS offers. You can view graphical representations of the following items:
+
+- [Order summary](#order-summary)
+- [Orders by geography](#orders-by-geography)
+- [Orders by offers](#orders-by-offers)
+- [Orders trend per site versus per seat](#orders-trend-per-site-versus-per-seat)
+- [Orders by SKUs](#orders-by-skus)
+- [Orders and seats trend](orders-and-seats-trend)
+- [Orders organized by marketplace license type](#orders-by-marketplace-license-type)
+- [Orders organized by new and existing customers](#orders-by-customer-type)
+- [Order details table](#order-details-table)
+
+> [!NOTE]
+> There are differences between how analytics reports display in the Cloud Partner Portal (CPP) and the new Commercial Marketplace program in Partner Center. One specific way is that the **Seller Insights** in CPP has an **Orders & Usage** tab, which displays data for usage-based offers and non-usage-based offers. In Partner Center, the **Orders** page has a separate tab for SaaS Offers.
+
+## Order dashboard details
+
+This section describes the analytics reports in more detail.
+
+### Order Summary
+
+The Order Summary section displays a count of all purchased orders (excluding cancelled orders), cancelled orders, and seats.
+
+The percentage value next to Total Orders represents the amount of growth the selected date range.
+
+![Partner Center Analyze order summary](./media/order-by-summary.png)
+
+- A green triangle pointing upward indicates a positive growth trend.
+- A red triangle pointing downward indicates a negative growth trend relative to the previous month.
+- Growth trends are represented by micro bar graphs. You can display the value for each month by hovering over the columns within the chart.
+- Cancelled Orders: Count of orders that were previously purchased and subsequently cancelled during the selected date range.
+- Seats: Count of seats created during the selected date range.
+
+### Orders by geography
+
+The **Orders by geography** heatmap displays a count of your orders on a world map and shows seats mapped based on Customer Country. This heatmap functions the same as the **[Customers by geography heatmap](customer-dashboard.md#customers-by-geography)**.
+
+![Partner Center Analyze orders by geography](./media/orders-by-geography.png)
+
+### Orders by Offers
+
+The **Orders by offers** donut graph organizes orders (including cancelled orders) according to their offer names.
+
+- The top offers are displayed in the graph and the rest of the offers are grouped as ‘Rest All’.
+- You can select specific offers in the legend to display only those offers in the graph.
+- Hovering over a slice in the graph will display the number of orders and percentage of that offer compared to your total number of orders across all offers.
+- The **orders by offers trend** displays month-by-month growth trends. The month column represents the number of orders by offer name. The line chart displays the growth percentage trend plotted on a z-axis.
+- You can use the slider on the top of the chart to scroll right and left along the x-axis and focus on specific data points.
+- You can display the trend chart by selecting a specific item on the legend.
+- You can also choose to display trends and data for **canceled orders**. The graph will function in the same way as the **orders by offers** graph.
+
+![Partner Center Analyze orders by offer](./media/orders-by-offer.png)
+
+### Orders Trend per site versus per seat
+
+The **per site versus per seat** donut chart represents the breakdown of per site SaaS and per seat SaaS orders purchased by customers (this includes cancelled orders). The column chart represents the trend of per site SaaS and per seat SaaS orders purchased by customers (this includes cancelled orders).
+
+![Partner Center Analyze orders trend per site versus per seat](./media/orders-by-per-seat.png)
+
+### Orders by SKUs
+
+The **orders by SKUs** chart represents the trend of orders at the Stock Keeping Unit (SKU) level for all your offers (this includes cancelled orders). The donut chart represents the breakdown of the top five SKU orders and the column chart represents the trend of orders for the top five SKUs.
+
+![Partner Center Analyze orders by SKUs](./media/orders-by-sku.png)
+
+### Orders and Seats Trend
+
+The **orders and seats trend** chart presents the top 50 offers with the highest number of orders. These are displayed on a leader board and are sorted by highest order count and order percentage.
+
+- **Orders by SKUs**: Select an offer to view the breakdown of order count for the top five SKUs in the chart.
+- **Seats by SKUs**: The monthly trend of seats for the top five SKUs. If the offer you select is not a per seat offer, you will not see any data in this area chart.
+
+![Partner Center Analyze orders and seats trend](./media/orders-and-seats-trend.png)
+
+### Cancelled Orders by offers
+
+The **cancelled orders by offers** pie chart organizes all of your cancelled orders according to their offer names. The top offers are displayed in the graph and the rest of the offers are grouped as “Rest All.” You can select specific offers in the legend to display in the graph.
+
+- Hovering over a slice in the graph will display the number of orders and percentage of the selected offer compared to the total number of orders across all offers.
+- The column chart displays month-by-month trends. The columns represent the number of cancelled orders by offer name. You can use the slider on top of the chart to scroll right and left along the x-axis and focus on specific data points. You can display the trend chart by selecting a specific item on the legend.
+
+![Partner Center Analyze cancelled orders by offers](./media/cancelled-orders-by-offer.png)
+
+### Orders by marketplace license type
+<!-- Section needs review and clarification!  -->
+The **Orders by marketplace license type** chart displays a month-by-month order count based on the license type and billing method of the marketplace offer. License types include:
+
+- **Billed through Azure**: Microsoft bills customers on your behalf when you choose to [sell your offer through Microsoft](./create-new-saas-offer.md#sell-through-microsoft) with this license type. Payment types include pay-as-you-go via credit card or Enterprise invoicing.
+- **Bring your own license**: Microsoft does not bill customers for their usage of this type of marketplace offer. Listed as **[Get it now (Free)](./create-new-saas-offer.md#get-it-now-free)** in the marketplace.
+- **Free**: Microsoft does not bill customers for their usage of this type of marketplace offer. Listed as **[Free trial](./create-new-saas-offer.md##free-trial-listing)** in the marketplace.
+- **Microsoft as reseller**: Represents offers sold by Microsoft resellers as a part of the **[Cloud Solution Provider (CSP) program](./create-new-saas-offer.md)**.
+
+![Partner Center Analyze orders by license type](./media/analyze-license-type.png)
+
+### Orders by customer type
+
+The **Orders by customer type** bar chart displays the number of orders divided between **New Customers** and **Existing Customers**. 
+
+- A **New customer** has acquired one or more of your offers for the first time within the same calendar month (y-axis). An **Existing customer** has previously acquired an offer from you prior to the calendar month reported (on the y-axis). 
+- An additional pie chart represents all orders created by the new or existing customer for the date range selected.
+- In both charts, you can choose to view only new or only existing customers by selecting the respective legend.
+
+![Partner Center Analyze orders by customer type](./media/analyze-order-by-customer.png)
+
+### Order details table
+
+The Order details table displays a numbered list of the 1000 top orders sorted by date of acquisition.
+
+- Each column in the grid is sortable.
+- The data can be extracted to a TSV file if the count of the records is less than 1000.
+- If records number over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
+- Filters can be applied to the **Order details table** to display only the data that you are interested in. Data can be filtered by Country, Azure license type, Marketplace license type, Offer type, Order status, Free trails, Marketplace subscription ID, Customer ID, and Company name.
+
+![Partner Center Analyze order details](./media/analyze-order-details.png)
+
+#### Orders Page filters
+
+These filters are applied at the page level.
+
+![Partner Center Analyze order page filters](./media/orders-page-filers.png)
+
+You can select multiple filters to render the chart for the criteria you choose to view and the data you want displayed in the **Detailed Order Data** grid/export. Filters are applied on the data extracted for the data range you have selected on the top right corner of the orders page.
+
+- Offer types and offer names are only listed for the offers you have orders for during the selected date range. Offer names in the list are displayed for offers types you have selected in the list.
+- Applied filters show the total metrics within each selection(s) for each filter selected. Applied filters are not displayed when the default selection is chosen.
+- If **All** is selected for one of the dropdown lists, then all metrics in the page selected will be aggregated. For example: “All” in the offer types filter option means that all offer types have been selected. This is the default selection for the dropdown lists. Applied filters displays will not shown anything when this is selected.
+- **Multiple value selection**: All metrics in the page will be aggregated for all the selections made under the dropdown list. If multiple selections are made, the applied filter will show the count of all selections made. See below image for reference.
+
+    ![Partner Center Analyze order with multiple values applied to filter](./media/filters-applied.png)
+
+- **Single value selection**: If one value is selected, the applied filter will show the count of the one filter that was selected. See below image for reference.
+
+     ![Partner Center Analyze order with single value applied to filter](./media/filters-applied-single.png)
+
+> [!NOTE]
+> A detailed definition of each of the fields in “Detailed Order Data” Grid, Page filters, and all possible selections are defined in the Data Dictionary section of the FAQ and terminology article (ADD LINK).
