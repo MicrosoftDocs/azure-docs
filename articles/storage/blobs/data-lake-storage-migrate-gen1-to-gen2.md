@@ -35,6 +35,10 @@ If you're considering a migration to Data Lake Storage Gen2, We recommend the fo
 
 3. Review a list of [known issues](data-lake-storage-known-issues.md) to gauge product state and stability and assess any gaps.
 
+4. If you're interested in leveraging blob storage features, review the [current level of support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-feature-support) for those features.
+
+5. Review the current state of [Azure ecoysystem support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-ecosystem-support) to ensure that services that your solutions depend upon support Data Lake Storage Gen2.
+
 ### Step 2: Prepare to migrate
 
 1. Identify the data sets that you'll migrate.
@@ -45,29 +49,47 @@ If you're considering a migration to Data Lake Storage Gen2, We recommend the fo
 
 5. Choose a [data transfer tool](#data-transfer-tools).
 
+   Open question - can they copy over ACLs by using specific types of tools? If so, what do we want to clarify here.
+
 ### Step 3: Migrate data
 
 1. [Create a storage account](data-lake-storage-quickstart-create-account.md) and enable the hierarchical namespace feature. 
 
-2. Migrate data by using the [data transfer tool](#data-transfer-tool) that you've chosen.
+2. Migrate data by using the [data transfer tool](#data-transfer-tools) that you've chosen.
 
-3. Secure the data in the storage account. First, [assign role based access security (RBAC) roles](../common/storage-auth-aad-rbac-portal.md) to security principles in the context of your storage account, resource group, or subscription. 
+3. Secure the data in the storage account. 
 
-4. Optionally [apply file and folder level security](data-lake-storage-access-control.m).
+   - [Assign role based access security (RBAC) roles](../common/storage-auth-aad-rbac-portal.md) to security principles in the context of your storage account, resource group, or subscription. 
+   
+   - Optionally [apply file and folder level security](data-lake-storage-access-control.md).
 
    For a complete guide to security, see [Azure Storage security guide](../common/storage-security-guide.md).
 
 ### Step 4: Update analytic workloads and applications
 
-1. Update analytics workloads. 
+#### Update analytic workloads
 
-2. Update [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), and [Python](data-lake-storage-directory-file-acl-python.md)-based applications to use the Data Lake Storage Gen2 SDK. 
+1. Configure services in your workloads to point to your Data Lake Storage Gen2 endpoint. 
 
-3. Update REST calls in applications.
+   For a list of articles that can help you get started, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md).
 
-4. Update [Azure CLI scripts](data-lake-storage-directory-file-acl-cli.md) to use Data Lake Storage Gen2 commands.
+2. Search for URI references that contain the string `adl://` in Databricks notebooks, Apache Hive HQL files or any other file used as part of your workloads. 
 
-5. Update [PowerShell scripts](data-lake-storage-directory-file-acl-powershell.md) to use Data Lake Storage Gen2 cmdlets. 
+3. Replace these references with the [Data Lake Storage Gen2 formatted URI](data-lake-storage-introduction-abfs-uri.md) of your new storage account.
+
+   For example: the Data Lake Storage Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` might become `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`. 
+
+#### Update custom applications
+
+1. Update applications to use Data Lake Storage Gen2 APIs. See guides for [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), and [REST](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2). 
+
+2. Update scripts to use Data Lake Storage Gen2 [PowerShell cmdlets](data-lake-storage-directory-file-acl-powershell.md), and [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md).
+
+3. In code files, search for URI references that contain the string `adl://` in Databricks notebooks, Apache Hive HQL files or any other file used as part of your workloads. 
+
+4. Replace these references with the [Data Lake Storage Gen2 formatted URI](data-lake-storage-introduction-abfs-uri.md) of your new storage account.
+
+   For example: the Data Lake Storage Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` might become `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`. 
 
 <a id="gen1-gen2-feature-comparison" />
 
@@ -77,10 +99,15 @@ This table compares the capabilities of Data Lake Storage Gen1 to that of Gen2.
 
 |Area |Gen1   |Gen2 |
 |---|---|---|
-|Data organization|Hierarchical namespace<br>File and folder support|Hierarchical namespace<br>File and folder support|
-|Geo-redundancy|LRS|LRS, ZRS, GRS, RA-GRS|
-
-To read about other issues, see [Known issues](data-lake-storage-known-issues.md).
+|Data organization|Hierarchical namespace<br>File and folder support|Hierarchical namespace<br>File and folder support |
+|Geo-redundancy| LRS| LRS, ZRS, GRS, RA-GRS |
+|Authentication|AAD managed identity<br>Service principals|AAD managed identity<br>Service principals<br>Shared Access Key|
+|Authorization|Management - RBAC<br>Data – ACLs|Management – RBAC<br>Data -  ACLs, RBAC |
+|Encryption – Data at rest|Server side – with service managed or customer managed keys|Server side – with service managed or customer managed keys|
+|VNET Support|VNET Integration|Service Endpoints|
+|Developer experience|REST APIs, SDKs, Powershell|REST APIs<br>Roadmap – SDKs, Powershell for Blob Operations(In public preview)|
+|Diagnostic logs|Classic logs<br>Azure Monitor integrated|Roadmap – Classic logs (In public preview)<br>Azure monitor integration – timeline TBD|
+|Ecosystem|HDInsight (3.6), Azure Databricks (3.1 and above), SQL DW, ADF|HDInsight (3.6, 4.0), Azure Databricks (5.1 and above), SQL DW, ADF|
 
 <a id="migration-patterns" />
 
