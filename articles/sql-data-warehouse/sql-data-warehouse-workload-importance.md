@@ -21,7 +21,7 @@ This article explains how workload importance can influence the order of executi
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
-Business needs can require data warehousing workloads to be more important than others.  Consider a scenario where mission critical sales data is loaded before the fiscal period close.  Data loads for other sources such as weather data don't have strict SLAs. Setting high importance for a request to load sales data and low importance to a request to load whether data ensures the sales data load gets first access to resources and completes quicker.
+Business needs can require data warehousing workloads to be more important than others.  Consider a scenario where mission critical sales data is loaded before the fiscal period close.  Data loads for other sources such as weather data don't have strict SLAs. Setting high importance for a request to load sales data and low importance to a request to load weather data ensures the sales data load gets first access to resources and completes quicker.
 
 ## Importance levels
 
