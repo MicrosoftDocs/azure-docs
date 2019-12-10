@@ -1,5 +1,5 @@
 ---
-title: Configure an application to expose web APIs - Microsoft identity platform
+title: Configure an app to expose web APIs - Microsoft identity platform | Azure
 description: Learn how to configure an application to expose a new permission/scope and role to make the application available to client applications.
 services: active-directory
 author: rwike77
