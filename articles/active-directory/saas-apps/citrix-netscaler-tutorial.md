@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 12/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -83,15 +83,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
-
-    b. In the **Identifier** box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<<Your FQDN>>`
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
 
 	> [!NOTE]
