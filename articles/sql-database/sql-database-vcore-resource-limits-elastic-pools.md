@@ -316,7 +316,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |:--- | --: |
 |Compute generation|M-series|
 |vCores|128|
-|Memory (GB)|3767.1|
+|Memory (GB)|3767|
 |Max number DBs per pool|100|
 |Columnstore support|Yes|
 |In-memory OLTP storage (GB)|481|

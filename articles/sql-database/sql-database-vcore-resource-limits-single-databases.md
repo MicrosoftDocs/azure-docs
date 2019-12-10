@@ -454,8 +454,8 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |TempDB max data size (GB)|4096|
 |Storage type|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|
-|Max data IOPS *|160000|
-|Max log rate (MBps)|264|
+|Max data IOPS *|204,800|
+|Max log rate (MBps)|192|
 |Max concurrent workers (requests)|12800|
 |Max concurrent sessions|30000|
 |Number of replicas|4|
