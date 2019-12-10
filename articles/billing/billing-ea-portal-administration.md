@@ -123,14 +123,6 @@ The effective transfer date can be a date on or after the start date of the enro
 
 You can backdate an enrollment transfer as far back as the start date of the target enrollment. Or, as far as the effective start date of the source enrollment.
 
-### Monetary commitment
-
-Monetary commitment isn't transferrable between enrollments. Monetary commitment balances are tied contractually to the enrollment where it was ordered. Monetary commitment isn't transferred as part of the account or enrollment transfer process.
-
-### Services affected
-
-There's no downtime during the account transfer. It can be completed on the same day of your request if all required information is provided.
-
 ### Prerequisites
 
 When you request an account transfer, provide the following information:
@@ -170,15 +162,13 @@ The effective transfer day can be a date on or after the start date of the enrol
 
 The source enrollment usage is charged against monetary commitment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged accordingly.
 
-### Effective transfer date in the past
-
 You can backdate an account transfer as far back as the start date of the target enrollment. Or, as far as the effective start date of the source enrollment. A backdated transfer is supported as far back as the start date of the target enrollment. Providing the chosen transfer date does not affect the usage for an overage invoice that has already been issued.
 
 ### Monetary commitment
 
 Monetary commitment isn't transferrable between enrollments. Monetary commitment balances are tied contractually to the enrollment where it was ordered. Monetary commitment isn't transferred as part of the account or enrollment transfer process.
 
-### No services affected
+### No services affected for account and enrollment transfer
 
 There's no downtime during the account transfer. It can be completed on the same day of your request if all requisite information is provided.
 
