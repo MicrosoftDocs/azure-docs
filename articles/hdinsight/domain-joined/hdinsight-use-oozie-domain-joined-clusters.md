@@ -65,7 +65,7 @@ Oozie workflow definitions are written in Apache Hadoop Process Definition Langu
    nano workflow.xml
    ```
 
-3. After the nano editor opens, enter the following XML as the file contents:
+3. After the nano editor opens, enter the following XML as the file contents. :
    ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <workflow-app xmlns="uri:oozie:workflow:0.4" name="map-reduce-wf">
@@ -73,7 +73,7 @@ Oozie workflow definitions are written in Apache Hadoop Process Definition Langu
           <credential name="metastore_token" type="hcat">
              <property>
                 <name>hcat.metastore.uri</name>
-                <value>thrift://<active-headnode-name>.<Domain>.com:9083</value>
+                <value>thrift://<active-headnode-name>-<clustername>.<Domain>.com:9083</value>
              </property>
              <property>
                 <name>hcat.metastore.principal</name>
