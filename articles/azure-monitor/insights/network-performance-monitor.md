@@ -37,6 +37,7 @@ NPM can monitor connectivity between networks and applications in any part of th
 * West Central US
 * North Central US
 * East US
+* East US 2
 * East Japan
 * South East Asia
 * South East Australia

@@ -1,6 +1,6 @@
 ---
 title: SQL JOIN queries for Azure Cosmos DB
-description: Learn about JOIN SQL syntax for Azure Cosmos DB.
+description: Learn how to JOIN multiple tables in Azure Cosmos DB to query the data
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual

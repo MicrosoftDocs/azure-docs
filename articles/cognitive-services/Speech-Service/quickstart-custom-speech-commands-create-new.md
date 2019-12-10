@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a Custom Command (Preview) - Speech Service'
+title: 'Quickstart: Create a Custom Command (Preview) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you create and test a hosted Custom Commands application.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: donkim
 ---
 
@@ -43,7 +43,18 @@ The default view is a list of the Custom Commands applications you created.
 1. Select **New project** to create a new project
 
    > [!div class="mx-imgBorder"]
-   > ![Create new project](media/custom-speech-commands/create-new-project.png)
+   > ![Create a project](media/custom-speech-commands/create-new-project.png)
+
+1. Enter the project name and language.
+1. Select an authoring resource. If there are no valid authoring resources, create one by selecting  **Create new resource**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Create a resource](media/custom-speech-commands/create-new-resource.png)
+
+   1. Enter the resource name, group, location, and pricing tier.
+
+         > [!NOTE]
+         > You can create resource groups by entering the desired resource group name into the "Resource Group" field. The resource group will be created when **Create** is selected.
 
 1. Enter the project name and language
 1. Select an authoring resource (if there are no valid authoring resources, create one by clicking **Create new resource**)
@@ -56,8 +67,8 @@ The default view is a list of the Custom Commands applications you created.
          > [!NOTE]
          > You can create resource groups by entering the desired resource group name into the "Resource Group" field. The resource group will be created when Create is clicked
 
-1. Click **Create** to create your project
-1. Once created, select your project
+1. Click **Create** to create your project.
+1. Once created, select your project.
 
 Your view should now be an overview of your Custom Commands application.
 
@@ -105,10 +116,15 @@ Now add a Completion Rule to respond to the user indicating that an action is be
 
    > [!div class="mx-imgBorder"]
    > ![Create a Speech response](media/custom-speech-commands/create-speech-response-action.png)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0a6efc91ad89b42deec7ee07810e637629d131c2
 1. Click **Save** to save the rule
 
 > [!div class="mx-imgBorder"]
-> ![Create a Completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
+> ![Create a completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
+
 
 
 | Setting    | Suggested value                        | Description                                        |
@@ -128,5 +144,6 @@ Test the behavior using the Test chat panel.
 - Expected response: "Ok, turning on the tv"
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)

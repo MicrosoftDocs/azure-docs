@@ -123,7 +123,7 @@
   - name: REST API
     href: /rest/api/virtual-desktop/
   - name: Supported RDP file settings
-    href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
 - name: Resources
   items:
   - name: Experience estimator
