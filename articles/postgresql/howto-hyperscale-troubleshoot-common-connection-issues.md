@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot connections - Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Troubleshoot connections - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL - Hyperscale (Citus)
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
 author: jonels-msft
