@@ -1,7 +1,6 @@
 ---
 title: Streaming Units in Azure Stream Analytics
 description: This article describes the Streaming Units setting and other factors that impact performance in Azure Stream Analytics.
-services: stream-analytics
 author: JSeb225
 ms.author: jeanb
 ms.reviewer: mamccrea

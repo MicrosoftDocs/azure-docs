@@ -1,7 +1,6 @@
 ---
 title: Data-driven debugging in Azure Stream Analytics
 description: This article describes how to troubleshoot your Azure Stream Analytics job by using the job diagram and metrics in the Azure portal.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
