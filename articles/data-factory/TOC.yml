@@ -389,10 +389,12 @@
       href: delete-activity.md
     - name: Copy Data tool
       href: copy-data-tool.md
-    - name: Performance and tuning
-      href: copy-activity-performance.md
     - name: Format and compression support
       href: supported-file-formats-and-compression-codecs.md
+    - name: Performance and tuning
+      href: copy-activity-performance.md
+    - name: Preserve metadata and ACLs
+      href: copy-activity-preserve-metadata.md
     - name: Schema and type mapping
       href: copy-activity-schema-and-type-mapping.md
     - name: Fault tolerance

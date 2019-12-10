@@ -533,7 +533,7 @@ Note the following points:
 
 * [Complex data types](https://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions, and fixed).
 
-## Compression support (legacy)
+## <a name="compression-support"></a> Compression support (legacy)
 
 Azure Data Factory supports compress/decompress data during copy. When you specify `compression` property in an input dataset, the copy activity read the compressed data from the source and decompress it; and when you specify the property in an output dataset, the copy activity compress then write data to the sink. Here are a few sample scenarios:
 
