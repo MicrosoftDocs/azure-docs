@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/03/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ---
 
@@ -25,8 +25,6 @@ Here are a few things that you'll need before running this quickstart:
 * [JDK 7 or 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) or your favorite build automation tool
 * A subscription key
-
-## Create a Bing Web Search resource
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/03/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ---
 
@@ -24,9 +24,8 @@ Here are a few things that you'll need before running this quickstart:
 * [Node.js 6](https://nodejs.org/en/download/) or later
 * A subscription key  
 
-## Create a Bing Web Search resource
-
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
+
 
 ## Set up your development environment
 

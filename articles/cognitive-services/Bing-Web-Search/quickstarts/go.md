@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/03/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
@@ -26,8 +26,6 @@ Here are a few things that you'll need before running this quickstart:
 * A subscription key
 
 This quickstart only requires **core** libraries, there are no external dependencies.  
-
-## Create a Bing Web Search resource
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
@@ -109,9 +107,7 @@ type BingAnswer struct {
 
 ## Declare the main function and define variables  
 
-This code declares the main function and sets required variables. `endpoint` can be the global endpoint below, or the [custom subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) endpoint displayed in the Azure portal for your resource.
-
-Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`.
+This code declares the main function and sets required variables. `endpoint` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`.
 
 ```go
 // Declare the main function. This is required for all Go programs.

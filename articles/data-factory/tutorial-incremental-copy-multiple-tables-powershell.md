@@ -1,8 +1,7 @@
 ---
-title: Incrementally copy multiple tables
+title: Incrementally copy multiple tables using PowerShell
 description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL database.
 services: data-factory
-documentationcenter: ''
 ms.author: yexu
 author: dearandyxu
 manager: anandsub
@@ -10,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
 ---
 

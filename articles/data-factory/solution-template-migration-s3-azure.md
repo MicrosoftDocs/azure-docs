@@ -8,7 +8,6 @@ ms.reviewer:
 manager: 
 ms.service: data-factory
 ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
