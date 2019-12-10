@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: ylxiong
 author: YLXiong1125
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
+ms.date: 12/10/2019
 ms.custom: seodec18
 
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
@@ -72,12 +72,16 @@ The following examples show how to register an Azure Blob Container,   an Azure 
     The following code creates and registers the datastore, `my_datastore`, to the workspace, `ws`. This datastore accesses the Azure blob container, `my_blob_container`, on the Azure storage account, `my_storage_account` using the provided account key.
 
     ```Python
-       datastore = Datastore.register_azure_blob_container(workspace=ws, 
-                                                          datastore_name='my_datastore', 
-                                                          container_name='my_blob_container',
-                                                          account_name='my_storage_account', 
-                                                          account_key='your storage account key',
-                                                          create_if_not_exists=True)
+    blob_datastore_name='azblobsdk' # Name of the Datastore  to workspace
+    container_name=os.getenv("BLOB_CONTAINER", "<my-container-name>") # Name of Azure blob container
+    account_name=os.getenv("BLOB_ACCOUNTNAME", "<my-account-name>") # Storage account name
+    account_key=os.getenv("BLOB_ACCOUNT_KEY", "<my-account-key>") # Storage account key
+
+    blob_datastore = Datastore.register_azure_blob_container(workspace=ws, 
+                                                             datastore_name=blob_datastore_name, 
+                                                             container_name=container_name, 
+                                                             account_name=account_name,
+                                                             account_key=account_key)
     ```
 
 + For an **Azure File Share Datastore**, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
@@ -85,15 +89,19 @@ The following examples show how to register an Azure Blob Container,   an Azure 
     The following code creates and registers the datastore, `my_datastore`, to the workspace, `ws`. This datastore accesses the Azure file share, `my_file_share`, on the Azure storage account, `my_storage_account` using the provided account key.
 
     ```Python
-       datastore = Datastore.register_azure_file_share(workspace=ws, 
-                                                      datastore_name='my_datastore', 
-                                                      file_share_name='my_file_share',
-                                                      account_name='my_storage account', 
-                                                      account_key='your storage account key',
-                                                      create_if_not_exists=True)
+    file_datastore_name='azfilesharesdk' # Name of the Datastore to workspace
+    file_share_name=os.getenv("FILE_SHARE_CONTAINER", "<my-fileshare-name>") # Name of Azure file share container
+    account_name=os.getenv("FILE_SHARE_ACCOUNTNAME", "<my-account-name>") # Storage account name
+    account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage Account Key
+
+file_datastore = Datastore.register_azure_file_share(workspace=ws,
+                                                     datastore_name=file_datastore_name, 
+                                                     file_share_name=file_share_name, 
+                                                     account_name=account_name,
+                                                     account_key=account_key)
     ```
 
-+ For an **Azure MySQL Datastore**, register a credential Datastore connected to an Azure mySQL database with SQL authentication or service principal permissions. 
++ For an **Azure SQL Datastore**, use [register_azure_sql_database()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none-) to register a credential Datastore connected to an Azure SQL database.  with SQL authentication or service principal permissions. 
 
     #### By SQL authentication
 
@@ -111,7 +119,6 @@ The following examples show how to register an Azure Blob Container,   an Azure 
                                                       username=username,
                                                       password=password)
 
-    print("Registered Azure SQL Databse datastore using SQL Authentication with name: %s" % sql_datastore_name)
     ```
 
     #### By service principal
@@ -131,7 +138,6 @@ The following examples show how to register an Azure Blob Container,   an Azure 
                                                           client_id=client_id,
                                                           client_secret=client_secret,
                                                           tenant_id=tenant_id)
-    print("Registered Azure SQL Databse datastore using Service Principal with name: %s" % sql_datastore_name)
     ```
 
 ####  Storage guidance
