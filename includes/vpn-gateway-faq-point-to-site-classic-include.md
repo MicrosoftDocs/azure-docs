@@ -29,7 +29,7 @@ No. Support is limited only to the listed Windows operating system versions.
 
 ### How many VPN client endpoints can exist in my Point-to-Site configuration?
 
-The amount of VPN client endpoints depends on your gateway sku.
+The amount of VPN client endpoints depends on your gateway sku and protocol.
 [!INCLUDE Aggregated throughput by SKU]
 
 ### Can I use my own internal PKI root CA for Point-to-Site connectivity?
