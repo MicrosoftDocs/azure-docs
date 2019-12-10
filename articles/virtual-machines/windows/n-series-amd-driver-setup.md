@@ -39,10 +39,6 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 2. Download, extract, and install the supported driver for your Windows operating system.
 
 ## Verify driver installation
-You can verify driver installation in Device Manager. The following example shows successful configuration of the Radeon Instinct MI25 card on an Azure NVv4 VM.
-<br/><br/>
-![GPU driver properties](./media/n-series-amd-driver-setup/device_manager.png)
+You can verify driver installation in Device Manager.You should see 'radeon Instinct MI25 MxGPU' listed under Display adapters.
 
-You can use dxdiag to verify the GPU display properties including the video RAM. The following example shows a 1/8th partition of the Radeon Instinct MI25 card on an Azure NVv4 VM.
-<br/><br/>
-![GPU driver properties](./media/n-series-amd-driver-setup/dxdiag.png)
+You can use dxdiag to verify the GPU display properties including the video RAM. The 'Display' in the dxdiag output should list the a VRAM of 2GB/4GB/8GB or 16GB depending on the VM size.
