@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Integrate App Service with Application Gateway | Microsoft Docs
-description: Azure CLI Script Sample - Integrate App Service with Application Gateway
+title: Azure CLI script sample - Integrate App Service with Application Gateway | Microsoft Docs
+description: Azure CLI script sample - Integrate App Service with Application Gateway
 services: appservice
 documentationcenter: appservice
 author: madsd
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 11/27/2019
+ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
 ---
@@ -46,11 +46,11 @@ This script uses the following commands to create a resource group, App Service 
 | [`az network public-ip create`](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) | Creates a public IP address. |
 | [`az network public-ip show`](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) | Show details of a public IP address. |
 | [`az appservice plan create`](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Creates an App Service plan. |
-| [`az webapp create`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an App Service app. |
-| [`az webapp show`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-show) | Show details of an App Service app. |
-| [`az webapp config access-restriction add`](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest#az-webapp-config-access-restriction-add) | Adds an Access Restriction to the webapp, or updates if the Action of the Ip-Address or subnet already exists. |
+| [`az webapp create`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an App Service web app. |
+| [`az webapp show`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-show) | Show details of an App Service web app. |
+| [`az webapp config access-restriction add`](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest#az-webapp-config-access-restriction-add) | Adds an access restriction to the App Service web app. |
 | [`az network application-gateway create`](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-create) | Creates an Application Gateway. |
-| [`az network application-gateway http-settings update`](https://docs.microsoft.com/cli/azure/network/application-gateway/http-settings?view=azure-cli-latest#az-network-application-gateway-http-settings-update) | Update Application Gateway HTTP settings. |
+| [`az network application-gateway http-settings update`](https://docs.microsoft.com/cli/azure/network/application-gateway/http-settings?view=azure-cli-latest#az-network-application-gateway-http-settings-update) | Updates Application Gateway HTTP settings. |
 
 ## Next steps
 

@@ -12,7 +12,7 @@ ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2019
+ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
 
@@ -39,12 +39,12 @@ You can now access the App Service through Application Gateway, but if you try t
 
 ![Application Gateway integration with App Service](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
 
-## Using Azure Resource Manager (ARM)
-The [ARM deployment template][arm-app-gateway-app-service-complete] will provision a complete scenario. The scenario consists of an App Service instance locked down with service endpoints and access restriction to only receive traffic from Application Gateway. The template includes many Smart Defaults and unique postfixes added to the resource names for it to be simple. To override them, you'll have to clone the repo or download the template and edit it. 
+## Using Azure Resource Manager template
+The [Resource Manager deployment template][template-app-gateway-app-service-complete] will provision a complete scenario. The scenario consists of an App Service instance locked down with service endpoints and access restriction to only receive traffic from Application Gateway. The template includes many Smart Defaults and unique postfixes added to the resource names for it to be simple. To override them, you'll have to clone the repo or download the template and edit it. 
 
-To apply the ARM template you can use the Deploy to Azure button found in the description of the template, or you can use appropriate PowerShell/CLI.
+To apply the template you can use the Deploy to Azure button found in the description of the template, or you can use appropriate PowerShell/CLI.
 
-## Using Azure Command Line Interface (CLI)
+## Using Azure Command Line Interface
 The [Azure CLI sample](../../app-service/scripts/cli-integrate-app-service-with-application-gateway.md) will provision an App Service locked down with service endpoints and access restriction to only receive traffic from Application Gateway. If you only need to isolate traffic to an existing App Service from an existing Application Gateway, the following command is sufficient.
 
 ```azurecli-interactive
@@ -63,7 +63,7 @@ To isolate traffic to an individual web app you'll need to use ip-based access r
 ## Considerations for External ASE
 External ASE has a public facing load balancer like multi-tenant App Service. Service endpoints don't work for ASE, and that's why you'll have to use ip-based access restrictions using the public IP of the Application Gateway instance. To create an External ASE using the Azure portal, you can follow this [Quickstart](../environment/create-external-ase.md)
 
-[arm-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2/ "ARM template for complete scenario"
+[template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2/ "Azure Resource Manager template for complete scenario"
 
 ## Considerations for kudu/scm site
 The scm site, also known as kudu, is an admin site, which exists for every web app. It isn't possible to reverse proxy the scm site and you most likely also want to lock it down to individual IP addresses or a specific subnet.
@@ -79,3 +79,8 @@ If you want to set individual access restrictions for the scm site, you can add 
 ```azurecli-interactive
 az webapp config access-restriction add --resource-group myRG --name myWebApp --scm-site --rule-name KudoAccess --priority 200 --ip-address 208.130.0.0/16
 ```
+
+## Next steps
+For more information on the App Service Environment, see [App Service Environment documentation](https://docs.microsoft.com/azure/app-service/environment).
+
+To further secure your web app, information about Web Application Firewall on Application Gateway can be found in the [Azure Web Application Firewall documentation](../../web-application-firewall/ag/ag-overview.md).
