@@ -88,7 +88,7 @@ If you don't already have a certificate, you can create a self-signed certificat
 
 Next, upload the certificate to Azure AD B2C.
 
-1. Sign in to the [Azure portal][https://portal.azure.com] and browse to your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) and browse to your Azure AD B2C tenant.
 1. Select **Settings** > **Identity Experience Framework** > **Policy Keys**.
 1. Select **Add**, and then select **Options** > **Upload**.
 1. Enter a **Name**, for example *YourAppNameSamlCert*. The prefix *B2C_1A_* is automatically added to the name of your key.
