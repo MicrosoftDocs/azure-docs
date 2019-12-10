@@ -1,12 +1,11 @@
 ---
-title: Convert JSON data with Liquid transforms - Azure Logic Apps | Microsoft Docs
+title: Convert JSON data with Liquid transforms
 description: Create transforms or maps for advanced JSON transformations using Logic Apps and Liquid template
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/16/2018
 ---

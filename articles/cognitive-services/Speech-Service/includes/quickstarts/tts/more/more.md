@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Synthesize speech - Speech Service"
+title: "Quickstart: Synthesize speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

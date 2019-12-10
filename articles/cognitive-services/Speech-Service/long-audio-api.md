@@ -1,5 +1,5 @@
 ---
-title: Long Audio API (Preview) - Speech Service
+title: Long Audio API (Preview) - Speech service
 titleSuffix: Azure Cognitive Services
 description:
 services: cognitive-services
