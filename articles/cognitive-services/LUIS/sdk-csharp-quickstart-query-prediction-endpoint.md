@@ -124,7 +124,7 @@ Once the client is created, use this client to access functionality including:
 
 These code snippets show you how to do the following with the Language Understanding (LUIS) prediction runtime client library for .NET:
 
-* [Prediction by slot](#get-prediction-by-runtime)
+* [Prediction by slot](#get-prediction-from-runtime)
 
 ## Add the dependencies
 
