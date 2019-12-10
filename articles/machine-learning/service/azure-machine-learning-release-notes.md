@@ -18,6 +18,27 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2019-12-09
+
+### Azure Machine Learning SDK for Python v1.0.79
+
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Removed featurizationConfig to be logged
+      + Updated logging to log "auto"/"off"/"customized" only.
+  + **azureml-automl-runtime**
+    + Added support for pandas. Series and pandas.Categorical for detecting column data type. Previously only supported numpy.ndarray
+      + Added related code changes to handle categorical dtype correctly.
+    + The forecast function interface was improved: the y_pred parameter was made optional. -The docstrings were improved.
+  + **azureml-contrib-dataset**
+    + Fixed a bug where labeled datasets could not be mounted.
+  + **azureml-core**
+    + Bug fix for `Environment.from_existing_conda_environment(name, conda_environment_name)`. User can create an instance of Environment that is exact replica of the local environment
+    + Changed time series-related Datasets methods to `include_boundary=True` by default.
+  + **azureml-train-automl-client**
+    + Fixed issue where validation results are not printed when show output is set to false.
+
+  
 ## 2019-11-25
 
 ### Azure Machine Learning SDK for Python v1.0.76

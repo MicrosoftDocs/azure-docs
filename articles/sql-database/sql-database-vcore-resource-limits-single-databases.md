@@ -444,18 +444,18 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |:--- | --: |
 |Compute generation|M-series|
 |vCores|128|
-|Memory (GB)|4096|
+|Memory (GB)|3767|
 |Columnstore support|Yes|
 |In-memory OLTP storage (GB)|481|
-|Max data size (GB)|8192|
+|Max data size (GB)|4096|
 |Max log size (GB)|2048|
 |TempDB max data size (GB)|4096|
 |Storage type|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|
-|Max data IOPS *|204.800|
-|Max log rate (MBps)|192|
-|Max concurrent workers (requests)|12,800|
-|Max concurrent sessions|30,000|
+|Max data IOPS (64 KB)|160000|
+|Max log rate (MBps)|264|
+|Max concurrent workers (requests)|12800|
+|Max concurrent sessions|30000|
 |Number of replicas|4|
 |Multi-AZ|Yes|
 |Read Scale-out|Yes|

@@ -319,16 +319,16 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Memory (GB)|3767.1|
 |Max number DBs per pool|100|
 |Columnstore support|Yes|
-|In-memory OLTP storage (GB)|227.02|
-|Max data size (GB)|8192|
+|In-memory OLTP storage (GB)|481|
+|Max data size (GB)|4096|
 |Max log size (GB)|2048|
 |TempDB max data size (GB)|4096|
 |Storage type|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|
-|Target IOPS *|200,000|
-|Log rate limits (MBps)|333|
-|Max concurrent workers per pool (requests) **|13,440|
-|Max concurrent logins per pool (requests) **|13,440|
+|Target IOPS (64 KB)|40,000|
+|Log rate limits (MBps)|120|
+|Max concurrent workers per pool (requests) *|1680|
+|Max concurrent logins per pool (requests) *|1680|
 |Max allowed sessions|30,000|
 |Min/max elastic pool vCore choices per database|0-128|
 |Number of replicas|4|
