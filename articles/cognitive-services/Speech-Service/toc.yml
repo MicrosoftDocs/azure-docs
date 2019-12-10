@@ -403,8 +403,9 @@
     items:
     - name: How to enable logging
       href: how-to-use-logging.md
-    - name: How to enable object tracking
-      href: how-to-object-tracking-speech-sdk.md
+    - name: How to track memory usage
+      href: how-to-track-speech-sdk-memory-usage.md
+      displayName: "memory usage, memory consumption, object logging, object tracking, memory"
   - name: Samples
     items:
     - name: Speech SDK Samples (GitHub)
