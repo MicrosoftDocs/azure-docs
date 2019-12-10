@@ -1,5 +1,5 @@
 ---
-title: Object tracking for the Speech SDK - Speech service
+title: How to track Speech SDK memory usage - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech Service SDK supports numerous programming languages for speech-to-text and text-to-speech conversion, along with speech translation. This article discusses memory management tooling built into the SDK.
 services: cognitive-services
@@ -13,17 +13,17 @@ ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
 ---
 
-# Object tracking for the Speech SDK
+# How to track Speech SDK memory usage
 
 The Speech SDK is based on a native code base that's projected into multiple programming languages through a series of interoperability layers. Each language-specific projection has idiomatically correct features to manage the object lifecycle. Additionally, the Speech SDK includes memory management tooling to track resource usage with object logging and object limits. 
 
-## Object Logging
+## How to read object logs
 
 If [Speech SDK logging is enabled](how-to-use-logging.md), tracking tags are emitted to enable historical object observation. These tags include: 
 
 * `TrackHandle` or `StopTracking` 
 * The object type
-* The current number of objects that are tracked the type of the object, and the current number being tracked. Here's an example:
+* The current number of objects that are tracked the type of the object, and the current number being tracked.
 
 Here's a sample log: 
 
@@ -95,8 +95,6 @@ class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognitionResult 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognizer 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxAudioConfig 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxSpeechConfig 0
-
-...
 ```
 
 To enable an error threshold, it must be specified on a `SpeechConfig` object. This object is checked when a new recognizer is created. In the following examples, let's assume that you've created an instance of `SpeechConfig` called `config`:
