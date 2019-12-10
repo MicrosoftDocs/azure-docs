@@ -32,7 +32,7 @@ Users with  **Global Admin** and **Admin Agents** role in your organization can 
 
 Use a billing profile to manage your invoices for a currency. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains charges in the billing profile's currency for all Azure subscriptions and other purchases from the previous month.
 
-You can view the invoice and download the related documents like usage file and price sheet in the Azure portal. For more information, see [Download invoices for a Microsoft Partner Agreement](billing-download-azure-invoice.md).
+You can view the invoice and download the related documents like usage file and price sheet in the Azure portal. For more information, see [Download invoices for a Microsoft Partner Agreement](download-azure-invoice.md).
 
 > [!IMPORTANT]
 >
@@ -69,7 +69,7 @@ To turn on the policy:
 Indirect providers in the CSP [two-tier model](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview#azure-csp-direct-and-azure-csp-indirect) can select a reseller while creating subscriptions for customers in the Azure portal. Post creation, they can view the list of subscriptions, filtered by a reseller and analyze cost for a customer by resellers in the Azure cost analysis.
 
 ## Check access to a Microsoft Partner Agreement
-[!INCLUDE [billing-check-mpa](../../includes/billing-check-mpa.md)]
+[!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
 
 ## Need help? Contact support
 
@@ -79,6 +79,6 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 See the following articles to learn about your billing account:
 
-- [Create an additional Azure subscription for Microsoft Partner Agreement](../cost-management-billing/manage/create-subscription.md)
+- [Create an additional Azure subscription for Microsoft Partner Agreement](../manage/create-subscription.md)
 - Integrate billing data with your own reporting system using the [Azure Billing APIs](https://docs.microsoft.com/rest/api/billing/)
 - [Azure Cost Management quickstart guide for partners](https://go.microsoft.com/fwlink/?linkid=2106482)

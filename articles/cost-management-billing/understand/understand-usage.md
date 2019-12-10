@@ -26,9 +26,9 @@ Enterprise Agreement (EA) | Yes | Yes | Yes | No
 Microsoft Customer Agreement (MCA) | Yes | Yes | Yes | Yes
 Pay-as-you-go (PAYG) | Yes | Yes | No | No
 
-To learn more about Marketplace orders (also known as external services), see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
+To learn more about Marketplace orders (also known as external services), see [Understand your Azure external service charges](understand-azure-marketplace-charges.md).
 
-For download instructions, see [How to get your Azure billing invoice and daily usage data](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
+For download instructions, see [How to get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md).
 You can open your usage and charges CSV file in Microsoft Excel or another spreadsheet application.
 
 ## List of terms and descriptions
@@ -126,8 +126,8 @@ UsageStart | Date
 ## Ensure charges are correct
 
 To learn more about detailed usage and charges, read about how to understand your
-[pay-as-you-go](./billing-understand-your-bill.md)
-or [Microsoft Customer Agreement](billing-mca-understand-your-bill.md) invoice.
+[pay-as-you-go](understand-individual-bill.md)
+or [Microsoft Customer Agreement](mca-understand-your-bill.md) invoice.
 
 ## Need help? Contact us.
 
@@ -135,5 +135,5 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md)
-- [View and download your Microsoft Azure usage and charges](billing-download-azure-daily-usage.md)
+- [View and download your Microsoft Azure invoice](download-azure-invoice.md)
+- [View and download your Microsoft Azure usage and charges](download-azure-daily-usage.md)

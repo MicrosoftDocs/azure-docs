@@ -58,7 +58,7 @@ Other information available in Azure usage data has changed:
 
 You can get the data using the API or download it from Azure portal.
 
-You call the [Usage Details API](/rest/api/consumption/usagedetails/list) to get the new data. For details about terminology, see [usage terms](billing-understand-your-usage.md). The caller should be an Enterprise Administrator for the enterprise agreement using the [EA portal](https://ea.azure.com). Read-only Enterprise Administrators can also get the data.
+You call the [Usage Details API](/rest/api/consumption/usagedetails/list) to get the new data. For details about terminology, see [usage terms](../cost-management-billing/understand/understand-usage.md). The caller should be an Enterprise Administrator for the enterprise agreement using the [EA portal](https://ea.azure.com). Read-only Enterprise Administrators can also get the data.
 
 The data is not available in [Reporting APIs for Enterprise customers - Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 

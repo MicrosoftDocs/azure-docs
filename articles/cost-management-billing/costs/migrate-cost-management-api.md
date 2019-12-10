@@ -32,7 +32,7 @@ MCA APIs and new integration allow you to:
 
 The following items help you transition to MCA APIs.
 
-- Familiarize yourself with the new [Microsoft Customer Agreement billing account](../../billing/billing-mca-overview.md).
+- Familiarize yourself with the new [Microsoft Customer Agreement billing account](../understand/mca-overview.md).
 - Determine which APIs you use and see which ones are replaced in the following section.
 - Familiarize yourself with [Azure Resource Manager REST APIs](/rest/api/azure).
 - If you're not already using Azure Resource Manager APIs, [register your client app with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).

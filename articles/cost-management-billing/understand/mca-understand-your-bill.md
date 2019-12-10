@@ -14,7 +14,7 @@ ms.author: banders
 ---
 # Understand charges on your Microsoft Customer Agreement invoice
 
-You can understand the charges on your invoice by analyzing the individual transactions. In the billing account for a Microsoft Customer Agreement, an invoice is generated every month for each billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal. For more information, see [download invoices for a Microsoft Customer Agreement](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
+You can understand the charges on your invoice by analyzing the individual transactions. In the billing account for a Microsoft Customer Agreement, an invoice is generated every month for each billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal. For more information, see [download invoices for a Microsoft Customer Agreement](../manage/download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -24,13 +24,13 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 2. Search for **Cost Management +Billing**.
 
-    ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+    ![Screenshot that shows Azure portal search for cost management + billing](./media/mca-understand-your-bill/billing-search-cost-management-billing.png)
 
 3. Select **All transactions** from the left side of the page. Depending on your access, you might have to select a billing account, billing profile, or an invoice section and then select **All transactions**.
 
 4. The All transactions page displays the following information:
 
-    ![Screenshot that shows the billed transactions list](./media/billing-understand-your-bill-mca/mca-billed-transactions-list.png)
+    ![Screenshot that shows the billed transactions list](./media/mca-understand-your-bill/mca-billed-transactions-list.png)
 
     |Column  |Definition  |
     |---------|---------|
@@ -47,11 +47,11 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 ### View transactions by invoice sections
 
-Invoice sections help you organize the costs for a billing profile's invoice. For more information, see [understand invoice section](billing-mca-overview.md#invoice-sections). When an invoice is generated, charges for all the sections in the billing profile are shown on the invoice.
+Invoice sections help you organize the costs for a billing profile's invoice. For more information, see [understand invoice section](mca-overview.md#invoice-sections). When an invoice is generated, charges for all the sections in the billing profile are shown on the invoice.
 
 The following image shows charges for the Accounting Dept invoice section on a sample invoice.
 
-![Example image showing the details by invoice section information](./media/billing-understand-your-bill-mca/invoicesection-details.png)
+![Example image showing the details by invoice section information](./media/mca-understand-your-bill/invoicesection-details.png)
 
 When you've identified the charges for an invoice section, you can view the transactions in the Azure portal to understand the charges.
 
@@ -69,7 +69,7 @@ In the billing account for a Microsoft Customer Agreement, charges are estimated
 
 2. Search for **Cost Management +Billing**.
 
-   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/mca-understand-your-bill/billing-search-cost-management-billing.png)
 
 3. Select a billing profile. Depending on your access, you may have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
 
@@ -77,7 +77,7 @@ In the billing account for a Microsoft Customer Agreement, charges are estimated
 
 5. The charges section display the month-to-date and last month's charges.
 
-   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/mca-billing-profile-summary.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/mca-understand-your-bill/mca-billing-profile-summary.png)
 
 The month-to-date charges are the pending charges for the current month and are billed when the invoice is generated for the month. If the invoice for last month is still not generated, then last month's charges are also pending and will appear on your next invoice.
 
@@ -89,7 +89,7 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 2. Search for **Cost Management +Billing**.
 
-   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/mca-understand-your-bill/billing-search-cost-management-billing.png)
 
 3. Select a billing profile. Depending on your access, you may have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
 
@@ -97,7 +97,7 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 5. Search for *pending*. Use the **Timespan** filter to view pending charges for current or last month.
 
-   ![Screenshot that shows the pending transactions list](./media/billing-understand-your-bill-mca/mca-pending-transactions-list.png)
+   ![Screenshot that shows the pending transactions list](./media/mca-understand-your-bill/mca-pending-transactions-list.png)
 
 ### View pending usage charges
 
@@ -105,7 +105,7 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 2. Search for *Cost Management +Billing*.
 
-   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/mca-understand-your-bill/billing-search-cost-management-billing.png)
 
 3. Select a billing profile. Depending on your access, you may have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
 
@@ -113,11 +113,11 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 5. The Azure subscriptions page displays the current and last month's charges for each subscription in the billing profile. The month-to-date charges are the pending charges for the current month and are billed when the invoice is generated for the month. If the invoice for last month is still not generated, then last month's charges are also pending.
 
-    ![Screenshot that shows the Azure subscriptions list for billing profile](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list.png)
+    ![Screenshot that shows the Azure subscriptions list for billing profile](./media/mca-understand-your-bill/mca-billing-profile-subscriptions-list.png)
 
 ## Analyze your Azure usage charges
 
-Use the Azure usage and charges CSV file to analyze your usage-based charges. You can download the file for an invoice or for pending charges. For more information, see [get your Azure billing invoice and daily usage data](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
+Use the Azure usage and charges CSV file to analyze your usage-based charges. You can download the file for an invoice or for pending charges. For more information, see [get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md).
 
 ### View detailed usage by invoice section
 
@@ -125,7 +125,7 @@ You can filter the Azure usage and charges file to reconcile the usage charges f
 
 The following steps walk you through reconciling compute charges for the Accounting Dept invoice section:
 
-![Example image showing the details by invoice section information](./media/billing-understand-your-bill-mca/invoicesection-details.png)
+![Example image showing the details by invoice section information](./media/mca-understand-your-bill/invoicesection-details.png)
 
  | Invoice PDF | Azure usage and charges CSV |
  | --- | --- |
@@ -137,7 +137,7 @@ The following steps walk you through reconciling compute charges for the Account
 2. Filter the **productOrderName** column in the CSV file to **Microsoft Azure Plan**.
 3. Filter the **serviceFamily** column in the CSV file to **Microsoft.Compute**.
 
-![Screenshot that shows the usage and charges file filtered by invoice section](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-invoice-section.png)
+![Screenshot that shows the usage and charges file filtered by invoice section](./media/mca-understand-your-bill/billing-usage-file-filtered-by-invoice-section.png)
 
 
 ### View detailed usage by subscription
@@ -148,20 +148,20 @@ When you identify charges for a subscription, use the Azure usage and charges CS
 
 The following image shows the list of subscriptions in the Azure portal.
 
-![Screenshot that shows the Azure subscriptions list for billing profile](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list-highlighted.png)
+![Screenshot that shows the Azure subscriptions list for billing profile](./media/mca-understand-your-bill/mca-billing-profile-subscriptions-list-highlighted.png)
 
 Filter the **subscriptionName** column in the Azure usage and charges CSV file to **WA_Subscription** to view the detailed usage charges for WA_Subscription.
 
-![Screenshot that shows the usage and charges file filtered by subscription](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-subscription.png)
+![Screenshot that shows the usage and charges file filtered by subscription](./media/mca-understand-your-bill/billing-usage-file-filtered-by-subscription.png)
 
 ## Pay your bill
 
-Instructions for paying your bill are shown at the bottom of the invoice. [Learn how to pay](billing-mca-understand-your-invoice.md#how-to-pay).
+Instructions for paying your bill are shown at the bottom of the invoice. [Learn how to pay](mca-understand-your-invoice.md#how-to-pay).
 
 If you've already paid your bill, you can check the status of the payment on the Invoices page in the Azure portal.
 
 ## Check access to a Microsoft Customer Agreement
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+[!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
 ## Need help? Contact us.
 
@@ -171,6 +171,6 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 To learn more about your invoice and detailed usage, see:
 
-- [How to get your Azure billing invoice and daily usage data](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
-- [Understand terms on your Microsoft Customer Agreement invoice](billing-mca-understand-your-invoice.md)
-- [Understand terms on your Microsoft Customer Agreement usage CSV](billing-mca-understand-your-usage.md)
+- [How to get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md)
+- [Understand terms on your Microsoft Customer Agreement invoice](mca-understand-your-invoice.md)
+- [Understand terms on your Microsoft Customer Agreement usage CSV](mca-understand-your-usage.md)

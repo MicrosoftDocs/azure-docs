@@ -14,7 +14,7 @@ ms.author: banders
 ---
 # Understand charges on your Microsoft Partner Agreement invoice
 
- In the billing account for a Microsoft Partner Agreement, an invoice is generated every month for each billing profile. The invoice includes all customer charges from the previous month. You can understand the charges on your invoice by analyzing the individual transactions in the Azure portal. You can also view your invoices in the Azure portal. For more information, see [how to download invoices from the Azure portal](billing-download-azure-invoice.md).
+ In the billing account for a Microsoft Partner Agreement, an invoice is generated every month for each billing profile. The invoice includes all customer charges from the previous month. You can understand the charges on your invoice by analyzing the individual transactions in the Azure portal. You can also view your invoices in the Azure portal. For more information, see [how to download invoices from the Azure portal](download-azure-invoice.md).
 
 This article applies to a billing account for a Microsoft Partner Agreement. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 
@@ -24,13 +24,13 @@ This article applies to a billing account for a Microsoft Partner Agreement. [Ch
 
 2. Search for *Cost Management + Billing*.
 
-   <!--  ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png) -->
+   <!--  ![Screenshot that shows Azure portal search for cost management + billing](./media/mpa-understand-your-bill/billing-search-cost-management-billing.png) -->
 
 3. Select **All transactions** from the left side of the page. Depending on your access, you might have to select a billing account, billing profile, or a customer and then select **All transactions**.
 
 4. The All transactions page displays the following information:
 
-    <!-- ![Screenshot that shows the billed transactions list](./media/billing-mpa-understand-your-bill/mpa-billing-profile-all-transactions.png) -->
+    <!-- ![Screenshot that shows the billed transactions list](./media/mpa-understand-your-bill/mpa-billing-profile-all-transactions.png) -->
 
     |Column  |Definition  |
     |---------|---------|
@@ -56,7 +56,7 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 2. Search for *Cost Management + Billing*.
 
-   <!-- ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png) -->
+   <!-- ![Screenshot that shows Azure portal search for cost management + billing](./media/mpa-understand-your-bill/billing-search-cost-management-billing.png) -->
 
 3. Select a billing profile. Depending on your access, you may have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
 
@@ -64,7 +64,7 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 5. Search for *pending*. Use the **Timespan** filter to view pending charges for current or last month.
 
-   <!-- ![Screenshot that shows the pending transactions list](./media/billing-mpa-understand-your-bill/mpa-billing-profile-pending-transactions.png) -->
+   <!-- ![Screenshot that shows the pending transactions list](./media/mpa-understand-your-bill/mpa-billing-profile-pending-transactions.png) -->
 
 ### View pending charges by customer
 
@@ -76,7 +76,7 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 4. Select **Customers** on the left side of the page.
 
-    <!-- ![screenshot of billing profile customers list](./media/billing-mpa-understand-your-bill/mpa-billing-profile-customers.png) -->
+    <!-- ![screenshot of billing profile customers list](./media/mpa-understand-your-bill/mpa-billing-profile-customers.png) -->
 
 5. The Customers page displays the current and last month's charges for each customer associated with the billing profile. The month-to-date charges are the pending charges for the current month and are billed when the invoice is generated for the month. If the invoice for last month is still not generated, then last month's charges are also pending.
 
@@ -92,11 +92,11 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 5. The Azure subscriptions page displays the current and last month's charges for each subscription in the billing profile. The month-to-date charges are the pending charges for the current month and are billed when the invoice is generated for the month. If the invoice for last month is still not generated, then last month's charges are also pending.
 
-<!--     ![Screenshot that shows the Azure subscriptions list for MPA billing profile](./media/billing-mpa-understand-your-bill/mpa-billing-profile-subscriptions-list.png) -->
+<!--     ![Screenshot that shows the Azure subscriptions list for MPA billing profile](./media/mpa-understand-your-bill/mpa-billing-profile-subscriptions-list.png) -->
 
 ## Analyze your Azure usage charges
 
-Use the Azure usage and charges CSV file to analyze your usage-based charges. You can [download your Azure usage and charges CSV from the Azure portal](billing-download-azure-daily-usage.md).
+Use the Azure usage and charges CSV file to analyze your usage-based charges. You can [download your Azure usage and charges CSV from the Azure portal](download-azure-daily-usage.md).
 
 You can filter the Azure usage and charges file to reconcile the usage charges for each product listed in the invoice pdf. To view detailed usage charges for a particular product, filter **product** column in the Azure usage and charges CSV file to only include the name of that product.
 
@@ -110,7 +110,7 @@ Instructions for paying your bill are shown at the bottom of the invoice. You ca
 If you've already paid your bill, you can check the status of the payment on the Invoices page in the Azure portal.
 
 ## Check access to a Microsoft Partner Agreement
-[!INCLUDE [billing-check-mpa](../../includes/billing-check-mpa.md)]
+[!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
 
 ## Need help? Contact us.
 

@@ -44372,6 +44372,81 @@
             "source_path": "articles/billing/mpa-request-ownership.md",
             "redirect_url": "/azure/cost-management-billing/manage/mpa-request-ownership",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-download-azure-daily-usage.md",
+            "redirect_url": "/azure/cost-management-billing/understand/download-azure-daily-usage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-download-azure-invoice.md",
+            "redirect_url": "/azure/cost-management-billing/understand/download-azure-invoice",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-how-to-pay-bill.md",
+            "redirect_url": "/azure/cost-management-billing/understand/pay-bill",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-mca-download-tax-document.md",
+            "redirect_url": "/azure/cost-management-billing/understand/mca-download-tax-document",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-mca-overview.md",
+            "redirect_url": "/azure/cost-management-billing/understand/mca-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-mca-understand-your-bill.md",
+            "redirect_url": "/azure/cost-management-billing/understand/mca-understand-your-bill",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-mca-understand-your-invoice.md",
+            "redirect_url": "/azure/cost-management-billing/understand/mca-understand-your-invoice",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-mca-understand-your-usage.md",
+            "redirect_url": "/azure/cost-management-billing/understand/mca-understand-your-usage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-mpa-invoice-terms-explained.md",
+            "redirect_url": "/azure/cost-management-billing/understand/mpa-invoice-terms",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-mpa-understand-your-bill.md",
+            "redirect_url": "/azure/cost-management-billing/understand/mpa-understand-your-bill",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-your-azure-marketplace-charges.md",
+            "redirect_url": "/azure/cost-management-billing/understand/understand-azure-marketplace-charges",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-your-bill.md",
+            "redirect_url": "/azure/cost-management-billing/understand/understand-individual-bill",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-your-usage.md",
+            "redirect_url": "/azure/cost-management-billing/understand/understand-usage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-your-invoice.md",
+            "redirect_url": "/azure/cost-management-billing/understand/understand-invoice",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/mpa-overview.md",
+            "redirect_url": "/azure/cost-management-billing/understand/mpa-overview",
+            "redirect_document_id": true
         }
     ]
 }

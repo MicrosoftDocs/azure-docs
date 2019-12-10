@@ -37,7 +37,7 @@ The following table describes the billing roles you use to manage your billing a
 
 ## Billing account roles and tasks
 
-A billing account lets you manage billing for your organization. You use billing account to organize costs, monitor charges, and invoices and control billing access for your organization. For more information, see [Understand billing account](../../billing/billing-mca-overview.md#your-billing-account).
+A billing account lets you manage billing for your organization. You use billing account to organize costs, monitor charges, and invoices and control billing access for your organization. For more information, see [Understand billing account](../understand/mca-overview.md#your-billing-account).
 
 The following tables show what role you need to complete tasks in the context of the billing account.
 
@@ -83,7 +83,7 @@ The following tables show what role you need to complete tasks in the context of
 
 ## Billing profile roles and tasks
 
-A billing profile lets you manage your invoices and payment methods. A monthly invoice is generated for the Azure subscriptions and other products purchased using the billing profile. You use the payments methods to pay the invoice. For more information, see [Understand billing profiles](../../billing/billing-mca-overview.md#billing-profiles).
+A billing profile lets you manage your invoices and payment methods. A monthly invoice is generated for the Azure subscriptions and other products purchased using the billing profile. You use the payments methods to pay the invoice. For more information, see [Understand billing profiles](../understand/mca-overview.md#billing-profiles).
 
 The following tables show what role you need to complete tasks in the context of the billing profile.
 
@@ -133,7 +133,7 @@ The following tables show what role you need to complete tasks in the context of
 
 ## Invoice section roles and tasks
 
-An invoice section allows you to organize the costs on your invoice. You can create a section to organize your costs by department, development environment, or based on your organization's needs. Give others permission to create Azure subscriptions for the section. Any usage charges and purchases for the subscriptions then show on the section of the invoice. For more information, see [Understand invoice section](../../billing/billing-mca-overview.md#invoice-sections).
+An invoice section allows you to organize the costs on your invoice. You can create a section to organize your costs by department, development environment, or based on your organization's needs. Give others permission to create Azure subscriptions for the section. Any usage charges and purchases for the subscriptions then show on the section of the invoice. For more information, see [Understand invoice section](../understand/mca-overview.md#invoice-sections).
 
 The following tables show what role you need to complete tasks in the context of invoice sections.
 
@@ -204,5 +204,5 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 See the following articles to learn about your billing account:
 
-- [Get stated with your billing account for Microsoft Customer Agreement](../../billing/billing-mca-overview.md)
+- [Get stated with your billing account for Microsoft Customer Agreement](../understand/mca-overview.md)
 - [Create an Azure subscription for your billing account for Microsoft Customer Agreement](create-subscription.md)

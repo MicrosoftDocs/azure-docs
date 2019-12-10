@@ -151,7 +151,7 @@ The following table lists some of the most common grouping and filtering options
 | **Subscription** | Break down costs by subscription. All purchases show as **Not specified**. |
 | **Tag** | Break down costs by tag values for a specific tag key. |
 
-For more information about terms, see [Understand the terms used in the Azure usage and charges file](../../billing/billing-understand-your-usage.md).
+For more information about terms, see [Understand the terms used in the Azure usage and charges file](../understand/understand-usage.md).
 
 
 ## Saving and sharing customized views

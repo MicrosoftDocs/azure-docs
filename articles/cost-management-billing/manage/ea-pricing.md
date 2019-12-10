@@ -91,14 +91,14 @@ You may also use your organization’s pricing to estimate costs with the Azure 
 If you're an EA customer, see:
 
 - [Manage access to your EA billing information for Azure](manage-billing-access.md)
-- [View and download your Microsoft Azure invoice](../../billing/billing-download-azure-invoice.md)
-- [View and download your Microsoft Azure usage and charges](../../billing/billing-download-azure-daily-usage.md)
+- [View and download your Microsoft Azure invoice](../understand/download-azure-invoice.md)
+- [View and download your Microsoft Azure usage and charges](../understand/download-azure-daily-usage.md)
 - [Understand your bill for Enterprise Agreement customers](understand-ea-bill.md)
 
 If you have a Microsoft Customer Agreement, see:
 
 - [Understand the terms in your price sheet for a Microsoft Customer Agreement](mca-understand-pricesheet.md)
-- [View and download your Microsoft Azure invoice](../../billing/billing-download-azure-invoice.md)
-- [View and download your Microsoft Azure usage and charges](../../billing/billing-download-azure-daily-usage.md)
-- [View and download tax documents for your billing profile](../../billing/billing-mca-download-tax-document.md)
-- [Understand the charges on your billing profile's invoice](../../billing/billing-mca-understand-your-bill.md)
+- [View and download your Microsoft Azure invoice](../understand/download-azure-invoice.md)
+- [View and download your Microsoft Azure usage and charges](../understand/download-azure-daily-usage.md)
+- [View and download tax documents for your billing profile](../understand/mca-download-tax-document.md)
+- [Understand the charges on your billing profile's invoice](../understand/mca-understand-your-bill.md)
