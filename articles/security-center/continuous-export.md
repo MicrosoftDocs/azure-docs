@@ -47,6 +47,8 @@ Using these tools you can:
 > [!NOTE]
 > If you previously exported Security Center alerts to a SIEM using Azure Activity log, the procedure below replaces that methodology.
 
+To view the event schemas of the exported data types, please visit the Log Analytics table schemas [documentation article](https://aka.ms/ASCAutomationSchemas).
+
 ### To integrate with a SIEM 
 
 After you have configured continuous export of your chosen Security Center data to Azure Event Hubs, you can set up the appropriate connector on your SIEM by following the instructions below.
@@ -66,9 +68,13 @@ Also, if you'd like to move the continuously exported data automatically from yo
 
 To export to Log Analytics workspace, you must have Security Center's free or standard tier Log Analytics solutions enabled on your workspace. If you're using the Azure portal, the Security Center free tier solution is automatically enabled when you enable continuous export. However, if you're configuring your continuous export settings programmatically, you must manually select the free or standard pricing tier for the required workspace from within **Pricing & settings**.  
 
-Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. The name of the Log Analytics solution containing these tables depends on whether you are on the free or standard tier (see [pricing](security-center-pricing.md)): Security or SecurityCenterFree.
+### Log Analytics tables and schemas
+
+Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. The name of the Log Analytics solution containing these tables depends on whether you are on the free or standard tier (see [pricing](security-center-pricing.md)): Security('Security and Audit') or SecurityCenterFree.
 
 ![The *SecurityAlert* table in Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
+
+To view the Log Analytics table schemas of the exported data types, please visit the Log Analytics table schemas [documentation article](https://aka.ms/ASCAutomationSchemas).
 
 ###  View exported security alerts and recommendations in Azure Monitor
 
@@ -112,3 +118,4 @@ For related material, see the following documentation:
 - [Azure Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/)
 - [Azure Sentinel documentation](https://docs.microsoft.com/azure/sentinel/)
 - [Azure Monitor documentation](https://docs.microsoft.com/azure/azure-monitor/)
+- [Workflow automation and continuous export data types schemas](https://aka.ms/ASCAutomationSchemas)
