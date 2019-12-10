@@ -73,7 +73,12 @@ If you're considering a migration to Data Lake Storage Gen2, We recommend the fo
 
 ## Gen1 vs Gen2 capabilities
 
-Put table here.
+This table compares the capabilities of Data Lake Storage Gen1 to that of Gen2.
+
+|Area |Gen1   |Gen2 |
+|---|---|---|
+|Data organization|Hierarchical namespace<br>File and folder support|Hierarchical namespace<br>File and folder support|
+|Geo-redundancy|LRS|LRS, ZRS, GRS, RA-GRS|
 
 To read about other issues, see [Known issues](data-lake-storage-known-issues.md).
 
