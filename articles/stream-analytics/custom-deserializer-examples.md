@@ -1,7 +1,6 @@
 ---
 title: Use .NET deserializers for Azure Stream Analytics jobs
 description: This article explains the serialization format and the interfaces that define custom .NET deserializers for Azure Stream Analytics cloud and edge jobs.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
