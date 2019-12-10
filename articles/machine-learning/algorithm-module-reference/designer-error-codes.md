@@ -1374,6 +1374,20 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |Unsupported parameter type '{0}' specified.|  
 
 
+## Error 0107  
+ Thrown when a module definition file defines an unsupported output type  
+  
+ This error in Azure Machine Learning is produced when the type of an output port in a custom module xml definition does not match a supported type.  
+  
+**Resolution:**
+ Make sure that the type property of an Output element in the custom module xml definition file is a supported type.  
+  
+|Exception Messages|  
+|------------------------|  
+|Unsupported output type.|  
+|Unsupported output type '{output_type}' specified.|  
+
+
 ## Error 0125  
  Thrown when schema for multiple datasets does not match.  
 
