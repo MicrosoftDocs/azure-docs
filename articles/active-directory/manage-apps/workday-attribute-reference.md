@@ -1,5 +1,5 @@
 ---
-title: 'Workday Attribute Reference | Microsoft Docs'
+title: 'Workday attribute reference | Microsoft Docs'
 description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning 
 services: active-directory
 author: cmmdesai
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
 ---
-# Workday Attribute Reference
+# Workday attribute reference
 
 The table below captures the list of Workday attributes and corresponding XPATH expressions that are shipped out of the box with the Workday inbound provisioning app connector. 
 
-| \# | Name                                  | Workday API Expression                                                                                                                                                                                                                                                                                                                                                                                       |
+| \# | Name                                  | Workday API expression                                                                                                                                                                                                                                                                                                                                                                                       |
 |----|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Active                                | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Status\_Data/wd:Active/text\(\)                                                                                                                                                                                                                                                                                                                     |
 | 2  | AddressLine2Data                      | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Address\_Line\_Data\[@wd:Type='ADDRESS\_LINE\_2'\]/text\(\)                                                                                                                                                                                                                             |
