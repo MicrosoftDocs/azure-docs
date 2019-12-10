@@ -24,7 +24,7 @@ Commercial marketplace offers several publishing options for publishers.
 
 ### List and trial publishing options
 
-Publishers can leverage the list, trial, and bring your own license (BYOL)publishing options for promotional and user acquisition purposes. With these options, Microsoft doesn't participate directly in the publisher's software license transactions, and there is no associated transaction fee. Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to: order, fulfillment, metering, billing, invoicing, payment, and collection. With the list and trial publishing options, publishers keep 100% of publisher software licensing fees collected from the customer.
+Publishers can leverage the list, trial, and bring your own license (BYOL) publishing options for promotional and user acquisition purposes. With these options, Microsoft doesn't participate directly in the publisher's software license transactions, and there is no associated transaction fee. Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to: order, fulfillment, metering, billing, invoicing, payment, and collection. With the list and trial publishing options, publishers keep 100% of publisher software licensing fees collected from the customer.
 
 ### Transact publishing option
 
@@ -54,8 +54,8 @@ Depending on the transaction option used, the publisher's software license fees 
 
 - *Free*: No charge for software licenses.
 - *Bring your own license (BYOL)*: Any applicable charges for software licenses are managed directly between the publisher and customer. Microsoft only passes through Azure infrastructure usage fees. (Virtual Machines and Azure Applications only.)
-- *Pay-as-you-go*: Software license fees are presented as a per-hour, per-core (vCPU) pricing rate based on the Azure infrastructure used. This only applies to virtual machines and Azure applications.
-- *Subscription pricing*: Software license fees are presented as a monthly or annual, recurring fee billed as a flat rate or per-seat. This only applies to SaaS Apps and Azure Applications - Managed Apps.
+- *Pay-as-you-go*: Software license fees are presented as a per-hour, per-core (vCPU) pricing rate based on the Azure infrastructure used. This model only applies to virtual machines and Azure applications.
+- *Subscription pricing*: Software license fees are presented as a monthly or annual, recurring fee billed as a flat rate or per-seat. This model only applies to SaaS Apps and Azure Applications - Managed Apps.
 - *Free software trial*: No charge for software licenses for 30-days or 90-days.
 
 ### Free and bring-your-own-license (BYOL) pricing
