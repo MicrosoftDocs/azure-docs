@@ -31,3 +31,4 @@ The table below describes the analytics dashboards.
 |[Downloads](#downloads-dashboard.md)|A list of your download requests over the last 30 days|
 |[Marketplace insights](#insights-dashboard.md) | Summary of marketplace web analytics and analysis of campaign performance.|
 |[Ratings and reviews](#ratings-reviews.md)| A consolidated view of customer feedback for offers on Azure Marketplace and AppSource.|
+|FAQs and terminology | Help with frequently asked questions and a dictionary of data terms.
