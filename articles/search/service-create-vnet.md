@@ -13,7 +13,7 @@ ms.date: 12/11/2019
 
 # Create a Private Endpoint for secure connections to Azure Cognitive Search (Preview)
 
-[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow client on a virtual network to securely access data over a [Private Link](../private-link/private-link-overview.md).The private endpoint uses an IP address from the [virtual network address space](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
+[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
 
 Private endpoints for your search service enables you to:
 
@@ -24,7 +24,7 @@ Private endpoints for your search service enables you to:
 > [!TIP]
 > When the service endpoint is private, some portal features are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
 
-In this article, you'll learn how to use the portal to create a new Azure Cognitive Search service instance that can't be accessed via a public IP address and an Azure virtual machine in the same virtual network that you can use to access the service via the private endpoint.
+In this article, you'll learn how to use the portal to create a new Azure Cognitive Search service instance that can't be accessed via a public IP address and an Azure virtual machine in the same virtual network used to access the service via the private endpoint.
 
 > [!Important]
 > Private Endpoints support for Azure Cognitive Search is available as a limited-access preview and not currently intended for production use. Please fill out and submit the [access request form](https://aka.ms/SearchPrivateLinkRequestAccess) if you would like to access the preview. The form requests information about you, your company, and  general network topology. Once we review your request, you'll receive a confirmation email with additional instructions.
@@ -49,7 +49,7 @@ In this section, you will create a virtual network and app service environment u
     | Address space | Enter *10.1.0.0/16*. |
     | Subscription | Select your subscription.|
     | Resource group | Select **Create new**, enter *myResourceGroup*, then select **OK**. |
-    | Location | Select **West US**.|
+    | Location | Select **West US** or whatever region you are using.|
     | Subnet - Name | Enter *mySubnet*. |
     | Subnet - Address range | Enter *10.1.0.0/24*. |
     |||
@@ -69,7 +69,7 @@ In this section, you will create a virtual network and app service environment u
     | Resource group | Select **myResourceGroup**. You created this in the previous section.  |
     | **INSTANCE DETAILS** |  |
     | Virtual machine name | Enter *myVm*. |
-    | Region | Select **West US**. |
+    | Region | Select **West US** or whatever region you are using. |
     | Availability options | Leave the default **No infrastructure redundancy required**. |
     | Image | Select **Windows Server 2019 Datacenter**. |
     | Size | Leave the default **Standard DS1 v2**. |
@@ -117,8 +117,8 @@ In this section, you will create a private search service with a Private Endpoin
     | Resource group | Select **myResourceGroup**. You created this in the previous section.|
     | **INSTANCE DETAILS** |  |
     | URL | Enter a unique name. |
-    | Location | Select **West US**. |
-    | Pricing tier | Select **Change Pricing Tier** and choose **Basic**. |
+    | Location | Select the region that you specified when requesting access to this preview feature. |
+    | Pricing tier | Select **Change Pricing Tier** and choose **Basic**. This tier is required for the preview. |
     |||
   
 1. Select **Next: Scale**.
