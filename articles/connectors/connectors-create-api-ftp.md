@@ -106,13 +106,15 @@ Here is an example that shows how to use the **When a file is added or modified 
 
    ![Selected folder appears in the "Folder" property](./media/connectors-create-api-ftp/selected-folder-ftp-trigger.png)
 
+1. Save your logic app. On the designer toolbar, select **Save**.
+
 Now that your logic app has a trigger, add the actions you want to run when your logic app finds a new or edited file. For this example, you can add an FTP action that gets the new or updated content.
 
 <a name="get-content"></a>
 
 ### Add FTP action
 
-The **Get file metadata** action gets the properties for a file that's on your FTP server and the **Get file content** action gets the content from a specified file on your FTP server. For example, you can add the trigger from the previous example and these actions to get the file's content after that file is added or edited.
+The **Get file metadata** action gets the properties for a file that's on your FTP server and the **Get file content** action gets the file content based on the information about that file on your FTP server. For example, you can add the trigger from the previous example and these actions to get the file's content after that file is added or edited.
 
 1. Under the trigger or any other actions, select **New step**.
 
@@ -144,7 +146,21 @@ The **Get file metadata** action gets the properties for a file that's on your F
 
    ![Selected "List of Files Name" property](./media/connectors-create-api-ftp/selected-get-file-content-id-ftp-action.png)
 
-1. Save your logic app. To test your workflow, add a file to the FTP folder that your logic app now monitors.
+1. Save your logic app.
+
+## Test your logic app
+
+To check that your workflow returns the content that you expect, add another action that sends you the content from the uploaded or updated file.
+
+1. Under the **Get file content** action, add an action that can send you the file's contents. This example adds the **Send an email** action for the Office 365 Outlook.
+
+   ![Add an action for sending email](./media/connectors-create-api-ftp/select-send-email-action.png)
+
+1. After the action appears, provide the information and include the properties that you want to test, for example, the **File content** property.
+
+   ![Provide information about email action](./media/connectors-create-api-ftp/selected-send-email-action.png)
+
+1. Save your logic app. To run and trigger the logic app, on the toolbar, select **Run**, and then add a file to the FTP folder that your logic app now monitors.
 
 ## Connector reference
 
