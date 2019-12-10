@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech-to-speech - Speech Service'
+title: 'Quickstart: Translate speech-to-speech - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll use the Speech SDK to interactively translate speech from one language to text in another language.
 services: cognitive-services

@@ -124,7 +124,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 4. Once your Azure Databricks workspace is open in a separate window, append **#secrets/createScope** to the URL. The URL should have the following format: 
 
-   **https://<\location>.azuredatabricks.net/#secrets/createScope**.
+   **https://<\location>.azuredatabricks.net/?o=<\orgID>#secrets/createScope**.
+   
 
 5. Enter a scope name, and enter the Azure Key Vault DNS name and Resource ID you saved earlier. Save the scope name in a text editor for use later in this tutorial. Then, select **Create**.
 

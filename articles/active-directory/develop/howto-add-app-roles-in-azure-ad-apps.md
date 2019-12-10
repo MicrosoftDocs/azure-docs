@@ -1,22 +1,19 @@
 ---
-title: Add app roles in your Azure Active Directory-registered app and receive them in the token 
+title: Add app roles and get them from a token | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to add app roles in an application registered in Azure Active Directory, assign users and groups to these roles and receive them in the `roles` claim in the token.
 services: active-directory
 documentationcenter: ''
 author: kkrishna
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: kkrishna
-ms.reviewer: ''
+ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
