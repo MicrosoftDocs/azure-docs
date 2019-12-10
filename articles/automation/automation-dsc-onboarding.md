@@ -1,6 +1,6 @@
 ---
 title: Onboarding machines for management by Azure Automation State Configuration
-description: How to setup machines for management with Azure Automation State Configuration
+description: How to set up machines for management with Azure Automation State Configuration
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -15,7 +15,7 @@ manager: carmonm
 ## Why manage machines with Azure Automation State Configuration?
 
 Azure Automation State Configuration is a configuration management service
-for DSC nodes in any cloud or on-premises datacenter.
+for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter.
 It enables scalability across thousands of machines quickly and easily from a central, secure location.
 You can easily onboard machines,
 assign them declarative configurations,
@@ -41,7 +41,7 @@ State Configuration can also be used as a report-only endpoint.
 This allows you to set (push) configurations through DSC and view reporting details in Azure Automation.
 
 > [!NOTE]
-> Managing Azure VMs with State Configuration is included at no extra charge if the virtual machine DSC extension installed is greater than 2.70. Refer to the [**Automation pricing page**](https://azure.microsoft.com/pricing/details/automation/) for more details.
+> Managing Azure VMs with State Configuration is included at no extra charge if the virtual machine DSC extension installed is greater than 2.70. For more information, see [**Automation pricing page**](https://azure.microsoft.com/pricing/details/automation/).
 
 The following sections outline how you can onboard each type of machine to Azure Automation State Configuration.
 
@@ -75,7 +75,7 @@ Azure virtual machines can be deployed and onboarded to Azure Automation State C
 Azure Resource Manager templates. See [Server managed by Desired State Configuration service](https://azure.microsoft.com/resources/templates/101-automation-configuration/)
 for an example template that onboards an existing VM to Azure Automation State Configuration.
 If you are managing a Virtual Machine Scale Set, see the example template
-[VM Scale Set Configuration managed by Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
+[Virtual machine scale set Configuration managed by Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
 
 ### PowerShell
 
@@ -114,7 +114,7 @@ can also be onboarded to Azure Automation State Configuration, as long as they h
    ```
 
 1. If you cannot apply the PowerShell DSC metaconfigurations remotely, copy the metaconfigurations folder from step 2 onto each machine to onboard. Then call **Set-DscLocalConfigurationManager** locally on each machine to onboard.
-1. Using the Azure portal or cmdlets, check that the machines to onboard now show up as State Configuration nodes registered in your Azure Automation account.
+1. Using the Azure portal or cmdlets, check that the machines to onboard appear as State Configuration nodes registered in your Azure Automation account.
 
 ## Physical/virtual Linux machines on-premises, or in a cloud other than Azure
 
@@ -361,7 +361,7 @@ number of reasons why you may need to re-register that node in the future:
 - To change any [PowerShell DSC Local Configuration Manager values](/powershell/scripting/dsc/managing-nodes/metaConfig4) that were set during initial registration of the node, such as ConfigurationMode. Currently, these DSC agent values can only be changed through re-registration. The one exception is the Node Configuration assigned to the node -- this can be changed in Azure Automation DSC directly.
 
 re-registration can be performed in the same way you registered the node initially, using any of the
-onboarding methods described in this document. You do not need to un-register a node from Azure
+onboarding methods described in this document. You do not need to unregister a node from Azure
 Automation State Configuration before re-registering it.
 
 ## Troubleshooting Azure virtual machine onboarding
