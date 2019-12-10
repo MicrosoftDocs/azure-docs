@@ -12,12 +12,12 @@
     href: multi-factor-authentication-setup-office-phone.md      
   - name: Manage your settings
     href: multi-factor-authentication-end-user-manage-settings.md
-  - name: Get help
-    href: multi-factor-authentication-end-user-troubleshoot.md
   - name: Manage app passwords
     href: multi-factor-authentication-end-user-app-passwords.md
   - name: How to sign in
     href: user-help-sign-in.md?toc=./toc.json
+  - name: Get help
+    href: multi-factor-authentication-end-user-troubleshoot.md    
 - name: Password reset help
   items:
   - name: Sign up for password reset
@@ -50,7 +50,7 @@
     href: user-help-auth-app-faq.md
 - name: My Account portal help
   items:
-  - name: Overview
+  - name: Access and use the My Account portal
     href: my-account-portal-overview.md
   - name: Manage your security info
     href: user-help-security-info-overview.md
