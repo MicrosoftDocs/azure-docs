@@ -79,18 +79,12 @@ landingContent:
             url: service-fabric-linux-windows-differences.md
       - linkListType: quickstart
         links:
-          - text: Create a Java Service Fabric app
-            url: service-fabric-quickstart-java-reliable-services.md
           - text: Deploy a Linux container app to Service Fabric
             url: service-fabric-quickstart-containers-linux.md
-          - text: Deploy a Java Spring Boot app to Service Fabric
-            url: service-fabric-quickstart-java-spring-boot.md
       - linkListType: tutorial
         links:
           - text: Create, deploy, and manage a Service Fabric Java app
             url: service-fabric-tutorial-create-java-app.md
-          - text: Create container images on a Linux Service Fabric cluster
-            url: service-fabric-tutorial-create-container-images.md
       - linkListType: how-to-guide
         links:
           - text: Develop apps with Eclipse
@@ -107,15 +101,11 @@ landingContent:
         links:
           - text: Visualize your cluster with Service Fabric Explorer
             url: service-fabric-visualizing-your-cluster.md
-          - text: Diagnose common scenarios
-            url: service-fabric-diagnostics-common-scenarios.md
-          - text: Diagnose code package errors
-            url: service-fabric-diagnostics-code-package-errors.md
-          - text: Troubleshoot your local cluster
-            url: service-fabric-troubleshoot-local-cluster-setup.md
-          - text: Troubleshoot application upgrades
+          - text: Application upgrades troubleshooting
             url: service-fabric-application-upgrade-troubleshooting.md
-          - text: Troubleshoot system health reports
+          - text: Local cluster troubleshooting
+            url: service-fabric-troubleshoot-local-cluster-setup.md
+          - text: System health reports troubleshooting
             url: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
           - text: Service Fabric community troubleshooting guides
             url: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
