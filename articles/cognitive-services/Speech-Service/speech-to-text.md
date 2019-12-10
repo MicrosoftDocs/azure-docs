@@ -1,72 +1,43 @@
 ---
 title: Speech-to-text - Speech service
 titleSuffix: Azure Cognitive Services
-description: The speech-to-text feature enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service works seamlessly with the text-to-speech (speech synthesis), and speech translation features.
+description: The speech-to-text feature enables real-time transcription of audio streams into text. Your applications, tools, or devices can consume, display, and take action on this text input. This service works seamlessly with the text-to-speech (speech synthesis), and speech translation features.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 12/10/2019
 ms.author: erhopf
 ---
 
-<!-- 
-Top level - high point of view... for "overview"
-
-four core feautre
-
-1 speech recognition 
-2 transcripition
-    run once/short burst (more advanced, long running)
-3 batch transcription
-4 customization
-
-Recipe
-conceptual intro
-but what can it do, scenarios
-
-ACOM > HUB > Service Offering
-
-supported audio formats and languages
-new article audio support... for speech service
-don't over / under write
-
-what it is
-what it can do
-
-..(SR & STT)..
- -->
-
 # What is speech-to-text?
 
-Speech-to-text from the Speech service, also known as speech recognition, enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products, and works seamlessly with the translation and text-to-speech service offerings. For a full list of available speech-to-text languages, see [supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Speech-to-text from the Speech service, also known as speech recognition, enables real-time transcription of audio streams into text. Your applications, tools, or devices can consume, display, and take action on this text as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products. It seamlessly works with the translation and text-to-speech service offerings. For a full list of available speech-to-text languages, see [supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-By default, the speech-to-text service uses the Universal language model. This model was trained using Microsoft-owned data and is deployed in the cloud. It's optimal for conversational and dictation scenarios. If you are using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary.
-
-You can easily capture audio from a microphone, read from a stream, or access audio files from storage with the Speech SDK and REST APIs. The Speech SDK supports WAV/PCM 16-bit, 16 kHz/8 kHz, single-channel audio for speech recognition. Additional audio formats are supported using the [speech-to-text REST endpoint](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) or the [batch transcription service](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+The speech-to-text service defaults to using the Universal language model. This model was trained using Microsoft-owned data and is deployed in the cloud. It's optimal for conversational and dictation scenarios. When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models. Customization is helpful for addressing ambient noise or industry-specific vocabulary.
 
 ## Core features
 
-Here is the features available via the Speech SDK and REST APIs:
+The Speech service offers REST APIs and SDK support. Here are the core features available:
 
-| Use case | SDK | REST |
-|--------- | --- | ---- |
-| Transcribe short utterances (<15 seconds). Only supports one final transcription result. | Yes | Yes\* |
+| Use case | SDK | REST API |
+|----------|-----|------|
+| Transcribe short utterances (<15 seconds). Only supports one final transcription result. | Yes | Yes <sup>1</sup> |
 | Continuous transcription of long utterances and streaming audio (>15 seconds). Supports interim and final transcription results. | Yes | No |
-| Derive intents from recognition results with [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Yes | No\*\* |
-| Batch transcription of audio files asynchronously. | No  | Yes\*\*\* |
-| Create and manage speech models. | No | Yes\*\*\* |
-| Create and manage custom model deployments. | No  | Yes\*\*\* |
-| Create accuracy tests to measure the accuracy of the baseline model versus custom models. | No  | Yes\*\*\* |
-| Manage subscriptions. | No  | Yes\*\*\* |
+| Derive intents from recognition results with [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Yes | No <sup>2</sup> |
+| Batch transcription of audio files asynchronously. | No  | Yes <sup>3</sup> |
+| Create and manage speech models. | No | Yes <sup>3</sup> |
+| Create and manage custom model deployments. | No  | Yes <sup>3</sup> |
+| Create accuracy tests to measure the accuracy of the baseline model versus custom models. | No | Yes <sup>3</sup> |
+| Manage subscriptions. | No  | Yes <sup>3</sup> |
 
-\*_Using the REST functionality you can transfer up to 60 seconds of audio and will receive one final transcription result._
+<sup>1</sup> _Using the REST functionality you can transfer up to 60 seconds of audio and will receive one final transcription result._
 
-\*\*_LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK calls LUIS for you and provide entity and intent results. With the REST API, you call LUIS yourself to derive intents and entities with your LUIS subscription._
+<sup>2</sup> _LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK calls LUIS for you and provides entity and intent results. With the REST API, you call LUIS yourself to derive intents and entities with your LUIS subscription._
 
-\*\*\*_These services are available using the cris.ai endpoint. See [Swagger reference](https://westus.cris.ai/swagger/ui/index)._
+<sup>3</sup> _These services are available using the cris.ai endpoint. See [Swagger reference](https://cris.ai/swagger/ui/index)._
 
 ## Get started with speech-to-text
 
@@ -87,7 +58,7 @@ Sample code for the Speech SDK is available on GitHub. These samples cover commo
 
 ## Customization
 
-In addition to the standard baseline model used by the Speech service, you can customize models to your needs with available data, to overcome speech recognition barriers such as speaking style, vocabulary and background noise, see [Custom Speech](how-to-custom-speech.md)
+In addition to the standard Speech service model, you can create custom models. Customization helps to overcome speech recognition barriers such as speaking style, vocabulary and background noise, see [Custom Speech](how-to-custom-speech.md)
 
 > [!NOTE]
 > Customization options vary by language/locale (see [Supported languages](supported-languages.md)).
