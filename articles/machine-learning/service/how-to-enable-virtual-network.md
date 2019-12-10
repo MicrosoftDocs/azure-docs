@@ -1,5 +1,5 @@
 ---
-title: Secure experiments and inference in a virtual network
+title: Secure experiments and inference in virtual network
 titleSuffix: Azure Machine Learning
 description: learn how to secure experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network.
 services: machine-learning
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 10/25/2019
+ms.date: 11/13/2019
 ---
 
 # Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
@@ -59,7 +59,7 @@ To use an Azure storage account for the workspace in a virtual network, do the f
     - Under __Virtual networks__, select the __Add existing virtual network__ link. This action adds the virtual network where your compute  resides (see step 1).
 
         > [!IMPORTANT]
-        > The storage account must be in the same virtual network as the Notebook VMs or clusters used for training or inference.
+        > The storage account must be in the same virtual network as the clusters used for training or inference.
 
     - Select the __Allow trusted Microsoft services to access this storage account__ check box.
 
@@ -76,7 +76,7 @@ To use an Azure storage account for the workspace in a virtual network, do the f
 > The default storage account is
 > automatically provisioned when you create a workspace.
 >
-> For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
+> For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
 
 ## Use a key vault instance with your workspace
 
@@ -105,7 +105,7 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 ## Use a Machine Learning Compute
 
-To use an Azure Machine Learning Notebook VM or compute cluster in a virtual network, the following network requirements must be met:
+To use an Azure Machine Learning compute cluster in a virtual network, the following network requirements must be met:
 
 > [!div class="checklist"]
 > * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
@@ -163,7 +163,7 @@ The NSG rule configuration in the Azure portal is shown in the following image:
 
 ### User-defined routes for forced tunneling
 
-If you're using forced tunneling with Machine Learning Compute, add [user-defined routes (UDRs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) to the subnet that contains the compute resource.
+If you're using forced tunneling with the Machine Learning Compute, add [user-defined routes (UDRs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) to the subnet that contains the compute resource.
 
 * Establish a UDR for each IP address that's used by the Azure Batch service in the region where your resources exist. These UDRs enable the Batch service to communicate with compute nodes for task scheduling. To get a list of IP addresses of the Batch service, use one of the following methods:
 
@@ -241,29 +241,18 @@ except ComputeTargetException:
 
 When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
 
+## Use Azure Databricks
+
+To use Azure Azure Databricks in a virtual network with your workspace, the following requirements must be met:
+
+> [!div class="checklist"]
+> * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
+> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Databricks cluster.
+> * In addition to the __databricks-private__ and __databricks-public__ subnets used by Azure Databricks, the __default__ subnet created for the virtual network is also required.
+
+For specific information on using Azure Databricks with a virtual network, see [Deploy Azure Databricks in your Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+
 <a id="vmorhdi"></a>
-
-### Create a compute instance in a virtual network
-
-Create an Azure Machine Learning compute instance in a virtual network. To create a compute instance, do the following:
-
-1. In the workspace studio, select **Compute** in left pane.
-
-1. On the compute instances tab select **New** to start creating a new compute instance.
-
-1. Set the Compute name and Virtual Machine size fields and enable/disable SSH access.
-
-1. To configure this compute instance to use a virtual network, do the following:
-
-    a. Select **Advanced settings**.
-
-    b. In the **Resource group** drop-down list, select the resource group that contains the virtual network.
-
-    c. In the **Virtual network** drop-down list, select the virtual network that contains the subnet.
-
-    d. In the **Subnet** drop-down list, select the subnet to use.
-
-1. Select **Create** to provision a compute instance inside a virtual network.
 
 ## Use a virtual machine or HDInsight cluster
 

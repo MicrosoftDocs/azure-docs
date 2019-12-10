@@ -4,6 +4,7 @@ description: Deprecated article with links to PC articles; was "Explains the var
 services: Azure, Marketplace, Cloud Partner Portal 
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: pabutler

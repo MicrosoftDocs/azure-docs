@@ -31,9 +31,6 @@ Windows Virtual Desktop supports GPU-accelerated rendering and encoding in the f
 
 You must also configure an app group, or use the default desktop app group (named "Desktop Application Group") that's automatically created when you create a new host pool. For instructions, see [Tutorial: Manage app groups for Windows Virtual Desktop](/azure/virtual-desktop/manage-app-groups).
 
->[!NOTE]
->Windows Virtual Desktop only supports the "Desktop" app group type for GPU-enabled host pools. App groups of type "RemoteApp" aren't supported for GPU-enabled host pools.
-
 ## Install supported graphics drivers in your virtual machine
 
 To take advantage of the GPU capabilities of Azure N-series VMs in Windows Virtual Desktop, you must install NVIDIA graphics drivers. Follow the instructions at [Install NVIDIA GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup) to install drivers, either manually or using the [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows).

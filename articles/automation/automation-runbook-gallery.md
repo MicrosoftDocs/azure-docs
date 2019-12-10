@@ -4,8 +4,8 @@ description: Runbooks and modules from Microsoft and the community are available
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
@@ -44,7 +44,7 @@ You can only import directly from the PowerShell Gallery using the Azure portal.
 
 ### Adding a PowerShell runbook to the gallery
 
-Microsoft encourages you to add runbooks to the PowerShell Gallery that you think would be useful to other customers. The PowerShell Gallery accepts PowerShell modules and PowerShell scripts. You can add a runbook by [uploading it to the PowerShell Gallery](/powershell/gallery/how-to/publishing-packages/publishing-a-package).
+Microsoft encourages you to add runbooks to the PowerShell Gallery that you think would be useful to other customers. The PowerShell Gallery accepts PowerShell modules and PowerShell scripts. You can add a runbook by [uploading it to the PowerShell Gallery](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package).
 
 > [!NOTE]
 > Graphical runbooks are not supported in PowerShell Gallery.
@@ -108,4 +108,4 @@ The list below contains a few runbooks that provide solutions to common scenario
 
 * To get started with runbooks, see [Manage runbook in Azure Automation](manage-runbooks.md)
 * To understand the differences between PowerShell and PowerShell Workflow with runbooks, see [Learning PowerShell workflow](automation-powershell-workflow.md)
-* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).

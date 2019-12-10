@@ -1,10 +1,8 @@
 ---
-title: Develop and deploy WebJobs using Visual Studio - Azure 
-description: Learn how to develop and deploy Azure WebJobs to Azure App Service using Visual Studio.
+title: Develop and deploy WebJobs using VS
+description: Learn how to develop Azure WebJobs in Visual Studio and deploy them to Azure App Service, including creating a scheduled task.
 author: ggailey777
-manager: gwallace
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
-ms.service: app-service
 ms.topic: conceptual
 ms.custom: vs-azure
 ms.date: 02/18/2019

@@ -1,12 +1,8 @@
 ---
 title: Azure Blockchain Tokens account management
 description: Using Azure Blockchain Tokens account management, you can create groups and link blockchain accounts to control access to blockchain actions.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: brendal
 #Customer intent: As an administrator, I want to use Azure Blockchain Tokens account management to control access to tokens.
 ---

@@ -1,5 +1,5 @@
 ---
-title: Restore an existing Azure SQL Data Warehouse 
+title: Restore an existing data warehouse 
 description: How-to guide for restoring an existing Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -10,6 +10,7 @@ ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Restore an existing Azure SQL Data Warehouse

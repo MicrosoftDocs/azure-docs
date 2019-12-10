@@ -1,12 +1,8 @@
 ---
 title: Publish a managed services offer to Azure Marketplace
 description: Learn how to publish a managed service offer that onboards customers to Azure delegated resource management.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 10/17/2019
-ms.topic: overview
-manager: carmonm
+ms.date: 11/15/2019
+ms.topic: conceptual
 ---
 
 # Publish a managed services offer to Azure Marketplace
@@ -76,10 +72,10 @@ Finally, add one or more **Authorization** entries to your plan. Authorizations 
 
 For each **Authorization**, you'll need to provide the following. You can then select **New authorization** as many times as needed to add more users and role definitions.
 
-  - **Azure AD Object ID**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as described by the Role Definition) to your customers' resources.
-  - **Azure AD Object Display Name**: A friendly name to help the customer understand the purpose of this authorization. The customer will see this name when delegating resources.
-  - **Role Definition**: Select one of the available Azure AD built-in roles from the list. This role will determine the permissions that the user in the **Azure AD Object ID** field will have on your customers' resources. For descriptions of these roles, see [Built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) and [Role support for Azure delegated resource management](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
-  - **Assignable Roles**: This is required only if you have selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these **Assignable Roles** to [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md). Note that no other permissions normally associated with the User Access Administrator role will apply to this user. If you do not select one or more roles here, your submission will not pass certification. (If you did not select User Access Administrator for this user’s Role Definition, this field has no effect.)
+- **Azure AD Object ID**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as described by the Role Definition) to your customers' resources.
+- **Azure AD Object Display Name**: A friendly name to help the customer understand the purpose of this authorization. The customer will see this name when delegating resources.
+- **Role Definition**: Select one of the available Azure AD built-in roles from the list. This role will determine the permissions that the user in the **Azure AD Object ID** field will have on your customers' resources. For descriptions of these roles, see [Built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) and [Role support for Azure delegated resource management](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
+- **Assignable Roles**: This is required only if you have selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these **Assignable Roles** to [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md). Note that no other permissions normally associated with the User Access Administrator role will apply to this user. If you do not select one or more roles here, your submission will not pass certification. (If you did not select User Access Administrator for this user’s Role Definition, this field has no effect.)
 
 > [!TIP]
 > In most cases, you'll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change. For additional recommendations, see [Tenants, roles, and users in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
@@ -98,14 +94,14 @@ Complete the following fields in the **Overview** section:
 |**Summary**     | Brief purpose or function of your offer. This is usually displayed under the title. Maximum length of 100 characters.        |
 |**Long Summary**     | A longer summary of the purpose or function of your offer. Maximum length of 256 characters.        |
 |**Description**     | More information about your offer. This field has a maximum length of 3000 characters and supports simple HTML formatting. You must include the words "managed service" or "managed services" somewhere in your description.       |
-|**Marketing Identifier**     | A unique URL-friendly identifier. it will be used in Marketplace URLs for this offer. For example, if your publisher ID is *contoso* and your marketing identifier is *sampleApp*, the URL for your offer in Azure Marketplace will be *https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp*.        |
+|**Marketing Identifier**     | A unique URL-friendly identifier. This identifier can only contain lowercase alphanumeric characters and dashes. It will be used in Marketplace URLs for this offer. For example, if your publisher ID is *contoso* and your marketing identifier is *sampleApp*, the URL for your offer in Azure Marketplace will be *https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp*.        |
 |**Preview Subscription IDs**     | Add one to 100 subscription identifiers. The customers associated with these subscriptions will be able to view the offer in Azure Marketplace before it goes live. We suggest including your own subscriptions here so you can preview how your offer appears in the Azure Marketplace before making it available to customers.  (Microsoft support and engineering teams will also be able to view your offer during this preview period.)   |
 |**Useful Links**     | URLs related to your offer, such as documentation, release notes, FAQs, etc.        |
 |**Suggested Categories (Max 5)**     | One or more categories (up to five) which apply to your offer. These categories help customers discover your offer in Azure Marketplace and the Azure portal.        |
 
 In the **Marketing Artifacts** section, you can upload logos and other assets to be shown with your offer. You can optionally upload screenshots or links to videos that can help customers understand your offer.
 
-Four logo sizes are required: **Small (40x40)**, **Medium (90x90)**, **Large (115x115)**, and **Wide (255x155)**. Follow these guidelines for your logos:
+Four logo sizes are required: **Small (40x40)**, **Medium (90x90)**, **Large (115x115)**, and **Wide (255x115)**. Follow these guidelines for your logos:
 
 - The Azure design has a simple color palette. Limit the number of primary and secondary colors on your logo.
 - The theme colors of the portal are white and black. Don't use these colors as the background color for your logo. Use a color that makes your logo prominent in the portal. We recommend simple primary colors.
@@ -136,64 +132,19 @@ Once you've added this info, select **Save.**
 
 Once you've completed all of the sections, your next step is to publish the offer to Azure Marketplace. Select the **Publish** button to initiate the process of making your offer live. For more about this process, see [Publish Azure Marketplace and AppSource offers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
 
+You can [publish an updated version of your offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer) at any time. For example, you may want to add a new role definition to a previously-published offer. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to [review the changes](view-manage-service-providers.md#update-service-provider-offers) and decide whether they want to update to the new version. 
+
 ## The customer onboarding process
 
-When a customer adds your offer, they will be able to [delegate one or more specific subscriptions or resource groups](view-manage-service-providers.md#delegate-resources) which will then be onboarded for Azure delegated resource management. If a customer has accepted an offer but has not yet delegated any resources, they'll see a note at the top of the **Provider offers** section of the [**Service providers**](view-manage-service-providers.md) page in the Azure portal. If a user in the customer's tenant is unable to perform this delegation, it's probably because they don't have the Owner role for the subscription. To find users who can delegate the subscription, the user can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+After a customer adds your offer, they'll be able to [delegate one or more specific subscriptions or resource groups](view-manage-service-providers.md#delegate-resources), which will then be onboarded for Azure delegated resource management. If a customer has accepted an offer but has not yet delegated any resources, they'll see a note at the top of the **Provider offers** section of the [**Service providers**](view-manage-service-providers.md) page in the Azure portal.
 
-Before a subscription (or resource groups within a subscription) can be onboarded, the subscription must be authorized for onboarding by manually registering the **Microsoft.ManagedServices** resource provider. A user in the customer's tenant with the Contributor or Owner role can do this by following the steps outlined in [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
+> [!IMPORTANT]
+> Delegation must be done by a non-guest account in the customer’s tenant which has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
 
-The customer can then confirm that the subscription is ready for onboarding in one of the following ways.
+After the customer delegates a subscription (or one or more resource groups within a subscription), the **Microsoft.ManagedServices** resource provider will be registered for that subscription, and users in your tenant will be able to access the delegated resources according to the authorizations in your offer.
 
-### Azure portal
-
-1. In the Azure portal, select the subscription.
-1. Select **Resource providers**.
-1. Confirm that **Microsoft.ManagedServices** shows as **Registered**.
-
-### PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-Set-AzContext -Subscription <subscriptionId>
-Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
-```
-
-This should return results similar to the following:
-
-```output
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationDefinitions}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationAssignments}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {operations}
-Locations         : {}
-```
-
-### Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set –subscription <subscriptionId>
-az provider show --namespace "Microsoft.ManagedServices" --output table
-```
-
-This should return results similar to the following:
-
-```output
-Namespace                  RegistrationState
--------------------------  -------------------
-Microsoft.ManagedServices  Registered
-```
+> [!NOTE]
+> At this time, subscriptions (or resource groups within a subscription) can't be delegated if the subscription uses Azure Databricks. Similarly, if a subscription (or resource groups within a subscription) has already been delegated, it currently isn't possible to create Databricks workspaces in that subscription.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Protected web API - app code configuration 
+title: Configure protected web API apps | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a protected web API and configure your application's code.
 services: active-directory
@@ -155,6 +155,10 @@ The validators are described in this table:
 | `ValidateTokenReplay` | Ensures the token isn't replayed. (Special case for some onetime use protocols.) |
 
 The validators are all associated with properties of the `TokenValidationParameters` class, themselves initialized from the ASP.NET/ASP.NET Core configuration. In most cases, you won't have to change the parameters. There's one exception, for apps that aren't single tenants. (That is, web apps that accept users from any organization or from personal Microsoft accounts.) In this case, the issuer must be validated.
+
+## Token validation in Azure Functions
+
+It's also possible to validate incoming access tokens in Azure functions. You can find examples of validating tokens in Azure functions in [Dotnet](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions), and [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
 
 ## Next steps
 

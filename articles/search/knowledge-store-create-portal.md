@@ -1,11 +1,11 @@
 ---
-title: Create a knowledge store in the Azure portal
+title: Create a knowledge store (preview) in the Azure portal
 titleSuffix: Azure Cognitive Search
-description: Use the Import data wizard to create a knowledge store used for persisting enriched content. Connect to a knowledge store for analysis from other apps, or send enriched content to downstream processes.
+description: Use the Import data wizard to create a knowledge store used for persisting enriched content. Connect to a knowledge store for analysis from other apps, or send enriched content to downstream processes. This feature is currently in public preview.
 
-author: lisaleib
+author: HeidiSteen
+ms.author: heidist
 manager: nitinme
-ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
@@ -13,9 +13,8 @@ ms.date: 11/04/2019
 
 # Quickstart: Create an Azure Cognitive Search knowledge store in the Azure portal
 
-> [!Note]
-> Knowledge store is in preview and should not be used in production. Both the Azure portal and the [Search REST API version 2019-05-06-Preview](search-api-preview.md) provide this feature. There is no .NET SDK support at this time.
->
+> [!IMPORTANT] 
+> Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 Knowledge store is a feature of Azure Cognitive Search that persists output from a cognitive skills pipeline for subsequent analyses or downstream processing. 
 
@@ -53,7 +52,7 @@ Because the workload is so small, Cognitive Services is tapped behind the scenes
 
 <!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
 
-1. [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under the same subscription. You can use a free service for this quickstart.
+1. [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart.
 
 You are now ready to move on the Import data wizard.
 

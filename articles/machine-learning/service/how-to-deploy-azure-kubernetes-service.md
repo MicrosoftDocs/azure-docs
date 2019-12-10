@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 10/25/2019
+ms.date: 11/06/2019
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster
@@ -22,7 +22,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on Az
 - __Hardware acceleration__ options such as GPU and field-programmable gate arrays (FPGA).
 
 > [!IMPORTANT]
-> Cluter scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see [Scale the node count in an AKS cluster](../../aks/scale-cluster.md).
+> Cluster scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see [Scale the node count in an AKS cluster](../../aks/scale-cluster.md).
 
 When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. There are two ways to connect an AKS cluster to your workspace:
 
@@ -94,7 +94,7 @@ aks_target.wait_for_completion(show_output = True)
 For more information on the classes, methods, and parameters used in this example, see the following reference documents:
 
 * [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
-* [AksCompute.provisioning_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none--load-balancer-type-none-)
 * [ComputeTarget.create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-)
 * [ComputeTarget.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#wait-for-completion-show-output-false-)
 
@@ -110,19 +110,23 @@ For more information, see the [az ml computetarget create ask](https://docs.micr
 
 **Time estimate:** Approximately 5 minutes.
 
-If you already have AKS cluster in your Azure subscription, and it is lower than version 1.14, you can use it to deploy your image.
+If you already have AKS cluster in your Azure subscription, and it is lower than version 1.15, you can use it to deploy your image.
 
 > [!TIP]
-> The existing AKS cluster can be in a Azure region than your Azure Machine Learning workspace.
+> The existing AKS cluster can be in a Azure region other than your Azure Machine Learning workspace.
 >
 > If you want to secure your AKS cluster using an Azure Virtual Network, you must create the virtual network first. For more information, see [Secure experimentation and inference with Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 
+When attaching an AKS cluster to a workspace, you can define how you will use the cluster by setting the `cluster_purpose` parameter.
+
+If you do not set the `cluster_purpose` parameter, or set `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, then the cluster must have at least 12 virtual CPUs available.
+
+If you set `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, then the cluster does not need to have 12 virtual CPUs. We recommend at least 2 virtual CPUs for dev/test. However a cluster that is configured for dev/test is not suitable for production level traffic and may increase inference times. Dev/test clusters also do not guarantee fault tolerance.
+
 > [!WARNING]
-> When attaching an AKS cluster to a workspace, you can define how you will use the cluster by setting the `cluster_purpose` parameter.
+> Do not create multiple, simultaneous attachments to the same AKS cluster from your workspace. For example, attaching one AKS cluster to a workspace using two different names. Each new attachment will break the previous existing attachment(s).
 >
-> If you do not set the `cluster_purpose` parameter, or set `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, then the cluster must have at least 12 virtual CPUs available.
->
-> If you set `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, then the cluster does not need to have 12 virtual CPUs. We recommend at least 2 virtual CPUs for dev/test. However a cluster that is configured for dev/test is not suitable for production level traffic and may increase inference times. Dev/test clusters also do not guarantee fault tolerance.
+> If you want to re-attach an AKS cluster, for example to change SSL or other cluster configuration setting, you must first remove the existing attachment by using [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
 
 For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
@@ -150,7 +154,7 @@ aks_target = ComputeTarget.attach(ws, 'myaks', attach_config)
 
 For more information on the classes, methods, and parameters used in this example, see the following reference documents:
 
-* [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none--load-balancer-type-none-)
 * [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
 * [AksCompute.attach](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#attach-workspace--name--attach-configuration-)
 
@@ -201,7 +205,7 @@ For more information on the classes, methods, and parameters used in this exampl
 
 * [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute?view=azure-ml-py)
 * [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
-* [Model.deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)
+* [Model.deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
 * [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
 
 ### Using the CLI

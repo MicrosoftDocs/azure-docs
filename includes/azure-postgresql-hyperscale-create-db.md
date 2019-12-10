@@ -21,7 +21,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 Follow these steps to create an Azure Database for PostgreSQL server:
 1. Click **Create a resource**  in the upper left-hand corner of the Azure portal.
 2. Select **Databases** from the **New** page, and select **Azure Database for PostgreSQL** from the **Databases** page.
-3. For the deployment option, click the **Create** button under **Hyperscale (Citus) server group - PREVIEW.**
+3. For the deployment option, click the **Create** button under **Hyperscale (Citus) server group.**
 4. Fill out the new server details form with the following information:
    - Resource group: click the **Create new** link below the text box for this field. Enter a name such as **myresourcegroup**.
    - Server group name: enter a unique name for the new server group, which will also be used for a server subdomain.

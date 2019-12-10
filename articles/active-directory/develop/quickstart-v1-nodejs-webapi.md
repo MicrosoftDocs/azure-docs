@@ -2,7 +2,6 @@
 title: 'Quickstart: Secure a Web API with Azure Active Directory'
 description: Learn how to build a Node.js REST web API that integrates with Azure AD for authentication.
 services: active-directory
-documentationcenter: nodejs
 author: rwike77
 manager: CelesteDG
 
@@ -10,7 +9,6 @@ ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 10/25/2019

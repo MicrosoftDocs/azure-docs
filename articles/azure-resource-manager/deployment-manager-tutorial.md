@@ -1,12 +1,8 @@
 ---
-title: Use Azure Deployment Manager with Resource Manager templates | Microsoft Docs
-description: Use Resource Manager templates with Azure Deployment Manager to deploy Azure resources.
-services: azure-resource-manager
-documentationcenter: ''
+title: Use Azure Deployment Manager to deploy templates
+description: Learn how to use Resource Manager templates with Azure Deployment Manager to deploy Azure resources.
 author: mumian
-
-ms.service: azure-resource-manager
-ms.date: 10/10/2019
+ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
 
@@ -53,7 +49,7 @@ To complete this article, you need:
 
 * Some experience with developing [Azure Resource Manager templates](./resource-group-overview.md).
 * Azure PowerShell. For more information, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
-* Deployment Manager cmdlets. To install these prerelease cmdlets, you need the latest version of PowerShellGet. To get the latest version, see [Installing PowerShellGet](/powershell/gallery/installing-psget). After installing PowerShellGet, close your PowerShell window. Open a new elevated PowerShell window, and use the following command:
+* Deployment Manager cmdlets. To install these prerelease cmdlets, you need the latest version of PowerShellGet. To get the latest version, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget). After installing PowerShellGet, close your PowerShell window. Open a new elevated PowerShell window, and use the following command:
 
     ```powershell
     Install-Module -Name Az.DeploymentManager
@@ -169,7 +165,7 @@ foreach ($x in $filesToUpload) {
     Set-AzStorageBlobContent -File $x.fullname -Container $storageContainer.Name -Blob $targetPath -Context $storageContext | Out-Null
 }
 
-$token = New-AzStorageContainerSASToken -name $containerName -Context $storageContext -Permission rl -ExpiryTime (Get-date).AddMonths(1)  -Protocol HttpsOrHttp
+$token = New-AzStorageContainerSASToken -name $containerName -Context $storageContext -Permission rl -ExpiryTime (Get-date).AddMonths(1)
 
 $url = $storageAccount.PrimaryEndpoints.Blob + $containerName + $token
 
@@ -185,9 +181,6 @@ Open the container from the Azure portal and verify that both the **binaries** a
 Later in the tutorial, you deploy a rollout. A user-assigned managed identity is needed to perform the deployment actions (for example, deploy the web applications and the storage account). This identity must be granted access to the Azure subscription you're deploying the service to, and have sufficient permission to complete the artifact deployment.
 
 You need to create a user-assigned managed identity and configure the access control for your subscription.
-
-> [!IMPORTANT]
-> The user-assigned managed identity must be in the same location as the [rollout](#create-the-rollout-template). Currently, the Deployment Manager resources, including rollout, can only be created in either Central US or East US 2. However, this is only true for the Deployment Manager resources (such as the service topology, services, service units, rollout, and steps). Your target resources can be deployed to any supported Azure region. In this tutorial, for example, the Deployment Manager resources are deployed to Central US, but the services are deployed to East US and West US. This restriction will be lifted in the future.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Create a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
@@ -211,7 +204,7 @@ Open **\ADMTemplates\CreateADMServiceTopology.json**.
 The template contains the following parameters:
 
 * **projectName**: This name is used to create the names for the Deployment Manager resources. For example, using "jdoe", the service topology name is **jdoe**ServiceTopology.  The resource names are defined in the variables section of this template.
-* **azureResourcelocation**: To simplify the tutorial, all resources share this location unless it is specified otherwise. Currently, Azure Deployment Manager resources can only be created in either **Central US** or **East US 2**.
+* **azureResourcelocation**: To simplify the tutorial, all resources share this location unless it is specified otherwise.
 * **artifactSourceSASLocation**: The SAS URI to the Blob container where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
 * **templateArtifactRoot**: The offset path from the Blob container where the templates and parameters are stored. The default value is **templates/1.0.0.0**. Don't change this value unless you want to change the folder structure explained in [Prepare the artifacts](#prepare-the-artifacts). Relative paths are used in this tutorial.  The full path is constructed by concatenating **artifactSourceSASLocation**, **templateArtifactRoot**, and **templateArtifactSourceRelativePath** (or **parametersArtifactSourceRelativePath**).
 * **targetSubscriptionID**: The subscription ID to which the Deployment Manager resources are going to be deployed and billed. Use your subscription ID in this tutorial.
@@ -266,7 +259,7 @@ The template contains the following parameters:
 ![Azure Deployment Manager tutorial rollout template parameters](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
 * **projectName**: This name is used to create the names for the Deployment Manager resources. For example, using "jdoe", the rollout name is **jdoe**Rollout.  The names are defined in the variables section of the template.
-* **azureResourcelocation**: To simplify the tutorial, all Deployment Manager resources share this location unless it is specified otherwise. Currently, Azure Deployment Manager resources can only be created in either **Central US** or **East US 2**.
+* **azureResourcelocation**: To simplify the tutorial, all Deployment Manager resources share this location unless it is specified otherwise.
 * **artifactSourceSASLocation**: The SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
 * **binaryArtifactRoot**:  The default value is **binaries/1.0.0.0**. Don't change this value unless you want to change the folder structure explained in [Prepare the artifacts](#prepare-the-artifacts). Relative paths are used in this tutorial.  The full path is constructed by concatenating **artifactSourceSASLocation**, **binaryArtifactRoot**, and the **deployPackageUri** specified in the CreateWebApplicationParameters.json.  See [Prepare the artifacts](#prepare-the-artifacts).
 * **managedIdentityID**: The user-assigned managed identity that performs the deployment actions. See [Create the user-assigned managed identity](#create-the-user-assigned-managed-identity).
@@ -308,7 +301,7 @@ You create a parameters file used with the rollout template.
 2. Fill the parameter values:
 
     * **projectName**: Enter a string with 4-5 characters. This name is used to create unique azure resource names.
-    * **azureResourceLocation**: Currently, Azure Deployment Manager resources can only be created in either **Central US** or **East US 2**.
+    * **azureResourceLocation**: Specify an Azure location.
     * **artifactSourceSASLocation**: Enter the SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
     * **binaryArtifactRoot**: Unless you change the folder structure of the artifacts, use **binaries/1.0.0.0** in this tutorial.
     * **managedIdentityID**: Enter the user-assigned managed identity. See [Create the user-assigned managed identity](#create-the-user-assigned-managed-identity). The syntax is:

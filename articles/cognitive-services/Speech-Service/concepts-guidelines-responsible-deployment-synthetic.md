@@ -34,7 +34,7 @@ In ambiguous, transactional scenarios (for example, a call support center), user
 When working with voice talent, such as voice actors, to create synthetic voices, the guideline below applies.
 
 ### Obtain meaningful consent from voice talent
-Voice talent expect to have control over their voice font (how and where it will be used) and be compensated anytime it's used. System owners should therefore obtain explicit written permission from voice talent, and have clear contractual specifications on use cases, duration of use, compensation, and so on. Some voice talent are unaware of the potential malicious uses of the technology and should be educated by system owners about the capabilities of the technology. For more on voice talent and consent, read our [Transparency Note](https://aka.ms/neural-tts-transparency-note).
+Voice talent expect to have control over their voice font (how and where it will be used) and be compensated anytime it's used. System owners should therefore obtain explicit written permission from voice talent, and have clear contractual specifications on use cases, duration of use, compensation, and so on. Some voice talent are unaware of the potential malicious uses of the technology and should be educated by system owners about the capabilities of the technology. For more on voice talent and consent, read our [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent).
 
 
 ## Considerations for those with speech disorders
@@ -52,13 +52,13 @@ Individuals with speech disorders desire to make updates to their synthetic voic
 
 ## Reference docs
 
-* [Transparency Note](https://aka.ms/neural-tts-transparency-note)
+* [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent)
 * [Gating Overview](concepts-gating-overview.md)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 * [Disclosure Design Patterns](concepts-disclosure-patterns.md)
 
 ## Next steps
 
-* [Transparency Note](https://aka.ms/neural-tts-transparency-note)
+* [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 * [Disclosure Design Patterns](concepts-disclosure-patterns.md)

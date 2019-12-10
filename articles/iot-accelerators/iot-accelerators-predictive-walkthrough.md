@@ -1,6 +1,6 @@
 ---
 title: Predictive Maintenance solution accelerator overview - Azure | Microsoft Docs
-description: An overview of the Azure IoT Predictive Maintenance solution accelerator.
+description: An overview of the Azure IoT Predictive Maintenance solution accelerator that predicts the point at which a failure is likely to occur for a business scenario.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators

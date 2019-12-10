@@ -39,6 +39,10 @@
       href: how-to-automatic-language-detection.md
     - name: Use compressed audio input formats
       href: how-to-use-codec-compressed-audio-input-streams.md
+    - name: Use compressed audio input formats (iOS)
+      href: how-to-use-codec-compressed-audio-input-streams-ios.md
+    - name: Use compressed audio input formats (Android)
+      href: how-to-use-codec-compressed-audio-input-streams-android.md
     - name: Use speech recognition with Docker containers
       href: speech-container-howto.md?tabs=stt
   - name: Reference
@@ -65,6 +69,10 @@
         href: rest-speech-to-text.md
       - name: Batch transcription REST APIs
         href: batch-transcription.md
+  - name: Resources
+    items:
+    - name: Speech-to-text FAQ
+      href: faq-stt.md
 - name: Text-to-speech
   exanded: false
   items:
@@ -112,6 +120,10 @@
       items:
       - name: Text-to-speech REST API
         href: rest-text-to-speech.md
+  - name: Resources
+    items:
+    - name: Text-to-speech FAQ
+      href: faq-text-to-speech.md
 - name: Intent recognition
   exanded: false
   items:
@@ -182,17 +194,21 @@
         href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
+  - name: Resources
+    items:
+    - name: Speech translation FAQ
+      href: https://www.microsoft.com/translator/faq.aspx
 - name: Conversation transcription
   expanded: false
   items:
   - name: Overview
     items:
     - name: What is conversation transcription?
-      href: conversation-transcription-service.md
+      href: conversation-transcription.md
   - name: How-to guides
     items:
     - name: Real time Conversation Transcription
-      href: how-to-use-conversation-transcription-service.md
+      href: how-to-use-conversation-transcription.md
     - name: Asynchronous Conversation Transcription
       href: how-to-async-conversation-transcription.md
   - name: Reference
@@ -254,7 +270,7 @@
     items:
     - name: Voice enable your bot with Speech SDK
       href: tutorial-voice-enable-your-bot-speech-sdk.md
-  - name: Reference
+  - name: Resources
     items:
     - name: Voice assistants FAQ
       href: faq-voice-assistants.md
@@ -291,8 +307,8 @@
         href: concepts-gating-overview.md
       - name: Deployment of synthetic technology
         href: concepts-guidelines-responsible-deployment-synthetic.md
-      - name: Transparency note for Custom Voice
-        href: https://aka.ms/neural-tts-transparency-note
+      - name: Disclosure for voice talent
+        href: https://aka.ms/disclosure-voice-talent
       - name: Disclosure design guidelines
         href: concepts-disclosure-guidelines.md
       - name: Disclosure design patterns
@@ -318,6 +334,11 @@
 - name: Speech Service
   expanded: false
   items:
+  - name: Scenarios
+    items:
+    - name: Call centers
+      href: call-center-transcription.md
+      displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
   - name: How-to guides
     items:
     - name: Try Speech Service for free
@@ -353,8 +374,6 @@
         href: rest-speech-to-text.md
       - name: Text-to-speech REST API
         href: rest-text-to-speech.md
-      - name: Webhooks REST API
-        href: webhooks.md
     - name: Swagger documentation
       href: swagger-documentation.md
 - name: Speech SDK
@@ -368,6 +387,8 @@
       href: scenario-availability.md
   - name: Quickstarts
     items:
+    - name: Create a project
+      href: quickstarts/create-project.md
     - name: Setup Speech SDK with C#
       href: quickstarts/setup-platform.md?pivots=programming-language-csharp
     - name: Setup Speech SDK with C++
@@ -404,6 +425,33 @@
       href: https://aka.ms/csspeech/pythonref
     - name: Speech SDK Release notes
       href: releasenotes.md
+- name: Devices
+  exanded: false
+  items:
+  - name: Overview
+    items:
+    - name: About the Speech Devices SDK
+      href: speech-devices-sdk.md
+    - name: Get the Speech Devices SDK
+      href: get-speech-devices-sdk.md
+  - name: Hardware
+    items:
+    - name: Microphone array recommendations
+      href: speech-devices-sdk-microphone.md
+    - name: Roobo v1 kit
+      href: speech-devices-sdk-roobo-v1.md
+  - name: Quickstarts
+    items:
+    - name: Windows
+      href: speech-devices-sdk-windows-quickstart.md
+    - name: Linux
+      href: speech-devices-sdk-linux-quickstart.md
+    - name: Android
+      href: speech-devices-sdk-android-quickstart.md
+  - name: Resources
+    items:
+    - name: Troubleshoot the Speech Devices SDK
+      href: speech-devices-sdk-troubleshooting.md
 - name: Migration
   exanded: false
   items:
@@ -418,6 +466,8 @@
   items:
   - name: Support
     href: support.md
+  - name: Regions 
+    href: regions.md
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Compliance

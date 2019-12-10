@@ -101,6 +101,10 @@ For more information about recommendations, see [Managing security recommendatio
    > [!NOTE]
    > Remember that a management group applies its policies to its subscriptions. Therefore, if you disable a subscription's policy, and the subscription belongs to a management group that still uses the same policy, then you will continue to receive the policy recommendations. The policy will still be applied from the management level and the recommendations will still be generated.
 
+1. Click **View effective policy**.
+
+   ![disable policy](./media/tutorial-security-policy/view-effective-policy.png)
+
 1. Click the assigned policy.
 
    ![disable policy](./media/tutorial-security-policy/security-policy.png)

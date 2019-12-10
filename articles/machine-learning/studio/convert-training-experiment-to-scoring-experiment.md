@@ -1,6 +1,6 @@
 ---
 title: Prepare model for deployment
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: How to prepare your trained model for deployment as a web service by converting your Machine Learning Studio (classic) training experiment to a predictive experiment.
 services: machine-learning
 ms.service: machine-learning
@@ -110,7 +110,7 @@ Now that the predictive experiment has been sufficiently prepared, you can deplo
 
 For more information on the complete deployment process, see [Deploy an Azure Machine Learning web service][deploy]
 
-[deploy]: publish-a-machine-learning-web-service.md
+[deploy]: deploy-a-machine-learning-web-service.md
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

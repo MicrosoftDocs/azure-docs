@@ -1,10 +1,10 @@
 ---
-title: What's new in Azure Migrate | Microsoft Docs
-description: Provides an overview of the Azure Migrate service.
+title: What's new in Azure Migrate 
+description: Learn about what's new and recent updates in the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/22/2019
+ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -26,11 +26,18 @@ A number of new features were added to Azure Migrate:
 - **Virtual Desktop**: Use ISV tools to assess and migrate on-premises virtual desktop infrastructure (VDI) to Windows Virtual Desktop in Azure.
 - **Web app**: The Azure App Service Migration Assistant, used for assessing and migration web apps, is now integrated into Azure Migrate.
 
+New assessment and migration tools were added to Azure Migrate:
+
+- **Rackware**: Offering cloud migration.
+- **Movere**: Offering assessment.
+
+[Learn more](migrate-services-overview.md) about using tools and ISV offerings for assessment and migration in Azure Migrate.
+
 ## Release version (July 2019)
 
-The current version of Azure Migrate was released in July 2019. 
+The current version of Azure Migrate was released in July 2019.
 
-- **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. 
+- **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations.
 - **Previous version**: For customer using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can no longer create new Azure Migrate projects, or perform new discoveries. You can still access existing projects. To do this in the Azure portal > **All services**, search for **Azure Migrate**. In the Azure Migrate notifications, there's a link to access old Azure Migrate projects.
 
 
@@ -48,7 +55,7 @@ The current version of Azure Migrate provides a number of new features:
     - The appliance continuously discovers server metadata and performance data, for the purposes of assessment and migration.  
 - **VMware VM migration**:  Azure Migrate Server Migration provides a couple of methods for migrating on-premises VMware VMs to Azure.  An agentless migration using the Azure Migrate appliance, and an agent-based migration that uses a replication appliance, and deploys an agent on each VM you want to migrate. [Learn more](server-migrate-overview.md)
  - **Database assessment and migration**: From Azure Migrate, you can assess on-premises databases for migration to Azure using the Azure Database Migration Assistant. You can migrate databases using the Azure Database Migration Service.
-- **Web app migration**: You can assess web apps using a public endpoint URL with the Azure App Service. For migration of internal .NET apps, you can download and run the App Service Migration Assistant. 
+- **Web app migration**: You can assess web apps using a public endpoint URL with the Azure App Service. For migration of internal .NET apps, you can download and run the App Service Migration Assistant.
 - **Data Box**: Import large amounts offline data into Azure using Azure Data Box in Azure Migrate.
 
 

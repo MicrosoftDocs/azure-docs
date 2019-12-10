@@ -1,6 +1,6 @@
 ---
 title: Secure your Azure Internet of Things (IoT) deployment | Microsoft Docs
-description: This article details how to secure your Azure IoT deployment
+description: This article details how to secure your Azure IoT deployment. It links to implementation level details for configuring and deploying each component.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators

@@ -1,6 +1,6 @@
 ---
 title: Get support & training
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Get support and training and provide feedback for Azure Machine Learning Studio (classic)
 services: machine-learning
 ms.service: machine-learning

@@ -1,6 +1,6 @@
 ---
 title: Deployment and consumption
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: You can use Azure Machine Learning Studio (classic) to deploy machine learning workflows and models as web services. These web services can then be used to call the machine learning models from applications over the internet to do predictions in real time or in batch mode. 
 services: machine-learning
 ms.service: machine-learning
@@ -26,13 +26,13 @@ The Studio (classic) portal and the Microsoft Azure Machine Learning Web Service
 
 The following links provide general Information about how to deploy a new web service:
 
-* For an overview about how to deploy a new web service that's based on Azure Resource Manager, see [Deploy a new web service](publish-a-machine-learning-web-service.md).
-* For a walkthrough about how to deploy a web service, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
+* For an overview about how to deploy a new web service that's based on Azure Resource Manager, see [Deploy a new web service](deploy-a-machine-learning-web-service.md).
+* For a walkthrough about how to deploy a web service, see [Deploy an Azure Machine Learning web service](deploy-a-machine-learning-web-service.md).
 * For a full walkthrough about how to create and deploy a web service, start with [Tutorial 1: Predict credit risk](tutorial-part1-credit-risk.md).
 * For specific examples that deploy a web service, see:
 
   * [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md)
-  * [How to deploy a web service to multiple regions](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
+  * [How to deploy a web service to multiple regions](deploy-a-machine-learning-web-service.md#multi-region)
 
 ### With web services resource provider APIs (Azure Resource Manager APIs)
 
@@ -83,8 +83,8 @@ See the following articles and sample code for additional details:
 
 You can test your web service from the Azure Machine Learning Web Services portal. This includes testing the Request-Response service (RRS) and Batch Execution service (BES) interfaces.
 
-* [Deploy a new web service](publish-a-machine-learning-web-service.md)
-* [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md)
+* [Deploy a new web service](deploy-a-machine-learning-web-service.md)
+* [Deploy an Azure Machine Learning web service](deploy-a-machine-learning-web-service.md)
 * [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md)
 
 ### From Excel

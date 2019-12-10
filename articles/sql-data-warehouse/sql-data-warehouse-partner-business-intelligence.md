@@ -1,6 +1,6 @@
 ---
-title: SQL Data Warehouse Business Intelligence partners 
-description: Lists of third-party business intelligence partners with solutions that support SQL Data Warehouse.
+title: Business Intelligence partners 
+description: Lists of third-party business intelligence partners with solutions that support Azure SQL Data Warehouse.
 services: sql-data-warehouse
 services: sql-data-warehouse
 author: mabasile-MSFT
@@ -11,6 +11,7 @@ ms.subservice: consume
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # SQL Data Warehouse business intelligence partners

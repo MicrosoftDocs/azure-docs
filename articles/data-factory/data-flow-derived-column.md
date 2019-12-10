@@ -1,10 +1,11 @@
 ---
-title: Derived column transformation in Azure Data Factory mapping data flow | Microsoft Docs
+title: Derived column transformation in mapping data flow
 description: Learn how to transform data at scale in Azure Data Factory with the mapping data flow Derived Column transformation.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/15/2019
 ---
 

@@ -327,17 +327,17 @@ If you want to the disable the **HEALTHCHECK** integration for the entire Servic
 ## Deploy the container application
 Save all your changes and build the application. To publish your application, right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
 
-In **Connection Endpoint**, enter the management endpoint for the cluster. For example, "containercluster.westus2.cloudapp.azure.com:19000". You can find the client connection endpoint in the Overview tab for your cluster in the [Azure portal](https://portal.azure.com).
+In **Connection Endpoint**, enter the management endpoint for the cluster. For example, `containercluster.westus2.cloudapp.azure.com:19000`. You can find the client connection endpoint in the Overview tab for your cluster in the [Azure portal](https://portal.azure.com).
 
 Click **Publish**.
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a web-based tool for inspecting and managing applications and nodes in a Service Fabric cluster. Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ and follow the application deployment. The application deploys but is in an error state until the image is downloaded on the cluster nodes (which can take some time, depending on the image size):
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a web-based tool for inspecting and managing applications and nodes in a Service Fabric cluster. Open a browser and navigate to `http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/` and follow the application deployment. The application deploys but is in an error state until the image is downloaded on the cluster nodes (which can take some time, depending on the image size):
 ![Error][1]
 
 The application is ready when it's in ```Ready``` state:
 ![Ready][2]
 
-Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:8081. You should see the heading "Hello World!" display in the browser.
+Open a browser and navigate to `http://containercluster.westus2.cloudapp.azure.com:8081`. You should see the heading "Hello World!" display in the browser.
 
 ## Clean up
 

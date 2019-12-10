@@ -1,8 +1,7 @@
 ---
 title: "Using CI/CD with Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
+
 author: DrEsteban
 ms.author: stevenry
 ms.date: "12/17/2018"

@@ -1,5 +1,5 @@
 ---
-title: SQL Database managed instance - Point-in-time restore | Microsoft Docs
+title: Managed instance - Point-in-time restore
 description: Restore a SQL database in a managed instance to a previous point in time.
 services: sql-database
 ms.service: sql-database
@@ -224,7 +224,7 @@ az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
 Connect directly to the managed instance and start SQL Server Management Studio. Then, run the following Transact-SQL (T-SQL) query. The query will change the name of the restored database to that of the dropped database that you intend to overwrite.
 
 ```sql
-ALTER WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
+ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 ```
 
 Use one of the following methods to connect to your database in the managed instance:

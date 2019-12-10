@@ -1,11 +1,11 @@
 ---
-title: Network security group event and rule counter Azure diagnostic logs
+title: Diagnostic logging for a network security group
 titlesuffix: Azure Virtual Network
 description: Learn how to enable event and rule counter diagnostic logs for an Azure network security group.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

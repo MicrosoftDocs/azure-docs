@@ -1,6 +1,6 @@
 ---
 title: Consistency levels and Azure Cosmos DB APIs
-description: Understanding the consistency levels across APIs in Azure Cosmos DB.
+description: Understanding the consistency level mapping between different APIs in Azure Cosmos DB and Apache Cassandra, MongoDB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -20,7 +20,7 @@ When using Cassandra API or Azure Cosmos DB’s API for MongoDB, applications ge
 
 ## <a id="cassandra-mapping"></a>Mapping between Apache Cassandra and Azure Cosmos DB consistency levels
 
-Unlike AzureCosmos DB, Apache Cassandra does not natively provide precisely defined consistency guarantees.  Instead, Apache Cassandra provides a write consistency level and a read consistency level, to enable the high availability, consistency, and latency tradeoffs. When using Azure Cosmos DB’s Cassandra API: 
+Unlike Azure Cosmos DB, Apache Cassandra does not natively provide precisely defined consistency guarantees.  Instead, Apache Cassandra provides a write consistency level and a read consistency level, to enable the high availability, consistency, and latency tradeoffs. When using Azure Cosmos DB’s Cassandra API: 
 
 * The write consistency level of Apache Cassandra is mapped to the default consistency level configured on your Azure Cosmos account. 
 

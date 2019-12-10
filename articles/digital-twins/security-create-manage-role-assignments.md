@@ -1,6 +1,6 @@
 ---
 title: 'Create and manage role assignments - Azure Digital Twins | Microsoft Docs'
-description: Learn about creating and managing role assignments in Azure Digital Twins.
+description: Learn about creating and managing role assignments within Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -55,7 +55,7 @@ Previously, the **objectIdType** attribute was introduced.
 
 Azure Digital Twins supports full *CREATE*, *READ*, and *DELETE* operations for role assignments. *UPDATE* operations are handled by adding role assignments, removing role assignments, or modifying the [Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md) nodes that role assignments give access to.
 
-[![Role assignment endpoints](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
+[![Role assignment endpoints](media/security-roles/role-assignments.png)](media/security-roles/role-assignments.png#lightbox)
 
 The supplied Swagger reference documentation contains further information about all available API endpoints, request operations, and definitions.
 
@@ -107,7 +107,7 @@ With the following JSON body:
 
 ### Retrieve all roles
 
-[![System roles](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
+[![System roles](media/security-roles/system-api.png)](media/security-roles/system-api.png#lightbox)
 
 To list all available roles (role definitions), make an authenticated HTTP GET request to:
 

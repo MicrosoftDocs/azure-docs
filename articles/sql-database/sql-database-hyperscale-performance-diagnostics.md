@@ -1,9 +1,10 @@
 ---
-title: Azure SQL Database - performance diagnostics in the Hyperscale service tier | Microsoft Docs
+title: Performance diagnostics in Hyperscale
 description: This article describes how to troubleshoot Hyperscale performance problems in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
+ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 author: denzilribeiro
 ms.author: denzilr
@@ -39,13 +40,14 @@ The compute replicas do not cache a full copy of the database locally. The data 
  
 When a read is issued on a compute replica, if the data doesn't exist in the Buffer Pool or local RBPEX cache, a getPage(pageId, LSN) function call is issued, and the page is fetched from the corresponding page server. Reads from page servers are remote reads and are thus slower than reads from the local RBPEX. When troubleshooting IO-related performance problems, we need to be able to tell how many IOs were done via relatively slower remote page server reads.
 
-Several DMVs and extended events have columns and fields that specify the number of remote reads from a page server which can be compared against the total reads. 
+Several DMVs and extended events have columns and fields that specify the number of remote reads from a page server which can be compared against the total reads. Query store also captures remote reads as part of the query run time stats.
 
-- Columns to report page server reads are available in execution DMVs, such as:
+- Columns to report page server reads are available in execution DMVs and catalog views, such as:
     - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
     - [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
     - [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
     - [sys.dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys.query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql/)
 - Page server reads are added to the following extended events:
     - sql_statement_completed
     - sp_statement_completed

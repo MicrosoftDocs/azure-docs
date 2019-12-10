@@ -1,6 +1,6 @@
 ---
 title: ACOS in Azure Cosmos DB query language
-description: Learn about SQL system function ACOS in Azure Cosmos DB.
+description: Learn about how the ACOS (arccosice) SQL system function in Azure Cosmos DB returns the angle, in radians, whose cosine is the specified numeric expression
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

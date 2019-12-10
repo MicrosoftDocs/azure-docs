@@ -10,6 +10,7 @@ ms.subservice: integration
 ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Analyze data with Azure Machine Learning

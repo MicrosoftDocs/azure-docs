@@ -64,6 +64,10 @@ To change the user-managed identity assigned to the lab, remove the identity att
                 "[userAssignedIdentityResourceId]":{}
             }
         }
+        "properties":{
+            "identityUsageType":"Environment"
+                     }
+          
     }
     ```
  
@@ -80,6 +84,9 @@ To change the user-managed identity assigned to the lab, remove the identity att
                 "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sampleuseridentity":{}
             }
         }
+        "properties":{
+            "identityUsageType":"Environment"
+                     }
     }
     ```
  

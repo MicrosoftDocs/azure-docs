@@ -1,13 +1,13 @@
 ---
-title: Train deep learning neural network with PyTorch
+title: Train deep learning PyTorch models
 titleSuffix: Azure Machine Learning
 description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning's PyTorch estimator class.  The example scripts classify chicken and turkey images to build a deep learning neural network based on PyTorch's transfer learning tutorial. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: maxluk
-author: maxluk
+ms.author: peterlu
+author: peterclu
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
@@ -39,9 +39,9 @@ Run this code on either of these environments:
 
     - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
     - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
-    - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch) `pytorch_train.py`
+    - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/deployment/train-hyperparameter-tune-deploy-with-pytorch) `pytorch_train.py`
      
-    You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+    You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/deployment/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
 ## Set up the experiment
 
@@ -171,6 +171,11 @@ Once you've trained the model, you can register it to your workspace. Model regi
 ```Python
 model = run.register_model(model_name='pt-dnn', model_path='outputs/')
 ```
+
+> [!TIP]
+> The model you just registered is deployed the exact same way as any other registered model in Azure 
+Machine Learning, regardless of which estimator you used for training. The deployment how-to
+contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 You can also download a local copy of the model by using the Run object. In the training script `pytorch_train.py`, a PyTorch save object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy.
 
