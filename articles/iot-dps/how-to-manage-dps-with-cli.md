@@ -1,6 +1,6 @@
 ﻿---
 title: Manage IoT Hub Device Provisioning Service using Azure CLI & IoT extension
-description: Learn how to use Azure CLI and the IoT extension to manage the IoT Hub Device Provisioning Service
+description: Learn how to use Azure CLI and the IoT extension to manage the IoT Hub Device Provisioning Service (DPS)
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018

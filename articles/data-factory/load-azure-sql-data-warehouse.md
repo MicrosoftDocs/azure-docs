@@ -1,19 +1,18 @@
 ---
-title: Load data into Azure SQL Data Warehouse by using Azure Data Factory 
-description: 'Use Azure Data Factory to copy data into Azure SQL Data Warehouse'
+title: Load data into Azure SQL Data Warehouse
+description: Use Azure Data Factory to copy data into Azure SQL Data Warehouse
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 06/22/2018
-ms.author: jingwang
-
 ---
+
 # Load data into Azure SQL Data Warehouse by using Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
