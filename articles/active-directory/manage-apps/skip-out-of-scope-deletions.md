@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2019
+ms.date: 12/10/2019
 ms.author: chmutali
 
 ms.collection: M365-identity-device-management
