@@ -99,6 +99,9 @@ You can use Media Services **Dynamic Manifests** to stream only a specific rendi
 - [Dynamic manifests](filters-dynamic-manifest-overview.md)
 - [Filters](filters-concept.md)
 
+> [!NOTE]
+> Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Live streaming
 
 Azure Media Services enables you to deliver live events to your customers on the Azure cloud. **Live Events** are responsible for ingesting and processing the live video feeds. When you create a **Live Event**, an input endpoint is created that you can use to send a live signal from a remote encoder. Once you have the stream flowing into the **Live Event**, you can begin the streaming event by creating an **Asset**, **Live Output**, and **Streaming Locator**. **Live Output** will archive the stream  into the **Asset** and make it available to viewers through the **Streaming Endpoint**. A **Live Event** can be one of two types: **pass-through** and **live encoding**.

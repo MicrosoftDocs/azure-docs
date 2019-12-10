@@ -4,7 +4,7 @@ description: Symptoms, causes, and resolutions of Azure Backup failures related 
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-
+ms.service: backup
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension
@@ -21,9 +21,8 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 The Azure VM agent might be stopped, outdated, in an inconsistent state, or not installed and prevent Azure Backup service to trigger snapshots.
 
 - **Open Azure Portal > VM > Settings > Properties blade** > ensure VM **Status** is **Running** and **Agent status** is **Ready**. If the VM agent is stopped or is in an inconsistent state, restart the agent<br>
-  - For Windows VMs follow these [steps](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) to restart the Guest Agent.<br>
-  - For Linux VMs follow these [steps](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) to restart the Guest Agent.
-
+  - For Windows VMs follow these [steps](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) to restart the Guest Agent.<br>
+  - For Linux VMs follow these [steps](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) to restart the Guest Agent.
 
 ## GuestAgentSnapshotTaskStatusError - Could not communicate with the VM agent for snapshot status
 
@@ -39,6 +38,8 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Cause 4: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**
+
+**Cause 5: [VM-Agent configuration options are not set (for Linux VMs)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
 
 ## UserErrorVmProvisioningStateFailed - The VM is in failed provisioning state
 
@@ -191,6 +192,11 @@ If you require verbose logging for waagent, follow these steps:
 1. In the /etc/waagent.conf file, locate the following line: **Enable verbose logging (y|n)**
 2. Change the **Logs.Verbose** value from *n* to *y*.
 3. Save the change, and then restart waagent by completing the steps described earlier in this section.
+
+### VM-Agent configuration options are not set (for Linux VMs)
+
+A configuration file (/etc/waagent.conf) controls the actions of waagent. Configuration File Options **Extensions.Enable** and **Provisioning.Agent** should be set to **y** for Backup to work.
+For full list of VM-Agent Configuration File Options, please refer <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>The snapshot status can't be retrieved, or a snapshot can't be taken
 

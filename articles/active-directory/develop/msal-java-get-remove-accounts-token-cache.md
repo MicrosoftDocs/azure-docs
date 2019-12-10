@@ -3,16 +3,12 @@ title: Get and remove accounts from the token cache using MSAL for Java (MSAL4j)
 titleSuffix: Microsoft identity platform
 description: Learn how to view and remove accounts from the token cache using the Microsoft Authentication Library for Java.
 services: active-directory
-documentationcenter: dev-center-name
 author: sangonzal
-manager: henrikm
-editor: ''
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2019
 ms.author: sagonzal
