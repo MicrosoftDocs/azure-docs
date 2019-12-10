@@ -7,7 +7,7 @@ ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 12/10/2019
 manager: carmonm
 ---
 # Onboarding machines for management by Azure Automation State Configuration
@@ -123,7 +123,7 @@ can also be onboarded to Azure Automation State Configuration, as long as they h
 [outbound access to Azure](automation-dsc-overview.md#network-planning):
 
 1. Make sure the latest version of [PowerShell Desired State Configuration for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) is installed on the machines you want to onboard to Azure Automation State Configuration.
-1. If the [PowerShell DSC Local Configuration Manager defaults](/powershell/scripting/dsc/managing-nodes/metaConfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation State Configuration:
+2. If the [PowerShell DSC Local Configuration Manager defaults](/powershell/scripting/dsc/managing-nodes/metaConfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation State Configuration:
 
    - On each Linux machine to onboard to Azure Automation State Configuration, use `Register.py` to onboard using the PowerShell DSC Local Configuration Manager defaults:
 
@@ -133,8 +133,13 @@ can also be onboarded to Azure Automation State Configuration, as long as they h
 
      If the PowerShell DSC Local Configuration Manager defaults **do not** match your use case, or you want to onboard machines such that they only report to Azure Automation State Configuration, follow steps 3 - 6. Otherwise, proceed directly to step 6.
 
-1. Follow the directions in the following [**Generating DSC metaconfigurations**](#generating-dsc-metaconfigurations) section to generate a folder containing the needed DSC metaconfigurations.
-1. Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard:
+3.Deploying DSC to a node uses the `/tmp` folder, modules like **nxAutomation** are temporarily downloaded for verification before installing them in their appropriate location. To ensure the modules install correctly, the Log Analytics agent for Linux needs read/write permission on /tmp folder. Instead of the Log Analytics agent for Linux running as a privileged user - `root`, the agent runs as the `omsagent` user. In most cases, explicit permission must be granted to this user in order for certain files to be read. To grant permission to omsagent user, run the following commands:
+
+    - Add the omsagent user to specific group sudo usermod -a -G <GROUPNAME> <USERNAME>
+    - Grant universal read access to the required file sudo chmod -R ugo+rx /tmp
+
+3. Follow the directions in the following [**Generating DSC metaconfigurations**](#generating-dsc-metaconfigurations) section to generate a folder containing the needed DSC metaconfigurations.
+4. Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard:
 
     ```powershell
     $SecurePass = ConvertTo-SecureString -String '<root password>' -AsPlainText -Force
@@ -153,7 +158,7 @@ The machine this command is run from must have the latest version of [WMF 5](htt
 
    `/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py -configurationmof <path to metaconfiguration file>`
 
-1. Using the Azure portal or cmdlets, check that the machines to onboard now show up as DSC nodes registered in your Azure Automation account.
+2. Using the Azure portal or cmdlets, check that the machines to onboard now show up as DSC nodes registered in your Azure Automation account.
 
 ## Generating DSC metaconfigurations
 
