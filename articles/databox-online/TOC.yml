@@ -36,7 +36,7 @@
   - name: How to
     items:
     - name: Develop C# module
-      href: azure-stack-edge-r-series-placeholder.md
+      href: azure-stack-edge-r-series-create-iot-edge-module.md
     - name: Connect to Azure Resource Manager
       href: azure-stack-edge-r-series-connect-resource-manager.md
     - name: Deploy VMs - Azure PowerShell
