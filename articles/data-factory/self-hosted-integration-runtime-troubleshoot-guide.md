@@ -27,7 +27,7 @@ The self-hosted integration runtime can't connect to the Data Factory service (b
 
 1. Check whether the integration runtime service is running.
     
-![Self-hosted IR service running status](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
+   ![Self-hosted IR service running status](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
     
 1. If the service is running, go on to step 3.
 
