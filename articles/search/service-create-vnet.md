@@ -11,9 +11,9 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 ---
 
-# Create a Private Endpoints for secure connections to Azure Cognitive Search (Preview)
+# Create a Private Endpoint for secure connections to Azure Cognitive Search (Preview)
 
-[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow clients on a virtual network to securely access data over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your search service. Network traffic between the clients on the virtual network and the search service traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list to PaaS services that support Private Link, go to the [Private Link Documentation](../private-link/index.yml) page.
+[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow client on a virtual network to securely access data over a [Private Link](../private-link/private-link-overview.md).The private endpoint uses an IP address from the [virtual network address space](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
 
 Private endpoints for your search service enables you to:
 
@@ -22,9 +22,9 @@ Private endpoints for your search service enables you to:
 - Securely connect to your search service from on-premises networks that connect to the virtual network using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
 
 > [!TIP]
-> When the service endpoint is private, some portal features are disabled.  You'll be able to view and manage service level information, but portal access to index data and the various component in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
+> When the service endpoint is private, some portal features are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
 
-In this article, you'll learn how to use the portal to create a new Azure Cognitive Search service instance that can't be accessed via a public IP address and a Virtual Machine in the same virtual network that you can use to access the service via the private endpoint.
+In this article, you'll learn how to use the portal to create a new Azure Cognitive Search service instance that can't be accessed via a public IP address and an Azure virtual machine in the same virtual network that you can use to access the service via the private endpoint.
 
 > [!Important]
 > Private Endpoints support for Azure Cognitive Search is available as a limited-access preview and not currently intended for production use. Please fill out and submit the [access request form](https://aka.ms/SearchPrivateLinkRequestAccess) if you would like to access the preview. The form requests information about you, your company, and  general network topology. Once we review your request, you'll receive a confirmation email with additional instructions.
