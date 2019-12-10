@@ -5,11 +5,10 @@ description: The text-to-speech feature in the Speech service enables your appli
 services: cognitive-services
 author: erhopf
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 12/10/2019
 ms.author: erhopf
 ---
 
