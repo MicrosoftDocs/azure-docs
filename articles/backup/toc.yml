@@ -222,6 +222,8 @@
     items:
     - name: Create Recovery Services vault
       href: backup-azure-arm-userestapi-createorupdatevault.md
+    - name: Update Recovery Services vault configurations
+      href: use-restapi-update-vault-properties.md
     - name: Create and update backup policy
       href: backup-azure-arm-userestapi-createorupdatepolicy.md
     - name: Back up Azure VMs
