@@ -75,6 +75,10 @@ In this command, replace the value for `-Path` with the path to the virtual hard
 If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), use the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) to convert it to VHD format. For more information, see [How to convert a VMware VMDK to Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## Set Windows configurations for Azure
+> [!NOTE]
+> Azure platform mounts an ISO file to a dvd-rom when a Windows VM is created from generalized image.
+For this reason, dvd-rom must be enabled in guest OS VM.
+If it is disabled, guest VM will be stuck at OOBE 
 
 On the VM that you plan to upload to Azure, run the following commands from an [elevated command prompt window](https://technet.microsoft.com/library/cc947813.aspx):
 
