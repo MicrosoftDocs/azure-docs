@@ -413,7 +413,24 @@ The `msg` instance exposes metadata and access to the message payload. The queue
 
 # [Java](#tab/java)
 
-**TODO**
+The Java `QueueTrigger` annotation gives you access to the queue message. For more information regarding the input annotation, refer to the [attributes and annotations](#trigger---attributes-and-annotations) section.
+
+```java
+package com.function;
+
+import com.microsoft.azure.functions.annotation.*;
+import java.util.Queue;
+import com.microsoft.azure.functions.*;
+
+public class QueueTriggerDemo {
+    @FunctionName("QueueTriggerDemo")
+    public void run(
+        @QueueTrigger(name = "message", queueName = "messages", connection = "AzureWebJobsStorage") String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Queue trigger function processed a message: " + message);
+    }
+```
 
 ---
 
