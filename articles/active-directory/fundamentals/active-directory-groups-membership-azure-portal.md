@@ -45,7 +45,7 @@ You can add an existing Security group to another existing Security group (also 
 
     The **MDM policy - West** group is now a member of the **MDM policy - All org** group, inheriting all the properties and configuration of the MDM policy - All org group.
 
-    ![Create a group membership by adding group to another group](media/active-directory-groups-membership-azure-portal/add-group-membership.png)
+    ![Create a group membership by adding group to another group](media/active-directory-groups-membership-azure-portal/group-add-group-membership.png)
 
 5. Review the **MDM policy - West - Group memberships** page to see the group and member relationship.
 
