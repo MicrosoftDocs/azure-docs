@@ -19,7 +19,7 @@ After you deploy an application, you can start, stop, and delete it by using the
 1. Go to your Azure Spring Cloud service instance in the Azure portal.
 1. Select the **Application Dashboard** tab.
 1. Select the application whose state you want to change.
-2. On the **Overview** page for that application, select **Start/Stop**, **Restart**, or **Delete**.
+1. On the **Overview** page for that application, select **Start/Stop**, **Restart**, or **Delete**.
 
 ## Using Azure CLI
 
