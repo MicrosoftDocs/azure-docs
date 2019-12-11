@@ -53,12 +53,14 @@
         href: azure-stack-edge-r-series-placeholder.md
       - name: Shares
         href: azure-stack-edge-r-series-placeholder.md
+      - name: Edge storage accounts
+        href: azure-stack-edge-r-series-manage-storage-accounts.md
       - name: Users
         href: azure-stack-edge-r-series-placeholder.md
       - name: Bandwidth schedules
         href: azure-stack-edge-r-series-placeholder.md
       - name: Power, access, connectivity
-        href: azure-stack-edge-r-series-placeholder.md
+        href: azure-stack-edge-r-series-manage-access-power-connectivity-mode.md
       - name: Via PowerShell
         href: azure-stack-edge-r-series-placeholder.md
     - name: Troubleshoot 
