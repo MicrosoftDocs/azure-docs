@@ -191,12 +191,12 @@ Once the deployment has completed successfully and all resources have been provi
 1. Go to your resource group in the portal.
 1. Select **Overview > Deployments**.
 
-    [Resource group overview](./media/ethereum-poa-deployment/resource-group-overview.png)
+    ![Resource group overview](./media/ethereum-poa-deployment/resource-group-overview.png)
 
 1. Select the **microsoft-azure-blockchain.azure-blockchain-ether-...** deployment.
 1. Select the **Outputs** section.
 
-    [Deployment outputs](./media/ethereum-poa-deployment/deployment-outputs.png)
+    ![Deployment outputs](./media/ethereum-poa-deployment/deployment-outputs.png)
 
 ## Growing the consortium
 
@@ -283,9 +283,7 @@ Selecting **Network Stats** shows you Ethereum network statistics.
 
 You can query the monitoring logs to investigate failures or setup threshold alerting. The following queries are examples you can run in the *Log Search* tool:
 
-#### Lists blocks that have been reported by more than one validator
-
-Useful to help find chain forks.
+List blocks that have been reported by more than one validator query can be useful to help find chain forks.
 
 ```sql
 MinedBlock_CL
@@ -293,7 +291,7 @@ MinedBlock_CL
 | where DistinctMiners > 1
 ```
 
-#### Get average peer count for a specified validator node averaged over 5-minute buckets
+Get average peer count for a specified validator node averaged over 5-minute buckets.
 
 ```sql
 let PeerCountRegex = @"Syncing with peers: (\d+) active, (\d+) confirmed, (\d+)";
@@ -607,7 +605,7 @@ Truffle projects contain a configuration file for blockchain network connection 
     ```javascript
     const HDWalletProvider = require("truffle-hdwallet-provider");
     const rpc_endpoint = "<Ethereum RPC endpoint>";
-    const mnemonic = "<Twelve words you can find in MetaMask > Security & Privacy > Reveal Seed Words>";
+    const mnemonic = "Twelve words you can find in MetaMask > Security & Privacy > Reveal Seed Words";
 
     module.exports = {
       networks: {
