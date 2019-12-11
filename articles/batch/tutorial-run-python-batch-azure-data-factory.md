@@ -213,15 +213,15 @@ Access the log files of the batch process to view bugs/warnings produced by the 
 
 4.  Select the latest task
 
-    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/batch-jobs-successful-task.PNG?token=ABTT2GKOIP42HYHYO5MCF2K5ZL2AW)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/batch-jobs-successful-task.PNG?token=ABTT2GJNVYPK6WLJULQQ4FS57KZ22)
 
 5.  The **wd** folder is the working directory of the pool node
 
-    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/batch-jobs-successful-task-wd.PNG?token=ABTT2GJBOIAJ543YJHUMTLS5ZL2CM)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/batch-jobs-successful-task-wd.PNG?token=ABTT2GLQAGX5T2DUZLGMSNC57KZ54)
 
 6.  The **stder.txt** file is the logs file associated with the execution of the `Python` script
 
-    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/batch-jobs-successful-task-wd-stderr.PNG?token=ABTT2GOLGEW73PPZJYXXO2S5ZL2DY)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/batch-jobs-successful-task-wd-stderr.PNG?token=ABTT2GP2JVBXJKUMPPEDASK57KZ72)
 
 In this example, there is no issue.
 
