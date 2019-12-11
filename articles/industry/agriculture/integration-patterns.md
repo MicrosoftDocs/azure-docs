@@ -21,7 +21,7 @@ This section is focused on partners who want to integrate their data systems (li
 
 Azure FarmBeats is an extensible offering, which enables agricultural businesses to add their different historical and real-time agricultural datasets into a single platform. Azure FarmBeats helps an agricultural business to normalize, contextualize, and aggregate its data in the context of a farm.
 
-By becoming a data partner with Azure FarmBeats, you can open your systems to wider adoption, and reach out to more customers with your data offerings. Azure FarmBeats provides an extensible API layer called the Data hub, which helps you ingest data from your devices systematically and into a standardized schema.
+By becoming a data partner with Azure FarmBeats, you can open your systems to wider adoption, and reach out to more customers with your data offerings. Azure FarmBeats provides an extensible API layer called the Datahub, which helps you ingest data from your devices systematically and into a standardized schema.
 
 Once the data is available within your customers’ Azure FarmBeats instance, your customers can build richer analytics and tools on top of your data.
 
