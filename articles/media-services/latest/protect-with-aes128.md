@@ -163,6 +163,10 @@ az group delete --name amsResourceGroup
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

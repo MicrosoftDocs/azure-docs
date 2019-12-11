@@ -51,9 +51,13 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com) as a Global Administrator.
 
-1. In the navigation list, click **Azure Active Directory** and then click **Properties**.
+1. Search for and select **Azure Active Directory**.
 
-   ![Azure AD Properties - screenshot](./media/elevate-access-global-admin/aad-properties.png)
+   ![Select Azure Active Directory - screenshot](./media/elevate-access-global-admin/search-for-azure-active-directory.png)
+
+1. Under **Manage**, select **Properties**.
+
+   ![Select Properties for Azure Active Directory properties - screenshot](./media/elevate-access-global-admin/azure-active-directory-properties.png)
 
 1. Under **Access management for Azure resources**, set the toggle to **Yes**.
 

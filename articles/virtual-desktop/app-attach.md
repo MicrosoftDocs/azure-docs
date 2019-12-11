@@ -333,7 +333,7 @@ $path = "C:\Program Files\WindowsApps\" + $packageName + "\AppxManifest.xml"
 
 #region register
 
-Add-AppxPackage -Path \$path -DisableDevelopmentMode -Register
+Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 
 #endregion
 ```

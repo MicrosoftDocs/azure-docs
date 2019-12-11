@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech from an audio file, C# (.NET) - Speech Service"
+title: "Quickstart: Recognize speech from an audio file, C# (.NET) - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

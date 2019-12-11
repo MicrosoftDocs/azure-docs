@@ -1,5 +1,5 @@
 ---
-title: Daemon app calling web APIs (acquiring tokens for the app) - Microsoft identity platform
+title: Acquire tokens to call a web API (daemon app) - Microsoft identity platform | Azure
 description: Learn how to build a daemon app that calls web APIs (acquiring tokens)
 services: active-directory
 documentationcenter: dev-center-name

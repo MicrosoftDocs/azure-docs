@@ -68,7 +68,7 @@ Use this table as a guide:
 | Storage type | Currently supported method of authorization |
 |--|--|
 |**Blob storage** | Azure AD & SAS |
-|**Blob storage (hierarchial namespace)** | Azure AD & SAS |
+|**Blob storage (hierarchical   namespace)** | Azure AD & SAS |
 |**File storage** | SAS only |
 
 ### Option 1: Use Azure Active Directory

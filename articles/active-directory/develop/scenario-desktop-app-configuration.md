@@ -1,6 +1,6 @@
 ---
-title: Desktop app that calls web APIs (code configuration) - Microsoft identity platform
-description: Learn how to build a Desktop app that calls web APIs (app's code configuration)
+title: Configure desktop apps that call web APIs - Microsoft identity platform | Azure
+description: Learn how to configure the code of a desktop app that calls web APIs
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur

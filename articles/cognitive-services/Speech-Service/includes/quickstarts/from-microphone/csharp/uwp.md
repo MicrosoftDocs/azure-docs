@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech from a microphone, C# (UWP) - Speech Service"
+title: "Quickstart: Recognize speech from a microphone, C# (UWP) - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -84,7 +84,7 @@ Now you are ready to build and test your application.
 
    ![Microphone access permission request](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Select **Speech recognition with microphone input**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the window.
+1. Select **Speech recognition with microphone input**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Speech service and transcribed to text, which appears in the window.
 
    ![Speech recognition user interface](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-11-ui-result.png)
 
