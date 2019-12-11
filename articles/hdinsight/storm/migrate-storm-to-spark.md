@@ -30,6 +30,10 @@ Apache Storm can provide different levels of guaranteed message processing. For 
 |**Event time support**|[Yes](https://storm.apache.org/releases/2.0.0/Windowing.html)|No|[Yes](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**Languages**|Java, etc.|Scala, Java, Python|Python, R, Scala, Java, SQL|
 
+### Spark streaming vs Spark structured streaming
+
+Spark Structured Streaming is replacing Spark Streaming (DStreams). Going forward, Structured Streaming will receive enhancements and maintenance, while DStreams will be in maintenance mode only. Structured Streaming is currently not as feature-complete as DStreams for the sources and sinks that it supports out of the box, so evaluate your requirements to choose the appropriate Spark stream processing option.
+
 ## Streaming (Single event) processing vs Micro-Batch processing
 
 Storm provides a model that processes each single event. This means that all incoming records will be processed as soon as they arrive. Spark Streaming applications must wait a fraction of a second to collect each micro-batch of events before sending that batch on for processing. In contrast, an event-driven application processes each event immediately. Spark Streaming latency is typically under a few seconds. The benefits of the micro-batch approach are more efficient data processing and simpler aggregate calculations.
@@ -156,10 +160,6 @@ val windowedCounts = words.groupBy(
 ![diagram of structured streaming results](./media/migrate-storm-to-spark/structured-streaming-results.png)
 
 If the built-in operations don't meet the data transformation requirements, you can use UDF (User-Defined Functions).
-
-### Spark streaming vs Spark structured streaming
-
-Spark Structured Streaming is replacing Spark Streaming (DStreams). Going forward, Structured Streaming will receive enhancements and maintenance, while DStreams will be in maintenance mode only. Structured Streaming is currently not as feature-complete as DStreams for the sources and sinks that it supports out of the box, so evaluate your requirements to choose the appropriate Spark stream processing option.
 
 ## General migration flow
 
