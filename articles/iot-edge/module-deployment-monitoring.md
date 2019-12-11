@@ -4,7 +4,7 @@ description: Use automatic deployments in Azure IoT Edge to manage groups of dev
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/20/2019
+ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -110,6 +110,14 @@ Layered deployments have the same basic components as any automatic deployment. 
 The system runtime modules, edgeAgent and edgeHub, are not configured as part of a layered deployment. Any IoT Edge device targeted by a layered deployment needs a standard automatic deployment applied to it first to provide the base upon which layered deployments can be added. 
 
 An IoT Edge device can apply one and only one standard automatic deployment, but it can apply multiple layered automatic deployments. Any layered deployments targeting a device must have a higher priority than the automatic deployment for that device. 
+
+For example, consider the following scenario of a company that manages buildings. They developed IoT Edge modules for collecting data from security cameras, motion sensors, and elevators. However, not all their buildings can use all three modules. With standard automatic deployments, the company needs to create individual deployments for all the module combinations that their buildings need. 
+
+![Standard automatic deployments need to accommodate every module combination](./media/module-deployment-monitoring/standard-deployment.png)
+
+However, once the company switches to layered automatic deployments they find that they can create the same module combinations for their buildings with fewer deployments to manage. Each module has its own layered deployment, and the device tags identify which modules get added to each building. 
+
+![Layered automatic deployment simplify scenarios where the same modules are combined in different ways](./media/module-deployment-monitoring/layered-deployment.png)
 
 ### Module twin configuration
 
