@@ -10,12 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-<<<<<<< HEAD
 ms.date: 11/08/2019
-=======
-ms.custom: seo-lt-2019
-ms.date: 02/20/2019
->>>>>>> 7d111b1aaedaee2133c782251faa90421887f669
 ms.author: jingwang
 ---
 # Copy data from Azure Blob to Azure SQL Database using Azure Data Factory
