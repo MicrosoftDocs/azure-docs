@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 12/10/2019
+ms.date: 12/11/2019
 ---
 # Resource limits for single databases using the vCore purchasing model
 
@@ -84,49 +84,49 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 ### Gen4 compute generation (part 1)
 
 |Performance level|HS_Gen4_1|HS_Gen4_2|HS_Gen4_3|HS_Gen4_4|HS_Gen4_5|HS_Gen4_6|
-|:--- | --: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |---: | --: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
 |Memory (GB)|7|14|21|28|35|42|
-|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Max data size (TB)|100 |100 |100 |100 |100 |100 |100|
-|Max log size (TB)|1 |1 |1 |1 |1 |1 |1 |
+|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
+|Max data size (TB)|100 |100 |100 |100 |100 |100|
+|Max log size (TB)|1 |1 |1 |1 |1 |1 |
 |TempDB max data size (GB)|32|64|96|128|160|192|
-|Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) | [Note 1](#notes) |
-|Max data IOPS *|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
-|IO latency (approximate)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|
-|Max concurrent workers (requests)|200|400|600|800|1000|1200|1400|
-|Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
-|Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
+|Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) ||
+|Max data IOPS *|[Note 2](#notes)|[Note 2](#notes)||[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
+|IO latency (approximate)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|
+|Max concurrent workers (requests)|200|400|600|800|1000|1200|
+|Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
+|Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
 ### Gen4 compute generation (part 2)
 
 |Performance level|HS_Gen4_7|HS_Gen4_8|HS_Gen4_9|HS_Gen4_10|HS_Gen4_16|HS_Gen4_24|
-|:--- | --: |--: |--: | --: |--: |--: |
+|:--- | ---: |--: |--: | --: |--: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
 |Memory (GB)|49|56|63|70|112|159.5|
-|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Max data size (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
-|Max log size (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
+|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Max data size (TB)|100 |100 |100 |100 |100 |100 |100 |
+|Max log size (TB)|1 |1 |1 |1 |1 |1 |1 |
 |TempDB max data size (GB)|224|256|288|320|512|768|
-|Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) | [Note 1](#notes) |
-|Max data IOPS *|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
-|IO latency (approximate)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|
+|Storage type| [Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) | [Note 1](#notes) |
+|Max data IOPS *|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
+|IO latency (approximate)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|
 |Max concurrent workers (requests)|1400|1600|1800|2000|3200|4800|
-|Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
-|Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
+|Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
+|Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
 \* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
@@ -172,7 +172,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Max data size (TB)|100 |100 |100 |100 |100 |100 |100 |
 |Max log size (TB)|1 |1 |1 |1 |1 |1 |1 |
 |TempDB max data size (GB)|512|576|640|768|1024|1280|2560|
-|Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |
+|Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |
 |Max data IOPS *|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
 |IO latency (approximate)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|8000|
