@@ -1,7 +1,7 @@
 ---
 title: Configure Azure AD B2C as a SAML IdP to your applications
 title-suffix: Azure AD B2C
-description: How to configure Azure AD B2C to provide SAML protocol assertions to applications (service providers). Azure AD B2C will act as the single identity provider (IdP) to your SAML application (the relying party).
+description: How to configure Azure AD B2C to provide SAML protocol assertions to your applications (service providers). Azure AD B2C will act as the single identity provider (IdP) to your SAML application.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -14,9 +14,9 @@ ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Configure Azure AD B2C as a SAML IdP to your applications
+# Register a SAML application in Azure AD B2C
 
-In this article, you learn how to configure Azure Active Directory B2C (Azure AD B2C) to provide Security Assertion Markup Language (SAML) protocol assertions to your applications. You configure Azure AD B2C to act as the single identity provider (IdP) to your SAML application, the relying party.
+In this article, you learn how to configure Azure Active Directory B2C (Azure AD B2C) to act as a Security Assertion Markup Language (SAML) identity provider (IdP) to your applications.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -67,7 +67,7 @@ You can use a certificate issued by a public certificate authority or, for this 
 
 ### 1.1 Prepare a self-signed certificate
 
-If you don't already have a certificate, you can use a self-signed certificate for this walkthrough. On Windows, you can use PowerShell's [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
+If you don't already have a certificate, you can use a self-signed certificate for this tutorial. On Windows, you can use PowerShell's [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
 
 1. Execute this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
 
@@ -252,7 +252,7 @@ For SAML apps, there are several properties you need to configure in the applica
 
 This property represents `AssertionConsumerServiceUrl` (`SingleSignOnService` URL in the R metadata) and the `BindingType` is assumed to be `HTTP POST`.
 
-For this walkthrough, in which you use the SAML test application, set the `url` property of `replyUrlsWithType` to the value shown in the following JSON snippet.
+For this tutorial, in which you use the SAML test application, set the `url` property of `replyUrlsWithType` to the value shown in the following JSON snippet.
 
 ```JSON
 "replyUrlsWithType":[
@@ -267,7 +267,7 @@ For this walkthrough, in which you use the SAML test application, set the `url` 
 
 This property represents the `Logout` URL (`SingleLogoutService` URL in the RP metadata), and the `BindingType` for this is assumed to be `HttpDirect`.
 
-For this walkthrough which uses the SAML test application, leave `logoutUrl` set to `null`:
+For this tutorial which uses the SAML test application, leave `logoutUrl` set to `null`:
 
 ```JSON
 "logoutUrl":null,
@@ -277,7 +277,7 @@ For this walkthrough which uses the SAML test application, leave `logoutUrl` set
 
 This property represents RP's publicly available metadata URL. The metadata URL can point to a a metadata file uploaded to any anonymously accessible endpoint, for example blob storage.
 
-For this walkthrough which uses the SAML test application, use the following value for `samlMetadataUrl`:
+For this tutorial which uses the SAML test application, use the following value for `samlMetadataUrl`:
 
 ```JSON
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
@@ -289,9 +289,9 @@ For more information about the contents of the metadata, see [Metadata for the O
 
 This field is used to uniquely identify the application in your Azure AD B2C tenant.
 
-This value corresponds to `Identifier` (`EntityId`) while configuring Azure AD applications.
+This value corresponds to `Identifier` (`EntityId`).
 
-For this walkthrough which using the SAML test application, the application lookup uses the `IdentifierUri` of `https://cpim3.ccsctp.net/samlAPPUITest`.
+For this tutorial which using the SAML test application, the application lookup uses the `IdentifierUri` of `https://cpim3.ccsctp.net/samlAPPUITest`.
 
 When an authentication is made with `AssertionConsumerServiceIndex`, only values from `metadataUrl` are considered.
 
