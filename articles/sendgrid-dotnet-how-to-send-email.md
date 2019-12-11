@@ -1,6 +1,6 @@
 ---
 title: How to use the SendGrid email service (.NET) | Microsoft Docs
-description: Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API.
+description: Learn how to send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API.
 services: ''
 documentationcenter: .net
 author: georgewallace
@@ -109,7 +109,7 @@ After creating an email message, you can send it using SendGrid's API. Alternati
 
 Sending email requires that you supply your SendGrid API Key. If you need details about how to configure API Keys, please visit SendGrid's API Keys [documentation][documentation].
 
-You may store these credentials via your Azure Portal by clicking Application settings and adding the key/value pairs under App settings.
+You may store these credentials via your Azure portal by clicking Application settings and adding the key/value pairs under App settings.
 
  ![Azure app settings][azure_app_settings]
 
