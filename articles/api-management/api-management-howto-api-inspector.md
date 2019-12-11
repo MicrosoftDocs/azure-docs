@@ -48,7 +48,8 @@ In this tutorial, you learn how to:
     > If Ocp-Apim-Subscription-Key is not automatically populated, you can retrieve it by going to the Developer Portal and exposing the keys on the profile page.
     
     > [!NOTE]
-    > Not all subscription keys can trace when Ocp-Apim-Trace is set to true. Only the subscription keys whose **Allow tracing** setting is set to yes, can get a trace when the Ocp-Apim-Trace HTTP header is used. The **Allow tracing** setting is found by navigating to your APIM instance's Subscriptions blade on the left side. 
+    > Not all subscription keys can trace when Ocp-Apim-Trace is set to true. Only the subscription keys whose **Allow tracing** setting is set to yes, can get a trace when the Ocp-Apim-Trace HTTP header is used. The **Allow tracing** setting is found by navigating to your APIM instance's Subscriptions blade on the left side.
+    > ![Allow Tracing](media/api-management-howto-api-inspector/allowtracing.png)
 
 6. Click **"Send"** to make an API call. 
 7. Wait for the call to complete. 
