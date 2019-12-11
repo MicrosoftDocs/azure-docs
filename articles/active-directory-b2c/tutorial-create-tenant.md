@@ -23,7 +23,7 @@ In this article, you learn how to:
 > * Create an Azure AD B2C tenant
 > * Link your tenant to your subscription
 > * Switch to the directory containing your Azure AD B2C tenant
-> * Add the Azure AD B2C resource as a *Favorite* in the Azure portal
+> * Add the Azure AD B2C resource to your Azure portal dashboard
 
 You learn how to register an application in the next tutorial.
 
@@ -34,12 +34,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Make sure you're using the directory that contains your subscription.
 
-    Select the **Directory + subscription** filter in the top menu and then select the directory that contains your subscription. This directory is different from the one that will contain your Azure AD B2C tenant.
+    In the Azure portal toolbar, select the **Directory + Subscription** icon, and then select the directory that contains your subscription. This directory is different from the one that will contain your Azure AD B2C tenant.
 
-    ![Directory + subscription filter with subscription tenant selected](media/tutorial-create-tenant/portal-01-select-directory.png)
+    ![Subscription tenant, Directory + Subscription filter with subscription tenant selected](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
-1. Select **Create a resource** in the top-left corner of the Azure portal.
-1. Search for and select **Active Directory B2C**, then select **Create**.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**. 
+1. Search for **Azure Active Directory B2C**, and then select **Create**.
 1. Select **Create a new Azure AD B2C Tenant**.
 
     ![Create a new Azure AD B2C tenant selected in Azure portal](media/tutorial-create-tenant/portal-02-create-tenant.png)
@@ -74,20 +74,22 @@ If at first you don't see your new Azure B2C tenant in the list, refresh your br
 
 ![B2C tenant-containing directory selected in Azure portal](media/tutorial-create-tenant/portal-07-select-tenant-directory.png)
 
-## Add Azure AD B2C as a favorite (optional)
+## Add Azure AD B2C to the dashboard (optional)
 
 This optional step makes it easier to select your Azure AD B2C tenant in the following and all subsequent tutorials.
 
-Instead of searching for "Azure AD B2C" in **All services** every time you want to work with your tenant, you can instead favorite the resource. Then, you can select it from the left-hand **Favorites** menu to quickly browse to your Azure AD B2C tenant.
+Instead of searching the Azure portal for *Azure AD B2C* every time you want to work with your tenant, you can instead add it to the dashboard. Then, you can select it from your **Home** page to quickly browse to your Azure AD B2C tenant.
 
 You only need to perform this operation once. Before performing these steps, make sure you've switched to the directory containing your Azure AD B2C tenant as described in the previous section, [Select your B2C tenant directory](#select-your-b2c-tenant-directory).
 
-1. Select **All services** in the left menu of the [Azure portal](https://portal.azure.com)
-1. Enter *Azure AD B2C* in the search text box
-1. Select the **star** to add Azure AD B2C to your favorites
-1. *Azure AD B2C* now appears in the **Favorites** left-hand menu. You can then select and drag it higher in the list, if you like, as the following image shows:
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Select the pin icon to add Azure AD B2C to the dashboard.
+1. On the Azure portal menu or from the **Home** page, select **Dashboard**. **Azure AD B2C** now appears as a tile in your **My Dashboard** page.
 
-![Steps to add Azure AD B2C as a favorite in the Azure portal](media/tutorial-create-tenant/portal-08-favorite-b2c.png)
+    ![Azure AD B2C, My Dashboard page, Microsoft Azure portal](media/tutorial-create-tenant/portal-08-my-dashboard.png)
+
+    You can also change the location of the tile. First hover over the tile and select the tile's context menu. Then choose **Customize** and drag the tile to the desired location. Finally, select the tile's context menu again and choose **Done customizing**.
 
 ## Next steps
 
@@ -97,7 +99,7 @@ In this article, you learned how to:
 > * Create an Azure AD B2C tenant
 > * Link your tenant to your subscription
 > * Switch to the directory containing your Azure AD B2C tenant
-> * Add the Azure AD B2C resource as a *Favorite* in the Azure portal
+> * Add the Azure AD B2C resource to your Azure portal dashboard
 
 Next, learn how to register a web application in your new tenant.
 
