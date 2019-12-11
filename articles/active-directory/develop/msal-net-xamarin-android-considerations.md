@@ -32,7 +32,7 @@ var authResult = AcquireTokenInteractive(scopes)
 ```
 You can also set this at the PublicClientApplication level (in MSAL4.2+) via a callback.
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -42,7 +42,7 @@ var pca = PublicClientApplicationBuilder
 
 A recommendation is to use the CurrentActivityPlugin [here](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Then your PublicClientApplication builder code would look like this:
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
