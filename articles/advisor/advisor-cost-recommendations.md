@@ -49,9 +49,11 @@ To save 60% of cost, we recommend storing your snapshots in Standard Storage, re
 
 ## How to access Cost recommendations in Azure Advisor
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2.	On the Advisor dashboard, click the **Cost** tab.
+1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
+
+1. On the **Advisor** dashboard, select the **Cost** tab.
 
 ## Next steps
 
