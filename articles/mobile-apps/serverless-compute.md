@@ -45,7 +45,7 @@ Use the following services to enable serverless compute capabilities in your mob
 - [Quickstarts](/azure/azure-functions/functions-create-first-function-vs-code)
 - [Samples](/samples/browse/?products=azure-functions&languages=csharp)
 
-## App Service
+## Azure App Service
 With [Azure App Service](https://azure.microsoft.com/services/app-service/), you can build and host web apps and RESTful APIs in the programming language of your choice without managing infrastructure. It offers autoscaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo.
 
 **Key features**
