@@ -42,7 +42,7 @@ Summarizing the two non-exclusive core scenarios with SAML:
 
 * Complete the steps in [Get started with custom policies in Azure AD B2C](active-directory-b2c-get-started-custom.md). You need the *SocialAndLocalAccounts* custom policy from the custom policy starter pack discussed in the article.
 * Basic understanding of the Security Assertion Markup Language (SAML) protocol.
-* An application configured as a SAML service provider (SP). For this tutorial, you can use a [SAML test application][samltest] we provide.
+* An application configured as a SAML service provider (SP). For this tutorial, you can use a [SAML test application][samltest] that we provide.
 
 ## Components of the solution
 
@@ -54,7 +54,7 @@ There are three main components required for this scenario:
 
 If you don't yet have a SAML application and an associated metadata endpoint, you can use this sample SAML application that we've made available for testing:
 
-[SAML test application][samltest]
+[SAML Test Application][samltest]
 
 ## 1. Set up certificates
 
@@ -63,7 +63,7 @@ To build a trust relationship between your relying party application and Azure A
 * Certificate with private key stored in your the Web App. This cert is used to sign the SAML request sent to Azure AD B2C.
 * Certificate with private key in Azure AD B2C. This is used to sign and/or encrypt the SAML response that Azure AD B2C returns to the SAML relying party.
 
-You can use a certificate issued by a public certificate authority or, for this walk through, a self-signed certificate.
+You can use a certificate issued by a public certificate authority or, for this tutorial, a self-signed certificate.
 
 ### 1.1 Prepare a self-signed certificate
 
@@ -314,9 +314,9 @@ Some or all the following are typically required:
     1. Paste it into a text file.
     1. Save the text file as a *.cer* file.
 
-### 5.1 Test with the simulator (optional)
+### 5.1 Test with the SAML Test App (optional)
 
-To complete this walk through using our [SAML test application][samltest]:
+To complete this tutorial using our [SAML Test Application][samltest]:
 
 * Update the tenant name
 * Update policy name, for example *B2C_1A_signup_signin_SAML*
@@ -326,7 +326,7 @@ Select **LOGIN** and you should be presented with an end user sign-in screen. Up
 
 ## Sample policy
 
-We provide a complete sample policy that you can use for testing with the SAML App Simulator (SAMLTEST) app.
+We provide a complete sample policy that you can use for testing with the SAML Test App.
 
 1. Download the [SAML-SP-initiated login sample policy](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated)
 1. Update `TenantId` to match your tenant name, for example *contoso.b2clogin.com*
@@ -344,7 +344,7 @@ Identity provider-initiated logins are not currently supported in the preview re
 
 ## Next steps
 
-The code for the SAML Application simulator is here: TBD
+The code for the SAML Test Application is here: TBD
 
 For more information about SAML and Azure AD B2C, see the following articles:
 
@@ -353,4 +353,4 @@ For more information about SAML and Azure AD B2C, see the following articles:
 * [Set up sign-in with a Salesforce SAML provider by using custom policies in Azure Active Directory B2C](active-directory-b2c-setup-sf-app-custom.md)
 
 <!-- LINKS - External -->
-[samltest]: https://samltestapp2.azurewebsites.net/SP
+[samltest]: aka.ms/samltestapp
