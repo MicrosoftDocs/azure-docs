@@ -549,7 +549,7 @@ The following MSDB schemas in managed instance must be owned by their respective
   - db_ssisoperator
   
 > [!IMPORTANT]
-> Customers must not change the predefined role names, schema names and schema owners as such action will break the normal operation of a managed instance. In such occurrences SLAs cannot be guaranteed.
+> Changing the predefined role names, schema names and schema owners by customers will impact the normal operation of the service. Any changes made to these will be reverted back to the predefined values as soon as detected, or at the next service update at the latest to ensure normal service operation.
 
 ### Error logs
 
