@@ -30,8 +30,11 @@ In this tutorial, you will:
 
 To complete this tutorial, you first need to:
 
-1. Create an Azure Maps account subscription in the S0 pricing tier by following instructions in [Manage your Azure Maps account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account).
-2. Get the primary subscription key for your account, follow the instructions in [Get the primary key for your account](./tutorial-search-location.md#getkey).
+1. Create an Azure Maps account subscription in the S0 pricing tier by following instructions in [Create an account](./quick-demo-map-app#create-an-account).
+2. Get the primary subscription key for your account, follow the instructions in [get primary key](./quick-demo-map-app#get-primary-key).
+
+
+For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 To get familiar with Azure notebooks and to know how to get started, follow the instructions [Create an Azure Notebook](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook).
 
@@ -167,7 +170,7 @@ windsPlot.set_xlabel("Date")
 windsPlot.set_ylabel("Wind direction")
 ```
 
-The graphs below visualize the forecast data for the change of wind speed (left graph) and direction (right graph) in the next 15 days from the current day.
+The graphs below visualize the forecast data for the change of wind speed (left graph) and direction (right graph) in the next 15 days from the day the data is requested.
 
 <center>
 
