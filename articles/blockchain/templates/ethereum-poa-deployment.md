@@ -78,7 +78,7 @@ Select **Blockchain** > **Ethereum Proof-of-Authority Consortium (preview)**.
 
 Under **Basics**, specify values for standard parameters for any deployment.
 
-![Basics blade](./media/ethereum-poa-deployment/basic-blade.png)
+![Basics](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parameter | Description | Example value
 ----------|-------------|--------------
@@ -104,7 +104,7 @@ Parameter | Description | Example value
 ----------|-------------|--------------
 Number of region(s)|Number of regions to deploy the consortium network| 2
 First region | First region to deploy the consortium network | West US 2
-Second region | Second region to deploy the consortium network. This is visible when number of regions is two or greater. | East US 2
+Second region | Second region to deploy the consortium network. Additional regions are visible when number of regions is two or greater. | East US 2
 
 Select **OK**.
 
@@ -168,7 +168,7 @@ Select **OK**.
 
 ### Summary
 
-Click through the summary blade to review the inputs specified and run basic pre-deployment validation. Before deploying, you can download the template and parameters.
+Click through the summary to review the inputs specified and run basic pre-deployment validation. Before deploying, you can download the template and parameters.
 
 Select **Create** to deploy.
 
@@ -494,7 +494,7 @@ information useful to the existing member (validator addresses). You can use thi
 
 ## Governance DApp
 
-At the heart of proof-of-authority is decentralized governance. Since proof-of-authority relies upon a permitted list of network authorities to keep the network healthy, it's important to provide a fair mechanism to make modifications to this permission list. Each deployment comes with a set of smart-contracts and portal for on-chain governance of this permitted list. Once a proposed change reaches a majority vote by consortium members, the change is enacted. This allows new consensus participants to be added or compromised participants to be removed in a transparent way that encourages an honest network.
+At the heart of proof-of-authority is decentralized governance. Since proof-of-authority relies upon a permitted list of network authorities to keep the network healthy, it's important to provide a fair mechanism to make modifications to this permission list. Each deployment comes with a set of smart-contracts and portal for on-chain governance of this permitted list. Once a proposed change reaches a majority vote by consortium members, the change is enacted. Voting allows new consensus participants to be added or compromised participants to be removed in a transparent way that encourages an honest network.
 
 The governance DApp is a set of pre-deployed [smart contracts](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) and a web application that are used to govern the authorities on the network. Authorities are broken up into admin identities and validator nodes.
 Admins have the power to delegate consensus participation to a set of validator nodes. Admins also may vote other admins into or out of the network.
@@ -507,7 +507,7 @@ Admins have the power to delegate consensus participation to a set of validator 
 
 ### Getting started with governance
 
-To perform any kind of transactions through the Governance DApp, you need to use an Ethereum wallet. The most straightforward approach is to use an in-browser wallet such as [MetaMask](https://metamask.io); however, because these are smart contracts deployed on the network you may also automate your interactions to the Governance contract.
+To perform any kind of transactions through the Governance DApp, you need to use an Ethereum wallet. The most straightforward approach is to use an in-browser wallet such as [MetaMask](https://metamask.io); however, because these smart contracts are deployed on the network you may also automate your interactions to the Governance contract.
 
 After installing MetaMask, navigate to the Governance DApp in the browser.  You can locate the URL through Azure portal in the deployment output.  If you don't have an in-browser wallet installed you won't be able to perform any actions; however, you can view the administrator state.  
 
@@ -531,9 +531,9 @@ The **Admins** tab shows the current set of admins and provides you the ability 
 
 ### Validators
 
-Selecting the **Validators** tab displays the current deployed parity nodes for the instance and their current status (Node type). Each consortium member has a different set of validators in this list, since this view represents the current deployed consortium member. If this is a newly deployed instance and you haven't added your validators, you get the option to **Add Validators**. Adding validators automatically chooses a regionally balanced set of parity nodes and assigns them to your validator set. If you have deployed more nodes than the allowed capacity, the remaining nodes become transaction nodes on the network.
+Selecting the **Validators** tab displays the current deployed parity nodes for the instance and their current status (Node type). Each consortium member has a different set of validators in this list, since this view represents the current deployed consortium member. If the instance is newly deployed and you haven't added your validators, you get the option to **Add Validators**. Adding validators automatically chooses a regionally balanced set of parity nodes and assigns them to your validator set. If you have deployed more nodes than the allowed capacity, the remaining nodes become transaction nodes on the network.
 
-The address of each validator is automatically assigned via the [identity store](#identity-store) in Azure.  If a node goes down, it relinquishes its identity, allowing another node in your deployment to take its place. This ensures that your consensus participation is highly available.
+The address of each validator is automatically assigned via the [identity store](#identity-store) in Azure.  If a node goes down, it relinquishes its identity, allowing another node in your deployment to take its place. This process ensures that your consensus participation is highly available.
 
 ![Validators](./media/ethereum-poa-deployment/governance-dapp-validators.png)
 
@@ -547,23 +547,20 @@ On the top-right, is your Ethereum account alias and identicon.  If you're an ad
 
 ![Account](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
-## Ethereum development <a id="tutorials"></a>
+## Ethereum development<a id="tutorials"></a>
 
 To compile, deploy, and test smart contracts, here are a few options you can consider for Ethereum development:
-* [Truffle Suite](https://www.trufflesuite.com/docs/truffle/overview) - Client based Ethereum development environment
-* [Ethereum Remix](https://remix-ide.readthedocs.io/en/latest/index.html ) - Browser based and local Ethereum development environment
+* [Truffle Suite](https://www.trufflesuite.com/docs/truffle/overview) - Client-based Ethereum development environment
+* [Ethereum Remix](https://remix-ide.readthedocs.io/en/latest/index.html ) - Browser-based and local Ethereum development environment
 
 ### Compile, deploy, and execute smart contract
 
-> [!WARNING]
-> Never send your Ethereum private key over the network! Ensure that each transaction is signed locally first and the signed transaction is sent over the network.
-
 In the following example, you create a simple smart contract. You use Truffle to compile and deploy the smart contract to your blockchain network. Once deployed, you call a smart contract function via a transaction.
 
-#### Install prerequisites
+#### Prerequisites
 
 * Install [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is needed for Truffle and Web3. Select the install option to include Python in your path.
-* Install Truffle v5.0.5 `npm install -g truffle@v5.0.5`. Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). For more information, see [Truffle documentation](https://github.com/trufflesuite/truffle).
+* Install Truffle v5.0.5 `npm install -g truffle@v5.0.5`. Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/). For more information, see [Truffle documentation](https://github.com/trufflesuite/truffle).
 
 ### Create Truffle project
 
@@ -574,7 +571,7 @@ Before you can compile and deploy a smart contract, you need to create a Truffle
 1. Change directory to the new `HelloWorld` folder.
 1. Initialize a new Truffle project using the command `truffle init`.
 
-    [Create a new Truffle project](./media/ethereum-poa-deployment/create-truffle-project.png)
+    ![Create a new Truffle project](./media/ethereum-poa-deployment/create-truffle-project.png)
 
 ### Add a smart contract
 
@@ -599,14 +596,16 @@ Create your smart contracts in the **contracts** subdirectory of your Truffle pr
 
 ### Deploy smart contract using Truffle
 
-Truffle uses a configuration file to execute code for your blockchain network configuration. You need to modify the configuration file with details about connecting to your network.
+Truffle projects contain a configuration file for blockchain network connection details. Modify the configuration file to include the connection information for your network.
 
-1. You need the mnemonic phrase for the [Ethereum admin account you used when deploying your blockchain network](#ethereum-settings). If you used MetaMask to create the account, you can retrieve the mnemonic from MetaMask. Select the administrator account icon on the top right of the MetaMask extension and select **Settings > Security & Privacy > Reveal Seed Words**.
+> [!WARNING]
+> Never send your Ethereum private key over the network. Ensure that each transaction is signed locally first and the signed transaction is sent over the network.
+
+1. You need the mnemonic phrase for the [Ethereum admin account used when deploying your blockchain network](#ethereum-settings). If you used MetaMask to create the account, you can retrieve the mnemonic from MetaMask. Select the administrator account icon on the top right of the MetaMask extension and select **Settings > Security & Privacy > Reveal Seed Words**.
 1. Replace the contents of `truffle-config.js` in your Truffle project with the following content. Replace the placeholder endpoint and mnemonic values.
 
     ```javascript
     const HDWalletProvider = require("truffle-hdwallet-provider");
-
     const rpc_endpoint = "<Ethereum RPC endpoint>";
     const mnemonic = "<Twelve words you can find in MetaMask > Security & Privacy > Reveal Seed Words>";
 
@@ -626,19 +625,19 @@ Truffle uses a configuration file to execute code for your blockchain network co
     };
     ```
 
-1. Since the script uses the Truffle HD Wallet provider module, install the module in your project using the command `npm install truffle-hdwallet-provider --save`.
+1. Since we are using the Truffle HD Wallet provider, install the module in your project using the command `npm install truffle-hdwallet-provider --save`.
 
 Truffle uses migration scripts to deploy smart contracts to a blockchain network. You need a migration script to deploy your new smart contract.
 
 1. Add a new migration to deploy the new contract. Create file `2_deploy_contracts.js` in the **migrations** subdirectory of the Truffle project.
 
-``` javascript
-var postBox = artifacts.require("postBox");
-
-module.exports = deployer => {
-    deployer.deploy(postBox);
-};
-```
+    ``` javascript
+    var postBox = artifacts.require("postBox");
+    
+    module.exports = deployer => {
+        deployer.deploy(postBox);
+    };
+    ```
 
 1. Deploy to the PoA network using the Truffle migrate command. At the command prompt in the Truffle project directory, run:
 
@@ -646,10 +645,12 @@ module.exports = deployer => {
     truffle migrate --network poa
     ```
 
-### Call smart contract function
+### Call a smart contract function
+
+Now that your smart contract is deployed, you can send a transaction to call a function.
 
 1. In the Truffle project directory, create a new file named `sendtransaction.js`.
-1. Add the following contents to **sendtranaction.js**.
+1. Add the following contents to **sendtransaction.js**.
 
     ``` javascript
     var postBox = artifacts.require("postBox");
@@ -676,7 +677,7 @@ module.exports = deployer => {
     truffle exec sendtransaction.js --network poa
     ```
 
-    [Execute script to call function via transaction](./media/ethereum-poa-deployment/send-transaction.png)
+    ![Execute script to call function via transaction](./media/ethereum-poa-deployment/send-transaction.png)
 
 ## WebAssembly (WASM) support
 
@@ -694,11 +695,11 @@ The SSH port is not exposed for security reasons. Follow [this guide to enable t
 
 ### How do I set up an audit member or transaction nodes?
 
-Transaction nodes are a set of Parity clients that are peered with the network but are not participating in consensus. These nodes can still be used to submit Ethereum transactions and read the smart contract state. This works well as a mechanism for providing auditability to non-authority consortium members on the network. To achieve this, follow the steps in [Growing the Consortium](#growing-the-consortium).
+Transaction nodes are a set of parity clients that are peered with the network but are not participating in consensus. These nodes can still be used to submit Ethereum transactions and read the smart contract state. This mechanism works for providing auditability to non-authority consortium members on the network. To achieve this, follow the steps in [Growing the Consortium](#growing-the-consortium).
 
 ### Why are MetaMask transactions taking a long time?
 
-To ensure transactions are received in the correct order, each Ethereum transaction comes with an incrementing nonce. If you've used an account in MetaMask on a different network, you need to reset the nonce value. Click on the settings icon (3-bars), Settings, Reset Account. The transaction history will be cleared and now you can resubmit the transaction.
+To ensure transactions are received in the correct order, each Ethereum transaction comes with an incrementing nonce. If you've used an account in MetaMask on a different network, you need to reset the nonce value. Click on the settings icon (three-bars), Settings, Reset Account. The transaction history will be cleared and now you can resubmit the transaction.
 
 ### Do I need to specify gas fee in MetaMask?
 
