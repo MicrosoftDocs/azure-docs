@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 The management experience for Azure AD roles in Privileged Identity Management has been updated to unify how Azure AD roles and Azure resource roles are managed. Previously, Privileged Identity Management for Azure resource roles has had a couple of key features that were not available for Azure AD roles.
 
-With the update being currently rolled out, we are merging the two into a single management experience and in it you can get the same functionality for Azure AD roles as for Azure resource roles. Learn more about the main features below.
+With the update being currently rolled out, we are merging the two into a single management experience, and in it you get the same functionality for Azure AD roles as for Azure resource roles. This article informs you of the updated features and any requirements.
 
 ## Time-bound assignments
 
@@ -53,7 +53,7 @@ Both user-initiated actions require an approval from a Global administrator or P
 
 ## API changes
 
-When customers have the updated version rolled out to their Azure AD organization, the existing graph API will stop working. You must transition to use the Graph API for Azure resource roles. To manage Azure AD roles using that API, swap `/azureResources` with `/aadroles` in the signature and use the Directory ID for the `resourceId`.
+When customers have the updated version rolled out to their Azure AD organization, the existing graph API will stop working. You must transition to use the [Graph API for Azure resource roles](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). To manage Azure AD roles using that API, swap `/azureResources` with `/aadroles` in the signature and use the Directory ID for the `resourceId`.
 
 We have tried our best to reach out to all customers who are using the previous API to let them know about this change ahead of time. If your Azure AD organization was moved on to the new version and you still depend on the old API, reach out to the team at pim_preview@microsoft.com.
 
