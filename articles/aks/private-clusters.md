@@ -11,7 +11,7 @@ ms.date: 12/10/2019
 ms.author: saudas
 ---
 
-# Limited Private Preview - Private Azure Kubernetes Service cluster
+# Public Preview - Private Azure Kubernetes Service cluster
 
 In a private cluster, the Control Plane/API server will have internal IP addresses defined in [RFC1918](https://tools.ietf.org/html/rfc1918).  By using a private cluster, you can ensure network traffic between your API server and your node pools remains on the private network only.
 
