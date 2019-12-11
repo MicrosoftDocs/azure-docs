@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge share management | Microsoft Docs 
-description: Describes how to use the Azure portal to manage shares on your Azure Stack Edge.
+title: Azure Stack Edge storage account management | Microsoft Docs 
+description: Describes how to use the Azure portal to manage storage account on your Azure Stack Edge.
 services: databox
 author: alkohli
 
@@ -69,6 +69,21 @@ The list of containers is updated to reflect the newly added container.
 You can now select a container from this list and select **+ Delete container** from the top command bar. 
 
 ![Delete a container](media/azure-stack-edge-r-series-manage-storage-accounts/add-container-3.png)
+
+## Sync storage keys
+
+You can synchronize the access keys for the Edge (local) storage accounts on your device. 
+
+To sync the storage account access key, take the following steps:
+
+1. In your resource, select the storage account that you want to manage. From the top command bar, select **Sync storage key**.
+
+![Select sync storage key](media/azure-stack-edge-r-series-manage-storage-accounts/sync-storage-key-1.png)
+
+2. When prompted for confirmation, select **Yes**. 
+
+![Select sync storage key](media/azure-stack-edge-r-series-manage-storage-accounts/sync-storage-key-2.png)
+
 
 ## Next steps
 
