@@ -1,5 +1,5 @@
 ---
-title: What are Microsoft Flow, Logic Apps, Functions, and WebJobs? - Azure
+title: Integration and automation platform options in Azure 
 description: "Compare Microsoft cloud services that are optimized for integration tasks: Microsoft Flow, Logic Apps, Functions, and WebJobs."
 ms.topic: overview
 ms.date: 04/09/2018
@@ -7,9 +7,10 @@ ms.custom: mvc
 #Customer intent: As a developer, I want to understand the choices that Azure offers for hosting and executing my business logic so that I can choose the right set of Azure services.
 ---
 
-# What are Microsoft Flow, Logic Apps, Functions, and WebJobs?
+# Choose the right integration and automation services in Azure
 
-This article compares the following Microsoft cloud 
+This article compares the following Microsoft cloud services:
+
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)

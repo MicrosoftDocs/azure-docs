@@ -1,21 +1,18 @@
 ---
-title: Copy data from Oracle Responsys using Azure Data Factory (Preview) 
+title: Copy data from Oracle Responsys (Preview)
 description: Learn how to copy data from Oracle Responsys to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.author: jingwang
-
 ---
+
 # Copy data from Oracle Responsys using Azure Data Factory (Preview)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Oracle Responsys. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.

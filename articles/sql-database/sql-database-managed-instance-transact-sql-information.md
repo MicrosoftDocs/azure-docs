@@ -21,7 +21,7 @@ This article summarizes and explains the differences in syntax and behavior betw
 
 There are some PaaS limitations that are introduced in Managed Instance and some behavior changes compared to SQL Server. The differences are divided into the following categories: <a name="Differences"></a>
 
-- [Availability](#availability) includes the differences in [Always-On](#always-on-availability) and [backups](#backup).
+- [Availability](#availability) includes the differences in [Always On Availability Groups](#always-on-availability-groups) and [backups](#backup).
 - [Security](#security) includes the differences in [auditing](#auditing), [certificates](#certificates), [credentials](#credential), [cryptographic providers](#cryptographic-providers), [logins and users](#logins-and-users), and the [service key and service master key](#service-key-and-service-master-key).
 - [Configuration](#configuration) includes the differences in [buffer pool extension](#buffer-pool-extension), [collation](#collation), [compatibility levels](#compatibility-levels), [database mirroring](#database-mirroring), [database options](#database-options), [SQL Server Agent](#sql-server-agent), and [table options](#tables).
 - [Functionalities](#functionalities) include [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distributed transactions](#distributed-transactions), [extended events](#extended-events), [external libraries](#external-libraries), [filestream and FileTable](#filestream-and-filetable), [full-text Semantic Search](#full-text-semantic-search), [linked servers](#linked-servers), [PolyBase](#polybase), [Replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [stored procedures, functions, and triggers](#stored-procedures-functions-and-triggers).
@@ -33,7 +33,7 @@ This page also explains [Temporary known issues](#Issues) that are discovered in
 
 ## Availability
 
-### <a name="always-on-availability"></a>Always On
+### <a name="always-on-availability-groups"></a>Always On Availability Groups
 
 [High availability](sql-database-high-availability.md) is built into managed instance and can't be controlled by users. The following statements aren't supported:
 
@@ -530,6 +530,26 @@ The following variables, functions, and views return different results:
 ### TEMPDB
 
 The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
+
+### MSDB
+
+The following MSDB schemas in managed instance must be owned by their respective predefined roles:
+
+- General roles
+  - TargetServersRole
+- [Fixed database roles](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+  - SQLAgentUserRole
+  - SQLAgentReaderRole
+  - SQLAgentOperatorRole
+- [DatabaseMail roles](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+  - DatabaseMailUserRole
+- [Integration services roles](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+  - db_ssisadmin
+  - db_ssisltduser
+  - db_ssisoperator
+  
+> [!IMPORTANT]
+> Changing the predefined role names, schema names and schema owners by customers will impact the normal operation of the service. Any changes made to these will be reverted back to the predefined values as soon as detected, or at the next service update at the latest to ensure normal service operation.
 
 ### Error logs
 
