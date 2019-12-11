@@ -46,9 +46,8 @@ This allows you to set (push) configurations through DSC and view reporting deta
 The following sections outline how you can onboard each type of machine to Azure Automation State Configuration.
 
 > [!NOTE]
->Deploying DSC to a Linux node uses the `/tmp` folder and modules like **nxAutomation** are temporarily downloaded for verification before installing them in their appropriate location. To ensure the modules install correctly, the Log Analytics agent for Linux needs read/write permission on `/tmp` folder. Instead of the Log Analytics agent for Linux running as a privileged user - `root`, the agent runs as the `omsagent` user. In most cases, explicit permission need be granted to this user in order for certain files to be read. To grant permission to `omsagent` user, run the following commands:
+>Deploying DSC to a Linux node uses the `/tmp` folder and modules like **nxAutomation** are temporarily downloaded for verification before installing them in their appropriate location. To ensure the modules install correctly, the Log Analytics agent for Linux needs read/write permission on `/tmp` folder. Instead of the Log Analytics agent for Linux running as a privileged user - `root`, the agent runs as the `omsagent` user. In most cases, explicit permission need be granted to this user in order for certain files to be read. To grant permission to `omsagent` user, run the following command:
 >
->    - Add the `omsagent` user to specific group `sudo usermod -a -G <GROUPNAME> <USERNAME>`
 >    - Grant write access to the folder `sudo chmod 1777 /tmp`
 >
 
