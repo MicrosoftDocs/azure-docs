@@ -20,7 +20,6 @@ ms.author: zchia
 
 # Tutorial: Configure ServiceNow for automatic user provisioning
 
-<img style="float: left;" src="media/servicenow-provisioning-tutorial/ServiceNowLogo.png" width="100">
 This tutorial describes the steps you need to perform in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [ServiceNow](https://www.servicenow.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
@@ -104,7 +103,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to ServiceNow**.
 
-9. Review the user attributes that are synchronized from Azure AD to ServiceNow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in ServiceNow for update operations. If you choose to change the [mattching target attribute](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), you will need to ensure that the ServiceNow API supports filtering users based on that attribute. X, Y, and Z have been tested as supported matching attributes. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to ServiceNow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in ServiceNow for update operations. If you choose to change the [mattching target attribute](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), you will need to ensure that the ServiceNow API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to ServiceNow**.
 
@@ -125,12 +124,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
-
-#### Configuring attribute mappings for ServiceNow
-ServiceNow has a rich user and group schema. **Danny to fill**
-
-* If you're trying to do this .... then ....
-* If you're trying to do this ... then ...
 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
