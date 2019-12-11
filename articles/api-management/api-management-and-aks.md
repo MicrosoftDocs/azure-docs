@@ -69,7 +69,7 @@ Cons:
 
 Although Option 1 might be easier, it has notable drawbacks as mentioned above. If an API Management instance does not reside in the cluster VNet, Mutual TLS authentication (mTLS) is a robust way of ensuring the traffic is secure and trusted in both directions between an API Management instance and an AKS cluster. 
 
-Mutual TLS authentication is [natively supported](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates) by API Management and can be enabled in Kubernetes by [installing an Ingress Controller](https://docs.microsoft.com/en-us/azure/aks/ingress-own-tls) (Fig. 3). As a result, authentication will be performed in the Ingress Controller, which simplifies the microservices. Additionally, you can whitelist source IPs with Ingress to make sure only API Management has access to the cluster.  
+Mutual TLS authentication is [natively supported](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates) by API Management and can be enabled in Kubernetes by [installing an Ingress Controller](https://docs.microsoft.com/azure/aks/ingress-own-tls) (Fig. 3). As a result, authentication will be performed in the Ingress Controller, which simplifies the microservices. Additionally, you can whitelist source IPs with Ingress to make sure only API Management has access to the cluster.  
 
  
 ![Publish via an ingress controller](./media/api-management-aks/ingress-controller.png)
