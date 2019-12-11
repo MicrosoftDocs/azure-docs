@@ -7,8 +7,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: overview
 ms.date: 12/12/2019
 
@@ -16,103 +16,15 @@ ms.date: 12/12/2019
 
 # What tools are included on the Azure Data Science Virtual Machine?
 
-The Data Science Virtual Machine comes with the most useful data-science tools pre-installed. In addition to operating system tools, the DSVM includes tools for data manipulating, programming, and popular libraries for developing and running machine learning models. 
+The Data Science Virtual Machine comes with the most useful data-science tools pre-installed. In addition to operating system tools, the DSVM includes:
 
-Below we have included an up-to-date list of tools included on the Data Science Virtual Machine, with links to help with configuration and usage.
-
-## Store, Retrieve, and Manipulate Data
-
-| **Tool**                                                           | **Windows DSVM** | **Linux DSVM** | **Usage notes** |
-| :------------------------------------------------------------------ |:-------------------:|:------------------:|:------:|
-| Relational databases                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) | [SQL Server on the DSVM](./dsvm-data-platforms.md#sql-server-2017-developer-edition) |
-| Database tools                                                       |  SQL Server Management Studio <br/> SQL Server Integration Services<br/> [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br />  ODBC/JDBC drivers|  [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (querying tool), <br />  bcp, sqlcmd <br />  ODBC/JDBC drivers| |
-| Scalable in-database analytics with SQL Server machine learning services (R, Python) |<span class='green-check'>&#9989;</span>    | <span class='red-x'>&#10060;</span>                | |
-|[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) |<span class='green-check'>&#9989;</span></br> (1.10.1) |<span class='green-check'>&#9989;</span></br> (0.7.20160129.1) | |
-|[Azure CLI](https://docs.microsoft.com/cli/azure) |<span class='green-check'>&#9989;</span></br> (2.0.56) |<span class='green-check'>&#9989;</span></br> (2.0.58) | |
-|[Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) |<span class='green-check'>&#9989;</span></br> (8.1.0) |<span class='red-x'>&#10060;</span>   | [Azcopy on the DSVM](./dsvm-tools-ingestion.md#azcopy)
-|[Blob FUSE driver](https://github.com/Azure/azure-storage-fuse) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (1.0.2) | [blobfuse on the DSVM](./dsvm-tools-ingestion.md#blobfuse)
-|[Adlcopy (Azure Data Lake Storage)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) |<span class='green-check'>&#9989;</span></br> (1.0.13) |<span class='red-x'>&#10060;</span>   | [Adlcopy on the DSVM](./dsvm-tools-ingestion.md#adlcopy)
-|[Azure Cosmos DB Data Migration Tool](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) |<span class='green-check'>&#9989;</span> |<span class='red-x'>&#10060;</span>   | [Cosmos DB on the DSVM](./dsvm-tools-ingestion.md#azure-cosmos-db-data-migration-tool) |
-|Unix/Linux command-line tools |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> | |
-| [Apache Drill](https://drill.apache.org) for data exploration |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span></br>(1.14.0) | [Apache Drill on the DSVM](./dsvm-tools-explore-and-visualize.md#apache-drill)
-
-
-## Program in Python, R, and Julia
-
-| **Tool**                                                           | **Windows DSVM** | **Linux DSVM** | **Usage notes** |
-| :------------------------------------------------------------------ |:-------------------:|:------------------:|:------:|
-| [Microsoft R Open](https://mran.microsoft.com/open/) with popular packages pre-installed   |<span class='green-check'>&#9989;</span></br> (3.4.3)                    |<span class='green-check'>&#9989;</span></br> (3.4.3)  | [R on the DSVM](./dsvm-languages.md#r)           |
-| [Microsoft Machine Learning Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) Developer Edition includes: <br /> [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) parallel and distributed high-performance framework (R and Python)<br /> [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package), new state-of-the-art machine learning algorithms from Microsoft <br /> [R and Python operationalization](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |<span class='green-check'>&#9989;</span>  </br> (9.3.0)                 |<span class='green-check'>&#9989;</span> | |
-| [Anaconda Python](https://www.continuum.io/) 2.7 and 3.5 with popular packages pre-installed    |<span class='green-check'>&#9989;</span>                       |<span class='green-check'>&#9989;</span></br> (4.2)        | |
-| [JuliaPro](https://juliacomputing.com/products/juliapro.html) with popular packages for Julia language pre-installed                         |<span class='green-check'>&#9989;</span> </br> (0.6.4)                   |<span class='green-check'>&#9989;</span></br> (0.6.2)              | [Julia on the DSVM](./dsvm-languages.md#julia) |
-
-## Explore in Jupyter
-| **Tool**                                                           | **Windows DSVM** | **Linux DSVM** | **Usage notes** |
-| :------------------------------------------------------------------ |:-------------------:|:------------------:|:------:|
-| [Jupyter Notebook Server](https://jupyter.org/) with the following kernels:                                  |<span class='green-check'>&#9989;</span></br> (5.5.0)   |<span class='green-check'>&#9989;</span> | [Jupyter Notebook samples](./dsvm-samples-and-walkthroughs.md) | 
-|    R |<span class='green-check'>&#9989;</span></br> (3.4.3) |<span class='green-check'>&#9989;</span></br> (3.4.3) | [R Jupyter Samples](./dsvm-samples-and-walkthroughs.md#r-language) |
-|    Python |<span class='green-check'>&#9989;</span></br> (3) |<span class='green-check'>&#9989;</span> | [Python Jupyter Samples](./dsvm-samples-and-walkthroughs.md#python-language) |
-|    Julia |<span class='green-check'>&#9989;</span></br> (0.6.4) |<span class='green-check'>&#9989;</span></br> (0.6.2) | [Julia Jupyter Samples](./dsvm-samples-and-walkthroughs.md#julia-language) |
-|    PySpark |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> | [pySpark Jupyter Samples](./dsvm-samples-and-walkthroughs.md#sparkml)
-|    [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (Ubuntu only) | |
-|    SparkR     |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> | |
-| JupyterHub (multiuser notebook server)|<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> | |
-| JupyterLab (multiuser notebook server) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> | |
-
-
-## Use Your Preferred Editor or IDE 
-| **Tool**                                                           | **Windows DSVM** | **Linux DSVM** | **Usage notes** |
-| :------------------------------------------------------------------ |:-------------------:|:------------------:|:------:|
-|[Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) with Git plug-in, Azure HDInsight (Hadoop), Azure Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs), and [R Tools for Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) |<span class='green-check'>&#9989;</span> |<span class='red-x'>&#10060;</span>   | [Visual Studio on the DSVM](./dsvm-tools-development.md#visual-studio-community-2017) |
-|[Visual Studio Code](https://code.visualstudio.com/) |<span class='green-check'>&#9989;</span></br> (1.31.1) |<span class='green-check'>&#9989;</span></br> (1.31) | [Visual Studio Code on the DSVM](./dsvm-tools-development.md#visual-studio-code) |
-|[RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) |<span class='green-check'>&#9989;</span></br> (1.2.50xx) |<span class='green-check'>&#9989;</span></br> (1.1.456) | [RStudio Desktop on the DSVM](./dsvm-tools-development.md#rstudio--desktop) |
-|[RStudio Server](https://www.rstudio.com/products/rstudio/#Server) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> | [RStudio Server on the DSVM](./dsvm-tools-development.md#rstudio--server)
-|[PyCharm Community Edition](https://www.jetbrains.com/pycharm/) |<span class='green-check'>&#9989;</span></br> (19.2.3)  |<span class='green-check'>&#9989;</span></br> (2018.2.3) | [PyCharm on the DSVM](./dsvm-tools-development.md#pycharm)
-|[Atom](https://atom.io/) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (1.26.1) | |
-|[Juno (Julia IDE)](https://junolab.org/)|<span class='green-check'>&#9989;</span> |<span class='red-x'>&#10060;</span> | [Juno on the DSVM](./dsvm-tools-development.md#juno)
-|[Vim](https://www.vim.org) |<span class='green-check'>&#9989;</span></br> (8.1.5) |<span class='green-check'>&#9989;</span></br> (7.4.1689) | |
-|[Emacs](https://www.gnu.org/software/emacs) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span></br> (24.5.1) | |
-|[Git](https://git-scm.com/) and Git Bash |<span class='green-check'>&#9989;</span></br> (2.20.1) |<span class='green-check'>&#9989;</span></br> (0.6.2) | |
-|[OpenJDK](https://openjdk.java.net) |<span class='green-check'>&#9989;</span></br> (1.8.0_201) |<span class='green-check'>&#9989;</span></br> (1.8.0_222) | |
-|.NET Framework |<span class='green-check'>&#9989;</span></br> (4.7.2) |<span class='red-x'>&#10060;</span>   | |
-| SDKs to access Azure and Cortana Intelligence Suite of services |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> | [Power BI desktop on the DSVM](./dsvm-tools-development.md#power-bi-desktop) | 
-
-## Build Deep Learning Solutions 
-
-| **Tool**                                                           | **Windows DSVM** | **Linux DSVM** | **Usage notes** |
-| :------------------------------------------------------------------ |:-------------------:|:------------------:|:------:|
-|[Caffe](https://github.com/BVLC/caffe) and [Caffe2](https://github.com/facebookarchive/caffe2) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> | [Caffe](./dsvm-deep-learning-ai-frameworks.md#caffe) and [Caffe2](./dsvm-deep-learning-ai-frameworks.md#caffe2) on the DSVM |
-|[Chainer](https://chainer.org) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (5.2.0) | [Chainer on the DSVM](./dsvm-deep-learning-ai-frameworks.md#chainer) |
-|[CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit) |<span class='green-check'>&#9989;</span></br> (10.0.130) |<span class='green-check'>&#9989;</span></br> (10.0.130) | [CUDA, cuDNN, NVIDIA Driver on the DSVM](./dsvm-deep-learning-ai-frameworks.md#cuda-cudnn-nvidia-driver) |
-|[Horovod](https://github.com/horovod/horovod) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (0.16.1) | [Horovod on the DSVM](./dsvm-deep-learning-ai-frameworks.md#horovod) |
-|[Keras](https://keras.io) |<span class='green-check'>&#9989;</span></br> (2.2.4)   |<span class='green-check'>&#9989;</span></br> (2.2.4) | [Keras on the DSVM](./dsvm-deep-learning-ai-frameworks.md#keras) |
-|[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span></br> (2.5.1) | [CNTK on the DSVM](./dsvm-deep-learning-ai-frameworks.md#microsoft-cognitive-toolkit-cntk) |
-|[MXNet](https://mxnet.apache.org/) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span></br> (1.3.0) | [MXNet on the DSVM](./dsvm-deep-learning-ai-frameworks.md#mxnet) |
-|[MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span></br> (1.0.1) | [MXNet Model Server on the DSVM](./dsvm-deep-learning-ai-frameworks.md#mxnet-model-server) |
-|[NVidia System Management Interface (nvidia-smi)](https://developer.nvidia.com/nvidia-system-management-interface) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span></br>| [nvidia-smi on the DSVM](./dsvm-deep-learning-ai-frameworks.md#nvidia-system-management-interface-nvidia-smi) |
-|[PyTorch](https://pytorch.org) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (1.2.0) | [PyTorch on the DSVM](./dsvm-deep-learning-ai-frameworks.md#pytorch) |
-|[TensorFlow](https://www.tensorflow.org) |<span class='green-check'>&#9989;</span></br> (1.13) |<span class='green-check'>&#9989;</span></br> (1.13) | [TensorFlow on the DSVM](./dsvm-deep-learning-ai-frameworks.md#tensorflow) |
-|[TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (1.12.0) | [TensorFlow Serving on the DSVM](./dsvm-deep-learning-ai-frameworks.md#tensorflow-serving) |
-|[Theano](https://github.com/Theano/Theano) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span></br> (1.0.3) | [Theano on the DSVM](./dsvm-deep-learning-ai-frameworks.md#theano)
-
-
-## Create Statistical ML Solutions 
-| **Tool**                                                           | **Windows DSVM** | **Linux DSVM** | **Usage notes** |
-| :------------------------------------------------------------------ |:-------------------:|:------------------:|:------:|
-|Integration with [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, Python) |<span class='green-check'>&#9989;</span></br> (0.2.7) |<span class='green-check'>&#9989;</span></br> (1.0.45) | [Azure ML SDK](./dsvm-ml-data-science-tools.md#azure-machine-learning-sdk-for-python)
-|[XGBoost](https://github.com/dmlc/xgboost) |<span class='green-check'>&#9989;</span></br> (0.81) |<span class='green-check'>&#9989;</span></br> (0.80) | [XGBoost on the DSVM](./dsvm-ml-data-science-tools.md#xgboost)
-|[Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span></br> (8.1) | [Vowpal Wabbit on the DSVM](./dsvm-ml-data-science-tools.md#vowpal-wabbit)
-|[Weka](https://www.cs.waikato.ac.nz/ml/weka/) |<span class='green-check'>&#9989;</span></br> (3.8) |<span class='green-check'>&#9989;</span></br> (3.8.0) |
-|[Rattle](https://togaware.com/rattle/) |<span class='green-check'>&#9989;</span></br> (5.1.0) |<span class='green-check'>&#9989;</span></br> (5.2.2) | [Weka on the DSVM](./dsvm-ml-data-science-tools.md#weka) |
-|[LightGBM](https://github.com/Microsoft/LightGBM) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (2.1.2) | [LightGBM on the DSVM](./dsvm-ml-data-science-tools.md#lightgbm)
-|[CatBoost](https://tech.yandex.com/catboost/) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (0.10.3) | |
-|[H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (3.20.0.7) | [H20 on the DSVM](./dsvm-ml-data-science-tools.md#h2o) |
-
-
-## Organize & Present Results
-
-| **Tool**                                                           | **Windows DSVM** | **Linux DSVM** | **Usage notes** |
-| :------------------------------------------------------------------ |:-------------------:|:------------------:|:------:|
-| [Microsoft Office](https://www.microsoft.com/p/office-365-proplus/CFQ7TTC0K8R0) ProPlus with shared activation: Excel, Word, and PowerPoint   |<span class='green-check'>&#9989;</span>                       |<span class='red-x'>&#10060;</span>              | |
-| [Power BI Desktop](https://powerbi.microsoft.com/) |<span class='green-check'>&#9989;</span></br> (2.73.55xx) |<span class='red-x'>&#10060;</span>   |
+- [The data platform of your choice](dsvm-tools-data-platforms.md)
+- [Your preferred programming languages](dsvm-tools-languages.md)
+- [Familiar development tools](dsvm-tools-development.md)
+- [Powerful Data Science tools and libraries](dsvm-tools-data-science.md)
+- [Data exploration and visualization tools](dsvm-tools-explore-and-visualize.md)
+- [Data ingestion tools](dsvm-tools-ingestion.md)
+- [Deep learning and statistical ML frameworks](dsvm-tools-deep-learning.md)
+- [Productivity and Business Intelligence tools](tk)
+- [Sample code and walkthroughs](dsvm-samples-and-walkthroughs.md)
 
