@@ -23,20 +23,20 @@ ms.collection: M365-identity-device-management
 
 # Management capabilities for Azure AD roles in Privileged Identity Management
 
-Welcome to the enhanced management experience for Azure AD roles from the Azure AD Privileged Identity Management team. If you have been using Privileged Identity Management for both Azure AD roles and Azure Resource roles, you may have recognized the discrepancy between the two wherein Privileged Identity Management for Azure resource roles has a couple of key features that are not available for Azure AD roles.
+The management experience for Azure AD roles in Privileged Identity Management has been updated to unify how Azure AD roles and Azure resource roles are managed. Previously, Privileged Identity Management for Azure resource roles has had a couple of key features that were not available for Azure AD roles.
 
-With the refresh being currently rolled out, we are merging the two so that Azure AD Privileged Identity Management customers using Azure AD roles can get all the functionality that is available for Azure resource roles. This enhancement also creates an extensible model that can eventually be used to manage role assignments beyond the roles that are available today. Learn more about the main features below:
+With the update being currently rolled out, we are merging the two into a single management experience and in it you can get the same functionality for Azure AD roles as for Azure resource roles. Learn more about the main features below.
 
 ## Time-bound assignments
 
-Previously in Privileged Identity Management for Azure AD roles, you were familiar of role assignments with two states – *eligible* and *permanent*. Now you have the power to set a start and end time for each type of assignments. This addition gives you four possible states in which you can place an assignment:
+Previously in Privileged Identity Management for Azure AD roles, you were familiar with role assignments with two possible states – *eligible* and *permanent*. Now you can set a start and end time for each type of assignment. This addition gives you four possible states in which you can place an assignment:
 
-- Eligible, with specified start/end dates for assignment
 - Eligible permanently
+- Active permanently
+- Eligible, with specified start/end dates for assignment
 - Active, with specified start/end dates for assignment
-- Active permanently (was called permanent)
 
-In many cases, even if you don’t want users to have eligible assignment and activate roles every time, you might still want to protect your system by setting an expiration time for assignments. On the other hand, if you have some temporary users who are eligible, you should also consider setting an expiration time so that they get removed automatically from their role once their work is complete.
+In many cases, even if you don’t want users to have eligible assignment and activate roles every time, you can still protect your Azure AD organization by setting an expiration time for assignments. For example, if you have some temporary users who are eligible, consider setting an expiration so to remove them automatically from the role assignment when their work is complete.
 
 ## New role settings
 
@@ -46,16 +46,16 @@ We are also adding new settings for Azure AD roles. Previously, you could only c
 
 As soon as you figure out time-bound assignment, the first question you might ask is what happens if a role is expired? In this new version, we provide two options for this scenario:
 
-- Extend – When a role assignment is nearing expiration, user can go to Azure AD Privileged Identity Management and request an extension for that role assignment
-- Renew – When a role assignment has expired, user can go to Azure AD Privileged Identity Management and request a renewal for that role assignment
+- Extend – When a role assignment nears its expiration, the user can use Privileged Identity Management to request an extension for that role assignment
+- Renew – When a role assignment has expired, the user can use Privileged Identity Management to request a renewal for that role assignment
 
-Both user-initiated actions require an approval from a Global administrator or Privileged role administrator. Admins will no longer need to be in the business of managing these expirations. They just need to wait for these extension/renewal requests and approve them if the request is valid.
+Both user-initiated actions require an approval from a Global administrator or Privileged role administrator. Admins will no longer need to be in the business of managing these expirations. They just need to wait for the extension or renewal requests and approve them if the request is valid.
 
 ## API changes
 
-When customers have the updated version rolled out to their Azure AD organization, existing graph API will stop working. Customers must then transition to use the Graph API for Azure resource roles. To manage Azure AD roles using that API, swap “/azureResources” with “/aadroles” in the signature and use the Directory ID for the `resourceId`.
+When customers have the updated version rolled out to their Azure AD organization, the existing graph API will stop working. You must transition to use the Graph API for Azure resource roles. To manage Azure AD roles using that API, swap “/azureResources” with “/aadroles” in the signature and use the Directory ID for the `resourceId`.
 
-We have tried our best to reach out to all customers who are using the previous API to let them know about this change ahead of time. If your Azure AD organization was moved on to the new version and still depend on the old API, reach out to the team at pim_preview@microsoft.com. IS THIS STILL RELEVANT?
+We have tried our best to reach out to all customers who are using the previous API to let them know about this change ahead of time. If your Azure AD organization was moved on to the new version and you still depend on the old API, reach out to the team at pim_preview@microsoft.com.
 
 ## PowerShell change
 
