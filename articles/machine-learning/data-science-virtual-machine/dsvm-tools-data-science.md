@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 12/12/2019
 ---
 
 # Machine learning and data science tools on Azure Data Science Virtual Machines
