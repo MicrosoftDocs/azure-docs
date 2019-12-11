@@ -146,9 +146,9 @@ In this example, the Developer Console is the client-app. The following steps de
 
 1. Select **Create**.
 
-1. Go back to the **Settings** page of your client-app.
+1. Go back to your client-app and select **Authentication**.
 
-1. Select **Reply URLs**, and paste the **redirect_url** in the first row. In this example, you replaced `https://localhost` with the URL in the first row.  
+1. Under **Redirect URIs**, select the type as **Web**, paste the **redirect_url** under **Redirect URI**, and then save.
 
 Now that you have configured an OAuth 2.0 authorization server, the Developer Console can obtain access tokens from Azure AD. 
 
