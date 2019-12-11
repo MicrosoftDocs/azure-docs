@@ -25,8 +25,7 @@ You can add monitoring solutions to Azure Monitor for any applications and servi
 ## Use monitoring solutions
 Open the **Overview** page in Azure Monitor to display a tile for each solution installed in the workspace. 
 
-1. Log in to the Azure portal.
-1. Open **All services** and locate **Monitor**.
+1. Go to the [Azure portal](https://ms.portal.azure.com). Search for and select **Monitor**.
 1. Under the **Insights** menu, select **More**.
 1. Use the dropdown boxes at the top of the screen to change the workspace or the time range used for the tiles.
 1. Click on the tile for a solution to open its view which includes more detailed analysis its collected data.
@@ -38,9 +37,8 @@ Monitoring solutions can contain multiple types of Azure resources, and you can 
 ## List installed monitoring solutions 
 Use the following procedure to list the monitoring solutions installed in your subscription.
 
-1. Log in to the Azure portal.
-1. Open **All services** and locate **Solutions**.
-4. Solutions installed in all your workspaces are listed. The name of the solution is followed by the name of the workspace it's installed in.
+1. Go to the [Azure portal](https://ms.portal.azure.com). Search for and select **Solutions**.
+1. Solutions installed in all your workspaces are listed. The name of the solution is followed by the name of the workspace it's installed in.
 1. Use the dropdown boxes at the top of the screen to filter by subscription or resource group.
 
 
