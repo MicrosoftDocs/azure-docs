@@ -76,7 +76,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB size (GB)|224|256|288|320|512|768|
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Target IOPS|2800|3200|3600|4000|6400|9600|
+|Target IOPS *|2800|3200|3600|4000|6400|9600|
 |Log rate limits (MBps)|32.8|37.5|37.5|37.5|37.5|37.5|
 |Max concurrent workers per pool (requests) *|1470|1680|1890|2100|3360|5040|
 |Max concurrent logins pool (requests) *|1470|1680|1890|2100|3360|5040|

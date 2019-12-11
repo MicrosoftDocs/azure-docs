@@ -83,7 +83,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 
 ### Gen4 compute generation (part 1)
 
-|Performance level|HS_Gen5_1|HS_Gen5_2|HS_Gen5_3|HS_Gen_4|HS_Gen5_5|HS_Gen5_6|
+|Performance level|HS_Gen4_1|HS_Gen4_2|HS_Gen4_3|HS_Gen4_4|HS_Gen4_5|HS_Gen4_6|
 |:--- | --: |--: |--: |---: | --: |--: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
@@ -107,7 +107,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 
 ### Gen4 compute generation (part 2)
 
-|Performance level|HS_Gen5_7|HS_Gen5_8|HS_Gen5_9|HS_Gen_10|HS_Gen5_16|HS_Gen5_24|
+|Performance level|HS_Gen4_7|HS_Gen4_8|HS_Gen4_9|HS_Gen4_10|HS_Gen4_16|HS_Gen4_24|
 |:--- | --: |--: |--: | --: |--: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
@@ -164,7 +164,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Performance level|HS_Gen5_16|HS_Gen5_18|HS_Gen5_20|HS_Gen_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: |--: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
-|vCores|16|18|20|24|32|40|48|80|
+|vCores|16|18|20|24|32|40|80|
 |Memory (GB)|83|93.4|103.8|124.6|166.1|207.6|415.2|
 |[RBPEX](sql-database-service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
