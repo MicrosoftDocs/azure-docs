@@ -1,6 +1,6 @@
 ---
-title: Assess servers by using imported server data with Azure Migrate: Server Assessment
-description: Describes how to assess on-premises servers for migration to Azure with Azure Migrate: Server Assessment using imported data.
+title: Assess servers by using imported server data with Azure Migrate Server Assessment
+description: Describes how to assess on-premises servers for migration to Azure with Azure Migrate Server Assessment using imported data.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
@@ -311,14 +311,14 @@ Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vis
       Apple Mac OS X 10
    :::column-end:::
    :::column span="":::
-      Asianux 3
-      Asianux 4
+      Asianux 3<br/>
+      Asianux 4<br/>
       Asianux 5
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      CentOS
+      CentOS<br/>
       CentOS 4/5
    :::column-end:::
    :::column span="":::
@@ -327,10 +327,10 @@ Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vis
 :::row-end:::
 :::row:::
    :::column span="":::
-      Debian GNU/Linux 4
-      Debian GNU/Linux 5
-      Debian GNU/Linux 6
-      Debian GNU/Linux 7
+      Debian GNU/Linux 4<br/>
+      Debian GNU/Linux 5<br/>
+      Debian GNU/Linux 6<br/>
+      Debian GNU/Linux 7<br/>
       Debian GNU/Linux 8
    :::column-end:::
    :::column span="":::
@@ -355,7 +355,7 @@ Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vis
 :::row-end:::
 :::row:::
    :::column span="":::
-      Novell NetWare 5
+      Novell NetWare 5<br/>
       Novell NetWare 6
    :::column-end:::
    :::column span="":::
@@ -367,12 +367,12 @@ Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vis
 :::row-end:::
 :::row:::
    :::column span="":::
-      Red Hat Enterprise Linux 2
-      Red Hat Enterprise Linux 3
-      Red Hat Enterprise Linux 4
-      Red Hat Enterprise Linux 5
-      Red Hat Enterprise Linux 6
-      Red Hat Enterprise Linux 7
+      Red Hat Enterprise Linux 2<br/>
+      Red Hat Enterprise Linux 3<br/>
+      Red Hat Enterprise Linux 4<br/>
+      Red Hat Enterprise Linux 5<br/>
+      Red Hat Enterprise Linux 6<br/>
+      Red Hat Enterprise Linux 7<br/>
       Red Hat Fedora
    :::column-end:::
 :::row-end:::
@@ -386,26 +386,26 @@ Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vis
 :::row-end:::
 :::row:::
    :::column span="":::
-      SCO OpenServer 5
-      SCO OpenServer 6
+      SCO OpenServer 5<br/>
+      SCO OpenServer 6<br/>
       SCO UnixWare 7
    :::column-end:::
    :::column span="":::
-      Serenity Systems eComStation 1
+      Serenity Systems eComStation 1<br/>
       Serenity Systems eComStation 2
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      Sun Microsystems Solaris 8
+      Sun Microsystems Solaris 8<br/>
       Sun Microsystems Solaris 9
    :::column-end:::
    :::column span="":::
-      SUSE Linux Enterprise 10
-      SUSE Linux Enterprise 11
-      SUSE Linux Enterprise 12
-      SUSE Linux Enterprise 8/9
-      SUSE Linux Enterprise 11
+      SUSE Linux Enterprise 10<br/>
+      SUSE Linux Enterprise 11<br/>
+      SUSE Linux Enterprise 12<br/>
+      SUSE Linux Enterprise 8/9<br/>
+      SUSE Linux Enterprise 11<br/>
       SUSE openSUSE
    :::column-end:::
 :::row-end:::
@@ -421,34 +421,34 @@ Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vis
       Ubuntu Linux
    :::column-end:::
    :::column span="":::
-      VMware ESXi 4
-      VMware ESXi 5
+      VMware ESXi 4<br/>
+      VMware ESXi 5<br/>
       VMware ESXi 6
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      Windows 10
-      Windows 2000
-      Windows 3
-      Windows 7 
-      Windows 8
-      Windows 95
-      Windows 98
-      Windows NT
-      Windows Server (R) 2008
+      Windows 10<br/>
+      Windows 2000<br/>
+      Windows 3<br/>
+      Windows 7<br/>
+      Windows 8<br/>
+      Windows 95<br/>
+      Windows 98<br/>
+      Windows NT<br/>
+      Windows Server (R) 2008<br/>
       Windows Server 2003
    :::column-end:::
    :::column span="":::
-      Windows Server 2008
-      Windows Server 2008 R2
-      Windows Server 2012
-      Windows Server 2012 R2
-      Windows Server 2016
-      Windows Server 2019
-      Windows Server Threshold
-      Windows Vista
-      Windows Web Server 2008 R2
+      Windows Server 2008<br/>
+      Windows Server 2008 R2<br/>
+      Windows Server 2012<br/>
+      Windows Server 2012 R2<br/>
+      Windows Server 2016<br/>
+      Windows Server 2019<br/>
+      Windows Server Threshold<br/>
+      Windows Vista<br/>
+      Windows Web Server 2008 R2<br/>
       Windows XP Professional
    :::column-end:::
 :::row-end:::
