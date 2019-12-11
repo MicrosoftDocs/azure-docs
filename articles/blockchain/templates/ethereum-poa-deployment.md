@@ -547,11 +547,9 @@ On the top-right, is your Ethereum account alias and identicon.  If you're an ad
 
 ![Account](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
-## Development tools
+## <a id="Tutorials"></a>Development tools
 
 To compile, deploy, and test smart contracts, the Truffle Suite is a good option for Ethereum development. For more information, see [Truffle Suite](https://www.trufflesuite.com/docs/truffle/overview) documentation.
-
-MetaMask
 
 Ethereum Remix
 Remix is a powerful, open source tool that helps you write Solidity contracts straight from the browser. Written in JavaScript, Remix supports both usage in the browser and locally.
@@ -560,7 +558,6 @@ Remix also supports testing, debugging and deploying of smart contracts and much
 
 https://remix-ide.readthedocs.io/en/latest/index.html 
 
-
 ### Create, deploy, and smart contract
 
 > [!WARNING]
@@ -568,30 +565,33 @@ https://remix-ide.readthedocs.io/en/latest/index.html
 
 In the following example, you use *ethereumjs-wallet* to generate an Ethereum address, *ethereumjs-tx* to sign locally, and *web3* to send the raw transaction to the Ethereum RPC endpoint.
 
-Install prerequisites:
-* Install Truffle v5.0.5 `npm i -g truffle@v5.0.5`. Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). For more information, see [Truffle documentation](https://github.com/trufflesuite/truffle).
-* Install [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is needed for Web3.
-* Install [MetaMask browser extension](https://metamask.io).
-* Generate a MetaMask [wallet](https://metamask.zendesk.com/hc/en-us/articles/360015488971-New-to-MetaMask-Learn-How-to-Setup-MetaMask-the-First-Time).
+#### Install prerequisites
 
-## Create Truffle project
+* Install [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is needed for Truffle and Web3. Select the install option to include Python in your path.
+* Install Truffle v5.0.5 `npm install -g truffle@v5.0.5`. Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). For more information, see [Truffle documentation](https://github.com/trufflesuite/truffle).
 
-Create a folder named `HelloPoA`. Change directory to the new folder.
-Initialize a Truffle project. `truffle init`.
-Install Truffle HD wallet provider `npm install truffle-hdwallet-provider --save`
+### Create Truffle project
 
-You use this simple smart contract for the example:
+1. Open a command prompt or shell.
+1. Create a folder named `HelloWorld`.
+1. Change directory to the new `HelloWorld` folder.
+1. Initialize a new Truffle project using the command `truffle init`.
 
-Create a file in the contracts folder named `postBox.sol`.
+    [Create a new Truffle project](./media/ethereum-poa-deployment/create-truffle-project.png)
+
+### Add a smart contract
+
+1. Create a file in the named `postBox.sol` in the **contracts** subdirectory of your Truffle project.
 
 ```javascript
 pragma solidity ^0.5.0;
+
 contract postBox {
     string message;
-    function postMsg(string text) public {
+    function postMsg(string memory text) public {
         message = text;
     }
-    function getMsg() public view returns (string) {
+    function getMsg() public view returns (string memory) {
         return message;
     }
 }
@@ -599,11 +599,10 @@ contract postBox {
 
 ### Deploy smart contract using Truffle
 
-The following code to unlocks your MetaMask account and configures the PoA node as entry point by providing the mnemonic phrase.
+The following code to unlocks your Ethereum account and configures the PoA node as entry point by providing the mnemonic phrase.
 
-1. You can get the mnemonic phrase for an account in MetaMask. Select the account icon on the top right of the MetaMask extension and select **Settings > Security & Privacy > Reveal Seed Words**.
-1. Create a file and name it `truffle.js`.
-1. Replace the contents of `truffle-config.js` in the project with the following content. Replace the endpoint and mnemonic values.
+1. You need the mnemonic phrase for the [Ethereum admin account you used when deploying your blockchain network](#ethereum-settings). If you used MetaMask to create the account, you can retrieve the mnemonic from MetaMask. Select the administrator account icon on the top right of the MetaMask extension and select **Settings > Security & Privacy > Reveal Seed Words**.
+1. Replace the contents of `truffle-config.js` in your Truffle project with the following content. Replace the placeholder endpoint and mnemonic values.
 
     ```javascript
     var HDWalletProvider = require("truffle-hdwallet-provider");
@@ -627,9 +626,8 @@ The following code to unlocks your MetaMask account and configures the PoA node 
     };
     ```
 
-Add contract to migration.
-
-Create file `2_deploy_contracts.js`
+1. Since the script uses the Truffle HD Wallet provider module, install the module in your project using the command `npm install truffle-hdwallet-provider --save`.
+1. Add a new migration to deploy the new contract. Create file `2_deploy_contracts.js` in the **migrations** subdirectory of the Truffle project.
 
 ``` javascript
 var postBox = artifacts.require("postBox");
@@ -639,34 +637,41 @@ module.exports = deployer => {
 };
 ```
 
-Next, deploy to the PoA network using the Truffle migrate command.
+1. Deploy to the PoA network using the Truffle migrate command.
 
 ```javascript
 truffle migrate --network poa
 ```
 
+### Call smart contract function
 
-Create file `sendtransaction.js`
+1. In the Truffle project directory, create a new file named `sendtransaction.js`.
+1. Add the following contents to **sendtranaction.js**.
 
-``` javascript
-var postBox = artifacts.require("postBox");
+    ``` javascript
+    var postBox = artifacts.require("postBox");
+    
+    module.exports = function(done) {
+      console.log("Getting the deployed version of the postBox smart contract")
+      postBox.deployed().then(function(instance) {
+        console.log("Calling postMsg function for contract ", instance.address);
+        return instance.postMsg("Hello, blockchain!");
+      }).then(function(result) {
+        console.log("Transaction hash: ", result.tx);
+        console.log("Request complete");
+        done();
+      }).catch(function(e) {
+        console.log(e);
+        done();
+      });
+    };
+    ```
 
-module.exports = function(done) {
-  console.log("Getting the deployed version of the postBox smart contract")
-  postBox.deployed().then(function(instance) {
-    console.log("Calling postMsg function for contract ", instance.address);
-    return instance.postMsg("Hello, blockchain!");
-  }).then(function(result) {
-    console.log("Transaction hash: ", result.tx);
-    console.log("Request complete");
-    done();
-  }).catch(function(e) {
-    console.log(e);
-    done();
-  });
-};
+1. Execute the script using the Truffle execute command.
+
+```javascript
+truffle exec sendtransaction.js --network poa
 ```
-
 
 ## WebAssembly (WASM) support
 
