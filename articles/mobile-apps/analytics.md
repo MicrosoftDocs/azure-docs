@@ -9,7 +9,7 @@ ms.date: 10/22/2019
 ms.author: emalani
 ---
 
-# Analyze and understand usage of mobile applications
+# Analyze and understand mobile application use
 How well do you understand how your users use your applications? How many active users does your application have, and how is usage changing over time? What features are they using, and which ones are used the most? Where are these users based? How many users are using the latest version of the application? All these questions are important to understand to turn your app into a successful business. To answer those kinds of usage analytics questions, you need to collect usage data from your apps.
 
 The more you look down into the data, the more you might find ways to improve your application and keep your users happy. It's important to use data to find actionable insights and keep users satisfied.

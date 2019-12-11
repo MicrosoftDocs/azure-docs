@@ -9,7 +9,7 @@ ms.date: 10/22/2019
 ms.author: emalani
 ---
 
-# Cloud hosted source code management services
+# Cloud-hosted source code management services
 If you have development teams with multiple team members who work on the same code base, you need to find a suitable place to host your code. Storing the data in the cloud and having a centralized repository allows everyone to upload, edit, and manage the code files. They also can interact with other developers on projects. The code can be readily accessible no matter where you are, as long as you have an internet connection.
 
 Cloud hosting is much easier than on-premises options. It requires less hardware configuration and allows organizations to complete the implementation process in a more agile manner.
