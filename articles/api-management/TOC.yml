@@ -7,7 +7,7 @@
       - name: API Management features availability
         href: api-management-features.md
       - name: Manage microservices deployed in AKS
-        href: api-management-and-aks.md
+        href: api-management-kubernetes.md
 - name: Quickstarts
   expanded: true
   items:
