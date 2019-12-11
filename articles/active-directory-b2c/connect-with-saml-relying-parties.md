@@ -216,7 +216,7 @@ This example uses dynamic metadata. Update the `<Item>` element with `Key="Partn
 <Item Key="PartnerEntity">https://app.com/metadata</Item>
 ```
 
-The Service Provider metadata must be publicly available.
+The Service Provider metadata must be available at a publicly accessible endpoint.
 
 > [!TIP]
 > If your app is running at https://localhost, you can serve the metadata file from a publicly accessible web server that allows anonymous requests.
@@ -304,29 +304,29 @@ The last step is to enable Azure AD B2C as a SAML IdP in your SAML relying party
 
 Some or all the following are typically required:
 
-* **Metadata**: https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata
-* **Issuer**: https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name
-* **Login URL / SAML Endpoint / SAML URL**: Look and the metadata file
-* **Certificate**: This is the B2C_1A_YourAppNameSamlCert, but without the private key. To get the public key of the certificate do the following:
+* **Metadata**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
+* **Issuer**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name`
+* **Login URL/SAML endpoint/SAML URL**: Check the value in the metadata file
+* **Certificate**: This is *B2C_1A_YourAppNameSamlCert*, but without the private key. To get the public key of the certificate:
 
     1. Go to the metadata URL specified above.
-    1. Copy the value in the <X509Certificate> element
-    1. Paste it into a text file
-    1. Save the text file as a .cer file
+    1. Copy the value in the `<X509Certificate>` element.
+    1. Paste it into a text file.
+    1. Save the text file as a *.cer* file.
 
 ### 5.1 Test with the simulator (optional)
 
-To complete this walk through with our SAML test application:
+To complete this walk through using our [SAML test application][samltest]:
 
 * Update the tenant name
 * Update policy name, for example *B2C_1A_signup_signin_SAML*
-* Issuer URI: `https://cpim3.ccsctp.net/samlAPPUITest`
+* Specify this issuer URI: `https://cpim3.ccsctp.net/samlAPPUITest`
 
 Select **LOGIN** and you should be presented with an end user sign-in screen. Upon sign-in, a SAML assertion is issued back to the sample application.
 
 ## Sample policy
 
-A complete sample policy that works with the SAML App Simulator (SAMLTEST) is located here:
+We provide a complete sample policy that you can use for testing with the SAML App Simulator (SAMLTEST) app.
 
 1. Download the [SAML-SP-initiated login sample policy](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated)
 1. Update `TenantId` to match your tenant name, for example *contoso.b2clogin.com*
@@ -334,11 +334,13 @@ A complete sample policy that works with the SAML App Simulator (SAMLTEST) is lo
 
 ## Supported and unsupported SAML modalities
 
-* The following SAML RP scenarios are supported via your own metadata endpoint:
-  * Supporting multiple logout urls or POST binding for logout url in application/service principal object. (Supported via metadata url)
-  * Support specifying signing key to verify RP requests in application/service principal object. (Supported via metadata url)
-  * Support for specifying token encryption key in application/service principal. (Supported via metadata url)
-* Identity provider-initiated logins are not currently supported in the preview release.
+The following SAML relying party (RP) scenarios are supported via your own metadata endpoint:
+
+* Multiple logout URLs or POST binding for logout URL in application/service principal object.
+* Specify signing key to verify RP requests in application/service principal object.
+* Specify token encryption key in application/service principal object.
+
+Identity provider-initiated logins are not currently supported in the preview release.
 
 ## Next steps
 
