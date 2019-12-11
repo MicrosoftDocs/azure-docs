@@ -1,5 +1,5 @@
 ---
-title: Create a custom keyword - Speech service
+title: Create custom keywords - Speech service
 titleSuffix: Azure Cognitive Services
 description: Your device is always listening for a keyword (or phrase). When the user says the keyword, the device sends all subsequent audio to the cloud, until the user stops speaking. Customizing your keyword is an effective way to differentiate your device and strengthen your branding.
 services: cognitive-services
@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 12/11/2019
 ms.author: erhopf
 ---
 
-# Create a custom keyword by using the Speech service
+# Create a custom keyword using Speech Studio
 
 Your device is always listening for a keyword (or phrase). For example, "Hey Cortana" is a keyword for the Cortana assistant. When the user says the keyword, the device sends all subsequent audio to the cloud, until the user stops speaking. Customizing your keyword is an effective way to differentiate your device and strengthen your branding.
 
@@ -52,4 +52,4 @@ Before you can use a custom keyword, you'll need to create a keyword using the [
 
 ## Next steps
 
-Review the [Guidelines for creating an effective keyword](speech-devices-sdk-kws-guidelines.md).
+Test your custom keyword with [Speech Devices SDK Quickstart](https://aka.ms/sdsdk-quickstart).

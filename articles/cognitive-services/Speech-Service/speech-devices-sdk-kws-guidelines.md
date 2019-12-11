@@ -1,5 +1,5 @@
 ---
-title: Effective Keyword Guidelines - Speech service
+title: Keyword naming guidelines - Speech service
 titleSuffix: Azure Cognitive Services
 description: Creating an effective keyword is vital to ensuring your device will consistently and accurately respond.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 12/11/2019
 ms.author: erhopf
 ---
 
@@ -20,7 +20,9 @@ Creating an effective keyword is vital to ensuring your device will consistently
 
 Consider the following guidelines when you choose a keyword:
 
-* Your keyword should be an English word or phrase. It should take no longer than two seconds to say.
+* Your keyword should be an English word or phrase.
+
+* It should take no longer than two seconds to say.
 
 * Words of 4 to 7 syllables work best. For example, "Hey, Computer" is a good keyword. Just "Hey" is a poor one.
 
@@ -39,4 +41,4 @@ Consider the following guidelines when you choose a keyword:
 
 ## Next steps
 
-Test your custom keyword with [Speech Devices SDK Quickstart](https://aka.ms/sdsdk-quickstart).
+Learn how to [create a custom keyword using Speech Studio](speech-devices-sdk-create-kws.md).
