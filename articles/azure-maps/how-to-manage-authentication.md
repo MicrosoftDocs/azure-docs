@@ -20,7 +20,7 @@ You can view your authentication details on the Azure portal. Go to your account
 
 ![Authentication details](./media/how-to-manage-authentication/how-to-view-auth.png)
 
- To learn more, see [Authentication with Azure Maps](https://aka.ms/amauth).
+ After creation of the Azure Maps account, the primary and secondary keys are generated. It is recommended to use primary key as subscription key, when calling Azure Maps using [shared key authentication](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Secondary key can be used in scenarios such as rolling key changes. To learn more, see [Authentication with Azure Maps](https://aka.ms/amauth).
 
 
 ## Set up Azure AD app registration
