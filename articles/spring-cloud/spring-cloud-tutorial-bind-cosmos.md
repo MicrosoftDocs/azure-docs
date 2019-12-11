@@ -30,51 +30,51 @@ Azure Cosmos DB has five different API types that support binding. The following
 
     * API type: Core (SQL)
 
-            ```xml
-            <dependency>
-                <groupId>com.microsoft.azure</groupId>
-                <artifactId>azure-cosmosdb-spring-boot-starter</artifactId>
-                <version>2.1.6</version>
-            </dependency>
-            ```
+      ```xml
+      <dependency>
+          <groupId>com.microsoft.azure</groupId>
+          <artifactId>azure-cosmosdb-spring-boot-starter</artifactId>
+          <version>2.1.6</version>
+      </dependency>
+      ```
 
     * API type: MongoDB
 
-            ```xml
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-mongodb</artifactId>
-            </dependency>
-            ```
+      ```xml
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-mongodb</artifactId>
+      </dependency>
+      ```
 
     * API type: Cassandra
 
-            ```xml
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-cassandra</artifactId>
-            </dependency>
-            ```
+      ```xml
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-cassandra</artifactId>
+      </dependency>
+      ```
 
     * API type: Gremlin (graph)
 
-            ```xml
-            <dependency>
-                <groupId>com.microsoft.spring.data.gremlin</groupId>
-                <artifactId>spring-data-gremlin</artifactId>
-                <version>2.1.7</version>
-            </dependency>
-            ```
+      ```xml
+      <dependency>
+          <groupId>com.microsoft.spring.data.gremlin</groupId>
+          <artifactId>spring-data-gremlin</artifactId>
+          <version>2.1.7</version>
+      </dependency>
+      ```
 
     * API type: Azure Table
 
-            ```xml
-            <dependency>
-                <groupId>com.microsoft.azure</groupId>
-                <artifactId>azure-storage-spring-boot-starter</artifactId>
-                <version>2.0.5</version>
-            </dependency>
-            ```
+      ```xml
+      <dependency>
+          <groupId>com.microsoft.azure</groupId>
+          <artifactId>azure-storage-spring-boot-starter</artifactId>
+          <version>2.0.5</version>
+      </dependency>
+      ```
 
 1. Use `az spring-cloud app update` to update the current deployment, or use `az spring-cloud app deployment create` to create a new deployment. These commands will either update or create the application with the new dependency.
 
