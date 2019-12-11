@@ -47,7 +47,7 @@ Using these tools you can:
 > [!NOTE]
 > If you previously exported Security Center alerts to a SIEM using Azure Activity log, the procedure below replaces that methodology.
 
-To view the event schemas of the exported data types, visit the [Log Analytics table schemas](https://aka.ms/ASCAutomationSchemas).
+To view the event schemas of the exported data types, visit the [Event Hub event schemas](https://aka.ms/ASCAutomationSchemas).
 
 ### To integrate with a SIEM 
 
@@ -74,7 +74,7 @@ Security alerts and recommendations are stored in the *SecurityAlert* and *Secur
 
 ![The *SecurityAlert* table in Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 
-To view the Log Analytics table schemas of the exported data types, please visit the Log Analytics table schemas [documentation article](https://aka.ms/ASCAutomationSchemas).
+To view the event schemas of the exported data types, visit the [Log Analytics table schemas](https://aka.ms/ASCAutomationSchemas).
 
 ###  View exported security alerts and recommendations in Azure Monitor
 
