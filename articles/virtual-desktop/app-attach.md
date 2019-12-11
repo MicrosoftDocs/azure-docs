@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 12/12/2019
 ms.author: helohr
 ---
 # Set up MSIX app attach
@@ -168,8 +168,8 @@ In your Windows Virtual Desktop environment, create a network share and move the
 If your app uses a certificate that isn't public-trusted or was self-signed, here's how to install it:
 
 1. Right-click the package and select **Properties**.
-2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **De
-3. When the digital signal details window appears, select the **General** tab, then select **Install certificate**.
+2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **Details**.
+3. When the digital signature details window appears, select the **General** tab, then select **Install certificate**.
 4. When the installer opens, select **local machine** as your storage location, then select **Next**.
 5. If the installer asks you if you want to allow the app to make changes to your device, select **Yes**.
 6. Select **Place all certificates in the following store**, then select **Browse**.
