@@ -11,7 +11,7 @@ ms.subservice: data-lake-storage-gen2
 
 # Migrate Azure Data Lake Storage from Gen1 to Gen2
 
-You can migrate data, workloads, and applications from Data Lake Storage Gen1 to Data Lake Storage Gen2.
+You can migrate your data, workloads, and applications from Data Lake Storage Gen1 to Data Lake Storage Gen2.
 
 Data Lake Storage Gen2 is Microsoft's latest Data Lake Storage repository. It combines Gen1 features such as file system semantics, directory and file level security, and scale with low-cost, tiered storage, high availability/disaster recovery capabilities from Azure Blob Storage. 
 
@@ -30,9 +30,7 @@ To migrate to Gen2, we recommend the following path.
 
 :heavy_check_mark: Step 3: Migrate data
 
-:heavy_check_mark: Step 4: Update analytic workloads
-
-:heavy_check_mark: Step 5: Update applications
+:heavy_check_mark: Step 4: Update workloads and applications
 
 > [!NOTE]
 > There's no way to convert a Gen1 account into Gen2 because these accounts run in separate services.
@@ -65,37 +63,21 @@ To migrate to Gen2, we recommend the following path.
 
 :two: &nbsp;&nbsp;Migrate data by using the data transfer tool that you've chosen.
 
-:three: &nbsp;&nbsp;Secure the data in the storage account. 
+:three: &nbsp;&nbsp;[Assign role-based access control (RBAC) roles](../common/storage-auth-aad-rbac-portal.md) to security principles. 
 
-   - [Assign role based access security (RBAC) roles](../common/storage-auth-aad-rbac-portal.md) to security principles in the context of your storage account, resource group, or subscription. 
-   
-   - Optionally [apply file and folder level security](data-lake-storage-access-control.md).
+:four: &nbsp;&nbsp;Optionally [apply file and folder level security](data-lake-storage-access-control.md).
 
-   For a complete guide to security, see [Azure Storage security guide](../common/storage-security-guide.md).
+### Step 4: Update workloads and applications
 
-### Step 4: Update analytic workloads
+:one: &nbsp;&nbsp;Configure [services in your workloads](data-lake-storage-integrate-with-azure-services.md) to point to your Gen2 endpoint. 
 
-:one: &nbsp;&nbsp;Configure services in your workloads to point to your Gen2 endpoint. 
+:two: &nbsp;&nbsp;Update applications to use Gen2 APIs. See guides for [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), and [REST](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2). 
 
-   For a list of articles that can help you get started, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md).
+:three: &nbsp;&nbsp;Update scripts to use Data Lake Storage Gen2 [PowerShell cmdlets](data-lake-storage-directory-file-acl-powershell.md), and [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md).
 
-:two: &nbsp;&nbsp;Search for URI references that contain the string `adl://` in Databricks notebooks, Apache Hive HQL files or any other file used as part of your workloads. 
+:four: &nbsp;&nbsp;Search for URI references that contain the string `adl://` in code files, or in Databricks notebooks, Apache Hive HQL files or any other file used as part of your workloads. 
 
-:three: &nbsp;&nbsp;Replace these references with the [Gen2 formatted URI](data-lake-storage-introduction-abfs-uri.md) of your new storage account.
-
-   For example: the Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` might become `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`. 
-
-### Step 5: Update applications
-
-:one: &nbsp;&nbsp;Update applications to use Gen2 APIs. See guides for [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), and [REST](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2). 
-
-:two: &nbsp;&nbsp;Update scripts to use Data Lake Storage Gen2 [PowerShell cmdlets](data-lake-storage-directory-file-acl-powershell.md), and [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md).
-
-:three: &nbsp;&nbsp;In code files, search for URI references that contain the string `adl://` in Databricks notebooks, Apache Hive HQL files or any other file used as part of your workloads. 
-
-:four: &nbsp;&nbsp;Replace these references with the [Gen2 formatted URI](data-lake-storage-introduction-abfs-uri.md) of your new storage account.
-
-   For example: the Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` might become `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`. 
+:five: &nbsp;&nbsp;Replace these references with the [Gen2 formatted URI](data-lake-storage-introduction-abfs-uri.md) of your new storage account. For example: the Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` might become `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`. 
 
 <a id="gen1-gen2-feature-comparison" />
 
@@ -145,11 +127,16 @@ Put something here.
 
 ## Gen1 to Gen2 data transfer tools
 
+
+
+<a id="uri-references" />
+
 ## Get help
 
 Put links to stack tags, yammer groups, etc.
 
 ## Next steps
+
 
 Need a good link here.
 
