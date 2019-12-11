@@ -209,7 +209,7 @@ Access the log files of the batch process to view bugs/warnings produced by the 
 
 3.  Select the pool id that is associated with the tasks that ran on **Azure Data Factory**
 
-    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/batch-jobs.PNG?token=ABTT2GPRX4WAB6XNA53HCO25ZLZZE)
+    ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/batch-jobs.PNG?token=ABTT2GIIHFIO53JY5WXSXWK57KZNG)
 
 4.  Select the latest task
 
