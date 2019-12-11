@@ -13,16 +13,16 @@ ms.author: emalani
 [Azure Cognitive Search](https://azure.microsoft.com/services/search/) is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) to create and load an index. On the other side, your application code issues query requests and handles responses. The search experience is defined in your client by using functionality from Azure Cognitive Search, with query execution over a persisted index that you create, own, and store in your service.
 
 ## Azure Cognitive Search features
-- **Freeform text search** provides full text search, simple query syntax, and Lucene query syntax.
-- **Simple scoring profiles** model relevance as a function of values in the documents themselves.
-- **Geosearch** explores data based on the proximity of a search result to a physical location.
-- **User experiences features** provide autocomplete, search suggestions, sorting, and paging.
-- **Cognitive search** for image and text analysis can be applied to an indexing pipeline to extract text information from raw content.
-- **Knowledge store** saves enrichments created during indexing.
-- **Data sources** such as Azure SQL Database, Azure Cosmos DB, and Azure Blob storage extract searchable content in primary data stores when you're connected to them.
-- **Import data wizard** configures indexers. 
-- **Index designer** stands up an index. 
-- **Search explorer** tests queries and refines scoring profiles.
+- **Freeform text search**: Provides full text search, simple query syntax, and Lucene query syntax.
+- **Simple scoring profiles**: Model relevance as a function of values in the documents themselves.
+- **Geosearch**: Explores data based on the proximity of a search result to a physical location.
+- **User experiences features**: Provide autocomplete, search suggestions, sorting, and paging.
+- **Cognitive search**: Can be applied to an indexing pipeline to extract text information from raw content for image and text analysis.
+- **Knowledge store**: Saves enrichments created during indexing.
+- **Data sources**: Extract searchable content in primary data stores when you're connected to Azure SQL Database, Azure Cosmos DB, and Azure Blob storage.
+- **Import data wizard**: Configures indexers. 
+- **Index designer**: Stands up an index. 
+- **Search explorer**: Tests queries and refines scoring profiles.
 
 Find a detailed description on Azure Cognitive Search [features](/azure/search/search-what-is-azure-search#feature-descriptions).
 

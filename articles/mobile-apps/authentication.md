@@ -19,17 +19,17 @@ Use the following services to enable user authentication in your mobile apps.
 [App Center Auth](/appcenter/auth/) is a cloud-based identity management service that developers can use to authenticate users and manage user identities. App Center Auth also integrates with other parts of Visual Studio App Center. Developers can use user identity to [view user data](/appcenter/data/index) in other services and even [send push notifications to users instead of individual devices](/appcenter/push/push-to-user#app-center-auth-set-identity). 
 
 **Key features**
-- **Powered by Azure Active Directory B2C (Azure AD B2C).** 
+- Powered by Azure Active Directory B2C (Azure AD B2C). 
     - Enterprise grade.
     - Highly available.
     - Secure and global service.
-- **Bring your own identity** and the option to use other popular identity and access management providers, such as Auth0 and Firebase.
-- **Azure Active Directory support.**
+- Bring your own identity and the option to use other popular identity and access management providers, such as Auth0 and Firebase.
+- Azure Active Directory support.
     - Connect existing Azure AD tenants. 
     - Enable authenticating against a corporate domain.
     - Manage access to sensitive data.
-- **Simple user experience** and magical SDK experience by wrapping Microsoft Authentication Library with the Visual Studio App Center SDK.
-- **Platform support** for iOS, Android, Xamarin, and React Native.
+- Simple user experience and magical SDK experience by wrapping Microsoft Authentication Library with the Visual Studio App Center SDK.
+- Platform support for iOS, Android, Xamarin, and React Native.
 
 **References**
 - [Sign up with Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs) 
@@ -59,10 +59,10 @@ Use the following services to enable user authentication in your mobile apps.
 - Internal resources, such as apps on your corporate network and intranet, along with any cloud apps developed by your own organization.
 
 **Key features**
-- **Seamless, highly secure access** by connecting users to the applications they need.
-- **Comprehensive identity protection** and enhanced security for identities and access based on user, location, device, data, and application context.
-- **Thousands of pre-integrated apps** for both commercial and custom applications, such as Office 365, Salesforce.com, and Box.
-- **Ability to manage access** at scale.
+- Seamless, highly secure access by connecting users to the applications they need.
+- Comprehensive identity protection and enhanced security for identities and access based on user, location, device, data, and application context.
+- Thousands of pre-integrated apps for both commercial and custom applications, such as Office 365, Salesforce.com, and Box.
+- Ability to manage access at scale.
 
 **References**
 - [Azure portal](https://portal.azure.com/)
