@@ -374,7 +374,42 @@ The `context` instance exposes the following data:
 
 # [Python](#tab/python)
 
-**TODO**
+To implement a queue trigger input binding, configure the *function.json* like the following example:
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "queueTrigger",
+      "name": "msg",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`type`       | Defines the binding type. Here, set the value as `queueTrigger`. |
+|`name`       | Declares the parameter name the in the function signature. When the function is triggered this parameter's value has the contents of the queue message. |
+|`direction`  | Defines whether the binding is input or output. Here, set the value to `in`.  |
+|`queueName`  | Declares the queue name in the storage account. |
+|`connection` | Points to the storage account connection string. |
+
+With this configuration, the function code looks like this:
+
+```python
+import logging
+import azure.functions as func
+
+def main(msg: func.QueueMessage) -> None:
+    value = msg.get_body().decode('utf-8')
+```
+
+The `msg` instance exposes metadata and access to the message payload. The queue item payload is available via `msg.get_body()` with the appropriate formatter passed to the `decode` method.
 
 # [Java](#tab/java)
 
