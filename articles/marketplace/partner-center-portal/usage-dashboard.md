@@ -16,6 +16,9 @@ This article provides information on the Usage dashboard in Partner Center. This
 
 To access the Usage dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
 
+>[!NOTE]
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).
+
 ## Usage dashboard
 
 The Usage Dashboard represents the metrics for all Virtual Machine (VM) offers usage and metered billing usage. These are found in two separate tabs: VM usage and metered billing usage.
@@ -30,14 +33,6 @@ In the VM usage tab, there are graphical representations of the following items:
 - [Usage by VM size](#usage-by-vm-size)
 - [Usage by sales channel](#usage-by-sales-channel)
 - [Detailed usage data](#detailed-usage-data)
-
-### Usage page filters
-
-These filters are applied at the page level. You can select multiple filters to render the chart for the criteria you choose to view, and the data you want displayed in the “detailed usage data” grid/export. Filters are applied on the data extracted for the data range you have selected on the top right corner of the orders page.
-
-- Offer types and offer names are listed only for the offers you have acquired during the selected date range. Offer names are displayed for the offers you have selected.
-- The default selection is “all” for each of the filter options except usage type. Usage type is defaulted to normalized usage, so select “raw usage” to view raw usage in all charts.
-- Applied filters show the count of selection(s) for all filter selections, except when filter is showing default selection.
 
 > [!NOTE]
 > Analytics reports display differently in Cloud Partner Portal (CPP) and Partner Center. **Seller insights** in CPP has an orders and usage tab, which displays data for both usage-based offers and non-usage-based offers. In Partner Center, the usage metrics are displayed on a separate page.
@@ -121,3 +116,10 @@ The **Metered billing usage** tab presents usage info for offer types where usag
 
 <Links to other analytics articles>
 
+- For an overview of analytics reports available in the Partner Center Commercial Marketplace, see [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).
+- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary Dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
+- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in Commercial Marketplace analytics](./orders-dashboard.md).
+- For detailed information about your customers, including growth trends, see [Customer Dashboard in Commercial Marketplace analytics](./customer-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads Dashboard in Commercial Marketplace analytics](./downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in Commercial Marketplace analytics](./ratings-reviews.md).
+- For frequently asked questions about Commercial Marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).

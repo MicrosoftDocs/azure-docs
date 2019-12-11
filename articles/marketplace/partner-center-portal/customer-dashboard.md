@@ -16,6 +16,9 @@ This article provides information on the **Customer dashboard** in Partner Cente
 
 To access the **Customer dashboard**, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
 
+>[!NOTE]
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).
+
 ## Customer dashboard
 
 The **Customer dashboard** of the **Analyze** menu displays data for customers who have acquired your offers. You can view graphical representations of the following items:
@@ -23,7 +26,7 @@ The **Customer dashboard** of the **Analyze** menu displays data for customers w
 - [Customer summary](#customer-summary)
 - [Customers by geography](#customers-by-geography)
 - [Customer trends](#customer-trends)
-- [Customers by orders](#customers-by-orders)
+- [Customers by orders and usage](#customers-by-orders-and-usage)
 - [Customers by SKUs](#customers-by-skus)
 - [Orders and usage by customer type](#orders-and-usage-by-customer-type)
 - [Detailed customer data](detailed-customer-data)
@@ -59,24 +62,24 @@ The **Customer trends** chart displays a count of all customers, including new, 
 - You can use the slider on the top of the chart to scroll right and left on the x-axis and focus on specific data points to view in more detail.
 - Hovering over a column of the chart will display details for only that month.
 
-### Customers by orders
+### Customers by orders and usage
 
 The **Customers by orders/usage** chart has three tabs, “orders,” “normalized usage,” and “raw usage.” The **top customer percentile** is displayed along the x-axis, as determined by their number of orders. The y-axis displays the customer's order count. The secondary y-axis (line graph) displays the cumulative percentage of the total number of orders. You can display details by hovering over points along the line chart.
 
 As an example, see the chart below for normalized usage: The top 30th percentile of customers are contributing to 87% of the normalized usage cumulatively. The 30th percentile of customers are only contributing 1.57M hours of usage.
 
-**graphic**
+![Customers by orders and usage charts](./media/customer-by-orders-usage.png)
 
 ### Customers by SKUs
 
 The **Customers by SKUs/usage** charts are described below.
 
+![Customers by SKU and usage charts](./media/customer-by-sku-usage.png)
+
 1. The Leader board presents details of the top 50 customers ranked by order count. After selecting a customer, the details of the customer are presented in sections 2, 3, and 4 of this leader board.
 2. The Customer profile details are displayed in this space when publishers are logged in with an owner role. If publishers are logged in with a contributor role, the details in this section will not be available.
 3. The Orders by SKUs donut chart displays the breakdown of orders purchased for SKUs. The top 5 SKUs with the highest order count are displayed, while the rest of the orders are grouped under ‘rest all’.
 4. The Seats by SKUs donut chart displays the breakdown of seats ordered for SKUs. The top 5 SKUs with the highest seats are displayed, while the rest of the orders are grouped under rest all.
-
-<graphic>
 
 ### Orders and usage by customer type
 
@@ -92,16 +95,22 @@ The **Customer details** table displays a numbered list of the top 1000 customer
 - Customer personal information will only be available if the customer has provided consent. You can only view this information if you have logged in with an owner role level of permissions. Learn more about user roles and permissions.
 - Each column in the grid is sortable.
 - The data can be extracted to a TSV file if the count of the records is less than 1000.
-- If records number over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
+- If records number is over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
 - Filters can be applied to the table to display only the data that you are interested in. Data can be filtered by Company name, Customer ID, Marketplace Subscription ID, Azure License Type, Date Acquired, Date Lost, Customer Email, Customer Country/State/City/Zip, Customer Language, etc.
 
-**Customers page** filters are applied at the Customers page level. You can select multiple filters to render the chart for the criteria you choose to view and the data you want to see in ‘Detailed orders data’ grid / export. Filters are applied on the data extracted for the data range you have selected on the top-right corner of the orders page.
-Note
+### Customer page filters
+
+The **Customers page** filters are applied at the Customers page level. You can select multiple filters to render the chart for the criteria you choose to view and the data you want to see in ‘Detailed orders data’ grid / export. Filters are applied on the data extracted for the data range you have selected on the top-right corner of the orders page.
+
+>[!NOTE]
+> Detailed definitions for each of the fields in Customer grid, page filters, and their possible selections are located in [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).
 
 ## Next steps
 
-- Detailed definition of each of the fields in Customer Grid, Page filters, and their possible selections are defined in the Data Dictionary section of the FAQs and terminology article.
-- Links to all analytics articles here.
-
-
-
+- For an overview of analytics reports available in the Partner Center Commercial Marketplace, see [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).
+- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary Dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
+- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in Commercial Marketplace analytics](./orders-dashboard.md).
+- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in Commercial Marketplace analytics](./usage-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads Dashboard in Commercial Marketplace analytics](./downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in Commercial Marketplace analytics](./ratings-reviews.md).
+- For frequently asked questions about Commercial Marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).

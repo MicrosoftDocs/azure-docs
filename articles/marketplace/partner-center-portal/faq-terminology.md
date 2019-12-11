@@ -93,4 +93,10 @@ If you're receiving this message, it means  you have analytics data but there is
 
 ## Next steps
 
-- Links to all other analytics articles
+- For an overview of analytics reports available in the Partner Center Commercial Marketplace, see [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).
+- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary Dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
+- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in Commercial Marketplace analytics](./orders-dashboard.md).
+- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in Commercial Marketplace analytics](./usage-dashboard.md).
+- For detailed information about your customers, including growth trends, see [Customer Dashboard in Commercial Marketplace analytics](./customer-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads Dashboard in Commercial Marketplace analytics](./downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in Commercial Marketplace analytics](./ratings-reviews.md).

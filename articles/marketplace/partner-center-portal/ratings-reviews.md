@@ -16,6 +16,9 @@ This article provides information on the Ratings & reviews dashboard in Partner 
 
 To access the **Ratings & reviews dashboard** in the Partner Center analytics tools, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
 
+>[!NOTE]
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).
+
 ## Ratings & reviews
 
 As customers browse, search, and purchase offers in both marketplaces, they can leave ratings and reviews for the offers they've acquired.
@@ -50,4 +53,10 @@ Reviews are displayed in chronological order for when they were posted. The defa
 
 ## Next steps
 
-- Links to all other analytics articles
+- For an overview of analytics reports available in the Partner Center Commercial Marketplace, see [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).
+- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary Dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
+- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in Commercial Marketplace analytics](./orders-dashboard.md).
+- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in Commercial Marketplace analytics](./usage-dashboard.md).
+- For detailed information about your customers, including growth trends, see [Customer Dashboard in Commercial Marketplace analytics](./customer-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads Dashboard in Commercial Marketplace analytics](./downloads-dashboard.md).
+- For frequently asked questions about Commercial Marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).

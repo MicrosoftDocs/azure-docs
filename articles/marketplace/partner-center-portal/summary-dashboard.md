@@ -16,6 +16,9 @@ This article provides information on the Summary dashboard in Partner Center. Th
 
 To access the Summary dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
 
+>[!NOTE]
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).
+
 ## Summary dashboard
 
 The **Summary** dashboard presents an overview based on each offer type. **Insights** show critical information at a glance and provide a broad view of the sales activity of your offers. You can visualize these reports using the **Summary** dashboard. This article goes into more details on each of the following elements:
@@ -97,13 +100,8 @@ The top 50 customers with the highest number of orders are displayed on a *leade
 - The **Offers by orders** donut chart presents the top four offers (by order count) and the remaining offers grouped in as 'Rest All'.
 - The **normalized usage by offer** donut chart presents the top five offers by usage.
 
-![Partner Center customers by order](./media/customers-by-orders1.png)
-customers-by-orders1
-
 > [!NOTE]
 > Customer personal information will be presented only if the customer has provided consent. You can view this information if you have logged in with an **Owner** role permissions-level. Users with the **Contributor** role will not be able to view this information. [Learn more about user roles and permissions](./manage-account.md#define-user-roles-and-permissions).
-
-![Partner Center customers by order with owner role](./media/customers-by-orders2.png)
 
 ### Seat Count Trend
 
@@ -119,4 +117,10 @@ The **Free trial SaaS orders trend** chart presents the trend of orders for free
 
 ## Next steps
 
-Links to all other analytics articles.
+- For an overview of analytics reports available in the Partner Center Commercial Marketplace, see [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).
+- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in Commercial Marketplace analytics](./orders-dashboard.md).
+- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in Commercial Marketplace analytics](./usage-dashboard.md).
+- For detailed information about your customers, including growth trends, see [Customer Dashboard in Commercial Marketplace analytics](./customer-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads Dashboard in Commercial Marketplace analytics](./downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in Commercial Marketplace analytics](./ratings-reviews.md).
+- For frequently asked questions about Commercial Marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).
