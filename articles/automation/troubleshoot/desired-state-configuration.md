@@ -4,8 +4,8 @@ description: This article provides information on troubleshooting Desired State 
 services: automation
 ms.service: automation
 ms.subservice:
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm

@@ -1,5 +1,5 @@
 ---
-title: Register an app with the Microsoft identity platform - Microsoft identity platform
+title: Register an app with the Microsoft identity platform | Azure
 description: Learn how to add and register an application with the Microsoft identity platform.
 services: active-directory
 documentationcenter: ''
