@@ -208,7 +208,7 @@ A complete list of supported languages and regional views is documented [here](s
 
 ## Azure Government cloud support
 
-The Azure Maps Web SDK support the Azure Government cloud. All JavaScript and CSS URLs used to access the Azure Maps Web SDK remain the same, however the following tasks will need to be done to connect to the Azure Government cloud version of the Azure Maps platform.
+The Azure Maps Web SDK supports the Azure Government cloud. All JavaScript and CSS URLs used to access the Azure Maps Web SDK remain the same, however the following tasks will need to be done to connect to the Azure Government cloud version of the Azure Maps platform.
 
 When using the interactive map control, add the following line of code before creating an instance of the `Map` class. 
 
@@ -216,9 +216,9 @@ When using the interactive map control, add the following line of code before cr
 atlas.setDomain('atlas.azure.us');
 ```
 
-Be sure to use an Azure Maps authenication details from the Azure Government cloud platform when authenicating the map and services.
+Be sure to use an Azure Maps authentication details from the Azure Government cloud platform when authenticating the map and services.
 
-When using the services module, the domain for the services needs to be set when creating the an instance of an API URL endpoint. For example, the following code creates an instance of the `SearchURL` class and points the domain to the Azure Government cloud.
+When using the services module, the domain for the services needs to be set when creating an instance of an API URL endpoint. For example, the following code creates an instance of the `SearchURL` class and points the domain to the Azure Government cloud.
 
 ```javascript
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');

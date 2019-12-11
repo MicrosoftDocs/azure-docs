@@ -1,6 +1,6 @@
 ---
 title: Azure Maps Glossary | Microsoft Docs 
-description: A glossary of commonly used terms associated with Azure Maps, Location Based Services and GIS. 
+description: A glossary of commonly used terms associated with Azure Maps, Location Based Services, and GIS. 
 author: rbrundritt
 ms.author: richbrun
 ms.date: 09/18/2018
@@ -40,7 +40,7 @@ The following is a list of common words used with Azure Maps.
 
 <a name="asset-tracking"></a> **Asset tracking**: The process of tracking the location of an asset such as a person, vehicle, or some other object.
 
-<a name="asynchronous-request"></a> **Asynchronous request**: An HTTP request that opens a connection and makes a request to the server which returns an identifier for the asynchronous request, then closes the connection. The server continues to process the request and the user can check the status using the identifier. When the request is finished processing, the user can then download the response. This type of request is usually used for long running processes.
+<a name="asynchronous-request"></a> **Asynchronous request**: An HTTP request that opens a connection and makes a request to the server that returns an identifier for the asynchronous request, then closes the connection. The server continues to process the request and the user can check the status using the identifier. When the request is finished processing, the user can then download the response. This type of request is used for long running processes.
 
 <a name="autocomplete"></a> **Autocomplete**: A feature in an application predicts the rest of a word a user is typing. 
 
@@ -48,7 +48,7 @@ The following is a list of common words used with Azure Maps.
 
 <a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)**: The former name of Azure Maps when it was in preview.
 
-<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)**: Azure AD is Microsoft’s cloud-based identity and access management service. Azure Maps Azure AD integration is currently available in preview for all Azure Maps API’s. Azure AD supports role-based access control (RBAC) to allow fine-grained access to Azure Maps resources. To learn more about Azure Maps Azure AD integration, see [Azure Maps and Azure AD](azure-maps-authentication.md) and [Manage authentication in Azure Maps](how-to-manage-authentication.md).
+<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)**: Azure AD is Microsoft’s cloud-based identity and access management service. Azure Maps Azure AD integration is currently available in preview for all Azure Maps APIs. Azure AD supports role-based access control (RBAC) to allow fine-grained access to Azure Maps resources. To learn more about Azure Maps Azure AD integration, see [Azure Maps and Azure AD](azure-maps-authentication.md) and [Manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 <a name="azure-maps-key"></a> **Azure Maps key**: See [Shared key authentication](#shared-key-authentication).
 
@@ -158,7 +158,7 @@ The following is a list of common words used with Azure Maps.
 
 <a name="geodesic-path"></a> **Geodesic path**: The shortest path between two points on a curved surface. When rendered on Azure Maps this path appears as a curved line due to the Mercator projection.
 
-<a name="geofence"></a> **Geofence**: A defined geographical region which can be used to trigger events when a device enters or exists the region.
+<a name="geofence"></a> **Geofence**: A defined geographical region that can be used to trigger events when a device enters or exists the region.
 
 <a name="geojson"></a> **GeoJSON**: Is a common JSON-based file format used for storing geographical vector data such as points, lines, and polygons. **Note**: Azure Maps uses an extended version of GeoJSON as [documented here](extend-geojson.md).
 
@@ -212,7 +212,7 @@ The following is a list of common words used with Azure Maps.
 
 ## L
 
-<a name="landsat"></a> **Landsat**: Multispectral, earth-orbiting satellites developed by NASA that gather imagery of land which is used in many industries such as agriculture, forestry, and cartography.
+<a name="landsat"></a> **Landsat**: Multispectral, earth-orbiting satellites developed by NASA that gather imagery of land that is used in many industries such as agriculture, forestry, and cartography.
 
 <a name="latitude"></a> **Latitude**: The angular distance measured in degrees from equator in a north or south direction.
 
@@ -282,6 +282,8 @@ The following is a list of common words used with Azure Maps.
 
 <a name="postal-code"></a> **Postal code**: A series of letters or numbers, or both, in a specific format, used by the postal service of a country/region to divide geographic areas into zones in order to simplify delivery of mail.
 
+<a name="primary-key"></a> **Primary key**: The first of two subscriptions keys provided for Azure Maps shared key authentication. See [Shared key authentication](#shared-key-authentication).
+
 <a name="prime-meridian"></a> **Prime meridian**: A line of longitude that represents 0-degrees longitude. Generally, longitude values decrease when traveling in a westerly direction until 180-degrees and increase when traveling in easterly directions to -180-degrees. 
 
 <a name="prj"></a> **PRJ**: A text file that often accompanies a Shapefile file that contains information about the projected coordinate system the data set is in.
@@ -326,11 +328,13 @@ The following is a list of common words used with Azure Maps.
 
 <a name="satellite-imagery"></a> **Satellite imagery**: Imagery that has been captured by planes and satellites pointing straight down.
 
-<a name="software-development-kit-sdk"></a> **Software development kit (SDK)**: A collection of documentation, sample code, and sample apps to help a developer use an API to build apps.
+<a name="secondary-key"></a> **Secondary key**: The second of two subscriptions keys provided for Azure Maps shared key authentication. See [Shared key authentication](#shared-key-authentication).
 
 <a name="shapefile-shp"></a> **Shapefile (SHP)**: Also known as an ESRI Shapefile, is a vector data storage format for storing the location, shape, and attributes of geographic features. A shapefile is stored in a set of related files.
 
-<a name="shared-key-authentication"></a> **Shared key authentication**: Shared Key authentication relies on passing Azure Maps account generated keys with each request to Azure Maps. These keys are often referred to as subscription keys. It is recommend that keys are regularly regenerated for security. Two keys are provide so that you can maintain connections using one key while regenerating the other. When you regenerate your keys, you must update any applications that access this account to use the new keys. To learn more about Azure Maps authentication, see [Azure Maps and Azure AD](azure-maps-authentication.md) and [Manage authentication in Azure Maps](how-to-manage-authentication.md).
+<a name="shared-key-authentication"></a> **Shared key authentication**: Shared Key authentication relies on passing Azure Maps account generated keys with each request to Azure Maps. These keys are often referred to as subscription keys. It is recommend that keys are regularly regenerated for security. Two keys are provided so that you can maintain connections using one key while regenerating the other. When you regenerate your keys, you must update any applications that access this account to use the new keys. To learn more about Azure Maps authentication, see [Azure Maps and Azure AD](azure-maps-authentication.md) and [Manage authentication in Azure Maps](how-to-manage-authentication.md).
+
+<a name="software-development-kit-sdk"></a> **Software development kit (SDK)**: A collection of documentation, sample code, and sample apps to help a developer use an API to build apps.
 
 <a name="spherical-mercator-projection"></a> **Spherical Mercator projection**: See [Web Mercator](#web-mercator). 
 
@@ -354,7 +358,7 @@ The following is a list of common words used with Azure Maps.
 
 <a name="thematic-maps"></a> **Thematic maps**: A thematic map is a simple map made to reflect a theme about a geographic area. A common scenario for this type of map is to color the administrative regions such as countries/regions based on some metric of data.
 
-<a name="tile-layer"></a> **Tile layer**: A layer displayed by assembling map tiles (rectangular sections) into a continuous layer. The tiles are either raster image tiles or vector tiles. Raster tile layers are typically rendered ahead of time and stored as images on a server. This can take up a lot of storage space. Vector tile layers are rendered on the fly within the client application, thus the server side storage requirements are smaller.
+<a name="tile-layer"></a> **Tile layer**: A layer displayed by assembling map tiles (rectangular sections) into a continuous layer. The tiles are either raster image tiles or vector tiles. Raster tile layers are typically rendered ahead of time and stored as images on a server. This can take up a lot of storage space. Vector tile layers are rendered on the fly within the client application, thus the server-side storage requirements are smaller.
 
 <a name="time-zone"></a> **Time zone**: A region of the globe that observes a uniform standard time for legal, commercial, and social purposes. Time zones tend to follow the boundaries of countries/regions and their subdivisions.
 
@@ -389,7 +393,7 @@ The following is a list of common words used with Azure Maps.
 
 <a name="web-map-service-wms"></a> **Web Map Service (WMS)**: WMS is an Open Geographic Consortium (OGC) standard that defines image-based map services. WMS services provide map images for specific areas within a map on demand. Images include pre-rendered symbology and may be rendered in one of several named styles if defined by the service.
 
-<a name="web-mercator"></a> **Web Mercator**: Also known as Spherical Mercator Projection is a slight variant of the Mercator projection, one used primarily in Web-based mapping programs. It uses the same formulas as the standard Mercator projection as used for small-scale maps. However, the Web Mercator uses the spherical formulas at all scales whereas large-scale Mercator maps normally use the ellipsoidal form of the projection. The discrepancy is imperceptible at the global scale but causes maps of local areas to deviate slightly from true ellipsoidal Mercator maps at the same scale.
+<a name="web-mercator"></a> **Web Mercator**: Also known as Spherical Mercator projection is a slight variant of the Mercator projection, one used primarily in Web-based mapping programs. It uses the same formulas as the standard Mercator projection as used for small-scale maps. However, the Web Mercator uses the spherical formulas at all scales whereas large-scale Mercator maps normally use the ellipsoidal form of the projection. The discrepancy is imperceptible at the global scale but causes maps of local areas to deviate slightly from true ellipsoidal Mercator maps at the same scale.
 
 <a name="wgs84"></a> **WGS84**: A set of constants used to relate spatial coordinates to locations on the surface of the map. The WGS84 datum is the standard one used by most online mapping providers and GPS devices. Azure Maps uses the [EPSG:3857](https://epsg.io/3857) coordinate reference system variant of WGS84.
 
