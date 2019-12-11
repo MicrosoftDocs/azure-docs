@@ -513,7 +513,11 @@
         "articles/virtual-machines/**/*.yml": ["Azure","Virtual Machines"],
         "articles/virtual-machines/linux/**/*.yml": ["Azure","Linux Virtual Machines"],
         "articles/virtual-machines/windows/**/*.yml": ["Azure","Windows Virtual Machines"],
-        "articles/app-service/**/*.md": ["Azure","App Service"]
+        "articles/virtual-machine-scale-sets/**/*.md": ["Azure","Virtual Machine Scale Sets"],
+        "articles/virtual-machines/**/*.md": ["Azure","Virtual Machines"],
+        "articles/virtual-machines/linux/**/*.md": ["Azure","Linux Virtual Machines"],
+        "articles/virtual-machines/windows/**/*.md": ["Azure","Windows Virtual Machines"],
+        "articles/app-service/**/*.md": ["Azure","App Service"]        
       },
       "titleSuffix": {
         "articles/connectors/*.md": "Azure Logic Apps",

@@ -5,7 +5,7 @@
  author: anavinahar
  ms.service: networking
  ms.topic: include
- ms.date: 06/25/2019
+ ms.date: 12/09/2019
  ms.author: anavin
  ms.custom: include file
 
@@ -28,7 +28,7 @@ The following limits apply only for networking resources managed through **Azure
 | Private IP addresses per virtual machine |256 |
 | Public IP addresses per network interface |256 |
 | Public IP addresses per virtual machine |256 |
-| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000 |
+| [Concurrent TCP or UDP flows per NIC of a virtual machine or role instance](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500,000 |
 | Network interface cards |65,536 |
 | Network Security Groups |5,000 |
 | NSG rules per NSG |1,000 |

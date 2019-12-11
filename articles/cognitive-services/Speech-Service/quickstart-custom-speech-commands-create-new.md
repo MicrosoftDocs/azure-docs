@@ -8,7 +8,7 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: donkim
 ---
 
@@ -111,11 +111,10 @@ Now add a Completion Rule to respond to the user indicating that an action is be
 > [!div class="mx-imgBorder"]
 > ![Create a completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-
-| Setting    | Suggested value                        | Description                                        |
-| ---------- | -------------------------------------- | -------------------------------------------------- |
-| Rule Name  | "ConfirmationResponse"                 | A name describing the purpose of the rule          |
-| Conditions | None                                   | Conditions that determine when the rule can run    |
+| Setting    | Suggested value                          | Description                                        |
+| ---------- | ---------------------------------------- | -------------------------------------------------- |
+| Rule Name  | "ConfirmationResponse"                   | A name describing the purpose of the rule          |
+| Conditions | None                                     | Conditions that determine when the rule can run    |
 | Actions    | SpeechResponse "- Ok, turning on the TV" | The action to take when the rule condition is true |
 
 ## Try it out

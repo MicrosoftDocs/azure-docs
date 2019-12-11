@@ -1,6 +1,6 @@
 ---
-title: Azure virtual machine scale sets FAQs | Microsoft Docs
-description: Get answers to frequently asked questions about virtual machine scale sets.
+title: Azure virtual machine scale sets FAQs
+description: Get answers to the most frequently asked questions about virtual machine scale sets in Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
