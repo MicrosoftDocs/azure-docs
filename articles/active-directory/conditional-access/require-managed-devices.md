@@ -89,8 +89,9 @@ For a device that is marked as compliant, you can assume that:
 - Your company information is protected by helping to control the way your workforce accesses and shares it
 - The device and its apps are compliant with company security requirements
 
-> [!NOTE]
-> If you configure a policy to require compliant devices users may be prompted on Mac, iOS, and Android to select a device certificate during policy evaluation. This is a known behavior.
+### Known behavior
+
+On Windows 7, iOS, Android, macOS, and some third-party web browsers Azure AD identifies the device using a client certificate that is provisioned when the device is registered with Azure AD. When a user first signs in through the browser the user is prompted to select the certificate. The end user must select this certificate before they can continue to use the browser.
 
 ## Next steps
 
