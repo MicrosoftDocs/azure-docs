@@ -1,5 +1,5 @@
 ---
-title: Restrict Azure Active Directory registered app users | Azure
+title: Restrict Azure AD app to a set of users | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to restrict access to your apps registered in Azure AD to a selected set of users.
 services: active-directory
