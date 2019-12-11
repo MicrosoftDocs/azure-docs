@@ -110,14 +110,16 @@ from azureml.core.model import Model
 def init():
     global X, output, sess
     tf.reset_default_graph()
-    model_root = Model.get_model_path('tf-dnn-mnist')
+    model_root = os.getenv('AZUREML_MODEL_DIR')
+    # the name of the folder in which to look for tensorflow model files
+    tf_model_folder = 'model'
     saver = tf.train.import_meta_graph(
-        os.path.join(model_root, 'mnist-tf.model.meta'))
+        os.path.join(model_root, tf_model_folder, 'mnist-tf.model.meta'))
     X = tf.get_default_graph().get_tensor_by_name("network/X:0")
     output = tf.get_default_graph().get_tensor_by_name("network/output/MatMul:0")
 
     sess = tf.Session()
-    saver.restore(sess, os.path.join(model_root, 'mnist-tf.model'))
+    saver.restore(sess, os.path.join(model_root, tf_model_folder, 'mnist-tf.model'))
 
 
 def run(raw_data):
