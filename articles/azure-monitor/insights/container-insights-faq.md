@@ -1,11 +1,7 @@
 ---
 title: Azure Monitor for containers Frequently Asked Questions | Microsoft Docs
 description: Azure Monitor for containers is a solution that monitors the health of your AKS clusters and Container Instances in Azure. This article answers common questions.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
 ---
 
