@@ -13,7 +13,7 @@ ms.custom: codepen
 
 # Add a heat map layer
 
-Heat maps, also known as point density maps, are a type of data visualization used to represent the density of data by using a range of colors. They're often used to show the data "hot spots" on a map, and are a great way to render large point datasets. For example, rendering tens of thousands of points within the map view as symbols covers most of the map area. This likely results in many symbols overlapping each other, making it difficult to gain much insight into the data. However, visualizing this same data set as a heat map makes it easy to see where the point data is the densest, and the relative density to other areas.
+Heat maps, also known as point density maps, are a type of data visualization used to represent the density of data by using a range of colors. They're often used to show the data "hot spots" on a map, and are a great way to render large point datasets. For example, rendering tens of thousands of points within the map view as symbols covers most of the map area. This likely results in many symbols overlapping each other, making it difficult to gain much insight into the data. However, visualizing this same dataset as a heat map makes it easy to see where the point data is the densest, and the relative density to other areas.
 
 You can use heat maps in many different scenarios, including:
 
@@ -39,7 +39,7 @@ In the following code, each heat point has a radius of 10 pixels at all zoom lev
 var datasource = new atlas.source.DataSource();
 map.sources.add(datasource);
 
-//Load a data set of points, in this case earthquake data from the USGS.
+//Load a dataset of points, in this case earthquake data from the USGS.
 datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson');
 
 //Create a heatmap and add it to the map.
