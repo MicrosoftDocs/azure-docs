@@ -13,7 +13,9 @@ ms.custom: codepen
 
 # Add a heat map layer
 
-Heat maps, also known as point density maps, are a type of data visualization used to represent the density of data by using a range of colors. They're often used to show the data "hot spots" on a map, and are a great way to render large point datasets. For example, rendering tens of thousands of points within the map view as symbols covers most of the map area. This likely results in many symbols overlapping each other, making it difficult to gain much insight into the data. However, visualizing this same dataset as a heat map makes it easy to see where the point data is the densest, and the relative density to other areas.
+Heat maps, also known as point density maps, are a type of data visualization used to represent the density of data by using a range of colors. They're often used to show the data "hot spots" on a map, and are a great way to render large point datasets. 
+
+For example, rendering tens of thousands of points within the map view as symbols covers most of the map area. This likely results in many symbols overlapping each other, making it difficult to gain much insight into the data. However, visualizing this same dataset as a heat map makes it easy to see where the point data is the densest, and the relative density to other areas.
 
 You can use heat maps in many different scenarios, including:
 
@@ -61,7 +63,11 @@ Here's the complete running code sample of the preceding code.
 The previous example customized the heat map by setting the radius and opacity options. The heat map layer provides several options for customization, including:
 
 * `radius`: Defines a pixel radius in which to render each data point. You can set the radius as a fixed number or as an expression. By using an expression, you can scale the radius based on the zoom level, and represent a consistent spatial area on the map (for example, a 5-mile radius).
-* `color`: Specifies how the heat map is colorized. A color gradient is a common feature of heat maps, and you can achieve the effect with an `interpolate` expression. You can also use a `step` expression for colorizing the heat map, breaking up the density visually into ranges that resemble a contour or radar style map. These color palettes define the colors from the minimum to the maximum density value. You specify color values for heat maps as an expression on the `heatmap-density` value. The color at index 0 in an interpolation expression, or the default color of a step expression, defines the color of the area where there's no data. You can use this to define a background color. Often, this value is set to transparent, or a semi-transparent black. Here are examples of color expressions:
+* `color`: Specifies how the heat map is colorized. A color gradient is a common feature of heat maps, and you can achieve the effect with an `interpolate` expression. You can also use a `step` expression for colorizing the heat map, breaking up the density visually into ranges that resemble a contour or radar style map. These color palettes define the colors from the minimum to the maximum density value. 
+
+  You specify color values for heat maps as an expression on the `heatmap-density` value. The color at index 0 in an interpolation expression, or the default color of a step expression, defines the color of the area where there's no data. You can use this to define a background color. Often, this value is set to transparent, or a semi-transparent black. 
+   
+  Here are examples of color expressions:
 
   | Interpolation color expression | Stepped color expression | 
   |--------------------------------|--------------------------|
@@ -69,7 +75,9 @@ The previous example customized the heat map by setting the radius and opacity o
 
 - `opacity`: Specifies how opaque or transparent the heat map layer is.
 - `intensity`: Applies a multiplier to the weight of each data point to increase the overall intensity of the heatmap. This helps to make the small differences in the weight of data points easier to visualize.
-- `weight`: By default, all data points have a weight of 1, and are weighted equally. The weight option acts as a multiplier, and you can set it as a number or an expression. If a number (for example, 2) is set as the weight, it's the equivalent of placing each data point on the map twice, thus doubling the density. Setting the weight option to a number renders the heat map in a similar way to using the intensity option. However, if you use an expression, the weight of each data point can be based on the properties of each data point. For example, suppose that each data point represents an earthquake. An important metric each earthquake data point has is a magnitude value. Earthquakes happen all the time, but most have a low magnitude, and aren't even felt. By using the magnitude value in an expression to assign the weight to each data point, you get a better representation of the significance of earthquakes within the heat map.
+- `weight`: By default, all data points have a weight of 1, and are weighted equally. The weight option acts as a multiplier, and you can set it as a number or an expression. If a number (for example, 2) is set as the weight, it's the equivalent of placing each data point on the map twice, thus doubling the density. Setting the weight option to a number renders the heat map in a similar way to using the intensity option. 
+
+  However, if you use an expression, the weight of each data point can be based on the properties of each data point. For example, suppose that each data point represents an earthquake. An important metric each earthquake data point has is a magnitude value. Earthquakes happen all the time, but most have a low magnitude, and aren't even felt. By using the magnitude value in an expression to assign the weight to each data point, you get a better representation of the significance of earthquakes within the heat map.
 - `source` and `source-layer`: Enable you to update the data source.
 
 Here's a tool to test out the different heat map layer options.
@@ -81,7 +89,11 @@ Here's a tool to test out the different heat map layer options.
 
 ## Consistent zoomable heat map
 
-By default, the radii of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As you zoom the map, the data aggregates together and the heat map layer looks different. Use a `zoom` expression to scale the radius for each zoom level, such that each data point covers the same physical area of the map. This makes the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Scaling the radius so that it doubles with each zoom level creates a heat map that looks consistent on all zoom levels. To do this, use the `zoom` with a base 2 `exponential interpolation` expression, as shown in the following sample. Zoom the map to see how the heat map scales with the zoom level.
+By default, the radii of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As you zoom the map, the data aggregates together and the heat map layer looks different. 
+
+Use a `zoom` expression to scale the radius for each zoom level, such that each data point covers the same physical area of the map. This makes the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. 
+
+Scaling the radius so that it doubles with each zoom level creates a heat map that looks consistent on all zoom levels. To do this, use the `zoom` with a base 2 `exponential interpolation` expression, as shown in the following sample. Zoom the map to see how the heat map scales with the zoom level.
 
 <br/>
 
@@ -91,7 +103,7 @@ By default, the radii of data points rendered in the heat map layer have a fixed
 </iframe>
 
 > [!TIP]
-> By enabling clustering on the data source, points that are close to one another are grouped together as a clustered point. You can use the point count of each cluster as the weight expression for the heat map, and significantly reduce the number of points that have to be rendered. The point count of a cluster is stored in a `point_count` property of the point feature: 
+> When you enable clustering on the data source, points that are close to one another are grouped together as a clustered point. You can use the point count of each cluster as the weight expression for the heat map, and significantly reduce the number of points that have to be rendered. The point count of a cluster is stored in a `point_count` property of the point feature: 
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']
