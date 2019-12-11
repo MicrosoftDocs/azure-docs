@@ -49,12 +49,12 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Identify your ServiceNow instance name. You can find the instance name in the URL that you use to access ServiceNow. In the example below, the instance name is dev35214.
 
-![Enterprise applications blade](common/enterprise-applications.png)<img src="media/servicenow-provisioning-tutorial/servicenow_instance.png" width="600">
+![ServiceNow Instance](media/servicenow-provisioning-tutorial/servicenow_instance.png)
 
 	
 2. Obtain credentials for an admin in ServiceNow. Navigate to the user profile in ServiceNow and verify that the user has the admin role. 
 
-<img src="media/servicenow-provisioning-tutorial/servicenow-admin-role.png" width="1100">
+![ServiceNow admin role](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
 
 ## Step 3. Add ServiceNow from the Azure AD application gallery
 
