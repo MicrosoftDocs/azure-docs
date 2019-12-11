@@ -159,6 +159,28 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+<br/>
+
+## Azure Government cloud support
+
+The Azure Maps Web SDK support the Azure Government cloud. All JavaScript and CSS URLs used to access the Azure Maps Web SDK remain the same, however the following tasks will need to be done to connect to the Azure Government cloud version of the Azure Maps platform.
+
+When using the interactive map control, add the following line of code before creating an instance of the `Map` class. 
+
+```javascript
+atlas.setDomain('atlas.azure.us');
+```
+
+Be sure to use an Azure Maps authenication details from the Azure Government cloud platform when authenicating the map and services.
+
+When using the services module, the domain for the services needs to be set when creating the an instance of an API URL endpoint. For example, the following code creates an instance of the `SearchURL` class and points the domain to the Azure Government cloud.
+
+```javascript
+var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
+```
+
+If directly accessing the Azure Maps REST services, change the URL domain to `atlas.azure.us`. For example, if using the search API service, change the URL domain from `https://atlas.microsoft.com/search/` to `https://atlas.azure.us/search/`.
+
 ## Next steps
 
 Learn more about the classes and methods used in this article:
