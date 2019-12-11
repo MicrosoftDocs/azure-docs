@@ -1,20 +1,30 @@
 ---
 title: Static IP address for container group
-description: Create a container group in a virtual network and assign a static IP address to 
+description: Create a container group in a virtual network and use an Azure application gateway to expose a static frontend IP address to a containerized web app 
 ms.topic: article
 ms.date: 12/10/2019
 ---
+
 # Expose a static IP address for a container group
 
-This article provides steps to expose a static, public IP address for a [container group](container-instances-container-groups.md) by using an Azure [application gateway](../application-gateway/overview.md). By following these steps, you can configure a static entrypoint for an external-facing containerized app running in Azure Container Instances. The IP address for the container group is stable over the group's lifetime, even if the group is restarted or needs to be redeployed.
+This article provides steps to expose a static, public IP address for a [container group](container-instances-container-groups.md) by using an Azure [application gateway](../application-gateway/overview.md). Follow these steps to configure a static entrypoint for an external-facing containerized app running in Azure Container Instances. The IP address for the container group is stable as long as the gateway is available, even if the container group is restarted or needs to be redeployed.
 
 This article shows you how to use the Azure CLI to create an Azure virtual network, then deploy a container group for a small web app [in the virtual network (preview)](container-instances-vnet.md). You create an application gateway with a public frontend IP address, a listener to host a website on the gateway, and a route that directs web requests to the backend container group.
 
-
+> [!NOTE]
+> Azure charges for an application gateway based on the amount of time that the gateway is provisioned and available, as well as the amount of data it processes. See [pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## Create virtual network
 
-create two subnets in this example: one for the application gateway, and another for the backend servers. You can configure the Frontend IP of the Application Gateway to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
+In a typical case you might already have an Azure virtual network. If you don't have one, create one as shown with the following example commands. The virtual network needs separate subnets for the application gateway and the container group.
+
+If you need one, create an Azure resource group. For example:
+
+```azureci
+az group create --name myResourceGroup --location eastus
+```
+
+Create a virtual network with the [az network vnet create][az-network-vnet-create] command. This command creates a subnet *myAGSubnet* subnet in the network.
 
 ```azurecli
 az network vnet create \
@@ -26,6 +36,8 @@ az network vnet create \
   --subnet-prefix 10.0.1.0/24
 ```
 
+Use the [az network vnet subnet create][az-network-vnet-subnet-create] command to create a subnet for the backend container group. Here it's named *myACISubnet*.
+
 ```azurecli
 az network vnet subnet create \
   --name myACISubnet \
@@ -34,9 +46,11 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
+Use the [az network public-ip create][az-network-public-ip-create] command to create a public IP address resource. In a later step this address will be configured as the front end of the application gateway.
+
 ```azurecli
 az network public-ip create \
-  --resource-group myresourcegroup \
+  --resource-group myResourceGroup \
   --name myAGPublicIPAddress \
   --allocation-method Static \
   --sku Standard
@@ -44,73 +58,81 @@ az network public-ip create \
 
 ## Create container group
 
+Run the following [az container create][az-container-create] to create a container group in the virtual network you configured in the previous step. The group is deployed in the *myACISubnet* subnet and contains a single instance named *appcontainer* that pulls the `aci-helloworld` image. This image packages a small web app written in Node.js that serves a static HTML page. (For example output, see the [quickstart](container-instances-quickstart.md).)
 
 ```azurecli
 az container create \
-    --name appcontainer \
-    --resource-group myresourcegroup \
-    --image mcr.microsoft.com/azuredocs/aci-helloworld \
-    --vnet myVNet \
-    --vnet-address-prefix 10.0.0.0/16 \
-    --subnet myACISubnet \
-    --subnet-address-prefix 10.0.2.0/24
+  --name appcontainer \
+  --resource-group myResourceGroup \
+  --image mcr.microsoft.com/azuredocs/aci-helloworld \
+  --vnet myVNet \
+  --subnet myACISubnet
 ```
 
-Now get private IP address of the container group:
+When successfully deployed, the container group is assigned a private IP address in the virtual network. For example, run the following [az container show][az-container-show] command to retrieve the group's IP address:
 
-az container show -n appcontainer -g myresourcegroup --query ipAddress.ip -o tsv
+```azurecli
+az container show --name appcontainer --group myResourceGroup \
+  --query ipAddress.ip --output tsv
+```
 
-Output like: 10.0.2.4
+Output is similar to: `10.0.2.4`.
 
-Should save in an env variable like $ipaddress
+For use in a later step, save the IP address in an environment variable:
 
-ipaddress=$(az container show -n appcontainer -g myresourcegroup --query ipAddress.ip -o tsv)
+```
+ACI_IP=$(az container show --name appcontainer --group myResourceGroup --query ipAddress.ip --output tsv)
+```
 
 ## Create application gateway
 
-Create an app gateway following basic steps in:
+Create an application gateway, following the steps in the [application gateway quickstart](../application-gateway/quick-create-cli.md). The following [az network application-gateway create][az-network-application-gateway-create] command creates a gateway with a public frontend IP address and assigns the private IP address of the container group. See the [Application Gateway documentation](/azure/application-gateway/) for details about the gateway settings.
 
-https://docs.microsoft.com/en-us/azure/application-gateway/quick-create-cli
-
-
-Create the app gateway with capcity 2 - does this need some explanation?
-
+```azurecli
 az network application-gateway create \
   --name myAppGateway \
   --location eastus \
-  --resource-group myresourcegroup \
+  --resource-group myResourceGroup \
   --capacity 2 \
   --sku Standard_v2 \
-  --http-settings-cookie-based-affinity Enabled \
+  --http-settings-protocol http \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
   --subnet myAGSubnet \
-  --servers "$ipaddress" 
+  --servers "$ACI_IP" 
+```
 
-  It can take up to 30 minutes for Azure to create the application gateway. Mine took about 15
 
-  ## Test public IP adress
+It can take up to 15 minutes for Azure to create the application gateway. 
+
+## Test public IP adress
   
-  Get the public IP of the app gateway:
+Get the public IP of the app gateway:
 
-  az network public-ip show \
-  --resource-group myresourcegroup \
-  --name myAGPublicIPAddress \
-  --query [ipAddress] \
-  --output tsv
+```azurecli
+az network public-ip show \
+--resource-group myresourcegroup \
+--name myAGPublicIPAddress \
+--query [ipAddress] \
+--output tsv
+```
 
-  Output similar to: 52.151.237.79
+Output is a public IP address, similar to: `52.142.18.133`.
 
-  And it works!
+To view the running web app, navigate to the gateway's public IP address in your browser. For example:
 
-  What happens when I restart the group?
+![Browser screenshot showing application running in an Azure container instance](./media/container-instances-application-gateway/aci-app-app-gateway.png)
 
- 
-  az container restart -n appcontainer -g myresourcegroup
+As long as the application gateway is running and the container group uses the  private IP address, the container group is accessible at this public IP address.
 
-  Seems to work?
+## Next steps
 
-  ## Next steps
+* See a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) to create a container group with a WordPress container instance as a backend server behind an application gateway.
+* Depending on your scenario, consider using other Azure load-balancing solutions with Azure Container Instances. For example, use [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) to distribute traffic across multiple container instances and across multiple regions. See this [blog post](https://aaronmsft.com/posts/azure-container-instances/) for an example.
 
-  * See a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) to create a container group with a WordPress container instance as a backend server behind an application gateway
-  * Depending on your scenario, consider using other Azure load-balancing solutions with Azure Container Instances. For example, use [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) to distribute traffic across multiple container instances and across multiple regions. See this [blog post](https://aaronmsft.com/posts/azure-container-instances/) for an example
+[az-network-vnet-create]:  /cli/azure/network/vnet#az-network-vnet-create
+[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-network-application-gateway-create]: /cli/azure/network/application-gateway#az-network-application-gateway-create
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show
