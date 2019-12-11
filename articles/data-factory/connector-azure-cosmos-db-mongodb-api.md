@@ -209,10 +209,13 @@ The following properties are supported in the Copy Activity **sink** section:
 You can use this Azure Cosmos DB connector to easily:
 
 * Copy documents between two Azure Cosmos DB collections as-is.
-* Import JSON documents from various sources to Azure Cosmos DB, including from Azure Blob storage, Azure Data Lake Store, and other file-based stores that Azure Data Factory supports.
+* Import JSON documents from various sources to Azure Cosmos DB, including from MongoDB, Azure Blob storage, Azure Data Lake Store, and other file-based stores that Azure Data Factory supports.
 * Export JSON documents from an Azure Cosmos DB collection to various file-based stores.
 
-To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
+To achieve schema-agnostic copy:
+
+* When you use the Copy Data tool, select the **Export as-is to JSON files or Cosmos DB collection** option.
+* When you use activity authoring, choose JSON format with the corresponding file store for source or sink.
 
 ## Schema mapping
 
