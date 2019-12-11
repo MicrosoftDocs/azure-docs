@@ -7,7 +7,7 @@ manager: saudas
 
 ms.service: container-service
 ms.topic: article
-ms.date: 12/05/2019
+ms.date: 12/10/2019
 ms.author: saudas
 ---
 
@@ -28,10 +28,13 @@ The communication between the control plane/API server, which is in an AKS-manag
 * You need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.18 extension
 
 ## Current supported regions
-* Australia East
 * West US
 * West US 2
+* East US 2
 * Canada Central
+* North Europe
+* West Europe
+* Australia East
 
 ## Install latest AKS CLI preview extension
 
