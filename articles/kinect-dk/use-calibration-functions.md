@@ -1,6 +1,6 @@
 ﻿---
 title: Use Azure Kinect calibration functions
-description: calibration functions for Azure kinect dk
+description: Learn how to use the calibration functions for Azure Kinect DK.
 author: cdedmonds
 ms.author: cedmonds
 ms.prod: kinect-dk

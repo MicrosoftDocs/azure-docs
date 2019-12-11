@@ -1,6 +1,6 @@
 ---
 title: Extend your experiment with R
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: How to extend the functionality of Azure Machine Learning Studio (classic) through the R language by using the Execute R Script module.
 services: machine-learning
 ms.service: machine-learning

@@ -1,9 +1,6 @@
 ---
 title: Tutorial - Create an Azure VM cluster with Terraform using the Module Registry
 description: Learn how to use Terraform modules to create a Windows virtual machine cluster in Azure
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
 ---
@@ -52,6 +49,7 @@ module mycompute {
     location = "East US 2"
     admin_password = "ComplxP@assw0rd!"
     vm_os_simple = "WindowsServer"
+    is_windows_image = "true"
     remote_port = "3389"
     nb_instances = 2
     public_ip_dns = ["unique_dns_name"]

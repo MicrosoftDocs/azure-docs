@@ -24,14 +24,14 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
         ```
 
-    - Alternatively, load the Azure Maps Web SDK source code locally by using the [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:
+    - Alternatively, load the services module for the Azure Maps Web SDK source code locally by using the [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:
     
         > **npm install azure-maps-rest**
     
         Then, add a script reference to the `<head>` element of the file:
 
          ```html
-        <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
+        <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
          ```
 
 1. Create an authentication pipeline. You must create the pipeline before you can initialize a service URL client endpoint. Use your own Azure Maps account key or Azure Active Directory (Azure AD) credentials to authenticate an Azure Maps Search service client. In this example, the Search service URL client will be created. 
@@ -119,7 +119,7 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
 
     For more information, see [Authentication with Azure Maps](azure-maps-authentication.md).
 
-1. The following code uses the newly created Azure Search service URL client to geocode an address: "1 Microsoft Way, Redmond, WA". The code uses the `searchAddress` function and displays the results as a table in the body of the page.
+1. The following code uses the newly created Azure Maps Search service URL client to geocode an address: "1 Microsoft Way, Redmond, WA". The code uses the `searchAddress` function and displays the results as a table in the body of the page.
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".

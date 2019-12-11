@@ -147,6 +147,8 @@
       href: ingress-controller-letsencrypt-certificate-application-gateway.md
     - name: Expose WebSocket to Application Gateway 
       href: ingress-controller-expose-websocket-server.md
+    - name: Autoscale AKS pods with Application Gateway metrics
+      href: ingress-controller-autoscale-pods.md
   - name: Route by URL
     items:
     - name: Azure PowerShell
@@ -227,8 +229,6 @@
     href: migrate-v1-v2.md
 - name: Reference
   items:
-  - name: CRS rules
-    href: application-gateway-crs-rulegroups-rules.md
   - name: Ingress for AKS annotations
     href: ingress-controller-annotations.md
   - name: Azure CLI
@@ -262,7 +262,7 @@
     displayName: ARM
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/#Linux
+    href: https://azure.microsoft.com/pricing/details/application-gateway/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow

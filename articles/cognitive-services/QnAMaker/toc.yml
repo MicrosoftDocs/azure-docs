@@ -12,12 +12,8 @@
     href: quickstarts/create-publish-knowledge-base.md
   - name: Add questions with metadata
     href: quickstarts/add-question-metadata-portal.md
-  - name: Get answer
-    items:
-    - name: Using Postman
-      href: Quickstarts/get-answer-from-kb-using-postman.md
-    - name: Using cURL
-      href: Quickstarts/get-answer-from-kb-using-cURL.md  
+  - name: Get answer with Postman or cURL
+    href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md  
   - name: Using REST APIs
     items:
     - name: Create a new knowledge base
@@ -187,7 +183,7 @@
     - name: Node.js
       items:
       - name: Reference Documentation
-        href: https://docs.microsoft.com/en-us/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest      
+        href: https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest      
       - name: NPM
         href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
       - name: Samples
@@ -195,7 +191,7 @@
     - name: Python
       items: 
       - name: Reference Documentation
-        href: https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python
+        href: https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python
       - name: Pip
         href: https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/
       - name: Samples

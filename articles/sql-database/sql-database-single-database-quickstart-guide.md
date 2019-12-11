@@ -1,5 +1,5 @@
 ---
-title: Quickstart - single databases in Azure SQL Database 
+title: Quickstart - single databases
 description: 'Learn how to quickly get started with single databases in Azure SQL Database'
 services: sql-database
 ms.service: sql-database

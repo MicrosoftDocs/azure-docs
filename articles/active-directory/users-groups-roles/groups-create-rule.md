@@ -1,19 +1,18 @@
 ---
-title: Create a dynamic group and check status - Azure Active Directory | Microsoft Docs
+title: Create a dynamic group and check status - Azure AD | Microsoft Docs
 description: How to create a group membership rule in the Azure portal, check status.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
-
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
@@ -44,10 +43,10 @@ For examples of syntax, supported properties, operators, and values for a member
 ## To create a group membership rule
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is in the Global administrator, Intune administrator, or User administrator role in the tenant.
-1. Select **Groups**.
+1. Search for and select **Groups**.
 1. Select **All groups**, and select **New group**.
 
-   ![Select the command to add new group](./media/groups-create-rule/new-group-creation.png)
+   ![Select the command to add new group](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 
 1. On the **Group** page, enter a name and description for the new group. Select a **Membership type** for either users or devices, and then select **Add dynamic query**. The rule builder supports up to five expressions. To add more than five expressions, you must use the text box.
 
@@ -85,7 +84,7 @@ The following status messages can be shown for **Membership last updated** statu
 - **In Progress**: Updates are currently in progress.
 - **Unknown**: The last update time can't be retrieved. The group might be new.
 
-If an error occurs while processing the membership rule for a specific group, an alert is shown on the top of the **Overview page** for the group. If no pending dynamic membership updates can be processed for all the groups within the tenant for more then 24 hours, an alert is shown on the top of **All groups**.
+If an error occurs while processing the membership rule for a specific group, an alert is shown on the top of the **Overview page** for the group. If no pending dynamic membership updates can be processed for all the groups within the tenant for more than 24 hours, an alert is shown on the top of **All groups**.
 
 ![processing error message alerts](./media/groups-create-rule/processing-error.png)
 

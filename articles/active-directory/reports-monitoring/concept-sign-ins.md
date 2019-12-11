@@ -3,7 +3,7 @@ title: Sign-in activity reports in the Azure Active Directory portal | Microsoft
 description: Introduction to sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
-ms.author: chadam
+ms.date: 12/09/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -37,7 +37,7 @@ This article gives you an overview of the sign-ins report.
 
 ### Who can access the data?
 
-* Users in the Security Administrator, Security Reader, and Report Reader roles
+* Users in the Security Administrator, Security Reader, Global Reader, and Report Reader roles
 * Global Administrators
 * Any user (non-admins) can access their own sign-ins 
 
@@ -75,9 +75,9 @@ You can customize the list view by clicking **Columns** in the toolbar.
 
 ![Sign-in activity](./media/concept-sign-ins/19.png "Sign-in activity")
 
-Displays additional fields or remove fields that are already displayed.
+The **Columns** dialog gives you access to the selectable attributes. In a sign-in report, you can only have attributes that don't have a one-to-many relationship to other attributes as column.
 
-![Sign-in activity](./media/concept-sign-ins/02.png "Sign-in activity")
+![Sign-in activity](./media/concept-sign-ins/columns.png "Sign-in activity")
 
 Select an item in the list view to get more detailed information.
 
@@ -153,7 +153,8 @@ Click the **Download** option to create a CSV or JSON file of the most recent 25
 ![Download](./media/concept-sign-ins/71.png "Download")
 
 > [!IMPORTANT]
-> The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
+> The number of records you can download is constrained by the [Azure Active 
+> Directory report retention policies](reference-reports-data-retention.md).  
 
 
 ## Sign-ins data shortcuts

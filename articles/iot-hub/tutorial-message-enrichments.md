@@ -10,7 +10,7 @@ ms.date: 05/10/2019
 ms.author: robinsh
 # intent: As a customer using IoT Hub, I want to add information to the messages that come through my IoT Hub and are sent to another endpoint. For example, I'd like to pass the iothubname to the application that reads the messages from the final endpoint, such as Azure storage.
 ---
-# Tutorial: Using Azure IoT Hub message enrichments (preview)
+# Tutorial: Using Azure IoT Hub message enrichments
 
 *Message enrichments* is the ability of the IoT Hub to *stamp* messages with additional information before the messages are sent to the designated endpoint. One reason to use message enrichments is to include data that can be used to simplify downstream processing. For example, enriching device telemetry messages with a device twin tag can reduce load on customers to make device twin API calls for this information. For more information, see the [Overview of message enrichments](iot-hub-message-enrichments-overview.md).
 
@@ -246,7 +246,7 @@ At this point, the resources are all set up and the routing is configured. You c
 
 2. Add these values to the list for the ContosoStorageEndpointEnriched endpoint.
 
-   | Name | Value | Endpoint (dropdown list) |
+   | Key | Value | Endpoint (dropdown list) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | DeviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |

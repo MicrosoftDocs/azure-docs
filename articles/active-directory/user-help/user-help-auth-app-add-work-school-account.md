@@ -1,6 +1,6 @@
 ---
-title: Add your work or school account to the Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
-description: How to add your work or school account to the Microsoft Authenticator app for two-factor verification.
+title: Add a work or school account to the Microsoft Authenticator app - Azure AD
+description: Add your work or school account to the Microsoft Authenticator app to verify your identity while using two-factor verification.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,7 +15,7 @@ ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ---
 
-# Add your work or school account
+# Add your work or school account to the Microsoft Authenticator app
 
 If your organization uses two-factor verification, you can set up your work or school account to use the Microsoft Authenticator app as one of the verification methods.
 

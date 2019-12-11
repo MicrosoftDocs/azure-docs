@@ -16,7 +16,7 @@ ms.author: diberry
 
 # Quickstart: Publish a knowledge base in QnA Maker using Java
 
-This REST-based quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Search index and creates an endpoint that can be called in your application or chat bot.
+This REST-based quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Cognitive Search index and creates an endpoint that can be called in your application or chat bot.
 
 This quickstart calls QnA Maker APIs:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - this API doesn't require any information in the body of the request.

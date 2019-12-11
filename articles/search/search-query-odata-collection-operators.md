@@ -1,7 +1,7 @@
 ---
 title: OData collection operator reference
 titleSuffix: Azure Cognitive Search
-description: OData collection operators, any and all, and lambda expressions in Azure Cognitive Search queries.
+description: When creating filter expressions in Azure Cognitive Search queries, use "any" and "all" operators in lambda expressions when the filter is on a collection or complex collection field.  
 
 manager: nitinme
 author: brjohnstmsft

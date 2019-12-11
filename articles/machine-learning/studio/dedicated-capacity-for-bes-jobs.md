@@ -1,6 +1,6 @@
 ---
 title: Azure Batch service jobs
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Overview of Azure Batch services for Machine Learning Studio (classic) jobs. Batch Pool processing allows you to create pools on which you can submit batch jobs.
 services: machine-learning
 ms.service: machine-learning

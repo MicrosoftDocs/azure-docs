@@ -24,6 +24,13 @@ This article shows you how you can overlay an image to fixed set of coordinates 
 > [!TIP]
 > An [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) is a quick an easy way to overlay an image on a map. However, if the image is large, the browser may struggle to load it. In this case, consider breaking your image up into tiles and loading them into the map as a [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
 
+The image layer supports the following image formats:
+
+- JPEG
+- PNG
+- BMP
+- GIF (no animations)
+
 ## Add an image layer
 
 In the following code overlays an image of a [map of Newark New Jersey from 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) on the map. An [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) is created by passing a URL to an image and coordinates for the four corners in the format `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.

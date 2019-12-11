@@ -1,5 +1,5 @@
 ---
-title: Secure managed instance public endpoints - Azure SQL Database managed instance 
+title: Secure managed instance public endpoints
 description: "Securely use public endpoints in Azure with a managed instance"
 services: sql-database
 ms.service: sql-database

@@ -4,7 +4,7 @@ title: Find user activity reports in Azure portal | Microsoft Docs
 description: Learn where the Azure Active Directory user activity reports are in the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk 
 
 ms.collection: M365-identity-device-management

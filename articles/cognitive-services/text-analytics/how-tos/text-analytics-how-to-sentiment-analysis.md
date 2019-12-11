@@ -1,14 +1,14 @@
 ---
-title: Sentiment analysis by using the Text Analytics REST API from Azure Cognitive Services
+title: Perform sentiment analysis with Text Analytics REST API
 titleSuffix: Azure Cognitive Services
-description: Learn how to detect sentiment by using the Text Analytics REST API.
+description: This article will show you how to detect sentiment in text with the Azure Cognitive Services Text Analytics REST API.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/23/2019
+ms.date: 11/21/2019
 ms.author: aahi
 ---
 
@@ -31,7 +31,7 @@ Sentiment analysis is performed on the entire document, as opposed to extracting
 
 ## Sentiment Analysis v3 public preview
 
-The [next version of Sentiment Analysis](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c9) is now available for public preview. It provides significant improvements in the accuracy and detail of the API's text categorization and scoring.
+The next version of Sentiment Analysis is now available for public preview. It provides significant improvements in the accuracy and detail of the API's text categorization and scoring. Try it using the [API test console](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment).
 
 > [!NOTE]
 > * The Sentiment Analysis v3 request format and [data limits](../overview.md#data-limits) are the same as the previous version.

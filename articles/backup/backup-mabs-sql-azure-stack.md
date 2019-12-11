@@ -1,13 +1,8 @@
 ---
 title: Back up SQL Server workloads on Azure Stack
 description: In this article, learn how to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: dacurwin
 ---
 # Back up SQL Server on Azure Stack
 
@@ -150,7 +145,7 @@ The following steps are required to recover a protected entity (SQL Server datab
 
     Once the recovery is completed, the restored database is application consistent.
 
-## Next Steps
+## Next steps
 
 See the [Backup files and application](backup-mabs-files-applications-azure-stack.md) article.
 See the [Backup SharePoint on Azure Stack](backup-mabs-sharepoint-azure-stack.md) article.

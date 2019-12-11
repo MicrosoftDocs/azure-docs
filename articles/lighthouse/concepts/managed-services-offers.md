@@ -1,12 +1,8 @@
 ---
 title: Managed services offers in Azure Marketplace
 description: Managed services offers allow service providers to sell resource management offers to customers in Azure Marketplace.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 09/19/2019
-ms.topic: overview
-manager: carmonm
+ms.topic: conceptual
 ---
 
 # Managed services offers in Azure Marketplace
@@ -23,7 +19,7 @@ After that, users in your organization will be able to perform administration ta
 
 Each managed services offer includes one or more plans. These plans can be either private or public.
 
-If you want to limit your offer to specific customers, you can publish a private plan. When you do so, the plan can only be purchased for the specific] subscription IDs that you provide. For more info, see [Private offers](https://docs.microsoft.com/azure/marketplace/private-offers).
+If you want to limit your offer to specific customers, you can publish a private plan. When you do so, the plan can only be purchased for the specific] subscription IDs that you provide. For more info, see [Private offers](../../marketplace/private-offers.md).
 
 Public plans let you promote your services to new customers. These are usually more appropriate when you only require limited access to the customer's tenant. Once you've established a relationship with a customer, if they decide to grant your organization additional access, you can do so either by publishing a new private plan for that customer only, or by [onboarding them for further access using Azure Resource Manager templates](../how-to/onboard-customer.md).
 
@@ -33,7 +29,7 @@ If appropriate, you can include both public and private plans in the same offer.
 
 ## Publish managed service offers
 
-To learn how to publish a managed services offer, see [Publish a Managed Services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md). For general info about publishing to Azure Marketplace using the Cloud Partner Portal, see [Azure Marketplace and AppSource Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Manage Azure and AppSource Marketplace offers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
+To learn how to publish a managed services offer, see [Publish a Managed Services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md). For general info about publishing to Azure Marketplace using the Cloud Partner Portal, see [Azure Marketplace and AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md) and [Manage Azure and AppSource Marketplace offers](../../marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers.md).
 
 ## Next steps
 

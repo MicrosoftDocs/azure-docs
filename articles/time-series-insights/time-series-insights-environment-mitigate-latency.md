@@ -1,6 +1,6 @@
 ---
-title: 'How to monitor and reduce throttling in Azure Time Series Insights | Microsoft Docs'
-description: This article describes how to monitor, diagnose, and mitigate performance issues that cause latency and throttling in Azure Time Series Insights.
+title: 'How to monitor and reduce throttling - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to monitor, diagnose, and mitigate performance issues that cause latency and throttling in Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
 ---
 
@@ -37,13 +37,13 @@ You are most likely to experience latency and throttling when you:
 
 Alerts can help you to help diagnose and mitigate latency issues caused by your environment.
 
-1. In the Azure portal, select **Alerts**.
+1. In the Azure portal, select your Time Series Insights environment. Then select **Alerts**.
 
-   [![Alerts](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [![Add an alert to your Time Series Insights environment](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
 1. The **Create rule** panel will then be displayed. Select **Add** under **CONDITION**.
 
-   [![Add alert](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
+   [![Add alert pane](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
 
 1. Next, configure the exact conditions for the signal logic.
 
@@ -65,7 +65,7 @@ Alerts can help you to help diagnose and mitigate latency issues caused by your 
 
 1. After configuring the desired signal logic, review the chosen alert rule visually.
 
-   [![Ingress](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [![Latency view and charting](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png)](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png#lightbox)
 
 ## Throttling and ingress management
 

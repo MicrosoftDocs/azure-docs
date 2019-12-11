@@ -1,14 +1,14 @@
 ---
 title: What is Form Recognizer?
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Form Recognizer to parse form and table data.
+description: The Azure Cognitive Services Form Recognizer allows you to identify and extract key/value pairs and table data from form documents.
 author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 07/25/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---

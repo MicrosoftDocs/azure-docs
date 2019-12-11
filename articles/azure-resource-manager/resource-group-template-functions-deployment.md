@@ -1,26 +1,22 @@
 ---
-title: Azure Resource Manager template functions - deployment | Microsoft Docs
+title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template to retrieve deployment information.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: tomfitz
-
+ms.date: 11/27/2019
 ---
 # Deployment functions for Azure Resource Manager templates 
 
-Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
+Resource Manager provides the following functions for getting values related to the current deployment:
 
 * [deployment](#deployment)
+* [environment](#environment)
 * [parameters](#parameters)
 * [variables](#variables)
 
 To get values from resources, resource groups, or subscriptions, see [Resource functions](resource-group-template-functions-resource.md).
 
-<a id="deployment" />
-
 ## deployment
+
 `deployment()`
 
 Returns information about the current deployment operation.
@@ -131,9 +127,106 @@ The preceding example returns the following object:
 
 For a subscription-level template that uses the deployment function, see [subscription deployment function](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). It's deployed with either `az deployment create` or `New-AzDeployment` commands.
 
-<a id="parameters" />
+## environment
+
+`environment()`
+
+Returns information about the Azure environment used for deployment.
+
+### Return value
+
+This function returns properties for the current Azure environment. The following example shows the properties for global Azure. Sovereign clouds may return slightly different properties.
+
+```json
+{
+  "name": "",
+  "gallery": "",
+  "graph": "",
+  "portal": "",
+  "graphAudience": "",
+  "activeDirectoryDataLake": "",
+  "batch": "",
+  "media": "",
+  "sqlManagement": "",
+  "vmImageAliasDoc": "",
+  "resourceManager": "",
+  "authentication": {
+    "loginEndpoint": "",
+    "audiences": [
+      "",
+      ""
+    ],
+    "tenant": "",
+    "identityProvider": ""
+  },
+  "suffixes": {
+    "acrLoginServer": "",
+    "azureDatalakeAnalyticsCatalogAndJob": "",
+    "azureDatalakeStoreFileSystem": "",
+    "azureFrontDoorEndpointSuffix": "",
+    "keyvaultDns": "",
+    "sqlServerHostname": "",
+    "storage": ""
+  }
+}
+```
+
+### Example
+
+The following example template returns the environment object.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "environmentOutput": {
+            "value": "[environment()]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+The preceding example returns the following object when deployed to global Azure:
+
+```json
+{
+  "name": "AzureCloud",
+  "gallery": "https://gallery.azure.com/",
+  "graph": "https://graph.windows.net/",
+  "portal": "https://portal.azure.com",
+  "graphAudience": "https://graph.windows.net/",
+  "activeDirectoryDataLake": "https://datalake.azure.net/",
+  "batch": "https://batch.core.windows.net/",
+  "media": "https://rest.media.azure.net",
+  "sqlManagement": "https://management.core.windows.net:8443/",
+  "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
+  "resourceManager": "https://management.azure.com/",
+  "authentication": {
+    "loginEndpoint": "https://login.windows.net/",
+    "audiences": [
+      "https://management.core.windows.net/",
+      "https://management.azure.com/"
+    ],
+    "tenant": "common",
+    "identityProvider": "AAD"
+  },
+  "suffixes": {
+    "acrLoginServer": ".azurecr.io",
+    "azureDatalakeAnalyticsCatalogAndJob": "azuredatalakeanalytics.net",
+    "azureDatalakeStoreFileSystem": "azuredatalakestore.net",
+    "azureFrontDoorEndpointSuffix": "azurefd.net",
+    "keyvaultDns": ".vault.azure.net",
+    "sqlServerHostname": ".database.windows.net",
+    "storage": "core.windows.net"
+  }
+}
+```
 
 ## parameters
+
 `parameters(parameterName)`
 
 Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
@@ -237,9 +330,8 @@ The output from the preceding example with the default values is:
 
 For more information about using parameters, see [Parameters in Azure Resource Manager template](template-parameters.md).
 
-<a id="variables" />
-
 ## variables
+
 `variables(variableName)`
 
 Returns the value of variable. The specified variable name must be defined in the variables section of the template.

@@ -1,5 +1,5 @@
 ---
-title: Upgrade an Azure Service Fabric cluster | Microsoft Docs
+title: Upgrade an Azure Service Fabric cluster
 description: Learn about upgrading the version or configuration of an Azure Service Fabric cluster.  This article describes setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and what you can expect when the upgrades are performed
 services: service-fabric
 documentationcenter: .net

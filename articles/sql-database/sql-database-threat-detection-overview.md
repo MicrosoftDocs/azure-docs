@@ -1,5 +1,5 @@
 ---
-title: Advanced Threat Protection - Azure SQL Database 
+title: Advanced Threat Protection
 description: Advanced Threat Protection detects anomalous database activities indicating potential security threats in Azure SQL Database. 
 services: sql-database
 ms.service: sql-database

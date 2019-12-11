@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: 
 ms.topic: quickstart
-ms.date: 09/17/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ---
 
@@ -98,7 +98,7 @@ public class BingCustomSearchSample {
 }
 ```
 
-In the class, create a `main` method and variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, close and reopen the editor, IDE, or shell running it to access the variable. You will define the methods later.
+In the class, create a `main` method and a variable for your resource's key. If you created the environment variable after you launched the application, close and reopen the editor, IDE, or shell running it to access the variable. You will define the methods later.
 
 [!code-java[main method](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=main)]
 
