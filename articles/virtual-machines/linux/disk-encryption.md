@@ -1,5 +1,5 @@
 ---
-title: Server-side encryption of Azure Managed Disks
+title: Server-side encryption of Azure Managed Disks - Azure CLI
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
 
@@ -11,18 +11,6 @@ ms.subservice: disks
 ---
 
 # Server side encryption of Azure managed disks
-
----
- title: include file
- description: include file
- services: virtual-machines
- author: roygara
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 10/24/2019
- ms.author: rogarana
- ms.custom: include file
----
 
 Azure managed disks automatically encrypt your data by default when persisting it to the cloud. Server-side encryption protects your data and helps you meet your organizational security and compliance commitments. Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant.   
 
@@ -88,19 +76,6 @@ The preview also has the following restrictions:
 
     When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
-    ```powershell
-    $ResourceGroupName="yourResourceGroupName"
-    $LocationName="westcentralus"
-    $keyVaultName="yourKeyVaultName"
-    $keyName="yourKeyName"
-    $keyDestination="Software"
-    $diskEncryptionSetName="yourDiskEncryptionSetName"
-
-    $keyVault = New-AzKeyVault -Name $keyVaultName -ResourceGroupName $ResourceGroupName -Location $LocationName -EnableSoftDelete -EnablePurgeProtection
-
-    $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
-    ```
-
     ```azurecli
     subscriptionId = <yourSubscriptionIDHere>
     rgName = <yourResourceGroupNameHere>
@@ -119,12 +94,6 @@ The preview also has the following restrictions:
 
 1.	Create an instance of a DiskEncryptionSet. 
     
-    ```powershell
-    $desConfig=New-AzDiskEncryptionSetConfig -Location $LocationName -SourceVaultId $keyVault.ResourceId -KeyUrl $key.Key.Kid -IdentityType SystemAssigned
-
-    $des=New-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -InputObject $desConfig 
-    ```
-
     ```azurecli
     keyVaultId = $(az keyvault show --name $keyVaultName --query [id] -o tsv)
 
@@ -134,14 +103,6 @@ The preview also has the following restrictions:
     ```
 
 1.	Grant the DiskEncryptionSet resource access to the key vault.
-
-    ```powershell
-    $identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
-     
-    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-     
-    New-AzRoleAssignment -ResourceName $keyVaultName -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -  ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader" 
-    ```
 
     ```azurecli
     desIdentity=$(az ad sp list --display-name $diskEncryptionSetName --query[].[objectId] -o tsv)
@@ -153,49 +114,13 @@ The preview also has the following restrictions:
 
 ### Create a VM using a marketplace image, encrypting the OS and data disks with customer-managed keys
 
-```powershell
-$VMLocalAdminUser = "yourVMLocalAdminUserName"
-$VMLocalAdminSecurePassword = ConvertTo-SecureString <password> -AsPlainText -Force
-$LocationName = "westcentralus"
-$ResourceGroupName = "yourResourceGroupName"
-$ComputerName = "yourComputerName"
-$VMName = "yourVMName"
-$VMSize = "Standard_DS3_v2"
-$diskEncryptionSetName="yourdiskEncryptionSetName"
-    
-$NetworkName = "yourNetworkName"
-$NICName = "yourNICName"
-$SubnetName = "yourSubnetName"
-$SubnetAddressPrefix = "10.0.0.0/24"
-$VnetAddressPrefix = "10.0.0.0/16"
-    
-$SingleSubnet = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $SubnetAddressPrefix
-$Vnet = New-AzVirtualNetwork -Name $NetworkName -ResourceGroupName $ResourceGroupName -Location $LocationName -AddressPrefix $VnetAddressPrefix -Subnet $SingleSubnet
-$NIC = New-AzNetworkInterface -Name $NICName -ResourceGroupName $ResourceGroupName -Location $LocationName -SubnetId $Vnet.Subnets[0].Id
-    
-$Credential = New-Object System.Management.Automation.PSCredential ($VMLocalAdminUser, $VMLocalAdminSecurePassword);
-    
-$VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
-$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate
-$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id
-$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2012-R2-Datacenter' -Version latest
-
-$diskEncryptionSet=Get-AzDiskEncryptionSet -ResourceGroupName $ResourceGroupName -Name $diskEncryptionSetName
-
-$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name $($VMName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage
-
-$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name $($VMName +"DataDisk1") -DiskSizeInGB 128 -StorageAccountType Premium_LRS -CreateOption Empty -Lun 0 -DiskEncryptionSetId $diskEncryptionSet.Id 
-    
-New-AzVM -ResourceGroupName $ResourceGroupName -Location $LocationName -VM $VirtualMachine -Verbose
-```
-
 ```azurecli
-rgName="yourResourceGroupName"
-vmName="yourVMName"
+rgName="<yourResourceGroupName>"
+vmName="<yourVMName>"
 region="westcentralus"
-password="yourVMLocalAdminPassword"
+password="<yourVMLocalAdminPassword>"
 vmSize="Standard_DS3_V2"
-diskEncryptionSetName="yourDiskEncryptionSetName"
+diskEncryptionSetName="<yourDiskEncryptionSetName>"
 templateURI="https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateVMWithDisksEncryptedWithCMK.json"
 
 diskEncryptionSetId=$(az resource show -n $diskEncryptionSetName -g ssecmktesting --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
@@ -206,36 +131,15 @@ az group deployment create -g $rgName --template-uri $templateURI --parameters "
 
 ### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
 
-```PowerShell
-$vmName = "yourDiskName"
-$LocationName = "westcentralus"
-$ResourceGroupName = "yourResourceGroupName"
-$diskName = "yourDiskName"
-$diskSKU = "Premium_LRS"
-$diskSizeinGiB = 30
-$diskLUN = 1
-$diskEncryptionSetName="yourDiskEncryptionSetName"
-
-
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $ResourceGroupName 
-
-$diskEncryptionSet=Get-AzDiskEncryptionSet -ResourceGroupName $ResourceGroupName -Name $diskEncryptionSetName
-
-$vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Empty -DiskSizeInGB $diskSizeinGiB -StorageAccountType $diskSKU -Lun $diskLUN -DiskEncryptionSetId $diskEncryptionSet.Id 
-
-Update-AzVM -ResourceGroupName $rgName -VM $vm
-
-```
-
 ```azurecli
-vmName="ssecmktestvm3"
-rgName="ssecmktesting"
-diskName="ssecmkdisk3"
+vmName="<yourVMName>"
+rgName="<yourResourceGroupName>"
+diskName="<yourDiskName>"
 diskSkuName="Premium_LRS"
 diskSizeinGiB="30"
 region="westcentralus"
 diskLUN=2
-diskEncryptionSetName="mytestdes"
+diskEncryptionSetName="<yourDiskEncryptionSetName>"
 templateURI="https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateEmptyDataDiskEncryptedWithSSECMK.json"
 
 diskEncryptionSetId=$(az resource show -n $diskEncryptionSetName -g ssecmktesting --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
