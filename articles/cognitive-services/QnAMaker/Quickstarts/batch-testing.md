@@ -106,11 +106,17 @@ The test completes and generates the `out.tsv` file:
 > [!div class="mx-imgBorder"]
 > ![Output first version of .tsv file from batch test](../media/batch-test/batch-test-1-output.png)
 
-The test output of confidence score, in the 4th column, shows the top 3 questions returned a score of 100 as expected because each question is exactly the same as it appears in the knowledge base. The last 3 questions are new wording of the question and do not return 100 as the confidence score. The last question, `What features are in Windows 10?` returns a score of 63. In order to increase the score both for the test, and your users, you need to add more alternate questions to the knowledge base.
+The knowledge base ID has been replaced with `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` for security. For your own batch test, the column displays your knowledge base ID.
+
+The test output of confidence score, in the 4th column, shows the top 3 questions returned a score of 100 as expected because each question is exactly the same as it appears in the knowledge base. The last 3 questions, with new wording of the question, do not return 100 as the confidence score. In order to increase the score both for the test, and your users, you need to add more alternate questions to the knowledge base.
 
 ## Testing with the optional fields
 
-Once you understand the format and process, you can auto-generate a test file to run against your knowledge base. A common source of data is from chats logs. 
+Once you understand the format and process, you can generate a test file, to run against your knowledge base from a source of data such as from chats logs.
+
+Because the data source and process are automated, the test file can be run many times with different settings to determine the correct values.
+
+For example, if you have a chat log and you want to determine which chat log text applies to which metadata fields, create a test file and set the metadata fields for every row. Run the test, then review the rows that match the metadata. Generally, the matches should be positive, but you should review the results for false positives. A false positive is a row that matches the metadata but based on the text, it shouldn't match.
 
 ## Using optional fields in the input batch test file
 
@@ -131,33 +137,53 @@ Use the following chart to understand how to find the field values for optional 
     |Charge your Surface Pro 4|
     |Check the battery level|
 
-1. Select **Save and train**, then select the **Publish** page, then select the **Publish** button. These actions make the change available to the batch test.
-1. Select the **Settings** page, then select **Export** as a `.xls` file.
-1. Find this downloaded file and open with Excel.
+    Two QnA sets have the metadata set.
 
-    The downloaded file has the correct format for the metadata and the correct question and answer set ID.
+    > [!TIP]
+    > To see the metadata and QnA IDs of each set, export the knowledge base. Select the **Settings** page, then select **Export** as a `.xls` file. Find this downloaded file and open with Excel reviewing for metadata and ID.
+
+1. Select **Save and train**, then select the **Publish** page, then select the **Publish** button. These actions make the change available to the batch test. Download the knowledge base from the **Settings** page.
+
+    The downloaded file has the correct format for the metadata and the correct question and answer set ID. Use these fields in the next section
 
     > [!div class="mx-imgBorder"]
     > ![Exported knowledge base with metadata](../media/batch-test/exported-knowledge-base-with-metadata.png)
 
 ## Create a second batch test
 
-1. Create a new batch test file to include optional data, `batch-test-data-2.tsv`. Add the 6 rows from the original batch test input file, then add the metadata, top, and QnA set ID for each row. Four of the rows for metadata should be empty but must still use a tab to indicate the column.
+1. Create a new batch test file to include optional data, `batch-test-data-2.tsv`. Add the 6 rows from the original batch test input file, then add the metadata, top, and QnA set ID for each row.
+
+    To simulate the automated process of checking new text from chat logs against the knowledge base, set the metadata for each column to the same value: `topic:power`.
 
     > [!div class="mx-imgBorder"]
     > ![Input second version of .tsv file from batch test](../media/batch-test/batch-test-2-input.png)
 
-1. Re the batch test with the same command, change the filename of the batch to the new filename. The output now includes matches.
+1. Run the test again, changing the input and output file names to indicate it is the second test.
 
     > [!div class="mx-imgBorder"]
     > ![Output second version of .tsv file from batch test](../media/batch-test/batch-test-2-output.png)
 
-    This output file can be parsed to validate the test's confidence score and matching question ID in an automated continuous test pipeline.
+## Test results and an automated test system
+
+This test output file can be parsed as part of an automated continuous test pipeline.
+
+This specific test output should be read as: each row was filtered with metadata, and because each row didn't match the metadata in the knowledge base, the default answer for those non-matching rows returned ("no good match found in kb"). Of those rows that did match, the QnA ID and score were returned.
+
+All rows returned the label of incorrect because no row matched the answer ID expected.
+
+You should be able to see with these results that you can take a chat log and use the text as the query of each row. Without knowing anything about the data, the results tell you a lot about the data that you can then use moving forward:
+
+* meta-data
+* QnA ID
+* score
+
+Was filtering with meta-data a good idea for the test? Yes and no. The test system should create test files for each meta-data pair as well as a test with no meta-data pairs.
 
 ## Clean up resources
 
-If you're not going to continue to use this knowledge base, delete the knowledge base
-with the following steps:
+If you aren't going to continue testing the knowledge base, delete the batch file tool and the test files.
+
+If you're not going to continue to use this knowledge base, delete the knowledge base with the following steps:
 
 1. In the QnA Maker portal, select **My Knowledge bases** from the top menu.
 1. In the list of knowledge bases, select the **Delete** icon on the row of the knowledge base of this quickstart.
