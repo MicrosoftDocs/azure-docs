@@ -28,6 +28,7 @@ To add or edit a single custom RDP property, run the following PowerShell cmdlet
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty "<property>"
 ```
+
 ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](media/singlecustomrdpproperty.png)
 
 ## Add or edit multiple custom RDP properties
@@ -38,6 +39,7 @@ To add or edit multiple custom RDP properties, run the following PowerShell cmdl
 $properties="<property1>;<property2>;<property3>"
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
+
 ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](media/multiplecustomrdpproperty.png)
 
 ## Reset all custom RDP properties
@@ -47,11 +49,12 @@ You can reset individual custom RDP properties to their default values by follow
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
+
 ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](media/resetcustomrdpproperty.png)
 
 ## Next steps
 
-Now that you've customized the RDP properties for a given host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. To do so, continue to the Connect to Windows Virtual Desktop How-tos:
+Now that you've customized the RDP properties for a given host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
 
-- [Connect from Windows 10 and Windows 7](connect-windows-7-and-10.md)
-- [Connect from a web browser](connect-web.md)
+- [Connect with the Windows Desktop client](connect-windows-7-and-10.md)
+- [Connect with the web client](connect-web.md)

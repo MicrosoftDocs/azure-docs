@@ -3,7 +3,7 @@ title: "Debug and iterate on Kubernetes: Visual Studio Code & .NET Core"
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This quickstart shows you how to use Azure Dev Spaces and Visual Studio Code to debug and rapidly iterate a .NET Core application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---

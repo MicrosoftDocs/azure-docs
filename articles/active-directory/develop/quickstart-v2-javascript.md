@@ -3,17 +3,13 @@ title: Sign in users in JavaScript single-page apps | Azure
 titleSuffix: Microsoft identity platform 
 description: Learn how  a Javascript app can an API that requires access tokens using the Microsoft identity platform.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma

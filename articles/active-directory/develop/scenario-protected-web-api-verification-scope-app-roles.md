@@ -1,5 +1,5 @@
 ---
-title: Verify scopes and app roles with protected web API
+title: Verify scopes & app roles protected Web API | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a protected web API and configure your application's code.
 services: active-directory
