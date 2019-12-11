@@ -4,7 +4,6 @@ description: Learn how to automatically provision and de-provision user accounts
 services: active-directory
 documentationcenter: ''
 author: zchia
-writer: zchia
 manager: beatrizd
 
 ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
