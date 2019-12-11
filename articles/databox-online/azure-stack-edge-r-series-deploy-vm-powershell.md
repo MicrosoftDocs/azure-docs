@@ -466,8 +466,6 @@ Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 For more information on this cmdlet, go to [Remove-AzureRmVm cmdlet](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
 
 
-```
-
 ## Supported VM sizes
 
 The VM size determines the amount of compute resources like CPU, GPU, and memory that are made available to the VM. Virtual machines should be created using a VM size appropriate for the workload. If a workload increases, an existing virtual machine can also be resized.
