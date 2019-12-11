@@ -19,7 +19,6 @@ ms.author: szark
 
 ---
 # Information for Non-endorsed Distributions
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) is used. For these endorsed distributions, pre-configured Linux images are provided in the Azure Marketplace.
 
