@@ -219,7 +219,7 @@ The following Java example shows a storage queue trigger functions which logs th
 
  ---
 
-## Trigger - attributes
+## Trigger - attributes and annotations
 
 # [C#](#tab/csharp)
 
