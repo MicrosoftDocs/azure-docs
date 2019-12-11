@@ -30,8 +30,8 @@ In this tutorial, you will:
 
 To complete this tutorial, you first need to:
 
-1. Create an Azure Maps account subscription in the S0 pricing tier by following instructions in [Create an account](./quick-demo-map-app#create-an-account).
-2. Get the primary subscription key for your account, follow the instructions in [get primary key](./quick-demo-map-app#get-primary-key).
+1. Create an Azure Maps account subscription in the S0 pricing tier by following instructions in [Create an account](./quick-demo-map-app#create-an-account-with-azure-maps).
+2. Get the primary subscription key for your account, follow the instructions in [get primary key](./quick-demo-map-app#get-the-primary-key-for-your-account).
 
 
 For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
@@ -66,7 +66,7 @@ In our example scenario, we would like to request daily forecast for each sensor
 
 
 ```python
-subscription_key = "Your Azure Maps primary subscription key"
+subscription_key = "Your Azure Maps key"
 
 # Get a lists of unique station IDs and their coordinates 
 station_ids = pd.unique(df[['StationID']].values.ravel())

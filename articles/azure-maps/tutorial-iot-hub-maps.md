@@ -101,7 +101,7 @@ To complete the steps in this tutorial, you first need to create a resource grou
 
 ### Create an Azure Maps account 
 
-In order to implement business logic based on Azure Maps spatial analytics, we need to create an Azure Maps account in the resource group we created. Follow instructions in [Create an account](./quick-demo-map-app#create-an-account) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](./quick-demo-map-app#get-primary-key) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
+In order to implement business logic based on Azure Maps spatial analytics, we need to create an Azure Maps account in the resource group we created. Follow instructions in [Create an account](./quick-demo-map-app#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](./quick-demo-map-app#get-the-primary-key-for-your-account) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 
 
@@ -165,7 +165,7 @@ Open the Postman app and follow the steps below to upload the geofence using the
     
     The "geojson" value against the `dataFormat` parameter in the URL path represents the format of the data being uploaded.
 
-3. Click **Params**, and enter the following Key/Value pairs to be used for the POST request URL. Replace subscription-key value with your Azure Maps primary subscription key.
+3. Click **Params**, and enter the following Key/Value pairs to be used for the POST request URL. Replace subscription-key value with your Azure Maps key.
    
     ![Key-Value params Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 

@@ -34,9 +34,9 @@ In this tutorial, you will:
 
 To complete this tutorial, you first need to create an Azure Maps account and get your primary key (subscription key). 
 
-To create an Azure Maps account subscription in the S1 pricing tier, follow instructions in [Create an account](./quick-demo-map-app#create-an-account) to create an Azure Maps account subscription with S1 pricing tier. 
+To create an Azure Maps account subscription in the S1 pricing tier, follow instructions in [Create an account](./quick-demo-map-app#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier. 
 
-To get the primary subscription key for your account, follow the instructions in [get primary key](./quick-demo-map-app#get-primary-key).
+To get the primary subscription key for your account, follow the instructions in [get primary key](./quick-demo-map-app#get-the-primary-key-for-your-account).
 
 For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
@@ -108,7 +108,7 @@ Because the company prefers to use routes that require a balance of economy and 
 To determine the boundaries for the electric vehicle's reachable range, run the script in the following cell:
 
 ```python
-subscriptionKey = "Your Azure Maps primary subscription key"
+subscriptionKey = "Your Azure Maps key"
 currentLocation = [34.028115,-118.5184279]
 session = aiohttp.ClientSession()
 
