@@ -69,13 +69,9 @@ The **Customers by orders/usage** chart has three tabs, “orders,” “normali
 
 As an example, see the chart below for normalized usage: The top 30th percentile of customers are contributing to 87% of the normalized usage cumulatively. The 30th percentile of customers are only contributing 1.57M hours of usage.
 
-![Customers by orders and usage charts](./media/customer-by-orders-usage.png)
-
 ### Customers by SKUs
 
 The **Customers by SKUs/usage** charts are described below.
-
-![Customers by SKU and usage charts](./media/customer-by-sku-usage.png)
 
 1. The Leader board presents details of the top 50 customers ranked by order count. After selecting a customer, the details of the customer are presented in sections 2, 3, and 4 of this leader board.
 2. The Customer profile details are displayed in this space when publishers are logged in with an owner role. If publishers are logged in with a contributor role, the details in this section will not be available.

@@ -14,7 +14,7 @@ ms.date: 12/11/2019
 
 This article addresses commonly asked questions about analytics messages in Partner Center and also provides a dictionary of analytics terminology.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 This section provides answers to commonly asked questions about **No Analytics Available Yet** messages in Partner Center.
 

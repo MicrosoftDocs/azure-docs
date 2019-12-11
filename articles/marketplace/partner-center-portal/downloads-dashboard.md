@@ -25,8 +25,6 @@ The **Downloads** dashboard of the **Analyze** menu displays requests for any do
 
 You will receive a pop-up notification and email containing a link to the **Downloads** dashboard whenever you request a download with over 1000 rows of data. These data downloads will be available for a 30-day period and then removed.
 
-![Partner Center Analyze downloads](./media/analyze-downloads.png)
-
 ## Next steps
 
 - For an overview of analytics reports available in the Partner Center Commercial Marketplace, see [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).

@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 ---
 
-# Summary Dashboard in Commercial Marketplace analytics
+# Summary dashboard in Commercial Marketplace analytics
 
 This article provides information on the Summary dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarize marketplace activity for your offers.
 
@@ -67,8 +67,6 @@ The **Customers by geography** heatmap displays a customer count on a world map.
 - You can search and select a country in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
 - A **new** customer has purchased one of your offers for the first time during the month within the selected date range.
 
-![Partner Center analyze customers by geography](./media/customers-by-geography.png)
-
 ### Growth trend charts
 
 You can view trends based on the growth of your **orders purchased** (includes canceled orders), **customers acquired** (includes lost customers), and **usage** reported, which are displayed month by month according to the selected date range. You can further analyze these trends by selecting links below the chart, which navigate to the respective **order**, **usage**, or **customer** pages.
@@ -77,11 +75,7 @@ The **orders by offers** chart organizes your orders according to the Offer name
 
 The **orders by sales channel** pie chart organizes your orders (including orders that customers canceled) during the selected date range, by Sales channel. Sales channel is the type of licensing agreement used by customers to purchase Azure, which are Cloud Solution Provider (CSP), Enterprise, Enterprise through Reseller, GTM, and Pay As You Go.
 
-![Partner Center orders trends](./media/growth-trend-charts.png)
-
 **Usage by offers** and **usage by sales channel** pie charts present the breakdown of the usage by top offers and sales channels, respectively. The inner pie chart represents raw usage and outer pie chart represents normalized usage.
-
-![Partner Center usage hours trend](./media/usage-hours-trend.png)
 
 The **orders by marketplace license type** and **usage by marketplace license type** pie charts display a breakdown of orders and usage by their respective license type. License types include:
 
@@ -89,8 +83,6 @@ The **orders by marketplace license type** and **usage by marketplace license ty
 - **Bring your own license**: Microsoft does not bill customers for their usage with this type of marketplace offer. This usage is listed as **Get it now (Free)** in the marketplace.
 - **Free**: Microsoft does not bill customers for their usage with this type of marketplace offer. This usage is listed as **Free trial** in the marketplace.
 - **Microsoft as reseller**: Represents offers sold by Microsoft resellers as a part of the **Cloud Solution Provider (CSP) program**.
-
-![Partner Center customers trend](./media/customers-trend.png)
 
 ### Customer leaderboard
 
@@ -107,13 +99,9 @@ The top 50 customers with the highest number of orders are displayed on a *leade
 
 The **orders by per seat/ per site** chart presents the breakdown of all orders purchased according to pricing model. The **seat count trend** chart presents seats versus orders purchased for all your per seat Software as a Service (SaaS) offers.
 
-![Partner Center seat count trend](./media/orders-by-per-seat.png)
-
 ### Free trials SaaS orders trend
 
 The **Free trial SaaS orders trend** chart presents the trend of orders for free trials SaaS offers with a 30-day trial period.
-
-![Partner Center free trial SaaS order trend](./media/free-trial-saas.png)
 
 ## Next steps
 
