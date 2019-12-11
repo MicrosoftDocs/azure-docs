@@ -83,7 +83,7 @@
     items:
     - name: Vulnerability scanning overview
       href: security-center-vulnerability-assessment-recommendations.md
-    - name: Integrated vulnerability scanner for virtual machines
+    - name: Integrated vulnerability scanner for VMs
       href: built-in-vulnerability-assessment.md
     - name: Using external scanners
       href: partner-vulnerability-assessment.md
