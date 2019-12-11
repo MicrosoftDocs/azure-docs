@@ -20,7 +20,7 @@ To install and configure a Windows Hybrid Runbook Worker, you can use one of the
 
 1. For Azure VMs, you install the Log Analytics agent for Windows using the [virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace using an Azure Resource Manager template or with PowerShell. Once the agent is installed, the VM can be added to a Hybrid Runbook Worker group in your Automation account following [step 4](#4.-install-the-runbook-environment-and-connect-to-azure-automation) under the **Manual deployment** section.
 
-2. Use an Automation runbook to completely automate the process of configuring a Windows computer. This is the recommended method for machines in your or other cloud environment.
+2. Use an Automation runbook to completely automate the process of configuring a Windows computer. This is the recommended method for machines in your datacenter or other cloud environment.
 
 3. Follow a step-by-step procedure to manually install and configure the Hybrid Runbook Worker role on your non-Azure VM.
 
