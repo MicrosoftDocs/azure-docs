@@ -1,5 +1,5 @@
 ---
-title: Use Azure API Management with microservices deployed in Azure Kubernetes Service | Microsoft Docs
+title: Use Azure API Management with Microservices Deployed in Azure Kubernetes Service | Microsoft Docs
 description: This article describes the options of deploying API Management with AKS
 services: api-management
 documentationcenter: ''
@@ -39,7 +39,7 @@ When we are ready to publish our microservices as APIs through API Management, w
 
 The mappings can also evolve. Since API Management creates a façade in front of the microservices, it allows us to refactor and right-size our microservices over time. 
 
-![Map services to APIs](./media/api-management-aks/service-API-mapping.png)
+![Map services to APIs](./media/api-management-aks/service-api-mapping.png)
 
 ## Deploy API Management in front of AKS
 
@@ -69,7 +69,7 @@ Cons:
 
 Although Option 1 might be easier, it has notable drawbacks as mentioned above. If an API Management instance does not reside in the cluster VNet, Mutual TLS authentication (mTLS) is a robust way of ensuring the traffic is secure and trusted in both directions between an API Management instance and an AKS cluster. 
 
-Mutual TLS authentication is [natively supported](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates) by API Management and can be enabled in Kubernetes by [installing an Ingress Controller](https://docs.microsoft.com/azure/aks/ingress-own-tls) (Fig. 3). As a result, authentication will be performed in the Ingress Controller, which simplifies the microservices. Additionally, you can whitelist source IPs with Ingress to make sure only API Management has access to the cluster.  
+Mutual TLS authentication is [natively supported](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates) by API Management and can be enabled in Kubernetes by [installing an Ingress Controller](https://docs.microsoft.com/azure/aks/ingress-own-tls) (Fig. 3). As a result, authentication will be performed in the Ingress Controller, which simplifies the microservices. Additionally, you can add the IP addresses of API Management to the allowed list by Ingress to make sure only API Management has access to the cluster.  
 
  
 ![Publish via an ingress controller](./media/api-management-aks/ingress-controller.png)
@@ -116,8 +116,8 @@ Cons:
 
 ## Next steps
 
-1. Learn more about [Network concepts for applications in AKS](https://docs.microsoft.com/azure/aks/concepts-network)
-2. Learn more about [How to use API Management with virtual networks](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet)
+* Learn more about [Network concepts for applications in AKS](https://docs.microsoft.com/azure/aks/concepts-network)
+* Learn more about [How to use API Management with virtual networks](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet)
 
 
 
