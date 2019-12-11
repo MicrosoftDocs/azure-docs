@@ -70,8 +70,6 @@
       href: ./how-to/upgrade-and-migrate.md
     - name: Backup and Restore
       href: ./how-to/backup-and-restore.md
-    - name: Tune CycleCloud Performance
-      href: ./how-to/performance-tuning.md
     - name: Configure Proxies
       href: ./how-to/running-behind-proxy.md
     - name: Run in Locked Down Network
