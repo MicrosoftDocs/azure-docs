@@ -185,7 +185,7 @@ await queueClient.SendMessageAsync("First message");
 await queueClient.SendMessageAsync("Second message");
 
 // Save the receipt so we can update this message later
-Response<SendReceipt> receipt = await queueClient.SendMessageAsync("Third message");
+SendReceipt receipt = await queueClient.SendMessageAsync("Third message");
 ```
 
 ### Peek at messages in a queue
@@ -215,7 +215,7 @@ Update the contents of a message by calling the [UpdateMessageAsync](/dotnet/api
 Console.WriteLine("\nUpdating the third message in the queue...");
 
 // Update a message using the saved receipt from sending the message
-await queueClient.UpdateMessageAsync(receipt.Value.MessageId, receipt.Value.PopReceipt, "Third message has been updated");
+await queueClient.UpdateMessageAsync(receipt.MessageId, receipt.PopReceipt, "Third message has been updated");
 ```
 
 ### Receive messages from a queue
