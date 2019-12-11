@@ -24,7 +24,7 @@ In this article you will learn, how to:
 
 ## Prerequisites
 
-To make any calls to the Maps service APIs, you need a Maps account and key. Follow instructions in [Create an account](./quick-demo-map-app#create-an-account-with-azure-maps) to create an Azure Maps account subscription and follow the steps in [get primary key](./quick-demo-map-app#get-the-primary-key-for-your-account) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
+To make any calls to the Maps service APIs, you need a Maps account and key. Follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 This article uses the [Postman app](https://www.getpostman.com/apps) to build REST calls. You can use any API development environment that you prefer.
 

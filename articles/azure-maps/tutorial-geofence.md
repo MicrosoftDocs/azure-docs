@@ -31,7 +31,7 @@ In this tutorial you will learn, how to:
 
 ### Create an Azure Maps account 
 
-To complete the steps in this tutorial, follow instructions in [Create an account](quick-demo-map-app#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](quick-demo-map-app#get-the-primary-key-for-your-account) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
+To complete the steps in this tutorial, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 ## Upload geofences
 

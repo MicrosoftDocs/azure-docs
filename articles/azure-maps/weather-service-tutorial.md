@@ -30,8 +30,8 @@ In this tutorial, you will:
 
 To complete this tutorial, you first need to:
 
-1. Create an Azure Maps account subscription in the S0 pricing tier by following instructions in [Create an account](/quick-demo-map-app#create-an-account-with-azure-maps).
-2. Get the primary subscription key for your account, follow the instructions in [get primary key](/quick-demo-map-app#get-the-primary-key-for-your-account).
+1. Create an Azure Maps account subscription in the S0 pricing tier by following instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps).
+2. Get the primary subscription key for your account, follow the instructions in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 
 For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).

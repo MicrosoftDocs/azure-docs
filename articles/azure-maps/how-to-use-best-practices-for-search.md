@@ -22,7 +22,7 @@ Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) inc
 
 ## Prerequisites
 
-To make any calls to the Maps service APIs, you need a Maps account and key. For information on creating an account, follow instructions in [Create an account](./quick-demo-map-app#create-an-account-with-azure-maps) and follow the steps in  [get primary key](./quick-demo-map-app#get-the-primary-key-for-your-account) to retrieve a primary key (subscription) for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
+To make any calls to the Maps service APIs, you need a Maps account and key. For information on creating an account, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) and follow the steps in  [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to retrieve a primary key (subscription) for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 > [!Tip]
 > To query the search service, you can use the [Postman app](https://www.getpostman.com/apps) to build REST calls or you can use any API development environment that you prefer.
