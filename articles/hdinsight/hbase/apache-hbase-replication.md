@@ -270,6 +270,10 @@ When you replicate a cluster, you must specify the tables that you want to repli
 
 To create a **Contacts** table and insert some data in the table, follow the instructions at [Apache HBase tutorial: Get started using Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
+> [!NOTE]
+> If you want to replicate tables from a custom namespace, you need to ensure that the appropriate custom namespaces are defined on the destination cluster as well.
+>
+
 ## Enable replication
 
 The following steps describe how to call the script action script from the Azure portal. For information about running a script action by using Azure PowerShell and the Azure Classic CLI, see [Customize HDInsight clusters by using script action](../hdinsight-hadoop-customize-cluster-linux.md).
@@ -390,6 +394,10 @@ The `print_usage()` section of the [script](https://raw.githubusercontent.com/Az
 - **Disable replication on specified tables (table1, table2, and table3)**:
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+
+> [!NOTE]
+> If you intend to delete the destination cluster, make sure you remove it from the peer list of the source cluster. This can be done by running the command remove_peer '1' at the hbase shell on the source cluster. Failing this the source cluster may not function properly.
+>
 
 ## Next steps
 

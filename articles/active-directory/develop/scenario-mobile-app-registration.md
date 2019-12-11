@@ -1,5 +1,5 @@
 ---
-title: Configure mobile apps that call web APIs | Azure
+title: Register mobile apps that call web APIs | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a mobile app that calls web APIs (app's code configuration)
 services: active-directory

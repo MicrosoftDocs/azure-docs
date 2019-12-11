@@ -1,5 +1,5 @@
 ---
-title: SSO between ADAL and MSAL iOS/macOS apps - Microsoft identity platform | Azure
+title: SSO between ADAL & MSAL apps (iOS/macOS) - Microsoft identity platform | Azure
 description: 
 services: active-directory
 documentationcenter: dev-center-name

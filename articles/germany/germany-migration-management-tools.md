@@ -42,7 +42,7 @@ You can't migrate Azure Backup jobs and snapshots from Azure Germany to global A
 
 For more information: 
 
-- Refresh your knowledge by completing the [Backup tutorials](https://docs.microsoft.com/azure/backup/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Backup tutorials](https://docs.microsoft.com/azure/backup/).
 - Review the [Azure Backup overview](../backup/backup-introduction-to-azure-backup.md).
 
 ## Scheduler

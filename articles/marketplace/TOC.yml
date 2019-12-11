@@ -85,6 +85,8 @@
 - name: Cloud Partner Portal
   href: ./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
   items:
+  - name: Cloud Partner Portal migration to Partner Center
+    href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
   - name: Portal Tour
     href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
     items:

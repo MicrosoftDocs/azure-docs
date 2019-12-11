@@ -11,7 +11,7 @@ This article explains how you, as a service provider, can onboard a customer to 
 
 You can repeat this process if you are managing resources for multiple customers. Then, when an authorized user signs in to your tenant, that user can be authorized across customer tenancy scopes to perform management operations without having to sign in to every individual customer tenant.
 
-You can associate your Microsoft Partner Network (MPN) ID with your onboarded subscriptions to track your impact across customer engagements and receive recognition. For more info, see [Link a partner ID to your Azure accounts](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Note that you'll need to perform this association in your service provider tenant.
+You can associate your Microsoft Partner Network (MPN) ID with your onboarded subscriptions to track your impact across customer engagements and receive recognition. For more info, see [Link a partner ID to your Azure accounts](../../billing/billing-partner-admin-link-started.md). Note that you'll need to perform this association in your service provider tenant.
 
 > [!NOTE]
 > Customers can also be onboarded when they purchase a managed services offer (public or private) that you published to Azure Marketplace. For more info, see [Publish Managed Services offers to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here with an offer published to Azure Marketplace.
@@ -57,7 +57,7 @@ az account show
 
 ## Define roles and permissions
 
-As a service provider, you may want to perform multiple tasks for a single customer, requiring different access for different scopes. You can define as many authorizations as you need to assign [role-based access control (RBAC) built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) to users in your tenant.
+As a service provider, you may want to perform multiple tasks for a single customer, requiring different access for different scopes. You can define as many authorizations as you need to assign [role-based access control (RBAC) built-in roles](../../role-based-access-control/built-in-roles.md) to users in your tenant.
 
 To make management easier, we recommend using Azure AD user groups for each role, allowing you to add or remove individual users to the group rather than assigning permissions directly to that user. You may also want to assign roles to a service principal. Be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job. For recommendations and info about supported roles, see [Tenants, users, and roles in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
 
@@ -99,11 +99,11 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 az role definition list --name "<roleName>" | grep name
 ```
 > [!TIP]
-> We recommend assigning the [Managed Services Registration Assignment Delete Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) when onboarding a customer, so that users in your tenant can [remove access to the delegation](#remove-access-to-a-delegation) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
+> We recommend assigning the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when onboarding a customer, so that users in your tenant can [remove access to the delegation](#remove-access-to-a-delegation) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
 
 ## Create an Azure Resource Manager template
 
-To onboard your customer, you'll need to create an [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) template for your offer with the following information. The **mspOfferName** and **mspOfferDescription** values are visible to the customer when viewing offer details in the [Service providers page](view-manage-service-providers.md) of the Azure portal.
+To onboard your customer, you'll need to create an [Azure Resource Manager](../../azure-resource-manager/index.yml) template for your offer with the following information. The **mspOfferName** and **mspOfferDescription** values are visible to the customer when viewing offer details in the [Service providers page](view-manage-service-providers.md) of the Azure portal.
 
 |Field  |Definition  |
 |---------|---------|
@@ -178,7 +178,7 @@ The following example shows **delegatedResourceManagement.parameters.json** file
     }
 }
 ```
-The last authorization in the example above adds a **principalId** with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the **delegatedRoleDefinitionIds** property and one or more built-in roles. The user created in this authorization will be able to assign these built-in roles to [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview),  which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md). No other permissions normally associated with the User Access Administrator role will apply to this user.
+The last authorization in the example above adds a **principalId** with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the **delegatedRoleDefinitionIds** property and one or more built-in roles. The user created in this authorization will be able to assign these built-in roles to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md),  which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md). No other permissions normally associated with the User Access Administrator role will apply to this user.
 
 ## Deploy the Azure Resource Manager templates
 
@@ -187,7 +187,7 @@ Once you have updated your parameter file, the customer must deploy the Azure Re
 Because this is a subscription-level deployment, it cannot be initiated in the Azure portal. The deployment may be done by using PowerShell or Azure CLI, as shown below.
 
 > [!IMPORTANT]
-> The deployment must be done by a non-guest account in the customer’s tenant which has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+> The deployment must be done by a non-guest account in the customer’s tenant which has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-portal.md).
 
 ### PowerShell
 
@@ -242,7 +242,7 @@ In the service provider's tenant:
 3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
 > [!IMPORTANT]
-> In order to see the delegated subscription in [My customers](view-manage-customers.md), users in the service provider's tenant must have been granted the [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role (or another built-in role which includes Reader access) when the subscription was onboarded for Azure delegated resource management.
+> In order to see the delegated subscription in [My customers](view-manage-customers.md), users in the service provider's tenant must have been granted the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access) when the subscription was onboarded for Azure delegated resource management.
 
 In the customer's tenant:
 
@@ -273,7 +273,7 @@ az account list
 
 By default, a user in the customer's tenant who has the appropriate permissions can remove access to resources that have been delegated to a service provider in the [Service providers page](view-manage-service-providers.md#add-or-remove-service-provider-offers) of the Azure portal.
 
-If you have included users with the [Managed Services Registration Assignment Delete Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) when onboarding the customer for Azure delegated resource management, those users in your tenant can also remove the delegation. When you do so, no users in the service provider's tenant will be able to access the resources that had been previously delegated.
+If you have included users with the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when onboarding the customer for Azure delegated resource management, those users in your tenant can also remove the delegation. When you do so, no users in the service provider's tenant will be able to access the resources that had been previously delegated.
 
 The example below shows an assignment granting the **Managed Services Registration Assignment Delete Role** that can be included in a parameter file:
 

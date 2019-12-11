@@ -1,5 +1,5 @@
 ---
-title: Customize browsers & WebViews | Azure
+title: Customize browsers & WebViews (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to customize the MSAL iOS/macOS browser experience to sign in users.
 services: active-directory
