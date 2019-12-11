@@ -1,5 +1,5 @@
 ---
-title: Single-page application (sign-in) - Microsoft identity platform
+title: Single-page app sign-in - Microsoft identity platform | Azure
 description: Learn how to build a single-page application (sign-in)
 services: active-directory
 documentationcenter: dev-center-name
