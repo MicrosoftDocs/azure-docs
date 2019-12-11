@@ -2,14 +2,12 @@
 title: Copy data from Oracle Eloqua (Preview)
 description: Learn how to copy data from Oracle Eloqua to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019

@@ -266,6 +266,10 @@
       href: how-to-custom-speech-commands-fulfill-sdk.md
     - name: 'Add parameter validation to Custom Commands'
       href: how-to-custom-speech-commands-validations.md
+    - name: 'Add a confirmation to a Custom Command'
+      href: how-to-custom-speech-commands-confirmations.md
+    - name: 'Add a one-step correction to a Custom Command'
+      href: how-to-custom-speech-commands-one-step-correction.md
   - name: Tutorials
     items:
     - name: Voice enable your bot with Speech SDK
@@ -401,8 +405,11 @@
       href: quickstarts/setup-platform.md?pivots=programming-language-more
   - name: How-to guides
     items:
-    - name: Enable logging
+    - name: How to enable logging
       href: how-to-use-logging.md
+    - name: How to track memory usage
+      href: how-to-track-speech-sdk-memory-usage.md
+      displayName: "memory usage, memory consumption, object logging, object tracking, memory"
   - name: Samples
     items:
     - name: Speech SDK Samples (GitHub)

@@ -1,6 +1,6 @@
 ---
 title: Load data into Azure SQL Data Warehouse
-description: 'Use Azure Data Factory to copy data into Azure SQL Data Warehouse'
+description: Use Azure Data Factory to copy data into Azure SQL Data Warehouse
 services: data-factory
 ms.author: jingwang
 author: linda33wj

@@ -2,7 +2,6 @@
 title: Troubleshoot package execution in the SSIS integration runtime
 description: "This article provides troubleshooting guidance for SSIS package execution in the SSIS integration runtime"
 services: data-factory
-documentationcenter: ""
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
