@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/11/2019
 ms.author: helohr
 ---
 # Set up MSIX app attach
@@ -195,12 +195,12 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
 
 2.  Right-click the VHD and select **Mount**. This will mount the VHD to a drive letter.
 
-3.  After you mount the VHD, the **File Explorer** window will open. Capture the parent folder and update the **\$parentFolder** variable
+3.  After you mount the VHD, the **File Explorer** window will open. Capture the parent folder and update the **$parentFolder** variable
 
     >[!NOTE]
     >If you don't see a parent folder, that means the MSIX wasn't expanded properly. Redo the previous section and try again.
 
-4.  Open the parent folder. If correctly expanded, you'll see a folder with the same name as the package. Update the **\$packageName** variable to match the name of this folder.
+4.  Open the parent folder. If correctly expanded, you'll see a folder with the same name as the package. Update the **$packageName** variable to match the name of this folder.
 
     For example, `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
@@ -340,7 +340,7 @@ Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 
 ### Deregister PowerShell script
 
-For this script, replace the placeholder for **\$packageName** with the name of the package you're testing.
+For this script, replace the placeholder for **$packageName** with the name of the package you're testing.
 
 ```powershell
 #MSIX app attach deregistration sample
@@ -360,7 +360,7 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### Destage PowerShell script
 
-For this script, replace the placeholder for **\$packageName** with the name of the package you're testing.
+For this script, replace the placeholder for **$packageName** with the name of the package you're testing.
 
 ```powershell
 #MSIX app attach de staging sample
