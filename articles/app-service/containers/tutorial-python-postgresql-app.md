@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Python (Django) web app with PostgreSQL on Linux - Azure App Service'
-description: Learn how to run a data-driven Python (Django) web app in Azure, with connection to a PostgreSQL database.
+title: 'Tutorial: Build a Python Django web app with PostgreSQL in Azure App Service'
+description: Learn how to run a PostgreSQL database-driven Python Django web app in Azure.
 services: app-service\web
 documentationcenter: python
 author: cephalin
@@ -9,57 +9,53 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/14/2019
 ms.author: cephalin
 ms.custom: [mvc, seodec18, seo-python-october2019]
 ---
-# Tutorial: Build a Python (Django) web app with PostgreSQL in Azure App Service
+# Tutorial: Run a Python Django web app with PostgreSQL in Azure App Service
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a data-driven Python (Django) web app, using PostgreSQL as the database back-end. When you are done, you have a Django web application running in Azure App Service on Linux.
+[Azure App Service](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. [Azure Database for PostgreSQL](/azure/postgresql/overview) is a relational database service based on the open-source PostgreSQL database engine. This tutorial shows how to connect a data-driven Python Django web app to an Azure Database for PostgreSQL database, and deploy and run the app on Azure App Service.
 
-![Python Django web app in Azure App Service on Linux](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
+![Python Django web app in Azure App Service](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a PostgreSQL database in Azure
-> * Connect a Python web app to PostgreSQL
-> * Deploy the Python web app to Azure
+> * Connect a Python Django web app to a local PostgreSQL database
+> * Create an Azure Database for PostgreSQL database and connect the web app to it
+> * Deploy the web app to Azure App Service
 > * View diagnostic logs
-> * Manage the Python web app in the Azure portal
+> * Manage the web app in the Azure portal
 
-> [!NOTE]
-> Before creating an Azure Database for PostgreSQL, please check [which compute generation is available in your region](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores).
-
-You can follow the steps in this article on macOS, Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+You can follow the steps in this article on macOS, Linux, or Windows. The steps are similar in most cases, but differences aren't detailed in this tutorial. Most of the examples below use a `bash` terminal window on Linux. 
 
 ## Prerequisites
 
-To complete this tutorial:
+Before you start this tutorial:
 
-1. [Install Git](https://git-scm.com/)
-2. [Install Python](https://www.python.org/downloads/)
-3. [Install and run PostgreSQL](https://www.postgresql.org/download/)
+- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+- Install [Git](https://git-scm.com/)
+- Install [Python 3](https://www.python.org/downloads/)
+- Install and run [PostgreSQL](https://www.postgresql.org/download/)
 
-## Test local PostgreSQL installation and create a database
+## Connect to your local PostgreSQL server and create a database
 
-In a local terminal window, run `psql` to connect to your local PostgreSQL server.
+First, create and connect to a local PostgreSQL server and database. 
 
-```bash
-sudo -u postgres psql postgres
-```
-
-If you get an error message similar to `unknown user: postgres`, your PostgreSQL installation may be configured with your logged in username. Try the following command instead.
+In a local terminal window, run `psql` to connect to your local PostgreSQL server as the built-in `postgres` user.
 
 ```bash
-psql postgres
+psql -U postgres
 ```
 
-If your connection is successful, your PostgreSQL database is running. If not, make sure that your local PostgresQL database is started by following the instructions for your operating system at [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
+If the connection isn't successful, make sure your PostgreSQL server is running, or start it if necessary by running a command like:
 
-Create a database called *pollsdb* and set up a separate database user named *manager* with password *supersecretpass*.
+```bash
+postgres -D /usr/local/pgsql/data
+```
+
+In your *postgres* directory, create a new database called *pollsdb*, and set up a new database user named *manager* with password *supersecretpass*:
 
 ```sql
 CREATE DATABASE pollsdb;
@@ -71,50 +67,56 @@ Type `\q` to exit the PostgreSQL client.
 
 <a name="step2"></a>
 
-## Create local Python app
+## Create and run the Python app
 
-In this step, you set up the local Python Django project.
+Next, set up and run the sample Python Django web app.
+
+The sample repository contains the finished data-driven [Django](https://www.djangoproject.com/) polls app from [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. You can connect this or another data-driven Python Django web app to a local or cloud PostgreSQL database back end, and deploy the app to Azure App Service.
 
 ### Clone the sample app
 
-Open the terminal window, and `CD` to a working directory.
-
-Run the following commands to clone the sample repository.
+Open a terminal window, and run the following commands to clone the sample app repository and change to the new working directory:
 
 ```bash
 git clone https://github.com/Azure-Samples/djangoapp.git
 cd djangoapp
 ```
 
-This sample repository contains a [Django](https://www.djangoproject.com/) application. It's the same data-driven app you would get by following the [getting started tutorial in the Django documentation](https://docs.djangoproject.com/en/2.1/intro/tutorial01/). This tutorial doesn't teach you Django, but shows you how to take deploy and run a Django web app (or another data-driven Python app) to Azure App Service.
+### Configure the Python virtual environment
 
-### Configure environment
-
-Create a Python virtual environment and use a script to set the database connection settings.
+Create and activate a Python virtual environment to run your app.
 
 ```bash
-# Bash
 python3 -m venv venv
 source venv/bin/activate
-source ./env.sh
-
-# PowerShell
+```
+or
+```PowerShell
 py -3 -m venv venv
 venv\scripts\activate
+```
+
+
+
+In the `venv` environment, run *env.sh* or *env.ps1* to set the environment variables that *azuresite/settings.py* uses for the database connection settings.
+
+```bash
+source ./env.sh
+```
+or
+```PowerShell
 .\env.ps1
 ```
 
-The environment variables defined in *env.sh* and *env.ps1* are used in _azuresite/settings.py_ to define the database settings.
-
-### Run app locally
-
-Install the required packages, [run Django migrations](https://docs.djangoproject.com/en/2.1/topics/migrations/) and [create an admin user](https://docs.djangoproject.com/en/2.1/intro/tutorial02/#creating-an-admin-user).
+In the `venv` environment, install the required packages from *requirements.txt*, run [Django migrations](https://docs.djangoproject.com/en/2.1/topics/migrations/), and [create an admin user](https://docs.djangoproject.com/en/2.1/intro/tutorial02/#creating-an-admin-user):
 
 ```bash
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py createsuperuser
 ```
+
+### Run the web app
 
 Once the admin user is created, run the Django server.
 
@@ -134,48 +136,55 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
 
-Go to `http://localhost:8000` in a browser. You should see the message `No polls are available.`. 
+Go to *http:\//localhost:8000* in a browser. You should see the message **No polls are available**. 
 
-Go to `http://localhost:8000/admin` and sign in using the admin user you created in the last step. Select **Add** next to **Questions** and create a poll question with some choices.
+Go to *http:\//localhost:8000/admin* and sign in using the admin user you created in the last step. Select **Add** next to **Questions**, and create a poll question with some choices.
 
 ![Run Python Django app in App Services locally](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
-Go to `http://localhost:8000` again and see the poll question displayed.
+Go to *http:\//localhost:8000* again to see the poll question and answer the question. The local Django sample application writes and stores user data to the local PostgreSQL database.
 
-The Django sample application stores user data in the database. If you are successful at adding a poll question, your app is writing data to the local PostgreSQL database.
-
-To stop the Django server at anytime, type Ctrl+C in the terminal.
-
-## Create a production PostgreSQL database
-
-In this step, you create a PostgreSQL database in Azure. When your app is deployed to Azure, it uses this cloud database.
+To stop the Django server, type Ctrl+C in the terminal.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+Most of the remaining steps in this article use Azure CLI commands in the Azure Cloud Shell. 
+
+## Create and connect to an Azure Database for PostgreSQL database
+
+In this section, you create an Azure Database for PostgreSQL database, and connect your web app to it. When you deploy your web app to Azure App Service, the app uses this cloud database. 
+
 ### Create a resource group
+
+You can create a new resource group for your Azure Database for PostgreSQL server, or use an existing resource group. 
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
 ### Create an Azure Database for PostgreSQL server
 
-Create a PostgreSQL server with the [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) command in the Cloud Shell.
+You create a PostgreSQL server with the [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) command in the Cloud Shell.
 
-In the following example command, replace *\<postgresql-name>* with a unique server name, and replace *\<admin-username>* and *\<admin-password>* with the desired user credentials. The user credentials are for the database administrator account. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql-name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure.
+In the following command, replace *\<postgresql-name>* with a unique server name. The server name is part of your PostgreSQL endpoint *https://<postgresql-name>.postgres.database.azure.com*, so the name needs to be unique across all servers in Azure. 
+
+Replace *\<resourcegroup-name>* and *\<region>* with the name and region of the resource group you created or want to use. Replace *\<admin-username>* and *\<admin-password>* with user credentials for the database administrator account.
+
+> [!NOTE]
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as Gen5. 
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql-name> --location "West Europe" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen4_1
+az postgres server create --resource-group <resourcegroup-name> --name <postgresql-name> --location "<region>" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen4_1
 ```
 
 When the Azure Database for PostgreSQL server is created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
-  "administratorLogin": "<admin-username>",
-  "fullyQualifiedDomainName": "<postgresql-name>.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql-name>",
+  "administratorLogin": "myusername",
+  "fullyQualifiedDomainName": "myservername.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myservername",
   "location": "westus",
-  "name": "<postgresql-name>",
-  "resourceGroup": "myResourceGroup",
+  "name": "myservername",
+  "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 1,
     "family": "Gen4",
@@ -188,38 +197,34 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
 ```
 
 > [!NOTE]
-> Remember \<admin-username> and \<admin-password> for later. You need them to sign in to the Postgre server and its databases.
+> Remember the *\<admin-username>* and *\<admin-password>* to use later for signing in to the PostgreSQL server and databases.
 
-### Create firewall rules for the PostgreSQL server
+### Create firewall rules for the Azure Database for PostgreSQL server
 
-In the Cloud Shell, run the following Azure CLI commands to allow access to the database from Azure resources.
+In the Cloud Shell, run the following Azure CLI command to allow access to the database from Azure resources. Replace the *\<postgresql-name>* and *\<resourcegroup-name>* placeholders with your values.
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql-name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAllAzureIPs
+az postgres server firewall-rule create --resource-group <resourcegroup-name> --server-name <postgresql-name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAllAzureIPs
 ```
 
 > [!NOTE]
-> This setting allows network connections from all IPs within the Azure network. For production use, try to configure the most restrictive firewall rules possible by [using only the outbound IP addresses your app uses](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> The preceding setting allows network connections from all IP addresses within the Azure network. For production use, try to configure the most restrictive firewall rules possible by [using only the outbound IP addresses your app uses](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
-In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your-ip-address>* with [your local IPv4 IP address](https://www.whatsmyip.org/).
+In the Cloud Shell, run the `firewall-rule-create` command again to allow access from your local computer. Replace *\<your-ip-address>* with [your local IPv4 IP address](https://www.whatsmyip.org/). Replace the *\<postgresql-name>* and *\<resourcegroup-name>* placeholders with your values.
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql-name> --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address> --name AllowLocalClient
+az postgres server firewall-rule create --resource-group <resourcegroup-name> --server-name <postgresql-name> --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address> --name AllowLocalClient
 ```
 
-## Connect Python app to production database
+### Create and connect to the Azure Database for PostgreSQL database
 
-In this step, you connect your Django web app to the Azure Database for PostgreSQL server you created.
-
-### Create empty database and user access
-
-In the Cloud Shell, connect to the database by running the command below. When prompted for your admin password, use the same password you specified in [Create an Azure Database for PostgreSQL server](#create-an-azure-database-for-postgresql-server).
+In the Cloud Shell, connect to the Azure Database for PostgreSQL server by running the following command. Use the server name, admin username, and password you created for the server.
 
 ```bash
 psql -h <postgresql-name>.postgres.database.azure.com -U <admin-username>@<postgresql-name> postgres
 ```
 
-Just like in your local Postgres server, create the database and user in the Azure Postgres server.
+Just as you did in your local PostgreSQL server, create a database and user in the Azure Database for PostgreSQL server:
 
 ```sql
 CREATE DATABASE pollsdb;
@@ -230,20 +235,20 @@ GRANT ALL PRIVILEGES ON DATABASE pollsdb TO manager;
 Type `\q` to exit the PostgreSQL client.
 
 > [!NOTE]
-> It's best practice to create database users with restricted permissions for specific applications, instead of using the admin user. In this example, the `manager` user has full privileges to _only_ the `pollsdb` database.
+> It's a best practice to create database users with restricted permissions for specific apps, instead of using the admin user. In this example, the `manager` user has full privileges to *only* the `pollsdb` database.
 
-### Test app connectivity to production database
+### Test app connectivity to the Azure Database for PostgreSQL production database
 
-In the local terminal window, change the database environment variables (which you configured earlier by running *env.sh* or *env.ps1*):
+In the `venv` environment in your local terminal window, change the database environment variables, which you configure by running *env.sh* or *env.ps1*. Replace *\<postgresql-name>* with your Azure Database for PostgreSQL server name.
 
 ```bash
-# Bash
 export DBHOST="<postgresql-name>.postgres.database.azure.com"
 export DBUSER="manager@<postgresql-name>"
 export DBNAME="pollsdb"
 export DBPASS="supersecretpass"
-
-# PowerShell
+```
+or
+```powershell
 $Env:DBHOST = "<postgresql-name>.postgres.database.azure.com"
 $Env:DBUSER = "manager@<postgresql-name>"
 $Env:DBNAME = "pollsdb"
@@ -263,52 +268,56 @@ Once the admin user is created, run the Django server.
 python manage.py runserver
 ```
 
-Go to `http://localhost:8000` in again. You should see the message `No polls are available.` again. 
+In a browser, go to *http:\//localhost:8000* again. You should see the message **No polls are available** again. 
 
-Go to `http://localhost:8000/admin` and sign in using the admin user you created, and create a poll question like before.
+Go to *http:\//localhost:8000/admin* and sign in using the admin user you created, and create a poll question like before.
 
 ![Run Python Django app in App Services locally](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
-Go to `http://localhost:8000` again and see the poll question displayed. Your app is now writing data to the database in Azure.
+Go to *http:\//localhost:8000* again and see the poll question displayed. Your app is now writing data to the Azure Database for PostgreSQL database.
 
-## Deploy to Azure
+## Deploy the web app to Azure App Service
 
-In this step, you deploy the Postgres-connected Python application to Azure App Service.
+In this step, you deploy the Azure Database for PostgreSQL database-connected Python app to Azure App Service.
 
 ### Configure repository
 
-Django validates the `HTTP_HOST` header in incoming requests. For your Django web app to work in App Service, you need to add the full-qualified domain name of the app to the allowed hosts. Open _azuresite/settings.py_ and find the `ALLOWED_HOSTS` setting. Change the line to:
+You need to change and add some settings in your *djangoapp/azuresite/settings.py* file to work with Azure App Service. 
 
-```python
-ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
-```
-
-Next, Django doesn't support [serving static files in production](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), so you need to enable this manually. For this tutorial, you use [WhiteNoise](https://whitenoise.evans.io/en/stable/). The WhiteNoise package is already included in _requirements.txt_. You just need to configure Django to use it. 
-
-In _azuresite/settings.py_, find the `MIDDLEWARE` setting, and add the `whitenoise.middleware.WhiteNoiseMiddleware` middleware to the list, just below the `django.middleware.security.SecurityMiddleware` middleware. Your `MIDDLEWARE` setting should look like this:
-
-```python
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    ...
-]
-```
-
-At the end of _azuresite/settings.py_, add the following lines.
-
-```python
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-```
-
-For more information on configuring WhiteNoise, see the [WhiteNoise documentation](https://whitenoise.evans.io/en/stable/).
+1. Django validates the `HTTP_HOST` header in incoming requests. For your Django web app to work in App Service, you need to add the fully qualified domain name of the app to the allowed hosts. 
+   
+   Open *azuresite/settings.py* and change the `ALLOWED_HOSTS` line as follows.
+   
+   ```python
+   ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
+   ```
+   
+1. Django doesn't support [serving static files in production](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/). For this tutorial, you use [WhiteNoise](https://whitenoise.evans.io/en/stable/) to enable serving static files in production. The WhiteNoise package was already installed with *requirements.txt*. 
+   
+   To configure Django to use WhiteNoise, in *azuresite/settings.py*, find the `MIDDLEWARE` setting, and add the `whitenoise.middleware.WhiteNoiseMiddleware` middleware to the list, just after the `django.middleware.security.SecurityMiddleware` middleware line. Your `MIDDLEWARE` setting should look like this:
+   
+   ```python
+   MIDDLEWARE = [
+       'django.middleware.security.SecurityMiddleware',
+       'whitenoise.middleware.WhiteNoiseMiddleware',
+       ...
+   ]
+   ```
+   
+1. At the end of *azuresite/settings.py*, add the following lines:
+   
+   ```python
+   STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+   
+   STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+   ```
+   
+   For more information about configuring WhiteNoise, see the [WhiteNoise documentation](https://whitenoise.evans.io/en/stable/).
 
 > [!IMPORTANT]
 > The database settings section already follows the security best practice of using environment variables. For the complete deployment recommendations, see [Django Documentation: deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
 
-Commit your changes into the repository.
+Commit your changes into your fork of the repository:
 
 ```bash
 git commit -am "configure for App Service"
