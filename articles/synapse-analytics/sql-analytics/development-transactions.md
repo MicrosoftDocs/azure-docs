@@ -1,12 +1,12 @@
 ---
 title: Using transactions in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips for implementing transactions in Azure SQL Data Warehouse for developing solutions.
-services: sql-data-warehouse
+services: synapse analytics
 author: XiaoyuMSFT 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice:
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
@@ -194,5 +194,5 @@ They are as follows:
 * No support for DDL such as CREATE TABLE inside a user-defined transaction
 
 ## Next steps
-To learn more about optimizing transactions, see [Transactions best practices](development-transaction-best-practices.md). To learn about other SQL Data Warehouse best practices, see [SQL Data Warehouse best practices](best-practices.md).
+To learn more about optimizing transactions, see [Transactions best practices](development-transaction-best-practices.md). Additional best practices guides are also provided for [SQL pools](best-practices-sql-pool.md) and [SQL on-demand](best-practices-sql-on-demand.md).
 

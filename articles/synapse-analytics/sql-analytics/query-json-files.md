@@ -1,11 +1,11 @@
 ---
 title: Querying JSON files
 description: This section explains how to read JSON files.
-services: sql-data-warehouse
+services: synapse analytics
 author: azaricstefan
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: design
+ms.subservice:
 ms.date: 10/07/2019
 ms.author: v-stazar
 ms.reviewer: jrasnick

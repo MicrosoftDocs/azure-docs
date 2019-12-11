@@ -1,11 +1,11 @@
 ---
 title: Querying folders and multiple csv files
 description: Reading multiple files/folders is supported through usage of wildcards, similar to wildcard used in Windows OS but with greater flexibility since multiple wildcards are allowed.
-services: sql-data-warehouse 
+services: synapse analytics 
 author: azaricstefan 
-ms.service: sql-data-warehouse 
+ms.service: synapse-analytics 
 ms.topic: overview
-ms.subservice: design
+ms.subservice:
 ms.date: 10/08/2019
 ms.author: v-stazar
 ms.reviewer: jrasnick

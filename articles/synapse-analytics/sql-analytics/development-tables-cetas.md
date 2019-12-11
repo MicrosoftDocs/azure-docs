@@ -1,11 +1,11 @@
 ---
 title: Using CETAS in SQL Analytics
 description: Using CETAS in SQL Analytics
-services: sql-data-warehouse
+services: synapse analytics
 author: filippopovic
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: design
+ms.subservice:
 ms.date: 10/21/2019
 ms.author: fipopovi
 ms.reviewer: jrasnick

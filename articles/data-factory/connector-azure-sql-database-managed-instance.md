@@ -4,7 +4,6 @@ description: Learn how to move data to and from Azure SQL Database Managed Insta
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj

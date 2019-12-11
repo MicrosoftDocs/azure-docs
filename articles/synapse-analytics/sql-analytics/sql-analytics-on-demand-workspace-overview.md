@@ -3,7 +3,7 @@ title: SQL Analytics on-demand | Microsoft Docs
 description: Learn about SQL Analytics on-demand in Azure Synapse Analytics.
 services: sql-datawarehouse
 author: vvasic-msft
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview
 ms.date: 10/24/2019
 ms.author: vvasic

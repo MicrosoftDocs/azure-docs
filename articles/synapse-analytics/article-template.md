@@ -1,11 +1,9 @@
 ---
 title: What is Azure Synapse Analytics #Required; update as needed page title displayed in search results. Include the brand.
 description: #Required; Add article description that is displayed in search results.
-services: synapse-analytics 
 author: julieMSFT #Required; update with your GitHub user alias, with correct capitalization.
 ms.service: synapse-analytics 
 ms.topic: overview #Required
-ms.subservice:  #leave blank
 ms.date: 10/17/2019 #Update with current date; mm/dd/yyyy format.
 ms.author: jrasnick #Required; update with your microsoft alias of author; optional team alias.
 ms.reviewer: jrasnick

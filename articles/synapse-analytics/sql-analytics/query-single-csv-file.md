@@ -1,11 +1,11 @@
 ---
 title: Querying single CSV file
 description: CSV files may have different formats. In this section, we will show how to query single CSV file with different file formats using SQL on-demand.
-services: sql-data-warehouse
+services: synapse analytics
 author: azaricstefan
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: design
+ms.subservice:
 ms.date: 10/07/2019
 ms.author: v-stazar
 ms.reviewer: jrasnick

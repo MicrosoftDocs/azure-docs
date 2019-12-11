@@ -6,7 +6,7 @@ documentationcenter: ''
 author: kromerm
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019

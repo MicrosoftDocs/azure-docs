@@ -1,35 +1,32 @@
 ---
-title: Quickstart - Create and use views
-description: This section explains how to leverage views to wrap SQL on-demand queries so you can reuse your queries. Views are also needed if you want tools like Power BI to leverage SQL on-demand Query.
+title: Quickstart - Create and use views in SQL on-demand using Azure Synapse Analytics
+description: In this section, you'll learn how to create and use views to wrap SQL on-demand queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
 services: sql-data-warehouse
 author: azaricstefan
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: design
+ms.subservice:
 ms.date: 10/07/2019
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Create and use views
+# Quickstart: Create and use views in SQL on-demand using Azure Synapse Analytics
 
-This section explains how to leverage views to wrap SQL on-demand queries so you can reuse your queries. Views are also needed if you want tools like Power BI to leverage SQL on-demand query.
-
+In this section, you'll learn how to create and use views to wrap SQL on-demand queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
 
 ## Prerequisites
 
-Before reading the rest of this article, make sure to check following articles:
+Your first step is to review the articles below and make sure you've met the prerequisites for creating and using SQL on-demand views:
 - [First-time setup](query-data-storage.md#first-time-setup)
 - [Prerequisites](query-data-storage.md#prerequisites)
 
 ## Create a view
 
-You can create views the same way you create regular SQL Server views. 
-
-The query below creates view that reads *population.csv* file.
+You can create views the same way you create regular SQL Server views. The query below creates view that reads *population.csv* file.
 
 > [!NOTE]
-> Change the first line in query below to use the database you created. If you have not created a database, please check [First-time setup](query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname]
@@ -54,16 +51,14 @@ WITH (
 ) AS [r]
 ```
 
-
-
 ## Use a view
 
 You can use views in your queries the same way you use views in SQL Server queries. 
 
-The following query shows how you can use the *population_csv* view we created in [Create a view](#create-a-view). It returns country names with their population in 2019 in descending order.
+The following query demonstrates using the *population_csv* view we created in [Create a view](#create-a-view). It returns country names with their population in 2019 in descending order.
 
 > [!NOTE]
-> Change the first line in the query below to use the database you created. If you have not created a database, please check [First-time setup](query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname]
@@ -80,12 +75,4 @@ ORDER BY
 
 ## Next steps
 
-Advance to one of the following articles and learn how to query different files.
-> [!div class="nextstepaction"]
-> [Query single CSV file](query-single-csv-file.md)
-
-> [!div class="nextstepaction"]
-> [Query Parquet files](query-parquet-files.md)
-
-> [!div class="nextstepaction"]
-> [Query JSON files](query-json-files.md)
+For information on how to query different file types, refer to the [Query single CSV file](query-single-csv-file.md), [Query Parquet files](query-parquet-files.md), and [Query JSON files](query-json-files.md) articles.

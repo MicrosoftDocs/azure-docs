@@ -1,19 +1,19 @@
 ---
-title: "Customize setup for the Azure-SSIS integration runtime "
+title: Customize setup for the Azure-SSIS integration runtime
 description: "This article describes how to use the custom setup interface for the Azure-SSIS integration runtime to install additional components or change settings"
 services: data-factory
 documentationcenter: ""
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 1/25/2019
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
+ms.custom: seo-lt-2019
+ms.date: 1/25/2019
 ---
+
 # Customize setup for the Azure-SSIS integration runtime
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]

@@ -1,12 +1,12 @@
 ---
 title: Creating, updating statistics - SQL Analytics | Microsoft Docs
 description: Recommendations and examples for creating and updating query-optimization statistics in SQL Analytics.
-services: sql-data-warehouse
+services: synapse analytics
 author: filippopovic
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice:
 ms.date: 10/15/2019
 ms.author: fipopovi
 ms.reviewer: jrasnick
@@ -703,4 +703,4 @@ FROM OPENROWSET(
 
 ## Next steps
 
-For further query performance improvements, see [best practices](best-practices.md#sql-on-demand).
+For further query performance improvements, see [Best practices for SQL pools](best-practices-sql-pool.md#maintain-statistics).
