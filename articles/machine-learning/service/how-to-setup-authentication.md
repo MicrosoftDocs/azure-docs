@@ -15,7 +15,7 @@ ms.date: 12/09/2019
 # Setup authentication for ML resources
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to setup and configure authentication for various resources and workflows in Azure Machine Learning. There are multiple ways to setup and use authentication within the service, ranging from simple UI-based auth for development or testing purposes, to full Azure Active Directory service principal authentication, which allows you to retrieve OAuth2.0 bearer-type tokens for use with HTTP calls on any platform.
+In this article, you learn how to setup and configure authentication for various resources and workflows in Azure Machine Learning. There are multiple ways to setup and use authentication within the service, ranging from simple UI-based auth for development or testing purposes, to full Azure Active Directory service principal authentication. This article also explains the differences in how web-service authentication works, as well as how to authenticate to the Azure Machine Learning REST API.
 
 This how-to shows you how to do the following tasks:
 
@@ -57,11 +57,13 @@ from azureml.core.authentication import InteractiveLoginAuthentication
 interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
 ```
 
-While useful for testing and learning, interactive authentication will not help you with building automated or headless workflows. Setting up service principal authentication is the best approach for automated requirements.
+While useful for testing and learning, interactive authentication will not help you with building automated or headless workflows. Setting up service principal authentication is the best approach for automated requirements that use the SDK.
 
 ## Setup service principal authentication
 
-This setup process is necessary for enabling authentication that is decoupled from a specific user login, which allows you to authenticate to Azure Machine Learning in automated workflows. To set up service principal authentication, you first create an app registration in Azure Active Directory, and then grant your app role-based access to your ML workspace. The easiest way to complete this setup is through the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) in the Azure Portal. After you login to the portal, click the `>_` icon in the top right of the page near your name to open the shell.
+This setup process is necessary for enabling authentication that is decoupled from a specific user login, which allows you to authenticate to the Azure Machine Learning Python SDK in automated workflows. Service principle authentication will also allow you to connect to the REST API.
+
+To set up service principal authentication, you first create an app registration in Azure Active Directory, and then grant your app role-based access to your ML workspace. The easiest way to complete this setup is through the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) in the Azure Portal. After you login to the portal, click the `>_` icon in the top right of the page near your name to open the shell.
 
 If you haven't used the cloud shell before in your Azure account, you will need to create a storage account resource for storing any files that are written. In general this storage account will incur a negligible monthly cost. Additionally, install the machine learning extension if you haven't used it previously with the following command.
 
@@ -147,78 +149,40 @@ ws = Workspace.get(name="ml-example",
 ws.get_details()
 ```
 
-## Get OAuth2.0 bearer-type header
+## Web-service authentication
 
-For interacting with Azure Machine Learning endpoints from platforms other than Python, you likely need to grab the authorization token explicitly. This is as simple as using the `ServicePrincipalAuthentication` object you created above and calling the `get_authentication_header()` function.
+Web-services in Azure Machine Learning use a different authentication pattern than what is described above. The easiest way to authenticate to deployed web-services is to use **key-based authentication**, which generates static bearer-type authentication keys. If you only need to authenticate to a deployed web-service, you do not need to setup service principle authentication as shown above.
 
-```python
-auth_header = sp.get_authentication_header()
-print(auth_header)
-```
-
-```json
-{
-    "Authorization": "Bearer random-sample-token"
-}
-```
-
-If you need to make REST calls in Python, you can use the returned dictionary directly in an HTTP call with the `requests` library. The following example can be found in the [pipelines tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint), and triggers a pipeline run with a REST call. 
+Web-services deployed on Azure Kubernetes Service have key-based auth *enabled* by default. Azure Container Instances deployed services have key-based auth *disabled* by default, but you can enable it by setting `auth_enabled=True`when creating the ACI web-service. The following is an example of creating an ACI deployment configuration with key-based auth enabled.
 
 ```python
-import requests
+from azureml.core.webservice import AciWebservice
 
-rest_endpoint = published_pipeline.endpoint
-response = requests.post(rest_endpoint, 
-                         headers=auth_header, 
-                         json={"ExperimentName": "batch_scoring",
-                               "ParameterAssignments": {"param_batch_size": 50}})
-run_id = response.json()["Id"]
+aci_config = AciWebservice.deploy_configuration(cpu_cores = 1,
+                                                memory_gb = 1,
+                                                auth_enable=True)
 ```
 
-If you need to make REST calls in another language, grab the raw bearer token, and ideally store it in an environment variable in whatever platform you're developing in.
+Then you can use the custom ACI configuration in deployment using the parent `WebService` class.
 
 ```python
-raw_token = auth_header.get("Authorization")
-print(raw_token)
-```
-    Bearer random-sample-token
+from azureml.core.webservice import Webservice
 
-A common use-case for making REST calls to Azure Machine Learning from another platform is to consume ML web-services. The following code sample can be found in the [deployment how-to](how-to-deploy-and-where.md#consume-web-services) and shows how to authenticate and call a web-service. The example in the how-to gets the auth header from the in-memory deployed web-service object, but you can modify it as shown below to use the service principal auth header you just generated above.
+aci_service = Webservice.deploy_from_image(deployment_config=aci_config,
+                                           image=image,
+                                           name="aci_service_sample",
+                                           workspace=ws)
+aci_service.wait_for_deployment(True)
+```
+
+To fetch the auth keys, use `aci_service.get_keys()`. To regenerate a key, use the `regen_key()` function and pass either **Primary** or **Secondary**.
 
 ```python
-import requests
-import json
-
-# use service principal auth header from above, add in content-type to dict
-auth_header["Content-Type"] = "application/json"
-
-test_sample = json.dumps({'data': [
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-]})
-
-response = requests.post(service.scoring_uri, data=test_sample, headers=auth_header)
-print(response.status_code)
-print(response.elapsed)
-print(response.json())
+aci_service.regen_key("Primary")
+# or
+aci_service.regen_key("Secondary")
 ```
 
-The following code makes the same call as above in but in Javascript, using the raw bearer token. 
-
-```javascript
-const http = new XMLHttpRequest();
-const url = "https://your-webservice-url";
-const payload = {
-    "data": [
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-    ]
-}
-
-http.open("POST", url);
-http.setRequestHeader("Content-Type", "application/json");
-http.setRequestHeader("Authorization", "Bearer random-sample-token");
-http.send(JSON.stringify(payload))
-```
+Web-services also support token-based authentication, but only for Azure Kubernetes Service deployments. See the [how-to](how-to-consume-web-service.md) on consuming web-services for more additional information on authenticating.
 
 ## Azure Machine Learning REST API auth
