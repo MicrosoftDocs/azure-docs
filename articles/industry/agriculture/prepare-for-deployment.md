@@ -41,7 +41,7 @@ When you install Azure FarmBeats, the following resources are provisioned in you
 
 ### Costs incurred
 
-The cost of Azure FarmBeats is an aggregate of the cost of the underlying Azure services. Pricing information for Azure services can be calculated using the [Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator). The actual cost of the total installation will vary based on the usage. The steady state cost for the two components is:
+The cost of Azure FarmBeats is an aggregate of the cost of the underlying Azure services. Pricing information for Azure services can be calculated using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator). The actual cost of the total installation will vary based on the usage. The steady state cost for the two components is:
 
 * Data hub - less than $10 per day
 * Accelerator - less than $2 per day
@@ -86,7 +86,7 @@ Make a note of the **Azure Subscription ID** and the **Azure Region**.
 
 You'll need to verify if you have sufficient privileges and permissions in the Azure tenant you're looking to install Azure FarmBeats. 
 
-You can verify your access permissions in the Azure portal by following the instructions [here](https://docs.microsoft.com/en-us/azure/role-based-access-control/check-access)
+You can verify your access permissions in the Azure portal by following the instructions [here](https://docs.microsoft.com/azure/role-based-access-control/check-access)
 
 For installing Azure FarmBeats, you need the following permissions:
 * Tenant - Read Access
