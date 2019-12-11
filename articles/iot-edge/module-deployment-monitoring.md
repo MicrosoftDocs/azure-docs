@@ -111,6 +111,14 @@ The system runtime modules, edgeAgent and edgeHub, are not configured as part of
 
 An IoT Edge device can apply one and only one standard automatic deployment, but it can apply multiple layered automatic deployments. Any layered deployments targeting a device must have a higher priority than the automatic deployment for that device. 
 
+For example, consider the following scenario of a company that manages buildings. They developed IoT Edge modules for collecting data from security cameras, motion sensors, and elevators. However, not all their buildings can use all three modules. With standard automatic deployments, the company needs to create individual deployments for all the module combinations that their buildings need. 
+
+![Standard automatic deployments need to accommodate every module combination](./media/module-deployment-monitoring/standard-deploymend.png)]
+
+However, once the company switches to layered automatic deployments they find that they can create the same module combinations for their buildings with fewer deployments to manage. Each module has its own layered deployment, and the device tags identify which modules get added to each building. 
+
+![Layered automatic deployment simplify scenarios where the same modules are combined in different ways](./media/module-deployment-monitoring/layered-deployment.png)
+
 ### Module twin configuration
 
 When you work with layered deployments, you may, intentionally or otherwise, have two deployments with the same module targeting a device. In those cases you can decide whether the higher priority deployment should overwrite the module twin or append to it. For example, you may have a deployment that applies the same module to 100 different devices. However, 10 of those devices are in secure facilities and need additional configuration in order to communicate through proxy servers. You can use a layered deployment to add module twin properties that enable those 10 devices to communicate securely without overwriting the existing module twin information from the base deployment. 
