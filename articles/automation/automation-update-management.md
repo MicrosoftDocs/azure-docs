@@ -97,7 +97,7 @@ The following information describes OS-specific client requirements. For additio
 
 Windows agents must be configured to communicate with a WSUS server, or they must have access to Microsoft Update.
 
-You can use Update Management with System Center Configuration Manager. To learn more about integration scenarios, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). The [Windows agent](../azure-monitor/platform/agent-windows.md) is required. The agent is installed automatically if you're onboarding an Azure VM.
+You can use Update Management with Configuration Manager. To learn more about integration scenarios, see [Integrate Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). The [Windows agent](../azure-monitor/platform/agent-windows.md) is required. The agent is installed automatically if you're onboarding an Azure VM.
 
 By default, Windows VMs that are deployed from the Azure Marketplace are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add this solution or add Windows VMs to your workspace. If you don't actively manage updates by using this solution, the default behavior (to automatically apply updates) applies.
 
@@ -237,15 +237,15 @@ sudo yum -q --security check-update
 
 There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who might have enabled this on their own.
 
-## Integrate with System Center Configuration Manager
+## Integrate with Configuration Manager
 
-Customers who have invested in System Center Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help them manage software updates. Configuration Manager is part of their software update management (SUM) cycle.
+Customers who have invested in Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help them manage software updates. Configuration Manager is part of their software update management (SUM) cycle.
 
-To learn how to integrate the management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
+To learn how to integrate the management solution with Configuration Manager, see [Integrate Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
 
 ### Third-party patches on Windows
 
-Update Management relies on the locally configured update repository to patch supported Windows systems. This is either WSUS or Windows Update. Tools like [System Center Updates Publisher](/sccm/sum/tools/updates-publisher) (Updates Publisher) allow you to publish custom updates into WSUS. This scenario allows Update Management to patch machines that use System Center Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Update Management relies on the locally configured update repository to patch supported Windows systems. This is either WSUS or Windows Update. Tools like [System Center Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/updates-publisher) (Updates Publisher) allow you to publish custom updates into WSUS. This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/install-updates-publisher).
 
 ## Patch Linux machines
 

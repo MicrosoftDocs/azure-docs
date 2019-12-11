@@ -95,7 +95,7 @@ On each VM that you want to replicate, install the service by one of several met
 
 - [Push installation](vmware-physical-mobility-service-overview.md#push-installation)
 - [Manual installation](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) from the UI or PowerShell
-- Deployment by using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
+- Deployment by using a deployment tool such as [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
 ## Managed disks
 

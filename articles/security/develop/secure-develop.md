@@ -150,7 +150,7 @@ other malicious software. You can install [Microsoft Antimalware](../fundamental
 or a Microsoft partner’s endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/),
 [Symantec](https://www.symantec.com/products),
 [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10),
-and [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
+and [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
 
 [Microsoft Antimalware](../fundamentals/antimalware.md)
 includes features like real-time protection, scheduled scanning, malware

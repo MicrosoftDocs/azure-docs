@@ -190,11 +190,11 @@ When users sign in to password-based SSO applications, they need to install and 
 
 If you must integrate password-based SSO applications, you should define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include:
 
-* [Group Policy for Internet Explorer ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
+* [Group Policy for Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 
-* [System Center Configuration Manager (SCCM) for Internet Explorer ](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Configuration Manager for Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
-* [User-driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* [User-driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Learn more: [How to configure password single sign-on](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 

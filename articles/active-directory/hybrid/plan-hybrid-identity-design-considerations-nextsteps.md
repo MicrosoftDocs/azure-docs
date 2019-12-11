@@ -25,8 +25,8 @@ Now that you’ve completed defining your requirements and examining all the opt
 ## Hybrid identity solutions
 -Leveraging specific solution scenarios that fit your needs is a great way to review and plan for the details of deploying a mobile device management infrastructure. The following solutions outline several of the most common mobile device management scenarios:
 
-* The [manage mobile devices and PCs in enterprise environments solution](https://technet.microsoft.com/library/dn582037.aspx) helps you manage mobile devices by extending your on-premises System Center 2012 Configuration Manager infrastructure into the cloud with Microsoft Intune. This hybrid infrastructure helps IT Pros in medium and large environments enable BYOD and remote access while reducing administrative complexity.
-* The [managing mobile devices for Configuration Manager 2007 solution](https://technet.microsoft.com/library/dn508400.aspx) helps you manage mobile devices when your infrastructure rests on a System Center Configuration Manager 2007. This solution shows you how to set up a single server running System Center 2012 Configuration Manager so you can then run Microsoft Intune and take advantage of its MDM ability.
+* The [manage mobile devices and PCs in enterprise environments solution](https://technet.microsoft.com/library/dn582037.aspx) helps you manage mobile devices by extending your on-premises Configuration Manager 2012 infrastructure into the cloud with Microsoft Intune. This hybrid infrastructure helps IT Pros in medium and large environments enable BYOD and remote access while reducing administrative complexity.
+* The [managing mobile devices for Configuration Manager 2007 solution](https://technet.microsoft.com/library/dn508400.aspx) helps you manage mobile devices when your infrastructure rests on Configuration Manager 2007. This solution shows you how to set up a single server running Configuration Manager 2012 so you can then run Microsoft Intune and take advantage of its MDM ability.
 * The [managing mobile devices in small environments solution](https://technet.microsoft.com/library/dn715906.aspx) is intended for small businesses that need to support MDM. It explains how to use Microsoft Intune to extend your current infrastructure to support mobile device management and BYOD. This solution describes the simplest scenario supported for using Microsoft Intune in a standalone, cloud-only configuration with no local servers.
 
 ## Hybrid identity documentation
@@ -42,8 +42,7 @@ Monitoring the following resources often provides the latest news and updates on
 * [Microsoft Enterprise Mobility blog](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Microsoft In The Cloud blog](https://blogs.technet.com/b/in_the_cloud/)
 * [Microsoft Intune blog](https://blogs.technet.com/b/microsoftintune/)
-* [Microsoft System Center Configuration Manager blog](https://blogs.technet.com/b/configurationmgr/)
-* [Microsoft System Center Configuration Manager Team blog](https://blogs.technet.com/b/configmgrteam/)
+* [Microsoft Endpoint Configuration Manager blog](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
 ## See also
 [Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
