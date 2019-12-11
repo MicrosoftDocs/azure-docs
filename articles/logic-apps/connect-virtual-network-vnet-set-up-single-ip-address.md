@@ -1,12 +1,9 @@
 ---
-title: Set up access for multiple ISEs - Azure Logic Apps
+title: Set up access for multiple ISEs
 description: For multiple integration service environments (ISEs), you can set up a single public outbound IP address to access external systems from Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/27/2019
 ---
