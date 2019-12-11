@@ -8,7 +8,7 @@ localization_priority: Normal
 
 After you submit your solution and it's approved for addition to Microsoft AppSource, you might want to brand it as a Microsoft AppSource solution on your webpage. You can use the **Get it from Microsoft AppSource** badge to promote your solution and drive traffic from your site to Microsoft AppSource. To do so:
 
-1. Download the [Microsoft AppSource marketing toolkit](https://aka.ms/marketplaceresourcesguide) or download the [**Get it from Microsoft AppSource**](http://assetsprod.microsoft.com/mpn/ms-appsource.png) badge directly.
+1. Download the [Microsoft AppSource marketing toolkit](https://aka.ms/marketplaceresourcesguide) or download the [Get it from Microsoft AppSource](https://assetsprod.microsoft.com/mpn/ms-appsource.png) badge directly.
 
     ![Screenshot of the Get it from Microsoft AppSource badge](images/MS_AppSource.png)
 
@@ -57,5 +57,5 @@ The value that is sent to the document is the value of the  _mktcmpid_ parameter
 <a name="bk_addresources"> </a>
 
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
-- [Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-ins)  
-- [SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
+- [Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-ins)  
+- [SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
