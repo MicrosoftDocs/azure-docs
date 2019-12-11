@@ -10,7 +10,7 @@ ms.author: jeconnoc
 ---
 # Use distributed tracing with Azure Spring Cloud
 
-With Azure Spring Cloud's distributed tracing tools, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Azure Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful distributed tracing capability from the Azure portal.
+With the distributed tracing tools in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Azure Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful distributed tracing capability from the Azure portal.
 
 In this article you learn how to:
 
@@ -93,7 +93,7 @@ Application Insights provides monitoring capabilities in addition to the applica
 
 1. Go to your Azure Spring Cloud service page in the Azure portal.
 1. On **Monitoring**, select **Distributed Tracing**.
-1. Select **Disable** to disable Application Insights
+1. Select **Disable** to disable Application Insights.
 
 ## Next steps
 
