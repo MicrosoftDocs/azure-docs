@@ -1,14 +1,11 @@
 ---
-title: Provision an Azure Cache for Redis using Azure Resource Manager
+title: Deploy Azure Cache for Redis with Azure Resource Manager
 description: Use Azure Resource Manager template to deploy an Azure Cache for Redis.
-services: app-service
 author: yegu-ms
-
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.author: yegu
-
 ---
 # Create an Azure Cache for Redis using a template
 

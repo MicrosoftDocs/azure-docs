@@ -52,8 +52,8 @@ Azure FarmBeats is available for download in Azure Marketplace, which you can ac
 To create an Azure FarmBeats offer in Azure Marketplace, do the following:
 
 1. Sign in to the Azure portal, select your account at the top right, and then switch to the Azure Active Directory (Azure AD) tenant where you want to deploy Azure FarmBeats.
-1. Azure FarmBeats is available in Azure Marketplace. On the **Azure Marketplace** page, select **Get it Now**.
-1. Select **Create**.
+2. Azure FarmBeats is available in Azure Marketplace. On the **Azure Marketplace** page, select **Get it Now**.
+3. Select **Create**.
 
 > [!NOTE]
 > Completion of the offer in Azure Marketplace is only a part of the setup. To complete the deployment of Azure FarmBeats in your Azure subscription, follow the instructions in the next sections.
@@ -86,7 +86,7 @@ A verification email will be sent to the registered email address for confirmati
 
 For authentication and authorization on Azure FarmBeats, you must have an Azure AD app registration. You can create it in either of two ways:
 
-* **Option 1**: Installer can create the registration automatically, provided that you have the required tenant, subscription, and resource group access permissions. If these permissions are in place, continue to the ["Prepare the input.json file"](#prepare-the-inputjson-file) section.
+* **Option 1**: Installer can create the registration automatically, provided that you have the required tenant, subscription, and resource group access permissions. If these permissions are in place, continue to the [Prepare the input.json file](#prepare-the-inputjson-file) section.
 
 * **Option 2**: You can create and configure the registration manually before you deploy Azure FarmBeats. We recommend this method when you don't have the required permissions to create and configure an Azure AD app registration within your subscription. Ask your administrator to use the [custom script](https://aka.ms/FarmBeatsAADScript), which will help the IT admin automatically generate and configure the Azure AD app registration on the Azure portal. As an output to running this custom script using PowerShell environment the IT admin needs to share an Azure AD Application Client ID and password secret with you. Make a note of these values.
 
