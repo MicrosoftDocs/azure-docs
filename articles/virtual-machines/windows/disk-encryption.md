@@ -42,7 +42,7 @@ The following list explains the numbered steps in the diagram:
 1. An Azure Key Vault administrator creates key vault resources.
 1. The key vault admin either imports their RSA keys to Key Vault or generate new RSA keys in Key Vault.
 1. That administrator creates an instance of Disk Encryption Set resource, specifying an Azure Key Vault ID and a key URL. Disk Encryption Set is a new resource introduced for simplifying the key management for managed disks. 
-1. When a disk encryption set is created, a [system-assigned managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) is created in Azure active directory (AD) and associated with the disk encryption set. 
+1. When a disk encryption set is created, a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is created in Azure active directory (AD) and associated with the disk encryption set. 
 1. The Azure key vault administrator then grants the managed identity permission to perform operations in the key vault.
 1. A VM user creates disks by associating them with the disk encryption set. The VM user can also enable server-side encryption with customer-managed keys for existing resources by associating them with the disk encryption set. 
 1. Managed disks use the managed identity to send requests to the Azure Key Vault.

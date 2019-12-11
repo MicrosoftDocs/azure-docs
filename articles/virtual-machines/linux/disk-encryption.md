@@ -163,4 +163,4 @@ az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId
 ## Next steps
 
 - [Explore the Azure Resource Manager templates for creating encrypted disks with customer-managed keys](https://github.com/ramankumarlive/manageddiskscmkpreview)
-- [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
+- [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
