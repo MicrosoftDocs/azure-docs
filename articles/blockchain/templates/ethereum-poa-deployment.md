@@ -1,7 +1,7 @@
 ---
 title: Deploy Ethereum Proof-of-Authority consortium solution template on Azure
 description: Use the Ethereum Proof-of-Authority consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
-ms.date: 12/02/2019
+ms.date: 12/10/2019
 ms.topic: article
 ms.reviewer: coborn
 ---
@@ -561,17 +561,31 @@ Remix also supports testing, debugging and deploying of smart contracts and much
 https://remix-ide.readthedocs.io/en/latest/index.html 
 
 
-### Programmatically interacting with a smart contract
+### Create, deploy, and smart contract
 
 > [!WARNING]
 > Never send your Ethereum private key over the network! Ensure that each transaction is signed locally first and the signed transaction is sent over the network.
 
 In the following example, you use *ethereumjs-wallet* to generate an Ethereum address, *ethereumjs-tx* to sign locally, and *web3* to send the raw transaction to the Ethereum RPC endpoint.
 
-You use this simple Hello-World smart contract for the example:
+Install prerequisites:
+* Install Truffle v5.0.5 `npm i -g truffle@v5.0.5`. Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). For more information, see [Truffle documentation](https://github.com/trufflesuite/truffle).
+* Install [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is needed for Web3.
+* Install [MetaMask browser extension](https://metamask.io).
+* Generate a MetaMask [wallet](https://metamask.zendesk.com/hc/en-us/articles/360015488971-New-to-MetaMask-Learn-How-to-Setup-MetaMask-the-First-Time).
+
+## Create Truffle project
+
+Create a folder named `HelloPoA`. Change directory to the new folder.
+Initialize a Truffle project. `truffle init`.
+Install Truffle HD wallet provider `npm install truffle-hdwallet-provider --save`
+
+You use this simple smart contract for the example:
+
+Create a file in the contracts folder named `postBox.sol`.
 
 ```javascript
-pragma solidity ^0.4.11;
+pragma solidity ^0.5.0;
 contract postBox {
     string message;
     function postMsg(string text) public {
@@ -583,100 +597,74 @@ contract postBox {
 }
 ```
 
-This example assumes the contract is already deployed. You can use *solc* and *web3* for deploying a contract programmatically. First, install the following node modules:
+### Deploy smart contract using Truffle
 
-``` bash
-sudo npm install web3@0.20.2
-sudo npm install ethereumjs-tx@1.3.6
-sudo npm install ethereumjs-wallet@0.6.1
-```
+The following code to unlocks your MetaMask account and configures the PoA node as entry point by providing the mnemonic phrase.
 
-Run the nodeJS script to perform the following:
+1. You can get the mnemonic phrase for an account in MetaMask. Select the account icon on the top right of the MetaMask extension and select **Settings > Security & Privacy > Reveal Seed Words**.
+1. Create a file and name it `truffle.js`.
+1. Replace the contents of `truffle-config.js` in the project with the following content. Replace the endpoint and mnemonic values.
 
-* Construct a raw transaction: postMsg
-* Sign the transaction using the generated private key
-* Submit the signed transaction to the Ethereum network
+    ```javascript
+    var HDWalletProvider = require("truffle-hdwallet-provider");
+
+    var rpc_endpoint = "<Ethereum RPC endpoint>";
+    var mnemonic = "<Twelve words you can find in MetaMask > Security & Privacy > Reveal Seed Words>";
+
+    module.exports = {
+      networks: {
+        development: {
+          host: "localhost",
+          port: 8545,
+          network_id: "*" // Match any network id
+        },
+        poa: {
+          provider: new HDWalletProvider(mnemonic, rpc_endpoint),
+          network_id: 10101010,
+          gasPrice : 0
+        }
+      }
+    };
+    ```
+
+Add contract to migration.
+
+Create file `2_deploy_contracts.js`
 
 ``` javascript
-var ethereumjs = require('ethereumjs-tx')
-var wallet = require('ethereumjs-wallet')
-var Web3 = require('web3')
+var postBox = artifacts.require("postBox");
 
-// TODO Replace with your contract address
-var address = "0xfe53559f5f7a77125039a993e8d5d9c2901edc58";
-var abi = [{"constant": false,"inputs": [{"name": "text","type": "string"}],"name": "postMsg","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "getMsg","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"}];
-
-// Generate a new Ethereum account
-var account = wallet.generate();
-var accountAddress = account.getAddressString()
-var privateKey = account.getPrivateKey();
-
-// TODO Replace with your RPC endpoint
-var web3 = new Web3(new Web3.providers.HttpProvider(
-    "http://testzvdky-dns-reg1.eastus.cloudapp.azure.com:8545"));
-
-// Get the current nonce of the account
-web3.eth.getTransactionCount(accountAddress, function (err, nonce) {
-   var data = web3.eth.contract(abi).at(address).postMsg.getData("Hello World");
-   var rawTx = {
-     nonce: nonce,
-     gasPrice: '0x00',
-     gasLimit: '0x2FAF080',
-     to: address,
-     value: '0x00',
-     data: data
-   }
-   var tx = new ethereumjs(rawTx);
-
-   tx.sign(privateKey);
-
-   var raw = '0x' + tx.serialize().toString('hex');
-   web3.eth.sendRawTransaction(raw, function (txErr, transactionHash) {
-     console.log("TX Hash: " + transactionHash);
-     console.log("Error: " + txErr);
-   });
- });
-```
-
-### Deploy smart contract with Truffle
-
-First, install the necessary libraries.
-
-```javascript
-npm init
-
-npm install truffle-hdwallet-provider --save
-```
-
-In `truffle.js`, add following code to unlock your MetaMask account and configure the PoA node as entry point by providing the mnemonic phrase (MetaMask / Settings / Reveal Seed Words)
-
-```javascript
-var HDWalletProvider = require("truffle-hdwallet-provider");
-
-var rpc_endpoint = "XXXXXX";
-var mnemonic = "twelve words you can find in metamask/settings/reveal seed words";
-
-module.exports = {
-  networks: {
-    development: {
-      host: "localhost",
-      port: 8545,
-      network_id: "*" // Match any network id
-    },
-    poa: {
-      provider: new HDWalletProvider(mnemonic, rpc_endpoint),
-      network_id: 3,
-      gasPrice : 0
-    }
-  }
+module.exports = deployer => {
+    deployer.deploy(postBox);
 };
-
 ```
 
-Next, deploy to PoA network.
+Next, deploy to the PoA network using the Truffle migrate command.
 
 ```javascript
-$ truffle migrate --network poa
+truffle migrate --network poa
+```
+
+
+Create file `sendtransaction.js`
+
+``` javascript
+var postBox = artifacts.require("postBox");
+
+module.exports = function(done) {
+  console.log("Getting the deployed version of the postBox smart contract")
+  postBox.deployed().then(function(instance) {
+    console.log("Calling postMsg function for contract ", instance.address);
+    return instance.postMsg("Hello, blockchain!");
+  }).then(function(result) {
+    console.log("Transaction hash: ", result.tx);
+    console.log("Request complete");
+    done();
+  }).catch(function(e) {
+    console.log(e);
+    done();
+  });
+};
 ```
 
 
