@@ -16,7 +16,6 @@ This article covers commerce-related topics for the commercial marketplace:
 - [Marketplace publishing options](#marketplace-publishing-options) 
 - [Transact general overview](#transact-general-overview)
 - [Transact billing models](#transact-billing-models)
-- Transact requirements 
 
 ## Marketplace publishing options 
 
