@@ -22,13 +22,13 @@ Cloud-based Azure multi-factor authentication (MFA) and Azure MFA Server process
 
 Some key considerations of the MFA data flows include the following areas:
 
-* Two-factor authentication using phone calls originate from US datacenters and are also routed by global providers. SMS providers are located in the US, but authentication requests in Europe, for example, don't route through US datacenters.
+* Two-factor authentication using phone calls or SMS typically originate from US datacenters and are routed by global providers. General purpose user authentication requests that originate in Europe are processed by European datacenters, however other events such as self-service password resets, Azure B2C events, or hybrid scenarios using NPS Extension or AD FS adapter, are all processed by US datacenters.
 * Push notifications using the Microsoft Authenticator app originate from US datacenters. In addition, device vendor-specific services may also come into play from different regions.
-* OATH codes are currently validated in the U.S except for OATH token methods that originate in and are then validated in Europe.
+* OATH codes are typically currently validated in the U.S. Again, general purpose user authentication events that originate in Europe are processed by European datacenters, however additional events are processed by US datacenters.
 
 ## Personally identifiable information (PII) stored
 
-Personally identifiable information (PII) is user-level data that contains personal information like a user principal name (UPN) or phone number. Azure MFA doesn't log PII such as username, phone number, or IP address, but there is a *UserObjectId* that identifies MFA attempts to users. The following events would generate a stored log event:
+Personally identifiable information (PII) is user-level data that contains personal information. The following events and scenarios contain PII:
 
 * Blocked users
 * Bypassed users
@@ -38,40 +38,42 @@ Personally identifiable information (PII) is user-level data that contains perso
 
 This information is retained for 90 days.
 
+Azure MFA doesn't log PII such as username, phone number, or IP address, but there is a *UserObjectId* that identifies MFA attempts to users. Log data is stored for 30 days.
+
 ### Azure MFA
 
-For Azure public clouds, the following PII is stored:
+For Azure public clouds, excluding Azure B2C authentication, NPS Extension, and Windows Server 2016 or 2019 AD FS Adapter, the following PII is stored:
 
-* OATH Token
+* OATH token
     * In MFA logs
-* One-Way SMS
+* One-way SMS
     * In MFA logs
-* Voice Call
+* Voice call
     * In MFA logs
     * MFA activity report database
     * Blocked users if fraud reported
-* Mobile App Notification
+* Mobile App notification
     * In MFA logs
     * MFA activity report database
     * Blocked users if fraud reported
     * Change requests when mobile app device token changes
 
 > [!NOTE]
-> The MFA activity report database is stored in the North America geography for all public clouds, regardless of the region that processes the authentication request. Microsoft Azure Germany and Microsoft Azure Operated by 21Vianet are always stored in their respective cloud. Microsoft Government Cloud log data is always stored in North America.
+> The MFA activity report database is stored in the North America geography for all clouds, regardless of the region that processes the authentication request. Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, and Microsoft Government Cloud have their own independent data stores separate from public cloud region data stores, however this log data is always stored in North America.
 
 For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, Azure B2C authentication, NPS Extension, and Windows Server 2016 or 2019 AD FS Adapter, the following PII is stored:
 
-* OATH Token
+* OATH token
     * In MFA logs
     * MFA activity report database
-* One-Way SMS
+* One-way SMS
     * In MFA logs
     * MFA activity report database
-* Voice Call
+* Voice call
     * In MFA logs
     * MFA activity report database
     * Blocked users if fraud reported
-* Mobile App Notification
+* Mobile App notification
     * In MFA logs
     * MFA activity report database
     * Blocked users if fraud reported
@@ -84,17 +86,17 @@ If you deploy and run Azure MFA Server, the following PII is stored:
 > [!IMPORTANT]
 > As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
 
-* OATH Token
+* OATH token
     * In MFA logs
     * MFA activity report database
-* One-Way SMS
+* One-way SMS
     * In MFA logs
     * MFA activity report database
-* Voice Call
+* Voice call
     * In MFA logs
     * MFA activity report database
     * Blocked users if fraud reported
-* Mobile App Notification
+* Mobile App notification
     * In MFA logs
     * MFA activity report database
     * Blocked users if fraud reported
