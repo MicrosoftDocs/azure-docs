@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
 ---
 
@@ -79,7 +79,7 @@ Without a role assignment created within the Management API, the user-defined fu
 
 Check if a role assignment exists for your user-defined function through your Management API:
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
@@ -93,7 +93,7 @@ Learn [How to create a role assignment for your user-defined function](./how-to-
 
 With the following call against your Azure Digital Twins instances' Management API, you're able to determine if a given matcher applies for the given sensor.
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
@@ -117,7 +117,7 @@ Response:
 
 With the following call against the Azure Digital Twins Management APIs, you're able to determine the identifiers of your user-defined functions triggered by the given sensor's incoming telemetry:
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 

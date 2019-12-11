@@ -8,7 +8,7 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: "Active"
-ms.date: 07/23/2019
+ms.date: 12/08/2019
 ms.author: alehall
 
 ---
@@ -97,7 +97,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     Accept all other default values other than the following:
 
    * Enter a name for the cluster.
-   * For this article, create a cluster with **6.0* runtime.
+   * For this article, create a cluster with **6.0** runtime.
    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
    Select cluster worker and driver node size suitable for your technical criteria and [budget](https://azure.microsoft.com/pricing/details/databricks/).
@@ -134,14 +134,10 @@ In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You als
 
    ![Add library dialog box](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "Add library install new")
 
-2. In the New Library page, for **Source** select **Maven**. For **Coordinate**, click **Search Packages** for the package you want to add. Here is the Maven coordinates for the libraries used in this tutorial:
+2. In the New Library page, for **Source** select **Maven**. Individually enter the following coordinates for the Spark Event Hubs connector and the Twitter API into **Coordinates**.
 
-   * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+   * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.12`
    * Twitter API - `org.twitter4j:twitter4j-core:4.0.7`
-
-     ![Provide Maven coordinates](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "Provide Maven coordinates")
-
-     ![Provide Maven coordinates](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "Search Maven coordinates")
 
 3. Select **Install**.
 

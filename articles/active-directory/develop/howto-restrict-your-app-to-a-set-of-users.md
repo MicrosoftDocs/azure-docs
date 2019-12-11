@@ -1,27 +1,23 @@
 ---
-title: Restrict your Azure Active Directory-registered app to a set of users 
+title: Restrict Azure AD app to a set of users | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to restrict access to your apps registered in Azure AD to a selected set of users.
 services: active-directory
-documentationcenter: ''
 author: kalyankrishna1
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: kkrishna
-ms.reviewer: ''
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to restrict an application that I have registered in Azure AD to a select set of users available in my Azure AD tenant
 ms.collection: M365-identity-device-management
 ---
-# How to: Restrict your app to a set of users
+# How to: Restrict your Azure AD app to a set of users
 
 Applications registered in an Azure Active Directory (Azure AD) tenant are, by default, available to all users of the tenant who authenticate successfully.
 

@@ -5,7 +5,7 @@
   - name: What is Avere vFXT for Azure?
     href: avere-vfxt-overview.md
 - name: Concepts
-  items:  
+  items:
   - name: Plan your Avere vFXT system
     href: avere-vfxt-deploy-plan.md
   - name: Avere vFXT deployment overview
@@ -31,15 +31,17 @@
   - name: Customize cluster tuning
     href: avere-vfxt-tuning.md
 - name: Resources
-  items: 
+  items:
   - name: Help with your system
     href: avere-vfxt-open-ticket.md
   - name: Demonstration projects
     href: avere-vfxt-demo-links.md
   - name: Avere vFXT for Azure FAQ
     href: avere-vfxt-faq.md
+  - name: Disaster recovery guidance
+    href: disaster-recovery.md
   - name: Additional documentation
-    items: 
+    items:
     - name: Supplemental documentation
       href: avere-vfxt-additional-resources.md
     - name: Avere cluster DNS configuration
@@ -47,4 +49,4 @@
     - name: Authorize non-owners to deploy Avere vFXT
       href: avere-vfxt-non-owner.md
   - name: Whitepapers
-    href: avere-vfxt-whitepapers.md 
+    href: avere-vfxt-whitepapers.md

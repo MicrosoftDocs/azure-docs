@@ -97,5 +97,5 @@ An email notification is also sent with the alert details and recommended action
 
 ## Next steps
 
-* Learn more about [Diagnostic logging in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
+* Learn more about [Diagnostic logging in Azure Cosmos DB](monitor-cosmos-db.md#diagnostic-settings)
 * Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

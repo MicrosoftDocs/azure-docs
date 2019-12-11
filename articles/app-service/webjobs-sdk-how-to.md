@@ -1,15 +1,8 @@
 ---
-title: How to use the WebJobs SDK - Azure
-description: Learn more about how to write code for the WebJobs SDK. Create event-driven background processing jobs that access data in Azure services and third-party services.
-services: app-service\web, storage
-documentationcenter: .net
+title: How to use the WebJobs SDK
+description: Learn more about how to write code for the WebJobs SDK. Create event-driven background processing jobs that access data in Azure and third-party services.
 author: ggailey777
-manager: jeconnoc
-editor: 
 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019

@@ -1,5 +1,5 @@
 ---
-title: Mobile app that calls web APIs - getting a token for the app 
+title: Acquire a token to call a web API (mobile apps) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a mobile app that calls web APIs (getting a token for the app)
 services: active-directory

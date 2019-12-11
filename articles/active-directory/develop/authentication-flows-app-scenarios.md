@@ -1,18 +1,14 @@
 ---
-title: Authentication scenarios for Microsoft identity platform | Azure
+title: Microsoft identity platform authentication flows & app scenarios | Azure
 description: Learn about authentication flows and application scenarios for the Microsoft identity platform. Learn about the different types of applications that can authenticate identities, acquire tokens, and call protected APIs.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.assetid:
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/27/2019
 ms.author: jmprieur
@@ -258,14 +254,14 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
 
   <tr>
    <td><a href="scenario-daemon-overview.md"><img alt="Daemon app that calls web APIs" src="media/scenarios/daemon-app.svg"></a></td>
-   <td><a href=scenario-daemon-overview.md">A daemon app that calls web APIs</a></td>
+   <td><a href="scenario-daemon-overview.md">A daemon app that calls web APIs</a></td>
    <td><a href="v2-oauth2-client-creds-grant-flow.md">Client credentials</a></td>
    <td>App-only permissions with no user and used only in Azure AD organizations</td>
  </tr>
 
   <tr>
-   <td><a href=scenario-web-api-call-api-overview.md"><img alt="Web API that calls web APIs" src="media/scenarios/web-api.svg"></a></td>
-   <td><a href=scenario-web-api-call-api-overview.md">A web API that calls web APIs</a></td>
+   <td><a href="scenario-web-api-call-api-overview.md"><img alt="Web API that calls web APIs" src="media/scenarios/web-api.svg"></a></td>
+   <td><a href="scenario-web-api-call-api-overview.md">A web API that calls web APIs</a></td>
    <td><a href="v2-oauth2-on-behalf-of-flow.md">On Behalf Of</a></td>
    <td>Work or school accounts and personal accounts</td>
  </tr>
