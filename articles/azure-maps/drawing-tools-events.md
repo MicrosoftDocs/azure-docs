@@ -12,7 +12,7 @@ manager: cpendleton
 
 # Drawing tool events
 
-When using drawing tools on a map it is often useful to react to certain events as the user draws on the map. The following table lists all of the events supported by the `DrawingManager` class.
+When using drawing tools on a map, it is often useful to react to certain events as the user draws on the map. The following table lists all of the events supported by the `DrawingManager` class.
 
 | Event | Description |
 |-------|-------------|
@@ -37,7 +37,7 @@ The following are examples of some common scenarios that use the drawing tools e
 
 ### Select points in polygon area
 
-The following code shows how to monitor the drawning of shapes that represent polygon areas (polys, rectangles, and circles), and determine which data points on the map are within the drawn area. The `drawingcomplete` event is used to trigger the select logic. In the select logic, all data pointson the map are looped through and tested for intersection with the polygon area of the drawn shape. This example makes use of the open source [Turf.js](http://turfjs.org/) library to perform a spatial intersection calculation.
+The following code shows how to monitor the drawing of shapes that represent polygon areas (polygons, rectangles, and circles), and determine which data points on the map are within the drawn area. The `drawingcomplete` event is used to trigger the select logic. In the select logic, all data points on the map are looped through and tested for intersection with the polygon area of the drawn shape. This example makes use of the open-source [Turf.js](http://turfjs.org/) library to perform a spatial intersection calculation.
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Select data in drawn polygon area" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/XWJdeja'>Select data in drawn polygon area</a> by Azure Maps
@@ -48,7 +48,7 @@ The following code shows how to monitor the drawning of shapes that represent po
 
 ### Draw and search in polygon area
 
-The following code shows how to performs a search for points of interests inside a shape area after the user has finished drawing the shape. The `drawingcomplete` event is used to trigger the search logic. If the user draws a rectangle or polygon, a search inside geometry is performed. If a circle is drawn, the radius and center position is used to perform a point of interest searcg. The `drawingmodechanged` event is used determine when the user is switching into a drawing mode, and clears the drawing canvas.
+The following code shows how to perform a search for points of interests inside a shape area after the user has finished drawing the shape. The `drawingcomplete` event is used to trigger the search logic. If the user draws a rectangle or polygon, a search inside geometry is performed. If a circle is drawn, the radius and center position is used to perform a point of interest search. The `drawingmodechanged` event is used to determine when the user is switching into a drawing mode, and clears the drawing canvas.
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Draw and search in polygon area" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>Draw and search in polygon area</a> by Azure Maps
@@ -59,7 +59,7 @@ The following code shows how to performs a search for points of interests inside
 
 ### Create a measuring tool
 
-The following code shows how the drawing events can be used to create a measuring tool. The `drawingchanging` is used to monitor the shape as it is being drawn. As the user moves the mouse the dimensions of the shape are calculated. The `drawingcomplete` event is used to do a final calculation on the shape after it has been drawn. The `drawingmodechanged` event is used determine when the user is switching into a drawing mode, and clears the drawing canvas and old measurement information.
+The following code shows how the drawing events can be used to create a measuring tool. The `drawingchanging` is used to monitor the shape as it is being drawn. As the user moves the mouse, the dimensions of the shape are calculated. The `drawingcomplete` event is used to do a final calculation on the shape after it has been drawn. The `drawingmodechanged` event is used to determine when the user is switching into a drawing mode, and clears the drawing canvas and old measurement information.
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Measuring tool" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>Measuring tool</a> by Azure Maps
