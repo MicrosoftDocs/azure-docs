@@ -23,7 +23,8 @@ Use the Azure Queue storage client library v12 for .NET to:
 * Add messages to a queue
 * Peek at messages in a queue
 * Update a message in a queue
-* Receive and delete messages from a queue
+* Receive messages from a queue
+* Delete messages from a queue
 * Delete a queue
 
 [API reference documentation](/dotnet/api/azure.storage.queues) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
@@ -120,9 +121,10 @@ These example code snippets show you how to do the following actions with the Az
 * [Get the connection string](#get-the-connection-string)
 * [Create a queue](#create-a-queue)
 * [Add messages to a queue](#add-messages-to-a-queue)
-* [Peek at messages in a queue](#peek-at-messages -in-a-queue)
+* [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 * [Update a message in a queue](#update-a-message-in-a-queue)
-* [Receive and delete messages from a queue](#receive-and-delete-messages-from-a-queue)
+* [Receive messages from a queue](#receive-messages-from-a-queue)
+* [Delete messages from a queue](#delete-messages-from-a-queue)
 * [Delete a queue](#delete-a-queue)
 
 ### Get the connection string
@@ -196,9 +198,9 @@ Add this code to the end of the `Main` method:
 Console.WriteLine("\nPeek at the messages in the queue...");
 
 // Peek at messages in the queue
-Response<PeekedMessage[]> peekedMessages = await queueClient.PeekMessagesAsync(maxMessages: 10);
+PeekedMessage[] peekedMessages = await queueClient.PeekMessagesAsync(maxMessages: 10);
 
-foreach (PeekedMessage peekedMessage in peekedMessages.Value)
+foreach (PeekedMessage peekedMessage in peekedMessages)
 {
     // Display the message
     Console.WriteLine($"Message: {peekedMessage.MessageText}");
@@ -216,22 +218,33 @@ Console.WriteLine("\nUpdating the third message in the queue...");
 await queueClient.UpdateMessageAsync(receipt.Value.MessageId, receipt.Value.PopReceipt, "Third message has been updated");
 ```
 
-### Receive and delete messages from a queue
+### Receive messages from a queue
 
-Download previously added messages by calling the [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync) method. The example code also deletes messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
-
-The app pauses for user input by calling `Console.ReadLine` before it receives and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
+Download previously added messages by calling the [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync) method.
 
 Add this code to the end of the `Main` method:
 
 ```csharp
-Console.WriteLine("\nPress Enter key to receive messages and delete them from the queue...");
-Console.ReadLine();
+Console.WriteLine("\nReceiving messages from the queue...");
 
 // Get messages from the queue
-Response<QueueMessage[]> messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10);
+QueueMessage[] messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10);
+```
 
-foreach (QueueMessage message in messages.Value)
+### Delete messages from a queue
+
+Delete messages from the queue after they're been processed. In this case, processing is just displaying the message on the console.
+
+The app pauses for user input by calling `Console.ReadLine` before it processes and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
+
+Add this code to the end of the `Main` method:
+
+```csharp
+Console.WriteLine("\nPress Enter key to 'process' messages and delete them from the queue...");
+Console.ReadLine();
+
+// Process and delete messages from the queue
+foreach (QueueMessage message in messages)
 {
     // "Process" the message
     Console.WriteLine($"Message: {message.MessageText}");
@@ -278,7 +291,7 @@ The output of the app is similar to the following example:
 ```output
 Azure Queue storage v12 - .NET quickstart sample
 
-Creating queue: quickstartqueues-bdeeaa05-a9c4-4c40-943b-7f7a700d3e55
+Creating queue: quickstartqueues-5c72da2c-30cc-4f09-b05c-a95d9da52af2
 
 Adding messages to the queue...
 
@@ -289,7 +302,9 @@ Message: Third message
 
 Updating the third message in the queue...
 
-Press Enter key to receive messages and delete them from the queue...
+Receiving messages from the queue...
+
+Press Enter key to 'process' messages and delete them from the queue...
 
 Message: First message
 Message: Second message
@@ -297,7 +312,7 @@ Message: Third message has been updated
 
 Press Enter key to delete the queue...
 
-Deleting queue: quickstartqueues-bdeeaa05-a9c4-4c40-943b-7f7a700d3e55
+Deleting queue: quickstartqueues-5c72da2c-30cc-4f09-b05c-a95d9da52af2
 Done
 ```
 
