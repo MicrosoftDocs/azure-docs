@@ -1,47 +1,34 @@
 ---
-title: Promote your AppSource solution
-description: Use AppSource badges to promote your solution and drive traffic from your site to AppSource.
-ms.date: 03/12/2019
+title: Promote your Microsoft AppSource solution
+description: Use Microsoft AppSource badges to promote your solution and drive traffic from your site to Microsoft AppSource.
 localization_priority: Normal
 ---
 
-# Promote your AppSource solution
+# Promote your Microsoft AppSource solution
 
-After you submit your solution and it's approved for addition to AppSource, you might want to brand it as an AppSource solution on your webpage. You can use the AppSource badges to promote your solution and drive traffic from your site to AppSource. To do so:
+After you submit your solution and it's approved for addition to Microsoft AppSource, you might want to brand it as a Microsoft AppSource solution on your webpage. You can use the **Get it from Microsoft AppSource** badge to promote your solution and drive traffic from your site to Microsoft AppSource. To do so:
 
-1. Download the [AppSource Badge zip file](https://download.microsoft.com/download/A/1/F/A1F9C6C4-3543-4E4A-A4D1-76ED58EBDF6C/Microsoft_App_Source_Badges_EN_US.zip).
+1. Download the [Microsoft AppSource marketing toolkit](https://aka.ms/marketplaceresourcesguide) or download the [**Get it from Microsoft AppSource**](http://assetsprod.microsoft.com/mpn/ms-appsource.png) badge directly.
 
-2. Select the badge size that best suits your needs.
+    ![Screenshot of the Get it from Microsoft AppSource badge](images/MS_AppSource.png)
 
-   |**Badge size**|**How it looks**|
-   |:-----|:-----|
-   |Small|![Screenshot of the small-sized AppSource badge](images/appsource-badge-small.png)|
-   |Medium|![Screenshot of the medium-sized AppSource badge](images/appsource-badge-medium.png)|
-   |Large|![Screenshot of the large-sized AppSource badge](images/appsource-badge-large.png)|
+3. Add the badge to the webpage for your solution and add a link to your associated product listing landing page. This makes it clear to your users that they can download your solution from Microsoft AppSource, and simplifies the user experience by providing a direct link to your solution.
 
-3. Add the badge to your app or add-in webpage, directly following the link. This makes it clear to your users that they can download your app or add-in from AppSource.
+## Guidelines for using the Microsoft AppSource badge
 
-You can also add your Office 365 web app using Azure AD to the Office 365 app launcher. For information, see [Add custom tiles to the app launcher](/office365/admin/manage/customize-the-app-launcher?view=o365-worldwide).
+The following guidelines apply to using the **Get it from Microsoft AppSource** badge on your webpage:
 
-## Guidelines for using the AppSource badge
-
-The following guidelines apply to using the AppSource badge on your webpage:
-
-- Make the AppSource badge visually distinct. Do not overlap it with or incorporate it within any other icon or brand image on your page.
-- Do not modify the badge.
-- Do not make the badge the primary element on your webpage.
-- Do not use the badge on any pages that violate laws or regulations or that contain otherwise objectionable content. This includes pages that contain or display adult content, promote gambling, promote violence, or contain hate speech.
-- Make sure that when users choose the badge, the link opens your page in AppSource, and that your app or add-in is available in AppSource.
-
-If you need a localized version of the badge, [contact us](http://officespdev.uservoice.com/).
-
+- Badges should always appear in full color with white type and a black background as shown. Use only the artwork provided – never create your own badges. Do not modify, recolor, angle, animate, rotate, or tilt the badges. Scaling while maintaining the aspect ratio for appropriate sizing is allowed.
+- Ensure badges are legible on all marketing communications in which they're utilized.
+- Provide a link to the associated product listing landing page.
+- Always use the full name by referencing "Microsoft AppSource".
 
 ## Track your campaign performance and customize your add-in for targeted audiences
 
 > [!NOTE]
-> Campaign tracking is enabled for all Office 365 listings on AppSource. Currently, activation data is only provided for Word, Excel, and PowerPoint add-ins currently.
+> Campaign tracking is enabled for all Office 365 listings on Microsoft AppSource. Currently, activation data is only provided for Word, Excel, and PowerPoint add-ins.
 
-When you link from your promotional campaigns to your free Word, Excel, or PowerPoint add-in page in AppSource, include the following query parameters at the end of the URL:
+When you link from your promotional campaigns to your free Word, Excel, or PowerPoint add-in page in Microsoft AppSource, include the following query parameters at the end of the URL:
 
 - **mktcmpid** - Your marketing campaign ID, which can include up to 16 characters (any letter, number, \_, and -). For example, blogpost_12. This value will be used to provide a breakdown in the Acquisitions report.
 - **src** - This is an optional parameter that declares the source of the user traffic.
@@ -70,5 +57,5 @@ The value that is sent to the document is the value of the  _mktcmpid_ parameter
 <a name="bk_addresources"> </a>
 
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
-- [Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-ins)  
-- [SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
+- [Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-ins)  
+- [SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
