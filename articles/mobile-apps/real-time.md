@@ -14,9 +14,9 @@ ms.author: emalani
 With [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/), you can easily add real-time functionality to applications. This real-time functionality allows the service to push content updates to connected mobile applications. As a result, apps are updated without the need to poll the server or submit new HTTP requests for updates.
 
 ## Azure SignalR Service features
-- **Has broad client support** for a wide range of clients, such as web and mobile browsers, desktop applications, server process, IoT devices, and game consoles.
-- **Allows multiple instances to work together** to scale to millions of mobile application connections. It also supports multiple global regions for sharding, high availability, or disaster recovery purposes.
-- **Offers rich APIs for different messaging patterns** to send messages to a particular connection, all connections, or a subset of connections that belong to a specific user or were placed in an arbitrary group.
+- Has broad client support for a wide range of clients, such as web and mobile browsers, desktop applications, server process, IoT devices, and game consoles.
+- Allows multiple instances to work together to scale to millions of mobile application connections. It also supports multiple global regions for sharding, high availability, or disaster recovery purposes.
+- Offers rich APIs for different messaging patterns to send messages to a particular connection, all connections, or a subset of connections that belong to a specific user or were placed in an arbitrary group.
 
 ## References
    - [Azure portal](https://portal.azure.com)
