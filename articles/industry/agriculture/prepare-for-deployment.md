@@ -97,7 +97,7 @@ In addition, Azure FarmBeats requires Azure Active Directory application registr
 
 **Case 1**: You have "write" permissions in the Azure Tenant you are installing to. This case means you have the necessary permissions to create the AAD app registration dynamically during the install.
 
-You can proceed directly to the [Complete the Marketplace sign-up](#complete-azure-marketplace-signup) section.
+You can proceed directly to the [Complete the Marketplace sign-up](#complete-azure-marketplace-sign-up) section.
 
 **Case 2**: You do NOT have "write" permissions in the Azure tenant. This case is common when you are trying to install Azure FarmBeats in your company's Azure subscription and your "write" access is restricted to only the resource group you own.
 
@@ -116,9 +116,9 @@ In this case, request your IT administrator to follow the below steps to automat
         > By default, the file is uploaded to your home directory.
 6. Go the home directory by using the 'ls' command and run the following script:
 
-        ```azurepowershell-interactive
+  ```azurepowershell-interactive
         ./create_aad_script.ps1
-        ```
+  ```
 7. Enter the **Datahub website** name and the **Accelerator website** name. Make a note of the output of the script and share it with the person installing Azure FarmBeats.
 
 Once your IT administrator provides you with the required details, make a note of the **AAD Client ID, AAD Client Secret, Data hub website name & Accelerator website name**. 
@@ -183,12 +183,13 @@ The actual installation of Azure FarmBeats resources happens in Cloud Shell brow
 2. Launch **Cloud Shell** from the toolbar on the top-right corner of the Azure portal.
 3. Choose Bash as the preferred shell experience. Select the **Upload** button (highlighted in the below image), and upload the prepared parameters JSON file.
     
-         ![Project FarmBeats](./media/prepare-for-deployment/bash-2-1.png)
+      ![Project FarmBeats](./media/prepare-for-deployment/bash-2-1.png)
 
 4. **Copy** the below command and **replace the \<username>** with the correct value so that the command points to the correct path of the uploaded file.
-       ```bash
+
+```bash
       wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
-        ```
+```
 5. Run the modified command to start the installation process. You will be prompted to:
          * Agree to the **Azure FarmBeats license** terms. Enter "Y" to proceed to the next step if you agree to the Terms of use. Enter "N" to terminate the installation, if you do not agree to the terms of use.
          * Next, you will be prompted to enter an access token for the installation. Copy the generated code and login to the [device login page](https://microsoft.com/devicelogin) with your **Azure credentials**.
