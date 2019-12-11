@@ -46,15 +46,15 @@ Yes. App Configuration encrypts all key values it holds, and it encrypts network
 
 ## How is App Configuration different from Azure App Service settings?
 
-Azure App Service allows you to define app settings for each App Service instance. These settings are passed as environment variables to the application code. You can associate a setting with a specific deployment slot, if desired. For more information, see [Configure app settings](/azure/app-service/configure-common#configure-app-settings).
+Azure App Service allows you to define app settings for each App Service instance. These settings are passed as environment variables to the application code. You can associate a setting with a specific deployment slot, if you want. For more information, see [Configure app settings](/azure/app-service/configure-common#configure-app-settings).
 
-In contrast, Azure App Configuration allows you to define settings that can be shared among multiple apps, including apps running in App Service. These settings can be accessed in application code through the configuration providers for .NET and Java, through the Azure SDK, or directly via REST APIs.
+In contrast, Azure App Configuration allows you to define settings that can be shared among multiple apps, including apps running in App Service. Your application code accesses these settings through the configuration providers for .NET and Java, through the Azure SDK, or directly via REST APIs.
 
-You can also import and export settings between App Service and App Configuration. This allows you to quickly set up a new App Configuration store based on existing App Service settings, or easily share configuration with an existing app that relies on App Service settings.
+You can also import and export settings between App Service and App Configuration. This capability allows you to quickly set up a new App Configuration store based on existing App Service settings. You can also share configuration with an existing app that relies on App Service settings.
 
 ## Are there any size limitations on keys and values stored in App Configuration?
 
-There is a limit of 10KB for a single key-value item.
+There's a limit of 10 KB for a single key-value item.
 
 ## How should I store configurations for multiple environments (test, staging, production, and so on)?
 
@@ -67,6 +67,24 @@ See [best practices](./howto-best-practices.md).
 ## How much does App Configuration cost?
 
 The service is free to use during the public preview.
+
+Once the service reaches general availability, there will be two service tiers: 1) a free tier, and 2) a standard tier. Existing stores will move to the free tier upon general availability.
+
+## Which App Configuration tier should I use?
+
+Both App Configuration tiers offer core functionality, including config settings, feature flags, Key Vault references, basic management operations, metrics, and logs.
+
+The following are considerations for choosing a tier.
+
+* **Resources per subscription**: A resource consists of a single configuration store. Each subscription is limited to one configuration store in the free tier. Subscriptions can have an unlimited number of configuration stores in the standard tier.
+* **Keys per resource**: In the free tier, the configuration store is limited to 1,000 keys or 10 MB. In the standard tier, each configuration store can have up to 20,000 keys or 1 GB.
+* **Key history**: App Configuration stores a history of all changes made to keys. In the free tier, this history is stored for seven days. In the standard tier, this history is stored for 30 days.
+* **Requests per day**: Free tier stores are limited to 1,000 requests per day. Once a store reaches 1,000 requests, it will return HTTP status code 429 for all requests until midnight UTC.
+
+    There are no limits on the number of requests for standard tier stores. The first 200,000 requests each day are included in the daily charge. Additional requests are billed as overage.
+
+* **Service level agreement**: The standard tier has an SLA of 99.9% availability. The free tier doesn't have an SLA.
+* **Cost**: Standard tier stores have a daily usage charge. There's also an overage charge for requests past the daily allocation. There's no cost to use a free tier store.
 
 ## How can I receive announcements on new releases and other information related to App Configuration?
 
