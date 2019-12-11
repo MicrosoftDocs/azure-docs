@@ -1,13 +1,13 @@
 ---
 title: Azure Synapse Analytics documentation | Microsoft Docs
 description: Learn how to use an Azure Synapse Analytics, which combines SQL relational databases with massively parallel processing. Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse. 
-services: sql-data-warehouse
+services: synapse analytics
 author: hirokib
 manager: craigg
 layout: LandingPage
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: design
+ms.subservice:
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan

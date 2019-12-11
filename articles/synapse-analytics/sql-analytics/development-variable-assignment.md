@@ -1,11 +1,11 @@
 ---
 title: Assign variables in Azure SQL analytics | Microsoft Docs
 description: Tips for assigning T-SQL variables in Azure SQL analytics for developing solutions.
-services: sql-data-warehouse
+services: synapse analytics
 author: azaricstefan 
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice:
 ms.date: 10/23/2019 
 ms.author: v-stazar 
 ms.reviewer: jrasnick
