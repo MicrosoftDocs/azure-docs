@@ -35,8 +35,6 @@
     href: dsvm-tools-data-platforms.md    
   - name: Data ingestion tools
     href: dsvm-tools-ingestion.md
-  - name: Data exploration and visualization tools
-    href: dsvm-tools-explore-and-visualize.md
   - name: Productivity tools
     href: dsvm-tools-productivity.md
   - name: Enterprise security and guidance

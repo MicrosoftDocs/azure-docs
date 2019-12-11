@@ -99,4 +99,14 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 | Links to samples      | Samples are included on the VM, in `/dsvm/tools/xgboost/demo` on Linux, and `C:\dsvm\tools\xgboost\demo` on Windows.   |
 | Related tools      | LightGBM, MXNet   |
 
+## Apache Drill
+|    |           |
+| ------------- | ------------- |
+| What is it?   | Open-source SQL query engine on big data    |
+| Supported DSVM versions      | Windows, Linux  |
+| How is it configured and installed on the DSVM?      |  Installed in `/dsvm/tools/drill*` in embedded mode only   |
+| Typical uses      |  For in-place data exploration without requiring extract, transform, load (ETL). Query different data sources and formats, including CSV, JSON, relational tables, and Hadoop.     |
+| How to use and run it      | Desktop shortcut  <br/> [Get started with Drill in 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |
+| Related tools on the DSVM      |   Rattle, Weka, SQL Server Management Studio      |
+
 
