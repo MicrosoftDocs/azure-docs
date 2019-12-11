@@ -16,7 +16,7 @@ ms.author: anhoang
 
 In the [previous article](./quickstart-custom-speech-commands-create-parameters.md), we created a new Custom Commands project to respond to commands with parameters.
 
-In this article, we will select a custom output voice for the application.
+In this article, we'll select a custom output voice for the application we created.
 
 ## Select a Custom Voice
 
@@ -32,7 +32,7 @@ In this article, we will select a custom output voice for the application.
 > [!NOTE]
 > Custom voices can be created from the Custom Voice project page. Select the **Speech Studio** link, then **Custom Voice** to get started.
 
-Now the application will respond in the selected custom voice, instead of the default voice.
+Now the application will respond in the selected voice, instead of the default voice.
 
 ## Next steps
 > [!div class="nextstepaction"]
