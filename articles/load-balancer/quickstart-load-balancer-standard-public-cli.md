@@ -1,6 +1,6 @@
 ---
 title: Quickstart:Create a public Standard Load Balancer - Azure CLI
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a public load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na

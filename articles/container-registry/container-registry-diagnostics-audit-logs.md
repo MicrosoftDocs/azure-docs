@@ -1,21 +1,8 @@
 ---
-title: Resource logs for Azure Container Registry | Microsoft Docs
+title: Collect & analyze resource logs
 description: Record and analyze resource log events for Azure Container Registry such as authentication, image push, and image pull.
-services: container-registry
-documentationcenter: ''
-author: dlepow
-manager: gwallace
-editor: ''
-
-ms.assetid: 
-ms.service: container-registry
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: 
 ms.date: 10/30/2019
-ms.author: danlep
-
 ---
 # Azure Container Registry logs for diagnostic evaluation and auditing
 

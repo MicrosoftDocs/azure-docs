@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech from an audio file, C++ - Speech Service"
+title: "Quickstart: Recognize speech from an audio file, C++ - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -15,7 +15,7 @@ ms.author: erhopf
 **Choose your target environment**
 #### [Linux](#tab/linux)
 [!INCLUDE [linux](./linux.md)]
-#### [MacOS](#tab/MacOS)
+#### [macOS](#tab/macOS)
 [!INCLUDE [macos](./macos.md)]
 #### [Windows](#tab/Windows)
 [!INCLUDE [windows](./windows.md)]

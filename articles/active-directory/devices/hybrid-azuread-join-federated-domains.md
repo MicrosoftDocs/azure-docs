@@ -54,7 +54,7 @@ You learn how to:
 
 ## Prerequisites
 
-This tutorial assumes that you'e familiar with these articles:
+This tutorial assumes that you're familiar with these articles:
 
 - [What is a device identity?](overview.md)
 - [How to plan your hybrid Azure AD join implementation](hybrid-azuread-join-plan.md)

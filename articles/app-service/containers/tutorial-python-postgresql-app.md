@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 title: 'Tutorial: Build a Python Django web app with PostgreSQL in Azure App Service'
 description: Learn how to run a PostgreSQL database-driven Python Django web app in Azure.
 services: app-service\web

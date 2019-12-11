@@ -1,11 +1,6 @@
 ---
 title: Human interaction and timeouts in Durable Functions - Azure
 description: Learn how to handle human interaction and timeouts in the Durable Functions extension for Azure Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf

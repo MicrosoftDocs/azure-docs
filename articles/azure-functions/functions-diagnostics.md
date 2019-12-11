@@ -1,11 +1,8 @@
 ---
 title: Azure Functions diagnostics Overview
 description: Learn how you can troubleshoot issues with your function app with Azure Functions diagnostics.
-keywords: functions, diagnostics, support, serverless, troubleshooting, self-help
 author: yunjchoi
-manager: gwallace
 
-ms.service: azure-functions
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi

@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 11/20/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to create a custom app with intents, so that I can analyze user text in that subject domain.
 ---
 
-# Tutorial: Build LUIS app to determine user intentions
+# Tutorial: Build a LUIS app to determine user intentions
 
 In this tutorial, you create a custom app that predicts a user's intention based on the utterance (text). 
 
@@ -54,7 +54,7 @@ These intentions are categorized into **Intents**.
 
 ## Create a new intent 
 
-1. In the [preview LUIS portal](https://preview.luis.ai), inside the app's **Build** section, select **+ Create**. Enter the new intent name listed below then select **Done**.
+1. In the portal, inside the app's **Build** section, select **+ Create**. Enter the new intent name, `OrderPizza`, then select **Done**.
 
     The `OrderPizza` intent is predicted when: a user wants to order a pizza. 
 
@@ -118,7 +118,7 @@ These intentions are categorized into **Intents**.
 
     This is not exactly the same as an example utterance so it is a good test to see if LUIS can learn what should be predicted with this intent.
 
-    The last query string parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances. It is a good test and should return the `OrderPizza` intent as the top scoring intent. 
+    The last query string parameter is `query`, the utterance **query**. This utterance is not the same as any of the example utterances. It is a good test and should return the `OrderPizza` intent as the top scoring intent. 
 
     ```JSON
     {
@@ -144,7 +144,7 @@ These intentions are categorized into **Intents**.
     }
     ```
 
-    The entities array is empty because this app currently does not have any entities. 
+    The entities array is empty because this app currently does not have any entities (unit of data inside the utterance to extract). 
 
     The JSON result identifies the top scoring intent as **`prediction.topIntent`** property. All scores are between 1 and 0, with the better score being closer to 1. 
 
@@ -201,4 +201,4 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
 This tutorial created a LUIS app, created intents, added example utterances to each intent, added example utterances to the None intent, trained, published, and tested at the endpoint. These are the basic steps of building a LUIS model. 
 
 > [!div class="nextstepaction"]
-> [Add prebuilt intents and entities to this app](tutorial-machine-learned-entity.md)
+> [Add a decomposable entity to this app](tutorial-machine-learned-entity.md)

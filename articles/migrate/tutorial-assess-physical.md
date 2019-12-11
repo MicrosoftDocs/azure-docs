@@ -99,12 +99,12 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller\AzureMigrateInstaller.ps1 SHA256```
 
-3.  For appliance version 1.19.05.10, the generated hash should match these settings.
+3.  For the latest appliance version, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | 5b98cf68dad495696c789bdad8f0d91b
-  SHA256 | c2364887738875a31634eb0cf5defd0398f813d41069875976ca076297071e6f
+  MD5 | 96fd99581072c400aa605ab036a0a7c0
+  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
 
 ### Run the Azure Migrate installer script
 

@@ -1,5 +1,5 @@
 ---
-title: How to configure the multi-factor authentication registration policy in Azure Active Directory Identity Protection
+title: Configure the MFA registration policy - Azure Active Directory Identity Protection
 description: Learn how to configure the Azure AD Identity Protection multi-factor authentication registration policy.
 
 services: active-directory

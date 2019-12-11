@@ -9,7 +9,7 @@ ms.author: banders
 ms.date: 11/18/2019
 ms.topic: quickstart
 ms.custom: seodec18
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ---
 

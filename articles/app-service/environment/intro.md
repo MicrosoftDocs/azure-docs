@@ -1,15 +1,9 @@
 ---
-title: Introduction to App Service Environments - Azure
-description: Brief overview of Azure App Service Environments
-services: app-service
-documentationcenter: na
+title: Introduction
+description: Learn how Azure App Service Environments help you scale, secure, and optimize your apps in a fully isolated and dedicated environment.
 author: ccompy
-manager: stefsch
 
 ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy

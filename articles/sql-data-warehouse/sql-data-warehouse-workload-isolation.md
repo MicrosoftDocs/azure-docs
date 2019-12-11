@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/04/2019
+ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
@@ -19,13 +19,13 @@ This article explains how workload groups can be used to configure workload isol
 
 ## Workload groups
 
-Workload groups are containers for a set of requests and are the basis for how workload management, including workload isolation, is configured on a system.  Workload groups are created using the [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.  A simple workload management configuration can manage data loads and user queries.  For example, a workload group named `wgDataLoads` will define workload aspects for data being loaded into the system. Also, a workload group named `wgUserQueries` will define workload aspects for users running queries to read data from the system.
+Workload groups are containers for a set of requests and are the basis for how workload management, including workload isolation, is configured on a system.  Workload groups are created using the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.  A simple workload management configuration can manage data loads and user queries.  For example, a workload group named `wgDataLoads` will define workload aspects for data being loaded into the system. Also, a workload group named `wgUserQueries` will define workload aspects for users running queries to read data from the system.
 
 The following sections will highlight how workload groups provide the ability to define isolation, containment, request resource definition, and adhere to execution rules.
 
 ## Workload isolation
 
-Workload isolation means resources are reserved, exclusively, for a workload group.  Workload isolation is achieved by configuring the MIN_PERCENTAGE_RESOURCE parameter to greater than zero in the [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.  For continuous execution workloads that need to adhere to tight SLAs, isolation ensures resources are always available for the workload group. 
+Workload isolation means resources are reserved, exclusively, for a workload group.  Workload isolation is achieved by configuring the MIN_PERCENTAGE_RESOURCE parameter to greater than zero in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.  For continuous execution workloads that need to adhere to tight SLAs, isolation ensures resources are always available for the workload group. 
 
 Configuring workload isolation implicitly defines a guaranteed level of concurrency.  With a MIN_PERCENTAGE_RESOURCE set to 30% and REQUEST_MIN_RESOURCE_GRANT_PERCENT set to 2%, a 15-concurrency level is guaranteed for the workload group.  Consider the below method for determining guaranteed concurrency:
 
@@ -45,7 +45,7 @@ Users should avoid a workload management solution that configures 100% workload 
 
 ## Workload containment
 
-Workload containment refers to limiting the amount of resources a workload group can consume.  Workload containment is achieved by configuring the CAP_PERCENTAGE_RESOURCE parameter to less than 100 in the [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)  syntax.  Consider the scenario whereby users need read access to the system so they can run a what-if analysis via ad-hoc queries.  These types of requests could have a negative impact on other workloads that are running on the system.  Configuring containment ensures the amount of resources is limited.
+Workload containment refers to limiting the amount of resources a workload group can consume.  Workload containment is achieved by configuring the CAP_PERCENTAGE_RESOURCE parameter to less than 100 in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)  syntax.  Consider the scenario whereby users need read access to the system so they can run a what-if analysis via ad-hoc queries.  These types of requests could have a negative impact on other workloads that are running on the system.  Configuring containment ensures the amount of resources is limited.
 
 Configuring workload containment implicitly defines a maximum level of concurrency.  With a CAP_PERCENTAGE_RESOURCE set to 60% and a REQUEST_MIN_RESOURCE_GRANT_PERCENT set to 1%, up to a 60-concurrency level is allowed for the workload group.  Consider the method included below for determining the maximum concurrency:
 
@@ -56,7 +56,7 @@ Configuring workload containment implicitly defines a maximum level of concurren
 
 ## Resources per request definition
 
-Workload groups provide a mechanism to define the min and max amount of resources that are allocated per request with the REQUEST_MIN_RESOURCE_GRANT_PERCENT and REQUEST_MAX_RESOURCE_GRANT_PERCENT parameters in the [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.  Resources in this case are CPU and memory.  Configuring these values dictates how much resources and what level of concurrency can be achieved on the system.
+Workload groups provide a mechanism to define the min and max amount of resources that are allocated per request with the REQUEST_MIN_RESOURCE_GRANT_PERCENT and REQUEST_MAX_RESOURCE_GRANT_PERCENT parameters in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.  Resources in this case are CPU and memory.  Configuring these values dictates how much resources and what level of concurrency can be achieved on the system.
 
 > [!NOTE] 
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT is an optional parameter that defaults to the same value that is specified for REQUEST_MIN_RESOURCE_GRANT_PERCENT.
@@ -70,7 +70,7 @@ Configuring REQUEST_MAX_RESOURCE_GRANT_PERCENT to a value greater than REQUEST_M
 
 ## Execution Rules
 
-On ad-hoc reporting systems, customers can accidentally execute runaway queries that severely impact the productivity of others.  System admins are forced to spend time killing runaway queries to free up system resources.  Workload groups offer the ability to configure a query execution timeout rule to cancel queries that have exceeded the specified value.  The rule is configured by setting the `QUERY_EXECUTION_TIMEOUT_SEC` parameter in the [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.
+On ad-hoc reporting systems, customers can accidentally execute runaway queries that severely impact the productivity of others.  System admins are forced to spend time killing runaway queries to free up system resources.  Workload groups offer the ability to configure a query execution timeout rule to cancel queries that have exceeded the specified value.  The rule is configured by setting the `QUERY_EXECUTION_TIMEOUT_SEC` parameter in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax.
 
 ## Shared pool resources
 
@@ -83,5 +83,5 @@ Access to resources in the shared pool is allocated on an [importance](sql-data-
 ## Next steps
 
 - [Quickstart: configure workload isolation](quickstart-configure-workload-isolation-tsql.md)
-- [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 - [Convert resource classes to workload groups](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).

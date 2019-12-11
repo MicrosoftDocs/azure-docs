@@ -1,17 +1,16 @@
 ---
-title: Quickstart - Create a Xamarin iOS app with Azure Spatial Anchors | Microsoft Docs
+title: 'Quickstart: Create a Xamarin iOS app'
 description: In this quickstart, you learn how to build an iOS app with Xamarin using Spatial Anchors.
 author: craigktreasure
-manager: virivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my Xamarin iOS app that can place and locate a 3D object that persists across devices and platforms.
 ---
+
 # Quickstart: Create a Xamarin iOS app with Azure Spatial Anchors
 
 This quickstart covers how to create an iOS app with Xamarin using [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an iOS app that can save and recall a spatial anchor.

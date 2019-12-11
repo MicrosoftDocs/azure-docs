@@ -1,18 +1,13 @@
 ---
-title: Call an ASP.NET Web API protected by Azure AD - Microsoft identity
+title: Call Azure AD protected ASP.NET Web API - Microsoft identity platform
 description: In this quickstart, learn how to call an ASP.NET web API protected by Azure Active Directory from a Windows Desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur

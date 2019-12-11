@@ -575,6 +575,10 @@ For more information, see these documents:
 
 Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different because you must provide a reference to the AKS cluster.
 
+### Securing deployments with SSL
+
+For more information on how to secure a web service deployment, see [Use SSL to secure a web service](how-to-secure-web-service.md#enable).
+
 ### <a id="local"></a> Local deployment
 
 To deploy a model locally, you need to have Docker installed on your local machine.
@@ -859,6 +863,9 @@ az ml model download --model-id mymodel:1 --target-dir model_folder
 No-code model deployment is currently in preview and supports the following machine learning frameworks:
 
 ### Tensorflow SavedModel format
+Tensorflow models need to be registered in **SavedModel format** to work with no-code model deployment.
+
+Please see [this link](https://www.tensorflow.org/guide/saved_model) for information on how to create a SavedModel.
 
 ```python
 from azureml.core import Model
