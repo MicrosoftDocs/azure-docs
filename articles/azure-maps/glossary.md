@@ -34,7 +34,7 @@ The following is a list of common words used with Azure Maps.
 
 <a name="application-programming-interface-api"></a> **Application Programming Interface (API)**: A specification that allows developers to create applications.
 
-<a name="api-key"></a> **API key**: See Azure Maps Key.
+<a name="api-key"></a> **API key**: See [Shared key authentication](#shared-key-authentication).
 
 <a name="area-of-interest-aoi"></a> **Area of Interest (AOI)**: The extent used to define a focus area for either a map or database production.
 
@@ -48,7 +48,9 @@ The following is a list of common words used with Azure Maps.
 
 <a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)**: The former name of Azure Maps when it was in preview.
 
-<a name="azure-maps-key"></a> **Azure Maps key**: An Azure Maps Key is a unique string that is used to authenticate a user’s Azure Maps application or service request. 
+<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)**: Azure AD is Microsoft’s cloud-based identity and access management service. Azure Maps Azure AD integration is currently available in preview for all Azure Maps API’s. Azure AD supports role-based access control (RBAC) to allow fine-grained access to Azure Maps resources. To learn more about Azure Maps Azure AD integration, see [Azure Maps and Azure AD](azure-maps-authentication.md) and [Manage authentication in Azure Maps](how-to-manage-authentication.md).
+
+<a name="azure-maps-key"></a> **Azure Maps key**: See [Shared key authentication](#shared-key-authentication).
 
 ## B
 
@@ -328,6 +330,8 @@ The following is a list of common words used with Azure Maps.
 
 <a name="shapefile-shp"></a> **Shapefile (SHP)**: Also known as an ESRI Shapefile, is a vector data storage format for storing the location, shape, and attributes of geographic features. A shapefile is stored in a set of related files.
 
+<a name="shared-key-authentication"></a> **Shared key authentication**: Shared Key authentication relies on passing Azure Maps account generated keys with each request to Azure Maps. These keys are often referred to as subscription keys. It is recommend that keys are regularly regenerated for security. Two keys are provide so that you can maintain connections using one key while regenerating the other. When you regenerate your keys, you must update any applications that access this account to use the new keys. To learn more about Azure Maps authentication, see [Azure Maps and Azure AD](azure-maps-authentication.md) and [Manage authentication in Azure Maps](how-to-manage-authentication.md).
+
 <a name="spherical-mercator-projection"></a> **Spherical Mercator projection**: See [Web Mercator](#web-mercator). 
 
 <a name="spatial-query"></a> **Spatial query**: A request made to a service that performs a spatial operation. Such as a radial search, or along a route search.
@@ -335,6 +339,8 @@ The following is a list of common words used with Azure Maps.
 <a name="spatial-reference"></a> **Spatial reference**: A coordinate-based local, regional, or global system used to precisely locate geographical entities. It defines the coordinate system used to relate map coordinates to locations in the real world. Spatial references ensure that spatial data from different layers or sources can be integrated for accurate viewing or analysis. Azure Maps uses the [EPSG:3857](https://epsg.io/3857) coordinate reference system and WGS 84 for input geometry data. 
 
 <a name="sql-spatial"></a> **SQL spatial**: Refers to the spatial functionality built into SQL Azure and SQL Server 2008 and above. This spatial functionality is also available as a .NET library that can be used independently of SQL Server. For more information, see the [Spatial Data (SQL Server) documentation](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) for more information.
+
+<a name="subscription-key"></a> **Subscription key**: See [Shared key authentication](#shared-key-authentication).
 
 <a name="synchronous-request"></a> **Synchronous request**: An HTTP request opens a connection and waits for a response. Browsers limit the number of concurrent HTTP requests that can be made from a page. If multiple long running synchronous requests are made at the same time, this limit can be reached and requests delayed until one of the other requests has completed.
 
