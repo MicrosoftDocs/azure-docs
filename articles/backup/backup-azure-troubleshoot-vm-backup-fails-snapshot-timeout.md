@@ -23,7 +23,7 @@ The Azure VM agent might be stopped, outdated, in an inconsistent state, or not 
 - **Open Azure Portal > VM > Settings > Properties blade** > ensure VM **Status** is **Running** and **Agent status** is **Ready**. If the VM agent is stopped or is in an inconsistent state, restart the agent<br>
   - For Windows VMs follow these [steps](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) to restart the Guest Agent.<br>
   - For Linux VMs follow these [steps](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) to restart the Guest Agent.
-- **Open  Azure Portal > VM > Settings > Extensions** > ensure all extensions are in **provisioning succeeded** state. If not follow these [steps](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to resolve the issue.
+- **Open  Azure Portal > VM > Settings > Extensions** > Ensure all extensions are in **provisioning succeeded** state. If not, follow these [steps](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to resolve the issue.
 
 ## GuestAgentSnapshotTaskStatusError - Could not communicate with the VM agent for snapshot status
 
@@ -49,7 +49,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 
 This error occurs when one of the extension failures puts the VM into provisioning failed state.<br>**Open  Azure Portal > VM > Settings > Extensions > Extensions status** and check if all extensions are in **provisioning succeeded** state.
 
-- If VMSnapshot extension is in failed state, then right-click on the failed extension and remove it. Trigger an adhoc-backup, this will reinstall the extensions and run the backup job.  <br>
+- If VMSnapshot extension is in a failed state, then right-click on the failed extension and remove it. Trigger an on-demand backup, this will reinstall the extensions and run the backup job.  <br>
 - If any other extension is in failed state, then it can interfere with the backup. Ensure those extension issues are resolved and retry the backup operation.  
 
 ## UserErrorRpCollectionLimitReached - The Restore Point collection max limit has reached
