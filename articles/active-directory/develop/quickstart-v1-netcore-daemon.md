@@ -1,5 +1,5 @@
 ---
-title: Get token & call Microsoft Graph using console app's identity (v1.0) | Azure
+title: Acquire token & call Microsoft Graph (.NET Core Console) (v1.0) | Azure
 description: Build a .NET daemon application that integrates with Azure AD & calls Azure AD protected APIs using OAuth 2.0
 services: active-directory
 author: rwike77

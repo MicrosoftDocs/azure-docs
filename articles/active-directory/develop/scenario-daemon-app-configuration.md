@@ -133,7 +133,7 @@ Add the [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Iden
 In MSAL.NET, the confidential client application is represented by the `IConfidentialClientApplication` interface.
 Use MSAL.NET namespace in the source code
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 IConfidentialClientApplication app;
 ```
@@ -161,7 +161,7 @@ Here is the code to instantiate the confidential client application with a clien
 
 # [.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
@@ -201,7 +201,7 @@ Here is the code to build an application with a certificate:
 
 # [.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithCertificate(certificate)
@@ -268,7 +268,7 @@ MSAL.NET has two methods to provide signed assertions to the confidential client
 
 When you use `WithClientAssertion`, you need to provide a signed JWT. This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md)
 
-```CSharp
+```csharp
 string signedClientAssertion = ComputeAssertion();
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientAssertion(signedClientAssertion)
@@ -278,7 +278,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 When you use `WithClientClaims`, MSAL.NET will compute itself a signed assertion containing the claims expected by Azure AD plus additional client claims that you want to send.
 Here is a code snippet on how to do that:
 
-```CSharp
+```csharp
 string ipAddress = "192.168.1.2";
 var claims = new Dictionary<string, string> { { "client_ip", ipAddress } };
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
