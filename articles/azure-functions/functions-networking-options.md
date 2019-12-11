@@ -126,7 +126,7 @@ Currently, you can use non-HTTP trigger functions from within a virtual network 
 
 When running in a Premium plan, you can connect non-HTTP trigger functions to services running inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **virtual network trigger support** setting is found in the [Azure portal](https://portal.azure.com) under **Function app settings**.
 
-![VNETToggle](media/functions-networking-options/VirtualNetworkTriggerToggle.png)
+![VNETToggle](media/functions-networking-options/virtual-network-trigger-toggle.png)
 
 You can also enable virtual network triggers using the following Azure CLI command:
 
