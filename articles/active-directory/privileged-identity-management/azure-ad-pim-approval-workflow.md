@@ -29,9 +29,7 @@ Beginning in November 2019, the Azure AD roles portion of Privileged Identity Ma
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 1. Open **Azure AD Privileged Identity Management**.
-1. Select **Azure AD roles**.
-
-    If your user interface looks like the following, you have the **New version** of Privileged Identity Management. Follow the content in the **New version** tab of this article. Otherwise, follow the instructions in the **Previous version** tab.
+1. Select **Azure AD roles**. If you have a banner on the top of the overview page, follow the instructions in the **New version** tab of this article. Otherwise, follow the instructions in the **Previous version** tab.
 
     ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
