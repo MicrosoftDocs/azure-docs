@@ -1,280 +1,302 @@
 ---
-title: Troubleshooting
-description: How to troubleshoot Azure FarmBeats.
+title: Troubleshoot Azure FarmBeats
+description: This article describes how to troubleshoot Azure FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Troubleshooting
+# Troubleshoot Azure FarmBeats
 
-The following sections describe common Azure FarmBeats issues, and how to fix them.
+This article provides solutions to common Azure FarmBeats issues.
 
-For additional help, write to us at farmbeatssupport@microsoft.com, include deployer.log file on this email.
+For additional help, contact us at farmbeatssupport@microsoft.com. Be sure to include the **deployer.log** file in your email.
 
- Use these steps to download the deployer.log file:
+To download the **deployer.log** file, do the following:
 
-1. The highlighted icon and select **Download** option from the drop-down.
+1. Sign-in to **Azure portal** and select your subscription and Azure AD tenant.
+2. Launch Cloud Shell from the top navigation of the Azure portal.
+3. Select **Bash** as the preferred Cloud Shell experience.
+4. Select the highlighted icon and then, in the drop-down list, select **Download**.
 
-    ![Project Farm Beats](./media/troubleshooting-farmbeats/download-deployer-log-1.png)
+    ![Project FarmBeats](./media/troubleshooting-farmbeats/download-deployer-log-1.png)
 
-2. On the next screen, enter the path to your deployer.log file. For example, farmbeats-deployer.log.
+5. In the next pane, enter the path to your **deployer.log** file. For example, enter **farmbeats-deployer.log**.
 
 ## Sensor telemetry
 
-### Telemetry not seen
+### Can't view telemetry data
 
-**Symptom**: Devices/sensors are deployed, and you have linked FarmBeats with your device partner; but you are not able to get/view Telemetry data on FarmBeats.
+**Symptom**: Devices or sensors are deployed, and you've linked FarmBeats with your device partner, but you can't get or view telemetry data on FarmBeats.
 
-**Corrective action**: Visit the Azure portal and follow these steps:
+**Corrective action**:
 
-1. Go to your FarmBeats Data hub Resource Group.   
-2. Select the **Event Hub** (DatafeedEventHubNamespace....) and check for the number of Incoming Messages.   
-3. In case there are **NO Incoming messages**, contact your device partner.  
-4. In case there are **Incoming messages**, contact farmbeatssupport@microsoft.com with Data hub and Accelerator logs and captured telemetry.
+1. Go to your FarmBeats Datahub resource group.   
+1. Select the **Event Hub** (DatafeedEventHubNamespace), and then check for the number of incoming messages.
+1. Do either of the following:   
+   * If there are *no incoming messages*, contact your device partner.  
+   * If there are *incoming messages*, contact farmbeatssupport@microsoft.com. Attach your Datahub and Accelerator logs and captured telemetry.
 
-See [Logs section](#collect-logs-manually) of the document to understand how to download Logs.    
+To understand how to download logs, go to the ["Collect logs manually"](#collect-logs-manually) section.  
+
+### Don't have the Azure Event Hubs connection string
+
+**Corrective action**:
+
+1. In Datahub Swagger, go to the Partner API.
+1. Select **Get** > **Try it out** > **Execute**.
+1. Note the partner ID of the sensor partner you're interested in.
+1. Go back to the Partner API, and select **Get/\<ID>**.
+1. Specify the partner ID from step 3, and then select **Execute**.
+
+   The API response should have the Event Hubs connection string.
 
 ### Device appears offline
 
-**Symptoms**: Devices are installed, and you have linked FarmBeats with your device partner. The devices are online and sending telemetry data, but they appear Offline.
+**Symptoms**: Devices are installed, and you've linked FarmBeats with your device partner. The devices are online and sending telemetry data, but they appear offline.
 
-**Corrective action**: The reporting interval is not configured for this device. Contact your device manufacturer to set the reporting interval. 
+**Corrective action**: The reporting interval isn't configured for this device. To set the reporting interval, contact your device manufacturer. 
 
-### Error deleting a resource
+### Error deleting a device
 
-Following are the common error scenarios while deleting a device:  
+While you're deleting a device, you might encounter one of the following common error scenarios:  
 
-**Message**: Device is referenced in sensors: There are one or more sensors associated with the Device. Delete the sensors and then delete the device.  
+**Message**: "Device is referenced in sensors: There are one or more sensors associated with the device. Delete the sensors and then delete the device."  
 
-**Meaning**: The device is associated with multiple sensors deployed in the farm.   
+**Meaning**: The device is associated with multiple sensors that are deployed in the farm.   
 
 **Corrective action**:  
 
-1. Delete the sensors associated with the device through the accelerator.  
-2. In case you want to associate the sensors to a different device, ask your device partner to do the same.  
-3. Delete the device using a DELETE API call setting the force parameter as ‘true’.  
+1. Delete the sensors that are associated with the device through Accelerator.  
+1. If you want to associate the sensors with a different device, ask your device partner to do the same.  
+1. Delete the device by using a `DELETE API` call, and set the force parameter as *true*.  
 
-**Message**: Device is referenced in devices as ParentDeviceId: There are one or more devices that are associated with this device as child devices. Delete them, and then delete this device.  
+**Message**: "Device is referenced in devices as ParentDeviceId: There are one or more devices that are associated with this device as child devices. Delete them, and then delete this device."  
 
-**Meaning**: Your device has other devices associated with it  
+**Meaning**: Your device has other devices associated with it.  
 
 **Corrective action**
 
-1. Delete the devices associated with the specific device  
-2. Delete the specific device  
+1. Delete the devices that are associated with this specific device.  
+1. Delete the specific device.  
 
     > [!NOTE]
-    > You cannot delete a device if sensors are associated with it. See [Delete Sensors](get-sensor-data-from-sensor-partner.md) in Get Sensor Data chapter for more information on how to delete associated sensors.
+    > You can't delete a device if sensors are associated with it. For more information about how to delete associated sensors, see the "Delete sensor" section in [Get sensor data from sensor partners](get-sensor-data-from-sensor-partner.md).
 
 
 ## Issues with jobs
 
 ### FarmBeats internal error
 
-**Message**: FarmBeats internal error, see troubleshooting guide for more details.
+**Message**: "FarmBeats internal error, see troubleshooting guide for more details."
 
 **Corrective action**:
- This could be because of a temporary failure in the data pipeline. Create the job once again. If the error persists, add the error in a post on the FarmBeats forum or contact FarmBeatsSupport@microsoft.com.
+This issue might result from a temporary failure in the data pipeline. Create the job again. If the error persists, add the error message in a post on the FarmBeats forum, or contact FarmBeatsSupport@microsoft.com.
 
 ## Accelerator troubleshooting
 
-### Access Control
+### Access control
 
-**Error while adding role assignment**
+**Issue**: You receive an error while you're adding a role assignment.
 
-**Message**:No matching users found
+**Message**: "No matching users found."
 
-**Corrective action**: Check the email ID for which you are trying to do a role assignment. The email ID has to be an exact match of the one registered for that user in the Active Directory. If the error  persists, add the error in a post on the FarmBeats forum or contact FarmBeatsSupport@microsoft.com
+**Corrective action**: Check the email ID for which you're trying to add a role assignment. The email ID must be an exact match of the ID that's registered for that user in the Active Directory. If the error persists, add the error message in a post on the FarmBeats forum, or contact FarmBeatsSupport@microsoft.com.
 
 ### Unable to log in to Accelerator
 
-**Message**: Error: You are not authorized to call the service. Contact the admin for authorization.
+**Message**: "Error: You are not authorized to call the service. Contact the admin for authorization."
 
-**Corrective action**: Ask the admin to authorize you to access the FarmBeats deployment. This can be done by doing a POST of the RoleAssignment APIs or through the Access Control in the Settings pane in the accelerator.  
+**Corrective action**: Ask the admin to authorize you to access the FarmBeats deployment. This can be done by doing a POST of the RoleAssignment APIs or through the Access Control in the **Settings** pane in Accelerator.  
 
-If you have already been added and are facing this error, try again by refreshing the page.  If the error persists, add the error in a post on the FarmBeats forum or contact FarmBeatsSupport@microsoft.com.
+If you've already been granted access and are facing this error, try again by refreshing the page. If the error persists, add the error message in a post on the FarmBeats forum, or contact FarmBeatsSupport@microsoft.com.
 
-![Project Farm Beats](./media/troubleshooting-farmbeats/accelerator-troubleshooting-1.png)
+![Project FarmBeats](./media/troubleshooting-farmbeats/accelerator-troubleshooting-1.png)
 
-### Accelerator - An unknown error occurred  
+### Accelerator issues  
 
-**Message**: Error: An unknown error occurred
+**Issue**: You've received an Accelerator error of undetermined cause.
 
-**Corrective action**: This happens if you leave the page idle for too long. Refresh the page.  
+**Message**: "Error: An unknown error occurred."
 
-If the error still persists, add the error in a post on the FarmBeats forum or contact  FarmBeatsSupport@microsoft.com
+**Corrective action**: This error occurs if you leave the page idle for too long. Refresh the page.  
 
-**FarmBeats Accelerator is not showing the latest version even after upgrading the FarmBeatsDeployment**
+If the error persists, add the error message in a post on the FarmBeats forum, or contact FarmBeatsSupport@microsoft.com.
 
-**Corrective action**: This happens because of service worker persistence in the browser.
-Close all browser tabs that have the Accelerator open and close the browser window. Start a new instance of the browser and load the Accelerator URI again. This will load the new version of the Accelerator.
+**Issue**: FarmBeats Accelerator isn't showing the latest version, even after you've upgraded FarmBeatsDeployment.
 
-## Sentinel imagery-related issues
+**Corrective action**: This error occurs because of service worker persistence in the browser. Do the following:
+1. Close all browser tabs that have Accelerator open, and close the browser window.
+1. Start a new instance of the browser, and reload the Accelerator URI. This action loads the new version of Accelerator.
 
-### Sentinel wrong Username or Password
+## Sentinel: Imagery-related issues
 
-**Job failure message**;Full authentication is required to access this resource.
+### Wrong username or password
 
-**Correction action**:Rerun installer for upgrading data hub with correct username and password.
-
-**Corrective action**:Rerun failed job or run a satellite Indices job for date range of 5-7 days and check if job is successful.
-
-### Sentinel Hub wrong URL or not accessible 
-
-**Job failure message**:Oops, something went wrong. The page you were trying to access is (temporarily) unavailable. 
-
-**Corrective action**:
-1.	Open Sentinel URL (https://scihub.copernicus.eu/dhus/) in browser and check if website is accessible. 
-2.	If website is not accessible, Check if any firewall/company network etc. is blocking the website and take necessary steps to allow above URL. 
-3.	Rerun failed job or Run a satellite Indices job for a date range of 5-7 days and check if job is successful.  
-
-### Sentinel server down for maintenance
-
-**Job failure message**: The Copernicus Open Access Hub will be back soon! Sorry for the inconvenience, we're performing some maintenance at the moment. We'll be back online shortly! 
+**Job failure message**: "Full authentication is required to access this resource."
 
 **Corrective action**:
 
-1.	This issue can occur if any maintenance activities are being done on the Sentinel Server. 
-2.	If any job/pipeline fails with above reason, resubmit the job after some time. 
-3.	User can visit https://scihub.copernicus.eu/news/ to check information about any planned/unplanned Sentinel maintenance activities.  
-4.	Rerun failed job or Run a satellite Indices job for a date range of 5-7 days and check if job is successful.
+Do one of the following:
+* Rerun the installer for upgrading Datahub with the correct username and password.
+* Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
 
-### Sentinel Maximum number of connections reached
+### Sentinel hub: Wrong URL or site not accessible 
 
-**Job failure message**:
-Maximum number of two concurrent flows achieved by the user "<username>" 
+**Job failure message**: "Oops, something went wrong. The page you were trying to access is (temporarily) unavailable." 
 
-**Corrective action**
-1.	If any job fails with the above reason, same sentinel account is being used in another deployment/software. 
-2.	User can create new sentinel account and re-run installer for upgrading data hub with new sentinel username and password.  
-3.	Rerun failed job or run a satellite Indices job for date range of 5-7 days and check if job is successful.
+**Corrective action**:
+1. Open [Sentinel](https://scihub.copernicus.eu/dhus/) in your browser to see whether the website is accessible. 
+1. If the website isn't accessible, check to see whether any firewall, company network, or other blocking software is preventing access to the website, and then take the necessary steps to allow the Sentinel URL. 
+1. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.  
 
-### Sentinel Server refused connection 
+### Sentinel server: Down for maintenance
 
-**Job failure message**:
+**Job failure message**: "The Copernicus Open Access Hub will be back soon! Sorry for the inconvenience, we're performing some maintenance at the moment. We'll be back online shortly!" 
 
-Server refused connection at: http://172.30.175.69:8983/solr/dhus 
+**Corrective action**:
 
-**Corrective action**: This issue can occur if any maintenance activities are being done on Sentinel Server. 
-1.	If any job/pipeline fails with above reason, resubmit the job after some time. 
-2.	User can visit https://scihub.copernicus.eu/news/ to check information about any planned/unplanned Sentinel maintenance activities.  
-3.	Rerun failed job or run a satellite Indices job for date range of 5-7 days and check if job is successful.
+This issue can occur if any maintenance activities are being done on the Sentinel server.
 
+1. If any job or pipeline fails because maintenance is being performed, resubmit the job after some time. 
+
+   For information about any planned or unplanned Sentinel maintenance activities, go to the [Copernicus Open Access Hub News](https://scihub.copernicus.eu/news/) site.  
+1. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
+
+### Sentinel: Maximum number of connections reached
+
+**Job failure message**: "Maximum number of two concurrent flows achieved by the user '\<username>'."
+
+**Meaning**: If a job fails because the maximum number of connections has been reached, the same Sentinel account is being used in another software deployment.
+
+**Corrective action**:
+Try either of the following:
+* Create a new Sentinel account, and then rerun the installer to upgrade Datahub by using a new Sentinel username and password.  
+* Rerun the failed job or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
+
+### Sentinel server: Refused connection 
+
+**Job failure message**: "Server refused connection at: http://172.30.175.69:8983/solr/dhus." 
+
+**Corrective action**: This issue can occur if any maintenance activities are being done on the Sentinel server. 
+1. If any job or pipeline fails because maintenance is being performed, resubmit the job after some time. 
+
+   For information about any planned or unplanned Sentinel maintenance activities, go to the [Copernicus Open Access Hub News](https://scihub.copernicus.eu/news/) site.  
+1. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
 
 ## Collect logs manually
 
-[Install and deploy]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to Azure Storage Explorer.
+[Install and deploy Azure Storage Explorer]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
-### How to collect data hub ADF job logs
-1. Log in to https://portal.azure.com
-2. In the **Search** text box, search for FarmBeats Data hub resource group.
-
-    > [!NOTE]
-    > Select the data hub resource group that was specified at the time of FarmBeats deployment.
-
-In the resource group dashboard, search for the (datahublogs….) storage account. For example, datahublogsmvxmq  
-
-1.	Select the storage account in the **Name** column to view the **Storage Account** dashboard.
-2.	In the (datahubblogs….) page, select **Open in Explorer** to view **Open Azure Storage Explorer** application.
-3.	In the left panel, (datahubblogs…), **Blob Containers**, select **job-logs**.
-4.	In the **job-logs** tab, select **Download**.
-5.	Select the location to download the logs to a local folder on your machine.
-6.	Email the downloaded zip file to farmbeatssupport@microsoft.com
-
-    ![Project Farm Beats](./media/troubleshooting-farmbeats/collecting-logs-manually-1.png)
-
-### How to collect accelerator ADF job logs
-
-1.	Log in to https://portal.azure.com
-2.	In the **Search** text box, search for FarmBeats Accelerator resource group.
+### Collect Azure Data Factory job logs in Datahub
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the **Search** box, search for the FarmBeats Datahub resource group.
 
     > [!NOTE]
-    > Select the Accelerator resource group that was specified at the time of FarmBeats deployment.
+    > Select the Datahub resource group that you specified during FarmBeats deployment.
 
-3.	In the resource group dashboard, search for storage…. storage account. For example, storagedop4k
-4.	Select the storage account in the **Name** column to view the Storage Account dashboard.
-5.	In the (storage….) page, select **Open in Explorer** to view Open Azure Storage Explorer application.
-6.	In the left panel, <storage….), **Blob Containers**, select **job-logs**.
-7.	In the **job-logs** tab, select **Download**.
-8.	Select the location to download the logs to a local folder on your machine.
-9.	Email the downloaded zip file to farmbeatssupport@microsoft.com
+1. On the **Resource Group** dashboard, search for the *datahublogs\** storage account. For example, search for **datahublogsmvxmq**.  
 
+1. In the **Name** column, select the storage account to view the **Storage Account** dashboard.
+1. In the **datahubblogs\*** pane, select **Open in Explorer** to view the **Open Azure Storage Explorer** application.
+1. In the left pane, select **Blob Containers**, and then select **job-logs**.
+1. In the **job-logs** pane, select **Download**.
+1. Download the logs to a local folder on your machine.
+1. Email the downloaded .zip file to farmbeatssupport@microsoft.com.
 
-### How to collect data hub app service logs
+    ![Project FarmBeats](./media/troubleshooting-farmbeats/collecting-logs-manually-1.png)
 
-1.	Log in to https://portal.azure.com
-2.	In the **Search** text box, search for FarmBeats Data hub resource group.
+### Collect Azure Data Factory job logs in Accelerator
 
-    > [!NOTE]
-    > Select the data hub resource group that was specified at the time of FarmBeats deployment.
-
-3.	In the resource group, search for (datahublogs….) storage account. For example, datahublogsmvxmq
-4.	Select the storage account in the **Name** column to view the **Storage Account** dashboard.
-5.	In the (datahubblogs….) page, select **Open in Explorer** to view **Open Azure Storage Explorer** application.
-6.	In the left panel, (datahubblogs….), **Blob Containers**, select appinsights-logs.
-7.	In the appinsights-logs tab, select **Download**.
-8.	Select the path to download the logs to a local folder on your machine.
-9.	Email the downloaded folder to farmbeatssupport@microsoft.com
-
-### How to collect accelerator app service logs
-
-1.	Log in to https://portal.azure.com
-2.	In the **Search**, search for FarmBeats Accelerator resource group.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the **Search** box, search for the FarmBeats Accelerator resource group.
 
     > [!NOTE]
-    > Select the Farmbeats accelerator resource group that is provided at the time of FarmBeats deployment.
+    > Select the Accelerator resource group that you specified during FarmBeats deployment.
 
-3.	In the resource group, search for (storage….) storage account. For example, storagedop4k
-4.	Select the storage account in the **Name** column to view the **Storage Account** dashboard.
-5.	In the (storage….) page, select **Open in Explorer** to view **Open Azure Storage Explorer** application.
-6.	In the left panel, (storage….), **Blob Containers**, select appinsights-logs.
-7.	In the appinsights-logs tab, select **Download**.
-8.	Select the location to download the logs to a local folder on your machine.
-9.	Email the downloaded folder to farmbeatssupport@microsoft.com
+1. On the **Resource Group** dashboard, search for the *storage\** storage account. For example, search for **storagedop4k\***.
+1. Select the storage account in the **Name** column to view the **Storage Account** dashboard.
+1. In the **storage\*** pane, select **Open in Explorer** to open the Azure Storage Explorer application.
+1. In the left pane, select **Blob Containers**, and then select **job-logs**.
+1. In the **job-logs** pane, select **Download**.
+1. Download the logs to a local folder on your machine.
+1. Email the downloaded .zip file to farmbeatssupport@microsoft.com.
+
+
+### Collect Datahub app service logs
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the **Search** box, search for the FarmBeats Datahub resource group.
+
+    > [!NOTE]
+    > Select the Datahub resource group that you specified during FarmBeats deployment.
+
+1. In the resource group, search for the *datahublogs\** storage account. For example, search for **fordatahublogsmvxmq\***.
+1. Select the storage account in the **Name** column to view the **Storage Account** dashboard.
+1. In the **datahubblogs\*** pane, select **Open in Explorer** to open the Azure Storage Explorer application.
+1. In the left pane, select **Blob Containers**, and then select **appinsights-logs**.
+1. In the **appinsights-logs** pane, select **Download**.
+1. Download the logs to a local folder on your machine.
+1. Email the downloaded .zip file to farmbeatssupport@microsoft.com.
+
+### Collect Accelerator app service logs
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the **Search** box, search for the FarmBeats Accelerator resource group.
+
+    > [!NOTE]
+    > Select the FarmBeats Accelerator resource group that was provided during FarmBeats deployment.
+
+1. In the resource group, search for the *storage\** storage account. For example, search for **storagedop4k\***.
+1. Select the storage account in the **Name** column to view the **Storage Account** dashboard.
+1. In the **storage\*** pane, select **Open in Explorer** to open the Azure Storage Explorer application.
+1. In the left pane, select **Blob Containers**, and then select **appinsights-logs**.
+1. In the **appinsights-logs** pane, select **Download**.
+1. Download the logs to a local folder on your machine.
+1. Email the downloaded folder to farmbeatssupport@microsoft.com.
 
 ## Known issues
 
 ## Batch-related issues
 
-**Error**: The regional account quota of Batch Accounts for the specified subscription has been reached.
+**Error message**: "The regional account quota of Batch Accounts for the specified subscription has been reached."
 
-**Corrective action**: increase the quota or delete unused batch accounts and re-run the deployment.
+**Corrective action**: Increase the quota, or delete the unused batch accounts and rerun the deployment.
 
-### Azure Active Directory related issues
+### Azure Active Directory (Azure AD)-related issues
 
-**Error**: Could not update required settings to Azure AD App d41axx40-xx21-4fbd-8xxf-97xxx9e2xxc0: Insufficient privileges to complete the operation. Ensure that above settings are configured properly for the Azure AD App.
+**Error message**: "Could not update required settings to Azure AD App d41axx40-xx21-4fbd-8xxf-97xxx9e2xxc0: Insufficient privileges to complete the operation. Ensure that above settings are configured properly for the Azure AD App."
 
-**Meaning**: The Azure AD app registration configuration didn’t happen properly.  
+**Meaning**: The Azure AD app registration configuration wasn't completed properly.  
 
-**Corrective action**: ask the IT admin (having tenant read access) to use our [script](https://aka.ms/PPCreateAADappregistration) for generating creating the Azure AD app registration. This script will automatically take care of the configuration steps as well. as  
+**Corrective action**: Ask the IT admin (the person with tenant read access) to use our [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) for creating the Azure AD app registration. This script automatically takes care of the configuration steps as well.
 
-**Error**: Could not create new Active Directory Application “dummyname” in this tenant: Another object with the same value for property identifier URIs already exists
+**Error message**: "Could not create new Active Directory Application '\<application name\>' in this tenant: Another object with the same value for property identifier URIs already exists."
 
-**Meaning**: Azure AD app registration with the same name already exists.
+**Meaning**: An Azure AD app registration with the same name already exists.
 
-**Corrective action**: Delete the existing Azure AD app registration or reuse it for installation. If you are reusing the existing Azure AD pass the Application ID and client secret to the installer and redeploy.
+**Corrective action**: Delete the existing Azure AD app registration, or reuse it for installation. If you're reusing the existing Azure AD app registration, pass the application ID and client secret to the installer and redeploy.
 
-## Input.json related issues
+## Issues with the input.json file
 
-**Error** reading input from input.json file
+**Error**: There's an error reading input from the *input.json* file.
 
-**Corrective action**: This issue mostly arises due to miss in specifying the correct input json path or name to the installer. Make appropriate corrections and retry redeploying.
+**Corrective action**: This issue usually arises because of an error in specifying the correct *input.json* file path or name to the installer. Make appropriate corrections, and retry the redeployment.
 
-**Error parsing json input**
+**Error**: There's an error parsing values in the *input.json* file.
 
-**Corrective action**: This issue mostly arises due to incorrect values within the input json file. Make appropriate corrections and retry deploying.
+**Corrective action**: This issue mostly arises due to incorrect values within the *input.json* file. Make appropriate corrections, and retry the deployment.
 
 ## High CPU usage
 
-**Error**: You get an email alert referring to High CPU Usage Alert. 
+**Error**: You get an email alert that refers to a *High CPU Usage Alert*. 
 
 **Corrective action**: 
-1.	Go to your FarmBeats Data hub Resource Group.
-2.	Select the App service.  
-3.	Go to Scale up (App Service plan) and select an appropriate [pricing tier](https://azure.microsoft.com/pricing/details/app-service/windows/)
+1. Go to your FarmBeats Datahub resource group.
+1. Select the App service.  
+1. Go to the scale up [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/), and then select an appropriate pricing tier.
 
 ## Next steps
 
-If you are still facing any issues, contact us at our [Support Forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats).
+If you're still facing FarmBeats issues, contact our [Support Forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats).

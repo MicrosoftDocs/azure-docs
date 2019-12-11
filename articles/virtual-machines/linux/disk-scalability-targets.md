@@ -1,5 +1,5 @@
 ---
-title: Scalability and performance targets for VM disks on Linux - Microsoft Azure | Microsoft Docs
+title: Scalability and performance targets for VM disks on Linux - Microsoft Azure 
 description: Learn about scalability and performance targets for virtual machine disks attached to VMs running Linux.
 author: roygara
 ms.author: rogarana

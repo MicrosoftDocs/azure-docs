@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create a development pipeline in Azure with Jenkins | Microsoft Docs
+title: Tutorial - Create a development pipeline in Azure with Jenkins 
 description: Tutorial - In this tutorial, you learn how to create a Jenkins virtual machine in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app.
 services: virtual-machines-linux
 documentationcenter: virtual-machines

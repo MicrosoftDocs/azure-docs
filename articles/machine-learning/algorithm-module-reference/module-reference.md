@@ -11,7 +11,7 @@ author: peterclu
 ms.author: peterlu
 ms.date: 11/11/2019
 ---
-# Algorithm & module reference
+# Algorithm & module reference for Azure Machine Learning designer
 
 This reference content provides the technical background on each of the machine learning algorithms and modules available in Azure Machine Learning designer (preview).
 

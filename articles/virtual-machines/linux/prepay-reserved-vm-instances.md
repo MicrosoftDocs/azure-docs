@@ -1,5 +1,5 @@
 ---
-title: Prepay for Azure virtual machines to save money | Microsoft Docs
+title: Prepay for Azure virtual machines to save money 
 description: Learn how to buy Azure Reserved Virtual Machine Instances to save on your compute costs.
 services: virtual-machines-linux
 documentationcenter: ''

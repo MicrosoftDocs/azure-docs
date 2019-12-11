@@ -2,16 +2,12 @@
 title: Microsoft identity platform Java web app quickstart | Azure
 description: Learn how to implement Microsoft Sign-In on a Java Web App using OpenID Connect
 services: active-directory
-documentationcenter: dev-center-name
 author: sangonzal
-editor: ''
+manager: CelesteDG
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
@@ -132,7 +128,7 @@ If you are running the web application from an IDE, click on run, then navigate 
 
 ### Getting MSAL
 
-MSAL4J is the Java library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform.
+MSAL for Java (MSAL4J) is the Java library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform.
 
 Add MSAL4J to your application by using Maven or Gradle to manage your dependencies by making the following changes to the application's pom.xml (Maven) or build.gradle (Gradle) file.
 
@@ -150,7 +146,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
 
 ### MSAL initialization
 
-Add a reference to MSAL4J by adding the following code to the top of the file where you will be using MSAL4J:
+Add a reference to MSAL for Java by adding the following code to the top of the file where you will be using MSAL4J:
 
 ```Java
 import com.microsoft.aad.msal4j.*;

@@ -1,5 +1,5 @@
 ---
-title: Update the Azure Linux Agent from GitHub | Microsoft Docs
+title: Update the Azure Linux Agent from GitHub 
 description: Learn how to update Azure Linux Agent for your Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: ''

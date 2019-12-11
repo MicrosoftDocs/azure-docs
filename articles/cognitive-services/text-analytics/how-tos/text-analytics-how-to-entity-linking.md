@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 11/21/2019
 ms.author: aahi
 ---
 
@@ -29,7 +29,7 @@ Named entity recognition (NER) is the ability to identify different entities in 
 
 ## Named Entity Recognition v3 public preview
 
-The [next version of Named Entity Recognition]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) is now available for public preview. It provides updates to both entity linking and Named Entity Recognition. 
+The next version of Named Entity Recognition is now available for public preview. It provides updates to both entity linking and Named Entity Recognition. Try it using the [API test console](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral).
 
 :::row:::
     :::column span="":::
@@ -116,6 +116,8 @@ Entity linking
 | DateTime      | Set           | "every Tuesday"     |
 | URL           | N/A\*         | "https:\//www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
+| US Phone Number  | N/A\*         | (US phone numbers only) "(312) 555-0176" |
+| IP Address    | N/A\*         | "10.0.0.100" |
 
 \* Depending on the input and extracted entities, certain entities may omit the `SubType`.  All the supported entity types listed are available only for the English, Chinese-Simplified, French, German, and Spanish languages.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Premium Storage: Design for performance on Windows VMs | Microsoft Docs'
+title: 'Azure Premium Storage: Design for performance on Windows VMs '
 description: Design high-performance applications using Azure Premium Storage. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 author: roygara
 ms.service: virtual-machines-linux

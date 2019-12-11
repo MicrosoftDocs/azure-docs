@@ -1,6 +1,6 @@
 ---
 title: Store and View Diagnostic Data in Azure Storage
-description: Get Azure diagnostics data into Azure Storage and view it
+description: Learn how to collect Azure diagnostics data in an Azure Storage account so you can view it with one of several available tools.
 services: azure-monitor
 author: jpconnock
 ms.service: azure-monitor

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Connect to a Custom Commands application with the Speech SDK (Preview)'
+title: 'Quickstart: Connect to a Custom Commands app with Speech SDK - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you will create a Speech SDK client application with Custom Commands.
 services: cognitive-services
@@ -31,7 +31,7 @@ A Custom Commands application is required to complete this article. If you haven
 You'll also need:
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+- An Azure subscription key for the Speech service. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
 
 ## Optional: Get started fast
 
@@ -41,7 +41,7 @@ This quickstart describes, step by step, how to make a client application to con
 
 1. Open your [previously created Custom Commands application](./quickstart-custom-speech-commands-create-new.md) and select **Publish**
 
-   > [!div class="mx-imgBorder"]
+   > [!div class="mx-imgBorder"] 
    > ![Publish application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Copy the app id from the publish notification for later use
@@ -315,7 +315,7 @@ Add the code-behind source as follows:
 
    ```csharp
    //
-   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities, 
+   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities,
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
@@ -372,7 +372,7 @@ Add the code-behind source as follows:
 1. Add the following code snippet to the body of the `ListenButton_ButtonClicked` method in the `MainPage` class
 
    ```csharp
-   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and 
+   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
    // registered the event handlers.
    if (connector == null)
    {
@@ -410,7 +410,7 @@ Add the code-behind source as follows:
 1. Select **Talk**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Direct Line Speech channel and transcribed to text, which appears in the window.
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [How To: Fulfill Commands on the client with the Speech SDK (Preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
-> [How To: Add validations to Custom Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)
 
+> [!div class="nextstepaction"]
+> [How to: Fulfill commands on the client with the Speech SDK (preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
+> [How To: Add validations to Custom Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)

@@ -1,6 +1,6 @@
 ---
 title: Azure Germany database services | Microsoft Docs
-description: Provides a comparison of database services for Azure Germany
+description: This article provides a comparison of SQL database services for Azure Germany.
 services: germany
 cloud: na
 documentationcenter: na

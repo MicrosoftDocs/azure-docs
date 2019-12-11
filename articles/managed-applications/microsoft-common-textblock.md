@@ -18,12 +18,15 @@ ms.author: tomfitz
 ---
 
 # Microsoft.Common.TextBlock UI element
+
 A control that can be used to add text to the portal interface.
 
 ## UI sample
+
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textblock.png)
 
 ## Schema
+
 ```json
 {
   "name": "text1",
@@ -46,5 +49,6 @@ A control that can be used to add text to the portal interface.
 ```
 
 ## Next steps
+
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

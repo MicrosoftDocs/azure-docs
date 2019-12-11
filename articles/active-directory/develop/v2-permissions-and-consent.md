@@ -38,6 +38,7 @@ The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-p
 * Microsoft Graph: `https://graph.microsoft.com`
 * Office 365 Mail API: `https://outlook.office.com`
 * Azure AD Graph: `https://graph.windows.net`
+* Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
 > We strongly recommend that you use Microsoft Graph instead of Azure AD Graph, Office 365 Mail API, etc.

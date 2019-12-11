@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Machines Overview - Azure | Microsoft Docs
+title: Windows Virtual Machines Overview - Azure 
 description: Learn about creating and managing Windows virtual machines in Azure.
 services: virtual-machines-windows
 documentationcenter: ''

@@ -1,15 +1,11 @@
 ---
-title: Manage & monitor Microsoft Azure Recovery Services Agent backups
-description: Learn how to manage and monitor Microsoft Azure Recovery Services Agent backups by using the Azure Backup service.
+title: Manage and monitor MARS Agent backups
+description: Learn how to manage and monitor Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: dacurwin
 ---
-# Manage Microsoft Azure Recovery Services Agent backups by using the Azure Backup service
+# Manage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 
 This article describes how to manage files and folders that are backed up with the Microsoft Azure Recovery Services Agent.
 
@@ -123,7 +119,7 @@ You can add exclusion rules to skip files and folders that you don't want to be 
 
     ![Select the items](./media/backup-azure-manage-mars/select-items-exclude.png)
 
-4. By default all **Subfolders** within the selected folders are excluded. You can change this by selecting **Yes** or **No**. You can edit and specific the file types to exclude as shown below:
+4. By default all **Subfolders** within the selected folders are excluded. You can change this by selecting **Yes** or **No**. You can edit and specify the file types to exclude as shown below:
 
     ![Select the items](./media/backup-azure-manage-mars/subfolders-type.png)
 
@@ -158,13 +154,13 @@ There are two ways to stop protecting Files and Folders backup:
 
 1. Open the MARS management console, go to the **Actions pane**, and **select Schedule Backup**.
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/mars-actions.png)
-1. In **Select Policy Item** page, select **Modify a backup schedule for your files and folders** click **Next**.
+1. In **Select Policy Item** page, select **Modify a backup schedule for your files and folders** and click **Next**.
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
 1. From the **Modify or Stop a Scheduled Backup** page, select **Stop using this backup schedule, but keep the stored backups until a schedule is activated again**. Then, select **Next**.  
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. In **Pause Scheduled Backup** review the information click **Finish**
+1. In **Pause Scheduled Backup** review the information and click **Finish**
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. in **Modify backup process** check your schedule backup pause status success and click **close** to finish.
+1. in **Modify backup process** check your schedule backup pause is in success status and click **close** to finish.
 
 ### Stop protection and delete backup data
 
@@ -194,7 +190,7 @@ After you delete the on-premises backup items, follow the next steps from the po
 If you stopped protection while retaining data and decided to resume protection, then you can re-enable the backup schedule using modify backup policy.
 
 1. On **Actions** select **Schedule backup**.
-1. Select **Re-enable backup schedule. You can also modify backup items or tines** and click **Next**.
+1. Select **Re-enable backup schedule. You can also modify backup items or times** and click **Next**.
     ![Delete the backup infrastructure.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. In **Select Items to Backup**, click **Next**.
     ![Delete the backup infrastructure.](./media/backup-azure-manage-mars/re-enable-next.png)
@@ -205,4 +201,4 @@ If you stopped protection while retaining data and decided to resume protection,
 ## Next steps
 
 - For information about supported scenarios and limitations, refer to the [Support Matrix for MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Learn more about [Ad hoc backup policy retention behavior](backup-configure-vault.md#ad-hoc-backup-policy-retention-behavior).
+- Learn more about [On demand backup policy retention behavior](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).

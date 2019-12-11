@@ -26,8 +26,6 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the articles in the **How-to Guides** section of the [Site Recovery documentation](https://docs.microsoft.com/azure/site-recovery).
 
-> [!WARNING]
-> Support for disaster recovery of Hyper-V VMs using System Center VMM will be deprecated in the near future. We recommend reading the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
 
 
 ## Before you begin
