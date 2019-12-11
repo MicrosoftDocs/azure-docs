@@ -60,7 +60,7 @@ To get started, see [Publish a service catalog application through Azure portal]
 ## Add Azure Marketplace managed application notifications
 For more information, see [Create an Azure application offer](../marketplace/cloud-partner-portal/azure-applications/cpp-create-offer.md).
 
-![Azure Marketplace managed application notifications in the Azure Portal](./media/publish-notifications/marketplace-notifications.png)
+![Azure Marketplace managed application notifications in the Azure portal](./media/publish-notifications/marketplace-notifications.png)
 ## Event triggers
 The following table describes all the possible combinations of EventType and ProvisioningState and their triggers:
 
@@ -69,7 +69,7 @@ EventType | ProvisioningState | Trigger for notification
 PUT | Accepted | Managed resource group has been created and projected successfully after application PUT (before the deployment inside the managed resource group is kicked off).
 PUT | Succeeded | Full provisioning of the managed application succeeded after a PUT.
 PUT | Failed | Failure of PUT of application instance provisioning at any point.
-PATCH | Succeeded | After successful PATCH on managed application instance to update tags, JIT access policy, or managed identity.
+PATCH | Succeeded | After a successful PATCH on the managed application instance to update tags, JIT access policy, or managed identity.
 DELETE | Deleting | As soon as the user initiates a DELETE of a managed app instance.
 DELETE | Deleted | After the full and successful deletion of the managed application.
 DELETE | Failed | After any error during the deprovisioning process that blocks the deletion.
