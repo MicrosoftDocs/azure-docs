@@ -27,19 +27,6 @@ In data science, the key is to understand the data. Visualization and data explo
 | How to use and run it      | Desktop shortcut  <br/> [Get started with Drill in 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Related tools on the DSVM      |   Rattle, Weka, SQL Server Management Studio      |
 
-## Power BI Desktop 
-|    |           |
-| ------------- | ------------- |
-| What is it?   | Interactive data visualization and BI tool    |
-| Supported DSVM versions      | Windows  |
-| Typical uses      |  Data visualization and building dashboards   |
-| How to use and run it      | Desktop shortcut (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`), or simply run from the **Start** menu.      |
-| Related tools on the DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
-
-> [!NOTE]
-> You need a Microsoft Office 365 account to access Power BI.
-
-
 ## Rattle
 |    |           |
 | ------------- | ------------- |
