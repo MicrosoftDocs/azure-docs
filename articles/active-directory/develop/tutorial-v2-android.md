@@ -1,5 +1,5 @@
 ---
-title: Sign in users & call Microsoft Graph (Android) - Microsoft identity platform | Azure 
+title: Sign users in/out & call Microsoft Graph (Android) - Microsoft identity platform | Azure 
 description: Get an access token and call Microsoft Graph or APIs that require access tokens from Microsoft identity platform (Android)
 services: active-directory
 documentationcenter: dev-center-name
@@ -19,7 +19,7 @@ ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Sign in users and call the Microsoft Graph from an Android app
+# Tutorial: Sign users in/out and call the Microsoft Graph from an Android app
 
 > [!NOTE]
 > This tutorial has not yet been updated to work with MSAL for Android version 1.0 library. It works with an earlier version, as configured in this tutorial.
