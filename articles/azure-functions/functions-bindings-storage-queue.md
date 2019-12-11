@@ -335,7 +335,42 @@ If you try to bind to `CloudQueueMessage` and get an error message, make sure th
 
 # [JavaScript](#tab/javascript)
 
-In JavaScript, use `context.bindings.<name>` to access the queue item payload. If the payload is JSON, it's deserialized into an object.
+To implement a queue trigger input binding, configure the *function.json* like the following example:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "queueTrigger",
+      "name": "msg",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`type`       | Defines the binding type. Here, set the value as `queueTrigger`. |
+|`name`       | Declares the parameter name the in the function signature. When the function is triggered this parameter's value has the contents of the queue message. |
+|`direction`  | Defines whether the binding is input or output. Here, set the value to `in`.  |
+|`queueName`  | Declares the queue name in the storage account. |
+|`connection` | Points to the storage account connection string. |
+
+With this configuration, the function code looks like this:
+
+```javascript
+module.exports = async function (context, msg) {
+    context.log(`Queue message: ${msg}`);
+};
+```
+
+The `context` instance exposes the following data:
+
+* Queue message metadata is available via `context.bindingData`.
+* The queue item payload is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in the *function.json* binding. If the payload is JSON, the value is deserialized into an object.
 
 # [Python](#tab/python)
 
