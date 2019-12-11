@@ -79,9 +79,9 @@ Verify that your pom.xml file has the correct Spring Boot and Spring Cloud depen
 
 ## Azure Spring Cloud client dependency
 
-Azure Spring Cloud hosts and manages Spring Cloud components for you. Such components include Spring Cloud Service Registry and Spring Cloud Config Server. Include Azure Spring Cloud's client library in your dependencies to allow communication with your Azure Spring Cloud service instance.
+Azure Spring Cloud hosts and manages Spring Cloud components for you. Such components include Spring Cloud Service Registry and Spring Cloud Config Server. Include the Azure Spring Cloud client library in your dependencies to allow communication with your Azure Spring Cloud service instance.
 
-The table below lists the correct Azure Spring Cloud versions for your app that uses Spring Boot and Spring Cloud.
+The following table lists the correct Azure Spring Cloud versions for your app that uses Spring Boot and Spring Cloud.
 
 Spring Boot version | Spring Cloud version | Azure Spring Cloud version
 ---|---|---
