@@ -36,17 +36,7 @@
 - name: Concepts
   items:
   - name: NAT Service
-    items:
-    - name: What is NAT Service?
-      href: nat-service-overview.md
-    - name: Create NAT Gateway - Portal
-      href: quickstart-create-nat-gateway-portal.md
-    - name: Create NAT Gateway - PowerShell
-      href: quickstart-create-nat-gateway-powershell.md
-    - name: Create and validate NAT Gateway - Portal
-      href: tutorial-create-validate-nat-gateway-portal.md
-    - name: Create and validate NAT Gateway - PowerShell
-      href: tutorial-create-validate-nat-gateway-powershell.md
+    href: nat-service-overview.md
   - name: Security groups
     href: security-overview.md
   - name: Routing
@@ -111,6 +101,20 @@
       href: virtual-network-tcpip-performance-tuning.md
   - name: Deploy
     items:
+    - name: NAT Service
+      items:
+      - name: Create NAT gateway - Portal
+        href: quickstart-create-nat-gateway-portal.md
+      - name: Create NAT gateway - PowerShell
+        href: quickstart-create-nat-gateway-powershell.md
+      - name: Create NAT gateway - CLI
+        href: quickstart-create-nat-gateway-cli.md
+      - name: Create and validate NAT gateway - Portal
+        href: tutorial-create-validate-nat-gateway-portal.md
+      - name: Create and validate NAT gateway - PowerShell
+        href: tutorial-create-validate-nat-gateway-powershell.md
+      - name: Create and validate NAT gateway - CLI
+        href: tutorial-create-validate-nat-gateway-cli.md
     - name: IPv6 for VNet
       items:
       - name: Basic Public Load Balancer
