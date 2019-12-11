@@ -22,6 +22,8 @@ VPN gateway packet captures can be run on the gateway or on a specific connectio
 
 Using 5 tuples filter (source subnet, destination subnet, source port, destination port, protocol) and TCP flags (SYN, ACK, FIN, URG, PSH, RST) is helpful when isolating issues on a high volume traffic.
 
+You can use only one option per property while running the packet capture.
+
 ## Setup packet capture using PowerShell
 
 See the examples below for PowerShell commands to start and stop packet captures. For more information on parameter options (such as how to create filter), see this PowerShell [document](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
@@ -46,7 +48,7 @@ Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupN
 Start-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName"
 ```
 
-Optional parameter **-FilterData** can be used to apply filters.
+Optional parameter **-FilterData** can be used to apply filter.
 
 ### Stop packet capture on a VPN gateway connection
 
