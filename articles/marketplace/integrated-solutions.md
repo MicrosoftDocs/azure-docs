@@ -1,16 +1,16 @@
 ---
-title: Integrated Solutions | Azure
+title: Integrated Solutions | Azure Marketplace
 description: Integrated Solutions in Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: ChJenk
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 12/16/2019
 ms.author: v-chjen
 ---
 
-# Integrated Solutions in Azure Marketplace and AppSource
+# Integrated Solutions in Microsoft AppSource and Azure Marketplace
 
 An Integrated Solution brings together best-of-breed technologies from Microsoft partners, along with consultation, deployment, and supports provided by expert Systems Integrators (SI).
 
