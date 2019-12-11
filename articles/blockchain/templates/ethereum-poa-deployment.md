@@ -366,7 +366,7 @@ other consortium members have been added to the network, the Traffic Manager can
 1. For **Target resource type**, choose **Public IP address**.
 1. Choose the public IP address of the first region's load balancer.
 
-![Routing traffic manager](./media/ethereum-poa-deployment/traffic-manager-routing.png)
+    ![Routing traffic manager](./media/ethereum-poa-deployment/traffic-manager-routing.png)
 
 Repeat for each region in the deployed network. Once the endpoints are in the **enabled** status, they are automatically load and region balanced at the DNS name of the traffic manager. You can now use this DNS name in place of the [CONSORTIUM_DATA_URL] parameter in other steps of the article.
 
