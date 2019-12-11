@@ -1,5 +1,6 @@
 ---
-title: Brokered authentication on Xamarin, iOS & Android | Azure
+title: Use brokers with Xamarin, iOS, & Android | Azure
+
 titleSuffix: Microsoft identity platform
 description: Learn how to migrate Xamarin iOS applications that can use Microsoft Authenticator from the Azure AD Authentication Library for .NET (ADAL.NET) to the Microsoft Authentication Library for .NET (MSAL.NET)
 author: jmprieur

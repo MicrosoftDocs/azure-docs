@@ -31,7 +31,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
 
     b. Alternatively, load the Azure Maps Web SDK source code locally using the [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) NPM package and host it with your app. This package also includes TypeScript definitions.
 
-    > npm install azure-maps-control
+    > **npm install azure-maps-control**
 
     Then add references to the Azure Maps stylesheet and script source references to the `<head>` element of the file:
 
