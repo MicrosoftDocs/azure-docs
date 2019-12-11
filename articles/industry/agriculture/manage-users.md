@@ -28,8 +28,8 @@ Azure FarmBeats uses Azure AD for authentication, access control and roles. User
 
 There are two kinds of user roles supported in Azure FarmBeats today:
 
- - **Admin** — All access to Azure FarmBeats Data hub APIs. Users in this role can query all  Azure FarmBeats Data hub objects, perform all operations from the FarmBeats Accelerator.
- - **Read-Only** — Read-only access to FarmBeats Data hub APIs. Users can view the Data hub APIs, the Accelerator Dashboards and the maps. A user with “Read-only” role will NOT be able to perform any operations like generate maps, associate devices or create farms.
+ - **Admin** — All access to Azure FarmBeats Datahub APIs. Users in this role can query all  Azure FarmBeats Datahub objects, perform all operations from the FarmBeats Accelerator.
+ - **Read-Only** — Read-only access to FarmBeats Datahub APIs. Users can view the Datahub APIs, the Accelerator Dashboards and the maps. A user with “Read-only” role will NOT be able to perform any operations like generate maps, associate devices or create farms.
 
 
 ## Add user to Azure FarmBeats
@@ -45,7 +45,7 @@ Follow the steps to add a user to Azure FarmBeats:
 4.	Select the desired role – Admin or Read-Only.
 5.	Select **Add Role**.
 
-The added user(s) will now be able to access Azure FarmBeats (both Data hub and Accelerator).
+The added user(s) will now be able to access Azure FarmBeats (both Datahub and Accelerator).
 
 ## Delete user from Azure FarmBeats
 
