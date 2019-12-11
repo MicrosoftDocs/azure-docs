@@ -12,7 +12,7 @@ ms.date: 12/11/2019
 
 # Summary Dashboard in Commercial Marketplace analytics
 
-This article provides information on the Summary dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarizes marketplace activity for your offers.
+This article provides information on the Summary dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarize marketplace activity for your offers.
 
 To access the Summary dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
 
@@ -34,13 +34,13 @@ The following sections describe how to use the summary dashboard and how to read
 
 ### Date range
 
-You can find a date range selection at the top-right corner of each page. The output of the **Summary** page graphs can be customized by selecting a date range based on the past 3, 6, or 12 months, or by selecting a custom date range with a maximum duration of 12 months. The default date range is six months.
+You can find a date range selection at the top-right corner of each page. Customize the output of the **Summary** page graphs by selecting a date range based on the past 3, 6, or 12 months, or by selecting a custom date range with a maximum duration of 12 months. The default date range is six months.
 
 ![Partner Center Analyze dashboard](./media/analyze-dashboard.png)
 
 ### Summary section
 
-The Summary section displays a count of all orders created, customers acquired, and usage reported during the selected date range. Partial current month will be excluded from the computation of these metrics. For example: If you have selected the 6M time frame, the usage hours are computed for the 6 months prior to the current month. If a custom date range is selected, a partial amount from the current month will be excluded from the computation.
+The Summary section displays a count of all orders created, customers acquired, and usage reported during the selected date range. Partial current month will be excluded from the computation of these metrics. For example: If you have selected the 6M time frame, the usage hours are computed for the six months prior to the current month. If a custom date range is selected, a partial amount from the current month will be excluded from the computation.
 
 ![Growth trends in Summary dashboard](./media/summary-growth-trends.png)
 
@@ -83,8 +83,8 @@ The **orders by sales channel** pie chart organizes your orders (including order
 The **orders by marketplace license type** and **usage by marketplace license type** pie charts display a breakdown of orders and usage by their respective license type. License types include:
 
 - **Billed through Azure**: Microsoft bills customers on your behalf when you choose to sell your offer through Microsoft with this license type. Payment types include pay-as-you-go via credit card or Enterprise invoicing.
-- **Bring your own license**: Microsoft does not bill customers for their usage with this type of marketplace offer. This is listed as **Get it now (Free)** in the marketplace.
-- **Free**: Microsoft does not bill customers for their usage with this type of marketplace offer. Listed as **Free trial** in the marketplace.
+- **Bring your own license**: Microsoft does not bill customers for their usage with this type of marketplace offer. This usage is listed as **Get it now (Free)** in the marketplace.
+- **Free**: Microsoft does not bill customers for their usage with this type of marketplace offer. This usage is listed as **Free trial** in the marketplace.
 - **Microsoft as reseller**: Represents offers sold by Microsoft resellers as a part of the **Cloud Solution Provider (CSP) program**.
 
 ![Partner Center customers trend](./media/customers-trend.png)
@@ -116,3 +116,7 @@ Free trials SaaS orders trend
 The **Free trial SaaS orders trend** chart presents the trend of orders for free trials SaaS offers with a 30-day trial period.
 
 ![Partner Center free trial SaaS order trend](./media/free-trial-saas.png)
+
+## Next steps
+
+Links to all other analytics articles.

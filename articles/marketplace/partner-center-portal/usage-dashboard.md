@@ -1,5 +1,5 @@
 ---
-title: Usage dashboard the Commercial Marketplace analytics in Partner Center
+title: Usage dashboard in Commercial Marketplace analytics on Partner Center
 description: Learn how to access all VM offers usage and metered billing metrics.
 author: ChJenk
 manager: evansma
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 ---
 
-# Usage dashboard the Commercial Marketplace analytics
+# Usage Dashboard in Commercial Marketplace analytics
 
 This article provides information on the Usage dashboard in Partner Center. This dashboard displays all VM offers usage and metered billing metrics in two separate tabs: VM usage and metered billing usage.
 
@@ -107,26 +107,15 @@ The **Usage page filters** are applied at the page level. You can select multipl
 > [!NOTE]
 > A detailed definition of each of the fields in “detailed order data” grid, page filters, and all possible selections are defined in the data dictionary section of the [FAQs and terminology](link needed) article.
 
-The **Metered billing usage** tab presents usage info for offer types where usage is measured by per meter dimension. SaaS offer type overage is presented currently.
+The **Metered billing usage** tab presents usage info for offer types where usage is measured by per meter dimension. SaaS offer type overage is presented currently. The tab presents graphical representations of overage trends for SaaS metered billing usage:
 
-This tab presents graphical representations of overage trends for SaaS Metered billing usage:
-
-- Overage trend by meter dimension
-- Overage trend by SKU
-- Overage trend by top customers
-- Overage trend by top 50 customers
-- Detailed usage data
+- **Overage trend by meter dimension**: Displays the monthly overage trend for the selected meter dimension of an offer. The X-Axis represents the month and the Y-Axis represents the usage quantity. The unit of measurement of the custom meter is also displayed on the Y-Axis.
+- **Overage trend by SKU**: Represents the trend of usage quantity of the selected meter dimension by SKUs. The SKUs displayed will represent the top 5 SKUs with the highest amount of usage for the offer selected.
+- **Overage trend by Top 50 Customers**: The top 50 offers with the highest usage hours are displayed on a ***leader board*** and are ranked by the highest usage of the custom meter. Select a customer in the leaderboard to view the usage trend of a selected meter dimension.
+- **Overage trend by top customers**: Presents top customer percentile(s) that contribute to the % of overall usage. The top customer percentile is displayed along the X-axis and is determined by the customer’s usage quantity. The Y-axis displays the usage quantity. You can display details by hovering over points along the line chart.
 
 > [!NOTE]
 > The usage details and all charts on this page are displayed for whichever meter dimension is selected for the page filter.
-
-**Overage trend by meter dimension**: Displays the monthly overage trend for the selected meter dimension of an offer. The X-Axis represents the month and the Y-Axis represents the usage quantity. The unit of measurement of the custom meter is also displayed on the Y-Axis.
-
-**Overage trend by SKU**: Represents the trend of usage quantity of the selected meter dimension by SKUs. The SKUs displayed will represent the top 5 SKUs with the highest amount of usage for the offer selected.
-
-**Overage trend by Top 50 Customers**: The top 50 offers with the highest usage hours are displayed on a ***leader board*** and are ranked by the highest usage of the custom meter. Select a customer in the leaderboard to view the usage trend of a selected meter dimension.
-
-**Overage trend by top customers**: Presents top customer percentile(s) that contribute to the % of overall usage. The top customer percentile is displayed along the X-axis and is determined by the customer’s usage quantity. The Y-axis displays the usage quantity. You can display details by hovering over points along the line chart.
 
 ## Next Steps
 

@@ -20,25 +20,23 @@ To access the **Customer dashboard**, open the **[Analyze](https://partner.micro
 
 The **Customer dashboard** of the **Analyze** menu displays data for customers who have acquired your offers. You can view graphical representations of the following items:
 
-- Customer summary
-- Customers by geography
-- Customer trends
-- Customers by orders
-- Customers by SKUs
-- Orders and usage by customer type
-- Detailed customer data
+- [Customer summary](#customer-summary)
+- [Customers by geography](#customers-by-geography)
+- [Customer trends](#customer-trends)
+- [Customers by orders](#customers-by-orders)
+- [Customers by SKUs](#customers-by-skus)
+- [Orders and usage by customer type](#orders-and-usage-by-customer-type)
+- [Detailed customer data](detailed-customer-data)
 
 ### Customer summary
 
 The Customer summary section displays a count of all customers, including new, existing, and churned, during the selected date range.
 
-- Total customers is defined as the count of all customers who have purchased your offer and have at least one order that has not been cancelled.
+- Total customers is defined as the count of all customers who have purchased your offer and have at least one order that has not been canceled.
 - Customers percentage of growth compared to the previous month is indicated by the number and upward indicator in green or downward indicator in red.
 - Growth trends are represented by bar graphs and will display the value for each month by hovering over the columns of the chart.
 
-### Customer types
-
-There are three customer types: new, existing, and churned.
+There are three **customer types**: new, existing, and churned.
 
 - A new customer has acquired one or more of your offers for the first time within the selected month.
 - An existing customer has acquired one or more of your offers prior to the month selected.
@@ -97,12 +95,12 @@ The **Customer details** table displays a numbered list of the top 1000 customer
 - If records number over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
 - Filters can be applied to the table to display only the data that you are interested in. Data can be filtered by Company name, Customer ID, Marketplace Subscription ID, Azure License Type, Date Acquired, Date Lost, Customer Email, Customer Country/State/City/Zip, Customer Language, etc.
 
-**Customers page** filters are applied at the Customers page level. You can select multiple filters to renders the chart for the criteria you choose to view and the data you want to see in ‘Detailed orders data’ grid / export. Filters are applied on the data extracted for the data range you have selected on the top right corner of the orders page.
+**Customers page** filters are applied at the Customers page level. You can select multiple filters to render the chart for the criteria you choose to view and the data you want to see in ‘Detailed orders data’ grid / export. Filters are applied on the data extracted for the data range you have selected on the top-right corner of the orders page.
 Note
 
 ## Next steps
 
-- Detailed definition of each of the fields in Customer Grid, Page filters and their possible selections are defined in the Data Dictionary section of the FAQs and terminology article.
+- Detailed definition of each of the fields in Customer Grid, Page filters, and their possible selections are defined in the Data Dictionary section of the FAQs and terminology article.
 - Links to all analytics articles here.
 
 

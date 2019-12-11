@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 ---
 
-# Downloads Dashboard in Commercial Marketplace Analytics
+# Downloads Dashboard in Commercial Marketplace analytics
 
 This article provides information on the Downloads dashboard in Partner Center. This dashboard displays a list of your download requests over the last 30 days.
 

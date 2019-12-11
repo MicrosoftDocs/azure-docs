@@ -12,7 +12,7 @@ ms.date: 12/11/2019
 
 # Orders Dashboard in Commercial Marketplace analytics
 
-This article provides information on the Orders dashboard in Partner Center. This dashboard displays information about your orders in a graphical and downloadable format.
+This article provides information on the **Orders dashboard** in Partner Center. This dashboard displays information about your orders in a graphical and downloadable format.
 
 To access the **Orders dashboard** in the Partner Center analytics tools, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
 
@@ -46,8 +46,8 @@ The percentage value next to Total Orders represents the amount of growth the se
 - A green triangle pointing upward indicates a positive growth trend.
 - A red triangle pointing downward indicates a negative growth trend relative to the previous month.
 - Growth trends are represented by micro bar graphs. You can display the value for each month by hovering over the columns within the chart.
-- canceled Orders: Count of orders that were previously purchased and subsequently canceled during the selected date range.
-- Seats: Count of seats created during the selected date range.
+- Canceled orders are a count of orders that were previously purchased and then canceled during the selected date range.
+- Seats are a count of seats created during the selected date range.
 
 ### Orders by geography
 
@@ -106,7 +106,7 @@ The Order details table displays a numbered list of the 1000 top orders sorted b
 - Each column in the grid is sortable.
 - The data can be extracted to a TSV file if the count of the records is less than 1000.
 - If records number over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
-- Filters can be applied to the **Order details table** to display only the data that you are interested in. Data can be filtered by Country, Azure license type, Marketplace license type, Offer type, Order status, Free trails, Marketplace subscription ID, Customer ID, and Company name.
+- Filters can be applied to the **Order details table** to display only the data that you're interested in. Data can be filtered by Country, Azure license type, Marketplace license type, Offer type, Order status, Free trails, Marketplace subscription ID, Customer ID, and Company name.
 
 ![Partner Center Analyze order details](./media/analyze-order-details.png)
 
@@ -116,12 +116,12 @@ These filters are applied at the page level.
 
 ![Partner Center Analyze order page filters](./media/orders-page-filers.png)
 
-You can select multiple filters to render the chart for the criteria you choose to view and the data you want displayed in the **Detailed Order Data** grid/export. Filters are applied on the data extracted for the data range you have selected on the top right corner of the orders page.
+You can select multiple filters to render the chart for the criteria you choose to view and the data you want displayed in the **Detailed Order Data** grid/export. Filters are applied on the data extracted for the data range you've selected on the top right corner of the orders page.
 
-- Offer types and offer names are only listed for the offers you have orders for during the selected date range. Offer names in the list are displayed for offers types you have selected in the list.
-- Applied filters show the total metrics within each selection(s) for each filter selected. Applied filters are not displayed when the default selection is chosen.
-- If **All** is selected for one of the dropdown lists, then all metrics in the page selected will be aggregated. For example: “All” in the offer types filter option means that all offer types have been selected. This is the default selection for the dropdown lists. Applied filters displays will not show anything when this **All** selected.
-- **Multiple value selection**: All metrics in the page will be aggregated for all the selections made under the dropdown list. If multiple selections are made, the applied filter will show the count of all selections made. See below image for reference.
+- Offer types and offer names are only listed for offers you have orders for during the selected date range. Offer names in the list are displayed for offers types you've selected in the list.
+- Applied filters show the total metrics within each selection(s) for each filter selected. Applied filters aren' displayed when the default selection is chosen.
+- If **All** is selected for one of the dropdown lists, then all metrics in the page selected will be aggregated. For example: “All” in the offer types filter option means that all offer types have been selected. This is the default selection for the dropdown lists. Applied filters displays won't show anything when **All** is selected.
+- **Multiple value selection**: All metrics in the page will be aggregated for all the selections made under the dropdown list. If multiple selections are made, the applied filter will show the count of all selections made. See the image below for reference.
 
     ![Partner Center Analyze order with multiple values applied to filter](./media/filters-applied.png)
 
@@ -129,5 +129,7 @@ You can select multiple filters to render the chart for the criteria you choose 
 
      ![Partner Center Analyze order with single value applied to filter](./media/filters-applied-single.png)
 
-> [!NOTE]
-> A detailed definition of each of the fields in “Detailed Order Data” Grid, Page filters, and all possible selections are defined in the Data Dictionary section of the FAQ and terminology article (ADD LINK).
+## Next steps
+
+- A detailed definition of each of the fields in “Detailed Order Data” Grid, Page filters, and all possible selections are defined in the Data Dictionary section of the FAQ and terminology article (ADD LINK).
+- Links to all other analytics docs
