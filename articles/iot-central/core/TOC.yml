@@ -27,8 +27,6 @@
         href: tutorial-connect-pnp-device.md
       - name: Create a gateway device template
         href: tutorial-define-gateway-device-type.md
-      - name: Build and manage an IoT Edge device template
-        href: tutorial-define-edge-device-type.md
       - name: Connect an IoT Edge device
         href: tutorial-add-edge-as-leaf-device.md
     - name: Stay connected
@@ -49,6 +47,8 @@
       href: concepts-app-templates.md
     - name: Get connected
       href: concepts-get-connected.md
+    - name: Connect IoT Edge devices
+      href: concepts-iot-edge.md
 - name: How-to guides
   items:
     - name: Get connected

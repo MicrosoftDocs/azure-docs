@@ -53,7 +53,7 @@ IoT Central enables the following capabilities to for IoT Edge devices:
   - Cloud properties that aren't stored on the IoT Edge device.
   - Customizations, dashboards, and forms that are part of your IoT Central application.
 
-  For more information, see the [Create an IoT Edge device template](tutorial-define-edge-device-type.md) tutorial.
+  For more information, see the [Connect Azure IoT Edge devices to an Azure IoT Central application](./concepts-iot-edge.md) article.
 
 - The ability to provision IoT Edge devices at scale using Azure IoT device provisioning service
 - Rules and actions.
