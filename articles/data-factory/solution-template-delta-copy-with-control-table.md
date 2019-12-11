@@ -128,6 +128,7 @@ The template defines following parameters:
 			INSERT INTO data_source_table
 			VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
 	```
+
 14. To run the pipeline again, select **Debug**, enter the **Parameters**, and then select **Finish**.
 
     You will see that only new rows were copied to the destination.
