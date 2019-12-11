@@ -405,8 +405,11 @@
       href: quickstarts/setup-platform.md?pivots=programming-language-more
   - name: How-to guides
     items:
-    - name: Enable logging
+    - name: How to enable logging
       href: how-to-use-logging.md
+    - name: How to track memory usage
+      href: how-to-track-speech-sdk-memory-usage.md
+      displayName: "memory usage, memory consumption, object logging, object tracking, memory"
   - name: Samples
     items:
     - name: Speech SDK Samples (GitHub)
