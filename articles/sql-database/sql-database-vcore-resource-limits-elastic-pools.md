@@ -57,9 +57,9 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ### General purpose service tier: Generation 4 compute platform (part 2)
 
@@ -87,7 +87,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ## General purpose - provisioned compute - Gen5
 
@@ -117,9 +117,9 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ### General purpose service tier: Generation 5 compute platform (part 2)
 
@@ -147,9 +147,9 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ## General purpose - provisioned compute - Fsv2-series
 
@@ -179,9 +179,9 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|
 |Included backup storage|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ## Business critical - provisioned compute - Gen4
 
@@ -214,9 +214,9 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ### Business critical service tier: Generation 4 compute platform (part 2)
 
@@ -244,9 +244,9 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ## Business critical - provisioned compute - Gen5
 
@@ -276,9 +276,9 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ### Business critical service tier: Generation 5 compute platform (part 2)
 
@@ -306,9 +306,9 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ## Business critical - provisioned compute - M-series
 
@@ -338,9 +338,9 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|Yes|
 |Included backup storage|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+\*\* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 If all vCores of an elastic pool are busy, then each database in the pool receives an equal amount of compute resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the vCore min per database is set to a non-zero value.
 

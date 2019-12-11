@@ -51,7 +51,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### Gen5 compute generation (part 2)
 
@@ -77,7 +77,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## Hyperscale - provisioned compute - Gen4
 
@@ -129,7 +129,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## Hyperscale - provisioned compute - Gen5
 
@@ -157,7 +157,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### Gen5 compute generation (part 2)
 
@@ -183,7 +183,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 #### Notes
 
@@ -221,7 +221,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### Gen4 compute generation (part 2)
 
@@ -246,7 +246,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## General purpose - provisioned compute - Gen5
 
@@ -273,7 +273,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### Gen5 compute generation (part 2)
 
@@ -298,7 +298,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## General purpose - provisioned compute - Fsv2-series
 
@@ -325,7 +325,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|
 |Included backup storage|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## Business critical - provisioned compute - Gen4
 
@@ -356,7 +356,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### Gen4 compute generation (part 2)
 
@@ -382,7 +382,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## Business critical - provisioned compute - Gen5
 
@@ -410,7 +410,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### Gen5 compute generation (part 2)
 
@@ -436,7 +436,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## Business critical - provisioned compute - M-series
 
@@ -463,7 +463,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|Yes|
 |Included backup storage|1X DB size|
 
-\* Target maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS is workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
