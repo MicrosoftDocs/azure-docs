@@ -16,8 +16,6 @@ ms.author: erhopf
 
 Text-to-speech from the Speech service enables your applications, tools, or devices to convert text into human-like synthesized speech. Choose from standard and neural voices, or create a custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in a select number of languages and locales. For a full list of supported voices, languages, and locales, see [supported languages](language-support.md#text-to-speech).
 
-The text-to-speech service uses [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to adjust pitch, pronunciation, speaking rate, volume, and more, with support for [24 kHz, 16 kHz, and 8 kHz audio outputs](rest-text-to-speech.md#audio-outputs).
-
 > [!NOTE]
 > Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to the Speech service.
 > - [Migrate from Bing Speech to the Speech service](how-to-migrate-from-bing-speech.md)
