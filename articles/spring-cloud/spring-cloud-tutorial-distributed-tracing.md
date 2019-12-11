@@ -22,7 +22,7 @@ In this article you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to provision and run an Azure Spring Cloud service.
+To complete this tutorial, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to provision and run an Azure Spring Cloud service.
 	
 ## Add dependencies
 
@@ -66,7 +66,7 @@ You can change the rate at which your telemetry is collected by modifying the sa
 spring.sleuth.sampler.probability=0.5
 ```
 
-If you have already built and deployed an application, you can modify the sample rate. Do so by adding the previous line as an environment variable in Azure CLI or the Azure portal.
+If you have already built and deployed an application, you can modify the sample rate. Do so by adding the previous line as an environment variable in the Azure CLI or the Azure portal.
 
 ## Enable Application Insights
 

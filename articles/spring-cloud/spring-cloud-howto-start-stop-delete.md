@@ -10,7 +10,7 @@ ms.author: jeconnoc
 ---
 # How to start, stop, and delete your Azure Spring Cloud application
 
-This guide explains how to change an application's state in Azure Spring Cloud by using either the Azure portal or Azure CLI.
+This guide explains how to change an application's state in Azure Spring Cloud by using either the Azure portal or the Azure CLI.
 
 ## Using the Azure portal
 
@@ -21,12 +21,12 @@ After you deploy an application, you can start, stop, and delete it by using the
 1. Select the application whose state you want to change.
 1. On the **Overview** page for that application, select **Start/Stop**, **Restart**, or **Delete**.
 
-## Using Azure CLI
+## Using the Azure CLI
 
 > [!NOTE]
-> You can use optional parameters and configure defaults with Azure CLI. Learn more about Azure CLI by reading [our reference documentation](spring-cloud-cli-reference.md).  
+> You can use optional parameters and configure defaults with the Azure CLI. Learn more about the Azure CLI by reading [our reference documentation](spring-cloud-cli-reference.md).  
 
-First, install the Azure Spring Cloud extension for Azure CLI as follows:
+First, install the Azure Spring Cloud extension for the Azure CLI as follows:
 
 ```azurecli
 az extension add --name spring-cloud

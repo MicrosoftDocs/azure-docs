@@ -49,7 +49,7 @@ After persistent storage is enabled, its size and path are shown on the configur
 
 ## Use the Azure CLI to modify persistent storage
 
-If you need Azure CLI, here's how to install the Azure Spring Cloud extension for Azure CLI:
+If necessary, install the Spring Cloud extension for the Azure CLI:
 
 ```azurecli
 az extension add --name spring-cloud
