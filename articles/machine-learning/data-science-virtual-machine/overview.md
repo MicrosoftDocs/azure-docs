@@ -60,7 +60,7 @@ The Windows Server 2016 edition of the DSVM comes pre-installed with GPU drivers
 
 You can also deploy the Ubuntu, CentOS, or Windows 2016 edition of the DSVM to an Azure virtual machine that isn't based on GPUs. In this case, all the deep learning frameworks will fall back to the CPU mode.
  
-[Learn more about available deep learning and AI frameworks](dsvm-deep-learning-ai-frameworks.md).
+[Learn more about available deep learning and AI frameworks](dsvm-tools-deep-learning-frameworks.md).
 
 <a name="included"></a>
 
