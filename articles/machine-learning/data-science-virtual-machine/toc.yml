@@ -37,10 +37,11 @@
     href: dsvm-tools-ingestion.md
   - name: Data exploration and visualization tools
     href: dsvm-tools-explore-and-visualize.md
-  - name: Enterprise security and guidance
-    href: dsvm-tools-enterprise.md  
   - name: Productivity tools
     href: dsvm-tools-productivity.md
+  - name: Enterprise security and guidance
+    href: dsvm-enterprise-overview.md  
+
 - name: Samples    
   href: dsvm-samples-and-walkthroughs.md
 - name: How-to guides

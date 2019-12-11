@@ -24,7 +24,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 - [Powerful Data Science tools and libraries](dsvm-tools-data-science.md)
 - [Data exploration and visualization tools](dsvm-tools-explore-and-visualize.md)
 - [Data ingestion tools](dsvm-tools-ingestion.md)
-- [Deep learning and statistical ML frameworks](dsvm-tools-deep-learning.md)
-- [Productivity and Business Intelligence tools](tk)
+- [Deep learning and statistical ML frameworks](dsvm-tools-deep-learning-frameworks.md)
+- [Productivity and Business Intelligence tools](dsvm-tools-productivity.md)
 - [Sample code and walkthroughs](dsvm-samples-and-walkthroughs.md)
 
