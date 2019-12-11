@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 11/25/2019
+ms.date: 12/10/2019
 ---
 # Resource limits for elastic pools using the vCore purchasing model
 
@@ -299,13 +299,13 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Memory (GB)|3767|
 |Max number DBs per pool|100|
 |Columnstore support|Yes|
-|In-memory OLTP storage (GB)|481|
+|In-memory OLTP storage (GB)|1768|
 |Max data size (GB)|4096|
 |Max log size (GB)|2048|
 |TempDB max data size (GB)|4096|
 |Storage type|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|
-|Target IOPS (64 KB)|40000|
+|Target IOPS (64 KB)|250000|
 |Log rate limits (MBps)|120|
 |Max concurrent workers per pool (requests) *|1680|
 |Max concurrent logins per pool (requests) *|1680|
