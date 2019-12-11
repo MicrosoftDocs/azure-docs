@@ -29,11 +29,51 @@ Use the Language Understanding (LUIS) authoring client library for .NET to:
 * Language Understanding (LUIS) portal account - [Create one for free](https://www.luis.ai)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
+
 ## Setting up
 
 ### Get your Language Understanding (LUIS) starter key
 
-Get your [starter key](luis-how-to-azure-subscription.md#starter-key), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `COGNITIVESERVICE_AUTHORING_KEY`.
+Get your [starter key](luis-how-to-azure-subscription.md#starter-key) by creating a LUIS authoring resource. Keep your key, and the region of the key for the next step.
+
+### Create an environment variable
+
+Using your key, and the region for the key, create two environment variables for authentication:
+
+* `COGNITIVESERVICE_AUTHORING_KEY` - The resource key for authenticating your requests.
+* `COGNITIVESERVICE_REGION` - The region associated with your key. For example `westus`.
+
+Use the instructions for your operating system.
+
+#### [Windows](#tab/windows)
+
+```console
+setx COGNITIVESERVICE_AUTHORING_KEY <replace-with-your-authoring-key>
+setx COGNITIVESERVICE_REGION <replace-with-your-authoring-region>
+```
+
+After you add the environment variable, restart the console window.
+
+#### [Linux](#tab/linux)
+
+```bash
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key>
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
+```
+
+After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
+
+#### [macOS](#tab/unix)
+
+Edit your `.bash_profile`, and add the environment variable:
+
+```bash
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key> 
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
+```
+
+After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
+***
 
 ### Create a new C# application
 
@@ -41,7 +81,7 @@ Create a new .NET Core application in your preferred editor or IDE.
 
 1. In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `language-understanding-quickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`. 
 
-    ```console
+    ```dotnetcli
     dotnet new console -n language-understanding-quickstart
     ```
 
@@ -49,7 +89,7 @@ Create a new .NET Core application in your preferred editor or IDE.
 
 1. You can build the application with:
 
-    ```console
+    ```dotnetcli
     dotnet build
     ```
 
@@ -68,7 +108,7 @@ Create a new .NET Core application in your preferred editor or IDE.
 
 Within the application directory, install the Language Understanding (LUIS) authoring client library for .NET with the following command:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring --version 3.0.0
 ```
 
@@ -103,7 +143,7 @@ These code snippets show you how to do the following with the Language Understan
 
 ## Add the dependencies
 
-From the project directory, open the **Program.cs** file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
+From the project directory, open the *Program.cs* file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
 
 [!code-csharp[Using statements](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=Dependencies)]
 
@@ -182,9 +222,9 @@ Publish the LUIS app using the [PublishAsync](https://docs.microsoft.com/dotnet/
 
 ## Run the application
 
-Run the application with the dotnet `run` command from your application directory.
+Run the application with the `dotnet run` command from your application directory.
 
-```console
+```dotnetcli
 dotnet run
 ```
 

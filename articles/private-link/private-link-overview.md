@@ -35,11 +35,11 @@ Azure Private Link provides the following benefits:
 ## Availability 
  The following table lists the Private Link services and the regions where they are available. 
 
-|Scenario  |Supported services   |Available regions | Status   |
-|---------|---------|---------|---------|
-|Private Link for customer-owned services|Private Link services behind Standard Load Balancer | All public regions  |  Preview  |
-|Private Link for Azure PaaS services   | Azure Storage        |  All public regions      | Preview         |
-|  | Azure Data Lake Storage Gen2        |  All public regions      | Preview         |
+|Scenario  |Supported services  |Available regions | Status  |
+|:---------|:-------------------|:-----------------|:--------|
+|Private Link for customer-owned services|Private Link services behind Standard Load Balancer | All public regions  | Preview  |
+|Private Link for Azure PaaS services   | Azure Storage        |  All public regions      | Preview <br/> [Learn more](/azure/storage/common/storage-private-endpoints).  |
+|  | Azure Data Lake Storage Gen2        |  All public regions      | Preview <br/> [Learn more](/azure/storage/common/storage-private-endpoints).  |
 |  |  Azure SQL Database         | All public regions      |   Preview      |
 ||Azure SQL Data Warehouse| All public regions |Preview|
 ||Azure Cosmos DB| West Central US, WestUS, North Central US |Preview|

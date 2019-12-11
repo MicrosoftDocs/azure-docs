@@ -135,9 +135,6 @@
         href: sql-database-threat-detection-overview.md
       - name: Security attributes
         href: sql-database-security-attributes.md
-      - name: Feature restrictions
-        href: sql-database-feature-restrictions.md
-
     - name: Single database security
       items:
       - name: Network access controls
@@ -556,7 +553,7 @@
 
       - name: Database server resources
         items:
-        - name: Database server resource limits 
+        - name: Database resource limits 
           href: sql-database-resource-limits-database-server.md
         - name: Connectivity architecture
           href: sql-database-connectivity-architecture.md 

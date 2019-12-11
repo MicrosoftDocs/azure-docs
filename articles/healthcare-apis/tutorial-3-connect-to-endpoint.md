@@ -11,7 +11,7 @@ author: matjazl
 ms.date: 10/13/2019
 ---
 
-# Tutorial: Write an application to connect to an Azure API for FHIR endpoint
+# Write an application to connect to an Azure API for FHIR endpoint
 
 In previous tutorials, you have set up your environment, created a service endpoint, and created an Azure Active Directory (Azure AD) application registration. In this tutorial, you will write your first sample application.
 
@@ -23,8 +23,6 @@ Select the option that's suitable to your development environment:
 The sample application has two parts: 
 * Obtaining the access token for the service from Azure AD. 
 * Using the token to call the Azure API for Fast Healthcare Interoperability Resources (FHIR), and obtaining the list of patients.
-
-
 
 ## Create a skeleton of your web app
 
@@ -210,3 +208,10 @@ If you're using Node.js:
 3. Select **Sign In** to start the sign-in, and then call the Azure API for FHIR.
 
 After you sign in, you should see all the patient resources listed.
+
+## Next steps
+
+In this tutorial, you've connected to an endpoint. As a next step, you may want to interact directly with the FHIR server as you continue to build out this application. You can learn more details about this in the Access Azure API for FHIR with Postman tutorial
+ 
+>[!div class="nextstepaction"]
+>[Access Azure API for FHIR with Postman](access-fhir-postman-tutorial.md)

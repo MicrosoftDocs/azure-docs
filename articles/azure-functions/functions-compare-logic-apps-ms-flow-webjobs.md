@@ -1,5 +1,5 @@
 ---
-title: What are Microsoft Flow, Logic Apps, Functions, and WebJobs? - Azure
+title: Integration and automation platform options in Azure 
 description: "Compare Microsoft cloud services that are optimized for integration tasks: Microsoft Flow, Logic Apps, Functions, and WebJobs."
 ms.topic: overview
 ms.date: 04/09/2018
@@ -7,9 +7,10 @@ ms.custom: mvc
 #Customer intent: As a developer, I want to understand the choices that Azure offers for hosting and executing my business logic so that I can choose the right set of Azure services.
 ---
 
-# What are Microsoft Flow, Logic Apps, Functions, and WebJobs?
+# Choose the right integration and automation services in Azure
 
-This article compares the following Microsoft cloud 
+This article compares the following Microsoft cloud services:
+
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
@@ -44,7 +45,8 @@ Functions and Logic Apps are Azure services that enable serverless workloads. Az
 
 For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable/durable-functions-overview.md). For Logic Apps, you create orchestrations by using a GUI or editing configuration files.
 
-You can mix and match services when you build an orchestration, calling functions from logic apps and calling logic apps from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some of the key differences between these  
+You can mix and match services when you build an orchestration, calling functions from logic apps and calling logic apps from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some of the key differences between these:
+
 |  | Durable Functions | Logic Apps |
 | --- | --- | --- |
 | Development | Code-first (imperative) | Designer-first (declarative) |

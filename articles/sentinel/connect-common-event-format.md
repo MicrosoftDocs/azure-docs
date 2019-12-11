@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/14/2019
+ms.date: 11/26/2019
 ms.author: rkarlin
 
 ---
@@ -77,10 +77,10 @@ Make sure your machine also meets the following requirements:
     - Make sure you have Python running on your machine
 ## STEP 1: Deploy the agent
 
-In this step, you need to select hte Linux machine that will act as a proxy between Azure Sentinel and your security solution. You will have to run a script on the proxy machine that:
-- Installs the Log Analytics agent and configures it as needed to listen for Syslog messages on port 514 over TCP and send the CEF messages to your Azure Sentinel workspace.
-- Configures the Syslog daemon to forward CEF messages to the Log Analytics agent using port 25226.
-- Sets the Syslog agent to collect the data and send it securely to Log Analytics, where it is parsed and enriched.
+In this step, you need to select the Linux machine that will act as a proxy between Azure Sentinel and your security solution. You will have to run a script on the proxy machine that:
+- Installs the Log Analytics agent and configures it as needed to listen for Syslog messages.
+- Configures the Syslog daemon to listen to Syslog messages using TCP port 514 and then forwards only the CEF messages to the Log Analytics agent using TCP port 25226.
+- Sets the Syslog agent to collect the data and send it securely to Azure Sentinel, where it is parsed and enriched.
  
  
 1. In the Azure Sentinel portal, click **Data connectors** and select **Common Event Format (CEF)** and then **Open connector page**. 

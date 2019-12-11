@@ -93,6 +93,9 @@ Let's look at an example for Litware Corporation, a hybrid organization that run
 * Litware's IT team enables Azure AD DS for their Azure AD tenant in this, or a peered, virtual network.
 * Applications and VMs deployed in the Azure virtual network can then use Azure AD DS features like domain join, LDAP read, LDAP bind, NTLM and Kerberos authentication, and Group Policy.
 
+> [!IMPORTANT]
+> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
+
 ### Azure AD DS for cloud-only organizations
 
 A cloud-only Azure AD tenant doesn't have an on-premises identity source. User accounts and group memberships, for example, are created and managed directly in in Azure AD.

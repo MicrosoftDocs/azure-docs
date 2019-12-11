@@ -1,14 +1,8 @@
 ---
-title: Troubleshooting Azure Container Instances
+title: Troubleshoot common issues
 description: Learn how to troubleshoot common issues when your deploy, run, or manage Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: article
 ms.date: 09/25/2019
-ms.author: danlep
 ms.custom: mvc
 ---
 

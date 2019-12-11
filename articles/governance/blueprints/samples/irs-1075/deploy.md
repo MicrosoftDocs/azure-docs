@@ -1,13 +1,13 @@
 ---
-title: IRS 1075 blueprint sample - Deploy steps
+title: Deploy IRS 1075 blueprint sample
 description: Deploy steps for the IRS 1075 (Rev.11-2016) blueprint sample including blueprint artifact parameter details.
 ms.date: 11/20/2019
 ms.topic: sample
 ---
 # Deploy the IRS 1075 blueprint sample
 
-To deploy the Azure Blueprints IRS 1075 (Rev.11-2016) blueprint sample, the following steps must
-be taken:
+To deploy the Azure Blueprints IRS 1075 (Rev.11-2016) blueprint sample, the following steps must be
+taken:
 
 > [!div class="checklist"]
 > - Create a new blueprint from the sample
@@ -139,12 +139,12 @@ The following table provides a list of the blueprint artifact parameters:
 
 ## Next steps
 
-Now that you've reviewed the steps to deploy the IRS 1075 (Rev.11-2016) blueprint sample, visit
-the following articles to learn about the blueprint and control mapping:
+Now that you've reviewed the steps to deploy the IRS 1075 (Rev.11-2016) blueprint sample, visit the
+following articles to learn about the blueprint and control mapping:
 
 > [!div class="nextstepaction"]
-> [IRS 1075 (Rev.11-2016) blueprint - Overview](./index.md)
-> [IRS 1075 (Rev.11-2016) blueprint - Control mapping](./control-mapping.md)
+> [IRS 1075 blueprint - Overview](./index.md)
+> [IRS 1075 blueprint - Control mapping](./control-mapping.md)
 
 Additional articles about blueprints and how to use them:
 

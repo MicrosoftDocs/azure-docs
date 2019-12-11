@@ -44,6 +44,10 @@ Azure Monitor for containers delivers a comprehensive monitoring experience usin
 * Monitor container workloads [deployed to AKS Engine](https://github.com/microsoft/OMS-docker/tree/aks-engine) on-premises and [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 * Monitor container workloads [deployed to Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
+    >[!NOTE]
+    >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
+    >
+
 Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Azure Monitor for containers.
 
 > [!VIDEO https://www.youtube.com/embed/RjsNmapggPU]

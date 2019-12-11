@@ -1,7 +1,6 @@
 ---
 title: Python developer reference for Azure Functions 
 description: Understand how to develop functions with Python
-ms.devlang: python
 ms.topic: article
 ms.date: 04/16/2018
 ---

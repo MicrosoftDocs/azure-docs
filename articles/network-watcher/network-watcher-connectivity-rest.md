@@ -1,5 +1,6 @@
 ---
-title: Troubleshoot connections with Azure Network Watcher - Azure REST API | Microsoft Docs
+title: Troubleshoot connections - Azure REST API
+titleSuffix: Azure Network Watcher
 description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using the Azure REST API.
 services: network-watcher
 documentationcenter: na

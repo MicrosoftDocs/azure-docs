@@ -2,11 +2,11 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/22/2019
 ---
 
 # Tag support for Azure resources
-This article describes whether a resource type supports [tags](resource-group-using-tags.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report.
+This article describes whether a resource type supports [tags](resource-group-using-tags.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report. You can view costs by tags in the [Cost Management cost analysis](../cost-management/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) and the [Azure billing invoice and daily usage data](../billing/billing-download-azure-invoice-daily-usage-date.md).
 
 To get the same data as a file of comma-separated values, download [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
@@ -1617,12 +1617,7 @@ Jump to a resource provider namespace:
 > | notifyResourceJobs | No | No |
 > | providers | No | No |
 > | resourceGroups | Yes | No |
-> | resources | No | No |
 > | subscriptions | No | No |
-> | subscriptions / providers | No | No |
-> | subscriptions / resources | No | No |
-> | subscriptions / tagnames | No | No |
-> | subscriptions / tagNames / tagValues | No | No |
 > | tenants | No | No |
 
 ## Microsoft.SaaS
@@ -1811,7 +1806,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Yes | Yes |
-> | managedInstances / databases | Yes (see [note below](#sqlnote)) | Yes |
+> | managedInstances / databases | No | No |
 > | managedInstances / databases / backupShortTermRetentionPolicies | No | No |
 > | managedInstances / databases / schemas / tables / columns / sensitivityLabels | No | No |
 > | managedInstances / databases / vulnerabilityAssessments | No | No |

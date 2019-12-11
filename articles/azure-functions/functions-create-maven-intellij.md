@@ -3,7 +3,6 @@ title: Create an Azure function with Java and IntelliJ
 description: Learn how to create and publish a simple HTTP-triggered, serverless app on Azure with Java and IntelliJ.
 author: jeffhollan
 ms.topic: conceptual
-ms.devlang: java
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter

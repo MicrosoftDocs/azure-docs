@@ -1,6 +1,6 @@
 ---
-title: Set up the Microsoft Authenticator app as your authentication method - Azure AD
-description: How to set up your Security info to verify your identity using the Microsoft Authenticator app as your authentication method.
+title: Set up the Microsoft Authenticator app as your verification method - Azure AD
+description: How to set up your Security info (preview) page to verify your identity using the Microsoft Authenticator app as your verification method.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,7 +15,7 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Set up the Microsoft Authenticator app as your authentication method from the Security info (preview) page
+# Set up the Microsoft Authenticator app as your verification method
 
 You can follow these steps to add your two-factor verification and password reset methods. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
 

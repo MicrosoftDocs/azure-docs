@@ -22,9 +22,11 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
 ## Azure portal
 
-1. To view the activity logs through the portal, select **Monitor**.
+To view the activity logs through the portal, follow these steps:
 
-    ![Select monitor](./media/resource-group-audit/select-monitor.png)
+1. On the Azure portal menu, select **Monitor**, or search for and select **Monitor** from any page.
+
+    ![Select monitor](./media/resource-group-audit/select-monitor-from-menu.png)
 
 1. Select **Activity Log**.
 
@@ -58,9 +60,9 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
     ![Name filters](./media/resource-group-audit/name-filters.png)
 
-1. The filter is available in the dashboard.
+1. The filter is available in the dashboard. On the Azure portal menu, select **Dashboard**.
 
-    ![Show filter on dashboard](./media/resource-group-audit/show-dashboard.png)
+    ![Show filter on dashboard](./media/resource-group-audit/activity-log-on-dashboard.png)
 
 1. From the portal, you can view changes to a resource. Go back to the default view in Monitor, and select an operation that involved changing a resource.
 
