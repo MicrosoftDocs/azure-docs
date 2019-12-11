@@ -53,13 +53,13 @@ Both user-initiated actions require an approval from a Global administrator or P
 
 ## API changes
 
-When customers have the updated version rolled out to their Azure AD organization, the existing graph API will stop working. You must transition to use the Graph API for Azure resource roles. To manage Azure AD roles using that API, swap “/azureResources” with “/aadroles” in the signature and use the Directory ID for the `resourceId`.
+When customers have the updated version rolled out to their Azure AD organization, the existing graph API will stop working. You must transition to use the Graph API for Azure resource roles. To manage Azure AD roles using that API, swap `/azureResources` with `/aadroles` in the signature and use the Directory ID for the `resourceId`.
 
 We have tried our best to reach out to all customers who are using the previous API to let them know about this change ahead of time. If your Azure AD organization was moved on to the new version and you still depend on the old API, reach out to the team at pim_preview@microsoft.com.
 
 ## PowerShell change
 
-For customers who are using the Privileged Identity Management PowerShell module for Azure AD roles, the PowerShell would stop working. In place of that commandlet, you will need to start using the Privileged Identity Management commands inside the Azure AD Preview PowerShell module. The commands are built on top of the graph API. Refer to the previous section regarding documentation for graph API.
+For customers who are using the Privileged Identity Management PowerShell module for Azure AD roles, the PowerShell will stop working with the update. In place of the previous cmdlets you must use the Privileged Identity Management cmdlets inside the Azure AD Preview PowerShell module. Install the Azure AD PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). The cmdlets are built on top of Graph API.
 
 ## Next steps
 
