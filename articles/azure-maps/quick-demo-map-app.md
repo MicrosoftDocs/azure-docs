@@ -40,7 +40,6 @@ Create a new Maps account with the following steps:
     * Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
     * Click the **Create** button.
 
-![Create Maps account in portal](./media/quick-demo-map-app/create-account.png)
 
 <a id="getkey"></a>
 
@@ -52,7 +51,6 @@ Once your Maps account is successfully created, retrieve the key that enables yo
 2. In the settings section, select **Authentication**.
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
 
-![Get Primary Key in portal](./media/quick-demo-map-app/get-key.png)
 
 ## Download the application
 
