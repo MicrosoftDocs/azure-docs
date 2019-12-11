@@ -485,8 +485,7 @@
         "articles/notebooks/*.md": "azure-notebooks"
       },
       "ms.subservice": {
-        "articles/industry/agriculture/**/*.md": "agriculture",
-        "articles/azure-monitor/insights/container-insights*.md": "containerinsights"
+        "articles/industry/agriculture/**/*.md": "agriculture"
       },
       "searchScope": {
         "articles/azure-cache-for-redis/**/*.md": ["Azure","Cache for Redis"],
