@@ -118,21 +118,23 @@ Currently [Key Vault references](../app-service/app-service-key-vault-references
 
 ## Virtual network triggers (non-HTTP)
 
-Currently, to use function triggers other than HTTP from within a virtual network, you can either run your function app in a Premium plan and enable Virtual network trigger support, or run in an App Service plan or App Service Environment.
+Currently, you can use non-HTTP trigger functions from within a virtual network in one of two ways: 
++ Run your function app in a Premium plan and enable Virtual network trigger support.
++ Run your function app in an App Service plan or App Service Environment.
 
 ### Premium Plan with virtual network triggers
 
-To trigger an application from a service inside a virtual network using a Premium Plan you will need to enable `virtual network trigger support` for each of your desired apps. This setting is found in the portal under `Function app settings`
+When running in a Premium plan, you can connect non-HTTP trigger functions to services running inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **virtual network trigger support** setting is found in the [Azure portal](https://portal.azure.com) under **Function app settings**.
 
 ![VNETToggle](media/functions-networking-options/VirtualNetworkTriggerToggle.png)
 
-You can also enable virtual network triggers using the following CLI command:
+You can also enable virtual network triggers using the following Azure CLI command:
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <premium_plan_name> --set properties.functionsRuntimeScaleMonitoringEnabled=1
 ```
 
-Virtual network triggers are supported in version 2.x and above of the Functions runtime and the following trigger types are supported at the listed minimum versions and above.
+Virtual network triggers are supported in version 2.x and above of the Functions runtime. The following non-HTTP trigger types are supported.
 
 | Extension | Minimum Version |
 |-----------|---------| 
@@ -142,14 +144,14 @@ Virtual network triggers are supported in version 2.x and above of the Functions
 |[Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 or above|
 |[Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 or above|
 
-> [!NOTE]
-> When enabling virtual network trigger support, only the trigger types above will scale your application dynamically. Triggers **not** listed above can still be used, but they will not scale beyond their pre-warmed instance count. See [triggers and bindings](./functions-triggers-bindings.md#supported-bindings) for a full list of triggers to cross check against.
+> [!IMPORTANT]
+> When enabling virtual network trigger support, only the trigger types above scale dynamically with your application. You can still use triggers not listed above, however they are not scaled beyond their pre-warmed instance count. See [triggers and bindings](./functions-triggers-bindings.md#supported-bindings) for the complete list of triggers.
 
 ### App Service Plan and App Service Environment with virtual network triggers
 
-When using either an App Service Plan or an App Service Environment, you only need to be connected to a virtual network with access to your desired trigger resource and your functions will trigger correctly. 
+When your function app runs in either an App Service Plan or an App Service Environment, you can use non-HTTP trigger functions. For your functions to get triggered correctly, you must be connected to a virtual network with access to the resource defined in the trigger connection. 
 
-For example, assume you want to configure Azure Cosmos DB to accept traffic only from a virtual network. You would need to deploy your function app in an app service plan that provides virtual network integration with that virtual network in order to configure Azure Cosmos DB triggers from that resource. 
+For example, assume you want to configure Azure Cosmos DB to accept traffic only from a virtual network. In this case, you must deploy your function app in an App Service plan that provides virtual network integration with that virtual network. This enabled a function to be triggered by that Azure Cosmos DB resource. 
 
 ## Hybrid Connections
 
