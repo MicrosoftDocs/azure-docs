@@ -1,6 +1,6 @@
 ---
 title: Summary dashboard for Partner Center analytics in Commercial Marketplace
-description: Learn how to access graphs, trends, and values of aggregate data that summarizes marketplace activity from the Summary dashboard in Partner Center.
+description: Learn how to access graphs, trends, and values of aggregate data that summarize marketplace activity from the Summary dashboard in Partner Center.
 author: ChJenk
 manager: evansma
 ms.author: v-chjen
@@ -46,8 +46,8 @@ The Summary section displays a count of all orders created, customers acquired, 
 
 #### Reading the summary section
 
-- **Orders**: Count of all orders purchased (excludes cancelled orders) for offers you've published so far.
-- **Customers**: Count of all customers who purchased your offers and have at least one non cancelled order.
+- **Orders**: Count of all orders purchased (excludes canceled orders) for offers you've published so far.
+- **Customers**: Count of all customers who purchased your offers and have at least one non canceled order.
 - **Normalized usage hours**: Defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as “SHAREDCORE” use 1/6 (or 0.1666) as the [number of VM cores] multiplier.
 - **Raw usage hours**: The amount of time VMs have been running in terms of hours. The percentage value next to total orders, total customers, normalized usage hours, and raw usage hours represent the amount of usage growth for the selected date range ([last month usage – first month usage])/ first month usage). As described above, a partial amount of the current month will be excluded from this metric.
 - **Growth trends**: If you hover over the columns of the chart, bar graphs display the value for each month.
@@ -68,11 +68,11 @@ The **Customers by geography** heatmap displays a customer count on a world map.
 
 ### Growth trend charts
 
-You can view trends based on the growth of your **orders purchased** (includes cancelled orders), **customers acquired** (includes lost customers), and **usage** reported, which are displayed month by month according to the selected date range. You can further analyze these trends by selecting links below the chart, which navigate to the respective **order**, **usage**, or **customer** pages.
+You can view trends based on the growth of your **orders purchased** (includes canceled orders), **customers acquired** (includes lost customers), and **usage** reported, which are displayed month by month according to the selected date range. You can further analyze these trends by selecting links below the chart, which navigate to the respective **order**, **usage**, or **customer** pages.
 
 The **orders by offers** chart organizes your orders according to the Offer name.
 
-The **orders by sales channel** pie chart organizes your orders (including orders that customers cancelled) during the selected date range, by Sales channel. Sales channel is the type of licensing agreement used by customers to purchase Azure, which are Cloud Solution Provider (CSP), Enterprise, Enterprise through Reseller, GTM, and Pay As You Go.
+The **orders by sales channel** pie chart organizes your orders (including orders that customers canceled) during the selected date range, by Sales channel. Sales channel is the type of licensing agreement used by customers to purchase Azure, which are Cloud Solution Provider (CSP), Enterprise, Enterprise through Reseller, GTM, and Pay As You Go.
 
 ![Partner Center orders trends](./media/growth-trend-charts.png)
 

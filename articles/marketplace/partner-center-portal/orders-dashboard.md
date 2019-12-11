@@ -37,7 +37,7 @@ This section describes the analytics reports in more detail.
 
 ### Order Summary
 
-The Order Summary section displays a count of all purchased orders (excluding cancelled orders), cancelled orders, and seats.
+The Order Summary section displays a count of all purchased orders (excluding canceled orders), canceled orders, and seats.
 
 The percentage value next to Total Orders represents the amount of growth the selected date range.
 
@@ -46,7 +46,7 @@ The percentage value next to Total Orders represents the amount of growth the se
 - A green triangle pointing upward indicates a positive growth trend.
 - A red triangle pointing downward indicates a negative growth trend relative to the previous month.
 - Growth trends are represented by micro bar graphs. You can display the value for each month by hovering over the columns within the chart.
-- Cancelled Orders: Count of orders that were previously purchased and subsequently cancelled during the selected date range.
+- canceled Orders: Count of orders that were previously purchased and subsequently canceled during the selected date range.
 - Seats: Count of seats created during the selected date range.
 
 ### Orders by geography
@@ -57,7 +57,7 @@ The **Orders by geography** heatmap displays a count of your orders on a world m
 
 ### Orders by Offers
 
-The **Orders by offers** donut graph organizes orders (including cancelled orders) according to their offer names.
+The **Orders by offers** donut graph organizes orders (including canceled orders) according to their offer names.
 
 - The top offers are displayed in the graph and the rest of the offers are grouped as ‘Rest All’.
 - You can select specific offers in the legend to display only those offers in the graph.
@@ -71,13 +71,13 @@ The **Orders by offers** donut graph organizes orders (including cancelled order
 
 ### Orders Trend per site versus per seat
 
-The **per site versus per seat** donut chart represents the breakdown of per site SaaS and per seat SaaS orders purchased by customers (this includes cancelled orders). The column chart represents the trend of per site SaaS and per seat SaaS orders purchased by customers (this includes cancelled orders).
+The **per site versus per seat** donut chart represents the breakdown of per site SaaS and per seat SaaS orders purchased by customers (this chart includes canceled orders). The column chart represents the trend of per site SaaS and per seat SaaS orders purchased by customers (this chart includes canceled orders).
 
 ![Partner Center Analyze orders trend per site versus per seat](./media/orders-by-per-seat.png)
 
 ### Orders by SKUs
 
-The **orders by SKUs** chart represents the trend of orders at the Stock Keeping Unit (SKU) level for all your offers (this includes cancelled orders). The donut chart represents the breakdown of the top five SKU orders and the column chart represents the trend of orders for the top five SKUs.
+The **orders by SKUs** chart represents the trend of orders at the Stock Keeping Unit (SKU) level for all your offers (this includes canceled orders). The donut chart represents the breakdown of the top five SKU orders and the column chart represents the trend of orders for the top five SKUs.
 
 ![Partner Center Analyze orders by SKUs](./media/orders-by-sku.png)
 
@@ -90,14 +90,14 @@ The **orders and seats trend** chart presents the top 50 offers with the highest
 
 ![Partner Center Analyze orders and seats trend](./media/orders-and-seats-trend.png)
 
-### Cancelled Orders by offers
+### canceled Orders by offers
 
-The **cancelled orders by offers** pie chart organizes all of your cancelled orders according to their offer names. The top offers are displayed in the graph and the rest of the offers are grouped as “Rest All.” You can select specific offers in the legend to display in the graph.
+The **canceled orders by offers** pie chart organizes all of your canceled orders according to their offer names. The top offers are displayed in the graph and the rest of the offers are grouped as “Rest All.” You can select specific offers in the legend to display in the graph.
 
 - Hovering over a slice in the graph will display the number of orders and percentage of the selected offer compared to the total number of orders across all offers.
-- The column chart displays month-by-month trends. The columns represent the number of cancelled orders by offer name. You can use the slider on top of the chart to scroll right and left along the x-axis and focus on specific data points. You can display the trend chart by selecting a specific item on the legend.
+- The column chart displays month-by-month trends. The columns represent the number of canceled orders by offer name. You can use the slider on top of the chart to scroll right and left along the x-axis and focus on specific data points. You can display the trend chart by selecting a specific item on the legend.
 
-![Partner Center Analyze cancelled orders by offers](./media/cancelled-orders-by-offer.png)
+![Partner Center Analyze canceled orders by offers](./media/canceled-orders-by-offer.png)
 
 ### Order details table
 
@@ -120,7 +120,7 @@ You can select multiple filters to render the chart for the criteria you choose 
 
 - Offer types and offer names are only listed for the offers you have orders for during the selected date range. Offer names in the list are displayed for offers types you have selected in the list.
 - Applied filters show the total metrics within each selection(s) for each filter selected. Applied filters are not displayed when the default selection is chosen.
-- If **All** is selected for one of the dropdown lists, then all metrics in the page selected will be aggregated. For example: “All” in the offer types filter option means that all offer types have been selected. This is the default selection for the dropdown lists. Applied filters displays will not shown anything when this is selected.
+- If **All** is selected for one of the dropdown lists, then all metrics in the page selected will be aggregated. For example: “All” in the offer types filter option means that all offer types have been selected. This is the default selection for the dropdown lists. Applied filters displays will not show anything when this **All** selected.
 - **Multiple value selection**: All metrics in the page will be aggregated for all the selections made under the dropdown list. If multiple selections are made, the applied filter will show the count of all selections made. See below image for reference.
 
     ![Partner Center Analyze order with multiple values applied to filter](./media/filters-applied.png)
