@@ -1,5 +1,5 @@
 ---
-title: Acquire and cache tokens using MSAL
+title: Acquire & cache tokens with MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about acquiring and caching tokens using the Microsoft Authentication Library (MSAL).
 services: active-directory
