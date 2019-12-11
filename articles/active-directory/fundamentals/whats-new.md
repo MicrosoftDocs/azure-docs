@@ -60,6 +60,18 @@ For more information about how to set up SAP SuccessFactors inbound provisioning
 
 ---
 
+### Replacement of baseline policies with security defaults
+
+**Type:** Changed feature  
+**Service category:** Other  
+**Product capability:** Identity Security and Protection
+
+As part of a secure-by-default model for authentication, we’re removing the existing baseline protection policies from all tenants. This removal is targeted for completion at the end of February. The replacement for these baseline protection policies is security defaults. If you’ve been using baseline protection policies, you must plan to move to the new security defaults policy or to Conditional Access. If you haven’t used these policies, there is no action for you to take.
+
+For more information about the new security defaults, see [What are security defaults?](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) For more information about Conditional Access policies, see [Common Conditional Access policies](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common).
+
+---
+
 ## November 2019
 
 ### Support for the SameSite attribute and Chrome 80
