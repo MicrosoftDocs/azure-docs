@@ -20,17 +20,6 @@ As one of the first technical steps in a data science or AI project, you must id
 
 Here are some data movement tools that are available in the DSVM.
 
-## AdlCopy
-
-|    |           |
-| ------------- | ------------- |
-| What is it?   | A tool to copy data from Azure Blob storage into Azure Data Lake Store. It can also copy data between two Azure Data Lake Store accounts.      |
-| Supported DSVM versions      | Windows      |
-| Typical uses      | Importing multiple blobs from Azure Blob storage into Azure Data Lake Store.      |
-|  How to use / run it?    |   Open a command prompt and type `adlcopy` to get help.    |
-| Links to samples      | [Using AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
-| Related tools on the DSVM      | AzCopy, Azure CLI     |
-
 ## Azure CLI
 
 |    |           |
@@ -75,18 +64,6 @@ Here are some data movement tools that are available in the DSVM.
 | Typical uses      | Importing and exporting data from the DSVM.    |
 |  How to use / run it?    | Search for "Azure Storage Explorer" in the Start menu. |
 | Links to samples      | [Azure Storage Explorer](vm-do-ten-things.md#access-azure-data-and-analytics-services)      |
-
-
-## bcp
-
-|    |           |
-| ------------- | ------------- |
-| What is it?   | SQL Server tool to copy data between SQL Server and a data file.      |
-| Supported DSVM versions      | Windows      |
-| Typical uses      | Importing a CSV file into a SQL Server table and exporting a SQL Server table to a file.      |
-|  How to use / run it?    |   Open a command prompt and type `bcp` to get help.    |
-| Links to samples      | [bcp utility](https://docs.microsoft.com/sql/tools/bcp-utility)      |
-| Related tools on the DSVM      | SQL Server, sqlcmd      |
 
 ## blobfuse
 
