@@ -2,11 +2,11 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 12/11/2019
 ---
 # Using linked and nested templates when deploying Azure resources
 
-To deploy complex solutions, you can break your template into many related templates. You create a main template that connects all of the related templates, and deploy that main template. The related templates can be separate files or template syntax that is embedded within the main template. This article uses the term **linked template** to refer to a separate template file that is linked to from the main template. It uses the term **nested template** to refer to embedded template syntax within the main template.
+To deploy complex solutions, you can break your template into many related templates, and then deploy them together through a main template. The related templates can be separate files or template syntax that is embedded within the main template. This article uses the term **linked template** to refer to a separate template file that is linked to from the main template. It uses the term **nested template** to refer to embedded template syntax within the main template.
 
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. You can easily reuse these templates for other scenarios.
 
@@ -86,11 +86,23 @@ The following example deploys a storage account through a nested template.
 }
 ```
 
-## Scope for expressions in nested templates
+### Scope for expressions in nested templates
 
-When using a nested template, you must specify whether template expressions are evaluated within the scope of the parent template or the nested template. The scope determines how parameters, variables, and functions like [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) and [subscription](resource-group-template-functions-resource.md#subscription) are resolved.
+When using a nested template, you can specify whether template expressions are evaluated within the scope of the parent template or the nested template. The scope determines how parameters, variables, and functions like [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) and [subscription](resource-group-template-functions-resource.md#subscription) are resolved.
 
-You set the scope through the `expressionEvaluationOptions` property. By default, the `expressionEvaluationOptions` property is set to `outer`, which means it uses the parent template scope. In the preceding example, the scope isn't set so the value of the `storageAccountName` parameter is retrieved from the parent template. Set the value to `inner` to scope expressions to the nested template.
+You set the scope through the `expressionEvaluationOptions` property. By default, the `expressionEvaluationOptions` property is set to `outer`, which means it uses the parent template scope. Set the value to `inner` to scope expressions to the nested template.
+
+```json
+{
+  "apiVersion": "2017-05-10",
+  "name": "nestedTemplate1",
+  "type": "Microsoft.Resources/deployments",
+  "properties": {
+    "expressionEvaluationOptions": {
+      "scope": "inner"
+    },
+    ...
+```
 
 The following template demonstrates how template expressions are resolved according to the scope. It contains a variable named `exampleVar` that is defined in both the parent template and the nested template. It returns the value of the variable.
 
@@ -120,7 +132,6 @@ The following template demonstrates how template expressions are resolved accord
                         "exampleVar": "from nested template"
                     },
                     "resources": [
-
                     ],
                     "outputs": {
                         "testVar": {
