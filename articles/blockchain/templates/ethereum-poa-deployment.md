@@ -1,7 +1,7 @@
 ---
 title: Deploy Ethereum Proof-of-Authority consortium solution template on Azure
 description: Use the Ethereum Proof-of-Authority consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
-ms.date: 12/10/2019
+ms.date: 12/11/2019
 ms.topic: article
 ms.reviewer: coborn
 ---
@@ -363,7 +363,7 @@ other consortium members have been added to the network, the Traffic Manager can
 
     ![Locate traffic manager DNS](./media/ethereum-poa-deployment/traffic-manager-dns.png)
 
-1. Choose the **Endpoints** tab and select the **Add** button. 
+1. Choose the **Endpoints** tab and select the **Add** button.
 1. Give the endpoint a unique name.
 1. For **Target resource type**, choose **Public IP address**.
 1. Choose the public IP address of the first region's load balancer.
@@ -547,23 +547,18 @@ On the top-right, is your Ethereum account alias and identicon.  If you're an ad
 
 ![Account](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
-## <a id="Tutorials"></a>Development tools
+## Ethereum development <a id="tutorials"></a>
 
-To compile, deploy, and test smart contracts, the Truffle Suite is a good option for Ethereum development. For more information, see [Truffle Suite](https://www.trufflesuite.com/docs/truffle/overview) documentation.
+To compile, deploy, and test smart contracts, here are a few options you can consider for Ethereum development:
+* [Truffle Suite](https://www.trufflesuite.com/docs/truffle/overview) - Client based Ethereum development environment
+* [Ethereum Remix](https://remix-ide.readthedocs.io/en/latest/index.html ) - Browser based and local Ethereum development environment
 
-Ethereum Remix
-Remix is a powerful, open source tool that helps you write Solidity contracts straight from the browser. Written in JavaScript, Remix supports both usage in the browser and locally.
-
-Remix also supports testing, debugging and deploying of smart contracts and much more.
-
-https://remix-ide.readthedocs.io/en/latest/index.html 
-
-### Create, deploy, and smart contract
+### Compile, deploy, and execute smart contract
 
 > [!WARNING]
 > Never send your Ethereum private key over the network! Ensure that each transaction is signed locally first and the signed transaction is sent over the network.
 
-In the following example, you use *ethereumjs-wallet* to generate an Ethereum address, *ethereumjs-tx* to sign locally, and *web3* to send the raw transaction to the Ethereum RPC endpoint.
+In the following example, you create a simple smart contract. You use Truffle to compile and deploy the smart contract to your blockchain network. Once deployed, you call a smart contract function via a transaction.
 
 #### Install prerequisites
 
@@ -571,6 +566,8 @@ In the following example, you use *ethereumjs-wallet* to generate an Ethereum ad
 * Install Truffle v5.0.5 `npm install -g truffle@v5.0.5`. Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). For more information, see [Truffle documentation](https://github.com/trufflesuite/truffle).
 
 ### Create Truffle project
+
+Before you can compile and deploy a smart contract, you need to create a Truffle project.
 
 1. Open a command prompt or shell.
 1. Create a folder named `HelloWorld`.
@@ -581,34 +578,37 @@ In the following example, you use *ethereumjs-wallet* to generate an Ethereum ad
 
 ### Add a smart contract
 
+Create your smart contracts in the **contracts** subdirectory of your Truffle project.
+
 1. Create a file in the named `postBox.sol` in the **contracts** subdirectory of your Truffle project.
+1. Add the following Solidity code to **postBox.sol**.
 
-```javascript
-pragma solidity ^0.5.0;
-
-contract postBox {
-    string message;
-    function postMsg(string memory text) public {
-        message = text;
+    ```javascript
+    pragma solidity ^0.5.0;
+    
+    contract postBox {
+        string message;
+        function postMsg(string memory text) public {
+            message = text;
+        }
+        function getMsg() public view returns (string memory) {
+            return message;
+        }
     }
-    function getMsg() public view returns (string memory) {
-        return message;
-    }
-}
-```
+    ```
 
 ### Deploy smart contract using Truffle
 
-The following code to unlocks your Ethereum account and configures the PoA node as entry point by providing the mnemonic phrase.
+Truffle uses a configuration file to execute code for your blockchain network configuration. You need to modify the configuration file with details about connecting to your network.
 
 1. You need the mnemonic phrase for the [Ethereum admin account you used when deploying your blockchain network](#ethereum-settings). If you used MetaMask to create the account, you can retrieve the mnemonic from MetaMask. Select the administrator account icon on the top right of the MetaMask extension and select **Settings > Security & Privacy > Reveal Seed Words**.
 1. Replace the contents of `truffle-config.js` in your Truffle project with the following content. Replace the placeholder endpoint and mnemonic values.
 
     ```javascript
-    var HDWalletProvider = require("truffle-hdwallet-provider");
+    const HDWalletProvider = require("truffle-hdwallet-provider");
 
-    var rpc_endpoint = "<Ethereum RPC endpoint>";
-    var mnemonic = "<Twelve words you can find in MetaMask > Security & Privacy > Reveal Seed Words>";
+    const rpc_endpoint = "<Ethereum RPC endpoint>";
+    const mnemonic = "<Twelve words you can find in MetaMask > Security & Privacy > Reveal Seed Words>";
 
     module.exports = {
       networks: {
@@ -627,6 +627,9 @@ The following code to unlocks your Ethereum account and configures the PoA node 
     ```
 
 1. Since the script uses the Truffle HD Wallet provider module, install the module in your project using the command `npm install truffle-hdwallet-provider --save`.
+
+Truffle uses migration scripts to deploy smart contracts to a blockchain network. You need a migration script to deploy your new smart contract.
+
 1. Add a new migration to deploy the new contract. Create file `2_deploy_contracts.js` in the **migrations** subdirectory of the Truffle project.
 
 ``` javascript
@@ -637,11 +640,11 @@ module.exports = deployer => {
 };
 ```
 
-1. Deploy to the PoA network using the Truffle migrate command.
+1. Deploy to the PoA network using the Truffle migrate command. At the command prompt in the Truffle project directory, run:
 
-```javascript
-truffle migrate --network poa
-```
+    ```javascript
+    truffle migrate --network poa
+    ```
 
 ### Call smart contract function
 
@@ -669,9 +672,11 @@ truffle migrate --network poa
 
 1. Execute the script using the Truffle execute command.
 
-```javascript
-truffle exec sendtransaction.js --network poa
-```
+    ```javascript
+    truffle exec sendtransaction.js --network poa
+    ```
+
+    [Execute script to call function via transaction](./media/ethereum-poa-deployment/send-transaction.png)
 
 ## WebAssembly (WASM) support
 
@@ -689,7 +694,7 @@ The SSH port is not exposed for security reasons. Follow [this guide to enable t
 
 ### How do I set up an audit member or transaction nodes?
 
-Transaction nodes are a set of Parity clients that are peered with the network but are not participating in consensus. These nodes can still be used to submit Ethereum transactions and read the smart contract state. This works well as a mechanism for providing auditability to non-authority consortium members on the network. To achieve this follow the steps in [Growing the Consortium](#growing-the-consortium).
+Transaction nodes are a set of Parity clients that are peered with the network but are not participating in consensus. These nodes can still be used to submit Ethereum transactions and read the smart contract state. This works well as a mechanism for providing auditability to non-authority consortium members on the network. To achieve this, follow the steps in [Growing the Consortium](#growing-the-consortium).
 
 ### Why are MetaMask transactions taking a long time?
 
