@@ -353,4 +353,4 @@ For more information about SAML and Azure AD B2C, see the following articles:
 * [Set up sign-in with a Salesforce SAML provider by using custom policies in Azure Active Directory B2C](active-directory-b2c-setup-sf-app-custom.md)
 
 <!-- LINKS - External -->
-[samltest]: aka.ms/samltestapp
+[samltest]: https://aka.ms/samltestapp
