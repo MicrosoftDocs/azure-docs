@@ -54,7 +54,7 @@ The percentage value next to Total Orders represents the amount of growth the se
 
 ### Orders by geography
 
-The **Orders by geography** heatmap displays a count of your orders on a world map and shows seats mapped based on Customer Country. This heatmap functions the same as the **[Customers by geography heatmap](./customer-dashboard.md#customers-by-geography)**.
+The **Orders by geography** heatmap displays a count of your orders on a world map and shows seats mapped based on Customer Country. This heatmap functions the same as the **[Customer by geography heatmap](./customer-dashboard.md#customer-by-geography)**.
 
 ![Partner Center Analyze orders by geography](./media/orders-by-geography.png)
 
