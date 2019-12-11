@@ -16,13 +16,13 @@ As developers, you write code and check it into the code repository, but the com
 With continuous build and integration, developers can simplify builds and test their code by committing their changes to the source code repository and putting tests and verifications into the build environment. In this way, they're always running tests against their code. All the changes made to the source code are built continuously whenever there's a commit made to the repository. With every check-in, the continuous integration (CI) server validates and executes any test that the developer created. If the tests don't pass, the code is sent back for further changes. In this way, the developers don't break the builds that are created. They also don't have to run all the tests locally on their computers, which increases developer productivity. 
 
 ## Key benefits
-- **Automate** your builds, tests, and deployments for pipelines.
-- **Detect bugs and fix issues** early to ensure faster release rates.
-- **Commit code more frequently** and build applications fast.
-- **Get flexibility** to change code quickly without any issues.
-- **Gain faster time-to-market** so that only good quality code makes it all the way through.
-- **Make small code changes more efficiently** because small pieces of code are integrated at one time.
-- **Increase team transparency and accountability** so that you get continuous feedback from your customers and your team.
+- Automate your builds, tests, and deployments for pipelines.
+- Detect bugs and fix issues early to ensure faster release rates.
+- Commit code more frequently and build applications fast.
+- Get flexibility to change code quickly without any issues.
+- Gain faster time-to-market so that only good quality code makes it all the way through.
+- Make small code changes more efficiently because small pieces of code are integrated at one time.
+- Increase team transparency and accountability so that you get continuous feedback from your customers and your team.
 
 Use the following services to enable a continuous integration pipeline in your mobile apps.
 
@@ -32,12 +32,12 @@ Use the following services to enable a continuous integration pipeline in your m
 With the added power of Visual Studio App Center services, you can further automate your workflow. You can automatically release builds to testers and public app stores with App Center Distribute. You also can run automated UI tests on thousands of real device and OS configurations in the cloud with App Center Test.
 
 **Key features**
-- **Set up continuous integration** in minutes, and build applications more frequently and faster.
-- **Integrate with GitHub, BitBucket, Azure DevOps, and GitLab.**
-- **Create fast and secure builds** on managed, cloud-hosted machines.
-- **Enable your builds to launch test,** and verify whether the app builds in real-world iOS and Android devices.
-- **Gain native and cross-platform support** for iOS, Android, macOS, Windows, Xamarin, and React Native.
-- **Customize your builds** by adding post-clone, pre-build, and post-build scripts.
+- Set up continuous integration in minutes, and build applications more frequently and faster.
+- Integrate with GitHub, BitBucket, Azure DevOps, and GitLab.
+- Create fast and secure builds on managed, cloud-hosted machines.
+- Enable your builds to launch test, and verify whether the app builds in real-world iOS and Android devices.
+- Gain native and cross-platform support for iOS, Android, macOS, Windows, Xamarin, and React Native.
+- Customize your builds by adding post-clone, pre-build, and post-build scripts.
 
 **References**
 - [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
@@ -60,4 +60,4 @@ With the added power of Visual Studio App Center services, you can further autom
 - [Get started with Azure DevOps](https://app.vsaex.visualstudio.com/signup/) 
 - [Quickstarts](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2)
 
-In order to choose the right service for your application builds, see the article that compares [App Center Build vs. Azure Pipelines](/appcenter/build/choose-between-services).
+To help you choose the right service for your application builds, see the article that compares [App Center Build vs. Azure Pipelines](/appcenter/build/choose-between-services).

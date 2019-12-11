@@ -22,12 +22,12 @@ Use the following services to manage and store mobile application data in the cl
 [App Center Data](/appcenter/data/) is a data management service. It enables applications to manage, persist, and sync application data in the cloud across different devices and platforms in online and offline scenarios. Built on top of Azure Cosmos DB, App Center Data scales as your user base and number of applications grow. It ensures low latency, high availability, and high scalability for all of your data.
 
 **Key features**
-- **Easy provisioning** to a new Azure Cosmos DB database or an existing Azure Cosmos DB database from the Visual Studio App Center portal.
-- **NoSQL database support** to easily store, sync, and query application data.
-- **Built on top of Azure Cosmos DB,** this service inherits most of the key features offered by Azure Cosmos DB and can scale globally to meet your business needs.
-- **Online and offline sync** capabilities to synchronize data across devices.
-- **Mobile client SDKs** that you can use to easily manage private application data.
-- **Platform support** for iOS, Android, Xamarin, and React Native.
+- Easy provisioning to a new Azure Cosmos DB database or an existing Azure Cosmos DB database from the Visual Studio App Center portal.
+- NoSQL database support to easily store, sync, and query application data.
+- Built on top of Azure Cosmos DB, this service inherits most of the key features offered by Azure Cosmos DB and can scale globally to meet your business needs.
+- Online and offline sync capabilities to synchronize data across devices.
+- Mobile client SDKs that you can use to easily manage private application data.
+- Platform support for iOS, Android, Xamarin, and React Native.
 
 **References**
 - [Sign up with Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
@@ -37,14 +37,14 @@ Use the following services to manage and store mobile application data in the cl
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is Microsoft's globally distributed, multi-model database service. You can use it to build planet-scale applications. With Azure Cosmos DB, you can elastically and independently scale throughput and storage across any number of Azure regions worldwide. You can take advantage of fast, single-digit-millisecond data access by using your favorite API surfaces. These surfaces include SQL, MongoDB, Cassandra, Tables, or Gremlin. Azure Cosmos DB uniquely provides comprehensive service level agreements (SLAs) for throughput, latency, availability, and consistency.
 
 **Key features**
-- **Supports a wide range of APIs,** which includes the SQL (Core) API, Cassandra API, MongoDB API, Gremlin API, and Table API.
-- **Turnkey global distribution** replicates your data wherever your users are. Your users can interact with a replica of the data that's closest to them.
-- **No schema or index management** because the database engine is fully schema agnostic.
-- **Ubiquitous regional presence** because Azure Cosmos DB is available in all Azure regions worldwide, which includes 54+ regions in the public cloud.
-- **Precisely defined, multiple consistency choices** because Azure Cosmos DB's multi-master replication protocol is carefully designed to offer five well-defined consistency choices. These five choices are strong, bounded staleness, session, consistent prefix, and eventual.
-- **99.999% availability** for both reads and writes.
-- **Programmatically (or via the Azure portal) invoke the regional failover** of your Azure Cosmos DB account to ensure that your application is designed to withstand a regional disaster.
-- **Guaranteed low latency at the 99th percentile** worldwide.
+- Supports a wide range of APIs, which includes the SQL (Core) API, Cassandra API, MongoDB API, Gremlin API, and Table API.
+- Turnkey global distribution replicates your data wherever your users are. Your users can interact with a replica of the data that's closest to them.
+- No schema or index management because the database engine is fully schema agnostic.
+- Ubiquitous regional presence because Azure Cosmos DB is available in all Azure regions worldwide, which includes 54+ regions in the public cloud.
+- Precisely defined, multiple consistency choices because Azure Cosmos DB's multi-master replication protocol is carefully designed to offer five well-defined consistency choices. These five choices are strong, bounded staleness, session, consistent prefix, and eventual.
+- 99.999% availability for both reads and writes.
+- Programmatically (or via the Azure portal) invoke the regional failover of your Azure Cosmos DB account to ensure that your application is designed to withstand a regional disaster.
+- Guaranteed low latency at the 99th percentile worldwide.
 
 **References**
 - [Azure portal](https://portal.azure.com) 

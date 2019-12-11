@@ -24,15 +24,15 @@ Use the following services to enable a continuous delivery pipeline in your mobi
 [App Center Distribute](/appcenter/distribution/) is a tool for developers to quickly release builds to devices. With a complete install portal experience, App Center Distribute is a powerful solution for beta app tester distribution. It's also a convenient alternative to distribution through public app stores. Developers can automate their distribution workflow even further with App Center Build and public application store integrations.
 
 **Key features**
-- **Distribute your app to beta testers and users** and ensure that all your testers are on the latest version of your application.
-- **Notify testers of new releases** without testers going through the download flow again.
-- **Manage distribution groups** for different versions of your application.
-- **Distribute to stores:** 
+- Distribute your app to beta testers and users and ensure that all your testers are on the latest version of your application.
+- Notify testers of new releases without testers going through the download flow again.
+- Manage distribution groups for different versions of your application.
+- Distribute to stores: 
     - [Apple](/appcenter/distribution/stores/apple)
     - [Google Play](/appcenter/distribution/stores/googleplay)
     - [Intune](/appcenter/distribution/stores/intune)
-- **Gain platform support** for iOS, Android, macOS, tvOS, Xamarin, React Native, Unity, and Cordova.
-- **Automatically register iOS devices** to your provisioning profile.
+- Gain platform support for iOS, Android, macOS, tvOS, Xamarin, React Native, Unity, and Cordova.
+- Automatically register iOS devices to your provisioning profile.
 
 **References**
 - [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
@@ -53,13 +53,13 @@ Use the following services to enable a continuous delivery pipeline in your mobi
 
 **References**
 - [Get started with Azure Pipelines guide](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops)
-- [Get started with Azure DevOps](https://app.vsaex.visualstudio.com/signup/) 
+- [Get started with Azure DevOps](https://app.vsaex.visualstudio.com/signup/)
   
 ## Distribute your application directly to App Stores
 After your application is ready for production use and you want it to be used publicly, it needs to be submitted to app stores where it can be downloaded by customers. There are multiple ways to distribute your application directly to app stores. 
 
 ### Visual Studio App Center
-[App Center Distribute](/appcenter/distribution/stores/) lets you publish your mobile applications directly to app stores. After your application is ready to be downloaded by users, you can publish your application binaries directly from the Visual Studio App Center portal. 
+With [App Center Distribute](/appcenter/distribution/stores/), you can publish your mobile applications directly to app stores. After your application is ready to be downloaded by users, you can publish your application binaries directly from the Visual Studio App Center portal. 
 
 You can directly distribute to:
 - [Apple App Store](/appcenter/distribution/stores/apple)

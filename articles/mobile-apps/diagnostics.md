@@ -27,14 +27,14 @@ Take advantage of the following service to monitor your application for failures
 The [App Center Diagnostics](/appcenter/diagnostics/) service helps you monitor the health of your application. It provides detailed insights so that you can understand what happened and why the application failed. App Center Diagnostics also helps you prioritize and manage failure reports.
 
 **Key features**
-- **Real-time, automatic failures and errors,** smartly grouped, to highlight the most severe issues and relevant information you need.
-- **Complete stack traces and device data** that provide context and clarity to help you identify the root cause.
-- **Powerful search feature** to help you find the issues you care about the most.
-- **Analytics integration** so that you can understand your users' behaviors and see events leading up to a failure.
-- **Custom properties, user ID, and attachments** so that you can add more context to help diagnose your issues.
-- **Alerting, notifications, and bug tracker integrations** so that you can stay on top of new and unexpected failures that affect your users.
-- **Single, one-liner SDK integration** to get started using this service within minutes.
-- **Platform support** for iOS, Android, macOS, tvOS, Xamarin, React Native, Unity, Cordova, WPF, and WinForms.
+- Real-time, automatic failures and errors, smartly grouped, to highlight the most severe issues and relevant information you need.
+- Complete stack traces and device data that provide context and clarity to help you identify the root cause.
+- Powerful search feature to help you find the issues you care about the most.
+- Analytics integration so that you can understand your users' behaviors and see events leading up to a failure.
+- Custom properties, user ID, and attachments so that you can add more context to help diagnose your issues.
+- Alerting, notifications, and bug tracker integrations so that you can stay on top of new and unexpected failures that affect your users.
+- Single, one-liner SDK integration to get started using this service within minutes.
+- Platform support for iOS, Android, macOS, tvOS, Xamarin, React Native, Unity, Cordova, WPF, and WinForms.
 
 **References**
 - [Sign up with Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
