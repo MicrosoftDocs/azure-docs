@@ -32,29 +32,27 @@ In this quickstart, you configure Azure Active Directory (AD) self-service passw
 * An account with Global Administrator privileges.
 * A non-administrator test user with a password you know.
     * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md).
-* A pilot group to test with that the non-administrator test user is a member of.
+* A pilot group to test with that the non-administrator test user is a member of, such as *SSPR-Test-Group*.
     * If you need to create a group, see how to [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## Enable self-service password reset
 
 [View this process as a video on YouTube](https://youtu.be/Pa0eyqjEjvQ)
 
-1. From your existing Azure AD tenant, from the Azure portal menu or from the **Home** page, select **Azure Active Directory**. Then, select **Password reset**.
+1. In the Azure portal menu or from the **Home** page, select **Azure Active Directory** and then choose **Password reset**.
 
-2. From the **Properties** page, under the option **Self Service Password Reset Enabled**, choose **Selected**.
-    * From **Select group**, choose your pilot group created as part of the prerequisites section of this article.
-    * Click **Save**.
+1. On the **Properties** page under the option for **Self Service Password Reset Enabled**, choose **Selected**.
+1. Choose **Select group**, then select your pilot group created as part of the prerequisites section of this article, such as *SSPR-Test-Group*. When ready, select **Save**.
+1. On the **Authentication methods** page, make the following choices and then choose **Save**:
+    * Number of methods required to reset: **1**
+    * Methods available to users:
+        * **Mobile app code**
+        * **Email**
 
-3. From the **Authentication methods** page, make the following choices:
-   * Number of methods required to reset: **1**
-   * Methods available to users:
-      * **Email**
-      * **Mobile app code (preview)**
-   * Click **Save**.
+    > [!div class="mx-imgBorder"]
+    > ![Choosing authentication methods for SSPR][Authentication]
 
-     ![Choosing authentication methods for SSPR][Authentication]
-
-4. From the **Registration** page, make the following choices:
+4. From the **Registration** page, make the following choices and then choose **Save**:
    * Require users to register when they sign in: **Yes**
    * Set the number of days before users are asked to reconfirm their authentication information: **365**
 
@@ -64,18 +62,18 @@ Now lets test your SSPR configuration with a test user. Since Microsoft enforces
 
 1. Open a new browser window in InPrivate or incognito mode, and browse to [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
 2. Sign in with a non-administrator test user, and register your authentication phone.
-3. Once complete, click the button marked **looks good** and close the browser window.
+3. Once complete, select the button marked **looks good** and close the browser window.
 4. Open a new browser window in InPrivate or incognito mode, and browse to [https://aka.ms/sspr](https://aka.ms/sspr).
-5. Enter your non-administrator test users' User ID, the characters from the CAPTCHA, and then click **Next**.
-6. Follow the verification steps to reset your password
+5. Enter your non-administrator test users' User ID, the characters from the CAPTCHA, and then select **Next**.
+6. Follow the verification steps to reset your password.
 
 ## Clean up resources
 
-It's easy to disable self-service password reset. Open your Azure AD tenant and go to **Properties** > **Password Reset**, and then select **None** under **Self Service Password Reset Enabled**.
+To disable self-service password reset, search for and select **Azure Active Directory** in the Azure portal. Select **Properties** > **Password Reset**, and then choose **None** under **Self Service Password Reset Enabled**. When ready, select **Save**.
 
 ## Next steps
 
-In this quickstart, you’ve learned how to quickly configure self-service password reset for your cloud-only users. To find out how to complete a more detailed roll out, continue to our roll out guide.
+In this quickstart, you learned how to configure self-service password reset for your cloud-only users. To find out how to complete a more detailed roll out, continue to our roll out guide.
 
 > [!div class="nextstepaction"]
 > [Roll out self-service password reset](howto-sspr-deployment.md)
