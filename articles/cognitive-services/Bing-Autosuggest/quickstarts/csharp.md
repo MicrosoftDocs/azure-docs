@@ -60,7 +60,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     }
     ```
 
-2. In the same function above, create a request URI by combining your API host and path. Append your market to the `?mkt=` parameter, and your query to the `&query=` paramter. Be sure to URL-encode your query. 
+2. In the same function above, create a request URI by combining your API host and path. Append your market to the `?mkt=` parameter, and your query to the `&query=` parameter. Be sure to URL-encode your query. 
 
     ```csharp
     string uri = host + path + "?mkt=" + market + "&query=" + System.Net.WebUtility.UrlEncode (query);
