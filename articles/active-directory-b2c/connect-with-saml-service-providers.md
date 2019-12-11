@@ -248,7 +248,7 @@ Your custom policy and Azure AD B2C tenant are now ready. Next, create an applic
 
 For SAML apps, there are several properties you need to configure in the application registration's manifest.
 
-#### ReplyUrlWithType (only with type ‘Web')
+#### ReplyUrlWithType (only with type 'Web')
 
 This property represents `AssertionConsumerServiceUrl` (`SingleSignOnService` URL in the R metadata) and the `BindingType` is assumed to be `HTTP POST`.
 
