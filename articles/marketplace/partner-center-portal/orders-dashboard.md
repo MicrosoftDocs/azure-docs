@@ -17,7 +17,7 @@ This article provides information on the **Orders dashboard** in Partner Center.
 To access the **Orders dashboard** in the Partner Center analytics tools, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology.md).
 
 ## Orders dashboard
 
@@ -28,7 +28,7 @@ The **Orders dashboard** of the **Analyze** menu displays the current orders for
 - [Orders by offers](#orders-by-offers)
 - [Orders trend per site versus per seat](#orders-trend-per-site-versus-per-seat)
 - [Orders by SKUs](#orders-by-skus)
-- [Orders and seats trend](orders-and-seats-trend)
+- [Orders and seats trend](#orders-and-seats-trend)
 - [Order details table](#order-details-table)
 
 > [!NOTE]
@@ -44,7 +44,7 @@ The Order Summary section displays a count of all purchased orders (excluding ca
 
 The percentage value next to Total Orders represents the amount of growth the selected date range.
 
-![Partner Center Analyze order summary](./media/order-by-summary.png)
+![Partner Center Analyze order summary](./media/order-summary.png)
 
 - A green triangle pointing upward indicates a positive growth trend.
 - A red triangle pointing downward indicates a negative growth trend relative to the previous month.
@@ -54,7 +54,7 @@ The percentage value next to Total Orders represents the amount of growth the se
 
 ### Orders by geography
 
-The **Orders by geography** heatmap displays a count of your orders on a world map and shows seats mapped based on Customer Country. This heatmap functions the same as the **[Customers by geography heatmap](customer-dashboard.md#customers-by-geography)**.
+The **Orders by geography** heatmap displays a count of your orders on a world map and shows seats mapped based on Customer Country. This heatmap functions the same as the **[Customers by geography heatmap](./customer-dashboard.md#customers-by-geography)**.
 
 ![Partner Center Analyze orders by geography](./media/orders-by-geography.png)
 
@@ -93,9 +93,9 @@ The **orders and seats trend** chart presents the top 50 offers with the highest
 
 ![Partner Center Analyze orders and seats trend](./media/orders-and-seats-trend.png)
 
-### canceled Orders by offers
+### Canceled orders by offers
 
-The **canceled orders by offers** pie chart organizes all of your canceled orders according to their offer names. The top offers are displayed in the graph and the rest of the offers are grouped as “Rest All.” You can select specific offers in the legend to display in the graph.
+The **Canceled orders by offers** pie chart organizes all of your canceled orders according to their offer names. The top offers are displayed in the graph and the rest of the offers are grouped as “Rest All.” You can select specific offers in the legend to display in the graph.
 
 - Hovering over a slice in the graph will display the number of orders and percentage of the selected offer compared to the total number of orders across all offers.
 - The column chart displays month-by-month trends. The columns represent the number of canceled orders by offer name. You can use the slider on top of the chart to scroll right and left along the x-axis and focus on specific data points. You can display the trend chart by selecting a specific item on the legend.
@@ -140,4 +140,4 @@ You can select multiple filters to render the chart for the criteria you choose 
 - For detailed information about your customers, including growth trends, see [Customer Dashboard in Commercial Marketplace analytics](./customer-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads Dashboard in Commercial Marketplace analytics](./downloads-dashboard.md).
 - To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in Commercial Marketplace analytics](./ratings-reviews.md).
-- For frequently asked questions about Commercial Marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).
+- For frequently asked questions about Commercial Marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology.md).

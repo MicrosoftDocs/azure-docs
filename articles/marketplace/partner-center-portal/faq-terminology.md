@@ -26,14 +26,14 @@ Why you may be getting this message:
 
 - Your offers listed in the marketplace are not SaaS offers. Currently, Partner Center reports analytics for SaaS offers only. Dynamics 365 offers can be published in partner center, but analytics for these offers are not yet enabled in partner center.
 - No acquisitions currently exist for your published offers in marketplace. This can mean that your offers are live in marketplace and gaining views from customers in the product display pages, but customers haven't yet taken action to purchase and deploy them.
-- The publishing of your offer might be in process and isn't live yet. Only live offers can be acquired by customers. To check the status of your offers, see Overview in the [Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). For more information, see [Summary dashboard](#summary-dashboard) in this article.
+- The publishing of your offer might be in process and isn't live yet. Only live offers can be acquired by customers. To check the status of your offers, see Overview in the [Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). For more information, see [Summary Dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
 - Your offers may be listed as **Contact Me**, which are list-only offers and cannot be purchased by customers in the marketplace. Although these offers generate leads and are shared with you, orders aren't created for these offers as they cannot be purchased. To check your offer listing type, go to setup page.
 
 **I know I have analytics data, but the message below is appearing:**
 
 ![No data for given date range](./media/analytics-faq-data-range.png)
 
-If you're receiving this message, it means  you have analytics data but there isn't data for the date range you selected. Select a different date range or custom date range to view any data since 2010. For more information, see [Date range](#date-range).
+If you're receiving this message, it means  you have analytics data but there isn't data for the date range you selected. Select a different date range or custom date range to view any data since 2010. For more information, see the Date Range section of [Summary Dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
 
 ## Dictionary of data terms
 

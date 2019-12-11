@@ -17,19 +17,20 @@ This article provides information on the **Customer dashboard** in Partner Cente
 To access the **Customer dashboard**, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology.md).
 
 ## Customer dashboard
 
 The **Customer dashboard** of the **Analyze** menu displays data for customers who have acquired your offers. You can view graphical representations of the following items:
 
 - [Customer summary](#customer-summary)
-- [Customers by geography](#customers-by-geography)
+- [Customer by geography](#customer-by-geography)
 - [Customer trends](#customer-trends)
 - [Customers by orders and usage](#customers-by-orders-and-usage)
 - [Customers by SKUs](#customers-by-skus)
 - [Orders and usage by customer type](#orders-and-usage-by-customer-type)
-- [Detailed customer data](detailed-customer-data)
+- [Customer details table](#customer-details-table)
+- [Customer page filters](#customer-page-filters)
 
 ### Customer summary
 
@@ -103,7 +104,7 @@ The **Customer details** table displays a numbered list of the top 1000 customer
 The **Customers page** filters are applied at the Customers page level. You can select multiple filters to render the chart for the criteria you choose to view and the data you want to see in ‘Detailed orders data’ grid / export. Filters are applied on the data extracted for the data range you have selected on the top-right corner of the orders page.
 
 >[!NOTE]
-> Detailed definitions for each of the fields in Customer grid, page filters, and their possible selections are located in [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).
+> Detailed definitions for each of the fields in Customer grid, page filters, and their possible selections are located in [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology.md).
 
 ## Next steps
 
@@ -113,4 +114,4 @@ The **Customers page** filters are applied at the Customers page level. You can 
 - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in Commercial Marketplace analytics](./usage-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads Dashboard in Commercial Marketplace analytics](./downloads-dashboard.md).
 - To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in Commercial Marketplace analytics](./ratings-reviews.md).
-- For frequently asked questions about Commercial Marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology).
+- For frequently asked questions about Commercial Marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology.md).
