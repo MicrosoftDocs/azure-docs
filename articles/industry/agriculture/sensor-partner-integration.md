@@ -30,7 +30,7 @@ After you've purchased and deployed devices or sensors, you can access the devic
 
 ## Unlink FarmBeats
 
-You have the ability to unlink an existing FarmBeats integration. Unlinking FarmBeats shouldn't delete any device or sensor metadata that was created in your data hub. Unlinking does the following:
+You have the ability to unlink an existing FarmBeats integration. Unlinking FarmBeats shouldn't delete any device or sensor metadata that was created in your datahub. Unlinking does the following:
 
    - Stops telemetry flow.
    - Deletes and erases the integration credentials on the device partner.
@@ -136,13 +136,13 @@ JSON is a common language-independent data format that provides a simple text re
 
 ## Metadata specifications
 
-FarmBeats Datahub has the following APIs that enable device partners to create and manage device or sensor metadata. 
+FarmBeats Datahub has the following APIs that enable device partners to create and manage device or sensor metadata.
 
-- /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either gateway or node. 
+- /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either gateway or node.
 - /**Device**: Device corresponds to a physical device present on the farm.
 - /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure.
 - /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
-  
+
   **DeviceModel** |  |
   --- | ---
   Type (node, gateway)  | 1 Star |
