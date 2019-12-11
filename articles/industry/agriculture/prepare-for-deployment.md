@@ -86,7 +86,7 @@ A verification email will be sent to the registered email address for confirmati
 
 For authentication and authorization on Azure FarmBeats, you must have an Azure AD app registration. You can create it in either of two ways:
 
-* **Option 1**: Installer can create the registration automatically, provided that you have the required tenant, subscription, and resource group access permissions. If these permissions are in place, continue to the ["Prepare the input.json file"](#prepare-the-inputjson-file) section.
+* **Option 1**: Installer can create the registration automatically, provided that you have the required tenant, subscription, and resource group access permissions. If these permissions are in place, continue to the [Prepare the input.json file](#prepare-the-inputjson-file) section.
 
 * **Option 2**: You can create and configure the registration manually before you deploy Azure FarmBeats. We recommend this method when you don't have the required permissions to create and configure an Azure AD app registration within your subscription. Ask your administrator to use the [custom script](https://aka.ms/FarmBeatsAADScript), which will help the IT admin automatically generate and configure the Azure AD app registration on the Azure portal. As an output to running this custom script using PowerShell environment the IT admin needs to share an Azure AD Application Client ID and password secret with you. Make a note of these values.
 
