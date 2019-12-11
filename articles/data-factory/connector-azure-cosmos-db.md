@@ -143,9 +143,7 @@ If you use "DocumentDbCollection" type dataset, it is still supported as-is for 
 
 ## Copy Activity properties
 
-This section provides a list of properties that the Azure Cosmos DB (SQL API) source and sink support.
-
-For a full list of sections and properties that are available for defining activities, see [Pipelines](concepts-pipelines-activities.md).
+This section provides a list of properties that the Azure Cosmos DB (SQL API) source and sink support. For a full list of sections and properties that are available for defining activities, see [Pipelines](concepts-pipelines-activities.md).
 
 ### Azure Cosmos DB (SQL API) as source
 
