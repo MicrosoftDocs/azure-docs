@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 12/11/2019
 ms.author: erhopf
 ---
 
@@ -31,7 +31,7 @@ The speech-to-text service is available via the [Speech SDK](speech-sdk.md). The
  - [Quickstart: Recognize speech from a file](quickstarts/speech-to-text-from-file.md)
  - [Quickstart: Recognize speech stored in blob storage](quickstarts/from-blob.md)
 
-If you prefer to use the speech-to-text REST service, see [REST APIs](rest-apis.md).
+If you prefer to use the speech-to-text REST service, see [REST APIs](rest-speech-to-text.md).
 
 ## Tutorials and sample code
 
@@ -41,35 +41,14 @@ After you've had a chance to use the Speech service, try our tutorial that teach
 
 Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models.
 
-- [Speech-to-text samples using the SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-- [Batch transcription samples using REST APIs](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+- [Speech-to-text samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+- [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
 ## Customization
 
-In addition to the standard Speech service model, you can create custom models. Customization helps to overcome speech recognition barriers such as speaking style, vocabulary and background noise, see [Custom Speech](how-to-custom-speech.md)
-
-> [!TIP]
-> Customization options vary by language/locale (see [supported languages](supported-languages.md)).
-
-<<<<<<< HEAD
-## Migration guides
-
-> [!WARNING]
-> Bing Speech was decommissioned on October 15, 2019.
-
-If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to the Speech service.
-
-- [Migrate from Bing Speech to the Speech service](how-to-migrate-from-bing-speech.md)
-- [Migrate from Custom Speech to the Speech service](how-to-migrate-from-custom-speech-service.md)
+In addition to the standard Speech service model, you can create custom models. Customization helps to overcome speech recognition barriers such as speaking style, vocabulary and background noise, see [Custom Speech](how-to-custom-speech.md). Customization options vary by language/locale, see [supported languages](supported-languages.md) to verify support.
 
 [!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
-=======
-## Reference docs
-
-- [Speech SDK](speech-sdk.md)
-- [REST API: Speech-to-text](rest-speech-to-text.md)
-- [REST API: Batch transcription and customization](https://cris.ai/swagger/ui/index)
->>>>>>> Updates to formatting, etc.
 
 ## Next steps
 
