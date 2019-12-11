@@ -50,7 +50,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 This error occurs when one of the extension failures puts the VM into provisioning failed state.<br>**Open  Azure Portal > VM > Settings > Extensions > Extensions status** and check if all extensions are in **provisioning succeeded** state.
 
 - If VMSnapshot extension is in a failed state, then right-click on the failed extension and remove it. Trigger an on-demand backup, this will reinstall the extensions and run the backup job.  <br>
-- If any other extension is in failed state, then it can interfere with the backup. Ensure those extension issues are resolved and retry the backup operation.  
+- If any other extension is in a failed state, then it can interfere with the backup. Ensure those extension issues are resolved and retry the backup operation.  
 
 ## UserErrorRpCollectionLimitReached - The Restore Point collection max limit has reached
 
