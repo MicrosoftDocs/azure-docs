@@ -29,6 +29,5 @@ The table below describes the analytics dashboards.
 |[Usage](#usage-dashboard.md) | Presents all Virtual Machine (VM) offers usage and metered billing usage metrics in two separate tabs: VM usage and metered billing usage.
 |[Customers](#customer-dashboard.md)|Information about your customers, including growth trends, presented in a graphical and downloadable format|
 |[Downloads](#downloads-dashboard.md)|A list of your download requests over the last 30 days|
-|[Marketplace insights](#insights-dashboard.md) | Summary of marketplace web analytics and analysis of campaign performance.|
 |[Ratings and reviews](#ratings-reviews.md)| A consolidated view of customer feedback for offers on Azure Marketplace and AppSource.|
 |FAQs and terminology | Help with frequently asked questions and a dictionary of data terms.
