@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/09/2019
+ms.date: 12/11/2019
 ms.author: helohr
 ---
 # Windows Virtual Desktop service connections
@@ -17,60 +17,19 @@ Use this article to resolve issues with Windows Virtual Desktop client connectio
 
 You can give us feedback and discuss the Windows Virtual Desktop Service with the product team and other active community members at the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-## You can't open a web client
+## User connects but nothing is displayed (no feed)
 
-First, test your internet connection by opening another website in your browser; for example, [www.bing.com](https://www.bing.com).
+A user can start Remote Desktop clients and is able to authenticate, however the user doesn't see any icons in the web discovery feed.
 
-Use **nslookup** to confirm DNS can resolve the FQDN:
+Confirm that the user reporting the issues has been assigned to application groups by using this command line:
 
-```cmd
-nslookup rdweb.wvd.microsoft.com
+```PowerShell
+Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 
-Try connecting with another client, like Remote Desktop client for Windows 7 or Windows 10, and check to see if you can open the web client.
+Confirm that the user is logging in with the correct credentials.
 
-### Error: Opening another site fails
-
-**Cause:** Network issues and/or outages.
-
-**Fix:** Contact network support.
-
-### Error: Nslookup cannot resolve the name
-
-**Cause:** Network issues and/or outages.
-
-**Fix:** Contact network support
-
-### Error: You can't connect but other clients can connect
-
-**Cause:** The browser isn't behaving as expected and stopped working.
-
-**Fix:** Follow these instructions to troubleshoot the browser.
-
-1. Restart the browser.
-2. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-3. Clear browser cache. See [clear browser cache for your browser](https://binged.it/2RKyfdU).
-4. Open browser in Private mode.
-
-## Web client stops responding or disconnects
-
-Try connecting using another browser or client.
-
-### Error: Other browsers and clients also malfunction or fail to open
-
-**Cause:** Network and/or operation system issues or outages
-
-**Fix:** Contact support teams.
-
-## Web client keeps prompting for credentials
-
-If the Web client keeps prompting for credentials, follow these instructions.
-
-1. Confirm web client URL is correct.
-2. Confirm that credentials are for the Windows Virtual Desktop environment tied to the URL.
-3. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Clear browser cache. See [Clear browser cache for your browser](https://binged.it/2RKyfdU).
-5. Open browser in Private mode.
+If the web client is being used, confirm that there are no cached credentials issues.
 
 ## Windows 10 Enterprise multi-session virtual machines don't respond
 
