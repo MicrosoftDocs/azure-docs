@@ -27,14 +27,14 @@ For information about managing certificates using the API Management REST API, s
 
 This guide shows you how to configure your API Management service instance to use client certificate authentication to access the back-end service for an API. Before following the steps in this article, you should have your back-end service configured for client certificate authentication ([to configure certificate authentication in Azure WebSites refer to this article][to configure certificate authentication in Azure WebSites refer to this article]). You need access to the certificate and the password for uploading it to the API Management service.
 
-## <a name="step1"> </a>Upload a client certificate
+## <a name="step1"> </a>Upload a Certificate
 
 ![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert.png)
 
 Follow the steps below to upload a new client certificate. If you have not created an API Management service instance yet, see the tutorial [Create an API Management service instance][Create an API Management service instance].
 
 1. Navigate to your Azure API Management service instance in the Azure portal.
-2. Select **Client certificates** from the menu.
+2. Select **Certificates** from the menu.
 3. Click the **+ Add** button.  
     ![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)  
 4. Browse for the certificate, provide its ID and password.  
