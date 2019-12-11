@@ -108,6 +108,36 @@ From the actions list, select the action you want.
 1. Provide the necessary details for your selected 
 action and continue building your logic app's workflow.
 
+## Add triggers
+
+In Azure Logic Apps, every logic app must start with a 
+[trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), 
+which fires when a specific event happens or when a 
+specific condition is met. Each time the trigger fires, 
+the Logic Apps engine creates a logic app instance 
+and starts running your app's workflow.
+
+This example shows how you can start a logic app workflow when new alerts are sent to your app.
+
+1.	In the Azure portal or Visual Studio, create a blank logic app, which opens Logic Apps Designer. This example uses the Azure portal.
+
+1.	In the search box, enter "Microsoft Graph Security" as your filter. From the triggers list, select this trigger: **On all new alerts**.
+
+1.	In the trigger, provide information about the alerts that you want to monitor. For more properties, open the **Add new parameter list**. Selecting a parameter adds that property to the trigger card.
+
+   | Property | Required | JSON name | Type | Description |
+   |----------|----------|-----------|------|-------------|
+   | **Interval** | Yes | interval | Integer | A positive integer that describes how often the workflow runs based on the frequency. Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. |
+   | **Frequency** | Yes | frequency | String | The unit of time for the recurrence: **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** |
+   | **Time zone** | No | timeZone | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Select the time zone that you want to apply. |
+   | **Start time** | No | startTime | String | Provide a start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you select a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't select a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and select a time zone such as Pacific Standard Time. Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time has a maximum of 49 years in the future and must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't select a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. [*What are the ways that I can use the start date and time?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   
+4.	When you're done, on the designer toolbar, choose **Save**.
+
+5.	Now continue adding one or more actions to your logic app for the tasks you want to perform with the trigger results.
+
+[!NOTE] When a trigger fires, the trigger processes all the new alerts. If no alerts are received, the trigger run is skipped. The next trigger poll happens based on the recurrence interval that you specify in the trigger's properties.
+
 ## Add actions
 
 Here are more specific details about using the various actions 
