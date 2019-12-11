@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 12/09/2019
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
