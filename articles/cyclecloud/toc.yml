@@ -65,7 +65,7 @@
     - name: Use Managed Identities with CycleCloud
       href: ./how-to/managed-identities.md
     - name: Configure User Authentication
-      href: ./.how-to/user-authentication.md
+      href: ./how-to/user-authentication.md
     - name: Upgrade and Migrate
       href: ./how-to/upgrade-and-migrate.md
     - name: Backup and Restore
