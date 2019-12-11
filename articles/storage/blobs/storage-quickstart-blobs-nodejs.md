@@ -150,11 +150,11 @@ Add this code inside the `main` function:
 ```javascript
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
-// running the application called CONNECT_STR. If the environment variable is
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the environment variable is
 // created after the application is launched in a console or with Visual Studio,
 // the shell or application needs to be closed and reloaded to take the
 // environment variable into account.
-const CONNECT_STR = process.env.CONNECT_STR;
+const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
 ```
 
 ### Create a container
@@ -170,7 +170,7 @@ Add this code to the end of the `main` function:
 
 ```javascript
 // Create the BlobServiceClient object which will be used to create a container client
-const blobServiceClient = await BlobServiceClient.fromConnectionString(CONNECT_STR);
+const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
 
 // Create a unique name for the container
 const containerName = 'quickstart' + uuidv1();

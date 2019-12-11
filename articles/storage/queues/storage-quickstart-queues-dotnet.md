@@ -137,12 +137,12 @@ Add this code inside the `Main` method:
 Console.WriteLine("Azure Queue storage v12 - .NET quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
-// connection string is stored in an environment variable called CONNECT_STR
-//  on the machine running the application. If the environment variable is 
-// created after the application is launched in a console or with Visual Studio,
-// the shell or application needs to be closed and reloaded to take the 
-// environment variable into account.
-string connectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
+// connection string is stored in an environment variable called
+// AZURE_STORAGE_CONNECTION_STRING on the machine running the application.
+// If the environment variable is created after the application is launched
+// in a console or with Visual Studio, the shell or application needs to be
+// closed and reloaded to take the environment variable into account.
+string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
 ### Create a queue

@@ -127,11 +127,11 @@ Add this code inside the `try` block:
 ```python
     # Retrieve the connection string for use with the application. The storage
     # connection string is stored in an environment variable on the machine
-    # running the application called CONNECT_STR. If the environment variable is
-    # created after the application is launched in a console or with Visual Studio,
-    # the shell or application needs to be closed and reloaded to take the
-    # environment variable into account.
-    connect_str = os.getenv('CONNECT_STR')
+    # running the application called AZURE_STORAGE_CONNECTION_STRING. If the
+    # environment variable is created after the application is launched in a
+    # console or with Visual Studio, the shell or application needs to be
+    # closed and reloaded to take the environment variable into account.
+    connect_str = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
 ```
 
 ### Create a queue
