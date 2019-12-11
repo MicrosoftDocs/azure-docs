@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 12/11/2019
 ---
 
 # Implement search traffic analytics in Azure Cognitive Search
@@ -172,9 +172,7 @@ Every time that a user clicks on a document, that's a signal that must be logged
 
 ## 3 - Analyze in Power BI
 
-After you have instrumented your app and verified your application is correctly connected to Application Insights, you can use a predefined template created by Azure Cognitive Search for Power BI desktop. 
-
-Azure Cognitive search provides a monitoring [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search) so that you can analyze log data. T The content pack adds predefined charts and tables useful for analyzing the additional data captured for search traffic analytics. For more information, see the [content pack help page](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
+After you have instrumented your app and verified your application is correctly connected to Application Insights, you download a predefined report template to analyze data in Power BI desktop. The report contains predefined charts and tables useful for analyzing the additional data captured for search traffic analytics. 
 
 1. In the Azure Cognitive Search dashboard left-navigation pane, under **Settings**, click **Search traffic analytics**.
 
@@ -184,7 +182,7 @@ Azure Cognitive search provides a monitoring [Power BI Content Pack](https://app
 
 2. On the same page, click **Download Power BI report**.
 
-3. The report opens in Power BI Desktop, and you are prompted to connect to Application Insights. You can find this information in the Azure portal pages for your Application Insights resource.
+3. The report opens in Power BI Desktop, and you are prompted to connect to Application Insights and provide credentials. You can find connection information in the Azure portal pages for your Application Insights resource. For credentials, provide the same user name and password that you use for portal sign-in.
 
    ![Connect to Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Connect to Application Insights")
 
