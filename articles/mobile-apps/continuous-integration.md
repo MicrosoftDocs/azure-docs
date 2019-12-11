@@ -40,7 +40,7 @@ With the added power of Visual Studio App Center services, you can further autom
 - Customize your builds by adding post-clone, pre-build, and post-build scripts.
 
 **References**
-- [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
+- [Sign up with Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
 - [Get started with App Center Build](/appcenter/build/)
 
 ## Azure Pipelines

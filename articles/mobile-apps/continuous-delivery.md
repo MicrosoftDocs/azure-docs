@@ -35,7 +35,7 @@ Use the following services to enable a continuous delivery pipeline in your mobi
 - Automatically register iOS devices to your provisioning profile.
 
 **References**
-- [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
+- [Sign up with Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
 - [Get started with App Center Distribute](/appcenter/build/)
 
 ### Azure Pipelines
@@ -91,6 +91,6 @@ With [CodePush](/appcenter/distribution/codepush/) in App Center, Apache Cordova
 - Useful for fixing bugs or adding and removing small features that don't require you to rebuild binary and redistribute it through respective stores.
 
 **References**
-- [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
+- [Sign up with Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
 - [Get started with CodePush in App Center](/appcenter/distribution/codepush/)
 - [CodePush CLI](/appcenter/distribution/codepush/cli)

@@ -9,7 +9,7 @@ ms.date: 10/22/2019
 ms.author: emalani
 ---
 
-# Azure Cognitive Services helps to solve business problems by using artificial intelligence
+# Cognitive Services helps to solve business problems by using AI
 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provides powerful services to infuse your apps with intelligent algorithms to see, hear, speak, understand, and interpret your user needs to transform your business with artificial intelligence (AI). You can make your mobile applications smart, engaging, and contextually relevant for your users. Developers can use the APIs, SDKs, and services to add AI to their offerings and help build intelligent applications without having direct AI or data science skills.
 
 ## Cognitive Services capabilities
