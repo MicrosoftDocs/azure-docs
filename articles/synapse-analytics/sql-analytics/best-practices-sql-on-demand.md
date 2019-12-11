@@ -1,12 +1,12 @@
 ---
 title: Best practices for SQL on-demand in Azure Synapse Analytics
 description: Recommendations and best practices you should know as you work with SQL on-demand. 
-services: sql-data-warehouse
+services: synapse analytics
 author: mlee3gsd
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: design
+ms.subservice:
 ms.date: 10/25/2019
 ms.author: martinle
 ms.reviewer: igorstan

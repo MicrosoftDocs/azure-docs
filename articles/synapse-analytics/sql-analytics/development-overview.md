@@ -1,12 +1,12 @@
 ---
 title: Resources for developing with Azure SQL Analytics | Microsoft Docs
 description: Development concepts, design decisions, recommendations and coding techniques for SQL Analytics.
-services: sql-data-warehouse
+services: synapse analytics
 author: filippopovic
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice:
 ms.date: 10/20/2019
 ms.author: fipopovi
 ms.reviewer: jrasnick

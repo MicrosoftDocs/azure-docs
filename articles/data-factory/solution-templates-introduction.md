@@ -5,13 +5,14 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/04/2019
-author: djpmsft
 ms.author: daperlov
-manager: craigg
+author: djpmsft
+manager: anandsub
+ms.custom: seo-lt-2019
+ms.date: 01/04/2019
 ---
+
 # Templates
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

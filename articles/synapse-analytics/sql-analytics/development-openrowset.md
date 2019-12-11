@@ -1,11 +1,11 @@
 ---
 title: How to use OPENROWSET in SQL Analytics
 description: This article describes syntax of OPENROWSET in SQL analytics on-demand and explains how to use arguments.
-services: sql-data-warehouse
+services: synapse analytics
 author: filippopovic
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: design
+ms.subservice:
 ms.date: 10/21/2019
 ms.author: fipopovi
 ms.reviewer: jrasnick

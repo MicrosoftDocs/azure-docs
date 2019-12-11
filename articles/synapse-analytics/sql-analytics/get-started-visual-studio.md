@@ -1,11 +1,11 @@
 ---
 title: Connect to Azure SQL Pool - Visual Studio Team Services | Microsoft Docs
 description: Query SQL Pool with Visual Studio.
-services: sql-data-warehouse
+services: synapse analytics
 author: azaricstefan 
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice:
 ms.date: 10/21/2019
 ms.author: v-stazar 
 ms.reviewer: jrasnick

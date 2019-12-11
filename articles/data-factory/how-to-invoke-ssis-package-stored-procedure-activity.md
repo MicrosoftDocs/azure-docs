@@ -4,7 +4,7 @@ description: This article describes how to run a SQL Server Integration Services
 services: data-factory
 documentationcenter: ''
 author: swinarko
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
