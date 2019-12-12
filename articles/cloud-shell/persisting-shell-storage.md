@@ -55,7 +55,7 @@ Cloud Shell uses an Azure File Share in a storage account, inside a specified su
 Users should lock down access to their files by setting the permissions at the storage account or the subscription level.
 
 ## Supported storage regions
-Associated Azure storage accounts must reside in the same region as the Cloud Shell machine that you're mounting them to. To find your current region you may run `env` in Bash and locate the variable `ACC_LOCATION`. File shares receive a 5-GB image created for you to persist your `$Home` directory.
+To find your current region you may run `env` in Bash and locate the variable `ACC_LOCATION`. File shares receive a 5-GB image created for you to persist your `$Home` directory.
 
 Cloud Shell machines exist in the following regions:
 
@@ -64,6 +64,9 @@ Cloud Shell machines exist in the following regions:
 |Americas|East US, South Central US, West US|
 |Europe|North Europe, West Europe|
 |Asia Pacific|India Central, Southeast Asia|
+
+### Secondary storage regions
+If a secondary storage region is used, the associated Azure storage account resides in a different region as the Cloud Shell machine that you're mounting them to. For example, Jane can set her storage account to be located in Canada East, a secondary region, but the machine she is mounted to is still located in East US. Her data at rest is located in Canada, but it is processed in the United States.
 
 ## Restrict resource creation with an Azure resource policy
 Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](../azure-policy/json-samples.md) that are triggered by this specific tag.
