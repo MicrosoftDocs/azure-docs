@@ -37,9 +37,11 @@ Leverage Cloud Shell to work untethered from a local machine in a way only the c
 ### Choice of preferred shell experience
 Users can choose between Bash or PowerShell.
 1. Select Cloud Shell.
+
 ![Cloud Shell icon](media/overview/overview-cloudshell-icon.png)
 
 1. Select Bash or PowerShell.
+
 ![Choose either Bash or PowerShell](media/overview/overview-choices.png)
 
 ### Authenticated and configured Azure workstation
