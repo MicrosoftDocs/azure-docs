@@ -4,7 +4,7 @@ description: Learn how to use the Azure Queue JavaScript v12 library to create a
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 12/12/2019
+ms.date: 12/13/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
@@ -154,8 +154,8 @@ Add this code inside the `main` function:
 // connection string is stored in an environment variable on the machine
 // running the application called AZURE_STORAGE_CONNECTION_STRING. If the
 // environment variable is created after the application is launched in a
-// console or with Visual Studio, the shell or application needs to be closed
-// and reloaded to take the environment variable into account.
+// console or with Visual Studio, the shell or application needs to be 
+// closed and reloaded to take the environment variable into account.
 const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
 ```
 
@@ -182,7 +182,7 @@ const queueClient = new QueueClient(AZURE_STORAGE_CONNECTION_STRING, queueName);
 
 // Create the queue
 const createQueueResponse = await queueClient.create();
-console.log("Queue was created successfully. requestId: ", createQueueResponse.requestId);
+console.log("Queue created, requestId:", createQueueResponse.requestId);
 ```
 
 ### Add messages to a queue
@@ -198,6 +198,8 @@ console.log("\nAdding messages to the queue...");
 await queueClient.sendMessage("First message");
 await queueClient.sendMessage("Second message");
 const sendMessageResponse = await queueClient.sendMessage("Third message");
+
+console.log("Messages added, requestId:", sendMessageResponse.requestId);
 ```
 
 ### Peek at messages in a queue
@@ -210,17 +212,17 @@ Add this code to the end of the `main` function:
 console.log("\nPeek at the messages in the queue...");
 
 // Peek at messages in the queue
-const peekedMessages = await queueClient.peekMessages(5);
+const peekedMessages = await queueClient.peekMessages({ numberOfMessages : 5 });
 
 for (i = 0; i < peekedMessages.peekedMessageItems.length; i++) {
     // Display the peeked message
-    console.log("\n\tMessage:", peekedMessages.peekedMessageItems[i].messageText);
+    console.log("\t", peekedMessages.peekedMessageItems[i].messageText);
 }
 ```
 
 ### Update a message in a queue
 
-Update the contents of a message by calling the [updateMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) method. The `update_message` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in values from the message that was saved earlier in the code. The `saved_message` values identify which message to update.
+Update the contents of a message by calling the [updateMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) method. The `updateMessage` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in values from the message that was saved earlier in the code. The `sendMessageResponse` values identify which message to update.
 
 ```javascript
 console.log("\nUpdating the third message in the queue...");
@@ -232,7 +234,7 @@ updateMessageResponse = await queueClient.updateMessage(
     "Third message has been updated"
 );
 
-console.log("\nMessage updated, requestId:", updateMessageResponse.requestId);
+console.log("Message updated, requestId:", updateMessageResponse.requestId);
 ```
 
 ### Receive messages from a queue
@@ -245,7 +247,9 @@ Add this code to the end of the `main` function:
 console.log("\nReceiving messages from the queue...");
 
 // Get messages from the queue
-const receivedMessagesResponse = await queueClient.receiveMessages(5);
+const receivedMessagesResponse = await queueClient.receiveMessages({ numberOfMessages : 5 });
+
+console.log("Messages received, requestId:", receivedMessagesResponse.requestId);
 ```
 
 ### Delete messages from a queue
@@ -259,16 +263,17 @@ Add this code to the end of the `main` function:
 ```javascript
 // 'Process' and delete messages from the queue
 for (i = 0; i < receivedMessagesResponse.receivedMessageItems.length; i++) {
-    const receivedMessage = receivedMessagesResponse.receivedMessageItems[i];
+    receivedMessage = receivedMessagesResponse.receivedMessageItems[i];
 
     // 'Process' the message
-    console.log("\n\tMessage:", receivedMessage.messageText);
+    console.log("\tProcessing:", receivedMessage.messageText);
 
     // Delete the message
     const deleteMessageResponse = await queueClient.deleteMessage(
         receivedMessage.messageId,
         receivedMessage.popReceipt
     );
+    console.log("\tMessage deleted, requestId:", deleteMessageResponse.requestId);
 }
 ```
 
@@ -280,7 +285,7 @@ Add this code to the end of the `main` function and save the file:
 
 ```javascript
 // Delete the queue
-console.log("Deleting queue...");
+console.log("\nDeleting queue...");
 const deleteQueueResponse = await queueClient.delete();
 console.log("Queue deleted, requestId:", deleteQueueResponse.requestId);
 ```
@@ -289,53 +294,57 @@ console.log("Queue deleted, requestId:", deleteQueueResponse.requestId);
 
 This app creates and adds three messages to an Azure queue. The code lists the messages in the queue, then retrieves and deletes them, before finally deleting the queue.
 
-In your console window, navigate to the directory containing the *queues-quickstart-v12.py* file, then execute the following `python` command to run the app.
+In your console window, navigate to the directory containing the *queues-quickstart-v12.js* file, then execute the following `node` command to run the app.
 
 ```console
-python queues-quickstart-v12.py
+node queues-quickstart-v12.js
 ```
 
 The output of the app is similar to the following example:
 
 ```output
 Azure Queue storage v12 - JavaScript quickstart sample
-Creating queue: quickstartqueues-cac365be-7ce6-4065-bd65-3756ea052cb8
+
+Creating queue...
+         quickstartc095d120-1d04-11ea-af30-090ee231305f
+Queue created, requestId: 5c0bc94c-6003-011b-7c11-b13d06000000
 
 Adding messages to the queue...
+Messages added, requestId: a0390321-8003-001e-0311-b18f2c000000
 
 Peek at the messages in the queue...
-Message: First message
-Message: Second message
-Message: Third message
+         First message
+         Second message
+         Third message
 
 Updating the third message in the queue...
+Message updated, requestId: cb172c9a-5003-001c-2911-b18dd6000000
 
 Receiving messages from the queue...
-
-Press Enter key to 'process' messages and delete them from the queue...
-
-First message
-Second message
-Third message has been updated
-
-Press Enter key to delete the queue...
+Messages received, requestId: a039036f-8003-001e-4811-b18f2c000000
+        Processing: First message
+        Message deleted, requestId: 4a65b82b-d003-00a7-5411-b16c22000000
+        Processing: Second message
+        Message deleted, requestId: 4f0b2958-c003-0030-2a11-b10feb000000
+        Processing: Third message has been updated
+        Message deleted, requestId: 6c978fcb-5003-00b6-2711-b15b39000000
 
 Deleting queue...
+Queue deleted, requestId: 5c0bca05-6003-011b-1e11-b13d06000000
+
 Done
 ```
 
-When the app pauses before receiving messages, check your storage account in the [Azure portal](https://portal.azure.com). Verify the messages are in the queue.
-
-Press the **Enter** key to receive and delete the messages. When prompted, press the **Enter** key again to delete the queue and finish the demo.
+Step through the code in your debugger and check your [Azure portal](https://portal.azure.com) throughout the process. Check your storage account to verify messages in the queue are created and deleted.
 
 ## Next steps
 
-In this quickstart, you learned how to create a queue and add messages to it using JavaScript code. Then you learned to view, retrieve, and delete messages. Finally, you learned how to delete a message queue.
+In this quickstart, you learned how to create a queue and add messages to it using JavaScript code. Then you learned to peek, retrieve, and delete messages. Finally, you learned how to delete a message queue.
 
 For tutorials, samples, quick starts and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure for JavaScript Developers](https://docs.microsoft.com/azure/javascript/)
+> [Azure for JavaScript documentation](https://docs.microsoft.com/azure/javascript/)
 
-* To learn more, see the [Azure Storage libraries for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage).
-* To see more Azure Queue storage sample apps, continue to [Azure Queue storage v12 JavaScript client library samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).
+* To learn more, see the [Azure Storage Queue client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
+* To see more Azure Queue storage sample apps, continue to [Azure Queue storage client library v12 JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).

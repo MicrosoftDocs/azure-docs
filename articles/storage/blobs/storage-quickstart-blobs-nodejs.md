@@ -304,16 +304,16 @@ Deleting container...
 Done
 ```
 
-Step through the code in your debugger and check your Azure portal throughout the process. Check to see that the container is being created. You can open the blob inside the container and view the contents.
+Step through the code in your debugger and check your [Azure portal](https://portal.azure.com) throughout the process. Check to see that the container is being created. You can open the blob inside the container and view the contents.
 
 ## Next steps
 
 In this quickstart, you learned how to upload, download, and list blobs using JavaScript.
 
-To see Blob storage sample apps, continue to:
+For tutorials, samples, quick starts and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure Blob storage SDK v12 JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
+> [Azure for JavaScript documentation](/azure/javascript/)
 
-* To learn more, see the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/README.md).
-* For tutorials, samples, quick starts and other documentation, visit [Azure SDK for JavaScript documentation](/azure/javascript/).
+* To learn more, see the [Azure Blob storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
+* To see Blob storage sample apps, continue to [Azure Blob storage client library v12 JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).

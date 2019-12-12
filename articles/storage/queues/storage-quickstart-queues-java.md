@@ -357,7 +357,7 @@ Press the **Enter** key to receive and delete the messages. When prompted, press
 
 ## Next steps
 
-In this quickstart, you learned how to create a queue and add messages to it using Java code. Then you learned to view, retrieve, and delete messages. Finally, you learned how to delete a message queue.
+In this quickstart, you learned how to create a queue and add messages to it using Java code. Then you learned to peek, retrieve, and delete messages. Finally, you learned how to delete a message queue.
 
 For tutorials, samples, quick starts, and other documentation, visit:
 
