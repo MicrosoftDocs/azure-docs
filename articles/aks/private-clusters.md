@@ -122,3 +122,5 @@ az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
