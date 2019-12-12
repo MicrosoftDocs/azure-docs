@@ -16,9 +16,7 @@
     href: manage-app-groups.md
   - name: 5. Create a host pool to validate service updates
     href: create-validation-host-pool.md
-  - name: 6. Deploy a management tool
-    href: manage-resources-using-ui.md
-  - name: 7. Set up service alerts
+  - name: 6. Set up service alerts
     href: set-up-service-alerts.md
 - name: How-to
   items:
@@ -70,6 +68,12 @@
     href: set-up-scaling-script.md
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
+  - name: Deploy the management tool
+    items:
+      - name: Using a service principal
+        href: manage-resources-using-ui-svc-principal.md
+      - name: Using a user account
+        href: manage-resources-using-ui.md
   - name: Deploy the diagnostics tool
     href: deploy-diagnostics.md
   - name: Publish built-in apps

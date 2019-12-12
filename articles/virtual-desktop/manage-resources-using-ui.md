@@ -5,16 +5,13 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/09/2019
 ms.author: helohr
 ---
-# Tutorial: Deploy a management tool
+# Deploy a management tool using a user account
 
-The management tool provides a user interface (UI) for managing Microsoft Virtual Desktop resources. In this tutorial, you'll learn how to deploy and connect to the management tool.
-
->[!NOTE]
->These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
+The management tool provides a user interface (UI) for managing Microsoft Virtual Desktop resources. In these instructions, you'll learn how to deploy using a user account and connect to the management tool.
 
 ## Important considerations
 
@@ -39,7 +36,7 @@ Before deploying the Azure Resource Manager template, you'll need an Azure Activ
 After deploying the Azure Resource Manager template, you'll want to launch the management UI to validate. This user must:
 - Have a role assignment to view or edit your Windows Virtual Desktop tenant
 
-## Run the Azure Resource Manager template to provision the management UI
+## Deploy the management tool
 
 Before you start, ensure the server and client apps have consent by visiting the [Windows Virtual Desktop Consent Page](https://rdweb.wvd.microsoft.com) for the Azure Active Directory (AAD) represented.
 
@@ -54,13 +51,11 @@ Follow these instructions to deploy the Azure Resource Management template:
         3. Right after <https://portal.azure.com/> and before the hashtag (#), enter an at sign (@) followed by the tenant domain name. Here's an example of the format: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
         4. Sign in to the Azure portal as a user with Admin/Contributor permissions to the Cloud Solution Provider subscription.
         5. Paste the link you copied to the text editor into the address bar.
-
-### Guidance for template parameters
-Here's how to enter parameters for configuring the tool:
-
-- For the **isServicePrincipal** parameter, select **false**.
-- For the credentials, enter your Azure Active Directory credentials with multi-factor authentication disabled. These credentials will be the ones you use to sign in to Azure and create the Azure AD application and Azure web app resources. To learn more, see [What you need to run the Azure Resource Manager template](#what-you-need-to-run-the-azure-resource-manager-template).
-- For the **applicationName**, use a unique name for your app that will be registered in your Azure Active Directory. This name will also be used for the web app URL. For example, you can use a name like "Apr3UX."
+3. When entering the parameters, do the following:
+    - For the **isServicePrincipal** parameter, select **false**.
+    - For the credentials, enter your Azure Active Directory credentials with multi-factor authentication disabled. These credentials will be the ones you use to sign in to Azure and create the Azure AD application and Azure web app resources. To learn more, see [What you need to run the Azure Resource Manager template](#what-you-need-to-run-the-azure-resource-manager-template).
+    - For the **applicationName**, use a unique name for your app that will be registered in your Azure Active Directory. This name will also be used for the web app URL. For example, you can use a name like "Apr3UX."
+4. Once you provide the parameters, accept the terms and conditions and select **Purchase**.
 
 ## Provide consent for the management tool
 
@@ -97,7 +92,7 @@ Follow these instructions to launch the tool:
 1. Select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Sign in using your Windows Virtual Desktop credentials.
 3. When prompted to choose a Tenant Group, select **Default Tenant Group** from the drop-down list.
-4. When you select Default Tenant Group, a menu should appear on the right side of your window. On this menu, find the name of your tenant group and select it.
+4. When you select Default Tenant Group, a menu should appear on the left side of your window. In this menu, find the name of your tenant group and select it.
 
 > [!NOTE]
 > If you have a custom Tenant Group, enter the name manually instead of choosing from the drop-down list.
@@ -110,5 +105,4 @@ If you encounter any issues with the management tool or other Windows Virtual De
 
 Now that you've learned how to deploy and connect to the management tool, you can learn how to use Azure Service Health to monitor service issues and health advisories.
 
-> [!div class="nextstepaction"]
-> [Set up service alerts tutorial](./set-up-service-alerts.md)
+* [Set up service alerts tutorial](./set-up-service-alerts.md)
