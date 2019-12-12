@@ -13,13 +13,13 @@ ms.reviewer:
 
 # Using Azure Synapse Analytics studio notebook
 
-Azure Synapse Analytics studio notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebook is a good place to validate ideas and get insights from Big Data with quick experiments. It also has been widely used in data cleaning and transformation, data visualization, machine learning, and more.
+Azure Synapse Analytics studio notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebook is a good place to validate ideas and get insights from Big Data with quick experiments. It also has been widely used in data preparation, data visualization, machine learning, and more.
 
 With Azure Synapse Analytics studio notebook you will:
 
 - Be able to jump-start with zero setup effort.
 - Enjoy enterprise security of the notebook content.
-- Analyze data across raw formats (CSV, txt, JSON etc.), processed file formats (parquet, ORC etc.), and SQL tabular data files against Spark and SQL seamlessly.
+- Analyze data across raw formats (CSV, txt, JSON etc.), processed file formats (parquet, Delta Lake, ORC etc.), and SQL tabular data files against Spark and SQL seamlessly.
 - Be productive with enhanced authoring capabilities and built-in data visualization.
 
 This document describes how to use notebook in Azure Synapse Analytics Studio.

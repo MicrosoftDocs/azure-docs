@@ -65,6 +65,7 @@ The SparkContext connects to the Spark pool and is responsible for converting an
 Spark instances in Synapse Analytics enable the following key scenarios:
 
 * Data Engineering/Data Preparation
+
     Apache Spark includes many language features to support preparation and processing of very large volumes of data so that it can be made more valuable amd then consumed by other services within Synapse Analytics. This is enabled through multiple languages (C#, Scala, PySpark, Spark SQL) and supplied libraries for processing and connectivity.
 
 * Machine Learning

@@ -11,7 +11,7 @@ ms.author: euang
 ---
 # Use Apache Spark to build a machine learning application and analyze a dataset
 
-Learn how to use Apache Spark [MLlib](https://spark.apache.org/mllib/) to create a machine learning application to do simple predictive analysis on an Azure open dataset. Spark's built-in machine learning libraries, this example uses *classification* through logistic regression.
+Learn how to use Apache Spark [MLlib](https://spark.apache.org/mllib/) to create a machine learning application to do simple predictive analysis on an Azure open dataset. Spark provides built-in machine learning libraries, this example uses *classification* through logistic regression.
 
 MLlib is a core Spark library that provides many utilities useful for machine learning tasks, including utilities that are suitable for:
 
@@ -26,13 +26,13 @@ MLlib is a core Spark library that provides many utilities useful for machine le
 
 *Classification*, a popular machine learning task, is the process of sorting input data into categories. It is the job of a classification algorithm to figure out how to assign "labels" to input data that you provide. For example, you could think of a machine learning algorithm that accepts stock information as input and divides the stock into two categories: stocks that you should sell and stocks that you should keep.
 
-Logistic regression is the algorithm that you use for classification. Spark's logistic regression API is useful for *binary classification*, or classifying input data into one of two groups. For more information about logistic regressions, see [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
+Logistic regression is an algorithm that you can use for classification. Spark's logistic regression API is useful for *binary classification*, or classifying input data into one of two groups. For more information about logistic regressions, see [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
 In summary, the process of logistic regression produces a *logistic function* that can be used to predict the probability that an input vector belongs in one group or the other.  
 
 ## Predictive analysis example on NYC Taxi data
 
-In this example, you use Spark to perform some predictive analysis on taxi trip tip data from New York. The data was acquired through Azure Open datasets, see [Azure Open Datasets](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)]. This dataset contains information about yellow taxi trips, including information about each trip, the start, and end time and locations, the cost, and other interesting attributes.
+In this example, you use Spark to perform some predictive analysis on taxi trip tip data from New York. The data was acquired through Azure Open datasets, see [Azure Open Datasets](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start, and end time and locations, the cost, and other interesting attributes.
 
 > [!IMPORTANT]
 > There may be additional charges for pulling this data from its storage location
@@ -178,7 +178,7 @@ In the code below four classes of operations are performed:
 * The removal of outliers/incorrect values through filtering
 * The removal of columns, which are not needed
 * The creation of new columns derived from the raw data to make the model work more effectively, sometimes called featurization
-* Labeling, as you are undertaking binary classification (will there be a tip or not on a given trip) there is a need to convert the trip amount into a 0 or 1 value.
+* Labeling, as you are undertaking binary classification (will there be a tip or not on a given trip) there is a need to convert the tip amount into a 0 or 1 value.
 
     ```python
     # Create a new dataframe that has only the columns that are needed or that are needed to create features, create features and apply filters.
@@ -338,6 +338,18 @@ Area under ROC = 0.9779470729751403
 
 You can now construct a final visualization to help you reason about the results of this test. An [ROC Curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) is one way to review the result.
 
+```python
+## Plot the ROC curve, no need for pandas as this uses the modelSummary object
+modelSummary = lrModel.stages[-1].summary
+
+plt.plot([0, 1], [0, 1], 'r--')
+plt.plot(modelSummary.roc.select('FPR').collect(),
+         modelSummary.roc.select('TPR').collect())
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.show()
+```
+
 ![ROC Curve for Logistic Regression tip model](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-nyctaxi-roc.png "ROC Curve for Logistic Regression tip model")
 
 ## Shut down the Spark instance
@@ -351,21 +363,17 @@ After you have finished running the application, you should shut down the notebo
 <!---
 ### Scenarios
 
-> [!IMPORTANT]
 > TODO Need to rewrite this section
 
 ### Create and run applications
 
-> [!IMPORTANT]
 > TODO Need to rewrite this section
 
 ### Tools and extensions
 
-> [!IMPORTANT]
 > TODO Need to rewrite this section
 
 ### Manage resources
 
-> [!IMPORTANT]
 > TODO Need to rewrite this section
 --->

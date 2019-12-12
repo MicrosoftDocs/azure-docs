@@ -16,11 +16,10 @@ ms.date: 09/15/2019
 
 Learn how to create Apache Spark pool in Azure Synapse Analytics, and how to run Spark SQL queries against files and tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on Synapse Analytics, see [Overview: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md).
 
-In this quickstart, you use the Synapse Analytics tools to create a Spark pool and then connect to a Spark pool created from that template. <!---For more information on using Data Lake Storage Gen2, see the following article:--->
+In this quickstart, you use the Synapse Analytics tools to create a Spark pool and then connect to a Spark pool created from that template. 
+<!---For more information on using Data Lake Storage Gen2, see the following article:--->
 
-<!---
-> TODO Need a link to a Gen 2 Storage in Synapse Analytics article
---->
+<!---Need a link to a Gen 2 Storage in Synapse Analytics article--->
 > [!IMPORTANT]  
 > Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
 
@@ -170,6 +169,7 @@ SQL (Structured Query Language) is the most common and widely used language for 
     ```
 
 11. Each of the cells that executed above had the option to go to **History Server** and **Monitoring**, clicking the links will take to different parts of the USer Experience.
+
 <!---If you want more information then go here and here
 
 > TODO Need a link to Spark Monitoring and Spark History Server
