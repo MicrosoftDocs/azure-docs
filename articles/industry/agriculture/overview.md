@@ -34,13 +34,13 @@ Azure FarmBeats provides you with a robust and easy way to do the following:
 
 Azure FarmBeats components are discussed in the following sections of this article.
 
-## Data hub
+## Datahub
 
-The Azure FarmBeats Data hub is an API layer, which enables aggregation, normalization, and contextualization of various agriculture datasets across providers. As of this preview, you can leverage two sensor providers [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), one satellite imagery provider [Sentinel-2](https://sentinel.esa.int/web/sentinel/home), and three drone imagery providers [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/) , [DJI](https://dji.com/). Data hub is designed as an API platform and we are working with many more providers to integrate with Azure FarmBeats, so you have more choice while building your solution.
+The Azure FarmBeats Datahub is an API layer, which enables aggregation, normalization, and contextualization of various agriculture datasets across providers. As of this preview, you can leverage two sensor providers [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), one satellite imagery provider [Sentinel-2](https://sentinel.esa.int/web/sentinel/home), and three drone imagery providers [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/) , [DJI](https://dji.com/). Datahub is designed as an API platform and we are working with many more providers to integrate with Azure FarmBeats, so you have more choice while building your solution.
 
 ## Accelerator
 
-A sample solution, built on top of Data hub, that jumpstarts your user interface and model development. This web application leverages APIs to demonstrate visualization of ingested sensor data as charts and visualization of model output as maps. For example, you can use the accelerator to quickly create a farm and easily get a vegetation index map or a sensor placement map for that farm.
+A sample solution, built on top of Datahub, that jumpstarts your user interface and model development. This web application leverages APIs to demonstrate visualization of ingested sensor data as charts and visualization of model output as maps. For example, you can use the accelerator to quickly create a farm and easily get a vegetation index map or a sensor placement map for that farm.
 
 ## Resources
 
