@@ -35,7 +35,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ## 1.4.38.0
 ### Release status
-12/6/2019: Release for download. Not available through auto-upgrade.
+12/9/2019: Release for download. Not available through auto-upgrade.
 ### New features and improvements
 - We updated Password Hash Sync for Azure AD Domain Services to properly account for padding in Kerberos hashes.  This will provide a performance improvement during password synchronization from AAD to Azure AD Domain Services.
 - We added support for reliable sessions between the authentication agent and service bus.
