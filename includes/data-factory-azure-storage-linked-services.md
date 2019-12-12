@@ -13,7 +13,7 @@ The **Azure Storage linked service** allows you to link an Azure storage account
 | type |The type property must be set to: **AzureStorage** |Yes |
 | connectionString |Specify information needed to connect to Azure storage for the connectionString property. |Yes |
 
-For information about how to retrieve the storage account access keys, see [Manage storage account access keys](../articles/storage/common/account-keys-manage.md).
+For information about how to retrieve the storage account access keys, see [Manage storage account access keys](../articles/storage/common/storage-account-keys-manage.md).
 
 **Example:**  
 

@@ -282,7 +282,7 @@ To give other people access to the storage resources:
     resource. 
 
 -   Provide a user with the primary or secondary key for the
-    storage account. For more information, see [Manage storage account access keys](account-keys-manage.md).
+    storage account. For more information, see [Manage storage account access keys](storage-account-keys-manage.md).
 
 -   Change the access policy to allow anonymous access. For more
     information, see [Grant anonymous users permissions to containers
