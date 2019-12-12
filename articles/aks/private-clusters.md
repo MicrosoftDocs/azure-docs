@@ -75,6 +75,7 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 Where --enable-private-cluster is a mandatory flag for a private cluster 
 
 #### Advanced Networking  
+
 ```azurecli-interactive
 az aks create \ 
     --resource-group <private-cluster-resource-group>\ 
