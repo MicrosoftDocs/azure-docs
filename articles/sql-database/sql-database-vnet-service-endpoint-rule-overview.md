@@ -231,7 +231,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 
 1. Sign in to the [Azure portal][http-azure-portal-link-ref-477t].
 
-2. Then navigate the portal to **SQL servers** &gt; **Firewall / Virtual Networks**.
+2. Search for and select **SQL servers**, then select your server. Under **Security**, select **Firewalls and virtual networks**.
 
 3. Set the **Allow access to Azure services** control to OFF.
 
