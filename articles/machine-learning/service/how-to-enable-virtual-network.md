@@ -116,7 +116,7 @@ To use an Azure Machine Learning compute instance or compute cluster in a virtua
 > * The subnet that's specified for the compute instance or cluster must have enough unassigned IP addresses to accommodate the number of VMs that are targeted. If the subnet doesn't have enough unassigned IP addresses, a compute cluster will be partially allocated.
 > * Check to see whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network. If you plan to secure the virtual network by restricting traffic, leave some ports open for the compute service. For more information, see the [Required ports](#mlcports) section.
 > * If you're going to put multiple compute instances or clusters in one virtual network, you might need to request a quota increase for one or more of your resources.
-> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster.
+> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster. If you are creating a compute instance in the same virtual network, you would need to detach the storage account(s) from the virtual network, create the compute instance in the virtual network, and then attach the storage account(s) back to the virtual network.
 
 The Machine Learning compute instance or cluster automatically allocates additional networking resources in the resource group that contains the virtual network. For each compute instance or cluster, the service allocates the following resources:
 
@@ -125,6 +125,7 @@ The Machine Learning compute instance or cluster automatically allocates additio
 * One load balancer
 
 These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+
 
 ### <a id="mlcports"></a> Required ports
 
@@ -139,6 +140,8 @@ Machine Learning Compute currently uses the Azure Batch service to provision VMs
 - Outbound traffic on any port to the virtual network.
 
 - Outbound traffic on any port to the internet.
+
+- For compute instance inbound TCP traffic on port 44224 from a __Service Tag__ of __AzureMachineLearning__.
 
 Exercise caution if you modify or add inbound or outbound rules in Batch-configured NSGs. If an NSG blocks communication to the compute nodes, the compute service sets the state of the compute nodes to unusable.
 
@@ -160,6 +163,7 @@ If you don't want to use the default outbound rules and you do want to limit the
    - Azure Storage, by using __Service Tag__ of __Storage.Region_Name__ (for example, Storage.EastUS)
    - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.Region_Name__ (for example, AzureContainerRegistry.EastUS)
    - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
+   - In case of compute instance, Azure Cloud, by using __Service Tag__ of __AzureCloud.Region_Name__ (for example, AzureCloud.NorthCentralUS)
 
 The NSG rule configuration in the Azure portal is shown in the following image:
 
