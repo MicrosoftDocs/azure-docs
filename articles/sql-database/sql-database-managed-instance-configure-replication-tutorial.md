@@ -247,7 +247,7 @@ Once connectivity is established and you have a sample database, you can configu
    ```
 
    > [!NOTE]
-   > Be sure to use only backslashes (`\`). Using a forward slash (`/`) can cause an error when connecting to the file share. 
+   > Be sure to use only backslashes (`\`) for the @working_directory parameter. Using a forward slash (`/`) can cause an error when connecting to the file share. 
 
 1. Connect to the `sql-mi-publisher` managed instance. 
 1. Open a **New Query** window and run the following Transact-SQL code to register the distributor at the publisher: 
@@ -353,7 +353,7 @@ This is likely because port 445 is closed in either the Azure firewall, the Wind
 
 `Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare' Failed to connect to Azure Storage '' with OS error: 55.`
 
-Using a forward slash instead of backslash in the file path can also cause this error. 
+Using a forward slash instead of backslash in the file path for the file share can cause this error. 
   This is okay: `\\replstorage.file.core.windows.net\replshare`
   This can cause an OS 55 error: `'\\replstorage.file.core.windows.net/replshare'`
 
