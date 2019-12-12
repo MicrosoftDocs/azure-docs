@@ -40,7 +40,7 @@ Users can choose between Bash or PowerShell.
 
 ![Cloud Shell icon](media/overview/overview-cloudshell-icon.png)
 
-1. Select Bash or PowerShell.
+2. Select Bash or PowerShell.
 
 ![Choose either Bash or PowerShell](media/overview/overview-choices.png)
 
