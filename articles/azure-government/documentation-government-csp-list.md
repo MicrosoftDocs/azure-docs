@@ -236,7 +236,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[ProArch IT Solutions](https://www.proarch.com/)|
 |[Project Hosts Inc.](https://www.projecthosts.com)|
 |[Protected Trust](https://www.proarch.com/)|
-|[Pueo Business Solutions, LLC](https://www.pueobusinesssolutions.com)|
+|[Pueo Business Solutions, LLC](https://www.pueo.com/)|
 |[Quality Technology Services LLC](https://www.qtsdatacenters.com/)|
 |[Ravnur Inc.](https://www.ravnur.com)|
 |[Razor Technology, LLC](https://www.razor-tech.com)|

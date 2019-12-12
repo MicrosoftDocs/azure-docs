@@ -2,7 +2,7 @@
 title: 'Quickstart - Create an Azure private endpoint using Azure CLI'
 description: Learn about Azure private endpoint in this Quickstart
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019

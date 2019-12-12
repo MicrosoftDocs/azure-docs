@@ -120,6 +120,9 @@ Now that you have downloaded the server you can install and configure it. Be sur
 
 5. Back on the page that you downloaded the server from, click the **Generate Activation Credentials** button. Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
 
+> [!NOTE]
+> Only global administrators are able to generate activation credentials in the Azure portal.
+
 ## Send users an email
 
 To ease rollout, allow MFA Server to communicate with your users. MFA Server can send an email to inform them that they have been enrolled for two-step verification.
