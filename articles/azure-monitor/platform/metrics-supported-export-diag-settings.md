@@ -570,19 +570,6 @@ Yes | Microsoft.DataBoxEdge/dataBoxEdgeDevices | HyperVVirtualProcessorUtilizati
 Yes | Microsoft.DataBoxEdge/dataBoxEdgeDevices | NICReadThroughput | Read Throughput (Network) | BytesPerSecond | Average
 Yes | Microsoft.DataBoxEdge/dataBoxEdgeDevices | NICWriteThroughput | Write Throughput (Network) | BytesPerSecond | Average
 Yes | Microsoft.DataBoxEdge/dataBoxEdgeDevices | TotalCapacity | Total Capacity | Bytes | Average
-Yes | Microsoft.DataCatalog/datacatalogs | AssetDistributionByFileType | Asset distribution by file type | Count | Count
-Yes | Microsoft.DataCatalog/datacatalogs | AssetDistributionByLabel | Asset distribution by label | Count | Count
-Yes | Microsoft.DataCatalog/datacatalogs | AssetDistributionByStorageType | Asset distribution by storage type | Count | Count
-Yes | Microsoft.DataCatalog/datacatalogs | NumberOfAssetsClassified | Number of assets classified | Count | Total
-Yes | Microsoft.DataCatalog/datacatalogs | NumberOfAssetsDiscovered | Number of assets discovered | Count | Total
-Yes | Microsoft.DataCatalog/datacatalogs | NumberOfAssetsWithClassifications | Number of assets with at least one classification | Count | Count
-Yes | Microsoft.DataCatalog/datacatalogs | ScanCancelled | Scan Cancelled | Count | Count
-Yes | Microsoft.DataCatalog/datacatalogs | ScanCompleted | Scan Completed | Count | Count
-Yes | Microsoft.DataCatalog/datacatalogs | ScanFailed | Scan Failed | Count | Count
-Yes | Microsoft.DataCatalog/datacatalogs | ScanQueued | Scan Queued | Count | Count
-Yes | Microsoft.DataCatalog/datacatalogs | ScanRunning | Scan Running | Count | Count
-Yes | Microsoft.DataCatalog/datacatalogs | ScanTimeTaken | Scan time taken | Seconds | Total
-Yes | Microsoft.DataCatalog/datacatalogs | TotalNumberOfUniqueAssets | Total number of unique assets | Count | Maximum
 Yes | Microsoft.DataFactory/datafactories | FailedRuns | Failed Runs | Count | Total
 Yes | Microsoft.DataFactory/datafactories | SuccessfulRuns | Successful Runs | Count | Total
 Yes | Microsoft.DataFactory/factories | ActivityCancelledRuns | Cancelled activity runs metrics | Count | Total
@@ -613,12 +600,6 @@ Yes | Microsoft.DataLakeStore/accounts | DataWritten | Data Written | Bytes | To
 Yes | Microsoft.DataLakeStore/accounts | ReadRequests | Read Requests | Count | Total
 Yes | Microsoft.DataLakeStore/accounts | TotalStorage | Total Storage | Bytes | Maximum
 Yes | Microsoft.DataLakeStore/accounts | WriteRequests | Write Requests | Count | Total
-Yes | Microsoft.DataShare/accounts | FailedShareSubscriptionSynchronizations | Received Share Failed Snapshots | Count | Count
-Yes | Microsoft.DataShare/accounts | FailedShareSynchronizations | Sent Share Failed Snapshots | Count | Count
-Yes | Microsoft.DataShare/accounts | ShareCount | Sent Shares | Count | Maximum
-Yes | Microsoft.DataShare/accounts | ShareSubscriptionCount | Received Shares | Count | Maximum
-Yes | Microsoft.DataShare/accounts | SucceededShareSubscriptionSynchronizations | Received Share Succeeded Snapshots | Count | Count
-Yes | Microsoft.DataShare/accounts | SucceededShareSynchronizations | Sent Share Succeeded Snapshots | Count | Count
 Yes | Microsoft.DBforMariaDB/servers | active_connections | Active Connections | Count | Average
 Yes | Microsoft.DBforMariaDB/servers | backup_storage_used | Backup Storage used | Bytes | Average
 Yes | Microsoft.DBforMariaDB/servers | connections_failed | Failed Connections | Count | Total
@@ -674,73 +655,6 @@ Yes | Microsoft.DBforPostgreSQL/serversv2 | network_bytes_ingress | Network In |
 Yes | Microsoft.DBforPostgreSQL/serversv2 | storage_percent | Storage percent | Percent | Average
 Yes | Microsoft.DBforPostgreSQL/serversv2 | storage_used | Storage used | Bytes | Average
 Yes | Microsoft.Devices/Account | digitaltwins.telemetry.nodes | Digital Twins Node Telemetry Placeholder | Count | Total
-Yes | Microsoft.Devices/ElasticPools | elasticPool.requestedUsageRate | requested usage rate | Percent | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | c2d.commands.egress.abandon.success | C2D messages abandoned | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | c2d.commands.egress.complete.success | C2D message deliveries completed | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | c2d.commands.egress.reject.success | C2D messages rejected | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | c2d.methods.failure | Failed direct method invocations | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | c2d.methods.requestSize | Request size of direct method invocations | Bytes | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | c2d.methods.responseSize | Response size of direct method invocations | Bytes | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | c2d.methods.success | Successful direct method invocations | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | c2d.twin.read.failure | Failed twin reads from back end | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | c2d.twin.read.size | Response size of twin reads from back end | Bytes | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | c2d.twin.read.success | Successful twin reads from back end | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | c2d.twin.update.failure | Failed twin updates from back end | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | c2d.twin.update.size | Size of twin updates from back end | Bytes | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | c2d.twin.update.success | Successful twin updates from back end | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | C2DMessagesExpired | C2D Messages Expired (preview) | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | configurations | Configuration Metrics | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | connectedDeviceCount | Connected devices (preview) | Count | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.endpoints.egress.builtIn.events | Routing: messages delivered to messages/events | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.endpoints.egress.eventHubs | Routing: messages delivered to Event Hub | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.endpoints.egress.serviceBusQueues | Routing: messages delivered to Service Bus Queue | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.endpoints.egress.serviceBusTopics | Routing: messages delivered to Service Bus Topic | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.endpoints.egress.storage | Routing: messages delivered to storage | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.endpoints.egress.storage.blobs | Routing: blobs delivered to storage | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.endpoints.egress.storage.bytes | Routing: data delivered to storage | Bytes | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.endpoints.latency.builtIn.events | Routing: message latency for messages/events | Milliseconds | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.endpoints.latency.eventHubs | Routing: message latency for Event Hub | Milliseconds | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.endpoints.latency.serviceBusQueues | Routing: message latency for Service Bus Queue | Milliseconds | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.endpoints.latency.serviceBusTopics | Routing: message latency for Service Bus Topic | Milliseconds | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.endpoints.latency.storage | Routing: message latency for storage | Milliseconds | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.telemetry.egress.dropped | Routing: telemetry messages dropped� | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.telemetry.egress.fallback | Routing: messages delivered to fallback | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.telemetry.egress.invalid | Routing: telemetry messages incompatible | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.telemetry.egress.orphaned | Routing: telemetry messages orphaned� | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.telemetry.egress.success | Routing: telemetry messages delivered | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.telemetry.ingress.allProtocol | Telemetry message send attempts | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.telemetry.ingress.sendThrottle | Number of throttling errors | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.telemetry.ingress.success | Telemetry messages sent | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.twin.read.failure | Failed twin reads from devices | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.twin.read.size | Response size of twin reads from devices | Bytes | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.twin.read.success | Successful twin reads from devices | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.twin.update.failure | Failed twin updates from devices | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.twin.update.size | Size of twin updates from devices | Bytes | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | d2c.twin.update.success | Successful twin updates from devices | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | dailyMessageQuotaUsed | Total number of messages used | Count | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | deviceDataUsage | Total device data usage | Bytes | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | deviceDataUsageV2 | Total device data usage (preview) | Bytes | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | devices.connectedDevices.allProtocol | Connected devices (deprecated)  | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | devices.totalDevices | Total devices (deprecated) | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | EventGridDeliveries | Event Grid deliveries(preview) | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | EventGridLatency | Event Grid latency (preview) | Milliseconds | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | jobs.cancelJob.failure | Failed job cancellations | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | jobs.cancelJob.success | Successful job cancellations | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | jobs.completed | Completed jobs | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | jobs.createDirectMethodJob.failure | Failed creations of method invocation jobs | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | jobs.createDirectMethodJob.success | Successful creations of method invocation jobs | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | jobs.createTwinUpdateJob.failure | Failed creations of twin update jobs | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | jobs.createTwinUpdateJob.success | Successful creations of twin update jobs | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | jobs.failed | Failed jobs | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | jobs.listJobs.failure | Failed calls to list jobs | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | jobs.listJobs.success | Successful calls to list jobs | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | jobs.queryJobs.failure | Failed job queries | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | jobs.queryJobs.success | Successful job queries | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | tenantHub.requestedUsageRate | requested usage rate | Percent | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | totalDeviceCount | Total devices (preview) | Count | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | twinQueries.failure | Failed twin queries | Count | Total
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | twinQueries.resultSize | Twin queries result size | Bytes | Average
-Yes | Microsoft.Devices/ElasticPools/IotHubTenants | twinQueries.success | Successful twin queries | Count | Total
 Yes | Microsoft.Devices/IotHubs | c2d.commands.egress.abandon.success | C2D messages abandoned | Count | Total
 Yes | Microsoft.Devices/IotHubs | c2d.commands.egress.complete.success | C2D message deliveries completed | Count | Total
 Yes | Microsoft.Devices/IotHubs | c2d.commands.egress.reject.success | C2D messages rejected | Count | Total
@@ -914,9 +828,6 @@ Yes | Microsoft.HDInsight/clusters | CategorizedGatewayRequests | Categorized Ga
 Yes | Microsoft.HDInsight/clusters | GatewayRequests | Gateway Requests | Count | Total
 Yes | Microsoft.HDInsight/clusters | NumActiveWorkers | Number of Active Workers | Count | Maximum
 Yes | Microsoft.HDInsight/clusters | ScalingRequests | Scaling requests | Count | Maximum
-Yes | Microsoft.HealthcareApis/services | TotalErrors | Total Errors | Count | Sum
-Yes | Microsoft.HealthcareApis/services | TotalLatency | Total Latency | Milliseconds | Average
-Yes | Microsoft.HealthcareApis/services | TotalRequests | Total Requests | Count | Sum
 Yes | Microsoft.Insights/AutoscaleSettings | MetricThreshold | Metric Threshold | Count | Average
 Yes | Microsoft.Insights/AutoscaleSettings | ObservedCapacity | Observed Capacity | Count | Average
 Yes | Microsoft.Insights/AutoscaleSettings | ObservedMetricValue | Observed Metric Value | Count | Average
@@ -951,12 +862,6 @@ Yes | Microsoft.Insights/Components | requests/duration | Server response time |
 No | Microsoft.Insights/Components | requests/failed | Failed requests | Count | Count
 No | Microsoft.Insights/Components | requests/rate | Server request rate | CountPerSecond | Average
 Yes | Microsoft.Insights/Components | traces/count | Traces | Count | Count
-No | Microsoft.IoTSpaces/Graph | ApiLatency | ApiLatency | 6 | 0
-No | Microsoft.IoTSpaces/Graph | FunctionExecutionLatency | FunctionExecutionLatency | 6 | 0
-No | Microsoft.IoTSpaces/Graph | MessageEgressFailure | MessageEgressFailure | 2 | 3
-No | Microsoft.IoTSpaces/Graph | MessageEgressLatency | MessageEgressLatency | 6 | 0
-No | Microsoft.IoTSpaces/Graph | MessageEgressSuccess | MessageEgressSuccess | 2 | 3
-No | Microsoft.IoTSpaces/Graph | ProcessingLatency | ProcessingLatency | 6 | 0
 Yes | Microsoft.KeyVault/vaults | ServiceApiHit | Total Service Api Hits | Count | Count
 Yes | Microsoft.KeyVault/vaults | ServiceApiLatency | Overall Service Api Latency | Milliseconds | Average
 Yes | Microsoft.KeyVault/vaults | ServiceApiResult | Total Service Api Results | Count | Count
@@ -1106,12 +1011,6 @@ Yes | Microsoft.Microservices4Spring/appClusters | TomcatSessionCreatedCount | T
 Yes | Microsoft.Microservices4Spring/appClusters | TomcatSessionExpiredCount | Tomcat Session Expired Count | Count | Total
 Yes | Microsoft.Microservices4Spring/appClusters | TomcatSessionRejectedCount | Tomcat Session Rejected Count | Count | Total
 Yes | Microsoft.Microservices4Spring/appClusters | YoungGenPromotedBytes | Promote to Young Generation Data Size | Bytes | Maximum
-Yes | Microsoft.MixedReality/spatialAnchorsAccounts | AnchorsCreated | Anchors Created | Count | Total
-Yes | Microsoft.MixedReality/spatialAnchorsAccounts | AnchorsDeleted | Anchors Deleted | Count | Total
-Yes | Microsoft.MixedReality/spatialAnchorsAccounts | AnchorsQueried | Anchors Queried | Count | Total
-Yes | Microsoft.MixedReality/spatialAnchorsAccounts | AnchorsUpdated | Anchors Updated | Count | Total
-Yes | Microsoft.MixedReality/spatialAnchorsAccounts | PosesFound | Poses Found | Count | Total
-Yes | Microsoft.MixedReality/spatialAnchorsAccounts | TotalDailyAnchors | Total Daily Anchors | Count | Average
 Yes | Microsoft.NetApp/netAppAccounts/capacityPools | VolumePoolAllocatedUsed | Volume pool allocated used | Bytes | Average
 Yes | Microsoft.NetApp/netAppAccounts/capacityPools | VolumePoolTotalLogicalSize | Volume pool total logical size | Bytes | Average
 Yes | Microsoft.NetApp/netAppAccounts/capacityPools/volumes | AverageReadLatency | Average read latency | MilliSeconds | Average
@@ -1187,11 +1086,6 @@ Yes | Microsoft.Network/loadBalancers | SnatConnectionCount | SNAT Connection Co
 Yes | Microsoft.Network/loadBalancers | SYNCount | SYN Count | Count | Total
 No | Microsoft.Network/loadBalancers | UsedSnatPorts | Used SNAT Ports (Preview) | Count | Total
 Yes | Microsoft.Network/loadBalancers | VipAvailability | Data Path Availability | Count | Average
-Yes | Microsoft.Network/natGateways | ByteCount | Byte Count (Preview) | Bytes | Total
-Yes | Microsoft.Network/natGateways | PacketCount | Packets (Preview) | Count | Total
-Yes | Microsoft.Network/natGateways | PacketDropCount | Dropped Packets (Preview) | Count | Total
-Yes | Microsoft.Network/natGateways | SNATConnectionCount | SNAT Connection Count (Preview) | Count | Total
-Yes | Microsoft.Network/natGateways | TotalConnectionCount | Total SNAT Connection Count (Preview) | Count | Total
 Yes | Microsoft.Network/networkInterfaces | BytesReceivedRate | Bytes Received | Bytes | Total
 Yes | Microsoft.Network/networkInterfaces | BytesSentRate | Bytes Sent | Bytes | Total
 Yes | Microsoft.Network/networkInterfaces | PacketsReceivedRate | Packets Received | Count | Total
@@ -1200,13 +1094,6 @@ Yes | Microsoft.Network/networkWatchers/connectionMonitors | AverageRoundtripMs 
 Yes | Microsoft.Network/networkWatchers/connectionMonitors | ChecksFailedPercent | Checks Failed Percent (Preview) | Percent | Average
 Yes | Microsoft.Network/networkWatchers/connectionMonitors | ProbesFailedPercent | % Probes Failed | Percent | Average
 Yes | Microsoft.Network/networkWatchers/connectionMonitors | RoundTripTimeMs | Round-Trip Time (ms) (Preview) | MilliSeconds | Average
-Yes | Microsoft.Network/p2sVpnGateways | P2SBandwidth | Gateway P2S Bandwidth | BytesPerSecond | Average
-Yes | Microsoft.Network/p2sVpnGateways | P2SConnectionCount | P2S Connection Count | Count | Total
-Yes | Microsoft.Network/privateEndpoints | PEBytesIn | Bytes In | Count | Total
-Yes | Microsoft.Network/privateEndpoints | PEBytesOut | Bytes Out | Count | Total
-Yes | Microsoft.Network/privateLinkServices | PLSBytesIn | Bytes In | Count | Total
-Yes | Microsoft.Network/privateLinkServices | PLSBytesOut | Bytes Out | Count | Total
-Yes | Microsoft.Network/privateLinkServices | PLSNatPortsUsage | Nat Ports Usage | Percent | Average
 Yes | Microsoft.Network/publicIPAddresses | ByteCount | Byte Count | Count | Total
 Yes | Microsoft.Network/publicIPAddresses | BytesDroppedDDoS | Inbound bytes dropped DDoS | BytesPerSecond | Maximum
 Yes | Microsoft.Network/publicIPAddresses | BytesForwardedDDoS | Inbound bytes forwarded DDoS | BytesPerSecond | Maximum
@@ -1247,15 +1134,6 @@ Yes | Microsoft.Network/virtualNetworkGateways | TunnelIngressPacketDropTSMismat
 Yes | Microsoft.Network/virtualNetworkGateways | TunnelIngressPackets | Tunnel Ingress Packets | Count | Total
 Yes | Microsoft.Network/virtualNetworks | PingMeshAverageRoundtripMs | Round trip time for Pings to a VM | MilliSeconds | Average
 Yes | Microsoft.Network/virtualNetworks | PingMeshProbesFailedPercent | Failed Pings to a VM | Percent | Average
-Yes | Microsoft.Network/virtualRouters | PeeringAvailability | Bgp Availability | Percent | Average
-Yes | Microsoft.Network/vpnGateways | AverageBandwidth | Gateway S2S Bandwidth | BytesPerSecond | Average
-Yes | Microsoft.Network/vpnGateways | TunnelAverageBandwidth | Tunnel Bandwidth | BytesPerSecond | Average
-Yes | Microsoft.Network/vpnGateways | TunnelEgressBytes | Tunnel Egress Bytes | Bytes | Total
-Yes | Microsoft.Network/vpnGateways | TunnelEgressPacketDropTSMismatch | Tunnel Egress TS Mismatch Packet Drop | Count | Total
-Yes | Microsoft.Network/vpnGateways | TunnelEgressPackets | Tunnel Egress Packets | Count | Total
-Yes | Microsoft.Network/vpnGateways | TunnelIngressBytes | Tunnel Ingress Bytes | Bytes | Total
-Yes | Microsoft.Network/vpnGateways | TunnelIngressPacketDropTSMismatch | Tunnel Ingress TS Mismatch Packet Drop | Count | Total
-Yes | Microsoft.Network/vpnGateways | TunnelIngressPackets | Tunnel Ingress Packets | Count | Total
 Yes | Microsoft.NotificationHubs/Namespaces/NotificationHubs | incoming | Incoming Messages | Count | Total
 Yes | Microsoft.NotificationHubs/Namespaces/NotificationHubs | incoming.all.failedrequests | All Incoming Failed Requests | Count | Total
 Yes | Microsoft.NotificationHubs/Namespaces/NotificationHubs | incoming.all.requests | All Incoming Requests | Count | Total
@@ -1389,51 +1267,11 @@ Yes | Microsoft.OperationalInsights/workspaces | Average_Virtual Shared Memory |
 Yes | Microsoft.OperationalInsights/workspaces | Event | Event | Count | Average
 Yes | Microsoft.OperationalInsights/workspaces | Heartbeat | Heartbeat | Count | Total
 Yes | Microsoft.OperationalInsights/workspaces | Update | Update | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | CleanerCurrentPrice | Memory: Cleaner Current Price | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | CleanerMemoryNonshrinkable | Memory: Cleaner Memory nonshrinkable | Bytes | Average
-Yes | Microsoft.PowerBIDedicated/capacities | CleanerMemoryShrinkable | Memory: Cleaner Memory shrinkable | Bytes | Average
-Yes | Microsoft.PowerBIDedicated/capacities | CommandPoolBusyThreads | Threads: Command pool busy threads | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | CommandPoolIdleThreads | Threads: Command pool idle threads | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | CommandPoolJobQueueLength | Command Pool Job Queue Length | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | CurrentConnections | Connection: Current connections | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | CurrentUserSessions | Current User Sessions | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | LongParsingBusyThreads | Threads: Long parsing busy threads | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | LongParsingIdleThreads | Threads: Long parsing idle threads | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | LongParsingJobQueueLength | Threads: Long parsing job queue length | Count | Average
 Yes | Microsoft.PowerBIDedicated/capacities | memory_metric | Memory | Bytes | Average
 Yes | Microsoft.PowerBIDedicated/capacities | memory_thrashing_metric | Memory Thrashing (Datasets) | Percent | Average
-Yes | Microsoft.PowerBIDedicated/capacities | MemoryLimitHard | Memory: Memory Limit Hard | Bytes | Average
-Yes | Microsoft.PowerBIDedicated/capacities | MemoryLimitHigh | Memory: Memory Limit High | Bytes | Average
-Yes | Microsoft.PowerBIDedicated/capacities | MemoryLimitLow | Memory: Memory Limit Low | Bytes | Average
-Yes | Microsoft.PowerBIDedicated/capacities | MemoryLimitVertiPaq | Memory: Memory Limit VertiPaq | Bytes | Average
-Yes | Microsoft.PowerBIDedicated/capacities | MemoryUsage | Memory: Memory Usage | Bytes | Average
-Yes | Microsoft.PowerBIDedicated/capacities | ProcessingPoolBusyIOJobThreads | Threads: Processing pool busy I/O job threads | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | ProcessingPoolBusyNonIOThreads | Threads: Processing pool busy non-I/O threads | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | ProcessingPoolIdleIOJobThreads | Threads: Processing pool idle I/O job threads | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | ProcessingPoolIdleNonIOThreads | Threads: Processing pool idle non-I/O threads | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | ProcessingPoolIOJobQueueLength | Threads: Processing pool I/O job queue length | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | ProcessingPoolJobQueueLength | Processing Pool Job Queue Length | Count | Average
 Yes | Microsoft.PowerBIDedicated/capacities | qpu_high_utilization_metric | QPU High Utilization | Count | Total
-Yes | Microsoft.PowerBIDedicated/capacities | qpu_metric | QPU | Count | Average
 Yes | Microsoft.PowerBIDedicated/capacities | QueryDuration | Query Duration (Datasets) | Milliseconds | Average
-Yes | Microsoft.PowerBIDedicated/capacities | QueryPoolBusyThreads | Query Pool Busy Threads | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | QueryPoolIdleThreads | Threads: Query pool idle threads | Count | Average
 Yes | Microsoft.PowerBIDedicated/capacities | QueryPoolJobQueueLength | Query Pool Job Queue Length (Datasets) | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | Quota | Memory: Quota | Bytes | Average
-Yes | Microsoft.PowerBIDedicated/capacities | QuotaBlocked | Memory: Quota Blocked | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | RowsConvertedPerSec | Processing: Rows converted per sec | CountPerSecond | Average
-Yes | Microsoft.PowerBIDedicated/capacities | RowsReadPerSec | Processing: Rows read per sec | CountPerSecond | Average
-Yes | Microsoft.PowerBIDedicated/capacities | RowsWrittenPerSec | Processing: Rows written per sec | CountPerSecond | Average
-Yes | Microsoft.PowerBIDedicated/capacities | ShortParsingBusyThreads | Threads: Short parsing busy threads | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | ShortParsingIdleThreads | Threads: Short parsing idle threads | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | ShortParsingJobQueueLength | Threads: Short parsing job queue length | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | SuccessfullConnectionsPerSec | Successful Connections Per Sec | CountPerSecond | Average
-Yes | Microsoft.PowerBIDedicated/capacities | TotalConnectionFailures | Total Connection Failures | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | TotalConnectionRequests | Total Connection Requests | Count | Average
-Yes | Microsoft.PowerBIDedicated/capacities | VertiPaqNonpaged | Memory: VertiPaq Nonpaged | Bytes | Average
-Yes | Microsoft.PowerBIDedicated/capacities | VertiPaqPaged | Memory: VertiPaq Paged | Bytes | Average
-Yes | Microsoft.PowerBIDedicated/capacities | workload_memory_metric | Memory Per Workload | Bytes | Average
-Yes | Microsoft.PowerBIDedicated/capacities | workload_qpu_metric | QPU Per Workload | Count | Average
 No | Microsoft.Relay/namespaces | ActiveConnections | ActiveConnections | Count | Total
 No | Microsoft.Relay/namespaces | ActiveListeners | ActiveListeners | Count | Total
 Yes | Microsoft.Relay/namespaces | BytesTransferred | BytesTransferred | Count | Total
