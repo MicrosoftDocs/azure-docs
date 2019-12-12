@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Check spelling with the REST API and Node.js - Bing Spell Check"
 titleSuffix: Azure Cognitive Services
-description: Get started using the Bing Spell Check REST API to check spelling and grammar.
+description: Get started using the Bing Spell Check REST API to check spelling and grammar with this quickstart.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/02/2019
-ms.author: aahill
+ms.author: aahi
 ---
 
 # Quickstart: Check spelling with the Bing Spell Check REST API and Node.js
