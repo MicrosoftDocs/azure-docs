@@ -25,15 +25,15 @@ To following browsers are compatible with the management tool:
 - Mozilla Firefox 52.0 or later
 - Safari 10 or later (macOS only)
 
-## What you need to run the Azure Resource Manager template
+## Pre-requisites
 
-Before deploying the Azure Resource Manager template, you'll need an Azure Active Directory user to deploy the management UI. This user must:
+Before deploying the management tool, you'll need an Azure Active Directory user to create an app registration and deploy the management UI. This user must:
 
 - Have Azure Multi-Factor Authentication (MFA) disabled
 - Have permission to create resources in your Azure subscription
 - Have permission to create an Azure AD application. Follow these steps to check if your user has the [required permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-After deploying the Azure Resource Manager template, you'll want to launch the management UI to validate. This user must:
+After deploying the management tool, you'll want to launch the management UI to validate. This user must:
 - Have a role assignment to view or edit your Windows Virtual Desktop tenant
 
 ## Deploy the management tool
@@ -93,9 +93,8 @@ Follow these instructions to launch the tool:
 2. Sign in using your Windows Virtual Desktop credentials.
 3. When prompted to choose a Tenant Group, select **Default Tenant Group** from the drop-down list.
 4. When you select Default Tenant Group, a menu should appear on the left side of your window. In this menu, find the name of your tenant group and select it.
-
-> [!NOTE]
-> If you have a custom Tenant Group, enter the name manually instead of choosing from the drop-down list.
+  > [!NOTE]
+  > If you have a custom Tenant Group, enter the name manually instead of choosing from the drop-down list.
 
 ## Report issues
 
