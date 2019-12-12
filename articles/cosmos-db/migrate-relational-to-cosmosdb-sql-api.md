@@ -12,13 +12,13 @@ ms.author: thvankra
 
 # Migrating one-to-few relational data into Azure Cosmos DB SQL API
 
-When migrating from a relational database to Azure Cosmos DB SQL API, it is often necessary to make changes to the data model to optimize it for NoSQL use-cases.
+When migrating from a relational database to Azure Cosmos DB SQL API, it is often necessary to make changes to the data model for optimization.
 
-One common transformation is denormalizing data by embedding related subitems within one JSON document.  Here we look at a few options for this using Azure Data Factory or Azure Databricks. For general guidance on data modeling for Cosmos DB, please review [Data modeling in Azure Cosmos DB](modeling-data.md).  
+One common transformation is denormalizing data by embedding related subitems within one JSON document. Here we look at a few options for this using Azure Data Factory or Azure Databricks. For general guidance on data modeling for Cosmos DB, please review [Data modeling in Azure Cosmos DB](modeling-data.md).  
 
 ## Example Scenario
 
-Assume we have the following two tables in our SQL database, Orders and OrderDetails. 
+Assume we have the following two tables in our SQL database, Orders and OrderDetails.
 
 
 ![Order Details](./media/migrate-relational-to-cosmos-sql-api/orders.png)
@@ -53,7 +53,7 @@ We can work around this current limitation in one of the following ways:
 
 * **Use Azure Data Factory with two Copy Activities**: (1) get JSON-formatted data from SQL to a text file in an intermediary blob storage location, and (2) load from the JSON text file to the Cosmos DB collection.
 
-* **Use Azure Databricks to read from SQL and write to Cosmos DB** - we will present two options here. 
+* **Use Azure Databricks to read from SQL and write to Cosmos DB** - we will present two options here.
 
 
 Let’s look at these approaches in more detail:
