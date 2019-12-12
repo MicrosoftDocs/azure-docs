@@ -12,9 +12,7 @@ ms.subservice: files
 
 # Enable and create large file shares
 
-Originally, standard file shares could only scale up to 5 TiB. Now, with large file shares, they can scale up to 100 TiB. Premium file shares scale up to 100 TiB by default. 
-
-You can scale up your standard file shares to 100 TiB by enabling your storage account to use large file shares. You can enable an existing account or create a new account.
+Originally, standard file shares could only scale up to 5 TiB. Now, with large file shares, they can scale up to 100 TiB. You can enable this scaling on your storage accounts for your file shares. Premium file shares scale up to 100 TiB by default.
 
 ## Prerequisites
 
