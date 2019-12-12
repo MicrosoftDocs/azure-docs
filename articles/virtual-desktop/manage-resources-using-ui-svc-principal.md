@@ -76,7 +76,7 @@ Before you continue deploying the management tool, we recommend that you verify 
 
 1. Go to the [GitHub Azure RDS-Templates page](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Deploy the template to Azure.
-    - If you're deploying in an Enterprise subscription, scroll down and select **Deploy to Azure**. See [Guidance for template parameters](#guidance-for-template-parameters).
+    - If you're deploying in an Enterprise subscription, scroll down and select **Deploy to Azure**.
     - If you're deploying in a Cloud Solution Provider subscription, follow these instructions to deploy to Azure:
         1. Scroll down and right-click **Deploy to Azure**, then select **Copy Link Location**.
         2. Open a text editor like Notepad and paste the link there.
