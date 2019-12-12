@@ -69,8 +69,7 @@ Use recovery plans to:
 * Run test failovers on recovery plans, to ensure disaster recovery or migration is working as expected.
 
 
-## Model apps in recovery plans
-
+## Model apps 
 You can plan and create a recovery group to capture app-specific properties. As an example, let's consider a typical three-tier application with a SQL server backend, middleware, and a web frontend. Typically, you customize the recovery plan so that machines in each tier start in the correct order after failover.
 
 - The SQL backend should start first, the middleware next, and finally the web frontend.
