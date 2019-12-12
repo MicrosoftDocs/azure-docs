@@ -20,7 +20,7 @@ This article describes resolutions to errors encountered when creating clusters.
 
 
 
-## ErrorCode:  DeploymentDocument 'CsmDocument_2_0' failed the validation
+## Error Code: DeploymentDocument 'CsmDocument_2_0' failed the validation
 
 ### **Error**: Script Action location cannot be accessed URI:\<SCRIPT ACTION URL\>
 
@@ -36,7 +36,7 @@ The Script Action URL that is provided as part of the Create Cluster request is 
 
 ---
 
-## ErrorCode:  DeploymentDocument 'CsmDocument_2_0' failed the validation
+## Error Code: DeploymentDocument 'CsmDocument_2_0' failed the validation
 
 ### **Error**: Script Action location cannot be accessed URI: \<SCRIPT ACTION URL\>
 
@@ -51,7 +51,7 @@ Make sure that the corresponding Azure Data Lake Store Gen 1 account is added to
 
 ---
 
-## ErrorCode:  DeploymentDocument 'CsmDocument_2_0' failed the validation
+## Error Code: DeploymentDocument 'CsmDocument_2_0' failed the validation
 
 ### **Error**: VM size '\<CUSTOMER SPECIFIED VM SIZE\>' provided in the request is invalid or not supported for role '\<ROLE\>'. Valid values are: \<VALID VM SIZE FOR ROLE\>.
 
@@ -63,7 +63,7 @@ The error message lists the valid values for the VM size. Select one of these va
 
 ---
 
-## ErrorCode: InvalidVirtualNetworkId  
+## Error Code: InvalidVirtualNetworkId  
 
 ### **Error**: The VirtualNetworkId is not valid. VirtualNetworkId '\<USER_VIRTUALNETWORKID\>'*
 
@@ -105,7 +105,7 @@ Make sure to use only Metastore versions that are supported by each HDInsight cl
 
 ---
 
-## ErrorCode : FailedToConnectWithClusterErrorCode 
+## Error Code: FailedToConnectWithClusterErrorCode 
 
 ### **Error**: Unable to connect to cluster management endpoint to perform scaling operation. Verify that network security rules are not blocking external access to the cluster, and that the cluster manager (Ambari) UI can be successfully accessed.
 
@@ -121,7 +121,7 @@ If you plan to use **network security groups** to control network traffic, t
 
 ---
 
-## ErrorCode: StoragePermissionsBlockedForMsi  
+## Error Code: StoragePermissionsBlockedForMsi  
 
 ### **Error**: The Managed Identity does not have permissions on the storage account. Please verify that 'Storage Blob Data Owner' role is assigned to the Managed Identity for the storage account. Storage: /subscriptions/ \<Subscription ID\> /resourceGroups/\< Resource Group Name\> /providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\>, Managed Identity: /subscriptions/ \<Subscription ID\> /resourceGroups/ /\< Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\>
 
@@ -134,7 +134,7 @@ Open the Azure portal, go to your Storage account, look under **Access Control (
 
 ---
 
-## ErrorCode: InvalidNetworkSecurityGroupSecurityRules  
+## Error Code: InvalidNetworkSecurityGroupSecurityRules  
 
 ### **Error**: The security rules in the Network Security Group /subscriptions/\<SubscriptionID>\/resourceGroups/<Resource Group name> default/providers/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\> configured with subnet /subscriptions/\<SubscriptionID>\/resourceGroups/\<Resource Group name> RG-westeurope-vnet-tomtom-default\/providers/Microsoft.Network/virtualNetworks/\<Virtual Network Name>\/subnets/\<Subnet Name\> 
 does not allow required inbound and/or outbound connectivity. For more information, please visit [Plan a virtual network for Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment), or contact support.**
@@ -150,7 +150,7 @@ If you plan to use **network security groups** to control network traffic, t
   
 ---
 
-## ErrorCode: Cluster setup failed to install components on one or more hosts
+## Error Code: Cluster setup failed to install components on one or more hosts
 
 ###  **Error**: Cluster setup failed to install components on one or more hosts. Please retry your request. 
 
