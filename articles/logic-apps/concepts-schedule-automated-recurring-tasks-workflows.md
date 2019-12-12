@@ -69,10 +69,15 @@ Here are some patterns that show how you can control recurrence with the start d
 
 | Start time | Recurrence without schedule | Recurrence with schedule (Recurrence trigger only) |
 |------------|-----------------------------|----------------------------------------------------|
-| {none} | Runs the first workload instantly. <p>Runs future workloads based on the last run time. | Runs the first workload instantly. <p>Runs future workloads based on the specified schedule. <p><p>**Important**: For future workloads that run based on the last run time, future start times might drift due to factors such as latency. To make sure that your logic app doesn't miss a recurrence, especially when the frequency is in days or longer, specify the hours and minutes for the recurrence, or use the Sliding Window trigger instead. |
+| {none} | Runs the first workload instantly. <p>Runs future workloads based on the last run time. | Runs the first workload instantly. <p>Runs future workloads based on the specified schedule. |
 | Start time in the past | **Recurrence** trigger: Calculates run times based on the specified start time and discards past run times. Runs the first workload at the next future run time. <p>Runs future workloads based on calculations from the last run time. <p><p>**Sliding Window** trigger: Calculates run times based on the specified start time and honors past run times. <p>Runs future workloads based on calculations from the specified start time. <p><p>For more explanation, see the example following this table. | Runs the first workload *no sooner* than the start time, based on the schedule calculated from the start time. <p>Runs future workloads based on the specified schedule. <p>**Note:** If you specify a recurrence with a schedule, but don't specify hours or minutes for the schedule, then future run times are calculated using the hours or minutes, respectively, from the first run time. |
 | Start time at present or in the future | Runs the first workload at the specified start time. <p>Runs future workloads based on calculations from the last run time. | Runs the first workload *no sooner* than the start time, based on the schedule calculated from the start time. <p>Runs future workloads based on the specified schedule. <p>**Note:** If you specify a recurrence with a schedule, but don't specify hours or minutes for the schedule, then future run times are calculated using the hours or minutes, respectively, from the first run time. |
 ||||
+
+> [!IMPORTANT] 
+> When future recurrences are based on the last run time, start times might drift due to factors such as latency during storage calls. 
+> To make sure that your logic app doesn't miss a recurrence, especially when the frequency is in days or longer, specify values 
+> for the **At these hours** and **At these minutes** properties, or use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md) instead.
 
 *Example for past start time and recurrence but no schedule*
 
