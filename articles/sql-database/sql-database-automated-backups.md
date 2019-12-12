@@ -147,7 +147,7 @@ When you migrate your database from a DTU-based service tier with the default PI
 
 ## Change PITR backup retention period
 
-You can change the default PITR backup retention period using the Azure portal, PowerShell, or the REST API. The supported values are: 7, 14, 21, 28 or 35 days. The following examples illustrate how to change PITR retention to 28 days.
+You can change the default PITR backup retention period using the Azure portal, PowerShell, or the REST API. The following examples illustrate how to change PITR retention to 28 days.
 
 > [!WARNING]
 > If you reduce the current retention period, all existing backups older than the new retention period are no longer available. If you increase the current retention period, SQL Database will keep the existing backups until the longer retention period is reached.

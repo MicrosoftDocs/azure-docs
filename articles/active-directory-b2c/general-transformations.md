@@ -1,6 +1,7 @@
 ---
-title: General claims transformation examples for the Identity Experience Framework schema of Azure Active Directory B2C
-description: General claims transformation examples for the Identity Experience Framework schema of Azure Active Directory B2C.
+title: General claims transformation examples for custom policies
+titleSuffix: Azure AD B2C
+description: General claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg

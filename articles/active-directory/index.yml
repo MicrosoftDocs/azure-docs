@@ -99,7 +99,22 @@ conceptualContent:
       footerLink: 
         url: ../active-directory-b2c/index.yml
         text: See more
-
+    
+    - title: Cloud provisioning 
+      links: 
+        - url: ./cloud-provisioning/what-is-cloud-provisioning.md
+          itemType: overview
+          text:  What is cloud provisioning?
+        - url: ./cloud-provisioning/tutorial-single-forest.md
+          itemType: tutorial
+          text:  Integrate a single forest with a single Azure AD tenant
+        - url: ./cloud-provisioning/how-to-install.md
+          itemType: how-to-guide
+          text:  Install Azure AD Connect cloud provisioning agent
+      footerLink: 
+        url: ./cloud-provisioning/index.yml
+        text: See more
+    
     - title: Conditional Access 
       links: 
         - url: ./conditional-access/overview.md
@@ -207,13 +222,13 @@ conceptualContent:
 
     - title: Identity protection
       links: 
-        - url: ./identity-protection/overview.md
+        - url: ./identity-protection/overview-identity-protection.md
           itemType: overview
           text:  What is identity protection?
-        - url: ./identity-protection/quickstart-sign-in-risk-policy.md
-          itemType: quickstart
-          text:  Block access when session risk is detected
-        - url: ./identity-protection/howto-unblock-user.md
+        - url: ./identity-protection/howto-identity-protection-configure-risk-policies.md
+          itemType: how-to-guide
+          text:  Configure risk policies
+        - url: ./identity-protection/howto-identity-protection-remediate-unblock.md
           itemType: how-to-guide
           text:  How to unblock users
       footerLink: 
