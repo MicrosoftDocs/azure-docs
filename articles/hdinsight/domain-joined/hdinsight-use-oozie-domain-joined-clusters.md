@@ -25,8 +25,8 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 An Azure HDInsight Hadoop cluster with Enterprise Security Package (ESP). See [Configure HDInsight clusters with ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
-    > [!NOTE]  
-    > For detailed instructions on using Oozie on non-ESP clusters, see [Use Apache Oozie workflows in Linux-based Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
+> [!NOTE]  
+> For detailed instructions on how to use Oozie on non-ESP clusters, see [Use Apache Oozie workflows in Linux-based Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
 
 ## Connect to an ESP cluster
 
