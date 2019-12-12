@@ -41,6 +41,7 @@ The communication between the control plane/API server, which is in an AKS-manag
 You need the **aks-preview 0.4.18** extension or later.
 
 ```azurecli-interactive
+az extension add --name aks-preview
 az extension update --name aks-preview 
 az extension list
 ```
@@ -80,7 +81,6 @@ az aks create \
     --name <private-cluster-name> \ 
     --load-balancer-sku standard
     --enable-private-cluster 
-    --api-server-address-range 172.18.0.0/28 \ 
     --network-plugin azure \ 
     --vnet-subnet-id <subnet-id> \ 
     --docker-bridge-address 172.17.0.1/16 \ 
