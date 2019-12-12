@@ -13,7 +13,7 @@ services: iot-edge
 
 # Store data at the edge with Azure Blob Storage on IoT Edge
 
-Azure Blob Storage on IoT Edge provides a [block blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) and [append blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure block blob service, except the block blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or block blob API calls that you're already used to. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
+Azure Blob Storage on IoT Edge provides a [block blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) and [append blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure blob service, except the blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or blob API calls that you're already used to. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
 
 This module is useful in scenarios:
 * where data needs to be stored locally until it can be processed or transferred to the cloud. This data can be videos, images, finance data, hospital data, or any other unstructured data.
@@ -39,8 +39,7 @@ This module uses block level upload, when your blob consists of blocks. Here are
 
 - Your application updates some blocks of a previously uploaded block blob or appends new blocks to an append blob, this module uploads only the updated blocks and not the whole blob.
 - The module is uploading blob and internet connection goes away, when the connectivity is back again it uploads only the remaining blocks and not the whole blob.
-
-When you are using append blobs 
+ 
 If an unexpected process termination (like power failure) happens during a blob upload, all blocks that were due for the upload will be uploaded again once the module comes back online.
 
 **deviceAutoDelete** is a configurable functionality. This function automatically deletes your blobs from the local storage when the specified duration (measured in minutes) expires. It allows you to:
