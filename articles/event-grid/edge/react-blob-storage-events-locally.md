@@ -125,7 +125,7 @@ This section shows you how to deploy the Azure Blob Storage module, which would 
 3. Provide the name, image, and container create options of the container:
 
    * **Name**: azureblobstorageoniotedge
-   * **Image URI**: mcr.microsoft.com/azure-blob-storage:1.2.2-preview
+   * **Image URI**: mcr.microsoft.com/azure-blob-storage:latest
    * **Container Create Options**:
 
 ```json
