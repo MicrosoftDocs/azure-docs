@@ -99,7 +99,7 @@ With Import/Export jobs for USGov Arizona or USGov Texas, the mailing address is
 
 For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions. 
 
-For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Managing storage accounts](../storage/common/storage-account-manage.md#access-keys).
+For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Manage storage account access keys](../storage/common/account-keys-manage.md).
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |

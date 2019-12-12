@@ -78,7 +78,7 @@ Copy the file share path in the format of:
 Copy the storage access keys in the format of:
 `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
- For more information, see [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys). 
+ For more information, see [Manage storage account access keys](../storage/common/account-keys-manage.md). 
 
 ## 4 - Create a publisher database
 
