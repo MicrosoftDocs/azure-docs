@@ -113,7 +113,7 @@ Below are the currently supported regions for each OS.
 |Korea Central| ✔ |  |
 |North Central US| ✔ |  |
 |North Europe| ✔ | ✔ |
-|South Central US| ✔ |  |
+|South Central US| ✔ | ✔ |
 |South India | ✔ | |
 |Southeast Asia| ✔ | ✔ |
 |UK South| ✔ | |
