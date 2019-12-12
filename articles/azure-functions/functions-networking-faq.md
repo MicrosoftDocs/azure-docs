@@ -47,7 +47,7 @@ By using virtual network integration you can access service-endpoint-secured res
 You are able to allow HTTP triggers to be called from a virtual network using [Service Endpoints](./functions-networking-options.md#private-site-access). 
 
 You can also trigger a function from all other resources in a virtual network by deploying your function app to a Premium plan, App Service plan, or App Service Environment. See [non-HTTP virtual network triggers](./functions-networking-options.md#virtual-network-triggers-non-http)
-App Service Environment.
+for more information
 
 ## How can I deploy my function app in a virtual network?
 
