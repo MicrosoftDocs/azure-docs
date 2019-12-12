@@ -1054,6 +1054,8 @@
         href: predictixordering-tutorial.md
       - name: Predictix Price Reporting
         href: predictixpricereporting-tutorial.md
+      - name: PrinterLogic SaaS
+        href: printerlogic-saas-tutorial.md
       - name: Printix
         href: printix-tutorial.md
       - name: Prisma Cloud
