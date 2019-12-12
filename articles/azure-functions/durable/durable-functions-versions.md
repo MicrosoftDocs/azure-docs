@@ -72,4 +72,4 @@ In the case where an abstract base class contained virtual methods, these virtua
 
 #### function.json changes (JavaScript and C# Script)
 
-In Durable Functions 1.x, the orchestration client binding uses a `type` of `orchestrationClient`. Version 2.x uses `durableClient` instead.
+In Durable Functions 1.x, the orchestration client binding uses a `type` of `orchestrationClient`. Version 2.x uses `DurableClient` instead.
