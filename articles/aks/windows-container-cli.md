@@ -134,7 +134,7 @@ az aks create \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.14.6 \
+    --kubernetes-version 1.15.5 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
@@ -146,6 +146,10 @@ az aks create \
 > [!Note]
 > If you get a password validation error, try creating your resource group in another region.
 > Then try creating the cluster with the new resource group.
+
+> [!Note]
+> If you are unable to create the AKS cluster because the version is not supported in this region then you can use the [az aks get-versions --location eastus] command to find the supported version list for this region.
+
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases. 
 
@@ -160,7 +164,7 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.14.6
+    --kubernetes-version 1.15.5
 ```
 
 The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. When creating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3*. If you choose to set the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes]. The minimum recommended size is *Standard_D2s_v3*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
