@@ -349,7 +349,7 @@ Now you need to register your application:
 Configure authentication for your application:
 
 1. Back in the [Azure portal](https://portal.azure.com), under **Manage**, select **Authentication**.
-1. In the **Redirect URIs** list, for **TYPE**, select **Public client (mobile & desktop)** and enter `urn:ietf:wg:oauth:2.0:oob` for **REDIRECT URI**.
+1. In the **Redirect URIs** list, for **TYPE**, select **Public client (mobile & desktop)** and enter `https://login.microsoftonline.com/common/oauth2/nativeclient` for **REDIRECT URI**.
 1. Select **Save**.
 
 Configure API permissions for your application:

@@ -73,7 +73,7 @@ If you want to register your apps manually, as a first step you'll need to:
      - Keep **State** as **Enabled**
      - Select **Add scope**
 
-### Configure the service and client projects to match the registered Web API 
+### Configure the service project to match the registered Web API 
 
 1. Open the solution in Visual Studio and then open the **Web.config** file under the root of **TodoListService** project.
 1. Replace the value of `ida:ClientId` parameter with the **Client ID (Application ID)** from the application you just registered in the Application Registration Portal.
