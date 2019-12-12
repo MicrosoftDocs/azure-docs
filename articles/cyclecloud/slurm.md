@@ -111,6 +111,16 @@ And the `execute` nodearray:
     munge.user.gid = 11101
 ```
 
+### Autoscale
+
+CycleCloud uses Slurm's [Elastic Computing](https://slurm.schedmd.com/elastic_computing.html) feature. To debug autoscale issues, there are a few logs on the master node you can check. The first is making sure that the power save resume calls are being made by checking `/var/log/slurmctld/slurmctld.log`. You should see lines like:
+
+``` bash
+[2019-12-09T21:19:03.400] power_save: pid 8629 waking nodes htc-1
+```
+
+The other log to check is `/var/log/slurmctld/resume.log`. If the resume step is failing, there will also be a `/var/log/slurmctld/resume_fail.log`. If there are messages about unknown or invalid node names, make sure you haven't added nodes to the cluster without following the steps in the "Making Cluster Changes" section above.
+
 ## Slurm Configuration Reference
 
 The following are the Slurm specific configuration options you can toggle to customize functionality:
