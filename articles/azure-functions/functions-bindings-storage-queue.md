@@ -17,7 +17,7 @@ This article explains how to work with Azure Queue storage bindings in Azure Fun
 
 ## Packages - Functions 1.x
 
-The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub repository.
+The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) Nuget package, version 2.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub repository.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -25,7 +25,7 @@ The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs](https:/
 
 ## Packages - Functions 2.x and higher
 
-The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) GitHub repository.
+The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) Nuget package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) GitHub repository.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -174,7 +174,7 @@ A Storage queue trigger is defined in *function.json* where *type* is set to `qu
 }
 ```
 
-The code *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage` which allows you to read the queue message in your function.
+The code *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage`, which allows you to read the queue message in your function.
 
 ```python
 import logging
@@ -203,7 +203,7 @@ def main(msg: func.QueueMessage):
 
 # [Java](#tab/java)
 
-The following Java example shows a storage queue trigger functions which logs the triggered message placed into queue `myqueuename`.
+The following Java example shows a storage queue trigger function, which logs the triggered message placed into queue `myqueuename`.
 
  ```java
  @FunctionName("queueprocessor")
@@ -291,7 +291,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-The `QueueTrigger` annotation gives you access to the queue that triggers the funciton. The following example makes the queue message available to the function via the `message` parameter.
+The `QueueTrigger` annotation gives you access to the queue that triggers the function. The following example makes the queue message available to the function via the `message` parameter.
 
 ```java
 package com.function;
@@ -312,7 +312,7 @@ public class QueueTriggerDemo {
 
 | Property    | Description |
 |-------------|-----------------------------|
-|`name`       | Declares the parameter name the in the function signature. When the function is triggered this parameter's value has the contents of the queue message. |
+|`name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
 |`queueName`  | Declares the queue name in the storage account. |
 |`connection` | Points to the storage account connection string. |
 
@@ -328,7 +328,7 @@ The following table explains the binding configuration properties that you set i
 |**direction**| n/a | In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a |The name of the variable that contains the queue item payload in the function code.  |
 |**queueName** | **QueueName**| The name of the queue to poll. |
-|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -377,7 +377,7 @@ To implement a queue trigger input binding, configure the *function.json* like t
 | Property    | Description |
 |-------------|-----------------------------|
 |`type`       | Defines the binding type. Here, set the value as `queueTrigger`. |
-|`name`       | Declares the parameter name the in the function signature. When the function is triggered this parameter's value has the contents of the queue message. |
+|`name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
 |`direction`  | Defines whether the binding is input or output. Here, set the value to `in`.  |
 |`queueName`  | Declares the queue name in the storage account. |
 |`connection` | Points to the storage account connection string. |
@@ -417,7 +417,7 @@ To implement a queue trigger input binding, configure the *function.json* like t
 | Property    | Description |
 |-------------|-----------------------------|
 |`type`       | Defines the binding type. Here, set the value as `queueTrigger`. |
-|`name`       | Declares the parameter name the in the function signature. When the function is triggered this parameter's value has the contents of the queue message. |
+|`name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
 |`direction`  | Defines whether the binding is input or output. Here, set the value to `in`.  |
 |`queueName`  | Declares the queue name in the storage account. |
 |`connection` | Points to the storage account connection string. |
@@ -673,7 +673,7 @@ A Storage queue binding is defined in *function.json* where *type* is set to `qu
 }
 ```
 
-To set a individual message on the queue, you pass a single value to the `set` method.
+To set an individual message on the queue, you pass a single value to the `set` method.
 
 ```python
 import azure.functions as func
@@ -702,7 +702,7 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
 
 # [Java](#tab/java)
 
- The following example shows a Java function that creates a queue message for when triggered by a  HTTP request.
+ The following example shows a Java function that creates a queue message for when triggered by an  HTTP request.
 
 ```java
 @FunctionName("httpToQueue")
@@ -766,7 +766,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-The `QueueOutput` annotation allows you access to write a message an an output of a function.The following shows an HTTP-triggered function that creates a queue message.
+The `QueueOutput` annotation allows you access to write a message an output of a function. The following example shows an HTTP-triggered function that creates a queue message.
 
 ```java
 package com.function;
@@ -789,7 +789,7 @@ public class HttpTriggerQueueOutput {
 
 | Property    | Description |
 |-------------|-----------------------------|
-|`name`       | Declares the parameter name the in the function signature. When the function is triggered this parameter's value has the contents of the queue message. |
+|`name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
 |`queueName`  | Declares the queue name in the storage account. |
 |`connection` | Points to the storage account connection string. |
 
@@ -807,7 +807,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a | The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.|
 |**queueName** |**QueueName** | The name of the queue. |
-|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
