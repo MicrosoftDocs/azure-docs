@@ -291,7 +291,30 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-**TODO**
+The `QueueTrigger` annotation gives you access to the queue that triggers the funciton. The following example makes the queue message available to the function via the `message` parameter.
+
+```java
+package com.function;
+import com.microsoft.azure.functions.annotation.*;
+import java.util.Queue;
+import com.microsoft.azure.functions.*;
+
+public class QueueTriggerDemo {
+    @FunctionName("QueueTriggerDemo")
+    public void run(
+        @QueueTrigger(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Queue message: " + message);
+    }
+}
+```
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`name`       | Declares the parameter name the in the function signature. When the function is triggered this parameter's value has the contents of the queue message. |
+|`queueName`  | Declares the queue name in the storage account. |
+|`connection` | Points to the storage account connection string. |
 
 ---
 
@@ -345,7 +368,7 @@ To implement a queue trigger input binding, configure the *function.json* like t
       "name": "msg",
       "direction": "in",
       "queueName": "messages",
-      "connection": "AzureWebJobsStorage"
+      "connection": "MyStorageConnectionAppSetting"
     }
   ]
 }
@@ -385,7 +408,7 @@ To implement a queue trigger input binding, configure the *function.json* like t
       "name": "msg",
       "direction": "in",
       "queueName": "messages",
-      "connection": "AzureWebJobsStorage"
+      "connection": "MyStorageConnectionAppSetting"
     }
   ]
 }
@@ -425,7 +448,7 @@ import com.microsoft.azure.functions.*;
 public class QueueTriggerDemo {
     @FunctionName("QueueTriggerDemo")
     public void run(
-        @QueueTrigger(name = "message", queueName = "messages", connection = "AzureWebJobsStorage") String message,
+        @QueueTrigger(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") String message,
         final ExecutionContext context
     ) {
         context.getLogger().info("Java Queue trigger function processed a message: " + message);
@@ -490,7 +513,7 @@ Use the Azure Queue storage output binding to write messages to a queue.
 The following example shows a [C# function](functions-dotnet-class-library.md) that creates a queue message for each HTTP request received.
 
 ```csharp
-[StorageAccount("AzureWebJobsStorage")]
+[StorageAccount("MyStorageConnectionAppSetting")]
 public static class QueueFunctions
 {
     [FunctionName("QueueOutput")]
@@ -683,7 +706,7 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
 
 ```java
 @FunctionName("httpToQueue")
-@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
  public String pushToQueue(
      @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
      final String message,
@@ -697,7 +720,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 ---
 
-## Output - attributes
+## Output - attributes and annotations
 
 # [C#](#tab/csharp)
 
@@ -743,7 +766,34 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-**TODO**
+The `QueueOutput` annotation allows you access to write a message an an output of a function.The following shows an HTTP-triggered function that creates a queue message.
+
+```java
+package com.function;
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+public class HttpTriggerQueueOutput {
+    @FunctionName("HttpTriggerQueueOutput")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
+            @QueueOutput(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") OutputBinding<String> message,
+            final ExecutionContext context) {
+
+        message.setValue(request.getQueryParameters().get("name"));
+        return request.createResponseBuilder(HttpStatus.OK).body("Done").build();
+    }
+}
+```
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`name`       | Declares the parameter name the in the function signature. When the function is triggered this parameter's value has the contents of the queue message. |
+|`queueName`  | Declares the queue name in the storage account. |
+|`connection` | Points to the storage account connection string. |
+
+The parameter associated with the `QueueOutput` annotation is typed as an [OutputBinding\<T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) instance.
 
 ---
 
