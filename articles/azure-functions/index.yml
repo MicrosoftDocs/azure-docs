@@ -85,7 +85,7 @@ landingContent:
           - text: Develop functions using Visual Studio
             url: /learn/modules/develop-test-deploy-azure-functions-with-visual-studio/index
           - text: Develop functions from the command line
-            url: /learn/modules/develop-test-deploy-azure-functions-with-with-core-tools/index
+            url: /learn/modules/develop-test-deploy-azure-functions-with-core-tools/index
         
       - linkListType: video
         links:
