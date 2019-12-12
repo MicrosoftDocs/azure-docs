@@ -220,7 +220,7 @@ Add this code to the end of the `try` block:
 
 Delete messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
 
-The app pauses for user input by calling `input` before it processes and deletes the messages. Verify in your [Azure portal](https:#portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
+The app pauses for user input by calling `input` before it processes and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
 
 Add this code to the end of the `try` block:
 
@@ -306,5 +306,5 @@ For tutorials, samples, quick starts and other documentation, visit:
 > [!div class="nextstepaction"]
 > [Azure for Python Developers](https://docs.microsoft.com/azure/python/)
 
-* To learn more, see the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
-* To see more Azure Queue storage sample apps, continue to [Azure Queue storage v12 Python client library samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
+* To learn more, see the [Azure Storage libraries for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
+* To see more Azure Queue storage sample apps, continue to [Azure Queue storage v12 Python client library samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).

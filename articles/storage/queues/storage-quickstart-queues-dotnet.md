@@ -329,5 +329,6 @@ For tutorials, samples, quick starts and other documentation, visit:
 > [!div class="nextstepaction"]
 > [Azure for .NET and .NET Core developers](https://docs.microsoft.com/dotnet/azure/)
 
+* To learn more, see the [Azure Storage libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
 * To see more Azure Queue storage sample apps, continue to [Azure Queue storage v12 .NET client library samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
 * To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
