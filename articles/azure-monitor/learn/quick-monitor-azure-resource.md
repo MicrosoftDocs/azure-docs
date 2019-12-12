@@ -10,9 +10,12 @@ ms.date: 12/05/2019
 ---
 
 # Quickstart: Monitor an Azure resource with Azure Monitor
-[Azure Monitor](../overview.md) starts collecting data from Azure resources the moment that they're created. This quickstart shows you how to view metrics and logs that are automatically collected in the Azure portal and how to create diagnostic settings that allow you to collect more detailed information about the resource's operation.
+[Azure Monitor](../overview.md) starts collecting data from Azure resources the moment that they're created with no configuration required. You can use a common set of tools to analyze this data for different Azure services. You can access these tools from the Azure Monitor menu in the Azure portal for all resources in your subscription. You can also view data filtered for a particular resource from that resource's menu. 
+This quickstart shows you how to view metrics and logs that are automatically collected in the Azure portal. Follow the tutorials at the end of this article to configure Azure monitor to collect additional data and to perform additional analysis and alerting on this data.
 
-This quickstart uses an Azure storage account as an example, but you can use these procedures with just about any Azure resource. Azure Monitor collects data from all together so you can analyze them using a common set of tools. You can quickly create a new storage account if you want to follow along with this procedure.
+For more detailed descriptions of monitoring data collected from Azure resources  see [Monitoring Azure resources with Azure Monitor](../insights/monitor-azure-resource.md).
+
+This quickstart assumes that you have an existing Azure resource. It doesn't matter what resource you use since Azure Monitor works the same for most Azure services.
 
 
 ## Sign in to Azure portal
@@ -20,36 +23,47 @@ This quickstart uses an Azure storage account as an example, but you can use the
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 
-## View Activity log
-The Azure Activity log collects from your Azure subscription including operations performed on each Azure resource. You can view the Activity log from your resource's menu or from the Azure Monitor menu.
+## Overview page
+Many services will include monitoring data on their Overview page as a quick glance to their operation. This will typically be based on a subset of platform metrics stored in Azure Monitor Metrics.
 
-1. In the Azure portal, select **All services** found in the upper left-hand corner. In the list of resources, type **Storage accounts** (or the service that you're using).
-2. Select an account from the list.
-3. On the left-hand menu, select **Activity log**. This allows you to view the Activity log for the subscription your storage account is in.
-4. If you don't see any event, try increasing the **Timespan**.
+1. Locate an Azure resource in your subscription.
+2. Go to the **Overview** page and note if there's any performance data. This data will be provided by Azure Monitor. The example below is the **Overview** page for an Azure storage account, and you can multiple metrics displayed.
+
+    ![Overview page](media/quick-monitor-azure-resource/overview.png)
+
+## View the Activity log
+The Activity log provides insight into the operations on each Azure resource in the subscription. This will include such information as when a resource is created or modified, when a job is started, or when a particular operation occurs.
+
+1. At the top of the menu for your resource, select **Activity log**.
+2. The current filter is set to events related to the your resource. If you don't see any events, try changing the **Timespan** to increase the time scope.
+
+    ![Activity log](media/quick-monitor-azure-resource/activity-log-resource.png)
+
+4. If you want to see events from other resources in your subscription, either change criteria in the filter or even remove filter properties.
+
+    ![Activity log](media/quick-monitor-azure-resource/activity-log-all.png)
 
 
-## View and analyze metrics
-Metrics explorer is a tool in the Azure portal that allows you to analyze your collected metrics.
 
-1. Under **Monitoring**, select **Metrics**. This opens metrics explorer with the scope set to your storage account.
-2. Metrics are grouped into namespaces. Click **Metric namepspace** to view the list of namespaces for this service. Select **Account**.
-4. Click **Metric** to view the metrics in the selected namespace. Select **Transactions**. This graphs the number of transactions for the current storage account over the last 24 hours.
+## View metrics
+Metrics are numerical values that describe some aspect of your resource at a particular time. Azure Monitor automatically collects platform metrics at one minute intervals from all Azure resources. You can view these metrics using Metrics explorer.
 
+1. Under the **Monitoring** section of your resource's menu, select **Metrics**. This opens metrics explorer with the scope set to your resource.
+2. Click **Add metric** to add a metric to the chart.
+3.   
+   ![Metrics explorer](media/quick-monitor-azure-resource/metrics-explorer-01.png)
+   
+4. Select a **Metric** from the dropdown list and then an **Aggregation**. This defines how the collected values will be sampled over each time interbvel.
 
-## Create an alert rule
-Use alert rules to proactively notify you when a metric value indicates a potential problem.
+    ![Metrics explorer](media/quick-monitor-azure-resource/metrics-explorer-02.png)
 
-1. Click **New alert rule**.
-2. The resource for the rule is already set to the storage account.
-3. Under **Condition** click **Add**. A list of the available metrics is displayed.
-4. Select **Queue Count**. A graph is displayed of this value over the last several hours to help you select an appropriate threshold.
-5. In **Threshold value**, type *10*.
-6. Under **Actions**, click **Create action group** 
+5. Click **Add metric** to add additional metric and aggregation combinations to the chart.
+
+    ![Metrics explorer](media/quick-monitor-azure-resource/metrics-explorer-03.png)
 
 
 ## Next steps
-In this quickstart, you viewed the metrics and logs for an Azure resource collected in Azure Monitor, created an alert rule based on a metric value, created diagnostic settings to collect resource logs, and then analyzed those resource logs with a log query.  See the following article read more about monitoring Azure resources and discover documentation for more advanced alerting analysis. 
+In this quickstart, you viewed the Activity log and metrics for an Azure resource which are automatically collected by Azure Monitor. Resource logs provide insight into the detailed operation of the resource but must be configured in order to be collected. Continue to the tutorial for collecting resource logs into a Log Analytics workspace where they can be analyzed using log queries.
 
 > [!div class="nextstepaction"]
-> [Monitoring Azure resources with Azure Monitor](../insights/monitor-azure-resource.md)
+> [Collect and analyze resource logs with Azure Monitor](../insights/monitor-azure-resource.md)
