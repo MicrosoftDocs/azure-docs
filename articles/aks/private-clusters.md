@@ -74,18 +74,17 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 Where --enable-private-cluster is a mandatory flag for a private cluster 
 
 #### Advanced Networking  
-```azurecli-interactive
-az aks create \ 
-    --resource-group <private-cluster-resource-group>\ 
-    --name <private-cluster-name> \ 
-    --load-balancer-sku standard
-    --enable-private-cluster 
-    --api-server-address-range 172.18.0.0/28 \ 
-    --network-plugin azure \ 
-    --vnet-subnet-id <subnet-id> \ 
-    --docker-bridge-address 172.17.0.1/16 \ 
-    --dns-service-ip 10.2.0.10 \ 
-    --service-cidr 10.2.0.0/24 \ 
+```azurecli-interactive    
+az aks create \
+--resource-group <private-cluster-resource-group> \
+--name <private-cluster-name> \
+--load-balancer-sku standard \
+--enable-private-cluster \
+--network-plugin azure \
+--vnet-subnet-id <subnet-id> \
+--docker-bridge-address 172.17.0.1/16 \
+--dns-service-ip 10.2.0.10 \
+--service-cidr 10.2.0.0/24
 ```
 Where --enable-private-cluster is a mandatory flag for a private cluster 
 

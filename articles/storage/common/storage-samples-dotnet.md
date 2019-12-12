@@ -14,6 +14,9 @@ ms.topic: sample
 
 The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in GitHub.
 
+> [!NOTE]
+> These samples use the Azure Storage .NET v11 library. For v12 code, see [samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples) in the GitHub repository.
+
 ## Blob samples
 
 | **Scenario** | **Sample Code** |
