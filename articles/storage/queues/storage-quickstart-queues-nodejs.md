@@ -207,6 +207,15 @@ Peek at the messages in the queue by calling the [peekMessages](https://docs.mic
 Add this code to the end of the `main` function:
 
 ```javascript
+console.log("\nPeek at the messages in the queue...");
+
+// Peek at messages in the queue
+const peekedMessages = await queueClient.peekMessages(5);
+
+for (i = 0; i < peekedMessages.peekedMessageItems.length; i++) {
+    // Display the peeked message
+    console.log("\n\tMessage:", peekedMessages.peekedMessageItems[i].messageText);
+}
 ```
 
 ### Update a message in a queue
@@ -217,8 +226,13 @@ Update the contents of a message by calling the [updateMessage](https://docs.mic
 console.log("\nUpdating the third message in the queue...");
 
 // Update a message using the response saved when calling sendMessage earlier
-updateMessageResponse = await queueClient.updateMessage(sendMessageResponse.messageId, sendMessageResponse.popReceipt, "Third message has been updated");
-console.log("\nMessage updated. requestId: ", updateMessageResponse.requestId);
+updateMessageResponse = await queueClient.updateMessage(
+    sendMessageResponse.messageId,
+    sendMessageResponse.popReceipt,
+    "Third message has been updated"
+);
+
+console.log("\nMessage updated, requestId:", updateMessageResponse.requestId);
 ```
 
 ### Receive messages from a queue
@@ -228,6 +242,10 @@ Download previously added messages by calling the [receiveMessages](https://docs
 Add this code to the end of the `main` function:
 
 ```javascript
+console.log("\nReceiving messages from the queue...");
+
+// Get messages from the queue
+const receivedMessagesResponse = await queueClient.receiveMessages(5);
 ```
 
 ### Delete messages from a queue
@@ -239,6 +257,19 @@ Delete messages by calling the [deleteMessage](https://docs.microsoft.com/javasc
 Add this code to the end of the `main` function:
 
 ```javascript
+// 'Process' and delete messages from the queue
+for (i = 0; i < receivedMessagesResponse.receivedMessageItems.length; i++) {
+    const receivedMessage = receivedMessagesResponse.receivedMessageItems[i];
+
+    // 'Process' the message
+    console.log("\n\tMessage:", receivedMessage.messageText);
+
+    // Delete the message
+    const deleteMessageResponse = await queueClient.deleteMessage(
+        receivedMessage.messageId,
+        receivedMessage.popReceipt
+    );
+}
 ```
 
 ### Delete a queue
@@ -248,6 +279,10 @@ The following code cleans up the resources the app created by deleting the queue
 Add this code to the end of the `main` function and save the file:
 
 ```javascript
+// Delete the queue
+console.log("Deleting queue...");
+const deleteQueueResponse = await queueClient.delete();
+console.log("Queue deleted, requestId:", deleteQueueResponse.requestId);
 ```
 
 ## Run the code
