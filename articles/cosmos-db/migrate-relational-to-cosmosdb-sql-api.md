@@ -1,5 +1,5 @@
 ---
-title: Migrating one-to-few relational data into Cosmos DB SQL API
+title: Migrating one-to-few relational data into Azure Cosmos DB SQL API
 description: This doc describes how you can handle complex migration of one-to-few relationships into SQL API
 author: TheovanKraay
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.author: thvankra
 
 ---
 
-# Migrating one-to-few relational data into Cosmos DB SQL API
+# Migrating one-to-few relational data into Azure Cosmos DB SQL API
 
 When migrating from a relational database to Azure Cosmos DB SQL API, it is often necessary to make changes to the data model to optimize it for NoSQL use-cases.
 
@@ -335,6 +335,5 @@ In either approach, at the end, we should get properly saved embedded OrderDetai
 ![Databricks](./media/migrate-relational-to-cosmos-sql-api/databricks4.png)
 
 ## Next steps
-* Learn more by trying out the sample applications consuming the bulk executor library in [.NET](bulk-executor-dot-net.md) and [Java](bulk-executor-java.md). 
-* The bulk executor library is integrated into the Cosmos DB Spark connector, to learn more, see [Azure Cosmos DB Spark connector](spark-connector.md) article.  
-* Contact the Azure Cosmos DB product team by opening a support ticket under the "General Advisory" problem type and "Large (TB+) migrations" problem subtype for additional help with large-scale migrations. 
+* Learn about [data modeling in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/modeling-data)
+* Learn [how to model and partition data on Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example)
