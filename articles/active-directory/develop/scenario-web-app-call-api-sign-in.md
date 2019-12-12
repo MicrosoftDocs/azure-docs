@@ -1,6 +1,6 @@
 ---
-title: Web app that calls web APIs (sign in) - Microsoft identity platform
-description: Learn how to build a Web app that calls web APIs (sign in)
+title: Remove accounts from cache on sign-out - Microsoft identity platform | Azure
+description: Learn how to remove an account from the token cache on sign out
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -19,7 +19,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that calls web APIs - sign in
+# Remove accounts from the cache on global sign-out
 
 You already know how to add sign-in to your web app. You learn that in [Web app that signs-in users - add sign-in](scenario-web-app-sign-user-sign-in.md).
 

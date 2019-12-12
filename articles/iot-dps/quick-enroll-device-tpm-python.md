@@ -1,6 +1,6 @@
 ---
 title: Enroll TPM device to Azure Device Provisioning Service using Python
-description: Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using Python provisioning service SDK. This quickstart uses individual enrollments.
+description: Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service (DPS) using Python provisioning service SDK. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019

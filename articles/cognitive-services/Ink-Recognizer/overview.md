@@ -47,7 +47,7 @@ After signing up:
 Try a quickstart in the following languages to begin making calls to the Ink Recognizer API.
 * [C#](quickstarts/csharp.md)
 * [Java](quickstarts/java.md)
-* [JavaScript](quickstarts/csharp.md)
+* [JavaScript](quickstarts/javascript.md)
 
 To see how the Ink Recognition API works in a digital inking app, take a look at the following sample applications on GitHub:
 * [C# and Universal Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
