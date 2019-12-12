@@ -211,17 +211,7 @@ The syntax for structuring the request payload is as follows.
                 "tables": [ ], 
                 "objects": [ ], 
                 "files": [ ]  
-            },
-            { 
-                "tables": [ ], 
-                "objects": [ ], 
-                "files": [ ]  
-            },
-            { 
-                "tables": [ ], 
-                "objects": [ ],
-                "files": [ ]  
-            }        
+            }    
         ]     
     } 
 }
@@ -231,7 +221,7 @@ A`skills` definition is a complex definition (not shown). For more information a
 
 A `knowledgeStore` requires a connection string to an Azure Storage account. You can use any storage account, but it's cost-effective to use services in the same region.
 
-A `projections` collection can be tabular (expressed in Table storage), objects (expressed as JSON blobs in Blob storage, or files (binary image files, also persisted in blob storage). You need one collection per projection type. If you need all three, use the full syntax with tables in the first collection, objects in the second collection, and files in the third. Delete any you don't need. All of these projections have properties, omitted here so that you can see the overall structure. For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
+A `projections` collection contains projection objects. Create as amnay as you need (the above syntax shows one). Each projection object can have `tables`, `objects`, `files` (one of each), which are either specified or null. If you need all three (`tables`, `objects`, `files`), specify them within a single projection object. If you need multiples of the same kind, such as three different table projections, create three projection objects, each with a `tables` specification (leaving the others empty if you don’t need them). For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
 
 ### Response  
 
