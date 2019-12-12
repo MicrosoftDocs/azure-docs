@@ -1,5 +1,5 @@
 ﻿---
-title: Run a Databricks Notebook with the Databricks Notebook activity
+title: Run a Databricks Notebook with the activity
 description: "Learn how you can use the Databricks Notebook Activity in an Azure data factory to run a Databricks notebook against the databricks jobs cluster."
 services: data-factory
 ms.service: data-factory
@@ -157,8 +157,7 @@ In this section, you author a Databricks linked service. This linked service con
            # Creating widgets for leveraging parameters, and printing the parameters
 
            dbutils.widgets.text("input", "","")
-           dbutils.widgets.get("input")
-           y = getArgument("input")
+           y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)
            ```
