@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Create an Azure Cache for Redis
+title: Create an Azure Cache for Redis - Azure CLI
 description: Azure CLI Script Sample - Create an Azure Cache for Redis
 author: yegu-ms
 tags: azure-service-management

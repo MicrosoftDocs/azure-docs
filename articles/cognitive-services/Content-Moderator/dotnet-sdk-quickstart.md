@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Content Moderator client library for .NET | Microsoft Docs"
+title: "Quickstart: Content Moderator client library for .NET"
 titleSuffix: Azure Cognitive Services
-description: Get started with the Content Moderator client library for .NET.
+description: Get started with the Content Moderator client library for .NET with this quickstart.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
