@@ -21,10 +21,10 @@ In this article, you learn to use the interpretability package of the Azure Mach
 
 * Interpret machine learning models trained both locally and on remote compute resources.
 * Store local and global explanations on Azure Run History.
-* View interpretability visualizations in [Azure Machine Learning studio](https://ml.azure.com).
+* View interpretability visualizations in [Azure Machine Learning](https://ml.azure.com).
 * Deploy a scoring explainer with your model.
 
-For more information, see [Model interpretability in Azure Machine Learning service](how-to-machine-learning-interpretability.md).
+For more information, see [Model interpretability in Azure Machine Learning](how-to-machine-learning-interpretability.md).
 
 ## Local interpretability
 
@@ -337,9 +337,9 @@ from azureml.contrib.interpret.visualize import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, x_test)
 ```
 
-### Visualization in Azure Machine Learning studio
+### Visualization in Azure Machine Learning
 
-If you complete the [remote interpretability](#interpretability-for-remote-runs) steps, you can view the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the visualization dashboard explained above. It only supports two tabs:
+If you complete the [remote interpretability](#interpretability-for-remote-runs) steps, you can view the visualization dashboard in [Azure Machine Learning](https://ml.azure.com). This dashboard is a simpler version of the visualization dashboard explained above. It only supports two tabs:
 
 |Plot|Description|
 |----|-----------|
@@ -348,10 +348,10 @@ If you complete the [remote interpretability](#interpretability-for-remote-runs)
 
 If both global and local explanations are available, data populates both tabs. If only a global explanation is available, the Summary Importance tab is disabled.
 
-Follow one of these paths to access the visualization dashboard in Azure Machine Learning studio:
+Follow one of these paths to access the visualization dashboard in Azure Machine Learning:
 
 * **Experiments** pane (Preview)
-  1. Select **Experiments** in the left pane to see a list of experiments that you've run on Azure Machine Learning service.
+  1. Select **Experiments** in the left pane to see a list of experiments that you've run on Azure Machine Learning.
   1. Select a particular experiment to view all the runs in that experiment.
   1. Select a run, and then the **Explanations** tab to the explanation visualization dashboard.
 

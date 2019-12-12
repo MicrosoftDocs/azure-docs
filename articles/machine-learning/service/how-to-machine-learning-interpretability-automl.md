@@ -17,7 +17,7 @@ ms.date: 10/25/2019
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to enable the interpretability features for automated machine learning (ML) in Azure Machine Learning service. Automated ML helps you understand both raw and engineered feature importance. In order to use model interpretability, set `model_explainability=True` in the `AutoMLConfig` object.  
+In this article, you learn how to enable the interpretability features for automated machine learning (ML) in Azure Machine Learning. Automated ML helps you understand both raw and engineered feature importance. In order to use model interpretability, set `model_explainability=True` in the `AutoMLConfig` object.  
 
 In this article, you learn how to:
 
@@ -220,7 +220,7 @@ if service.state == 'Healthy':
 
 ### Visualize to discover patterns in data and explanations at training time
 
-You can visualize the feature importance chart in your workspace in [Azure Machine Learning studio](https://ml.azure.com). After your automated ML run is complete, select **View model details** to view a specific run. Select the **Explanations** tab to see the explanation visualization dashboard.
+You can visualize the feature importance chart in your workspace in [Azure Machine Learning](https://ml.azure.com). After your automated ML run is complete, select **View model details** to view a specific run. Select the **Explanations** tab to see the explanation visualization dashboard.
 
 [![Machine Learning Interpretability Architecture](./media/machine-learning-interpretability-explainability/automl-explainability.png)](./media/machine-learning-interpretability-explainability/automl-explainability.png#lightbox)
 
