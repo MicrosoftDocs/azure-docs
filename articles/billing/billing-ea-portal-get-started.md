@@ -160,7 +160,7 @@ After a department is created, the enterprise administrator can add department a
 - Download usage details
 - View the monthly usage and charges <sup>1</sup>
 
-> <sup>1</sup> An enterprise administrator must have granted these permissions. If you were given permission to view department monthly usage and charges, but can't see them, contact your partner.
+> <sup>1</sup> An enterprise administrator must grant these permissions. If you were given permission to view department monthly usage and charges, but can't see them, contact your partner.
 
 ### To add a department administrator
 
@@ -272,72 +272,73 @@ When you create different subscriptions for each application environment, you he
 - You can associate subscriptions with any number of services.
 - The account owner creates subscriptions and assigns a service administrator account to each subscription in their account.
 
-\***
-
 ### Add a subscription
 
 Use the following information to add a subscription.
 
-The first time you add a subscription to your account, you're asked to accept the MOSA agreement and a rate plan. Although they aren't applicable to Enterprise Agreement customers, they're needed to create your subscription. Your Microsoft Azure Enterprise Agreement Enrollment Amendment supersedes the above items and your contractual relationship doesn't change. When prompted, select the box indicating that you accept the terms.
+The first time you add a subscription to your account, you're asked to accept the Microsoft Online Subscription Agreement (MOSA) and a rate plan. Although they aren't applicable to Enterprise Agreement customers, the MOSA and the rate plan are required to create your subscription. Your Microsoft Azure Enterprise Agreement Enrollment Amendment supersedes the above items and your contractual relationship doesn't change. When prompted, select the box that indicates you accept the terms.
 
-All new subscriptions are created with the default subscription name of _Microsoft Azure Enterprise_. You can update the subscription name to differentiate it from the other subscriptions in your enrollment. And, to ensure that it's recognizable in reports at the enterprise level.
+_Microsoft Azure Enterprise_ is the default name when a subscription is created. You can change the name to differentiate it from the other subscriptions in your enrollment, and to ensure that it's recognizable in reports at the enterprise level.
 
 To add a subscription:
 
 1. In the Azure Enterprise portal, sign in to the account.
-1. Click the **Admin** tab and then click **Subscription** at the top of the page.
+1. Select the **Admin** tab and then select **Subscription** at the top of the page.
 1. Verify that you're signed in as the account owner of the account.
-1. Click **+Add Subscription** and then click **Purchase**.
-  The first time you add a subscription to an account, you must provide your contact information. When adding additional subscriptions, your contact information is added for you.
-1. Click **Subscriptions**, then select the subscription you created, and then click **Edit Subscription Details**.
-1. Update the **Subscription Name** and **Service Administrator** then select the checkmark.
-  The subscription name appears on reports and is the name of the project associated with the subscription in the development portal.
+1. Select **+Add Subscription** and then select **Purchase**.
+
+   The first time you add a subscription to an account, you must provide your contact information. When you add additional subscriptions, your contact information is added for you.
+
+1. Select **Subscriptions** and then select the subscription you created. Select **Edit Subscription Details**.
+1. Edit the **Subscription Name** and the **Service Administrator** and then select the check mark.
+  
+   The subscription name appears on reports. It's the name of the project associated with the subscription in the development portal.
 
 New subscriptions can take up to 24 hours to appear in the subscriptions list. After you've created a subscription, you can:
 
 - [Edit subscription details](https://account.azure.com/Subscriptions)
 - [Manage subscription services](https://portal.azure.com/#home)
 
-## Transfer EA subscription to pay as you go subscription
+## Transfer an Enterprise subscription to a Pay-As-You-Go subscription
 
-To transfer an EA subscription to an individual subscription with pay-as-you-go rates, you must create a new support request in the Azure Enterprise portal. To create a support request, click **+ New support request** in the Help and Support area.
+To transfer an Enterprise subscription to an individual subscription with Pay-As-You-Go rates, you must create a new support request in the Azure Enterprise portal. To create a support request, select **+ New support request** in the Help and Support area.
 
-## Associate an existing account with your pay as you go subscription
+## Associate an existing account with your Pay-As-You-Go subscription
 
-If you already have an existing Microsoft Azure account on the Microsoft Azure portal, enter the associated Microsoft account or work or school account in order to associate it with your Enterprise Agreement enrollment.
+If you already have an existing Microsoft Azure account on the Azure portal, enter the associated , school, work, or Microsoft account in order to associate it with your Enterprise Agreement enrollment.
 
 ### Associate an existing account
 
-1. From the Enterprise Portal, click **Manage**.
-1. Click the **Account** tab.
-1. Click **+Add an account**.
-1. Enter the Microsoft account or work or school account associated with the existing account.
-1. Confirm the Microsoft account or work or school account associated with the existing account.
+1. In the Enterprise portal, select **Manage**.
+1. Select the **Account** tab.
+1. Select **+Add an account**.
+1. Enter the work, school, or Microsoft account  associated with the existing Azure account.
+1. Confirm the account associated with the existing Azure account.
 1. Provide a name you would like to use to identify this account in reporting.
-1. Click **Add**.
-1. You can add an additional account by selecting the **+Add an Account** option again, or return to the homepage by selecting the **Admin** button.
-1. If you click to view the **Account** page, the newly added account will appear in a **Pending** status.
+1. Select **Add**.
+1. To add an additional account, you can select the **+Add an Account** option again or return to the homepage by selecting the **Admin** button.
+1. If you view the **Account** page, the newly added account will appear in a **Pending** status.
 
 ### Confirm account ownership
 
-1. Log into the email account associated to the Microsoft account or work or school account you provided.
+1. Sign into the email account associated with the work, school, or Microsoft account you provided.
 1. Open the email notification titled _"Invitation to Activate your Account on the Microsoft Azure Service from Microsoft Volume Licensing"_.
-1. Click the **Log into the Microsoft Azure Enterprise Portal** link in the invitation.
-1. Click **Sign in**.
-1. Enter your Microsoft account or work or school account and password to sign in and confirm account ownership.
+1. Select the **Log into the Microsoft Azure Enterprise Portal** link in the invitation.
+1. Select **Sign in**.
+1. Enter your work, school, or Microsoft account and password to sign in and confirm account ownership.
 
 ### Azure Marketplace
 
-Although most subscriptions convert from Pay-as-You-Go environment to Enterprise Azure, Azure Marketplace services do not. In order to have a single view of all subscriptions and charges, we recommend you add the Azure Marketplace services to the Enterprise Portal:
+Although most subscriptions can convert from the Pay-as-You-Go environment to Azure Enterprise, Azure Marketplace services do not. In order to have a single view of all subscriptions and charges, we recommend you add the Azure Marketplace services to the Enterprise Portal.
 
-1. Click **Manage** on the left navigation.
-1. Click the **EnrollmentTab**.
+1. Select **Manage** on the left navigation.
+1. Select the **EnrollmentTab**.
 1. View the Enrollment Detail section.
-1. To the right of the Azure Marketplace field, click the pencil icon to enable, and hit **Save**.
+1. To the right of the Azure Marketplace field, select the pencil icon to enable it. Select **Save**.
 
-The account owner can now purchase Azure Marketplace subscriptions previously owned in pay-as-you-go.
+The account owner can now purchase any Azure Marketplace services that where previously owned in the Pay-As-You-Go subscription.
 
-Once new Azure Marketplace subscriptions are activated under your enrollment, cancel the Marketplace subscriptions created in the pay-as-you-go environment. This step is critical so that your Marketplace subscriptions do not fall into a bad state when your pay-as-you-go payment instrument expires.
+After the new Azure Marketplace subscriptions are activated under your Enterprise enrollment, cancel the Marketplace services that were created in the Pay-As-You-Go environment. This step is critical so that your Marketplace subscriptions do not fall into a bad state when your Pay-As-You-Go payment instrument expires.
 
 ### MSDN
 
