@@ -118,6 +118,7 @@ az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
 * No support to convert existing AKS clusters to private clusters  
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning 
 * Azure Monitor for containers Live Data isn't currently supported
+* Bring your own DNS isn't currently supported
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
