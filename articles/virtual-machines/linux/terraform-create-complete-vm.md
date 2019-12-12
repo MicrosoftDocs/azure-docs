@@ -20,6 +20,13 @@ ms.author: tarcher
 
 Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create a complete Linux environment and supporting resources with Terraform. You can also learn how to [Install and configure Terraform](terraform-install-configure.md).
 
+> [!NOTE]
+> For Terraform specific support, please reach out to Terraform directly using one of their community channels:
+>
+>	• The [Terraform section](https://discuss.hashicorp.com/c/terraform-core) of the community portal contains questions, use cases, and useful patterns.
+>
+>	• For provider-related questions please visit the [Terraform Providers](https://discuss.hashicorp.com/c/terraform-providers) section of the community portal.
+
 
 ## Create Azure connection and resource group
 

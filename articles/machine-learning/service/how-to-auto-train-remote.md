@@ -102,26 +102,6 @@ ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progr
 training_data = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/digits.csv'))
 ```
 
-## Create run configuration
-
-To make dependencies available to the get_data.py script, define a `RunConfiguration` object with defined `CondaDependencies`. Use this object for the `run_configuration` parameter in `AutoMLConfig`.
-
-```python
-from azureml.core.runconfig import RunConfiguration
-from azureml.core.conda_dependencies import CondaDependencies
-
-run_config = RunConfiguration(framework="python")
-run_config.target = compute_target
-run_config.environment.docker.enabled = True
-run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-
-dependencies = CondaDependencies.create(
-    pip_packages=["scikit-learn", "scipy", "numpy==1.16.2"])
-run_config.environment.python.conda_dependencies = dependencies
-```
-
-See this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) for an additional example of this design pattern.
-
 ## Configure experiment
 Specify the settings for `AutoMLConfig`.  (See a [full list of parameters](how-to-configure-auto-train.md#configure-experiment) and their possible values.)
 

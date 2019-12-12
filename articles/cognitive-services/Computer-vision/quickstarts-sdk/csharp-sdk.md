@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Computer Vision client library for .NET | Microsoft Docs"
-description: Get started with the Computer Vision client library for .NET.
+title: "Quickstart: Computer Vision client library for .NET"
+description: In this quickstart, get started with the Computer Vision client library for .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
