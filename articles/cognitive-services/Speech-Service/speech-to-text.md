@@ -75,13 +75,7 @@ If your applications, tools, or products are using the Bing Speech APIs or Custo
 - [Migrate from Bing Speech to the Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
 - [Migrate from Custom Speech to the Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
 
-## Reference docs
-
-- [Speech SDK](https://aka.ms/csspeech)
-- [Speech Devices SDK](speech-devices-sdk.md)
-- [REST API: Speech-to-text](rest-speech-to-text.md)
-- [REST API: Text-to-speech](rest-text-to-speech.md)
-- [REST API: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index)
+[!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
 
 ## Next steps
 
