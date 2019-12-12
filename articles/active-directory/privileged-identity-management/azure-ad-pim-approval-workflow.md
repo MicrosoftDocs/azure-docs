@@ -28,60 +28,11 @@ With Azure Active Directory (Azure AD) Privileged Identity Management (PIM), you
 Beginning in November 2019, the Azure AD roles portion of Privileged Identity Management is being updated to a new version that matches the experiences for Azure resource roles. This creates additional features as well as [changes to the existing API](azure-ad-roles-features.md#api-changes). While the new version is being rolled out, which procedures that you follow in this article depend on version of Privileged Identity Management you currently have. Follow the steps in this section to determine which version of Privileged Identity Management you have. After you know your version of Privileged Identity Management, you can select the procedures in this article that match that version.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
-1. Open **Azure AD Privileged Identity Management**.
-1. Select **Azure AD roles**. If you have a banner on the top of the overview page, follow the instructions in the **New version** tab of this article. Otherwise, follow the instructions in the **Previous version** tab.
+1. Open **Azure AD Privileged Identity Management**. If you have a banner on the top of the overview page, follow the instructions in the **New version** tab of this article. Otherwise, follow the instructions in the **Previous version** tab.
 
     ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
 Follow the steps in this article to approve or deny requests for Azure AD roles.
-
-# [Previous version](#tab/previous)
-
-## View pending requests
-
-As a delegated approver, you'll receive an email notification when an Azure AD role request is pending your approval. You can view these pending requests in Privileged Identity Management.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Click **Azure AD roles**.
-
-1. Click **Approve requests**.
-
-    ![Azure AD roles - Approve requests](./media/azure-ad-pim-approval-workflow/approve-requests.png)
-
-    You'll see a list of requests pending your approval.
-
-## Approve requests
-
-1. Select the requests you want to approve and then click **Approve** to open the Approve selected requests pane.
-
-    ![Approve requests list with Approve option highlighted](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
-
-1. In the **Approve reason** box, type a reason.
-
-    ![Approve selected requests pane with a approve reason](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
-
-1. Click **Approve**.
-
-    The Status symbol will be updated with your approval.
-
-    ![Approve selected requests pane after Approve button clicked](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
-
-## Deny requests
-
-1. Select the requests you want to deny and then click **Deny** to open the Deny selected requests pane.
-
-    ![Approve requests list with Deny option highlighted](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
-
-1. In the **Deny reason** box, type a reason.
-
-    ![Deny selected requests pane with a deny reason](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
-
-1. Click **Deny**.
-
-    The Status symbol will be updated with your denial.
 
 # [New version](#tab/new)
 
@@ -133,6 +84,53 @@ Here's some information about workflow notifications:
 >[!Note]
 >A resource administrator who believes that an approved user should not be active can remove the active role assignment in Privileged Identity Management. Although resource administrators are not notified of pending requests unless they are an approver, they can view and cancel pending requests for all users by viewing pending requests in Privileged Identity Management.
 
+# [Previous version](#tab/previous)
+
+## View pending requests
+
+As a delegated approver, you'll receive an email notification when an Azure AD role request is pending your approval. You can view these pending requests in Privileged Identity Management.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Open **Azure AD Privileged Identity Management**.
+
+1. Click **Azure AD roles**.
+
+1. Click **Approve requests**.
+
+    ![Azure AD roles - Approve requests](./media/azure-ad-pim-approval-workflow/approve-requests.png)
+
+    You'll see a list of requests pending your approval.
+
+## Approve requests
+
+1. Select the requests you want to approve and then click **Approve** to open the Approve selected requests pane.
+
+    ![Approve requests list with Approve option highlighted](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+
+1. In the **Approve reason** box, type a reason.
+
+    ![Approve selected requests pane with a approve reason](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+
+1. Click **Approve**.
+
+    The Status symbol will be updated with your approval.
+
+    ![Approve selected requests pane after Approve button clicked](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+
+## Deny requests
+
+1. Select the requests you want to deny and then click **Deny** to open the Deny selected requests pane.
+
+    ![Approve requests list with Deny option highlighted](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+
+1. In the **Deny reason** box, type a reason.
+
+    ![Deny selected requests pane with a deny reason](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+
+1. Click **Deny**.
+
+    The Status symbol will be updated with your denial.
 
 ---
 
