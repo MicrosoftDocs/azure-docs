@@ -72,7 +72,7 @@
       - name: Create clusters using .NET
         href: ./hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
       - name: Cluster creation errors
-        href: ./hdinsight-create-cluster-error-dictionary.md
+        href: ./create-cluster-error-dictionary.md
         title: 
         summary: 
         abstract: 
