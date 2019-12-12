@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 12/12/2019
 
 ms.author: iainfou
 author: iainfoulds
@@ -28,13 +28,13 @@ Some key considerations of the MFA data flows include the following areas:
 
 ## Personally identifiable information (PII) stored
 
-Personally identifiable information (PII) is user-level data that contains personal information. The following events and scenarios contain PII:
+Personally identifiable information (PII) is user-level data that contains personal information. The following data stores contain PII:
 
 * Blocked users
 * Bypassed users
 * Microsoft Authenticator device token change requests
-* Authentications
-* Mobile App activations
+* MFA activity reports
+* Microsoft Authenticator activations
 
 This information is retained for 90 days.
 
@@ -50,34 +50,34 @@ For Azure public clouds, excluding Azure B2C authentication, NPS Extension, and 
     * In MFA logs
 * Voice call
     * In MFA logs
-    * MFA activity report database
+    * MFA activity report data store
     * Blocked users if fraud reported
-* Mobile App notification
+* Microsoft Authenticator notification
     * In MFA logs
-    * MFA activity report database
+    * MFA activity report data store
     * Blocked users if fraud reported
-    * Change requests when mobile app device token changes
+    * Change requests when Microsoft Authenticator device token changes
 
 > [!NOTE]
-> The MFA activity report database is stored in the North America geography for all clouds, regardless of the region that processes the authentication request. Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, and Microsoft Government Cloud have their own independent data stores separate from public cloud region data stores, however this log data is always stored in North America.
+> The MFA activity report data store is stored in the North America geography for all clouds, regardless of the region that processes the authentication request. Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, and Microsoft Government Cloud have their own independent data stores separate from public cloud region data stores, however this data is always stored in North America.
 
 For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, Azure B2C authentication, NPS Extension, and Windows Server 2016 or 2019 AD FS Adapter, the following PII is stored:
 
 * OATH token
     * In MFA logs
-    * MFA activity report database
+    * MFA activity report data store
 * One-way SMS
     * In MFA logs
-    * MFA activity report database
+    * MFA activity report data store
 * Voice call
     * In MFA logs
-    * MFA activity report database
+    * MFA activity report data store
     * Blocked users if fraud reported
-* Mobile App notification
+* Microsoft Authenticator notification
     * In MFA logs
-    * MFA activity report database
+    * MFA activity report data store
     * Blocked users if fraud reported
-    * Change requests when mobile app device token changes
+    * Change requests when Microsoft Authenticator device token changes
 
 ### MFA Server
 
@@ -88,19 +88,19 @@ If you deploy and run Azure MFA Server, the following PII is stored:
 
 * OATH token
     * In MFA logs
-    * MFA activity report database
+    * MFA activity report data store
 * One-way SMS
     * In MFA logs
-    * MFA activity report database
+    * MFA activity report data store
 * Voice call
     * In MFA logs
-    * MFA activity report database
+    * MFA activity report data store
     * Blocked users if fraud reported
-* Mobile App notification
+* Microsoft Authenticator notification
     * In MFA logs
-    * MFA activity report database
+    * MFA activity report data store
     * Blocked users if fraud reported
-    * Change requests when mobile app device token changes
+    * Change requests when Microsoft Authenticator device token changes
 
 ## Organizationally identifiable information (OII) stored
 
