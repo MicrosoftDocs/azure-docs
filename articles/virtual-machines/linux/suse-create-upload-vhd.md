@@ -80,8 +80,10 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
      DHCLIENT_SET_HOSTNAME="no"
 12. In "/etc/sudoers", comment out or remove the following lines if they exist:
     
+	```
      Defaults targetpw   # ask for the password of the target user i.e. root
      ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+	 ```
 13. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 14. Do not create swap space on the OS disk.
     
@@ -141,9 +143,12 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
    
      DHCLIENT_SET_HOSTNAME="no"
 8. **Important:** In "/etc/sudoers", comment out or remove the following lines if they exist:
-   
+     
+	 ```
      Defaults targetpw   # ask for the password of the target user i.e. root
      ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+	 ```
+
 9. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 10. Do not create swap space on the OS disk.
     
