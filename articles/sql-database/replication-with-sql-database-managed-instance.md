@@ -335,5 +335,5 @@ You can clean up your Azure resources by [deleting the managed instance resource
 ## See Also
 
 - [Transactional replication](sql-database-managed-instance-transactional-replication.md)
-- [Tutorial: Configure transactional replication between an MI publisher and an MI subscriber](sql-database-managed-intsance-configure-replication-tutorial.md)
+- [Tutorial: Configure transactional replication between an MI publisher and an MI subscriber](sql-database-managed-instance-configure-replication-tutorial.md)
 - [What is a Managed Instance?](sql-database-managed-instance.md)
