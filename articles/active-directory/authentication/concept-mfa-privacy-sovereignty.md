@@ -1,6 +1,6 @@
 ---
 title: Azure multi-factor authentication data privacy
-description: Learn what personal information Azure multi-factor authentication (MFA) stores about you and your users and what data remains within the country of origin.
+description: Learn what personal and organizational data Azure multi-factor authentication (MFA) stores about you and your users and what data remains within the country of origin.
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 Identity data is stored by Azure AD in a geographical location based on the address provided by your organization when subscribing for a Microsoft Online service such as Office 365 and Azure. For information on where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
-Cloud-based Azure multi-factor authentication (MFA) and Azure MFA Server process and store some amount of personally identifiable information (PII) and organizational identifiable information (OII). This article outlines what and where data is stored.
+Cloud-based Azure multi-factor authentication (MFA) and Azure MFA Server process and store some amount of personal data and organizational data. This article outlines what and where data is stored.
 
 Some key considerations of the MFA data flows include the following areas:
 
@@ -26,9 +26,9 @@ Some key considerations of the MFA data flows include the following areas:
 * Push notifications using the Microsoft Authenticator app originate from US datacenters. In addition, device vendor-specific services may also come into play from different regions.
 * OATH codes are typically currently validated in the U.S. Again, general purpose user authentication events that originate in other regions, like Europe or Australia, are processed by datacenters in that region. Additional events are currently processed by US datacenters.
 
-## Personally identifiable information (PII) stored
+## Personal data stored by Azure MFA
 
-Personally identifiable information (PII) is user-level data that contains personal information. The following data stores contain PII:
+Personal data is user-level information associated with a specific person. The following data stores contain personal information:
 
 * Blocked users
 * Bypassed users
@@ -38,11 +38,11 @@ Personally identifiable information (PII) is user-level data that contains perso
 
 This information is retained for 90 days.
 
-Azure MFA doesn't log PII such as username, phone number, or IP address, but there is a *UserObjectId* that identifies MFA attempts to users. Log data is stored for 30 days.
+Azure MFA doesn't log personal data such as username, phone number, or IP address, but there is a *UserObjectId* that identifies MFA attempts to users. Log data is stored for 30 days.
 
 ### Azure MFA
 
-For Azure public clouds, excluding Azure B2C authentication, NPS Extension, and Windows Server 2016 or 2019 AD FS Adapter, the following PII is stored:
+For Azure public clouds, excluding Azure B2C authentication, NPS Extension, and Windows Server 2016 or 2019 AD FS Adapter, the following personal data is stored:
 
 * OATH token
     * In MFA logs
@@ -61,7 +61,7 @@ For Azure public clouds, excluding Azure B2C authentication, NPS Extension, and 
 > [!NOTE]
 > The MFA activity report data store is stored in the North America geography for all clouds, regardless of the region that processes the authentication request. Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, and Microsoft Government Cloud have their own independent data stores separate from public cloud region data stores, however this data is always stored in North America.
 
-For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, Azure B2C authentication, NPS Extension, and Windows Server 2016 or 2019 AD FS Adapter, the following PII is stored:
+For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, Azure B2C authentication, NPS Extension, and Windows Server 2016 or 2019 AD FS Adapter, the following personal data is stored:
 
 * OATH token
     * In MFA logs
@@ -81,7 +81,7 @@ For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure Operate
 
 ### MFA Server
 
-If you deploy and run Azure MFA Server, the following PII is stored:
+If you deploy and run Azure MFA Server, the following personal data is stored:
 
 > [!IMPORTANT]
 > As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
@@ -102,16 +102,16 @@ If you deploy and run Azure MFA Server, the following PII is stored:
     * Blocked users if fraud reported
     * Change requests when Microsoft Authenticator device token changes
 
-## Organizationally identifiable information (OII) stored
+## Organizational data stored by Azure MFA
 
-Organizationally identifiable information (OII) is tenant-level data that contains information that could expose configuration or environment setup. Tenant settings from the following Azure portal MFA pages may store OII such as lockout thresholds or caller ID information for incoming phone authentication requests:
+Organizational data is tenant-level information that could expose configuration or environment setup. Tenant settings from the following Azure portal MFA pages may store organizational data such as lockout thresholds or caller ID information for incoming phone authentication requests:
 
 * Account lockout
 * Fraud alert
 * Notifications
 * Phone call settings
 
-And for Azure MFA Server, the following Azure portal pages may contain OII:
+And for Azure MFA Server, the following Azure portal pages may contain organizational data:
 
 * Server settings
 * One-time bypass
