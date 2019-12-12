@@ -100,10 +100,15 @@ Install the Module first, using:
 > [!TIP]
 > Don't forget to connect first using **Connect-MsolService**
 
+   ```PowerShell
+   Connect-MsolService
+   ```
+
 This example PowerShell script enables MFA for an individual user:
 
    ```PowerShell
    Import-Module MSOnline
+   Connect-MsolService
    $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
    $st.RelyingParty = "*"
    $st.State = "Enabled"
