@@ -7,14 +7,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/07/2019
+ms.date: 12/11/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge device so that I can manage resources.
 ---
 
 # Connect to Azure Resource Manager on your Azure Stack Edge device
 
-Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure subscription. For example, you can use the Azure Resource Manager APIs to create, update, and delete VMs in a local subscription that are hosted on your Azure Stage Edge device. This tutorial describes how to connect to the local APIs on your Azure Stack Edge device via Azure Resource Manager using Azure PowerShell.
+Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure subscription. The Azure Stack Edge device supports the same Azure Resource Manager APIs to create, update, and delete VMs in a local subscription. This support lets you manage the device in a manner consistent with the cloud. 
+
+This tutorial describes how to connect to the local APIs on your Azure Stack Edge device via Azure Resource Manager using Azure PowerShell.
 
 ## Endpoints on Azure Stack Edge device
 
@@ -25,7 +27,7 @@ The following table summarizes the various endpoints exposed on your device, the
 | 1. | Azure Resource Manager | https | 30005 | To connect to Azure Resource Manager for automation |
 | 2. | Security token service | https | 443 | To authenticate via access and refresh tokens |
 | 3. | Blob | https | 443 | To connect to Blob storage via REST |
-| 4. | Local web UI of the device | https | 443 | To connect to the local web UI on the appliance |
+
 
 ## Connecting to Azure Resource Manager workflow
 
@@ -35,11 +37,12 @@ The process of connecting to local APIs of the device using Azure Resource Manag
 | --- | --- | --- |
 | 1. | [Configure your Azure Stack Edge device](#step-1-configure-azure-stack-edge-device) | Local web UI |
 | 2. | [Create and install certificates](#step-2-create-and-install-certificates) | Windows client/local web UI |
-| 3. | [Review and configure the prerequisites](#step-3-review-and-configure-the-prerequisites-on-the-client) | Windows client |
-| 4. | [Set up Azure PowerShell on the client](#step-4-set-up-the-azure-powershell-on-the-client) | Windows client |
+| 3. | [Review and configure the prerequisites](#step-3-install-powershell-on-the-client) | Windows client |
+| 4. | [Set up Azure PowerShell on the client](#step-4-set-up-azure-powershell-on-the-client) | Windows client |
 | 5. | [Modify host file for endpoint name resolution](#step-5-modify-host-file-for-endpoint-name-resolution) | Windows client or DNS server |
 | 6. | [Check that the endpoint name is resolved](#step-6-verify-endpoint-name-resolution-on-the-client) | Windows client |
-| 7. | [Use Azure PowerShell cmdlets to verify connection to Azure Resource Manager](#step-7-verify-the-connection-to-azure-resource-manager) | Windows client |
+| 7. | [Set Azure Resource Manager password](#step-7-set-azure-resource-manager-password) | Windows client |
+| 8. | [Use Azure PowerShell cmdlets to verify connection to Azure Resource Manager](#step-8-set-azure-resource-manager-environment) | Windows client |
 
 The following sections detail each of the above steps in connecting to Azure Resource Manager.
 
@@ -76,19 +79,12 @@ Take the following steps in the local web UI of your Azure Stack Edge device.
     > [!IMPORTANT]
     > The device name, DNS domain will be used to form the endpoints that are exposed.
 
-1. Go to the **Compute settings**. Select the network interface that you will use to connect to Azure Resource Manager.
-
-    ![Azure Stack Edge compute settings](media/azure-stack-edge-r-series-connect-resource-manager/compute-settings.png)
-
-1. Enable compute on a network interface that you will use to connect to Azure Resource Manager. Azure Stack Edge will create and manage a virtual switch corresponding to that network interface.
-
-    ![Enable compute settings on Port](media/azure-stack-edge-r-series-connect-resource-manager/network-settings-port6-enable.png)
 
 ## Step 2: Create and install certificates
 
-Certificates ensure that your communication is trusted. On your Azure Stack Edge device, self-signed appliance, blob, and Azure Resource Manager certificates are automatically generated. Optionally, you can bring in your own signed local UI, blob, and Azure Resource Manager certificates as well.
+Certificates ensure that your communication is trusted. On your Azure Stack Edge device, self-signed appliance, blob, and Azure Resource Manager certificates are automatically generated. Optionally, you can bring in your own signed blob and Azure Resource Manager certificates as well.
 
-When you bring in a signed certificate of your own, you also need the corresponding signing chain of the certificate. For the signing chain, local UI, Azure Resource Manager, and the blob certificates on the device, you will need the corresponding certificates on the client machine also to authenticate and communicate with the device.
+When you bring in a signed certificate of your own, you also need the corresponding signing chain of the certificate. For the signing chain, Azure Resource Manager, and the blob certificates on the device, you will need the corresponding certificates on the client machine also to authenticate and communicate with the device.
 
 To connect to Azure Resource Manager, you will need to create or get signing chain and endpoint certificates, import these certificates on your Windows client, and finally upload these certificates on the device.
 
@@ -98,7 +94,7 @@ For test and development use only, you can use Windows PowerShell to create cert
 
 1. You first need to create a root certificate for the signing chain. For more information, see See steps to [Create signing chain certificates](azure-stack-edge-r-series-manage-certificates.md#create-signing-chain-certificate).
 
-2. You can next create the endpoint certificates for the local UI, blob, and Azure Resource Manager. See the steps to [Create endpoint certificates](azure-stack-edge-r-series-manage-certificates.md#create-signed-endpoint-certificates).
+2. You can next create the endpoint certificates for the blob and Azure Resource Manager. See the steps to [Create endpoint certificates](azure-stack-edge-r-series-manage-certificates.md#create-signed-endpoint-certificates).
 
 3. For all these certificates, make sure that the subject name and subject alternate name conform to the following guidelines:
 
@@ -106,7 +102,6 @@ For test and development use only, you can use Windows PowerShell to create cert
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
-    |Local UI| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
     |Multi-SAN single certificate for both endpoints|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 For more information on certificates, go to how to [Manage certificates](azure-stack-edge-r-series-manage-certificates.md).
@@ -125,13 +120,13 @@ The certificates that you created in the previous step will be in the Personal s
 
 ### Import certificates on the client running Azure PowerShell
 
-The certificates that you created in the previous step must be imported on your Windows client into the appropriate certificate store.
+The Windows client where you will invoke the Azure Resource Manager APIs needs to establish trust with the device. To this end, the certificates that you created in the previous step must be imported on your Windows client into the appropriate certificate store.
 
 1. The root certificate that you exported as the DER format with*.cer* extension should now be imported in the Trusted Root Certificate Authorities on your client system. For detailed steps, see [Import certificates into the Trusted Root Certificate Authorities store.](azure-stack-edge-r-series-manage-certificates.md#import-certificates-as-der-format)
 
 2. The endpoint certificates that you exported as the *.pfx* must be exported as *.cer*. This *.cer* is then imported in the **Personal** certificate store on your system. For detailed steps, see [Import certificates into personal store](azure-stack-edge-r-series-manage-certificates.md#import-certificates-as-der-format).
 
-## Step 3: Review and configure the prerequisites on the client 
+## Step 3: Install PowerShell on the client 
 
 Your Windows client must meet the following prerequisites:
 
@@ -182,13 +177,14 @@ Your Windows client must meet the following prerequisites:
     
 For more information, see [Validate the PowerShell Gallery accessibility](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
 
-## Step 4: Set up the Azure PowerShell on the client 
+## Step 4: Set up Azure PowerShell on the client 
 
-1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).
+<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
-2. Install Azure PowerShell modules on your client.
+1. You will install Azure PowerShell modules on your client that will work with your device.
 
-    a. Run PowerShell as an administrator. You need access to PowerShell gallery. In this example, you are running Azure Stack 1904 or later based on your API profile.
+    a. Run PowerShell as an administrator. You need access to PowerShell gallery. 
+
 
     b. To install the required Azure PowerShell modules from the PowerShell Gallery, run the following command:
 
@@ -197,25 +193,28 @@ For more information, see [Validate the PowerShell Gallery accessibility](https:
     
     Install-Module -Name AzureRM.BootStrapper
     
-    # Install and import the API Version Profile into the current PowerShell session.
+   # Install and import the API Version Profile into the current PowerShell session.
     
     Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.7.2
     
     # Confirm the installation of PowerShell
     Get-Module -Name "Azure*" -ListAvailable
-    Get-Module -Name "Azs*" -ListAvailable
     ```
     
-    For more information, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0#install-the-azure-powershell-module).
+    Make sure that you have Azure-RM module version 2.5.0 running at the end of the installation. 
+    If you have an existing version of Azure-RM module that does not match the required version, uninstall using the following command:
 
-A sample output is shown below that indicates the AzureRM modules were installed successfully.
+    `Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose`
+
+    You will now need to install the required version again.
+   
+
+A sample output is shown below that indicates the AzureRM version 2.5.0 modules were installed successfully.
 
 ```powershell
 PS C:\windows\system32> Install-Module -Name AzureRM.BootStrapper
 PS C:\windows\system32> Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
 Loading Profile 2019-03-01-hybrid
-PS C:\windows\system32> Install-Module -Name AzureStack -RequiredVersion 1.7.2
 PS C:\windows\system32> Get-Module -Name "Azure*" -ListAvailable
  
     Directory: C:\Program Files\WindowsPowerShell\Modules
@@ -236,7 +235,6 @@ Script     5.0.4      AzureRM.Storage                     {Get-AzureRmStorageAcc
 Script     4.0.2      AzureRM.Tags                        {Remove-AzureRmTag, Get-AzureRmTag, New-AzureRmTag}
 Script     4.0.3      AzureRM.UsageAggregates             Get-UsageAggregates
 Script     5.0.1      AzureRM.Websites                    {Get-AzureRmAppServicePlan, Set-AzureRmAppServicePlan, New...
-Script     1.7.2      AzureStack
 
  
     Directory: C:\Program Files (x86)\Microsoft Azure Information Protection\Powershell
@@ -244,39 +242,18 @@ Script     1.7.2      AzureStack
 ModuleType Version    Name                            ExportedCommands
 ---------- -------    ----                           ----------------
 Binary     1.48.204.0 AzureInformationProtection          {Clear-RMSAuthentication, Get-RMSFileStatus, Get-RMSServer...
- 
-PS C:\windows\system32> Get-Module -Name "Azs*" -ListAvailable
-
-    Directory: C:\Program Files\WindowsPowerShell\Modules 
- 
-ModuleType Version    Name                                ExportedCommands
----------- -------    ----                                ----------------
-Script     0.2.2      Azs.Azurebridge.Admin               {Get-AzsAzureBridgeProduct, Invoke-AzsAzureBridgeProductDo...
-Script     0.3.1      Azs.Backup.Admin                    {Get-AzsBackupConfiguration, Get-AzsBackup, Restore-AzsBac...
-Script     0.2.2      Azs.Commerce.Admin                  Get-AzsSubscriberUsage
-Script     0.2.3      Azs.Compute.Admin                   {Get-AzsVMExtension, Remove-AzsComputeQuota, New-AzsComput...
-Script     0.4.1      Azs.Fabric.Admin                    {Restart-AzsInfrastructureRoleInstance, Get-AzsScaleUnitNo...
-Script     0.2.2      Azs.Gallery.Admin                   {Add-AzsGalleryItem, Remove-AzsGalleryItem, Get-AzsGallery...
-Script     0.3.2      Azs.Infrastructureinsights.Admin    {Close-AzsAlert, Get-AzsRegionHealth, Get-AzsAlert, Get-Az...
-Script     0.2.2      Azs.Keyvault.Admin                  Get-AzsKeyVaultQuota
-Script     0.2.2      Azs.Network.Admin                   {Get-AzsNetworkQuota, New-AzsNetworkQuota, Get-AzsNetworkA...
-Script     0.2.3      Azs.Storage.Admin                   {Restore-AzsStorageAccount, New-AzsStorageQuota, Get-AzsSt...
-Script     0.2.2      Azs.Subscriptions                   {Get-AzsDelegatedProviderOffer, Remove-AzsSubscription, Ge...
-Script     0.3.3      Azs.Subscriptions.Admin             {Add-AzsPlanToOffer, Get-AzsSubscriptionsQuota, Get-AzsDel...
-Script     0.2.3      Azs.Update.Admin                    {Resume-AzsUpdateRun, Get-AzsUpdateLocation, Get-AzsUpdate...
-  
-PS C:\windows\system32>
 ```
+
 
 ## Step 5: Modify host file for endpoint name resolution 
 
 You will now add the Azure consistent VIP that you defined on the local web UI of device to:
 
 - The host file on the client, OR,
-- The host file on the DNS server
+- The DNS server configuration
 
 > [!IMPORTANT]
-> We recommend that you modify the host file on the DNS server for endpoint name resolution.
+> We recommend that you modify the the DNS server configuration for endpoint name resolution.
 
 On your Windows client that you are using to connect to the device, take the following steps:
 
@@ -313,36 +290,65 @@ Check if the endpoint name is resolved on the client that you are using to conne
 
     ![Ping in command prompt](media/azure-stack-edge-r-series-connect-resource-manager/ping-command-prompt.png)
 
-2. You can use the Add-AzureRmEnvironment cmdlet to further ensure that the communication via Azure Resource Manager is working properly and the API calls are going through the port dedicated for Azure Resource Manager, 30005.
 
-    The `Add-AzureRmEnvironment` cmdlet adds endpoints and metadata to enable Azure Resource Manager cmdlets to connect with a new instance of Azure Resource Manager. A sample output is shown below:
-    
-    ```powershell
-    PS C:\windows\system32> Add-AzureRmEnvironment -Name AzDBE -ResourceManagerEndpoint https://management.dbe-n6hugc2ra.microsoftdatabox.com:30005 -ActiveDirectoryEndpoint https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/ -ActiveDirectoryServiceEndpointResourceId https://management.dbe-n6hugc2ra.microsoftdatabox.com:30005/ -EnableAdfsAuthentication
-    
-    Name  Resource Manager Url                    ActiveDirectory Authority
-    ----  --------------------                   -------------------------
-    AzDBE https:// management.dbe-n6hugc2ra.microsoftdatabox.com:30005 https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
+## Step 7: Set Azure Resource Manager password
+
+Take the following steps to set a new password for the user trying to log into Azure Resource Manager. 
+
+Use the PowerShell option in Azure CLI to run the following cmdlets. <!--need to add the version of Azure CLI>
+
+1. Set the tenant, subscription, and environment for cmdlets to use in the current session using Set-AzContext. 
+
+    `Set-AzureContext`
+
+    Here is the sample output.
+
+    ```azurepowershell
+    PS Azure:\> Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
+       
+    Name    Account             SubscriptionName    Environment     TenantId
+    ----    -------             ----------------    -----------     -------
+    Work    test@outlook.com    Subscription1       AzureCloud      xxxxxxxx
     ```
+
+
+2. Get the SDK encryption key from the Azure portal. 
+
+    1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Device properties**. 
+
+    2. Copy the Encryption Key. You will use this key later.
+ 
+
+3. Set the password to connect to the device local APIs via Azure Resource Manager. Type:
+
+    `Execute Set-AzDataBoxEdgeUser`
+
+    The password and encryption key parameters must be passed as secure strings. Use the following cmdlets to convert the password and encryption key to secure strings. 
+
     
-## Step 7: Verify the connection to Azure Resource Manager
-
-Verify that your device to client communication via Azure Resource Manager is working fine. Take the following steps for this verification:
-
-1. Define the environment as Azure Stack Edge and the port to be used for Azure Resource Manager calls as 30005. You define the environment in two ways:
-
-    - Set the environment. Type the following command:
-
-    ```powershell
-    Set-AzureRMEnvironment -Name <String>
+    ```azurepowershell
+    $pass = ConvertTo-SecureString “Password1” -AsPlainText -Force
+    $key = ConvertTo-SecureString “xxxxxxxxxxxxxxxxxx” -AsPlainText -Force
     ```
+
+    Use the above generated secure strings as parameters in the Execute Set-AzDataBoxEdgeUser cmdlet to reset the password. Here is the sample output.
+
     
-    For more information, go to [Set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    ```azurepowershell
+    PS C:\> Set-AzDataBoxEdgeUser -ResourceGroupName sampleRGName -DeviceName SampleDeviceName -Name EdgeARMUser  -Password $pass -EncryptionKey $key
+       
+        User name   Type ResourceGroupName DeviceName
+        ---------   ---- ----------------- ----------
+        EdgeARMUser ARM   sampleRGName     SampleDeviceName
+    ```
 
-    - Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. By default, the calls would go through the Azure public.
+
+## Step 8: Set Azure Resource Manager environment
+
+Set the Azure Resource Manager environment and verify that your device to client communication via Azure Resource Manager is working fine. Take the following steps for this verification:
 
 
-2. Use the `Add-AzureRmEnvironment` cmdlet to further ensure that the communication via Azure Resource Manager is working properly and the API calls are going through the port dedicated for Azure Resource Manager - 30005.
+1. Use the `Add-AzureRmEnvironment` cmdlet to further ensure that the communication via Azure Resource Manager is working properly and the API calls are going through the port dedicated for Azure Resource Manager - 30005.
 
     The `Add-AzureRmEnvironment` cmdlet adds endpoints and metadata to enable Azure Resource Manager cmdlets to connect with a new instance of Azure Resource Manager. 
 
@@ -351,7 +357,7 @@ Verify that your device to client communication via Azure Resource Manager is wo
     > The Azure Resource Manager endpoint URL that you provide in the following cmdlet is case-sensitive. Make sure the endpoint URL is all in lowercase and matches what you provided in the hosts file. If the case doesn't match, then you will see an error.
 
     ```powershell
-    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>:30005/
+    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>:30005/"
     ```
 
     A sample output is shown below:
@@ -364,37 +370,32 @@ Verify that your device to client communication via Azure Resource Manager is wo
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com:30005 https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
+2. Set the environment as Azure Stack Edge and the port to be used for Azure Resource Manager calls as 30005. You define the environment in two ways:
+
+    - Set the environment. Type the following command:
+
+    ```powershell
+    Set-AzureRMEnvironment -Name <Environment Name>
+    ```
+    
+        For more information, go to [Set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+
+    - Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. By default, the calls would go through the Azure public but you want these to go through the environment that you set for Azure Stack Edge device.
+
 2. Call local device APIs to authenticate the connections to Azure Resource Manager. 
 
     1. These credentials are for a local machine account and are solely used for API access.
 
     2. You can connect via `login-AzureRMAccount` or via `Connect-AzureRMAccount` command. 
 
-        1. To sign in, type the following command:
-         
-            `login-AzureRMAccount -EnvironmentName <Environment Name>`
+        1. To sign in, type the following command. The tenant ID in this instance is hard coded - c0257de7-538f-415c-993a-1b87a031879d. Use the following username and password.
 
-        2. Provide the following information when you see a login window:
+            - **Username** - *EdgeArmUser*
 
-            - **Username** - *EdgeARMuser*
-
-            - **Password** - The default password is *Password1*. You can install the requisite Azure PowerShell modules to set the user password. For more information, see [Install Azure PowerShell module]](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.1.0#install-the-azure-powershell-module-10.     
-        
-            Here is a sample output of the command.
+            - **Password** - You set the password for Azure Resource Manager in an earlier step. Use that password to sign in. The default password is *Password1*. 
 
             ```powershell
-            PS C:\Users\Administrator> login-AzureRMAccount -EnvironmentName AzDBE
-            
-            Account         SubscriptionName  TenantId              Environment
-            -------         ----------------  --------              -------
-            EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzDBE
-            PS C:\Users\Administrator>
-            ```
-
-            An alternative way to log in is to use the `Connect-AzureRmAccount` cmdlet. Here is a sample output of the command. The tenant ID in this instance is hard coded - c0257de7-538f-415c-993a-1b87a031879d.
-
-            ```powershell
-            PS C:\windows\system32> $pass = ConvertTo-SecureString "Password1" -AsPlainText -Force;
+            PS C:\windows\system32> $pass = ConvertTo-SecureString "<Your password>" -AsPlainText -Force;
             PS C:\windows\system32> $cred = New-Object System.Management.Automation.PSCredential("EdgeArmUser", $pass)
             PS C:\windows\system32> Connect-AzureRmAccount -EnvironmentName AzDBE -TenantId c0257de7-538f-415c-993a-1b87a031879d -credential $cred
             
@@ -404,9 +405,30 @@ Verify that your device to client communication via Azure Resource Manager is wo
             
             PS C:\windows\system32>
             ```
+                   
+        
+            An alternative way to log in is to use the `login-AzureRmAccount` cmdlet. 
+            
+            `login-AzureRMAccount -EnvironmentName <Environment Name>`
+
+            Here is a sample output of the command. 
+         
+            ```powershell
+            PS C:\Users\Administrator> login-AzureRMAccount -EnvironmentName AzDBE
+            
+            Account         SubscriptionName  TenantId              Environment
+            -------         ----------------  --------              -------
+            EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzDBE
+            PS C:\Users\Administrator>
+            ```
+
+
 
 > [!IMPORTANT]
-> The connection to Azure Resource Manager expires every 1.5 hours. If this happens, any cmdlets that you execute, will return error messages to the effect that you are not connected to Azure anymore. You will need to sign in again.
+> The connection to Azure Resource Manager expires every 1.5 hours or if your Azure Stack Edge device restarts. If this happens, any cmdlets that you execute, will return error messages to the effect that you are not connected to Azure anymore. You will need to sign in again.
+
+  
+
 
 ## Next steps
 
