@@ -38,6 +38,16 @@ landingContent:
   # Card
   - title: Develop with queues
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure Queue storage for .NET
+            url: storage-quickstart-queues-dotnet.md
+          - text: Azure Queue storage for Java
+            url: storage-quickstart-queues-java.md
+          - text: Azure Queue storage for Python
+            url: storage-quickstart-queues-python.md
+          - text: Azure Queue storage for JavaScript
+            url: storage-quickstart-queues-nodejs.md
       - linkListType: how-to-guide
         links:
           - text: Get started with Azure Queue storage using .NET
@@ -50,18 +60,6 @@ landingContent:
             url: storage-c-plus-plus-how-to-use-queues.md
           - text: How to use Queue storage from Python
             url: storage-python-how-to-use-queue-storage.md
-      - linkListType: quickstart
-        links:
-          - text: Azure Queue storage v12 for .NET
-            url: storage-quickstart-queues-dotnet.md
-          - text: Azure Queue storage v12 for Java
-            url: storage-quickstart-queues-java.md
-          - text: Azure Queue storage v12 for Python
-            url: storage-quickstart-queues-python.md
-          - text: Azure Queue storage v12 for JavaScript
-            url: storage-quickstart-queues-nodejs.md
-          - text: Use the Azure Storage SDK v11 for .NET to manage a queue
-            url: storage-quickstart-queues-dotnet-legacy.md
 
   # Card
   - title: Manage queues
