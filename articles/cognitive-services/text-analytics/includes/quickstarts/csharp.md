@@ -38,7 +38,6 @@ In the application's `Program` class, create variables for your resource's key a
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-<!-- [!code-csharp[initial variables](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=vars)] -->
 ```csharp
 private static readonly string key = "<replace-with-your-text-analytics-key-here>";
 private static readonly string endpoint = "<replace-with-your-text-analytics-endpoint-here>";

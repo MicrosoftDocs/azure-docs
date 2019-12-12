@@ -44,9 +44,6 @@ Create variables for your resource's Azure endpoint and key.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-<!--
-[!code-ruby[endpoint, key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)]
--->
 ```ruby
 const subscription_key = '<paste-your-text-analytics-key-here>'
 const endpoint = `<paste-your-text-analytics-endpoint-here>`

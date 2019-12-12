@@ -90,9 +90,7 @@ In a new function, create variables for your resource's Azure endpoint and subsc
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 Create a new [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#New) object. Pass your key to the [autorest.NewCognitiveServicesAuthorizer()](https://godoc.org/github.com/Azure/go-autorest/autorest#NewCognitiveServicesAuthorizer) function, which will then be passed to the client's `authorizer` property.
-<!--
-[!code-go[Client creation ](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=client)]
--->
+
 ```go
 func GetTextAnalyticsClient() textanalytics.BaseClient {
     var key string = "<paste-your-text-analytics-key-here>"
