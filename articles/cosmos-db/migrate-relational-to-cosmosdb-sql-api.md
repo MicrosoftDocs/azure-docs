@@ -14,7 +14,7 @@ ms.author: thvankra
 
 When migrating from a relational database to Azure Cosmos DB SQL API, it is often necessary to make changes to the data model to optimize it for NoSQL use-cases.
 
-One common transformations is denormalizing data by embedding related sub-items within one JSON document. Here we look at a few options for this using Azure Data Factory or Azure Databricks. For general guidance on data modeling for Cosmos DB, please review [Data modeling in Azure Cosmos DB](modelling-data.md).  
+One common transformation is denormalizing data by embedding related subitems within one JSON document.  Here we look at a few options for this using Azure Data Factory or Azure Databricks. For general guidance on data modeling for Cosmos DB, please review [Data modeling in Azure Cosmos DB](modelling-data.md).  
 
 ## Example Scenario
 
@@ -49,7 +49,7 @@ The results of this query would look as below:
 
 Ideally, we want to use a single Azure Data Factory (ADF) Copy Activity to query SQL as the source and write the output directly to Cosmos DB sink as proper JSON objects. Currently, it is not possible to perform the needed JSON transformation in one Copy Activity. If we try to copy the results of the query above into a Cosmos DB SQL API collection, we will see OrderDetails as a string property of our document, instead of the expected JSON array.
 
-We can workaround this current limitation in one of the following ways:
+We can work around this current limitation in one of the following ways:
 
 * **Use Azure Data Factory with two Copy Activities**: (1) get JSON-formatted data from SQL to a text file in an intermediary blob storage location, and (2) load from the JSON text file to the Cosmos DB collection.
 
@@ -60,7 +60,7 @@ Let’s look at these approaches in more detail:
 
 ## ADF with Two Copy Activities
 
-Although we cannot embed OrderDetails as a JSON-array in the destination Cosmos DB document, we can workaround the issue by using two separate Copy Activities.
+Although we cannot embed OrderDetails as a JSON-array in the destination Cosmos DB document, we can work around the issue by using two separate Copy Activities.
 
 ### Copy Activity #1: SqlJsonToBlobText
 
@@ -88,7 +88,7 @@ SELECT [value] FROM OPENJSON(
 ![ADF copy](./media/migrate-relational-to-cosmos-sql-api/adf1.png)
 
 
-For the sink of the SqlJsonToBlobText copy activity, we choose "Delimited Text" and point it to a specific folder in Azure Blob Storage with a dynamically generated unique file name (e.g. '@concat(pipeline().RunId,'.json').
+For the sink of the SqlJsonToBlobText copy activity, we choose "Delimited Text" and point it to a specific folder in Azure Blob Storage with a dynamically generated unique file name (for example, '@concat(pipeline().RunId,'.json').
 Since our text file is not really "delimited" and we do not want it to be parsed into separate columns using commas and want to preserve the double-quotes ("), we set "Column delimiter" to a Tab ("\t") - or another character not occurring in the data - and "Quote character" to "No quote character".
 
 ![ADF copy](./media/migrate-relational-to-cosmos-sql-api/adf2.png)
@@ -239,7 +239,7 @@ writeConfig = {
 }
 ```
 
-Then, we will query the source Database (in this case SQL Server) for both the order and order detail records, putting the results into Spark Dataframes. We will also create a list containing all the order ids, and a Threadpool for parallel operations:
+Then, we will query the source Database (in this case SQL Server) for both the order and order detail records, putting the results into Spark Dataframes. We will also create a list containing all the order ids, and a Thread pool for parallel operations:
 
 ```python
 import json
@@ -337,4 +337,4 @@ In either approach, at the end, we should get properly saved embedded OrderDetai
 ## Next steps
 * Learn more by trying out the sample applications consuming the bulk executor library in [.NET](bulk-executor-dot-net.md) and [Java](bulk-executor-java.md). 
 * The bulk executor library is integrated into the Cosmos DB Spark connector, to learn more, see [Azure Cosmos DB Spark connector](spark-connector.md) article.  
-* Contact the Azure Cosmos DB product team by opening a support ticket under the "General Advisory" problem type and "Large (TB+) migrations" problem subtype for additional help with large scale migrations. 
+* Contact the Azure Cosmos DB product team by opening a support ticket under the "General Advisory" problem type and "Large (TB+) migrations" problem subtype for additional help with large-scale migrations. 
