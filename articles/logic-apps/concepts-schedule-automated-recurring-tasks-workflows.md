@@ -75,9 +75,11 @@ Here are some patterns that show how you can control recurrence with the start d
 ||||
 
 > [!IMPORTANT] 
-> When future recurrences are based on the last run time, start times might drift due to factors such as latency during storage calls. 
-> To make sure that your logic app doesn't miss a recurrence, especially when the frequency is in days or longer, specify values 
-> for the **At these hours** and **At these minutes** properties, or use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md) instead.
+> For recurrences without advanced scheduling options, future recurrences are based on the last run time. 
+> The start times for these recurrences might drift due to factors such as latency during storage calls. 
+> To make sure that your logic app doesn't miss a recurrence, especially when the frequency is in days or longer, 
+> specify the hours and minutes for when those recurrences should run by using the **At these hours** and 
+> **At these minutes** properties, or use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md) instead.
 
 *Example for past start time and recurrence but no schedule*
 

@@ -54,15 +54,16 @@ For differences between this trigger and the Sliding Window trigger or for more 
    | **Frequency** | `frequency` | Yes | String | The unit of time for the recurrence: **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** |
    ||||||
 
-   For more scheduling options, open the **Add new parameter** list. Any options that you select appear on the trigger after selection.
-
-   ![Advanced scheduling options](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
-
    > [!IMPORTANT] 
-   > Without any advanced schedule options, future recurrences are based on the last run time. 
+   > For recurrences without advanced scheduling options, future recurrences are based on the last run time. 
    > The start times for these recurrences might drift due to factors such as latency during storage calls. 
    > To make sure that your logic app doesn't miss a recurrence, especially when the frequency is in days or longer, 
-   > specify the values for the **At these hours** and **At these minutes** properties, or use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md) instead.
+   > specify the hours and minutes for when those recurrences should run by using the **At these hours** and 
+   > **At these minutes** properties, or use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md) instead.
+
+1. To set advanced scheduling options, open the **Add new parameter** list. Any options that you select appear on the trigger after selection.
+
+   ![Advanced scheduling options](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
    | Property | JSON name | Required | Type | Description |
    |----------|-----------|----------|------|-------------|
