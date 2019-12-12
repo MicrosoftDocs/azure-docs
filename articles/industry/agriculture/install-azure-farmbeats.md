@@ -109,7 +109,7 @@ In this case, request your IT administrator to follow the below steps to automat
 2. Sign in to the Azure portal and select your subscription and Azure AD tenant.
 3. Launch Cloud Shell from the toolbar at the top of the Azure portal.
 
-    ![Project FarmBeats](./media/prepare-for-deployment/navigation-bar-1.png)
+    ![Project FarmBeats](./media/install-azure-farmbeats/navigation-bar-1.png)
 
 4. Choose PowerShell as the preferred shell experience. First time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
 5. Upload the script (from step 1) to Cloud Shell, and note the location of the uploaded file.
@@ -191,7 +191,7 @@ The actual installation of Azure FarmBeats resources happens in Cloud Shell brow
 2. Launch **Cloud Shell** from the toolbar on the top-right corner of the Azure portal.
 3. Choose Bash as the preferred shell experience. Select the **Upload** button (highlighted in the below image), and upload the prepared parameters JSON file.
 
-      ![Project FarmBeats](./media/prepare-for-deployment/bash-2-1.png)
+      ![Project FarmBeats](./media/install-azure-farmbeats/bash-2-1.png)
 
 4. **Copy** the below command and **replace the \<username>** with the correct value so that the command points to the correct path of the uploaded file.
 

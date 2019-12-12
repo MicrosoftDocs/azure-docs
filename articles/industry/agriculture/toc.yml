@@ -20,7 +20,7 @@
 - name: How to Guides
   items:
    - name: Install Azure FarmBeats
-     href: prepare-for-deployment.md
+     href: install-azure-farmbeats.md
    - name: Manage users in Azure FarmBeats
      href: manage-users.md
    - name: Manage farms in Azure FarmBeats
