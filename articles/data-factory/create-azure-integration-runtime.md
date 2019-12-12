@@ -5,12 +5,12 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 01/15/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
 ---
 # How to create and configure Azure Integration Runtime
 The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. For more information about IR, see [Integration runtime](concepts-integration-runtime.md).

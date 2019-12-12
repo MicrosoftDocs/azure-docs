@@ -10,7 +10,7 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Use Java for files & ACLs in Azure Data Lake Storage Gen2 (preview)
+# Use Java to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
 
 This article shows you how to use Java to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 
@@ -27,17 +27,9 @@ This article shows you how to use Java to create and manage directories, files, 
 
 ## Set up your project
 
-To get started, open the *pom.xml* file in your text editor. Add the following dependency element to the group of dependencies.
+To get started, open [this page](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) and find the latest version of the Java library. Then, open the *pom.xml* file in your text editor. Add a dependency element that references that version.
 
-```xml
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-file-datalake</artifactId>
-  <version>12.0.0-preview.6</version>
-</dependency>
-```
-
-Then, add these imports statements to your code file.
+Next, add these imports statements to your code file.
 
 ```java
 import com.azure.storage.common.StorageSharedKeyCredential;
@@ -321,5 +313,5 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 * [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar)
 * [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
-* [Known capability gaps](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)

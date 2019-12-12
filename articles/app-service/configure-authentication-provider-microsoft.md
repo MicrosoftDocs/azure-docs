@@ -1,19 +1,10 @@
 ---
-title: Configure Microsoft Account authentication - Azure App Service
-description: Learn how to configure Microsoft Account authentication for your App Service app.
-author: mattchenderson
-services: app-service
-documentationcenter: ''
-manager: syntaxc4
-editor: ''
+title: Configure Microsoft authentication
+description: Learn how to configure Microsoft Account authentication as an identity provider for your App Service app.
 
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/08/2019
-ms.author: mahender
 ms.custom: seodec18
 
 ---

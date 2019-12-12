@@ -6,7 +6,7 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/04/2019
+ms.date: 12/11/2019
 
 ---
 
@@ -33,7 +33,9 @@ There are two ways to enable application monitoring for Azure App Services hoste
 > [!NOTE]
 > If both agent-based monitoring and manual SDK-based instrumentation is detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) below.
 
-## Enable agent-based monitoring for .NET applications
+## Enable agent-based monitoring
+
+# [.NET](#tab/net)
 
 > [!NOTE]
 > The combination of APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported. For more info see the explanation in the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
@@ -69,11 +71,11 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
     * For the list of supported adaptive sampling telemetry processor settings, you can consult the [code](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) and [associated documentation](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
-## Enable agent-based monitoring for .NET Core applications
+# [.NET Core](#tab/netcore)
 
-The following versions of .NET Core are supported: ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2
+The following versions of .NET Core are supported: ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0
 
-Targeting the full framework from .NET Core, self-contained deployment, and ASP.NET Core 3.0 are currently **not supported** with agent/extension based monitoring. ([Manual instrumentation](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via code will work in all of the previous scenarios.)
+Targeting the full framework from .NET Core, self-contained deployment, and Linux based applications are currently **not supported** with agent/extension based monitoring. ([Manual instrumentation](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via code will work in all of the previous scenarios.)
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -86,11 +88,27 @@ Targeting the full framework from .NET Core, self-contained deployment, and ASP.
 
      ![Instrument your web app](./media/azure-web-apps/create-resource-01.png)
 
-2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0,  2.1, and 2.2.
+2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0,  2.1, 2.2, and 3.0.
 
     ![Choose options per platform](./media/azure-web-apps/choose-options-new-net-core.png)
 
-## Enable client-side monitoring for .NET applications
+# [Node.js](#tab/nodejs)
+
+From within your App Service web app under **Settings** > **select Application Insights** > **Enable**. Node.js agent based monitoring is currently in preview.
+
+# [Java](#tab/java)
+
+Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application, you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
+
+# [Python](#tab/python)
+
+Python App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Python application, you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+
+---
+
+## Enable client-side monitoring
+
+# [.NET](#tab/net)
 
 Client-side monitoring is opt-in for ASP.NET. To enable client-side monitoring:
 
@@ -107,7 +125,7 @@ Client-side monitoring is opt-in for ASP.NET. To enable client-side monitoring:
 
 To disable client-side monitoring either remove the associated key value pair from the Application settings, or set the value to false.
 
-## Enable client-side monitoring for .NET Core applications
+# [.NET Core](#tab/netcore)
 
 Client-side monitoring is **enabled by default** for .NET Core apps with **Recommended collection**, regardless of whether the app setting 'APPINSIGHTS_JAVASCRIPT_ENABLED' is present.
 
@@ -123,6 +141,20 @@ If for some reason you would like to disable client-side monitoring:
    * **Save** the settings and **Restart** your app.
 
 ![Screenshot of application settings UI](./media/azure-web-apps/appinsights-javascript-disabled.png)
+
+# [Node.js](#tab/nodejs)
+
+To enable client-side monitoring for your Node.js application, you need to [manually add the client-side JavaScript SDK to your application](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+# [Java](#tab/java)
+
+To enable client-side monitoring for your Java application, you need to [manually add the client-side JavaScript SDK to your application](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+# [Python](#tab/python)
+
+To enable client-side monitoring for your Python application, you need to [manually add the client-side JavaScript SDK to your application](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+---
 
 ## Automate monitoring
 
@@ -318,7 +350,7 @@ If the upgrade is done from a version prior to 2.5.1, check that the Application
 Below is our step-by-step troubleshooting guide for extension/agent based monitoring for .NET and .NET Core based applications running on Azure App Services.
 
 > [!NOTE]
-> Java and Node.js applications are only supported on Azure App Services via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
+> Java applications are only supported on Azure App Services via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
 
 1. Check that the application is monitored via `ApplicationInsightsAgent`.
     * Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".

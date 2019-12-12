@@ -1,18 +1,19 @@
 ---
-title: Locally-redundant storage (LRS) for low-cost redundancy in Azure Storage
+title: Locally-redundant storage (LRS) for low-cost redundancy
+titleSuffix: Azure Storage
 description: By default, new Azure storage accounts use locally-redundant storage (LRS) for replication. LRS is the least expensive option for replication. It protects against hardware failures in the datacenter, but not against datacenter-level disasters.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ---
 
-# Locally redundant storage (LRS): Low-cost data redundancy for Azure Storage
+# Locally redundant storage (LRS): Low-cost data redundancy
 
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-lrs.md)]
 

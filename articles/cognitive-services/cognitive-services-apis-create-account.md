@@ -84,6 +84,7 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
     ***
 
+
 ## Get the keys for your resource
 
 1. After your resource is successfully deployed, click on **Go to resource** under **Next Steps**.

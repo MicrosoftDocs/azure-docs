@@ -10,7 +10,7 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Use NET for files & ACLs in Azure Data Lake Storage Gen2 (preview)
+# Use .NET to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
 
 This article shows you how to use .NET to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 
@@ -27,7 +27,7 @@ This article shows you how to use .NET to create and manage directories, files, 
 
 ## Set up your project
 
-To get started, install the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) NuGet package.
+To get started, install the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet package.
 
 For more information about how to install NuGet packages, see [Install and manage packages in Visual Studio using the NuGet Package Manager](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio).
 
@@ -289,6 +289,6 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 * [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6)
 * [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
-* [Known capability gaps](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 

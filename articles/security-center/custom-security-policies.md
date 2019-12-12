@@ -30,7 +30,9 @@ As discussed [here](https://docs.microsoft.com/azure/governance/policy/concepts/
     [![Selecting a subscription for which you'll create your custom policy](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
 
     > [!NOTE]
-    > When you add a custom standard, it assigns an *initiative* to that scope. We therefore recommend that you select the widest scope required for that assignment. 
+    > You must add custom standards at the subscription level (or higher) for them to be evaluated and displayed in Security Center. 
+    >
+    > When you add a custom standard, it assigns an *initiative* to that scope. We therefore recommend that you select the widest scope required for that assignment.
 
 1. In the Security policy page, under Your custom initiatives (Preview), click **Add a custom initiative**.
 

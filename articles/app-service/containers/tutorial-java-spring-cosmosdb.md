@@ -1,10 +1,8 @@
 ---
-title: Build Java web app on Linux - Azure App Service
-description: Build, deploy, and scale Spring Boot Java Web apps with Azure App Service on Linux and Azure Cosmos DB.
+title: 'Tutorial: Linux Java app with MongoDB'
+description: Learn how to get a data-driven Linux Java app working in Azure App Service, with connection to a MongoDB running in Azure (Cosmos DB).
 author: rloutlaw
 ms.author: routlaw
-manager: angerobe
-ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018

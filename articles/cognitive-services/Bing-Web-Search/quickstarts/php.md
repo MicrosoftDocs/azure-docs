@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using PHP.
@@ -39,7 +39,7 @@ Before we get started, locate `php.ini` and uncomment this line:
 
 Create a new PHP project in your favorite IDE or editor. Don't forget to add opening and closing tags `<?php` and `?>`.
 
-A few variables must be set before we can continue. Confirm that the `$endpoint` is correct and replace the `$accesskey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `$term`.
+A few variables must be set before we can continue. `$endpoint` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. Confirm that the `$endpoint` is correct and replace the `$accesskey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `$term`.
 
 ```php
 $accessKey = 'enter key here';

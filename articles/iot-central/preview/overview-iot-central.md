@@ -3,7 +3,7 @@ title: What is Azure IoT Central | Microsoft Docs
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions and helps to reduce the burden and cost of IoT management operations, and development. This article provides an overview of the features of Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 12/10/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -46,7 +46,7 @@ This article outlines, for IoT Central:
 - Array schema types aren't supported.
 - Application template export and application copy aren't supported.
 - Only the C device SDK and the Node.js device and service SDKs are supported.
-- It's only available the north Europe and central US regions.
+- It's only available in the United States and Europe locations.
 - Device capability models must have all the interfaces defined inline in the same file.
 
 ## Personas

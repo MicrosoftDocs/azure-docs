@@ -11,12 +11,12 @@ ms.author: normesta
 ms.reviewer: prishet
 ---
 
-# Use Azure CLI for files & ACLs in Azure Data Lake Storage Gen2 (preview)
+# Use Azure CLI to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
 
 This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
 
 > [!IMPORTANT]
-> The the `storage-preview` extension that is featured in this article is currently in public preview.
+> The `storage-preview` extension that is featured in this article is currently in public preview.
 
 [Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 ## Prerequisites
@@ -296,6 +296,6 @@ az storage blob directory metadata show -c my-file-system -d my-directory --acco
 * [Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
 * [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
-* [Known capability gaps](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Source code](https://github.com/Azure/azure-cli-extensions/tree/master/src)
 

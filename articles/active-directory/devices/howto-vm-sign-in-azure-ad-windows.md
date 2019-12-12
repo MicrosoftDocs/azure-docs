@@ -114,6 +114,9 @@ az vm create \
     --admin-password yourpassword
 ```
 
+> [!NOTE]
+> It is required that you enable System assigned managed identity on your virtual machine before you install the Azure AD login VM extension.
+
 It takes a few minutes to create the VM and supporting resources.
 
 Finally, install the Azure AD login VM extension to enable Azure AD login for Windows VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. Use [az vm extension](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) set to install the AADLoginForWindows extension on the VM named myVM in the myResourceGroup resource group:

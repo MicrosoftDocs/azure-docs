@@ -1,11 +1,7 @@
 ---
 title: Overview of Azure Monitor for containers | Microsoft Docs
 description: This article describes Azure Monitor for containers that monitors AKS Container Insights solution and the value it delivers by monitoring the health of your AKS clusters and Container Instances in Azure.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/18/2019
 
 ---
@@ -45,7 +41,7 @@ Azure Monitor for containers delivers a comprehensive monitoring experience usin
 * Monitor container workloads [deployed to Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
     >[!NOTE]
-    >Support for Red Hat OpenShift is a feature in public preview at this time.
+    >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
     >
 
 Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Azure Monitor for containers.
