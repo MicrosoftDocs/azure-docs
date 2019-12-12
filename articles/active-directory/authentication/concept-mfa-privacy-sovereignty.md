@@ -22,9 +22,9 @@ Cloud-based Azure multi-factor authentication (MFA) and Azure MFA Server process
 
 Some key considerations of the MFA data flows include the following areas:
 
-* Two-factor authentication using phone calls or SMS typically originate from US datacenters and are routed by global providers. General purpose user authentication requests that originate in Europe are processed by European datacenters, however other events such as self-service password resets, Azure B2C events, or hybrid scenarios using NPS Extension or AD FS adapter, are all processed by US datacenters.
+* Two-factor authentication using phone calls or SMS typically originate from US datacenters and are routed by global providers. General purpose user authentication requests from other regions such as Europe or Australia are currently processed by datacenters in that region. Other events such as self-service password resets, Azure B2C events, or hybrid scenarios using NPS Extension or AD FS adapter, are all currently processed by US datacenters.
 * Push notifications using the Microsoft Authenticator app originate from US datacenters. In addition, device vendor-specific services may also come into play from different regions.
-* OATH codes are typically currently validated in the U.S. Again, general purpose user authentication events that originate in Europe are processed by European datacenters, however additional events are processed by US datacenters.
+* OATH codes are typically currently validated in the U.S. Again, general purpose user authentication events that originate in other regions, like Europe or Australia, are processed by datacenters in that region. Additional events are currently processed by US datacenters.
 
 ## Personally identifiable information (PII) stored
 
