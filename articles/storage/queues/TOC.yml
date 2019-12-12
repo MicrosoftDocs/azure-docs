@@ -99,7 +99,7 @@
     items:
     - name: Create a storage account
       displayName: resource manager, resource manager template, template, ARM
-      href: ../common/account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Upgrade a storage account
       href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Secure queue data
@@ -129,7 +129,7 @@
       - name: Authorize with Shared Key
         items:
         - name: View and manage account keys
-          href: ../common/account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Configure connection strings
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Use the Azure Storage REST API
