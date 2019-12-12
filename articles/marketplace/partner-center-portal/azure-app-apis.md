@@ -21,7 +21,7 @@ There are a few programmatic assets that you need in order to use the Partner Ce
 - an Azure Active Directory application.
 - an Azure Active Directory (Azure AD) access token.
 
-### Step 1: complete prerequisites for using the Partner Center submission API
+### Step 1: Complete prerequisites for using the Partner Center submission API
 
 Before you start writing code to call the Partner Center submission API, make sure that you have completed the following prerequisites.
 
@@ -41,7 +41,7 @@ To use the Microsoft Store submission API, you must associate an Azure AD applic
 1. Return to the **Users** page, click the name of your Azure AD application to go to the application settings, and copy down the **Tenant ID** and **Client ID** values.
 1. Click **Add new key**. On the following screen, copy down the **Key** value. You won't be able to access this info again after you leave this page. For more information, see [Manage keys for an Azure AD application](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
 
-### Step 2: obtain an Azure AD access token
+### Step 2: Obtain an Azure AD access token
 
 Before you call any of the methods in the Partner Center submission API, you must first obtain an Azure AD access token that you pass to the **Authorization** header of each method in the API. After you obtain an access token, you have 60 minutes to use it before it expires. After the token expires, you can refresh the token so you can continue to use it in future calls to the API.
 
