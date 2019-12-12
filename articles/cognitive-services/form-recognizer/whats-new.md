@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 12/12/2019
 ms.author: pafarley
 
 ---
