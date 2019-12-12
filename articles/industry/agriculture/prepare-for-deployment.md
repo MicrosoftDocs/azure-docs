@@ -119,9 +119,9 @@ In this case, request your IT administrator to follow the below steps to automat
 
 6. Go the home directory by using the 'ls' command and run the following script:
 
-  ```azurepowershell-interactive
-        ./create_aad_script.ps1
-  ```
+      ```azurepowershell-interactive
+            ./create_aad_script.ps1
+      ```
 7. Enter the **Datahub website** name and the **Accelerator website** name. Make a note of the output of the script and share it with the person installing Azure FarmBeats.
 
 Once your IT administrator provides you with the required details, make a note of the **AAD Client ID, AAD Client Secret, Datahub website name & Accelerator website name**.
@@ -195,9 +195,9 @@ The actual installation of Azure FarmBeats resources happens in Cloud Shell brow
 
 4. **Copy** the below command and **replace the \<username>** with the correct value so that the command points to the correct path of the uploaded file.
 
-```bash
-      wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
-```
+    ```bash
+          wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
+    ```
 5. Run the modified command to start the installation process. You will be prompted to:
  - Agree to the **Azure FarmBeats license** terms. Enter "Y" to proceed to the next step if you agree to the Terms of use. Enter "N" to terminate the installation, if you do not agree to the terms of use.
 
