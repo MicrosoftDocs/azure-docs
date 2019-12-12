@@ -1,7 +1,7 @@
 - name: Overview
   items:
    - name: What is FarmBeats?
-     href: overview.md
+     href: overview-azure-farmbeats.md
 - name: Tutorials
   expanded: true
   items:
@@ -36,7 +36,7 @@
 - name: Troubleshoot
   items:
    - name: Troubleshoot FarmBeats
-     href: troubleshoot-project-farmbeats.md
+     href: troubleshoot-azure-farmbeats.md
 - name: Reference for Azure FarmBeats
   items:
-  href: references-for-farmbeats.md
+  href: references-for-azure-farmbeats.md
