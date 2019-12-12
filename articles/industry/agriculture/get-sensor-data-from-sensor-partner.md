@@ -150,4 +150,4 @@ Follow these steps.
 
 ## Next steps
 
-You now have sensor data flowing into your Azure FarmBeats instance. Now, learn how to [generate maps](generate-maps.md#generate-maps) for your farms.
+You now have sensor data flowing into your Azure FarmBeats instance. Now, learn how to [generate maps](generate-maps.md#generate-maps-in-azure-farmbeats) for your farms.
