@@ -55,7 +55,7 @@ Cloud Shell uses an Azure File Share in a storage account, inside a specified su
 Users should lock down access to their files by setting the permissions at the storage account or the subscription level.
 
 ## Supported storage regions
-To find your current region you may run `env` in Bash and locate the variable `ACC_LOCATION`. File shares receive a 5-GB image created for you to persist your `$Home` directory.
+To find your current region you may run `env` in Bash and locate the variable `ACC_LOCATION`, or from PowerShell run `$env:ACC_LOCATION`. File shares receive a 5-GB image created for you to persist your `$Home` directory.
 
 Cloud Shell machines exist in the following regions:
 
