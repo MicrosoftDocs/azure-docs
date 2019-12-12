@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 12/12/2019
 ms.author: lahugh
 ---
 
