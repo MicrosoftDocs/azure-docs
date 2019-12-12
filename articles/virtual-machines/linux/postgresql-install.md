@@ -61,7 +61,7 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. If  you want to build everything that can be built, including the documentation (HTML and man pages) and additional modules (contrib), run the following command instead:
+5. If  you want to build everything that can be built, including the documentation (HTML and man pages) and additional modules (`contrib`), run the following command instead:
    
         # gmake install-world
    
