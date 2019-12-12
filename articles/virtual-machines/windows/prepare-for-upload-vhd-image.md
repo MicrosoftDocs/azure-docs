@@ -78,7 +78,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 > [!NOTE]
 > Azure platform mounts an ISO file to a DVD-ROM when a Windows VM is created from a generalized image.
-> For this reason, the DVD-ROM must be enabled in the generalized image. If it is disabled, the Windows VM will be stuck at OOBE.
+> For this reason, the DVD-ROM must be enabled in the OS in the generalized image. If it is disabled, the Windows VM will be stuck at OOBE.
 
 On the VM that you plan to upload to Azure, run the following commands from an [elevated command prompt window](https://technet.microsoft.com/library/cc947813.aspx):
 
