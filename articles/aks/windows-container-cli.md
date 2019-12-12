@@ -291,6 +291,9 @@ To see the sample app in action, open a web browser to the external IP address o
 
 ![Image of browsing to ASP.NET sample application](media/windows-container/asp-net-sample-app.png)
 
+> [!Note]
+> If you receive a connection timeout when trying to load the page then you should check the sample pod to ensure it is running [kubectl get pods]. Sometimes the windows container will not be started by the time your external IP address is available.
+
 ## Delete cluster
 
 When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
