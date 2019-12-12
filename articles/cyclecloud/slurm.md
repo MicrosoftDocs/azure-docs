@@ -102,6 +102,15 @@ And the `execute` nodearray:
 
 ![Edit Configuration](~/images/slurmnodearrayedit.png "Edit configuration")
 
+``` ini
+    slurm.user.name = slurm
+    slurm.user.uid = 11100
+    slurm.user.gid = 11100
+    munge.user.name = munge
+    munge.user.uid = 11101
+    munge.user.gid = 11101
+```
+
 ## Slurm Configuration Reference
 
 The following are the Slurm specific configuration options you can toggle to customize functionality:
