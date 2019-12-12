@@ -247,9 +247,11 @@ Remove-AzStorageAccount -Name $storageAccountName -ResourceGroupName $storageRes
 ```
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
+echo "Enter the resource group name:" &&
 read resourceGroupName &&
-az group delete --name $resourceGroupName
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+az storage account delete --name storageAccountName --resource-group resourceGroupName
 ```
 
 ---
