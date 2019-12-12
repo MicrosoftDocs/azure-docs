@@ -43,7 +43,7 @@ Follow the steps below to upload a new client certificate. If you have not creat
 > [!NOTE]
 > The certificate must be in **.pfx** format. Self-signed certificates are allowed.
 
-Once the certificate is uploaded, it shows in the **Client certificates**.  If you have many certificates, make a note of the thumbprint of the desired certificate in order to [Configure an API to use a client certificate for gateway authentication][Configure an API to use a client certificate for gateway authentication].
+Once the certificate is uploaded, it shows in the **Certificates**.  If you have many certificates, make a note of the thumbprint of the desired certificate in order to [Configure an API to use a client certificate for gateway authentication][Configure an API to use a client certificate for gateway authentication].
 
 > [!NOTE]
 > To turn off certificate chain validation when using, for example, a self-signed certificate, follow the steps described in this FAQ [item](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).
