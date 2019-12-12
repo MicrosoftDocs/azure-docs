@@ -70,21 +70,31 @@ This article shows you how to use PowerShell to create and manage directories, f
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-4. Get the storage account.
+### Get the storage context
 
-   ```powershell
-   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-   ```
+Choose how you want your commands obtain authorization to the storage account. Then, get the storage account context. Your commands can obtain authorization by using Azure Active Directory (AD), or by using the storage account key. 
 
-   * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+#### Obtain authorization by using Azure Active Directory (AD)
 
-   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+The system ensures that your user account has the appropriate role-based access control (RBAC) assignments and ACL permissions. 
 
-5. Get the storage account context.
+```powershell
+$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+```
+Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-   ```powershell
-   $ctx = $storageAccount.Context
-   ```
+#### Obtain authorization by using the storage account key
+
+The system doesn't check the RBAC or ACL permissions of a resource.
+
+```powershell
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+$ctx = $storageAccount.Context
+```
+
+* Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+
+* Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 ## Create a file system
 
