@@ -9,64 +9,6 @@ ms.date: 10/07/2019
 
 This article describes how to manage files and folders that are backed up with the Microsoft Azure Recovery Services Agent.
 
-## Create a backup policy
-
-The backup policy specifies when to take snapshots of the data to create recovery points and how long to retain recovery points. You configure the backup policy using the MARS agent.
-
-Create a policy as follows:
-
-1. After downloading and registering the MARS agent, launch the agent console. You can find it by searching your machine for **Microsoft Azure Backup**.  
-2. In **Actions**, click **Schedule Backup**.
-
-    ![Schedule a Windows Server backup](./media/backup-configure-vault/schedule-first-backup.png)
-3. In the Schedule Backup Wizard >  **Getting started**, click **Next**.
-4. In **Select Items to Back up**, click **Add Items**.
-
-    ![Select Items to Back up](./media/backup-azure-manage-mars/select-item-to-backup.png)
-
-5. In **Select Items**, select what you want to back up and click **OK**.
-
-    ![Selected Items to Back up](./media/backup-azure-manage-mars/selected-items-to-backup.png)
-
-6. In **Select Items to Back up** page, click **Next**.
-7. In **Specify Back up Schedule** page, specify when you want to take daily or weekly backups. Then click **Next**.
-
-    - A recovery point is created when a backup is taken.
-    - The number of recovery points created in your environment is dependent upon your backup schedule.
-
-8. You can schedule daily backups, up to three times a day. For example, the screenshot shows two daily backups, one at midnight and one at 6:00 PM.
-
-    ![Daily schedule](./media/backup-configure-vault/day-schedule.png)
-
-9. You can run weekly backups too. For example, the screenshot shows backups taken every alternate Sunday & Wednesday at 9:30 AM and 1:00 AM.
-
-    ![Weekly schedule](./media/backup-configure-vault/week-schedule.png)
-
-10. On the **Select Retention Policy** page, specify how you store historical copies of your data. Then click **Next**.
-
-    - Retention settings specify which recovery points should be stored, and how long they should be stored for.
-    - For example, when you set a daily retention setting, you indicate that at the time specified for the daily retention, the latest recovery point will be retained for the specified number of days. Or, as another example, you could specify a monthly retention policy to indicate that the recovery point created on the 30th of every month should be stored for 12 months.
-    - Daily and weekly recovery point retention usually coincides with the backup schedule. Meaning that when the backup is triggered according to schedule, the recovery point created by the backup is stored for the duration indicated in the daily or weekly retention policy.
-    - As an example, in the following screenshot:
-            - Daily backups at midnight and 6:00 PM are kept for seven days.
-            - Backups taken on a Saturday at midnight and 6:00 PM are kept for four weeks.
-            - Backups taken on Saturday on the last week of the month at midnight and 6:00 PM are kept for 12 months.
-            - Backups taken on a Saturday in the last week of March are kept for 10 years.
-
-    ![Retention example](./media/backup-configure-vault/retention-example.png)
-
-11. In **Choose Initial Backup Type** decide if you want to take the initial backup over the network or use offline backup (for more information on offline backup refer, see this [article](backup-azure-backup-import-export.md)). To take the initial backup over the network, select **Automatically over the network** and click **Next**.
-
-    ![initial Backup Type](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
-
-12. In **Confirmation**, review the information, and then click **Finish**.
-    ![Confirm Backup Type](./media/backup-azure-manage-mars/confirm-backup-type.png)
-
-13. After the wizard finishes creating the backup schedule, click **Close**.
-  ![Confirm Modify Backup Process](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
-
-You must create a policy on each machine where the agent is installed.
-
 ## Modify a backup policy
 
 When you modify backup policy, you can add new items, remove existing items from backup, or exclude files from being backed up using  Exclusion Settings.
@@ -78,7 +20,7 @@ When you modify backup policy, you can add new items, remove existing items from
   - Reselecting these items, leads to a first full-backup and new policy changes are not applied to old backups.
   - Unselecting entire volume retains past backup without any scope for modifying retention policy.
 - **Exclusion Settings** use this option to exclude specific items from being backed up.
-  
+
 ### Add new items to existing policy
 
 1. In **Actions**, click **Schedule Backup**.
