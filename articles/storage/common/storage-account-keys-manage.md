@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2019
+ms.date: 12/12/2019
 ms.author: tamram
 ---
 
@@ -23,9 +23,16 @@ Microsoft recommends that you regularly rotate and regenerate your access keys. 
 
 [!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
+## Use Azure Key Vault to manage your access keys
+
+Microsoft recommends using Azure Key Vault to manage and rotate your access keys. Your application can securely access your keys in Key Vault, so that you can avoid storing them with your application code. For more information about using Key Vault for key management, see the following articles:
+
+- [Manage storage account keys with Azure Key Vault and PowerShell](../articles/key-vault/key-vault-overview-storage-keys-powershell.md)
+- [Manage storage account keys with Azure Key Vault and the Azure CLI](../articles/key-vault/key-vault-ovw-storage-keys.md)
+
 ## Manually rotate access keys
 
-Microsoft recommends that you rotate your access keys periodically to help keep your storage account secure. If possible, use Azure Key Vault to manage your access keys. You can easily rotate your keys using Key Vault. If you are not using Key Vault, you will need to rotate your keys manually.
+Microsoft recommends that you rotate your access keys periodically to help keep your storage account secure. If possible, use Azure Key Vault to manage your access keys. If you are not using Key Vault, you will need to rotate your keys manually.
 
 Two access keys are assigned so that you can rotate your keys. Having two keys ensures that your application maintains access to Azure Storage throughout the process.
 
