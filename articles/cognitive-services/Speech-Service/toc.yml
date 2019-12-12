@@ -370,6 +370,8 @@
       items:
       - name: "How-to: Audio Content Creation"
         href: how-to-audio-content-creation.md
+  - name: Custom keyword naming guidelines
+    href: speech-devices-sdk-kws-guidelines.md
   - name: Custom keyword spotting
     href: speech-devices-sdk-create-kws.md
 - name: Speech Service
