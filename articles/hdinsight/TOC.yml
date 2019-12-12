@@ -837,6 +837,8 @@
       href: ./hdinsight-management-ip-addresses.md
   - name: How to
     items:
+    - name: Use ID Broker for credential management
+      href: ./hdinsight-id-broker.md    
     - name: Create ESP clusters and sync with on-premises
       href: ./domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Create VNETs for HDInsight
