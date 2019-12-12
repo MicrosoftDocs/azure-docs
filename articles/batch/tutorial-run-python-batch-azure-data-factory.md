@@ -103,7 +103,7 @@ blobService.create_blob_from_text(containerName, "outputs/iris_setosa.csv", "iri
 
 Save the script as *main.python* and upload it to the **Azure Storage** container.
 
-![Upload Blob](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/upload_script_blob.PNG?token=ABTT2GOQBBVLIF4NKHEMGZS5ZLY4S)
+![Upload Blob](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/upload_script_blob.PNG?token=ABTT2GLMT3Y7CPENRHECGPS57NLTG)
 
 Run the script locally using either command prompt or terminal depending on your operating system.
 
@@ -113,7 +113,7 @@ python main.py
 
 Access the **Azure portal** and check that the dataset is now saved in the outputs folder of the **Azure Storage** container.
 
-![Upload Subset](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/upload_subset_data_blob.PNG?token=ABTT2GPP5OCTYKBOXNKTCAK5ZLY7Y)
+![Upload Subset](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/upload_subset_data_blob.PNG?token=ABTT2GP4JLQ4PVU3RWSLKKC57NLVG)
 
 
 ### Set up an Azure Batch account
