@@ -25,7 +25,8 @@ You can also use transactional replication to push changes made in an instance d
 Transactional replication is in public preview on [Azure SQL Database managed instance](sql-database-managed-instance.md). A managed instance can host publisher, distributor, and subscriber databases. See [transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
 
   > [!NOTE]
-  > This article is intended to guide a user in configuring replication with an Azure Database managed instance from end to end, starting with creating the resource group. If you already have managed instances deployed, skip ahead to  [Step 4](#4---create-a-publisher-database) to create your publisher database, or [Step 6](#6---configure-distribution) if you already have a publisher and subscriber database, and are ready to start configuring replication.  
+  > - This article is intended to guide a user in configuring replication with an Azure Database managed instance from end to end, starting with creating the resource group. If you already have managed instances deployed, skip ahead to  [Step 4](#4---create-a-publisher-database) to create your publisher database, or [Step 6](#6---configure-distribution) if you already have a publisher and subscriber database, and are ready to start configuring replication.  
+  > - This article configures your publisher and distributor on the same managed instance. To place the distributor on a separate manged instance, see the tutorial [Configure replication between an MI publisher and an MI distributor](sql-database-managed-instance-configure-replication-tutorial.md). 
 
 ## Requirements
 
@@ -334,4 +335,5 @@ You can clean up your Azure resources by [deleting the managed instance resource
 ## See Also
 
 - [Transactional replication](sql-database-managed-instance-transactional-replication.md)
+- [Tutorial: Configure transactional replication between an MI publisher and an MI subscriber](sql-database-managed-intsance-configure-replication-tutorial.md)
 - [What is a Managed Instance?](sql-database-managed-instance.md)
