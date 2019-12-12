@@ -1611,6 +1611,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/spark-api-introduction.md",
+      "redirect_url": "/azure/cosmos-db/analytics-usecases",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-python-application.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-python",
       "redirect_document_id": false
