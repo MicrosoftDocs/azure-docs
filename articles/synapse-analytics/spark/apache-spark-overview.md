@@ -27,7 +27,7 @@ Spark pools in Synapse Analytics offer a fully managed Spark service. The benefi
 
 | Feature | Description |
 | --- | --- |
-| Speed and Efficiency |Spark instances start in approx 2 mins for less than 60 nodes and approx 5 mins for more than 60 nodes. The instance will shut down, by default, in 5 mins after the last job executed unless it is "kept alive" by a notebook connection. |
+| Speed and Efficiency |Spark instances start in approx. 2 mins for fewer than 60 nodes and approx. 5 mins for more than 60 nodes. The instance will shut down, by default, in 5 mins after the last job executed unless it is "kept alive" by a notebook connection. |
 | Ease of creation |You can create a new Spark pool in Synapse Analytics in minutes using the Azure portal, Azure PowerShell, or the Synapse Analytics .NET SDK. See [Get started with Apache Spark pools in Synapse Analytics](apache-spark-notebook-create-spark-use-sql.md). |
 | Ease of use |Synapse Analytics includes a custom notebook derived from nteract. You can use these notebooks for interactive data processing and visualization.|
 | REST APIs |Spark in Synapse Analytics includes [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), a REST API-based Spark job server to remotely submit and monitor jobs. |
@@ -66,7 +66,7 @@ Spark instances in Synapse Analytics enable the following key scenarios:
 
 * Data Engineering/Data Preparation
 
-    Apache Spark includes many language features to support preparation and processing of very large volumes of data so that it can be made more valuable amd then consumed by other services within Synapse Analytics. This is enabled through multiple languages (C#, Scala, PySpark, Spark SQL) and supplied libraries for processing and connectivity.
+    Apache Spark includes many language features to support preparation and processing of large volumes of data so that it can be made more valuable and then consumed by other services within Synapse Analytics. This is enabled through multiple languages (C#, Scala, PySpark, Spark SQL) and supplied libraries for processing and connectivity.
 
 * Machine Learning
 

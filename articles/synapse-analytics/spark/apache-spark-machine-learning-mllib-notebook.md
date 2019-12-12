@@ -212,7 +212,7 @@ In the code below four classes of operations are performed:
     taxi_df.createOrReplaceTempView("nytaxi_filtered")
     ```
 
-If you do not wish to mix Spark SQL and PySpark then this version is completely PySpark
+If you do not wish to mix Spark SQL and PySpark, then this version is completely PySpark
 
 ```Python
 taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'rateCodeId', 'passengerCount'\

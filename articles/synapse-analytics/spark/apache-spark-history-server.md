@@ -13,7 +13,7 @@ ms.reviewer: euang
 
 # Use extended Apache Spark History Server to debug and diagnose Apache Spark applications
 
-This article provides guidance on how to use extended Apache Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. On the **Data** tab, users can check the input and output data of the Spark job. On the **Graph** tab, users can check the data flow and replay the job graph. On the **Diagnosis** tab, user can refer to **Data Skew**, **Time Skew** and **Executor Usage Analysis**.
+This article provides guidance on how to use extended Apache Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. On the **Data** tab, users can check the input and output data of the Spark job. On the **Graph** tab, users can check the data flow and replay the job graph. On the **Diagnosis** tab, user can refer to **Data Skew**, **Time Skew**, and **Executor Usage Analysis**.
 
 ## Get access to Apache Spark History Server
 
@@ -21,7 +21,7 @@ Apache Spark History Server is the web UI for completed and running Spark applic
 
 ### Open the Apache Spark History Server Web UI from Azure Synapse Studio
 
-1. From the an Azure Synapse Studio notebook select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document select **Session details** and then **Spark history server** from the slide out panel.
+1. From the an Azure Synapse Studio notebook, select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document select **Session details** and then **Spark history server** from the slide out panel.
 
 ![Launch Spark History Server](./media/apache-spark-history-server/launch-history-server2.png "Launch Spark History Server")
 ![Launch Spark History Server](./media/apache-spark-history-server/launch-history-server.png "Launch Spark History Server")
@@ -50,11 +50,11 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
     ![Data for Spark application table](./media/apache-spark-history-server/apache-spark-data-table.png)
 
-+ Download single file by clicking button **Partial Download** that place at the right, then the selected file will be downloaded to local, if the file does not exist any more, it will open a new tab to show the error messages.
++ Download single file by clicking button **Partial Download** that place at the right, then the selected file will be downloaded to local, if the file does not exist anymore, it will open a new tab to show the error messages.
 
     ![Data for Spark application download row](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
-+ Copy full path or relative path by selecting the **Copy Full Path**, **Copy Relative Path** that expands from download menu. For azure data lake storage files, **Open in Azure Storage Explorer** will launch Azure Storage Explorer, and locate to the folder when sign-in.
++ Copy full path or relative path by selecting the **Copy Full Path**, **Copy Relative Path** that expands from download menu. For Azure Data Lake Storage files, **Open in Azure Storage Explorer** will launch Azure Storage Explorer, and locate to the folder when sign in.
 
     ![Data for Spark application copy path](./media/apache-spark-history-server/sparkui-data-copy-path.png)
 
@@ -88,7 +88,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
     ![Spark application and job graph heatmap](./media/apache-spark-history-server/sparkui-graph-heatmap.png)
 
-+ Play back the job by clicking the **Playback** button and stop anytime by clicking the stop button. The task display in color to show different status when playback:
++ Play back the job by clicking the **Playback** button and stop anytime by clicking the stop button. The task display in color to show different status when play back:
 
   + Green for succeeded: The job has completed successfully.
   + Orange for retried: Instances of tasks that failed but do not affect the final result of the job. These tasks had duplicate or retry instances that may succeed later.
@@ -125,7 +125,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
   + Name or description.
   + Total task number.
   + Data read: the sum of input size and shuffle read size.
-  + Data write: the sum of output size and shuffle write size.
+  + Data write: the sum of output size and shuffle writes size.
   + Execution time: the time between start time of the first attempt and completion time of the last attempt.
   + Row count: the sum of input records, output records, shuffle read records and shuffle write records.
   + Progress.
@@ -152,9 +152,9 @@ Select job ID then click **Diagnosis** on the tool menu to get the job Diagnosis
 
 Click **Data Skew** tab, the corresponding skewed tasks are displayed based on the specified parameters.
 
-+ **Specify Parameters** - The first section displays the parameters which are used to detect Data Skew. The built-in rule is: Task Data Read is greater than 3 times of the average task data read, and the task data read is more than 10MB. If you want to define your own rule for skewed tasks, you can choose your parameters, the **Skewed Stage**, and **Skew Char** section will be refreshed accordingly.
++ **Specify Parameters** - The first section displays the parameters, which are used to detect Data Skew. The built-in rule is: Task Data Read is greater than three times of the average task data read, and the task data read is more than 10 MB. If you want to define your own rule for skewed tasks, you can choose your parameters, the **Skewed Stage**, and **Skew Char** section will be refreshed accordingly.
 
-+ **Skewed Stage** - The second section displays stages which have skewed tasks meeting the criteria specified above. If there are more than one skewed task in a stage, the skewed stage table only displays the most skewed task (e.g. the largest data for data skew).
++ **Skewed Stage** - The second section displays stages, which have skewed tasks meeting the criteria specified above. If there is more than one skewed task in a stage, the skewed stage table only displays the most skewed task (for example, the largest data for data skew).
 
     ![sparkui diagnosis data skew tab](./media/apache-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
 
@@ -166,7 +166,7 @@ Click **Data Skew** tab, the corresponding skewed tasks are displayed based on t
 
 The **Time Skew** tab displays skewed tasks based on task execution time.
 
-+ **Specify Parameters** - The first section displays the parameters which are used to detect Time Skew. The default criteria to detect time skew is: task execution time is greater than 3 times of average execution time and task execution time is greater than 30 seconds. You can change the parameters based on your needs. The **Skewed Stage** and **Skew Chart** display the corresponding stages and tasks information just like the **Data Skew** tab above.
++ **Specify Parameters** - The first section displays the parameters, which are used to detect Time Skew. The default criteria to detect time skew is: task execution time is greater than three times of average execution time and task execution time is greater than 30 seconds. You can change the parameters based on your needs. The **Skewed Stage** and **Skew Chart** display the corresponding stages and tasks information just like the **Data Skew** tab above.
 
 + Click **Time Skew**, then filtered result is displayed in **Skewed Stage** section according to the parameters set in section **Specify Parameters**. Click one item in **Skewed Stage** section, then the corresponding chart is drafted in section3, and the task details are displayed in right bottom panel.
 
@@ -176,13 +176,13 @@ The **Time Skew** tab displays skewed tasks based on task execution time.
 
 The Executor Usage Graph visualizes the Spark job actual executor allocation and running status.  
 
-+ Click **Executor Usage Analysis**, then four types curves about executor usage are drafted, including **Allocated Executors**, **Running Executors**,**idle Executors**, and **Max Executor Instances**. Regarding allocated executors, each "Executor added" or "Executor removed" event will increase or decrease the allocated executors, you can check "Event Timeline" in the “Jobs" tab for more comparison.
++ Click **Executor Usage Analysis**, then four types curves about executor usage are drafted, including **Allocated Executors**, **Running Executors**, idle Executors**, and **Max Executor Instances**. Regarding allocated executors, each "Executor added" or "Executor removed" event will increase or decrease the allocated executors, you can check "Event Timeline" in the “Jobs" tab for more comparison.
 
     ![sparkui diagnosis executors tab](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 
 + Click the color icon to select or unselect the corresponding content in all drafts.
 
-    ![sparkui diagnosis select chart](./media/apache-spark-history-server/sparkui-diagnosis-select-chart.png)
+    ![sparkui diagnoses select chart](./media/apache-spark-history-server/sparkui-diagnosis-select-chart.png)
 
 ## Known issues
 
