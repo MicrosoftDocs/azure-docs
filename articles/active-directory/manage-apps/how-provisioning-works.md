@@ -145,24 +145,6 @@ The provisioning service continues running back-to-back incremental cycles indef
 - A new initial cycle is triggered because of a change in attribute mappings or scoping filters. This action also clears any stored watermark and causes all source objects to be evaluated again.
 - The provisioning process goes into quarantine (see below) because of a high error rate, and stays in quarantine for more than four weeks. In this event, the service will be automatically disabled.
 
-### De-provisioning
-
-The Azure AD provisioning service keeps source and target systems in sync by de-provisioning deleted user accounts when they're deleted or go out of scope. 
-
-In Azure AD, a user account is "soft" deleted when any of the following events occur:
-
-* The user account is deleted in Azure AD
-*	The user is unassigned from the application
-*	The user no longer meets a scoping filter and goes out of scope
-*	The AccountEnabled property is set to False
-
-In these cases, the IsSoftDeleted attribute for the user account in Azure AD is set to true, and the user account remains in a suspended state for 30 days. The IsSoftDeleted attribute is often part of the default mappings for an application. Not all applications support soft deletes, but if supported, the application receives an update request from the Azure AD provisioning service and sets the user’s active property to false. 
-
-By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions](skip-out-of-scope-deletions.md).
-
-After 30 days, a soft-deleted account in Azure AD is automatically “hard" deleted. This event triggers the Azure AD provisioning service to send a DELETE request to the application. At any time during the 30-day window, you can [manually delete a user]( https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore), which sends a delete request to the application.
-
-
 ### Errors and retries
 
 If an error in the target system prevents an individual user from being added, updated, or deleted in the target system, the operation is retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators must check the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) to determine the root cause and take the appropriate action. Common failures can include:
@@ -187,6 +169,24 @@ Performance depends on whether your provisioning job is running an initial provi
 ### How to tell if users are being provisioned properly
 
 All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). The logs include all read and write operations made to the source and target systems, and the user data that was read or written during each operation. For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
+
+## De-provisioning
+
+The Azure AD provisioning service keeps source and target systems in sync by de-provisioning accounts when users should not have access anymore. 
+
+The Azure AD provisioning service will soft delete a user in an application when the application suupports soft deletes (update request with active = false) and any of the following events occur:
+
+* The user account is deleted in Azure AD
+*	The user is unassigned from the application
+*	The user no longer meets a scoping filter and goes out of scope
+    * By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions](skip-out-of-scope-deletions.md).
+*	The AccountEnabled property is set to False
+
+If one of the above four events occurs and the target application does not support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app. 
+
+30 days after a user is deleted in Azure AD, they will be permanently deleted from the tenant. At this point, the provisioning service will send a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently]( https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore), which sends a delete request to the application.
+
+If you see an attribute IsSoftDeleted in your attribute mappings, it is used to determine the state of the user and whether to send an update request with active = false to soft delete the user. 
 
 ## Next Steps
 
