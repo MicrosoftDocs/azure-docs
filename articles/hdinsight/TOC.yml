@@ -71,6 +71,22 @@
         href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
       - name: Create clusters using .NET
         href: ./hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
+      - name: Cluster creation errors
+        href: ./hdinsight-create-cluster-error-dictionary.md
+        title: 
+        summary: 
+        abstract: 
+        achievement: 
+        iconUrl: 
+        levels:
+          - 
+        roles:
+          - 
+        products:
+          - 
+        units:
+          - 
+        
     - name: Use cluster storage
       items:
       - name: Using Azure Storage
