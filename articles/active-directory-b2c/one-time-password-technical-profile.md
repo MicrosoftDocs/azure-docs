@@ -39,7 +39,7 @@ The following example shows a one-time password technical profile:
   ...
 ```
 
-## Generate Code
+## Generate code
 
 The first mode of this technical profile is to generate a code. Below are the options that can be configured for this mode.
 
@@ -104,7 +104,7 @@ The following example `TechnicalProfile` is used for generating a code:
 </TechnicalProfile>
 ```
 
-## Verify Code
+## Verify code
 
 The second mode of this technical profile is to verify a code. Below are the options that can be configured for this mode.
 

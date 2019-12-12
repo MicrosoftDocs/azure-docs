@@ -216,7 +216,7 @@ Under [ClaimsSchema](claimsschema.md), add the following [DisplayControl](displa
 
 ## Add OTP technical profiles
 
-The `GenerateOtp` technical profile generates a code for the email address. The `VerifyOtp` technical profile verifies the code associated with the email address. You can change the configuration of the format and the expiration of the one-time password. For more information about OTP technical profiles, see [Define a one-time password technical profile](otp-technical-profile.md).
+The `GenerateOtp` technical profile generates a code for the email address. The `VerifyOtp` technical profile verifies the code associated with the email address. You can change the configuration of the format and the expiration of the one-time password. For more information about OTP technical profiles, see [Define a one-time password technical profile](one-time-password-technical-profile.md).
 
 ```XML
 <ClaimsProvider>

@@ -1,5 +1,5 @@
 ---
-title: Display Control reference
+title: Display control reference
 titleSuffix: Azure AD B2C
 description: Reference for Azure AD B2C display controls. Use display controls for customizing user journeys defined in your custom policies.
 services: active-directory-b2c
@@ -14,11 +14,11 @@ ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Display Controls
+# Display controls
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A **Display Control** is a user interface element that has special functionality and interacts with the Azure Active Directory B2C (Azure AD B2C) back-end service. It allows the user to perform actions on the page that invoke a [validation technical profile](validation-technical-profile.md) at the back end. Display Controls are displayed on the page and are referenced by a [self-asserted technical profile](self-asserted-technical-profile.md).
+A **display control** is a user interface element that has special functionality and interacts with the Azure Active Directory B2C (Azure AD B2C) back-end service. It allows the user to perform actions on the page that invoke a [validation technical profile](validation-technical-profile.md) at the back end. Display controls are displayed on the page and are referenced by a [self-asserted technical profile](self-asserted-technical-profile.md).
 
 The following image illustrates a self-asserted sign-up page with two display controls that validate a primary and secondary email address.
 
@@ -38,7 +38,7 @@ The following image illustrates a self-asserted sign-up page with two display co
   ...
 ```
 
-## Defining Display Controls
+## Defining display controls
 
 The **DisplayControl** element contains the following attributes:
 
@@ -53,7 +53,7 @@ The **DisplayControl** element contains the following elements:
 | ------- | ----------- | ----------- |
 | InputClaims | 0:1 | **InputClaims** are used to prepopulate the value of the claims to be collected from the user. |
 | DisplayClaims | 0:1 | **DisplayClaims** are used to represent claims to be collected from the user. |
-| OutputClaims | 0:1 | **OutputClaims** are used to represent claims to be saved temporarily for this **Display Control**. |
+| OutputClaims | 0:1 | **OutputClaims** are used to represent claims to be saved temporarily for this **DisplayControl**. |
 | Actions | 0:1 | **Actions** are used to list the validation technical profiles to invoke for user actions happening at the front-end. |
 
 ### Input claims

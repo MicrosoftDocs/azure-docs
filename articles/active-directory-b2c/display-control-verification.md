@@ -1,5 +1,5 @@
 ---
-title: Verify claims with Display Controls
+title: Verify claims with display controls
 titleSuffix: Azure AD B2C
 description: Learn how to use Azure AD B2C display controls to verify the claims in the user journeys provided by your custom policies.
 services: active-directory-b2c
@@ -14,9 +14,11 @@ ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Verification Display Control
+# Verification display control
 
-Use a verification [Display Control](display-controls.md) to verify a claim, for example an email address or phone number, with a verification code sent to the user.
+Use a verification [display control](display-controls.md) to verify a claim, for example an email address or phone number, with a verification code sent to the user.
+
+## VerificationControl actions
 
 The verification display control consists of two steps (actions):
 
@@ -41,7 +43,7 @@ The **VerificationControl** must contain following elements:
 - Output claim (optional) to be returned to the self-asserted page after the user completes verification process. For example, *email* or *country code* and *phone number*. The self-asserted technical profile uses the claims to persist the data or bubble up the output claims to the next orchestration step.
 - Two `Action`s with following names:
   - **SendCode** - Sends a code to the user. This action usually contains two validation technical profile, to generate a code and to send it.
-  - **VerifyCode** - Verifies the code. This actinon usually contains a single validation technical profile.
+  - **VerifyCode** - Verifies the code. This action usually contains a single validation technical profile.
 
 In the example below, an **email** textbox is displayed on the page. When the user enters their email address and selects **SendCode**, the **SendCode** action is triggered in the Azure AD B2C back end.
 

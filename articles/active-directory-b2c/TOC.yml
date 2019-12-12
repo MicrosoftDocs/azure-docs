@@ -293,7 +293,7 @@
           - name: OAuth2
             href: oauth2-technical-profile.md
           - name: One-time password
-            href: otp-technical-profile.md
+            href: one-time-password-technical-profile.md
             displayName: otp
           - name: OpenID Connect
             href: openid-connect-technical-profile.md
