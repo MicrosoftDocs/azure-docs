@@ -14,12 +14,12 @@ ms.date: 11/01/2019
 Azure managed application notifications allow publishers to automate actions based on lifecycle events of the managed application instances. Publishers can specify custom notification webhook endpoints to receive event notifications about new and existing managed application instances. Publishers can set up custom workflows at the time of application provisioning, updates, and deletion.
 
 ## Getting started
-To start receiving managed applications, spin up a public HTTPS endpoint and specify it when you publish the service catalog application definition or the Azure Marketplace offer.
+To start receiving managed applications, spin up a public HTTPS endpoint and specify it when you publish the service catalog application definition or Azure Marketplace offer.
 
 Here are the recommended steps to get started quickly:
 1. Spin up a public HTTPS endpoint that logs the incoming POST requests and returns `200 OK`.
 2. Add the endpoint to the service catalog application definition or Azure Marketplace offer as explained later in this article.
-3. Create a managed application instance that references the application definition or the Azure Marketplace offer.
+3. Create a managed application instance that references the application definition or Azure Marketplace offer.
 4. Validate that the notifications are being received.
 5. Enable authorization as explained in the **Endpoint authentication** section of this article.
 6. Follow the instructions in the **Notification schema** section of this article to parse the notification requests and implement your business logic based on the notification.
