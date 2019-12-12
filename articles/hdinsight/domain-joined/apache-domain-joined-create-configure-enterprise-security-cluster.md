@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create, configure Enterprise Security Package clusters - Azure
 description: Learn how to create and configure Enterprise Security Package clusters in Azure HDInsight
 services: hdinsight
@@ -173,7 +173,7 @@ Create an Active Directory tenant administrator.
 
 1. Select **Create**.
 
-1. Then have the new user sign in to the Azure Portal where it will be prompted to change the password. You'll need to do this before configuring Microsoft Azure Active Directory Connect.
+1. Then have the new user sign in to the Azure portal where it will be prompted to change the password. You'll need to do this before configuring Microsoft Azure Active Directory Connect.
 
 ## Sync on-premises users to Azure AD
 
