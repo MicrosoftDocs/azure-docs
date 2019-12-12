@@ -115,7 +115,7 @@ A skillset is a resource coordinating the use of [built-in skills](cognitive-sea
 
 This section extends the [Create Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) reference to include additional elements that create a knowledge store. In the preview API, a skillset has a `knowledgeStore` definition as a child element.
 
-### Request example
+### Example - Skillset with knowledgeStore
 
 Use **POST** or **PUT** to create a skillset using the preview API version.
 
@@ -210,6 +210,8 @@ The syntax for structuring the request payload is as follows.
             { 
                 "tables": [ 
                     { "tableName": "<NAME>", "generatedKeyName": "<FIELD-NAME>", "source": "<DOCUMENT-PATH>" },
+                    { "tableName": "<NAME>", "generatedKeyName": "<FIELD-NAME>", "source": "<DOCUMENT-PATH>" },
+                    . . .
                 ], 
                 "objects": [ 
                     {
@@ -225,17 +227,30 @@ The syntax for structuring the request payload is as follows.
                     "source": "/document/normalized_images/*"
                     }
                 ]  
-            }    
+            },
+            {
+                "tables": [
+
+                ],
+                "objects": [
+
+                ],
+                "files":  [
+
+                ]
+            }  
         ]     
     } 
 }
 ```
 
-A`skills` definition is a complex definition (not shown). For more information and examples, see [Create Skillset REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset) or [Skillset concepts and composition](cognitive-search-working-with-skillsets.md).
+A `skills` definition is a complex definition (not shown). For more information and examples, see [Create Skillset REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset) or [Skillset concepts and composition](cognitive-search-working-with-skillsets.md).
 
 A `knowledgeStore` requires a connection string to an Azure Storage account. You can use any storage account, but it's cost-effective to use services in the same region.
 
-A `projections` collection contains projection objects used to create items in Azure storage. Create as many objects as you need (the syntax shows one). Each projection object can have `tables`, `objects`, `files` (one of each), which are either specified or null, with potentially all three in the same object. If you need multiples of the same kind, such as three different table projections, create three projection objects, each with a `tables` specification (leaving the others empty if you don’t need them). For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
+A `projections` collection contains projection objects used to create items in Azure Storage. Each projection object can have `tables`, `objects`, `files` (one of each), which are either specified or null. Within a projection object, any relationships among the data, if detected, are preserved. 
+
+You can create additional projection objects to support isolation and specific scenarios (for example, data structures used for exploration, versus those needed in a data science workload). You can get isolation and customization by setting `source` and `storageContainer` or `table` to different values. For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
 
 ### Response  
 
