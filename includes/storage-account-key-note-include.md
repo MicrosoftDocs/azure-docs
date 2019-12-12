@@ -18,5 +18,5 @@ If possible, use Azure Active Directory (Azure AD) to authorize requests to Blob
 
 Microsoft recommends using Azure Key Vault to manage and rotate your access keys. For more information about using Key Vault for key management, see the following articles:
 
-- [Manage storage account keys with Azure Key Vault and PowerShell](../articles/key-vault/key-vault-overview-storage-keys-powershell)
+- [Manage storage account keys with Azure Key Vault and PowerShell](../articles/key-vault/key-vault-overview-storage-keys-powershell.md)
 - [Manage storage account keys with Azure Key Vault and the Azure CLI](../articles/key-vault/key-vault-ovw-storage-keys.md)
