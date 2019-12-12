@@ -28,7 +28,7 @@ You can host function apps in a couple of ways:
 |[Inbound IP restrictions & private site access](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[Virtual network integration](#virtual-network-integration)|❌No|✅Yes (Regional)|✅Yes (Regional and Gateway)|✅Yes|
 |[Virtual network triggers (non-HTTP)](#virtual-network-triggers-non-http)|❌No| ✅Yes |✅Yes|✅Yes|
-|[Hybrid connections](#hybrid-connections)|❌No|✅Yes|✅Yes|✅Yes|
+|[Hybrid connections](#hybrid-connections) (Windows only)|❌No|✅Yes|✅Yes|✅Yes|
 |[Outbound IP restrictions](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
 ## Inbound IP restrictions
@@ -155,11 +155,14 @@ For example, assume you want to configure Azure Cosmos DB to accept traffic only
 
 ## Hybrid Connections
 
-[Hybrid Connections](../service-bus-relay/relay-hybrid-connections-protocol.md) is a feature of Azure Relay that you can use to access application resources in other networks. It provides access from your app to an application endpoint. You can't use it to access your application. Hybrid Connections is available to functions running in all but the Consumption plan.
+[Hybrid Connections](../service-bus-relay/relay-hybrid-connections-protocol.md) is a feature of Azure Relay that you can use to access application resources in other networks. It provides access from your app to an application endpoint. You can't use it to access your application. Hybrid Connections is available to functions running on Windows in all but the Consumption plan.
 
 As used in Azure Functions, each hybrid connection correlates to a single TCP host and port combination. This means that the hybrid connection's endpoint can be on any operating system and any application as long as you're accessing a TCP listening port. The Hybrid Connections feature doesn't know or care what the application protocol is or what you're accessing. It just provides network access.
 
 To learn more, see the [App Service documentation for Hybrid Connections](../app-service/app-service-hybrid-connections.md). These same configuration steps support Azure Functions.
+
+>[!IMPORTANT]
+> Hybrid Connections is only supported on Windows plans. Linux is not supported
 
 ## Outbound IP restrictions
 
