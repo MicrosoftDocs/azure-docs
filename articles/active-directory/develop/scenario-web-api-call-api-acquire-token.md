@@ -28,7 +28,7 @@ Once you've built a client application object, use it to acquire a token that yo
 
 Here's an example of code that will be called in the actions of the API controllers, calling a downstream API (named todolist).
 
-```CSharp
+```csharp
 private async Task GetTodoList(bool isAppStarting)
 {
  ...
@@ -51,7 +51,7 @@ private async Task GetTodoList(bool isAppStarting)
 
 The `GetAccountIdentifier` method uses the claims associated with the identity of the user for which the web API received the JWT:
 
-```CSharp
+```csharp
 public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
 {
  string userObjectId = GetObjectId(claimsPrincipal);
