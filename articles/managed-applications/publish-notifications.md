@@ -179,10 +179,10 @@ eventType | The type of event that triggered the notification. (For example, PUT
 applicationId | The fully qualified resource identifier of the managed application for which the notification was triggered.
 eventTime | The timestamp of the event that triggered the notification. (Date and time in UTC ISO 8601 format.)
 provisioningState | The provisioning state of the managed application instance. (For example, Succeeded, Failed, Deleting, Deleted.)
-billingDetails | The billing details of the managed application instance. Contains the resourceUsageId that you can use to query Azure Marketplace for usage details.
 error | *Specified only when the provisioningState is Failed*. Contains the error code, message, and details of the issue that caused the failure.
 applicationDefinitionId | *Specified only for service catalog managed applications*. Represents the fully qualified resource identifier of the application definition for which the managed application instance was provisioned.
 plan | *Specified only for Azure Marketplace managed applications*. Represents the publisher, offer, SKU, and version of the managed application instance.
+billingDetails | *Specified only for Azure Marketplace managed applications.* The billing details of the managed application instance. Contains the resourceUsageId that you can use to query Azure Marketplace for usage details.
 
 ## Endpoint authentication
 To secure the webhook endpoint and ensure the authenticity of the notification:
