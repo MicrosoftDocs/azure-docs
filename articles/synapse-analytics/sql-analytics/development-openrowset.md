@@ -12,11 +12,11 @@ ms.reviewer: jrasnick
 ---
 
 # How to use OPENROWSET in SQL on-demand
-The OPENROWSET(BULK...) function allows you to access files in Azure Storage. Within the SQL on-demand resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
+The OPENROWSET(BULK...) function allows you to access files in Azure Storage. Within the SQL on-demand resource, the `OPENROWSET` bulk rowset provider is accessed by calling the `OPENROWSET` function and specifying the BULK option.  
 
 The `OPENROWSET` function can be referenced in the FROM clause of a query as if it were a table name `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
 
-OPENROWSET is currently not supported in SQL pool.
+`OPENROWSET` is currently not supported in SQL pool.
 
 ## Syntax
 
@@ -76,7 +76,7 @@ If you specify the unstructured_data_path to be a folder, a SQL on-demand query 
 > [!NOTE]
 > Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. It returns files for which the file name begins with an underline (_) or a period (.).
 
-In the example below, if the unstructured_data_path='https://mystorageaccount.dfs.core.windows.net/webdata/', a SQL on-demand query will return rows from mydata.txt and_hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in a subfolder.
+In the example below, if the `unstructured_data_path='https://mystorageaccount.dfs.core.windows.net/webdata/'`, a SQL on-demand query will return rows from mydata.txt and_hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in a subfolder.
 
 ![Recursive data for external tables](media/development-openrowset/folder-traversal.png)
 
@@ -93,11 +93,11 @@ The WITH clause allows you to specify columns that you want to read from files.
 > The WITH clause is mandatory for CSV files.
 - For Parquet data files, provide column names that match the column names in the originating data files. Columns will be bound by name. If the WITH clause is omitted, all columns from Parquet files will be returned.
 
-*column_name* = Name for the output column. If provided, this name overrides the column name in the source file.
+`column_name =` Name for the output column. If provided, this name overrides the column name in the source file.
 
-*column_type* = Data type for the output column. The implicit data type conversion will take place here.
+`column_type =` Data type for the output column. The implicit data type conversion will take place here.
 
-*column_ordinal* = Ordinal number of the column in the source file(s). This argument is ignored for Parquet files since binding is done by name. The following example would return a second column only from a CSV file:
+`column_ordinal =` Ordinal number of the column in the source file(s). This argument is ignored for Parquet files since binding is done by name. The following example would return a second column only from a CSV file:
 
 ```sql
 WITH (
@@ -108,23 +108,23 @@ WITH (
 )
 ```
 
-*ESCAPE_CHAR = 'char'*
+`ESCAPE_CHAR = 'char'`
 
 Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself, or any of the delimiter values, the escape character is dropped when reading the value. 
 
-The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
+The `ESCAPE_CHAR` parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
 
-*FIELDTERMINATOR ='field_terminator'*
+`FIELDTERMINATOR ='field_terminator'`
 
 Specifies the field terminator to be used. The default field terminator is a comma (“**,**”).
 
-*ROWTERMINATOR ='row_terminator'*
+`ROWTERMINATOR ='row_terminator'`
 
 Specifies the row terminator to be used. The default row terminator is a newline character such as \r\n.
 
 ## Examples
 
-The following example returns only two columns with ordinal numbers 1 and 4 from the *population*.csv* files. Since there's no header row in the files, it starts reading from the first line:
+The following example returns only two columns with ordinal numbers 1 and 4 from the `population*.csv` files. Since there's no header row in the files, it starts reading from the first line:
 
 ```sql
 /* make sure you have credentials for storage account access created
