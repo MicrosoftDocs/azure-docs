@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/08/2019
+ms.date: 12/10/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge device using APIs so that I can efficiently manage my VMs.
 ---
@@ -194,12 +194,17 @@ Before you use AzCopy, make sure that the [AzCopy is configured correctly](#conf
 AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
 ```
 
+> [!NOTE]
+> Set `BlobType` to page for creating a managed disk out of VHD. Set `BlobType` to block when writing to tiered storage accounts using AzCopy.
+
 You can download the disk images from the marketplace. For detailed steps, go to [Get the virtual disk image from Azure marketplace](azure-stack-edge-r-series-placeholder.md).
 
 A sample output is shown below. For more information on this command, go to [Upload VHD file to storage account using AzCopy](https://docs.microsoft.com/azure/lab-services/devtest-lab-upload-vhd-using-azcopy).
 
+If using a Linux VHD, provide the path to the file. If using a Windows VHD, provide the path to the folder.
+
 ```powershell
-AzCopy /Source:\\hcsfs\scratch\vm_vhds\linux /Dest: http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages /DestKey:gJKoyX2Amg0Zytd1ogA1kQ2xqudMHn7ljcDtkJRHwMZbMK== /Y /S /V /NC:32 /BlobType:page /destType:blob /z:2e7d7d27-c983-410c-b4aa-b0aa668af0c6
+AzCopy /Source:\\hcsfs\scratch\vm_vhds\linux\file.vhd /Dest:http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages /DestKey:gJKoyX2Amg0Zytd1ogA1kQ2xqudMHn7ljcDtkJRHwMZbMK== /Y /S /V /NC:32 /BlobType:page /destType:blob /z:2e7d7d27-c983-410c-b4aa-b0aa668af0c6
 ```
 
 
@@ -208,10 +213,13 @@ AzCopy /Source:\\hcsfs\scratch\vm_vhds\linux /Dest: http://sa191113014333.blob.d
 Create a managed disk from the uploaded VHD.
 
 ```powershell
-$DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD" 
+$DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD"
+```
+A sample output is shown below: 
 
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd 
 
+```powershell
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
@@ -245,12 +253,14 @@ Use the following command to create a VM image from the managed disk. Replace th
 
 ```powershell
 $imageConfig = New-AzureRmImageConfig -Location DBELocal
-$ManagedDiskId = (Get-AzureRmDisk -Name $diskname -ResourceGroupName $rgname).Id
-Set-AzureRmImageOsDisk -Image $imageConfig -OsType '<OS type>' -OsState 'Generalized' -DiskSizeGB $disksize -ManagedDiskId $ManagedDiskId 
+$ManagedDiskId = (Get-AzureRmDisk -Name <Disk name> -ResourceGroupName <Resource group name>).Id
+Set-AzureRmImageOsDisk -Image $imageConfig -OsType '<OS type>' -OsState 'Generalized' -DiskSizeGB <Disk size> -ManagedDiskId $ManagedDiskId 
+
+The supported OS types are Linux and Windows.
 
 For OS Type=Linux, for example:
-Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized' -DiskSizeGB $disksize -ManagedDiskId $ManagedDiskId
-New-AzureRmImage -Image $imageConfig -ImageName <image name>  -ResourceGroupName <rg name>
+Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized' -DiskSizeGB <Disk size> -ManagedDiskId $ManagedDiskId
+New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
 A sample output is shown below. For more information on this cmdlet, go to [New-AzureRmImage](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0).
@@ -416,6 +426,13 @@ ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236
 
 The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge device.
 
+### List VMs running on the device
+
+To return a list of all the VMs running on your Azure Stack Edge device, run the following command.
+
+```powershell
+Get-AzureRmVM -ResourceGroupName <String> -Name <String>`  
+
 ### Turn on the VM
 
 Run the following cmdlet to turn on a virtual machine running on your device:
@@ -456,13 +473,6 @@ Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 
 For more information on this cmdlet, go to [Remove-AzureRmVm cmdlet](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
 
-### List VMs running on the device
-
-To return a list of all the VMs running on your Azure Stack Edge device, run the following command.
-
-```powershell
-Get-AzureRmVM -ResourceGroupName <String> -Name <String>`  
-```
 
 ## Supported VM sizes
 

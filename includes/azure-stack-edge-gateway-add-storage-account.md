@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 12/03/2019
+ms.date: 12/11/2019
 ms.author: alkohli
 ---
 
@@ -22,9 +22,10 @@ ms.author: alkohli
 
     d. Next create a new container or select from an existing container in the Azure storage account. Any data from the device that is written to the Edge storage account is automatically uploaded to the selected storage container in the mapped Azure Storage account.
 
-    e. After all the storage account options are specified, select **Add** to create the Edge storage account. You are notified when the Edge storage account is successfully created. The new Edge storage account is then displayed in the list of storage accounts in the Azure portal.
+    <!--![Add a storage account](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-2.png)-->
 
-        ![Add a storage account](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-2.png)
+    e. After all the storage account options are specified, select **Add** to create the Edge storage account. You are notified when the Edge storage account is successfully created. The new Edge storage account is then displayed in the list of storage accounts in the Azure portal. 
+
     
 4. If you select this new storage account and go to **Access keys**, you can find the blob service endpoint and the corresponding storage account name. Copy this information as these values together with the access keys will help you connect to the Edge storage account.
 
