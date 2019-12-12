@@ -8,7 +8,7 @@ ms.author: v-umha
 ---
 
 
-# Manage farms
+# Manage farms in Azure FarmBeats
 
 You can manage your farms in Azure FarmBeats. This article provides the information about how to create farms, install devices, sensors, and drones that helps you manage your farms.
 

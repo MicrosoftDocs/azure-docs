@@ -221,7 +221,7 @@ You can verify the completion of your Azure FarmBeats installation by doing the 
 2. You should be able to see the different FarmBeats API objects and perform REST operations on the APIs.
 
 **Accelerator**
-1. . Log in to the Accelerator URL provided (in the format **https://\<youraccelerator-website-name>.azurewebsites.net/swagger**) with your Azure credentials.
+1. Log in to the Accelerator URL provided (in the format **https://\<youraccelerator-website-name>.azurewebsites.net/swagger**) with your Azure credentials.
 2. You should be able to see the Accelerator User Interface with an option to create Farms in your browser.
 
 Your ability to perform the above operations indicates a successful installation of Azure FarmBeats.

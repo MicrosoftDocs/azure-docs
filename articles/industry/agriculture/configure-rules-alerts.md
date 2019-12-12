@@ -7,7 +7,7 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Configure rules and manage alerts in FarmBeats
+# Configure rules and manage alerts in Azure FarmBeats
 
 Azure FarmBeats allows you to create rules based on the business logic, in addition to the sensor data that flows from the sensors and devices deployed in your farm. The rules trigger alerts in the system whenever sensor values cross a threshold value. By viewing and analyzing the alerts created after the threshold values, you can quickly act on any issues and get required solutions.
 

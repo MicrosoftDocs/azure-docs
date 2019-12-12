@@ -5,38 +5,38 @@
 - name: Tutorials
   expanded: true
   items:
-   - name: Generate soil moisture map
+   - name: Generate soil moisture map in Azure FarmBeats
      href: generate-soil-moisture-map.md
-   - name: Ingest historical telemetry data
+   - name: Ingest historical telemetry data in Azure FarmBeats
      href: ingest-historical-telemetry-data.md
 - name: Concepts
   items:
-   - name: Integration patterns
+   - name: Integration patterns in Azure FarmBeats
      href: integration-patterns.md
-   - name: Sensor partner integration
+   - name: Sensor partner integration in Azure FarmBeats
      href: sensor-partner-integration.md
-   - name: Imagery partner integration
+   - name: Imagery partner integration in Azure FarmBeats
      href: imagery-partner-integration.md
 - name: How to Guides
   items:
-   - name: Deploy FarmBeats
+   - name: Install Azure FarmBeats
      href: prepare-for-deployment.md
-   - name: Manage users
+   - name: Manage users in Azure FarmBeats
      href: manage-users.md
-   - name: Manage farms
+   - name: Manage farms in Azure FarmBeats
      href: manage-farms.md
    - name: Get sensor data
      href: get-sensor-data-from-sensor-partner.md
-   - name: Generate maps
+   - name: Generate maps in Azure FarmBeats
      href: generate-maps.md
-   - name: Configure rules and manage alerts
+   - name: Configure rules and manage alerts in Azure FarmBeats
      href: configure-rules-alerts.md
-   - name: Get drone imagery
+   - name: Get drone imagery in Azure FarmBeats
      href: get-drone-imagery.md
 - name: Troubleshoot
   items:
    - name: Troubleshoot FarmBeats
      href: troubleshoot-project-farmbeats.md
-- name: Reference
+- name: Reference for Azure FarmBeats
   items:
   href: references-for-farmbeats.md
