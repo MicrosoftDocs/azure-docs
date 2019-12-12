@@ -48,16 +48,17 @@ This article shows you how to deploy WebJobs as a .NET Core console app. To depl
 
 The host is the runtime container for functions that listens for triggers and calls functions. The following steps create a host that implements [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost), which is the Generic Host in ASP.NET Core.
 
-1. In *Program.cs*, add a `using` statement:
+1. In *Program.cs*, add these `using` statements:
 
     ```cs
+    using System.Threading.Tasks;
     using Microsoft.Extensions.Hosting;
     ```
 
 1. Replace the `Main` method with the following code:
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.ConfigureWebJobs(b =>
@@ -67,7 +68,7 @@ The host is the runtime container for functions that listens for triggers and ca
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```
@@ -106,7 +107,7 @@ In this section, you set up console logging that uses the [ASP.NET Core logging 
     The `Main` method now looks like this:
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.ConfigureWebJobs(b =>
@@ -120,7 +121,7 @@ In this section, you set up console logging that uses the [ASP.NET Core logging 
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```
@@ -369,7 +370,7 @@ To take advantage of [Application Insights](../azure-monitor/app/app-insights-ov
 1. Open *Program.cs* and replace the code in the `Main` method with the following code:
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.UseEnvironment(EnvironmentName.Development);
@@ -392,7 +393,7 @@ To take advantage of [Application Insights](../azure-monitor/app/app-insights-ov
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```
