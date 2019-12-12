@@ -12,15 +12,13 @@ ms.author: thvankra
 
 # Migrating one-to-few relational data into Cosmos DB SQL API
 
-When migrating from a relational database (e.g. SQL Server) to a NoSQL database, like Azure Cosmos DB, it is often necessary to make changes to the data model to optimize it for NoSQL use-cases.
+When migrating from a relational database to Azure Cosmos DB SQL API, it is often necessary to make changes to the data model to optimize it for NoSQL use-cases.
 
-One of the common transformations is denormalizing the data by embedding all of the related sub-items (when the sub-item list is bounded/limited) within one JSON document (e.g. including all of the Order Line Items within their Order).
-
-Here we look at a few options for performing this type of denormalization using Azure Data Factory or Azure Databricks. For general guidance on data modeling for Cosmos DB, please review [Data modeling in Azure Cosmos DB](modelling-data.md).  
+One common transformations is denormalizing data by embedding related sub-items within one JSON document. Here we look at a few options for this using Azure Data Factory or Azure Databricks. For general guidance on data modeling for Cosmos DB, please review [Data modeling in Azure Cosmos DB](modelling-data.md).  
 
 ## Example Scenario
 
-Assume we have the following two tables in our SQL database, Orders and OrderDetails, and we want to combine this one-to-few relationship into one JSON document during relational data migration to Cosmos DB via embedding.
+Assume we have the following two tables in our SQL database, Orders and OrderDetails, and we want to combine this one-to-few relationship into one JSON document during migration.
 
 
 ![Order Details](./media/migrate-relational-to-cosmos-sql-api/orders.png)
@@ -49,7 +47,7 @@ The results of this query would look as below:
 ![Order Details](./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png)
 
 
-Ideally, we want to use a single Azure Data Factory (ADF) Copy Activity to query SQL as the source and write the output directly to Cosmos DB sink as proper JSON objects. Currently, it is not possible to perform the needed JSON transformation in one Copy Activity. If we try to copy the results of the query above into a Cosmos DB SQL API collection, we will see the JSON of the OrderDetails sub-items as a string property of our document (instead of the expected JSON array). 
+Ideally, we want to use a single Azure Data Factory (ADF) Copy Activity to query SQL as the source and write the output directly to Cosmos DB sink as proper JSON objects. Currently, it is not possible to perform the needed JSON transformation in one Copy Activity. If we try to copy the results of the query above into a Cosmos DB SQL API collection, we will see the JSON of the OrderDetails sub-items as a string property of our document, instead of the expected JSON array. 
 
 We can workaround this current limitation in one of the following ways:
 
@@ -62,7 +60,7 @@ Let’s look at these approaches in more detail:
 
 ## ADF with Two Copy Activities
 
-Although with the current ADF Copy Activity capabilities we cannot embed OrderDetails as a JSON-array in the destination Cosmos DB document, we can workaround the issue by using two separate Copy Activities.
+Although we cannot embed OrderDetails as a JSON-array in the destination Cosmos DB document, we can workaround the issue by using two separate Copy Activities.
 
 ### Copy Activity #1: SqlJsonToBlobText
 
