@@ -7,7 +7,7 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
-ms.date: 12/09/2019
+ms.date: 12/12/2019
 ---
 # Tutorial: Create RHEL Virtual machines in Azure and set up High Availability with STONITH
 
@@ -85,6 +85,7 @@ We want to create 3 VMs in the Availability Set. Replace the following in the co
 - `<resourceGroupName>`
 - `<VM-basename>`
 - `<availabilitySetName>`
+- `<VM-Size>` - An example would be "Standard_D16_v3"
 - `<username>`
 - `<adminPassword>`
 
@@ -94,7 +95,7 @@ for i in `seq 1 3`; do
      --resource-group <resourceGroupName> \
      --name <VM-basename>$i \
      --availability-set <availabilitySetName> \
-     --size "Standard_D16_v3"  \
+     --size "<VM-Size>"  \
      --image "RedHat:RHEL-HA:7.6:7.6.2019062019" \
      --admin-username "<username>" \
      --admin-password "<adminPassword>" \
@@ -103,14 +104,14 @@ for i in `seq 1 3`; do
 done
 ```
 
-You should get the following results once the command completes for each VM:
+You should get results similar to the following once the command completes for each VM:
 
 ```output
 {
   "fqdns": "",
   "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<VM1>",
   "location": "eastus2",
-  "macAddress": "00-0D-3A-03-34-83",
+  "macAddress": "<Some MAC address>",
   "powerState": "VM running",
   "privateIpAddress": "<IP1>",
   "publicIpAddress": "",
@@ -143,7 +144,7 @@ Type `exit` to leave the SSH session.
 Connect to each VM node and follow the guide to [enable the high availability subscription for RHEL](/sql/linux/sql-server-linux-availability-group-cluster-rhel#enable-the-high-availability-subscription-for-rhel).
 
 > [!TIP]
-> It will be easier if you open an SSH session to each of the VMs simultaneously as the same commands will need to be run on each VM throughout the article.
+> It will be easier if you open an SSH session to each of the VMs simultaneously as the same commands will need to be run on each VM throughout the article. </br></br>If you are copying and pasting multiple `sudo` commands, and are prompted for a password, the additional commands will not run. Run each command separately.
 
 
 1. Run the following commands on each VM to open the Pacemaker firewall ports:
@@ -154,6 +155,9 @@ Connect to each VM node and follow the guide to [enable the high availability su
     ```
 
 1. Update and install Pacemaker packages on all nodes using the following commands:
+
+    > [!NOTE]
+    > **nmap** is installed as part of this command block as a tool to find available IP addresses in your network. You do not have to install **nmap**, but it will be useful later in this tutorial.
 
     ```bash
     sudo yum update -y
@@ -419,19 +423,19 @@ sudo chmod 400 /var/opt/mssql/secrets/passwd # Makes it only readable by root
     sudo firewall-cmd --reload
     ```
 
-1. Run the following Transact-SQL script on the primary replica and each secondary replicas:
-
-    ```sql
-    GRANT ALTER, CONTROL, VIEW DEFINITION ON AVAILABILITY GROUP::ag1 TO pacemakerLogin
-    GRANT VIEW SERVER STATE TO pacemakerLogin
-    ```
-
 1. On your secondary replicas, run the following commands to join them to the AG:
 
     ```sql
     ALTER AVAILABILITY GROUP [ag1] JOIN WITH (CLUSTER_TYPE = EXTERNAL);
      
     ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
+    ```
+
+1. Run the following Transact-SQL script on the primary replica and each secondary replicas:
+
+    ```sql
+    GRANT ALTER, CONTROL, VIEW DEFINITION ON AVAILABILITY GROUP::ag1 TO pacemakerLogin
+    GRANT VIEW SERVER STATE TO pacemakerLogin
     ```
 
 1. Once the secondary replicas are joined, you can see them in SSMS Object Explorer by expanding the **Always On High Availability** node:
@@ -544,11 +548,27 @@ We will be following the guide to [create the availability group resources in th
 
 ### Create the AG cluster resource
 
-Use the following command to create the resource `ag_cluster` in the available group `ag1`..
+1. Use the following command to create the resource `ag_cluster` in the available group `ag1`.
 
-```bash
-sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
-```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
+    ```
+
+1. Check your resource and ensure that they are online before proceeding using the following command:
+
+    ```bash
+    sudo pcs resource
+    ```
+
+    You should see the following output:
+
+    ```output
+    [<username>@VM1 ~]$ sudo pcs resource
+    Master/Slave Set: ag_cluster-master [ag_cluster]
+    Masters: [ <VM1> ]
+    Slaves: [ <VM2> <VM3> ]
+    virtualip      (ocf::heartbeat:IPaddr2):       Started <VM1>
+    ```
 
 ### Create a virtual IP resource
 
