@@ -208,9 +208,23 @@ The syntax for structuring the request payload is as follows.
         "storageConnectionString": "<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>", 
         "projections": [ 
             { 
-                "tables": [ ], 
-                "objects": [ ], 
-                "files": [ ]  
+                "tables": [ 
+                    { "tableName": "<NAME>", "generatedKeyName": "<FIELD-NAME>", "source": "<DOCUMENT-PATH>" },
+                ], 
+                "objects": [ 
+                    {
+                    "storageContainer": "<BLOB-CONTAINER-NAME>", 
+                    "format": "json", 
+                    "source": "<DOCUMENT-PATH>", 
+                    "key": "<FIELD-NAME>" 
+                    }
+                ], 
+                "files": [ 
+                    {
+                    "storageContainer": "<BLOB-CONTAINER-NAME>",
+                    "source": "/document/normalized_images/*"
+                    }
+                ]  
             }    
         ]     
     } 
@@ -221,7 +235,7 @@ A`skills` definition is a complex definition (not shown). For more information a
 
 A `knowledgeStore` requires a connection string to an Azure Storage account. You can use any storage account, but it's cost-effective to use services in the same region.
 
-A `projections` collection contains projection objects. Create as many as you need (the syntax shows one). Each projection object can have `tables`, `objects`, `files` (one of each), which are either specified or null, with potentially all three in the same object. If you need multiples of the same kind, such as three different table projections, create three projection objects, each with a `tables` specification (leaving the others empty if you don’t need them). For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
+A `projections` collection contains projection objects used to create items in Azure storage. Create as many objects as you need (the syntax shows one). Each projection object can have `tables`, `objects`, `files` (one of each), which are either specified or null, with potentially all three in the same object. If you need multiples of the same kind, such as three different table projections, create three projection objects, each with a `tables` specification (leaving the others empty if you don’t need them). For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
 
 ### Response  
 
