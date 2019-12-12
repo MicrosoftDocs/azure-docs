@@ -65,4 +65,4 @@ For the *tenant_id* value in the `POST URI` and the *client_id* and *client_secr
 
 After you have an Azure AD access token, you can call methods in the Partner Center submission API. To create or update submissions, you typically call multiple methods in the Partner Center submission API in a specific order. For information about each scenario and the syntax of each method, see the Ingestion API swagger.
 
-<mark> https://apidocs.microsoft.com/services/partneringestion/</mark>
+https://apidocs.microsoft.com/services/partneringestion/
