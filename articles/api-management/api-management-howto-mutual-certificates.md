@@ -29,7 +29,7 @@ This guide shows you how to configure your API Management service instance to us
 
 ## <a name="step1"> </a>Upload a Certificate
 
-![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert.png)
+![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-new.png)
 
 Follow the steps below to upload a new client certificate. If you have not created an API Management service instance yet, see the tutorial [Create an API Management service instance][Create an API Management service instance].
 
@@ -52,7 +52,7 @@ Once the certificate is uploaded, it shows in the **Client certificates**.  If y
 
 To delete a certificate, click context menu **...** and select **Delete** beside the certificate.
 
-![Delete client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-delete.png)
+![Delete client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-delete-new.png)
 
 If the certificate is in use by an API, then a warning screen is displayed. To delete the certificate, you must first remove the certificate from any APIs that are configured to use it.
 
