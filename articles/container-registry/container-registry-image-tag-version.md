@@ -33,6 +33,10 @@ When base image updates are available, or any type of servicing release of the f
 
 In this case, both the major and minor tags are continually being serviced. From a base image scenario, this allows the image owner to provide serviced images.
 
+### Delete untagged manifests
+
+If an image with a stable tag is updated, the previously tagged image is untagged, resulting in an orphaned image. The previous image's manifest and unique layer data remain in the registry. To maintain your registry size, you can periodically delete untagged manifests resulting from stable image updates. For example, [auto-purge](container-registry-auto-purge.md) untagged manifests older than a specified duration, or set a [retention policy](container-registry-retention-policy.md) for untagged manifests.
+
 ## Unique tags
 
 **Recommendation**: Use unique tags for **deployments**, especially in an environment that could scale on multiple nodes. You likely want deliberate deployments of a consistent version of components. If your container restarts or an orchestrator scales out more instances, your hosts won’t accidentally pull a newer version, inconsistent with the other nodes.
@@ -48,9 +52,9 @@ Unique tagging simply means that every image pushed to a registry has a unique t
 
 ### Lock deployed image tags
 
-As a best practice, we recommend that you [lock](container-registry-image-lock.md) any deployed image tag, by setting its `write-enabled` attribute to `false`. This practice prevents you from inadvertently removing an image from the registry that could disrupt your deployments. You can include the locking step in your release pipeline.
+As a best practice, we recommend that you [lock](container-registry-image-lock.md) any deployed image tag, by setting its `write-enabled` attribute to `false`. This practice prevents you from inadvertently removing an image from the registry and possibly disrupting your deployments. You can include the locking step in your release pipeline.
 
-Locking a deployed image still allows you to remove other, undeployed images from your registry as needed using Azure Container Registry features. For example, [auto-purge](container-registry-auto-purge.md) untagged manifests or unlocked images older than a specified duration, or set a [retention policy](container-registry-retention-policy.md) for untagged manifests.
+Locking a deployed image still allows you to remove other, undeployed images from your registry using Azure Container Registry features to maintain your registry. For example, [auto-purge](container-registry-auto-purge.md) untagged manifests or unlocked images older than a specified duration, or set a [retention policy](container-registry-retention-policy.md) for untagged manifests.
 
 ## Next steps
 
