@@ -1055,7 +1055,7 @@
       - name: Migrate hundreds of terabytes of data into Azure Cosmos DB 
         href: migrate-cosmosdb-data.md
       - name: Migrating one-to-few relational data into Cosmos DB SQL API
-        href: migrate-relational-to-cosmosdb-sql-api 
+        href: migrate-relational-to-cosmosdb-sql-api.md 
     - name: Bulk executor library
       items: 
       - name: About bulk executor library
