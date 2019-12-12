@@ -18,12 +18,12 @@ One common transformations is denormalizing data by embedding related sub-items 
 
 ## Example Scenario
 
-Assume we have the following two tables in our SQL database, Orders and OrderDetails, and we want to combine this one-to-few relationship into one JSON document during migration.
+Assume we have the following two tables in our SQL database, Orders and OrderDetails. 
 
 
 ![Order Details](./media/migrate-relational-to-cosmos-sql-api/orders.png)
 
-We can create the proper denormalization in a T-SQL query using "FOR JSON" as below:
+We want to combine this one-to-few relationship into one JSON document during migration. To do this, we can create a T-SQL query using "FOR JSON" as below:
 
 ```sql
 SELECT
@@ -47,7 +47,7 @@ The results of this query would look as below:
 ![Order Details](./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png)
 
 
-Ideally, we want to use a single Azure Data Factory (ADF) Copy Activity to query SQL as the source and write the output directly to Cosmos DB sink as proper JSON objects. Currently, it is not possible to perform the needed JSON transformation in one Copy Activity. If we try to copy the results of the query above into a Cosmos DB SQL API collection, we will see the JSON of the OrderDetails sub-items as a string property of our document, instead of the expected JSON array. 
+Ideally, we want to use a single Azure Data Factory (ADF) Copy Activity to query SQL as the source and write the output directly to Cosmos DB sink as proper JSON objects. Currently, it is not possible to perform the needed JSON transformation in one Copy Activity. If we try to copy the results of the query above into a Cosmos DB SQL API collection, we will see OrderDetails as a string property of our document, instead of the expected JSON array.
 
 We can workaround this current limitation in one of the following ways:
 
@@ -95,7 +95,7 @@ Since our text file is not really "delimited" and we do not want it to be parsed
 
 ### Copy Activity #2: BlobJsonToCosmos
 
-Next, we modify our ADF pipeline by adding the second Copy Activity that looks in Azure Blob Storage for the text file that was created by the first activity, and processes it as "JSON" source to insert to Cosmos DB sink as one document per JSON-row found in the text file.
+Next, we modify our ADF pipeline by adding the second Copy Activity that looks in Azure Blob Storage for the text file that was created by the first activity. It processes it as "JSON" source to insert to Cosmos DB sink as one document per JSON-row found in the text file.
 
 ![ADF copy](./media/migrate-relational-to-cosmos-sql-api/adf3.png)
 
@@ -120,7 +120,7 @@ We can also use Spark in [Azure Databricks](https://azure.microsoft.com/en-in/se
 > For clarity and simplicity, the code snippets below include dummy database passwords explicitly inline, but you should always use Azure Databricks secrets.
 >
 
-First, we create and attach the required [SQL connector](https://docs.databricks.com/data/data-sources/sql-databases-azure.html) and [Azure Cosmos DB connector](https://docs.databricks.com/data/data-sources/azure/cosmosdb-connector.html) libraries to our Azure Databricks cluster and restart the cluster to make sure libraries are loaded.
+First, we create and attach the required [SQL connector](https://docs.databricks.com/data/data-sources/sql-databases-azure.html) and [Azure Cosmos DB connector](https://docs.databricks.com/data/data-sources/azure/cosmosdb-connector.html) libraries to our Azure Databricks cluster. Restart the cluster to make sure libraries are loaded.
 
 ![Databricks](./media/migrate-relational-to-cosmos-sql-api/databricks1.png)
 
