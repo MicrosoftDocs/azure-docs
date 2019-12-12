@@ -247,9 +247,20 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
+```error
+Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
+```
+
 ### Cause
 
-A proxy, gateway, or firewall might be blocking network communication.
+A proxy, gateway, or firewall might be blocking network communication. The access denied error (HRESULT:80070005) usually occurs during Windows Update because of DLL files permission being denied. It can also be caused by any one of the following:
+
+- Infected computer
+- Windows Update settings not configured correctly
+- File permission error with %WinDir%\SoftwareDistribution folder
+- Insufficient disk space on the system drive (C:\)
+
+If the problem persists, review the `WindowsUpdate.log` file found in the Windows folder (C:\Windows). Review [KB968003](ttps://support.microsoft.com/en-us/help/968003/error-0x80070005-in-windows-update-when-you-try-to-install-updates) to help troubleshoot the issue.
 
 ### Resolution
 
