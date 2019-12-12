@@ -56,7 +56,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
     |---------|---------|
     |**Autopause**| If enabled, the Spark pools created from this template will automatically pause after a specified amount of idle time|
     |**Number of minutes idle**| The amount of time before a pool will autopause|
-    |**Packages**| Add additional Python libraries. For more information see [Adding additional Python libraries](apache-spark-azure-portal-add-libraries.md)|
+    |**Packages**| Add additional Python libraries. For more information, see [Adding additional Python libraries](apache-spark-azure-portal-add-libraries.md)|
 
      Select **Next** to continue to the **Tags** page.
 
@@ -64,19 +64,19 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 6. On **Summary**, select **Create**. Creation of a Spark pool should be fast, in the order of seconds.
 
-At this point there are no resources running, you have simply created metadata about the Spark instances you want to create.
+At this point, there are no resources running, you have created metadata about the Spark instances you want to create.
 
 ![Apache Spark pool on Azure Synapse Analytics](./media/apache-spark-notebook-create-spark-use-sql/create-spark-pool-portal2.png "Apache Spark pool on Azure Synapse Analytics with new pool after creation")
 
-Once an Apache Spark pool has been created it can not be edited, it must be deleted and recreated
+Once an Apache Spark pool has been created it cannot be edited, it must be deleted and recreated
 
 ## Create a notebook
 
 A Notebook is an interactive environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown text and perform simple visualizations,
 
 1. From the Azure portal view for the Synapse Analytics workspace you want to use, select launch workspace.
-2. Once Synapse Analytics Studio has launched select **Develop** then hover over the **Notebooks** entry. Select the ellipsis **...**
-3. From there select **Create Notebook**
+2. Once, Synapse Analytics Studio has launched select **Develop** then hover over the **Notebooks** entry. Select the ellipsis **...**
+3. From, there select **Create Notebook**
 
    A new notebook is created and opened with an automatically generated name.
 
@@ -90,7 +90,7 @@ A Notebook is an interactive environment that supports various programming langu
 
 7. The default language will be "Pyspark", you are going to use a mix of Pyspark and Spark SQL so the default choice is fine.
 
-8. You are going to create a very simple Spark DataFrame object that you are then going to manipulate. In this case you will create it from code, there will be 3 rows and 3 columns:
+8. You are going to create a simple Spark DataFrame object that you are then going to manipulate. In this case you will create it from code, there will be three rows and three columns:
 
 ```Python
 new_rows = [('CA',22, 45000),("WA",35,65000) ,("WA",50,85000)]
@@ -111,7 +111,7 @@ Once the code has finished running, there will be information below the cell on 
 
  11. The data now exists in a DataFrame from there you can use the data in many different ways. You are going to need it in different formats for the rest of this quickstart.
 
- Enter the code below in another cell and run it, this will create a Spark table, a CSV and a Parquet file all with copies of the data:
+ Enter the code below in another cell and run it, this will create a Spark table, a CSV, and a Parquet file all with copies of the data:
 
  ```Python
 demo_df.createOrReplaceTempView('demo_df')
@@ -119,7 +119,7 @@ demo_df.write.csv('demo_df', mode='overwrite')
 demo_df.write.parquet('abfss://<<TheNameOfAStorageAccountFileSystem>>@<<TheNameOfAStorageAccount>>.dfs.core.windows.net/demodata/demo_df', mode='overwrite')
  ```
 
-If you use the storage explorer it is possible to see the impact of the 2 different ways of writing a file used above. When no file system is specified then the default is used, in this case "default>user>trusted-service-user>demo_df". When the file system is specified then the data is saved there.
+If you use the storage explorer, it is possible to see the impact of the two different ways of writing a file used above. When no file system is specified then the default is used, in this case "default>user>trusted-service-user>demo_df". When, the file system is specified then the data is saved there.
 
 Notice in both the "csv" and "parquet" format write operations a directory is created with many partitioned files.
 
@@ -153,10 +153,10 @@ SQL (Structured Query Language) is the most common and widely used language for 
     ![Query output in Synapse Analytics Spark](./media/apache-spark-notebook-create-spark-use-sql/spark-get-started-query.png "Query output in Synapse Analytics Spark")
 
 3. In the **View** switcher, select **Chart**
-4. Select the **View options** icon from the far right hand side.
+4. Select the **View options** icon from the far right-hand side.
 5. In the **Chart type** field, select "bar chart".
-6. In the **X axis column** field select "state".
-7. In the **Y axis column** field select "salary".
+6. In the X axis column field, select "state".
+7. In the Y axis column field, select "salary".
 8. In the **Aggregation** field, select to "AVG".
 9. Select **Apply**.
 

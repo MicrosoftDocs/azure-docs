@@ -18,7 +18,7 @@ Python packages can be added at the Spark pool level and .jar based packages can
 
 ## Adding or updating Python libraries
 
-Apache Spark in Azure Synapse Analytics has a full Anacondas install plus additional libraries. The full list can be found here [Apache Spark version support](apache-spark-version-support.md). When a Spark instance starts up a new virtual environment is created using this installation as the base but in addition a requirements.txt (pip freeze output) can be used to upgrade that virtual environment. Any packages listed in this file for install/upgrade will be downloaded from PyPi at the time of cluster startup. This file is used every time a Spark instance is created from that Spark pool.
+Apache Spark in Azure Synapse Analytics has a full Anacondas install plus additional libraries. The full list can be found here [Apache Spark version support](apache-spark-version-support.md). When, a Spark instance starts up, a new virtual environment is created using this installation as the base. In addition a requirements.txt (pip freeze output) can be used to upgrade that virtual environment. Any packages listed in this file for install/upgrade will be downloaded from PyPi at the time of cluster startup. This file is used every time a Spark instance is created from that Spark pool.
 
 > [!IMPORTANT]
 
@@ -49,7 +49,7 @@ The full list of .jar files that are preinstalled can be found here [Apache Spar
 
 ### Spark job definition User Interface
 
-To add a new Spark job definition press the **+** at the top of the **Develop** explorer view that shows notebooks and other development artifacts.
+To add a new Spark job definition, press the **+** at the top of the **Develop** explorer view that shows notebooks and other development artifacts.
 
 You can see below:
 
