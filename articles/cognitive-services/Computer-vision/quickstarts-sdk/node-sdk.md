@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Computer Vision client library for Node.js | Microsoft Docs"
-description: Get started with the Computer Vision client library for Node.js...
+title: "Quickstart: Computer Vision client library for Node.js"
+description: Get started with the Computer Vision client library for Node.js with this quickstart
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

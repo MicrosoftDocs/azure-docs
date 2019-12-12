@@ -74,11 +74,6 @@ A. Yes, the Logs page in Azure and the Advanced Analytics portal are based on th
 
 A: The list of views and installed solutions are available in Azure portal. Click **All services**. In the list of resources, select **Monitor**, then click **...More**. The last used workspace is selected, but you can select any other workspace. 
 
-### Q. Why I can’t create workspaces in West Central US region? 
-
-A: This region is at temporary capacity limit. This limit is planned to be addressed by end of September, 2019.
-
-
 ### Q. Does Log Analytics use the same agent as Azure Security Center?
 
 A: In early June 2017, Azure Security Center began using the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration FAQ](../../security-center/security-center-enable-data-collection.md).
