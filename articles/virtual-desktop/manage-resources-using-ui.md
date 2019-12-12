@@ -53,7 +53,7 @@ Follow these instructions to deploy the Azure Resource Management template:
         5. Paste the link you copied to the text editor into the address bar.
 3. When entering the parameters, do the following:
     - For the **isServicePrincipal** parameter, select **false**.
-    - For the credentials, enter your Azure Active Directory credentials with multi-factor authentication disabled. These credentials will be the ones you use to sign in to Azure and create the Azure AD application and Azure web app resources. To learn more, see [What you need to run the Azure Resource Manager template](#what-you-need-to-run-the-azure-resource-manager-template).
+    - For the credentials, enter your Azure Active Directory credentials with multi-factor authentication disabled. These credentials will be the ones you use to sign in to Azure and create the Azure AD application and Azure web app resources. To learn more, see the [pre-requisites](#pre-requisites).
     - For the **applicationName**, use a unique name for your app that will be registered in your Azure Active Directory. This name will also be used for the web app URL. For example, you can use a name like "Apr3UX."
 4. Once you provide the parameters, accept the terms and conditions and select **Purchase**.
 
