@@ -1,5 +1,6 @@
 ---
-title: Web API that calls downstream web APIs (app's code configuration) - Microsoft identity platform
+title: Configure a web API that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web API that calls web APIs (app's code configuration)
 services: active-directory
 documentationcenter: dev-center-name
@@ -29,7 +30,7 @@ The code to configure your web API so that it calls downstream web APIs builds o
 
 On top of the code configuration for any protected web APIs, you need to subscribe to the validation of the bearer token that's received when your API is called:
 
-```CSharp
+```csharp
 /// <summary>
 /// Protects the web API with Microsoft Identity Platform (a.k.k AAD v2.0)
 /// This supposes that the configuration files have a section named "AzureAD"
@@ -75,7 +76,7 @@ This flow is only available in the confidential client flow so the protected web
 
 ![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
-```CSharp
+```csharp
 IConfidentialClientApplication app;
 
 #if !VariationWithCertificateCredentials
@@ -104,7 +105,7 @@ The `UserAssertion` is built from the bearer token received by the web API from 
 
 In practice, the OBO flow is often used to acquire a token for a downstream API and store it in the MSAL.NET user token cache so that other parts of the web API can later call on the [overrides](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) of ``AcquireTokenOnSilent`` to call the downstream APIs. This call has the effect of refreshing the tokens, if needed.
 
-```CSharp
+```csharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
 {
     try
