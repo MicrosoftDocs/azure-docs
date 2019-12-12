@@ -39799,6 +39799,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/move-your-project-to-azure.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/data-catalog/data-catalog-prerequisites.md",
       "redirect_url": "/azure/data-catalog/data-catalog-get-started",
       "redirect_document_id": false
