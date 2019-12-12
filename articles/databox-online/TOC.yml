@@ -93,6 +93,59 @@
     - name: 1911 - Current
       href: azure-stack-edge-r-series-placeholder.md
 
+- name: Azure Stack Hub/Data Box Gateway
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Stack Hub/Data Box Gateway?
+      href: azure-stack-edge-r-series-placeholder.md
+  - name: Tutorials
+    items:
+    - name: 1 - Prepare
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: 2A - Provision in Hyper-V
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: 2B - Provision in VMware
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: 3 - Connect, set up, activate
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: 4 - Add, connect to share
+      href: azure-stack-edge-r-series-placeholder.md
+  - name: Concepts
+    items:
+    - name: Review requirements
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: Understand limits
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: Security overview
+      href: dazure-stack-edge-r-series-placeholder.md
+    - name: View use cases
+      href: azure-stack-edge-r-series-placeholder.md
+  - name: How to
+    items:
+    - name: Manage
+      items:
+        - name: Shares
+          href: azure-stack-edge-r-series-placeholder.md
+        - name: Users
+          href: azure-stack-edge-r-series-placeholder.md
+        - name: Bandwidth schedules
+          href: azure-stack-edge-r-series-placeholder.md
+        - name: Access, power, connectivity
+          href: azure-stack-edge-r-series-placeholder.md
+        - name: Via PowerShell 
+          href: azure-stack-edge-r-series-placeholder.md
+    - name: Monitor
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: Troubleshoot
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: Contact Microsoft Support
+      href: azure-stack-edge-r-series-placeholder.md
+  - name: Release notes
+    items:
+      - name: General availability (GA)
+        href: data-box-gateway-release-notes.md      
+
 - name: Azure Stack Edge Commercial
   items:
   - name: Overview
