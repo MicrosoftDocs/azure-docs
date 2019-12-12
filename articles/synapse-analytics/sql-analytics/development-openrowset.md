@@ -48,9 +48,9 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 
 ### File types 
 
-You have two choices in terms of input files that contain the target data for querying. Valid values are:
+You have two choices for input files that contain the target data for querying. Valid values are:
 
-- 'CSV’ - Covers any delimited text file with row/column separators and any character can be used as a field separator (i.e., TSV: FIELDTERMINATOR = tab)
+- 'CSV’ - Includes any delimited text file with row/column separators. Any character can be used as a field separator, such as  TSV: FIELDTERMINATOR = tab.
 
 - ‘PARQUET’ - Binary file in Parquet format 
 
@@ -66,7 +66,7 @@ a path to the data is structured as follows:
 | Azure Data Lake Store Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | https  | <storage_account>.dfs.core.windows.net              |
 
- `'<storage_path>'` is a path within your storage that points to the folder or file you want to read. If the path points to a container or folder, all files will be read from that particular container or folder. Files in subfolders will not be included. 
+ `'<storage_path>'` is a path within your storage that points to the folder or file you want to read. If the path points to a container or folder, all files will be read from that particular container or folder. Files in subfolders won't be included. 
  
  You can use wildcards to target multiple files or folders. Usage of multiple nonconsecutive wildcards is allowed.
 Below is an example that reads all *csv* files starting with *population* from all folders starting with */csv/population*:  `'https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv'`
@@ -87,7 +87,7 @@ The WITH clause allows you to specify columns that you want to read from files.
 
 
 `[WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]`
-- For CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal (i.e., columns will be bound by the ordinal designation). 
+- For CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal. Columns will be bound by the ordinal designation. 
 
 > [!IMPORTANT]
 > The WITH clause is mandatory for CSV files.
@@ -112,7 +112,7 @@ WITH (
 
 Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself, or any of the delimiter values, the escape character is dropped when reading the value. 
 
-The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It will not be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
+The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
 
 *FIELDTERMINATOR ='field_terminator'*
 
@@ -120,11 +120,11 @@ Specifies the field terminator to be used. The default field terminator is a com
 
 *ROWTERMINATOR ='row_terminator'*
 
-Specifies the row terminator to be used. The default row terminator is a newline character, i.e., \r\n.
+Specifies the row terminator to be used. The default row terminator is a newline character such as \r\n.
 
 ## Examples
 
-The following example returns only two columns with ordinal numbers 1 and 4 from the *population*.csv* files. Since there is no header row in the files, it will start reading from the first line:
+The following example returns only two columns with ordinal numbers 1 and 4 from the *population*.csv* files. Since there's no header row in the files, it starts reading from the first line:
 
 ```sql
 /* make sure you have credentials for storage account access created
