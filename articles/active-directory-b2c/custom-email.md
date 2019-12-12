@@ -51,7 +51,7 @@ With a SendGrid account created and SendGrid API key stored in a Azure AD B2C po
 1. Enter a unique template name like `Verification email` and then select **Save**.
 1. To begin editing your new template, select **Add Version**.
 1. Select **Code Editor** and then **Continue**.
-1. In the HTML editor, paste following HTML template or use your own. Note: the `{{otp}}` and `{{email}}` parameters will be replaced dynamically with the one-time password value and the user email address.
+1. In the HTML editor, paste following HTML template or use your own. The `{{otp}}` and `{{email}}` parameters will be replaced dynamically with the one-time password value and the user email address.
 
     ```HTML
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
