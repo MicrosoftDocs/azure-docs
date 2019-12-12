@@ -242,11 +242,11 @@ A serverless database can be moved into a provisioned compute tier in the same w
 
 ## Modifying serverless configuration
 
-### Using PowerShell
+### Use PowerShell
 
 Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MaxVcore`, `MinVcore`, and `AutoPauseDelayInMinutes` arguments.
 
-### Using Azure CLI
+### Use Azure CLI
 
 Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [az sql db update](/cli/azure/sql/db#az-sql-db-update) command in Azure CLI using the `capacity`, `min-capacity`, and `auto-pause-delay` arguments.
 
@@ -286,14 +286,14 @@ In the Azure portal, the database status is displayed in the overview pane of th
 
 Using the following commands to query the pause and resume status of a database:
 
-#### Using PowerShell
+#### Use PowerShell
 
 ```powershell
 Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename `
   | Select -ExpandProperty "Status"
 ```
 
-#### Using Azure CLI
+#### Use Azure CLI
 
 ```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
