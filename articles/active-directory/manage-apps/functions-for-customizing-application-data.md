@@ -54,7 +54,7 @@ Takes a source string value and appends the suffix to the end of it.
 ---
 ### BitAnd
 **Function:**<br> 
-BitAnd(value1,value2)
+BitAnd(value1, value2)
 
 **Description:**<br> 
 This function converts both parameters to the binary representation and sets a bit to:
@@ -255,7 +255,7 @@ If the expression evaluates to Null, then the IsNull function returns true. For 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **expression** |Required |expression |Expression to be evalauted |
+| **expression** |Required |expression |Expression to be evaluated |
 
 **Example:**<br>
 IsNull([displayName])                                                                                                
@@ -274,7 +274,7 @@ The inverse of this function is named IsPresent.
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **expression** |Required |expression |Expression to be evalauted |
+| **expression** |Required |expression |Expression to be evaluated |
 
 **Example:**<br>
 IsNullOrEmpty([displayName])                                               
@@ -292,7 +292,7 @@ If the expression evaluates to a string that is not Null and is not empty, then 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **expression** |Required |expression |Expression to be evalauted |
+| **expression** |Required |expression |Expression to be evaluated |
 
 **Example:**<br>
 Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])
@@ -309,12 +309,12 @@ If the expression can be evaluated to a string type, then the IsString function 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **expression** |Required |expression |Expression to be evalauted |
+| **expression** |Required |expression |Expression to be evaluated |
 
 ---
 ### Item
 **Function:**<br> 
-Item(attribute,index)
+Item(attribute, index)
 
 **Description:**<br> 
 The Item function returns one item from a multi-valued string/attribute.
@@ -327,7 +327,7 @@ The Item function returns one item from a multi-valued string/attribute.
 | **index** |Required |Integer | Index to an item in the multi-valued string|
 
 **Example:**<br>
-Item([proxyAddresses],1)
+Item([proxyAddresses], 1)
 
 ---
 ### Join
