@@ -195,7 +195,7 @@
     - name: Set up CI/CD pipeline
       href: setup-cicd-vs-code.md
     - name: Explore jobs
-      href: vscode-explore-jobs.md
+      href: visual-studio-code-explore-jobs.md
   - name: Troubleshoot
     items:
     - name: Input

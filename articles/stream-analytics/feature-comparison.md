@@ -68,6 +68,6 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 * [Tutorial: Write a C# user-defined function for Azure Stream Analytics IoT Edge job (Preview)](stream-analytics-edge-csharp-udf.md)
 * [Develop Stream Analytics IoT Edge jobs using Visual Studio tools](stream-analytics-tools-for-visual-studio-edge-jobs.md)
 * [Use Visual Studio to view Azure Stream Analytics jobs](stream-analytics-vs-tools.md)
-* [Explore Azure Stream Analytics with Visual Studio Code (Preview)](vscode-explore-jobs.md)
+* [Explore Azure Stream Analytics with Visual Studio Code (Preview)](visual-studio-code-explore-jobs.md)
 
 

@@ -65,6 +65,6 @@ The default time for the job to start creating output is set to **Now**. You can
 
 ## Next steps
 
-* [Explore Azure Stream Analytics jobs with Visual Studio Code (Preview)](vscode-explore-jobs.md)
+* [Explore Azure Stream Analytics jobs with Visual Studio Code (Preview)](visual-studio-code-explore-jobs.md)
 
 * [Set up CI/CD pipelines using npm package](setup-cicd-vs-code.md)

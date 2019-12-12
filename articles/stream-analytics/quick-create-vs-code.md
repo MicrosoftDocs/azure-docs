@@ -275,6 +275,6 @@ To learn about Azure Stream Analytics tools for Visual Studio Code, continue to 
 
 * [Test Azure Stream Analytics jobs locally with live input with Visual Studio Code](visual-studio-code-local-run-live-input.md)
 
-* [Use Visual Studio Code to view Azure Stream Analytics jobs](vscode-explore-jobs.md)
+* [Use Visual Studio Code to view Azure Stream Analytics jobs](visual-studio-code-explore-jobs.md)
 
 * [Set up CI/CD pipelines using npm package](setup-cicd-vs-code.md)
