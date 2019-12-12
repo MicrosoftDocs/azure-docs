@@ -114,7 +114,7 @@ We also see Orders documents with properly embedded OrderDetails inserted into o
 
 ## Azure Databricks
 
-We can also use Spark in [Azure Databricks](https://azure.microsoft.com/en-in/services/databricks/) to copy the data from our SQL Database source to the Azure Cosmos DB destination without creating the intermediary text/JSON files in Azure Blob Storage. 
+We can also use Spark in [Azure Databricks](https://azure.microsoft.com/services/databricks/) to copy the data from our SQL Database source to the Azure Cosmos DB destination without creating the intermediary text/JSON files in Azure Blob Storage. 
 
 > [!NOTE]
 > For clarity and simplicity, the code snippets below include dummy database passwords explicitly inline, but you should always use Azure Databricks secrets.
