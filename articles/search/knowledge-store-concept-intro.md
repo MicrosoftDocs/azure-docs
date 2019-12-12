@@ -42,6 +42,20 @@ Enumerated, the benefits of knowledge store include the following:
 > [!Note]
 > New to AI enrichment and cognitive skills? Azure Cognitive Search integrates with Cognitive Services Vision and Language features to extract and enrich source data using Optical Character Recognition (OCR) over image files, entity recognition and key phrase extraction from text files, and more. For more information, see [AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md).
 
+## Physical storage
+
+The physical expression of a knowledge store is articulated through a `projection` schema, which is an element of a `knowledgeStore` definition. The projection defines a structure of the output so that it matches your intended use.
+
+Projections can be articulated as objects or tables:
+
++ As an object, the projection maps to Blob storage, where the projection is saved to a container, within which are the objects or hierarchical representations in JSON for scenarios like a data science pipeline.
+
++ As a table, the projection maps to Table storage. A tabular representation preserves relationships for scenarios like data analysis or export as data frames for machine learning. The enriched projections can then be easily imported into other data stores. 
+
+You can create multiple projections in a knowledge store to accommodate various constituencies in your organization. A developer might need access to the full JSON representation of an enriched document, while data scientists or analysts might want granular or modular data structures shaped by your skillset.
+
+For example, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents. the tabular projection would work well.
+
 ## Requirements 
 
 Azure Storage is required. It provides physical storage. You can use Blob storage, Table storage or both. Blob storage is used for intact enriched documents, usually when the output is going to downstream processes. Table storage is for slices of enriched documents, commonly used for analysis and reporting.
@@ -53,7 +67,7 @@ Indexer is required. A skillset is invoked by an indexer, thus an indexer drives
 + One requirement is a [supported Azure data source](search-indexer-overview.md#supported-data-sources) (the pipeline that ultimately creates the knowledge store starts by pulling data from a supported source on Azure). 
 + A second requirement is a search index. An indexer requires that you provide an index schema, even if you never plan to use it. The only requirement of an index schema is that you specify one field as the key.
 + Field mappings are optional, used to alias a source field to a destination field. If a default field mapping needs modification (name or type), you can create a field mapping within an indexer. For knowledge store output, the destination can be a field in a blob object or table.
-+ Schedules and other indexer properties, such as change detection mechanisms provided by various data sources, can also be applied to a knowledge store. For example, you can schedule enrichment at regular interals to refresh the contents. 
++ Schedules and other indexer properties, such as change detection mechanisms provided by various data sources, can also be applied to a knowledge store. For example, you can schedule enrichment at regular intervals to refresh the contents. 
 
 ## Create a knowledge store
 
@@ -65,25 +79,11 @@ A `knowledgeStore` definition is contained within a [skillset](cognitive-search-
 
 Run **Import data** wizard. For initial exploration, this is the fastest way to create your first knowledge store.
 
-Start by choosing a supported data source. The next step is where you specify end-to-end enrichment: attaching a resource, selecting skills, and setting options for creating a knowledge store. Extraction, enrichment, and storage occurs after the last step when you run the wizard.
+Start by choosing a supported data source. The next step is where you specify end-to-end enrichment: attaching a resource, selecting skills, and setting options for creating a knowledge store. Extraction, enrichment, and storage occur after the last step, when you run the wizard.
 
 ### Use the preview REST API
 
-Currently, the preview REST API is the only mechanism by which you can create a knowledge store. Reference content for this preview feature is located in [Preview REST API feference](#kstore-rest-api) section of this article. 
-
-## Physical composition
-
-A *projection*, which is an element of a `knowledgeStore` definition,  articulates the schema and structure of output so that it matches your intended use. You can define multiple projections if you have applications that consume the data in different formats and shapes. 
-
-Projections can be articulated as objects or tables:
-
-+ As an object, the projection maps to Blob storage, where the projection is saved to a container, within which are the objects or hierarchical representations in JSON for scenarios like a data science pipeline.
-
-+ As a table, the projection maps to Table storage. A tabular representation preserves relationships for scenarios like data analysis or export as data frames for machine learning. The enriched projections can then be easily imported into other data stores. 
-
-You can create multiple projections in a knowledge store to accommodate various constituencies in your organization. A developer might need access to the full JSON representation of an enriched document, while data scientists or analysts might want granular or modular data structures shaped by your skillset.
-
-For example, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents the tabular projection would work well.
+Currently, the preview REST API is the only mechanism by which you can create a knowledge store. Reference content for this preview feature is located in [Preview REST API reference](#kstore-rest-api) section of this article. 
 
 <a name="tools-and-apps"></a>
 
@@ -101,49 +101,62 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 ## Preview REST API reference
 
-In this preview, you can create a knowledge store using the **Create Skillset** REST API `api-version=2019-05-06-Preview` that contains a `knowledgeStore` definition.
-
-### Create Skillset (api-version=2019-05-06-Preview)
+In this preview, you can create a knowledge store using the **Create Skillset** REST API `api-version=2019-05-06-Preview` that contains a `knowledgeStore` definition. 
 
 A skillset is a resource coordinating the use of [built-in skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. 
 
 This section extends the [Create Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) reference to include additional elements that creates a knowledge store. In the preview API, a skillset has a `knowledgeStore` definition as a child element.
 
-### JSON representation of a knowledge store
+### Request example
 
-The following JSON specifies a `knowledgeStore`, which is part of a skillset, which is invoked by an indexer (not shown). If you are already familiar with AI enrichment, a skillset determines the creation, organization, and substance of each enriched document. A skillset must contain at least one skill, most likely a Shaper skill if you are modulating data structures.
+Use **POST** or **PUT** to create a skillset, giving a name, and using the preview API version.
 
-A `knowledgeStore` consists of a connection and projections. 
+```http
+PUT https://[servicename].search.windows.net/skillsets/<YOUR-SKILLSET-NAME>?api-version=2019-05-06-Preview
+api-key: [admin key]
+Content-Type: application/json
+```
 
-+ Connection is to a storage account in the same region as Azure Cognitive Search. 
-
-+ Projections can be tabular, JSON objects or files. `Tables` define the physical expression of enriched documents in Azure Table storage. `Objects` define the physical JSON objects in Azure Blob storage. `Files` are binaries like images that were extracted from the document that will be persisted.
+The body of request is a JSON document that defines a skillset, which includes `knowledgeStore`.
 
 ```json
 {
-  "name": "my-new-skillset",
-  "description": "Example showing knowledgeStore placement in a skillset.",
+  "name": "financedocenricher",
+  "description": 
+  "Extract sentiment from financial records, extract company names, and then find additional information about each company mentioned.",
   "skills":
   [
     {
-    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
-    "context": "/document/content/phrases/*",
-    "inputs": [
+      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "categories": [ "Organization" ],
+      "defaultLanguageCode": "en",
+      "inputs": [
         {
-        "name": "text",
-        "source": "/document/content/phrases/*"
-        },
-        {
-        "name": "sentiment",
-        "source": "/document/content/phrases/*/sentiment"
+          "name": "text",
+          "source": "/document/content"
         }
-    ],
-    "outputs": [
+      ],
+      "outputs": [
         {
-        "name": "output",
-        "targetName": "analyzedText"
+          "name": "organizations",
+          "targetName": "organizations"
         }
-    ]
+      ]
+    },
+    {
+      "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
+      "inputs": [
+        {
+          "name": "text",
+          "source": "/document/content"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "score",
+          "targetName": "mySentiment"
+        }
+      ]
     },
   ],
   "cognitiveServices": 
@@ -152,45 +165,77 @@ A `knowledgeStore` consists of a connection and projections.
     "description": "mycogsvcs resource in West US 2",
     "key": "<your key goes here>"
     },
-  "knowledgeStore": { 
-    "storageConnectionString": "<your connection string goes here>", 
+    "knowledgeStore": { 
+    "storageConnectionString": "<your storage connection string goes here>", 
     "projections": [ 
         { 
             "tables": [  
-            { "tableName": "Reviews", "generatedKeyName": "ReviewId", "source": "/document/Review" , "sourceContext": null, "inputs": []}, 
-            { "tableName": "Sentences", "generatedKeyName": "SentenceId", "source": "/document/Review/Sentences/*", "sourceContext": null, "inputs": []}, 
-            { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/Review/Sentences/*/KeyPhrases", "sourceContext": null, "inputs": []}, 
-            { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/Review/Sentences/*/Entities/*" ,"sourceContext": null, "inputs": []} 
-
+             { "tableName": "Records", "generatedKeyName": "RecordId", "source": "/document/Record"}, 
+             { "tableName": "Organizations", "generatedKeyName": "OrganizationId", "source": "/document/organizations*"}, 
+             { "tableName": "Sentiment", "generatedKeyName": "SentimentId", "source": "/document/mySentiment"}
             ], 
             "objects": [ 
                
-            ], 
-            "files": [
-
-            ]  
-        },
-        { 
-            "tables": [ 
-            ], 
-            "objects": [ 
-                { 
-                "storageContainer": "Reviews", 
-                "format": "json", 
-                "source": "/document/Review", 
-                "key": "/document/Review/Id" 
-                } 
-            ],
-            "files": [
-                
-            ]  
-        }        
+            ]      
+        }    
     ]     
     } 
 }
 ```
 
-This sample does not contain any images, for an example of how to use file projections see [Working with projections](knowledge-store-projection-overview.md).
+## Request headers  
+
+ The following table describes the required and optional request headers.  
+
+|Request Header|Description|  
+|--------------------|-----------------|  
+|*Content-Type:*|Required. Set this to `application/json`|  
+|*api-key:*|Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Create Skillset** request must include an `api-key` header set to your admin key (as opposed to a query key).|  
+
+### Request body syntax  
+
+The following JSON specifies a `knowledgeStore`, which is part of a skillset, which is invoked by an indexer (not shown). If you are already familiar with AI enrichment, a skillset determines the composition of an enriched document. A skillset must contain at least one skill, most likely a Shaper skill if you are modulating data structures.
+
+The syntax for structuring the request payload is as follows.
+
+```json
+{   
+    "name" : "Required for POST, optional for PUT requests which sets the name on the URI",  
+    "description" : "Optional. Anything you want, or null",  
+    "skills" : "Required. An array of skills. Each skill has an odata.type, name, input and output parameters",
+    "cognitiveServices": "A key to Cognitive Services, used for billing.",
+    "knowledgeStore": { 
+        "storageConnectionString": "<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>", 
+        "projections": [ 
+            { 
+                "tables": [ ], 
+                "objects": [ ], 
+                "files": [ ]  
+            },
+            { 
+                "tables": [ ], 
+                "objects": [ ], 
+                "files": [ ]  
+            },
+            { 
+                "tables": [ ], 
+                "objects": [ ],
+                "files": [ ]  
+            }        
+        ]     
+    } 
+}
+```
+
+A`skills` definition is a complex definition (not shown). For more information and examples, see [Create Skillset REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset) or [Skillset concepts and composition](cognitive-search-working-with-skillsets.md).
+
+A `knowledgeStore` requires a connection string to an Azure Storage account. You can use any storage account, but it's cost-effective to use services in the same region.
+
+A `projections` collection can be tabular (expressed in Table storage), objects (expressed as JSON blobs in Blob storage, or files (binary image files, also persisted in blob storage). You need one collection per projection type. If you need all three, use the full syntax with tables in the first collection, objects in the second collection, and files in the third. Delete any you don't need. All of these projections have properties, omitted here so that you can see the overall structure. For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
+
+### Response  
+
+ For a successful request, you should see status code "201 Created". By default, the response body will contain the JSON for the skillset definition that was created. 
 
 ## Next steps
 
