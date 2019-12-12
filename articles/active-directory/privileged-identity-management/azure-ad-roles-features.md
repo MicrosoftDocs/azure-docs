@@ -40,7 +40,7 @@ In many cases, even if you don’t want users to have eligible assignment and ac
 
 ## New role settings
 
-We are also adding new settings for Azure AD roles. Previously, you could only configure activation settings per role: the multi-factor authentication requirement for activation or and incident/request ticket requirement could be applied only to all users eligible for specific role. Now, you can configure whether a specific user needs to perform multi-factor authentication before they can activate a role. Also, you can have advanced control over your Privileged Identity Management emails related to specific roles.
+We are also adding new settings for Azure AD roles. Previously, you could only configure activation settings on a per-role basis. That is, activation settings such as multi-factor authentication requirements and incident/request ticket requirements were applied to all users eligible for a specified role. Now, you can configure whether an individual user needs to perform multi-factor authentication before they can activate a role. Also, you can have advanced control over your Privileged Identity Management emails related to specific roles.
 
 ## Extend and renew assignments
 
