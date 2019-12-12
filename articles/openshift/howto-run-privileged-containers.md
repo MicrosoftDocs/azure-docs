@@ -1,0 +1,156 @@
+---
+title: Run privileged containers in an Azure Red Hat OpenShift cluster | Microsoft Docs
+description: Run privileged containers to monitor security and compliance.
+author: makdaam
+ms.author: b-lejaku
+ms.service: container-service
+ms.topic: conceptual
+ms.date: 12/05/2019
+keywords: aro, openshift, aquasec, twistlock, red hat
+#Customer intent: As a customer, I want to monitor security compliance of my ARO clusters.
+---
+
+# Run privileged containers in an Azure Red Hat OpenShift cluster
+
+You can't run arbitrary privileged containers on Azure Red Hat OpenShift clusters.
+Two security monitoring and compliance solutions are whitelisted to run on ARO clusters.
+This document describes the differences from the generic OpenShift deployment documentation of the security product vendors.
+
+
+Read through these instructions before following the vendor's instructions.
+Section titles in product-specific steps below refer directly to section titles in the vendors' documentation.
+
+## Before you begin
+
+The documentation of most security products assumes you have cluster-admin privileges.
+Customer admins don't have all privileges in Azure Red Hat OpenShift. Permissions to modify cluster-wide resources are limited.
+
+Make sure you're logged in to the cluster as a customer admin, by running
+`oc get scc`. All users in the customer admin group have permissions to view the SCCs on the cluster.
+
+## Product-specific steps for Aqua security
+The base instructions we're going to modify can be found at (https://docs.aquasec.com/docs/deploy-openshift).
+
+The first step is to annotate the SCCs you're editing. These annotations will prevent the Sync Pod from reverting your changes.
+
+```
+oc annotate scc hostaccess openshift.io/reconcile-protect=true
+oc annotate scc privileged openshift.io/reconcile-protect=true
+```
+
+### Step 1: Prepare prerequisites
+Remember to log in to the cluster as a user with ARO Customer Admin privileges instead of cluster-admin.
+
+Create the project and the service account.
+```
+oc new-project aqua-security
+oc create serviceaccount aqua-account -n aqua-security
+```
+
+Instead of assigning the cluster-reader role, assign the customer-admin-cluster role to the aqua-account.
+```
+oc adm policy add-cluster-role-to-user customer-admin-cluster system:serviceaccount:aqua-security:aqua-account
+```
+
+Follow the remaining instructions in Step 1.
+
+### Step 2: Deploy the Aqua Server, Database, and Gateway
+The only modification here is to replace the Route definition when editing the Aqua Console YAML file with the definition below
+```
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: aqua-web
+  name: aqua-web
+  namespace: aqua-security
+spec:
+  port:
+    targetPort: aqua-web
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: aqua-web
+    weight: 100
+  wildcardPolicy: None
+```
+
+Follow the remaining instructions.
+
+### Step 3: Login to the Aqua Server
+This section isn't modified in any way.
+
+You can use this command to get the Aqua Console address.
+```
+oc get route aqua-web -n aqua-security
+```
+
+### Step 4: Deploy Aqua Enforcers
+Set the following fields when deploying enforcers:
+
+| Field          | Value         |
+| -------------- | ------------- |
+| Orchestrator   | OpenShift     |
+| ServiceAccount | aqua-account  |
+| Project        | aqua-security |
+
+## Product-specific steps for Prisma Cloud / Twistlock
+
+The base instructions we're going to modify can be found at fhttps://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html
+
+Start by creating a new OpenShift project
+```
+oc new-project twistlock
+```
+
+You can follow the documentation until the "Install Console" section, use the Prisma Cloud container registry instead of creating an internal one.
+
+### Install Console
+
+During `oc create -f twistlock_console.yaml` in Step 2, you'll get an Error when creating the namespace.
+You can safely ignore it, the namespace has been created with the `oc new-project` command.
+
+### Create an external route to Console
+
+You can either follow the documentation, or if you prefer to use the oc command
+copy the following Route definition to a file called twistlock_route.yaml
+```
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    name: console
+  name: twistlock-console
+  namespace: twistlock
+spec:
+  port:
+    targetPort: mgmt-http
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: twistlock-console
+    weight: 100
+  wildcardPolicy: None
+```
+then run:
+```
+oc create -f twistlock_route.yaml
+```
+
+You can get the URL assigned to Twistlock console with this command:
+`oc get route twistlock-console -n twistlock`
+
+### Configure console
+
+Follow the Twistlock documentation.
+
+### Install Defender
+
+During `oc create -f defender.yaml` in Step 2, you'll get Errors when creating the Cluster Role and Cluster Role Binding.
+You can ignore them.
+
+Defenders will be deployed only on compute nodes. You don't have to limit them with a node selector.
