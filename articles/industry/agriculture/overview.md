@@ -49,3 +49,6 @@ Visit Azure FarmBeats [blog](https://aka.ms/AzureFarmBeats) and [forums](https:/
 ## Next steps
 
 To get started with Azure FarmBeats, visit [Azure marketplace](https://aka.ms/FarmBeatsMarketplace).
+
+[!div class="nextstepaction"]
+> [Azure marketplace](https://aka.ms/FarmBeatsMarketplace)

@@ -79,7 +79,7 @@ This step is to create a job or a long running operation that will generate Soil
 Use the following steps:
 
 1. In the **Jobs** page, check the **Job Status** for the job you created in the last procedure.
-2. When the job status shows *Succeeded*, click **Maps** on the menu.
+2. When the job status shows **Succeeded**, select **Maps** on the menu.
 3. Search for the map by the day it was created in the format <soil-moisture_MyFarm_YYYY-MM-DD>.
 4. Select a map in the **Name** column, a pop-up window displays with the preview of the selected map.
 5. Select **Download**. The map is downloaded and stored to the local folder of your computer.
