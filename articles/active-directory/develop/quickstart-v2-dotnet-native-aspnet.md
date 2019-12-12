@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application built using Node.js with Express.
@@ -101,7 +101,7 @@ In this step, you configure your *TodoListClient* project by registering a new a
    - Change **Supported account types** to **Accounts in any organizational directory**.
    - Select **Register** to create the application.
 1. From the app's Overview page, select the **Authentication** section.
-   - In the **Redirect URLs** | **Suggested Redirect URLs for public clients (mobile, desktop)** section, check **urn:ietf:wg:oauth:2.0:oob**
+   - In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**
    - Select **Save**.
 1. Select the **API permissions** section
    - Click the **Add a permission** button and then,
