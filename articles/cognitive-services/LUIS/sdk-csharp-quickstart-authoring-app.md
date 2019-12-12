@@ -149,7 +149,7 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 
 ## Authenticate the client
 
-1. Create a variables to manage your authoring key pulled from an environment variable named `COGNITIVESERVICES_AUTHORING_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
+1. Create a variable to manage your authoring key pulled from an environment variable named `COGNITIVESERVICES_AUTHORING_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
 
 1. Create variables to hold your authoring region and endpoint. The region of your authoring key depends on where you are authoring. The [three authoring regions](luis-reference-regions.md) are:
 
