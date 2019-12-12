@@ -17,22 +17,22 @@ Using Azure FarmBeats, you can generate the following maps by using satellite im
 
 ## Sensor Placement map
 
-A FarmBeats Sensor Placement map assists you with the placement of soil moisture sensors. The map output consists of a list of coordinates for sensor deployment. The inputs from these sensors are used along with satellite imagery to generate the Soil Moisture heatmap. 
+A FarmBeats Sensor Placement map assists you with the placement of soil moisture sensors. The map output consists of a list of coordinates for sensor deployment. The inputs from these sensors are used along with satellite imagery to generate the Soil Moisture heatmap.
 
-This map is derived by segmenting the canopy as seen over multiple dates throughout the year. Even bare soil and buildings are part of the canopy. You can remove sensors that aren't required on the location. This map is for guidance, and you can alter the position and numbers slightly based on your custom knowledge. Adding sensors won't regress soil moisture heatmap results, but there's a possibility of deterioration in heatmap accuracy if the sensor number is reduced. 
+This map is derived by segmenting the canopy as seen over multiple dates throughout the year. Even bare soil and buildings are part of the canopy. You can remove sensors that aren't required on the location. This map is for guidance, and you can alter the position and numbers slightly based on your custom knowledge. Adding sensors won't regress soil moisture heatmap results, but there's a possibility of deterioration in heatmap accuracy if the sensor number is reduced.
 
-## Before you begin 
+## Before you begin
 
 Meet the following prerequisites before you attempt to generate a Sensor Placement map:
 
 - The farm size must be more than one acre.
-- The number of cloud-free Sentinel scenes must be more than six for the selected date range. 
+- The number of cloud-free Sentinel scenes must be more than six for the selected date range.
 - At least six cloud-free Sentinel scenes must have a Normalized Difference Vegetation Index (NDVI) greater than or equal to 0.3.
 
     > [!NOTE]
     > Sentinel allows only two concurrent threads per user. As a result, jobs get queued and might take longer to complete.
 
-### Dependencies on Sentinel 
+### Dependencies on Sentinel
 
 The following dependencies pertain to Sentinel:
 
@@ -57,7 +57,7 @@ Follow these steps.
 
     ![Sensor Placement window](./media/get-sensor-data-from-sensor-partner/sensor-placement-1.png)
 
-4. Select a farm from the **Farm** drop-down menu. 
+4. Select a farm from the **Farm** drop-down menu.
    To search and select your farm, you can either scroll in the drop-down list or enter the name of the farm in the text box.
 5. To generate a map for the last year, select **Recommended**.
 6. To generate a map for a custom date range, select the option **Select Date Range**. Enter the start and end date for which you want to generate the Sensor Placement map.
@@ -116,7 +116,7 @@ Follow these steps.
 
     ![Satellite Indices window](./media/get-sensor-data-from-sensor-partner/satellitte-indices-1.png)
 
-4. Select a farm from the drop-down menu. 
+4. Select a farm from the drop-down menu.
    To search and select your farm, you can either scroll in the drop-down list or enter the name of the farm.   
 5. To generate a map for the last week, select **This Week**.
 6. To generate a map for a custom date range, select the option **Select Date Range**. Enter the start and end date for which you want to generate the Satellite Indices map.
@@ -158,13 +158,13 @@ Follow these steps.
 
 Soil moisture is the water that's held in the spaces between soil particles. The Soil Moisture heatmap helps you understand the soil moisture data at any depth, at high resolution within your farm. To generate an accurate and usable Soil Moisture heatmap, a uniform deployment of sensors is required. All the sensors must be from the same provider. Different providers have differences in the way soil moisture is measured along with differences in calibration. The heatmap is generated for a particular depth by using the sensors deployed at that depth.
 
-### Before you begin 
+### Before you begin
 
 Meet the following prerequisites before you attempt to generate a Soil Moisture heatmap:
 
-- At least three soil moisture sensors must be deployed. Don't try to create a Soil Moisture heatmap before sensors are deployed and associated with the farm. 
+- At least three soil moisture sensors must be deployed. Don't try to create a Soil Moisture heatmap before sensors are deployed and associated with the farm.
 - Generating a Soil Moisture heatmap is influenced by Sentinel's path coverage, cloud cover, and cloud shadow. At least one cloud-free Sentinel Scene must be available for the last 120 days, from the day for which the Soil Moisture heatmap was requested.
-- At least half of the sensors deployed on the farm must be online and have data streaming to the data hub.
+- At least half of the sensors deployed on the farm must be online and have data streaming to the datahub.
 - The heatmap must be generated by using sensor measures from the same provider.
 
 
@@ -181,7 +181,7 @@ Follow these steps.
 
     ![Soil Moisture window](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
-4. Select a farm from the **Farm** drop-down menu. 
+4. Select a farm from the **Farm** drop-down menu.
    To search and select your farm, you can either scroll from the drop-down list or enter the name of the farm in the **Select farm** drop-down menu.
 5. On the **Select Soil Moisture Sensor Measure** drop-down menu, select the soil moisture sensor measure (depth) for which you want to generate the map.
 To find the sensor measure, go to **Sensors**, and select any soil moisture sensor. Then, under the **Sensor Properties** section, use the value in **Measure Name**.
