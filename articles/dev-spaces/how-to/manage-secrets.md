@@ -3,7 +3,7 @@ title: "How to manage secrets when working with an Azure Dev Space"
 services: azure-dev-spaces
 ms.date: "12/03/2019"
 ms.topic: "conceptual"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "Learn how to use Kubernetes secrets at run or build time when developing applications with Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 ---
 # How to manage secrets when working with an Azure Dev Space

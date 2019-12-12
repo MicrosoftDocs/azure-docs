@@ -78,6 +78,7 @@ Accept | The response format. For Azure FarmBeats Datahub APIs, the format is JS
 To make a REST API request, you combine the HTTP (GET, POST, PUT, or DELETE) method, the URL to the API service, the URI to a resource to query, submit data to, update, or delete, and then add one or more HTTP request headers.
 
 The URL to the API service is your Datahub URL, for example, https://\<yourdatahub-website-name>.azurewebsites.net.
+
 Optionally, you can include query parameters on GET calls to filter, limit the size of, and sort the data in the responses.
 
 The following sample request is used to get the list of devices:
