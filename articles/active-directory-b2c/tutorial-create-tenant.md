@@ -78,7 +78,7 @@ If at first you don't see your new Azure B2C tenant in the list, refresh your br
 
 This optional step makes it easier to select your Azure AD B2C tenant in the following and all subsequent tutorials.
 
-Instead of searching for *Azure AD B2C* in **All services** every time you want to work with your tenant, you can instead favorite the resource. Then, you can select it from the Azure portal's **Favorites** menu to quickly browse to your Azure AD B2C tenant.
+Instead of searching for *Azure AD B2C* in **All services** every time you want to work with your tenant, you can instead favorite the resource. Then, you can select it from the portal menu's **Favorites** section to quickly browse to your Azure AD B2C tenant.
 
 You only need to perform this operation once. Before performing these steps, make sure you've switched to the directory containing your Azure AD B2C tenant as described in the previous section, [Select your B2C tenant directory](#select-your-b2c-tenant-directory).
 
