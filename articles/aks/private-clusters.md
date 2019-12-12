@@ -38,14 +38,15 @@ The communication between the control plane/API server, which is in an AKS-manag
 
 ## Install latest AKS CLI preview extension
 
-You need the **aks-preview 0.4.18** extension or later.
+To use private clusters, you need the *aks-preview* CLI extension version 0.4.18 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-az extension update --name aks-preview 
-az extension list
-```
 
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 > [!CAUTION]
 > When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
