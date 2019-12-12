@@ -57,7 +57,7 @@ After you have defined all the required information, you can submit your solutio
 5. Select **Publish**.
     
 > [!NOTE]
-> After you submit a solution for approval, After you submit a solution for approval, you can make changes to your submission, but you cannot submit them until your initial submission is completed. When the approval process is complete, you receive an email message indicating that your solution was approved or that you need to make changes before it can be approved. 
+> After you submit a solution for approval, you can make changes to your submission, but you cannot submit them until your initial submission is completed. When the approval process is complete, you receive an email message indicating that your solution was approved or that you need to make changes before it can be approved. 
 
 ## Unpublishing a solution
 
