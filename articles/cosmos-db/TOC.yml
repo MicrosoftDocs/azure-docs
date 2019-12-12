@@ -1054,7 +1054,7 @@
         href: cassandra-migrate-cosmos-db-blitzz.md
       - name: Migrate hundreds of terabytes of data into Azure Cosmos DB 
         href: migrate-cosmosdb-data.md
-      - name: Migrating one-to-few relational data into Azure Cosmos DB SQL API
+      - name: Migrate one-to-few relational data into Azure Cosmos DB SQL API
         href: migrate-relational-to-cosmosdb-sql-api.md 
     - name: Bulk executor library
       items: 

@@ -1,5 +1,5 @@
 ---
-title: Migrating one-to-few relational data into Azure Cosmos DB SQL API
+title: Migrate one-to-few relational data into Azure Cosmos DB SQL API
 description: This doc describes how you can handle complex migration of one-to-few relationships into SQL API
 author: TheovanKraay
 ms.service: cosmos-db
@@ -10,9 +10,9 @@ ms.author: thvankra
 
 ---
 
-# Migrating one-to-few relational data into Azure Cosmos DB SQL API
+# Migrate one-to-few relational data into Azure Cosmos DB SQL API
 
-When migrating from a relational database to Azure Cosmos DB SQL API, it is often necessary to make changes to the data model for optimization.
+In order to migrate from a relational database to Azure Cosmos DB SQL API, it can be necessary to make changes to the data model for optimization.
 
 One common transformation is denormalizing data by embedding related subitems within one JSON document. Here we look at a few options for this using Azure Data Factory or Azure Databricks. For general guidance on data modeling for Cosmos DB, please review [Data modeling in Azure Cosmos DB](modeling-data.md).  
 
