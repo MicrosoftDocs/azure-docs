@@ -46,6 +46,7 @@ By default, service tags reflect the ranges for the entire cloud.  Some service 
 | **AzureContainerRegistry** | Azure Container Registry service. | Outbound | Yes | Yes |
 | **AzureCosmosDB** | Azure Cosmos Database service. | Outbound | Yes | Yes |
 | **AzureDataLake** | Azure Data Lake service. | Outbound | No | Yes |
+| **AzureHDInsight** | Azure HDInsight service. | Inbound | Yes | No |
 | **AzureIoTHub** | Azure IoT Hub service. | Outbound | No | No |
 | **AzureKeyVault** | Azure KeyVault service.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **AzureLoadBalancer** | Azure's infrastructure load balancer. The tag translates to the [Virtual IP address of the host](security-overview.md#azure-platform-considerations) (168.63.129.16) where Azure's health probes originate. If you are not using the Azure load balancer, you can override this rule. | Both | No | No |

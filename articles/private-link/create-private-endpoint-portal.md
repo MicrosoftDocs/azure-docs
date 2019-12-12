@@ -3,7 +3,7 @@
 title: 'Quickstart - Manage Private Endpoints in Azure'
 description: Learn how to create a Private Endpoint using the Azure portal in this Quickstart
 services: private-link
-author: asudbring
+author: malopMSFT
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can prvately connect to it.
 ms.service: private-link
 ms.topic: quickstart
@@ -143,7 +143,7 @@ In this section, you will create a SQL server and add a private endpoint to it.
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. You created this in the previous section.|
     | **INSTANCE DETAILS** |  |
-    | Name | Enter * myPrivateEndpoint*. If this name is taken, create a unique name. |
+    | Name | Enter *myPrivateEndpoint*. If this name is taken, create a unique name. |
     |Region|Select **WestCentralUS**.|
     |||
 5. Select **Next: Resource**.
@@ -176,7 +176,7 @@ In this section, you will create a SQL server and add a private endpoint to it.
 ## Connect to a VM using Remote Desktop (RDP)
 
 
-After you've created **myVm*, connect to it from the internet as follows: 
+After you've created **myVm**, connect to it from the internet as follows: 
 
 1. In the portal's search bar, enter *myVm*.
 
@@ -184,7 +184,7 @@ After you've created **myVm*, connect to it from the internet as follows:
 
 1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
 
-1. Open the downloaded.rdp* file.
+1. Open the *downloaded.rdp* file.
 
     1. If prompted, select **Connect**.
 

@@ -141,7 +141,7 @@ For PyTorch, TensorFlow, and Chainer tasks, Azure Machine Learning also provides
 
 For more information, see the following articles:
 
-* [Train ML Models with estimators](how-to-train-ml-models.md).
+* [Train ML models with estimators](how-to-train-ml-models.md).
 * [Train Pytorch deep learning models at scale with Azure Machine Learning](how-to-train-pytorch.md).
 * [Train and register TensorFlow models at scale with Azure Machine Learning](how-to-train-tensorflow.md).
 * [Train and register Chainer models at scale with Azure Machine Learning](how-to-train-chainer.md).

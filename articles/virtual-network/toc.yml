@@ -182,6 +182,8 @@
           href: virtual-network-deploy-static-pip-arm-cli.md
       - name: Add public IP address to existing VM
         href: associate-public-ip-address-vm.md
+      - name: Dissociate public IP address from a VM
+        href: remove-public-ip-address-vm.md
       - name: Create VM - Static private IP address
         items:
         - name: Azure portal
