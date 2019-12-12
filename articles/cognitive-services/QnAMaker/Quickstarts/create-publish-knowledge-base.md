@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create, train, and publish knowledge base - QnA Maker"
 titleSuffix: Azure Cognitive Services 
-description: You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. The QnA Maker knowledge base in this example is created from a simple FAQ webpage to answer questions on BitLocker key recovery.
+description: This quickstart shows how to create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. The QnA Maker knowledge base in this example is created from a simple FAQ webpage to answer questions on BitLocker key recovery.
 author: diberry
 manager: nitinme
 services: cognitive-services
@@ -144,4 +144,3 @@ For more information:
 
 > [!div class="nextstepaction"]
 > [Add questions with metadata](add-question-metadata-portal.md)
-
