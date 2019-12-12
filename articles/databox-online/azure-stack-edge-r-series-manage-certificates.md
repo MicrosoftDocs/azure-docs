@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/05/2019
+ms.date: 12/12/2019
 ms.author: alkohli
 ---
 # Use certificates with Azure Stack Edge Rugged series 
@@ -23,12 +23,20 @@ When your Azure Stack Edge device is initially configured, self-signed certifica
 ## Types of certificates
 
 The various types of certificates that are used on your Azure Stack Edge device are as follows: 
-- Signing chain certificate
-- Node certificate
+- Signing certificates
+    - Root CA
+    - Intermediate
+
 - Endpoint certificates
-- IoT device certificates
-- Local UI certificates
-- Support session certificates
+    - Node certificate
+    - Local UI certificates
+    - Azure Resource Manager certificates
+    - Blob storage certificates
+    - VPN certificates
+    - IoT device certificates
+
+- Encryption certificates
+    - Support session certificates
 
 Each of these certificates are described in detail in the following sections.
 
