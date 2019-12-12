@@ -523,7 +523,23 @@
   - name: Support options
     href: ./partner-center-portal/support.md
   - name: Partner Center Analytics
-    href: ./partner-center-portal/analytics.md
+    items:
+    - name: Analytics for the Commercial Marketplace
+      href: ./partner-center-portal/analytics.md
+    - name: Summary dashboard
+      href: ./partner-center-portal/summary-dashboard.md
+    - name: Orders dashboard
+      href: ./partner-center-portal/orders-dashboard.md
+    - name: Usage dashboard
+      href: ./partner-center-portal/usage-dashboard.md
+    - name: Customer dashboard
+      href: ./partner-center-portal/customer-dashboard.md
+    - name: Downloads dashboard
+      href: ./partner-center-portal/downloads-dashboard.md
+    - name: Ratings and reviews dashboard
+      href: ./partner-center-portal/ratings-reviews.md
+    - name: Frequently asked questions and terminology
+      href: ./partner-center-portal/faq-terminology.md
   - name: Getting paid
     items:
     - name: Getting paid
