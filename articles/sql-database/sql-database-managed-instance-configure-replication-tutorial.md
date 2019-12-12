@@ -246,6 +246,9 @@ Once connectivity is established and you have a sample database, you can configu
 
    ```
 
+   > [!NOTE]
+   > Be sure to use only backslashes (`\`). Using a forward slash (`/`) can cause an error when connecting to the file share. 
+
 1. Connect to the `sql-mi-publisher` managed instance. 
 1. Open a **New Query** window and run the following Transact-SQL code to register the distributor at the publisher: 
 
@@ -348,6 +351,12 @@ The agent was configured with a Windows login and needs to use a SQL Server logi
 
 This is likely because port 445 is closed in either the Azure firewall, the Windows firewall, or both. 
 
+`Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare' Failed to connect to Azure Storage '' with OS error: 55.`
+
+Using a forward slash instead of backslash in the file path can also cause this error. 
+  This is okay: `\\replstorage.file.core.windows.net\replshare`
+  This can cause an OS 55 error: `'\\replstorage.file.core.windows.net/replshare'`
+
 ### Could not connect to Subscriber
 
 `The process could not connect to Subscriber 'SQL-VM-SUB`
@@ -361,6 +370,14 @@ Possible solutions:
 - Verify that your virtual networks are correctly linked in the private DNS zone. 
 - Verify your A-record is configured correctly. 
 - Verify your VPN peering is configured correctly. 
+
+### No publications to which you can subscribe
+
+When adding a new subscription using the **New Subscription** wizard, on the **Publication** page, you may find that there are no databases and publications listed as available options, and you might see the following error message:
+
+`There are no publications to which yuo can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
+ 
+While it's possible that this error message is accurate, and there really aren't publications available on the publisher you connected to, or you're lacking sufficient permissions, this error could also be caused by an older version of SQL Server Management Studio. Try upgrading to SQL Server Management Studio 18.0 or greater to rule this out as a root cause. 
 
 
 ## Clean up resources
