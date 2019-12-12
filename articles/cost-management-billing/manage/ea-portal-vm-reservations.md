@@ -12,11 +12,11 @@ manager: boalcsva
 
 # Azure EA VM reserved instances
 
-This article summaries how Azure reservations for VM reserved instances can help you save you money with your enterprise enrollment. For more information about reservations, see [What are Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md).
+This article summaries how Azure reservations for VM reserved instances can help you save you money with your enterprise enrollment. For more information about reservations, see [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md).
 
 ## Reservation exchanges and refunds
 
-You can exchange a reservation for another reservation of the same type. It's also possible to refund a reservation, up to $50,000 USD per year, if you no longer need it. The Azure portal can be used to exchange or refund a reservation. For more information, see [Self-service exchanges and refunds for Azure Reservations](../../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+You can exchange a reservation for another reservation of the same type. It's also possible to refund a reservation, up to $50,000 USD per year, if you no longer need it. The Azure portal can be used to exchange or refund a reservation. For more information, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
 
 ## Reservation costs and usage
 
@@ -29,13 +29,13 @@ Enterprise agreement customers can view cost and usage data in the Azure portal 
 - Get reservation under-utilization data.
 - Amortize reservation costs.
 
-For more information about reservation costs and usage, see [Get Enterprise Agreement reservation costs and usage](../../billing/billing-understand-reserved-instance-usage-ea.md).
+For more information about reservation costs and usage, see [Get Enterprise Agreement reservation costs and usage](../reservations/understand-reserved-instance-usage-ea.md).
 
 For information about pricing, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) or [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
 ## Reserved instances API support
 
-You can use Azure APIs to programmatically get information for your organization about Azure service or software reservations. For more information, see [APIs for Azure reservation automation](../../billing/billing-reservation-apis.md).
+You can use Azure APIs to programmatically get information for your organization about Azure service or software reservations. For more information, see [APIs for Azure reservation automation](../reservations/reservation-apis.md).
 
 ## Azure reserved virtual machine instances
 
@@ -77,6 +77,6 @@ In scenarios where Azure EA customers have used all their monetary commitment, r
 You'll receive email notifications 30 days before reservation and at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate. For more information, see [Reserved Virtual Machine Instances offering.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
 ## Next steps
-- For more information about Azure reservations, see [What are Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md).
-- To learn more about enterprise reservation costs and usage, see [Get Enterprise Agreement reservation costs and usage](../../billing/billing-understand-reserved-instance-usage-ea.md).
+- For more information about Azure reservations, see [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md).
+- To learn more about enterprise reservation costs and usage, see [Get Enterprise Agreement reservation costs and usage](../reservations/understand-reserved-instance-usage-ea.md).
 - For information about pricing, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) or [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).

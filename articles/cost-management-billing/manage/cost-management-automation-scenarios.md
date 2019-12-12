@@ -66,11 +66,11 @@ Web Direct and Enterprise customers can use all the following APIs, except where
 
 -	[Price Sheet API](https://docs.microsoft.com/rest/api/consumption/pricesheet) (*Enterprise customers only*): Get custom pricing for all meters. Enterprises can use this data in combination with usage details and marketplace usage information to calculate costs by using usage and marketplace data.
 
--	[Reservation Recommendations API](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations): Get recommendations for purchasing Reserved VM Instances. Recommendations help you analyze expected cost savings and purchase amounts. For more information, see [APIs for Azure reservation automation](../../billing/billing-reservation-apis.md).
+-	[Reservation Recommendations API](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations): Get recommendations for purchasing Reserved VM Instances. Recommendations help you analyze expected cost savings and purchase amounts. For more information, see [APIs for Azure reservation automation](../reservations/reservation-apis.md).
 
--	[Reservation Details API](https://docs.microsoft.com/rest/api/consumption/reservationsdetails): See information on previously purchased VM reservations, such as how much consumption is reserved versus how much is used. You can see data at per-VM-level detail. For more information, see [APIs for Azure reservation automation](../../billing/billing-reservation-apis.md).
+-	[Reservation Details API](https://docs.microsoft.com/rest/api/consumption/reservationsdetails): See information on previously purchased VM reservations, such as how much consumption is reserved versus how much is used. You can see data at per-VM-level detail. For more information, see [APIs for Azure reservation automation](../reservations/reservation-apis.md).
 
--	[Reservation Summaries API](https://docs.microsoft.com/rest/api/consumption/reservationssummaries): See aggregated information on VM reservations that your organization bought, like how much consumption is reserved versus how much is used in the aggregate. For more information, see [APIs for Azure reservation automation](../../billing/billing-reservation-apis.md).
+-	[Reservation Summaries API](https://docs.microsoft.com/rest/api/consumption/reservationssummaries): See aggregated information on VM reservations that your organization bought, like how much consumption is reserved versus how much is used in the aggregate. For more information, see [APIs for Azure reservation automation](../reservations/reservation-apis.md).
 
 -	[Usage Details API](https://docs.microsoft.com/rest/api/consumption/usagedetails): Get charge and usage information on all Azure resources from Microsoft. Information is in the form of usage detail records, which are currently emitted once per meter per day. You can use the information to add up the costs across all resources or investigate costs/usage on specific resources.
 
@@ -96,7 +96,7 @@ The following APIs are for Enterprise only:
 
 -	[Billing Periods API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): Get a list of billing periods. The API also gives you a property that points to the API route for the four sets of Enterprise API data that pertain to the billing period: BalanceSummary, UsageDetails, Marketplace Charges, and PriceSheet.
 
--	[Reserved Instance Recommendations API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation): Look at 7 days, 30 days, or 60 days of virtual machine usage and get Single and Shared Purchase recommendations. You can use this API to analyze expected cost savings and recommended purchase amounts. For more information, see [APIs for Azure reservation automation](../../billing/billing-reservation-apis.md).
+-	[Reserved Instance Recommendations API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation): Look at 7 days, 30 days, or 60 days of virtual machine usage and get Single and Shared Purchase recommendations. You can use this API to analyze expected cost savings and recommended purchase amounts. For more information, see [APIs for Azure reservation automation](../reservations/reservation-apis.md).
 
 ## Frequently asked questions
 

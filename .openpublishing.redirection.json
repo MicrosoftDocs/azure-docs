@@ -44444,6 +44444,132 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/billing/billing-how-reservation-discount-is-applied-to-azure-sql-dw.md",
+            "redirect_url": "azure/cost-management-billing/reservations/reservation-discount-azure-sql-dw.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-manage-reserved-vm-instance.md",
+            "redirect_url": "azure/cost-management-billing/reservations/manage-reserved-vm-instance.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-monthly-payments-reservations.md",
+            "redirect_url": "azure/cost-management-billing/reservations/monthly-payments-reservations.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-prepay-app-service-isolated-stamp.md",
+            "redirect_url": "azure/cost-management-billing/reservations/prepay-app-service-isolated-stamp.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-prepay-databricks-reserved-capacity.md",
+            "redirect_url": "azure/cost-management-billing/reservations/prepay-databricks-reserved-capacity.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-prepay-sql-data-warehouse-charges-with-reserved-capacity.md",
+            "redirect_url": "azure/cost-management-billing/reservations/prepay-sql-data-warehouse-charges.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-reservation-apis.md",
+            "redirect_url": "azure/cost-management-billing/reservations/reservation-apis.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-reservation-discount-app-service-isolated-stamp.md",
+            "redirect_url": "azurecost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-reservation-discount-databricks.md",
+            "redirect_url": "azure/cost-management-billing/reservations/reservation-discount-databricks.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-reservation-renew.md",
+            "redirect_url": "azure/cost-management-billing/reservations/reservation-renew.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-reserved-instance-windows-software-costs.md",
+            "redirect_url": "azure/cost-management-billing/reservations/reserved-instance-windows-software-costs.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-save-compute-costs-reservations.md",
+            "redirect_url": "azure/cost-management-billing/reservations/save-compute-costs-reservations.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-cosmosdb-reservation-charges.md",
+            "redirect_url": "azure/cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-kusto-azuredataexplorer-reservation-charges.md",
+            "redirect_url": "azure/cost-management-billing/reservations/understand-azure-data-explorer-reservation-charges.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-reservation-charges-mariadb.md",
+            "redirect_url": "azure/cost-management-billing/reservations/understand-reservation-charges-mariadb.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-reservation-charges-mysql.md",
+            "redirect_url": "azure/cost-management-billing/reservations/understand-reservation-charges-mysql.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-reservation-charges-postgresql.md",
+            "redirect_url": "azure/cost-management-billing/reservations/understand-reservation-charges-postgresql.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-reservation-charges.md",
+            "redirect_url": "azure/cost-management-billing/reservations/understand-reservation-charges.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-reserved-instance-usage-ea.md",
+            "redirect_url": "azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-reserved-instance-usage.md",
+            "redirect_url": "azure/cost-management-billing/reservations/understand-reserved-instance-usage.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-rhel-reservation-charges.md",
+            "redirect_url": "azure/cost-management-billing/reservations/understand-rhel-reservation-charges.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-storage-charges.md",
+            "redirect_url": "azure/cost-management-billing/reservations/understand-storage-charges.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-understand-suse-reservation-charges.md",
+            "redirect_url": "azure/cost-management-billing/reservations/understand-suse-reservation-charges.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-view-reservations.md",
+            "redirect_url": "azure/cost-management-billing/reservations/view-reservations.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md",
+            "redirect_url": "azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md",
+            "redirect_document_id": true
+        },
+
+        {
             "source_path": "articles/billing/mpa-overview.md",
             "redirect_url": "/azure/cost-management-billing/understand/mpa-overview",
             "redirect_document_id": true
