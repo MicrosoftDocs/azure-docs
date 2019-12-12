@@ -177,6 +177,9 @@ EXEC sp_adddistpublisher
   @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
 
+   > [!NOTE]
+   > Be sure to use only backslashes (`\`) for the file_storage parameter. Using a forward slash (`/`) can cause an error when connecting to the file share. 
+
 This script configures a local publisher on the managed instance, adds a linked server, and creates a set of jobs for the SQL Server Agent. 
 
 ## 8 - Create publication and subscriber
