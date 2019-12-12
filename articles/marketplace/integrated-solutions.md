@@ -14,7 +14,9 @@ ms.author: v-chjen
 
 An Integrated Solution brings together best-of-breed technologies from Microsoft partners, along with consultation, deployment, and supports provided by expert Systems Integrators (SI).
 
-These solutions are built to address a specific customer need or scenario, which begins with an understanding of the industry challenge or pain points. Two or more best-of-breed technologies are integrated by an SI to create a unified and repeatable deployment experience for customers, which helps get them up and running rapidly. The systems integrator also provides a single point of contact for the customer, providing relevant customization, consulting, and support around the solution.  The outcome is an integrated solution, including technology and services.
+Two or more Microsoft partners integrate their technology and services to create a unified and repeatable deployment experience for customers, which helps get them up and running rapidly.  The lead partner in the solution (usually the systems integrator) provides a single point of contact for the customer, providing relevant customization, consulting, and support around the solution.
+
+Different scenarios where partners co-sell or co-market their solution together, an integrated solution is a jointly built new solution that integrates the technology and services across partners.
 
 ## Advantages
 
