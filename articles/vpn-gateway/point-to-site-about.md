@@ -64,10 +64,6 @@ The RADIUS server can also integrate with AD certificate services. This lets you
 
 A RADIUS server can also integrate with other external identity systems. This opens up plenty of authentication options for P2S VPN, including multi-factor options.
 
->[!NOTE]
->**OpenVPN® Protocol** is not supported with RADIUS authentication.
->
-
 ![point-to-site](./media/point-to-site-about/p2s.png "Point-to-Site")
 
 ## What are the client configuration requirements?

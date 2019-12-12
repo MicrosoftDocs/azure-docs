@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Samples - Create a complete virtual machine scale set | Microsoft Docs
+title: Azure PowerShell Samples - Create a complete virtual machine scale set
 description: Azure PowerShell Samples
 services: virtual-machine-scale-sets
 documentationcenter: ''
