@@ -35,7 +35,7 @@ Azure provides tooling including Azure Command-Line Interface, Azure portal, and
 * **Security and access** - You log in to a registry using the Azure CLI or the standard `docker login` command. Azure Container Registry transfers container images over HTTPS, and supports TLS to secure client connections. 
 
   > [!IMPORTANT]
-  > Starting January 3, 2020, Azure Container Registry will require all secure connections from servers and applications to use TLS 1.2. Support for TLS 1.0 and 1.1 will be retired.
+  > Starting January 13, 2020, Azure Container Registry will require all secure connections from servers and applications to use TLS 1.2. Support for TLS 1.0 and 1.1 will be retired.
 
   You [control access](container-registry-authentication.md) to a container registry using an Azure identity, an Azure Active Directory-backed [service principal](../active-directory/develop/app-objects-and-service-principals.md), or a provided admin account. Use role-based access control (RBAC) to assign users or systems fine-grained permissions to a registry.
 
