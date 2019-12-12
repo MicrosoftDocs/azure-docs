@@ -156,7 +156,7 @@ To migrate the **AdventureWorks2012** schema to a single database or pooled data
 
 ## Create an instance
 
-1. In the Azure portal menu or on the **home** page, select **Create a resource**. Search for and select **Azure Database Migration Service**.
+1. In the Azure portal menu or on the **Home** page, select **Create a resource**. Search for and select **Azure Database Migration Service**.
 
     ![Azure Marketplace](media/tutorial-sql-server-to-azure-sql/portal-marketplace.png)
 
