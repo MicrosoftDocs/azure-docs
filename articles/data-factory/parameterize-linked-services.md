@@ -51,10 +51,7 @@ At this time, linked service parameterization is supported in the Data Factory U
 	"properties": {
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
-			"connectionString": {
-				"value": "Server=tcp:myserver.database.windows.net,1433;Database=@{linkedService().DBName};User ID=user;Password=fake;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
-				"type": "SecureString"
-			}
+			"connectionString": "Server=tcp:myserver.database.windows.net,1433;Database=@{linkedService().DBName};User ID=user;Password=fake;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
 		},
 		"connectVia": null,
 		"parameters": {
