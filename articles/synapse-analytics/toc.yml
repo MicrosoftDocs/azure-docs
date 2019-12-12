@@ -73,7 +73,7 @@
     - name: SQL on-demand
       href: sql-analytics/sql-analytics-on-demand-workspace-overview.md
     - name: Spark pools 
-      href: ./spark/overview.md
+      href: ./spark/apache-spark-overview.md
   - name: Pipeline and activity
     href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Execution and trigger
@@ -209,7 +209,7 @@
     - name: Overview
       items:
       - name: Apache Spark Overview
-        href: ./spark/spark-overview.md
+        href: ./spark/apache-spark-overview.md
       - name: Runtime language and library support
         href: ./spark/apache-spark-version-support.md
       - name: What is Delta Lake
