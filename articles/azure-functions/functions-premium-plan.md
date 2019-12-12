@@ -107,6 +107,7 @@ Below are the currently supported regions for each OS.
 |East US | ✔ | ✔ |
 |East US 2| ✔ |  |
 |France Central| ✔ |  |
+|Germany West Central| ✔ | |
 |Japan East| ✔ | ✔ |
 |Japan West| ✔ | |
 |Korea Central| ✔ |  |
