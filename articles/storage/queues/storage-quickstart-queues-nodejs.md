@@ -46,13 +46,13 @@ Create a JavaScript application named *queues-quickstart-v12*.
     mkdir queues-quickstart-v12
     ```
 
-1. Switch to the newly created *blob-quickstart-v12* directory.
+1. Switch to the newly created *queues-quickstart-v12* directory.
 
     ```console
     cd queues-quickstart-v12
     ```
 
-1. Create a new text file called *package.json*. This file defines the Node.js project. Save this file in the *blob-quickstart-v12* directory. Here is the contents of the file:
+1. Create a new text file called *package.json*. This file defines the Node.js project. Save this file in the *queues-quickstart-v12* directory. Here is the contents of the file:
 
     ```json
     {
@@ -104,7 +104,7 @@ From the project directory:
         // Quick start code goes here
     }
 
-    main().then(() => console.log("Done")).catch((ex) => console.log(ex.message));
+    main().then(() => console.log("\nDone")).catch((ex) => console.log(ex.message));
 
     ```
 
@@ -187,7 +187,7 @@ console.log("Queue created, requestId:", createQueueResponse.requestId);
 
 ### Add messages to a queue
 
-The following code snippet adds messages to queue by calling the [sendMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) method. It also saves the [QueueMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queuemessage) returned from the third `sendMessage` call. The `sendMessageResponse` is used to update the message content later in the program.
+The following code snippet adds messages to queue by calling the [sendMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) method. It also saves the [QueueMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queuemessage) returned from the third `sendMessage` call. The returned `sendMessageResponse` is used to update the message content later in the program.
 
 Add this code to the end of the `main` function:
 
@@ -222,7 +222,7 @@ for (i = 0; i < peekedMessages.peekedMessageItems.length; i++) {
 
 ### Update a message in a queue
 
-Update the contents of a message by calling the [updateMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) method. The `updateMessage` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in values from the message that was saved earlier in the code. The `sendMessageResponse` values identify which message to update.
+Update the contents of a message by calling the [updateMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) method. The `updateMessage` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in values from the response that was saved earlier in the code. The `sendMessageResponse` properties identify which message to update.
 
 ```javascript
 console.log("\nUpdating the third message in the queue...");
@@ -239,7 +239,7 @@ console.log("Message updated, requestId:", updateMessageResponse.requestId);
 
 ### Receive messages from a queue
 
-Download previously added messages by calling the [receiveMessages](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) method.
+Download previously added messages by calling the [receiveMessages](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) method.  In the `numberOfMessages` field, pass in the maximum number of messages to receive for this call.
 
 Add this code to the end of the `main` function:
 

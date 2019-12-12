@@ -46,7 +46,7 @@ Create a Python application named *queues-quickstart-v12*.
     mkdir queues-quickstart-v12
     ```
 
-1. Switch to the newly created *blob-quickstart-v12* directory.
+1. Switch to the newly created *queues-quickstart-v12* directory.
 
     ```console
     cd queues-quickstart-v12
