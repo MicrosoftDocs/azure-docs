@@ -1161,7 +1161,7 @@
     items:
     - name: Supported metrics
       href: platform/metrics-supported.md
-    - name: Metrics exportable to Log Analytics
+    - name: Metrics exportable with Diagnostic Settings
       href: platform/metrics-supported-export-diag-settings.md
     - name: Supported metrics for newer alerts
       href: platform/alerts-metric-near-real-time.md 
