@@ -36,7 +36,7 @@ The following data platform tools are supported on the DSVM.
 
 ### Setup
 
-The database server is already preconfigured and the Windows services related to SQL Server (like `SQL Server (MSSQLSERVER)`) are set to run automatically. The only manual step involves enabling In-database analytics by using Microsoft Machine Learning Server. You can do this by running the following command as a one-time action in SQL Server Management Studio (SSMS). Run this command after you log in as the machine administrator, open a new query in SSMS, and make sure the selected database is `master`:
+The database server is already preconfigured and the Windows services related to SQL Server (like `SQL Server (MSSQLSERVER)`) are set to run automatically. The only manual step involves enabling In-database analytics by using Microsoft Machine Learning Server. You can enable analytics by running the following command as a one-time action in SQL Server Management Studio (SSMS). Run this command after you log in as the machine administrator, open a new query in SSMS, and make sure the selected database is `master`:
 
         CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
 
