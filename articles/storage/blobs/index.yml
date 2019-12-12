@@ -98,10 +98,14 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Use .NET
+          - text: "Quickstart: Azure Blob storage client library v12 for .NET"
             url: storage-quickstart-blobs-dotnet.md
-          - text: Use Python
+          - text: "Quickstart: Azure Blob storage client library v12 for Java"
+            url: storage-quickstart-blobs-java.md
+          - text: "Quickstart: Azure Blob storage client library v12 for Python"
             url: storage-quickstart-blobs-python.md
+          - text: "Quickstart: Azure Blob storage client library v12 for JavaScript"
+            url: storage-quickstart-blobs-nodejs.md
           - text: Route events to a web endpoint
             url: ../../event-grid/blob-event-quickstart-portal.md
           - text: Host a static website
