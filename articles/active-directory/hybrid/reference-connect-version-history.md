@@ -42,7 +42,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >If you have enabled Azure AD Connect for sync you will automatically receive Health notifications that warn you about upcoming deprecations if you are running one of the older versions.
 >
->Please refer to [this article](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
+>Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
 
 ## 1.4.38.0
 ### Release status
