@@ -90,7 +90,7 @@ The following table provides definitions for the properties of a custom health p
 
 ## NSG considerations
 
-If there is a network security group (NSG) on an application gateway subnet, port ranges 65503-65534 must be opened on the application gateway subnet for inbound traffic. These ports are required for the backend health API to work.
+If there is a network security group (NSG) on an application gateway subnet, with an application gateway v1 SKU port ranges 65503-65534 while port ranges 65200-65535 must be opened for v2 SKU application gatways on the application gateway subnet for inbound traffic . These ports are required for the backend health API to work.
 
 Additionally, outbound Internet connectivity can't be blocked, and inbound traffic coming from the AzureLoadBalancer tag must be allowed.
 
