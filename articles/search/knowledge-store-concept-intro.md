@@ -27,7 +27,7 @@ Physically, a knowledge store is [Azure Storage](https://docs.microsoft.com/azur
 
 ## Benefits of knowledge store
 
-A knowledge store gives you structure, context, and actual content - gleaned from unstructured and semi-structured data files like blobs, image files that have undergone analysis, or even structured data that is reshaped into new forms. In a [step-by-step walkthrough](knowledge-store-howto.md), you can see first-hand how a dense JSON document is partitioned out into substructures, reconstituted into new structures, and otherwise made available for downstream processes like machine learning and data science workloads.
+A knowledge store gives you structure, context, and actual content - gleaned from unstructured and semi-structured data files like blobs, image files that have undergone analysis, or even structured data, reshaped into new forms. In a [step-by-step walkthrough](knowledge-store-howto.md), you can see first-hand how a dense JSON document is partitioned out into substructures, reconstituted into new structures, and otherwise made available for downstream processes like machine learning and data science workloads.
 
 Although it's useful to see what an AI enrichment pipeline can produce, the real potential of a knowledge store is the ability to reshape data. You might start with a basic skillset, and then iterate over it to add increasing levels of structure, which you can then combine into new structures, consumable in other apps besides Azure Cognitive Search.
 
@@ -58,11 +58,11 @@ For example, if one of the goals of the enrichment process is to also create a d
 
 ## Requirements 
 
-Azure Storage is required. It provides physical storage. You can use Blob storage, Table storage or both. Blob storage is used for intact enriched documents, usually when the output is going to downstream processes. Table storage is for slices of enriched documents, commonly used for analysis and reporting.
+[Azure Storage](https://docs.microsoft.com/azure/storage/) is required. It provides physical storage. You can use Blob storage, Table storage or both. Blob storage is used for intact enriched documents, usually when the output is going to downstream processes. Table storage is for slices of enriched documents, commonly used for analysis and reporting.
 
-Skillset is required. It contains the `knowledgeStore` definition, and it determines the structure and composition of an enriched document. You cannot create a knowledge store using an empty skillset. You must have at least one skill in a skillset 
+[Skillset](cognitive-search-working-with-skillsets.md) is required. It contains the `knowledgeStore` definition, and it determines the structure and composition of an enriched document. You cannot create a knowledge store using an empty skillset. You must have at least one skill in a skillset.
 
-Indexer is required. A skillset is invoked by an indexer, thus an indexer drives the execution. Indexers come with their own set of requirements and attributes. Several of these attributes have a direct bearing on a knowledge store.
+[Indexer](search-indexer-overview.md) is required. A skillset is invoked by an indexer, thus an indexer drives the execution. Indexers come with their own set of requirements and attributes. Several of these attributes have a direct bearing on a knowledge store.
 
 + One requirement is a [supported Azure data source](search-indexer-overview.md#supported-data-sources) (the pipeline that ultimately creates the knowledge store starts by pulling data from a supported source on Azure). 
 + A second requirement is a search index. An indexer requires that you provide an index schema, even if you never plan to use it. The only requirement of an index schema is that you specify one field as the key.
@@ -73,17 +73,25 @@ Indexer is required. A skillset is invoked by an indexer, thus an indexer drives
 
 To use knowledge store, use the portal or the preview REST API (`api-version=2019-05-06-Preview`) to add a `knowledgeStore` definition.
 
-A `knowledgeStore` definition is contained within a [skillset](cognitive-search-working-with-skillsets.md), which in turn is invoked by an [indexer](search-indexer-overview.md). A skillset defines step-wise operations in an indexing pipeline. During pipeline execution, Azure Cognitive Search creates a space in your Azure Storage account and projects the enriched documents as blobs or into tables, depending on your configuration.
+### Use the Azure portal
 
-### Use the portal
+The **Import data** wizard includes options for creating a knowledge store. For initial exploration, [create your first knowledge store in four steps.](knowledge-store-connect-power-bi.md)
 
-Run **Import data** wizard. For initial exploration, this is the fastest way to create your first knowledge store.
+1. Select a supported data source.
 
-Start by choosing a supported data source. The next step is where you specify end-to-end enrichment: attaching a resource, selecting skills, and setting options for creating a knowledge store. Extraction, enrichment, and storage occur after the last step, when you run the wizard.
+1. Specify enrichment: attach a resource, select skills, and specify a knowledge store. 
 
-### Use the preview REST API
+1. Create an index schema. The wizard requires it and can infer one for you.
 
-Currently, the preview REST API is the only mechanism by which you can create a knowledge store. Reference content for this preview feature is located in [Preview REST API reference](#kstore-rest-api) section of this article. 
+1. Run the wizard. Extraction, enrichment, and storage occur in this last step.
+
+### Use Create Skillset and the preview REST API
+
+A `knowledgeStore` is defined within a [skillset](cognitive-search-working-with-skillsets.md), which in turn is invoked by an [indexer](search-indexer-overview.md). During enrichment, Azure Cognitive Search creates a space in your Azure Storage account and projects the enriched documents as blobs or into tables, depending on your configuration.
+
+Currently, the preview REST API is the only mechanism by which you can create a knowledge store. An easy way to explore is [create your first knowledge store using Postman and the REST API](knowledge-store-create-rest.md).
+
+Reference content for this preview feature is located in [Preview REST API reference](#kstore-rest-api) section of this article. 
 
 <a name="tools-and-apps"></a>
 
@@ -101,18 +109,18 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 ## Preview REST API reference
 
-In this preview, you can create a knowledge store using the **Create Skillset** REST API `api-version=2019-05-06-Preview` that contains a `knowledgeStore` definition. 
+In this preview, you can create a knowledge store using the **Create Skillset** REST API `api-version=2019-05-06-Preview` that supports the addition of a `knowledgeStore` definition. 
 
 A skillset is a resource coordinating the use of [built-in skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. 
 
-This section extends the [Create Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) reference to include additional elements that creates a knowledge store. In the preview API, a skillset has a `knowledgeStore` definition as a child element.
+This section extends the [Create Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) reference to include additional elements that create a knowledge store. In the preview API, a skillset has a `knowledgeStore` definition as a child element.
 
 ### Request example
 
-Use **POST** or **PUT** to create a skillset, giving a name, and using the preview API version.
+Use **POST** or **PUT** to create a skillset using the preview API version.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/<YOUR-SKILLSET-NAME>?api-version=2019-05-06-Preview
+POST https://[servicename].search.windows.net/skillsets?api-version=2019-05-06-Preview
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -121,13 +129,12 @@ The body of request is a JSON document that defines a skillset, which includes `
 
 ```json
 {
-  "name": "financedocenricher",
-  "description": 
-  "Extract sentiment from financial records, extract company names, and then find additional information about each company mentioned.",
+  "name": "my-skillset-name",
+  "description": "Extract organization entities and generate a positive-negative sentiment score from each document.",
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
       "inputs": [
@@ -163,34 +170,27 @@ The body of request is a JSON document that defines a skillset, which includes `
     {
     "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
     "description": "mycogsvcs resource in West US 2",
-    "key": "<your key goes here>"
+    "key": "<YOUR-COGNITIVE-SERVICES-KEY>"
     },
     "knowledgeStore": { 
-    "storageConnectionString": "<your storage connection string goes here>", 
-    "projections": [ 
-        { 
-            "tables": [  
-             { "tableName": "Records", "generatedKeyName": "RecordId", "source": "/document/Record"}, 
-             { "tableName": "Organizations", "generatedKeyName": "OrganizationId", "source": "/document/organizations*"}, 
-             { "tableName": "Sentiment", "generatedKeyName": "SentimentId", "source": "/document/mySentiment"}
-            ], 
-            "objects": [ 
-               
-            ]      
-        }    
-    ]     
+        "storageConnectionString": "<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>", 
+        "projections": [ 
+            { 
+                "tables": [  
+                { "tableName": "Organizations", "generatedKeyName": "OrganizationId", "source": "/document/organizations*"}, 
+                { "tableName": "Sentiment", "generatedKeyName": "SentimentId", "source": "/document/mySentiment"}
+                ], 
+                "objects": [ 
+                
+                ], 
+                "files": [ 
+                
+                ]       
+            }    
+        ]     
     } 
 }
 ```
-
-## Request headers  
-
- The following table describes the required and optional request headers.  
-
-|Request Header|Description|  
-|--------------------|-----------------|  
-|*Content-Type:*|Required. Set this to `application/json`|  
-|*api-key:*|Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Create Skillset** request must include an `api-key` header set to your admin key (as opposed to a query key).|  
 
 ### Request body syntax  
 
