@@ -80,6 +80,8 @@
       href: how-to-enable-nested-virtualization-template-vm.md
     - name: Prepare a Windows template VM
       href: how-to-prepare-windows-template.md
+    - name: Firewall settings for Azure Lab Services 
+      href: how-to-configure-firewall-settings.md
   - name: Connect to VMs in classroom labs (student)
     items:        
     - name: Access classroom labs
