@@ -124,7 +124,9 @@ First, get the identifier of the **existing** log-analytics workspace. The ident
 
 `/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace-id}`.
 
-_To create a loganalytics workspace see [Create loganalytics workspace](../azure-monitor/learn/quick-create-workspace-cli.md)_
+If you don't know the log-analytics workspace name or the resource group the existing log-analytics workspace belongs to, go to the [Log-Analytics Workspace](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces) and click on your log-analytics workspaces. The log-analytics workspace page appears and will list the name of the workspace and the resource group it belongs to.
+
+_To create a log-analytics workspace see [Create log-analytics workspace](../azure-monitor/learn/quick-create-workspace-cli.md)_
 
 Define a WORKSPACE_ID variable using the following CLI command in a BASH shell:
 
