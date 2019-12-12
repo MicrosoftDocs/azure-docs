@@ -3,7 +3,7 @@ title: Quickstart - Add a simulated device to Azure IoT Central
 description: This quickstart shows how to create a device template and add a simulated device to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/10/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
