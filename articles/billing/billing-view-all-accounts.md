@@ -96,7 +96,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
    ![Screenshot that shows billing scopes](./media/billing-view-all-accounts/List-of-scopes.png)
 
-## Check access to a Microsoft Customer Agreement
+## Check the type of your account
 [!INCLUDE [billing-check-mca](../../includes/billing-check-account-type.md)]
 
 ## Need help? Contact us.
