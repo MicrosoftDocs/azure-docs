@@ -171,7 +171,7 @@ Creating a new database or moving an existing database into a serverless compute
 
 ### Create new database in serverless compute tier 
 
-The following examples create a new database in the serverless compute tier. This examples explicitly specify the min vCores, max vCores, and autopause delay.
+The following examples create a new database in the serverless compute tier. The examples explicitly specify the min vCores, max vCores, and autopause delay.
 
 #### Use Azure portal
 
@@ -206,7 +206,7 @@ For details, see [CREATE DATABASE](/sql/t-sql/statements/create-database-transac
 
 ### Move database from provisioned compute tier into serverless compute tier
 
-The following examples move a database from the provisioned compute tier into the serverless compute tier. This examples explicitly specify the min vCores, max vCores, and autopause delay.
+The following examples move a database from the provisioned compute tier into the serverless compute tier. The examples explicitly specify the min vCores, max vCores, and autopause delay.
 
 #### Use PowerShell
 
