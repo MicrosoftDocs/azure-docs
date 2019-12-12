@@ -1,6 +1,6 @@
 ---
 title: Create a Video Indexer account in the Azure portal
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: This article shows how to create a Video Indexer account in the Azure portal.
 services: media-services
 author: Juliako

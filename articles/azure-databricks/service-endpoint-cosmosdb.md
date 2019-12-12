@@ -1,5 +1,5 @@
 ---
-title: Implement Azure Databricks with a Cosmos DB endpoint
+title: Tutorial - Implement Azure Databricks with a Cosmos DB endpoint
 description: This tutorial describes how to implement Azure Databricks in a virtual network with a Service Endpoint enabled for Cosmos DB. 
 author: mamccrea
 ms.author: mamccrea

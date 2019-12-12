@@ -71,7 +71,7 @@ Here are a few basic Application Insights queries you can use to explore your lo
 Run this query to see the **100 most recent** logs:
 
 ```Application Insights
-MicrosoftHealthcareAPISAuditLogs
+MicrosoftHealthcareApisAuditLogs
 | limit 100
 ```
 
@@ -89,21 +89,13 @@ MicrosoftHealthcareApisAuditLogs
 | where ResultType == "Failed" 
 ```
 
-Run this query to find the **average time to perform an operation** by **FHIRResourceType** and **ResultType**:
-
-```Application Insights
-MicrosoftHealthcareApisAuditLogs 
-| summarize avg(OperationDuration) by FhirResourceType, ResultType
-```
-![Audit Log Example](media/diagnostic-logging/audit-logging.png) 
-
 ## Conclusion 
 Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. Azure API for FHIR® allows you to do these actions through diagnostic logs. 
  
 FHIR® is the registered trademark of HL7 and is used with the permission of HL7.
 
 ## Next steps
-In this article, you learned how to enable Audit Logs for Azure API for FHIR®. Next, learn how to use custom headers to add data to audit logs in Azure API for FHIR®.
+In this article, you learned how to enable Audit Logs for Azure API for FHIR®. Next, learn about other additional settings you can configure in the Azure API for FHIR
  
 >[!div class="nextstepaction"]
->[Use Custom Headers](use-custom-headers.md)
+>[Additional Settings](azure-api-for-fhir-additional-settings.md)

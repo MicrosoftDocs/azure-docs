@@ -1,12 +1,9 @@
 ---
-title: Access to Azure virtual networks - Azure Logic Apps
+title: Access to Azure virtual networks
 description: Overview about how integration service environments (ISEs) help logic apps access Azure virtual networks (VNETs)
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ---
@@ -73,7 +70,7 @@ that offer versions that run in an ISE:
 
 * Azure Blob Storage, File Storage, and Table Storage
 * Azure Queues, Azure Service Bus, Azure Event Hubs, and IBM MQ
-* FTP and SFTP-SSH
+* File System, FTP, and SFTP-SSH
 * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
 * AS2, X12, and EDIFACT
 

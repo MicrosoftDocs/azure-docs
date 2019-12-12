@@ -3,10 +3,6 @@ title: Tutorial - Configure dynamic inventories of your Azure resources using An
 description: Learn how to use Ansible to manage your Azure dynamic inventories
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/23/2019
 ---
 
@@ -227,7 +223,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
           become: yes
           tasks:
           - name: install nginx
-            apt: pkg=nginx state=installed
+            apt: pkg=nginx state=present
             notify:
             - start nginx
     

@@ -16,11 +16,11 @@ ms.date: 10/29/2019
 This article compares the features, capabilities, and interface of Azure Machine Learning to ML Studio (classic). 
 
 ## About ML Studio (classic)
-[ML Studio (classic)](/studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules as well as a proprietary compute platform.
+[ML Studio (classic)](studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules as well as a proprietary compute platform.
 
 ## About Azure Machine Learning
 
-Meanwhile, [Azure Machine Learning](/service/overview-what-is-azure-ml.md) provides both a web interface called the designer (preview) **and** several SDKs and CLI to quickly prep data, train and deploy machine learning models. With Azure Machine Learning you get scale, multiple framework support, advanced ML capabilities like automated machine learning and pipeline support.
+Meanwhile, [Azure Machine Learning](service/overview-what-is-azure-ml.md) provides both a web interface called the designer (preview) **and** several SDKs and CLI to quickly prep data, train and deploy machine learning models. With Azure Machine Learning you get scale, multiple framework support, advanced ML capabilities like automated machine learning and pipeline support.
 
 Azure Machine Learning designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources, is scalable, and is fully integrated into Azure Machine Learning.  
 

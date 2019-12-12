@@ -4,9 +4,9 @@ description: This article describes source control integration with GitHub in Az
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/26/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/10/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -24,7 +24,7 @@ Azure Automation supports three types of source control:
 
 * A source control repository (GitHub or Azure Repos)
 * A [Run-As Account](manage-runas-account.md)
-* Ensure you have the [latest Azure modules](automation-update-azure-modules.md) in your Automation Account
+* Ensure you have the [latest Azure modules](automation-update-azure-modules.md) in your Automation Account, including **AzureRM.Profile** module. 
 
 > [!NOTE]
 > Source control sync jobs run under the users Automation Account and are billed at the same rate as other Automation jobs.
@@ -171,7 +171,7 @@ If multiple people are editing runbooks in your source control repository with d
 
 Currently, there is no way to update the access token in Source Control from the portal. After your personal access token is expired or revoked, you can update Source Control with a new access token in the following ways:
 
-* Through the [REST Api](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* Through the [REST Api](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
 * By using the [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet.
 
 ## Next steps

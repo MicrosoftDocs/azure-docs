@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 10/15/2019
+ms.date: 11/12/2019
 
 # Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data. 
 ---
@@ -91,9 +91,9 @@ In addition to the arguments discussed previously, you may set the `status` argu
 
 ## View your scheduled pipelines
 
-In your Web browser, navigate to your Machine Learning service workspace. From the **Assets** section of the navigation panel, choose **Pipelines**. This link takes you to a list of the pipelines published in the Workspace.
+In your Web browser, navigate to Azure Machine Learning. From the **Endpoints** section of the navigation panel, choose **Pipeline endpoints**. This takes you to a list of the pipelines published in the Workspace.
 
-![Pipelines page of Workspace](media/how-to-schedule-a-pipeline/pipelines-list.png)
+![Pipelines page of AML](media/how-to-schedule-pipelines/scheduled-pipelines.png)
 
 In this page you can see summary information about all the pipelines in the Workspace: names, descriptions, status, and so forth. Drill in by clicking in your pipeline. On the resulting page, there are more details about your pipeline and you may drill down into individual runs.
 

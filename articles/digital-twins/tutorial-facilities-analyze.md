@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Analyze events from Azure Digital Twins setup | Microsoft Docs'
+title: 'Tutorial: Analyze events in Time Series Insights - Azure Digital Twins| Microsoft Docs'
 description: Learn how to visualize and analyze events from your Azure Digital Twins spaces, with Azure Time Series Insights, by using the steps in this tutorial.
 services: digital-twins
 ms.author: alinast
@@ -8,11 +8,11 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 09/23/2019
+ms.date: 11/12/2019
 #Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to analyze events from an Azure Digital Twins instance. 
 ---
 
-# Tutorial: Visualize and analyze events from your Azure Digital Twins spaces by using Time Series Insights
+# Tutorial: Visualize and analyze events from Azure Digital Twins by using Time Series Insights
 
 After you deploy your Azure Digital Twins instance, provision your spaces, and implement a custom function to monitor specific conditions, you can visualize the events and data coming from your spaces to look for trends and anomalies.
 
@@ -50,6 +50,8 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 1. Search for and select **Event Hubs**. Select **Create**.
 
+    [![Create an Event Hubs Namespace](./media/tutorial-facilities-analyze/create-event-hubs.png)](./media/tutorial-facilities-analyze/create-event-hubs.png#lightbox)
+
 1. Enter a **Name** for your Event Hubs namespace. Choose **Standard** for **Pricing tier**, your **Subscription**, the **Resource group** that you used for your Digital Twins instance, and the **Location**. Select **Create**.
 
 1. In the Event Hubs namespace deployment, select the **Overview** pane, then select **Go to resource**.
@@ -73,7 +75,10 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
     [![Event Hub connection strings](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
-1. Open the ManageSend policy that you created, and copy the values for **Connection string--primary key** and **Connection string--secondary key** to a temporary file. You'll need these values to create an endpoint for the event hub in the next section.
+    > [!TIP]
+    > Verify that you are creating an SAS Policy for your event hub instance rather than your namespace.
+
+1. Open the **ManageSend** policy that you created, and copy the values for **Connection string—primary key** and **Connection string—secondary key** to a temporary file. You'll need these values to create an endpoint for the event hub in the next section.
 
 ### Create an endpoint for the event hub
 
@@ -99,15 +104,15 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
       path: Name_of_your_Event_Hub
     ```
 
-1. Replace the placeholders `Primary_connection_string_for_your_event_hub` with the value of **Connection string--primary key** for the event hub. Make sure the format of this connection string is as follows:
+1. Replace the placeholders `Primary_connection_string_for_your_event_hub` with the value of **Connection string—primary key** for the event hub. Make sure the format of this connection string is as follows:
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. Replace the placeholders `Secondary_connection_string_for_your_event_hub` with the value of **Connection string--secondary key** for the event hub. Make sure the format of this connection string is as follows: 
+1. Replace the placeholders `Secondary_connection_string_for_your_event_hub` with the value of **Connection string—secondary key** for the event hub. Make sure the format of this connection string is as follows: 
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
@@ -136,7 +141,7 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
     [![Selections for creating a Time Series Insights instance](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
-1. In the **Event Source** tab, enter a **Name**, select **Event Hub** as the **Source type**, and make sure the other values are selected correctly. Select **ManageSend** for **Event Hub access policy name**, and then select the consumer group that you created in the previous section for **Event Hub consumer group**. Select **Review + create**.
+1. In the **Event Source** tab, enter a **Name**, select **Event Hub** as the **Source type**, and make sure the other values are selected correctly to reference the event hub you created. Select **ManageSend** for **Event Hub access policy name**, and then select the consumer group that you created in the previous section for **Event Hub consumer group**. Select **Review + create**.
 
     [![Selections for creating an event source](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 

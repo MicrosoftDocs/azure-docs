@@ -1,12 +1,8 @@
 ---
-title: Security features to help protect cloud workloads that use Azure Backup
+title: Security features to help protect cloud workloads
 description: Learn how to use security features in Azure Backup to make backups more secure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
 ---
 # Security features to help protect cloud workloads that use Azure Backup
 
@@ -22,7 +18,7 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 
 Soft delete is currently supported in the West Central US, East Asia, Canada Central, Canada East, France Central, France South, Korea Central, Korea South, UK South, UK West, Australia East, Australia South East, North Europe, West US, West US2, Central US, South East Asia, North Central US, South Central US, Japan East, Japan West, India South, India Central, India West, East US 2, Switzerland North, Switzerland West, and all National regions.
 
-### Soft delete for VMs
+### Soft delete for VMs using Azure portal
 
 1. In order to delete the backup data of a VM, the backup must be stopped. In the Azure portal, go to your recovery services vault, right-click on the backup item and choose **Stop backup**.
 
@@ -39,7 +35,7 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
    > [!NOTE]
    > If any soft-deleted backup items are present in the vault, the vault cannot be deleted at that time. Please try vault deletion after the backup items are permanently deleted, and there is no item in soft deleted state left in the vault.
 
-4. In order to restore the soft-deleted VM, it must first be undeleted. To undelete, choose the soft-deleted VM, and then click on the option **Undelete**.
+4. In order to restore the soft-deleted VM, it must first be undeleted. To undelete, choose the soft-deleted VM, and then select the option **Undelete**.
 
    ![Screenshot of Azure portal, Undelete VM](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
@@ -58,34 +54,160 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
 
    ![Screenshot of Azure portal, Resume backup option](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
-This flow chart shows the different steps and states of a backup item:
+This flow chart shows the different steps and states of a backup item when Soft Delete is enabled:
 
 ![Lifecycle of soft-deleted backup item](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
 For more information, see the [Frequently Asked Questions](backup-azure-security-feature-cloud.md#frequently-asked-questions) section below.
 
+### Soft delete for VMs using Azure Powershell
+
+> [!IMPORTANT]
+> The Az.RecoveryServices version required to use soft-delete using Azure PS is min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` to get the latest version.
+
+As outlined above for Azure portal, the sequence of steps is same while using Azure Powershell as well.
+
+#### Delete the backup item using Azure Powershell
+
+Delete the backup item using the [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet.
+
+```powershell
+Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
+
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
+```
+
+The 'DeleteState' of the backup item will change from 'NotDeleted' to 'ToBeDeleted'. The backup data will be retained for 14 days. If you wish to revert the delete operation, then undo-delete should be performed.
+
+#### Undoing the deletion operation using Azure Powershell
+
+First, fetch the relevant backup item that is in soft-delete state i.e., about to be deleted
+
+```powershell
+
+Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
+
+Name                                     ContainerType        ContainerUniqueName                      WorkloadType         ProtectionStatus     HealthStatus         DeleteState
+----                                     -------------        -------------------                      ------------         ----------------     ------------         -----------
+VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;selfhostrg;AppVM1       AzureVM              Healthy              Passed               ToBeDeleted
+
+$myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
+```
+
+Then, perform the undo-deletion operation using the [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.1.0) PS cmdlet.
+
+```powershell
+Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
+
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
+```
+
+The 'DeleteState' of the backup item will revert to 'NotDeleted'. But the protection is still stopped. You need to [resume the backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) to re-enable the protection.
+
 ## Disabling soft delete
 
-Soft delete is enabled by default on newly created vaults. If the soft delete security feature is disabled,  backup data will not be protected from accidental or malicious deletes. Without the soft delete feature, all deletions of protected items will result in immediate removal, without the ability to restore. Since backup data in the "soft delete" state doesn't incur any cost to the customer, disabling this feature is not recommended. The only circumstance where you should consider disabling soft delete is if you are planning on moving your protected items to a new vault, and cannot wait the 14 days required before deleting and reprotecting (such as in a test environment.)
+Soft delete is enabled by default on newly created vaults to protect backup data from accidental or malicious deletes.  Disabling this feature is not recommended. The only circumstance where you should consider disabling soft delete is if you are planning on moving your protected items to a new vault, and cannot wait the 14 days required before deleting and reprotecting (such as in a test environment.) Only a Backup Administrator can disable this feature. If you disable this feature, all deletions of protected items will result in immediate removal, without the ability to restore. Backup data in soft deleted state prior disabling this feature, will remain in soft deleted state. If you wish to permanently delete these immediately, then you need to undelete and delete them again to get permanently deleted.
 
-### Prerequisites for disabling soft delete
+### Disabling soft delete using Azure portal
 
-- Enabling or disabling soft delete for vaults (without protected items) can only be done the Azure portal. This applies to:
-  - Newly created vaults that do not contain protected items
-  - Existing vaults whose protected items have been deleted and expired (beyond the fixed 14-day retention period)
-- If the soft delete feature is disabled for the vault, you can re-enable it, but you cannot reverse that choice and disable it again if the vault contains protected items.
-- You cannot disable soft delete for vaults that contain protected items or items in soft-deleted state. If you need to do so, then follow these steps:
-  - Stop protection of deleted data for all protected items.
-  - Wait for the 14 days of safety retention to expire.
-  - Disable soft delete.
-
-To disable soft delete, ensure that the prerequisites are met, and then follow these steps:
+To disable soft delete, follow these steps:
 
 1. In the Azure portal, go to your vault, and then go to **Settings** -> **Properties**.
-2. In the properties pane, select **Security Settings** -> **Update**.
-3. In the security settings pane, under Soft Delete, select **Disable**.
+2. In the properties pane, select **Security Settings** -> **Update**.  
+3. In the security settings pane, under **Soft Delete**, select **Disable**.
 
 ![Disable soft delete](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
+### Disabling soft delete using Azure Powershell
+
+> [!IMPORTANT]
+> The Az.RecoveryServices version required to use soft-delete using Azure PS is min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` to get the latest version.
+
+To disable, use the [Set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) PS cmdlet.
+
+```powershell
+Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
+
+
+StorageModelType       :
+StorageType            :
+StorageTypeState       :
+EnhancedSecurityState  : Enabled
+SoftDeleteFeatureState : Disabled
+```
+
+## Permanently deleting soft deleted backup items
+
+Backup data in soft deleted state prior disabling this feature, will remain in soft deleted state. If you wish to permanently delete these immediately, then undelete and delete them again to get permanently deleted.
+
+### Using Azure portal
+
+Follow these steps:
+
+1. Follow the steps to [disable soft delete](#disabling-soft-delete). 
+2. In the Azure portal, go to your vault, go to **Backup Items** and choose the soft deleted VM
+
+![Choose soft deleted VM](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+
+3. Select the option **Undelete**.
+
+![Choose Undelete](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+
+
+4. A window will appear. Select **Undelete**.
+
+![Select Undelete](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+
+5. Choose **Delete backup data** to permanently delete the backup data.
+
+![Choose Delete backup data](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+
+6. Type the name of the backup item to confirm that you want to delete the recovery points.
+
+![Type the name of the backup item](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+
+7. To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
+
+### Using Azure Powershell
+
+If items were deleted before soft-delete was disabled, then they will be in a soft-deleted state. To immediately delete them, the deletion operation needs to reversed and then performed again.
+
+Identify the items that are in soft-deleted state.
+
+```powershell
+
+Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
+
+Name                                     ContainerType        ContainerUniqueName                      WorkloadType         ProtectionStatus     HealthStatus         DeleteState
+----                                     -------------        -------------------                      ------------         ----------------     ------------         -----------
+VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;selfhostrg;AppVM1       AzureVM              Healthy              Passed               ToBeDeleted
+
+$myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
+```
+
+Then reverse the deletion operation that was performed when soft-delete was enabled.
+
+```powershell
+Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
+
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
+```
+
+Since the soft-delete is now disabled, the deletion operation will result in immediate removal of backup data.
+
+```powershell
+Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
+
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
+```
 
 ## Other security features
 
@@ -137,7 +259,7 @@ Undelete followed by resume operation will protect the resource again. Resume op
 
 #### Can I delete my vault if there are soft deleted items in the vault?
 
-Recovery Services vault cannot be deleted if there are backup items in soft-deleted state in the vault. The soft-deleted items are permanently deleted after 14 days of delete operation. You can delete the vault only after all the soft deleted items have been purged.  
+The Recovery Services vault cannot be deleted if there are backup items in soft-deleted state in the vault. The soft-deleted items are permanently deleted 14 days after the delete operation. If you cannot wait for 14 days, then [disable soft delete](#disabling-soft-delete), undelete the soft deleted items, and delete them again to permanently get deleted. After ensuring there are no protected items and no soft deleted items the vault can be deleted.  
 
 #### Can I delete the data earlier than the 14 days soft-delete period after deletion?
 
@@ -145,7 +267,7 @@ No. You cannot force delete the soft-deleted items, they are automatically delet
 
 #### Can soft delete operations be performed in PowerShell or CLI?
 
-No, support for PowerShell or CLI is not currently available.
+Soft delete operations can be performed using [Powershell](#soft-delete-for-vms-using-azure-powershell). Currently, CLI is not supported.
 
 #### Is soft delete supported for other cloud workloads, like SQL Server in Azure VMs and SAP HANA in Azure VMs?
 

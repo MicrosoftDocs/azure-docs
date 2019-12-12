@@ -1,18 +1,8 @@
 ---
-title: Use SSL certificate in code - Azure App Service | Microsoft Docs
-description: Learn how to use client certificates to connect to remote resources that require them.
-services: app-service
-documentationcenter: 
-author: cephalin
-manager: gwallace
-editor: ''
-
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Use SSL certificate in code
+description: Learn how to use client certificates in your code. Authenticate with remote resources with a client certificate, or run cryptographic tasks with them.
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
 
@@ -138,6 +128,8 @@ If you need to load a certificate file that you upload manually, it's better to 
 > ```azurecli-interactive
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
+>
+> This approach to using certificates in your code makes use of the SSL functionality in App Service, which requires your app to be in **Basic** tier or above.
 
 The following C# example loads a public certificate from a relative path in your app:
 

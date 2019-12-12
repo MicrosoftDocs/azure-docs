@@ -43,7 +43,7 @@ For example, for the default BIND server configuration, edit
 /etc/named.conf file on your DNS server and add the following zone information.
 
 ```
-zone "cloudsimple.io"
+zone "az.cloudsimple.io"
 {
     type stub;
     masters { IP address of DNS servers; };
@@ -88,7 +88,7 @@ For example, for the default BIND server configuration, edit
 information.
 
 ```
-zone "cloudsimple.io" {
+zone "az.cloudsimple.io" {
     type forward;
     forwarders { IP address of DNS servers; };
 };

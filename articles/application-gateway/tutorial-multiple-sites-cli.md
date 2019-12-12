@@ -1,11 +1,12 @@
 ---
-title: Create an application gateway that hosts multiple web sites - Azure CLI
+title: Host multiple web sites using CLI
+titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that hosts multiple web sites using the Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an IT administrator, I want to use Azure CLI to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.

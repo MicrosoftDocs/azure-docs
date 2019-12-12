@@ -198,7 +198,7 @@ In order to enable Azure AD users to sign in to Wikispaces, they must be provisi
    
     ![Invite People](./media/wikispaces-tutorial/ic787208.png "Invite People")
    
-    a. Type the **Usernames or Email Address** of a valid AAD account you want to provision into the related textboxes.
+    a. Type the **Usernames or Email Address** of a valid Azure AD account you want to provision into the related textboxes.
    
     b. Click **Send**.  
       
@@ -206,7 +206,7 @@ In order to enable Azure AD users to sign in to Wikispaces, they must be provisi
     > The Azure Active Directory account holder receives an email including a link to confirm the account before it becomes active.
     
 > [!NOTE]
-> You can use any other Wikispaces user account creation tools or APIs provided by Wikispaces to provision AAD user accounts.
+> You can use any other Wikispaces user account creation tools or APIs provided by Wikispaces to provision Azure AD user accounts.
 
 ### Test single sign-on 
 

@@ -1,14 +1,15 @@
 ---
-title: 'Quickstart: Custom voice assistant, Java (Android) - Speech Service'
+title: 'Quickstart: Custom voice assistant, Java (Android) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to create a voice assistant application in Java on Android using the Speech SDK
 services: cognitive-services
 author: trrwilson
 manager: nitinme
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 12/09/2019
 ms.author: travisw
 ---
 
@@ -25,9 +26,9 @@ This application is built with the Speech SDK Maven package and Android Studio 3
 
 ## Prerequisites
 
-* An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com).
-* A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-* [Android Studio](https://developer.android.com/studio/) v3.3 or later
+- An Azure subscription key for the Speech service. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com).
+- A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Android Studio](https://developer.android.com/studio/) v3.3 or later
 
     > [!NOTE]
     > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
@@ -91,9 +92,9 @@ Next, replace the contents of the `activity_main.xml` with the following code:
 
 This XML defines a simple UI to interact with your bot.
 
-* The `button` element initiates an interaction and invokes the `onBotButtonClicked` method when clicked.
-* The `recoText` element will display the speech-to-text results as you talk to your bot.
-* The `activityText` element will display the JSON payload for the latest Bot Framework activity from your bot.
+- The `button` element initiates an interaction and invokes the `onBotButtonClicked` method when clicked.
+- The `recoText` element will display the speech-to-text results as you talk to your bot.
+- The `activityText` element will display the JSON payload for the latest Bot Framework activity from your bot.
 
 The text and graphical representation of your UI should now look like this:
 
@@ -255,7 +256,7 @@ The text and graphical representation of your UI should now look like this:
 
     * Replace `YourSpeechSubscriptionKey` with your subscription key.
 
-    * Replace `YourServiceRegion` with the [region](regions.md) associated with your subscription Only a subset of Speech Services regions are currently supported with Direct Line Speech. For more information, see [regions](regions.md#voice-assistants).
+    * Replace `YourServiceRegion` with the [region](regions.md) associated with your subscription Only a subset of Speech service regions are currently supported with Direct Line Speech. For more information, see [regions](regions.md#voice-assistants).
 
 ## Build and run the app
 
@@ -280,7 +281,7 @@ Once the application and its activity have launched, click the button to begin t
 
 ## See also
 - [About voice assistants](voice-assistants.md)
-- [Get a Speech Services subscription key for free](get-started.md)
+- [Get a Speech service subscription key for free](get-started.md)
 - [Custom keywords](speech-devices-sdk-create-kws.md)
 - [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)

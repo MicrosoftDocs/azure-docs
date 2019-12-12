@@ -1,17 +1,17 @@
 ---
-title: Configure Azure AD role settings in Privileged Identity Management - Azure Active Directory | Microsoft Docs
+title: Configure Azure AD role settings in PIM - Azure AD | Microsoft Docs
 description: Learn how to configure Azure AD role settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management

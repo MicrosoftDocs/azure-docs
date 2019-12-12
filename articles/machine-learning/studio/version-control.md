@@ -1,6 +1,6 @@
 ---
 title: Application lifecycle management
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Apply Application Lifecycle Management best practices in the classic version of Azure Machine Learning Studio
 services: machine-learning
 ms.service: machine-learning

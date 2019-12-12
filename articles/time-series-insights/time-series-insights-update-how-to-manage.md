@@ -1,6 +1,6 @@
 ---
-title: Provision and manage Azure Time Series Preview | Microsoft Docs
-description: Understanding how to provision and manage Azure Time Series Insights Preview.
+title: Provision and manage a Preview environment - Azure Time Series | Microsoft Docs
+description: Learn how to provision and manage an Azure Time Series Insights Preview environment.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar

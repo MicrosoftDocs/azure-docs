@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Pattern.any entity - LUIS"
 titleSuffix: Azure Cognitive Services
-description: Use the pattern.any entity to extract data from utterances where the utterances is well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.  
+description: In this tutorial, use the pattern.any entity to extract data from utterances where the utterances is well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.  
 services: cognitive-services
 ms.custom: seodec18
 author: diberry
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern.any entity to improve predictions. 
 ---
@@ -134,7 +134,7 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
 ## Using an explicit list
 
-If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem.
+If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](reference-pattern-syntax.md#explicit-lists) to correct this problem.
 
 
 ## Clean up resources

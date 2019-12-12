@@ -166,11 +166,10 @@ In this example, we used Azure NetApp Files for all SAP Netweaver file systems t
 
 When considering Azure NetApp Files for the SAP Netweaver on SUSE High Availability architecture, be aware of the following important considerations:
 
-- The minimum capacity pool is 4 TiB. The capacity pool size must be in multiples of 4 TiB.
+- The minimum capacity pool is 4 TiB. The capacity pool size can be increased in 1 TiB increments.
 - The minimum volume is 100 GiB
 - Azure NetApp Files and all virtual machines, where Azure NetApp Files volumes will be mounted, must be in the same Azure Virtual Network or in [peered virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) in the same region. Azure NetApp Files access over VNET peering in the same region is supported now. Azure NetApp access over global peering is not yet supported.
 - The selected virtual network must have a subnet, delegated to Azure NetApp Files.
-- Azure NetApp Files currently supports only NFSv3 
 - Azure NetApp Files offers [export policy](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
 - Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
 
@@ -370,6 +369,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     192.168.24.5:/sapQAS/usrsapQASsys /usr/sap/QAS/SYS nfs rw,hard,rsize=65536,wsize=65536,vers=3
     192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=3
    ```
+
+   > [!NOTE]
+   > Make sure to match the NFS protocol version of the Azure NetApp Files volumes, when mounting the volumes. In this example the Azure NetApp Files volumes were created as NFSv3 volumes.  
 
    Mount the new shares
 

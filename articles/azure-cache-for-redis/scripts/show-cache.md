@@ -1,19 +1,12 @@
 ---
-title: Azure CLI Script Sample - Get details of an Azure Cache for Redis | Microsoft Docs
+title: Get details of an Azure Cache for Redis - Azure CLI
 description: Azure CLI Script Sample - Get details of an Azure Cache for Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: 
 tags: azure-service-management
 
-ms.assetid: 155924e6-00d5-4a8c-ba99-5189f300464a
 ms.service: cache
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
+ms.topic: sample
 ms.date: 08/30/2017
 ms.author: yegu
 ---

@@ -1,13 +1,8 @@
 ---
-title: Managed identities overview - Azure App Service | Microsoft Docs
-description: Conceptual reference and setup guide for managed identities in Azure App Service and Azure Functions
-services: app-service
+title: Managed identities
+description: Learn how managed identities work in Azure App Service and Azure Functions, how to configure a managed identity and generate a token for a back end resource.
 author: mattchenderson
-manager: cfowler
-editor: ''
 
-ms.service: app-service
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
@@ -38,7 +33,7 @@ To set up a managed identity in the portal, you will first create an application
 
 2. If using a function app, navigate to **Platform features**. For other app types, scroll down to the **Settings** group in the left navigation.
 
-3. Select **Managed identity**.
+3. Select **Identity**.
 
 4. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
@@ -165,7 +160,7 @@ First, you'll need to create a user-assigned identity resource.
 
 3. If using a function app, navigate to **Platform features**. For other app types, scroll down to the **Settings** group in the left navigation.
 
-4. Select **Managed identity**.
+4. Select **Identity**.
 
 5. Within the **User assigned** tab, click **Add**.
 
@@ -190,7 +185,7 @@ Any resource of type `Microsoft.Web/sites` can be created with an identity by in
 > [!NOTE] 
 > An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`
 
-Adding the user-assigned type and a cotells Azure to create and manage the identity for your application.
+Adding the user-assigned type tells Azure to use the user-assigned identity specified for your application.
 
 For example, a web app might look like the following:
 ```json

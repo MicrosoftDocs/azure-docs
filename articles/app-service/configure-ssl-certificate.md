@@ -1,17 +1,10 @@
 ---
-title: Add and manage SSL certificates - Azure App Service | Microsoft Docs
-description: Learn how to buy an App Service certificate and bind it to your App Service app
-services: app-service
-author: cephalin
-manager: gwallace
+title: Add and manage SSL certificates
+description: Create a free certificate, import an App Service certificate, import a Key Vault certificate, or buy an App Service certificate in Azure App Service.
 tags: buy-ssl-certificates
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 10/25/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
@@ -63,6 +56,10 @@ The free App Service Managed Certificate is a turn-key solution for securing you
 - Does not support wildcard certificates.
 - Does not support naked domains.
 - Is not exportable.
+
+> [!NOTE]
+> The free certificate is issued by DigiCert. For some top-level domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
+> 
 
 To create a free App Service Managed Certificate:
 
@@ -320,7 +317,7 @@ Once the renew operation is complete, click **Sync**. The sync operation automat
 
 ### Export certificate
 
-Because App Service Certificates is a [Key Vault secret](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets), you can export a PFX copy of it and use it for other Azure services or outside of Azure.
+Because an App Service Certificate is a [Key Vault secret](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets), you can export a PFX copy of it and use it for other Azure services or outside of Azure.
 
 To export the App Service Certificate as a PFX file, run the following commands in the [Cloud Shell](https://shell.azure.com). You can also run it locally if you [installed Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Replace the placeholders with the names you used when you [created the App Service certificate](#start-certificate-order).
 
@@ -339,7 +336,7 @@ az keyvault secret download \
     --encoding base64
 ```
 
-The downloaded *appservicecertificate.pfx* file is a raw PKCS12 file that contains both the public and private certificates. Whenever you're prompted, both the import password and the PEM pass phrase are the empty string.
+The downloaded *appservicecertificate.pfx* file is a raw PKCS12 file that contains both the public and private certificates. In each prompt, use an empty string for the import password and the PEM pass phrase.
 
 ### Delete certificate 
 

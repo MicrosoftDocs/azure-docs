@@ -1,17 +1,14 @@
 ---
-title: Use Microsoft Authenticator or Microsoft Intune Company Portal on Xamarin iOS and Android applications 
+title: Use brokers with Xamarin, iOS, & Android | Azure
+
 titleSuffix: Microsoft identity platform
 description: Learn how to migrate Xamarin iOS applications that can use Microsoft Authenticator from the Azure AD Authentication Library for .NET (ADAL.NET) to the Microsoft Authentication Library for .NET (MSAL.NET)
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
@@ -38,7 +35,7 @@ Follow these steps to enable your Xamarin.iOS app to talk with the [Microsoft Au
 ### Step 1: Enable broker support
 Broker support is enabled on a per-PublicClientApplication basis. It's disabled by default. Use the `WithBroker()` parameter (set to true by default) when you create the PublicClientApplication through the PublicClientApplicationBuilder.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -49,7 +46,7 @@ var app = PublicClientApplicationBuilder
 ### Step 2: Update AppDelegate to handle the callback
 When the Microsoft Authentication Library for .NET (MSAL.NET) calls the broker, the broker in turn calls back to your application through the `OpenUrl` method of the `AppDelegate` class. Because MSAL waits for the response from the broker, your application needs to cooperate to call MSAL.NET back. To enable this cooperation, update the `AppDelegate.cs` file to override the following method.
 
-```CSharp
+```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, 
                              string sourceApplication,
                              NSObject annotation)
@@ -82,16 +79,16 @@ To do this, you do two things.
 **For example:**
 
 In `App.cs`:
-```CSharp
+```csharp
    public static object RootViewController { get; set; }
 ```
 In `AppDelegate.cs`:
-```CSharp
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 In the acquire token call:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
@@ -141,11 +138,11 @@ Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the `Info.plist` 
 
 ### Step 6: Register your redirect URI in the application portal
 Using the broker adds an extra requirement on your redirect URI. The redirect URI _must_ have the following format:
-```CSharp
+```csharp
 $"msauth.{BundleId}://auth"
 ```
 **For example:**
-```CSharp
+```csharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
 ```
 Notice that the redirect URI matches the `CFBundleURLSchemes` name you included in the `Info.plist` file.
@@ -178,7 +175,9 @@ The portal has a new experience app registration portal to help you compute the 
 
 ## Brokered authentication for Android
 
-The broker support isn't available for Android.
+MSAL.NET only support the Xamarin.iOS platform at the moment. It doesn't yet support brokers for the Xamarin.Android platform.
+
+The MSAL Android native library already supports it. For details see [Brokered auth in Android](brokered-auth.md)
 
 ## Next steps
 

@@ -1,13 +1,9 @@
 ---
-title: Best Practices for Azure Functions | Microsoft Docs
+title: Best Practices for Azure Functions 
 description: Learn best practices and patterns for Azure Functions.
-author: ggailey777
-manager: gwallace
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/16/2017
-ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
 

@@ -1,10 +1,10 @@
 ---
 title: Azure SignalR Service frequently asked questions
-description: FAQ for Azure SignalR Service.
+description: Have quick access to frequently asked questions on Azure SignalR Service, about troubleshooting and typical usage scenarios.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
 ---
 # Azure SignalR Service FAQ

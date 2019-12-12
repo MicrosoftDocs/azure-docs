@@ -1,6 +1,6 @@
 ---
-title: 'Plan the scale of your Azure Time Series Insights environment | Microsoft Docs'
-description: This article describes how to follow best practices when you plan an Azure Time Series Insights environment. Areas that are covered include storage capacity, data retention, ingress capacity, monitoring, and business continuity and disaster recovery (BCDR). 
+title: 'Plan your GA environment - Azure Time Series Insights | Microsoft Docs'
+description: Learn about best practices to follow as you plan your GA environment.
 services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled
@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
 ---
 
@@ -48,7 +48,7 @@ You can change the **Data retention time** setting in your Azure Time Series Ins
 Azure Time Series Insights has two modes:
 
 * One mode optimizes for the most up-to-date data. It enforces a policy to **Purge old data** leaving recent data available with the instance. This mode is on, by default. 
-* The other optimizes data to remain below the configured retention limits. **Pause ingress** prevents new data from being ingressed when its selected as the **Storage limit exceeded behavior**. 
+* The other optimizes data to remain below the configured retention limits. **Pause ingress** prevents new data from being ingressed when it's selected as the **Storage limit exceeded behavior**. 
 
 You can adjust retention and toggle between the two modes on the environment’s configuration page in the Azure portal.
 
@@ -59,11 +59,11 @@ You can adjust retention and toggle between the two modes on the environment’s
 
 1. In the [Azure portal](https://portal.azure.com), select your Time Series Insights environment.
 
-1. In the **Time Series Insights environment** pane, under **Settings**, select **Configure**.
+1. In the **Time Series Insights environment** pane, under **Settings**, select **Storage configuration**.
 
 1. In the **Data retention time (in days)** box, enter a value between 1 and 400.
 
-   [![Configure retention](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
+   [![Configure retention](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 > [!TIP]
 > To learn more about how to implement an appropriate data retention policy, see [How to configure retention](./time-series-insights-how-to-configure-retention.md).
