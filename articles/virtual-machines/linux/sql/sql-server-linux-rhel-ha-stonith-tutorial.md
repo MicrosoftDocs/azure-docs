@@ -588,7 +588,7 @@ We will be following the guide to [create the availability group resources in th
 
 1. Create the virtual IP resource by using the following command:
 
-    - Replace the `<availableIP>` value below with an unsured IP address.
+    - Replace the `<availableIP>` value below with an unused IP address.
 
     ```bash
     sudo pcs resource create virtualip ocf:heartbeat:IPaddr2 ip=<availableIP>
