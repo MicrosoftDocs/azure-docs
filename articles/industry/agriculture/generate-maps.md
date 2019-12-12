@@ -7,7 +7,7 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Generate maps in Azure FarmBeats
+# Generate maps
 
 Using Azure FarmBeats, you can generate the following maps by using satellite imagery and sensor data inputs. Maps help you to see the geographical location of your farm and identify the appropriate location for your devices.
 

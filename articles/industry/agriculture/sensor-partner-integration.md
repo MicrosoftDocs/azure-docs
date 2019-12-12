@@ -7,7 +7,7 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Sensor partner integration in Azure FarmBeats
+# Sensor partner integration
 
 This article provides information about the Azure FarmBeats Translator component, which enables sensor partner integration.
 

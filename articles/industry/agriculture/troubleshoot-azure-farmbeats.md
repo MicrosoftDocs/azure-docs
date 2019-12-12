@@ -20,7 +20,7 @@ To download the **deployer.log** file, do the following:
 3. Select **Bash** as the preferred Cloud Shell experience.
 4. Select the highlighted icon and then, in the drop-down list, select **Download**.
 
-    ![Project FarmBeats](./media/troubleshooting-farmbeats/download-deployer-log-1.png)
+    ![Project FarmBeats](./media/troubleshoot-azure-farmbeats/download-deployer-log-1.png)
 
 5. In the next pane, enter the path to your **deployer.log** file. For example, enter **farmbeats-deployer.log**.
 
@@ -112,7 +112,7 @@ This issue might result from a temporary failure in the data pipeline. Create th
 
 If you've already been granted access and are facing this error, try again by refreshing the page. If the error persists, add the error message in a post on the FarmBeats forum, or contact FarmBeatsSupport@microsoft.com.
 
-![Project FarmBeats](./media/troubleshooting-farmbeats/accelerator-troubleshooting-1.png)
+![Project FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### Accelerator issues  
 
@@ -205,7 +205,7 @@ Try either of the following:
 1. Download the logs to a local folder on your machine.
 1. Email the downloaded .zip file to farmbeatssupport@microsoft.com.
 
-    ![Project FarmBeats](./media/troubleshooting-farmbeats/collecting-logs-manually-1.png)
+    ![Project FarmBeats](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
 
 ### Collect Azure Data Factory job logs in Accelerator
 

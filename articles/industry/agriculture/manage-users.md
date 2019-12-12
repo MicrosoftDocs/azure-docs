@@ -8,13 +8,13 @@ ms.author: v-umha
 ---
 
 
-# Manage users in Azure FarmBeats
+# Manage users
 
 Azure FarmBeats includes user management for people who are part of your Azure Active Directory (Azure AD). You are able to add users to your Azure FarmBeats instance to access the APIs, view the generated maps, and sensor telemetry from the farm.
 
 ## Prerequisites
 
-- An Azure FarmBeats deployment is required. See [Deploy FarmBeats](prepare-for-deployment.md) to know more on how to setup Azure FarmBeats.
+- An Azure FarmBeats deployment is required. See [Install Azure FarmBeats](install-azure-farmbeats.md) to know more on how to setup Azure FarmBeats.
 - The email ID of the users you want to add or remove from your Azure FarmBeats instance.
 
 ## Manage Azure FarmBeats users

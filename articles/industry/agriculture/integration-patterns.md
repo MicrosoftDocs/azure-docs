@@ -7,7 +7,7 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Integration patterns in Azure FarmBeats
+# Integration patterns
 
 Azure FarmBeats is a business-to-business offering, available in Azure Marketplace. FarmBeats enables aggregation of agriculture datasets across providers, and generation of actionable insights by building Artificial Intelligence (AI) or Machine Learning (ML) models by fusing the data sets.
 

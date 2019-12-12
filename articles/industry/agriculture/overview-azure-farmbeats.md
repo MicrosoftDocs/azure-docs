@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure FarmBeats
+title: What is Azure FarmBeats
 description: Provides an overview of Azure FarmBeats
 author: uhabiba04
 ms.topic: overview

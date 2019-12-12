@@ -7,7 +7,7 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Ingest historical telemetry data in Azure FarmBeats
+# Ingest historical telemetry data
 
 This article describes how to ingest historical sensor data into Azure FarmBeats.
 

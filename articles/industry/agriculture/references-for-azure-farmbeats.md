@@ -1,5 +1,5 @@
 ---
-title: References for Azure FarmBeats
+title: References
 description:
 author: uhabiba04
 ms.topic: article
@@ -7,7 +7,7 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# References for Azure FarmBeats
+# References
 
 This article describes the Azure FarmBeats APIs.
 
@@ -100,7 +100,7 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 For REST GET calls, you can filter, limit the size of, and sort the data in an API response by including one or more query parameters on the request URI. For the query parameters, see the API documentation and the individual GET calls.
 For example, when you query the list of devices (GET call on /Device), the following query parameters can be specified:
 
-![List of devices](./media/for-references/query-parameters-device-1.png)
+![List of devices](./media/references-for-azure-farmbeats/query-parameters-device-1.png)
 
 ### Error handling
 
