@@ -1,5 +1,5 @@
 ---
-title: Live Metrics Stream with custom metrics and diagnostics in Azure Application Insights | Microsoft Docs
+title: Diagnose with Live Metrics Stream - Azure Application Insights
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 ms.service:  azure-monitor
 ms.subservice: application-insights
@@ -18,7 +18,7 @@ Probe the beating heart of your live, in-production web application by using Liv
 With Live Metrics Stream, you can:
 
 * Validate a fix while it is released, by watching performance and failure counts.
-* Watch the effect of test loads, and diagnose issues live. 
+* Watch the effect of test loads, and diagnose issues live.
 * Focus on particular test sessions or filter out known issues, by selecting and filtering the metrics you want to watch.
 * Get exception traces as they happen.
 * Experiment with filters to find the most relevant KPIs.
