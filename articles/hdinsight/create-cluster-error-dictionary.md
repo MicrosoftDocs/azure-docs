@@ -71,8 +71,7 @@ The error message lists the valid values for the VM size. Select one of these va
 The **VirtualNetworkId** value that is specified during cluster creation is not in the correct format. 
 
 ### Resolution
-Make sure that **VirtualNetworkId** and subnet are in the correct format. To obtain the **VirtualnetworkId** value, go to the Azure portal, select your virtual network, and then select **Properties** on the menu. The **ResourceID** property is the **VirtualNetworkId** value. The following screenshot shows the **\<*virtual network*\> Properties** page in the Azure portal:
-![Virtual network page. ](media/hdinsight-create-cluster-error-dictionary/cluster-error-dictionary-2.png)
+Make sure that **VirtualNetworkId** and subnet are in the correct format. To obtain the **VirtualnetworkId** value, go to the Azure portal, select your virtual network, and then select **Properties** on the menu. The **ResourceID** property is the **VirtualNetworkId** value. 
 
 An example of a virtual network ID is: 
 
@@ -88,8 +87,7 @@ An example of a virtual network ID is:
 The user’s custom script that was provided during the Create Cluster request is executed after the cluster is deployed successfully. This error code indicates that an error was encountered while executing this custom script with name \<SCRIPT_NAME\>.   
 
 ### Resolution
-Because this is the user’s custom script, users should troubleshoot the issue and rerun the script if necessary. To troubleshoot the script failure, examine the logs in the /var/lib/ambari-agent/* folder. Or, open the Operations page in the Ambari UI, and select the **run_customscriptionaction** operation to view the error details. The following screenshot shows an example of how the Ambari Operations page appears: <br/>
-![Ambari Operations page.](media/hdinsight-create-cluster-error-dictionary/cluster-error-dictionary-1.png)
+Because this is the user’s custom script, users should troubleshoot the issue and rerun the script if necessary. To troubleshoot the script failure, examine the logs in the /var/lib/ambari-agent/* folder. Or, open the Operations page in the Ambari UI, and then select the **run_customscriptionaction** operation to view the error details. 
 
 ---
 
@@ -163,4 +161,4 @@ Check the [Azure status](https://status.azure.com/status) page for any potenti
 
 ## Next Steps
 
-See [Troubleshoot cluster creation failures with Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails).
+For more insight into troubleshooting errors with cluster creation, see [Troubleshoot cluster creation failures with Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails).
