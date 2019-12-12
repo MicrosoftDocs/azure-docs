@@ -83,7 +83,7 @@ In this section, you set up console logging that uses the [ASP.NET Core logging 
    Here's the **Package Manager Console** command:
 
    ```powershell
-   Install-Package Microsoft.Extensions.Logging.Console -version <2_X_VERSION>
+   Install-Package Microsoft.Extensions.Logging.Console -version <3_X_VERSION>
    ```
 
 1. In *Program.cs*, add a `using` statement:
@@ -92,7 +92,7 @@ In this section, you set up console logging that uses the [ASP.NET Core logging 
    using Microsoft.Extensions.Logging;
    ```
 
-    In this command, replace `<2_X_VERSION>` with a supported 2.x version of the package.
+    In this command, replace `<3_X_VERSION>` with a supported 3.x version of the package.
 
 1. Call the [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) method on [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). The [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) method adds console logging to the configuration.
 
@@ -161,22 +161,22 @@ Starting with version 3.x, you must explicitly install the Storage binding exten
 1. Right-click the project, select **Add** > **New Item...**, choose **Class**, name the new C# class file *Functions.cs*, and select **Add**.
 
 1. In Functions.cs, replace the generated template with the following code:
-
-   ```cs
-   using Microsoft.Azure.WebJobs;
-   using Microsoft.Extensions.Logging;
-
-   namespace WebJobsSDKSample
-   {
-       public class Functions
-       {
-           public static void ProcessQueueMessage([QueueTrigger("queue")] string message, ILogger logger)
-           {
-               logger.LogInformation(message);
-           }
-       }
-   }
-   ```
+    
+    ```cs
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Extensions.Logging;
+    
+    namespace WebJobsSDKSample
+    {
+        public class Functions
+        {
+            public static void ProcessQueueMessage([QueueTrigger("queue")] string message, ILogger logger)
+            {
+                logger.LogInformation(message);
+            }
+        }
+    }
+    ```
 
    The `QueueTrigger` attribute tells the runtime to call this function when a new message is written on an Azure Storage queue called `queue`. The contents of the queue message are provided to the method code in the `message` parameter. The body of the method is where you process the trigger data. In this example, the code just logs the message.
 
@@ -354,16 +354,17 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 To take advantage of [Application Insights](../azure-monitor/app/app-insights-overview.md) logging, update your logging code to do the following:
 
-* Add an Application Insights logging provider with default [filtering](webjobs-sdk-how-to.md#log-filtering); all Information and higher-level logs goes to both the console and Application Insights when you're running locally.
+* Add an Application Insights logging provider with default [filtering](webjobs-sdk-how-to.md#log-filtering). When running locally, all Information and higher-level logs are written to both the console and Application Insights.
 * Put the [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) object in a `using` block to ensure that log output is flushed when the host exits.
 
-1. Install the latest stable 3.x version of the NuGet package for the Application Insights logging provider:  `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
+1. Install the latest stable 3.x version of the [`Microsoft.Azure.WebJobs.Logging.ApplicationInsights` NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
-   Here's the **Package Manager Console** command for version 3.0.2:
+   Here's the **Package Manager Console** command:
 
    ```powershell
-   Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version 3.0.2
+   Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <3_X_VERSION>
    ```
+    In this command, replace `<3_X_VERSION>` with a supported version of the package.
 
 1. Open *Program.cs* and replace the code in the `Main` method with the following code:
 
