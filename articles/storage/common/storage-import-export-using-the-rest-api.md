@@ -6,7 +6,7 @@ services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
 ---
 # Using the Azure Import/Export service REST API
