@@ -5,7 +5,7 @@ summary: Azure Maps provides developers from all industries, powerful geospatial
 
 metadata:
   title:  Azure Maps Documentation | Microsoft Docs
-  description: Use Azure Maps to provide geospatial services to your web or mobile application.
+  description: Learn about Azure Maps and how to use it to provide geospatial services to your web or mobile application.
   ms.service: azure-maps
   ms.topic: landing-page
   author: walsehgal
