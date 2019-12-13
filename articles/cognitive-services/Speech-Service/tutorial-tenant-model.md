@@ -296,6 +296,8 @@ Next, you need to rebuild and run the project from the command line. Before you 
    dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>
    ```
 
+In this tutorial, you've learned how to use Office 365 data to create a custom speech recognition model, deploy it, and use it with the Speech SDK.
+
 ## Next steps
 
 * [Speech Studio](https://speech.microsoft.com/)
