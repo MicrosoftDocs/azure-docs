@@ -57,9 +57,11 @@ Here are the limits for a single logic app run:
 
 To change the default limit for run duration and storage retention, follow these steps. To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com). Search for and select **Logic apps**.
+1. Go to the [Azure portal](https://portal.azure.com). Search for and select **Logic apps**.
 
-1. Select the logic app you want to modify, and then select **Workflow settings**.
+1. Select and then open your logic app in the Logic App Designer. 
+
+1. Under **Settings** in the logic app's menu, select **Workflow settings**.
 
 1. Under **Runtime options**, from the **Run history retention in days** list, select **Custom**.
 
