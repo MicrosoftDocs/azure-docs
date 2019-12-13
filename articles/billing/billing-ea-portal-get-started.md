@@ -329,7 +329,7 @@ If you already have an existing Microsoft Azure account on the Azure portal, ent
 
 ### Azure Marketplace
 
-Although most subscriptions can convert from the Pay-as-You-Go environment to Azure Enterprise, Azure Marketplace services do not. In order to have a single view of all subscriptions and charges, we recommend you add the Azure Marketplace services to the Enterprise Portal.
+Although most subscriptions can convert from the Pay-as-You-Go environment to Azure Enterprise Agreement, Azure Marketplace services do not. In order to have a single view of all subscriptions and charges, we recommend you add the Azure Marketplace services to the Enterprise Portal.
 
 1. Select **Manage** on the left navigation.
 1. Select the **EnrollmentTab**.
@@ -338,19 +338,19 @@ Although most subscriptions can convert from the Pay-as-You-Go environment to Az
 
 The account owner can now purchase any Azure Marketplace services that where previously owned in the Pay-As-You-Go subscription.
 
-After the new Azure Marketplace subscriptions are activated under your Enterprise enrollment, cancel the Marketplace services that were created in the Pay-As-You-Go environment. This step is critical so that your Marketplace subscriptions do not fall into a bad state when your Pay-As-You-Go payment instrument expires.
+After the new Azure Marketplace subscriptions are activated under your Azure EA enrollment, cancel the Marketplace services that were created in the Pay-As-You-Go environment. This step is critical so that your Marketplace subscriptions do not fall into a bad state when your Pay-As-You-Go payment instrument expires.
 
 ### MSDN
 
-MSDN subscriptions are automatically converted to MSDN Dev/Test and the EA offer will lose any existing monetary credit.
+MSDN subscriptions are automatically converted to MSDN Dev/Test and the Azure EA offer will lose any existing monetary credit.
 
 ### Azure in Open
 
-Associating an Azure in Open subscription with an EA will forfeit any unconsumed Azure in Open credits. To avoid any potential forfeiture of credit, it is recommended that customers consume all credit on an Azure in Open subscription prior to adding the account to their EA.  
+If you associate an Azure in Open subscription with an Enterprise Agreement, you forfeit any unconsumed Azure in Open credits. Thus, we recommended that you consume all credit on an Azure in Open subscription before you add the account to your Enterprise Agreement.  
 
-### Accounts with Support Subscriptions
+### Accounts with support subscriptions
 
-When adding existing accounts to the Enterprise Portal that have a support subscription (and don't already have an EA support subscription), please note that the MOSA support subscription does not automatically transfer and support will need to be repurchased in EA. A grace period for support coverage will be provided through the end of the subsequent month to allow time to reorder support.
+If your Enterprise Agreement doesn't have a support subscription and you add an existing account with a support subscription to the Azure Enterprise portal, your MOSA support subscription won't automatically transfer. You'll need to repurchase a support subscription in Azure EA during the grace period - by the end of the subsequent month.
 
 ## View usage summary and download reports
 
