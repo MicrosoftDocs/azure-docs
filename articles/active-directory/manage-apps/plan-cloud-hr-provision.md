@@ -353,7 +353,7 @@ It is common for a security review to be required as part of the deployment of a
 
 If the Cloud HR user provisioning implementation fails to work as desired in the production environment, the following rollback steps below can assist you in reverting to a previous known good state:
 
-1. Review the [provisioning summary report](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#getting-provisioning-reports-from-the-azure-management-portal) and [provisioning logs](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#provisioning-audit-logs) (see [Manage cloud HR app user provisioning](#manage-your-configuration)) to determine what the incorrect operations were performed on the affected users and/or groups.
+1. Review the [provisioning summary report](check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) and [provisioning logs](check-status-user-account-provisioning.md#provisioning-logs-preview) (see [Manage cloud HR app user provisioning](#manage-your-configuration)) to determine what the incorrect operations were performed on the affected users and/or groups.
 2. The last known good state of the users and/or groups affected can be determined through the provisioning audit logs or by reviewing the target systems (Azure AD or AD).
 3. Work with the app owner to update the users and/or groups affected directly in the app using the last known good state values.
 
