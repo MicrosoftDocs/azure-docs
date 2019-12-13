@@ -599,15 +599,8 @@ The NULL value is a special form of the default value. If the column is nullable
 
 SQL Data Warehouse [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview) directly supports loading data from **Azure Blob and Azure Data Lake Storage Gen2**. If your source data meets the criteria described in this section, you can choose to use COPY statement in ADF to load data into Azure SQL Data Warehouse. Azure Data Factory checks the settings and fails the copy activity run if the criteria is not met.
 
->![NOTE]
->Currently Data Factory only support copy from COPY statement compatible sources.
-
-The following COPY statement settings are supported under `allowCopyCommand` in copy activity:
-
-| Property          | Description                                                  | Required                                      |
-| :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| defaultValues | Specifies the default values for each target column in SQL DW.  The default values in the property overwrite the DEFAULT constraint set in the data warehouse, and identity column cannot have a default value. | No |
-| additionalOptions | Additional options that will be passed to SQL DW COPY statement directly in "With" clause in [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Quote the value as needed to align with the COPY statement requirements. | No |
+>[!NOTE]
+>Currently Data Factory only support copy from COPY statement compatible sources mentioned below.
 
 Using COPY statement supports the following configuration:
 
@@ -618,7 +611,7 @@ Using COPY statement supports the following configuration:
     | [Azure Blob](connector-azure-blob-storage.md)                | [Delimited text](format-delimited-text.md)             | Account key authentication, shared access signature authentication, service principal authentication, managed identity authentication |
     | &nbsp;                                                       | [Parquet](format-parquet.md)                    | Account key authentication, shared access signature authentication |
     | &nbsp;                                                       | [ORC](format-orc.md)                        | Account key authentication, shared access signature authentication |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Delimited text](format-delimited-text.md)/[Parquet](format-parquet.md)/[ORC](format-orc.md) | Account key authentication, service principal authentication, managed identity authentication |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Delimited text](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Account key authentication, service principal authentication, managed identity authentication |
 
     >[!IMPORTANT]
     >If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication - refer to [Impact of using VNet Service Endpoints with Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Learn the required configurations in Data Factory from [Azure Blob - managed identity authentication](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2 - managed identity authentication](connector-azure-data-lake-storage.md#managed-identity) section respectively.
@@ -638,6 +631,13 @@ Using COPY statement supports the following configuration:
 3. If your source is a folder, `recursive` in copy activity must be set to true.
 
 4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, and `modifiedDateTimeEnd` are not specified.
+
+The following COPY statement settings are supported under `allowCopyCommand` in copy activity:
+
+| Property          | Description                                                  | Required                                      |
+| :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
+| defaultValues | Specifies the default values for each target column in SQL DW.  The default values in the property overwrite the DEFAULT constraint set in the data warehouse, and identity column cannot have a default value. | No |
+| additionalOptions | Additional options that will be passed to SQL DW COPY statement directly in "With" clause in [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Quote the value as needed to align with the COPY statement requirements. | No |
 
 ```json
 "activities":[
