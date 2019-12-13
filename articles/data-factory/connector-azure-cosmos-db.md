@@ -1,6 +1,6 @@
 ---
 title: Copy and transform data in Azure Cosmos DB (SQL API)
-description: Learn how to copy data to and from Azure Cosmos DB (SQL API), and and transform data in Azure Cosmos DB (SQL API) by using Data Factory.
+description: Learn how to copy data to and from Azure Cosmos DB (SQL API), and transform data in Azure Cosmos DB (SQL API) by using Data Factory.
 services: data-factory, cosmosdb
 ms.author: jingwang
 author: linda33wj
@@ -155,7 +155,7 @@ The following properties are supported in the Copy Activity **source** section:
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity source must be set to **CosmosDbSqlApiSource**. |Yes |
 | query |Specify the Azure Cosmos DB query to read data.<br/><br/>Example:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>If not specified, this SQL statement is executed: `select <columns defined in structure> from mycollection` |
-| preferredRegions | The preferred list of regions to connect to when retriving data from Cosmos DB. | No |
+| preferredRegions | The preferred list of regions to connect to when retrieving data from Cosmos DB. | No |
 | pageSize | The number of documents per page of the query result. Default is "-1" which means uses the service side dynamic page size up to 1000. | No |
 
 If you use "DocumentDbCollectionSource" type source, it is still supported as-is for backward compatibility. You are suggested to use the new model going forward which provide richer capabilities to copy data from Cosmos DB.
@@ -207,7 +207,7 @@ The following properties are supported in the Copy Activity **source** section:
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity sink must be set to **CosmosDbSqlApiSink**. |Yes |
 | writeBehavior |Describes how to write data to Azure Cosmos DB. Allowed values: **insert** and **upsert**.<br/><br/>The behavior of **upsert** is to replace the document if a document with the same ID already exists; otherwise, insert the document.<br /><br />**Note**: Data Factory automatically generates an ID for a document if an ID isn't specified either in the original document or by column mapping. This means that you must ensure that, for **upsert** to work as expected, your document has an ID. |No<br />(the default is **insert**) |
-| writeBatchSize | Data Factory uses the [Azure Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to write data to Azure Cosmos DB. The **writeBatchSize** property controls the size of documents that ADF provide to the library. You can try increasing the value for **writeBatchSize** to improve performance and decreasing the value if your document size being large - see below tips. |No<br />(the default is **10,000**) |
+| writeBatchSize | Data Factory uses the [Azure Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to write data to Azure Cosmos DB. The **writeBatchSize** property controls the size of documents that ADF provides to the library. You can try increasing the value for **writeBatchSize** to improve performance and decreasing the value if your document size being large - see below tips. |No<br />(the default is **10,000**) |
 | disableMetricsCollection | Data Factory collects metrics such as Cosmos DB RUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 
 >[!TIP]
@@ -307,7 +307,7 @@ To achieve schema-agnostic copy:
 
 ## Migrate from relational database to Cosmos DB
 
-When migrating from a relational database e.g. SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Cosmos DB. In some cases, you may want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modelling in Azure Cosmos DB](../cosmos-db/modeling-data.md), for example, to denormalize the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this blog post](https://medium.com/@ArsenVlad/denormalizing-via-embedding-when-copying-data-from-sql-to-cosmos-db-649a649ae0fb) with a walkthrough on how to achieve it using Azure Data Factory copy activity.
+When migrating from a relational database e.g. SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Cosmos DB. In some cases, you may want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](../cosmos-db/modeling-data.md), for example, to denormalize the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this blog post](https://medium.com/@ArsenVlad/denormalizing-via-embedding-when-copying-data-from-sql-to-cosmos-db-649a649ae0fb) with a walkthrough on how to achieve it using Azure Data Factory copy activity.
 
 ## Next steps
 
