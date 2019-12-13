@@ -3,7 +3,7 @@ title: "Create a Kubernetes dev space: Visual Studio Code & Node.js"
 services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio Code to debug and rapidly iterate a Node.js application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
 # Create a Kubernetes dev space: Visual Studio Code and Node.js with Azure Dev Spaces
@@ -34,9 +34,10 @@ az login
 You can view your subscriptions by running: 
 
 ```cmd
-az account list
+az account list --output table
 ```
-Locate the  subscription which has `isDefault: true` in the JSON output.
+
+Locate the subscription which has *True* for *IsDefault*.
 If this isn't the subscription you want to use, you can change the default subscription:
 
 ```cmd

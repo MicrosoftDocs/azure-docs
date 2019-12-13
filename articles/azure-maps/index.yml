@@ -45,7 +45,7 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/azure-maps/tutorial-geofence">Set up a geofence</a>
-    - html: <a href="/azure-maps/tutorial-iot-hub-maps">Spatial analytics</a>
+    - html: <a href="/azure/azure-maps/tutorial-iot-hub-maps">Spatial analytics</a>
     - html: <a href=/azure/azure-maps/tutorial-ev-routing">EV routing using Azure Notebooks (Python)</a>
 - title: Reference
   items:

@@ -58,7 +58,9 @@ A `knowledgeStore` consists of a connection and projections.
 
 + Connection is to a storage account in the same region as Azure Cognitive Search. 
 
-+ Projections are tables-objects pairs. `Tables` define the physical expression of enriched documents in Azure Table storage. `Objects` define the physical objects in Azure Blob storage.
++ Projections can be tabular, JSON objects or files. `Tables` define the physical expression of enriched documents in Azure Table storage. `Objects` define the physical JSON objects in Azure Blob storage. `Files` are binaries like images that were extracted from the document that will be persisted.
+
++ Projections is a collection of projection objects, each projection object can contain `tables`, `objects` and `files`. Enrichments projected within a single projection are related even when projected across types (tables, objects or files). Projections across projection objects are not related and are independent. The same shape can be projected aross multiple projection objects.
 
 ```json
 {
@@ -106,7 +108,10 @@ A `knowledgeStore` consists of a connection and projections.
             ], 
             "objects": [ 
                
-            ]      
+            ], 
+            "files": [
+
+            ]  
         },
         { 
             "tables": [ 
@@ -118,13 +123,17 @@ A `knowledgeStore` consists of a connection and projections.
                 "source": "/document/Review", 
                 "key": "/document/Review/Id" 
                 } 
-            ]      
+            ],
+            "files": [
+                
+            ]  
         }        
     ]     
     } 
 }
 ```
 
+This sample does not contain any images, for an example of how to use file projections see [Working with projections](knowledge-store-projection-overview.md).
 ### Sources of data for a knowledge store
 
 If a knowledge store is output from an AI enrichment pipeline, what are the inputs? The original data that you want to extract, enrich, and ultimately save to a knowledge store can originate from any Azure data source supported by search indexers: 

@@ -152,7 +152,7 @@ Azure Key Vault also has the advantage of using Azure AD to control access to yo
 
 #### Resources
 
-* [Manage storage account settings in the Azure portal](storage-account-manage.md)
+* [Manage storage account access keys](storage-account-keys-manage.md)
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt163683.aspx)
 
 ## Network Security

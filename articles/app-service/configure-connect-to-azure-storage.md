@@ -1,11 +1,8 @@
 ---
-title: Configure Storage using Azure Files
-description: How to configure and connect to Azure Files in Windows Container on App Service.
+title: Add custom storage (Windows container)
+description: Learn how to attach custom network share in a custom Windows container in Azure App Service. Share files between apps, manage static content remotely and access locally, etc.
 author: msangapu-msft
-manager: gwallace
 
-ms.service: app-service
-ms.workload: web
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu

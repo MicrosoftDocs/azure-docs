@@ -1,14 +1,8 @@
 ---
-title: Locking down App Service Environment outbound traffic - Azure
-description: Describes how to integrate with Azure Firewall to secure outbound traffic
-services: app-service
-documentationcenter: na
+title: Lock down outbound traffic
+description: Learn how to integrate with Azure Firewall to secure outbound traffic from within an App Service environment.
 author: ccompy
-manager: stefsch
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: ccompy

@@ -27,7 +27,7 @@ Verify that you have met the following criteria:
 
     * The NVA is not deployed in the virtual hub. It must be deployed in a separate VNet.
 
-    *  The NVA VNet may have one or many virtual networks connected to it. In this article, we refer to the NVA VNet as an 'indirect spoke VNet'. These VNets can be connected to the NVA VNet by using VNet peering. The Vnet Peering links are depicted by black arrows in the above figure.
+    *  The NVA VNet may have one or many virtual networks connected to it. In this article, we refer to the NVA VNet as an 'indirect spoke VNet'. These VNets can be connected to the NVA VNet by using VNet peering. The Vnet Peering links are depicted by black arrows in the above figure between Vnet 1, Vnet 2 and NVA Vnet.
 *  You have created 2 VNets. They will be used as spoke VNets.
 
     * For this exercise, the VNet spoke address spaces are: VNet1: 10.0.2.0/24 and VNet2: 10.0.3.0/24. If you need information on how to create a VNet, see [Create a virtual network](../virtual-network/quick-create-portal.md).
@@ -75,7 +75,7 @@ Update the hub with a hub route table. For the purposes of this exercise, you ca
 
 ## <a name="connections"></a>5. Create the VNet connections
 
-Create a connection from each indirect spoke VNet (VNet1 and VNet2) to the hub. Then, create a connection from the NVA VNet to the hub. These Vnet Connections are dipicted by blue arrows in the figure above. 
+Create a Vnet connection from each indirect spoke VNet (VNet1 and VNet2) to the hub. These Vnet connections are depicted by the blue arrows in the above figure. Then, create a Vnet connection from the NVA VNet to the hub (black arrow in the figure). 
 
  For this step, you can use the following values:
 
