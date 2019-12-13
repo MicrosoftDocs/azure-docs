@@ -12,7 +12,10 @@ ms.custom: seodec18
 ---
 # Create a multi-container (preview) app using a Docker Compose configuration
 
-[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app to Web App for Containers in the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) using a Docker Compose configuration.
+> [!NOTE]
+> Multi-container is in preview.
+
+[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app (preview) to Web App for Containers in the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) using a Docker Compose configuration.
 
 You'll complete this quickstart in Cloud Shell, but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 or later). 
 
