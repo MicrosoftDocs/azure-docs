@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Citrix NetScaler (Kerberos Based Authentication)| Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Citrix NetScaler (Header Based Authentication) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Citrix NetScaler.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 
-ms.assetid: af501bd0-8ff5-468f-9b06-21e607ae25de
+ms.assetid: b0adc7bf-696d-44c9-a57a-f9e9471b8710
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Citrix NetScaler (Kerberos Based Authentication)
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Citrix NetScaler (Header Based Authentication)
 
 In this tutorial, you'll learn how to integrate Citrix NetScaler with Azure Active Directory (Azure AD). When you integrate Citrix NetScaler with Azure AD, you can:
 
@@ -45,9 +45,10 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Citrix NetScaler supports **Just In Time** user provisioning
 
-- [Configure Citrix NetScaler single sign-on for Kerberos Based Authentication](#configure-citrix-netscaler-single-sign-on-for-kerberos-based-authentication)
+- [Configure Citrix NetScaler single sign-on for Header Based Authentication](#configure-citrix-netscaler-single-sign-on-for-header-based-authentication)
 
-- [Configure Citrix NetScaler single sign-on for Header Based Authentication](header-citrix-netscaler-tutorial.md)
+- [Configure Citrix NetScaler single sign-on for Kerberos Based Authentication](citrix-netscaler-tutorial.md)
+
 
 ## Adding Citrix NetScaler from the gallery
 
@@ -59,6 +60,7 @@ To configure the integration of Citrix NetScaler into Azure AD, you need to add 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Citrix NetScaler** in the search box.
 1. Select **Citrix NetScaler** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
 
 ## Configure and test Azure AD single sign-on for Citrix NetScaler
 
@@ -106,6 +108,31 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/certificatebase64.png)
 
+1. Citrix NetScaler application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon and change the attribute mapping.
+
+	![image](common/edit-attribute.png)
+
+1. In addition to above, Citrix NetScaler application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table:
+
+	| Name | Source Attribute|
+	| ---------------| --------------- |
+	| mySecretID  | user.userprincipalname |
+    
+    1. Click **Add new claim** to open the **Manage user claims** dialog.
+
+	1. In the **Name** textbox, type the attribute name shown for that row.
+
+	1. Leave the **Namespace** blank.
+
+	1. Select Source as **Attribute**.
+
+	1. From the **Source attribute** list, type the attribute value shown for that row.
+
+	1. Click **Ok**
+
+	1. Click **Save**.
+
+
 1. On the **Set up Citrix NetScaler** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
@@ -142,9 +169,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Citrix NetScaler SSO
 
-- [Configure Citrix NetScaler single sign-on for Kerberos Based Authentication](#configure-citrix-netscaler-single-sign-on-for-kerberos-based-authentication)
+- [Configure Citrix NetScaler single sign-on for Header Based Authentication](#configure-citrix-netscaler-single-sign-on-for-header-based-authentication)
 
-- [Configure Citrix NetScaler single sign-on for Header Based Authentication](header-citrix-netscaler-tutorial.md)
+- [Configure Citrix NetScaler single sign-on for Kerberos Based Authentication](citrix-netscaler-tutorial.md)
 
 ### Publishing Web Server 
 
@@ -154,7 +181,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     
     b. Click **Add**.
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/web01.png)
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/web01.png)
 
     c. Specify the details of the Web Server running the Applications below:
     * **Service Name**
@@ -162,13 +189,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     * **Protocol**
     * **Port**
 
-     ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/web01.png)
+     ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/web01.png)
 
 ### Configuring Load Balancer
 
-1. To Configure Load Balancer, perform the following steps:
+1. To Configuring Load Balancer, perform the following steps:
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/load01.png)
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/load01.png)
 
     a. Go to **Traffic Management > Load Balancing > Virtual Servers**.
 
@@ -186,17 +213,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 Bind the Load Balancer with the Virtual Server Created Previously.
 
-![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/bind01.png)
+![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/bind01.png)
 
-![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/bind02.png)
+![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/bind02.png)
 
 ### Bind Certificate
 
 Since we will be publishing this service as SSL bind the Server Certificate then test your application.
 
-![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/bind03.png)
+![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/bind03.png)
 
-![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/bind04.png)
+![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/bind04.png)
 
 ## Citrix ADC SAML Profile
 
@@ -206,7 +233,7 @@ Since we will be publishing this service as SSL bind the Server Certificate then
 
 2. Click **Add** then specify Details.
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/policy01.png)
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/policy01.png)
 
     a. Name for the **Authentication Policy**.
 
@@ -222,7 +249,7 @@ Since we will be publishing this service as SSL bind the Server Certificate then
 
 1. Perform the following steps:
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/server01.png)
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/server01.png)
 
     a. Specify the **Name**.
 
@@ -238,7 +265,7 @@ Since we will be publishing this service as SSL bind the Server Certificate then
 
 2.	Click **Add** and perform the following steps:
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/server02.png)
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/server02.png)
 
     a.	Provide a **Name**.
 
@@ -256,17 +283,17 @@ You will need to modify the 2 sections of the Authentication Virtual Server.
 
 1.	**Advanced Authentication Policies**
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/virtual01.png)
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/virtual01.png)
 
     a. Select the **Authentication Policy** that you created previously.
 
     b. Click **Bind**.
 
-      ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/virtual02.png)
+      ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/virtual02.png)
 
 2. **Form Based Virtual Servers**
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/virtual03.png)
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/virtual03.png)
 
     a.	You will need to Provide an **FQDN** since its enforced by UI.
 
@@ -274,128 +301,94 @@ You will need to modify the 2 sections of the Authentication Virtual Server.
 
     c.	Click **Bind**.
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/virtual04.png)
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/virtual04.png)
 
     >[!NOTE]
     >Ensure you click **Done** on the Authentication Virtual Server Configuration page as well.
 
 3. Verify the changes. Browse to the application URL. You should see your tenant login page instead of unauthenticated access previously.
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/virtual05.png)
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/virtual05.png)
 
-## Configure Citrix NetScaler single sign-on for Kerberos Based Authentication
+## Configure Citrix NetScaler single sign-on for Header Based Authentication
 
-### Create a Kerberos Delegation Account for Citrix ADC
+### Citrix ADC Configuration
 
-1. Create a user Account ( in this example AppDelegation ).
+### Create an Rewrite Action
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos01.png)
-
-2. Set up a HOST SPN on this accounts.
-
-    * setspn -S HOST/AppDelegation.IDENTT.WORK identt\appdelegation
-    
-        In the example above
-
-        a. Identt.work    ( Domain FQDN )
-
-        b. Identt        ( Domain Netbios Name)
-
-        c. AppDelegation ( delegation user account Name)
-
-3. Configure Delegation for the WebServer 
+1. Go to **AppExpert > Rewrite > Rewrite Actions**.
  
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos02.png)
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/header01.png)
 
-    >[!NOTE]
-    >In the example above the Internal Webserver name running WIA Site is cweb2
-
-### Citrix AAA KCD ( Kerberos Delegation Accounts)
-
-1.	Go to  **Citrix Gateway > AAA KCD (Kerberos Constrained Delegation) Accounts**.
-
-2.	Click Add and specify the below details:
+2.	Click **Add**.
 
     a.	Specify **Name**.
 
-    b.	**Realm**.
+    b.	Type = **INSERT_HTTP_HEADER**.
 
-    c.	**Service SPN**  `http/<host/fqdn>@DOMAIN.COM`.
-    
-    >[!NOTE]
-    >@DOMAIN.com is mandatory and in uppercase.
+    c.	Specify the **HEADER NAME** ( SecretID in this example ).
 
-    d.	Specify **Delegated user account**.
+    d.	Specify the expression **aaa.USER.ATTRIBUTE(`mySecretID`)**, Where **mySecretID** is the Azure AD SAML Claim sent to Citrix ADC.
 
-    e.	Check the Password for the Delegated user and Specify **Password**.
+    e.	Click **Create**.
 
-    f.	Click **OK**.
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/header02.png)
  
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos03.png)
+### Create a Rewrite Policy.
 
-### Citrix Traffic Policy and Traffic Profile
-
-1.	Go to **Security > AAA - Application Traffic > Policies > Traffic Policies, Profiles and Form SSO ProfilesTraffic Policies**.
-
-2.	Select **Traffic Profiles**.
-
-3.	Click **Add**.
-
-4.	Configure Traffic Profile.
-
-    a.	Specify **Name**.
-
-    b.	Specify **Single Sign-on**.
-
-    c.	Specify the **KCD Account** created in previously step from drop down.
-
-    d.	Click **OK**.
-
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos04.png)
+1.	Go to  **AppExpert > Rewrite > Rewrite Policies**.
  
-5.	Select **Traffic Policy**.
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/header03.png)
 
-6.	Click **Add**.
+2.	Click **Add**.
 
-7.	Configure Traffic Policy.
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/header04.png)
 
-    a.	Specify **Name**.
+    a.	Specify the **Name**.
 
-    b.	Choose the previously created **Traffic Profile** from the drop down.
+    b.	Choose the **action** created previously.
 
-    c.	Set expression to **true**.
+    c .	Expression specify **true**.
 
-    d.	Click **Ok**.
+    d.	Click **create**.
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos05.png)
+### Bind Rewrite Policy to Virtual Servers
 
-### Citrix Bind Traffic Policy to Virtual Servers
+1. To bind a rewrite policy to a specific virtual server by using the GUI.
 
-To bind a Traffic policy to a specific virtual server by using the GUI.
+2. Navigate to **Traffic Management > Load Balancing > Virtual Servers**.
 
-* Navigate to **Traffic Management > Load Balancing > Virtual Servers**.
+3. In the details pane list of virtual servers, select the **virtual server** to which you want to bind the rewrite policy, and then click **Open**.
 
-* In the details pane list of virtual servers, select the **virtual server** to which you want to bind the rewrite policy, and then click **Open**.
-
-* In the Configure Virtual Server (Load Balancing) dialog box, select the **Policies tab**. All policies configured on your NetScaler appear on the list.
+4. In the Configure Virtual Server (Load Balancing) dialog box, select the **Policies** tab. All policies configured on your NetScaler appear on the list.
  
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos06.png)
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/header05.png)
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos07.png)
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/header06.png)
 
-1.	Select the **check box** next to the name of the policy you want to bind to this virtual server.
+5.	Select the **check box** next to the name of the policy you want to bind to this virtual server.
+
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/header07.png)
+
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/header08.png)
  
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos08.png)
+6.	Click **OK**. A message appears in the status bar, stating that the Policy has been configured successfully.
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos09.png)
+### Modify SAML Server to Extract Attributes from Claim
 
-1. Only the policy is bound, Click **Done**.
+1.	Go to **Security > AAA - Application Traffic >Policies > Authentication > Advanced Policies > Actions > Servers**.
+
+2.	Select the appropriate **Authentication SAML Server** for the application.
  
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos10.png)
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/header09.png)
 
-1. Test using the Windows Integrated Website.
+3. Under the Attribute section type SAML Attributes that you want to extract using “ , “. In the case we specify the attribute called **mySecretID**.
+ 
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/header10.png)
 
-    ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos11.png)    
+4. Verify my accessing the Applications.
+
+    ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/header11.png)
 
 ### Create Citrix NetScaler test user
 
@@ -420,4 +413,4 @@ When you click the Citrix NetScaler tile in the Access Panel, you should be auto
 
 - [Try Citrix NetScaler with Azure AD](https://aad.portal.azure.com/)
 
-- [Configure Citrix NetScaler single sign-on for Header Based Authentication](header-citrix-netscaler-tutorial.md)
+- [Configure Citrix NetScaler single sign-on for Kerberos Based Authentication](citrix-netscaler-tutorial.md)
