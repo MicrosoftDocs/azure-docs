@@ -12,7 +12,7 @@ ms.subservice: files
 
 # Enable and create large file shares
 
-Originally, standard file shares could only scale up to 5 TiB. Now, with large file shares, they can scale up to 100 TiB. You can enable this scaling on your storage accounts for your file shares. Premium file shares scale up to 100 TiB by default.
+Originally, standard file shares could only scale up to 5 TiB. Now, with large file shares, they can scale up to 100 TiB. You can enable this scaling on your existing storage accounts for your existing file shares. Premium file shares scale up to 100 TiB by default.
 
 ## Prerequisites
 
@@ -92,7 +92,7 @@ You can also enable large file shares on your existing accounts. If you enable l
 
 ![Selecting the Enabled option button on an existing storage account in the Azure portal](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
 
-You've now enabled large file shares on your storage account.
+You've now enabled large file shares on your storage account. Next, you must update existing share's quota to take advantage of increased capacity and scale.
 
 If you receive the error message "Large file shares are not available for the account yet," your region might be in the middle of completing its rollout. Contact support if you have an urgent need for large file shares.
 
