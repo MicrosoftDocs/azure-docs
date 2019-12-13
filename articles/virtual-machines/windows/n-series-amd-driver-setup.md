@@ -24,7 +24,7 @@ To take advantage of the GPU capabilities of the new Azure NVv4 series VMs runni
 
 For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-[!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
+
 
 ## Supported operating systems and drivers
 
