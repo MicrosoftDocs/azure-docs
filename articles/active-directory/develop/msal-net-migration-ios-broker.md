@@ -217,6 +217,7 @@ Uses
 <key>LSApplicationQueriesSchemes</key>
 <array>
      <string>msauthv2</string>
+     <string>msauthv3</string>
 </array>
 ```
 </table>
