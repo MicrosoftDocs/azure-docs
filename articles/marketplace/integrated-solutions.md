@@ -12,9 +12,9 @@ ms.author: v-chjen
 
 # Integrated Solutions in Microsoft AppSource and Azure Marketplace
 
-An Integrated Solution brings together best-of-breed technologies from Microsoft partners, along with consultation, deployment, and support provided by expert Systems Integrators (SI).
+An Integrated Solution brings together best-of-breed technologies from Microsoft partners, along with consultation, deployment, and support provided by expert services partners.
 
-Two or more Microsoft partners integrate their technology and services to create a unified, seamless and repeatable deployment experience, in order to get customers up and running rapidly.  The lead partner in the solution (usually the systems integrator) provides a single point of contact for the customer, providing relevant customization, consulting, and support around the solution.
+Two or more Microsoft partners integrate their technology and services to create a unified, seamless and repeatable deployment experience, in order to get customers up and running rapidly.  The lead partner in the solution (usually the services partners) provides a single point of contact for the customer, providing relevant customization, consulting, and support around the solution.
 
 In other scenarios, partners co-sell or co-market their solution together, whereas an integrated solution is a jointly built new solution that integrates the technology and services across partners.
 
