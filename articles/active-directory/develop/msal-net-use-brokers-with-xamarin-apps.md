@@ -55,7 +55,7 @@ var builder = PublicClientApplicationBuilder
      .Build();
 ```
 
-For more information, see [Enabling keychain access](msal-net-xamarin-ios-considerations.md).
+For more information, see [Enable keychain access](msal-net-xamarin-ios-considerations.md#enable-keychain-access).
 
 ### Step 3: Update AppDelegate to handle the callback
 When the Microsoft Authentication Library for .NET (MSAL.NET) calls the broker, the broker in turn calls back to your application through the `OpenUrl` method of the `AppDelegate` class. Because MSAL waits for the response from the broker, your application needs to cooperate to call MSAL.NET back. To enable this cooperation, update the `AppDelegate.cs` file to override the following method.
