@@ -76,7 +76,7 @@ Choose how you want your commands obtain authorization to the storage account. T
 
 #### Obtain authorization by using Azure Active Directory (AD)
 
-The system ensures that your user account has the appropriate role-based access control (RBAC) assignments and ACL permissions. 
+With this approach, the system ensures that your user account has the appropriate role-based access control (RBAC) assignments and ACL permissions. 
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
@@ -85,7 +85,7 @@ Replace the `<storage-account-name>` placeholder value with the name of your sto
 
 #### Obtain authorization by using the storage account key
 
-The system doesn't check the RBAC or ACL permissions of a resource.
+With this approach, the system doesn't check the RBAC or ACL permissions of a resource.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
@@ -194,7 +194,7 @@ Get-AzDataLakeGen2ItemContent -Context $ctx -FileSystem $filesystemName -Path $f
 
 List the contents of a directory by using the `Get-AzDataLakeGen2ChildItem` cmdlet.
 
-This example lists the contents of a directory named `my-directory`. 
+This example lists the contents of a directory named `my-directory`.
 
 To list the contents of a file system, omit the `-Path` parameter from the command.
 
@@ -204,15 +204,18 @@ $dirname = "my-directory/"
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname
 ```
 
-This example lists the contents of a directory named `my-directory` and includes ACLs in the list. 
-It also uses the `-Recurse` parameter to list the contents of all subdirectories.
+ This example does not return values for the `ACL`, `Permissions`, `Group`, and `Owner` properties. To obtain those values, use the `-FetchPermission` parameter. 
 
-To list the contents of a file system, omit the `-Path` parameter from the command.
+ The following example lists the contents of the file system and prints values for the `ACL`, `Permissions`, `Group`, and `Owner` properties to the console. The example also uses the `-Recurse` parameter to list the contents of all subdirectories.
 
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchPermission
+$properties = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchPermission
+$properties.ACL
+$properties.Permissions
+$properties.Group
+$properties.Owner
 ```
 
 ## Upload a file to a directory
