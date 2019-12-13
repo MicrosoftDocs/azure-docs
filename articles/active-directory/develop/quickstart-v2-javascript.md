@@ -88,7 +88,7 @@ var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
         authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here",
-        redirectURI: "http://localhost:30662/"
+        redirectUri: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
