@@ -333,7 +333,7 @@ Fail over to the secondary server:
 
 Create a failover group between two managed instances using the Azure portal, or PowerShell. 
 
-You will either need to configure [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager) or to create a gateway for the virtual network of each managed instance, connect the two gateways, and then create the failover group. 
+You will either need to configure [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) or to create a gateway for the virtual network of each managed instance, connect the two gateways, and then create the failover group. 
 
 ### Prerequisites
 Consider the following prerequisites:
@@ -345,7 +345,7 @@ Consider the following prerequisites:
 
 ### Create primary virtual network gateway 
 
-If you have not configured [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager), you can create the primary virtual network gateway with the Azure portal, or PowerShell. 
+If you have not configured [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md), you can create the primary virtual network gateway with the Azure portal, or PowerShell. 
 
 # [Portal](#tab/azure-portal)
 

@@ -358,8 +358,6 @@ Clean up resources by deleting the resource group.
 1. Select  **Delete resource group** to delete all the resources in the group, as well as the resource group itself. 
 1. Type the name of the resource group, `myResourceGroup`, in the textbox, and then select **Delete** to delete the resource group. 
 
-> [!IMPORTANT]
-> Remove the secondary database from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -374,7 +372,6 @@ Clean up your resources using PowerShell.
    Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
    Write-host "Resource group removed =" $resourceGroupName
    ```
----
 
 This portion of the tutorial uses the following PowerShell cmdlet:
 
@@ -382,7 +379,11 @@ This portion of the tutorial uses the following PowerShell cmdlet:
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group | 
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+---
+
+> [!IMPORTANT]
+> Remove the secondary database from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
+
 
 ## Full script
 

@@ -377,10 +377,6 @@ Delete the resource group using the Azure portal.
 1. Select  **Delete resource group** to delete all the resources in the group, as well as the resource group itself. 
 1. Type the name of the resource group, `myResourceGroup`, in the textbox, and then select **Delete** to delete the resource group.  
 
-
-> [!IMPORTANT]
-> Remove the secondary database from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
-
 # [PowerShell](#tab/azure-powershell)
 
 Delete the resource group using PowerShell. 
@@ -425,6 +421,10 @@ This portion of the tutorial uses the following Az CLI cmdlets:
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
 
 ---
+
+
+> [!IMPORTANT]
+> Remove the secondary database from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
 
 
 ## Full scripts
