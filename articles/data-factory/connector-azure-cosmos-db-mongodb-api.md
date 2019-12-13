@@ -169,6 +169,9 @@ The following properties are supported in the Copy Activity **sink** section:
 | writeBatchSize | The **writeBatchSize** property controls the size of documents to write in each batch. You can try increasing the value for **writeBatchSize** to improve performance and decreasing the value if your document size being large. |No<br />(the default is **10,000**) |
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out. The allowed value is timespan. | No<br/>(the default is **00:30:00** - 30 minutes) |
 
+>[!TIP]
+>To import JSON documents as-is, refer to [Import or export JSON documents](#import-and-export-json-documents) section; to copy from tabular-shaped data, refer to [Schema mapping](#schema-mapping).
+
 **Example**
 
 ```json
@@ -201,18 +204,18 @@ The following properties are supported in the Copy Activity **sink** section:
 ]
 ```
 
->[!TIP]
->To import JSON documents as-is, refer to [Import or export JSON documents](#import-or-export-json-documents) section; to copy from tabular-shaped data, refer to [Schema mapping](#schema-mapping).
-
-## Import or export JSON documents
+## Import and export JSON documents
 
 You can use this Azure Cosmos DB connector to easily:
 
-* Import JSON documents from various sources to Azure Cosmos DB, including from Azure Blob storage, Azure Data Lake Store, and other file-based stores that Azure Data Factory supports.
-* Export JSON documents from an Azure Cosmos DB collection to various file-based stores.
 * Copy documents between two Azure Cosmos DB collections as-is.
+* Import JSON documents from various sources to Azure Cosmos DB, including from MongoDB, Azure Blob storage, Azure Data Lake Store, and other file-based stores that Azure Data Factory supports.
+* Export JSON documents from an Azure Cosmos DB collection to various file-based stores.
 
-To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
+To achieve schema-agnostic copy:
+
+* When you use the Copy Data tool, select the **Export as-is to JSON files or Cosmos DB collection** option.
+* When you use activity authoring, choose JSON format with the corresponding file store for source or sink.
 
 ## Schema mapping
 

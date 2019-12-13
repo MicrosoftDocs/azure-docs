@@ -80,8 +80,6 @@
   items:
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
-  - name: Bandwidth recommendations for remote sessions
-    href: bandwidth-recommendations.md
   - name: Determine user connection latency
     href: connection-latency.md
   - name: Delegated access in Windows Virtual Desktop

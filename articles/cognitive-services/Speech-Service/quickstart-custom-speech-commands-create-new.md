@@ -61,6 +61,20 @@ The default view is a list of the Custom Commands applications you created.
 
 Your view should now be an overview of your Custom Commands application.
 
+## Update LUIS Resources (Optional)
+
+You can update the authoring resource set in the new project window, and set a prediction resource used to recognize inputs during runtime. 
+
+> [!NOTE]
+> You will need to set a prediction resource before your application requests predictions beyond the 1,000 requests provided by the authoring resource.
+
+> [!div class="mx-imgBorder"]
+> ![Set LUIS Resources](media/custom-speech-commands/set-luis-resources.png)
+
+1. Navigate to the LUIS Resources pane by selecting **Settings** from the left pane, and then **LUIS Resources** from the middle pane.
+1. Select a prediction resource, or create one by selecting **Create new resource**
+1. Select **Save**
+
 ## Create a new Command
 
 Now you can create a Command. Let's use an example that will take a single utterance, `turn on the tv`, and respond with the message `Ok, turning on the TV`.
