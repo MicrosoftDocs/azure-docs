@@ -55,7 +55,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 - We added the ability to target specific agent from cloud to test for agent connectivity.
 
 ### Fixed issues
-- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login windows credentials instead of the admin credentialss provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the AADConnect user interface. 
+- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login windows credentials instead of the admin credentials provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the AADConnect user interface. 
 - A fix was made to enable DSSO simultaneously in all forest through the AADConnect user interface
 
 ## 1.4.32.0
