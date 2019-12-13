@@ -32,6 +32,8 @@
       href: app/website-monitoring.md 
 - name: Tutorials
   items:
+  - name: Collect logs from Azure resource
+    href: learn/tutorial-resource-logs.md
   - name: Logs
     items: 
     - name: Log Analytics
