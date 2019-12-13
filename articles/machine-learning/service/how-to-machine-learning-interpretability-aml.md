@@ -24,7 +24,7 @@ In this article, you learn to use the interpretability package of the Azure Mach
 * View interpretability visualizations in [Azure Machine Learning studio](https://ml.azure.com).
 * Deploy a scoring explainer with your model.
 
-For more information, see [Model interpretability in Azure Machine Learning service](how-to-machine-learning-interpretability.md).
+For more information, see [Model interpretability in Azure Machine Learning](how-to-machine-learning-interpretability.md).
 
 ## Local interpretability
 
@@ -351,7 +351,7 @@ If both global and local explanations are available, data populates both tabs. I
 Follow one of these paths to access the visualization dashboard in Azure Machine Learning studio:
 
 * **Experiments** pane (Preview)
-  1. Select **Experiments** in the left pane to see a list of experiments that you've run on Azure Machine Learning service.
+  1. Select **Experiments** in the left pane to see a list of experiments that you've run on Azure Machine Learning.
   1. Select a particular experiment to view all the runs in that experiment.
   1. Select a run, and then the **Explanations** tab to the explanation visualization dashboard.
 

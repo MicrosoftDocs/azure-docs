@@ -1,5 +1,5 @@
 ---
-title: How to implement custom synchronization to optimize for higher availability and performance in Azure Cosmos DB
+title: Implement custom synchronization in Azure Cosmos DB
 description: Learn how to implement custom synchronization to optimize for higher availability and performance in Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
