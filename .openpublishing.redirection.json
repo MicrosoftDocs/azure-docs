@@ -23070,6 +23070,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-quickstart-create-account.md",
+      "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-account-manage.md",
+      "redirect_url": "/azure/storage/common/storage-account-keys-manage",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/common/storage-account-options.md",
       "redirect_url": "/azure/storage/common/storage-account-overview",
       "redirect_document_id": true
@@ -43976,6 +43986,11 @@
     {
       "source_path": "articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-storage.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/bandwidth-recommendations.md",
+      "redirect_url": "https://docs.microsoft.com/windows-server/remote/remote-desktop-services/network-guidance",
       "redirect_document_id": false
     }
   ]
