@@ -59,11 +59,13 @@ To migrate to Gen2, we recommend the following path.
 
 :one: &nbsp;&nbsp;[Create a storage account](data-lake-storage-quickstart-create-account.md) and enable the hierarchical namespace feature. 
 
-:two: &nbsp;&nbsp;Migrate data by using the data transfer tool that you've chosen.
+:two: &nbsp;&nbsp;Migrate data by using the pattern that you've chosen.
 
 :three: &nbsp;&nbsp;[Assign role-based access control (RBAC) roles](../common/storage-auth-aad-rbac-portal.md) to security principles. 
 
 :four: &nbsp;&nbsp;Optionally [apply file and folder level security](data-lake-storage-access-control.md).
+
+:five:  &nbsp;&nbsp;Optionally [configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
 
 ### Step 4: Update workloads and applications
 
@@ -114,8 +116,6 @@ Let's take a closer look at each pattern.
 
 This is the simplest pattern. It's ideal for data pipelines that can afford downtime.
 
-The general pattern is as follows:
-
 :one: &nbsp;&nbsp;Stop all writes to Gen1.
 
 :two: &nbsp;&nbsp;Move data from Gen1 to Gen2.
@@ -132,8 +132,6 @@ The general pattern is as follows:
 ### Incremental copy pattern
 
 This pattern is similar to the *lift and shift* pattern, but with less downtime. You'll stop writes to Gen1 only after all data is copied to Gen2. This pattern is useful for large amounts of data that take longer to copy.
-
-The general pattern is as follows:
 
 :one: &nbsp;&nbsp;Start moving data from Gen1 to Gen2.
 
@@ -152,8 +150,6 @@ The general pattern is as follows:
 
 Use this pattern for pipelines that can't afford any downtime.   
 
-The general pattern is as follows:
-
 :one: &nbsp;&nbsp;Move data from Gen1 to Gen2.
 
 :two: &nbsp;&nbsp;Ingest new data to both Gen1 and Gen2.
@@ -170,8 +166,6 @@ The general pattern is as follows:
 ### Bi-directional sync pattern
 
 This pattern is similar to the *dual pipeline* pattern, but it's more ideally suited for complicated pipelines that require Gen1 and Gen2 side-by-side support during migration.
-
-The general pattern is as follows:
 
 :one: &nbsp;&nbsp;Set up bidirectional replication between Gen1 and Gen2.
 
