@@ -92,7 +92,9 @@ If your account has the necessary permissions, you can set up Azure Pipelines (P
 
 To enable local Git deployment for your app with Azure Pipelines (Preview):
 
-1. Navigate to your Azure App Service app page in the [Azure portal](https://portal.azure.com), and select **Deployment Center** in the left menu.
+1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
+
+1. Select your Azure App Service app and select **Deployment Center** in the left menu.
    
 1. On the **Deployment Center** page, select **Local Git**, and then select **Continue**. 
    
