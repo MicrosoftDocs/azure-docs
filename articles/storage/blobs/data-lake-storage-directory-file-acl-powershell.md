@@ -54,27 +54,21 @@ This article shows you how to use PowerShell to create and manage directories, f
 
 ## Connect to the account
 
-1. Open a Windows PowerShell command window.
+Open a Windows PowerShell command window, and then sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
-2. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+```powershell
+Connect-AzAccount
+```
 
-   ```powershell
-   Connect-AzAccount
-   ```
+If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in.
+```powershell
+Select-AzSubscription -SubscriptionId <subscription-id>
+```
 
-   ```powershell
-   Select-AzSubscription -SubscriptionId <subscription-id>
-   ```
+Next, choose how you want your commands to obtain authorization to the storage account. 
 
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-### Get the storage context
-
-Choose how you want your commands obtain authorization to the storage account. Then, get the storage account context. Your commands can obtain authorization by using Azure Active Directory (AD), or by using the storage account key. 
-
-#### Obtain authorization by using Azure Active Directory (AD)
+### Option 1: Obtain authorization by using Azure Active Directory (AD)
 
 With this approach, the system ensures that your user account has the appropriate role-based access control (RBAC) assignments and ACL permissions. 
 
@@ -83,7 +77,7 @@ $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseCon
 ```
 Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-#### Obtain authorization by using the storage account key
+### Option 2: Obtain authorization by using the storage account key
 
 With this approach, the system doesn't check the RBAC or ACL permissions of a resource.
 
@@ -196,17 +190,15 @@ List the contents of a directory by using the `Get-AzDataLakeGen2ChildItem` cmdl
 
 This example lists the contents of a directory named `my-directory`.
 
-To list the contents of a file system, omit the `-Path` parameter from the command.
-
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname
 ```
 
- This example does not return values for the `ACL`, `Permissions`, `Group`, and `Owner` properties. To obtain those values, use the `-FetchPermission` parameter. 
+This example doesn't return values for the `ACL`, `Permissions`, `Group`, and `Owner` properties. To obtain those values, use the `-FetchPermission` parameter. 
 
- The following example lists the contents of the file system and prints values for the `ACL`, `Permissions`, `Group`, and `Owner` properties to the console. The example also uses the `-Recurse` parameter to list the contents of all subdirectories.
+The following example lists the contents of the same directory, but it also uses the `-FetchPermission` parameter to return values for the `ACL`, `Permissions`, `Group`, and `Owner` properties. 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -217,6 +209,8 @@ $properties.Permissions
 $properties.Group
 $properties.Owner
 ```
+
+To list the contents of a file system, omit the `-Path` parameter from the command.
 
 ## Upload a file to a directory
 
