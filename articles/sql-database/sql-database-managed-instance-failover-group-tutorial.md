@@ -725,7 +725,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 ## 4 - Create primary gateway 
 For two managed instances to participate in a failover group, there must be either ExpressRoute or a gateway configured between the virtual networks of the two managed instances to allow network communication. If you choose to configure [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) instead of connecting two VPN gateways, skip ahead to [Step 7](#7---create-a-failover-group).  
 
-This article provides steps to create the two VPN gateways and connect them, but you can skip ahead to creating the failover group if you have already configured ExpressRoute. 
+This article provides steps to create the two VPN gateways and connect them, but you can skip ahead to creating the failover group if you have configured ExpressRoute instead. 
 
 
 # [Portal](#tab/azure-portal)
