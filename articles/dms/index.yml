@@ -5,7 +5,7 @@ metadata:
   description: " Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service."
   author: HJToland3
   ms.author: jtoland
-  ms.date: 12/10/2019
+  ms.date: 12/12/2019
   ms.service: dms
   ms.topic: landing-page
 
@@ -72,10 +72,6 @@ landingContent:
         links:
           - text: Migrate SQL Server 2008 to SQL Database managed instance
             url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
-      - linkListType: learn
-        links:
-          - text: SQL Migration Using Azure Data Migration Service
-            url: https://www.microsoft.com/handsonlabs/selfpacedlabs/details/SP-AZ100057
 # Card 3
   - title: Migrate open-source databases to Azure
     linkLists:
@@ -105,22 +101,12 @@ landingContent:
             url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
           - text: Migrate to Azure Cosmos DB Mongo API
             url: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
-      - linkListType: learn
-        links:
-          - text: Migrate PostgreSQL to Azure
-            url: https://www.microsoft.com/handsonlabs/selfpacedlabs/details/SP-AZ100092
-          - text: Migrate MySQL to Azure
-            url: https://www.microsoft.com/handsonlabs/selfpacedlabs/details/SP-AZ100091
-          - text: NoSQL Migration Lab from MongoDB to Azure Cosmos DB
-            url: https://www.microsoft.com/handsonlabs/selfpacedlabs/details/SP-AZ100047
-          - text: Create a new Azure Database for MySQL and WordPress app
-            url: https://www.microsoft.com/handsonlabs/selfpacedlabs/details/SP-AZ100049
 # Card 4
   - title: Tools and guidance
     linkLists:
       - linkListType: reference
         links:
-          - text: Service and tools by data migration scenario
+          - text: Services and tools by data migration scenario
             url: dms-tools-matrix.md
           - text: Database Migration Guide
             url: https://datamigration.microsoft.com/
