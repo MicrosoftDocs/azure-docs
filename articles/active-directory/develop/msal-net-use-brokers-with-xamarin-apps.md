@@ -44,8 +44,8 @@ var app = PublicClientApplicationBuilder
 ```
 
 ### Step 2: Enable keychain access
-To enable keychain access, your application must have a keychain access group.
-You can set your keychain access group by using the `WithIosKeychainSecurityGroup()` api when creating your application as shown below:
+
+To enable keychain access, your application must have a keychain access group. You can use the `WithIosKeychainSecurityGroup()` API to set your keychain access group when you create your application:
 
 ```csharp
 var builder = PublicClientApplicationBuilder
@@ -55,7 +55,7 @@ var builder = PublicClientApplicationBuilder
      .Build();
 ```
 
-Learn more on [enabling keychain access](msal-net-xamarin-ios-considerations.md).
+For more information, see [Enabling keychain access](msal-net-xamarin-ios-considerations.md).
 
 ### Step 3: Update AppDelegate to handle the callback
 When the Microsoft Authentication Library for .NET (MSAL.NET) calls the broker, the broker in turn calls back to your application through the `OpenUrl` method of the `AppDelegate` class. Because MSAL waits for the response from the broker, your application needs to cooperate to call MSAL.NET back. To enable this cooperation, update the `AppDelegate.cs` file to override the following method.
