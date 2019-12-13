@@ -18,7 +18,7 @@ This article shows you how to rotate the certificates in your AKS cluster.
 
 ## Before you begin
 
-This article requires that you are running the Azure CLI version 2.0.76 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This article requires that you are running the Azure CLI version 2.0.77 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## AKS certificates, Certificate Authorities, and Service Accounts
 
