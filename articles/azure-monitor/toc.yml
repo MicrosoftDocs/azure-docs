@@ -111,14 +111,6 @@
     href: visualizations.md
   - name: Partner integrations
     href: platform/partners.md
-  - name: FAQ
-    items:
-    - name: Log Analytics
-      displayName: FAQ
-      href: platform/log-faq.md
-    - name: Application Insights
-      displayName: FAQ
-      href: app/troubleshoot-faq.md
 - name: How-to guides
   items:
   - name: Manage Azure Monitor
@@ -160,6 +152,8 @@
     items:
     - name: Application Insights overview
       href: app/app-insights-overview.md
+    - name: FAQ
+      href: app/troubleshoot-faq.md
     - name: Code-based monitoring
       items:
       - name: ASP.NET Core 
