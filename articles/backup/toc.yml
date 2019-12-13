@@ -244,6 +244,8 @@
       href: manage-monitor-sql-database-backup.md
   - name: SAP HANA databases on Azure VMs
     items:
+    - name: About SAP HANA Backup on Azure VMs  
+      href: sap-hana-db-about.md
     - name: Back up SAP HANA databases on Azure VMs
       href: backup-azure-sap-hana-database.md
     - name: Restore SAP HANA databases in Azure VMs
