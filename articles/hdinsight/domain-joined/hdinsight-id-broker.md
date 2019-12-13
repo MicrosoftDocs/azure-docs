@@ -19,7 +19,7 @@ HDInsight ID Broker (HIB) is intended to simplify complex authentication setups 
 
 * Your organization relies on federation to authenticate users for accessing cloud resources. Previously, to use HDInsight ESP clusters, you would have to enable password hash sync from your on-premises environment to Azure AD. This requirement may be difficult or undesirable for some organizations.
 
-* You're building solutions that use technologies that rely on different authentication mechanisms. For example, Apache Hadoop and Apache Ranger rely on Kerberos, while Azure Data Lake Storage (ADLS) relies on OAuth.
+* You're building solutions that use technologies which rely on different authentication mechanisms. For example, Apache Hadoop and Apache Ranger rely on Kerberos, while Azure Data Lake Storage (ADLS) relies on OAuth.
 
 HIB provides a unified authentication infrastructure and removes the requirement of providing password hashes to Azure AD. HIB consists of components running on a Windows Server VM (HIB Server), and cluster gateway nodes. After enabling HIB, the authentication flow for all users, including federated users, is shown in the following diagram:
 
