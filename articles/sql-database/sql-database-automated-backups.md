@@ -71,7 +71,7 @@ By default, each database is configured with 7 days of backup retention for the 
 
 For single databases, the total backup storage usage is calculated as follows: `Backup storage size = (size of full backups + size of differential backups + size of log backups) – database size`. Backups that are older than the retention period are automatically purged based on their timestamp. Because the differential backups and log backups require an earlier full backup to be useful, they are purged together in weekly chunks. 
 
-For elastic pools, the total backup storage size is aggregated at the pool level and is calculated as follows: `total backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - allocated pool data storage. 
+For elastic pools, the total backup storage size is aggregated at the pool level and is calculated as follows: `total backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - allocated pool data storage`. 
 
 Azure SQL Database will compute your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline which is responsible for aggregating this hourly usage to calculate your consumption at the end of each month. After the database is dropped, consumption decreases as backups age. Once the backups become older than the retention period, the billing stops. 
 
