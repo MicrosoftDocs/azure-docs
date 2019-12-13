@@ -1,5 +1,6 @@
 ---
-title: Protect an API by using OAuth 2.0 with Azure Active Directory and API Management | Microsoft Docs
+title: Protect an API by using OAuth 2.0 with AAD and API Management
+titleSuffix: Azure API Management
 description: Learn how to protect a web API backend with Azure Active Directory and API Management.
 services: api-management
 documentationcenter: ''
