@@ -34,7 +34,7 @@ For Copy activity, this Azure SQL Data Warehouse connector supports these functi
 
 - Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieve data by using a SQL query or stored procedure.
-- As a sink, load data by using [PolyBase](#use-polybase) or [COPY statement](#use-copy-statement) (preview) or bulk insert. We recommend PolyBase or COPY statement (preview) for better copy performance.
+- As a sink, load data by using [PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) or [COPY statement](#use-copy-statement) (preview) or bulk insert. We recommend PolyBase or COPY statement (preview) for better copy performance.
 
 > [!IMPORTANT]
 > If you copy data by using Azure Data Factory Integration Runtime, configure an [Azure SQL server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure services can access the server.
@@ -358,11 +358,15 @@ GO
 
 ### <a name="azure-sql-data-warehouse-as-sink"></a> Azure SQL Data Warehouse as sink
 
-Azure Data Factory supports three ways to load data into SQL Data Warehouse. The fastest and most scalable way to load data is through PolyBase or the [COPY statement](https://docs.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview). Learn more from [Data loading strategies for Azure SQL Data Warehouse](../sql-data-warehouse/design-elt-data-loading.md).
+Azure Data Factory supports three ways to load data into SQL Data Warehouse.
 
-- [Use PolyBase powered by SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 
-- [Use COPY statement (preview) powered by SQL Data Warehouse](#use-copy-statement)
+![SQL DW sink copy options](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
+
+- [Use PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 
+- [Use COPY statement (preview)](#use-copy-statement)
 - Use bulk insert
+
+The fastest and most scalable way to load data is through [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) or the [COPY statement](https://docs.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview).
 
 To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to **SqlDWSink**. The following properties are supported in the Copy Activity **sink** section:
 
@@ -395,7 +399,7 @@ To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to 
 }
 ```
 
-## <a name="use-polybase"></a> Use PolyBase to load data into Azure SQL Data Warehouse
+## Use PolyBase to load data into Azure SQL Data Warehouse
 
 Using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure SQL Data Warehouse with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse](v1/data-factory-load-sql-data-warehouse.md).
 
@@ -595,12 +599,15 @@ The NULL value is a special form of the default value. If the column is nullable
 
 SQL Data Warehouse [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview) directly supports loading data from **Azure Blob and Azure Data Lake Storage Gen2**. If your source data meets the criteria described in this section, you can choose to use COPY statement in ADF to load data into Azure SQL Data Warehouse. Azure Data Factory checks the settings and fails the copy activity run if the criteria is not met.
 
+>![NOTE]
+>Currently Data Factory only support copy from COPY statement compatible sources.
+
 The following COPY statement settings are supported under `allowCopyCommand` in copy activity:
 
 | Property          | Description                                                  | Required                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | defaultValues | Specifies the default values for each target column in SQL DW.  The default values in the property overwrite the DEFAULT constraint set in the data warehouse, and identity column cannot have a default value. | No |
-| additionalOptions | Additional options that will be passed to SQL DW COPY statement directly in “With” clause. | No |
+| additionalOptions | Additional options that will be passed to SQL DW COPY statement directly in "With" clause in [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Quote the value as needed to align with the COPY statement requirements. | No |
 
 Using COPY statement supports the following configuration:
 
@@ -608,10 +615,10 @@ Using COPY statement supports the following configuration:
 
     | Supported source data store type                             | Supported format           | Supported source authentication type                         |
     | :----------------------------------------------------------- | -------------------------- | :----------------------------------------------------------- |
-    | [Azure Blob](connector-azure-blob-storage.md)                | Delimited text             | Account key authentication, shared access signature authentication, service principal authentication, managed identity authentication |
-    | &nbsp;                                                       | Parquet                    | Account key authentication, shared access signature authentication |
-    | &nbsp;                                                       | ORC                        | Account key authentication, shared access signature authentication |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Delimited text/Parquet/ORC | Account key authentication, service principal authentication, managed identity authentication |
+    | [Azure Blob](connector-azure-blob-storage.md)                | [Delimited text](format-delimited-text.md)             | Account key authentication, shared access signature authentication, service principal authentication, managed identity authentication |
+    | &nbsp;                                                       | [Parquet](format-parquet.md)                    | Account key authentication, shared access signature authentication |
+    | &nbsp;                                                       | [ORC](format-orc.md)                        | Account key authentication, shared access signature authentication |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Delimited text](format-delimited-text.md)/[Parquet](format-parquet.md)/[ORC](format-orc.md) | Account key authentication, service principal authentication, managed identity authentication |
 
     >[!IMPORTANT]
     >If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication - refer to [Impact of using VNet Service Endpoints with Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Learn the required configurations in Data Factory from [Azure Blob - managed identity authentication](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2 - managed identity authentication](connector-azure-data-lake-storage.md#managed-identity) section respectively.
@@ -621,7 +628,7 @@ Using COPY statement supports the following configuration:
    1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **GZip**.
    2. For **ORC**: `compression` can be **no compression**, **zlib**, or **Snappy**.
    3. For **Delimited text**:
-      1. `rowDelimiter` is **single character** or “**\r\n**”.
+      1. `rowDelimiter` is explicitly set as **single character** or "**\r\n**", the default value is not supported.
       2. `nullValue` is left as default or set to **empty string** ("").
       3. `encodingName` is left as default or set to **utf-8 or utf-16**.
       4. `escapeChar` must be same as `quoteChar`, and is not empty.
@@ -669,7 +676,7 @@ Using COPY statement supports the following configuration:
                     ],
                     "additionalOptions": { 
                         "MAXERRORS": "10000", 
-                        "DATEFORMAT": "ymd" 
+                        "DATEFORMAT": "'ymd'" 
                     }
                 }
             },
@@ -682,6 +689,14 @@ Using COPY statement supports the following configuration:
 ## Mapping data flow properties
 
 Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flow.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
 
 ## Data type mapping for Azure SQL Data Warehouse
 
@@ -719,14 +734,6 @@ When you copy data from or to Azure SQL Data Warehouse, the following mappings a
 | uniqueidentifier                      | Guid                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
-
-## Lookup activity properties
-
-To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
-
-## GetMetadata activity properties
-
-To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
 
 ## Next steps
 For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).
