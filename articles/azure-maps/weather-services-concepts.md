@@ -45,6 +45,54 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 |22      |integer             |
 
 
+## Weather icons
+
+Some of the Weather service APIs return icon codes (iconCode) in the response, a numeric value that can be used to define the icon. Please do not link directly to these images from your applications, the URLs can and will change.
+
+| Icon Number |Icon| Day | Night | Text |
+|-------------|:----:|-----|-------|------|
+| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Yes |  No    | Sunny|
+| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Yes |  No    | Mostly Sunny|
+| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Yes |  No    | Partly Sunny|
+| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Yes |  No    | Intermittent Clouds|
+| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Yes |  No    | Hazy Sunshine |
+| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Yes |  No    | Mostly Cloudy|
+| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Yes |  Yes   | Cloudy |
+| 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Yes |  Yes   | Dreary (Overcast)|
+| 11           |![](./media/weather-services-concepts/fog-i.png)                       | Yes |  Yes   | Fog|
+| 12           |![](./media/weather-services-concepts/showers-i.png)                   | Yes |  Yes   | Showers|
+| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | Yes |  No    | Mostly Cloudy with Showers|
+| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | Yes |  No    | Partly Sunny with Showers|
+| 15           |![](./media/weather-services-concepts/tstorms-i.png)                   | Yes |  Yes   | Thunderstorms|
+| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | Yes |  No    | Mostly Cloudy with Thunderstorms|
+| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | Yes |  No    | Partly Sunny with Thunderstorms|
+| 18           |![](./media/weather-services-concepts/rain-i.png)                      | Yes |  Yes   | Rain|
+| 19           |![](./media/weather-services-concepts/flurries-i.png)                  | Yes |  Yes   | Flurries|
+| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | Yes |  No    | Mostly Cloudy with Flurries|
+| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Yes |  No    | Partly Sunny with Flurries|
+| 22           |![](./media/weather-services-concepts/snow-i.png)                      | Yes |  Yes   | Snow|
+| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Yes |  No    | Mostly Cloudy with Snow|
+| 24           |![](./media/weather-services-concepts/ice-i.png)                       | Yes |  Yes   | Ice |
+| 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Yes |  Yes   | Sleet|
+| 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Yes |  Yes   | Freezing Rain|
+| 29           |![](./media/weather-services-concepts/rain-snow.png)                  | Yes |  Yes   | Rain and Snow|
+| 30           |![](./media/weather-services-concepts/hot-i.png)                       | Yes |  Yes   | Hot|
+| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Yes |  Yes   | Cold|
+| 32           |![](./media/weather-services-concepts/windy-i.png)                     | Yes |  Yes   | Windy|
+| 33           |![](./media/weather-services-concepts/clear-night.png)                | No  |  Yes   | Clear|
+| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | No  |  Yes   | Mostly Clear|
+| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | No  |  Yes   | Partly Cloudy|
+| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | No  |  Yes   | Intermittent Clouds|
+| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | No  |  Yes   | Hazy Moonlight|
+| 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | No  |  Yes   | Mostly Cloudy|
+| 39           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | No  |  Yes   | Partly Cloudy with Showers|
+| 40           |![](./media/weather-services-concepts/mostly-cloudy-showers-night.png)  | No  |  Yes   | Mostly Cloudy with Showers|
+| 41           |![](./media/weather-services-concepts/partly-cloudy-tstorms-night.png)  | No  |  Yes   | Partly Cloudy with Thunderstorms|
+| 42           |![](./media/weather-services-concepts/mostly-cloudy-tstorms-night.png)  | No  |  Yes   | Mostly Cloudy with Thunderstorms|
+| 43           |![](./media/weather-services-concepts/mostly-cloudy-flurries-night.png) | No  |  Yes   | Mostly Cloudy with Flurries|
+| 44           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | No  |  Yes   | Mostly Cloudy with Snow|
+
+
 ## Radar and satellite imagery color scale
 
 Via [Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles) users can request latest radar and infrared satellite images. Please see below guide to help interpret colors used for radar and satellite tiles.
@@ -72,7 +120,7 @@ The table below provides guidance to interpret the radar images and create a map
 | #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) | Mix-Heavy |
 | #6500ba        | ![](./media/weather-services-concepts/color-6500ba.png) | Mix-Severe |
 
-Detailed color palette for radar tiles with Hex color codes and dBZ values is showed below. dBZ represents precipitation intensity in weather radar. 
+Detailed color palette for radar tiles with Hex color codes and dBZ values is shown below. dBZ represents precipitation intensity in weather radar. 
 
 | **RAIN**             | **ICE**              | **SNOW**              | **MIXED**             |
 |----------------------|----------------------|-----------------------|-----------------------|

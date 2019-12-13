@@ -25,7 +25,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 
 In this example, replace `<RESOURCE_GROUP>` with your resource group and `<PLAN_NAME>` with a name for your plan that is unique in the resource group. Specify a [supported `<REGION>`](#regions). To create a Premium plan that supports Linux, include the `--is-linux` option.
 
-With the plan created, you can use [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create your function app. In the portal, both the plan and the app are created at the same time. 
+With the plan created, you can use [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create your function app. In the portal, both the plan and the app are created at the same time. For an example of a complete Azure CLI script, see [Create a function app in a Premium plan](scripts/functions-cli-create-premium-plan.md).
 
 ## Features
 
@@ -99,27 +99,28 @@ Below are the currently supported regions for each OS.
 |Australia Central| ✔<sup>1</sup> | |
 |Australia Central 2| ✔<sup>1</sup> | |
 |Australia East| ✔ | |
-|Australia Southeast | ✔ | ✔ |
+|Australia Southeast | ✔ | ✔<sup>1</sup> |
 |Brazil South| ✔<sup>2</sup> |  |
 |Canada Central| ✔ |  |
 |Central US| ✔ |  |
 |East Asia| ✔ |  |
-|East US | ✔ | ✔ |
+|East US | ✔ | ✔<sup>1</sup> |
 |East US 2| ✔ |  |
 |France Central| ✔ |  |
-|Japan East| ✔ | ✔ |
+|Germany West Central| ✔ | |
+|Japan East| ✔ | ✔<sup>1</sup> |
 |Japan West| ✔ | |
 |Korea Central| ✔ |  |
 |North Central US| ✔ |  |
-|North Europe| ✔ | ✔ |
-|South Central US| ✔ |  |
+|North Europe| ✔ | ✔<sup>1</sup> |
+|South Central US| ✔ | ✔<sup>1</sup> |
 |South India | ✔ | |
-|Southeast Asia| ✔ | ✔ |
+|Southeast Asia| ✔ | ✔<sup>1</sup> |
 |UK South| ✔ | |
 |UK West| ✔ |  |
-|West Europe| ✔ | ✔ |
+|West Europe| ✔ | ✔<sup>1</sup> |
 |West India| ✔ |  |
-|West US| ✔ | ✔ |
+|West US| ✔ | ✔<sup>1</sup> |
 |West US 2| ✔ |  |
 
 <sup>1</sup>Maximum scale out limited to 20 instances.  

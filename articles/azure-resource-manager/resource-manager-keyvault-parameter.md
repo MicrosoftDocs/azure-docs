@@ -2,7 +2,7 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 12/10/2019
 ---
 # Use Azure Key Vault to pass secure parameter value during deployment
 
@@ -215,11 +215,11 @@ The previous section showed how to pass a static resource ID for the key vault s
 
 You can't dynamically generate the resource ID in the parameters file because template expressions aren't allowed in the parameters file. 
 
-In your parent template, you add the linked template and pass in a parameter that contains the dynamically generated resource ID. The following image shows how a parameter in the linked template references the secret.
+In your parent template, you add the nested template and pass in a parameter that contains the dynamically generated resource ID. The following image shows how a parameter in the linked template references the secret.
 
 ![Dynamic ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
 
-The [following template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-key-vault-use-dynamic-id) dynamically creates the key vault ID and passes it as a parameter.
+The following template dynamically creates the key vault ID and passes it as a parameter.
 
 ```json
 {
@@ -257,20 +257,6 @@ The [following template](https://github.com/Azure/azure-quickstart-templates/tre
             "metadata": {
                 "description": "The name of the subscription that contains the keyvault."
             }
-        },
-        "_artifactsLocation": {
-            "type": "string",
-            "metadata": {
-                "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
-            },
-            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/"
-        },
-        "_artifactsLocationSasToken": {
-            "type": "securestring",
-            "metadata": {
-                "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated."
-            },
-            "defaultValue": ""
         }
     },
     "resources": [
@@ -280,9 +266,44 @@ The [following template](https://github.com/Azure/azure-quickstart-templates/tre
             "type": "Microsoft.Resources/deployments",
             "properties": {
                 "mode": "Incremental",
-                "templateLink": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0.0",
-                    "uri": "[uri(parameters('_artifactsLocation'), concat('./nested/sqlserver.json', parameters('_artifactsLocationSasToken')))]"
+                    "parameters": {
+                        "adminLogin": {
+                            "type": "string"
+                        },
+                        "adminPassword": {
+                            "type": "securestring"
+                        },
+                        "location": {
+                            "type": "string"
+                        }
+                    },
+                    "variables": {
+                        "sqlServerName": "[concat('sql-', uniqueString(resourceGroup().id, 'sql'))]"
+                    },
+                    "resources": [
+                        {
+                            "name": "[variables('sqlServerName')]",
+                            "type": "Microsoft.Sql/servers",
+                            "apiVersion": "2018-06-01-preview",
+                            "location": "[parameters('location')]",
+                            "properties": {
+                                "administratorLogin": "[parameters('adminLogin')]",
+                                "administratorLoginPassword": "[parameters('adminPassword')]"
+                            }
+                        }
+                    ],
+                    "outputs": {
+                        "sqlFQDN": {
+                            "type": "string",
+                            "value": "[reference(variables('sqlServerName')).fullyQualifiedDomainName]"
+                        }
+                    }
                 },
                 "parameters": {
                     "location": {
@@ -304,34 +325,8 @@ The [following template](https://github.com/Azure/azure-quickstart-templates/tre
         }
     ],
     "outputs": {
-        "sqlFQDN": {
-            "type": "string",
-            "value": "[reference('dynamicSecret').outputs.sqlFQDN.value]"
-        }
     }
 }
-```
-
-Deploy the preceding template, and provide values for the parameters. You can use the example template from GitHub, but you must provide parameter values for your environment.
-
-For Azure CLI, use:
-
-```azurecli
-az group create --name $resourceGroupName --location $location
-az group deployment create \
-    --resource-group $resourceGroupName \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json \
-    --parameters vaultName=$keyVaultName vaultResourceGroupName=examplegroup secretName=examplesecret
-```
-
-For PowerShell, use:
-
-```powershell
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment `
-  -ResourceGroupName $resourceGroupName `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json `
-  -vaultName $keyVaultName -vaultResourceGroupName $keyVaultResourceGroupName -secretName $secretName
 ```
 
 ## Next steps

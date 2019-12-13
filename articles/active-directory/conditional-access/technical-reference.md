@@ -233,6 +233,7 @@ This setting applies to the following client apps:
 - The approved client apps support the Intune mobile application management feature.
 - The **Require approved client app** requirement:
    - Only supports the iOS and Android for [device platform condition](#device-platform-condition).
+- Conditional Access cannot consider Microsoft Edge in InPrivate mode an approved client app.
 
 ## App protection policy requirement 
 

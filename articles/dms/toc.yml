@@ -98,7 +98,7 @@
       href: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
   - name: Tools and guidance
     items:
-    - name: Service and tools available for data migration scenarios
+    - name: Services and tools available for data migration scenarios
       href: dms-tools-matrix.md
     - name: Azure Database Migration Guide
       href: https://aka.ms/datamigration

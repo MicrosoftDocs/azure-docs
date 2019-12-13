@@ -2,7 +2,7 @@
 title: Understand how the reservation discount is applied to Azure Data Explorer
 description: Learn how the reservation discount is applied to Azure Data Explorer markup meter.
 services: data-explorer
-author: avnera
+author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer

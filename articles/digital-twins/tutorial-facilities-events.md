@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Capture events from an Azure Digital Twins space'
+title: 'Tutorial: Capture device events from an IoT space - Azure Digital Twins| Microsoft Docs'
 description: Learn how to receive notifications from your spaces by integrating Azure Digital Twins with Logic Apps, using the steps in this tutorial.
 services: digital-twins
 ms.author: alinast
@@ -112,11 +112,11 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
     [![Create a Logic Apps resource](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
 
-1. Open your Logic Apps resource when it's deployed, and then open the **Logic App Designer** pane. 
+1. Open your Logic Apps resource when it's deployed, and then open the **Logic app designer** pane. 
 
-1. Select the **When an Event Grid resource event occurs** trigger. Sign in to your tenant with your Azure account when prompted. Select **Allow access** for your Event Grid resource if prompted. Select **Continue**.
+1. Select the **When an Event Grid resource event occurs** trigger. Expand the **Azure Event Grid** option, and sign in to your tenant with your Azure account when prompted. Select **Allow access** for your Event Grid resource if prompted. Select **Continue**.
 
-1. In the **When a resource event occurs (Preview)** window: 
+1. In the **When a resource event occurs** window: 
    
    a. Select the **Subscription** that you used to create the event grid topic.
 
@@ -124,7 +124,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    c. Select your Event Grid resource from the drop-down box for **Resource Name**.
 
-   [![Logic App Designer pane](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
+   [![Logic app designer pane](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
 
 1. Select the **New step** button.
 
@@ -182,7 +182,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    [![Logic Apps "Send an email" selections](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
 
-1. Select the **Save** button at the top of the **Logic App Designer** pane.
+1. Select the **Save** button at the top of the **Logic app designer** pane.
 
 1. Make sure to simulate sensor data by browsing to the **device-connectivity** folder of the Digital Twins sample in a command window, and running `dotnet run`.
 
