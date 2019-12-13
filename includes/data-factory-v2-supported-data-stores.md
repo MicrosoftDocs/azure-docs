@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/25/2019
+ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
 ---
@@ -61,7 +61,7 @@ ms.custom: include file
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |✓ | |✓ |✓  |
 | &nbsp; |[Google Cloud Storage](../articles/data-factory/connector-google-cloud-storage.md) |✓ | |✓ |✓  |
 | &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md) |✓ | |✓ |✓  |
-| &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |✓ | |✓ |✓  |
+| &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |✓ |✓ |✓ |✓  |
 | **Generic protocol** |[Generic HTTP](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  |
 | &nbsp; |[Generic OData](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[Generic ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
