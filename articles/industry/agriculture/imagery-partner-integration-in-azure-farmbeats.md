@@ -326,7 +326,7 @@ Here are the system-defined values:
 }
 ```
 
-This step is a one-time setup. The scope of this new scene type is limited to the subscription in which the FarmBeats project is deployed.
+This step is a one-time setup. The scope of this new scene type is limited to the subscription in which the Azure FarmBeats is installed.
 
 For example, to add SceneSource: “SlantRange,” you do a PUT on the ID of the /ExtendedType API with the key "SceneSource" input payload.
 
@@ -487,4 +487,4 @@ The POST call to the /SceneFile API returns an SAS upload URL, which can be used
 
 ## Next steps
 
-For more information on REST API-based integration details, see [REST API](references-for-farmbeats.md#rest-api).
+For more information on REST API-based integration details, see [REST API](references-for-azure-farmbeats.md#rest-api).
