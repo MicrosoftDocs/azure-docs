@@ -17,9 +17,9 @@ ms.date: 12/11/2019
 > Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
-A knowledge store is a feature of Azure Cognitive Search that persists output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) for later analysis or other downstream processing. An *enriched document* is a pipeline's output, created from content that has been extracted, structured, and analyzed using AI processes. In a standard AI pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, enriched documents are preserved. 
+A knowledge store is a feature of Azure Cognitive Search that persists output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) for independent analysis or downstream processing. An *enriched document* is a pipeline's output, created from content that has been extracted, structured, and analyzed using AI processes. In a standard AI pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, enriched documents are preserved. 
 
-If you have used cognitive skills with Azure Cognitive Search in the past, you already know that *skillsets* move a document through a sequence of enrichments. The outcome can be a search index, or (new in this preview) projections in a knowledge store. The two outputs, search index and knowledge store, derive from the same content input, but output is structured, stored, and used in very different ways.
+If you have used cognitive skills in the past, you already know that *skillsets* move a document through a sequence of enrichments. The outcome can be a search index, or (new in this preview) projections in a knowledge store. The two outputs, search index and knowledge store, derive from the same content input, but output is structured, stored, and used in very different ways.
 
 Physically, a knowledge store is [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), either Azure Table storage, Azure Blob storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
 
@@ -63,8 +63,11 @@ You can create multiple projections in a knowledge store to accommodate various 
 [Indexer](search-indexer-overview.md) is required. A skillset is invoked by an indexer, which drives the execution. Indexers come with their own set of requirements and attributes. Several of these attributes have a direct bearing on a knowledge store:
 
 + Indexers require a [supported Azure data source](search-indexer-overview.md#supported-data-sources) (the pipeline that ultimately creates the knowledge store starts by pulling data from a supported source on Azure). 
+
 + Indexers require a search index. An indexer requires that you provide an index schema, even if you never plan to use it. A minimal index has one string field, designated as the key.
+
 + Indexers provide optional field mappings, used to alias a source field to a destination field. If a default field mapping needs modification (to use a different name or type), you can create a [field mapping](search-indexer-field-mappings.md) within an indexer. For knowledge store output, the destination can be a field in a blob object or table.
+
 + Indexers have schedules and other properties, such as change detection mechanisms provided by various data sources, can also be applied to a knowledge store. For example, you can [schedule](search-howto-schedule-indexers.md) enrichment at regular intervals to refresh the contents. 
 
 ## Create a knowledge store
@@ -89,7 +92,7 @@ A `knowledgeStore` is defined within a [skillset](cognitive-search-working-with-
 
 Currently, the preview REST API is the only mechanism by which you can create a knowledge store programmatically. An easy way to explore is [create your first knowledge store using Postman and the REST API](knowledge-store-create-rest.md).
 
-Reference content for this preview feature is located in [Preview REST API reference](#kstore-rest-api) section of this article. 
+Reference content for this preview feature is located in the [API reference](#kstore-rest-api) section of this article. 
 
 <a name="tools-and-apps"></a>
 
@@ -109,11 +112,12 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 This section is a version of the [Create Skillset (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) reference doc, modified to include a `knowledgeStore` definition. 
 
-Use the `api-version=2019-05-06-Preview` version of the **Create Skillset** REST API for this feature. 
+### Example - knowledgeStore embedded in a Skillset
 
-### Example - Skillset with knowledgeStore
+The following example shows `knowledgeStore` at the bottom of a skillset definition. 
 
-For context, the following example shows how a `knowledgeStore` is defined within a skillset. Use **POST** or **PUT** to formulate the request.
+* Use **POST** or **PUT** to formulate the request.
+* Use the `api-version=2019-05-06-Preview` version of the REST API to access knowledge store functionality. 
 
 ```http
 POST https://[servicename].search.windows.net/skillsets?api-version=2019-05-06-Preview
@@ -212,9 +216,7 @@ The syntax for structuring the request payload is as follows.
                 "objects": [ 
                     {
                     "storageContainer": "<BLOB-CONTAINER-NAME>", 
-                    "format": "json", 
                     "source": "<DOCUMENT-PATH>", 
-                    "key": "<FIELD-NAME>" 
                     }
                 ], 
                 "files": [ 
@@ -244,20 +246,18 @@ A `skills` definition is a complex definition that is documented in full elsewhe
 
 A `knowledgeStore` has two properties: a connection string to an Azure Storage account, and `projections`. You can use any storage account, but it's cost-effective to use services in the same region.
 
-A `projections` collection contains projection objects used to create items in Azure Storage. Each projection object can have `tables`, `objects`, `files` (one of each), which are either specified or null. Within a projection object, any relationships among the data, if detected, are preserved. 
+A `projections` collection contains projection objects used to create items in Azure Storage. Each projection object must have `tables`, `objects`, `files` (one of each), which are either specified or null. The syntax above shows two objects, one fully specified and the other fully null. Within a projection object, once it is expressed in storeage, any relationships among the data, if detected, are preserved. 
 
-You can create additional projection objects to support isolation and specific scenarios (for example, data structures used for exploration, versus those needed in a data science workload). You can get isolation and customization by setting `source` and `storageContainer` or `table` to different values within an object. For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
+Create as many projection objects as you need to support isolation and specific scenarios (for example, data structures used for exploration, versus those needed in a data science workload). You can get isolation and customization for specific scenarios by setting `source` and `storageContainer` or `table` to different values within an object. For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
 
 |Property      | Applies to | Description|  
 |--------------|------------|------------|  
-|`storageConnectionString`| `knowledgeStore` | Required. In this format: DefaultEndpointsProtocol=https;AccountName=<ACCOUNT-NAME>;AccountKey=<ACCOUNT-KEY>;EndpointSuffix=core.windows.net|  
+|`storageConnectionString`| `knowledgeStore` | Required. In this format: `DefaultEndpointsProtocol=https;AccountName=<ACCOUNT-NAME>;AccountKey=<ACCOUNT-KEY>;EndpointSuffix=core.windows.net`|  
 |`projections`| `knowledgeStore` | Required. A collection of property objects consisting of `tables`, `objects`, `files` and their respective properties. Unused projections can be set to null.|  
-|`source`| All projections| The path to the node of the enrichment tree that is the root of the projection. This node is the output of any of the skills in the skillset. Example: `/document/countries/*` (all countries), or `/document/countries/*/states/*` (all states in all countries).|
-|`tableName`| `tables`| Name of a table to create in Azure Table storage. |
-|`generatedKeyName`| `tables`| Name of a column that will contain a generated key for each row. |
+|`source`| All projections| The path to the node of the enrichment tree that is the root of the projection. This node is the output of any of the skills in the skillset. Paths start with `/document/`, representing the enriched document but can be extended to `/document/content/` or to nodes within the document tree. Examples: `/document/countries/*` (all countries), or `/document/countries/*/states/*` (all states in all countries). For more information on document paths, see [Skillset concepts and composition](cognitive-search-working-with-skillsets.md).|
+|`tableName`| `tables`| A table to create in Azure Table storage. |
 |`storageContainer`| `objects`, `files`| Name of a container to create in Azure Blob storage. |
-|`format`| `objects` |  |
-|`key`|`objects`| A path that represents a unique key for the object to be stored. It will be used to create the name of the blob in the container.|
+|`generatedKeyName`| `tables`| A column created in the table that uniquely identifies a document. The enrichment pipeline populates this column with generated values.|
 
 
 ### Response  
