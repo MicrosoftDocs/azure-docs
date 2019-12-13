@@ -27,7 +27,7 @@ Perform the following steps to create a support request:
     
     1. From the **Issue type** dropdown list, select **Technical**.
     2. Choose your **Subscription**.
-    3. Under **Service**, check **My Services**. From the dropdown list, select **Azure Stack Edge and Azure Storage Gateway**.
+    3. Under **Service**, check **My Services**. From the dropdown list, select **Data Box Edge and Data Box Gateway**.
     4. Select your **Resource**. This corresponds to the name of your order.
     5. Provide a brief **Summary** of the issue you are experiencing. 
     6. Select your **Problem type**.
