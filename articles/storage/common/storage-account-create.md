@@ -1,18 +1,18 @@
 ---
-title: Create a storage account - Azure Storage
-description: In this how-to article, you learn to create a storage account using the Azure portal, Azure PowerShell, or the Azure CLI. An Azure storage account provides a unique namespace in Microsoft Azure to store and access the data objects that you create in Azure Storage.
+title: Create a storage account
+titleSuffix: Azure Storage
+description: Learn to create a storage account using the Azure portal, Azure PowerShell, or the Azure CLI. An Azure storage account provides a unique namespace in Microsoft Azure to store and access your data.
 services: storage
 author: tamram
-ms.custom: mvc
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 06/28/2019
+ms.topic: how-to
+ms.date: 12/11/2019
 ms.author: tamram
 ms.subservice: common
 ---
 
-# Create a storage account
+# Create an Azure Storage account
 
 An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, tables, and disks. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. Data in your Azure storage account is durable and highly available, secure, and massively scalable.
 
@@ -91,7 +91,7 @@ N/A
 
 ## Create a storage account
 
-Now you are ready to create your storage account.
+Now you are ready to create a storage account.
 
 Every storage account must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This article shows how to create a new resource group.
 
@@ -211,50 +211,57 @@ To learn how to create templates, see:
 
 For more information about available replication options, see [Storage replication options](storage-redundancy.md).
 
-## Clean up resources
+## Delete a storage account
 
-If you wish to clean up the resources created by this how-to article, you can delete the resource group. Deleting the resource group also deletes the associated storage account, and any other resources associated with the resource group.
+Deleting a storage account deletes the entire account, including all data in the account, and cannot be undone.
 
 # [Portal](#tab/azure-portal)
 
-To remove a resource group using the Azure portal:
-
-1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
-2. Locate the resource group to delete, and right-click the **More** button (**...**) on the right side of the listing.
-3. Select **Delete resource group**, and confirm.
+1. Navigate to the storage account in the [Azure portal](https://portal.azure.com).
+1. Click **Delete**.
 
 # [PowerShell](#tab/azure-powershell)
 
-To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command:
+To delete the storage account, use the [Remove-AzStorageAccount](/powershell/module/az.storage/remove-azstorageaccount) command:
 
 ```powershell
-Remove-AzResourceGroup -Name $resourceGroup
+Remove-AzStorageAccount -Name <storage-account> -ResourceGroupName <resource-group>
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group#az_group_delete) command.
+To delete the storage account, use the [az storage account delete](/cli/azure/storage/account#az-storage-account-delete) command:
 
 ```azurecli-interactive
-az group delete --name storage-resource-group
+az storage account delete --name <storage-account> --resource-group <resource-group>
 ```
 
 # [Template](#tab/template)
 
-To remove the resource group and its associated resources, including the new storage account, use either Azure PowerShell or Azure CLI.
+To delete the storage account, use either Azure PowerShell or Azure CLI.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
+$storageResourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+Remove-AzStorageAccount -Name $storageAccountName -ResourceGroupName $storageResourceGroupName
 ```
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
+echo "Enter the resource group name:" &&
 read resourceGroupName &&
-az group delete --name $resourceGroupName
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+az storage account delete --name storageAccountName --resource-group resourceGroupName
 ```
 
 ---
+
+Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/resource-group-delete.md).
+
+> [!WARNING]
+> It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.
+>
+> If you try to delete a storage account associated with an Azure virtual machine, you may get an error about the storage account still being in use. For help troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
 
 ## Next steps
 
