@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure FarmBeats
+title: What is Azure FarmBeats
 description: Provides an overview of Azure FarmBeats
 author: uhabiba04
 ms.topic: overview
@@ -48,4 +48,4 @@ Visit Azure FarmBeats [blog](https://aka.ms/AzureFarmBeats) and [forums](https:/
 
 ## Next steps
 
-To get started with Azure FarmBeats, visit [Azure marketplace](https://aka.ms/FarmBeatsMarketplace) to start the deployment process.
+To get started with Azure FarmBeats, visit [Azure marketplace](https://aka.ms/FarmBeatsMarketplace) to start the installation process.

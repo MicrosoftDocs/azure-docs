@@ -14,7 +14,7 @@ Azure FarmBeats includes user management for people who are part of your Azure A
 
 ## Prerequisites
 
-- An Azure FarmBeats deployment is required. See [Deploy FarmBeats](prepare-for-deployment.md) to know more on how to setup Azure FarmBeats.
+- An Azure FarmBeats installation is required. See [Install Azure FarmBeats](install-azure-farmbeats.md) to know more on how to setup Azure FarmBeats.
 - The email ID of the users you want to add or remove from your Azure FarmBeats instance.
 
 ## Manage Azure FarmBeats users
@@ -39,7 +39,7 @@ Follow the steps to add a user to Azure FarmBeats:
 1.	Sign in to the Accelerator and then select the **Settings** icon.
 2.	Select **Access Control**.
 
-    ![Project Farm Beats](./media/create-farms/settings-users-1.png)
+    ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/settings-users-1.png)
 
 3.	Enter the email ID of the user you want to provide access.
 4.	Select the desired role – Admin or Read-Only.
@@ -57,7 +57,7 @@ Follow the steps to remove a user from the Azure FarmBeats system:
 
 The user is deleted from the system. You will receive the following message to confirm the successful operation.
 
-![Project Farm Beats](./media/create-farms/manage-users-2.png)
+![Project Farm Beats](./media/create-farms-in-azure-farmbeats/manage-users-2.png)
 
 ## Add Azure AD users
 
@@ -73,7 +73,7 @@ FarmBeats users need to exist in the Azure AD tenant before you can assign them 
     You see a list of users in your directory.
 4.	To add users to the directory, select **New user**. For external users, select **New guest user**.
 
-    ![Project Farm Beats](./media/create-farms/manage-users-3.png)
+    ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/manage-users-3.png)
 
 5.	Complete the required fields for the new user. Select **Create**.
 
@@ -81,4 +81,4 @@ Visit [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/
 
 ## Next steps
 
-You have successfully added users to Azure FarmBeats instance. Now, learn how to [create farms](manage-farms.md#create-farms).
+You have successfully added users to Azure FarmBeats instance. Now, learn how to [create farms](manage-farms-in-azure-farmbeats.md#create-farms).
