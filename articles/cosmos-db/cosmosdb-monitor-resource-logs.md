@@ -59,7 +59,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
 For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) article.
 
-## Troubleshoot issues by using Azure diagnostics queries
+## Troubleshoot issues with diagnostics queries
 
 1. How to get the request charges for expensive queries?
 
@@ -146,3 +146,6 @@ For detailed information about how to create a diagnostic setting by using the A
     ```
 
 ## Next steps
+
+* [Azure Monitor for Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json)
+* [Monitor and debug with metrics in Azure Cosmos DB](use-metrics.md)
