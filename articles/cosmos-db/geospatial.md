@@ -1,5 +1,5 @@
 ---
-title: Working with geospatial data in Azure Cosmos DB SQL API account
+title: Use geospatial data in Azure Cosmos DB SQL API account
 description: Understand how to create, index and query spatial objects with Azure Cosmos DB and the SQL API.
 author: SnehaGunda
 ms.service: cosmos-db
