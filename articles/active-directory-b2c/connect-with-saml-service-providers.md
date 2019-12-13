@@ -26,8 +26,8 @@ Organizations that use Azure AD B2C as their customer identity and access manage
 
 Azure AD B2C achieves SAML interoperability in one of two ways:
 
-* By acting as an identity provider (IdP) and achieving single-sign-on (SSO) with SAML-based service providers (your applications)
-* By acting as a service provider and interacting with SAML-based identity providers like Salesforce and ADFS
+* By acting as an *identity provider* (IdP) and achieving single-sign-on (SSO) with SAML-based service providers (your applications)
+* By acting as a *service provider* (SP) and interacting with SAML-based identity providers like Salesforce and ADFS
 
 ![Diagram with B2C as identity provider on left and B2C as service provider on right](media/saml-identity-provider/saml-idp-diagram-01.jpg)
 
@@ -35,8 +35,8 @@ Summarizing the two non-exclusive core scenarios with SAML:
 
 | Scenario | Azure AD B2C role | How-to |
 | -------- | ----------------- | ------- |
-| My application expects a SAML assertion to complete an authentication. | **Azure AD B2C acts as the Identity Provider (IdP)**<br />Azure AD B2C acts as a SAML IdP to the applications. | This article. |
-| My users need single-sign-on with a SAML-compliant identity provider like ADFS, Salesforce, or Shibboleth.  | **Azure AD B2C acts as the Service Provider (SP)**<br />Azure AD B2C acts as a service provider when connecting to the SAML identity provider. It's a federation proxy between your application and the SAML identity provider.  | <ul><li>[Set up sign-in with ADFS as a SAML IdP using custom policies](active-directory-b2c-custom-setup-adfs2016-idp.md)</li><li>[Set up sign-in with a Salesforce SAML provider using custom policies](active-directory-b2c-setup-sf-app-custom.md)</li></ul> |
+| My application expects a SAML assertion to complete an authentication. | **Azure AD B2C acts as the identity provider (IdP)**<br />Azure AD B2C acts as a SAML IdP to the applications. | This article. |
+| My users need single-sign-on with a SAML-compliant identity provider like ADFS, Salesforce, or Shibboleth.  | **Azure AD B2C acts as the service provider (SP)**<br />Azure AD B2C acts as a service provider when connecting to the SAML identity provider. It's a federation proxy between your application and the SAML identity provider.  | <ul><li>[Set up sign-in with ADFS as a SAML IdP using custom policies](active-directory-b2c-custom-setup-adfs2016-idp.md)</li><li>[Set up sign-in with a Salesforce SAML provider using custom policies](active-directory-b2c-setup-sf-app-custom.md)</li></ul> |
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ Summarizing the two non-exclusive core scenarios with SAML:
 
 There are three main components required for this scenario:
 
-* SAML **Service Provider** with the ability to send SAML requests; receive, decode, and respond to SAML assertions from Azure AD B2C. This is also known as the relying party.
+* SAML **service provider** with the ability to send SAML requests, and receive, decode, and respond to SAML assertions from Azure AD B2C. This is also known as the relying party.
 * Publicly available SAML **metadata endpoint** for your service provider.
 * [Azure AD B2C tenant](tutorial-create-tenant.md)
 
@@ -58,13 +58,13 @@ If you don't yet have a SAML service provider and an associated metadata endpoin
 
 ## 1. Set up certificates
 
-To build a trust relationship between your service provider and Azure AD B2C, you need to provide X509 certificates and their private keys:
+To build a trust relationship between your service provider and Azure AD B2C, you need to provide X509 certificates and their private keys.
 
-* Service provider certificates:
-    * Certificate with a private key stored in your Web App. This certificate is used to by your service provider to sign the SAML request sent to Azure AD B2C. Azure AD B2C reads the public key from the service provider metadata to validate the signature.
-    * [Optional] Certificate with a private key stored in your Web App. Azure AD B2C reads the public key from the service provider metadata to encrypt the SAML assertion. While the service provider uses the private key to decrypt the assertion.
-* Azure AD B2C certificates
-    * Certificate with a private key in Azure AD B2C. This certificate is used by Azure AD B2C  to sign the SAML response sent to your service provider. Your service provider reads the Azure AD B2C metadata public key to validate the signature or the SAML response.
+* **Service provider certificates**
+  * Certificate with a private key stored in your Web App. This certificate is used to by your service provider to sign the SAML request sent to Azure AD B2C. Azure AD B2C reads the public key from the service provider metadata to validate the signature.
+  * (Optional) Certificate with a private key stored in your Web App. Azure AD B2C reads the public key from the service provider metadata to encrypt the SAML assertion. The service provider then uses the private key to decrypt the assertion.
+* **Azure AD B2C certificates**
+  * Certificate with a private key in Azure AD B2C. This certificate is used by Azure AD B2C to sign the SAML response sent to your service provider. Your service provider reads the Azure AD B2C metadata public key to validate the signature of the SAML response.
 
 You can use a certificate issued by a public certificate authority or, for this tutorial, a self-signed certificate.
 
@@ -127,7 +127,7 @@ You can change the value of the `IssuerUri` metadata. This is the issuer URI tha
       <Protocol Name="None"/>
       <OutputTokenFormat>SAML2</OutputTokenFormat>
       <Metadata>
-        <!-- The issuer contains the policy name, it should be the same one as configured in the relying party application we will use B2C_1A_signup_wignin_SAML below-->
+        <!-- The issuer contains the policy name; it should be the same name as configured in the relying party application. B2C_1A_signup_signin_SAML is used below. -->
         <!--<Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>-->
       </Metadata>
       <CryptographicKeys>
@@ -150,17 +150,17 @@ You can change the value of the `IssuerUri` metadata. This is the issuer URI tha
 </ClaimsProvider>
 ```
 
-## 3. Add the SAML Relying Party policy
+## 3. Add the SAML relying party policy
 
 Now that your tenant can issue SAML assertions, you need to create the SAML relying party policy, and modify the user journey so that it issues a SAML assertion instead of a JWT.
 
 ### 3.1 Create sign-up or sign-in policy
 
-1. Make a copy of the *SignUpOrSignin.xml* file in your starter pack working directory, and name the copy with a new name. For example, *SignUpOrSigninSAML.xml*. This is your relying party policy file.
+1. Create a copy of the *SignUpOrSignin.xml* file in your starter pack working directory and save it with a new name. For example, *SignUpOrSigninSAML.xml*. This is your relying party policy file.
 
 1. Open the *SignUpOrSigninSAML.xml* file in your preferred editor.
 
-1. Chage the PolicyId and PublicPolicyUri of the policy to _B2C_1A_signup_signin_saml_ and _http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml_ as seen below.
+1. Change the `PolicyId` and `PublicPolicyUri` of the policy to _B2C_1A_signup_signin_saml_ and _http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml_ as seen below.
 
     ```XML
     <TrustFrameworkPolicy
@@ -173,7 +173,7 @@ Now that your tenant can issue SAML assertions, you need to create the SAML rely
     PublicPolicyUri="http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
 
-1. Add following XML snippet just before the `<RelyingParty>` element. This XML overwrites orchestration step number 7 of the _SignUpOrSignIn_ user journey. If you customized your user journey, by adding or removing orchestration steps, make sure the number (in the order element) is aligned with the one specified in the user journey for the token issuer step.
+1. Add following XML snippet just before the `<RelyingParty>` element. This XML overwrites orchestration step number 7 of the _SignUpOrSignIn_ user journey. If you customized your user journey by adding or removing orchestration steps, make sure the number (in the `order` element) is aligned with the one specified in the user journey for the token issuer step.
 
     ```XML
     <UserJourneys>
@@ -205,7 +205,7 @@ Now that your tenant can issue SAML assertions, you need to create the SAML rely
 
 1. Update `tenant-name` with the name of your Azure AD B2C tenant.
 
-Your final relaying party file should look like the following:
+Your final relying party policy file should look like the following:
 
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -252,7 +252,9 @@ Your final relaying party file should look like the following:
 
 ### 3.2 Upload and test your policy metadata
 
-Save your changes and upload the new policy file. After you've uploaded both policies (the extension and the relying party files), open a web browser and navigate to the policy metadata. The Azure AD B2C policy metadata is available at following URL. Replace `tenant-name` with the name of your Azure AD B2C tenant, and `policy-name` with the name (ID) of the policy:
+Save your changes and upload the new policy file. After you've uploaded both policies (the extension and the relying party files), open a web browser and navigate to the policy metadata.
+
+The Azure AD B2C policy metadata is available at the following URL. Replace `tenant-name` with the name of your Azure AD B2C tenant, and `policy-name` with the name (ID) of the policy:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -276,21 +278,20 @@ Your custom policy and Azure AD B2C tenant are now ready. Next, create an applic
 
 For SAML apps, there are several properties you need to configure in the application registration's manifest.
 
-1. Navigate to your Application Registration in the previous step.
-1. Under **Manage**, select **Manifest** to open the manifest editor. You will modify several properties in the next section.
+1. In the [Azure portal](https://portal.azure.com), navigate to the application registration that you created in the previous section.
+1. Under **Manage**, select **Manifest** to open the manifest editor. You modify several properties in the following sections.
 
 #### IdentifierUri
 
-The `IdentifierUri` is a string collection, user-defined URI(s) that uniquely identify a Web app within its Azure AD B2C tenant. The identifier Uri must be from a verified domain within your organization's directory. For example: `https://contoso.onmicrosoft.com/app-name`. Your service provider, must set this value in the SAML request, `Issuer` element.
+The `IdentifierUri` is a string collection containing user-defined URI(s) that uniquely identify a Web app within its Azure AD B2C tenant. The identifier URI must be from a verified domain within your organization's directory. For example, `https://contoso.onmicrosoft.com/app-name`. Your service provider must set this value in the `Issuer` element of a SAML request.
 
 #### SamlMetadataUrl
 
-This property represents service provider publicly available metadata URL. The metadata URL can point to a a metadata file uploaded to any anonymously accessible endpoint, for example blob storage.
+This property represents service provider's publicly available metadata URL. The metadata URL can point to a metadata file uploaded to any anonymously accessible endpoint, for example blob storage.
 
-The metadata is information used in the SAML protocol to expose the configuration of a SAML party, such as a service provider. Metadata defines the location of the services, such as sign-in and sign-out, certificates, sign-in method, and more. Azure AD B2C reads the service provider metadata and acts accordingly. The metadata is not required. You can also specify some of the attributes, such as the reply URI, and logout URI directly in the app manifest.
+The metadata is information used in the SAML protocol to expose the configuration of a SAML party, such as a service provider. Metadata defines the location of the services like sign-in and sign-out, certificates, sign-in method, and more. Azure AD B2C reads the service provider metadata and acts accordingly. The metadata is not required. You can also specify some of attributes like the reply URI and logout URI directly in the app manifest.
 
-> [!NOTE]
-> If there are properties specified in both the SAML metadata URL and in the application registration's manifest, they are merged. The properties specified in the metadata URL are processed first and take precedence.
+If there are properties specified in *both* the SAML metadata URL and in the application registration's manifest, they are **merged**. The properties specified in the metadata URL are processed first and take precedence.
 
 For this tutorial which uses the SAML test application, use the following value for `samlMetadataUrl`:
 
@@ -298,12 +299,11 @@ For this tutorial which uses the SAML test application, use the following value 
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
-#### [Optional] ReplyUrlWithType
+#### ReplyUrlWithType (Optional)
 
-If you do not provide a metadata URI, you can explicitly specify the reply URL. This property represents the `AssertionConsumerServiceUrl` (`SingleSignOnService` URL in the service provider metadata) and the `BindingType` is assumed to be `HTTP POST`.
+If you do not provide a metadata URI, you can explicitly specify the reply URL. This optional property represents the `AssertionConsumerServiceUrl` (`SingleSignOnService` URL in the service provider metadata) and the `BindingType` is assumed to be `HTTP POST`.
 
-> [!NOTE]
-> If you prefer to configure the reply Url and logout Url in the application manifest, without using the service provider metadata, Azure AD B2C will not validate the SAML request signature, nor encrypt the SAML response.
+If you choose to configure the reply URL and logout URL in the application manifest without using the service provider metadata, Azure AD B2C will not validate the SAML request signature, nor encrypt the SAML response.
 
 For this tutorial, in which you use the SAML test application, set the `url` property of `replyUrlsWithType` to the value shown in the following JSON snippet.
 
@@ -316,9 +316,9 @@ For this tutorial, in which you use the SAML test application, set the `url` pro
 ],
 ```
 
-#### [Optional] LogoutUrl
+#### LogoutUrl (Optional)
 
-This property represents the `Logout` Url (`SingleLogoutService` Url in the Relying Party metadata), and the `BindingType` for this is assumed to be `HttpDirect`.
+This optional property represents the `Logout` URL (`SingleLogoutService` URL in the relying party metadata), and the `BindingType` for this is assumed to be `HttpDirect`.
 
 For this tutorial which uses the SAML test application, leave `logoutUrl` set to `https://samltestapp2.azurewebsites.net/logout`:
 
@@ -344,13 +344,13 @@ Some or all the following are typically required:
 
 ### 5.1 Test with the SAML Test App (optional)
 
-To complete this tutorial using our [SAML Test Application](https://samltestapp2.azurewebsites.net):
+To complete this tutorial using our [SAML Test Application][samltest]:
 
 * Update the tenant name
 * Update policy name, for example *B2C_1A_signup_signin_saml*
 * Specify this issuer URI: `https://contoso.onmicrosoft.com/app-name`
 
-Select **LOGIN** and you should be presented with an end user sign-in screen. Upon sign-in, a SAML assertion is issued back to the sample application.
+Select **Login** and you should be presented with an end user sign-in screen. Upon sign-in, a SAML assertion is issued back to the sample application.
 
 ## Sample policy
 
@@ -369,19 +369,9 @@ The following SAML relying party (RP) scenarios are supported via your own metad
 * Specify token encryption key in application/service principal object.
 * Identity provider-initiated logins are not currently supported in the preview release.
 
-
-
-
-
 ## Next steps
 
-The code for the SAML Test Application is here: TBD
-
-For more information about SAML and Azure AD B2C, see the following articles:
-
-* [Define a SAML technical profile in an Azure Active Directory B2C custom policy](saml-technical-profile.md)
-* [Add ADFS as a SAML identity provider using custom policies in Azure Active Directory B2C](active-directory-b2c-custom-setup-adfs2016-idp.md)
-* [Set up sign-in with a Salesforce SAML provider by using custom policies in Azure Active Directory B2C](active-directory-b2c-setup-sf-app-custom.md)
+You can find more information about the [SAML protocol on the OASIS website](https://www.oasis-open.org/).
 
 <!-- LINKS - External -->
 [samltest]: https://aka.ms/samltestapp
