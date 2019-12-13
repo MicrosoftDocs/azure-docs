@@ -5,9 +5,9 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: adwise
 ms.custom: seodec18
 ---
@@ -22,7 +22,7 @@ Budgets reset automatically at the end of a period (monthly, quarterly, or annua
 
 The examples in this tutorial walk you through creating and editing a budget for an Azure Enterprise Agreement (EA) subscription.
 
-Watch the [How to create a budget to monitor your spending with Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) video to see how you can create budgets in Azure to monitor spending.
+Watch the [Apply budgets to subscriptions using the Azure portal](https://www.youtube.com/watch?v=UrkHiUx19Po) video to see how you can create budgets in Azure to monitor spending.
 
 
 In this tutorial, you learn how to:
@@ -57,7 +57,7 @@ To create or view a budget, open the desired scope in the Azure portal and selec
 
 After you create budgets, they show a simple view of your current spending against them.
 
-Click **Add**.
+Select **Add**.
 
 ![Example showing a list of budgets already created](./media/tutorial-acm-create-budgets/budgets01.png)
 
@@ -73,7 +73,7 @@ Based on the fields chosen in the budget so far, a graph is shown to help you se
 
 ![Example showing budget creation with monthly cost data ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-After you configure the budget amount, click **Next** to configure budget alerts. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally received in less than 20 hours. For more information about notifications, see [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md). In the example below, an email alert gets generated when 90% of the budget is reached.
+After you configure the budget amount, select **Next** to configure budget alerts. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally received in less than 20 hours. For more information about notifications, see [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md). In the example below, an email alert gets generated when 90% of the budget is reached. If you create a budget with the Budgets API, you can also assign roles to people to receive alerts. Assigning roles to people isn't supported in the Azure portal. For more about the Azure budgets API, see [Budgets API](/rest/api/consumption/budgets).
 
 ![Example showing alert conditions](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
@@ -85,14 +85,16 @@ In the preceding example, you created a budget for a subscription. However, you 
 
 ## Trigger an action group
 
-When you create or edit a budget for a subscription or resource group scope, you can configure it to call an action group. The action group can perform a variety of different actions when your budget threshold is met. For more information about Action Groups, see [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md). For more information about using budget-based automation with action groups, see [Manage costs with Azure budgets](../billing/billing-cost-management-budget-scenario.md).
+When you create or edit a budget for a subscription or resource group scope, you can configure it to call an action group. The action group can perform a variety of different actions when your budget threshold is met. Action Groups are currently only supported for subscription and resource group scopes. For more information about Action Groups, see [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md). For more information about using budget-based automation with action groups, see [Manage costs with Azure budgets](../billing/billing-cost-management-budget-scenario.md).
 
-To create or update action groups, click **Manage action groups** while you're creating or editing a budget.
+
+
+To create or update action groups, select **Manage action groups** while you're creating or editing a budget.
 
 ![Example of creating a budget to show Manage action groups](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
 
-Next, click **Add action group** and create the action group.
+Next, select **Add action group** and create the action group.
 
 
 ![Image of the Add action group box](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
@@ -106,6 +108,14 @@ Configure your budget to use your action group when an individual threshold is m
 The following example shows budget thresholds set to 50%, 75% and 100%. Each is configured to trigger the specified actions within the designated action group.
 
 ![Example showing alert conditions configured with various action groups and type of actions](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
+
+Budget integration with action groups only works for action groups that have the common alert schema disabled. For more information about disabling the schema, see [How do I enable the common alert schema?](../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
+
+## Edit an existing budget
+If you want to make changes to an existing budget, navigate to the main budgets window and select the budget that you want to edit. In the budget details window, select **Edit budget** and make needed changes, then select **Save**.
+
+![Example showing edit budget](./media/tutorial-acm-create-budgets/edit-budget.png)
+
 
 ## Next steps
 

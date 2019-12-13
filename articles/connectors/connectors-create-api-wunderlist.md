@@ -1,16 +1,12 @@
 ---
-title: Connect to Wunderlist from Azure Logic Apps | Microsoft Docs
+title: Connect to Wunderlist from Azure Logic Apps
 description: Automate tasks and workflows that monitor and manage lists, tasks, reminders, and more in your Wunderlist account by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
+tags: connectors
 ---
 
 # Monitor and manage Wunderlist by using Azure Logic Apps

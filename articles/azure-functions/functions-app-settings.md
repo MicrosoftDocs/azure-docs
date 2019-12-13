@@ -1,14 +1,8 @@
 ---
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.author: glenga
 ---
 
 # App settings reference for Azure Functions
@@ -29,7 +23,7 @@ The Application Insights instrumentation key if you're using Application Insight
 
 ## AZURE_FUNCTIONS_ENVIRONMENT
 
-In version 2.x of the Functions runtime, configures app behavior based on the runtime environment. This value is [read during initialization](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). You can set `AZURE_FUNCTIONS_ENVIRONMENT` to any value, but [three values](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) are supported: [Development](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Staging](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), and [Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). When `AZURE_FUNCTIONS_ENVIRONMENT` isn't set,  it defaults to `Development` on a local environment and `Production` on Azure. This setting should be used instead of `ASPNETCORE_ENVIRONMENT` to set the runtime environment. 
+In version 2.x and later versions of the Functions runtime, configures app behavior based on the runtime environment. This value is [read during initialization](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). You can set `AZURE_FUNCTIONS_ENVIRONMENT` to any value, but [three values](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) are supported: [Development](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Staging](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), and [Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). When `AZURE_FUNCTIONS_ENVIRONMENT` isn't set,  it defaults to `Development` on a local environment and `Production` on Azure. This setting should be used instead of `ASPNETCORE_ENVIRONMENT` to set the runtime environment. 
 
 ## AzureWebJobsDashboard
 
@@ -156,11 +150,12 @@ The maximum number of instances that the function app can scale out to. Default 
 
 ## WEBSITE\_NODE\_DEFAULT_VERSION
 
-Default is "8.11.1".
+_Windows only._  
+Sets the version of Node.js to use when running your function app on Windows. You should use a tilde (~) to have the runtime use the latest available version of the targeted major version. For example, when set to `~10`, the latest version of Node.js 10 is used. When a major version is targeted with a tilde, you don't have to manually update the minor version. 
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|8.11.1|
+|WEBSITE\_NODE\_DEFAULT_VERSION|~10|
 
 ## WEBSITE\_RUN\_FROM\_PACKAGE
 

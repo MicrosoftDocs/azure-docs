@@ -9,7 +9,7 @@ ms.service: databox
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hub-page
-ms.date: 09/24/2018
+ms.date: 10/28/2019
 ms.author: alkohli
 ---
 <div id="main" class="v2">
@@ -88,24 +88,6 @@ ms.author: alkohli
                         </div>
                         <div class="cardText">
                             <p><b>Data Box Gateway</b> virtual device with storage. Use this device to send your data over the network to Azure.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/databox-online/data-box-edge-overview">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage"> 
-                                <img src="media/Edge_Icon_w_gear.svg" alt="" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <p><b>Data Box Edge</b> physical device with storage and compute. Use this device when you intend to analyze, transform, or filter your data as it moves to Azure.</p>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -13,7 +13,7 @@ services: event-grid
 
 # Delivery and retry
 
-Event Grid provides durable delivery. It tries to deliver each message at least once for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there is a failure, Event Grid retries delivery based on a fixed **retry schedule** and **retry policy**.  Currently Event Grid module delivers an event at a time to the subscriber. The payload is however an array with a single event.
+Event Grid provides durable delivery. It tries to deliver each message at least once for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there is a failure, Event Grid retries delivery based on a fixed **retry schedule** and **retry policy**.  By default, the Event Grid module delivers one event at a time to the subscriber. The payload is however an array with a single event. You can have the module deliver more than one event at a time by enabling the output batching feature. For details about this feature, see [output batching](delivery-output-batching.md).  
 
 > [!IMPORTANT]
 >There is no persistence support for event data. This means redeploying or restart of the Event Grid module will cause you to lose any events that aren't yet delivered.

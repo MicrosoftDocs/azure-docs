@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create, train, and publish knowledge base - QnA Maker"
 titleSuffix: Azure Cognitive Services 
-description: You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. The QnA Maker knowledge base in this example is created from a simple FAQ webpage to answer questions on BitLocker key recovery.
+description: This quickstart shows how to create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. The QnA Maker knowledge base in this example is created from a simple FAQ webpage to answer questions on BitLocker key recovery.
 author: diberry
 manager: nitinme
 services: cognitive-services
@@ -41,7 +41,7 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 
 1. Add a sample word document as a URL: 
 
-    `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`
+    `https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`
 
 1. Select `+ Add URL`.
 
@@ -62,7 +62,7 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 
 1. Add the answer formatted with _markdown_:
 
-    ` * Azure QnA Maker service\n* Azure Search\n* Azure web app\n* Azure app plan`
+    ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
     ![ Add the question as text and the answer formatted with markdown.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
 
@@ -144,4 +144,3 @@ For more information:
 
 > [!div class="nextstepaction"]
 > [Add questions with metadata](add-question-metadata-portal.md)
-

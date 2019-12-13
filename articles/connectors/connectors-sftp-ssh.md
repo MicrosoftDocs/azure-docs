@@ -1,12 +1,10 @@
 ---
-title: Connect to SFTP server with SSH - Azure Logic Apps
+title: Connect to SFTP server with SSH
 description: Automate tasks that monitor, create, manage, send, and receive files for an SFTP server by using SSH and Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, klam, LADocs
+author: divyaswarnkar
+ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
@@ -44,7 +42,9 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
 
 * Uses the [SSH.NET library](https://github.com/sshnet/SSH.NET), which is an open-source Secure Shell (SSH) library that supports .NET.
 
-* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions can use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). However, the Copy File action supports only 15 MB files because that action doesn't support message chunking. SFTP-SSH triggers don't support chunking.
+* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time.
+
+  To handle files larger than 15 MB, SFTP-SSH actions can use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). However, the Copy File action supports only 15 MB files because that action doesn't support message chunking. SFTP-SSH triggers don't support chunking. To upload large files, you need both read and write permissions for the root folder on your SFTP server.
 
 * Provides the **Create folder** action, which creates a folder at the specified path on the SFTP server.
 
@@ -56,7 +56,7 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* Your SFTP server address and account credentials, which let your logic app access your SFTP account. You also need access to an SSH private key and the SSH private key password.
+* Your SFTP server address and account credentials, which let your logic app access your SFTP account. You also need access to an SSH private key and the SSH private key password. To use chunking when uploading large files, you need both read and write permissions for the root folder on your SFTP server. Otherwise, you get a "401 Unauthorized" error.
 
   > [!IMPORTANT]
   >

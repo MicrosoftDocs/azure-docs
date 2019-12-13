@@ -1,5 +1,5 @@
 ---
-title: Switch activity in Azure Data Factory | Microsoft Docs
+title: Switch activity in Azure Data Factory 
 description: The Switch activity allows you to control the processing flow based on a condition.
 services: data-factory
 author: djpmsft

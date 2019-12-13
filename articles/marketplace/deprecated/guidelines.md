@@ -9,6 +9,7 @@ manager: pabutler
 
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 
 
 

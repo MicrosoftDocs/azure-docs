@@ -1,5 +1,5 @@
 ﻿---
-title: PowerShell example-create a single database in Azure SQL Database | Microsoft Docs
+title: PowerShell example-create a single database in Azure SQL Database 
 description: Azure PowerShell example script to create a single database in Azure SQL Database
 services: sql-database
 ms.service: sql-database

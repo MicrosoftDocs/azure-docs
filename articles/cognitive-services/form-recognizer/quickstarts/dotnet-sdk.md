@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Form Recognizer client library for .NET | Microsoft Docs"
-description: Get started with the Form Recognizer client library for .NET.
+title: "Quickstart: Form Recognizer client library for .NET"
+description: Get started with the Form Recognizer client library for .NET to train, extract, analyze, and get structured data output with this quickstart.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 07/12/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ---
 
@@ -23,7 +23,7 @@ Use the Form Recognizer client library for .NET to:
 * [Get a list of custom models](#get-a-list-of-custom-models)
 * [Delete a custom model](#delete-a-custom-model)
 
-[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
+[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
 ## Prerequisites
 

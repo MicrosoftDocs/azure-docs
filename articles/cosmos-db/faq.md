@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions about different APIs in Azure Cosmos DB
+title: Frequently asked questions on different APIs in Azure Cosmos DB
 description: Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -754,7 +754,7 @@ No, sstableloader isn't supported.
 
 ### Can an on-premises Apache Cassandra cluster be paired with Azure Cosmos DB's Cassandra API?
 
-At present Azure Cosmos DB has an optimized experience for cloud environment without overhead of operations. If you require pairing, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) with a description of your scenario. We are working on offering to help pair the on-premise/different cloud Cassandra cluster to Cosomos DB's Cassandra API.
+At present Azure Cosmos DB has an optimized experience for cloud environment without overhead of operations. If you require pairing, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) with a description of your scenario. We are working on offering to help pair the on-premises/different cloud Cassandra cluster to Cosomos DB's Cassandra API.
 
 ### Does Cassandra API provide full backups?
 

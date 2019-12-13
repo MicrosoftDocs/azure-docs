@@ -2,12 +2,12 @@
 title: 'Create an Azure private link service using Azure PowerShell| Microsoft Docs'
 description: Learn how to create an Azure private link service using Azure PowerShell
 services: private-link
-author: KumudD
+author: malopMSFT
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Create a Private Link service using Azure PowerShell
@@ -99,7 +99,7 @@ $privateLinkService = New-AzPrivateLinkService `
 ```
 
 ### Get private link service
-Get details about your private link service with [New-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) as follows:
+Get details about your private link service with [Get-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) as follows:
 
 ```azurepowershell
 $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName 
@@ -124,7 +124,7 @@ $peSubnet = New-AzVirtualNetworkSubnetConfig `
 
 $vnetPE = New-AzVirtualNetwork `
 -Name $virtualNetworkNamePE `
--ResourceGroupName myResourceGroup `
+-ResourceGroupName $rgName `
 -Location $location `
 -AddressPrefix "11.0.0.0/16" `
 -Subnet $peSubnet 

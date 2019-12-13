@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services output metadata schema | Microsoft Docs
-description: The topic gives an overview of Azure Media Services output metadata schema.
+description: This article gives an overview of Azure Media Services output metadata schema.
 author: Juliako
 manager: femila
 editor: ''

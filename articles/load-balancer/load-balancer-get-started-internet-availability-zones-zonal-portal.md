@@ -1,6 +1,6 @@
 ---
 title: Create a Load Balancer with a zonal frontend - Azure portal
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Learn how to create a Standard Load Balancer with zonal frontend with the Azure portal
 services: load-balancer
 documentationcenter: na

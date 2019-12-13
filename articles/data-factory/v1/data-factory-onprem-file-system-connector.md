@@ -1,16 +1,16 @@
 ---
-title: Copy data to/from a file system using Azure Data Factory | Microsoft Docs
+title: Copy data to/from a file system using Azure Data Factory 
 description: Learn how to copy data to and from an on-premises file system by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: ce19f1ae-358e-4ffc-8a80-d802505c9c84
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 04/13/2018

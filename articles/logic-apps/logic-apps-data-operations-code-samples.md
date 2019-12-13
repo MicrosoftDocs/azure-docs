@@ -1,14 +1,10 @@
 ---
-title: Data operation samples - Azure Logic Apps
+title: Data operation samples
 description: Code samples for data operation actions in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
-ms.topic: reference
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 09/01/2019
 ---
 

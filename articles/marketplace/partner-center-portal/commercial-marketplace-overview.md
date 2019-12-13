@@ -5,6 +5,7 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
 ---
@@ -17,13 +18,13 @@ In this documentation, we will cover the basics of creating and using your Partn
 
 ## About Microsoft's Commercial Marketplace
 
-Enterprises, governments, and organizations of all sizes find business solutions, innovative technology, and enablement services through the [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [AppSource](https://appsource.microsoft.com/) web stores, [Azure portal’s in-product experience](https://portal.azure.com), [Cloud Solution Providers](https://partner.microsoft.com/cloud-solution-provider), and Microsoft Sales teams. 
+Enterprises, governments, and organizations of all sizes find business solutions, innovative technology, and enablement services through the [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [AppSource](https://appsource.microsoft.com/) web stores, [Azure portal's in-product experience](https://portal.azure.com), [Cloud Solution Providers](https://partner.microsoft.com/cloud-solution-provider), and Microsoft Sales teams. 
 
-Partner Center is the hub of a Microsoft partner’s experience. For organizations who go to market with Microsoft and take advantage of the marketplace, Partner Center is the portal through which publishers create and manage offers, provide test drive demonstrations, and view analytics on offer performance. 
+Partner Center is the hub of a Microsoft partner's experience. For organizations who go to market with Microsoft and take advantage of the marketplace, Partner Center is the portal through which publishers create and manage offers, provide test drive demonstrations, and view analytics on offer performance. 
 
 ## Migration from Cloud Partner Portal
 
-Partner Center is evolving to better integrate all aspects of Microsoft’s relationship with software publishers. As part of this evolution, we are migrating the functions of the [Cloud Partner Portal](https://cloudpartner.azure.com/) to Partner Center. 
+Partner Center is evolving to better integrate all aspects of Microsoft's relationship with software publishers. As part of this evolution, we are migrating the functions of the [Cloud Partner Portal](https://cloudpartner.azure.com/) to Partner Center. 
 
 **Currently, Partner Center only supports the creation and management of Software-as-a-Service (SaaS) offers.**
 

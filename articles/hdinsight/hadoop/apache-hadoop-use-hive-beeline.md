@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/21/2019
 ---
 
 # Use the Apache Beeline client with Apache Hive
@@ -66,9 +66,9 @@ or for private endpoint:
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
 ```
 
-Replace `clustername` with the name of your HDInsight cluster. Replace `<username>` with the cluster login account for your cluster. Note for ESP clusters use the full UPN (e.g. user@domain.com). Replace `password` with the password for the cluster login account.
+Replace `clustername` with the name of your HDInsight cluster. Replace `<username>` with the cluster login account for your cluster. For ESP clusters, use the full UPN (e.g. user@domain.com). Replace `password` with the password for the cluster login account.
 
-Private endpoints point to a basic load balancer which can only be accessed from the VNETs peered in the same region. See [this](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use `curl` command with `-v` option to troubleshoot any connectivity problem to with public or private endpoints before using beeline.
+Private endpoints point to a basic load balancer, which can only be accessed from the VNETs peered in the same region. See [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use the `curl` command with `-v` option to troubleshoot any connectivity problems with public or private endpoints before using beeline.
 
 ---
 
@@ -80,19 +80,19 @@ Apache Spark provides its own implementation of HiveServer2, which is sometimes 
 
 The connection string used  is slightly different. Instead of containing `httpPath=/hive2` it's `httpPath/sparkhive2`:
 
-```bash 
+```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
 ```
 
 or for private endpoint:
 
-```bash 
+```bash
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
 ```
 
-Replace `clustername` with the name of your HDInsight cluster. Replace `<username>` with the cluster login account for your cluster. Note for ESP clusters use the full UPN (e.g. user@domain.com). Replace `password` with the password for the cluster login account.
+Replace `clustername` with the name of your HDInsight cluster. Replace `<username>` with the cluster login account for your cluster. For ESP clusters, use the full UPN (e.g. user@domain.com). Replace `password` with the password for the cluster login account.
 
-Private endpoints point to a basic load balancer which can only be accessed from the VNETs peered in the same region. See [this](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use `curl` command with `-v` option to troubleshoot any connectivity problem to with public or private endpoints before using beeline.
+Private endpoints point to a basic load balancer, which can only be accessed from the VNETs peered in the same region. See [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use the `curl` command with `-v` option to troubleshoot any connectivity problems with public or private endpoints before using beeline.
 
 ---
 
@@ -188,7 +188,7 @@ This example is based on using the Beeline client from an SSH connection.
         GROUP BY t4;
     ```
 
-    These statements perform the following actions:
+    These statements do the following actions:
 
     * `DROP TABLE` - If the table exists, it's deleted.
 
@@ -250,7 +250,7 @@ This is a continuation from the prior example. Use the following steps to create
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
     ```
 
-    These statements perform the following actions:
+    These statements do the following actions:
 
    * **CREATE TABLE IF NOT EXISTS** - If the table doesn't already exist, it's created. Since the **EXTERNAL** keyword isn't used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed completely by Hive.
    * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. ORC format is a highly optimized and efficient format for storing Hive data.
@@ -259,7 +259,7 @@ This is a continuation from the prior example. Use the following steps to create
     > [!NOTE]  
     > Unlike external tables, dropping an internal table deletes the underlying data as well.
 
-3. To save the file, use **Ctrl**+**_X**, then enter **Y**, and finally **Enter**.
+3. To save the file, use **Ctrl**+**X**, then enter **Y**, and finally **Enter**.
 
 4. Use the following to run the file using Beeline:
 
@@ -285,15 +285,10 @@ This is a continuation from the prior example. Use the following steps to create
         | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
         | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        3 rows selected (1.538 seconds)
+        3 rows selected (0.813 seconds)
 
 ## <a id="summary"></a><a id="nextsteps"></a>Next steps
 
-For more general information on Hive in HDInsight, see the following document:
+* For more general information on Hive in HDInsight, see [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
-
-For more information on other ways you can work with Hadoop on HDInsight, see the following documents:
-
-* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* For more information on other ways you can work with Hadoop on HDInsight, see [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)

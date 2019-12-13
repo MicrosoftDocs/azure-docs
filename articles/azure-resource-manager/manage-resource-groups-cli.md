@@ -1,11 +1,7 @@
 ---
-title: Manage Azure Resource Manager groups by using Azure CLI | Microsoft Docs
+title: Manage resource groups - Azure CLI
 description: Use Azure CLI to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
@@ -134,6 +130,10 @@ az group export --name $resourceGroupName
 ```
 
 The script displays the template on the console.  Copy the JSON, and save as a file.
+
+The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+
+To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](https://aka.ms/migrateclassicresourcetoarm).
 
 For more information, see [Single and multi-resource export to template in Azure portal](./export-template-portal.md).
 

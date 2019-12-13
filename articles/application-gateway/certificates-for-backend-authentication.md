@@ -1,13 +1,15 @@
 ---
-title: Certificates required for whitelisting backends in Azure Application Gateway
-description: This article provides examples of how an SSL certificate can be converted to authentication certificate and trusted root certificate that are required for whitelisting backend instances in Azure Application Gateway
+title: Certificates required to allow backend servers
+titleSuffix: Azure Application Gateway
+description: This article provides examples of how an SSL certificate can be converted to authentication certificate and trusted root certificate that are required to allow backend instances in Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/14/2019
 ms.author: absha
 ---
+
 # Create certificates to allow the backend with Azure Application Gateway
 
 To do end to end SSL, Application Gateway requires the backend instances to be allowed by uploading authentication/trusted root certificates. For the v1 SKU, authentication certificates are required, but for the v2 SKU trusted root certificates are required to allow the certificates.

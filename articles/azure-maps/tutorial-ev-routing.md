@@ -1,9 +1,9 @@
 ---
-title: Route electric vehicles by using Azure Notebooks (Python) | Microsoft Docs
-description: Route electric vehicles by using Azure Maps routing APIs and Azure Notebooks.
+title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python)'
+description: 'Tutorial: Route electric vehicles by using Azure Maps routing APIs and Azure Notebooks.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/01/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Route electric vehicles by using Azure Notebooks (Python)
+# Tutorial: Route electric vehicles by using Azure Notebooks (Python)
 
 Azure Maps is a portfolio of geospatial service APIs that are natively integrated into Azure. With these APIs, developers, enterprises, and ISVs can create location-aware apps and IoT, mobility, logistics, and asset tracking solutions. 
 
@@ -34,9 +34,11 @@ In this tutorial, you will:
 
 To complete this tutorial, you first need to create an Azure Maps account and get your primary key (subscription key). 
 
-To create an Azure Maps account subscription in the S1 pricing tier, follow the instructions in [Manage your Azure Maps account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
+To create an Azure Maps account subscription in the S1 pricing tier, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier. 
 
-To get the primary subscription key for your account, follow the instructions in [Search nearby points of interest by using Azure Maps](./tutorial-search-location.md#getkey) .
+To get the primary subscription key for your account, follow the instructions in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+
+For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 ## Create an Azure notebook
 
@@ -106,7 +108,7 @@ Because the company prefers to use routes that require a balance of economy and 
 To determine the boundaries for the electric vehicle's reachable range, run the script in the following cell:
 
 ```python
-subscriptionKey = "Your Azure Maps primary subscription key"
+subscriptionKey = "Your Azure Maps key"
 currentLocation = [34.028115,-118.5184279]
 session = aiohttp.ClientSession()
 
@@ -276,7 +278,7 @@ display(Image(poiRangeMap))
 
 After you've determined all the potential charging stations within the reachable range, you want to know which of them can be reached in a minimum amount of time. 
 
-The following script calls the Azure Maps [Matrix Routing API](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview), which returns for the specified vehicle location the travel time and distance to each charging station. The script in the next cell parses the response to locate the closest reachable charging station with respect to time.
+The following script calls the Azure Maps [Matrix Routing API](https://docs.microsoft.com/rest/api/maps/route/postroutematrix), which returns for the specified vehicle location the travel time and distance to each charging station. The script in the next cell parses the response to locate the closest reachable charging station with respect to time.
 
 To find the closest reachable charging station that can be reached in the least amount of time, run the script in the following cell:
 
@@ -390,7 +392,7 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 * [Post Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
 * [Data Upload](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
 * [Render - Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Post Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)
+* [Post Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
 For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/#reference).

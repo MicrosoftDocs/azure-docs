@@ -1,5 +1,5 @@
 ---
-title: How to use batching to improve Azure SQL Database application performance
+title: How to use batching to improve application performance
 description: The topic provides evidence that batching database operations greatly improves the speed and scalability of your Azure SQL Database applications. Although these batching techniques work for any SQL Server database, the focus of the article is on Azure.
 services: sql-database
 ms.service: sql-database

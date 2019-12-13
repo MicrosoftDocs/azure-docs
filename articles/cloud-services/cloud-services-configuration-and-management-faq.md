@@ -307,9 +307,9 @@ As described [here](https://technet.microsoft.com/library/ee790567.aspx), the $s
 |Value|Meaning|
 ------|------
 |0|No SNI|
-|1|SNI Enabled |
-|2 |Non SNI binding which uses Central Certificate Store|
-|3|SNI binding which uses Central Certificate store |
+|1|SNI Enabled|
+|2|Non SNI binding which uses Central Certificate Store|
+|3|SNI binding which uses Central Certificate store|
  
 **Method 2: Use code**
 
@@ -319,8 +319,8 @@ The SNI binding could also be configured via code in the role startup as describ
     //<code snip> 
                     var serverManager = new ServerManager(); 
                     var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(“:443:www.test1.com”, newCert.GetCertHash(), “My”); 
-                    binding.SetAttributeValue(“sslFlags”, 1); //enables the SNI 
+                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
                     serverManager.CommitChanges(); 
     //</code snip> 
     

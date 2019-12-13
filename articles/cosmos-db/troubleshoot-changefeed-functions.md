@@ -1,5 +1,5 @@
 ---
-title: Diagnose and troubleshoot issues when using Azure Functions trigger for Cosmos DB
+title: Troubleshoot issues when using Azure Functions trigger for Cosmos DB
 description: Common issues, workarounds, and diagnostic steps, when using the Azure Functions trigger for Cosmos DB
 author: ealsur
 ms.service: cosmos-db
@@ -98,6 +98,10 @@ Setting [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.m
 This error happens if your Azure Functions project (or any referenced project) contains a manual NuGet reference to the Azure Cosmos DB SDK with a different version than the one provided by the [Azure Functions Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).
 
 To workaround this situation, remove the manual NuGet reference that was added and let the Azure Cosmos DB SDK reference resolve through the Azure Functions Cosmos DB Extension package.
+
+### Changing Azure Function's polling interval for the detecting changes
+
+As explained earlier for [My changes take too long to be received](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received), Azure function will sleep for a configurable amount of time (5 seconds, by default) before checking for new changes (to avoid high RU consumption). You can configure this sleep time through the `FeedPollDelay/feedPollDelay` setting in the [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) of your trigger (the value is expected to be in milliseconds).
 
 ## Next steps
 

@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Build a Node.js web app using JavaScript SDK to manage Azure Cosmos DB SQL API data'
+title: 'Tutorial:Build a Node.js web app with Azure Cosmos DB JavaScript SDK to manage SQL API data'
 description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Web Apps feature of Microsoft Azure App Service.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 ---
@@ -111,7 +111,7 @@ Now that you have completed the initial setup and configuration, next you will w
     const debug = require('debug')('todo:taskDao')
 
     // For simplicity we'll set a constant partition key
-    const partitionKey = '0'
+    const partitionKey = undefined
     class TaskDao {
       /**
        * Manages reading, adding, and updating Tasks in Cosmos DB

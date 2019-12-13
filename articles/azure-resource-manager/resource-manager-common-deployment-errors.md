@@ -1,14 +1,9 @@
 ---
-title: Troubleshoot common Azure deployment errors | Microsoft Docs
+title: Troubleshoot common deployment errors
 description: Describes how to resolve common errors when you deploy resources to Azure using Azure Resource Manager.
 tags: top-support-issue
-author: tfitzmac
-keywords: deployment error, azure deployment, deploy to azure
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.author: tomfitz
-
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 

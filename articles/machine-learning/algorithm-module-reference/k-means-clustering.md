@@ -1,7 +1,7 @@
 ---
 title:  "K-Means Clustering: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the K-Means Clustering module in the Azure Machine Learning service to train clustering models.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the K-Means Clustering module in the Azure Machine Learning to train clustering models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
+ms.date: 11/19/2019
 ---
 # Module: K-Means Clustering
 
-This article describes how to use the *K-Means Clustering* module in Azure Machine Learning Studio to create an untrained K-means clustering model. 
+This article describes how to use the *K-Means Clustering* module in Azure Machine Learning designer (preview) to create an untrained K-means clustering model. 
  
 K-means is one of the simplest and the best known *unsupervised* learning algorithms. You can use the algorithm for a variety of machine learning tasks, such as: 
 
@@ -55,7 +55,7 @@ When it processes the training data, the K-means algorithm begins with an initia
   
     -   **Single Parameter**: If you know the exact parameters you want to use in the clustering model, you can provide a specific set of values as arguments.  
   
-3.  For **Number of Centroids**, type the number of clusters you want the algorithm to begin with.  
+3.  For **Number of centroids**, type the number of clusters you want the algorithm to begin with.  
   
      The model isn't guaranteed to produce exactly this number of clusters. The algorithm starts with this number of data points and iterates to find the optimal configuration.  
   
@@ -136,4 +136,4 @@ You can avoid this problem in a couple of ways:
   
 -   Create multiple models, varying the metric or iterating more.  
   
-In general, with clustering models, it's possible that any given configuration will result in a locally optimized set of clusters. In other words, the set of clusters that's returned by the model suits only the current data points and isn't generalizable to other data. If you use a different initial configuration, the K-means method might find a different, perhaps superior, configuration. 
+In general, with clustering models, it's possible that any given configuration will result in a locally optimized set of clusters. In other words, the set of clusters that's returned by the model suits only the current data points and isn't generalizable to other data. If you use a different initial configuration, the K-means method might find a different, superior, configuration. 

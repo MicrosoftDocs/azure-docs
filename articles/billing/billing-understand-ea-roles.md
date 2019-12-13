@@ -7,12 +7,12 @@ author: adpick
 manager: adpick
 editor: ''
 
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/04/2019
 ms.author: banders
 ---
 # Understand Azure Enterprise Agreement administrative roles in Azure

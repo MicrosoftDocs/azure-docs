@@ -1,11 +1,12 @@
 ---
-title: Join transformation in Azure Data Factory mapping data flow | Microsoft Docs
+title: Join transformation in mapping data flow 
 description: Combine data from two data sources using the join transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/17/2019
 ---
 
@@ -27,11 +28,11 @@ Left outer join returns all rows from the left stream and matched records from t
 
 ### Right Outer
 
-Left outer join returns all rows from the right stream and matched records from the left stream. If a row from the right stream has no match, the output columns from the right stream are set to NULL. The output will be the rows returned by an inner join plus the unmatched rows from the right stream.
+Right outer join returns all rows from the right stream and matched records from the left stream. If a row from the right stream has no match, the output columns from the left stream are set to NULL. The output will be the rows returned by an inner join plus the unmatched rows from the right stream.
 
 ### Full Outer
 
-Full outer join outputs all columns and rows from both sides with NULL values for columns aren't matched.
+Full outer join outputs all columns and rows from both sides with NULL values for columns that aren't matched.
 
 ### Cross Join
 
@@ -100,7 +101,7 @@ TripData, TripFare
 
 ### Cross join example
 
-The below example is a join transformation named `CartesianProduct` that takes left stream `TripData` and right stream `TripFare`. This transformation takes in two streams and returns a cartesian product of their rows. The join condition is `true()` because it outputs a full cartesian product. The `joinType` in `cross`. We're enabling broadcasting in only the left stream so `broadcast` has value `'left'`.
+The below example is a join transformation named `CartesianProduct` that takes left stream `TripData` and right stream `TripFare`. This transformation takes in two streams and returns a cartesian product of their rows. The join condition is `true()` because it outputs a full cartesian product. The `joinType` is `cross`. We're enabling broadcasting in only the left stream so `broadcast` has value `'left'`.
 
 In the Data Factory UX, this transformation looks like the below image:
 

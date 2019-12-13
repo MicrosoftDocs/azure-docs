@@ -1,5 +1,5 @@
 ---
-title: Design Azure Cosmos DB tables to support scaling and performance 
+title: Design Azure Cosmos DB tables for scaling and performance 
 description: "Azure Storage Table Design Guide: Designing scalable and performant tables in Azure Cosmos DB and Azure Storage Table"
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -536,7 +536,7 @@ EGTs enable atomic transactions across multiple entities that share the same par
 * Entities stored in two different partitions in the same table, in different tables, or in different storage accounts.  
 * An entity stored in the Table service and a blob stored in the Blob service.  
 * An entity stored in the Table service and a file in a file system.  
-* An entity store in the Table service yet indexed using the Azure Search service.  
+* An entity store in the Table service yet indexed using the Azure Cognitive Search service.  
 
 #### Solution
 By using Azure queues, you can implement a solution that delivers eventual consistency across two or more partitions or storage systems.

@@ -1,7 +1,6 @@
 ---
-title: Overview of IPv6 for Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Understanding IPv6 support for Azure Load Balancer and load-balanced VMs.
+title: Overview of IPv6 - Azure Load Balancer
+description: With this learning path, get started with IPv6 support for Azure Load Balancer and load-balanced VMs.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -74,7 +73,6 @@ Limitations
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
 * Reserved IPv6 IPs (where IPAllocationMethod = static) are **currently not supported**.
 * NAT64 (translation of IPv6 to IPv4) is not supported.
-* Standard SKU Load Balancers do not currently support IPv6 addresses.
 
 ## Next steps
 

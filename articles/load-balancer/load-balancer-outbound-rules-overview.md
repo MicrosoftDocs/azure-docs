@@ -1,7 +1,6 @@
 ---
-title: Outbound rules in Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Use outbound rules to define outbound network address translations
+title: Outbound rules - Azure Load Balancer
+description: With this learning path, get starting using outbound rules to define outbound network address translations.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -81,7 +80,7 @@ Use the following parameter to allocate 10,000 SNAT ports per VM (NIC IP configu
 
 Each public IP address from all frontends of an outbound rule contributes up to 64,000 ephemeral ports for use as SNAT ports.  Load Balancer allocates SNAT ports in multiples of 8. If you provide a value not divisible by 8, the configuration operation is rejected.  If you attempt to allocate more SNAT ports than are available based on the number of public IP addresses, the configuration operation is rejected.  For example, if you allocate 10,000 ports per VM and 7 VMs in a backend pool would share a single public IP address, the configuration is rejected (7 x 10,000 SNAT ports > 64,000 SNAT ports).  You can add more public IP addresses to the frontend of the outbound rule to enable the scenario.
 
-You can revert back to [automatic SNAT port allocation based on backend pool size](load-balancer-outbound-connections.md#preallocatedports) by specifying 0 for number of ports.
+You can revert back to [automatic SNAT port allocation based on backend pool size](load-balancer-outbound-connections.md#preallocatedports) by specifying 0 for number of ports. In that case the first 50 VM instances will get 1024 ports, 51-100 VM instances will get 512 and so on according to the table.
 
 ### <a name="idletimeout"></a> Control outbound flow idle timeout
 

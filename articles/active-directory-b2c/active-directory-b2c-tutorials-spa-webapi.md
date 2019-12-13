@@ -1,6 +1,7 @@
 ---
-title: Tutorial - Grant access to an ASP.NET Core web API from a single-page application - Azure Active Directory B2C
-description: Learn how to use Active Directory B2C to protect a .NET Core web API and call the API from a single-page Node.js application.
+title: "Tutorial: Grant access to an ASP.NET Core web API from a single-page app"
+titleSuffix: Azure AD B2C
+description: In this tutorial, learn how to use Active Directory B2C to protect a .NET Core web API and call the API from a single-page Node.js application.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -42,7 +43,7 @@ Scopes provide a way to govern access to protected resources. Scopes are used by
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Record the **FULL SCOPE VALUE** for the `demo.read` scope to use in a later step when you configure the single-page application. The full scope value is similar to `https://yourtenant.onmicrosoft.com/api/demo.read`.
+Record the value under **SCOPES** for the `demo.read` scope to use in a later step when you configure the single-page application. The full scope value is similar to `https://contosob2c.onmicrosoft.com/api/demo.read`.
 
 ## Grant permissions
 
@@ -129,8 +130,8 @@ To change the settings in the SPA:
 
 1. Open the *index.html* file in the [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] project you downloaded or cloned in the previous tutorial.
 1. Configure the sample with the URI for the *demo.read* scope you created earlier and the URL of the web API.
-    1. In the `appConfig` definition, replace the `b2cScopes` value with the full URI for the scope (the **FULL SCOPE VALUE** you recorded earlier).
-    1. Change the `webApi` value to the `applicationURL` value you specified in the previous section.
+    1. In the `appConfig` definition, replace the `b2cScopes` value with the full URI for the scope (the **SCOPE** value you recorded earlier).
+    1. Change the `webApi` value to the redirect URI you added when you registered the web API application in an earlier step.
 
     The `appConfig` definition should look similar to the following code block (with your tenant name in the place of `<your-tenant-name>`):
 

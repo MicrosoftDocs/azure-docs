@@ -1,20 +1,17 @@
 ---
-title: Reference guide for functions in expressions - Azure Logic Apps
-description: Reference guide to functions in expressions for Azure Logic Apps and Microsoft Flow
+title: Reference guide for functions in expressions
+description: Reference guide to functions in expressions for Azure Logic Apps and Power Automate
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.topic: reference
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 08/23/2019
 ---
 
-# Reference guide to using functions in expressions for Azure Logic Apps and Microsoft Flow
+# Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
 
 For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-and [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), some 
+and [Power Automate](https://docs.microsoft.com/flow/getting-started), some 
 [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) 
 get their values from runtime actions that might not yet exist when your 
 workflow starts running. To reference these values or process the values 
@@ -22,10 +19,10 @@ in these expressions, you can use *functions* provided by the
 [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
 
 > [!NOTE]
-> This reference page applies to both Azure Logic Apps and Microsoft Flow, 
+> This reference page applies to both Azure Logic Apps and Power Automate, 
 > but appears in the Azure Logic Apps documentation. Although this page refers 
 > specifically to logic apps, these functions work for both flows and logic apps. 
-> For more information about functions and expressions in Microsoft Flow, see 
+> For more information about functions and expressions in Power Automate, see 
 > [Use expressions in conditions](https://docs.microsoft.com/flow/use-expressions-in-conditions).
 
 For example, you can calculate values by using math functions, such as the
@@ -2099,7 +2096,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Yes | Integer | The number of specified time units to subtract |
+| <*interval*> | Yes | Integer | The number of specified time units to add |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||

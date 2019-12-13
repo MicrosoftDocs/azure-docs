@@ -114,7 +114,7 @@ If you use this template without also using the network security groups template
 
 ## Whitelisting subnet traffic
 
-If you do not use the [Azure portal](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) or [Azure Resource Manager templates](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) to create your network security groups, you must manually whitelist the following traffic on your subnets.
+If you do not use the [Azure portal](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) or [Azure Resource Manager templates](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-advanced) to create your network security groups, you must manually whitelist the following traffic on your subnets.
 
 |Direction|Protocol|Source|Source Port|Destination|Destination Port|
 |---------|--------|------|-----------|-----------|----------------|

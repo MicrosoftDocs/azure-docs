@@ -13,7 +13,7 @@ You can use [Cloud Shell](../articles/cloud-shell/overview.md) to deploy your te
 
 1. Select your Cloud Shell resource group. The name pattern is `cloud-shell-storage-<region>`.
 
-   ![Select resource group](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
+   ![Select resource group](./media/resource-manager-cloud-shell-deploy/select-cloud-shell-resource-group.png)
 
 1. Select the storage account for your Cloud Shell.
 
