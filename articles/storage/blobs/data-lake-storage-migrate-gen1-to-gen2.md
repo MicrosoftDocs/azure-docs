@@ -100,18 +100,19 @@ This table compares the capabilities of Gen1 to that of Gen2.
 ## Gen1 to Gen2 migration patterns
 
 Start by choosing one of these patterns. Then, modify that pattern to fit your specific requirements.
+
+|Pattern|Description|
+|---|---|
+|**Lift and Shift**|The simplest pattern. Ideal if your data pipelines can afford downtime.|
+|**Incremental copy**|Similar to *lift and shift*, but with less downtime. Ideal for large amounts of data that take longer to copy.|
+|**Dual pipeline**|Ideal for pipelines that can't afford any downtime.|
+|**Bidirectional sync**|Similar to *dual pipeline*, but with a more phased approach that is suited for more complicated pipelines.|
+
+Let's take a closer look at each pattern.
  
-:heavy_check_mark: Lift and shift
+### Lift and shift pattern
 
-:heavy_check_mark: Incremental copy
-
-:heavy_check_mark: Dual pipeline
-
-:heavy_check_mark: Bi-directional sync
-
-### Lift and shift
-
-This is the simplest pattern. Ideal if your data pipelines can afford downtime.
+This is the simplest pattern. It's ideal for data pipelines that can afford downtime.
 
 The general pattern is as follows:
 
@@ -126,11 +127,11 @@ Image goes here.
 :four: &nbsp;&nbsp;Decommission Gen1.
 
 > [!TIP]
-> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). Your folder and file-level ACLs copy over with the data.
+> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
 
-### Incremental copy
+### Incremental copy pattern
 
-This pattern is similar to lift and shift, but with less downtime. You'll stop writes to Gen1 only after all data is copied to Gen2. This pattern is useful for large amounts of data that take longer to copy.
+This pattern is similar to the *lift and shift* pattern, but with less downtime. You'll stop writes to Gen1 only after all data is copied to Gen2. This pattern is useful for large amounts of data that take longer to copy.
 
 The general pattern is as follows:
 
@@ -147,11 +148,11 @@ Image goes here.
 :five: &nbsp;&nbsp;Decommission Gen1.
 
 > [!TIP]
-> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). Your folder and file-level ACLs copy over with the data.
+> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
 
-### Dual pipeline
+### Dual pipeline pattern
 
-Use this pattern if your pipeline can't afford any downtime.   
+Use this pattern for pipelines that can't afford any downtime.   
 
 The general pattern is as follows:
 
@@ -166,11 +167,11 @@ Image goes here.
 :four: &nbsp;&nbsp;Stop all writes to Gen1 & decommission Gen1.
 
 > [!TIP]
-> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). Your folder and file-level ACLs copy over with the data.
+> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
 
-### Bi-directional sync
+### Bi-directional sync pattern
 
-This pattern is similar to Dual pipeline, but better for more complicated pipelines that require Gen1 and Gen2 side-by-side support during migration.
+This pattern is similar to the *dual pipeline* pattern, but it's more ideally suited for complicated pipelines that require Gen1 and Gen2 side-by-side support during migration.
 
 The general pattern is as follows:
 
