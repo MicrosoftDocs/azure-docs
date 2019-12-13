@@ -326,7 +326,7 @@ Here are the system-defined values:
 }
 ```
 
-This step is a one-time setup. The scope of this new scene type is limited to the subscription in which the FarmBeats project is deployed.
+This step is a one-time setup. The scope of this new scene type is limited to the subscription in which the Azure FarmBeats is installed.
 
 For example, to add SceneSource: “SlantRange,” you do a PUT on the ID of the /ExtendedType API with the key "SceneSource" input payload.
 

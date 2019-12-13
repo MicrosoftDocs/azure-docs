@@ -19,7 +19,7 @@ Integrating drone imagery data with Azure FarmBeats helps you get orthomosaic da
 
 ## Before you begin
 
-  - Make sure that you deployed Azure FarmBeats. For information on how to deploy FarmBeats, see [Install Azure FarmBeats](install-azure-farmbeats.md).
+  - Make sure that you installed Azure FarmBeats. For information on how to install FarmBeats, see [Install Azure FarmBeats](install-azure-farmbeats.md).
   - Ensure that you have the farm for which you want drone imagery defined in your FarmBeats system.
 
 ## Enable drone imagery integration with FarmBeats

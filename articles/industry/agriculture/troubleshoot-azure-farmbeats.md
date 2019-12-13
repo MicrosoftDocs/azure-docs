@@ -7,7 +7,7 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Troubleshoot Azure FarmBeats
+# Troubleshoot
 
 This article provides solutions to common Azure FarmBeats issues.
 
@@ -194,7 +194,7 @@ Try either of the following:
 1. In the **Search** box, search for the FarmBeats Datahub resource group.
 
     > [!NOTE]
-    > Select the Datahub resource group that you specified during FarmBeats deployment.
+    > Select the Datahub resource group that you specified during FarmBeats installation.
 
 1. On the **Resource Group** dashboard, search for the *datahublogs\** storage account. For example, search for **datahublogsmvxmq**.  
 
@@ -213,7 +213,7 @@ Try either of the following:
 1. In the **Search** box, search for the FarmBeats Accelerator resource group.
 
     > [!NOTE]
-    > Select the Accelerator resource group that you specified during FarmBeats deployment.
+    > Select the Accelerator resource group that you specified during FarmBeats installation.
 
 1. On the **Resource Group** dashboard, search for the *storage\** storage account. For example, search for **storagedop4k\***.
 1. Select the storage account in the **Name** column to view the **Storage Account** dashboard.
@@ -230,7 +230,7 @@ Try either of the following:
 1. In the **Search** box, search for the FarmBeats Datahub resource group.
 
     > [!NOTE]
-    > Select the Datahub resource group that you specified during FarmBeats deployment.
+    > Select the Datahub resource group that you specified during FarmBeats installation.
 
 1. In the resource group, search for the *datahublogs\** storage account. For example, search for **fordatahublogsmvxmq\***.
 1. Select the storage account in the **Name** column to view the **Storage Account** dashboard.
@@ -246,7 +246,7 @@ Try either of the following:
 1. In the **Search** box, search for the FarmBeats Accelerator resource group.
 
     > [!NOTE]
-    > Select the FarmBeats Accelerator resource group that was provided during FarmBeats deployment.
+    > Select the FarmBeats Accelerator resource group that was provided during FarmBeats installation.
 
 1. In the resource group, search for the *storage\** storage account. For example, search for **storagedop4k\***.
 1. Select the storage account in the **Name** column to view the **Storage Account** dashboard.

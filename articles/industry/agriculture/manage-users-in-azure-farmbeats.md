@@ -14,7 +14,7 @@ Azure FarmBeats includes user management for people who are part of your Azure A
 
 ## Prerequisites
 
-- An Azure FarmBeats deployment is required. See [Install Azure FarmBeats](install-azure-farmbeats.md) to know more on how to setup Azure FarmBeats.
+- An Azure FarmBeats installation is required. See [Install Azure FarmBeats](install-azure-farmbeats.md) to know more on how to setup Azure FarmBeats.
 - The email ID of the users you want to add or remove from your Azure FarmBeats instance.
 
 ## Manage Azure FarmBeats users
