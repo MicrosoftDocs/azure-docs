@@ -153,12 +153,12 @@ Azure portal marketplace names:
 
 To learn more about reservations, see the following articles:
 
-- [What are reservations for Azure](billing-save-compute-costs-reservations.md)
-- [Prepay for Red Hat software plans with Azure reservations](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage reservations for Azure](billing-manage-reserved-vm-instance.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
-- [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+- [What are reservations for Azure](save-compute-costs-reservations.md)
+- [Prepay for Red Hat software plans with Azure reservations](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Manage reservations for Azure](manage-reserved-vm-instance.md)
+- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+- [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
 
 ## Need help? Contact us
 

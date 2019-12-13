@@ -74,19 +74,19 @@ You can scope the reservation to a resource group when you buy the reservation, 
 
 To set the scope, go to the [Purchase reservation](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) page in the Azure portal. Select the reservation type that you want to buy. On the **Select the product that you want to purchase** selection form, change the Scope value to Single resource group. Then, select a resource group.
 
-![Example showing VM reservation purchase selection](./media/billing-save-compute-costs-reservations/select-product-to-purchase.png)
+![Example showing VM reservation purchase selection](./media/save-compute-costs-reservations/select-product-to-purchase.png)
 
 Purchase recommendations for the resource group in the virtual machine reservation are shown. Recommendations are calculated by analyzing your usage over the last 30 days. A purchase recommendation is made if the cost of running resources with reserved instances is cheaper than the cost of running resources with pay-as-you-go rates. For more information about reservation purchase recommendations, see [Get Reserved Instance purchase recommendations based on usage pattern](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations).
 
-You can always update the scope after you buy a reservation. To do so, go to the reservation, click **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+You can always update the scope after you buy a reservation. To do so, go to the reservation, click **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
-![Example showing a reservation scope change](./media/billing-save-compute-costs-reservations/rescope-reservation-resource-group.png)
+![Example showing a reservation scope change](./media/save-compute-costs-reservations/rescope-reservation-resource-group.png)
 
 ### Monitor and optimize reservation usage
 
 You can monitor your reservation usage in multiple ways – through Azure portal, through APIs, or through usage data. To see all the reservations that you have access to, go to **Reservations** in the Azure portal. The reservations grid shows the last recorded utilization percentage for the reservation. Click the reservation to see long-term utilization of the reservation.
 
-You can also get reservation utilization using [APIs](billing-reservation-apis.md#see-reservation-usage) and from your [usage data](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) if you are an enterprise agreement or Microsoft Customer Agreement customer.
+You can also get reservation utilization using [APIs](reservation-apis.md#see-reservation-usage) and from your [usage data](understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) if you are an enterprise agreement or Microsoft Customer Agreement customer.
 
 If you notice that the utilization of your resource group scoped reservation is low, then you can update the reservation scope to single subscription or share it across the billing context. You can also split the reservation and apply the resulting reservations to different resource groups.
 
@@ -94,7 +94,7 @@ If you notice that the utilization of your resource group scoped reservation is 
 
 If you don't have matching resources in a resource group, then the reservation will be underutilized. The reservation doesn't automatically apply to a different resource group or subscription where there's low utilization.
 
-A reservation scope doesn't automatically update if you move the resource group from one subscription to another. The scope doesn't update if you delete the resource group. You will have to [rescope the reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope). Otherwise, the reservation will be underutilized.
+A reservation scope doesn't automatically update if you move the resource group from one subscription to another. The scope doesn't update if you delete the resource group. You will have to [rescope the reservation](manage-reserved-vm-instance.md#change-the-reservation-scope). Otherwise, the reservation will be underutilized.
 
 ## Discounted subscription and offer types
 
@@ -121,7 +121,7 @@ When you shut down a resource, the reservation discount automatically applies to
 
 For example, you might later create a resource and have a matching reservation that is underutilized. The reservation discount automatically applies to the new matching resource.
 
-If the virtual machines are running in different subscriptions within your enrollment/account, then select the scope as shared. Shared scope allows the reservation discount to be applied across subscriptions. You can change the scope after you buy a reservation. For more information, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
+If the virtual machines are running in different subscriptions within your enrollment/account, then select the scope as shared. Shared scope allows the reservation discount to be applied across subscriptions. You can change the scope after you buy a reservation. For more information, see [Manage Azure Reservations](manage-reserved-vm-instance.md).
 
 A reservation discount only applies to resources associated with Enterprise, Microsoft Customer Agreement, CSP, or subscriptions with pay-as-you go rates. Resources that run in a subscription with other offer types don't receive the reservation discount.
 
@@ -135,10 +135,10 @@ When you buy a reservation, the discount can apply to other instances with attri
 
 Service plans:
 
-- Reserved VM Instances: When you buy the reservation and select **Optimized for instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Reserved VM Instances: When you buy the reservation and select **Optimized for instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 - Azure Storage reserved capacity: You can purchase reserved capacity for standard Azure Storage accounts in units of 100 TiB or 1 PiB per month. Azure Storage reserved capacity is available in all regions for any access tier (hot, cool, or archive) and for any replication option (LRS, GRS, or ZRS).
-- SQL Database reserved capacity: The discount coverage depends on the performance tier you pick. For more information, see [Understand how an Azure reservation discount is applied](billing-understand-reservation-charges.md).
-- Azure Cosmos DB reserved capacity: The discount coverage depends on the provisioned throughput. For more information, see [Understand how an Azure Cosmos DB reservation discount is applied](billing-understand-cosmosdb-reservation-charges.md).
+- SQL Database reserved capacity: The discount coverage depends on the performance tier you pick. For more information, see [Understand how an Azure reservation discount is applied](understand-reservation-charges.md).
+- Azure Cosmos DB reserved capacity: The discount coverage depends on the provisioned throughput. For more information, see [Understand how an Azure Cosmos DB reservation discount is applied](understand-cosmosdb-reservation-charges.md).
 
 ## Reservation notifications
 
@@ -169,16 +169,16 @@ If you have questions or need help,  [create a support request](https://go.micro
 ## Next steps
 
 - Learn more about Azure Reservations with the following articles:
-    - [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
-    - [Understand reservation usage for your subscription with pay-as-you-go rates](billing-understand-reserved-instance-usage.md)
-    - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
-    - [Windows software costs not included with reservations](billing-reserved-instance-windows-software-costs.md)
+    - [Manage Azure Reservations](manage-reserved-vm-instance.md)
+    - [Understand reservation usage for your subscription with pay-as-you-go rates](understand-reserved-instance-usage.md)
+    - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
+    - [Windows software costs not included with reservations](reserved-instance-windows-software-costs.md)
     - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
 
 - Learn more about reservations for service plans:
-    - [Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-    - [Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md)
-    - [SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
+    - [Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+    - [Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)
+    - [SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)
 Learn more about reservations for software plans:
-    - [Red Hat software plans from Azure Reservations](../virtual-machines/linux/prepay-rhel-software-charges.md)
-    - [SUSE software plans from Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+    - [Red Hat software plans from Azure Reservations](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+    - [SUSE software plans from Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)

@@ -27,11 +27,11 @@ Monthly payments are available for:
 
 Purchase reservations in the [Azure portal](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade).
 
-![Example showing reservation purchase](./media/billing-monthly-payments-reservations/purchase-reservation.png)
+![Example showing reservation purchase](./media/monthly-payments-reservations/purchase-reservation.png)
 
 While making a reservation purchase, you can view the payment schedule. Click **View full payment schedule**.
 
-![Example showing reservation payment schedule](./media/billing-monthly-payments-reservations/prepurchase-schedule.png)
+![Example showing reservation payment schedule](./media/monthly-payments-reservations/prepurchase-schedule.png)
 
 To view the payments schedule after purchase, select a reservation, click the **Reservation order ID**, and then click the **Payments** tab.
 
@@ -41,7 +41,7 @@ You can view payments that were made using APIs, usage data, and in cost analysi
 
 Cost analysis shows monthly purchases in the default view. Apply the **purchase** filter for **Charge type** and **recurring** for **Frequency** to see all purchases. To view only reservations, apply a filter for **Reservation**.
 
-![Example showing reservation purchase costs in cost analysis](./media/billing-monthly-payments-reservations/cost-analysis.png)
+![Example showing reservation purchase costs in cost analysis](./media/monthly-payments-reservations/cost-analysis.png)
 
 ## Switch to monthly payments at renewal
 
@@ -55,9 +55,9 @@ When you exchange a reservation that's paid for monthly, the total lifetime cost
 
 If canceling a reservation that's paid for monthly, Microsoft might apply a cancellation fee to the future committed payments that are canceled. The remaining committed payments accrue towards the $50,000 USD refund limit.
 
-For more information about exchange and refunds, see [Self-service exchanges and refunds for Azure Reservations](billing-azure-reservations-self-service-exchange-and-refund.md).
+For more information about exchange and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
 ## Next steps
 
-- To learn more about reservations, see [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-- To learn about tasks you should accomplish before buying a reservation, see [Determine the right VM size before you buy](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)
+- To learn more about reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md)
+- To learn about tasks you should accomplish before buying a reservation, see [Determine the right VM size before you buy](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)

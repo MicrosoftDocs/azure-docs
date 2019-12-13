@@ -32,11 +32,11 @@ For example, when a quantity of Data Analytics – Standard tier is consumed, th
 
 ## Determine plan use
 
-To determine your DBCU plan use, go to the Azure portal > **Reservations** and click the purchased Databricks plan. Your utilization to-date is shown with any remaining units. For more information about determining your reservation use, see the [See reservation usage](billing-reservation-apis.md#see-reservation-usage) article.
+To determine your DBCU plan use, go to the Azure portal > **Reservations** and click the purchased Databricks plan. Your utilization to-date is shown with any remaining units. For more information about determining your reservation use, see the [See reservation usage](reservation-apis.md#see-reservation-usage) article.
 
 ## How discount application shows in usage data
 
-When the pre-purchase discount applies to your Databricks usage, on-demand charges appear as zero in the usage data. For more information about reservation costs and usage, see [Get Enterprise Agreement reservation costs and usage](billing-understand-reserved-instance-usage-ea.md).
+When the pre-purchase discount applies to your Databricks usage, on-demand charges appear as zero in the usage data. For more information about reservation costs and usage, see [Get Enterprise Agreement reservation costs and usage](understand-reserved-instance-usage-ea.md).
 
 ## Need help? Contact us.
 
@@ -44,10 +44,10 @@ If you have questions or need help, [create a support request](https://portal.az
 
 ## Next steps
 
-- To learn how to manage a reservation, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
-- To learn more about pre-purchasing Azure Databricks to save money, see [Optimize Azure Databricks costs with a pre-purchase](billing-prepay-databricks-reserved-capacity.md).
+- To learn how to manage a reservation, see [Manage Azure Reservations](manage-reserved-vm-instance.md).
+- To learn more about pre-purchasing Azure Databricks to save money, see [Optimize Azure Databricks costs with a pre-purchase](prepay-databricks-reserved-capacity.md).
 - To learn more about Azure Reservations, see the following articles:
-  - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-  - [Manage Reservations in Azure](billing-manage-reserved-vm-instance.md)
-  - [Understand reservation usage for a subscription with pay-as-you-go rates](billing-understand-reserved-instance-usage.md)
-  - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+  - [What are Azure Reservations?](save-compute-costs-reservations.md)
+  - [Manage Reservations in Azure](manage-reserved-vm-instance.md)
+  - [Understand reservation usage for a subscription with pay-as-you-go rates](understand-reserved-instance-usage.md)
+  - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

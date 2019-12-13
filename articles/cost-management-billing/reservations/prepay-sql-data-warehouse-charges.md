@@ -22,13 +22,13 @@ When the reserved capacity expires, SQL Data Warehouse instances continue to run
 
 For pricing information, see the [SQL Data Warehouse reserved capacity offering](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/).
 
-You can buy Azure SQL Data Warehouse reserved capacity in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pay for the reservation [up front or with monthly payments](billing-monthly-payments-reservations.md). To buy reserved capacity:
+You can buy Azure SQL Data Warehouse reserved capacity in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pay for the reservation [up front or with monthly payments](monthly-payments-reservations.md). To buy reserved capacity:
 
 - You must have the owner role for at least one enterprise or Pay-As-You-Go subscription.
 - For Enterprise subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). If the setting is disabled, you must be an EA Admin.
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase SQL Data Warehouse reserved capacity.
 
-For more information about how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [understand Azure reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md) and [understand Azure reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md).
+For more information about how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [understand Azure reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md) and [understand Azure reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md).
 
 ## Choose the right size before purchase
 
@@ -58,7 +58,7 @@ For example, assume your total consumption of SQL Data Warehouse is DW3000c. You
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](billing-azure-reservations-self-service-exchange-and-refund.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
 A reservation discount is applied automatically to the number of SQL Data Warehouse instances that match the SQL Data Warehouse reserved capacity scope and region. You can update the scope of the SQL Data Warehouse reserved capacity with the [Azure portal](https://portal.azure.com/), PowerShell, CLI or through the API.
 
@@ -68,11 +68,11 @@ If you have questions or need help, [create a support request](https://portal.az
 
 ## Next steps
 
-- To learn more about how reservation discounts apply to Azure SQL Data Warehouse, see [How reservation discounts apply to Azure SQL Data Warehouse](billing-prepay-sql-data-warehouse-charges-with-reserved-capacity.md).
+- To learn more about how reservation discounts apply to Azure SQL Data Warehouse, see [How reservation discounts apply to Azure SQL Data Warehouse](prepay-sql-data-warehouse-charges.md).
 
 - To learn more about Azure Reservations, see the following articles:
-  - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-  - [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
-  - [Understand Azure Reservations discount](billing-understand-reservation-charges.md)
-  - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
-  - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+  - [What are Azure Reservations?](save-compute-costs-reservations.md)
+  - [Manage Azure Reservations](manage-reserved-vm-instance.md)
+  - [Understand Azure Reservations discount](understand-reservation-charges.md)
+  - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+  - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

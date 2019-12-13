@@ -25,11 +25,11 @@ You must have owner access on the Reservation Order to exchange or refund an exi
 You can exchange your reservation with three quick steps in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 1. Select the reservations that you want to refund and click **Exchange**.  
-    ![Example image showing reservations to return](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
-2. Select the VM product that you want to purchase and type a quantity. Make sure that the new purchase total is more than the return total. [Determine the right size before you purchase](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
-    ![Example image showing the VM product to purchase with an exchange](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
+    ![Example image showing reservations to return](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)
+2. Select the VM product that you want to purchase and type a quantity. Make sure that the new purchase total is more than the return total. [Determine the right size before you purchase](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
+    ![Example image showing the VM product to purchase with an exchange](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png)
 3. Review and complete the transaction.  
-    ![Example image showing the VM product to purchase with an exchange, completing the return](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
+    ![Example image showing the VM product to purchase with an exchange, completing the return](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)
 
 To refund a reservation, go to **Reservation Details** and click **Refund**.
 
@@ -58,7 +58,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 **Exchange policies**
 
 - You can return multiple existing reservations to purchase a new reservation of the same type. You can't exchange reservations of one type for another. For example, you can't return a VM reservation to purchase a SQL reservation.
-- Only reservation owners can process an exchange. [Learn how to Add or change users who can manage a reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Only reservation owners can process an exchange. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - An exchange is processed as a refund and repurchase – different transactions are created for the cancellation and the new purchase. The prorated reservation amount is refunded for the reservations that you trade-in. You're charged fully for the new purchase. The prorated reservation amount is the daily prorated residual value of the reservation being returned.
 - You can exchange or refund reservations even if the enterprise agreement used to purchase the reservation is expired and was renewed as a new agreement.
 - You can change any reservation property such as size, region, quantity, and term with an exchange.
@@ -71,7 +71,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 - The refund you receive for a cancellation is the remaining pro-rated balance minus the 12% early termination fee. To cancel, go to the reservation in the Azure portal and select **Refund**.
 - Your total refund amount can't exceed $50,000 USD in a 12-month rolling window.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
-- Only reservation owners can process a refund. [Learn how to Add or change users who can manage a reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Only reservation owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Microsoft reserves the right to charge a 12% penalty for any returns. The penalty isn't currently charged, but will be charged in future.
 
 ## Exchange non-premium storage for premium storage
@@ -84,12 +84,12 @@ If you have questions or need help, [create a support request](https://portal.az
 
 ## Next steps
 
-- To learn how to manage a reservation, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
+- To learn how to manage a reservation, see [Manage Azure Reservations](manage-reserved-vm-instance.md).
 - To learn more about Azure Reservations, see the following articles:
-    - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-    - [Manage Reservations in Azure](billing-manage-reserved-vm-instance.md)
-    - [Understand how the reservation discount is applied](../cost-management-billing/manage/understand-vm-reservation-charges.md)
-    - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
-    - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
-    - [Windows software costs not included with reservations](billing-reserved-instance-windows-software-costs.md)
+    - [What are Azure Reservations?](save-compute-costs-reservations.md)
+    - [Manage Reservations in Azure](manage-reserved-vm-instance.md)
+    - [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)
+    - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+    - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
+    - [Windows software costs not included with reservations](reserved-instance-windows-software-costs.md)
     - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)

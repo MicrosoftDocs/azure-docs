@@ -162,4 +162,4 @@ To add or update tax ID, update your profile in the  [Azure Account Center](http
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- Learn about [Azure reservations](../../billing/billing-save-compute-costs-reservations.md) to see if they can save you money.
+- Learn about [Azure reservations](../reservations/save-compute-costs-reservations.md) to see if they can save you money.

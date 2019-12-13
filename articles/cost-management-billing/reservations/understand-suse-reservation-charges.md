@@ -41,7 +41,7 @@ Get the product name from your usage data and buy the SUSE plan with the same ty
 
 For example, if your usage is for product **SUSE Linux Enterprise Server Priority - 2-4 vCPU VM Support**, you should purchase **SUSE Linux Enterprise Server Priority** for **2-4 vCPU**.
 
-![Example of selecting the product to purchase](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
+![Example of selecting the product to purchase](./media/understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
 
 ## Discount applies to different VM sizes for SUSE plans
 
@@ -145,9 +145,9 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 To learn more about reservations, see the following articles:
 
-- [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-- [Prepay for SUSE software plans with Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
-- [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+- [What are Azure Reservations?](save-compute-costs-reservations.md)
+- [Prepay for SUSE software plans with Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Manage Azure Reservations](manage-reserved-vm-instance.md)
+- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+- [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

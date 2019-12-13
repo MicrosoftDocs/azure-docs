@@ -25,7 +25,7 @@ When you shut down a resource, the reservation discount automatically applies to
 A reservation discount is applied to Azure Data Explorer markup consumption on an hour-by-hour basis. For Azure Data Explorer resources that don't run the full hour, the reservation discount is automatically applied to other Data Explorer resources that match the reservation attributes. The discount can apply to Azure Data Explorer resources that are running concurrently. If you don't have Azure Data Explorer resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
 
 > [!NOTE]
-> * It is **highly recommended** to purchase [reservation capacity](../virtual-machines/windows/prepay-reserved-vm-instances.md) for the virtual machines used for the Azure Data Explorer cluster to maximize the reserved capacity savings.
+> * It is **highly recommended** to purchase [reservation capacity](../../virtual-machines/windows/prepay-reserved-vm-instances.md) for the virtual machines used for the Azure Data Explorer cluster to maximize the reserved capacity savings.
 > * The reservation purchase will apply discounts to all regions.
 
 ## Examples
@@ -51,7 +51,7 @@ You run one 16 core Azure Data Explorer engine cluster from 1 pm to 1:30 pm. You
 
 You run one 16 core Azure Data Explorer engine cluster from 1 pm to 1:45 pm. You run another 16 core Azure Data Explorer engine cluster from 1:30 to 2 pm. You are charged the pay-as-you-go price for the 15-minute overlap. The reservation discount applies to the Azure Data Explorer markup usage for the rest of the time.
 
-To understand and view the application of your Azure Reservations in billing usage reports, see [understand Azure reservation usage](billing-understand-reserved-instance-usage-ea.md).
+To understand and view the application of your Azure Reservations in billing usage reports, see [understand Azure reservation usage](understand-reserved-instance-usage-ea.md).
 
 ## Need help? Contact us
 
@@ -61,9 +61,9 @@ If you have questions or need help, [create a support request](https://go.micros
 
 To learn more about Azure reservations, see the following articles:
 
-* [Prepay for Azure Data Explorer compute resources with Azure Azure Data Explorer reserved capacity](../data-explorer/pricing-reserved-capacity.md)  
-* [What are reservations for Azure](billing-save-compute-costs-reservations.md)  
-* [Manage Azure reservations](billing-manage-reserved-vm-instance.md)  
-* [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
-* [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+* [Prepay for Azure Data Explorer compute resources with Azure Azure Data Explorer reserved capacity](../../data-explorer/pricing-reserved-capacity.md)  
+* [What are reservations for Azure](save-compute-costs-reservations.md)  
+* [Manage Azure reservations](manage-reserved-vm-instance.md)  
+* [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+* [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
 * [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)

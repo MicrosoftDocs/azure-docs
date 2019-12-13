@@ -41,10 +41,10 @@ The following examples show how the Isolated Stamp Fee reserved instance discoun
 
 ## Next steps
 
-- To learn how to manage a reservation, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
-- To learn more about pre-purchasing App Service Isolated Stamp reserved capacity to save money, see [Prepay for Azure App Service Isolated Stamp Fee with reserved capacity](billing-prepay-app-service-isolated-stamp.md).
+- To learn how to manage a reservation, see [Manage Azure Reservations](manage-reserved-vm-instance.md).
+- To learn more about pre-purchasing App Service Isolated Stamp reserved capacity to save money, see [Prepay for Azure App Service Isolated Stamp Fee with reserved capacity](prepay-app-service-isolated-stamp.md).
 - To learn more about Azure Reservations, see the following articles:
-  - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-  - [Manage Reservations in Azure](billing-manage-reserved-vm-instance.md)
-  - [Understand reservation usage for a subscription with pay-as-you-go rates](billing-understand-reserved-instance-usage.md)
-  - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+  - [What are Azure Reservations?](save-compute-costs-reservations.md)
+  - [Manage Reservations in Azure](manage-reserved-vm-instance.md)
+  - [Understand reservation usage for a subscription with pay-as-you-go rates](understand-reserved-instance-usage.md)
+  - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

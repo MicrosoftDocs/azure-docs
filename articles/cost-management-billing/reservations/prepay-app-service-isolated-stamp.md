@@ -34,7 +34,7 @@ Buy Windows stamp reservations if you have one or more Windows workers on the st
 
 ## Buy Isolated Stamp reserved capacity
 
-You can buy Isolated Stamp reserved capacity in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pay for the reservation [up front or with monthly payments](billing-monthly-payments-reservations.md). To buy reserved capacity, you must have the owner role for at least one enterprise subscription or an individual subscription with pay-as-you-go rates.
+You can buy Isolated Stamp reserved capacity in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pay for the reservation [up front or with monthly payments](monthly-payments-reservations.md). To buy reserved capacity, you must have the owner role for at least one enterprise subscription or an individual subscription with pay-as-you-go rates.
 
 - For Enterprise subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). Or, if the setting is disabled, you must be an EA Admin.
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase SQL Data Warehouse reserved capacity.
@@ -51,7 +51,7 @@ You can buy Isolated Stamp reserved capacity in the [Azure portal](https://porta
     - **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
 1. Select a **Region** to choose an Azure region that's covered by the reserved capacity and add the reservation to the cart.
 1. Select an Isolated Plan type and then click **Select**.  
-    ![Example ](./media/billing-prepay-app-service-isolated-stamp/app-service-isolated-stamp-select.png)
+    ![Example ](./media/prepay-app-service-isolated-stamp/app-service-isolated-stamp-select.png)
 1. Enter the quantity of App Service Isolated stamps to reserve. For example, a quantity of three would give you three reserved stamps a region. Click **Next: Review + Buy**.
 1. Review and click **Buy now**.
 
@@ -59,17 +59,17 @@ After purchase, go to [Reservations](https://portal.azure.com/#blade/Microsoft_A
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](billing-azure-reservations-self-service-exchange-and-refund.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
 ## Discount application shown in usage data
 
 Your usage data has an effective price of zero for the usage that gets a reservation discount. The usage data shows the reservation discount for each stamp instance in each reservation.
 
-For more information about how reservation discount shows in usage data, see [Get Enterprise Agreement reservation costs and usage](billing-understand-reserved-instance-usage-ea.md) if you're an Enterprise Agreement (EA) customer. Otherwise see, [Understand Azure reservation usage for your individual subscription with pay-as-you-go rates](billing-understand-reserved-instance-usage.md).
+For more information about how reservation discount shows in usage data, see [Get Enterprise Agreement reservation costs and usage](understand-reserved-instance-usage-ea.md) if you're an Enterprise Agreement (EA) customer. Otherwise see, [Understand Azure reservation usage for your individual subscription with pay-as-you-go rates](understand-reserved-instance-usage.md).
 
 ## Next steps
 
 - To learn more about Azure Reservations, see the following articles:
-  - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-  - [Understand how an Azure App Service Isolated Stamp reservation discount is applied](billing-reservation-discount-app-service-isolated-stamp.md)
-  - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+  - [What are Azure Reservations?](save-compute-costs-reservations.md)
+  - [Understand how an Azure App Service Isolated Stamp reservation discount is applied](reservation-discount-app-service-isolated-stamp.md)
+  - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

@@ -23,7 +23,7 @@ When you shut down a resource, the reservation discount automatically applies to
 
 ## Reservation discount applied to Azure Cosmos DB accounts
 
-A reservation discount is applied to [provisioned throughput](../cosmos-db/request-units.md) in terms of request units per second (RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If you don't have Cosmos DB resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
+A reservation discount is applied to [provisioned throughput](../../cosmos-db/request-units.md) in terms of request units per second (RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If you don't have Cosmos DB resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
 
 The discounts are tiered. Reservations with higher request units provide higher discounts.
 
@@ -102,7 +102,7 @@ The 100,000 RU/s of reservation purchase would offset the 75,000 RU/s in AU Cent
 
 The Azure billing system will assign the reservation billing benefit to the first instance that is processed and that matches the reservation configuration. For example, it's AU Central 2 in this case.
 
-To understand and view the application of your Azure reservations in billing usage reports, see [Understand Azure reservation usage](../billing/billing-understand-reserved-instance-usage-ea.md).
+To understand and view the application of your Azure reservations in billing usage reports, see [Understand Azure reservation usage](understand-reserved-instance-usage-ea.md).
 
 ## Need help? Contact us.
 
@@ -112,10 +112,10 @@ If you have questions or need help, [create a support request](https://go.micros
 
 To learn more about Azure reservations, see the following articles:
 
-* [What are reservations for Azure](../billing/billing-save-compute-costs-reservations.md)  
-* [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)  
-* [Manage reservations for Azure](../billing/billing-manage-reserved-vm-instance.md)  
-* [Understand reservation usage for your Pay-As-You-Go subscription](../billing/billing-understand-reserved-instance-usage.md)  
-* [Understand reservation usage for your Enterprise enrollment](../billing/billing-understand-reserved-instance-usage-ea.md)
+* [What are reservations for Azure](save-compute-costs-reservations.md)  
+* [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)  
+* [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)  
+* [Manage reservations for Azure](manage-reserved-vm-instance.md)  
+* [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)  
+* [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
 * [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)

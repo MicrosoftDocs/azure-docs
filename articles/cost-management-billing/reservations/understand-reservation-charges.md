@@ -17,7 +17,7 @@ ms.author: banders
 
 After you buy an Azure SQL Database reserved capacity, the reservation discount is automatically applied to SQL Databases that match the attributes and quantity of the reservation. A reservation covers the compute costs of your SQL Database. You're charged for software, storage, and networking at the normal rates. You can cover the licensing costs for SQL Databases with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-For Reserved Virtual Machine Instances, see [Understand Azure Reserved VM Instances discount](../cost-management-billing/manage/understand-vm-reservation-charges.md).
+For Reserved Virtual Machine Instances, see [Understand Azure Reserved VM Instances discount](../manage/understand-vm-reservation-charges.md).
 
 ## How reservation discount is applied
 
@@ -39,7 +39,7 @@ For the rest of these examples, assume that the SQL Database reserved capacity y
 - Scenario 3: You run one 16 core SQL Database from 1 pm to 1:30 pm. You run another 16 core SQL Database from 1:30 to 2 pm. Both are covered by the reservation discount.
 - Scenario 4: You run one 16 core SQL Database from 1 pm to 1:45 pm. You run another 16 core SQL Database from 1:30 to 2 pm. You're charged the pay-as-you-go price for the 15-minute overlap. The reservation discount applies to the compute usage for the rest of the time.
 
-To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](billing-understand-reserved-instance-usage-ea.md).
+To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](understand-reserved-instance-usage-ea.md).
 
 ## Need help? Contact us
 
@@ -49,10 +49,10 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 To learn more about Azure Reservations, see the following articles:
 
-- [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
-- [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
-- [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+- [What are Azure Reservations?](save-compute-costs-reservations.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)
+- [Manage Azure Reservations](manage-reserved-vm-instance.md)
+- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+- [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
 - [Understand reservation usage for CSP subscriptions](/partner-center/azure-reservations)

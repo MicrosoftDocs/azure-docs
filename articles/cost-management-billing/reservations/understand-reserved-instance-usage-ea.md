@@ -32,7 +32,7 @@ Data is divided into two separate data sets: _Actual Cost_ and _Amortized Cost_.
 
 **Actual Cost** - Provides data to reconcile with your monthly bill. This data has reservation purchase costs and reservation application details. With this data, you can know which subscription or resource group or resource received the reservation discount in a particular day. The EffectivePrice for the usage that receives the reservation discount is zero.
 
-**Amortized Cost** - This dataset is similar to the Actual Cost dataset except that - the EffectivePrice for the usage that gets reservation discount is the prorated cost of the reservation (instead of being zero). This helps you know the monetary value of reservation consumption by a subscription, resource group or a resource, and can help you charge back for the reservation utilization internally. The dataset also has unused reservation hours. The dataset does not have reservation purchase records. 
+**Amortized Cost** - This dataset is similar to the Actual Cost dataset except that - the EffectivePrice for the usage that gets reservation discount is the prorated cost of the reservation (instead of being zero). This helps you know the monetary value of reservation consumption by a subscription, resource group or a resource, and can help you charge back for the reservation utilization internally. The dataset also has unused reservation hours. The dataset does not have reservation purchase records.
 
 Comparison of two data sets:
 
@@ -58,7 +58,7 @@ Other information available in Azure usage data has changed:
 
 You can get the data using the API or download it from Azure portal.
 
-You call the [Usage Details API](/rest/api/consumption/usagedetails/list) to get the new data. For details about terminology, see [usage terms](../cost-management-billing/understand/understand-usage.md). The caller should be an Enterprise Administrator for the enterprise agreement using the [EA portal](https://ea.azure.com). Read-only Enterprise Administrators can also get the data.
+You call the [Usage Details API](/rest/api/consumption/usagedetails/list) to get the new data. For details about terminology, see [usage terms](../understand/understand-usage.md). The caller should be an Enterprise Administrator for the enterprise agreement using the [EA portal](https://ea.azure.com). Read-only Enterprise Administrators can also get the data.
 
 The data is not available in [Reporting APIs for Enterprise customers - Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
@@ -91,7 +91,7 @@ In the Azure portal, navigate to [Cost management + billing](https://portal.azur
 1. Select the billing account.
 2. Click **Usage + charges**.
 3. Click **Download**.  
-![Example showing where to Download the CSV usage data file in the Azure portal](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
+![Example showing where to Download the CSV usage data file in the Azure portal](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
 4. In **Download Usage + Charges** , under **Usage Details Version 2** , select **All Charges (usage and purchases)** and then click download. Repeat for **Amortized charges (usage and purchases)**.
 
 The CSV files that you download contain actual costs and amortized costs.
@@ -141,7 +141,7 @@ Get the Amortized costs data and filter the data for a reserved instance. Then:
 
 Reservation costs are available in [cost analysis](https://aka.ms/costanalysis). By default, cost analysis shows **Actual cost**, which is how costs will be shown on your bill. To view reservation purchases broken down and associated with the resources which used the benefit, switch to **Amortized cost**:
 
-![Example showing where to select amortized cost in cost analysis](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
+![Example showing where to select amortized cost in cost analysis](./media/understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
 Group by charge type to see a break down of usage, purchases, and refunds; or by reservation for a breakdown of reservation and on-demand costs. Remember the only reservation costs you will see when looking at actual cost are purchases, but costs will be allocated to the individual resources which used the benfit when looking at amortized cost. You will also see a new **UnusedReservation** charge type when looking at amortized cost.
 
@@ -153,10 +153,10 @@ If you have questions or need help, [create a support request](https://go.micros
 
 To learn more about Azure Reservations, see the following articles:
 
-- [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
-- [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
-- [Understand how the reservation discount is applied](../cost-management-billing/manage/understand-vm-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
-- [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
+- [What are Azure Reservations?](save-compute-costs-reservations.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)
+- [Manage Azure Reservations](manage-reserved-vm-instance.md)
+- [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)
+- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+- [Windows software costs not included with Reservations](reserved-instance-windows-software-costs.md)

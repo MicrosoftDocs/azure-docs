@@ -51,7 +51,7 @@ You can buy Databricks plans in the [Azure portal](https://portal.azure.com/#bla
 1. Select how many Azure Databricks commit units you want to purchase and complete the purchase.
 
 
-![Example showing Azure Databricks purchase in the Azure portal](./media/billing-prepay-databricks-reserved-capacity/data-bricks-pre-purchase.png)
+![Example showing Azure Databricks purchase in the Azure portal](./media/prepay-databricks-reserved-capacity/data-bricks-pre-purchase.png)
 
 ## Change scope and ownership
 
@@ -60,7 +60,7 @@ You can make the following types of changes to a reservation after purchase:
 - Update reservation scope
 - Role-based access
 
-You can't split or merge the Databricks commit unit pre-purchase. For more information about managing reservations, see [Manage reservations after purchase](billing-manage-reserved-vm-instance.md).
+You can't split or merge the Databricks commit unit pre-purchase. For more information about managing reservations, see [Manage reservations after purchase](manage-reserved-vm-instance.md).
 
 ## Cancellations and exchanges
 
@@ -73,6 +73,6 @@ If you have questions or need help, [create a support request](https://portal.az
 ## Next steps
 
 - To learn more about Azure Reservations, see the following articles:
-  - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-  - [Understand how an Azure Databricks pre-purchase DBCU discount is applied](billing-reservation-discount-databricks.md)
-  - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+  - [What are Azure Reservations?](save-compute-costs-reservations.md)
+  - [Understand how an Azure Databricks pre-purchase DBCU discount is applied](reservation-discount-databricks.md)
+  - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

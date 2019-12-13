@@ -7,7 +7,7 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: yahajiza
+ms.author: tanmayb
 ---
 
 # Manage models in the repository

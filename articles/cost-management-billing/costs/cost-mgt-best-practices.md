@@ -174,7 +174,7 @@ Azure has many discounts that your organization should take advantage of to save
 
 Azure Reservations allow you to prepay for one-year or three-years of virtual machine or SQL Database compute capacity. Pre-paying will allow you to get a discount on the resources you use. Azure reservations can significantly reduce your virtual machine or SQL database compute costs — up to 72 percent on pay-as-you-go prices with one-year or three-year upfront commitment. Reservations provide a billing discount and don't affect the runtime state of your virtual machines or SQL databases.
 
-For more information, see [What are Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md).
+For more information, see [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md).
 
 #### Use Azure Hybrid Benefit
 

@@ -63,12 +63,12 @@ You can get the cost of each of these meters through Azure RateCard API. For inf
 ## Next steps
 To learn more about reservations for Azure, see the following articles:
 
-- [What are reservations for Azure?](billing-save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage reservations for Azure](billing-manage-reserved-vm-instance.md)
-- [Understand how the reservation discount is applied](../cost-management-billing/manage/understand-vm-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
-- [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+- [What are reservations for Azure?](save-compute-costs-reservations.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Manage reservations for Azure](manage-reserved-vm-instance.md)
+- [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)
+- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+- [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
 
 ## Need help? Contact us
 

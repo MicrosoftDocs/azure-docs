@@ -18,7 +18,7 @@ After you buy an Azure reservation, you may need to apply the reservation to a d
 If you bought Azure Reserved Virtual Machine Instances, you may change the optimize setting for the reservation. The reservation discount can apply to VMs in the same series or you can reserve data center capacity for a specific VM size. And, you should try to optimize reservations so that they are fully used.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Reservation Order and Reservation
 
@@ -28,7 +28,7 @@ At the time of purchase, a Reservation Order has one Reservation under it. Actio
 
 To view a Reservation Order, go to **Reservations** > select the reservation, and then click the **Reservation order ID**.
 
-![Example of reservation order details showing Reservation order ID ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+![Example of reservation order details showing Reservation order ID ](./media/manage-reserved-vm-instance/reservation-order-details.png)
 
 A reservation inherits permissions from its reservation order.
 
@@ -102,7 +102,7 @@ To delegate access management for a reservation:
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](billing-azure-reservations-self-service-exchange-and-refund.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
 ## Change optimize setting for Reserved VM Instances
 
@@ -130,14 +130,14 @@ One way of viewing reservation usage is in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select  **All services** > [**Reservations**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and note the **Utilization (%)** for a reservation.  
-  ![Image showing the list of reservations](./media/billing-manage-reserved-vm-instance/reservation-list.png)
+  ![Image showing the list of reservations](./media/manage-reserved-vm-instance/reservation-list.png)
 3. Select a reservation.
 4. Review the reservation use trend over time.  
-  ![Image showing reservation use ](./media/billing-manage-reserved-vm-instance/reservation-utilization-trend.png)
+  ![Image showing reservation use ](./media/manage-reserved-vm-instance/reservation-utilization-trend.png)
 
 ### View reservation use with API
 
-If you're an Enterprise Agreement (EA) customer, you can programmatically view how the reservations in your organization are being used. You get unused reservation through usage data. When you review reservation charges, keep in mind that data is divided between actual cost and amortized costs. Actual cost provides data to reconcile you monthly bill. It also has reservation purchase cost and reservation application details. Amortized cost is like actual cost except that the effective price for reservation usage is prorated. Unused reservation hours are shown in amortized cost data. For more information about usage data for EA customers, see [Get Enterprise Agreement reservation costs and usage](billing-understand-reserved-instance-usage-ea.md).
+If you're an Enterprise Agreement (EA) customer, you can programmatically view how the reservations in your organization are being used. You get unused reservation through usage data. When you review reservation charges, keep in mind that data is divided between actual cost and amortized costs. Actual cost provides data to reconcile you monthly bill. It also has reservation purchase cost and reservation application details. Amortized cost is like actual cost except that the effective price for reservation usage is prorated. Unused reservation hours are shown in amortized cost data. For more information about usage data for EA customers, see [Get Enterprise Agreement reservation costs and usage](understand-reserved-instance-usage-ea.md).
 
 For other subscription types, use the API [Reservations Summaries - List By Reservation Order And Reservation](/rest/api/consumption/reservationssummaries/listbyreservationorderandreservation).
 
@@ -159,22 +159,22 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 To learn more about Azure Reservations, see the following articles:
 
-- [What are reservations for Azure?](billing-save-compute-costs-reservations.md)
+- [What are reservations for Azure?](save-compute-costs-reservations.md)
 
 Buy a service plan:
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
-- [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)
+- [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Buy a software plan:
-- [Prepay for Red Hat software plans from Azure Reservations](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Prepay for SUSE software plans from Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Prepay for Red Hat software plans from Azure Reservations](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Prepay for SUSE software plans from Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Understand discount and usage:
-- [Understand how the VM reservation discount is applied](../cost-management-billing/manage/understand-vm-reservation-charges.md)
-- [Understand how the Red Hat Enterprise Linux software plan discount is applied](../billing/billing-understand-rhel-reservation-charges.md)
-- [Understand how the SUSE Linux Enterprise software plan discount is applied](../billing/billing-understand-suse-reservation-charges.md)
-- [Understand how other reservation discounts are applied](billing-understand-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
-- [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
-- [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
+- [Understand how the VM reservation discount is applied](../manage/understand-vm-reservation-charges.md)
+- [Understand how the Red Hat Enterprise Linux software plan discount is applied](understand-rhel-reservation-charges.md)
+- [Understand how the SUSE Linux Enterprise software plan discount is applied](understand-suse-reservation-charges.md)
+- [Understand how other reservation discounts are applied](understand-reservation-charges.md)
+- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+- [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
+- [Windows software costs not included with Reservations](reserved-instance-windows-software-costs.md)
