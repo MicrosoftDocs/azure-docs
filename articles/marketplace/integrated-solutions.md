@@ -22,7 +22,7 @@ In other scenarios, partners co-sell or co-market their solution together, where
 
 Advantages of an integrated approach are:
 
-* *Industry expertise*: Systems Integrators providing industry-specific solutions and knowledge
+* *Industry expertise*: Service partners providing industry-specific solutions and knowledge
 * *Time to value*: Integrated deployment approach to help you realize immediate benefits
 * *Best-of-breed solutions*: Discover the ease of an integrated buying and implementation experience
 
