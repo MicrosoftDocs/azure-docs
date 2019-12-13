@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
-ms.date: 2019/12/13
+ms.date: 12/13/2019
 ---
 # Automated backups
 
