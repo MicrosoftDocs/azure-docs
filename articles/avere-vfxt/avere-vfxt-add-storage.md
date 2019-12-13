@@ -4,7 +4,7 @@ description: How to add a back-end storage system to your Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 12/14/2019
 ms.author: rohogue
 ---
 
@@ -13,13 +13,13 @@ ms.author: rohogue
 This step sets up a back-end storage system for your vFXT cluster.
 
 > [!TIP]
-> If you created a new Azure Blob container along with the Avere vFXT cluster, that container is already set up for use and you do not need to add storage.
+> If you created a new Azure Blob container along with the Avere vFXT cluster, that container is already configured and ready to use.
 
 Follow these instructions if you did not create a new Blob container with your cluster, or if you want to add an additional hardware or cloud-based storage system.
 
 There are two main tasks:
 
-1. [Create a core filer](#create-a-core-filer), which connects your vFXT cluster to an existing storage system or an Azure Storage Account.
+1. [Create a core filer](#create-a-core-filer), which connects your vFXT cluster to an existing storage system or an Azure Storage account container.
 
 1. [Create a namespace junction](#create-a-junction), which defines the path that clients will mount.
 
@@ -27,18 +27,18 @@ These steps use the Avere Control Panel. Read [Access the vFXT cluster](avere-vf
 
 ## Create a core filer
 
-"Core filer" is a vFXT term for a backend storage system. The storage can be a hardware NAS appliance like NetApp or Isilon, or it can be a cloud object store. More information about core filers can be found [in the Avere cluster settings guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
+"Core filer" is a vFXT term for a backend storage system. The storage can be a hardware NAS appliance like NetApp or Isilon, or it can be a cloud object store. More information about core filers can be found in the [Avere cluster settings guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 To add a core filer, choose one of the two main types of core filers:
 
 * [NAS core filer](#nas-core-filer) - describes how to add a NAS core filer
-* [Azure Storage cloud core filer](#azure-storage-cloud-core-filer) - describes how to add an Azure Storage account as a cloud core filer
+* [Azure Storage cloud core filer](#azure-blob-storage-cloud-core-filer) - describes how to add an Azure Blob storage container as a cloud core filer
 
 ### NAS core filer
 
-A NAS core filer can be an on-premises NetApp or Isilon, or a NAS endpoint in the cloud. The storage system must have a reliable high-speed connection to the Avere vFXT cluster - for example, a 1GBps ExpressRoute connection (not a VPN) - and it must give the cluster root access to the NAS exports being used.
+A NAS core filer can be an on-premises NetApp or Isilon appliance, or a NAS endpoint in the cloud. The storage system must have a reliable high-speed connection to the Avere vFXT cluster - for example, a 1GBps ExpressRoute connection (not a VPN) - and it must give the cluster root access to the NAS exports being used.
 
-The following steps add a NAS core filer:
+Follow these steps to add a NAS core filer:
 
 1. From the Avere Control Panel, click the **Settings** tab at the top.
 
@@ -62,12 +62,9 @@ The following steps add a NAS core filer:
 
 Next, proceed to [Create a junction](#create-a-junction).  
 
-### Azure Storage cloud core filer
+### Azure Blob Storage cloud core filer
 
 To use Azure Blob storage as your vFXT cluster's backend storage, you need an empty container to add as a core filer.
-
-> [!TIP]
-> If you choose to create a blob container at the same time you create the Avere vFXT cluster, the deployment template or script creates a storage container, defines it as a core filer, and creates the namespace junction as part of the vFXT cluster creation. The template also creates a storage service endpoint inside the cluster's virtual network.
 
 Adding Blob storage to your cluster requires these tasks:
 
@@ -76,6 +73,16 @@ Adding Blob storage to your cluster requires these tasks:
 * Add the storage access key as a cloud credential for the vFXT cluster (steps 4-6)
 * Add the Blob container as a core filer for the vFXT cluster (steps 7-9)
 * Create a namespace junction that clients use to mount the core filer ([Create a junction](#create-a-junction), same for both hardware and cloud storage)
+
+> [!TIP]
+> If you create a new Blob container when you create an Avere vFXT for Azure cluster, the deployment template automatically configures the container as a core filer. (This is also true if you use the creation script, which is available on request.) You do not need to configure the core filer afterward.
+>
+> The cluster creation tool does these configuration tasks for you:
+>
+> * Creates a new Blob container in the provided storage account
+> * Defines the container as a core filer
+> * Creates a namespace junction to the container
+> * Creates a storage service endpoint inside the cluster's virtual network
 
 To add Blob storage after creating the cluster, follow these steps.
 
@@ -99,11 +106,11 @@ To add Blob storage after creating the cluster, follow these steps.
 
    ![New storage account in Azure portal](media/avere-vfxt-new-storage-acct.png)
 
-1. Create a blob container by clicking **Blobs** on the overview page and then click **+Container**. Use any container name, and make sure access is set to **Private**.
+1. Create a new Blob container: Click **Containers** on the overview page and then click **+Container**. Use any container name, and make sure access is set to **Private**.
 
-   ![Storage blobs page with no existing containers](media/avere-vfxt-blob-no-container.png)
+   ![Storage blobs page with the +container button circled and a new container being created in a pop-up page](media/avere-vfxt-new-blob.png)
 
-1. Get the Azure Storage account key by clicking **Access keys** under **Settings**:
+1. Get the Azure Storage account key by clicking **Access keys** under **Settings**. Copy one of the keys provided.
 
    ![Azure portal GUI for copying the key](media/avere-vfxt-copy-storage-key.png)
 
@@ -116,7 +123,7 @@ To add Blob storage after creating the cluster, follow these steps.
    | Field | Value |
    | --- | --- |
    | Credential name | any descriptive name |
-   | Service type | (select Azure Storage Access Key) |
+   | Service type | (select Azure Storage access key) |
    | Tenant | storage account name |
    | Subscription | subscription ID |
    | Storage Access Key | Azure storage account key (copied in the previous step) |
@@ -154,14 +161,14 @@ Next, you need to [Create a junction](#create-a-junction).
 
 A junction is a path that you create for clients. Clients mount the path and arrive at the destination you choose.
 
-For example, you could create `/avere/files` to map to your NetApp core filer `/vol0/data` export and the `/project/resources` subdirectory.
+For example, you could create `/vfxt/files` to map to your NetApp core filer `/vol0/data` export and the `/project/resources` subdirectory.
 
 More information about junctions can be found in the [namespace section of the Avere cluster configuration guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
-Follow these steps in the Avere Control Panel settings interface:
+Follow these steps in the Avere Control Panel interface:
 
 * Click **VServer** > **Namespace** in the upper left.
-* Provide a namespace path beginning with / (forward slash), like ``/avere/data``.
+* Provide a namespace path beginning with / (forward slash), like ``/vfxt/data``.
 * Choose your core filer.
 * Choose the core filer export.
 * Click **Next**.
@@ -170,4 +177,9 @@ Follow these steps in the Avere Control Panel settings interface:
 
 The junction will appear after a few seconds. Create additional junctions as needed.
 
-After the junction has been created, clients can [Mount the Avere vFXT cluster](avere-vfxt-mount-clients.md) to access the file system.
+After the junction has been created, clients use the namespace path to access the files from the storage system.
+
+## Next steps
+
+* [Mount the Avere vFXT cluster](avere-vfxt-mount-clients.md)
+* Learn efficient ways to [move data to a new Blob container](avere-vfxt-dta-ingest.md)
