@@ -57,7 +57,7 @@ See the [Durable Functions host.json reference documentation](durable-functions-
 
 #### Default taskhub name changes
 
-In version 1.x, if a taskhub name was not specified in host.json, it was defaulted to "DurableFunctionsHub". In version 2.x, the default Task Hub name is now the name of the function application. Because of this, if you have not specified a taskhub name when upgrading to 2.x, your code will be operating with new taskhub, and all in-flight orchestrations will no longer have an application processing them. To work around this, you can either explicitly set your taskhub name to the v1.x default of "DurableFunctionsHub", or you can follow our [zero-downtime deployment guidance](durable-functions-zero-downtime-deployment.md) for details on how to handle breaking changes for in-flight orchestrations.
+In version 1.x, if a task hub name was not specified in host.json, it was defaulted to "DurableFunctionsHub". In version 2.x, the default task hub name is now derived from the name of the function app. Because of this, if you have not specified a task hub name when upgrading to 2.x, your code will be operating with new task hub, and all in-flight orchestrations will no longer have an application processing them. To work around this, you can either explicitly set your task hub name to the v1.x default of "DurableFunctionsHub", or you can follow our [zero-downtime deployment guidance](durable-functions-zero-downtime-deployment.md) for details on how to handle breaking changes for in-flight orchestrations.
 
 #### Public interface changes (.NET only)
 
