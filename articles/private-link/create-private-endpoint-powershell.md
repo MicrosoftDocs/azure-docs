@@ -2,12 +2,12 @@
 title: 'Create an Azure Private Endpoint using Azure PowerShell| Microsoft Docs'
 description: Learn about Azure Private Link
 services: private-link
-author: KumudD
+author: malopMSFT
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Create a private endpoint using Azure PowerShell

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
@@ -38,6 +38,7 @@ The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-p
 * Microsoft Graph: `https://graph.microsoft.com`
 * Office 365 Mail API: `https://outlook.office.com`
 * Azure AD Graph: `https://graph.windows.net`
+* Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
 > We strongly recommend that you use Microsoft Graph instead of Azure AD Graph, Office 365 Mail API, etc.
@@ -94,7 +95,10 @@ The `profile` scope can be used with the `openid` scope and any others. It gives
 
 The [`offline_access` scope](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) gives your app access to resources on behalf of the user for an extended time. On the consent page, this scope appears as the "Maintain access to data you have given it access to" permission. When a user approves the `offline_access` scope, your app can receive refresh tokens from the Microsoft identity platform token endpoint. Refresh tokens are long-lived. Your app can get new access tokens as older ones expire.
 
-If your app does not explicitly request the `offline_access` scope, it won't receive refresh tokens. This means that when you redeem an authorization code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md), you'll receive only an access token from the `/token` endpoint. The access token is valid for a short time. The access token usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions. While the `offline_access` scope is automatically requested by the server, your client must still request it in order to receive the refresh tokens.
+> [!NOTE]
+> This permission appears on all consent screens today, even for flows that don't provide a refresh token (the [implicit flow](v2-oauth2-implicit-grant-flow.md)).  This is to cover scenarios where a client can begin within the implicit flow, and then move onto to the code flow where a refresh token is expected.
+
+On the Microsoft identity platform (requests made to the v2.0 endpoint), your app must explicitly request the `offline_access` scope, to receive refresh tokens. This means that when you redeem an authorization code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md), you'll receive only an access token from the `/token` endpoint. The access token is valid for a short time. The access token usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions. 
 
 For more information about how to get and use refresh tokens, see the [Microsoft identity platform protocol reference](active-directory-v2-protocols.md).
 

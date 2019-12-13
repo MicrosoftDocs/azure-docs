@@ -1,15 +1,11 @@
 ---
-title: Monitor Kubernetes cluster performance with Azure Monitor for containers | Microsoft Docs
-description: This article describes how you can view and analyze the performance and log data with Azure Monitor for containers.
-ms.service:  azure-monitor
-ms.subservice: 
+title: Kubernetes monitoring with Azure Monitor for containers | Microsoft Docs
+description: This article describes how you can view and analyze the performance of a Kubernetes cluster with Azure Monitor for containers.
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
 ---
 
-# Understand Kubernetes cluster performance with Azure Monitor for containers
+# Monitor your Kubernetes cluster performance with Azure Monitor for containers
 
 With Azure Monitor for containers, you can use the performance charts and health status to monitor the workload of Kubernetes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or other environment from two perspectives. You can monitor directly from the cluster, or you can view all clusters in a subscription from Azure Monitor. Viewing Azure Container Instances is also possible when monitoring a specific AKS cluster.
 

@@ -5,7 +5,7 @@ author: bandersmsft
 manager: amberb
 tags: billing
 ms.assetid: 3051d6b0-179f-4e3a-bda4-3fee7135eac5
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,7 +16,7 @@ ms.author: banders
 ---
 # Cancel your Azure subscription
 
-You can cancel your Azure subscription in the Azure portal if you no longer need the subscription. 
+You can cancel your Azure subscription in the Azure portal if you no longer need the subscription.
 
 Before you cancel your subscription:
 * Back up your data. For example, if you're storing data in Azure storage or SQL, download a copy. If you have a virtual machine, save an image of it locally.

@@ -7,8 +7,8 @@ ms.subservice: security
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
 ---
@@ -143,10 +143,6 @@ For more information, see [Get started with data discovery & classification](sql
 ### Compliance
 
 In addition to the above features and functionality that can help your application meet various security requirements, Azure SQL Database also participates in regular audits, and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
-
-### Feature restrictions
-
-Feature restrictions help prevent some forms of SQL injection from leaking information about the database, even when the SQL injection is successful. For more information, see [Azure SQL Database Feature Restrictions](sql-database-feature-restrictions.md).
 
 ## Next steps
 

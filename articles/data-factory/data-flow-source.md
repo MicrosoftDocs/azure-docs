@@ -1,11 +1,13 @@
 ---
-title: Source transformation in mapping data flow - Azure Data Factory 
+title: Source transformation in mapping data flow
 description: Learn how to set up a source transformation in mapping data flow. 
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.custom: seo-lt-2019
+ms.date: 12/11/2019
 ---
 
 # Source transformation for mapping data flow 
@@ -124,7 +126,10 @@ If your source is in SQL Database or SQL Data Warehouse, additional SQL-specific
 
 **Input:** Select whether you point your source at a table (equivalent of ```Select * from <table-name>```) or enter a custom SQL query.
 
-**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups. Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups. 
+
+* SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+* CosmosDB Example: ```SELECT c.movies.year FROM moviesdemo c```
 
 **Batch size**: Enter a batch size to chunk large data into reads.
 
@@ -149,7 +154,7 @@ You can modify the column data types in a down-stream derived-column transformat
 
 ### Import schema
 
-Datasets like Avro and CosmosDB that support complex data structures do not require schema definitions to exist in the dataset. Therefore, you will be able to click the "Import Schema" button the Projection tab for these types of sources.
+Datasets like Avro and CosmosDB that support complex data structures do not require schema definitions to exist in the dataset. Therefore, you will be able to click the **Import Schema** button on the **Projection** tab for these types of sources.
 
 ## CosmosDB specific settings
 

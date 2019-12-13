@@ -1,14 +1,8 @@
 ---
-title: 'Azure Backup: Recover files and folders from Azure VM backup'
+title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: item level recovery; file recovery from Azure VM backup; restore files from Azure VM
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: dacurwin
 ---
 # Recover files from Azure virtual machine backup
 
@@ -215,9 +209,9 @@ The script also requires Python and bash components to execute and connect secur
 
 ## File recovery from Virtual machine backups having large disks
 
-This section explains how to perform file recovery from Azure Virtual machine backups whose number of disks are > 16 and each disk size is > 4 TB.
+This section explains how to perform file recovery from Azure Virtual machine backups whose number of disks are > 16 and each disk size is > 32 TB.
 
-Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 4 TB each) are used, the following action points are recommended:
+Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 32 TB each) are used, the following action points are recommended:
 
 - Keep a separate restore server (Azure VM D2v3 VMs) for file recovery. You can use that only file recovery and then shut down when not required. Restoring on the original machine is not recommended since it will have significant impact on the VM itself.
 - Then run the script once to check if the file recovery operation succeeds.

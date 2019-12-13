@@ -67,11 +67,18 @@ Cluster name restrictions include:
 
 ## Access data using TabularDataset function
 
-Defined X and y as `TabularDataset`s, which are passed to Automated ML in the AutoMLConfig. `from_delimited_files` by default sets the `infer_column_types` to true, which will infer the columns type automatically. 
+Defined training_data as  `TabularDataset`and the label , which are passed to Automated ML in the AutoMLConfig. `from_delimited_files` by default sets the `infer_column_types` to true, which will infer the columns type automatically. 
 
 If you do wish to manually set the column types, you can set the `set_column_types` argument to manually set the type of each columns. In the following code sample, the data comes from the sklearn package.
 
 ```python
+from sklearn import datasets
+from azureml.core.dataset import Dataset
+from scipy import sparse
+import numpy as np
+import pandas as pd
+import os
+
 # Create a project_folder if it doesn't exist
 if not os.path.isdir('data'):
     os.mkdir('data')
@@ -79,44 +86,21 @@ if not os.path.isdir('data'):
 if not os.path.exists(project_folder):
     os.makedirs(project_folder)
 
-from sklearn import datasets
-from azureml.core.dataset import Dataset
-from scipy import sparse
-import numpy as np
-import pandas as pd
+X = pd.DataFrame(data_train.data[100:,:])
+y = pd.DataFrame(data_train.target[100:])
 
-data_train = datasets.load_digits()
+# merge X and y
+label = "digit"
+X[label] = y
 
-pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
-pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
+training_data = X
 
+training_data.to_csv('data/digits.csv')
 ds = ws.get_default_datastore()
 ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 
-X = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/X_train.csv'))
-y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
-
+training_data = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/digits.csv'))
 ```
-
-## Create run configuration
-
-To make dependencies available to the get_data.py script, define a `RunConfiguration` object with defined `CondaDependencies`. Use this object for the `run_configuration` parameter in `AutoMLConfig`.
-
-```python
-from azureml.core.runconfig import RunConfiguration
-from azureml.core.conda_dependencies import CondaDependencies
-
-run_config = RunConfiguration(framework="python")
-run_config.target = compute_target
-run_config.environment.docker.enabled = True
-run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-
-dependencies = CondaDependencies.create(
-    pip_packages=["scikit-learn", "scipy", "numpy"])
-run_config.environment.python.conda_dependencies = dependencies
-```
-
-See this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) for an additional example of this design pattern.
 
 ## Configure experiment
 Specify the settings for `AutoMLConfig`.  (See a [full list of parameters](how-to-configure-auto-train.md#configure-experiment) and their possible values.)
@@ -128,22 +112,20 @@ import logging
 
 automl_settings = {
     "name": "AutoML_Demo_Experiment_{0}".format(time.time()),
+    "experiment_timeout_minutes" : 20,
+    "enable_early_stopping" : True,
     "iteration_timeout_minutes": 10,
-    "iterations": 20,
     "n_cross_validations": 5,
     "primary_metric": 'AUC_weighted',
-    "preprocess": False,
     "max_concurrent_iterations": 10,
-    "verbosity": logging.INFO
 }
 
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
                              compute_target=compute_target,
-                             run_configuration=run_config,
-                             X = X,
-                             y = y,
+                             training_data=training_data,
+                             label_column_name=label,
                              **automl_settings,
                              )
 ```

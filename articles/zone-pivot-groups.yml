@@ -87,3 +87,11 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
+- id: URL-test-interface
+  title: URL Test tool
+  prompt: Choose one of the following
+  pivots:
+  - id: url-test-tool-curl
+    title: cURL
+  - id: url-test-tool-postman
+    title: Postman

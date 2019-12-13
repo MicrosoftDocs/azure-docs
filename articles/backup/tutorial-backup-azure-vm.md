@@ -1,12 +1,8 @@
 ---
-title: Back up multiple Azure VMs with PowerShell
+title: 'Tutorial: Multiple Azure VM backup with PowerShell'
 description: This tutorial details backing up multiple Azure VMs to a Recovery Services vault using Azure PowerShell.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: tutorial
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.custom: mvc
 ---
 # Back up Azure VMs with PowerShell

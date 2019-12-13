@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 12/03/2019
 ms.author: lahugh
 ---
 
@@ -50,13 +50,11 @@ Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers genera
 
 Generation 2 VMs support the following Marketplace images:
 
-* Windows Server 2019 Datacenter
-* Windows Server 2016 Datacenter
-* Windows Server 2012 R2 Datacenter
-* Windows Server 2012 Datacenter
+* Windows Server 2019, 2016, 2012 R2, 2012
+* Windows 10
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04,18.04, 19.04, 19.10 
+* Ubuntu Server 16.04, 18.04, 19.04, 19.10 
 * RHEL 8.0
 
 ## On-premises vs. Azure generation 2 VMs
@@ -88,7 +86,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 | OS disk > 2 TB                    | :x:                | :heavy_check_mark: |
 | Custom disk/image/swap OS         | :heavy_check_mark: | :heavy_check_mark: |
 | Virtual machine scale set support | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
 | Shared image gallery              | :heavy_check_mark: | :heavy_check_mark: |
 | Azure disk encryption             | :heavy_check_mark: | :x:                |

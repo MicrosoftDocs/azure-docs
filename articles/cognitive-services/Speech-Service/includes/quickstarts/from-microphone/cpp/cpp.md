@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech from a microphone, C++ - Speech Service"
+title: "Quickstart: Recognize speech from a microphone, C++ - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/07/2019
+ms.date: 11/19/2019
 ms.author: erhopf
 ---
 
@@ -18,7 +18,7 @@ ms.author: erhopf
 
 [!INCLUDE [linux](./linux.md)]
 
-# [macOS](#tab/MacOS)
+# [macOS](#tab/macOS)
 
 [!INCLUDE [macos](./macos.md)]
 

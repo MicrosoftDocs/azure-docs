@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Language Understanding (LUIS) authoring client library for Python"
 titleSuffix: Azure Cognitive Services 
-description: Get started with the LUIS client library for Python. Follow these steps to install the package and try out the example code for basic tasks.
+description: Get started with the LUIS client library for Python with this quickstart. Follow these steps to install the package and try out the example code for basic tasks.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/07/2019
+ms.date: 11/22/2019
 ms.author: diberry
 ---
 # Quickstart: Language Understanding (LUIS) authoring client library for Python
@@ -33,7 +33,46 @@ Use the Language Understanding (LUIS) authoring client library for Python to:
 
 ### Get your Language Understanding (LUIS) starter key
 
-Get your [starter key](luis-how-to-azure-subscription.md#starter-key), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `LUIS_AUTHORING_KEY` and an environment variable for the region of the key, `LUIS_REGION`.
+Get your [starter key](luis-how-to-azure-subscription.md#starter-key) by creating a LUIS authoring resource. Keep your key, and the region of the key for the next step.
+
+### Create an environment variable
+
+Using your key, and the region for the key, create two environment variables for authentication:
+
+* `LUIS_AUTHORING_KEY` - The resource key for authenticating your requests.
+* `LUIS_REGION` - The region associated with your key. For example `westus`.
+
+Use the instructions for your operating system.
+
+#### [Windows](#tab/windows)
+
+```console
+setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
+setx LUIS_REGION <replace-with-your-luis-region>
+```
+
+After you add the environment variable, restart the console window.
+
+#### [Linux](#tab/linux)
+
+```bash
+export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
+export LUIS_REGION=<replace-with-your-luis-region>
+```
+
+After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
+
+#### [macOS](#tab/unix)
+
+Edit your `.bash_profile`, and add the environment variable:
+
+```bash
+export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key> 
+export LUIS_REGION=<replace-with-your-luis-region>
+```
+
+After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
+***
 
 ### Install the Python library for LUIS
 

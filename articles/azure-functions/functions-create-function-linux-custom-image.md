@@ -1,13 +1,9 @@
 ---
 title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
-author: ggailey777
-ms.author: glenga
 ms.date: 09/27/2019
 ms.topic: tutorial
-ms.service: azure-functions
 ms.custom: mvc
-manager: gwallace                                                                                                            
 ---
 
 # Create a function on Linux using a custom image
@@ -31,7 +27,6 @@ In this tutorial, you learn how to:
 > * Enable continuous deployment.
 > * Enable SSH connections to the container.
 > * Add a Queue storage output binding. 
-> * Add Application Insights monitoring.
 
 The following steps are supported on a Mac, Windows, or Linux computer. 
 

@@ -5,12 +5,12 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 07/25/2018
 author: djpmsft
 ms.author: daperlov
-manager: craigg
+manager: anandsub
 ---
 
 # Monitor an integration runtime in Azure Data Factory  

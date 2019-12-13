@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Node.js.
@@ -53,7 +53,7 @@ if (!SUBSCRIPTION_KEY) {
 
 ## Create a function to make the request
 
-This function will make a secure GET request, saving the search query as a query parameter in the path. `encodeURIComponent` is used to escape invalid characters, and the subscription key is passed in a header. The callback receives a [response](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) that subscribes to the `data` event to aggregate the JSON body, the `error` event to log any issues, and the `end` event to know when the message should be considered complete. When complete, the app will print the interesting headers and message body. You can play with the colors and set the depth to suit your preference, a depth of `1` gives a nice summary of the response.
+This function will make a secure GET request, saving the search query as a query parameter in the path. `hostname` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.  `encodeURIComponent` is used to escape invalid characters, and the subscription key is passed in a header. The callback receives a [response](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) that subscribes to the `data` event to aggregate the JSON body, the `error` event to log any issues, and the `end` event to know when the message should be considered complete. When complete, the app will print the interesting headers and message body. You can play with the colors and set the depth to suit your preference, a depth of `1` gives a nice summary of the response.
 
 ```javascript
 function bingWebSearch(query) {

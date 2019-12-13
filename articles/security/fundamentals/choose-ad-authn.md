@@ -20,9 +20,10 @@ Choosing the correct authentication method is the first concern for organization
 
 3. It's the foundation of all the other advanced security and user experience features in Azure AD.
 
-4. The authentication method is difficult to change after it's implemented.
-
 Identity is the new control plane of IT security. So authentication is an organization’s access guard to the new cloud world. Organizations need an identity control plane that strengthens their security and keeps their cloud apps safe from intruders.
+
+> [!NOTE]
+> Changing your authentication method requires planning, testing, and potentially downtime. [Staged rollout](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) is a great way to test and gradually migrate from federation to cloud authentication.
 
 ### Out of scope
 Organizations that don't have an existing on-premises directory footprint aren't the focus of this article. Typically, those businesses create identities only in the cloud, which doesn’t require a hybrid identity solution. Cloud-only identities exist solely in the cloud and aren't associated with corresponding on-premises identities.
@@ -179,7 +180,7 @@ The following diagrams outline the high-level architecture components required f
 |What are the Conditional Access options?|[Azure AD Conditional Access, with Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Azure AD Conditional Access, with Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Azure AD Conditional Access, with Azure AD Premium](../../active-directory/conditional-access/overview.md)<br><br>[AD FS claim rules](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
 |Is blocking legacy protocols supported?|[Yes](../../active-directory/conditional-access/conditions.md)|[Yes](../../active-directory/conditional-access/conditions.md)|[Yes](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Can you customize the logo, image, and description on the sign-in pages?|[Yes, with Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Yes, with Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Yes](../../active-directory/hybrid/how-to-connect-fed-management.md)|
-|What advanced scenarios are supported?|[Smart password lockout](../../active-directory/authentication/concept-sspr-howitworks.md)<br><br>[Leaked credentials reports, with Azure AD Premium P2](../../active-directory/reports-monitoring/concept-risk-events.md)|[Smart password lockout](../../active-directory/authentication/howto-password-smart-lockout.md)|Multisite low-latency authentication system<br><br>[AD FS extranet lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integration with third-party identity systems](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
+|What advanced scenarios are supported?|[Smart password lockout](../../active-directory/authentication/howto-password-smart-lockout.md)<br><br>[Leaked credentials reports, with Azure AD Premium P2](../../active-directory/reports-monitoring/concept-risk-events.md)|[Smart password lockout](../../active-directory/authentication/howto-password-smart-lockout.md)|Multisite low-latency authentication system<br><br>[AD FS extranet lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integration with third-party identity systems](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
 
 > [!NOTE]
 > Custom controls in Azure AD Conditional Access does not currently support device registration.

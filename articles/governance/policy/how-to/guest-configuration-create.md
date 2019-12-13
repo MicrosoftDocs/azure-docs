@@ -1,8 +1,8 @@
 ---
 title: How to create Guest Configuration policies
-description: Learn how to create an Azure Policy Guest Configuration policy for Windows or Linux VMs.
-ms.date: 09/20/2019
-ms.topic: conceptual
+description: Learn how to create an Azure Policy Guest Configuration policy for Windows or Linux VMs with Azure PowerShell.
+ms.date: 11/21/2019
+ms.topic: how-to
 ---
 # How to create Guest Configuration policies
 
@@ -12,9 +12,8 @@ create the configuration for auditing of the Azure machines. The DSC configurati
 condition that the machine should be in. If the evaluation of the configuration fails, the Policy
 effect **auditIfNotExists** is triggered and the machine is considered **non-compliant**.
 
-[Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration)
-can only be used to audit settings inside machines. Remediation
-of settings inside machines isn't yet available.
+[Azure Policy Guest Configuration](../concepts/guest-configuration.md) can only be used to audit
+settings inside machines. Remediation of settings inside machines isn't yet available.
 
 Use the following actions to create your own configuration for validating the state of an Azure
 machine.
@@ -26,14 +25,17 @@ machine.
 
 To create a Guest Configuration policy, the resource module must be added. This resource module can
 be used with locally installed PowerShell, with [Azure Cloud Shell](https://shell.azure.com), or
-with the [Azure PowerShell Docker image](https://hub.docker.com/rsdk-powershell/).
+with the
+[Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 
 ### Base requirements
 
 The Guest Configuration resource module requires the following software:
 
-- PowerShell. If it isn't yet installed, follow [these instructions](/powershell/scripting/install/installing-powershell).
-- Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-az-ps).
+- PowerShell. If it isn't yet installed, follow
+  [these instructions](/powershell/scripting/install/installing-powershell).
+- Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow
+  [these instructions](/powershell/azure/install-az-ps).
 
 ### Install the module
 
@@ -209,8 +211,9 @@ Parameters of the `New-GuestConfigurationPackage` cmdlet:
 
 The completed package must be stored in a location that is accessible by the managed virtual
 machines. Examples include GitHub repositories, an Azure Repo, or Azure storage. If you prefer to
-not make the package public, you can include a [SAS token](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md)
-in the URL. You could also implement
+not make the package public, you can include a
+[SAS token](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) in the URL.
+You could also implement
 [service endpoint](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
 for machines in a private network, although this configuration applies only to accessing the package
 and not communicating with the service.
@@ -335,7 +338,8 @@ files.
 
 If you would like to use this command to scaffold a custom policy project, you can make changes to
 these files. An example would be modifying the 'If' section to evaluate whether a specific Tag is
-present for machines. For details on creating policies, see [Programmatically create policies](./programmatically-create.md).
+present for machines. For details on creating policies, see
+[Programmatically create policies](./programmatically-create.md).
 
 ### Using parameters in custom Guest Configuration policies
 
@@ -547,4 +551,4 @@ recent information.
 
 - Learn about auditing VMs with [Guest Configuration](../concepts/guest-configuration.md).
 - Understand how to [programmatically create policies](programmatically-create.md).
-- Learn how to [get compliance data](getting-compliance-data.md).
+- Learn how to [get compliance data](get-compliance-data.md).
