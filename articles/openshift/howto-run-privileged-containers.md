@@ -13,7 +13,7 @@ keywords: aro, openshift, aquasec, twistlock, red hat
 # Run privileged containers in an Azure Red Hat OpenShift cluster
 
 You can't run arbitrary privileged containers on Azure Red Hat OpenShift clusters.
-Two security monitoring and compliance solutions are whitelisted to run on ARO clusters.
+Two security monitoring and compliance solutions are allowed to run on ARO clusters.
 This document describes the differences from the generic OpenShift deployment documentation of the security product vendors.
 
 
@@ -26,10 +26,10 @@ The documentation of most security products assumes you have cluster-admin privi
 Customer admins don't have all privileges in Azure Red Hat OpenShift. Permissions to modify cluster-wide resources are limited.
 
 Make sure you're logged in to the cluster as a customer admin, by running
-`oc get scc`. All users in the customer admin group have permissions to view the SCCs on the cluster.
+`oc get scc`. All users in the customer admin group have permissions to view the Security Context Constraints (SCCs) on the cluster.
 
-## Product-specific steps for Aqua security
-The base instructions we're going to modify can be found at (https://docs.aquasec.com/docs/deploy-openshift).
+## Product-specific steps for Aqua Security
+The base instructions we're going to modify can be found in the [Aqua Security deployment documentation](https://docs.aquasec.com/docs/deploy-openshift).
 
 The first step is to annotate the SCCs you're editing. These annotations will prevent the Sync Pod from reverting your changes.
 
@@ -98,7 +98,7 @@ Set the following fields when deploying enforcers:
 
 ## Product-specific steps for Prisma Cloud / Twistlock
 
-The base instructions we're going to modify can be found at fhttps://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html
+The base instructions we're going to modify can be found in the [Prisma Cloud deployment documentation](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html)
 
 Start by creating a new OpenShift project
 ```
@@ -114,8 +114,8 @@ You can safely ignore it, the namespace has been created with the `oc new-projec
 
 ### Create an external route to Console
 
-You can either follow the documentation, or if you prefer to use the oc command
-copy the following Route definition to a file called twistlock_route.yaml
+You can either follow the documentation, or the instructions below if you prefer the oc command.
+Copy the following Route definition to a file called twistlock_route.yaml on your computer
 ```
 apiVersion: route.openshift.io/v1
 kind: Route
