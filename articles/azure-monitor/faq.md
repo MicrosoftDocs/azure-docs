@@ -2,17 +2,14 @@
 title: Azure Monitor FAQ | Microsoft Docs
 description: Answers to frequently asked questions about Azure Monitor.
 services: azure-monitor
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: 
 ms.topic: conceptual
-ms.date: 12/10/2019
+author: bwren
 ms.author: bwren
+ms.date: 12/12/2019
+
 ---
+
 
 # Azure Monitor FAQ
 
@@ -27,7 +24,7 @@ This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If
 In September 2018, Microsoft combined Azure Monitor, Log Analytics, and Application Insights into a single service to provide powerful end-to-end monitoring of your applications and their components. Features in Log Analytics and Application Insights have not changed, although some features have been rebranded to Azure Monitor in order to better reflect their new scope. The log data engine and query language of Log Analytics is now referred to as Azure Monitor Logs. See [Azure Monitor terminology updates](terminology.md).
 
 ## What is the cost of Azure Monitor?
-See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing information.
+Features of Azure Monitor that are automatically enabled such as collection of metrics and activity logs is provided at no cost. There is a cost associated with other features such as log queries and alerting. See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing information.
 
 
 ## Monitoring data
@@ -39,7 +36,7 @@ All data collected by Azure Monitor is stored in Logs or Metrics. Each has its o
 Azure Monitor collects data from a variety of sources including logs and metrics from Azure platform and resources, custom application, and agents running on virtual machines. Other services such as Azure Security Center and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also write custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](platform/data-sources.md).
 
 ### How do I access data collected by Azure Monitor?
-All log data in Azure Monitor is retrieved with a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data using Log Analytics. Analyze metrics in the Azure portal with the Metrics Explorer. See [Analyze log data in Azure Monitorlog-query/log-query-overview.md) and [Getting started with Azure Metrics Explorer](metrics-getting-started.md).
+All log data in Azure Monitor is retrieved with a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data using Log Analytics. Analyze metrics in the Azure portal with the Metrics Explorer. See [Analyze log data in Azure Monitorlog-query/log-query-overview.md) and [Getting started with Azure Metrics Explorer](platform/metrics-getting-started.md).
 
 ### What's the difference between Azure Monitor Logs and Azure Data Explorer?
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Monitor Logs is built on top of Azure Data Explorer and uses the same Kusto Query Language (KQL) with some minor differences. See [Azure Monitor log query language differences](log-query/data-explorer-difference.md).
@@ -70,99 +67,7 @@ Monitoring solutions are packaged sets of logic for monitoring a particular appl
 Azure Monitor is enabled the moment that you create a new Azure subscription. Configure features and add [monitoring solutions](insights/solutions.md) and [insights](insights/insights-overview.md) to provide 
 
 ### Q: How do I being monitoring Azure resources?
-[Activity log](activity-log-overview.md) events and [metrics](data-platform-metrics.md) are automatically collected for any Azure resources that you create. Create a [Log Analytics workspace](learn/quick-create-workspace.md) to start collecting [Diagnostic logs](diagnostic-logs-overview.md). Enable insights and monitoring solutions to provide packaged 
-
-## Applications
-
-
-
-
-## Configuration
-### Q. Can I change the name of the table/blob container used to read from Azure Diagnostics (WAD)?
-
-A. No, it is not currently possible to read from arbitrary tables or containers in Azure storage.
-
-### Q. What IP addresses does the Log Analytics service use? How do I ensure that my firewall only allows traffic to the Log Analytics service?
-
-A. The Log Analytics service is built on top of Azure. Log Analytics IP addresses are in the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653).
-
-As service deployments are made, the actual IP addresses of the Log Analytics service change. The DNS names to allow through your firewall are documented in [network requirements](platform/log-analytics-agent.md#network-firewall-requirements).
-
-### Q. I use ExpressRoute for connecting to Azure. Does my Log Analytics traffic use my ExpressRoute connection?
-
-A. The different types of ExpressRoute traffic are described in the [ExpressRoute documentation](../expressroute/expressroute-faqs.md#supported-services).
-
-Traffic to Log Analytics uses the public-peering ExpressRoute circuit.
-
-### Q. Is there a simple and easy way to move an existing Log Analytics workspace to another Log Analytics workspace/Azure subscription?
-
-A. The `Move-AzResource` cmdlet lets you move a Log Analytics workspace, and also an Automation account from one Azure subscription to another. For more information, see [Move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
-
-This change can also be made in the Azure portal.
-
-You can’t move data from one Log Analytics workspace to another, or change the region that Log Analytics data is stored in.
-
-### Q: How do I add Log Analytics to System Center Operations Manager?
-
-A:  Updating to the latest update rollup and importing management packs enables you to connect Operations Manager to Log Analytics.
-
->[!NOTE]
->The Operations Manager connection to Log Analytics is only available for System Center Operations Manager 2012 SP1 and later.
-
-### Q: How can I confirm that an agent is able to communicate with Log Analytics?
-
-A: To ensure that the agent can communicate with OMS, go to: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
-
-Under the **Azure Log Analytics (OMS)** tab, look for a green check mark. A green check mark icon confirms that the agent is able to communicate with the Azure service.
-
-A yellow warning icon means the agent is having issues communication with Log Analytics. One common reason is the Microsoft Monitoring Agent service has stopped. Use service control manager to restart the service.
-
-
-## Agent data
-### Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?
-A. The free plan sets a daily cap of 500 MB per workspace. The standard and premium plans have no limit on the amount of data that is uploaded. As a cloud service, Log Analytics is designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day.
-
-The Log Analytics agent was designed to ensure it has a small footprint. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakdown by solution in the [Usage](platform/data-usage.md) page.
-
-For more information, you can read a [customer blog](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
-
-
-
-
-
-## Log Analytics workspaces
-
-## Q. Why I can’t create workspaces in West Central US region?
-A: This region is at temporary capacity limit. The limit is planned to be addressed in the first half of 2019.
-
-### Q. Can I move an existing Log Analytics workspace to another Azure subscription?
-The Move-AzResource cmdlet lets you move a Log Analytics workspace and also an Automation account from one Azure subscription to another. For more information, see [Move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx). This change can also be made in the Azure portal.
-
-You can’t move data from one Log Analytics workspace to another, or change the region that Log Analytics data is stored in.
-
-## Agents
-
-### Q. How much network bandwidth is used by the Microsoft Management Agent (MMA) when sending data to Azure Monitor?
-Bandwidth is a function on the amount of data sent. Data is compressed as it is sent over the network.
-
-
-### Q. How much data is sent per agent?
-The amount of data sent per agent depends on:
-
-* The solutions you have enabled
-* The number of logs and performance counters being collected
-* The volume of data in the logs
-
-The free pricing tier is a good way to onboard several servers and gauge the typical data volume. Overall usage is shown on the [Usage](platform/data-usage.md) page.
-
-For computers that are able to run the WireData agent, use the following query to see how much data is being sent:
-
-```
-WireData 
-| where ProcessName=="C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe"
-| where Direction=="Outbound"
-| summarize sum(TotalBytes) by Computer
-```
+[Activity log](platform/activity-log-overview.md) events and [metrics](platform/data-platform-metrics.md) are automatically collected for any Azure resources that you create. Create a [Log Analytics workspace](learn/quick-create-workspace.md) to start collecting [Diagnostic logs](platform/diagnostic-logs-overview.md). Enable insights and monitoring solutions to provide packaged 
 
 
 ## Next steps
