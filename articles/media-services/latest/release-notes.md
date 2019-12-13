@@ -35,9 +35,9 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ### Live transcription Preview
 
-Live transcription is now in public preview and available for use in the West US 2 region. 
+Live transcription is now in public preview and available for use in the West US 2 region.
 
-Live transcription is designed ot work in conjunction with live events as an add-on capability.  It is supported on both pass-through and Standard or Premium encoding live events.  When this feature is enabled, the service uses the [Speech-To-Text](../../cognitive-services/speech-service/speech-to-text.md) feature of Cognitive Services to transcribe the spoken words in the incoming audio into text. This text is then made available for delivery along with video and audio in MPEG-DASH and HLS protocols. Billing is based on a new add-on meter that is additional cost to the live event when it is in the "Running" state.  For details on Live transcription and billing, see [Live transcription](live-transcription.md)
+Live transcription is designed to work in conjunction with live events as an add-on capability.  It is supported on both pass-through and Standard or Premium encoding live events.  When this feature is enabled, the service uses the [Speech-To-Text](../../cognitive-services/speech-service/speech-to-text.md) feature of Cognitive Services to transcribe the spoken words in the incoming audio into text. This text is then made available for delivery along with video and audio in MPEG-DASH and HLS protocols. Billing is based on a new add-on meter that is additional cost to the live event when it is in the "Running" state.  For details on Live transcription and billing, see [Live transcription](live-transcription.md)
 
 > [!NOTE]
 > Currently, live transcription is only available as a preview feature in the West US 2 region. It supports transcription of spoken words in English (en-us) only at this time.
@@ -55,6 +55,11 @@ Added support for the following new recommended partner encoders for RTMP live s
 - [GoPro Hero7/8 and Max action cameras](https://gopro.com/help/articles/block/getting-started-with-live-streaming)
 - [Restream.io](https://restream.io/)
 
+## File Encoding enhancements
+
+- Improved performance and multi-threading for the re-sizer in Media Encoder Standard. Under specific conditions, customer should see a performance boost between 5-40% VOD encoding. Low complexity content encoded into multiple bit-rates will see the highest performance increases. 
+- Standard encoding now maintains a regular GOP cadence for variable frame rate  (VFR) contents during VOD encoding when using the time-based GOP setting.  This means that customer submitting mixed frame rate content that varies between 15-30 fps for example should now see regular GOP distances calculated on output to adaptive bitrate streaming MP4 files. This will improve the ability to switch seamlessly between tracks when delivering over HLS or DASH. 
+-  Improved AV sync for variable frame rate (VFR) source content
 
 ## September 2019
 
