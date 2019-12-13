@@ -20,7 +20,7 @@ To learn more, see [Azure Data Lake Storage](https://azure.microsoft.com/service
 > [!NOTE]
 > For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2.
 
-## Migration road map
+## Gen1 to Gen2 road map
 
 To migrate to Gen2, we recommend the following path.
 
@@ -97,11 +97,11 @@ This table compares the capabilities of Gen1 to that of Gen2.
 
 <a id="migration-patterns" />
 
-## Gen1 to Gen2 migration patterns
+## Gen1 to Gen2 patterns
 
-Start by choosing one of these patterns. Then, modify that pattern to fit your specific requirements.
+Choose a migration pattern, and then modify that pattern as needed.
 
-|Pattern|Description|
+|||
 |---|---|
 |**Lift and Shift**|The simplest pattern. Ideal if your data pipelines can afford downtime.|
 |**Incremental copy**|Similar to *lift and shift*, but with less downtime. Ideal for large amounts of data that take longer to copy.|
@@ -116,8 +116,6 @@ This is the simplest pattern. It's ideal for data pipelines that can afford down
 
 The general pattern is as follows:
 
-![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
-
 :one: &nbsp;&nbsp;Stop all writes to Gen1.
 
 :two: &nbsp;&nbsp;Move data from Gen1 to Gen2.
@@ -125,6 +123,8 @@ The general pattern is as follows:
 :three: &nbsp;&nbsp;Point ingest operations and workloads to Gen2.
 
 :four: &nbsp;&nbsp;Decommission Gen1.
+
+![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
 
 > [!TIP]
 > For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
@@ -135,8 +135,6 @@ This pattern is similar to the *lift and shift* pattern, but with less downtime.
 
 The general pattern is as follows:
 
-![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
-
 :one: &nbsp;&nbsp;Start moving data from Gen1 to Gen2.
 
 :two: &nbsp;&nbsp;Incrementally copy new data from Gen1.
@@ -144,6 +142,8 @@ The general pattern is as follows:
 :three: &nbsp;&nbsp;After all data is copied, stop all writes to Gen1, and point workloads to Gen2.
 
 :four: &nbsp;&nbsp;Decommission Gen1.
+
+![Incremental copy pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
 > [!TIP]
 > For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
@@ -154,8 +154,6 @@ Use this pattern for pipelines that can't afford any downtime.
 
 The general pattern is as follows:
 
-![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
-
 :one: &nbsp;&nbsp;Move data from Gen1 to Gen2.
 
 :two: &nbsp;&nbsp;Ingest new data to both Gen1 and Gen2.
@@ -163,6 +161,8 @@ The general pattern is as follows:
 :three: &nbsp;&nbsp;Point workloads to Gen2.
 
 :four: &nbsp;&nbsp;Stop all writes to Gen1 and then decommission Gen1.
+
+![Dual pipeline pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
 > [!TIP]
 > For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
@@ -173,8 +173,6 @@ This pattern is similar to the *dual pipeline* pattern, but it's more ideally su
 
 The general pattern is as follows:
 
-![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
-
 :one: &nbsp;&nbsp;Set up bidirectional replication between Gen1 and Gen2.
 
 :two: &nbsp;&nbsp;Incrementally move ingest and compute workloads to Gen2.
@@ -183,10 +181,14 @@ The general pattern is as follows:
 
 :four: &nbsp;&nbsp;Decommission Gen1.
 
+![Bidirectional pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
+
 > [!TIP]
 > For bidirectional data transfer, we recommend [WanDisco](https://docs.wandisco.com/bigdata/wdfusion/adls/). It offers a repair feature for existing data.
 
 ## Next steps
 
-Need a good link here.
+- Learn about the various parts of setting up security for a storage account. See [Azure Storage security guide](../common/storage-security-guide.md).
+- Optimize the performance for your Data Lake Store. See [Optimize Azure Data Lake Storage Gen2 for performance](data-lake-storage-performance-tuning-guidance.md)
+- Review the best practices for managing your Data Lake Store. See [Best practices for using Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)
 
