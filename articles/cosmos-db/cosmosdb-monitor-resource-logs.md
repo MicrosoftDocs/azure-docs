@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure Cosmos DB data by using Azure diagnostic settings
-description: Learn how to use Azure diagnostic settings to monitor the performance and availability of data stored in Azure Cosmos DB
+title: Monitor Azure Cosmos DB data by using Azure Diagnostic settings
+description: Learn how to use Azure Diagnostic settings to monitor the performance and availability of data stored in Azure Cosmos DB
 author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
@@ -11,7 +11,7 @@ ms.author: sngun
 
 # Monitor Azure Cosmos DB data by using diagnostic settings in Azure
 
-Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they are also referred as "data plane logs". Some examples of the data plane operations in the resource log are delete, insert, and readFeed. The content of these logs varies by resource type.
+Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they are also referred as "data plane logs". Some examples of the data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
 
 Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. You can turn on diagnostic setting for Azure Cosmos accounts by using the following steps:
 
@@ -27,13 +27,13 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
 1. When you create a diagnostic setting, you specify which category of logs to collect. The categories of logs supported by Azure Cosmos DB are listed below along with sample log collected by them:
 
- * **DataPlaneRequests**: Select this option to log back-end requests to all APIs which includes SQL, Graph, MongoDB, Cassandra, and Table API accounts in Azure Cosmos DB. Key properties to note are: Requestcharge, statusCode, clientIPaddress, and partitionID.
+ * **DataPlaneRequests**: Select this option to log back-end requests to all APIs, which include SQL, Graph, MongoDB, Cassandra, and Table API accounts in Azure Cosmos DB. Key properties to note are: `Requestcharge`, `statusCode`, `clientIPaddress`, and `partitionID`.
 
     ```
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
     ```
 
-* **MongoRequests**: Select this option to log user-initiated requests from the front end to serve requests to Azure Cosmos DB's API for MongoDB, this log type is not available for other API accounts. MongoDB requests will appear in MongoRequests as well as DataPlaneRequests. Key properties to note are: Requestcharge, opCode.
+* **MongoRequests**: Select this option to log user-initiated requests from the front end to serve requests to Azure Cosmos DB's API for MongoDB, this log type is not available for other API accounts. MongoDB requests will appear in MongoRequests as well as DataPlaneRequests. Key properties to note are: `Requestcharge`, `opCode`.
 
     ```
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
@@ -45,21 +45,22 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
     { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
     ```
 
-* **PartitionKeyStatistics**:Select this option to log the statistics of the partition keys. This is currently represented with the storage size (KB) of the partition keys. See the [Troubleshooting issues by using Azure diagnostics queries]() section of this article for example queries that use "PartitionKeyStatistics". The log is emitted against the first three partition keys that occupy most data storage. This log contains data such as subscription ID, region name, database name, collection name, partition key, and storage size in KB.
+* **PartitionKeyStatistics**: Select this option to log the statistics of the partition keys. This is currently represented with the storage size (KB) of the partition keys. See the [Troubleshooting issues by using Azure Diagnostic queries](#cassandra-mapping) section of this article. For example queries that use "PartitionKeyStatistics". The log is emitted against the first three partition keys that occupy most data storage. This log contains data such as subscription ID, region name, database name, collection name, partition key, and storage size in KB.
 
     ```
     { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
     ```
 
-* **PartitionKeyRUConsumption**: This log reports the aggregated per-second RU/s consumption of partition keys. Currently, Azure Cosmos DB reports partition keys for SQL API accounts only and for point read/write and stored procedure operations. other APIs and operation types are not supported. For other APIs, the partition key column in the diagnostic log table will be empty. This log contains data such as subscription ID, region name, database name, collection name, partition key, operation type, and request charge. See the [Troubleshooting issues by using Azure diagnostics queries]() section of this article for example queries that use "PartitionKeyRUConsumption". 
+* **PartitionKeyRUConsumption**: This log reports the aggregated per-second RU/s consumption of partition keys. Currently, Azure Cosmos DB reports partition keys for SQL API accounts only and for point read/write and stored procedure operations. other APIs and operation types are not supported. For other APIs, the partition key column in the diagnostic log table will be empty. This log contains data such as subscription ID, region name, database name, collection name, partition key, operation type, and request charge. See the [Troubleshooting issues by using Azure Diagnostic queries](#cassandra-mapping) section of this article. For example queries that use "PartitionKeyRUConsumption". 
 
-* **ControlPlaneRequests**: This log contain details on control plane operations like creating an account, adding or removing a region, updating account replication settings etc. This log type is available for all API types which include SQL (Core), MongoDB, Gremlin, Cassandra, Table API.
+* **ControlPlaneRequests**: This log contains details on control plane operations like creating an account, adding or removing a region, updating account replication settings etc. This log type is available for all API types that include SQL (Core), MongoDB, Gremlin, Cassandra, Table API.
 
 * **Requests**: Select this option to collect metric data from Azure Cosmos DB to the destinations in the diagnostic setting. This is the same data collected automatically in Azure Metrics. Collect metric data with resource logs to analyze both kinds of data together and to send metric data outside of Azure Monitor.
 
 For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) article.
 
-## Troubleshoot issues with diagnostics queries
+
+## <a id="diagnostic-queries"></a> Troubleshoot issues with diagnostics queries
 
 1. How to get the request charges for expensive queries?
 
@@ -76,7 +77,7 @@ For detailed information about how to create a diagnostic setting by using the A
    | limit 100
    ```
 
-1. How to find which operations are taking most of RU’s?
+1. How to find which operations are taking most of RU/s?
 
     ```Kusto
    AzureDiagnostics
@@ -129,7 +130,7 @@ For detailed information about how to create a diagnostic setting by using the A
    | order by total desc
     ```
 
-1. How to get the logs for the partition keys whose storage size is greater then 8 GB?
+1. How to get the logs for the partition keys whose storage size is greater than 8 GB?
 
    ```Kusto
    AzureDiagnostics
@@ -137,7 +138,7 @@ For detailed information about how to create a diagnostic setting by using the A
    | where todouble(sizeKb_d) > 800000
    ```
 
-1. How to get partition Key statistics to evaluate skew across top 3 partitions for database account?
+1. How to get partition Key statistics to evaluate skew across top three partitions for database account?
 
     ```Kusto
     AzureDiagnostics 
