@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Citrix NetScaler | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Citrix NetScaler (Header Based Authentication) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Citrix NetScaler.
 services: active-directory
 documentationCenter: na
@@ -14,13 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/10/2019
+ms.date: 12/13/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Citrix NetScaler
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Citrix NetScaler (Header Based Authentication)
 
 In this tutorial, you'll learn how to integrate Citrix NetScaler with Azure Active Directory (Azure AD). When you integrate Citrix NetScaler with Azure AD, you can:
 
