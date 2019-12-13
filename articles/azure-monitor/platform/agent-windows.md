@@ -4,8 +4,8 @@ description: This article describes how to connect Windows computers hosted in o
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/07/2019
 
 ---
