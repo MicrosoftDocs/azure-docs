@@ -56,6 +56,22 @@ You can find your _company model repository connection string_ in the [Azure Cer
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
+## Prepare the development environment
+
+In this quickstart, you use the [Vcpkg](https://github.com/microsoft/vcpkg) library manager to install the Azure IoT C device SDK in your development environment.
+
+Open a shell. Execute the following command to install Vcpkg:
+
+```bash
+cd ~
+git clone https://github.com/microsoft/vcpkg
+cd vcpkg
+./bootstrap-vcpkg.sh
+./vcpkg install azure-iot-sdk-c[public-preview,use_prov_client]
+```
+
+You should expect this operation to take several minutes to complete.
+
 ## Author your model
 
 In this quickstart, you use an existing sample device capability model and associated interfaces.
@@ -100,7 +116,7 @@ Now that you have a DCM and its associated interfaces, you can generate the devi
 
 1. Choose **CMake Project on Linux** as your project template.
 
-1. Choose **Via Source Code** as the way to include the device SDK.
+1. Choose **Via Vcpkg** as the way to include the device SDK.
 
 1. A new folder called **sample_device** is created in the same location as the DCM file, and in it are the generated device code stub files. VS Code opens a new window to display these.
     ![Device code](media/quickstart-create-pnp-device-linux/device-code.png)
@@ -108,13 +124,6 @@ Now that you have a DCM and its associated interfaces, you can generate the devi
 ## Build and run the code
 
 You use the device SDK source code to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
-
-1. Run the following commands to download the device SDK source code:
-
-    ```bash
-    cd ~/pnp_app/sample_device
-    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
-    ```
 
 1. Create a **CMake** build folder for the **sample_device** application:
 
@@ -124,10 +133,10 @@ You use the device SDK source code to build the generated device code stub. The 
     cd cmake
     ```
 
-1. Run CMake to build your app with the SDK:
+1. Run CMake to build your app with the SDK. The following command assumes you installed **vcpkg** in your home folder:
 
     ```bash
-    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -Dskip_samples:BOOL=ON
+    cmake .. -DCMAKE_TOOLCHAIN_FILE=~/vcpkg/scripts/buildsystems/vcpkg.cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
     cmake --build .
     ```
 

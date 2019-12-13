@@ -12,7 +12,7 @@ ms.author: memildin
 ---
 # Export security alerts and recommendations (Preview)
 
-Azure Security Center generates detailed security alerts and recommendations. You can view these in the portal or through programmatic tools. You may also need to export this information or send it to other monitoring tools in your environment. 
+Azure Security Center generates detailed security alerts and recommendations. You can view them in the portal or through programmatic tools. You may also need to export this information or send it to other monitoring tools in your environment. 
 
 This article describes the set of (preview) tools that allow you to export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
@@ -47,6 +47,8 @@ Using these tools you can:
 > [!NOTE]
 > If you previously exported Security Center alerts to a SIEM using Azure Activity log, the procedure below replaces that methodology.
 
+To view the event schemas of the exported data types, visit the [Event Hub event schemas](https://aka.ms/ASCAutomationSchemas).
+
 ### To integrate with a SIEM 
 
 After you have configured continuous export of your chosen Security Center data to Azure Event Hubs, you can set up the appropriate connector on your SIEM by following the instructions below.
@@ -66,9 +68,36 @@ Also, if you'd like to move the continuously exported data automatically from yo
 
 To export to Log Analytics workspace, you must have Security Center's free or standard tier Log Analytics solutions enabled on your workspace. If you're using the Azure portal, the Security Center free tier solution is automatically enabled when you enable continuous export. However, if you're configuring your continuous export settings programmatically, you must manually select the free or standard pricing tier for the required workspace from within **Pricing & settings**.  
 
-Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. The name of the Log Analytics solution containing these tables depends on whether you are on the free or standard tier (see [pricing](security-center-pricing.md)): Security or SecurityCenterFree.
+### Log Analytics tables and schemas
+
+Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. The name of the Log Analytics solution containing these tables depends on whether you are on the free or standard tier (see [pricing](security-center-pricing.md)): Security('Security and Audit') or SecurityCenterFree.
 
 ![The *SecurityAlert* table in Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
+
+To view the event schemas of the exported data types, visit the [Log Analytics table schemas](https://aka.ms/ASCAutomationSchemas).
+
+###  View exported security alerts and recommendations in Azure Monitor
+
+In some cases, you may choose to view the exported Security Alerts and/or recommendations in [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview). 
+
+Azure Monitor provides a unified alerting experience for a variety of Azure alerts including Diagnostic Log, Metric alerts, and custom alerts based on Log Analytics workspace queries.
+
+To view alerts and recommendations from Security Center in Azure Monitor, configure an Alert rule based on Log Analytics queries (Log Alert):
+
+1. From Azure Monitor's **Alerts** page, click **New alert rule**.
+
+    ![Azure Monitor's alerts page](./media/continuous-export/azure-monitor-alerts.png)
+
+1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log):
+
+    * For **Resource**, select the Log Analytics workspace to which you exported security alerts and recommendations.
+
+    * For **Condition**, select **Custom log search**. In the page that appears, configure the query, lookback period, and frequency period. In the search query, you can type *SecurityAlert* or *SecurityRecommendation* to query the data types that Security Center continuously exports to as you enable the Continuous export to Log Analytics feature. 
+    
+    * Optionally, configure the [Action Group](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) that you'd like to trigger. Action groups can trigger email sending, ITSM tickets, WebHooks, and more.
+    ![Azure Monitor alert rule](./media/continuous-export/azure-monitor-alert-rule.png)
+
+You'll now see new Azure Security Center alerts or recommendations (depending on your configuration) in Azure Monitor alerts, with automatic triggering of an action group (if provided).
 
 ## Manual one-time export of security alerts
 
@@ -89,3 +118,4 @@ For related material, see the following documentation:
 - [Azure Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/)
 - [Azure Sentinel documentation](https://docs.microsoft.com/azure/sentinel/)
 - [Azure Monitor documentation](https://docs.microsoft.com/azure/azure-monitor/)
+- [Workflow automation and continuous export data types schemas](https://aka.ms/ASCAutomationSchemas)

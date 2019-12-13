@@ -9,11 +9,11 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 11/21/2019
 ms.author: dapine
 ---
 
-# Install and run Face containers
+# Install and run Face containers (Preview)
 
 Azure Cognitive Services Face provides a standardized Linux container for Docker that detects human faces in images. It also identifies attributes, which include face landmarks such as noses and eyes, gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score. Face also can compare faces against a database to see if a similar-looking or identical face already exists. It also can organize similar faces into groups by using shared visual traits.
 
@@ -33,8 +33,7 @@ You must meet the following prerequisites before you use the Face API containers
 
 ## Request access to the private container registry
 
-> [!NOTE]
-> Thank you for your interest in Face containers. Unfortunately, the Face containers' team is no longer accepting requests for private container registry access. If you already have access, it will continue to function as it did previously. We encourage you to check back periodically for updates and apologize for any inconvenience.
+[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### The host computer
 

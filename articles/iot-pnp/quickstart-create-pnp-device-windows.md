@@ -55,13 +55,11 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 ## Prepare the development environment
 
-### Get Azure IoT device SDK for C
-
-In this quickstart, you prepare a development environment by installing the Azure IoT C device SDK via [Vcpkg](https://github.com/microsoft/vcpkg).
+In this quickstart, you use the [Vcpkg](https://github.com/microsoft/vcpkg) library manager to install the Azure IoT C device SDK in your development environment.
 
 1. Open a command prompt. Execute the following command to install Vcpkg:
 
-    ```cmd/sh
+    ```cmd
     git clone https://github.com/Microsoft/vcpkg.git
     cd vcpkg
 
@@ -70,13 +68,13 @@ In this quickstart, you prepare a development environment by installing the Azur
 
     Then, to hook up user-wide [integration](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md), run the following (note: requires admin on first use):
 
-    ```cmd/sh
+    ```cmd
     .\vcpkg.exe integrate install
     ```
 
 1. Install Azure IoT C device SDK Vcpkg:
 
-    ```cmd/sh
+    ```cmd
     .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
@@ -116,7 +114,7 @@ Now that you have a DCM and its associated interfaces, you can generate the devi
 
 1. Choose **CMake Project on Windows** as your project template.
 
-1. Choose **Via Vcpkg** as way to include the device SDK.
+1. Choose **Via Vcpkg** as the way to include the device SDK.
 
 1. A new folder called **sample_device** is created in the same location as the DCM file, and in it are the generated device code stub files. VS Code opens a new window to display these.
     ![Device code](media/quickstart-create-pnp-device/device-code.png)
@@ -127,14 +125,14 @@ You use the device SDK source code to build the generated device code stub. The 
 
 1. Create a `cmake` subdirectory in the `sample_device` folder, and navigate to that folder:
 
-    ```cmd\sh
+    ```cmd
     mkdir cmake
     cd cmake
     ```
 
 1. Run the following commands to build the generated code stub (replacing the placeholder with the directory of your Vcpkg repo):
 
-    ```cmd\sh
+    ```cmd
     cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
 
     cmake --build .
@@ -142,7 +140,7 @@ You use the device SDK source code to build the generated device code stub. The 
     
     > [!NOTE]
     > If you are using Visual Studio 2017 or 2015, you need to specify the CMake generator based on the build tools you are using:
-    >```cmd\sh
+    >```cmd
     ># Either
     >cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
     ># or

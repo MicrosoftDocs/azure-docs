@@ -1,12 +1,8 @@
 ---
 title: Back up and restore Azure File Shares
 description: This article details how to back up and restore your Azure file shares, and explains management tasks.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 07/29/2019
-ms.topic: tutorial
-ms.service: backup
-manager: carmonm
+ms.topic: conceptual
 ---
 
 # Back up and restore Azure file shares
@@ -42,7 +38,7 @@ Backup for Azure file shares is in Preview. Azure file shares in both general-pu
 
 ## Configuring backup for an Azure file share
 
-This tutorial assumes you already have established an Azure file share. To back up your Azure file share:
+This article assumes you already have established an Azure file share. To back up your Azure file share:
 
 1. Create a Recovery Services vault in the same region as your file share. If you already have a vault, open your vault's Overview page and click **Backup**.
 

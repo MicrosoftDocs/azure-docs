@@ -75,7 +75,7 @@ The code snippets in this section demonstrate how to register a model from a tra
 
 + **Using the SDK**
 
-  When you use the SDK to train a model, you can receive either a [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) object or an [AutoMLRun](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master) object, depending on how you trained the model. Each object can be used to register a model created by an experiment run.
+  When you use the SDK to train a model, you can receive either a [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) object or an [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) object, depending on how you trained the model. Each object can be used to register a model created by an experiment run.
 
   + Register a model from an `azureml.core.Run` object:
  
@@ -97,7 +97,7 @@ The code snippets in this section demonstrate how to register a model from a tra
 
     In this example, the `metric` and `iteration` parameters aren't specified, so the iteration with the best primary metric will be registered. The `model_id` value returned from the run is used instead of a model name.
 
-    For more information, see the [AutoMLRun.register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) documentation.
+    For more information, see the [AutoMLRun.register_model]/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) documentation.
 
 + **Using the CLI**
 
@@ -575,6 +575,10 @@ For more information, see these documents:
 
 Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different because you must provide a reference to the AKS cluster.
 
+### Securing deployments with SSL
+
+For more information on how to secure a web service deployment, see [Use SSL to secure a web service](how-to-secure-web-service.md#enable).
+
 ### <a id="local"></a> Local deployment
 
 To deploy a model locally, you need to have Docker installed on your local machine.
@@ -859,6 +863,9 @@ az ml model download --model-id mymodel:1 --target-dir model_folder
 No-code model deployment is currently in preview and supports the following machine learning frameworks:
 
 ### Tensorflow SavedModel format
+Tensorflow models need to be registered in **SavedModel format** to work with no-code model deployment.
+
+Please see [this link](https://www.tensorflow.org/guide/saved_model) for information on how to create a SavedModel.
 
 ```python
 from azureml.core import Model

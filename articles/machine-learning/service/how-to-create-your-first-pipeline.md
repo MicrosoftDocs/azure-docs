@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
 
 ---
@@ -122,7 +122,7 @@ iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 't
 
  You create a `FileDataset` using [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
 
- You can learn more about working with datasets from [Add & register datasets](how-to-create-register-datasets.md) or [this sample notebook](https://aka.ms/tabulardataset-samplenotebook).
+ You can learn more about working with datasets from [Add & register datasets](how-to-create-register-datasets.md) or [this sample notebook](https://aka.ms/train-datasets).
 
 ## Set up compute target
 
@@ -180,7 +180,7 @@ To attach Azure Databricks as a compute target, provide the following informatio
 * __Databricks workspace name__: The name of the Azure Databricks workspace.
 * __Databricks access token__: The access token used to authenticate to Azure Databricks. To generate an access token, see the [Authentication](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html) document.
 
-The following code demonstrates how to attach Azure Databricks as a compute target with the Azure Machine Learning SDK:
+The following code demonstrates how to attach Azure Databricks as a compute target with the Azure Machine Learning SDK (__The Databricks workspace need to be present in the same subscription as your AML workspace__):
 
 ```python
 import os
@@ -400,7 +400,7 @@ See the list of all your pipelines and their run details in the studio:
  
 1. Select a specific pipeline to see the run results.
 
-## GitHub tracking and integration
+## Git tracking and integration
 
 When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
@@ -455,6 +455,39 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
+## Create a versioned pipeline endpoint
+You can create a Pipeline Endpoint with multiple published pipelines behind it. This can be used like a published pipeline but gives you a fixed REST endpoint as you iterate on and update your ML pipelines.
+
+```python
+from azureml.pipeline.core import PipelineEndpoint
+
+published_pipeline = PublishedPipeline.get(workspace="ws", name="My_Published_Pipeline")
+pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpointTest",
+                                            pipeline=published_pipeline, description="Test description Notebook")
+```
+
+### Submit a job to a pipeline endpoint
+You can submit a job to the default version of a pipeline endpoint:
+```python
+pipeline_endpoint_by_name = PipelineEndpoint.get(workspace=ws, name="PipelineEndpointTest")
+run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment")
+print(run_id)
+```
+You can also submit a job to a specific version:
+```python
+run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment", pipeline_version="0")
+print(run_id)
+```
+
+The same can be accomplished using the REST API:
+```python
+rest_endpoint = pipeline_endpoint_by_name.endpoint
+response = requests.post(rest_endpoint, 
+                         headers=aad_token, 
+                         json={"ExperimentName": "PipelineEndpointExperiment",
+                               "RunSource": "API",
+                               "ParameterAssignments": {"1": "united", "2":"city"}})
+```
 
 ### Use published pipelines in the studio
 
@@ -489,10 +522,9 @@ You can enable it again with `p.enable()`. For more information, see [PublishedP
 
 In order to optimize and customize the behavior of your pipelines, you can do a few things around caching and reuse. For example, you can choose to:
 + **Turn off the default reuse of the step run output** by setting `allow_reuse=False` during [step definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Reuse is key when using pipelines in a collaborative environment since eliminating unnecessary runs offers agility. However, you can opt out of reuse.
-+ **Extend hashing beyond the script**, to also include an absolute path or relative paths to the source_directory to other files and directories using the `hash_paths=['<file or directory']` 
 + **Force output regeneration for all steps in a run** with `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-By default, `allow_reuse` for steps is enabled and only the main script file is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), the output of a previous step run is reused, the job is not submitted to the compute, and the results from the previous run are immediately available to the next step instead.  
+By default, `allow_reuse` for steps is enabled and the `source_directory` specified in the step definition is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), and nothing else in the` source_directory` has changed, the output of a previous step run is reused, the job is not submitted to the compute, and the results from the previous run are immediately available to the next step instead.
 
 ```python
 step = PythonScriptStep(name="Hello World",

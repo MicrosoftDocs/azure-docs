@@ -1,12 +1,8 @@
 ---
 title: Add an Azure Storage queue binding to your Python function 
 description: Learn how to add an Azure Storage queue output binding to your Python function.
-author: ggailey777
-ms.author: glenga
 ms.date: 10/02/2019
 ms.topic: quickstart
-ms.service: azure-functions
-manager: gwallace
 ---
 
 # Add an Azure Storage queue binding to your Python function
@@ -54,7 +50,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Because you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
+> Because you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
 
 Copy the URL of your `HttpTrigger` function from the runtime output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and run the request. You should see the same response in the browser as you did in the previous article.
 

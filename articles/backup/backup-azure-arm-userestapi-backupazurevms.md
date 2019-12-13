@@ -1,14 +1,8 @@
 ---
-title: 'Azure Backup: Back up Azure VMs using REST API'
+title: Back up Azure VMs using REST API
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure VM Backup using REST API.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM backup; Azure VM restore;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ---
 
@@ -163,7 +157,7 @@ In the example, the above values translate to:
 
 ### Enabling protection for the Azure VM
 
-After the relevant VM is "cached" and "identified", select the policy to protect. To know more about existing policies in the vault, refer to [list Policy API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Then select the [relevant policy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/get) by referring to the policy name. To create policies, refer to [create policy tutorial](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" is selected in the below example.
+After the relevant VM is "cached" and "identified", select the policy to protect. To know more about existing policies in the vault, refer to [list Policy API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Then select the [relevant policy](/rest/api/backup/protectionpolicies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" is selected in the below example.
 
 Enabling protection is an asynchronous *PUT* operation that creates a 'protected item'.
 

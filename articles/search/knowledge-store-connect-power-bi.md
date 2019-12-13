@@ -3,9 +3,9 @@ title: Connect to a knowledge store (preview) with Power BI
 titleSuffix: Azure Cognitive Search
 description: Connect an Azure Cognitive Search knowledge store (preview) with Power BI for analysis and exploration.
 
-author: lisaleib
+author: HeidiSteen
+ms.author: heidist
 manager: nitinme
-ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019

@@ -1,14 +1,8 @@
 ---
-title: Use Azure Backup to restore SQL Server databases on an Azure VM
+title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: dacurwin
-
-
 ---
 # Restore SQL Server databases on Azure VMs
 

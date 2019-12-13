@@ -1,13 +1,8 @@
 ---
-title: Restore Key Vault key & secret for encrypted VM with Azure Backup
+title: Restore Key Vault key & secret for encrypted VM
 description: Learn how to restore Key Vault key and secret in Azure Backup using PowerShell
-ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.author: dacurwin
 ---
 # Restore Key Vault key and secret for encrypted VMs using Azure Backup
 
@@ -77,7 +72,7 @@ Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -
 $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
 $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
 $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
-$Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'LinuxPassPhraseFileName';'DiskEncryptionKeyEncryptionKeyURL' = $encryptionObject.OsDiskKeyAndSecretDetails.KeyUrl;'MachineName' = 'vm-name'}
+$Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'LinuxPassPhraseFileName';'DiskEncryptionKeyEncryptionKeyURL' = <Key_url_of_newly_restored_key>;'MachineName' = 'vm-name'}
 Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 

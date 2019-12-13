@@ -43,8 +43,6 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
-    - name: Enable MFA
-      href: concept-mfa-get-started.md
     - name: License your users
       href: concept-mfa-licensing.md
     - name: Manage an Auth Provider
@@ -100,7 +98,7 @@
       - name: Advanced configuration for NPS extension
         href: howto-mfa-nps-extension-advanced.md
       - name: Azure VPN and Azure MFA
-        href: ../../vpn-gateway/vpn-gateway-radiuis-mfa-nsp.md
+        href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
       - name: Remote Desktop Gateway
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN

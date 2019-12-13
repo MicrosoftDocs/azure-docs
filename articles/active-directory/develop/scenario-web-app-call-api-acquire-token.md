@@ -1,5 +1,5 @@
 ---
-title: Web app that calls web APIs (acquire a token for the app) - Microsoft identity platform
+title: Get a token in Web apps that call web APIs - Microsoft identity platform | Azure
 description: Learn how to build a Web app that calls web APIs (acquiring a token for the app)
 services: active-directory
 documentationcenter: dev-center-name
@@ -30,7 +30,7 @@ Now that you have built you client application object, you'll use it to acquire 
 
 The controller methods are protected by an `[Authorize]` attribute that forces users being authenticated to use the Web App. Here is the code that calls Microsoft Graph.
 
-```CSharp
+```csharp
 [Authorize]
 public class HomeController : Controller
 {
@@ -51,7 +51,7 @@ The `ITokenAcquisition` service is injected by ASP.NET through dependency inject
 
 Here is a simplified code of the action of the HomeController, which gets a token to call the Microsoft Graph.
 
-```CSharp
+```csharp
 public async Task<IActionResult> Profile()
 {
  // Acquire the access token

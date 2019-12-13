@@ -1,15 +1,15 @@
 ---
-title: Azure Multi-Factor Authentication user states - Azure Active Directory
-description: Learn about user states in Azure Multi-Factor Authentication.
+title: Per-user Multi-Factor Authentication - Azure Active Directory
+description: Enable MFA by changing user states in Azure Multi-Factor Authentication.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -38,22 +38,28 @@ Enabled by Azure AD Identity Protection - This method uses the Azure AD Identity
 
 User accounts in Azure Multi-Factor Authentication have the following three distinct states:
 
+> [!IMPORTANT]
+> Enabling Azure MFA through a Conditional Access policy will not change the state of the user. Do not be alarmed users appear disabled. Conditional Access does not change the state. **Organizations should not enable or enforce users if they are utilizing Conditional Access policies.**
+
 | Status | Description | Non-browser apps affected | Browser apps affected | Modern authentication affected |
-|:---:|:---:|:---:|:--:|:--:|
-| Disabled |The default state for a new user not enrolled in Azure MFA. |No |No |No |
-| Enabled |The user has been enrolled in Azure MFA, but has not registered. They receive a prompt to register the next time they sign in. |No.  They continue to work until the registration process is completed. | Yes. After the session expires, Azure MFA registration is required.| Yes. After the access token expires, Azure MFA registration is required. |
-| Enforced |The user has been enrolled and has completed the registration process for Azure MFA. |Yes. Apps require app passwords. |Yes. Azure MFA is required at login. | Yes. Azure MFA is required at login. |
+|:---:| --- |:---:|:--:|:--:|
+| Disabled | The default state for a new user not enrolled in Azure MFA. | No | No | No |
+| Enabled | The user has been enrolled in Azure MFA, but has not registered. They receive a prompt to register the next time they sign in. | No.  They continue to work until the registration process is completed. | Yes. After the session expires, Azure MFA registration is required.| Yes. After the access token expires, Azure MFA registration is required. |
+| Enforced | The user has been enrolled and has completed the registration process for Azure MFA. | Yes. Apps require app passwords. | Yes. Azure MFA is required at login. | Yes. Azure MFA is required at login. |
 
 A user's state reflects whether an admin has enrolled them in Azure MFA, and whether they completed the registration process.
 
-All users start out *Disabled*. When you enroll users in Azure MFA, their state changes to *Enabled*. When enabled users sign in and complete the registration process, their state changes to *Enforced*.  
+All users start out *Disabled*. When you enroll users in Azure MFA, their state changes to *Enabled*. When enabled users sign in and complete the registration process, their state changes to *Enforced*.
+
+> [!NOTE]
+> If MFA is re-enabled on a user object that already has registration details, such as phone or email, then administrators need to have that user re-register MFA via Azure portal or PowerShell. If the user doesn't re-register, their MFA state doesn't transition from *Enabled* to *Enforced* in MFA management UI.
 
 ### View the status for a user
 
 Use the following steps to access the page where you can view and manage user states:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Go to **Azure Active Directory** > **Users and groups** > **All users**.
+2. Search for and select *Azure Active Directory*. Select **Users** > **All users**.
 3. Select **Multi-Factor Authentication**.
    ![Select Multi-Factor Authentication](./media/howto-mfa-userstates/selectmfa.png)
 4. A new page that displays the user states opens.
@@ -94,10 +100,15 @@ Install the Module first, using:
 > [!TIP]
 > Don't forget to connect first using **Connect-MsolService**
 
+   ```PowerShell
+   Connect-MsolService
+   ```
+
 This example PowerShell script enables MFA for an individual user:
 
    ```PowerShell
    Import-Module MSOnline
+   Connect-MsolService
    $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
    $st.RelyingParty = "*"
    $st.State = "Enabled"
@@ -173,6 +184,8 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 > [!NOTE]
 > We recently changed the behavior and PowerShell script above accordingly. Previously, the script saved off the MFA methods, disabled MFA, and restored the methods. This is no longer necessary now that the default behavior for disable doesn't clear the methods.
+>
+> If MFA is re-enabled on a user object that already has registration details, such as phone or email, then administrators need to have that user re-register MFA via Azure portal or PowerShell. If the user doesn't re-register, their MFA state doesn't transition from *Enabled* to *Enforced* in MFA management UI.
 
 ## Next steps
 
