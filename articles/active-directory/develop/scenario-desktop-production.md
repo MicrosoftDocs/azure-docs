@@ -47,7 +47,7 @@ For instance:
 
 ### In MSAL.NET
 
-```CSharp
+```csharp
 string[] scopesForCustomerApi = new string[]
 {
   "https://mytenant.onmicrosoft.com/customerapi/customer.read",
@@ -100,7 +100,7 @@ This call will get you an access token for the first web API.
 
 When you need to call the second web API, you can call `AcquireTokenSilent` API:
 
-```CSharp
+```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 

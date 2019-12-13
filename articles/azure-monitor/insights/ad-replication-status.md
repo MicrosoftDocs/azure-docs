@@ -4,8 +4,8 @@ description: The Active Directory Replication Status solution pack regularly mon
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/24/2018
 
 ---
