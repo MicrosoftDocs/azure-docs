@@ -6,7 +6,7 @@ author: heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 12/13/2019
 ms.author: helohr
 ---
 # Connect with the iOS client
@@ -21,10 +21,8 @@ You can access Windows Virtual Desktop resources from your iOS device with our d
 ## Install the iOS Beta client
 To install the iOS Beta client:
 
-1. Install the [Apple TestFlight](https://apps.apple.com/us/app/testflight/id899247664) app on your iOS device.
-2. On your iOS device, open a browser and navigate to [aka.ms/rdiosbeta](https://aka.ms/rdiosbeta).
-3. Under the label **Step 2: Join the Beta**, select **Start Testing**.
-4. When you're redirected to the TestFlight app, select **Accept**, then select **Install**.
+1. Download the [Microsoft Remote Desktop client](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) from iTunes.
+2. Once it's done downloading, open the app and follow the instructions.
 
 ## Subscribe to a feed
 
