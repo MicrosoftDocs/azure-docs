@@ -28,7 +28,6 @@ A compute instance is a managed virtual machine (VM), optimized to be your machi
     * Jupyter
     * JupyterLab
     * RStudio
-    * Visual Studio Code   
 * **Managed and secure**:  Reduce your security footprint and add compliance with enterprise security requirements. Compute instances  provide robust management policies and secure networking configurations such as:
     * Automated provisioning through Resource Manager templates or Azure Machine Learning SDK
     * [Role-based access control (RBAC)](/azure/role-based-access-control/overview).
