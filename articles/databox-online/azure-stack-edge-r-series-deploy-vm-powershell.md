@@ -27,6 +27,7 @@ insert a diagram here for steps in VM deployment-->
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-vm-prerequisites.md)]
 
 
+
 ## Query for built in subscription on the device
 
 For Azure Resource Manager, only a single user-visible fixed subscription is supported. This subscription is unique per device and this subscription name or subscription ID cannot be changed.
@@ -131,8 +132,7 @@ New-AzureRmStorageAccount -Name sa191113014333  -ResourceGroupName rg19111301433
 
 ResourceGroupName      : rg191113014333
 StorageAccountName     : sa191113014333
-Id                     : /subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg191113014333/providers/Mi
-                         crosoft.Storage/storageaccounts/sa191113014333
+Id                     : /subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg191113014333/providers/Microsoft.Storage/storageaccounts/sa191113014333
 Location               : DBELocal
 Sku                    : Microsoft.Azure.Management.Storage.Models.Sku
 Kind                   : Storage
@@ -281,36 +281,38 @@ Tags                 : {}
 
 ## Create VM with previously created resources
 
-A virtual network and a virtual network interface must be created so that the VM can be created and deployed in this network.
+You must create one virtual network and associate a virtual network interface before you create and deploy the VM.
 
+> [!IMPORTANT]
+> While creating virtual network and virtual network interface, the following rules apply:
+> - Only one Vnet can be created (even across resource groups) and it must match exactly with the logical network in terms of the address space.
+> -	Only one subnet will be allowed in the Vnet. The subnet must be the exact same address space as the Vnet.
+> -	Only static allocation method will be allowed during Vnic creation and user needs to provide a private IP address.
+
+ 
 **Create a Vnet**
 
 ```powershell
 $subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name <Subnet name> -AddressPrefix <Address Prefix>
-$aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName <Resource group name> -Name <Vnet name> -Location DBELocal -AddressPrefix <Your address prefix> -Subnet $subNetId
+$aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName <Resource group name> -Name <Vnet name> -Location DBELocal -AddressPrefix <Address prefix> -Subnet $subNetId
 
-$ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <IP config Name> -SubnetId $aRmVN.Subnets[0].Id
+$ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <IP config Name> -SubnetId $aRmVN.Subnets[0].Id -PrivateIpAddress <Private IP>
 ```
 
-While creating a NIC for a VM pass the public IP as below so we can access VM IP on the client machine: 
+Optionally, while creating a Vnic for a VM, pass the public IP as below so we can access VM IP on the client machine: 
 
 ```powershell
-$publicIP = "pip" + $timeStamp     New-AzureRmPublicIPAddress -Name <Public IP name> -ResourceGroupName <ResourceGroupName> -AllocationMethod Static -Location DBELocal
-$PIP1 = (Get-AzureRmPublicIPAddress -Name $publicIP -ResourceGroupName <ResourceGroupName>).Id
-$ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <ConfigName> -PublicIpAddressId $PIP1 -SubnetId $subNetId
-$nic = New-AzureRmNetworkInterface -Name <Nic> -ResourceGroupName <ResourceGroupName> -Location DBELocal -IpConfiguration $ipConfig
+New-AzureRmPublicIPAddress -Name <Public IP> -ResourceGroupName <ResourceGroupName> -AllocationMethod Static -Location DBELocal
+$publicIP = (Get-AzureRmPublicIPAddress -Name <Public IP> -ResourceGroupName <Resource group name>).Id
+$ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <ConfigName> -PublicIpAddressId $publicIP -SubnetId $subNetId
 ```
 
-To get the IP: 
 
-```powershell
-$publicIp = Get-AzureRmPublicIpAddress -Name <Public IP name> -ResourceGroupName <Resource group name>
-```
 
 **Create a Vnic using the Vnet subnet ID**
 
 ```powershell
-$Nic = New-AzureRmNetworkInterface -Name <NIC Name> -ResourceGroupName <Resource group name> -Location DBELocal -IpConfiguration $ipConfig
+$Nic = New-AzureRmNetworkInterface -Name <Nic name> -ResourceGroupName <Resource group name> -Location DBELocal -IpConfiguration $ipConfig
 ```
 
 The sample output of these commands is shown below:
@@ -373,7 +375,7 @@ MacAddress                  :
 
 **Create a VM**
 
-You will now use the Vm image and attach it to the virtual network that you created earlier.
+You can now use the VM image to create a VM and attach it to the virtual network that you created earlier.
 
 ```powershell
 $pass = ConvertTo-SecureString "<Password>" -AsPlainText -Force;
@@ -400,18 +402,24 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 
 ## Connect to a VM
 
-Create an SSH connection with the VM using the public IP address. To see the public IP address of the VM, use the `Get-AzureRMPublicIpAddress` cmdlet:
+Get the public IP address of your VM to connect to the VM. To get the public IP: 
 
-```powerShell
-Get-AzureRMPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
+```powershell
+$publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
+The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.
 
-<!--Using the same bash shell you used to create your SSH key pair (like the Azure Cloud Shell or your local bash shell) paste the SSH connection command into the shell to create an SSH session.
 
-```bash
-ssh azureuser@10.111.12.123
-```
-When prompted, provide the username you set when creating the VM. If a passphrase is used with your SSH keys, you need to enter that when prompted.-->
+Open an SSH session to connect with the public IP address.
+
+`ssh -l <username> <ip address>`
+
+When prompted, provide the password that you used when creating the VM.
+
+If you need to provide the SSH key, use this command.
+
+ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236
+
 
 
 ## Manage VM

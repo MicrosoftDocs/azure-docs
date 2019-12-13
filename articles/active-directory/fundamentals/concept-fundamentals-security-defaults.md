@@ -90,6 +90,20 @@ If the user isn't registered for Multi-Factor Authentication, the user will be r
 
 The following additional considerations are related to deployment of security defaults for your tenant.
 
+### Authentication methods
+
+Security defaults allow registration and use of Azure Multi-Factor Authentication **using only the Microsoft Authenticator app using notifications**. Conditional Access allows the use of any authentication method the administrator chooses to enable.
+
+|   | Security defaults | Conditional Access |
+| --- | --- | --- |
+| Notification through mobile app | X | X |
+| Verification code from mobile app or hardware token |   | X |
+| Text message to phone |   | X |
+| Call to phone |   | X |
+| App passwords |   | X** |
+
+** App passwords are only available in per-user MFA with legacy authentication scenarios only if enabled by administrators.
+
 ### Older protocols
 
 Mail clients use older authentication protocols (like IMAP, SMTP, and POP3) to make authentication requests. These protocols don't support Multi-Factor Authentication. Most of the account compromises that Microsoft sees are from attacks against older protocols that are trying to bypass Multi-Factor Authentication. 
