@@ -1,5 +1,6 @@
 ---
-title: Customize the page style on the Azure API Management legacy developer portal | Microsoft Docs
+title: Customize page style on API Management legacy developer portal
+titleSuffix: Azure API Management
 description: Follow the steps of this quickstart to customize the styling of elements on the Azure API Management developer portal.
 services: api-management
 documentationcenter: ''

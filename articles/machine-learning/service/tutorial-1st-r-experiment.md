@@ -37,7 +37,7 @@ If you don’t have an Azure subscription, create a free account before you begi
     + Install `azuremlsdk`
     + Install the Azure Machine Learning SDK for Python
 
-1. Get the three tutorial files from [GitHub](https://github.com/Azure/azureml-sdk-for-r/tree/master/vignettes/train-and-deploy-with-caret).  Save them into a **tutorials** directory.
+1. Get the three tutorial files from [GitHub](https://github.com/Azure/azureml-sdk-for-r/tree/master/vignettes/train-and-deploy-to-aci).  Save them into a **tutorials** directory.
 
 2. Create an Azure Machine Learning workspace and download its configuration file using the steps below.
 
@@ -137,7 +137,7 @@ saveRDS(accidents, file="accidents.Rd")
 ```
 
 ### Upload data to the datastore
-Upload data to the cloud so that it can be access by your remote training environment. Each Azure ML workspace comes with a default datastore that stores the connection information to the Azure blob container that is provisioned in the storage account attached to the workspace. The following code will upload the accidents data you created above to that datastore.
+Upload data to the cloud so that it can be access by your remote training environment. Each Azure Machine Learning workspace comes with a default datastore that stores the connection information to the Azure blob container that is provisioned in the storage account attached to the workspace. The following code will upload the accidents data you created above to that datastore.
 
 ```R
 ds <- get_default_datastore(ws)
@@ -159,10 +159,10 @@ For this tutorial, fit a logistic regression model on your uploaded data using y
 * Submit the job
 
 ### Prepare the training script
-A training script called `accidents.R` has been provided for you in the same directory as this tutorial. Notice the following details **inside the training script** that have been done to leverage the Azure ML service for training:
+A training script called `accidents.R` has been provided for you in the same directory as this tutorial. Notice the following details **inside the training script** that have been done to leverage Azure Machine Learning for training:
 
 * The training script takes an argument `-d` to find the directory that contains the training data. When you define and submit your job later, you point to the datastore for this argument. Azure ML will mount the storage folder to the remote cluster for the training job.
-* The training script logs the final accuracy as a metric to the run record in Azure ML using `log_metric_to_run()`. The Azure ML SDK provides a set of logging APIs for logging various metrics during training runs. These metrics are recorded and persisted in the experiment run record. The metrics can then be accessed at any time or viewed in the run details page in [Azure Machine Learning studio](https://ml.azure.com). See the [reference](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) for the full set of logging methods `log_*()`.
+* The training script logs the final accuracy as a metric to the run record in Azure ML using `log_metric_to_run()`. The Azure ML SDK provides a set of logging APIs for logging various metrics during training runs. These metrics are recorded and persisted in the experiment run record. The metrics can then be accessed at any time or viewed in the run details page in [studio](https://ml.azure.com). See the [reference](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) for the full set of logging methods `log_*()`.
 * The training script saves your model into a directory named **outputs**. The `./outputs` folder receives special treatment by Azure ML. During training, files written to `./outputs` are automatically uploaded to your run record by Azure ML and persisted as artifacts. By saving the trained model to `./outputs`, you'll be able to access and retrieve your model file even after the run is over and you no longer have access to your remote training environment.
 
 ### Create an estimator

@@ -49,7 +49,10 @@ User accounts in Azure Multi-Factor Authentication have the following three dist
 
 A user's state reflects whether an admin has enrolled them in Azure MFA, and whether they completed the registration process.
 
-All users start out *Disabled*. When you enroll users in Azure MFA, their state changes to *Enabled*. When enabled users sign in and complete the registration process, their state changes to *Enforced*.  
+All users start out *Disabled*. When you enroll users in Azure MFA, their state changes to *Enabled*. When enabled users sign in and complete the registration process, their state changes to *Enforced*.
+
+> [!NOTE]
+> If MFA is re-enabled on a user object that already has registration details, such as phone or email, then administrators need to have that user re-register MFA via Azure portal or PowerShell. If the user doesn't re-register, their MFA state doesn't transition from *Enabled* to *Enforced* in MFA management UI.
 
 ### View the status for a user
 
@@ -97,10 +100,15 @@ Install the Module first, using:
 > [!TIP]
 > Don't forget to connect first using **Connect-MsolService**
 
+   ```PowerShell
+   Connect-MsolService
+   ```
+
 This example PowerShell script enables MFA for an individual user:
 
    ```PowerShell
    Import-Module MSOnline
+   Connect-MsolService
    $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
    $st.RelyingParty = "*"
    $st.State = "Enabled"
@@ -176,6 +184,8 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 > [!NOTE]
 > We recently changed the behavior and PowerShell script above accordingly. Previously, the script saved off the MFA methods, disabled MFA, and restored the methods. This is no longer necessary now that the default behavior for disable doesn't clear the methods.
+>
+> If MFA is re-enabled on a user object that already has registration details, such as phone or email, then administrators need to have that user re-register MFA via Azure portal or PowerShell. If the user doesn't re-register, their MFA state doesn't transition from *Enabled* to *Enforced* in MFA management UI.
 
 ## Next steps
 

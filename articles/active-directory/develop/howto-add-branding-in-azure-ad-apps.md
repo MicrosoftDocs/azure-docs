@@ -1,5 +1,5 @@
 ---
-title: Branding guidelines for applications 
+title: App branding guidelines | Azure
 titleSuffix: Microsoft identity platform
 description: A comprehensive guide to developer-oriented resources for Azure Active Directory
 services: active-directory
