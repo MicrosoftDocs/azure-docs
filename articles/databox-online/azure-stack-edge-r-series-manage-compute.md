@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 12/13/2019
 ms.author: alkohli
 ---
 # Manage compute on your Azure Stack Edge
@@ -120,7 +120,7 @@ Take the following steps in the Azure portal to sync the access keys for your de
 
 2. Select **Yes** when prompted for confirmation.
 
-     ![Select Yes when prompted](media/azure-stack-edge-r-series-manage-compute/refresh-configuration-2.png)
+    ![Select Yes when prompted](media/azure-stack-edge-r-series-manage-compute/refresh-configuration-2.png)
 
 3. Exit out of the dialog once the sync is complete.
 
