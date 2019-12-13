@@ -20,7 +20,7 @@ Azure Database Migration Service hybrid mode manages database migrations by usin
 In this Quickstart, you use the Azure portal to create an instance of Azure Database Migration Service in hybrid mode. Afterwards, you download, install, and set up the hybrid worker in your on-premises network. During preview, you can use Azure Database Migration Service hybrid mode to migrate data from an on-premises instance of SQL Server to Azure SQL Database.
 
 > [!NOTE]
-> The Azure Database Migration Service hybrid installer runs on Microsoft Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Window Server 2016, Windows Server 2019, and Windows 10.
+> The Azure Database Migration Service hybrid installer runs on Microsoft Windows Server 2012 R2, Window Server 2016, Windows Server 2019, and Windows 10.
 
 > [!IMPORTANT]
 > The Azure Database Migration Service hybrid installer requires .NET 4.7.2 or later. To find the latest versions of .NET, see the [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) page.
