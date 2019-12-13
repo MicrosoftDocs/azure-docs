@@ -20,7 +20,7 @@ IoT Plug and Play Preview simplifies IoT by enabling you to interact with a devi
 
 ## Prerequisites
 
-To complete this quickstart, you need to install .NET Core 2.2 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
+To complete this quickstart, you need to install .NET Core 3.0 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
 You can verify the version of .NET that's on your development machine by running the following command in a local terminal window: 
 
@@ -42,13 +42,13 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 In this quickstart, you use a sample environmental sensor that's written in C# as the IoT Plug and Play device. The following instructions show you how to install and run the device:
 
-1. Open a terminal window in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp-digital-twin) GitHub repository into this location:
+1. Open a terminal window in the directory of your choice. Execute the following command to clone the [Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository into this location:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-csharp-digital-twin
+    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp
     ```
 
-1. This terminal window will now be used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-sdk-csharp-digital-twin/digitaltwin/device/sample/EnvironmentalSensorSample** folder.
+1. This terminal window will now be used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-csharp/digitaltwin/device/sample/EnvironmentalSensorSample** folder.
 
 1. Configure the _device connection string_:
 
@@ -68,7 +68,7 @@ In this quickstart, you use a sample environmental sensor that's written in C# a
 
 In this quickstart, you use a sample IoT solution in C# to interact with the sample device.
 
-1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-sdk-csharp-digital-twin/digitaltwin/service/sample** folder.
+1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-csharp/digitaltwin/service/sample** folder.
 
 1. Configure the _IoT hub connection string_ and _device ID_ to allow the service to connect to both of these:
 

@@ -16,13 +16,13 @@ ms.custom: mvc
 
 [!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
 
-This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C# (with .NET), and is included in the Microsoft Azure IoT SDK for .NET. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C# (with .NET), and is provided as part of the Azure IoT Samples for C# (.NET) collection. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
-To complete this quickstart, you need to install .NET Core 2.2 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
+To complete this quickstart, you need to install .NET Core 3.0 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
 You can verify the version of .NET that's on your development machine by running the following command in a local terminal window: 
 
@@ -44,21 +44,21 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 ## Prepare the development environment
 
-In this quickstart, you prepare a development environment you can use to clone and build the Microsoft Azure IoT SDK for .NET.
+In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Samples for C# (.NET).
 
-Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp-digital-twin) GitHub repository into this location:
+Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository into this location:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-csharp-digital-twin
+git clone https://github.com/Azure-Samples/azure-iot-samples-csharp
 ```
 
 This operation may take several minutes to complete.
 
 ## Run the device sample
 
-You use the device SDK to build the included sample code. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+You use the cloned sample code to build an application simulating a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. In a local terminal window, go to the folder of your cloned repository and navigate to the **/azure-iot-sdk-csharp-digital-twin/digitaltwin/device/sample/EnvironmentalSensorSample** folder. 
+1. In a local terminal window, go to the folder of your cloned repository and navigate to the **/azure-iot-samples-csharp/digitaltwin/device/sample/EnvironmentalSensorSample** folder. 
 
 1. Configure the _device connection string_:
 
@@ -66,7 +66,7 @@ You use the device SDK to build the included sample code. The application you bu
     set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
-1. Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. In the same terminal window, to build the necessary packages and run the sample application, use the following command:
+1. Run a sample application to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. In the same terminal window, to build the necessary packages and run the sample application, use the following command:
 
     ```cmd\sh
         dotnet run

@@ -16,29 +16,15 @@ ms.custom: mvc
 
 [!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
 
-This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Java and is included in the Microsoft Azure IoT SDKs for Java. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Java, and is provided as part of the Azure IoT Samples for Java collection. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
-To complete this quickstart, you need Java SE 8 on your development machine. You can download Java SE 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), by selecting **Java 8** under **Long-term support** to get Azul Zulu downloads for Java 8. Make sure your `JAVA_HOME` environment variable includes the full path to the Java directory (something like `C:\Program Files\Zulu\zulu-8`), and your`PATH` environment variable includes the full path to the Java bin directory (something like `C:\Program Files\Zulu\zulu-8\bin`).
+To complete this quickstart, you need Java SE 8 on your development machine. You also need to install Maven 3.
 
-You can check that the environment variables are set correctly and verify the version of Java on your development machine by running the following command in a local terminal window: 
-
-```cmd/sh
-java -version
-```
-
-To build the samples, you also need to install Maven 3. You can download Maven for multiple platforms from [Apache Maven](https://maven.apache.org/download.cgi). Make sure your `PATH` environment variable includes the full path to the `apache-maven-3.x.x\bin` directory.
-
-You can check that the environment variables are set correctly and verify the version of Maven on your development machine by running the following command in a local terminal window:
-
-```cmd/sh
-mvn --version
-```
-
-These setup steps are also included with the source code of this quickstart's sample device application, under [Java setup instructions](https://github.com/Azure/azure-iot-sdk-java-digital-twin/blob/master/digital-twin/doc/java-devbox-setup.md).
+For details on how to get set up with these, see [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-java/blob/preview/doc/java-devbox-setup.md) in the Microsoft Azure IoT device SDK for Java.
 
 ### Install the Azure IoT explorer
 
@@ -54,21 +40,21 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 ## Prepare the development environment
 
-In this quickstart, you prepare a development environment you can use to clone and build the Microsoft Azure IoT SDKs for Java.
+In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Samples for Java.
 
-Open a terminal window in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDKs for Java](https://github.com/Azure/azure-iot-sdk-java-digital-twin) GitHub repository into this location:
+Open a terminal window in the directory of your choice. Execute the following command to clone the [Azure IoT Samples for Java](https://github.com/Azure-Samples/azure-iot-samples-java) GitHub repository into this location:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-java-digital-twin
+git clone https://github.com/Azure-Samples/azure-iot-samples-java
 ```
 
 This operation may take several minutes to complete.
 
 ## Build the code
 
-You use the device SDK to build the included sample code. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+You use the cloned sample code to build an application simulating a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. In a local terminal window, go to the folder of your cloned repository and navigate to the **/azure-iot-sdk-java-digital-twin/digital-twin** folder. Then run the following command to install the required libraries and build the simulated device application:
+1. In a local terminal window, go to the folder of your cloned repository and navigate to the **/azure-iot-samples-java/digital-twin** folder. Then run the following command to install the required libraries and build the simulated device application:
 
     ```cmd/sh
     mvn clean install -DskipTests
@@ -82,7 +68,7 @@ You use the device SDK to build the included sample code. The application you bu
 
 ## Run the device sample
 
-Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use the following command:
+Run a sample application to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use the following command:
 
 ```cmd\sh
 java -jar device-samples\target\environmental-sensor-sample-with-deps.jar
