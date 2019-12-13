@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/28/2019
+ms.date: 12/12/2019
 ms.author: alkohli
 ---
 # Security and data protection for Azure Stack Edge Rugged series 
@@ -85,18 +85,20 @@ All the data at rest on the device is double-encrypted, the access to data is co
 #### Double-encryption of data
 
 Data on your disks is protected by two layers of encryption:
-- First layer of encryption is the BitLocker XTS-AES 256-bit encryption on the data volumes. This encryption is used to protect local data. The OS volume has BitLocker as the single layer of encryption.
+- First layer of encryption is the BitLocker XTS-AES 256-bit encryption on the data volumes. This encryption is used to protect local data. 
+- The OS volume has BitLocker as the single layer of encryption.
 - Second layer is the hard disks that have a built-in encryption.
 
-When the device is activated, you are prompted to save a file that contains recovery keys that help recover the data on the device if the device doesn’t boot up. There are three keys in the file:
+When the device is activated, you are prompted to save a key file that contains recovery keys that help recover the data on the device if the device doesn’t boot up. There are three keys in the file:
+
 - One key recovers the device configuration on the OS volumes.
 - Second key is to unlock the BitLocker on the data disks.
 - Third key unlocks the hardware encryption in the data disks.
     
-    **Important**: Save the recovery key in a secure location outside the device istelf. If the device doesn’t boot up, and you don’t have the key, it could potentially result in data loss.
+    **Important**: Save the recovery key in a secure location outside the device itself. If the device doesn’t boot up, and you don’t have the key, it could potentially result in data loss.
 - If a node isn’t booting up, then you need to provide this recovery key.
 - Certain recovery scenarios will prompt you for the key file that you have saved.
-- If the device fails, Microsoft Support will be able to help boot the device to a USB device. With the above recovery keys, you can recover and transfer data from the failed device.
+
 
 #### Restricted access to data
 
@@ -104,13 +106,11 @@ Access to data stored in shares and storage accounts is restricted.
 - SMB clients that access share data need user credentials associated with the share. These credentials are defined when the share is created.
 - NFS clients that access a share need to have their IP address added explicitly when the share is created.
 - The Edge storage accounts that are created on the device are local and are protected by the encryption on the data disks. The Azure storage accounts that these Edge storage accounts are mapped to are protected by subscription and two 512-bit storage access keys associated with the Edge storage account (these keys are different than those associated with your Azure Storage accounts). For more information, see [Protect data in storage accounts](#protect-data-in-storage-accounts).
+- BitLocker XTS-AES 256-bit encryption is used to protect local data.
 
 #### Secure data erasure
 
 When the device undergoes a hard reset, a secure wipe is performed on the device. The secure wipe performs data erasure on the disks using the NIST SP 800-88r1 purge.
-
-[!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-data-rest.md)]
-- BitLocker XTS-AES 256-bit encryption is used to protect local data.
 
 ### Protect data in flight
 
@@ -133,4 +133,4 @@ For more information, review the Microsoft privacy policy on the [Trust Center](
 
 ## Next steps
 
-[Deploy your Azure Stack Edge device](azure-stack-edge-r-series-placeholder.md)
+[Deploy your Azure Stack Edge device](azure-stack-edge-r-series-deploy-prep.md)

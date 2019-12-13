@@ -48,29 +48,29 @@
       - name: Certificates
         href: azure-stack-edge-r-series-manage-certificates.md
       - name: Edge compute
-        href: azure-stack-edge-r-series-placeholder.md
+        href: azure-stack-edge-r-series-manage-compute.md
       - name: Edge compute network
-        href: azure-stack-edge-r-series-placeholder.md
+        href: azure-stack-edge-r-series-extend-compute-access-modules.md
       - name: Shares
-        href: azure-stack-edge-r-series-placeholder.md
+        href: azure-stack-edge-r-series-manage-shares.md
       - name: Edge storage accounts
         href: azure-stack-edge-r-series-manage-storage-accounts.md
       - name: Users
-        href: azure-stack-edge-r-series-placeholder.md
+        href: azure-stack-edge-r-series-manage-users.md
       - name: Bandwidth schedules
-        href: azure-stack-edge-r-series-placeholder.md
+        href: azure-stack-edge-r-series-manage-bandwidth-schedules.md
       - name: Power, access, connectivity
         href: azure-stack-edge-r-series-manage-access-power-connectivity-mode.md
       - name: Via PowerShell
-        href: azure-stack-edge-r-series-placeholder.md
+        href: azure-stack-edge-r-series-connect-powershell-interface.md
     - name: Troubleshoot 
-      href: azure-stack-edge-r-series-placeholder.md
+      href: azure-stack-edge-r-series-troubleshoot.md
     - name: Contact Microsoft Support
       href: azure-stack-edge-r-series-placeholder.md
     - name: Monitor
       href: azure-stack-edge-r-series-placeholder.md
     - name: Return or replace device
-      href: azure-stack-edge-r-series-placeholder.md
+      href: azure-stack-edge-r-series-return-device.md
     - name: Deploy Azure services as modules
       items:
       - name: Cognitive services (Custom vision)
@@ -92,6 +92,59 @@
     items:
     - name: 1911 - Current
       href: azure-stack-edge-r-series-placeholder.md
+
+- name: Azure Stack Hub/Data Box Gateway
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Stack Hub/Data Box Gateway?
+      href: azure-stack-edge-r-series-placeholder.md
+  - name: Tutorials
+    items:
+    - name: 1 - Prepare
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: 2A - Provision in Hyper-V
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: 2B - Provision in VMware
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: 3 - Connect, set up, activate
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: 4 - Add, connect to share
+      href: azure-stack-edge-r-series-placeholder.md
+  - name: Concepts
+    items:
+    - name: Review requirements
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: Understand limits
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: Security overview
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: View use cases
+      href: azure-stack-edge-r-series-placeholder.md
+  - name: How to
+    items:
+    - name: Manage
+      items:
+        - name: Shares
+          href: azure-stack-edge-r-series-placeholder.md
+        - name: Users
+          href: azure-stack-edge-r-series-placeholder.md
+        - name: Bandwidth schedules
+          href: azure-stack-edge-r-series-placeholder.md
+        - name: Access, power, connectivity
+          href: azure-stack-edge-r-series-placeholder.md
+        - name: Via PowerShell 
+          href: azure-stack-edge-r-series-placeholder.md
+    - name: Monitor
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: Troubleshoot
+      href: azure-stack-edge-r-series-placeholder.md
+    - name: Contact Microsoft Support
+      href: azure-stack-edge-r-series-placeholder.md
+  - name: Release notes
+    items:
+      - name: General availability (GA)
+        href: data-box-gateway-release-notes.md      
 
 - name: Azure Stack Edge Commercial
   items:

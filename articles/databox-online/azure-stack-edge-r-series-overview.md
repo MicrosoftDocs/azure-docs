@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 11/26/2019
+ms.date: 12/12/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -17,7 +17,7 @@ Azure Stack Edge Rugged series comprises of an AI-enabled edge computing device 
 
 Azure Stack Edge Rugged series is a Hardware-as-a-service solution. Microsoft ships you a rugged, cloud-managed device with a built-in Field Programmable Gate Array (FPGA) or a Graphics Processing Unit (GPU) that enables accelerated AI-inferencing and has all the capabilities of a network storage gateway.
 
-## Available SKUs
+## Available models
 
 Azure Stack Edge is offered as:
 
@@ -25,7 +25,7 @@ Azure Stack Edge is offered as:
 - **Azure Stack Edge rugged series** - The rugged series is tailored for harsh environmental or field conditions, such as in defense, disaster relief, geological surveys, and energy. Rugged and portable form factors are available. The rugged series is available as the following SKUs:
 
 
-|SKU description  |Cluster |Configuration |
+|Model description  |Cluster |Configuration |
 |---------|---------|---------|
 |Azure Stack Edge Rugged with FPGA or GPU   | 1-node | Device in rugged case<br>Device + UPS in rugged case <br>Device + heater in rugged case<br>Device with UPS + heater in rugged case        |
 |Azure Stack Edge Rugged with FPGA or GPU   |  4-node | 4 single-node device + heater in rugged case, 4 UPS in second rugged case |
@@ -55,7 +55,7 @@ Azure Stack Edge Rugged series has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|Accelerated AI inferencing| Enabled by the built-in FPGA, GPU, or the VPU depending on the SKU.|
+|Accelerated AI inferencing| Enabled by the built-in FPGA, GPU, or the VPU depending on the model.|
 |Edge compute workloads      |Allows analysis, processing, filtering of data. Supports VMs and Kubernetes clusters.|
 |High performance | High performance compute and data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|

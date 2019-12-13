@@ -29,6 +29,8 @@ Before you configure and set up your Azure Stack Edge device, make sure that:
 
 * You've installed the physical device as detailed in [Install Azure Stack Edge](azure-stack-edge-r-series-deploy-install.md).
 * You have the activation key from the Azure Stack Edge service that you created to manage the Azure Stack Edge device. For more information, go to [Prepare to deploy Azure Stack Edge](azure-stack-edge-r-series-deploy-prep.md).
+* You have a Base-64 encoded 32 character key that will be needed to configure double encryption for data-at-rest.
+* Except for Azure public cloud, you will also need a signing chain certificate befre you can activate your device. For details on certificate, go to [Manage certificates](azure-stack-edge-r-series-manage-certificates.md).
 
 ## Connect to the local web UI setup 
 
@@ -142,6 +144,9 @@ Your **Get started** page displays the various settings that are required to con
 
         You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
 
+        > [!NOTE] 
+        > If a separate Windows Update server is configured, then signing chain certificates required to connect to the update server are needed.
+
     - Select **Apply**.
     - The updates will be applied to the device. Because your device is a 1-node device, when the updates are applied, the device will experience a down time.
     - After the updates are applied, go back to **Get started**.
@@ -192,6 +197,9 @@ Your **Get started** page displays the various settings that are required to con
 
         ![Local web UI "Certificates" page](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-device-24.png)
 
+        > [!NOTE]
+        > Except for Azure public cloud, signing chain certificates are needed to be brought in before activation for all cloud configurations (Azure Government or Azure Stack).
+
 8. On the **Security** tile, select **Configure** for VPN. 
 
 9. On the **Security** tile, select **Configure** for encryption-at-rest. This is a required setting and until this is successfully configured, you can't activate the device. 
@@ -218,8 +226,6 @@ Your **Get started** page displays the various settings that are required to con
 
     3. First the device is activated. The device is then scanned for any critical updates and if available, the updates are automatically applied. You see a notification to that effect. Monitor the update progress via the Azure portal.
 
-        The dialog also has a recovery key that you should copy and save it in a safe location. This key is used to recover your data in the event the device can't boot up.
-
         ![Local web UI "Cloud settings" page updated](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-device-17.png)
 
     4. You may need to wait several minutes after the update is successfully completed. The page updates to indicate that the device is successfully activated.
@@ -237,10 +243,8 @@ Your **Get started** page displays the various settings that are required to con
                     "hcsdata": "MTIzNDU2NzgxMjM0NTY3ODEyMzQ1Njc4MTIzNDU2Nzg=",
                     "servicefabric": "MTIzNDU2NzgxMjM0NTY3ODEyMzQ1Njc4MTIzNDU2Nzg="
                   },
-                  "SystemVolumeBitLockerRecoveryKey": "",
-                  "SEDEncryptionExternalKeyId": "jwKs/uN7U2G134dSTkmxrw==",
                   "SEDEncryptionExternalKey": "MnFCij2r7GxgJZSdtgNBlaKqvbgdEpk4y9LlrlNM6Ao=",
-                  "ServiceEncryptionKey": ""
+                  "ServiceEncryptionKey": "T/RfCdRXTUOUggiNJkbVoA=="
                 }
         ```
         
