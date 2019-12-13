@@ -7,15 +7,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Manage Azure IoT Device Provisioning Service without code
+  - name: Set up DPS
     items:
     - name: Azure Portal
       href: quick-setup-auto-provision.md
     - name: Azure CLI
       href: quick-setup-auto-provision-cli.md
-    - name: Azure Resource Manager template
+    - name: Azure RM template
       href: quick-setup-auto-provision-rm.md
-  - name: Create and provision a single simulated device 
+  - name: Provision a single simulated device 
     items:
     - name: Symmetric Key attestation
       items:
@@ -33,7 +33,19 @@
           href: quick-create-simulated-device-x509-node.md
         - name: Python
           href: quick-create-simulated-device-x509-python.md
-  - name: Create device enrollments using provisioning service APIs
+    - name: Simulated TPM device attestation
+      items:
+      - name: C
+        href: quick-create-simulated-device.md
+      - name: Java
+        href: quick-create-simulated-device-tpm-java.md
+      - name: C#
+        href: quick-create-simulated-device-tpm-csharp.md
+      - name: Node.js
+        href: quick-create-simulated-device-tpm-node.md
+      - name: Python
+        href: quick-create-simulated-device-tpm-python.md
+  - name: Create device enrollments using DPS APIs
     items:
     - name: Group enrollment using X.509 Certificate Attestation
       items:
@@ -121,18 +133,6 @@
     - name: Windows
       href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
       maintainContext: true
-  - name: Provision simulated TPM devices
-    items:
-    - name: C
-      href: quick-create-simulated-device.md
-    - name: Java
-      href: quick-create-simulated-device-tpm-java.md
-    - name: C#
-      href: quick-create-simulated-device-tpm-csharp.md
-    - name: Node.js
-      href: quick-create-simulated-device-tpm-node.md
-    - name: Python
-      href: quick-create-simulated-device-tpm-python.md
   - name: Use attestation mechanisms with SDK
     href: use-hsm-with-sdk.md
   - name: Provision for multitenancy
