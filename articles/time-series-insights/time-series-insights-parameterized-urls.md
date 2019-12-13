@@ -8,7 +8,7 @@ ms.author: dpalled
 manager: cshankar
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 10/18/2019
+ms.date: 12/12/2019
 ms.custom: seodec18
 ---
 
@@ -79,14 +79,14 @@ The `timeSeriesDefinitions=<collection of term objects>` parameter specifies the
 | --- | --- |
 | `multiChartStack=false` | `true` is enabled by default so pass `false` to stack. |
 | `multiChartStack=false&multiChartSameScale=true` | Stacking must be enabled to use the same Y-axis scale across terms.  It's `false` by default, so passing 'true' enables this functionality. |
-| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Units = days, hours, minutes, seconds, milliseconds.  Always capitalize the unit. </br> Define the number of units by passing the desired integer for timeBucketSize.  Note, you smooth up to 7 days.  |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Units = days, hours, minutes, seconds, milliseconds.  Always capitalize the unit. </br> Define the number of units by passing the desired integer for timeBucketSize.  Note: you smooth up to 7 days.  |
 | `timezoneOffset=-<integer>` | The integer is always in milliseconds. </br> Note, this functionality is slightly different than what we enable in the Time Series Insights explorer, where we enable you to choose local (browser time) or UTC. |
 
 ### Examples
 
 To add time series definitions to a Time Series Insights environment as a URL parameter, append:
 
-```plaintext
+```URL parameter
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
@@ -99,12 +99,12 @@ Use the example time series definitions for:
 
 You can construct the following parameterized URL for a view:
 
-```plaintext
+```URL
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
 > [!TIP]
-> See the Explorer live [using the URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]).
+> See the Explorer live [using the URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]) example above.
 
 The URL above describes and builds the Time Series Insights Explorer view:
 
