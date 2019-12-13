@@ -56,7 +56,6 @@ The backup operation failed because the VM is in Failed state. For a successful 
 Error code: UserErrorFsFreezeFailed <br/>
 Error message: Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot.
 
-* Check the file system state of all mounted devices using the **tune2fs** command, for example **tune2fs -l /dev/sdb1 \\**.\| grep **Filesystem state**.
 * Unmount the devices for which the file system state was not cleaned, using the **umount** command.
 * Run a file system consistency check on these devices by using the **fsck** command.
 * Mount the devices again and retry backup operation.</ol>
