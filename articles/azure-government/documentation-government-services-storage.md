@@ -21,7 +21,7 @@ ms.author: zakramer
 # Azure Government storage
 
 ## Azure Storage
-Azure Storage is generally available in Azure Government. For a Quickstart that will help you get started with Storage in Azure Government, [click here](documentation-government-get-started-connect-to-storage.md). For general details on Azure Storage, see [Azure Storage public documentation](../storage/index.yml).
+Azure Storage is generally available in Azure Government. For a Quickstart that will help you get started with Storage in Azure Government, see [Develop with Storage API on Azure Government](documentation-government-get-started-connect-to-storage.md). For general details on Azure Storage, see [Azure Storage public documentation](../storage/index.yml).
 
 ### Storage pairing in Azure Government
 The following map shows the primary and secondary region pairings used for geo-redundant storage and read-access geo-redundant storage accounts in Azure Government.
@@ -106,7 +106,8 @@ For all jobs, we recommend that you rotate your storage account keys after the j
 | Data copied to the media for transport and the keys used to encrypt that data. | Azure Import/Export metadata cannot contain controlled data. This metadata includes all configuration data that's entered when you're creating your Import/Export job and shipping information that's used to transport your media. Do not enter regulated/controlled data in the following fields:  **Job name**, **Carrier name**, **Tracking number**, **Description**, **Return information (Name, Address, Phone, E-Mail)**, **Export Blob URI**, **Drive list**, **Package list**, **Storage account name**, **Container name**. |
 
 ## Azure Backup Service
-For detailed documentation on using the Azure Backup Service in Azure Government, [click here](documentation-government-services-backup.md). 
+For detailed documentation on using the Azure Backup Service in Azure Government, see [Azure Government Backup](documentation-government-services-backup.md).
+
 ## Next steps
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government blog. </a>
