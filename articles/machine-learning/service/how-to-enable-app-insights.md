@@ -37,7 +37,7 @@ In this article, you learn how to collect data from and monitor models deployed 
 >[!Important]
 > Azure Application Insights only logs payloads of upto 64kb. If this limit is reached then only the most recent outputs of the model are logged. 
 
-The metadata and response to the service - corresponding to the ML model metadata and the model's predictions - are logged to the Azure Application Insights traces under the message `"model_data_collection"`. You can query Azure Application Insights directly to access this data, or set up a [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure Machine Learning to setup labeling, retraining, explainability, data analysis, or other use. 
+The metadata and response to the service - corresponding to the web service metadata and the model's predictions - are logged to the Azure Application Insights traces under the message `"model_data_collection"`. You can query Azure Application Insights directly to access this data, or set up a [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure Machine Learning to setup labeling, retraining, explainability, data analysis, or other use. 
 
 ## Use the Azure portal to configure
 
@@ -143,7 +143,7 @@ To learn more about how to use Azure Application Insights, see [What is Applicat
 ## Export data for further processing and longer retention
 
 >[!Important]
-> Azure Application Insights only supports exports to blob storage. Additional limits of this export capability are listed in [Export telemetry](https://docs.microsoft.com/en-us/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
+> Azure Application Insights only supports exports to blob storage. Additional limits of this export capability are listed in [Export telemetry from App Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
 You can use Azure Application Insights' [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to send messages to a supported storage account, where a longer retention can be set. The `"model_data_collection"` messages are stored in JSON format and can be easily parsed to extract model data. 
 
