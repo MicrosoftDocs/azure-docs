@@ -84,7 +84,7 @@ You can change the underlying policy for an SAP HANA backup item.
 
   ![Select backup items](./media/sap-hana-db-manage/backup-items.png)
 
-* Choose SAP HANA in Azure VM
+* Choose **SAP HANA in Azure VM**
 
   ![Choose SAP HANA in Azure VM](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
@@ -93,7 +93,7 @@ You can change the underlying policy for an SAP HANA backup item.
 
   ![Select existing backup policy](./media/sap-hana-db-manage/existing-backup-policy.png)
 
-* Change the policy, choose from the list. [Create a new backup policy](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#create-a-backup-policy) if needed.
+* Change the policy, choosing from the list. [Create a new backup policy](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#create-a-backup-policy) if needed.
 
   ![Choose policy from drop-down list](./media/sap-hana-db-manage/choose-backup-policy.png)
 
