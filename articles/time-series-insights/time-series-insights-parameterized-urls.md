@@ -1,6 +1,6 @@
 ---
 title: 'Share custom views with parameterized URLs - Azure Time Series Insights | Microsoft Docs'
-description: Learn how to develop parameterized URLs in Azure Time Series Insights to easily share customized views.
+description: Learn how to create parameterized URLs to easily share customized explorer views in Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -39,7 +39,8 @@ For absolute time values, use the `from=<integer>` and `to=<integer>` parameters
 * `from=<integer>` is a value in JavaScript milliseconds of the start time for the search span.
 * `to=<integer>`is a value in JavaScript milliseconds of the end time for the search span.
 
-To identify the JavaScript milliseconds for a date, see [Epoch & Unix Timestamp Converter](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html).
+> [!TIP]
+> To easily translate dates into JavaScript milliseconds try the [Epoch & Unix Timestamp Converter](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html).
 
 ### Relative time values
 
