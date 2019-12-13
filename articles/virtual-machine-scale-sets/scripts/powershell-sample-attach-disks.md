@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Samples - Attach and use data disks | Microsoft Docs
-description: Azure PowerShell Samples
+title: Azure PowerShell Samples - Attach and use data disks
+description: This script creates an Azure virtual machine scale set and attaches and prepares data disks using PowerShell.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
