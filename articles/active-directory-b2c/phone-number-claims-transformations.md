@@ -18,11 +18,11 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article provides reference and examples for using the phone number claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information about ClaimsTransformations in general, see [ClaimsTransformations](claimstransformations.md).
+This article provides reference and examples for using the phone number claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information about claims transformations in general, see [ClaimsTransformations](claimstransformations.md).
 
 ## ConvertStringToPhoneNumberClaim
 
-Convert a string claim to a phone number claim and throw an exception if the phone number converted is not a valid phone number.
+Convert a string claim to a phone number claim and throw an exception if the converted phone number is not a valid phone number.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -31,9 +31,9 @@ Convert a string claim to a phone number claim and throw an exception if the pho
 
 The **ConvertStringToPhoneNumberClaim** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **UserMessageIfClaimsTransformationInvalidPhoneNumber** self-asserted technical profile metadata controls the error message that is presented to the user.
 
-![ConvertStringToPhoneNumberClaim execution](./media/string-transformations/assert-execution.png)
+![Diagram of error message execution path](./media/phone-authentication/assert-execution.png)
 
-You can use this claims tranformation to make sure that the string claim provided is a valid phone number. If not, an error message is thrown. The following example checks that the **phoneString** ClaimType is indeed a valid phone number. Otherwise an error message is thrown.
+You can use this claims transformation to ensure that the provided string claim is a valid phone number. If not, an error message is thrown. The following example checks that the **phoneString** ClaimType is indeed a valid phone number. Otherwise, an error message is thrown.
 
 ```XML
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
@@ -46,7 +46,7 @@ You can use this claims tranformation to make sure that the string claim provide
 </ClaimsTransformation>
 ```
 
-The self-asserted technical profile which calls the validation technical profile that contains this claims transformation can define the error message.
+The self-asserted technical profile that calls the validation technical profile that contains this claims transformation can define the error message.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
@@ -70,19 +70,19 @@ Convert a string claim to a national phone number and country code and optionall
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumber | string | The string claim of the phone number. The phone number either has to be in international format, complete with a leading "+" and country code. |
-| InputParameter | throwExceptionOnFailure | boolean | [Optional] A paramater indicating whether an exception is thrown when the phonenumber is not valid. Default value is false. |
-| InputParameter | countryCodeType | string | [Optional] A paramater indicating the type of country code in the output claim. Available values are **CallingCode**(The international calling code for a country, e.g. +1) or **ISO3166**(The 2-letter ISO-3166 country code)|
+| InputClaim | phoneNumber | string | The string claim of the phone number. The phone number has to be in international format, complete with a leading "+" and country code. |
+| InputParameter | throwExceptionOnFailure | boolean | [Optional] A parameter indicating whether an exception is thrown when the phone number is not valid. Default value is false. |
+| InputParameter | countryCodeType | string | [Optional] A parameter indicating the type of country code in the output claim. Available values are **CallingCode** (the international calling code for a country, for example +1) or **ISO3166** (the two-letter ISO-3166 country code). |
 | OutputClaim | nationalNumber | string | The string claim for the national number of the phone number. |
 | OutputClaim | countryCode | string | The string claim for the country code of the phone number. |
 
 The **GetNationalNumberAndCountryCodeFromPhoneNumberString** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **UserMessageIfPhoneNumberParseFailure** self-asserted technical profile metadata controls the error message that is presented to the user.
 
-![GetNationalNumberAndCountryCodeFromPhoneNumberString execution](./media/string-transformations/assert-execution.png)
+![Diagram of error message execution path](./media/phone-authentication/assert-execution.png)
 
-You can use this claims tranformation to split a full phone number to the country code and the national number. If the phone number provided is not valid, you can choose to throw an error message.
+You can use this claims transformation to split a full phone number into the country code and the national number. If the phone number provided is not valid, you can choose to throw an error message.
 
-The following example tries to split the phone number into national number and country code. If the phone number is valid, the phone number will be overriden by the national number. If the phone number is not valid, exception will not be thrown and the phone number still has its original value.
+The following example tries to split the phone number into national number and country code. If the phone number is valid, the phone number will be overridden by the national number. If the phone number is not valid, an exception will not be thrown and the phone number still has its original value.
 
 ```XML
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">
@@ -100,7 +100,7 @@ The following example tries to split the phone number into national number and c
 </ClaimsTransformation>
 ```
 
-The self-asserted technical profile which calls the validation technical profile that contains this claims transformation can define the error message.
+The self-asserted technical profile that calls the validation technical profile that contains this claims transformation can define the error message.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">

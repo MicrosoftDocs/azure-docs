@@ -260,6 +260,8 @@
             href: integer-transformations.md
           - name: JSON
             href: json-transformations.md
+          - name: Phone number transformations
+            href: phone-number-claims-transformations.md
           - name: External accounts
             href: social-transformations.md
           - name: StringCollection
