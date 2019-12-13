@@ -33,7 +33,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Introduction to Azure Maps
-            url: https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4
+            url: <a href ="https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4" target="_blank"></a>
 
   # Card
   - title: Get started
@@ -122,13 +122,13 @@ landingContent:
             url: how-to-render-custom-data.md
       - linkListType: reference
         links:
-          - text: Search service
+          - text: Search Service
             url: https://docs.microsoft.com/en-us/rest/api/maps/search
-          - text: Route service
+          - text: Route Service
             url: https://docs.microsoft.com/en-us/rest/api/maps/route
-          - text: Traffic service
+          - text: Traffic Service
             url: https://docs.microsoft.com/en-us/rest/api/maps/traffic
-          - text: Time Zones service
+          - text: Time Zones Service
             url: https://docs.microsoft.com/en-us/rest/api/maps/timezone
   
   # Card
@@ -146,7 +146,7 @@ landingContent:
             url: tutorial-iot-hub-maps.md
       - linkListType: reference
         links:
-          - text: Data service
+          - text: Data Service
             url: https://docs.microsoft.com/en-us/rest/api/maps/data
           - text: Spatial Service
             url: https://docs.microsoft.com/en-us/rest/api/maps/spatial
@@ -166,7 +166,7 @@ landingContent:
             url: how-to-request-real-time-data.md
       - linkListType: reference
         links:
-          - text: Mobility service
+          - text: Mobility Service
             url: https://docs.microsoft.com/en-us/rest/api/maps/mobility
 
   # Card
@@ -182,5 +182,5 @@ landingContent:
             url: weather-service-tutorial.md
       - linkListType: reference
         links:
-          - text: Weather service
+          - text: Weather Service
             url: https://docs.microsoft.com/en-us/rest/api/maps/weather
