@@ -99,7 +99,7 @@ landingContent:
           - text: Add a tile layer to a map
             url: how-to-add-tile-layer-android-map.md
           - text: Add a shapes to a map
-            url: how-to-add-shapes-to-android-map
+            url: how-to-add-shapes-to-android-map.md
 
   # Card
   - title: Developing with Location Based Services
