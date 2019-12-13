@@ -50,22 +50,22 @@ landingContent:
         links:
           - text: What is automatic user provisioning?
             url: user-provisioning.md
-      - linkListType: concept
+          - text: How provisioning works
+            url: how-provisioning-works.md
+      - linkListType: tutorial
         links:
-          - text: Use SCIM to provision users and groups
-            url: use-scim-to-provision-users-and-groups.md
+          - text: SaaS apps provisioning tutorials
+            url: /azure/active-directory/saas-apps/
       - linkListType: how-to-guide
         links:
-          - text: Configure automatic user provisioning
+          - text: Building an app? Use SCIM for automatic provisioning
+            url: use-scim-to-provision-users-and-groups.md
+          - text: Adding a gallery app? Configure provisioning to the app
             url: configure-automatic-user-provisioning-portal.md
           - text: Customize attribute mappings
             url: customize-application-attributes.md
-          - text: Check provisioning status
-            url: application-provisioning-when-will-provisioning-finish-specific-user.md
-      - linkListType: reference
-        links:
-          - text: Write expressions for attribute mappings
-            url: functions-for-customizing-application-data.md
+          - text: Use scoping filters
+            url: define-conditional-rules-for-provisioning-user-accounts.md
   - title: Publish on-premises apps with Application Proxy
     linkLists:
       - linkListType: overview

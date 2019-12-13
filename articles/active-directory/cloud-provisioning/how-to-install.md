@@ -1,5 +1,5 @@
 ---
-title: 'Installing Azure AD Connect provisioning agent'
+title: 'Installing Azure AD Connect cloud provisioning agent'
 description: This topic describes step-by-step how to install provisioning agent.
 services: active-directory
 author: billmath
@@ -13,7 +13,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Install Azure AD Connect provisioning agent
+# Install Azure AD Connect cloud provisioning agent
 This document will walk you through the installation process for the Azure AD Connect provisioning agent and how to initially configure it in the Azure portal.
 
 >[!IMPORTANT]
@@ -43,7 +43,7 @@ Installing and configuring Azure AD Connect provisioning is accomplished in the 
 6. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
 ![Welcome screen](media/how-to-install/install4.png)</br>
 
-7. Once this operation completes you should see a notice **Your was successfully verified.**  You can click **Exit**.</br>
+7. Once this operation completes you should see a notice **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
 ![Welcome screen](media/how-to-install/install5.png)</br>
 8. If you still see the initial splash screen, click **Close**.
 

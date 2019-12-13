@@ -113,6 +113,8 @@
       href: batch-user-accounts.md
     - name: Submit a large number of tasks
       href: large-number-tasks.md
+    - name: Check for job and task errors
+      href: batch-job-task-error-checking.md
   - name: Create resource files
     href: resource-files.md
   - name: Persist job and task output

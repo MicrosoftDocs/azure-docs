@@ -4,8 +4,8 @@ description: Learn how to delete your Log Analytics workspace if you created one
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/28/2019
 
 ---
