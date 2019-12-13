@@ -49,7 +49,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 >      - Select **Register** to create the application.
 > 1. In the list of pages for the app, select **Authentication**.
 > 1. Expand the **Desktop + devices** section.  (If **Desktop + devices** is not visible, first click the top banner to view the preview Authentication experience)
-> 1. Under the **Redirect URI** section, select **Add URI**.  Type **https://login.microsoftonline.com/common/oauth2/nativeclient**.
+> 1. In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 > 1. Select **Save**.
 
 > [!div renderon="portal" class="sxs-lookup"]
