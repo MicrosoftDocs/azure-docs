@@ -1,7 +1,7 @@
 ---
 title: Scalability and performance targets for Queue storage
 titleSuffix: Azure Storage
-description: Learn about scalability and performance targets Azure storage accounts and for Queue storage.
+description: Learn about scalability and performance targets for Azure storage accounts and for Queue storage.
 services: storage
 author: tamram
 
@@ -18,11 +18,11 @@ This article details the scalability and performance targets for Azure storage a
 
 Be sure to test your application to determine whether its performance meets your requirements. If possible, avoid sudden spikes in the rate of traffic and ensure that traffic is well-distributed across partitions. For more information about how to design your application for optimal performance, see [Performance and scalability checklist for Queue storage](storage-performance-checklist.md).
 
-## Storage account scale limits
+## Scale targets for standard storage accounts
 
 [!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
-## Queue storage scale limits
+## Scale targets for Queue storage
 
 [!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
 

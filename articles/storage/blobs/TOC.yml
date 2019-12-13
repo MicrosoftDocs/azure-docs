@@ -168,7 +168,7 @@
     - name: Performance, scaling, and cost optimization
       items:
       - name: Scalability and performance targets
-        href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: scalability-targets.md
       - name: Performance and scalability checklist
         href: storage-performance-checklist.md
       - name: Latency in Blob storage
