@@ -5,7 +5,7 @@ author: arduppal
 manager: brymat
 ms.author: arduppal
 ms.reviewer: arduppal
-ms.date: 12/12/2019
+ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

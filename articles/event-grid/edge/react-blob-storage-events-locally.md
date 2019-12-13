@@ -5,7 +5,7 @@ author: arduppal
 manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru 
-ms.date: 12/11/2019
+ms.date: 12/13/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -147,7 +147,7 @@ This section shows you how to deploy the Azure Blob Storage module, which would 
 ```
 > [!IMPORTANT]
 > - Blob Storage module can publish events using both HTTPS and HTTP. 
-> - If you have enabled the client based authentication for EventGrid make sure you update the value of EVENTGRID_ENDPOINT to allow https like this: `EVENTGRID_ENDPOINT=https://<event grid module name>:5888` 
+> - If you have enabled the client based authentication for EventGrid make sure you update the value of EVENTGRID_ENDPOINT to allow https like this: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438` 
 > - And add another environment variable `AllowUnknownCertificateAuthority=true` to the above Json. When talking to EventGrid over HTTPS, **AllowUnknownCertificateAuthority** allows the storage module to trust self-signed EventGrid server certificates.
 
 
