@@ -134,6 +134,8 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exclude-attributes** string   (Windows only) Exclude files whose attributes match the attribute list. For example: A;S;R
 
+**--exclude-path** string Exclude these paths when copying. This option does not support wildcard characters (*). Checks relative path prefix(For example: myFolder;myFolder/subDirName/file.pdf). When used in combination with account traversal, paths do not include the container name.
+
 **--exclude-pattern** string      Exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
 
 **-h, --help**                        help for sync
