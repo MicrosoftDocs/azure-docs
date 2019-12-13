@@ -2,13 +2,12 @@
 title: Private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: saudas
-manager: saudas
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
-ms.author: saudas
+ms.author: mlearned
 ---
 
 # Public Preview - Private Azure Kubernetes Service cluster
@@ -38,13 +37,15 @@ The communication between the control plane/API server, which is in an AKS-manag
 
 ## Install latest AKS CLI preview extension
 
-You need the **aks-preview 0.4.18** extension or later.
+To use private clusters, you need the *aks-preview* CLI extension version 0.4.18 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
 
 ```azurecli-interactive
-az extension update --name aks-preview 
-az extension list
-```
+# Install the aks-preview extension
+az extension add --name aks-preview
 
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 > [!CAUTION]
 > When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
@@ -74,13 +75,13 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 Where --enable-private-cluster is a mandatory flag for a private cluster 
 
 #### Advanced Networking  
+
 ```azurecli-interactive
 az aks create \ 
     --resource-group <private-cluster-resource-group>\ 
     --name <private-cluster-name> \ 
     --load-balancer-sku standard
     --enable-private-cluster 
-    --api-server-address-range 172.18.0.0/28 \ 
     --network-plugin azure \ 
     --vnet-subnet-id <subnet-id> \ 
     --docker-bridge-address 172.17.0.1/16 \ 
@@ -94,9 +95,9 @@ The API server end point has no public IP address. Consequently, users will need
 
 * Get credentials to connect to the cluster
 
-```azurecli-interactive
-az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
-```
+   ```azurecli-interactive
+   az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
+   ```
 * Create a VM in the same VNET as the AKS cluster or create a VM in a different VNET and peer this VNET with the AKS cluster VNET
 * If you create a VM in a different VNET, you'll need to set up a link between this VNET and the Private DNS Zone
     * go to the MC_* resource group in the portal 
@@ -117,7 +118,10 @@ az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
 * No support to convert existing AKS clusters to private clusters  
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning 
 * Azure Monitor for containers Live Data isn't currently supported
+* Bring your own DNS isn't currently supported
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
