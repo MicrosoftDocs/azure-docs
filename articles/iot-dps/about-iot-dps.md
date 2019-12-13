@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: Describes device provisioning in Azure with the Device Provisioning Service and IoT Hub
+description: Describes device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019

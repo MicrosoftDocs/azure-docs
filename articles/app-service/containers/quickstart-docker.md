@@ -1,14 +1,13 @@
 ---
-title: Deploy a Docker app on Linux - Azure App Service
-description: How to deploy a Docker image to Azure App Services for Linux
-author: msangapu
+title: 'Quickstart: Run a custom Linux container'
+description: Get started with Linux containers on Azure App Service by deploying your first custom container using Azure Container Registries.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.service: app-service
 ---
 
-# Deploy to Azure using Docker
+# Deploy a custom Linux container to Azure App Service
 
 App Service on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that is not already defined in Azure. This quickstart shows you how to deploy an image from an [Azure Container Registry](/azure/container-registry) (ACR) to App Service.
 
@@ -22,7 +21,7 @@ App Service on Linux provides pre-defined application stacks on Linux with suppo
 
 ## Create an image
 
-To complete this quickstart, you will need a suitable web app image stored in an [Azure Container Registry](/azure/container-registry). Follow the instructions in [Quickstart: Create a private container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal), but use the `mcr.microsoft.com/azuredocs/go` image instead of the `hello-world` image.
+To complete this quickstart, you will need a suitable web app image stored in an [Azure Container Registry](/azure/container-registry). Follow the instructions in [Quickstart: Create a private container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal), but use the `mcr.microsoft.com/azuredocs/go` image instead of the `hello-world` image. For reference, the [sample Dockerfile is found in Azure Samples repo](https://github.com/Azure-Samples/go-docs-hello-world).
 
 > [!IMPORTANT]
 > Be sure to set the **Admin User** option to **Enable** when you create the container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access.

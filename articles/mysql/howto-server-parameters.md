@@ -1,11 +1,11 @@
 ---
-title: How To Configure Server Parameters in Azure Database for MySQL
+title: Configure server parameters - Azure portal - Azure Database for MySQL
 description: This article describes how to configure MySQL server parameters in Azure Database for MySQL using the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 12/05/2019
 ---
 
 # How to configure server parameters in Azure Database for MySQL by using the Azure portal
@@ -71,6 +71,9 @@ The time zone tables on your server can be populated by calling the `az_load_tim
 ```sql
 CALL mysql.az_load_timezone();
 ```
+
+> [!IMPORTANT]
+> You should restart the server to ensure the time zone tables are properly populated. To restart the server, use the [Azure portal](howto-restart-server-portal.md) or [CLI](howto-restart-server-cli.md).
 
 To view available time zone values, run the following command:
 

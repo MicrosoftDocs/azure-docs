@@ -57,8 +57,8 @@ To get started, you need the following items:
 
 ## Supported versions of JIRA
 
-* JIRA Core and Software: 6.4 to 8.2.4
-* JIRA Service Desk 3.0.0 to 4.2.1
+* JIRA Core and Software: 6.4 to 8.5.1
+* JIRA Service Desk 3.0.0 to 4.5.1
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]

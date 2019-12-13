@@ -116,7 +116,7 @@ For more information about accessing a Machine Learning Studio (classic) web ser
 
 ### Manage your New web service
 
-You can manage your New web services Machine Learning Studio (classic) Web Services portal. From the [main portal page](https://services.azureml-test.net/), click **Web Services**. From the web services page, you can delete or copy a service. To monitor a specific service, click the service and then click **Dashboard**. To monitor batch jobs associated with the web service, click **Batch Request Log**.
+You can manage your New web services using Machine Learning Studio (classic) Web Services portal. From the [main portal page](https://services.azureml.net/), click **Web Services**. From the web services page, you can delete or copy a service. To monitor a specific service, click the service and then click **Dashboard**. To monitor batch jobs associated with the web service, click **Batch Request Log**.
 
 ### <a id="multi-region"></a> Deploy your New web service to multiple regions
 

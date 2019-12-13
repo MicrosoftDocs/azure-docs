@@ -1,19 +1,10 @@
 ---
-title: App Service overview - Azure | Microsoft Docs
+title: Overview
 description: Learn how Azure App Service helps you develop and host web applications
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
 
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/04/2017
-ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
 

@@ -75,7 +75,7 @@ The use of Secrets reduces the sensitive information that is defined in the pod 
 
 To get started with securing your AKS clusters, see [Upgrade an AKS cluster][aks-upgrade-cluster].
 
-For associated best practices, see [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
+For associated best practices, see [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security] and [Best practices for pod security in AKS][developer-best-practices-pod-security].
 
 For additional information on core Kubernetes and AKS concepts, see the following articles:
 
@@ -101,4 +101,5 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[developer-best-practices-pod-security]:developer-best-practices-pod-security.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
