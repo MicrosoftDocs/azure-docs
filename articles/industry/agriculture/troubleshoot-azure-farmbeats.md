@@ -7,7 +7,7 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Troubleshoot Azure FarmBeats
+# Troubleshoot
 
 This article provides solutions to common Azure FarmBeats issues.
 
@@ -20,7 +20,7 @@ To download the **deployer.log** file, do the following:
 3. Select **Bash** as the preferred Cloud Shell experience.
 4. Select the highlighted icon and then, in the drop-down list, select **Download**.
 
-    ![Project FarmBeats](./media/troubleshooting-farmbeats/download-deployer-log-1.png)
+    ![Project FarmBeats](./media/troubleshoot-azure-farmbeats/download-deployer-log-1.png)
 
 5. In the next pane, enter the path to your **deployer.log** file. For example, enter **farmbeats-deployer.log**.
 
@@ -33,10 +33,10 @@ To download the **deployer.log** file, do the following:
 **Corrective action**:
 
 1. Go to your FarmBeats Datahub resource group.   
-1. Select the **Event Hub** (DatafeedEventHubNamespace), and then check for the number of incoming messages.
-1. Do either of the following:   
-   * If there are *no incoming messages*, contact your device partner.  
-   * If there are *incoming messages*, contact farmbeatssupport@microsoft.com. Attach your Datahub and Accelerator logs and captured telemetry.
+2. Select the **Event Hub** (DatafeedEventHubNamespace), and then check for the number of incoming messages.
+3. Do either of the following:   
+   - If there are *no incoming messages*, contact your device partner.  
+   - If there are *incoming messages*, contact farmbeatssupport@microsoft.com. Attach your Datahub and Accelerator logs and captured telemetry.
 
 To understand how to download logs, go to the ["Collect logs manually"](#collect-logs-manually) section.  
 
@@ -45,10 +45,10 @@ To understand how to download logs, go to the ["Collect logs manually"](#collect
 **Corrective action**:
 
 1. In Datahub Swagger, go to the Partner API.
-1. Select **Get** > **Try it out** > **Execute**.
-1. Note the partner ID of the sensor partner you're interested in.
-1. Go back to the Partner API, and select **Get/\<ID>**.
-1. Specify the partner ID from step 3, and then select **Execute**.
+2. Select **Get** > **Try it out** > **Execute**.
+3. Note the partner ID of the sensor partner you're interested in.
+4. Go back to the Partner API, and select **Get/\<ID>**.
+5. Specify the partner ID from step 3, and then select **Execute**.
 
    The API response should have the Event Hubs connection string.
 
@@ -69,8 +69,8 @@ While you're deleting a device, you might encounter one of the following common 
 **Corrective action**:  
 
 1. Delete the sensors that are associated with the device through Accelerator.  
-1. If you want to associate the sensors with a different device, ask your device partner to do the same.  
-1. Delete the device by using a `DELETE API` call, and set the force parameter as *true*.  
+2. If you want to associate the sensors with a different device, ask your device partner to do the same.  
+3. Delete the device by using a `DELETE API` call, and set the force parameter as *true*.  
 
 **Message**: "Device is referenced in devices as ParentDeviceId: There are one or more devices that are associated with this device as child devices. Delete them, and then delete this device."  
 
@@ -79,7 +79,7 @@ While you're deleting a device, you might encounter one of the following common 
 **Corrective action**
 
 1. Delete the devices that are associated with this specific device.  
-1. Delete the specific device.  
+2. Delete the specific device.  
 
     > [!NOTE]
     > You can't delete a device if sensors are associated with it. For more information about how to delete associated sensors, see the "Delete sensor" section in [Get sensor data from sensor partners](get-sensor-data-from-sensor-partner.md).
@@ -112,7 +112,7 @@ This issue might result from a temporary failure in the data pipeline. Create th
 
 If you've already been granted access and are facing this error, try again by refreshing the page. If the error persists, add the error message in a post on the FarmBeats forum, or contact FarmBeatsSupport@microsoft.com.
 
-![Project FarmBeats](./media/troubleshooting-farmbeats/accelerator-troubleshooting-1.png)
+![Project FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### Accelerator issues  
 
@@ -128,7 +128,7 @@ If the error persists, add the error message in a post on the FarmBeats forum, o
 
 **Corrective action**: This error occurs because of service worker persistence in the browser. Do the following:
 1. Close all browser tabs that have Accelerator open, and close the browser window.
-1. Start a new instance of the browser, and reload the Accelerator URI. This action loads the new version of Accelerator.
+2. Start a new instance of the browser, and reload the Accelerator URI. This action loads the new version of Accelerator.
 
 ## Sentinel: Imagery-related issues
 
@@ -139,8 +139,8 @@ If the error persists, add the error message in a post on the FarmBeats forum, o
 **Corrective action**:
 
 Do one of the following:
-* Rerun the installer for upgrading Datahub with the correct username and password.
-* Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
+- Rerun the installer for upgrading Datahub with the correct username and password.
+- Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
 
 ### Sentinel hub: Wrong URL or site not accessible 
 
@@ -148,8 +148,8 @@ Do one of the following:
 
 **Corrective action**:
 1. Open [Sentinel](https://scihub.copernicus.eu/dhus/) in your browser to see whether the website is accessible. 
-1. If the website isn't accessible, check to see whether any firewall, company network, or other blocking software is preventing access to the website, and then take the necessary steps to allow the Sentinel URL. 
-1. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.  
+2. If the website isn't accessible, check to see whether any firewall, company network, or other blocking software is preventing access to the website, and then take the necessary steps to allow the Sentinel URL. 
+3. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.  
 
 ### Sentinel server: Down for maintenance
 
@@ -162,7 +162,7 @@ This issue can occur if any maintenance activities are being done on the Sentine
 1. If any job or pipeline fails because maintenance is being performed, resubmit the job after some time. 
 
    For information about any planned or unplanned Sentinel maintenance activities, go to the [Copernicus Open Access Hub News](https://scihub.copernicus.eu/news/) site.  
-1. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
+2. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
 
 ### Sentinel: Maximum number of connections reached
 
@@ -183,7 +183,7 @@ Try either of the following:
 1. If any job or pipeline fails because maintenance is being performed, resubmit the job after some time. 
 
    For information about any planned or unplanned Sentinel maintenance activities, go to the [Copernicus Open Access Hub News](https://scihub.copernicus.eu/news/) site.  
-1. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
+2. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
 
 ## Collect logs manually
 
@@ -191,70 +191,69 @@ Try either of the following:
 
 ### Collect Azure Data Factory job logs in Datahub
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the **Search** box, search for the FarmBeats Datahub resource group.
+2. In the **Search** box, search for the FarmBeats Datahub resource group.
 
     > [!NOTE]
-    > Select the Datahub resource group that you specified during FarmBeats deployment.
+    > Select the Datahub resource group that you specified during FarmBeats installation.
 
-1. On the **Resource Group** dashboard, search for the *datahublogs\** storage account. For example, search for **datahublogsmvxmq**.  
+3. On the **Resource Group** dashboard, search for the *datahublogs\** storage account. For example, search for **datahublogsmvxmq**.  
+4. In the **Name** column, select the storage account to view the **Storage Account** dashboard.
+5. In the **datahubblogs\*** pane, select **Open in Explorer** to view the **Open Azure Storage Explorer** application.
+6. In the left pane, select **Blob Containers**, and then select **job-logs**.
+7. In the **job-logs** pane, select **Download**.
+8. Download the logs to a local folder on your machine.
+9. Email the downloaded .zip file to farmbeatssupport@microsoft.com.
 
-1. In the **Name** column, select the storage account to view the **Storage Account** dashboard.
-1. In the **datahubblogs\*** pane, select **Open in Explorer** to view the **Open Azure Storage Explorer** application.
-1. In the left pane, select **Blob Containers**, and then select **job-logs**.
-1. In the **job-logs** pane, select **Download**.
-1. Download the logs to a local folder on your machine.
-1. Email the downloaded .zip file to farmbeatssupport@microsoft.com.
-
-    ![Project FarmBeats](./media/troubleshooting-farmbeats/collecting-logs-manually-1.png)
+    ![Project FarmBeats](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
 
 ### Collect Azure Data Factory job logs in Accelerator
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the **Search** box, search for the FarmBeats Accelerator resource group.
+2. In the **Search** box, search for the FarmBeats Accelerator resource group.
 
     > [!NOTE]
-    > Select the Accelerator resource group that you specified during FarmBeats deployment.
+    > Select the Accelerator resource group that you specified during FarmBeats installation.
 
-1. On the **Resource Group** dashboard, search for the *storage\** storage account. For example, search for **storagedop4k\***.
-1. Select the storage account in the **Name** column to view the **Storage Account** dashboard.
-1. In the **storage\*** pane, select **Open in Explorer** to open the Azure Storage Explorer application.
-1. In the left pane, select **Blob Containers**, and then select **job-logs**.
-1. In the **job-logs** pane, select **Download**.
-1. Download the logs to a local folder on your machine.
-1. Email the downloaded .zip file to farmbeatssupport@microsoft.com.
+3. On the **Resource Group** dashboard, search for the *storage\** storage account. For example, search for **storagedop4k\***.
+4. Select the storage account in the **Name** column to view the **Storage Account** dashboard.
+5. In the **storage\*** pane, select **Open in Explorer** to open the Azure Storage Explorer application.
+6. In the left pane, select **Blob Containers**, and then select **job-logs**.
+7. In the **job-logs** pane, select **Download**.
+8. Download the logs to a local folder on your machine.
+9. Email the downloaded .zip file to farmbeatssupport@microsoft.com.
 
 
 ### Collect Datahub app service logs
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the **Search** box, search for the FarmBeats Datahub resource group.
+2. In the **Search** box, search for the FarmBeats Datahub resource group.
 
     > [!NOTE]
-    > Select the Datahub resource group that you specified during FarmBeats deployment.
+    > Select the Datahub resource group that you specified during FarmBeats installation.
 
-1. In the resource group, search for the *datahublogs\** storage account. For example, search for **fordatahublogsmvxmq\***.
-1. Select the storage account in the **Name** column to view the **Storage Account** dashboard.
-1. In the **datahubblogs\*** pane, select **Open in Explorer** to open the Azure Storage Explorer application.
-1. In the left pane, select **Blob Containers**, and then select **appinsights-logs**.
-1. In the **appinsights-logs** pane, select **Download**.
-1. Download the logs to a local folder on your machine.
-1. Email the downloaded .zip file to farmbeatssupport@microsoft.com.
+3. In the resource group, search for the *datahublogs\** storage account. For example, search for **fordatahublogsmvxmq\***.
+4. Select the storage account in the **Name** column to view the **Storage Account** dashboard.
+5. In the **datahubblogs\*** pane, select **Open in Explorer** to open the Azure Storage Explorer application.
+6. In the left pane, select **Blob Containers**, and then select **appinsights-logs**.
+7. In the **appinsights-logs** pane, select **Download**.
+8. Download the logs to a local folder on your machine.
+9. Email the downloaded .zip file to farmbeatssupport@microsoft.com.
 
 ### Collect Accelerator app service logs
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the **Search** box, search for the FarmBeats Accelerator resource group.
+2. In the **Search** box, search for the FarmBeats Accelerator resource group.
 
     > [!NOTE]
-    > Select the FarmBeats Accelerator resource group that was provided during FarmBeats deployment.
+    > Select the FarmBeats Accelerator resource group that was provided during FarmBeats installation.
 
-1. In the resource group, search for the *storage\** storage account. For example, search for **storagedop4k\***.
-1. Select the storage account in the **Name** column to view the **Storage Account** dashboard.
-1. In the **storage\*** pane, select **Open in Explorer** to open the Azure Storage Explorer application.
-1. In the left pane, select **Blob Containers**, and then select **appinsights-logs**.
-1. In the **appinsights-logs** pane, select **Download**.
-1. Download the logs to a local folder on your machine.
-1. Email the downloaded folder to farmbeatssupport@microsoft.com.
+3. In the resource group, search for the *storage\** storage account. For example, search for **storagedop4k\***.
+4. Select the storage account in the **Name** column to view the **Storage Account** dashboard.
+5. In the **storage\*** pane, select **Open in Explorer** to open the Azure Storage Explorer application.
+6. In the left pane, select **Blob Containers**, and then select **appinsights-logs**.
+7. In the **appinsights-logs** pane, select **Download**.
+8. Download the logs to a local folder on your machine.
+9. Email the downloaded folder to farmbeatssupport@microsoft.com.
 
 ## Known issues
 
@@ -290,12 +289,12 @@ Try either of the following:
 
 ## High CPU usage
 
-**Error**: You get an email alert that refers to a *High CPU Usage Alert*. 
+**Error**: You get an email alert that refers to a **High CPU Usage Alert**. 
 
 **Corrective action**: 
 1. Go to your FarmBeats Datahub resource group.
-1. Select the App service.  
-1. Go to the scale up [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/), and then select an appropriate pricing tier.
+2. Select the **App service**.  
+3. Go to the scale up [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/), and then select an appropriate pricing tier.
 
 ## Next steps
 
