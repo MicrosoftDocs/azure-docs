@@ -3,11 +3,11 @@ title: Deploy blob storage on module to your device - Azure IoT Edge
 description: Deploy an Azure Blob Storage module to your IoT Edge device to store data at the edge.
 author: arduppal
 ms.author: arduppal
-ms.date: 11/19/2019
+ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-manager: mchad
+manager: brymat
 
 ---
 
