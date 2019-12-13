@@ -15,5 +15,5 @@ Complete the quickstart article:
 
 Clone or download the samples project from GitHub:
 
-* [C#](https://github.com/Azure/azure-functions-durable-extension/tree/dev/samples/precompiled)
-* [JavaScript](https://github.com/Azure/azure-functions-durable-extension/tree/dev/samples/javascript)
+* [C#](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/precompiled)
+* [JavaScript](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript)
