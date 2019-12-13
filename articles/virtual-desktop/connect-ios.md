@@ -11,15 +11,13 @@ ms.author: helohr
 ---
 # Connect with the iOS client
 
-> Applies to: iOS 8.0 or later. Compatible with iPhone, iPad, and iPod touch.
+> Applies to: iOS 13.0 or later. Compatible with iPhone, iPad, and iPod touch.
 
 You can access Windows Virtual Desktop resources from your iOS device with our downloadable client. This guide will tell you how to set up the iOS client.
 
-## Install the iOS Beta client
-To install the iOS Beta client:
+## Install the iOS client
 
-1. Download the [Microsoft Remote Desktop client](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) from iTunes.
-2. Once it's done downloading, open the app and follow the instructions.
+To get started, [download](https://aka.ms/rdios) and install the client on your iOS device.
 
 ## Subscribe to a feed
 
