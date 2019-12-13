@@ -20,9 +20,11 @@ ms.subservice: B2C
 
 Azure Active Directory B2C (Azure AD B2C) provides support for verifying a phone number by using Azure Multi-Factor Authentication (MFA). Use this technical profile to send a code to a phone number and then verify the code.
 
-The Azure MFA technical profile may also return an error message. You can design the integration with Azure MFA in the following ways:
+The Azure MFA technical profile may also return an error message. You can design the integration with Azure MFA in the following way:
 
 - **Validation technical profile** - A validation technical profile calls the Azure MFA service. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message is display on a self-asserted page.
+
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Protocol
 

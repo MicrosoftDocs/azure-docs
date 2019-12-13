@@ -20,6 +20,8 @@ ms.subservice: B2C
 
 This article provides reference and examples for using the phone number claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information about claims transformations in general, see [ClaimsTransformations](claimstransformations.md).
 
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
+
 ## ConvertStringToPhoneNumberClaim
 
 Convert a string claim to a phone number claim and throw an exception if the converted phone number is not a valid phone number.
