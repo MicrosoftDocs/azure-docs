@@ -358,102 +358,15 @@ If you try to bind to `CloudQueueMessage` and get an error message, make sure th
 
 # [JavaScript](#tab/javascript)
 
-To implement a queue trigger input binding, configure the *function.json* like the following example:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "queueTrigger",
-      "name": "msg",
-      "direction": "in",
-      "queueName": "messages",
-      "connection": "MyStorageConnectionAppSetting"
-    }
-  ]
-}
-```
-
-| Property    | Description |
-|-------------|-----------------------------|
-|`type`       | Defines the binding type. Here, set the value as `queueTrigger`. |
-|`name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
-|`direction`  | Defines whether the binding is input or output. Here, set the value to `in`.  |
-|`queueName`  | Declares the queue name in the storage account. |
-|`connection` | Points to the storage account connection string. |
-
-With this configuration, the function code looks like this:
-
-```javascript
-module.exports = async function (context, msg) {
-    context.log(`Queue message: ${msg}`);
-};
-```
-
-The `context` instance exposes the following data:
-
-* Queue message metadata is available via `context.bindingData`.
-* The queue item payload is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in the *function.json* binding. If the payload is JSON, the value is deserialized into an object.
+The queue item payload is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. If the payload is JSON, the value is deserialized into an object.
 
 # [Python](#tab/python)
 
-To implement a queue trigger input binding, configure the *function.json* like the following example:
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "type": "queueTrigger",
-      "name": "msg",
-      "direction": "in",
-      "queueName": "messages",
-      "connection": "MyStorageConnectionAppSetting"
-    }
-  ]
-}
-```
-
-| Property    | Description |
-|-------------|-----------------------------|
-|`type`       | Defines the binding type. Here, set the value as `queueTrigger`. |
-|`name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
-|`direction`  | Defines whether the binding is input or output. Here, set the value to `in`.  |
-|`queueName`  | Declares the queue name in the storage account. |
-|`connection` | Points to the storage account connection string. |
-
-With this configuration, the function code looks like this:
-
-```python
-import logging
-import azure.functions as func
-
-def main(msg: func.QueueMessage) -> None:
-    value = msg.get_body().decode('utf-8')
-```
-
-The `msg` instance exposes metadata and access to the message payload. The queue item payload is available via `msg.get_body()` with the appropriate formatter passed to the `decode` method.
+Access the queue message via the parameter typed as [QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python). Refer to the input example for details.
 
 # [Java](#tab/java)
 
-The Java `QueueTrigger` annotation gives you access to the queue message. For more information regarding the input annotation, refer to the [attributes and annotations](#trigger---attributes-and-annotations) section.
-
-```java
-package com.function;
-
-import com.microsoft.azure.functions.annotation.*;
-import java.util.Queue;
-import com.microsoft.azure.functions.*;
-
-public class QueueTriggerDemo {
-    @FunctionName("QueueTriggerDemo")
-    public void run(
-        @QueueTrigger(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") String message,
-        final ExecutionContext context
-    ) {
-        context.getLogger().info("Java Queue trigger function processed a message: " + message);
-    }
-```
+The [QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) annotation gives you access to the queue message that triggered the function. Refer to the input example for details.
 
 ---
 
@@ -710,13 +623,13 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
  public String pushToQueue(
      @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
      final String message,
-     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
        result.setValue(message + " has been added.");
        return message;
  }
 ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on parameters whose value would be written to Queue storage.  The parameter type should be `OutputBinding<T>`, where T is any native Java type of a POJO.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on parameters whose value would be written to Queue storage.  The parameter type should be `OutputBinding<T>`, where `T` is any native Java type of a POJO.
 
 ---
 
@@ -847,15 +760,15 @@ In C# and C# script, write multiple queue messages by using one of the following
 
 # [JavaScript](#tab/javascript)
 
-In JavaScript functions, use `context.bindings.<name>` to access the output queue message. You can use a string or a JSON-serializable object for the queue item payload.
+The output queue item is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. You can use a string or a JSON-serializable object for the queue item payload.
 
 # [Python](#tab/python)
 
-**TODO**
+Write to the queue message via the parameter typed as [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python), by calling the [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) method.
 
 # [Java](#tab/java)
 
-**TODO**
+The [QueueOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput?view=azure-java-stable) annotation gives you access to the message to output data.
 
 ---
 
