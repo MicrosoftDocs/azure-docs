@@ -5,38 +5,38 @@
 - name: Tutorials
   expanded: true
   items:
-   - name: Generate soil moisture map in Azure FarmBeats
-     href: generate-soil-moisture-map.md
-   - name: Ingest historical telemetry data in Azure FarmBeats
-     href: ingest-historical-telemetry-data.md
+   - name: Generate soil moisture map
+     href: generate-soil-moisture-map-in-azure-farmbeats.md
+   - name: Ingest historical telemetry data
+     href: ingest-historical-telemetry-data-in-azure-farmbeats.md
 - name: Concepts
   items:
-   - name: Integration patterns in Azure FarmBeats
-     href: integration-patterns.md
-   - name: Sensor partner integration in Azure FarmBeats
-     href: sensor-partner-integration.md
-   - name: Imagery partner integration in Azure FarmBeats
-     href: imagery-partner-integration.md
+   - name: Integration patterns
+     href: integration-patterns-in-azure-farmbeats.md
+   - name: Sensor partner integration
+     href: sensor-partner-integration-in-azure-farmbeats.md
+   - name: Imagery partner integration
+     href: imagery-partner-integration-in-azure-farmbeats.md
 - name: How to Guides
   items:
    - name: Install Azure FarmBeats
      href: install-azure-farmbeats.md
-   - name: Manage users in Azure FarmBeats
-     href: manage-users.md
-   - name: Manage farms in Azure FarmBeats
-     href: manage-farms.md
+   - name: Manage users
+     href: manage-users-in-azure-farmbeats.md
+   - name: Manage farms
+     href: manage-farms-in-azure-farmbeats.md
    - name: Get sensor data
      href: get-sensor-data-from-sensor-partner.md
-   - name: Generate maps in Azure FarmBeats
-     href: generate-maps.md
-   - name: Configure rules and manage alerts in Azure FarmBeats
-     href: configure-rules-alerts.md
-   - name: Get drone imagery in Azure FarmBeats
-     href: get-drone-imagery.md
+   - name: Generate maps
+     href: generate-maps-in-azure-farmbeats.md
+   - name: Configure rules and manage alerts
+     href: configure-rules-alerts-in-azure-farmbeats.md
+   - name: Get drone imagery
+     href: get-drone-imagery-in-azure-farmbeats.md
 - name: Troubleshoot
   items:
-   - name: Troubleshoot FarmBeats
+   - name: Troubleshoot Azure FarmBeats
      href: troubleshoot-azure-farmbeats.md
-- name: Reference for Azure FarmBeats
+- name: Reference
   items:
   href: references-for-azure-farmbeats.md

@@ -27,7 +27,7 @@ Ensure the following:
 
 ## Create a farm
 
-A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a farm using the [Farms API](https://aka.ms/FarmBeatsDatahubSwagger) or in the [FarmsBeats Accelerator UI](manage-farms.md#create-farms)
+A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a farm using the [Farms API](https://aka.ms/FarmBeatsDatahubSwagger) or in the [FarmsBeats Accelerator UI](manage-farms-in-azure-farmbeats.md#create-farms)
 
 ## Deploy sensors
 
@@ -88,4 +88,4 @@ Use the following steps:
 
 ## Next steps
 
-Now that you’ve successfully generated a Soil Moisture Heatmap, learn how to [generate sensor placement](generate-maps.md#sensor-placement-map) and [ingest historical telemetry data](ingest-historical-telemetry-data.md). 
+Now that you’ve successfully generated a Soil Moisture Heatmap, learn how to [generate sensor placement](generate-maps-in-azure-farmbeats.md#sensor-placement-map) and [ingest historical telemetry data](ingest-historical-telemetry-data-in-azure-farmbeats.md). 

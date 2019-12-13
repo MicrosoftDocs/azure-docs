@@ -254,4 +254,4 @@ To uninstall Azure FarmBeats Datahub or Accelerator, complete the following step
 2.	Go to Azure Active Directory & **delete the Azure AD application** linked to the Azure FarmBeats installation. This will remove the Azure FarmBeats installation from your Azure subscription.
 
 ## Next steps
-You have learned how to install Azure FarmBeats in your Azure subscription. Now, learn how to [add users](manage-users.md#manage-users) to your Azure FarmBeats instance.
+You have learned how to install Azure FarmBeats in your Azure subscription. Now, learn how to [add users](manage-users-in-azure-farmbeats.md#manage-users) to your Azure FarmBeats instance.
