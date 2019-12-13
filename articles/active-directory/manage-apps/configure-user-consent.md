@@ -19,10 +19,11 @@ ms.collection: M365-identity-device-management
 
 Applications can integrate with the Microsoft Identity platform to allow users to sign in using their work or school account in Azure Active Directory (Azure AD), and to access your organization's data to deliver rich data-driven experiences. Different permissions allow the application different level of access to your users' and your organization's data.
 
-By default, users can consent to applications accessing your organization's data, although only for some permissions. For example, by default a user can consent to allow an app to access their own mailbox or the Teams conversations for a team the user owns, but cannot consent to allow an app unattended access to read and write to all SharePoint sites in your organization.
+By default, users can consent to applications accessing your organization's data, although only for some permissions. For example, by default a user can consent to allow an app to access their own mailbox or the Teams conversations for a team the user owns, but cannot consent to allow an app unattended access to read and write to all SharePoint sites in your organization. While allowing users to consent by themselves does allow users to easily acquire useful applications that integrate with Microsoft 365, Azure and other services, it can represent a risk if not used and monitored carefully.
+
+Microsoft recommends disabling future user consent operations to help reduce your surface area and mitigate this risk. If user consent is disabled, previous consent grants will still be honored but all future consent operations must be performed by an administrator. Tenant-wide admin consent can be requested by users through an integrated [admin consent request workflow](configure-admin-consent-workflow.md) or through your own support processes. See [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md) for more details.
 
 ## Configure user consent to applications
-
 ### Disable or enable user consent from the Azure portal
 
 You can use the Azure portal to disable or enable users' ability to consent to applications accessing your organization's data:
