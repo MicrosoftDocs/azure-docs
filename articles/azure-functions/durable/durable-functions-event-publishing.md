@@ -153,7 +153,7 @@ Now you're ready to receive lifecycle events.
 
 ## Run Durable Functions app to send the events
 
-In the Durable Functions project that you configured earlier, start debugging on your local machine and start an orchestration. The app publishes Durable Functions lifecycle events to Event Grid. Verify that Event Grid triggers the the listener function that you created by checking its logs in the Azure portal.
+In the Durable Functions project that you configured earlier, start debugging on your local machine and start an orchestration. The app publishes Durable Functions lifecycle events to Event Grid. Verify that Event Grid triggers the the listener function you created by checking its logs in the Azure portal.
 
 ```
 2019-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
