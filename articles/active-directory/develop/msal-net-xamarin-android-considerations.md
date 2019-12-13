@@ -3,16 +3,12 @@ title: Xamarin Android considerations (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about specific considerations when using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
 ms.author: twhitney
@@ -36,7 +32,7 @@ var authResult = AcquireTokenInteractive(scopes)
 ```
 You can also set this at the PublicClientApplication level (in MSAL4.2+) via a callback.
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -46,7 +42,7 @@ var pca = PublicClientApplicationBuilder
 
 A recommendation is to use the CurrentActivityPlugin [here](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Then your PublicClientApplication builder code would look like this:
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")

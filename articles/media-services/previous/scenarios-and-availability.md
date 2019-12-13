@@ -248,6 +248,10 @@ For more information, see the [scaling](#scaling) section.
 |S2|GA|All except Brazil South, and India West|
 |S3|GA|All except India West|
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Next steps
 
 Review Media Services learning paths.

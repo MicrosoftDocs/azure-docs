@@ -6,13 +6,11 @@ ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/12/2019
 ---
 
 # Azure Data Factory mapping data flow New Branch Transformation
-
-
 
 ![Branch options](media/data-flow/menu.png "menu")
 

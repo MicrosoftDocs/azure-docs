@@ -8,7 +8,7 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019
-ms.date: 10/08/2019
+ms.date: 12/06/2019
 ---
 
 # Troubleshoot Azure Data Factory Data Flows
@@ -80,6 +80,14 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 - **Cause**: When reading from a JSON source with a single document on many nested lines, ADF, via Spark, is unable to determine where a new document begins and the previous document ends.
 
 - **Resolution**: On the Source transformation that is using a JSON dataset, expand "JSON Settings" and turn on "Single Document".
+
+### Error message: Duplicate columns found in Join
+
+- **Symptoms**: Join transformation resulted in columns from both the left and the right side that include duplicate column names
+
+- **Cause**: The streams that are being joined have common column names
+
+- **Resolution**: Add a Select transforamtion following the Join and select "Remove duplicate columns" for both the input and output.
 
 
 ## General troubleshooting guidance

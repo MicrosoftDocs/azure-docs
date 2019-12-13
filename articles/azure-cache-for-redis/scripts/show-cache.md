@@ -1,14 +1,13 @@
 ---
-title: Azure CLI Script Sample - Get details of an Azure Cache for Redis
-description: Azure CLI Script Sample - Get details of an Azure Cache for Redis
+title: Get details of an Azure Cache for Redis - Azure CLI
+description: This Azure CLI code sample shows how to retrieve the details of an Azure Cache for Redis instance, including its provisioning status.
 author: yegu-ms
+ms.author: yegu
 tags: azure-service-management
-
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.author: yegu
 ---
 
 # Get details of an Azure Cache for Redis
