@@ -131,7 +131,7 @@
         - name: Anonymous access to blobs
           href: storage-manage-access-to-resources.md
       - name: Authorizing management operations
-        href: ../common/storage-authorization-management.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Immutable blobs
         href: storage-blob-immutable-storage.md
       - name: Advanced threat protection

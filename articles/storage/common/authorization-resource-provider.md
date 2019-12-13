@@ -1,5 +1,5 @@
 ---
-title: Authorizing operations with the Azure Storage resource provider
+title: Use the Azure Storage resource provider to access management resources
 description: The Azure Storage resource provider is a service that provides access to management resources for Azure Storage. You can use the Azure Storage resource provider to create, update, manage, and delete resources such as storage accounts, private endpoints, and account access keys.
 services: storage
 author: tamram
@@ -12,19 +12,19 @@ ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Authorizing access to management resources with the Azure Storage resource provider
+# Use the Azure Storage resource provider to access management resources
 
 Azure Resource Manager is the deployment and management service for Azure. Azure Storage implements a resource provider for Azure Resource Manager. The Azure Storage resource provider is a service that provides access to management resources for Azure Storage. You can use the Azure Storage resource provider to create, update, manage, and delete resources such as storage accounts, private endpoints, and account access keys. For more information about Azure Resource Manager, see [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview.md).
 
 For example, you can use the Azure Storage resource provider to perform actions such as creating or deleting a storage account or getting a list of storage accounts in a subscription. These actions are available in the [Azure portal](https://portal.azure.com), via [Azure PowerShell](/powershell/module/az.storage) or [Azure CLI](/cli/azure/storage), and via the Azure Storage management client libraries or the [Azure Storage resource provider REST API](/rest/api/storagerp).
 
-To authorize requests against the Azure Storage resource provider, use Azure Active Directory (Azure AD). This article describes how to...
+To authorize requests against the Azure Storage resource provider, use Azure Active Directory (Azure AD). This article describes how to assign permissions to management resources, and points to examples that show how to make requests against the Azure Storage resource provider.
 
 ## Management resources versus data resources
 
 Microsoft provides two REST APIs for working with Azure Storage resources. These APIs form the basis of all actions you can perform against Azure Storage. The Azure Storage REST API enables you to work with data in your storage account, including blob, queue, file, and table data. The Azure Storage resource provider REST API enables you to work with the storage account and related resources.
 
-A request that reads or writes blob data requires different permissions than a request that performs a management operation. RBAC provides fine-grained control over permissions to both types of resources. When you assign an RBAC role to a security principal, make sure that you understand what permissions that principal will be granted.
+A request that reads or writes blob data requires different permissions than a request that performs a management operation. RBAC provides fine-grained control over permissions to both types of resources. When you assign an RBAC role to a security principal, make sure that you understand what permissions that principal will be granted. For a detailed reference that describes which actions are associated with each built-in RBAC role, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
 Azure Storage supports using Azure AD to authorize requests against Blob and Queue storage. For information about RBAC roles for blob and queue data operations, see [Authorize access to blobs and queues using Active Directory](storage-auth-aad.md).
 
