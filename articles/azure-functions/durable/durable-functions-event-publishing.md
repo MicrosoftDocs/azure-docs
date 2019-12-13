@@ -153,7 +153,7 @@ Now you're ready to receive lifecycle events.
 
 ## Run Durable Functions app to send the events
 
-In the Durable Functions project that you configured earlier, start debugging on your local machine. See the logs from the function that you created in the Azure portal.
+In the Durable Functions project that you configured earlier, start debugging on your local machine. See the logs from the Event Grid listener function that you created in the Azure portal.
 
 ```
 2019-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
