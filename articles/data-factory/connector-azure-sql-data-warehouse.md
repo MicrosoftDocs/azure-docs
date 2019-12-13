@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/13/2019
+ms.date: 12/12/2019
 ---
 
 # Copy and transform data in Azure SQL Data Warehouse by using Azure Data Factory 
@@ -34,7 +34,7 @@ For Copy activity, this Azure SQL Data Warehouse connector supports these functi
 
 - Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieve data by using a SQL query or stored procedure.
-- As a sink, load data by using PolyBase or a bulk insert. We recommend PolyBase for better copy performance.
+- As a sink, load data by using [PolyBase](#use-polybase) or [COPY statement](#use-copy-statement) (preview) or bulk insert. We recommend PolyBase or COPY statement (preview) for better copy performance.
 
 > [!IMPORTANT]
 > If you copy data by using Azure Data Factory Integration Runtime, configure an [Azure SQL server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure services can access the server.
@@ -269,12 +269,7 @@ To copy data from Azure SQL Data Warehouse, set the **type** property in the Cop
 | sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No       |
 | storedProcedureParameters    | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No       |
 
-### Points to note
-
-- If the **sqlReaderQuery** is specified for the **SqlSource**, the Copy Activity runs this query against the Azure SQL Data Warehouse source to get the data. Or you can specify a stored procedure. Specify the **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
-- If you don't specify either **sqlReaderQuery** or **sqlReaderStoredProcedureName**, the columns defined in the **structure** section of the dataset JSON are used to construct a query. `select column1, column2 from mytable` runs against Azure SQL Data Warehouse. If the dataset definition doesn't have the **structure**, all columns are selected from the table.
-
-#### SQL query example
+**Example: using SQL query**
 
 ```json
 "activities":[
@@ -306,7 +301,7 @@ To copy data from Azure SQL Data Warehouse, set the **type** property in the Cop
 ]
 ```
 
-#### Stored procedure example
+**Example: using stored procedure**
 
 ```json
 "activities":[
@@ -342,7 +337,7 @@ To copy data from Azure SQL Data Warehouse, set the **type** property in the Cop
 ]
 ```
 
-### Stored procedure definition
+**Sample stored procedure:**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -363,19 +358,23 @@ GO
 
 ### <a name="azure-sql-data-warehouse-as-sink"></a> Azure SQL Data Warehouse as sink
 
+Azure Data Factory supports three ways to load data into SQL Data Warehouse. The fastest and most scalable way to load data is through PolyBase or the [COPY statement](https://docs.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview). Learn more from [Data loading strategies for Azure SQL Data Warehouse](../sql-data-warehouse/design-elt-data-loading.md).
+
+- [Use PolyBase powered by SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 
+- [Use COPY statement (preview) powered by SQL Data Warehouse](#use-copy-statement)
+- Use bulk insert
+
 To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to **SqlDWSink**. The following properties are supported in the Copy Activity **sink** section:
 
 | Property          | Description                                                  | Required                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | The **type** property of the Copy Activity sink must be set to **SqlDWSink**. | Yes                                           |
-| allowPolyBase     | Indicates whether to use PolyBase, when applicable, instead of the BULKINSERT mechanism. <br/><br/> We recommend that you load data into SQL Data Warehouse by using PolyBase. See the [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default). | No                                            |
-| polyBaseSettings  | A group of properties that can be specified when the **allowPolybase** property is set to **true**. | No                                            |
-| rejectValue       | Specifies the number or percentage of rows that can be rejected before the query fails.<br/><br/>Learn more about PolyBase’s reject options in the Arguments section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Allowed values are 0 (default), 1, 2, etc. | No                                            |
-| rejectType        | Specifies whether the **rejectValue** option is a literal value or a percentage.<br/><br/>Allowed values are **Value** (default) and **Percentage**. | No                                            |
-| rejectSampleValue | Determines the number of rows to retrieve before PolyBase recalculates the percentage of rejected rows.<br/><br/>Allowed values are 1, 2, etc. | Yes, if the **rejectType** is **percentage**. |
-| useTypeDefault    | Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Allowed values are **True** and **False** (default).<br><br> | No                                            |
-| writeBatchSize    | Number of rows to inserts into the SQL table **per batch**. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determines the appropriate batch size based on the row size. | No                                            |
-| writeBatchTimeout | Wait time for the batch insert operation to finish before it times out. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No                                            |
+| allowPolyBase     | Indicates whether to use PolyBase to load data into SQL Data Warehouse. `allowCopyCommand` and `allowPolyBase` cannot be both true. <br/><br/>See [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default). | No.<br/>Apply when using PolyBase.     |
+| polyBaseSettings  | A group of properties that can be specified when the `allowPolybase` property is set to **true**. | No.<br/>Apply  when using PolyBase. |
+| allowCopyCommand | Indicates whether to use [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview) to load data into SQL Data Warehouse. `allowCopyCommand` and `allowPolyBase` cannot be both true. <br/><br/>See [Use COPY statement to load data into Azure SQL Data Warehouse](#use-copy-statement) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default). | No.<br>Apply  when using COPY. |
+| copyCommandSettings | A group of properties that can be specified when `allowCopyCommand` property is set to TRUE. | No.<br/>Apply  when using COPY. |
+| writeBatchSize    | Number of rows to inserts into the SQL table **per batch**.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determines the appropriate batch size based on the row size. | No.<br/>Apply  when using bulk insert.     |
+| writeBatchTimeout | Wait time for the batch insert operation to finish before it times out.<br/><br/>The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No.<br/>Apply  when using bulk insert.        |
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Data Warehouse in each run. Use this property to clean up the preloaded data. | No                                            |
 | tableOption | Specifies whether to automatically create the sink table if not exists based on the source schema. Auto table creation is not supported when staged copy is configured in copy activity. Allowed values are: `none` (default), `autoCreate`. |No |
 | disableMetricsCollection | Data Factory collects metrics such as SQL Data Warehouse DWUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
@@ -396,17 +395,24 @@ To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to 
 }
 ```
 
-Learn more about how to use PolyBase to efficiently load SQL Data Warehouse in the next section.
-
-## Use PolyBase to load data into Azure SQL Data Warehouse
+## <a name="use-polybase"></a> Use PolyBase to load data into Azure SQL Data Warehouse
 
 Using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure SQL Data Warehouse with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse](v1/data-factory-load-sql-data-warehouse.md).
 
 * If your source data is in **Azure Blob, Azure Data Lake Storage Gen1 or Azure Data Lake Storage Gen2**, and the **format is PolyBase compatible**, you can use copy activity to directly invoke PolyBase to let Azure SQL Data Warehouse pull the data from source. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
-* If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format. And it stores the data in Azure Blob storage. It then loads the data into SQL Data Warehouse.
+* If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format, stores the data in Azure Blob storage., then calls PolyBase to load data into SQL Data Warehouse.
 
 >[!TIP]
 >Learn more on [Best practices for using PolyBase](#best-practices-for-using-polybase).
+
+The following PolyBase settings are supported under `polyBaseSettings` in copy activity:
+
+| Property          | Description                                                  | Required                                      |
+| :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
+| rejectValue       | Specifies the number or percentage of rows that can be rejected before the query fails.<br/><br/>Learn more about PolyBase’s reject options in the Arguments section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Allowed values are 0 (default), 1, 2, etc. | No                                            |
+| rejectType        | Specifies whether the **rejectValue** option is a literal value or a percentage.<br/><br/>Allowed values are **Value** (default) and **Percentage**. | No                                            |
+| rejectSampleValue | Determines the number of rows to retrieve before PolyBase recalculates the percentage of rejected rows.<br/><br/>Allowed values are 1, 2, etc. | Yes, if the **rejectType** is **percentage**. |
+| useTypeDefault    | Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Allowed values are **True** and **False** (default).<br><br> | No                                            |
 
 ### Direct copy by using PolyBase
 
@@ -439,6 +445,8 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
    7. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
 3. If your source is a folder, `recursive` in copy activity must be set to true.
+
+4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, and `modifiedDateTimeEnd` are not specified.
 
 >[!NOTE]
 >If your source is a folder, note PolyBase retrieves files from the folder and all of its subfolders, and it doesn't retrieve data from files for which the file name begins with an underline (_) or a period (.), as documented [here - LOCATION argument](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
@@ -479,7 +487,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
 ### Staged copy by using PolyBase
 
-When your source data doesn’t meet the criteria in the previous section, enable data copying via an interim staging Azure Blob storage instance. It can't be Azure Premium Storage. In this case, Azure Data Factory automatically runs transformations on the data to meet the data format requirements of PolyBase. Then it uses PolyBase to load data into SQL Data Warehouse. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance.md#staged-copy) for details about copying data via a staging Azure Blob storage instance.
+When your source data is not natively compatible with PolyBase, enable data copying via an interim staging Azure Blob storage instance (it can't be Azure Premium Storage). In this case, Azure Data Factory automatically converts the data to meet the data format requirements of PolyBase. Then it invokes PolyBase to load data into SQL Data Warehouse. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance.md#staged-copy) for details about copying data via a staging Azure Blob storage instance.
 
 To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account with the interim blob storage. Then specify the `enableStaging` and `stagingSettings` properties for the Copy Activity as shown in the following code.
 
@@ -523,15 +531,15 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 ]
 ```
 
-## Best practices for using PolyBase
+### Best practices for using PolyBase
 
 The following sections provide best practices in addition to those mentioned in [Best practices for Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
-### Required database permission
+#### Required database permission
 
 To use PolyBase, the user that loads data into SQL Data Warehouse must have ["CONTROL" permission](https://msdn.microsoft.com/library/ms191291.aspx) on the target database. One way to achieve that is to add the user as a member of the **db_owner** role. Learn how to do that in the [SQL Data Warehouse overview](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
-### Row size and data type limits
+#### Row size and data type limits
 
 PolyBase loads are limited to rows smaller than 1 MB. It cannot be used to load to VARCHR(MAX), NVARCHAR(MAX), or VARBINARY(MAX). For more information, see [SQL Data Warehouse service capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
@@ -539,11 +547,11 @@ When your source data has rows greater than 1 MB, you might want to vertically s
 
 Alternatively, for data with such wide columns, you can use non-PolyBase to load the data using ADF, by turning off "allow PolyBase" setting.
 
-### SQL Data Warehouse resource class
+#### SQL Data Warehouse resource class
 
 To achieve the best possible throughput, assign a larger resource class to the user that loads data into SQL Data Warehouse via PolyBase.
 
-### PolyBase troubleshooting
+#### PolyBase troubleshooting
 
 **Loading to Decimal column**
 
@@ -582,6 +590,94 @@ All columns of the table must be specified in the INSERT BULK statement.
 ```
 
 The NULL value is a special form of the default value. If the column is nullable, the input data in the blob for that column might be empty. But it can't be missing from the input dataset. PolyBase inserts NULL for missing values in Azure SQL Data Warehouse.
+
+## <a name="use-copy-statement"></a> Use COPY statement to load data into Azure SQL Data Warehouse (preview)
+
+SQL Data Warehouse [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview) directly supports loading data from **Azure Blob and Azure Data Lake Storage Gen2**. If your source data meets the criteria described in this section, you can choose to use COPY statement in ADF to load data into Azure SQL Data Warehouse. Azure Data Factory checks the settings and fails the copy activity run if the criteria is not met.
+
+The following COPY statement settings are supported under `allowCopyCommand` in copy activity:
+
+| Property          | Description                                                  | Required                                      |
+| :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
+| defaultValues | Specifies the default values for each target column in SQL DW.  The default values in the property overwrite the DEFAULT constraint set in the data warehouse, and identity column cannot have a default value. | No |
+| additionalOptions | Additional options that will be passed to SQL DW COPY statement directly in “With” clause. | No |
+
+Using COPY statement supports the following configuration:
+
+1. The **source linked service and format** are with the following types and authentication methods:
+
+    | Supported source data store type                             | Supported format           | Supported source authentication type                         |
+    | :----------------------------------------------------------- | -------------------------- | :----------------------------------------------------------- |
+    | [Azure Blob](connector-azure-blob-storage.md)                | Delimited text             | Account key authentication, shared access signature authentication, service principal authentication, managed identity authentication |
+    | &nbsp;                                                       | Parquet                    | Account key authentication, shared access signature authentication |
+    | &nbsp;                                                       | ORC                        | Account key authentication, shared access signature authentication |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Delimited text/Parquet/ORC | Account key authentication, service principal authentication, managed identity authentication |
+
+    >[!IMPORTANT]
+    >If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication - refer to [Impact of using VNet Service Endpoints with Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Learn the required configurations in Data Factory from [Azure Blob - managed identity authentication](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2 - managed identity authentication](connector-azure-data-lake-storage.md#managed-identity) section respectively.
+
+2. Format settings are with the following:
+
+   1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **GZip**.
+   2. For **ORC**: `compression` can be **no compression**, **zlib**, or **Snappy**.
+   3. For **Delimited text**:
+      1. `rowDelimiter` is **single character** or “**\r\n**”.
+      2. `nullValue` is left as default or set to **empty string** ("").
+      3. `encodingName` is left as default or set to **utf-8 or utf-16**.
+      4. `escapeChar` must be same as `quoteChar`, and is not empty.
+      5. `skipLineCount` is left as default or set to 0.
+      6. `compression` can be **no compression** or **GZip**.
+
+3. If your source is a folder, `recursive` in copy activity must be set to true.
+
+4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, and `modifiedDateTimeEnd` are not specified.
+
+```json
+"activities":[
+    {
+        "name": "CopyFromAzureBlobToSQLDataWarehouseViaCOPY",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "ParquetDataset",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "AzureSQLDWDataset",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "ParquetSource",
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSetting",
+                    "recursive": true
+                }
+            },
+            "sink": {
+                "type": "SqlDWSink",
+                "allowCopyCommand": true, 
+                "copyCommandSettings": {
+                    "defaultValues": [ 
+                        { 
+                            "columnName": "col_string", 
+                            "defaultValue": "DefaultStringValue" 
+                        }
+                    ],
+                    "additionalOptions": { 
+                        "MAXERRORS": "10000", 
+                        "DATEFORMAT": "ymd" 
+                    }
+                }
+            },
+            "enableSkipIncompatibleRow": true
+        }
+    }
+]
+```
 
 ## Mapping data flow properties
 
