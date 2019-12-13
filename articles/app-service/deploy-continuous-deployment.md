@@ -24,7 +24,7 @@ For Bitbucket or GitHub, authorize Azure App Service to connect to your reposito
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
 
-   ![Search for App services.](media/app-service-continuous-deployment/search-for-ap-services.png)
+   ![Search for App services.](media/app-service-continuous-deployment/search-for-app-services.png)
 
 1. Select the web app you want to deploy.
 
