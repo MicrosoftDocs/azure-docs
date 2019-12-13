@@ -211,7 +211,7 @@ Keep the default routes, and select **Next** to continue to the review section
 
     > [!IMPORTANT]
     > - For the HTTPS flow, if the client authentication is enabled via SAS key, then the SAS key specified earlier should be added as a header. Hence the curl request will be: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
-    > - For the HTTPS flow, if the client authentication is enabled via certificate, the curl request will be: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - For the HTTPS flow, if the client authentication is enabled via certificate, the curl request will be: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
 
 2. Subscribers can register for events published to a topic. To receive any event, you'll need to create an Event Grid subscription for **MicrosoftStorage** topic.
     1. Create blobsubscription.json with the following content. For details about the payload, see our [API documentation](api.md)
