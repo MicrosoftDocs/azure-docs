@@ -225,7 +225,10 @@
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
         "articles/batch/*.md": "ju-shim",
-        "articles/notebooks/*.md": "kraigb"
+        "articles/notebooks/*.md": "kraigb",
+        "articles/azure-monitor/apps/*.md": "mrbullwinkle",
+        "articles/azure-monitor/log-query/*.md": "rboucher",
+        "articles/azure-monitor/platform/*.md": "rboucher"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -258,6 +261,10 @@
         "articles/azure-databricks/**/*.md": "https://feedback.azure.com/forums/909463-azure-databricks",
         "articles/azure-functions/**/*.md": "https://feedback.azure.com/forums/355860-azure-functions",
         "articles/azure-government/**/*.md": "https://feedback.azure.com/forums/558487-azure-government",
+        "articles/azure-monitor/**/*.md": "https://feedback.azure.com/forums/913690-azure-monitor",
+        "articles/azure-monitor/apps/**/*.md": "https://feedback.azure.com/forums/357324-azure-monitor-application-insights",
+        "articles/azure-monitor/log-query/**/*.md": "https://feedback.azure.com/forums/267889-azure-monitor-log-analytics",
+        "articles/azure-monitor/platform/**/alert-*.md": "https://feedback.azure.com/forums/602299-azure-monitor-alert-management",
         "articles/industry/agriculture/**/*.md": "https://feedback.azure.com/forums/924718-Azure-farmbeats",
         "articles/azure-maps/**/*.md": "https://feedback.azure.com/forums/909172-azure-maps",
         "articles/azure-portal/**/*.md": "https://feedback.azure.com/forums/223579-azure-portal",
@@ -386,7 +393,7 @@
         "articles/service-bus-relay/**/*.md": "https://feedback.azure.com/forums/216926-service-bus",
         "articles/service-bus/**/*.md": "https://feedback.azure.com/forums/216926-service-bus",
         "articles/service-fabric/**/*.md": "https://feedback.azure.com/forums/293901-service-fabric",
-        "articles/service-health/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "articles/service-health/**/*.md": "https://feedback.azure.com/forums/919477-azure-service-health", 
         "articles/site-recovery/**/*.md": "https://feedback.azure.com/forums/256299-site-recovery",
         "articles/spatial-anchors/**/*.md": "https://feedback.azure.com/forums/919252-azure-spatial-anchors",
         "articles/sql-data-warehouse/**/*.md": "https://feedback.azure.com/forums/307516-sql-data-warehouse",
@@ -411,6 +418,7 @@
         "articles/azure-functions/**/*.md": "gwallace",
         "articles/app-service/**/*.md": "gwallace",
         "articles/app-service-mobile/**/*.md": "crdun",
+        "articles/azure-monitor/*.md": "carmonm",
         "articles/backup/**/*.md": "carmonm",
         "articles/site-recovery/**/*.md": "carmonm",
         "articles/migrate/**/*.md": "carmonm",
@@ -428,6 +436,9 @@
         "articles/governance/management-groups/**/*.md": "rithorn",
         "articles/governance/resource-graph/**/*.md": "dacoulte",
         "articles/azure-functions/**/*.md": "glenga",
+        "articles/azure-monitor/apps/*.md": "mbullwin",
+        "articles/azure-monitor/log-query/*.md": "robb",
+        "articles/azure-monitor/platform/*.md": "robb",
         "articles/azure-monitor/insights/container-insights*.md": "magoedte",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
@@ -483,9 +494,12 @@
         "articles/site-recovery/*.md": "site-recovery",
         "articles/migrate/*.md": "azure-migrate",
         "articles/notebooks/*.md": "azure-notebooks"
+
       },
       "ms.subservice": {
-        "articles/industry/agriculture/**/*.md": "agriculture"
+        "articles/industry/agriculture/**/*.md": "agriculture",
+        "articles/azure-monitor/apps/*.md": "application-insights",
+        "articles/azure-monitor/log-query/*.md": "logs"
       },
       "searchScope": {
         "articles/azure-cache-for-redis/**/*.md": ["Azure","Cache for Redis"],
@@ -572,7 +586,9 @@
         "articles/batch/*.md": "Azure Batch",
         "articles/batch/*.yml": "Azure Batch",
         "articles/app-service-mobile/**/*.md": "Azure Mobile Apps",
-        "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps"
+        "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps",
+        "articles/azure-monitor/**/*.yml" : "Azure Monitor",
+        "articles/azure-monitor/**/*.md" : "Azure Monitor"
       },
       "featureFlags": {
         "articles/**/*.md": [

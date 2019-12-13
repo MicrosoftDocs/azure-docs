@@ -1,12 +1,8 @@
 ---
 title: Autoscale in Azure using a custom metric
 description: Learn how to scale your resource by custom metric in Azure.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: ancav
 ms.subservice: autoscale
 ---
 # Get started with auto scale by custom metric in Azure

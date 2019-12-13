@@ -1,12 +1,8 @@
 ---
 title: Best practices for autoscale
 description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale sets, and Cloud Services
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: ancav
 ms.subservice: autoscale
 ---
 # Best practices for Autoscale
