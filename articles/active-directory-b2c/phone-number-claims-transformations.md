@@ -14,7 +14,7 @@ ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Phone number claims transformations
+# Define phone number claims transformations in Azure AD B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
