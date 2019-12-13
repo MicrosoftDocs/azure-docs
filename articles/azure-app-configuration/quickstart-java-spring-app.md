@@ -51,7 +51,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
    * Generate a **Maven** project with **Java**.
    * Specify a **Spring Boot** version that's equal to or greater than 2.0.
    * Specify the **Group** and **Artifact** names for your application.
-   * Add the **Web** dependency.
+   * Add the **Spring Web** dependency.
 
 3. After you specify the previous options, select **Generate Project**. When prompted, download the project to a path on your local computer.
 
@@ -72,6 +72,10 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
 3. Create a new Java file named *MessageProperties.java* in the package directory of your app. Add the following lines:
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.boot.context.properties.ConfigurationProperties;
+
     @ConfigurationProperties(prefix = "config")
     public class MessageProperties {
         private String message;
@@ -89,6 +93,11 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
 4. Create a new Java file named *HelloController.java* in the package directory of your app. Add the following lines:
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.web.bind.annotation.RestController;
+
     @RestController
     public class HelloController {
         private final MessageProperties properties;
@@ -107,11 +116,13 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
 5. Open the main application Java file, and add `@EnableConfigurationProperties` to enable this feature.
 
     ```java
+    import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
     @SpringBootApplication
     @EnableConfigurationProperties(MessageProperties.class)
-    public class AzureConfigApplication {
+    public class DemoApplication {
         public static void main(String[] args) {
-            SpringApplication.run(AzureConfigApplication.class, args);
+            SpringApplication.run(DemoApplication.class, args);
         }
     }
     ```
