@@ -103,16 +103,20 @@ You can construct the following parameterized URL for a view:
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
+[![Time Series Insights explorer parameterized URL](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
+
 > [!TIP]
 > See the Explorer live [using the URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]) example above.
 
-The URL above describes and builds the Time Series Insights Explorer view:
+The URL above describes and displays the parameterized Time Series Insights explorer view. 
 
-[![Time Series Insights explorer Terms](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+* The parameterized predicates.
 
-The full view (including the chart):
+  [![Time Series Insights explorer parameterized predicates.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
 
-[![Chart view](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+* The shared full chart view.
+
+  [![The shared full chart view.](media/parameterized-url/share-parameterized-url-full-chart.png)](media/parameterized-url/share-parameterized-url-full-chart.png#lightbox)
 
 ## Next steps
 
