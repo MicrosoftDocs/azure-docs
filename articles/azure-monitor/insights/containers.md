@@ -4,8 +4,8 @@ description: The Container Monitoring solution in Azure Monitor helps you view a
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/22/2019
 
 ---
