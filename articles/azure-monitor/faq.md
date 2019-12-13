@@ -18,19 +18,19 @@ This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If
 ## Overview
 
 ### Q: What is Azure Monitor?
-[Azure Monitor](overview.md) is a service in Azure that provides performance and availability monitoring for applications and services in Azure, in another cloud, or on-premises. Azure Monitor collects data from multiple sources into a common data platform where it can be analyzed for trends and anomalies. Rich features in Azure Monitor assist you in quickly identifying and responding to critical situations that may affect your application.
+[Azure Monitor](overview.md) is a service in Azure that provides performance and availability monitoring for applications and services in Azure, other cloud environments, or on-premises. Azure Monitor collects data from multiple sources into a common data platform where it can be analyzed for trends and anomalies. Rich features in Azure Monitor assist you in quickly identifying and responding to critical situations that may affect your application.
 
 ### Q: What's the difference between Azure Monitor, Log Analytics, and Application Insights?
 In September 2018, Microsoft combined Azure Monitor, Log Analytics, and Application Insights into a single service to provide powerful end-to-end monitoring of your applications and their components. Features in Log Analytics and Application Insights have not changed, although some features have been rebranded to Azure Monitor in order to better reflect their new scope. The log data engine and query language of Log Analytics is now referred to as Azure Monitor Logs. See [Azure Monitor terminology updates](terminology.md).
 
 ## What is the cost of Azure Monitor?
-Features of Azure Monitor that are automatically enabled such as collection of metrics and activity logs is provided at no cost. There is a cost associated with other features such as log queries and alerting. See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing information.
+Features of Azure Monitor that are automatically enabled such as collection of metrics and activity logs are provided at no cost. There is a cost associated with other features such as log queries and alerting. See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing information.
 
 
 ## Monitoring data
 
 ### Q: What data is collected by Azure Monitor? 
-All data collected by Azure Monitor is stored in Logs or Metrics. Each has its own relative advantages, and each supports a particular set of features in Azure Monitor. There is a single Metrics Database for each Azure Subscription, while you can create multiple Log Analytics workspace depending on your requirements. See [Azure Monitor data platform](platform/data-platform.md).
+Azure Monitor collects data from a variety of sources into  Logs or Metrics. Each type of data has its own relative advantages, and each supports a particular set of features in Azure Monitor. There is a single metrics database for each Azure subscription, while you can create multiple Log Analytics workspaces to collect logs depending on your requirements. See [Azure Monitor data platform](platform/data-platform.md).
 
 ### Q: Where does Azure Monitor get its data?
 Azure Monitor collects data from a variety of sources including logs and metrics from Azure platform and resources, custom application, and agents running on virtual machines. Other services such as Azure Security Center and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also write custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](platform/data-sources.md).
@@ -49,8 +49,6 @@ A: No. Azure Monitor is a scalable cloud service that processes and stores large
 ### Can Azure Monitor monitor on-premises resources?
 Yes, in addition to collecting monitoring data from Azure resources, Azure Monitor can collect data from virtual machines and applications in other clouds and on-premises. See [Sources of monitoring data for Azure Monitor](platform/data-sources.md).
 
-### What's the difference between Azure Monitor and System Center Operations Manager?
-
 
 ## Solutions and insights
 
@@ -64,10 +62,8 @@ Monitoring solutions are packaged sets of logic for monitoring a particular appl
 ## Onboarding
 
 ### Q: How do I enable Azure Monitor?
-Azure Monitor is enabled the moment that you create a new Azure subscription. Configure features and add [monitoring solutions](insights/solutions.md) and [insights](insights/insights-overview.md) to provide 
+Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](platform/activity-logs-overview.md) and platform [metrics](platform/data-platform-metrics.md) are automatically collected. Create diagnostic settings to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](insights/solutions.md) and [insights](insights/insights-overview.md) to provide additional analysis on collected data for particular services.
 
-### Q: How do I being monitoring Azure resources?
-[Activity log](platform/activity-log-overview.md) events and [metrics](platform/data-platform-metrics.md) are automatically collected for any Azure resources that you create. Create a [Log Analytics workspace](learn/quick-create-workspace.md) to start collecting [Diagnostic logs](platform/diagnostic-logs-overview.md). Enable insights and monitoring solutions to provide packaged 
 
 
 ## Next steps
