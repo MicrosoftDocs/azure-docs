@@ -27,6 +27,12 @@ Depending on the [destinations](diagnostic-settings.md#destinations) for the dia
     "description": "Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
   }
 },
+"resourceName": {
+  "type": "string",
+  "metadata": {
+    "description": "Name of the resource you are creating the diagnostic setting for."
+  }
+},
 "storageAccountName": {
   "type": "string",
   "metadata": {
@@ -60,7 +66,7 @@ In the resources array of the resource for which you want to create the diagnost
 "resources": [
   {
     "type": "providers/diagnosticSettings",
-    "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
+    "name": "[concat(parameters('resourceName')),'Microsoft.Insights/', parameters('settingName'))]",
     "dependsOn": [
       "[/*resource Id for which resource logs will be enabled>*/]"
     ],
@@ -150,8 +156,8 @@ Following is a complete example that creates a Logic App and creates a diagnosti
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Logic/workflows",
-      "name": "[parameters('logicAppName')]",
+      "type": "microsoft.logic/workflows/providers/diagnosticsettings",
+      "name": "[concat(parameters('logicAppName'),'/microsoft.insights/', parameters('settingName'))]",
       "apiVersion": "2016-06-01",
       "location": "[resourceGroup().location]",
       "properties": {
