@@ -342,7 +342,7 @@ Although Beeline is included on the head nodes of your HDInsight cluster, you ma
 
 1. Close and then reopen you bash session.
 
-1. Test your connection. Use the connection format from [Over public or private endpoints](#Over-public-or-private-endpoints), above.
+1. Test your connection. Use the connection format from [Over public or private endpoints](#over-public-or-private-endpoints), above.
 
 ## Next steps
 
