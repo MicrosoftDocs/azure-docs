@@ -21,15 +21,11 @@ When your application reaches the limit of what a partition can handle for your 
 
 ## Storage account scale limits
 
-[!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 ## Premium performance storage account scale limits
 
 [!INCLUDE [azure-premium-limits](../../../includes/azure-storage-limits-premium.md)]
-
-## Storage resource provider scale limits
-
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ## Azure Blob storage scale targets
 
@@ -37,7 +33,7 @@ When your application reaches the limit of what a partition can handle for your 
 
 ## See also
 
-- [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/)
+- [Azure Storage pricing overview](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md)
 - [Azure Storage Replication](../storage-redundancy.md)
 - [Microsoft Azure Storage Performance and Scalability Checklist](../storage-performance-checklist.md)

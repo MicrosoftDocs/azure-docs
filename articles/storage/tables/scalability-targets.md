@@ -20,7 +20,7 @@ Be sure to test your application to determine whether its performance meets your
 
 ## Storage account scale limits
 
-[!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 ## Table storage scale limits
 

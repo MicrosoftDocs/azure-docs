@@ -72,6 +72,10 @@ The Resource Manager and classic deployment models represent two different ways 
 
 For more information about Azure deployment models, see [Resource Manager and classic deployment](../../azure-resource-manager/resource-manager-deployment-model.md).
 
+## Storage resource provider scale limits
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+
 ## Next steps
 
 - [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview.md)
