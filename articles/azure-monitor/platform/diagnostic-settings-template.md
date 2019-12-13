@@ -5,7 +5,7 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 012/13/2019
 ms.author: bwren
 ms.subservice: ""
 ---
@@ -150,8 +150,8 @@ Following is a complete example that creates a Logic App and creates a diagnosti
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Logic/workflows",
-      "name": "[parameters('logicAppName')]",
+      "type": "microsoft.logic/workflows/providers/diagnosticsettings",
+      "name": "[concat(parameters('logicAppName'),'/microsoft.insights/', parameters('settingName'))]",
       "apiVersion": "2016-06-01",
       "location": "[resourceGroup().location]",
       "properties": {
