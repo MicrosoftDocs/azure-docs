@@ -33,10 +33,10 @@ landingContent:
       - linkListType: video
         links:
           - text: Introduction to Azure Maps
-            url: <a href ="https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4" target="_blank"></a>
+            url: https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4
 
   # Card
-  - title: Get started
+  - title: Get Started
     linkLists:
       - linkListType: quickstart
         links:
