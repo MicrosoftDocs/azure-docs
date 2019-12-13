@@ -41,7 +41,10 @@ The communication between the control plane/API server, which is in an AKS-manag
 You need the **aks-preview 0.4.18** extension or later.
 
 ```azurecli-interactive
-az extension update --name aks-preview 
+az extension update --name aks-preview (if the extension is already installed)
+OR
+az extension add --name aks-preview (if not)
+THEN
 az extension list
 ```
 
