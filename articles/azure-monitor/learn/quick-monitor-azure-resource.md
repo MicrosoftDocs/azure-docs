@@ -27,7 +27,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 Many services will include monitoring data on their Overview page as a quick glance to their operation. This will typically be based on a subset of platform metrics stored in Azure Monitor Metrics.
 
 1. Locate an Azure resource in your subscription.
-2. Go to the **Overview** page and note if there's any performance data. This data will be provided by Azure Monitor. The example below is the **Overview** page for an Azure storage account, and you can multiple metrics displayed.
+2. Go to the **Overview** page and note if there's any performance data. This data will be provided by Azure Monitor. The example below is the **Overview** page for an Azure storage account, and you can see that there are multiple metrics displayed.
 
     ![Overview page](media/quick-monitor-azure-resource/overview.png)
 
@@ -35,7 +35,7 @@ Many services will include monitoring data on their Overview page as a quick gla
 The Activity log provides insight into the operations on each Azure resource in the subscription. This will include such information as when a resource is created or modified, when a job is started, or when a particular operation occurs.
 
 1. At the top of the menu for your resource, select **Activity log**.
-2. The current filter is set to events related to the your resource. If you don't see any events, try changing the **Timespan** to increase the time scope.
+2. The current filter is set to events related to your resource. If you don't see any events, try changing the **Timespan** to increase the time scope.
 
     ![Activity log](media/quick-monitor-azure-resource/activity-log-resource.png)
 
@@ -53,7 +53,7 @@ Metrics are numerical values that describe some aspect of your resource at a par
 3.   
    ![Metrics explorer](media/quick-monitor-azure-resource/metrics-explorer-01.png)
    
-4. Select a **Metric** from the dropdown list and then an **Aggregation**. This defines how the collected values will be sampled over each time interbvel.
+4. Select a **Metric** from the dropdown list and then an **Aggregation**. This defines how the collected values will be sampled over each time intervel.
 
     ![Metrics explorer](media/quick-monitor-azure-resource/metrics-explorer-02.png)
 
