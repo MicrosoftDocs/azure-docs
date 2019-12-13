@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/13/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances.
 
@@ -43,7 +43,7 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
 Use the following steps to import an app.
 
-1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
 1. On the [preview LUIS portal](https://preview.luis-ai), import the .json file into a new app.
 
