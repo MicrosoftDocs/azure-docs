@@ -76,8 +76,11 @@
   items:
   - name: App integration
     items:
-    - name: Register an application
+    - name: Register an OIDC application
       href: tutorial-register-applications.md
+    - name: Register a SAML service provider
+      href: connect-with-saml-service-providers.md
+      displayName: SP, RP, service provider, connect
     - name: Add a web API application
       href: add-web-application.md
     - name: Add a native client application
@@ -202,8 +205,10 @@
         items:
         - name: ADFS
           href: active-directory-b2c-custom-setup-adfs2016-idp.md
+          displayName: SAML
         - name: Salesforce
           href: active-directory-b2c-setup-sf-app-custom.md
+          displayName: SAML
     - name: Tokens and session management
       items:
       - name: Customize tokens
