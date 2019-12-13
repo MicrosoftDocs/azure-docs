@@ -48,9 +48,9 @@
       - name: Certificates
         href: azure-stack-edge-r-series-manage-certificates.md
       - name: Edge compute
-        href: azure-stack-edge-r-series-placeholder.md
+        href: azure-stack-edge-r-series-manage-compute.md
       - name: Edge compute network
-        href: azure-stack-edge-r-series-placeholder.md
+        href: azure-stack-edge-r-series-extend-compute-access.md
       - name: Shares
         href: azure-stack-edge-r-series-manage-shares.md
       - name: Edge storage accounts
@@ -70,7 +70,7 @@
     - name: Monitor
       href: azure-stack-edge-r-series-placeholder.md
     - name: Return or replace device
-      href: azure-stack-edge-r-series-placeholder.md
+      href: azure-stack-edge-r-series-return-device.md
     - name: Deploy Azure services as modules
       items:
       - name: Cognitive services (Custom vision)
