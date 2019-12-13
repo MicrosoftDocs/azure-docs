@@ -33,7 +33,7 @@ If you sell offerings in the Azure Marketplace, you’ll also see info on succes
 | Feedback report/responses | Can view and send feedback | Can view and send feedback | Can view and send feedback | No access | No access | Can view and send feedback |
 | Health report (including near real time data) | Can view | Can view | Can view | Can view | No access | No access |
 | Usage report | Can view | Can view | Can view | Can view | No access | No access |
-| Payout account | Can update | No access | No access | No acces | Can update | No access |
+| Payout account | Can update | No access | No access | No access | Can update | No access |
 | Tax profile | Can update | No access | No access | No access | Can update | No access |
 | Payout summary | Can view | No access | No access | No access | Can view | No access |
 
