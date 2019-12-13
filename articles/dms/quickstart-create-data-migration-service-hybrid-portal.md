@@ -54,10 +54,6 @@ Register the Microsoft.DataMigration resource provider before you create your fi
     - Select the Azure **Subscription** in which you want to create the instance.
     - Select an existing **Resource Group** or create a new one.
     - Choose the **Location** that is closest to your source or target server.
-
-    > [!IMPORTANT]
-    > During preview, hybrid mode is supported only in the East US region. Since the hybrid worker is installed in your on-premises network, there is little or no impact on performance even if you are migrating to a target in a different region.
-
     - For **Service mode**, select **Hybrid (Preview)**.
 
       ![Create migration service - basics](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)

@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/10/2019
+ms.date: 12/13/2019
 ---
 
 # Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory
@@ -33,6 +33,8 @@ For Copy activity, with this connector you can:
 
 - Copy data from/to Azure Data Lake Storage Gen2 by using account key, service principal, or managed identities for Azure resources authentications.
 - Copy files as-is or parse or generate files with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+- [Preserve file metadata during copy](#preserve-metadata-during-copy).
+- [Preserve ACLs](#preserve-metadata-during-copy) when copying from Azure Data Lake Storage Gen1.
 
 >[!IMPORTANT]
 >If you enable the **Allow trusted Microsoft services to access this storage account** option on Azure Storage firewall settings and want to use Azure integration runtime to connect to your Data Lake Storage Gen2, you must use [managed identity authentication](#managed-identity) for ADLS Gen2.

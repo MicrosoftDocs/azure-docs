@@ -17,7 +17,7 @@ ms.date: 10/25/2019
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to enable the interpretability features for automated machine learning (ML) in Azure Machine Learning service. Automated ML helps you understand both raw and engineered feature importance. In order to use model interpretability, set `model_explainability=True` in the `AutoMLConfig` object.  
+In this article, you learn how to enable the interpretability features for automated machine learning (ML) in Azure Machine Learning. Automated ML helps you understand both raw and engineered feature importance. In order to use model interpretability, set `model_explainability=True` in the `AutoMLConfig` object.  
 
 In this article, you learn how to:
 

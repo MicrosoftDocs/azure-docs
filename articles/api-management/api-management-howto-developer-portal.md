@@ -1,5 +1,6 @@
 ---
-title: Overview of Azure API Management developer portal - Azure API Management | Microsoft Docs
+title: Overview of Azure API Management developer portal
+titleSuffix: Azure API Management
 description: Learn about the developer portal in API Management.
 services: api-management
 documentationcenter: API Management
