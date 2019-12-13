@@ -101,36 +101,79 @@ This table compares the capabilities of Gen1 to that of Gen2.
 
 We recommend these migration patterns. You can modify any of these patterns to fit your specific requirements.
  
-:white_square_button: Lift and shift
+:black_medium_square: Lift and shift
 
-:white_square_button: Incremental copy
+:black_medium_square: Incremental copy
 
-:white_square_button: Dual pipeline
+:black_medium_square: Dual pipeline
 
-:white_square_button: Bi-directional sync
+:black_medium_square: Bi-directional sync
 
 ### Lift and shift
 
-Put something here.
+This is the simplest pattern. Ideal if your data pipelines can afford downtime.
+
+The general pattern is as follows:
+
+Image goes here.
+
+:one: Stop all writes to Gen1.
+
+:two: Move data from Gen1 to Gen2.
+
+:three: Point workloads to Gen2.
+
+:four: Decommission Gen1.
 
 ### Incremental copy
 
-Put something here.
+This pattern is similar to lift and shift, but with less downtime. You'll stop writes to Gen1 only after all data is copied to Gen2. This pattern is useful for large amounts of data that take longer to copy.
+
+The general pattern is as follows:
+
+Image goes here.
+
+:one: Start moving data from Gen1 to Gen2. Incrementally copy new data from Gen1.
+
+:two: After all data is copied, stop all writes to Gen1.
+
+:three: Point workloads to Gen2.
+
+:four: Decommission Gen1.
 
 ### Dual pipeline
 
-Put something here.
+Use this pattern if your pipeline can't afford any downtime.   
+
+The general pattern is as follows:
+
+Image goes here.
+
+:one: Move data from Gen1 to Gen2.
+
+:two: Ingest new data to both Gen1 and Gen2.
+
+:three: Point workloads to Gen2.
+
+:four: Stop all writes to Gen1 & decommission Gen1.
 
 ### Bi-directional sync
 
-Put something here.
+This pattern is similar to Dual pipeline, but better for more complicated pipelines that require Gen1 and Gen2 side-by-side support during migration.
 
-## Get help
+The general pattern is as follows:
 
-Put links to stack tags, yammer groups, etc.
+Image goes here.
+
+:one: Set up bidirectional replication between Gen1 and Gen2.
+
+:two: Incrementally move ingest and compute workloads to Gen2.
+
+:three: When all moves are complete, stop all writes to Gen1 and turn off bidirectional replication.
+
+:four: Decommission Gen1.
 
 ## Next steps
-
 
 Need a good link here.
 
