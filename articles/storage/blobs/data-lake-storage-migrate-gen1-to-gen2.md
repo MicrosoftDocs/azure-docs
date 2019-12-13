@@ -99,15 +99,15 @@ This table compares the capabilities of Gen1 to that of Gen2.
 
 ## Gen1 to Gen2 migration patterns
 
-We recommend these migration patterns. You can modify any of these patterns to fit your specific requirements.
+Start by choosing one of these patterns. Then, modify that pattern to fit your specific requirements.
  
-:black_medium_square: Lift and shift
+:heavy_check_mark: Lift and shift
 
-:black_medium_square: Incremental copy
+:heavy_check_mark: Incremental copy
 
-:black_medium_square: Dual pipeline
+:heavy_check_mark: Dual pipeline
 
-:black_medium_square: Bi-directional sync
+:heavy_check_mark: Bi-directional sync
 
 ### Lift and shift
 
@@ -117,13 +117,16 @@ The general pattern is as follows:
 
 Image goes here.
 
-:one: Stop all writes to Gen1.
+:one: &nbsp;&nbsp;Stop all writes to Gen1.
 
-:two: Move data from Gen1 to Gen2.
+:two: &nbsp;&nbsp;Move data from Gen1 to Gen2.
 
-:three: Point workloads to Gen2.
+:three: &nbsp;&nbsp;Point workloads to Gen2.
 
-:four: Decommission Gen1.
+:four: &nbsp;&nbsp;Decommission Gen1.
+
+> [!TIP]
+> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). Your folder and file-level ACLs copy over with the data.
 
 ### Incremental copy
 
@@ -133,13 +136,18 @@ The general pattern is as follows:
 
 Image goes here.
 
-:one: Start moving data from Gen1 to Gen2. Incrementally copy new data from Gen1.
+:one: &nbsp;&nbsp;Start moving data from Gen1 to Gen2.
 
-:two: After all data is copied, stop all writes to Gen1.
+:two: Incrementally copy new data from Gen1.
 
-:three: Point workloads to Gen2.
+:three: &nbsp;&nbsp;After all data is copied, stop all writes to Gen1.
 
-:four: Decommission Gen1.
+:four: &nbsp;&nbsp;Point workloads to Gen2.
+
+:five: &nbsp;&nbsp;Decommission Gen1.
+
+> [!TIP]
+> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). Your folder and file-level ACLs copy over with the data.
 
 ### Dual pipeline
 
@@ -149,13 +157,16 @@ The general pattern is as follows:
 
 Image goes here.
 
-:one: Move data from Gen1 to Gen2.
+:one: &nbsp;&nbsp;Move data from Gen1 to Gen2.
 
-:two: Ingest new data to both Gen1 and Gen2.
+:two: &nbsp;&nbsp;Ingest new data to both Gen1 and Gen2.
 
-:three: Point workloads to Gen2.
+:three: &nbsp;&nbsp;Point workloads to Gen2.
 
-:four: Stop all writes to Gen1 & decommission Gen1.
+:four: &nbsp;&nbsp;Stop all writes to Gen1 & decommission Gen1.
+
+> [!TIP]
+> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). Your folder and file-level ACLs copy over with the data.
 
 ### Bi-directional sync
 
@@ -165,13 +176,15 @@ The general pattern is as follows:
 
 Image goes here.
 
-:one: Set up bidirectional replication between Gen1 and Gen2.
+:one: &nbsp;&nbsp;Set up bidirectional replication between Gen1 and Gen2.
 
-:two: Incrementally move ingest and compute workloads to Gen2.
+:two: &nbsp;&nbsp;Incrementally move ingest and compute workloads to Gen2.
 
-:three: When all moves are complete, stop all writes to Gen1 and turn off bidirectional replication.
+:three: &nbsp;&nbsp;When all moves are complete, stop all writes to Gen1 and turn off bidirectional replication.
 
-:four: Decommission Gen1.
+:four: &nbsp;&nbsp;Decommission Gen1.
+
+> For bidirectional data transfer, we recommend [WanDisco](https://docs.wandisco.com/bigdata/wdfusion/adls/). It offers a repair feature for existing data.
 
 ## Next steps
 
