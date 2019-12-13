@@ -23,7 +23,7 @@ HDInsight ID Broker (HIB) is intended to simplify complex authentication setups 
 
 HIB provides a unified authentication infrastructure and removes the requirement of providing password hashes to Azure AD. HIB consists of components running on a Windows Server VM (HIB Server), and cluster gateway nodes. After enabling HIB, the authentication flow for all users, including federated users, is shown in the following diagram:
 
-![Authentication flow with HIB](./media/hdinsight-id-broker/hdinsight-id-broker-architecture.png)
+![Authentication flow with HIB](./media/identity-broker/identity-broker-architecture.png)
 
 HIB allows you to log in to ESP clusters using MFA, without providing any passwords. If you've already logged in to other Azure services, such as Azure portal, you can log in to your HDInsight cluster with a Single Sign-On (SSO).
 
@@ -37,7 +37,7 @@ To create an ESP cluster with ID Broker enabled, do the following steps:
 
 The HIB feature will add one extra VM to the cluster. This VM is the HIB server and includes server components to support authentication. The HIB server is domain-joined to the AAD-DS domain.
 
-![Option to enable HIB](./media/hdinsight-id-broker/hdinsight-id-broker-enable.png)
+![Option to enable HIB](./media/identity-broker/identity-broker-enable.png)
 
 ## Tools Integration
 
