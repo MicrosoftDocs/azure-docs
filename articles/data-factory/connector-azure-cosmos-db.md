@@ -256,7 +256,37 @@ To copy data from Azure Cosmos DB to tabular sink or reversed, refer to [schema 
 
 ## Mapping data flow properties
 
-Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flow.
+When transforming data in mapping data flow, you can read and write to collections in Cosmos DB. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
+
+### Source transformation
+
+Settings specific to Azure Cosmos DB are available in the **Source Options** tab of the source transformation. 
+
+**Include system columns:** If true, ```id```, ```_ts```, and other system columns will be included in your data flow metadata from CosmosDB. When updating collections, it is important to include this so that you can grab the existing row id.
+
+**Page size:** The number of documents per page of the query result. Default is "-1" which uses the service dynamic page up to 1000.
+
+**Throughput:** Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow during the read operation. Minimum is 400.
+
+**Preferred regions:** Choose the preferred read regions for this process.
+
+### Sink transformation
+
+Settings specific to Azure Cosmos DB are available in the **Settings** tab of the sink transformation.
+
+**Update method:** Determines what operations are allowed on your database destination. The default is to only allow inserts. To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. For updates, upserts and deletes, a key column or columns must be set to determine which row to alter.
+
+**Collection action:** Determines whether to recreate the destination collection prior to writing.
+* None: No action will be done to the collection.
+* Recreate: The collection will get dropped and recreated
+
+**Batch size**: Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data.
+
+**Partition Key:** Enter a string that represents the partition key for your collection. Example: ```/movies/title```
+
+**Throughput:** Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow. Minimum is 400.
+
+**Write throughput budget:** An integer that represents the number of RUs you want to allocate to the bulk ingestion Spark job. This number is out of the total throughput allocated to the collection.
 
 ## Lookup activity properties
 
