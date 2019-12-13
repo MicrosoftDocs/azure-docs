@@ -38,7 +38,7 @@ Use the tooltips to help fill in the information.
 
     ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
-4.	Select **Submit** to create a farm. A new farm is created and displayed in the **Farms** page.
+3.	Select **Submit** to create a farm. A new farm is created and displayed in the **Farms** page.
 
 ## View farm
 

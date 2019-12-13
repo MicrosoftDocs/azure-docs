@@ -91,9 +91,9 @@ You'll need to verify if you have sufficient privileges and permissions in the A
 You can verify your access permissions in the Azure portal by following the instructions on [role based access control](https://docs.microsoft.com/azure/role-based-access-control/check-access)
 
 For installing Azure FarmBeats, you need the following permissions:
-* Tenant - Read Access
-* Subscription - Contributor or owner
-* Resource group - Owner.
+- Tenant - Read Access
+- Subscription - Contributor or owner
+- Resource group - Owner.
 
 In addition, Azure FarmBeats requires Azure Active Directory application registrations. There are two ways to complete the required Azure AD setup:
 
