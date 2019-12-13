@@ -226,7 +226,7 @@ Typically you don’t want every team member to have permissions to update the f
 *   All team members should have read permissions to the data factory.
 *   Only a select set of people should be allowed to publish to the factory. To do so, they must have the **Data Factory contributor** role on the factory. For more information on permissions, see [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
    
-its recommended to not allow direct check-ins into the collaboration branch. This restriction can help prevent bugs as every check-in will go through a Pull Request process.
+It's recommended to not allow direct check-ins to the collaboration branch. This restriction can help prevent bugs as every check-in will go through a pull request review process described in [Creating feature branches](source-control.md#creating-feature-branches).
 
 ### Using passwords from Azure Key Vault
 
@@ -243,7 +243,7 @@ If the publish branch is out of sync with the master branch and contains out-of-
 1. Remove your current Git repository
 1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **New branch**
 1. Delete all resources from your collaboration branch
-1. Create a Pull Request to merge the changes to the collaboration branch 
+1. Create a pull request to merge the changes to the collaboration branch 
 
 ## Provide feedback
 Select **Feedback** to comment about features or to notify Microsoft about issues with the tool:

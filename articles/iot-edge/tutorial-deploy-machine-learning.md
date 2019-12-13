@@ -8,7 +8,7 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: "mvc, seodec18"
+ms.custom: mvc
 ---
 
 # Tutorial: Deploy Azure Machine Learning as an IoT Edge module (preview)

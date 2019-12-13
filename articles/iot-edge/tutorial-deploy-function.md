@@ -8,7 +8,7 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: "mvc, seodec18"
+ms.custom: mvc
 #Customer intent: As an IoT developer, I want to use Azure Functions to execute logic on edge devices to filter data and communications that are sent to the cloud.
 ---
 

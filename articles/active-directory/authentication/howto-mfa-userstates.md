@@ -1,12 +1,12 @@
 ---
-title: Azure Multi-Factor Authentication user states - Azure Active Directory
-description: Learn about user states in Azure Multi-Factor Authentication.
+title: Per-user Multi-Factor Authentication - Azure Active Directory
+description: Enable MFA by changing user states in Azure Multi-Factor Authentication.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -53,7 +53,7 @@ All users start out *Disabled*. When you enroll users in Azure MFA, their state 
 Use the following steps to access the page where you can view and manage user states:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Go to **Azure Active Directory** > **Users and groups** > **All users**.
+2. Search for and select *Azure Active Directory*. Select **Users** > **All users**.
 3. Select **Multi-Factor Authentication**.
    ![Select Multi-Factor Authentication](./media/howto-mfa-userstates/selectmfa.png)
 4. A new page that displays the user states opens.

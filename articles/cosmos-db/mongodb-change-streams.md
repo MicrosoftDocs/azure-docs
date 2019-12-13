@@ -30,7 +30,7 @@ while (!cursor.isExhausted()) {
 }
 ```
 
-The following example shows how to get changes to the items in a single shard, such as shard "a" that has items with value "1".
+The following example shows how to get changes to the items in a single shard. This example gets the changes of items that have shard key equal to "a" and the shard key value equal to "1".
 
 ```javascript
 var cursor = db.coll.watch(

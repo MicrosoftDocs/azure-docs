@@ -69,6 +69,8 @@
     href: ddos-protection-overview.md
   - name: Subnet extension 
     href: subnet-extension.md
+  - name: Subnet delegation
+    href: subnet-delegation-overview.md
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup

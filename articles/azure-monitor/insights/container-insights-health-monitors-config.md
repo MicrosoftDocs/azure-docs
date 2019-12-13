@@ -16,7 +16,11 @@ ms.author: magoedte
 
 # Azure Monitor for containers health monitor configuration guide
 
-Monitors are the primary element for measuring health and detecting errors in Azure Monitor for containers. This article helps you understand the concepts of how health is measured and the elements that comprise the health model to monitor and report on the health of your Kubernetes cluster with the [Health feature](container-insights-health.md).
+Monitors are the primary element for measuring health and detecting errors in Azure Monitor for containers. This article helps you understand the concepts of how health is measured and the elements that comprise the health model to monitor and report on the health of your Kubernetes cluster with the [Health (preview)](container-insights-health.md) feature.
+
+>[!NOTE]
+>The Health feature is in public preview at this time.
+>
 
 ## Monitors
 

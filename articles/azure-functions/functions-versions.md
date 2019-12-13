@@ -1,12 +1,8 @@
 ---
 title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: glenga
 
 ---
 # Azure Functions runtime versions overview

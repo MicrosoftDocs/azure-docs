@@ -1,16 +1,11 @@
 ---
-title: Azure CLI Samples - Azure Functions | Microsoft Docs
+title: Azure CLI Samples - Azure Functions 
 description: Azure CLI Samples - Azure Functions
-services: functions
-documentationcenter: functions
 author: syntaxc4
-manager: jeconnoc
 
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
-ms.service: azure-functions
 ms.topic: sample
 ms.date: 01/09/2018
-ms.author: glenga
 ms.custom: mvc
 ---
 

@@ -42,7 +42,7 @@ The following policy applies to all selected users, who attempt to register usin
    1. Click **Block access**.
    1. Then click **Select**.
 1. Set **Enable policy** to **On**.
-1. Then click **Create**.
+1. Then click **Save**.
 
 ## Next steps
 

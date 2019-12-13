@@ -200,7 +200,7 @@ az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet -
 To add tags to a resource that already has tags, retrieve the existing tags, reformat that value, and reapply the existing and new tags:
 
 ```azurecli
-jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
+jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags -o json)
 rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
@@ -211,7 +211,7 @@ To apply all tags from a resource group to its resources, and *not keep existing
 groups=$(az group list --query [].name --output tsv)
 for rg in $groups
 do
-  jsontag=$(az group show -n $rg --query tags)
+  jsontag=$(az group show -n $rg --query tags -o json)
   t=$(echo $jsontag | tr -d '"{},' | sed 's/: /=/g')
   r=$(az resource list -g $rg --query [].id --output tsv)
   for resid in $r
@@ -227,12 +227,12 @@ To apply all tags from a resource group to its resources, and *keep existing tag
 groups=$(az group list --query [].name --output tsv)
 for rg in $groups
 do
-  jsontag=$(az group show -n $rg --query tags)
+  jsontag=$(az group show -n $rg --query tags -o json)
   t=$(echo $jsontag | tr -d '"{},' | sed 's/: /=/g')
   r=$(az resource list -g $rg --query [].id --output tsv)
   for resid in $r
   do
-    jsonrtag=$(az resource show --id $resid --query tags)
+    jsonrtag=$(az resource show --id $resid --query tags -o json)
     rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
     az resource tag --tags $t$rt --id $resid
   done

@@ -185,8 +185,10 @@ The following example uses PowerShell to set a server-level IP firewall rule:
 ```powershell
 New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
-    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
+    -FirewallRuleName "ContosoIPRange" -StartIpAddress "192.168.1.0" -EndIpAddress "192.168.1.255"
 ```
+> [!TIP]
+> For $servername specify the server name and not the fully qualified DNS name e.g. specify **mysqldbserver** instead of **mysqldbserver.database.windows.net**
 
 > [!TIP]
 > For PowerShell examples in the context of a quickstart, see [Create DB - PowerShell](sql-database-powershell-samples.md) and [Create a single database and configure a SQL Database server-level IP firewall rule using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).
@@ -205,8 +207,10 @@ The following example uses CLI to set a server-level IP firewall rule:
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
--n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+-n ContosoIPRange --start-ip-address 192.168.1.0 --end-ip-address 192.168.1.255
 ```
+> [!TIP]
+> For $servername specify the server name and not the fully qualified DNS name e.g. specify **mysqldbserver** instead of **mysqldbserver.database.windows.net**
 
 > [!TIP]
 > For a CLI example in the context of a quickstart, see [Create DB - Azure CLI](sql-database-cli-samples.md) and [Create a single database and configure a SQL Database IP firewall rule using the Azure CLI](scripts/sql-database-create-and-configure-database-cli.md).

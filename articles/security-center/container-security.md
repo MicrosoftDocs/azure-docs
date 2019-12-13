@@ -28,7 +28,7 @@ This article describes how you can improve, monitor, and maintain the security o
 [![Azure Security Center's container security tab](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 ## Vulnerability management - scanning container images (Preview)
-To monitor your Azure Container Registry, connect it to Security Center. When a new image is pushed, Security Center scans the image using a scanner from the industry-leading vulnerability scanning vendor, Qualys.
+To monitor your Azure Container Registry, ensure you're on Security Center's standard tier (see [pricing](https://docs.microsoft.com/azure/security-center/security-center-pricing.md)). Then enable the optional Container Registries bundle. When a new image is pushed, Security Center scans the image using a scanner from the industry-leading vulnerability scanning vendor, Qualys.
 
 When issues are found – by Qualys or Security Center – you’ll get notified in the Security Center dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations, see the list of recommendations in [Virtual Machine protection](security-center-virtual-machine-protection.md##compute-and-app-recs).
 
@@ -51,7 +51,7 @@ AKS provides security controls and visibility into the security posture of your 
 
 For details of Security Center's recommendations, see [Virtual Machine protection](security-center-virtual-machine-protection.md).
 
-## Run-time protection - Real-time threat detection 
+## Run-time protection - Real-time threat detection
 
 Security Center provides real-time threat detection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 

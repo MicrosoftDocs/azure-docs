@@ -198,14 +198,21 @@
         "articles/governance/policy/**/*.md": "DCtheGeek",
         "articles/governance/management-groups/**/*.md": "rthorn17",
         "articles/governance/resource-graph/**/*.md": "DCtheGeek",
+        "articles/azure-functions/**/*.md": "ggailey777",
         "articles/ansible/**/*.md": "TomArcherMsft",
-        "articles/backup/**/*.md": "dacurwin",
+        "articles/backup/**/*.md": "dcurwin",
+        "articles/blockchain/**/*.md": "PatAltimore",
         "articles/chef/**/*.md": "TomArcherMsft",
+        "articles/container-instances/**/*.md": "dlepow",
+        "articles/container-registry/**/*.md": "dlepow",
         "articles/jenkins/**/*.md": "TomArcherMsft",
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/lighthouse/**/*.md": "JnHs",
         "articles/azure-resource-manager/**/*.md": "tfitzmac",
-        "articles/dev-spaces/**/*.md": "zr-msft"
+        "articles/dev-spaces/**/*.md": "zr-msft",
+        "articles/site-recovery/*.md": "rayne-wiselman",
+        "articles/migrate/*.md": "rayne-wiselman",
+        "articles/notebooks/*.md": "kraigb"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -387,7 +394,11 @@
       },
       "manager": {
         "articles/sql-database/**/*.md": "jroth",
-        "articles/backup/**/*.md": "carmonm"
+        "articles/azure-functions/**/*.md": "gwallace",
+        "articles/backup/**/*.md": "carmonm",
+        "articles/site-recovery/**/*.md": "carmonm",
+        "articles/migrate/**/*.md": "carmonm",
+        "articles/notebooks/*.md": "barbkess"
       },
       "ms.author": {
         "articles/governance/*.md": "dacoulte",
@@ -395,14 +406,21 @@
         "articles/governance/policy/**/*.md": "dacoulte",
         "articles/governance/management-groups/**/*.md": "rithorn",
         "articles/governance/resource-graph/**/*.md": "dacoulte",
+        "articles/azure-functions/**/*.md": "glenga",
         "articles/ansible/**/*.md": "tarcher",
         "articles/backup/**/*.md": "dacurwin",
+        "articles/blockchain/**/*.md": "patricka",
         "articles/chef/**/*.md": "tarcher",
+        "articles/container-instances/**/*.md": "danlep",
+        "articles/container-registry/**/*.md": "danlep",
         "articles/jenkins/**/*.md": "tarcher",
         "articles/terraform/**/*.md": "tarcher",
         "articles/lighthouse/**/*.md": "jenhayes",
         "articles/azure-resource-manager/**/*.md": "tomfitz",
-        "articles/dev-spaces/**/*.md": "zarhoads"
+        "articles/dev-spaces/**/*.md": "zarhoads",
+        "articles/site-recovery/*.md": "raynew",
+        "articles/migrate/*.md": "raynew",
+        "articles/notebooks/*.md": "kraigb"
       },
       "ms.service": {
         "articles/governance/*.md": "governance",
@@ -410,15 +428,22 @@
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
+        "articles/azure-functions/**/*.md": "azure-functions",
         "articles/industry/**/*.md": "azure-industry",
         "articles/ansible/**/*.md": "ansible",
         "articles/backup/**/*.md": "backup",
+        "articles/blockchain/**/*.md": "azure-blockchain",
         "articles/chef/**/*.md": "chef",
+        "articles/container-instances/**/*.md": "container-instances",
+        "articles/container-registry/**/*.md": "container-registry",
         "articles/jenkins/**/*.md": "jenkins",
         "articles/terraform/**/*.md": "terraform",
         "articles/lighthouse/**/*.md": "lighthouse",
         "articles/azure-resource-manager/**/*.md": "azure-resource-manager",
-        "articles/dev-spaces/**/*.md": "azure-dev-spaces"
+        "articles/dev-spaces/**/*.md": "azure-dev-spaces",
+        "articles/site-recovery/*.md": "site-recovery",
+        "articles/migrate/*.md": "azure-migrate",
+        "articles/notebooks/*.md": "azure-notebooks"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture"
@@ -456,6 +481,9 @@
         "articles/lighthouse/**/*.md": "Azure Lighthouse",
         "articles/backup/**/*.md": "Azure Backup",
         "articles/backup/**/*.yml": "Azure Backup",
+        "articles/blockchain/**/*.md": "Azure Blockchain",
+        "articles/container-instances/**/*.md": "Azure Container Instances",
+        "articles/container-registry/**/*.md": "Azure Container Registry",
         "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture",
         "articles/sql-data-warehouse/**/*.md": "Azure SQL Data Warehouse",
         "articles/sql-data-warehouse/**/*.yml": "Azure SQL Data Warehouse",
@@ -469,7 +497,12 @@
         "articles/chef/**/*.yml" : "Chef",
         "articles/jenkins/**/*.yml" : "Jenkins",
         "articles/terraform/**/*.yml" : "Terraform",
-        "articles/azure-resource-manager/**/*.md": "Azure Resource Manager"
+        "articles/azure-resource-manager/**/*.md": "Azure Resource Manager",
+        "articles/site-recovery/**/*.md": "Azure Site Recovery",
+        "articles/migrate/**/*.md": "Azure Migrate",
+        "articles/spatial-anchors/**/*.md": "Azure Spatial Anchors",
+        "articles/spatial-anchors/**/*.yml": "Azure Spatial Anchors",
+        "articles/dev-spaces/**/*.md": "Azure Dev Spaces"
       },
       "featureFlags": {
         "articles/**/*.md": [

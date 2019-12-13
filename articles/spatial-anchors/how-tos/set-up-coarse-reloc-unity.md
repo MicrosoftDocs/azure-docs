@@ -1,5 +1,5 @@
 ---
-title: How to create and locate anchors using on-device sensors in C# | Microsoft Docs
+title: Coarse relocalization in Unity
 description: In-depth explanation of how to create and locate anchors using on-device sensors in C#.
 author: bucurb
 manager: dacoghl

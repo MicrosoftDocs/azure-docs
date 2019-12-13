@@ -1,6 +1,6 @@
 ---
 
-title: Add B2B collaboration users in the Azure portal - Azure Active Directory | Microsoft Docs
+title: Add B2B collaboration users in the Azure portal - Azure AD
 description: Shows how an admin can add guest users to their directory from a partner organization using Azure Active Directory (Azure AD) B2B collaboration.
 
 services: active-directory

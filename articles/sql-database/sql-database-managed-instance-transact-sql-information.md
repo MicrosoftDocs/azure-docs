@@ -571,14 +571,6 @@ Restore process will block these operations on the Managed instances and instanc
 **Workaround**: Run `ALTER RESOURCE GOVERNOR RECONFIGURE` periodically or as part of SQL Agent Job that executes the SQL task when the instance starts if you are using 
 [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
 
-### Cannot authenticate to external mail servers using secure connection (SSL)
-
-**Date:** Aug 2019
-
-Database mail that is [configured using secure connection (SSL)](/sql/relational-databases/database-mail/configure-database-mail) cannot authenticate on some email servers outside the Azure. This is security configuration issue that will be resolved soon.
-
-**Workaround:** Temporary remove secure connection (SSL) from the database mail configuration until the issue gets resolved. 
-
 ### Cross-database Service Broker dialogs must be re-initialized after service tier upgrade
 
 **Date:** Aug 2019

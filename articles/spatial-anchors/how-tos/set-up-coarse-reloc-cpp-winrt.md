@@ -1,5 +1,5 @@
 ---
-title: How to create and locate anchors using on-device sensors in C++/WinRT | Microsoft Docs
+title: Coarse relocalization in C++/WinRT
 description: In-depth explanation of how to create and locate anchors using on-device sensors in C++/WinRT.
 author: bucurb
 manager: dacoghl

@@ -57,7 +57,7 @@ For details see below:
 **A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u)
 
 ### Q: Why I am not seeing any quota for the new D/DS15i_v2 sizes?
-**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u)
+**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUNU1XUkhZWkNXQUFMNEJWUk9VWkRRVUJPMy4u)
 
 ### Q: When are the other isolated sizes going to retire?
 **A**: We will provide reminders 12 months in advance of the official decommissioning of the sizes.
@@ -98,3 +98,6 @@ Likewise, for Dsv2 series.
  
 ### Q: Can I move my existing D15_v2/DS15_v2 Reserve Instance to an isolated size Reserved Instance?
 **A**: This is not necessary since the benefit will apply to both isolated and non-isolated sizes. But Azure will support changing existing D15_v2/DS15_v2 Reserved Instances to D15i_v2/DS15i_v2. For all other Dv2/Dsv2 Reserved Instances, use the existing Reserved Instance or buy new Reserved Instances for the isolated sizes.
+
+### Q: I'm a Azure Service Fabric Customer relying on the Silver or Gold Durability Tiers. Does this change impact me?
+**A**: No. The guarantees provided by Service Fabric's [Durability Tiers](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) will continue to function even after this change. If you require physical hardware isolation for other reasons, you may still need to take one of the actions described above. 

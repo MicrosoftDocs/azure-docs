@@ -8,9 +8,8 @@ manager: philmea
 
 ms.author: eustacea
 ms.date: 08/30/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: seodec18
 ---
 # Azure IoT Edge security manager
 

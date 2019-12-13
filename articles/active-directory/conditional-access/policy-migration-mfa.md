@@ -1,12 +1,12 @@
 ---
-title: Migrate a classic policy that requires multi-factor authentication in the Azure portal 
+title: Migrate Conditional Access policies - Azure Active Directory 
 description: This article shows how to migrate a classic policy that requires multi-factor authentication in the Azure portal.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: tutorial
-ms.date: 06/13/2018
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

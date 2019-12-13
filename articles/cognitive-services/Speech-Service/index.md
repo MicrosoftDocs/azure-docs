@@ -267,7 +267,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Recognize speech, intents, and entities</h3>
-                                                    <p>Use the Speech SDK and LUIS to recognize speech, intents, and entities.</p>
+                                                    <p>Use the Speech SDK and Language Understanding (LUIS) to recognize speech, intents, and entities.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -285,7 +285,7 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>LUIS documentation</h3>
+                                                    <h3>Language Understanding (LUIS) documentation</h3>
                                                     <p>Learn more about the Language Understanding Service (LUIS) and Natural Language Processing (NLP).</p>
                                                 </div>
                                             </div>
@@ -304,7 +304,7 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>LUIS portal</h3>
+                                                    <h3>Language Understanding (LUIS) portal</h3>
                                                     <p>Build natural language into apps, bots, and IoT devices.</p>
                                                 </div>
                                             </div>

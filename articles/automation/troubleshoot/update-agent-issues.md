@@ -2,9 +2,9 @@
 title: Understand the Windows agent check results in Azure Update Management
 description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/22/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/25/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
@@ -50,11 +50,11 @@ The operating system check verifies whether the Hybrid Runbook Worker is running
 |Operating system  |Notes  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later |.NET Framework 4.6.1 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 is required.  ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 and later |.NET Framework 4.6 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 is required.  ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### .NET 4.6.1+
+### .NET 4.6.2
 
-The .NET Framework check verifies that the system has a minimum of [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) installed.
+The .NET Framework check verifies that the system has a minimum of [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) installed.
 
 ### WMF 5.1
 

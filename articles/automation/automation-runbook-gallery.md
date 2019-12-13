@@ -44,7 +44,7 @@ You can only import directly from the PowerShell Gallery using the Azure portal.
 
 ### Adding a PowerShell runbook to the gallery
 
-Microsoft encourages you to add runbooks to the PowerShell Gallery that you think would be useful to other customers. The PowerShell Gallery accepts PowerShell modules and PowerShell scripts. You can add a runbook by [uploading it to the PowerShell Gallery](/powershell/gallery/how-to/publishing-packages/publishing-a-package).
+Microsoft encourages you to add runbooks to the PowerShell Gallery that you think would be useful to other customers. The PowerShell Gallery accepts PowerShell modules and PowerShell scripts. You can add a runbook by [uploading it to the PowerShell Gallery](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package).
 
 > [!NOTE]
 > Graphical runbooks are not supported in PowerShell Gallery.

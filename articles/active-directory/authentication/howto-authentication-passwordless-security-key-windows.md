@@ -1,12 +1,12 @@
 ---
-title: Enable passwordless security key sign-in for Azure AD (preview) - Azure Active Directory
+title: Passwordless security key sign-in Windows - Azure Active Directory
 description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -42,6 +42,7 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 - “Run as“ is **not supported** using security key.
 - Log in to a server using security key is **not supported**.
 - If you have not used your security key to sign in to your device while online, you will not be able to use it to sign in or unlock offline.
+- Signing in or unlocking a Windows 10 device with a security key containing multiple Azure AD accounts. This scenario will utilize the last account added to the security key. WebAuthN will allow users to choose the account they wish to use.
 
 ## Prepare devices for preview
 

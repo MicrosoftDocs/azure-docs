@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create an internal load balancer - Azure portal'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This tutorial shows you how to create an internal Basic load balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na

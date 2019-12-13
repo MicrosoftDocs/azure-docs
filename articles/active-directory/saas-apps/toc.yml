@@ -62,7 +62,9 @@
       - name: Aha!
         href: aha-tutorial.md
       - name: Airstack
-        href: airstack-tutorial.md  
+        href: airstack-tutorial.md
+      - name: Airtable
+        href: airtable-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
       - name: Alcumus Info Exchange
@@ -592,6 +594,8 @@
         href: hightail-tutorial.md
       - name: HireVue
         href: hirevue-tutorial.md
+      - name: Hootsuite
+        href: hootsuite-tutorial.md
       - name: Hornbill
         href: hornbill-tutorial.md
       - name: Hosted Graphite
@@ -930,6 +934,8 @@
         href: officespace-tutorial.md
       - name: ON24 Virtual Environment SAML Connection
         href: on24-tutorial.md
+      - name: OneDesk
+        href: onedesk-tutorial.md
       - name: Oneteam
         href: oneteam-tutorial.md
       - name: OneTrust Privacy Management Software
@@ -1406,6 +1412,8 @@
         href: visitorg-tutorial.md
       - name: Visitly
         href: visitly-tutorial.md
+      - name: Visma
+        href: visma-tutorial.md
       - name: Vocoli
         href: vocoli-tutorial.md
       - name: Vodeclic
@@ -1587,6 +1595,8 @@
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: Infor CloudSuite
+        href: infor-cloudsuite-provisioning-tutorial.md
       - name: Ideo
         href: ideo-provisioning-tutorial.md
       - name: Insight4GRC
@@ -1703,6 +1713,8 @@
         href: zscaler-beta-provisioning-tutorial.md
       - name: Zscaler One
         href: zscaler-one-provisioning-tutorial.md
+      - name: Zscaler Private Access
+        href: zscaler-private-access-provisioning-tutorial.md
       - name: Zscaler Two
         href: zscaler-two-provisioning-tutorial.md
       - name: Zscaler Three

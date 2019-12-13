@@ -27,7 +27,7 @@ In this quickstart, you incorporate Azure App Configuration into an ASP.NET Core
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
-## Create an app configuration store
+## Create an App Configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -78,7 +78,7 @@ To use Secret Manager, add a `UserSecretsId` element to your *.csproj* file.
 
 The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code. For more information on Secret Manager, please see [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
 
-## Connect to an app configuration store
+## Connect to an App Configuration store
 
 1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
@@ -92,7 +92,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
     ```
 3. Add a secret named *ConnectionStrings:AppConfig* to Secret Manager.
 
-    This secret contains the connection string to access your app configuration store. Replace the value in the following command with the connection string for your app configuration store.
+    This secret contains the connection string to access your App Configuration store. Replace the value in the following command with the connection string for your App Configuration store.
 
     This command must be executed in the same directory as the *.csproj* file.
 
@@ -213,7 +213,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 ## Next steps
 
-In this quickstart, you created a new app configuration store and used it with an ASP.NET Core web app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn more about how to use App Configuration, continue to the next tutorial that demonstrates how to configure your web app to dynamically refresh configuration settings.
+In this quickstart, you created a new App Configuration store and used it with an ASP.NET Core web app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn how to configure your ASP.NET Core app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)
+> [Enable dynamic configuration](./enable-dynamic-configuration-aspnet-core.md)

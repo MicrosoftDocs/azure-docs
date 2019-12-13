@@ -7,7 +7,7 @@ author: bandersmsft
 ms.author: banders
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: adwise
 ms.custom: seodec18
 ---

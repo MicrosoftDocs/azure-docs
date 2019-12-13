@@ -173,10 +173,12 @@ additionalContent:
     - items:
       - title: Additional resources
         links:
+          - text: Support & help options
+            url: cognitive-services-support-options.md
           - text: Azure CLI
             url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
           - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-3.0.0#cognitive_services
       - title: REST APIs
         links:
           - text: Cognitive Services Management
@@ -186,7 +188,7 @@ additionalContent:
           - text: .NET
             url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
           - text: Go
-            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
+            url: https://godoc.org/github.com/azure/azure-sdk-for-go/services/cognitiveservices
           - text: Java
             url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
           - text: Node.js

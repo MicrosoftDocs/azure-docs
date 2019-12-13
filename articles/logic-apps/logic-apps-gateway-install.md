@@ -73,7 +73,7 @@ This article shows how to download, install, and set up your on-premises data ga
 
 * **Related considerations**
 
-  * You can install the on-premises data gateway only on a local computer, not a domain controller. However, you don't have to install the gateway on the same computer as your data source. You need only one gateway for all your data sources, so you don't need to install the gateway for each data source.
+  * Install the on-premises data gateway only on a local computer, not a domain controller. You don't have to install the gateway on the same computer as your data source. You need only one gateway for all your data sources, so you don't need to install the gateway for each data source.
 
     > [!TIP]
     > To minimize latency, you can install the gateway as close 
@@ -85,6 +85,8 @@ This article shows how to download, install, and set up your on-premises data ga
   * If you plan to use Windows authentication, make sure that you install the gateway on a computer that's a member of the same Active Directory environment as your data sources.
 
   * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app. By default, this region is the same location as your Azure AD tenant that manages your Azure account. However, you can change the location during gateway installation.
+
+  * If you're updating your gateway installation to the latest version, uninstall your current gateway first for a cleaner experience.
 
   * The gateway has two modes: standard mode and personal mode, which applies only to Power BI. You can't have more than one gateway running in the same mode on the same computer.
 

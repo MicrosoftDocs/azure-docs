@@ -8,7 +8,6 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Continuous integration and continuous deployment to Azure IoT Edge

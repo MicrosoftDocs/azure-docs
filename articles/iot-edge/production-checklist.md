@@ -8,7 +8,6 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Prepare to deploy your IoT Edge solution in production

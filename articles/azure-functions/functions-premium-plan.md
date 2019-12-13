@@ -2,8 +2,6 @@
 title: Azure Functions Premium plan 
 description: Details and configuration options (VNet, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
 author: jeffhollan
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
@@ -61,9 +59,9 @@ Fore more information, see [integrate your function app with a VNet](functions-c
 
 Additional compute instances are automatically added for your app using the same rapid scaling logic as the Consumption plan.  To learn more about how scaling works, see [Function scale and hosting](./functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-### Unbounded run duration
+### Longer run duration
 
-Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this unbounded for Premium plan apps.
+Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this 60 minutes for Premium plan apps.
 
 ## Plan and SKU settings
 

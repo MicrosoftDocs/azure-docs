@@ -5,7 +5,7 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/18/2019
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -32,3 +32,4 @@ For now, ultra disks have additional limitations, they are as follows:
 - Do not yet support disk snapshots, VM images, availability sets, and Azure disk encryption
 - Do not yet support integration with Azure Backup or Azure Site Recovery
 - The current maximum limit for IOPS on GA VMs is 80,000.
+- If you would like to participate in a limited preview of a VM that can accomplish 160,000 IOPS with ultra disks, please email UltraDiskFeedback@microsoft .com

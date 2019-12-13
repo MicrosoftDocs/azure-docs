@@ -2,7 +2,7 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/19/2019
 ---
 # Azure Resource Manager template functions
 
@@ -72,6 +72,7 @@ Resource Manager provides several functions for making comparisons in your templ
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
 * [deployment](resource-group-template-functions-deployment.md#deployment)
+* [environment](resource-group-template-functions-deployment.md#environment)
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 

@@ -2,9 +2,9 @@
 
 title: Understand how metric alerts work in Azure Monitor.
 description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
-author: snehithm
-ms.author: snmuvva 
-ms.date: 9/18/2018
+author: rboucher
+ms.author: robb
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
@@ -140,41 +140,6 @@ For metric alerts, typically you will get notified in under 5 minutes if you set
 
 You can find the full list of supported resource types in this [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-If you are using classic metric alerts today and are looking to see if metric alerts support the all the resource types you are using, the following table shows the resource types supported by classic metric alerts and if they are supported by metric alerts today or not.
-
-|Resource type supported by classic metric alerts | Supported by metric alerts |
-|-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | Yes |
-| Microsoft.Batch/batchAccounts| Yes|
-|Microsoft.Cache/redis| Yes |
-|Microsoft.ClassicCompute/virtualMachines | No |
-|Microsoft.ClassicCompute/domainNames/slots/roles | No|
-|Microsoft.CognitiveServices/accounts | No |
-|Microsoft.Compute/virtualMachines | Yes|
-|Microsoft.Compute/virtualMachineScaleSets| Yes|
-|Microsoft.ClassicStorage/storageAccounts| No |
-|Microsoft.DataFactory/datafactories | Yes|
-|Microsoft.DBforMySQL/servers| Yes|
-|Microsoft.DBforPostgreSQL/servers| Yes|
-|Microsoft.Devices/IotHubs | No|
-|Microsoft.DocumentDB/databaseAccounts| Yes|
-|Microsoft.EventHub/namespaces | Yes|
-|Microsoft.Logic/workflows | Yes|
-|Microsoft.Network/loadBalancers |Yes|
-|Microsoft.Network/publicIPAddresses| Yes|
-|Microsoft.Network/applicationGateways| Yes|
-|Microsoft.Network/expressRouteCircuits| Yes|
-|Microsoft.Network/trafficManagerProfiles | Yes|
-|Microsoft.Search/searchServices | Yes|
-|Microsoft.ServiceBus/namespaces| Yes |
-|Microsoft.Storage/storageAccounts | Yes|
-|Microsoft.StreamAnalytics/streamingjobs| Yes|
-|Microsoft.TimeSeriesInsights/environments | Yes|
-|Microsoft. Web/serverfarms | Yes |
-|Microsoft. Web/sites (excluding functions) | Yes|
-|Microsoft. Web/hostingEnvironments/multiRolePools | No|
-|Microsoft. Web/hostingEnvironments/workerPools| No |
-|Microsoft.SQL/Servers | No |
 
 ## Next steps
 

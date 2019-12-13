@@ -143,7 +143,7 @@ For information about how to change the compliance check interval, see
 ## Working with Partial Configurations
 
 Azure Automation State Configuration supports usage of
-[partial configurations](/powershell/dsc/pull-server/partialconfigs).
+[partial configurations](/powershell/scripting/dsc/pull-server/partialconfigs).
 In this scenario, DSC is configured to manage multiple configurations independently,
 and each configuration is retrieved from Azure Automation.
 However, only one configuration can be assigned to a node per automation account.
@@ -151,11 +151,11 @@ This means if you are using two configurations for a node you will require two a
 
 For details about how to register a partial configuration from pull service,
 see the documentation for
-[partial configurations](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+[partial configurations](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
 
 For more information about how teams can work together to collaboratively manage servers
 using configuration as code see
-[Understanding DSC's role in a CI/CD Pipeline](/powershell/dsc/overview/authoringadvanced).
+[Understanding DSC's role in a CI/CD Pipeline](/powershell/scripting/dsc/overview/authoringadvanced).
 
 ## Check the compliance status of a managed node
 

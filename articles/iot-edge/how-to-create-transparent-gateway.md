@@ -8,7 +8,6 @@ ms.date: 08/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Configure an IoT Edge device to act as a transparent gateway

@@ -1,12 +1,12 @@
 ---
-title: Azure AD self-service password reset for Windows - Azure Active Directory
+title: Self-service password reset for Windows - Azure Active Directory
 description: How to enable self-service password reset using forgot password at the Windows login screen 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

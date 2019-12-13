@@ -29,7 +29,7 @@ In this article, you learn how to efficiently manage stale devices in your envir
 A stale device is a device that has been registered with Azure AD but has not been used to access any cloud apps for a specific timeframe. Stale devices have an impact on your ability to manage and support your devices and users in the tenant because: 
 
 - Duplicate devices can make it difficult for your helpdesk staff to identify which device is currently active.
-- An increased number of devices creates unnecessary device writebacks increasing the time for AAD connect syncs.
+- An increased number of devices creates unnecessary device writebacks increasing the time for Azure AD connect syncs.
 - As a general hygiene and to meet compliance, you may want to have a clean state of devices. 
 
 Stale devices in Azure AD can interfere with the general lifecycle policies for devices in your organization.

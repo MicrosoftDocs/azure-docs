@@ -71,7 +71,7 @@ This section describes the end-to-end user provisioning solution architecture fo
 
 1. The HR team performs worker transactions (Joiners/Movers/Leavers or New Hires/Transfers/Terminations) in Workday HCM
 2. The Azure AD Provisioning Service runs scheduled synchronizations of identities from Workday HR and identifies changes that need to be processed for sync with on-premises Active Directory.
-3. The Azure AD Provisioning Service invokes the on-premises AAD Connect Provisioning Agent with a request payload containing AD account create/update/enable/disable operations.
+3. The Azure AD Provisioning Service invokes the on-premises Azure AD Connect Provisioning Agent with a request payload containing AD account create/update/enable/disable operations.
 4. The Azure AD Connect Provisioning Agent uses a service account to add/update AD account data.
 5. The Azure AD Connect / AD Sync engine runs delta sync to pull updates in AD.
 6. The Active Directory updates are synced with Azure Active Directory.
@@ -104,11 +104,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 To facilitate provisioning workflows between Workday and Active Directory, Azure AD provides multiple provisioning connector apps that you can add from the Azure AD app gallery:
 
-![AAD App Gallery](./media/workday-inbound-tutorial/wd_gallery.png)
+![Azure AD App Gallery](./media/workday-inbound-tutorial/wd_gallery.png)
 
 * **Workday to Active Directory User Provisioning** - This app facilitates user account provisioning from Workday to a single Active Directory domain. If you have multiple domains, you can add one instance of this app from the Azure AD app gallery for each Active Directory domain you need to provision to.
 
-* **Workday to Azure AD User Provisioning** - While AAD Connect is the tool that should be used to synchronize Active Directory users to Azure Active Directory, this app can be used to facilitate provisioning of cloud-only users from Workday to a single Azure Active Directory tenant.
+* **Workday to Azure AD User Provisioning** - While Azure AD Connect is the tool that should be used to synchronize Active Directory users to Azure Active Directory, this app can be used to facilitate provisioning of cloud-only users from Workday to a single Azure Active Directory tenant.
 
 * **Workday Writeback** - This app facilitates write-back of user's email addresses from Azure Active Directory to Workday.
 
@@ -768,7 +768,7 @@ Once the Workday provisioning app configurations have been completed, you can tu
   * [What is the GA version of the Provisioning Agent?](#what-is-the-ga-version-of-the-provisioning-agent)
   * [How do I know the version of my Provisioning Agent?](#how-do-i-know-the-version-of-my-provisioning-agent)
   * [Does Microsoft automatically push Provisioning Agent updates?](#does-microsoft-automatically-push-provisioning-agent-updates)
-  * [Can I install the Provisioning Agent on the same server running AAD Connect?](#can-i-install-the-provisioning-agent-on-the-same-server-running-aad-connect)
+  * [Can I install the Provisioning Agent on the same server running Azure AD Connect?](#can-i-install-the-provisioning-agent-on-the-same-server-running-azure-ad-connect)
   * [How do I configure the Provisioning Agent to use a proxy server for outbound HTTP communication?](#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication)
   * [How do I ensure that the Provisioning Agent is able to communicate with the Azure AD tenant and no firewalls are blocking ports required by the agent?](#how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent)
   * [How do I de-register the domain associated with my Provisioning Agent?](#how-do-i-de-register-the-domain-associated-with-my-provisioning-agent)
@@ -797,7 +797,7 @@ No, sending email notifications after completing provisioning operations is not 
 
 One of the final steps involved in new AD account provisioning is the delivery of the temporary password assigned to the user’s AD account. Many enterprises still use the traditional approach of delivering the temporary password to the user’s manager, who then hands over the password to the new hire/contingent worker. This process has an inherent security flaw and there is an option available to implement a better approach using Azure AD capabilities.
 
-As part of the hiring process, HR teams usually run a background check and vet the mobile number of the new hire. With the Workday to AD User Provisioning integration, you can build on top of this fact and rollout a self-service password reset capability for the user on Day 1. This is accomplished by propagating the “Mobile Number” attribute of the new hire from Workday to AD and then from AD to Azure AD using AAD Connect. Once the “Mobile Number” is present in Azure AD, you can enable the [Self-Service Password Reset (SSPR)](../authentication/howto-sspr-authenticationdata.md) for the user’s account, so that on Day 1, a new hire can use the registered and verified mobile number for authentication.
+As part of the hiring process, HR teams usually run a background check and vet the mobile number of the new hire. With the Workday to AD User Provisioning integration, you can build on top of this fact and rollout a self-service password reset capability for the user on Day 1. This is accomplished by propagating the “Mobile Number” attribute of the new hire from Workday to AD and then from AD to Azure AD using Azure AD Connect. Once the “Mobile Number” is present in Azure AD, you can enable the [Self-Service Password Reset (SSPR)](../authentication/howto-sspr-authenticationdata.md) for the user’s account, so that on Day 1, a new hire can use the registered and verified mobile number for authentication.
 
 #### Does the solution cache Workday user profiles in the Azure AD cloud or at the provisioning agent layer?
 
@@ -858,9 +858,9 @@ When suggesting a new idea, please check to see if someone else has already sugg
 
 Yes, Microsoft automatically updates the provisioning agent. You can disable automatic updates by stopping the Windows service **Microsoft Azure AD Connect Agent Updater**.
 
-#### Can I install the Provisioning Agent on the same server running AAD Connect?
+#### Can I install the Provisioning Agent on the same server running Azure AD Connect?
 
-Yes, you can install the Provisioning Agent on the same server that runs AAD Connect.
+Yes, you can install the Provisioning Agent on the same server that runs Azure AD Connect.
 
 #### At the time of configuration the Provisioning Agent prompts for Azure AD admin credentials. Does the Agent store the credentials locally on the server?
 

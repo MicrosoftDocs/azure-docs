@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Capture events from an Azure Digital Twins space'
+title: 'Tutorial: Capture device events from an IoT space - Azure Digital Twins| Microsoft Docs'
 description: Learn how to receive notifications from your spaces by integrating Azure Digital Twins with Logic Apps, using the steps in this tutorial.
 services: digital-twins
 ms.author: alinast

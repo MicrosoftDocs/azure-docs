@@ -7,7 +7,7 @@ author: bandersmsft
 ms.author: banders
 ms.date: 11/15/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
 ---

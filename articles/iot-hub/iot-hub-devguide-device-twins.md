@@ -240,11 +240,11 @@ The [Azure IoT device SDKs](iot-hub-devguide-sdks.md) make it easy to use the pr
 
 Tags, desired properties, and reported properties are JSON objects with the following restrictions:
 
-* All keys in JSON objects are case-sensitive 64 bytes UTF-8 UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, `$`, and SP.
+* All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, `$`, and SP.
 
 * All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed. The maximum value for integers is 4503599627370495 and the minimum value for integers is -4503599627370496.
 
-* All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. For instance, the following object is valid:
+* All JSON objects in tags, desired, and reported properties can have a maximum depth of 10. For instance, the following object is valid:
 
    ```json
    {
@@ -255,7 +255,17 @@ Tags, desired properties, and reported properties are JSON objects with the foll
                    "three": {
                        "four": {
                            "five": {
-                               "property": "value"
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
                            }
                        }
                    }
@@ -266,7 +276,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
    }
    ```
 
-* All string values can be at most 512 bytes in length.
+* All string values can be at most 4 KB in length.
 
 ## Device twin size
 

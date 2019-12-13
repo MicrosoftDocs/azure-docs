@@ -1,5 +1,5 @@
 ---
-title: Coarse Relocalization | Microsoft Docs
+title: Coarse Relocalization
 description: Coarse relocalization quickstart guide.
 author: bucurb
 manager: dacoghl

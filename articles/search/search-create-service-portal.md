@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a search service in the portal'
 titleSuffix: Azure Cognitive Search
-description: Provision an AzureCognitive  Search resource in the Azure portal. Choose resource groups, regions, and SKU or pricing tier.
+description: In this portal quickstart, learn how to set up an Azure Cognitive Search resource in the Azure portal. Choose resource groups, regions, and SKU or pricing tier.
 
 manager: nitinme
 author: HeidiSteen

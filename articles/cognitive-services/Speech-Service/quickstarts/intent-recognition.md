@@ -13,7 +13,7 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
-# Quickstart: Recognize speech, intents, and entities with LUIS
+# Quickstart: Recognize speech, intents, and entities with Language Understanding (LUIS)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/intent-recognition/header.md)]

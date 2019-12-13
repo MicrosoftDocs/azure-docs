@@ -34,16 +34,7 @@ To complete this quickstart:
 1. [Install Git](https://git-scm.com/).
 2. [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable).
 3. [Install Maven 3.0 or later](https://maven.apache.org/download.cgi).
-4. [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-5. [Sign up for a free Azure subscription](https://azure.microsoft.com/free/).
-
-## Install the Azure CLI extension
-
-Install the Azure Spring Cloud extension for the Azure CLI by using the following command:
-
-```Azure CLI
-az extension add --name spring-cloud
-```
+4. [Sign up for a free Azure subscription](https://azure.microsoft.com/free/).
 
 ## Provision a service instance on the Azure portal
 

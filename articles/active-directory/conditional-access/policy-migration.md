@@ -1,12 +1,12 @@
 ---
-title: What is a policy migration in Azure Active Directory Conditional Access? | Microsoft Docs
+title: Migrate Conditional Access policies - Azure Active Directory 
 description: Learn what you need to know to migrate classic policies in the Azure portal.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

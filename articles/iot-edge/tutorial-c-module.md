@@ -10,7 +10,7 @@ ms.author: xshi
 ms.date: 11/07/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: "mvc, seodec18"
+ms.custom: mvc
 
 ---
 

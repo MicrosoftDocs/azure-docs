@@ -25,8 +25,8 @@ ZRS is available for block blobs, non-disk page blobs, standard file shares, tab
 For general-purpose v2 accounts, ZRS is generally available in the following regions:
 
 - Asia Southeast
-- Europe West
 - Europe North
+- Europe West
 - France Central
 - Japan East
 - UK South

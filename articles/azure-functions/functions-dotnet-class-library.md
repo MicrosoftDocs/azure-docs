@@ -1,17 +1,9 @@
 ---
 title: Azure Functions C# developer reference
 description: Understand how to develop Azure Functions using C#.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
-ms.service: azure-functions
-ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
-ms.author: glenga
 
 ---
 # Azure Functions C# developer reference

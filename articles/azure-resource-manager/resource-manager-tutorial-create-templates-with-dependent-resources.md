@@ -28,8 +28,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension.  See [Install the extension
-](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
 * To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```azurecli-interactive
@@ -80,7 +79,7 @@ When you explore the template in this section, try to answer these questions:
 3. Expand the second resource. The resource type is `Microsoft.Network/publicIPAddresses`. Compare the resource definition to the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
 
     ![Visual Studio Code Azure Resource Manager templates public IP address definition](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Expand the fourth resource. The resource type is `Microsoft.Network/networkInterfaces`:  
+4. Expand the fourth resource. The resource type is `Microsoft.Network/networkInterfaces`:
 
     ![Visual Studio Code Azure Resource Manager templates dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -106,14 +105,14 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
 
 There are many methods for deploying templates.  In this tutorial, you use Cloud Shell from the Azure portal.
 
-1. Sign in to the [Cloud Shell](https://shell.azure.com). 
+1. Sign in to the [Cloud Shell](https://shell.azure.com).
 2. Select **PowerShell** from the upper left corner of the Cloud shell, and then select **Confirm**.  You use PowerShell in this tutorial.
 3. Select **Upload file** from the Cloud shell:
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. Select the template you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file is overwritten without any notification.
 
-    You can optionally use the **ls $HOME** command and the **cat $HOME/azuredeploy.json** command to verify the files areis uploaded successfully. 
+    You can optionally use the **ls $HOME** command and the **cat $HOME/azuredeploy.json** command to verify the files areis uploaded successfully.
 
 5. From the Cloud shell, run the following PowerShell commands. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 

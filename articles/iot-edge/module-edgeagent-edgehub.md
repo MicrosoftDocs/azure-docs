@@ -8,7 +8,6 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Properties of the IoT Edge agent and IoT Edge hub module twins

@@ -29,7 +29,7 @@ You land on the Azure IoT Central Application Manager page. Azure IoT Central ke
 
 ![Create Manager for CSPs](media/howto-create-application-csp/image3.png)
 
-To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the idustry templates, or choose **Custom app** to create an application from scratch. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
+To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the industry templates, or choose **Custom app** to create an application from scratch. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
 
 ![Create Application Page for CSPs](media/howto-create-application-csp/image4.png)
 
@@ -70,7 +70,7 @@ To learn more, see [Azure subscriptions](https://docs.microsoft.com/azure/guides
 Choose the region or [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you’d like to create your Azure IoT Central Application. Typically, you should choose the region that's closest physically to your devices to get optimal performance.
 
 > [!NOTE]
-> The **Preview application** template is currently only available in the **North Europe** and **Central US** regions.
+> The preview application templates are currently only available in the **Europe** and **US** locations.
 
 To learn more, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) and [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 

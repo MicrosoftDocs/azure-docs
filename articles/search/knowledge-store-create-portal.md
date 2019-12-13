@@ -3,9 +3,9 @@ title: Create a knowledge store (preview) in the Azure portal
 titleSuffix: Azure Cognitive Search
 description: Use the Import data wizard to create a knowledge store used for persisting enriched content. Connect to a knowledge store for analysis from other apps, or send enriched content to downstream processes. This feature is currently in public preview.
 
-author: lisaleib
+author: HeidiSteen
+ms.author: heidist
 manager: nitinme
-ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019

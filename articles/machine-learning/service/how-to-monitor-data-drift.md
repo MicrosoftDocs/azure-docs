@@ -75,7 +75,7 @@ Using Azure Machine Learning, data drift is monitored through datasets or deploy
 ## Configure data drift
 To configure data drift for your experiment, import dependencies as seen in the following Python example. 
 
-This example demonstrates configuring the [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py) object:
+This example demonstrates configuring the [`DataDriftDetector`](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) object:
 
 ```python
 # Import Azure ML packages

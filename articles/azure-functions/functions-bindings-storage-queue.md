@@ -1,13 +1,8 @@
 ---
 title: Azure Queue storage bindings for Azure Functions
 description: Understand how to use the Azure Queue storage trigger and output binding in Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe

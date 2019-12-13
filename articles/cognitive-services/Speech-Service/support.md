@@ -58,16 +58,7 @@ Azure customers can create and manage support requests in the Azure portal.
 
 Stack Overflow is the preferred channel for development-related questions. It's where members of the community and Microsoft team members are directly involved in helping you solve your problems.
 
-If you can't find an answer to your problem via search, submit a new question to Stack Overflow. Use one of the following tags when you formulate the question:
-
-|Component/Area  |Tags  |
-|---------|---------|
-|Speech Recognition |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Speech Synthesis |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Speech Translation |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Speech Intent |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|General Speech SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-|Voice assistants | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
+If you can't find an answer to your problem via search, submit a new question to Stack Overflow by using the [microsoft-cognitive-speech](https://stackoverflow.com/questions/tagged/microsoft-cognitive-speech) tag.
 
 > [!TIP]
 > The following posts from Stack Overflow contain tips on how to form questions and add source code. Following these guidelines might help increase the chances that community members assess and respond to your question quickly:  

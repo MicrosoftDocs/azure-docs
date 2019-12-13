@@ -57,7 +57,7 @@ Use these steps to create an Azure FarmBeats offer in the marketplace:
 3. Select Create and enter the following information:
     - subscription name.
     - an existing resource group name (empty resource group only) or create a new resource group for deploying Azure FarmBeats. Make a note of this resource group in subsequent sections.
-4. The region you want to install Azure FarmBeats. Currently FarmBeats the following regions: Central US, West Europe, East US 2, North Europe, West US, Southeast Asia, East US, Australia East, West US 2.
+4. The region you want to install Azure FarmBeats. Currently Azure FarmBeats is supported in the following regions: Central US, West Europe, East US 2, North Europe, West US, Southeast Asia, East US, Australia East, West US 2.
 5. Select **OK**.
 The Terms of use page appears. Review the standard marketplace terms or select the hyperlink to review the Terms of Use.
 6. Select **Close**, then the "I agree" checkbox and then select **Create**.
@@ -149,7 +149,7 @@ Review the parameters before preparing the file.
 |Command | Description|
 |--- | ---|
 |sku  | Provides a choice to download either or both the components of Azure FarmBeats. Specifies which components to download. To install only Data hub, use “onlydatabhub”. To install Data hub and Accelerator, use “both”|
-|subscriptionId | Specifies the subscription for installing FarmBeats|
+|subscriptionId | Specifies the subscription for installing Azure FarmBeats|
 |datahubResourceGroup| Resource group name for Data hub resources|
 |location |Location where you would like to create the resources|
 |acceleratorWebsiteName |Unique URL prefix to name your Data hub|
@@ -157,7 +157,7 @@ Review the parameters before preparing the file.
 |datahubWebsiteName  | UUnique URL prefix to name your Data hub website. |
 |sentinelUsername | user name to sign into: https://scihub.copernicus.eu/dhus/#/self-registration.|
 |notificationEmailAddress  | Email address to receive the notifications for any alerts that you configure within Data hub.|
-|updateIfExists|[Optional] Parameter to be included within Input.Json only if you want to upgrade an existing FarmBeats instance. For upgrade, other details eg. the resource group names, locations etc. need to be the same.|
+|updateIfExists|[Optional] Parameter to be included within Input.Json only if you want to upgrade an existing Azure FarmBeats instance. For upgrade, other details eg. the resource group names, locations etc. need to be the same.|
 |aadAppClientId | [**Optional**] Parameter to be included within Input.Json only if Azure AD app already exists.  |
 |aadAppClientSecret  | [**Optional**] Parameter to be included within Input.Json only if Azure AD app already exists.|
 
@@ -277,8 +277,8 @@ Follow the onscreen instructions.
 9. The installer will now validate and start creating the resources, which can take about 20 minutes. Keep the session active on Cloud Shell during this time.
 10. Once the deployment goes through successfully, you will receive the below output links:
 
- - **Data hub URL**: Swagger link to try FarmBeats APIs.
- - **Accelerator URL**: User Interface to explore FarmBeats Smart Farm Accelerator.
+ - **Data hub URL**: Swagger link to try Azure FarmBeats APIs.
+ - **Accelerator URL**: User Interface to explore Azure FarmBeats Accelerator.
  - **Deployer log file**: Log file created during deployment. It can be used for troubleshooting if required.
 
 If you encounter any issues, review [Troubleshoot](troubleshoot-project-farmbeats.md).
@@ -288,7 +288,7 @@ If you encounter any issues, review [Troubleshoot](troubleshoot-project-farmbeat
 
 ### Data hub
 
-Once the data hub installation is complete, you'll receive the URL to access Azure FarmBeats APIs via the Swagger interface in the format: https://\<yourdatahub-website-name>.azurewebsites.net
+Once the data hub installation is complete, you'll receive the URL to access Azure FarmBeats APIs via the Swagger interface in the format: https://\<yourdatahub-website-name>.azurewebsites.net/swagger
 
 1. To sign in via Swagger, copy and paste the URL in the browser.
 2. Sign in with Azure portal credentials.
@@ -300,7 +300,7 @@ Once the data hub installation is complete, you'll receive the URL to access Azu
 
 ### Accelerator
 
-Once the Accelerator installation is complete, you'll receive the URL to access FarmBeats user-interface in the format: https://\<accelerator-website-name>.azurewebsites.net
+Once the Accelerator installation is complete, you'll receive the URL to access Azure FarmBeats user-interface in the format: https://\<accelerator-website-name>.azurewebsites.net
 
 1. To sign in from Accelerator, copy and paste the URL in the browser.
 2. Sign in with Azure portal credentials.
@@ -329,8 +329,8 @@ Follow the onscreen instructions:
 9. Sentinel password
 10. The installer now validates and starts creating the resources, which can take about 20 minutes.
 11. Once the deployment is successful, you will receive the below output links:
- - **Data hub URL**: Swagger link to try FarmBeats APIs.
- - **Accelerator URL**: User interface to explore FarmBeats Smart Farm Accelerator.
+ - **Data hub URL**: Swagger link to try Azure FarmBeats APIs.
+ - **Accelerator URL**: User interface to explore Azure FarmBeats Accelerator.
  - **Deployer log file**: saves logs during deployment. It can be used for troubleshooting.
 
 > [!NOTE]
@@ -339,12 +339,12 @@ Follow the onscreen instructions:
 
 ## Uninstall
 
-Currently we don't support automated uninstallation of FarmBeats using the installer. To remove the Data hub or  Accelerator, in the Azure portal, delete the resource group in which these components are installed, or delete resources manually.
+Currently we don't support automated uninstallation of Azure FarmBeats using the installer. To remove the Data hub or  Accelerator, in the Azure portal, delete the resource group in which these components are installed, or delete resources manually.
 
 For example, if you deployed Data hub and Accelerator in two different resource groups, you delete those resource groups as follows:
 
 1. Sign into the Azure portal.
-2. Select your account in the top right corner, and switch to the desired Azure AD tenant where you want to deploy Microsoft FarmBeats.
+2. Select your account in the top right corner, and switch to the desired Azure AD tenant where you want to deploy Azure FarmBeats.
 
    > [!NOTE]
    > Data hub is needed for Accelerator to work properly. We don’t recommend uninstalling Data hub without uninstalling Accelerator.

@@ -35,7 +35,7 @@ In this article, you learn how to create, list and delete a user-assigned manage
 - Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
 - If you are running PowerShell locally, you also need to: 
     - Run `Connect-AzAccount` to create a connection with Azure.
-    - Install the [latest version of PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+    - Install the [latest version of PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
     - Run `Install-Module -Name PowerShellGet -AllowPrerelease` to get the pre-release version of the `PowerShellGet` module (you may need to `Exit` out of the current PowerShell session after you run this command to install the `Az.ManagedServiceIdentity` module).
     - Run `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` to install the prerelease version of the `Az.ManagedServiceIdentity` module to perform the user-assigned managed identity operations in this article.
 

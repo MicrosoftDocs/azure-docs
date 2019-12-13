@@ -1,5 +1,5 @@
 ---
-title: How to create and delete a user-assigned managed identity using Azure Resource Manager
+title: Create & delete a user-assigned managed identity using Azure Resource Manager
 description: Step by step instructions on how to create and delete user-assigned managed identities using Azure Resource Manager.
 services: active-directory
 documentationcenter: 
