@@ -56,6 +56,8 @@
         href: customize-rdp-properties.md
       - name: Load-balancing for pooled host pools
         href: configure-host-pool-load-balancing.md
+      - name: Personal desktop assignment type
+        href: configure-host-pool-personal-desktop-assignment-type.md
   - name: Use Windows Virtual Desktop license
     href: apply-windows-license.md
   - name: Customize session host image
@@ -78,8 +80,6 @@
   items:
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
-  - name: Bandwidth recommendations for remote sessions
-    href: bandwidth-recommendations.md
   - name: Determine user connection latency
     href: connection-latency.md
   - name: Delegated access in Windows Virtual Desktop

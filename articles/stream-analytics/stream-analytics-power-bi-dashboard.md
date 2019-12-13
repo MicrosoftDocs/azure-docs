@@ -1,7 +1,6 @@
 ---
 title: Power BI dashboard integration with Azure Stream Analytics
 description: This article describes how to use a real-time Power BI dashboard to visualize data out of an Azure Stream Analytics job.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea

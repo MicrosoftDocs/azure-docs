@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Redirect URI/reply URL restrictions and limitations - Microsoft identity platform
+title: Redirect URI & reply URL restrictions - Microsoft identity platform | Azure
 description: Reply URLs/redirect URls restrictions & limitations
 author: SureshJa
 ms.author: sureshja
