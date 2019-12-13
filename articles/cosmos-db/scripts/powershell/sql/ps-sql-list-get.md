@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB list and get operations for SQL (Core) API
+title: PowerShell script to list and get operations for Azure Cosmos DB SQL (Core) API
 description: Azure PowerShell script - Azure Cosmos DB list and get operations for SQL (Core) API
 author: markjbrown
 ms.service: cosmos-db

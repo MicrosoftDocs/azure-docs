@@ -38,6 +38,7 @@ For Copy activity, this Blob storage connector supports:
 - Copying blobs by using account key, service shared access signature, service principal or managed identities for Azure resources authentications.
 - Copying blobs from block, append, or page blobs and copying data to only block blobs.
 - Copying blobs as is or parsing or generating blobs with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+- [Preserve file metadata during copy](#preserve-metadata-during-copy).
 
 >[!IMPORTANT]
 >If you enable the **Allow trusted Microsoft services to access this storage account** option on Azure Storage firewall settings and want to use Azure integration runtime to connect to your Blob Storage, you must use [managed identity authentication](#managed-identity).
