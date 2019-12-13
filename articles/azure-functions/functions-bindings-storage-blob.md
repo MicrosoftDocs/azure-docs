@@ -776,7 +776,7 @@ The following table explains the binding configuration properties that you set i
 
 # [JavaScript](#tab/javascript)
 
-Access the blob data using `context.bindings.<name from function.json>`.
+Access blob data using `context.bindings.<NAME>` where `<NAME>` matches the value defined in *function.json*.
 
 # [Python](#tab/python)
 
