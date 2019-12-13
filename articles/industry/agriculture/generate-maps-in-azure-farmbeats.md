@@ -66,7 +66,7 @@ Follow these steps.
 
   For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message appears on the tooltip of the *Failed* status. In this case, repeat the previous steps and try again.
 
-  If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact the [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
+  If the issue persists, see the [Troubleshoot](troubleshoot-azure-farmbeats.md) section or contact the [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download a Sensor Placement map
 
@@ -127,7 +127,7 @@ Follow these steps.
 
     For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message appears on the tooltip of the *Failed* status. In this case, repeat the previous steps and try again.
 
-    If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact the [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
+    If the issue persists, see the [Troubleshoot](troubleshoot-azure-farmbeats.md) section or contact the [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download a map
 
@@ -194,7 +194,7 @@ To find the sensor measure, go to **Sensors**, and select any soil moisture sens
 
     For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message appears on the tooltip of the *Failed* status. In this case, repeat the previous steps and try again.
 
-    If the issue persists, see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact the [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
+    If the issue persists, see the [Troubleshoot](troubleshoot-azure-farmbeats.md) section or contact the [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download a map
 

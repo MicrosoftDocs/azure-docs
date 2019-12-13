@@ -27,7 +27,7 @@ Ensure the following:
 
 ## Create a farm
 
-A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a farm using the [Farms API](https://aka.ms/FarmBeatsDatahubSwagger) or in the [FarmsBeats Accelerator UI](manage-farms.md#create-farms)
+A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a farm using the [Farms API](https://aka.ms/FarmBeatsDatahubSwagger) or in the [FarmsBeats Accelerator UI](manage-farms-in-azure-farmbeats.md#create-farms)
 
 ## Deploy sensors
 
@@ -79,7 +79,7 @@ This step is to create a job or a long running operation that will generate Soil
 Use the following steps:
 
 1. In the **Jobs** page, check the **Job Status** for the job you created in the last procedure.
-2. When the job status shows *Succeeded*, click **Maps** on the menu.
+2. When the job status shows **Succeeded**, select **Maps** on the menu.
 3. Search for the map by the day it was created in the format <soil-moisture_MyFarm_YYYY-MM-DD>.
 4. Select a map in the **Name** column, a pop-up window displays with the preview of the selected map.
 5. Select **Download**. The map is downloaded and stored to the local folder of your computer.
@@ -88,4 +88,4 @@ Use the following steps:
 
 ## Next steps
 
-Now that you’ve successfully generated a Soil Moisture Heatmap, learn how to [generate sensor placement](generate-maps.md#sensor-placement-map) and [ingest historical telemetry data](ingest-historical-telemetry-data.md). 
+Now that you’ve successfully generated a Soil Moisture Heatmap, learn how to [generate sensor placement](generate-maps-in-azure-farmbeats.md#sensor-placement-map) and [ingest historical telemetry data](ingest-historical-telemetry-data-in-azure-farmbeats.md). 
