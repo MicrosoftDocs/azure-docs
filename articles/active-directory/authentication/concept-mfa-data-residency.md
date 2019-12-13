@@ -1,6 +1,6 @@
 ---
-title: Azure multi-factor authentication data privacy
-description: Learn what personal and organizational data Azure multi-factor authentication (MFA) stores about you and your users and what data remains within the country of origin.
+title: Azure Multi-Factor Authentication data residency
+description: Learn what personal and organizational data Azure Multi-Factor Authentication (MFA) stores about you and your users and what data remains within the country of origin.
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -14,11 +14,11 @@ manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
 ---
-# Data residency for Azure multi-factor authentication
+# Data residency and customer data for Azure Multi-Factor Authentication
 
-Identity data is stored by Azure AD in a geographical location based on the address provided by your organization when subscribing for a Microsoft Online service such as Office 365 and Azure. For information on where your customer data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+Customer data is stored by Azure AD in a geographical location based on the address provided by your organization when subscribing for a Microsoft Online service such as Office 365 and Azure. For information on where your customer data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
-Cloud-based Azure multi-factor authentication (MFA) and Azure MFA Server process and store some amount of personal data and organizational data. This article outlines what and where data is stored.
+Cloud-based Azure Multi-Factor Authentication (MFA) and Azure MFA Server process and store some amount of personal data and organizational data. This article outlines what and where data is stored.
 
 The following MFA activities currently originate out of US datacenters except where noted:
 
@@ -97,7 +97,7 @@ And for Azure MFA Server, the following Azure portal pages may contain organizat
 
 ## Log data location
 
-Where log information is stored depends on which region they are processed in. Most geographies have native Azure MFA capabilities, so log data is stored in the same region that processes the MFA request. In geographies without native Azure MFA support, they're serviced by either North America or Europe geographies and log data is stored in the same region that processes the MFA request.
+Where log information is stored depends on which region they're processed in. Most geographies have native Azure MFA capabilities, so log data is stored in the same region that processes the MFA request. In geographies without native Azure MFA support, they're serviced by either North America or Europe geographies and log data is stored in the same region that processes the MFA request.
 
 Some core authentication log data is only stored in the North America geography. Microsoft Azure Germany and Microsoft Azure Operated by 21Vianet are always stored in their respective cloud. Microsoft Government Cloud log data is always stored in North America.
 
