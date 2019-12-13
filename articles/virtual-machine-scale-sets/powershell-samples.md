@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Samples | Microsoft Docs
-description: Azure PowerShell Samples
+title: Azure PowerShell Samples
+description: A table that includes links to sample bash scripts built using Azure PowerShell, like creating and managing a scale set.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
