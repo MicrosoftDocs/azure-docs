@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 12/12/2019
 ---
 # Supported Azure Database for MySQL server versions
 
@@ -31,9 +31,6 @@ Bug fix release: 5.7.27
 Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) to learn more about improvements and fixes in this version.
 
 ## MySQL Version 8.0
-
-> [!IMPORTANT]
-> MySQL 8.0 is currently in preview.
 
 Bug fix release: 8.0.15
 
