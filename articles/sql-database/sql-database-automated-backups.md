@@ -107,7 +107,6 @@ For single databases and managed instances, a minimum backup storage amount equa
 
 While the database is active, the total backup storage usage is calculated as follows: backup storage size = (size of full backups + size of diff backups + size of log backups) – database size. The backups that are older than the retention period are automatically purged based on their timestamp. Because the differential backups and log backups require an earlier full backup to be useful, they are purged together in weekly chunks. 
 
-
 Azure SQL DB will compute your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline which is responsible for aggregating this hourly usage to get your consumption at the end of each month. After the database is dropped, we decrease the consumption as the backups age. Once they become older than the retention period, the billing stops. Because all the log backups and differential backups are retained for the full retention period, databases that are heavily modified will have higher backup charges. 
 
 Let's assume the database has accumulated 744 GB of backup storage and this amount stays constant throughout an entire month. To convert this cumulative storage consumption to an hourly usage, we divide it by 744.0 (31 days per month * 24 hours per day). Thus, SQL DB will report the database consumed 1 GB of PITR backup each hour. Azure billing will aggregate this and show a usage of 744 GB for the entire month and the cost based on the $/GB/mo rate in your region. 
