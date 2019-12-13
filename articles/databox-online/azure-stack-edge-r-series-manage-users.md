@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 12/12/2019
 ms.author: alkohli
 ---
 # Use the Azure portal to manage users on your Azure Stack Edge

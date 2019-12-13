@@ -52,19 +52,19 @@
       - name: Edge compute network
         href: azure-stack-edge-r-series-placeholder.md
       - name: Shares
-        href: azure-stack-edge-r-series-placeholder.md
+        href: azure-stack-edge-r-series-manage-shares.md
       - name: Edge storage accounts
         href: azure-stack-edge-r-series-manage-storage-accounts.md
       - name: Users
-        href: azure-stack-edge-r-series-placeholder.md
+        href: azure-stack-edge-r-series-manage-users.md
       - name: Bandwidth schedules
-        href: azure-stack-edge-r-series-placeholder.md
+        href: azure-stack-edge-r-series-manage-bandwidth-schedules.md
       - name: Power, access, connectivity
         href: azure-stack-edge-r-series-manage-access-power-connectivity-mode.md
       - name: Via PowerShell
-        href: azure-stack-edge-r-series-placeholder.md
+        href: azure-stack-edge-r-series-connect-powershell-interface.md
     - name: Troubleshoot 
-      href: azure-stack-edge-r-series-placeholder.md
+      href: azure-stack-edge-r-series-troubleshoot.md
     - name: Contact Microsoft Support
       href: azure-stack-edge-r-series-placeholder.md
     - name: Monitor
