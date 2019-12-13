@@ -35,6 +35,7 @@ Specifically, with this connector you can:
 
 - Copy files by using one of the following methods of authentication: service principal or managed identities for Azure resources.
 - Copy files as is or parse or generate files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+- [Preserve ACLs](#preserve-acls-to-data-lake-storage-gen2) when copying into Azure Data Lake Storage Gen2.
 
 > [!IMPORTANT]
 > If you copy data by using the self-hosted integration runtime, configure the corporate firewall to allow outbound traffic to `<ADLS account name>.azuredatalakestore.net` and `login.microsoftonline.com/<tenant>/oauth2/token` on port 443. The latter is the Azure Security Token Service that the integration runtime needs to communicate with to get the access token.
@@ -318,7 +319,10 @@ This section describes the resulting behavior of the copy operation for differen
 
 ## Preserve ACLs to Data Lake Storage Gen2
 
-If you want to replicate the access control lists (ACLs) along with data files when you upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2, see [Preserve ACLs from Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1).
+>[!TIP]
+>To copy data from Azure Data Lake Storage Gen1 into Gen2 in general, see [Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) for a walk-through and best practices.
+
+If you want to replicate the access control lists (ACLs) along with data files when you upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2, see [Preserve ACLs from Data Lake Storage Gen1](copy-activity-preserve-metadata.md#preserve-acls).
 
 ## Mapping data flow properties
 
