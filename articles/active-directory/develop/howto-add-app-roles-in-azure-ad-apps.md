@@ -33,7 +33,7 @@ These application roles are defined in the [Azure portal](https://portal.azure.c
 ### Declare app roles using Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar
+1. Select the **Directory + Subscription** icon in the portal toolbar.
 1. In the **Favorites** or **All Directories** list, choose the Active Directory tenant where you wish to register your application.
 1. In the Azure portal, search for and select **Azure Active Directory**.
 1. In the  **Azure Active Directory** pane, select **App registrations** to view a list of all your applications.
