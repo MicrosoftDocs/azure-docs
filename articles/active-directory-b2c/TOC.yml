@@ -165,7 +165,7 @@
         href: active-directory-b2c-reference-password-change-custom.md
       - name: Phone sign-up & sign-in
         href: phone-authentication.md
-        displayName: otp
+        displayName: otp, passwordless, phone number
     - name: UX customization
       items:
       - name: Configure user input
