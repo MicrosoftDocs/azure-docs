@@ -75,7 +75,6 @@ With this approach, the system ensures that your user account has the appropriat
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
 ```
-Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 ### Option 2: Obtain authorization by using the storage account key
 
@@ -85,10 +84,6 @@ With this approach, the system doesn't check the RBAC or ACL permissions of a re
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
 $ctx = $storageAccount.Context
 ```
-
-* Replace the `<resource-group-name>` placeholder value with the name of your resource group.
-
-* Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 ## Create a file system
 
