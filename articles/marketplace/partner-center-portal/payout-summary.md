@@ -11,18 +11,31 @@ ms.date: 12/10/2019
 
 # Payout reporting
 
-The **Payout summary** shows you details about the money you’ve earned with Microsoft. It also lets you know when you’ll receive payments and how much you'll be paid.
+The [**Payout summary**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) shows you details about the money you’ve earned with Microsoft. It also lets you know when you’ll receive payments and how much you'll be paid.
 
 If you sell offerings in the Azure Marketplace, you’ll also see info on successful payouts in the **Payout summary**. For more information regarding Azure Marketplace payment, see the [Microsoft Azure Marketplace Participation Policies](https://go.microsoft.com/fwlink/p/?LinkId=722436) and the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
 > [!NOTE]
 > To be eligible for payout, your proceeds must reach the [payment threshold](payment-thresholds-methods-timeframes.md) of $50. For details about the payment threshold see this page and review the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
+- [Roles and permission to access the payout report](#roles-and-permission-to-access-the-payout-report)
 - [Payout report: difference between Cloud Partner Portal and Partner Center](#payout-report-difference-between-cloud-partner-portal-and-partner-center)
 - [Customer types](#customer-types)
 - [Corelation between payout and usage](#corelation-between-payout-and-usage)
 - [Transaction history download](#transaction-history-download-export)
 - [Billing questions and support](#billing-questions-and-support)
+
+## Roles and permission to access the payout report
+
+| Reports/Pages    | Account owner    | Manager  | Developer | Business contributor |  Finance contributor | Marketer |
+|------------------|------------------|----------|-----------|----|----|-----|
+| Acquisition report (including Near Real Time data) | Can view | Can view | No access | No access | Can view | No access |
+| Feedback report/responses | Can view and send feedback | Can view and send feedback | Can view and send feedback | No access | No access | Can view and send feedback |
+| Health report (including near real time data) | Can view | Can view | Can view | Can view | No access | No access |
+| Usage report | Can view | Can view | Can view | Can view | No access | No access |
+| Payout account | Can update | No access | No access | No acces | Can update | No access |
+| Tax profile | Can update | No access | No access | No access | Can update | No access |
+| Payout summary | Can view | No access | No access | No access | Can view | No access |
 
 ## Payout report: difference between Cloud Partner Portal and Partner Center
 
@@ -76,18 +89,6 @@ For example, if the customer purchases using a credit card.
 |Customer Payment Date | Dec 30, 2019 | | |
 |Payout Calculation | Jan 15, 2020 | | |
 |Payout Date | Feb 15, 2020 | | **For quarterly based customers** <br> <br> **Orders report** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li> Customer Name</li> </ul> <br> **Usage** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Payout Status:** sent |
-
-## Roles and permission to access the payout report
-
-| Reports/Pages    | Account owner    | Manager  | Developer | Business contributor |  Finance contributor | Marketer |
-|------------------|------------------|----------|-----------|----|----|-----|
-| Acquisition report (including Near Real Time data) | Can view | Can view | No access | No access | Can view | No access |
-| Feedback report/responses | Can view and send feedback | Can view and send feedback | Can view and send feedback | No access | No access | Can view and send feedback |
-| Health report (including near real time data) | Can view | Can view | Can view | Can view | No access | No access |
-| Usage report | Can view | Can view | Can view | Can view | No access | No access |
-| Payout account | Can update | No access | No access | No acces | Can update | No access |
-| Tax profile | Can update | No access | No access | No access | Can update | No access |
-| Payout summary | Can view | No access | No access | No access | Can view | No access |
 
 ## Transaction history download export
 
