@@ -6,7 +6,7 @@ author: sauryadas
 
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 08/13/2018
+ms.date: 12/13/2019
 ms.author: saudas
 ---
 
@@ -491,3 +491,4 @@ This error is due to an upstream cluster autoscaler race condition where the clu
 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md
