@@ -382,7 +382,7 @@ This portion of the tutorial uses the following PowerShell cmdlet:
 ---
 
 > [!IMPORTANT]
-> If you want to keep the resource group but remove the secondary database, drop it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
+> If you want to keep the resource group but delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
 
 ## Full script
 

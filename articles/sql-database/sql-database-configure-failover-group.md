@@ -179,7 +179,7 @@ Revert failover group back to the primary server:
 ---
 
 > [!IMPORTANT]
-> If you need to remove the secondary database, drop it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
+> If you need to delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
 
 ## Elastic pool
 Create the failover group and add an elastic pool to it using the Azure portal, or PowerShell.  
@@ -327,7 +327,7 @@ Fail over to the secondary server:
 ---
 
 > [!IMPORTANT]
-> If you need to remove the secondary database, drop it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
+> If you need to delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
 
 ## Managed instance
 
