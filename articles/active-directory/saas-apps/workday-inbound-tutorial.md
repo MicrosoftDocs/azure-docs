@@ -362,9 +362,9 @@ This section provides steps for user account provisioning from Workday to each A
 
 **To configure Workday to Active Directory provisioning:**
 
-1. Go to <https://portal.azure.com>
+1. Go to <https://portal.azure.com>.
 
-2. In the left navigation bar, select **Azure Active Directory**
+2. In the Azure portal, search for and select **Azure Active Directory**.
 
 3. Select **Enterprise Applications**, then **All Applications**.
 
@@ -374,7 +374,7 @@ This section provides steps for user account provisioning from Workday to each A
 
 6. After the app is added and the app details screen is shown, select **Provisioning**
 
-7. Change the **Provisioning** **Mode** to **Automatic**
+7. Change the **Provisioning** **Mode** to **Automatic**.
 
 8. Click on the information banner displayed to download the Provisioning Agent. 
 
@@ -594,7 +594,7 @@ The following sections describe steps for configuring user provisioning from Wor
 
 1. Go to <https://portal.azure.com>.
 
-2. In the left navigation bar, select **Azure Active Directory**
+2. In the Azure portal, search for and select **Azure Active Directory**.
 
 3. Select **Enterprise Applications**, then **All Applications**.
 
@@ -602,9 +602,9 @@ The following sections describe steps for configuring user provisioning from Wor
 
 5. Search for **Workday to Azure AD provisioning**, and add that app from the gallery.
 
-6. After the app is added and the app details screen is shown, select **Provisioning**
+6. After the app is added and the app details screen is shown, select **Provisioning**.
 
-7. Change the **Provisioning** **Mode** to **Automatic**
+7. Change the **Provisioning** **Mode** to **Automatic**.
 
 8. Complete the **Admin Credentials** section as follows:
 
@@ -699,9 +699,9 @@ Follow these instructions to configure writeback of user email addresses and use
 
 **To configure Workday Writeback connector:**
 
-1. Go to <https://portal.azure.com>
+1. Go to <https://portal.azure.com>.
 
-2. In the left navigation bar, select **Azure Active Directory**
+2. In the Azure portal, search for and select **Azure Active Directory**.
 
 3. Select **Enterprise Applications**, then **All Applications**.
 
@@ -709,9 +709,9 @@ Follow these instructions to configure writeback of user email addresses and use
 
 5. Search for **Workday Writeback**, and add that app from the gallery.
 
-6. After the app is added and the app details screen is shown, select **Provisioning**
+6. After the app is added and the app details screen is shown, select **Provisioning**.
 
-7. Change the **Provisioning** **Mode** to **Automatic**
+7. Change the **Provisioning** **Mode** to **Automatic**.
 
 8. Complete the **Admin Credentials** section as follows:
 
