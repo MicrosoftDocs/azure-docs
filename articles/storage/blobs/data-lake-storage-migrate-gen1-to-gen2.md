@@ -116,7 +116,7 @@ This is the simplest pattern. It's ideal for data pipelines that can afford down
 
 The general pattern is as follows:
 
-Image goes here.
+![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
 
 :one: &nbsp;&nbsp;Stop all writes to Gen1.
 
@@ -135,11 +135,11 @@ This pattern is similar to the *lift and shift* pattern, but with less downtime.
 
 The general pattern is as follows:
 
-Image goes here.
+![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
 :one: &nbsp;&nbsp;Start moving data from Gen1 to Gen2.
 
-:two: Incrementally copy new data from Gen1.
+:two: &nbsp;&nbsp;Incrementally copy new data from Gen1.
 
 :three: &nbsp;&nbsp;After all data is copied, stop all writes to Gen1.
 
@@ -156,7 +156,7 @@ Use this pattern for pipelines that can't afford any downtime.
 
 The general pattern is as follows:
 
-Image goes here.
+![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
 :one: &nbsp;&nbsp;Move data from Gen1 to Gen2.
 
@@ -175,7 +175,7 @@ This pattern is similar to the *dual pipeline* pattern, but it's more ideally su
 
 The general pattern is as follows:
 
-Image goes here.
+![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
 
 :one: &nbsp;&nbsp;Set up bidirectional replication between Gen1 and Gen2.
 
@@ -185,6 +185,7 @@ Image goes here.
 
 :four: &nbsp;&nbsp;Decommission Gen1.
 
+> [!TIP]
 > For bidirectional data transfer, we recommend [WanDisco](https://docs.wandisco.com/bigdata/wdfusion/adls/). It offers a repair feature for existing data.
 
 ## Next steps
