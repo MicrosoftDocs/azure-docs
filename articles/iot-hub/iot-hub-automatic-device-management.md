@@ -26,7 +26,7 @@ Automatic device management works by updating a set of device twins or module tw
 
 * The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on twin reported properties.  System metrics are the default metrics that measure twin update status, such as the number of twins that are targeted and the number of twins that have been successfully updated.
 
-Automatic configurations run for the first time shortly after the configuration is created and then at five minute intervals. Metrics queries run each time the automatic device configuration runs.
+Automatic configurations run for the first time shortly after the configuration is created and then at five minute intervals. Metrics queries run each time the automatic configuration runs.
 
 ## Implement twins
 
@@ -34,7 +34,7 @@ Automatic device configurations require the use of device twins to synchronize s
 
 Automatic module configurations require the use of module twins to synchronize state between the cloud and modules. For more information, see [Understand and use module twins in IoT Hub](iot-hub-devguide-module-twins.md).
 
-## Target twin tags
+## Use tags to target twins
 
 Before you create a configuration, you must specify which devices or modules you want to affect. Azure IoT Hub identifies devices and using tags in the device twin, and identifies modules using tags in the module twin. Each device or modules can have multiple tags, and you can define them any way that makes sense for your solution. For example, if you manage devices in different locations, add the following tags to a device twin:
 
@@ -53,7 +53,9 @@ Before you create a configuration, you must specify which devices or modules you
 
 2. Select **IoT device configuration**.
 
-3. Select **Add device Configuration** or **Add module configuration**.
+3. Select **Add device configuration** or **Add module configuration**.
+
+   ![Add device configuration or module configuration](./media/iot-hub-automatic-device-management/create-automatic-configuration.png)
 
 There are five steps to create a configuration. The following sections walk through each one. 
 
@@ -78,11 +80,8 @@ For example, you could set the twin path to `properties.desired.chiller-water` a
 }
 ```
 
-<!--
-For example, set the Device Twin Path and Content to the following:
+![Set the twin path and content](./media/iot-hub-automatic-device-management/module-config-twin-settings.png)
 
-![Set the Device Twin Path and Content](./media/iot-hub-auto-device-config/create-configuration-full-browser.png)
--->
 
 You can also set individual settings by specifying the entire twin path and providing the value with no brackets. For example, with the twin path `properties.desired.chiller-water.temperature`, set the content to `66`. Then create a new twin setting for the pressure property. 
 
@@ -117,6 +116,13 @@ SELECT deviceId FROM devices
   WHERE configurations.[[yourconfigname]].status='Applied'
 ```
 
+If you're building a metric to report on configured modules, select `moduleId` from `devices.modules`. For example:
+
+```sql
+SELECT deviceId, moduleId FROM devices.modules
+  WHERE properties.reported.lastDesiredStatus.code = 200
+```
+
 ### Target Devices
 
 Use the tags property from your twins to target the specific devices or modules that should receive this configuration. You can also target twin reported properties.
@@ -127,7 +133,11 @@ Since multiple configurations may target the same device or module, each configu
 
 1. Enter a positive integer for the configuration **Priority**. The highest numerical value is considered the highest priority. If two configurations have the same priority number, the one that was created most recently wins. 
 
-2. Enter a **Target condition** to determine which devices or modules will be targeted with this configuration. The condition is based on twin tags or twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.chillerProperties.model='4000x'`. You can specify `*` to target all devices or modules.
+2. Enter a **Target condition** to determine which devices or modules will be targeted with this configuration. The condition is based on twin tags or twin reported properties and should match the expression format. 
+
+   For automatic device configuration, you can specify just the tag or reported property to target. For example, `tags.environment='test'` or `properties.reported.chillerProperties.model='4000x'`. You can specify `*` to target all devices. 
+   
+   For automatic module configuration, use a query to specify tags or reported properties from the modules registered to the IoT hub. For example, `from devices.modules where tags.environment='test'` or `from devices.modules where properties.reported.chillerProperties.model='4000x'`. The wildcard cannot be used to target all modules. 
 
 3. Select **Next** to move on to the final step.
 
