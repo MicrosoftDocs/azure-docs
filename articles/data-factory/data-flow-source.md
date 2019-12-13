@@ -7,7 +7,7 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/06/2019
+ms.date: 12/11/2019
 ---
 
 # Source transformation for mapping data flow 
@@ -126,7 +126,10 @@ If your source is in SQL Database or SQL Data Warehouse, additional SQL-specific
 
 **Input:** Select whether you point your source at a table (equivalent of ```Select * from <table-name>```) or enter a custom SQL query.
 
-**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups. Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups. 
+
+* SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+* CosmosDB Example: ```SELECT c.movies.year FROM moviesdemo c```
 
 **Batch size**: Enter a batch size to chunk large data into reads.
 
