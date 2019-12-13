@@ -327,7 +327,7 @@ Fail over to the secondary server:
 ---
 
 > [!IMPORTANT]
-> Remove the secondary database from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
+> If you need to remove the secondary database, drop it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
 
 ## Managed instance
 
