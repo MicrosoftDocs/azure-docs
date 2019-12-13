@@ -83,7 +83,10 @@ $imageConfig = Set-AzImageOsDisk `
 Create the image.
 
 ```azurepowershell-interactive
-$image = New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+$image = New-AzImage `
+   -ImageName $imageName `
+   -ResourceGroupName $rgName `
+   -Image $imageConfig
 ```
 
 ## Create the VM
@@ -95,7 +98,7 @@ Now that you have an image, you can create one or more new VMs from the image. T
 New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
-    -Image $image `
+    -Image $image.Id `
     -Location $location `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
