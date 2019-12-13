@@ -195,11 +195,11 @@ Do the following steps in the Azure portal to sync your storage access key.
 
 1. Go to **Overview** in your resource. From the list of shares, choose and click a share associated with the storage account that you need to sync.
 
-    ![Select share with relevant storage account](media/azure-stack-edge-r-series-manage-shares/sync-storage-keys-1.png)
+    ![Select share with relevant storage account](media/azure-stack-edge-r-series-manage-shares/sync-storage-key-1.png)
 
 2. Click **Sync storage key**. Click **Yes** when prompted for confirmation.
 
-     ![Select Sync storage key](media/azure-stack-edge-r-series-manage-shares/sync-storage-keys-2.png)
+     ![Select Sync storage key](media/azure-stack-edge-r-series-manage-shares/sync-storage-key-2.png)
 
 3. Exit out of the dialog once the sync is complete.
 
