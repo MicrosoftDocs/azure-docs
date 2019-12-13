@@ -1,6 +1,6 @@
 ---
-title: Deploy management tool - Azure
-description: How to install a user interface tool to manage Windows Virtual Desktop resources.
+title: Deploy management tool using a one-click deployment - Azure
+description: How to install a user interface tool with a one-click deployment to manage Windows Virtual Desktop resources.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 11/09/2019
 ms.author: helohr
 ---
-# Deploy a management tool using a user account
+# Deploy a management tool using a one-click deployment
 
 The management tool provides a user interface (UI) for managing Microsoft Virtual Desktop resources. In these instructions, you'll learn how to deploy using a user account and connect to the management tool.
 

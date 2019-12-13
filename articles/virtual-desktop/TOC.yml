@@ -70,10 +70,10 @@
     href: customize-feed-for-virtual-desktop-users.md
   - name: Deploy the management tool
     items:
-      - name: Using a service principal
-        href: manage-resources-using-ui-svc-principal.md
-      - name: Using a user account
+      - name: Using a one-click deployment
         href: manage-resources-using-ui.md
+      - name: Using PowerShell
+        href: manage-resources-using-ui-powershell.md
   - name: Deploy the diagnostics tool
     href: deploy-diagnostics.md
   - name: Publish built-in apps

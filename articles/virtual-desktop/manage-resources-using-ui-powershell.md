@@ -1,6 +1,6 @@
 ---
 title: Deploy a management tool for Windows Virtual Desktop using service principal - Azure
-description: How to deploy the management tool for Windows Virtual Desktop using a service principal.
+description: How to deploy the management tool for Windows Virtual Desktop using PowerShell.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,9 +10,9 @@ ms.date: 12/16/2019
 ms.author: helohr
 ---
 
-# Deploy a management tool using a service principal
+# Deploy a management tool using PowerShell
 
-The management tool provides a user interface (UI) for managing Microsoft Virtual Desktop resources. In these instructions, you'll learn how to deploy the management tool using a service principal and connect to the management tool.
+The management tool provides a user interface (UI) for managing Microsoft Virtual Desktop resources. In these instructions, you'll learn how to deploy the management tool using PowerShell and connect to the management tool.
 
 ## Important considerations
 
@@ -42,13 +42,13 @@ This section will show you how to use PowerShell to create the Azure Active Dire
 
 1. Open PowerShell as an Administrator.
 2. Sign in to Azure with an account that has Owner or Contributor permissions on the Azure subscription you would like to use for the diagnostics tool:
-   ```powershell
-   Login-AzAccount
-   ```
+    ```powershell
+    Login-AzAccount
+    ```
 3. Sign in to Azure AD with the same account:
-   ```powershell
-   Connect-AzureAD
-   ```
+    ```powershell
+    Connect-AzureAD
+    ```
 4. Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) and run the **createWvdMgmtUxAppRegistration.ps1** script in PowerShell.
 5.  When the script prompts you, enter the two parameters:
     - AppName: A unique name for the app registration, like "wvdmgmt20200101".
@@ -74,20 +74,23 @@ Before you continue deploying the management tool, we recommend that you verify 
 
 ## Deploy the management tool
 
-1. Go to the [GitHub Azure RDS-Templates page](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
-2. Deploy the template to Azure.
-    - If you're deploying in an Enterprise subscription, scroll down and select **Deploy to Azure**.
-    - If you're deploying in a Cloud Solution Provider subscription, follow these instructions to deploy to Azure:
-        1. Scroll down and right-click **Deploy to Azure**, then select **Copy Link Location**.
-        2. Open a text editor like Notepad and paste the link there.
-        3. Right after <https://portal.azure.com/> and before the hashtag (#), enter an at sign (@) followed by the tenant domain name. Here's an example of the format: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
-        4. Sign in to the Azure portal as a user with Admin/Contributor permissions to the Cloud Solution Provider subscription.
-        5. Paste the link you copied to the text editor into the address bar.
-3. When entering the parameters, do the following:
-    - For the **isServicePrincipal** parameter, select **true**.
-    - For the credentials, enter the **Client ID** and the **Client Secret Key** that displayed after running the PowerShell script for the app registration.
-    - For the **applicationName**, use the unique app name that you entered for the app registration.
-4. Once you provide the parameters, accept the terms and conditions and select **Purchase**.
+Run the following PowerShell to deploy the management tool, associating it with the service principal you just created:
+     
+```powershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+$credentials = Get-Credential -Message "Enter credentials for the service principal, entering the Client ID and the Client Secret Key"
+$appName = Read-Host -Prompt "Enter a unique name for the web app that will be used as part of the website URL. This can match the app name you provided in the app registration."
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-management-ux/deploy/mainTemplate.json" `
+    -isServicePrincipal $true `
+    -azureAdminUserPrincipalNameOrApplicationId $credentials.UserName `
+    -azureAdminPassword $credentials.Password `
+    -applicationName $appName
+```
 
 ## Set the Redirect URI
 To set the Redirect URI:
