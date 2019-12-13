@@ -20,7 +20,7 @@ To learn more, see [Azure Data Lake Storage](https://azure.microsoft.com/service
 > [!NOTE]
 > For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2.
 
-## Gen1 to Gen2 road map
+## Migration road map
 
 To migrate to Gen2, we recommend the following path.
 
@@ -54,8 +54,6 @@ To migrate to Gen2, we recommend the following path.
 :two: &nbsp;&nbsp;Determine the impact that a migration will have on your business.
 
 :three: &nbsp;&nbsp;Create a migration plan. We recommend any of these [migration patterns](#migration-patterns).
-
-:four: &nbsp;&nbsp;Choose a [data transfer tool](#data-transfer-tools).
 
 ### Step 3: Migrate data
 
@@ -101,11 +99,15 @@ This table compares the capabilities of Gen1 to that of Gen2.
 
 ## Gen1 to Gen2 migration patterns
 
-> [!div class="checklist"]
-> * Lift and shift
-> * Incremental copy
-> * Dual pipeline
-> * Bi-directional sync
+We recommend these migration patterns. You can modify any of these patterns to fit your specific requirements.
+ 
+:white_square_button: Lift and shift
+
+:white_square_button: Incremental copy
+
+:white_square_button: Dual pipeline
+
+:white_square_button: Bi-directional sync
 
 ### Lift and shift
 
@@ -122,14 +124,6 @@ Put something here.
 ### Bi-directional sync
 
 Put something here.
-
-<a id="data-transfer-tools" />
-
-## Gen1 to Gen2 data transfer tools
-
-
-
-<a id="uri-references" />
 
 ## Get help
 
