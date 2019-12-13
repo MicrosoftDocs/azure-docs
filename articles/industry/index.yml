@@ -17,7 +17,7 @@ metadata:
 highlightedContent:
   items:
     - title: Azure FarmBeats
-      itemType: overview
+      itemType: overview azure farmbeats
       url: ./agriculture/overview-azure-farmbeats.md
     - title: Community Forum
       itemType: concept
