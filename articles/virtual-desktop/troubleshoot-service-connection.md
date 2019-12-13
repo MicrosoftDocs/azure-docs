@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/11/2019
+ms.date: 12/13/2019
 ms.author: helohr
 ---
 # Windows Virtual Desktop service connections
@@ -69,8 +69,6 @@ If updating FSLogix doesn't work, the issue might be that a BiSrv component is e
     ```cmd
     schtasks /change /tn "\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask" /disable 
     ```
-
-Once you've disabled the task, check again to see if the host responds.
 
 ## Next steps
 
