@@ -1,5 +1,5 @@
 ---
-title: Scopes for a v1.0 application (Microsoft Authentication Library) | Azure
+title: Scopes for v1.0 apps (MSAL) | Azure
 description: Learn about the scopes for a v1.0 application using the Microsoft Authentication Library (MSAL).
 services: active-directory
 author: TylerMSFT
@@ -23,7 +23,7 @@ OAuth2 permissions are permission scopes that a Azure Active Directory (Azure AD
 
 ## Scopes to request access to specific OAuth2 permissions of a v1.0 application
 
-To acquire tokens for specific scopes of a v1.0 application (for example the Azure AD graph, which is https:\//graph.windows.net), you need to create scopes by concatenating a desired resource identifier with a desired OAuth2 permission for that resource.
+To acquire tokens for specific scopes of a v1.0 application (for example the Azure AD graph, which is https://graph.windows.net), create scopes by concatenating a desired resource identifier with a desired OAuth2 permission for that resource.
 
 For example, to access on behalf of the user a v1.0 web API where the app ID URI is `ResourceId`:
 

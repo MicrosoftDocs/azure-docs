@@ -1,6 +1,7 @@
 ---
-title: Migrate users with social identities in Azure Active Directory B2C | Microsoft Docs
-description: Discuss core concepts on the migration of users with social identities into Azure AD B2C using Graph API.
+title: Migrate users with social identities
+titleSuffix: Azure AD B2C
+description: Review of the core concepts regarding the migration of users with social identities into Azure AD B2C using Graph API.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -43,33 +44,33 @@ This article is a continuation of the user migration article, and focuses on soc
 * Depending on the identity provider, the **Issuer User ID** is a unique value for a given user per application or development account. Configure the Azure AD B2C policy with the same application ID that was previously assigned by the social provider or another application within the same development account.
 
 ## Use Graph API to migrate users
-You create the Azure AD B2C user account via the [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). 
+You create the Azure AD B2C user account via the [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet).
 To communicate with the Graph API, you first must have a service account with administrative privileges. In Azure AD, you register an application and authentication to Azure AD. The application credentials are Application ID and Application Secret. The application acts as itself, not as a user, to call the Graph API. Follow the instructions in step 1 in the [User migration](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration) article.
 
 ## Required properties
 The following list shows the properties that are required when you create a user.
 * **accountEnabled** - true
 * **displayName** - The name to display in the address book for the user.
-* **passwordProfile** - The password profile for the user. 
+* **passwordProfile** - The password profile for the user.
 
 > [!NOTE]
 > For social accounts only (without local account credentials), you still must specify the password. Azure AD B2C ignores the password you specify for social accounts.
 
 * **userPrincipalName** - The user principal name (someuser@contoso.com). The user principal name must contain one of the verified domains for the tenant. To specify the UPN, generate new GUID value, concatenate with `@` and your tenant name.
-* **mailNickname** - The mail alias for the user. This value can be the same ID that you use for the userPrincipalName. 
+* **mailNickname** - The mail alias for the user. This value can be the same ID that you use for the userPrincipalName.
 * **signInNames** - One or more SignInName records that specify the sign-in names for the user. Each sign-in name must be unique across the company/tenant. For social account only, this property can be left empty.
 * **userIdentities** - One or more UserIdentity records that specify the social account type and the unique user identifier from the social identity provider.
-* [optional] **otherMails** - For social account only, the user's email addresses 
+* [optional] **otherMails** - For social account only, the user's email addresses
 
 For more information, see: [Graph API reference](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## Migrate social account (only)
-To create social account only, without local account credentials, send an HTTPS POST request to Graph API. The request body contains the properties of the social account user to create. At a minimum, you must specify the required properties. 
+To create social account only, without local account credentials, send an HTTPS POST request to Graph API. The request body contains the properties of the social account user to create. At a minimum, you must specify the required properties.
 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
-Submit the following form-data: 
+Submit the following form-data:
 
 ```JSON
 {
@@ -96,11 +97,11 @@ Submit the following form-data:
 }
 ```
 ## Migrate social account with local account
-To create a combined local account with social identities, send an HTTPS POST request to the Graph API. The request body contains the properties of the social account user to create including the sign in name for the local account. At a minimum, you must specify the required properties. 
+To create a combined local account with social identities, send an HTTPS POST request to the Graph API. The request body contains the properties of the social account user to create including the sign in name for the local account. At a minimum, you must specify the required properties.
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
-Submit following form-data: 
+Submit following form-data:
 
 ```JSON
 {
@@ -146,11 +147,11 @@ The issuer name, or the identity provider name, is configured in your policy. If
 > Use a B2C tenant administrator account that is local to the B2C tenant. The account name syntax is admin@tenant-name.onmicrosoft.com.
 
 ### Is it possible to add a social identity to an existing user?
-Yes. You can add the social identity after the Azure AD B2C account has been created (whether that is a local or social account, or combination thereof). Run an HTTPS PATCH request. Replace the userObjectId with the user ID you want to update. 
+Yes. You can add the social identity after the Azure AD B2C account has been created (whether that is a local or social account, or combination thereof). Run an HTTPS PATCH request. Replace the userObjectId with the user ID you want to update.
 
 **PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
-Submit following form-data: 
+Submit following form-data:
 
 ```JSON
 {
@@ -164,11 +165,11 @@ Submit following form-data:
 ```
 
 ### Is it possible to add multiple social identities?
-Yes. You can add multiple social identities for a single Azure AD B2C account. Run HTTPS PATCH request. Replace the userObjectId with the user ID. 
+Yes. You can add multiple social identities for a single Azure AD B2C account. Run HTTPS PATCH request. Replace the userObjectId with the user ID.
 
 **PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
-Submit following form-data: 
+Submit following form-data:
 
 ```JSON
 {

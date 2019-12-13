@@ -422,7 +422,7 @@ To delete the solution, perform the following steps:
 
 The Automation account and Log Analytics workspace are not deleted as part of this process. If you do not want to retain the Log Analytics workspace, you need to manually delete it. This can be accomplished from the Azure portal:
 
-1. From the  Azure portal home screen, select **Log Analytics workspaces**.
+1. In Azure portal, search for and select **Log Analytics workspaces**.
 1. On the **Log Analytics workspaces** page, select the workspace.
 1. Select **Delete** from the menu on the workspace settings page.
 

@@ -676,6 +676,24 @@ By default, all function routes are prefixed with *api*. You can also customize 
 }
 ```
 
+### Using route parameters
+
+Route parameters defined a function's `route` pattern are available to each binding. For example, if you have a route defined as `"route": "products/{id}"` then a table storage binding can use the value of the `{id}` parameter in the binding configuration.
+
+The following configuration shows how the `{id}` parameter is passed to the binding's `rowKey`.
+
+```json
+{
+    "type": "table",
+    "direction": "in",
+    "name": "product",
+    "partitionKey": "products",
+    "tableName": "products",
+    "rowKey": "{id}"
+}
+```
+
+
 ### Working with client identities
 
 If your function app is using [App Service Authentication / Authorization](../app-service/overview-authentication-authorization.md), you can view information about authenticated clients from your code. This information is available as [request headers injected by the platform](../app-service/app-service-authentication-how-to.md#access-user-claims). 
