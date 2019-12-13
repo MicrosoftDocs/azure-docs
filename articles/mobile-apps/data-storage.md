@@ -34,7 +34,7 @@ Use the following services to manage and store mobile application data in the cl
 - [Get started with App Center Data](/appcenter/data/getting-started)
 
 ## Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is Microsoft's globally distributed, multi-model database service. You can use it to build planet-scale applications. With Azure Cosmos DB, you can elastically and independently scale throughput and storage across any number of Azure regions worldwide. You can take advantage of fast, single-digit-millisecond data access by using your favorite API surfaces. These surfaces include SQL, MongoDB, Cassandra, Tables, or Gremlin. Azure Cosmos DB uniquely provides comprehensive service level agreements (SLAs) for throughput, latency, availability, and consistency.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multi-model database service. You can use it to build planet-scale applications. With Azure Cosmos DB, you can elastically and independently scale throughput and storage across any number of Azure regions worldwide. You can take advantage of fast, single-digit-millisecond data access by using your favorite API surfaces. These surfaces include SQL, MongoDB, Cassandra, Tables, or Gremlin. Azure Cosmos DB uniquely provides comprehensive service level agreements (SLAs) for throughput, latency, availability, and consistency.
 
 **Key features**
 - Supports a wide range of APIs, which includes the SQL (Core) API, Cassandra API, MongoDB API, Gremlin API, and Table API.
