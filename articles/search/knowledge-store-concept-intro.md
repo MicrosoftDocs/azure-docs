@@ -44,7 +44,7 @@ Enumerated, the benefits of knowledge store include the following:
 
 ## Physical storage
 
-The physical expression of a knowledge store is articulated through a `projection` schema, which is an element of a `knowledgeStore` definition. The projection defines a structure of the output so that it matches your intended use.
+The physical expression of a knowledge store is articulated through the `projections` element of a `knowledgeStore` definition. The projection defines a structure of the output so that it matches your intended use.
 
 Projections can be articulated as objects or tables:
 
@@ -52,9 +52,7 @@ Projections can be articulated as objects or tables:
 
 + As a table, the projection maps to Table storage. A tabular representation preserves relationships for scenarios like data analysis or export as data frames for machine learning. The enriched projections can then be easily imported into other data stores. 
 
-You can create multiple projections in a knowledge store to accommodate various constituencies in your organization. A developer might need access to the full JSON representation of an enriched document, while data scientists or analysts might want granular or modular data structures shaped by your skillset.
-
-For example, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents. the tabular projection would work well.
+You can create multiple projections in a knowledge store to accommodate various constituencies in your organization. A developer might need access to the full JSON representation of an enriched document, while data scientists or analysts might want granular or modular data structures shaped by your skillset. For example, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents. the tabular projection would work well.
 
 ## Requirements 
 
@@ -65,17 +63,17 @@ For example, if one of the goals of the enrichment process is to also create a d
 [Indexer](search-indexer-overview.md) is required. A skillset is invoked by an indexer, thus an indexer drives the execution. Indexers come with their own set of requirements and attributes. Several of these attributes have a direct bearing on a knowledge store.
 
 + One requirement is a [supported Azure data source](search-indexer-overview.md#supported-data-sources) (the pipeline that ultimately creates the knowledge store starts by pulling data from a supported source on Azure). 
-+ A second requirement is a search index. An indexer requires that you provide an index schema, even if you never plan to use it. The only requirement of an index schema is that you specify one field as the key.
-+ Field mappings are optional, used to alias a source field to a destination field. If a default field mapping needs modification (name or type), you can create a field mapping within an indexer. For knowledge store output, the destination can be a field in a blob object or table.
-+ Schedules and other indexer properties, such as change detection mechanisms provided by various data sources, can also be applied to a knowledge store. For example, you can schedule enrichment at regular intervals to refresh the contents. 
++ A second requirement is a search index. An indexer requires that you provide an index schema, even if you never plan to use it. A minimal index has one string field, designated as the key.
++ Field mappings are optional, used to alias a source field to a destination field. If a default field mapping needs modification (to use a different name or type), you can create a [field mapping](search-indexer-field-mappings.md) within an indexer. For knowledge store output, the destination can be a field in a blob object or table.
++ Schedules and other indexer properties, such as change detection mechanisms provided by various data sources, can also be applied to a knowledge store. For example, you can [schedule](search-howto-schedule-indexers.md) enrichment at regular intervals to refresh the contents. 
 
 ## Create a knowledge store
 
-To use knowledge store, use the portal or the preview REST API (`api-version=2019-05-06-Preview`) to add a `knowledgeStore` definition.
+To create knowledge store, use the portal or the preview REST API (`api-version=2019-05-06-Preview`).
 
 ### Use the Azure portal
 
-The **Import data** wizard includes options for creating a knowledge store. For initial exploration, [create your first knowledge store in four steps.](knowledge-store-connect-power-bi.md)
+The **Import data** wizard includes options for creating a knowledge store. For initial exploration, [create your first knowledge store in four steps.(knowledge-store-connect-power-bi.md).
 
 1. Select a supported data source.
 
@@ -89,7 +87,7 @@ The **Import data** wizard includes options for creating a knowledge store. For 
 
 A `knowledgeStore` is defined within a [skillset](cognitive-search-working-with-skillsets.md), which in turn is invoked by an [indexer](search-indexer-overview.md). During enrichment, Azure Cognitive Search creates a space in your Azure Storage account and projects the enriched documents as blobs or into tables, depending on your configuration.
 
-Currently, the preview REST API is the only mechanism by which you can create a knowledge store. An easy way to explore is [create your first knowledge store using Postman and the REST API](knowledge-store-create-rest.md).
+Currently, the preview REST API is the only mechanism by which you can create a knowledge store programmatically. An easy way to explore is [create your first knowledge store using Postman and the REST API](knowledge-store-create-rest.md).
 
 Reference content for this preview feature is located in [Preview REST API reference](#kstore-rest-api) section of this article. 
 
@@ -107,17 +105,15 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 <a name="kstore-rest-api"></a>
 
-## Preview REST API reference
+## API reference
 
-In this preview, you can create a knowledge store using the **Create Skillset** REST API `api-version=2019-05-06-Preview` that supports the addition of a `knowledgeStore` definition. 
+This section is a version of the [Create Skillset (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) reference doc, modified to include a `knowledgeStore` definition. 
 
-A skillset is a resource coordinating the use of [built-in skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. 
-
-This section extends the [Create Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) reference to include additional elements that create a knowledge store. In the preview API, a skillset has a `knowledgeStore` definition as a child element.
+Use the `api-version=2019-05-06-Preview` version of the **Create Skillset** REST API for this feature. 
 
 ### Example - Skillset with knowledgeStore
 
-Use **POST** or **PUT** to create a skillset using the preview API version.
+For context, the following example shows how a `knowledgeStore` is defined within a skillset. Use **POST** or **PUT** to formulate the request.
 
 ```http
 POST https://[servicename].search.windows.net/skillsets?api-version=2019-05-06-Preview
@@ -250,11 +246,11 @@ A `knowledgeStore` requires a connection string to an Azure Storage account. You
 
 A `projections` collection contains projection objects used to create items in Azure Storage. Each projection object can have `tables`, `objects`, `files` (one of each), which are either specified or null. Within a projection object, any relationships among the data, if detected, are preserved. 
 
-You can create additional projection objects to support isolation and specific scenarios (for example, data structures used for exploration, versus those needed in a data science workload). You can get isolation and customization by setting `source` and `storageContainer` or `table` to different values. For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
+You can create additional projection objects to support isolation and specific scenarios (for example, data structures used for exploration, versus those needed in a data science workload). You can get isolation and customization by setting `source` and `storageContainer` or `table` to different values within an object. For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
 
 ### Response  
 
- For a successful request, you should see status code "201 Created". By default, the response body will contain the JSON for the skillset definition that was created. 
+ For a successful request, you should see status code "201 Created". By default, the response body will contain the JSON for the skillset definition that was created. Recall that the knowledge store is not created until you invoke an indexer that references this skillset.
 
 ## Next steps
 
