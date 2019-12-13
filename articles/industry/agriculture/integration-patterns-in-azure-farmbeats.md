@@ -27,4 +27,4 @@ Once the data is available within your customers’ Azure FarmBeats instance, yo
 
 ## Next steps
 
-For more information about sensor data integration, see [sensor data integration](sensor-partner-integration.md) and for imagery partner integration, see [imagery partner integration](imagery-partner-integration.md).
+For more information about sensor data integration, see [sensor data integration](sensor-partner-integration-in-azure-farmbeats.md) and for imagery partner integration, see [imagery partner integration](imagery-partner-integration-in-azure-farmbeats.md).
