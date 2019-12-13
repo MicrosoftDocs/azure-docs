@@ -1,5 +1,5 @@
 ---
-title: Integrated Solutions | Azure Marketplace
+title: Integrated Solutions - Azure Marketplace
 description: Integrated Solutions in Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: ChJenk
