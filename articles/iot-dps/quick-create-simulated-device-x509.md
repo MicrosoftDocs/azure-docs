@@ -62,7 +62,7 @@ In this section, you will prepare a development environment used to build the [A
     cd cmake
     ```
 
-5. The code sample uses an X.509 certificate to provide attestation via X.509 authentication. Run the following command to build a version of the SDK specific to your development platform that includes the device provisioning client. A Visual Studio solution for the simulated device is generated in the `cmake` directory.
+5. The code sample uses an X.509 certificate to provide attestation via X.509 authentication. Run the following command to build a version of the SDK specific to your development platform that includes the device provisioning client. A Visual Studio solution for the simulated device is generated in the *cmake* directory.
 
     ```cmd
     cmake -Duse_prov_client:BOOL=ON ..
