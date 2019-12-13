@@ -92,7 +92,7 @@ Set the app setting for the topic key in the function app and `local.setting.jso
 }
 ```
 
-If you are using the [Storage Emulator](../../storage/common/storage-use-emulator.md), make sure it is working. It's a good idea to run the `AzureStorageEmulator.exe clear all` command before executing.
+If you are using the [Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only), make sure it is working. It's a good idea to run the `AzureStorageEmulator.exe clear all` command before executing.
 
 If you are using an existing Azure Storage account, replace `UseDevelopmentStorage=true` in `local.settings.json` with its connection string.
 
