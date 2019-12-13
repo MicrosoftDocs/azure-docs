@@ -27,7 +27,6 @@ You can configure the Azure AD Connect Health service to send email notification
 > [!NOTE]
 > Email notifications are enabled by default.
 >
->
 
 ### To enable Azure AD Connect Health email notifications
 1. Open the **Alerts** blade for the service for which you want to receive email notification.
