@@ -3,7 +3,7 @@ title: Create webhooks on rules in Azure IoT Central | Microsoft Docs
 description: Create webhooks in Azure IoT Central to automatically notify other applications when rules fire.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/21/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -77,7 +77,7 @@ When a rule is triggered, an HTTP POST request is made to the callback URL conta
 
 Currently there is no programmatic way of subscribing/unsubscribing from these webhooks through an API.
 
-If you have ideas for how to improve this feature, post your suggestions to our [Uservoice forum](https://feedback.azure.com/forums/911455-azure-iot-central).
+If you have ideas for how to improve this feature, post your suggestions to our [User voice forum](https://feedback.azure.com/forums/911455-azure-iot-central).
 
 ## Next steps
 

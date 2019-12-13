@@ -3,7 +3,7 @@ title: Extend Azure IoT Central with custom analytics | Microsoft Docs
 description: As a solution developer, configure an IoT Central application to do custom analytics and visualizations. This solution uses Azure Databricks.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/01/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -12,8 +12,6 @@ manager: philmea
 ---
 
 # Extend Azure IoT Central with custom analytics using Azure Databricks
-
-
 
 This how-to guide shows you, as a solution developer, how to extend your IoT Central application with custom analytics and visualizations. The example uses an [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) workspace to analyze the IoT Central telemetry stream and to generate visualizations such as [box plots](https://wikipedia.org/wiki/Box_plot).
 
