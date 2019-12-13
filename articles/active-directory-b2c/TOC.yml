@@ -160,6 +160,9 @@
         href: active-directory-b2c-reference-kmsi-custom.md
       - name: Password change
         href: active-directory-b2c-reference-password-change-custom.md
+      - name: Phone authentication
+        href: phone-authentication.md
+        displayName: otp
     - name: UX customization
       items:
       - name: Configure user input
