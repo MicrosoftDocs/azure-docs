@@ -60,7 +60,7 @@ landingContent:
             url: how-to-view-api-usage.md
           
   # Card
-  - title: Develop with Web SDK
+  - title: Developing with Web SDK
     linkLists:
       - linkListType: concept
         links:
@@ -88,7 +88,7 @@ landingContent:
             url: https://docs.microsoft.com/en-us/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
 
   # Card
-  - title: Develop with Android SDK
+  - title: Developing with Android SDK
     linkLists:
       - linkListType: how-to-guide
         links:
