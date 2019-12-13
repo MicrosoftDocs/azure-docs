@@ -26,10 +26,7 @@ Access to the Kafka REST proxy is managed with Azure Active Directory security g
 
 When creating the Kafka cluster with the REST proxy enabled, you will provide the AAD security group that should have access to the REST endpoint. The Kafka clients (applications) that need access to the REST proxy should be registered to this group by the group owner. The group owner can do this via the Portal or via Powershell.
 
-Before making requests to the REST proxy endpoint, the client application should get an OAuth token to verify membership of the right security group. For more information on how OAuth tokens work, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code).
-
->[!Important]
-> [Provide HDInsight REST proxy specific parameters that need to provided to get token, such as ServiceName]
+Before making requests to the REST proxy endpoint, the client application should get an OAuth token to verify membership of the right security group. For more information on how OAuth tokens work, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). For an example of fetching an OAuth token in python, see [Client application sample](#client-application-sample)
 
 Once the client application has the OAuth token, they must pass that token in the HTTP request made to the REST proxy.
 
@@ -48,7 +45,7 @@ Once the client application has the OAuth token, they must pass that token in th
 1. Once the cluster is created, go to the cluster properties to record the Kafka REST proxy URL.
      ![view REST proxy URL](./media/apache-kafka-rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
 
-### Test the REST proxy with a client application
+### Client application sample
 
 You can use the python code below to interact with the REST proxy on your Kafka cluster. This code does the following:
 
