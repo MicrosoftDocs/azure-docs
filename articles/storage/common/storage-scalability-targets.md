@@ -2,11 +2,12 @@
 title: Azure storage accounts scalability and performance targets
 description: Learn about the scalability and performance targets, including capacity, request rate, and inbound and outbound bandwidth, for Azure storage accounts.
 services: storage
-author: roygara
+author: tamram
+
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/18/2019
-ms.author: rogarana
+ms.date: 12/13/2019
+ms.author: tamram
 ms.subservice: common
 ---
 
