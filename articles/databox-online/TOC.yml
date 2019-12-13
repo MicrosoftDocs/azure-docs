@@ -50,7 +50,7 @@
       - name: Edge compute
         href: azure-stack-edge-r-series-manage-compute.md
       - name: Edge compute network
-        href: azure-stack-edge-r-series-extend-compute-access.md
+        href: azure-stack-edge-r-series-extend-compute-access-modules.md
       - name: Shares
         href: azure-stack-edge-r-series-manage-shares.md
       - name: Edge storage accounts
