@@ -62,7 +62,7 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 
 Now you can send events to the topic.
 
-## Configure Azure Event Grid publishing
+## Configure Event Grid publishing
 
 In your Durable Functions project, find the `host.json` file.
 
