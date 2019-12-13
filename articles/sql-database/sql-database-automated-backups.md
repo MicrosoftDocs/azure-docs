@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
-ms.date: 09/26/2019
+ms.date: 2019/12/13
 ---
 # Automated backups
 
@@ -79,7 +79,7 @@ For more information, see [Long-term backup retention](sql-database-long-term-re
 
 For single databases, a minimum backup storage amount equal to 100% of database size is provided at no extra charge. For managed instances and elastic pools, a minimum backup storage amount equal to 100% of the allocated data storage is provided at no extra charge.
 
-Additional excess consumption of backup storage above the free amount will be charged in GB/month. For the cost on using the excess backup storage per GB, see the [Backup storage Point-in-time restore pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page for details.
+Additional excess consumption of the backup storage above the free amount will be charged in GB/month. For the cost on using the excess backup storage per GB, see the [Backup storage Point-in-time restore pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page for details.
 
 You can use Azure subscription Cost Analysis feature to determine your current consumption and costs of the excess backup storage.
 
@@ -87,19 +87,19 @@ You can use Azure subscription Cost Analysis feature to determine your current c
 
 For example, to understand the backup storage costs for managed instance, please go to your subscription in Azure portal and open the Cost Analysis blade. Select the meter subcategory **mi pitr backup storage** to see your current backup cost and charge forecast. You can also include other meter subcategories such as **managed instance general purpose - storage** or **managed instance general purpose - compute gen5** to compare backup storage cost with other cost categories.
 
-### Fine tuning the backup storage consumption
+### Fine tune the backup storage consumption
 
 The excess backup storage consumption will depend on the workload and size of the individual databases. You can consider implementing some of the following tuning techniques to further reduce your backup storage consumption:
 
-* Reduce the [backup retention period](#change-pitr-backup-retention-period-using-azure-portal) to the minimum available
-* Avoid performing large write operations more frequently than needed, such are index rebuilds
-* For large data load operations consider using [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes), reduce number of non-clustered indexes, and also consider bulk load operations with row count around 1M
+* Reduce the [backup retention period](#change-pitr-backup-retention-period-using-azure-portal) to the minimum available.
+* Avoid performing large write operations more frequently than needed, such are index rebuilds.
+* For large data load operations consider using [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes), reduce number of non-clustered indexes, and also consider bulk load operations with row count around one million.
 * In General Purpose service tier, the provisioned data storage is less expensive than the price of the excess backup storage due to which customers with continuously high excess backup storage costs may consider increasing the data storage in order to save on the backup storage.
-* Use TempDB in your ETL logic for storing temporary results, instead of permanent tables (applicable to managed instance.
+* Use TempDB in your ETL logic for storing temporary results, instead of permanent tables (applicable to managed instance only).
 * Consider turning off TDE encryption for that databases that do not contain sensitive data (development or test databases, for instance). Backups for non-encrypted databases are typically compressed with a higher compression ratio.
 
 > [!IMPORTANT]
-> For analytical, data mart \ data warehouse workloads it is strongly recommended to use clustered columnstore indexes, reduce the number of non-clustered indexes, and also consider bulk load operations with row count around 1M to reduce the excess backup storage consumption.
+> For analytical, data mart \ data warehouse workloads it is strongly recommended to use [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes), reduce the number of non-clustered indexes, and also consider bulk load operations with row count around one million to reduce the excess backup storage consumption.
 
 ## Are backups encrypted
 
