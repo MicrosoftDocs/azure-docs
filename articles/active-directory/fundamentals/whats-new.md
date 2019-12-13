@@ -48,6 +48,18 @@ For more information about how to set up SAP SuccessFactors inbound provisioning
 
 ---
 
+### Support for customized emails in Azure AD B2C (Public Preview)
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+
+You can now use Azure AD B2C to create customized emails when your users sign up to use your apps. By using DisplayControls (currently in preview) and a third-party email provider (such as, [SendGrid](https://sendgrid.com/), [SparkPost](https://sparkpost.com/), or a custom REST API), you can use your own email template, **From** address, and subject text, as well as support localization and custom one-time password (OTP) settings.
+
+For more information, see [Custom email verification in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-email).
+
+---
+
 ### Replacement of baseline policies with security defaults
 
 **Type:** Changed feature  

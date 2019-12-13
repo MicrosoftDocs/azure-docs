@@ -43987,6 +43987,11 @@
       "source_path": "articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-storage.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/bandwidth-recommendations.md",
+      "redirect_url": "https://docs.microsoft.com/windows-server/remote/remote-desktop-services/network-guidance",
+      "redirect_document_id": false
     }
   ]
 }
