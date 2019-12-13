@@ -161,6 +161,68 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
     For more information, see [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
 
+## Dataset management
+
+The following commands demonstrate how to work with datasets in Azure Machine Learning:
+
++ Register a dataset:
+
+    ```azurecli-interactive
+    az ml dataset register -f mydataset.json
+    ```
+
+    For information on the format of the JSON file used to define the dataset, use `az ml dataset --show-template`.
+
+    For more information, see [az ml dataset register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+
++ Archive an active or deprecated dataset:
+
+    ```azurecli-interactive
+    az ml dataset archive -n dataset-name
+    ```
+
+    For more information, see [az ml dataset archive](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+
++ Deprecate a dataset:
+
+    ```azurecli-interactive
+    az ml dataset deprecate -d replacement-dataset-id -n dataset-to-deprecate
+    ```
+
+    For more information, see [az ml dataset deprecate](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+
++ List all datasets in a workspace:
+
+    ```azurecli-interactive
+    az ml dataset list
+    ```
+
+    For more information, see [az ml dataset list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+
++ Get details of a dataset:
+
+    ```azurecli-interactive
+    az ml dataset show -n dataset-name
+    ```
+
+    For more information, see [az ml dataset show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+
++ Reactivate an archived or deprecated dataset:
+
+    ```azurecli-interactive
+    az ml dataset reactivate -n dataset-name
+    ```
+
+    For more information, see [az ml dataset reactivate](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+
++ Unregister a dataset:
+
+    ```azurecli-interactive
+    az ml dataset unregister -n dataset-name
+    ```
+
+    For more information, see [az ml dataset unregister](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+
 ## Environment management
 
 The following commands demonstrate how to create, register, and list Azure Machine Learning [environments](how-to-configure-environment.md) for your workspace:

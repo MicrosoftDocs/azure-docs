@@ -1,19 +1,18 @@
 ---
-title: Copy data to or from Azure Cosmos DB's API for MongoDB by using Data Factory 
+title: Copy data from Azure Cosmos DB's API for MongoDB
 description: Learn how to copy data from supported source data stores to or from Azure Cosmos DB's API for MongoDB to supported sink stores by using Data Factory.
 services: data-factory, cosmosdb
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: multiple
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.author: jingwang
-
 ---
+
 # Copy data to or from Azure Cosmos DB's API for MongoDB by using Azure Data Factory
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Cosmos DB's API for MongoDB. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
@@ -170,6 +169,9 @@ The following properties are supported in the Copy Activity **sink** section:
 | writeBatchSize | The **writeBatchSize** property controls the size of documents to write in each batch. You can try increasing the value for **writeBatchSize** to improve performance and decreasing the value if your document size being large. |No<br />(the default is **10,000**) |
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out. The allowed value is timespan. | No<br/>(the default is **00:30:00** - 30 minutes) |
 
+>[!TIP]
+>To import JSON documents as-is, refer to [Import or export JSON documents](#import-and-export-json-documents) section; to copy from tabular-shaped data, refer to [Schema mapping](#schema-mapping).
+
 **Example**
 
 ```json
@@ -202,18 +204,18 @@ The following properties are supported in the Copy Activity **sink** section:
 ]
 ```
 
->[!TIP]
->To import JSON documents as-is, refer to [Import or export JSON documents](#import-or-export-json-documents) section; to copy from tabular-shaped data, refer to [Schema mapping](#schema-mapping).
-
-## Import or export JSON documents
+## Import and export JSON documents
 
 You can use this Azure Cosmos DB connector to easily:
 
-* Import JSON documents from various sources to Azure Cosmos DB, including from Azure Blob storage, Azure Data Lake Store, and other file-based stores that Azure Data Factory supports.
-* Export JSON documents from an Azure Cosmos DB collection to various file-based stores.
 * Copy documents between two Azure Cosmos DB collections as-is.
+* Import JSON documents from various sources to Azure Cosmos DB, including from MongoDB, Azure Blob storage, Azure Data Lake Store, and other file-based stores that Azure Data Factory supports.
+* Export JSON documents from an Azure Cosmos DB collection to various file-based stores.
 
-To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
+To achieve schema-agnostic copy:
+
+* When you use the Copy Data tool, select the **Export as-is to JSON files or Cosmos DB collection** option.
+* When you use activity authoring, choose JSON format with the corresponding file store for source or sink.
 
 ## Schema mapping
 

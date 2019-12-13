@@ -1,5 +1,5 @@
 ---
-title: 'Compute targets: where to train and deploy models'
+title: What are compute targets
 titleSuffix: Azure Machine Learning
 description: Define where you want to train or deploy your model with Azure Machine Learning.
 services: machine-learning

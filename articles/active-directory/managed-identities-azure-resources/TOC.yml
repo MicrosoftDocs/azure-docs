@@ -22,8 +22,6 @@
       href: tutorial-vm-windows-access-storage.md
     - name: Access Azure Storage using an access key
       href: tutorial-windows-vm-access-storage.md
-    - name: Access Azure Storage using SAS
-      href: tutorial-windows-vm-access-storage-sas.md
     - name: Access Azure SQL
       href: tutorial-windows-vm-access-sql.md
     - name: Access Azure Key Vault

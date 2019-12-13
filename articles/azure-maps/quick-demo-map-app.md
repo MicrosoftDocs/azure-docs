@@ -21,24 +21,38 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create an account and get your key
+<a id="createaccount"></a>
 
-1. In the upper-left corner of the [Azure portal](https://portal.azure.com), select **Create a resource**.
-2. In the **Search the Marketplace** box, enter **Maps**.
-3. From the **Results**, select **Maps**. Select the **Create** button that appears below the map.
-4. On the **Create Azure Maps Account** page, enter the following values:
-   - The **Name** of your new account.
-   - The **Subscription** that you want to use for this account.
-   - The **Resource group** for this account. You might choose to **Create new** or **Use existing** resource group.
-   - Select the **Pricing Tier** of your choice.
-   - Read the **License** and **Privacy Statement**. Select the check box to accept the terms.
-   - Finally, select the **Create** button.
+## Create an account with Azure Maps
 
-     ![Create an Azure Maps account in the portal](./media/quick-demo-map-app/create-account.png)
+Create a new Maps account with the following steps:
 
-5. After your account is successfully created, open it and find the settings section of the account menu. Select **Authentication** to view the primary and secondary keys for your Azure Maps account. Copy the **Primary Key** value to your local clipboard to use in the following section.
+1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), click **Create a resource**.
+2. In the *Search the Marketplace* box, type **Maps**.
+3. From the *Results*, select **Maps**. Click **Create** button that appears below the map.
+4. On the **Create Maps Account** page, enter the following values:
+    * The *Subscription* that you want to use for this account.
+    * The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
+    * The *Name* of your new account.
+    * The *Pricing tier* for this account.
+    * Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
+    * Click the **Create** button.
+
+![Create Maps account in portal](./media/quick-demo-map-app/create-account.png)
+
+<a id="getkey"></a>
+
+## Get the primary key for your account
+
+Once your Maps account is successfully created, retrieve the key that enables you to query the Maps APIs. We recommend using your account's primary key as the subscription key when calling Azure Maps services.
+
+1. Open your Maps account in the portal.
+2. In the settings section, select **Authentication**.
+3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
+
+![Get Primary Key in portal](./media/quick-demo-map-app/get-key.png)
 
 ## Download the application
 
