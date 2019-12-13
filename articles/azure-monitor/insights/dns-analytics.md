@@ -4,8 +4,8 @@ description: Set up and use the DNS Analytics solution in Azure Monitor to gathe
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/20/2018
 
 ---

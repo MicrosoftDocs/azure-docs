@@ -111,7 +111,7 @@ As with any Azure Monitor supported service, you can use [Diagnostic Settings](d
 
 ![Autoscale Diagnostic Settings](media/autoscale-troubleshoot/diagnostic-settings.png)
 
-The previous picture shows the Azure portal autoscale diagnostic settings. There you can select the Diagnostic Logs tab and enable log collection and routing. You can also perform the same action using REST API, CLI, PowerShell, Resource Manager templates for Diagnostic Settings by choosing the resource type as *Microsoft.Insights/AutoscaleSettings*. 
+The previous picture shows the Azure portal autoscale diagnostic settings. There you can select the Diagnostic/Resource Logs tab and enable log collection and routing. You can also perform the same action using REST API, CLI, PowerShell, Resource Manager templates for Diagnostic Settings by choosing the resource type as *Microsoft.Insights/AutoscaleSettings*. 
 
 ## Troubleshooting using autoscale logs 
 

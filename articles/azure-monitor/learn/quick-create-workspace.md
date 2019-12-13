@@ -4,8 +4,8 @@ description: Learn how to create a Log Analytics workspace to enable management 
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/12/2019
 
 ---

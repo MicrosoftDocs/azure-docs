@@ -63,7 +63,9 @@ For more information, see the [ResourceRequirements][resource-requirements] prop
 
 ## Networking
 
-Container groups share an IP address and a port namespace on that IP address. To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. Containers within a group can reach each other via localhost on the ports that they have exposed, even if those ports aren't exposed externally on the group's IP address.
+Container groups can share an external-facing IP address and a port namespace on that IP address. To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. 
+
+Within a container group, containers instances can reach each other via localhost on any port, even if those ports aren't exposed externally on the group's IP address or from the container.
 
 Optionally deploy container groups into an [Azure virtual network][virtual-network] (preview) to allow containers to communicate securely with other resources in the virtual network.
 

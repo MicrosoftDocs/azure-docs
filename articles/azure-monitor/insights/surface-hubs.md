@@ -4,8 +4,8 @@ description: Use the Surface Hub solution to track the health of your Surface Hu
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/16/2018
 
 ---

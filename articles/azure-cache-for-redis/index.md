@@ -1,5 +1,5 @@
 ---
-title: Azure Cache for Redis Documentation - Tutorials, API Reference
+title: Azure Cache for Redis Documentation
 description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that gives applications fast access to data. Tutorials, API references, and more.
 author: yegu-ms
 layout: LandingPage
