@@ -39,7 +39,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
 
-* **QueryRuntimeStatistics**: Select this option to log the query text that was executed. 
+* **QueryRuntimeStatistics**: Select this option to log the query text that was executed. This log type is available for SQL API accounts only.
 
     ```
     { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
@@ -53,7 +53,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
 * **PartitionKeyRUConsumption**: This log reports the aggregated per-second RU/s consumption of partition keys. Currently, Azure Cosmos DB reports partition keys for SQL API accounts only and for point read/write and stored procedure operations. other APIs and operation types are not supported. For other APIs, the partition key column in the diagnostic log table will be empty. This log contains data such as subscription ID, region name, database name, collection name, partition key, operation type, and request charge. See the [Troubleshooting issues by using Azure diagnostics queries]() section of this article for example queries that use "PartitionKeyRUConsumption". 
 
-* **ControlPlaneRequests**: This log contain details on control plane operations like creating an account, adding or removing a region, updating account replication settings etc.
+* **ControlPlaneRequests**: This log contain details on control plane operations like creating an account, adding or removing a region, updating account replication settings etc. This log type is available for all API types which include SQL (Core), MongoDB, Gremlin, Cassandra, Table API.
 
 * **Requests**: Select this option to collect metric data from Azure Cosmos DB to the destinations in the diagnostic setting. This is the same data collected automatically in Azure Metrics. Collect metric data with resource logs to analyze both kinds of data together and to send metric data outside of Azure Monitor.
 
