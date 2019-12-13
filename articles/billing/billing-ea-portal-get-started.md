@@ -12,7 +12,7 @@ manager: boalcsva
 
 # Get started with the Azure Enterprise portal
 
-This article helps direct and indirect Azure Enterprise Agreement (Azure EA) customers to start using the [Azure Enterprise portal](https://ea.azure.com) with basic information about:
+This article helps direct and indirect Microsoft Azure Enterprise Agreement (Azure EA) customers to start using the [Azure Enterprise portal](https://ea.azure.com) with basic information about:
 
 - Structure of the Azure Enterprise portal
 - Roles used in the Azure Enterprise portal
@@ -92,7 +92,7 @@ Users with this role can:
 - Manage service administrators
 - View usage for subscriptions
 
-Each account requires a unique work, school, or Microsoft account. For more information about Azure Enterprise Portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md).
+Each account requires a unique work, school, or Microsoft account. For more information about Azure Enterprise portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md).
 
 ### Service administrator
 
@@ -309,7 +309,7 @@ If you already have an existing Microsoft Azure account on the Azure portal, ent
 
 ### Associate an existing account
 
-1. In the Enterprise portal, select **Manage**.
+1. In the Azure Enterprise portal, select **Manage**.
 1. Select the **Account** tab.
 1. Select **+Add an account**.
 1. Enter the work, school, or Microsoft account  associated with the existing Azure account.
@@ -329,7 +329,7 @@ If you already have an existing Microsoft Azure account on the Azure portal, ent
 
 ### Azure Marketplace
 
-Although most subscriptions can convert from the Pay-as-You-Go environment to Azure Enterprise Agreement, Azure Marketplace services do not. In order to have a single view of all subscriptions and charges, we recommend you add the Azure Marketplace services to the Enterprise Portal.
+Although most subscriptions can convert from the Pay-as-You-Go environment to Azure Enterprise Agreement, Azure Marketplace services do not. In order to have a single view of all subscriptions and charges, we recommend you add the Azure Marketplace services to the Azure Enterprise portal.
 
 1. Select **Manage** on the left navigation.
 1. Select the **EnrollmentTab**.
@@ -356,24 +356,33 @@ If your Enterprise Agreement doesn't have a support subscription and you add an 
 
 Enterprise administrators can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Azure Enterprise portal. Charges are presented at the summary level across all accounts and subscriptions.
 
-To view detailed usage for specific accounts:
+To view detailed usage for specific accounts, download the Usage Detail report:
 
-Download the Usage Detail report. Click **Reports** and then click the **Download Usage** tab. In the list of reports, click **Download** for the monthly report that want to get.
+1. Select **Reports**.
+1. Select the **Download Usage** tab.
+1. In the list of reports, select **Download** for the monthly report that want to get.
 
-The report doesn't include any applicable taxes. There may be a latency of up to eight hours from the time when usage was incurred to when it's reflected on the report.
+   > [!NOTE]
+   > The Usage Detail report doesn't include any applicable taxes.
+   >
+   > There may be a latency of up to eight hours from the time usage was incurred to when it's reflected on the report.
 
 To view the usage summary reports and graphs:
 
-1. In the Azure Enterprise portal, in the left navigation area, click **Reports** and view the **Usage Summary** tab.  
+1. Sign in to the Azure Enterprise portal.
+1. In the left navigation pane, select **Reports** and view the **Usage Summary** tab.  
   ![Create and view usage summary and download reports](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports.png)
-2. Select a commitment term.
-3. Toggle between **M** (Monthly) and **C** (Custom) on the top right of the page to view the **Usage Summary** with custom start and end dates.  
-  ![Create and view usage summary and download reports in custom view](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
-4. Select a period or month on the graph to view additional details.
-5. The graph shows month over month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and marketplace charges.
-6. For the selected month, filter by departments, accounts, and subscriptions below the graph.
-7. Toggle between **Charge by Services** and **Charge by Hierarchy**.
-8. Expand and collapse between **Azure Service**, **Charges Billed Separately**, and **Azure Marketplace** to view details.
+1. Select a commitment term.
+
+   To change the date range for **Usage Summary**, you can toggle from **M** (Monthly) to **C** (Custom) on the top right of the page and then enter custom start and end dates.
+
+   ![Create and view usage summary and download reports in custom view](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. To view additional details, you can select a period or month on the graph.
+
+   - The graph shows month-over-month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and marketplace charges.
+   - For the selected month, you can use the fields below the graph to filter by departments, accounts, and subscriptions.
+   - You can toggle between **Charge by Services** and **Charge by Hierarchy**.
+   - View details from **Azure Service**, **Charges Billed Separately**, and **Azure Marketplace** by expanding the relevant sections.
 
 View this video to see how to view usage:
 
@@ -381,7 +390,7 @@ View this video to see how to view usage:
 
 ### Download CSV reports
 
-Enterprise administrators use the Monthly Report Download page to download several reports as CSV files. They include:
+Enterprise administrators use the Monthly Report Download page to download the following reports as CSV files:
 
 - Balance and Charge
 - Usage Detail
@@ -390,137 +399,153 @@ Enterprise administrators use the Monthly Report Download page to download sever
 
 To download reports:
 
-
-1. In the Azure Enterprise portal, click **Reports**.
-2. Click **Download Usage** at the top of the page.
+1. In the Azure Enterprise portal, select **Reports**.
+2. Select **Download Usage** at the top of the page.
 3. Select **Download** next to the month's report.
 
-There may be a latency of up to five days between the incurred usage date and when usage is shown in the reports.
-
-Users downloading CSV files with Safari to Excel may experience formatting errors. To avoid errors, open the file using a text editor.
+   > [!NOTE]
+   > There may be a latency of up to five days between the incurred usage date and when usage is shown in the reports.
+   >
+   > Users downloading CSV files with Safari to Excel may experience formatting errors. To avoid errors, open the file using a text editor.
 
 ![Example showing Download Usage page](./media/billing-ea-portal-get-started/create-ea-download-csv-reports.png)
 
 View this video to see how to download usage information:
 
->[!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
 
 ### Advanced report download
 
-For reporting on specific date ranges or accounts, the advanced report download can be used. As of August 30, 2016, the format of the output file is changing from .xlsx to .csv to accommodate larger record sets.
+You can use the advance report download to get reports that cover specific date ranges or accounts. The output file is in the CSV format to accommodate large record sets.
 
-1. Select **Advanced Report Download**.
-1. Select **Appropriate Date Range**.
-1. Select **Appropriate Accounts**.
+1. In the Azure Enterprise portal, select **Advanced Report Download**.
+1. Select an appropriate date range and the appropriate accounts.
 1. Select **Request Usage Data**.
-1. Select **Refresh** button until report status updates to **Download**.
+1. Select the **Refresh** button until report status updates to **Download**.
 1. Download report.
 
-## EA term glossary
+## Azure EA term glossary
 
-- **Account**: An organizational unit on the Azure EA Portal used to administer subscriptions and utilized for reporting.
-- **Account owner**: The person identified to manage subscriptions and service administrators on Microsoft Azure. They can view usage data on this account and its associated subscriptions.
-- **Amendment subscription**: A single one year or coterminous subscription under the enrollment amendment.
-- **Commitment**: Commitment of an annual monetary amount for Microsoft Azure services at a discounted commitment rate for usage against this prepayment.
-- **Department administrator**: The person(s) identified to manage departments, create new accounts and account owners, view usage details for the departments they manage, and view costs when granted permissions.
+- **Account**: An organizational unit on the Azure Enterprise portal. They are used to administer subscriptions and for reporting.
+- **Account owner**: The person who manages subscriptions and service administrators on Azure. They can view usage data on this account and its associated subscriptions.
+- **Amendment subscription**: A single, one-year or coterminous subscription under the enrollment amendment.
+- **Commitment**: Commitment of an annual monetary amount for Azure services at a discounted commitment rate for usage against this prepayment.
+- **Department administrator**: The person who manages departments, creates new accounts and account owners, views usage details for the departments they manage, and can view costs when granted permissions.
 - **Enrollment number**: A unique identifier supplied by Microsoft to identify the specific enrollment associated with an enterprise agreement.
-- **Enterprise administrator**: The person(s) identified to manage departments and department owners and accounts and account owners on Microsoft Azure. They have the ability to manage enterprise administrators as well as view usage data, billed quantities, and unbilled charges across all accounts and subscriptions associated with the enterprise enrollment.
+- **Enterprise administrator**: The person who manages departments, department owners, accounts, and account owners on Azure. They have the ability to manage enterprise administrators as well as view usage data, billed quantities, and unbilled charges across all accounts and subscriptions associated with the enterprise enrollment.
 - **Enterprise agreement**: A Microsoft licensing agreement for customers with centralized purchasing who want to standardize their entire organization on Microsoft technology and maintain an information technology infrastructure on a standard of Microsoft software.
 - **Enterprise agreement enrollment**: An enrollment in the enterprise agreement program providing Microsoft products in volume at discounted rates.
-- **Microsoft account**: A Web-based service that enables participating sites to authenticate a user with a single set of credentials.
-- **Microsoft Azure enterprise enrollment amendment (enrollment amendment)**: An amendment signed by an enterprise, which provides them access to Microsoft Azure as part of their enterprise enrollment.
-- **Azure EA Portal**: The portal used by our enterprise customers to manage their Microsoft Azure accounts and their related subscriptions.
-- **Resource quantity consumed**: The quantity of an individual Microsoft Azure service that was utilized in a month.
-- **Service administrator**: The person identified to access and manage subscriptions and development projects on the Azure EA Portal.
-- **Subscription**: Represents an Azure EA Portal subscription and is a container of Microsoft Azure services managed by the same service administrator.
-- **Work or school account**: For organizations that have set up active directory with Federation to the cloud and all accounts are on a single tenant.
+- **Microsoft account**: A web-based service that enables participating sites to authenticate a user with a single set of credentials.
+- **Microsoft Azure enterprise enrollment amendment (enrollment amendment)**: An amendment signed by an enterprise, which provides them access to Azure as part of their enterprise enrollment.
+- **Azure Enterprise portal**: The portal used by our enterprise customers to manage their Azure accounts and their related subscriptions.
+- **Resource quantity consumed**: The quantity of an individual Azure service that was used in a month.
+- **Service administrator**: The person who accesses and manages subscriptions and development projects on the Azure Enterprise portal.
+- **Subscription**: Represents an Azure Enterprise portal subscription and is a container of Azure services managed by the same service administrator.
+- **Work or school account**: For organizations that have set up active directory with federation to the cloud and all accounts are on a single tenant.
 
-### Enrollment statuses:
+### Enrollment statuses
 
-- **Pending**: The enrollment administrator needs to log into the Azure EA Portal. Once logged in, the enrollment will switch to an Active status.
-- **Active**: The enrollment is Active and accounts and subscriptions can be created in the Azure EA Portal. The enrollment will remain active until the enterprise agreement end date.
-- **Indefinite extended term**: An indefinite extended term takes place after the enterprise agreement end date has passed. It enables EA customers who are opted in to the extended term to continue to use Azure indefinitely at the end of their enterprise agreement. Before the EA enrollment reaches the enterprise agreement end date, the enrollment administrator should decide whether they will renew the enrollment by adding additional monetary commitment, transfer to a new enrollment, migrate to the Microsoft Online Subscription Program (MOSP), or confirm disablement of all services associated with the enrollment.
-- **Expired**: The EA customer is opted out of the extended term and the EA enrollment has reached the enterprise agreement end date, the enrollment will expire, and all associated services will be disabled.
-- **Transferred**: Enrollments where all associated accounts and services have been transferred to a new enrollment will appear with a transferred status. Please note enrollments do not automatically transfer if a new enrollment number is generated at renewal. The prior enrollment number must be included in the customer’s renewal paperwork to facilitate an automatic transfer.
+- **Pending**: The enrollment administrator needs to sign in to the Azure Enterprise portal. Once signed in, the enrollment will switch to an Active status.
+- **Active**: The enrollment is Active and accounts and subscriptions can be created in the Azure Enterprise portal. The enrollment will remain active until the enterprise agreement end date.
+- **Indefinite extended term**: An indefinite extended term takes place after the enterprise agreement end date has passed. It enables Azure EA customers who are opted in to the extended term to continue to use Azure services indefinitely at the end of their enterprise agreement.
 
-## Get started on Azure EA FAQ
+   Before the Azure EA enrollment reaches the enterprise agreement end date, the enrollment administrator should decide which of the following options to take:
 
-This document provides details on typical questions asked by customers during the onboarding process.  
+  - Renew the enrollment by adding additional monetary commitment
+  - Transfer to a new enrollment
+  - Migrate to the Microsoft Online Subscription Program (MOSP)
+  - Confirm disablement of all services associated with the enrollment
+- **Expired**: The Azure EA customer is opted out of the extended term and the Azure EA enrollment has reached the enterprise agreement end date. The enrollment will expire, and all associated services will be disabled.
+- **Transferred**: Enrollments where all associated accounts and services have been transferred to a new enrollment appear with a transferred status.
+  >[!NOTE]
+  > Enrollments don't automatically transfer if a new enrollment number is generated at renewal. You must include your prior enrollment number in your renewal paperwork to facilitate an automatic transfer.
 
-### Can I associate my existing Azure Account to Enterprise Enrollment?
+## Get started on Azure EA - FAQ
 
-Yes, you can. Important point to note, all Azure subscriptions for which you’re the account owner will be converted to your enterprise agreement. This includes subscriptions that utilize monthly credit (e.g., Visual Studio, AzurePass, MPN, BizSpark, etc.), meaning you will lose monthly credit by doing so.
+This section provides details on typical questions asked by customers during the onboarding process.  
 
-### I accidentally associated my existing Azure account with Enterprise enrollment. As a result, I lost my monthly credit. Is it possible to get my monthly credit back?
+### Can I associate my existing Azure Account to Azure Enterprise A enrollment?
 
-To recover your individual Visual Studio subscription Azure benefit after you authenticate as an EA account owner, after having used the same sign in for EA as your Visual Studio subscription, you must either:
-1. Delete this account owner from the EA Portal, after removing or moving any Azure subscriptions they own, and have them sign up for their individual Visual Studio Azure benefits anew.
- OR
-1. Delete the Visual Studio subscriber from the Administration site in VLSC and reassign the subscription, having them use a different sign in this time — then they can sign up for their individual Visual Studio Azure benefits anew.
+Yes. All Azure subscriptions for which you're the account owner will be converted to your enterprise agreement. Included are subscriptions that use monthly credit such as Visual Studio, AzurePass, MPN, BizSpark, and more. You will lose monthly credit when converting such subscriptions.
+
+### I accidentally associated my existing Azure account with Azure Enterprise enrollment. As a result, I lost my monthly credit. Can I get my monthly credit back?
+
+If you've signed in as an Azure EA account owner with the same credentials as your Visual Studio subscription, you can recover your individual Visual Studio subscription Azure benefit by performing one of the following actions:
+
+- Delete your account owner from the Azure Enterprise portal, after removing or moving any associated Azure subscriptions. Then, sign up for individual Visual Studio Azure benefits anew.
+- Delete the Visual Studio subscriber from the Administration site in VLSC, and reassign the subscription to an account with different credentials this time. Then, sign up for individual Visual Studio Azure benefits anew.
 
 ### What type of subscription should I create?
 
-EA Portal offers two types of subscriptions for enterprise customers:
+The Azure Enterprise portal offers two types of subscriptions for enterprise customers:
 
 - Microsoft Azure Enterprise – ideal for:
   - All production usage
   - Best prices based on infrastructure spend
-  - You can find more details at https://azure.microsoft.com/pricing/enterprise-agreement/
+  
+  For more information, [contact Azure sales](https://azure.microsoft.com/pricing/enterprise-agreement/).
+
 - Enterprise Dev/Test - ideal for:
   - All team dev/test workloads
   - Medium-to-heavy individual dev/test workloads
   - Access to special MSDN images and preferential service rates
-  - You can find more details at https://azure.microsoft.com/offers/ms-azr-0148p/
+  
+  For more informatin, see [Enterprise Dev/Test offer](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ### Is it possible to transfer subscription ownership to another account?
 
-Yes, it is possible to transfer subscription ownership to different account. For example, if an Account A has three subscriptions, the enterprise admin could transfer one subscription to Account B, one to Account C and one to Account D or all to Account E.
+Yes, you can transfer subscription ownership to different account. For example, if an Account A has three subscriptions, the enterprise administrator can transfer one subscription to Account B, one to Account C, and one to Account D. Or they can transfer all subscriptions to Account E.
 
-You can go to EA and click on Manage > Account, hover over **Account** (extreme right) and you will see Transfer Ownership (headshot icon) and Transfer Subscription (list icon) option.
+To transfer subscriptions:
 
-This option will only be visible for active accounts.
+1. In the Azure Enterprise portal, select **Manage** > **Account**.
+1. Hover over **Account** on the far right to see the **Transfer Ownership** (person icon) and **Transfer Subscription** (list icon) options. These options are only visible for active accounts.
 
-### I see subscription name defaults to offer name, should I change the subscription name to something meaningful to my organization?
+### My subscription name is the same as the offer name. Should I change the subscription name to something meaningful to my organization?
 
-Any subscription created will default to the offer type you choose. We recommend that you change the subscription name to something that makes it easy for you to track the subscription.
+When you create a subscription, the name defaults to the offer type you choose. We recommend that you change the subscription name to something that makes it easy for you to track the subscription.
 
-**To change name:**
+To change the name:
+
 1. Sign in to [https://account.windowsazure.com](https://account.windowsazure.com).
-1. Click on Subscription list.
-1. Select Subscription.
-1. Click on **Manage Subscription** icon.
+1. Select the subscription list.
+1. Select the subscription you want to edit.
+1. Select the **Manage Subscription** icon.
 1. Edit subscription details.
 
-### How can I track cost incurred by Cost Center?
+### How can I track costs incurred by a cost center?
 
-In order to track cost by Cost Center, you need to define Cost Center at any of the following levels:
+In order to track cost by cost center, you need to define the cost center at one of the following levels:
+
 - Department
 - Account
 - Subscription
 
-Based on your need, you can use the same Cost Center to track usage and cost associated with a particular Cost Center.
+Based on your needs, you can use the same cost center to track usage and costs associated with a particular cost center.
 
-For example, to track cost for a special project where multiple departments are involved, you may want to use the Cost Center at a subscription level to track the usage and cost.
+For example, to track costs for a special project where multiple departments are involved, you might want to define the cost center at a subscription level to track the usage and costs.
 
-You cannot define Cost Center at Service level and in case you want to track usage at service level, you can use the “Tag” feature available at the service level.
+You cannot define a cost center at the service level. If you want to track usage at the service level, you can use the "Tag" feature available at the service level.
 
 ### How do I track usage and spend by different departments in my organization?
 
-You can create as many departments as you need under your EA enrollment. In order to track the usage correctly, you need to ensure that subscriptions are not shared across departments.
+You can create as many departments as you need under your Azure EA enrollment. In order to track the usage correctly, ensure that you're not sharing subscriptions across departments.
 
-Once department and subscription creation is done, you can see information flowing in the usage report that will help in tracking usage and managing cost/spend at department level.
+After you have created departments and subscriptions, you can see data in the usage report. This information can help you track usage and manage cost and spend at the department level.
 
-You can also access the usage via API detailed information and sample code is available at [https://ea.azure.com/helpdocs/reportingAPI](https://ea.azure.com/helpdocs/reportingAPI).
+You can also access usage data via the reporting API. For detailed information and sample code, see [Reporting API documentation](https://ea.azure.com/helpdocs/reportingAPI).
+
+\***
 
 ### Can I set the spending quota and get alerts as I approach my limit?
 
 You can set spending quota at department level and system will automatically notify you as your spending limits meet 50%, 75%, 90%, and 100% of the quota you define.
 
-To define your spending quota, click on the department you want to add a spending limit to and click on the edit icon. Click on **Save** to save details.
+To define your spending quota, select on the department you want to add a spending limit to and select on the edit icon. Select **Save** to save details.
 
 ### I used Resource Groups (RGs) to implement RBAC and track usage, how can I view the associated usage details?
 
-Information like “Resource Groups” and “Tag” if used is tracked at service level and the information is available in the detailed usage download (CSV) file, which can be downloaded from the Azure EA Portal [https://ea.azure.com/report/downloadusage](https://ea.azure.com/report/downloadusage).
+Information like “Resource Groups” and “Tag” if used is tracked at service level and the information is available in the detailed usage download (CSV) file, which can be downloaded from the Azure Enterprise portal [https://ea.azure.com/report/downloadusage](https://ea.azure.com/report/downloadusage).
 
 You can also access the usage via API, detailed information, and sample code is available at [https://ea.azure.com/helpdocs/reportingAPI](https://ea.azure.com/helpdocs/reportingAPI).
 
@@ -533,20 +558,20 @@ Yes. With the Microsoft Azure Enterprise content pack for Power BI, you can quic
 **Navigate to the Power BI website:**
 
  1. Sign in with a valid work or school account.
-    - The work or school account can be the same or different than what is used to access the enrollment through the Azure EA Portal.
+    - The work or school account can be the same or different than what is used to access the enrollment through the Azure Enterprise portal.
  1. On the Dashboard of services, choose:
     - Microsoft Azure Enterprise tile.
-    - Click **Connect**.
+    - Select **Connect**.
  1. On the "Connect to Azure Enterprise" screen, choose:
     - Azure Environment URL: [https://ea.azure.com](https://ea.azure.com).
     - Number of Months: choose between 1 and 36.
     - Enrollment Number: enter the enrollment number.
-    - Click **Next**.
- 1. Enter the API Key in the Authentication Key Box. You can get the API key in the Azure Enterprise portal under “Download Usage” tab, click **API Access Key**.
+    - Select **Next**.
+ 1. Enter the API Key in the Authentication Key Box. You can get the API key in the Azure Enterprise portal under “Download Usage” tab, select **API Access Key**.
     - Copy and paste the key into "Account Key" box.
     - The data will take approximately 5-30 minutes to load in Power BI, depending on the dataset size.
 
-Power BI Reporting is available for EA direct, partner, and indirect customers who are able to view billing information.
+Power BI Reporting is available for Azure EA direct, partner, and indirect customers who are able to view billing information.
 
 ## Next steps
 
