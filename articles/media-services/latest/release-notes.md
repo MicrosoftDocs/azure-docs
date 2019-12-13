@@ -63,7 +63,7 @@ Added support for the following new recommended partner encoders for RTMP live s
 
 ### Video Indexer, Video analytics
 
-- Keyframes extracted using the VideoAnalyzer preset are now in the original resolution of the video instead of being resized.
+- Keyframes extracted using the VideoAnalyzer preset are now in the original resolution of the video instead of being resized. High resolution keyframe extraction gives you original quality images and allows you to make use of the image-based artificial intelligence models provided by the Microsoft Computer Vision and Custom Vision services to gain even more insights from your video.
 
 ## September 2019
 
