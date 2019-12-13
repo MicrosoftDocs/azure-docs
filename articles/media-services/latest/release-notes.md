@@ -55,11 +55,15 @@ Added support for the following new recommended partner encoders for RTMP live s
 - [GoPro Hero7/8 and Max action cameras](https://gopro.com/help/articles/block/getting-started-with-live-streaming)
 - [Restream.io](https://restream.io/)
 
-## File Encoding enhancements
+### File Encoding enhancements
 
 - Improved performance and multi-threading for the re-sizer in Media Encoder Standard. Under specific conditions, customer should see a performance boost between 5-40% VOD encoding. Low complexity content encoded into multiple bit-rates will see the highest performance increases. 
 - Standard encoding now maintains a regular GOP cadence for variable frame rate  (VFR) contents during VOD encoding when using the time-based GOP setting.  This means that customer submitting mixed frame rate content that varies between 15-30 fps for example should now see regular GOP distances calculated on output to adaptive bitrate streaming MP4 files. This will improve the ability to switch seamlessly between tracks when delivering over HLS or DASH. 
 -  Improved AV sync for variable frame rate (VFR) source content
+
+### Video Indexer, Video analytics
+
+- Keyframes extracted using the VideoAnalyzer preset are now in the original resolution of the video instead of being resized.
 
 ## September 2019
 
