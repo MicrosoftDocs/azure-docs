@@ -174,7 +174,7 @@ Monetary commitment isn't transferrable between enrollments. Monetary commitment
 
 ### No services affected for account and enrollment transfers
 
-There's no downtime during account or enrollment transfer. It can be completed on the same day of your request if all requisite information is provided.
+There's no downtime during an account or enrollment transfer. It can be completed on the same day of your request if all requisite information is provided.
 
 ### Prerequisites
 
