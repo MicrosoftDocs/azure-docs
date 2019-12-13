@@ -35,6 +35,7 @@ Specifically, with this connector you can:
 
 - Copy files by using one of the following methods of authentication: service principal or managed identities for Azure resources.
 - Copy files as is or parse or generate files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+- [Preserve ACLs](#preserve-metadata-during-copy) when copying into Azure Data Lake Storage Gen2.
 
 > [!IMPORTANT]
 > If you copy data by using the self-hosted integration runtime, configure the corporate firewall to allow outbound traffic to `<ADLS account name>.azuredatalakestore.net` and `login.microsoftonline.com/<tenant>/oauth2/token` on port 443. The latter is the Azure Security Token Service that the integration runtime needs to communicate with to get the access token.
