@@ -67,7 +67,7 @@ Do the following steps in the Azure portal to delete a user.
 
 2. Select a user from the list of users and then select **Delete**. When prompted, confirm the deletion.   
 
-   ![Select Delete](media/azure-stack-edge-r-series-users/delete-user-2.png)
+    ![Select user to delete](media/azure-stack-edge-r-series-manage-users/delete-user-2.png)
 
 The list of users is updated to reflect the deleted user.
 
