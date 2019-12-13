@@ -303,3 +303,9 @@ The [indexer parsing modes](https://docs.microsoft.com/rest/api/searchservice/cr
 If no byte order mark is present, the text is assumed to be encoded as UTF-8.
 
 To work around this warning, determine what the text encoding for this blob is and add the appropriate byte order mark.
+
+<a name="cosmos-db-collection-has-a-lazy-indexing-policy"/>
+
+## Warning: Cosmos DB collection 'X' has a Lazy indexing policy. Some data may be lost
+
+Collections with [Lazy](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) indexing policies can't be queried consistently, resulting in your indexer missing data. To work around this warning, change your indexing policy to Consistent.

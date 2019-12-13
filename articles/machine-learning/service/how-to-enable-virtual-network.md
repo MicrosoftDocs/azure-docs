@@ -163,7 +163,7 @@ The NSG rule configuration in the Azure portal is shown in the following image:
 
 ### User-defined routes for forced tunneling
 
-If you're using forced tunneling with Machine Learning Compute, add [user-defined routes (UDRs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) to the subnet that contains the compute resource.
+If you're using forced tunneling with the Machine Learning Compute, add [user-defined routes (UDRs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) to the subnet that contains the compute resource.
 
 * Establish a UDR for each IP address that's used by the Azure Batch service in the region where your resources exist. These UDRs enable the Batch service to communicate with compute nodes for task scheduling. To get a list of IP addresses of the Batch service, use one of the following methods:
 

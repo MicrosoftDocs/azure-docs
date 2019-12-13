@@ -164,4 +164,3 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 ## Next steps
 
 * [Create a storage account](storage-quickstart-create-account.md)
-* [Manage Azure storage accounts](storage-account-manage.md)
