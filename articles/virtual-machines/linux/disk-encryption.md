@@ -37,7 +37,7 @@ The following diagram shows how managed disks uses Azure Active Directory and Az
 ![Managed disks customer-managed keys workflow](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
-The following list explains the numbered steps in the diagram:
+The following list explains the diagram in even more detail:
 
 1. An Azure Key Vault administrator creates key vault resources.
 1. The key vault admin either imports their RSA keys to Key Vault or generate new RSA keys in Key Vault.
