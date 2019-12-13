@@ -3,7 +3,7 @@ title: Manage your bill and convert trial to pay as you go in Azure IoT Central 
 description: As an administrator, learn how to manage your bill and covert from trial to pay as you go in your Azure IoT Central application
 author: v-krghan
 ms.author: v-krghan
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
