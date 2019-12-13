@@ -122,7 +122,7 @@ The general pattern is as follows:
 
 :two: &nbsp;&nbsp;Move data from Gen1 to Gen2.
 
-:three: &nbsp;&nbsp;Point workloads to Gen2.
+:three: &nbsp;&nbsp;Point ingest operations and workloads to Gen2.
 
 :four: &nbsp;&nbsp;Decommission Gen1.
 
@@ -141,11 +141,9 @@ The general pattern is as follows:
 
 :two: &nbsp;&nbsp;Incrementally copy new data from Gen1.
 
-:three: &nbsp;&nbsp;After all data is copied, stop all writes to Gen1.
+:three: &nbsp;&nbsp;After all data is copied, stop all writes to Gen1, and point workloads to Gen2.
 
-:four: &nbsp;&nbsp;Point workloads to Gen2.
-
-:five: &nbsp;&nbsp;Decommission Gen1.
+:four: &nbsp;&nbsp;Decommission Gen1.
 
 > [!TIP]
 > For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
@@ -164,7 +162,7 @@ The general pattern is as follows:
 
 :three: &nbsp;&nbsp;Point workloads to Gen2.
 
-:four: &nbsp;&nbsp;Stop all writes to Gen1 & decommission Gen1.
+:four: &nbsp;&nbsp;Stop all writes to Gen1 and then decommission Gen1.
 
 > [!TIP]
 > For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
