@@ -48,9 +48,9 @@ The physical expression of a knowledge store is articulated through the `project
 
 Projections can be articulated as objects or tables:
 
-+ As an object, the projection maps to Blob storage, where the projection is saved to a container, within which are the objects or hierarchical representations in JSON for scenarios like a data science pipeline.
++ Blob storage is used when projections specify `objects` or `files`. The projection is saved to a container, within which are the objects or hierarchical JSON structures useful for scenarios like data science pipelines or other downstream processes.
 
-+ As a table, the projection maps to Table storage. A tabular representation preserves relationships for scenarios like data analysis or export as data frames for machine learning. The enriched projections can then be easily imported into other data stores. 
++ Table storage is used projections specify `tables`. A tabular representation preserves relationships for scenarios like data analysis or export as data frames for machine learning. The enriched projections can then be easily imported into other data stores. 
 
 You can create multiple projections in a knowledge store to accommodate various constituencies in your organization. A developer might need access to the full JSON representation of an enriched document, while data scientists or analysts might want granular or modular data structures shaped by your skillset. For example, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents. the tabular projection would work well.
 
@@ -60,12 +60,12 @@ You can create multiple projections in a knowledge store to accommodate various 
 
 [Skillset](cognitive-search-working-with-skillsets.md) is required. It contains the `knowledgeStore` definition, and it determines the structure and composition of an enriched document. You cannot create a knowledge store using an empty skillset. You must have at least one skill in a skillset.
 
-[Indexer](search-indexer-overview.md) is required. A skillset is invoked by an indexer, thus an indexer drives the execution. Indexers come with their own set of requirements and attributes. Several of these attributes have a direct bearing on a knowledge store.
+[Indexer](search-indexer-overview.md) is required. A skillset is invoked by an indexer, which drives the execution. Indexers come with their own set of requirements and attributes. Several of these attributes have a direct bearing on a knowledge store:
 
-+ One requirement is a [supported Azure data source](search-indexer-overview.md#supported-data-sources) (the pipeline that ultimately creates the knowledge store starts by pulling data from a supported source on Azure). 
-+ A second requirement is a search index. An indexer requires that you provide an index schema, even if you never plan to use it. A minimal index has one string field, designated as the key.
-+ Field mappings are optional, used to alias a source field to a destination field. If a default field mapping needs modification (to use a different name or type), you can create a [field mapping](search-indexer-field-mappings.md) within an indexer. For knowledge store output, the destination can be a field in a blob object or table.
-+ Schedules and other indexer properties, such as change detection mechanisms provided by various data sources, can also be applied to a knowledge store. For example, you can [schedule](search-howto-schedule-indexers.md) enrichment at regular intervals to refresh the contents. 
++ Indexers require a [supported Azure data source](search-indexer-overview.md#supported-data-sources) (the pipeline that ultimately creates the knowledge store starts by pulling data from a supported source on Azure). 
++ Indexers require a search index. An indexer requires that you provide an index schema, even if you never plan to use it. A minimal index has one string field, designated as the key.
++ Indexers provide optional field mappings, used to alias a source field to a destination field. If a default field mapping needs modification (to use a different name or type), you can create a [field mapping](search-indexer-field-mappings.md) within an indexer. For knowledge store output, the destination can be a field in a blob object or table.
++ Indexers have schedules and other properties, such as change detection mechanisms provided by various data sources, can also be applied to a knowledge store. For example, you can [schedule](search-howto-schedule-indexers.md) enrichment at regular intervals to refresh the contents. 
 
 ## Create a knowledge store
 
@@ -73,7 +73,7 @@ To create knowledge store, use the portal or the preview REST API (`api-version=
 
 ### Use the Azure portal
 
-The **Import data** wizard includes options for creating a knowledge store. For initial exploration, [create your first knowledge store in four steps.(knowledge-store-connect-power-bi.md).
+The **Import data** wizard includes options for creating a knowledge store. For initial exploration, [create your first knowledge store in four steps](knowledge-store-connect-power-bi.md).
 
 1. Select a supported data source.
 
@@ -240,13 +240,25 @@ The syntax for structuring the request payload is as follows.
 }
 ```
 
-A `skills` definition is a complex definition (not shown). For more information and examples, see [Create Skillset REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset) or [Skillset concepts and composition](cognitive-search-working-with-skillsets.md).
+A `skills` definition is a complex definition that is documented in full elsewhere. For more information and examples, see [Create Skillset REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset) or [Skillset concepts and composition](cognitive-search-working-with-skillsets.md).
 
-A `knowledgeStore` requires a connection string to an Azure Storage account. You can use any storage account, but it's cost-effective to use services in the same region.
+A `knowledgeStore` has two properties: a connection string to an Azure Storage account, and `projections`. You can use any storage account, but it's cost-effective to use services in the same region.
 
 A `projections` collection contains projection objects used to create items in Azure Storage. Each projection object can have `tables`, `objects`, `files` (one of each), which are either specified or null. Within a projection object, any relationships among the data, if detected, are preserved. 
 
 You can create additional projection objects to support isolation and specific scenarios (for example, data structures used for exploration, versus those needed in a data science workload). You can get isolation and customization by setting `source` and `storageContainer` or `table` to different values within an object. For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
+
+|Property      | Applies to | Description|  
+|--------------|------------|------------|  
+|`storageConnectionString`| `knowledgeStore` | Required. In this format: DefaultEndpointsProtocol=https;AccountName=<ACCOUNT-NAME>;AccountKey=<ACCOUNT-KEY>;EndpointSuffix=core.windows.net|  
+|`projections`| `knowledgeStore` | Required. A collection of property objects consisting of `tables`, `objects`, `files` and their respective properties. Unused projections can be set to null.|  
+|`source`| All projections| The path to the node of the enrichment tree that is the root of the projection. This node is the output of any of the skills in the skillset. Example: `/document/countries/*` (all countries), or `/document/countries/*/states/*` (all states in all countries).|
+|`tableName`| `tables`| Name of a table to create in Azure Table storage. |
+|`generatedKeyName`| `tables`| Name of a column that will contain a generated key for each row. |
+|`storageContainer`| `objects`, `files`| Name of a container to create in Azure Blob storage. |
+|`format`| `objects` |  |
+|`key`|`objects`| A path that represents a unique key for the object to be stored. It will be used to create the name of the blob in the container.|
+
 
 ### Response  
 
