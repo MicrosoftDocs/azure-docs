@@ -92,26 +92,26 @@
       href: ./how-to/user-access.md
     - name: Monitor Clusters
       href: ./how-to/monitor-clusters.md
-    - name: Use Tags
+    - name: Tag Nodes
       href: ./how-to/tag-nodes.md
   - name: Customize Clusters
     items:
-    - name: Add a Node Array
-      href: ./how-to/add-node-array.md
-    - name: Add a File Store
-      href: ./how-to/add-fs.md
-    - name: Add a Disk
-      href: ./how-to/add-disk.md
-    - name: Add an Open Port
-      href: ./how-to/open-port.md
     - name: Configure a Node
       href: ./how-to/configure-node.md
-    - name: Enable Return Proxy
-      href: ./how-to/return-proxy.md
+    - name: Add a Node Array
+      href: ./how-to/add-node-array.md
+    - name: Add a Disk
+      href: ./how-to/add-disk.md
+    - name: Add a File Store
+      href: ./how-to/add-fs.md
     - name: Create NFS Exports
       href: ./how-to/create-nfs.md
     - name: Mount an NFS Endpoint
       href: ./how-to/mount-nfs.md
+    - name: Enable Return Proxy
+      href: ./how-to/return-proxy.md
+    - name: Add an Open Port
+      href: ./how-to/open-port.md
     - name: Configure Network Security
       href: ./how-to/network-security.md
   - name: Node Preparation
