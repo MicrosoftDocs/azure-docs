@@ -43,7 +43,7 @@ Installing and configuring Azure AD Connect provisioning is accomplished in the 
 6. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
 ![Welcome screen](media/how-to-install/install4.png)</br>
 
-7. Once this operation completes you should see a notice **Your was successfully verified.**  You can click **Exit**.</br>
+7. Once this operation completes you should see a notice **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
 ![Welcome screen](media/how-to-install/install5.png)</br>
 8. If you still see the initial splash screen, click **Close**.
 
