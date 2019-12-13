@@ -35,45 +35,10 @@ When your application reaches the limit of what a partition can handle for your 
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 
-## Azure Files scale targets
-
-For more information on the scale and performance targets for Azure Files and Azure File Sync, see [Azure Files scalability and performance targets](../files/storage-files-scale-targets.md).
-
-> [!IMPORTANT]
-> Storage account limits apply to all shares. Scaling up to the max for storage accounts is only achievable if there is only one share per storage account.
->
-> Standard file shares larger than 5 TiB have certain limitations and regional restrictions.
-> For a list of limitations, regional information, and instructions to enable these larger file share sizes, see the [Onboard to larger file shares (standard tier)](../files/storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the Azure Files planning guide.
-
-[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
-
-### Premium files scale targets
-
-There are three categories of limitations to consider for premium files: storage accounts, shares, and files.
-
-For example: A single share can achieve 100,000 IOPS and a single file can scale up to 5,000 IOPS. So, for example, if you have three files in one share, the max IOPs you can get from that share is 15,000.
-
-#### Premium file share limits
-
-[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
-
-### Azure File Sync scale targets
-
-Azure File Sync has been designed with the goal of limitless usage, but limitless usage is not always possible. The following table indicates the boundaries of Microsoft's testing and also indicates which targets are hard limits:
-
-[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
-
-## Azure Queue storage scale targets
-
-[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
-
-## Azure Table storage scale targets
-
-[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
-
 ## See also
 
 - [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md)
 - [Azure Storage Replication](../storage-redundancy.md)
 - [Microsoft Azure Storage Performance and Scalability Checklist](../storage-performance-checklist.md)
+
