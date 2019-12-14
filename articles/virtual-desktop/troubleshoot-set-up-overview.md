@@ -39,7 +39,7 @@ Use the following table to identify and resolve issues you may encounter when se
 | Connecting clients                                                                    | See [Windows Virtual Desktop service connections](troubleshoot-service-connection.md) and if that doesn't solve your issue, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md). |
 | Responsiveness of remote applications or desktop                                      | If issues are tied to a specific application or product, contact the team responsible for that product. |
 | Licensing messages or errors                                                          | If issues are tied to a specific application or product, contact the team responsible for that product. |
-| Issues when using Windows Virtual Desktop tools on GitHub (Azure Resource Manager templates, diagnostics tool, management tool) | See [ARM Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report issues. |
+| Issues when using Windows Virtual Desktop tools on GitHub (Azure Resource Manager templates, diagnostics tool, management tool) | See [Azure Resource Manager Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report issues. |
 
 ## Next steps
 
