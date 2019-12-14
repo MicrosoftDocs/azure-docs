@@ -35,7 +35,7 @@ To complete this quickstart, make sure you have the following prerequisites:
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive.
 * [Git](https://www.git-scm.com/)
-* An **Azure Storage account**. If you don't have one, [create one](../storage/common/storage-quickstart-create-account.md) before proceeding further. The Stream Analytics job in this walkthrough stores the output data in an Azure blob storage. 
+* An **Azure Storage account**. If you don't have one, [create one](../storage/common/storage-account-create.md) before proceeding further. The Stream Analytics job in this walkthrough stores the output data in an Azure blob storage. 
 
 
 ## Create a Kafka enabled Event Hubs namespace
@@ -111,7 +111,7 @@ You can now stream events from your applications that use the Kafka protocol int
     ![Event hub - messages](./media/event-hubs-kafka-stream-analytics/confirm-event-hub-messages.png)
 
 ## Process event data using a Stream Analytics job
-In this section, you create an Azure Stream Analytics job. The Kafka client sends events to the event hub. You create a Stream Analytics job that takes event data as input and outputs it to an Azure blob storage. If you don't have  an **Azure Storage account**, [create one](../storage/common/storage-quickstart-create-account.md).
+In this section, you create an Azure Stream Analytics job. The Kafka client sends events to the event hub. You create a Stream Analytics job that takes event data as input and outputs it to an Azure blob storage. If you don't have  an **Azure Storage account**, [create one](../storage/common/storage-account-create.md).
 
 The query in the Stream Analytics job passes through the data without performing any analytics. You can create a query that transforms the input data to produce output data in a different format or with gained insights.  
 

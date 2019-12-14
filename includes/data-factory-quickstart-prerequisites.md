@@ -31,7 +31,7 @@ For more info, see the following articles:
 - [Roles and permissions for Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md)
 
 ### Azure storage account
-You use a general-purpose Azure storage account (specifically Blob storage) as both *source* and *destination* data stores in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../articles/storage/common/storage-quickstart-create-account.md) to create one. 
+You use a general-purpose Azure storage account (specifically Blob storage) as both *source* and *destination* data stores in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../articles/storage/common/storage-account-create.md) to create one. 
 
 #### Get the storage account name
 You will need the name of your Azure storage account for this quickstart. The following procedure provides steps to get the name of your storage account: 

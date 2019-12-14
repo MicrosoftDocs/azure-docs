@@ -27,7 +27,7 @@ Learn how to create an [Apache Hadoop](https://hadoop.apache.org/) cluster in Az
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **An Azure storage account**. See [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+* **An Azure storage account**. See [Create a storage account](../storage/common/storage-account-create.md).
 * **Visual Studio**.
 
 ## Create clusters
