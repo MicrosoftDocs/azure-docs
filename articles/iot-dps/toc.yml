@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Set up DPS
+  - name: Set up a DPS
     items:
     - name: Azure Portal
       href: quick-setup-auto-provision.md
