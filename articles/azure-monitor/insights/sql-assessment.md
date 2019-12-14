@@ -4,8 +4,8 @@ description: With Azure Monitor, you can use the SQL Health Check solution to as
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/28/2019
 
 ---

@@ -1,5 +1,6 @@
 ---
-title: Azure CLI Script Sample - Create an Azure App Configuration Store | Microsoft Docs
+title: Azure CLI Script Sample - Create an Azure App Configuration Store
+titleSuffix: Azure App Configuration
 description: Azure CLI Script Sample - Create an Azure App Configuration store
 services: azure-app-configuration
 documentationcenter: ''
