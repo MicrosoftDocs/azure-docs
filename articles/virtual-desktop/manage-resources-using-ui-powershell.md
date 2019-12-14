@@ -16,7 +16,7 @@ The management tool provides a user interface (UI) for managing Microsoft Virtua
 
 ## Important considerations
 
-Since the app requires consent to interact with Windows Virtual Desktop, this tool doesn't support Business-to-Business (B2B) scenarios. Each Azure Active Directory (AAD) tenant's subscription will need its own separate deployment of the management tool.
+Each Azure Active Directory (Azure AD) tenant's subscription will need its own separate deployment of the management tool. This tool doesn't support Azure AD Business-to-Business (B2B) scenarios. 
 
 This management tool is a sample. Microsoft will provide important security and quality updates. The [source code is available in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Customers and partners are encouraged to customize the tool to fit their business needs.
 
@@ -33,7 +33,7 @@ Before deploying the management tool, you'll need an Azure Active Directory user
 - Have permission to create resources in your Azure subscription
 - Have permission to create an Azure AD application. Follow these steps to check if your user has the [required permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-To run the deploy the management tool end-to-end, you will need to download the following PowerShell scripts from the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) and place them in the same folder on your local machine:
+To complete the deployment and configuration steps in this article, download the following PowerShell scripts from the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) and place them in the same folder on your local machine:
   - **createWvdMgmtUxAppRegistration.ps1**
   - **updateWvdMgmtUxApiUrl.ps1** 
 
@@ -55,7 +55,7 @@ To login to both the Az and AzureAD PowerShell modules in preparation for the re
     ```
 4. Navigate to the folder where you saved the two PowerShell scripts from the RDS-Templates GitHub repo.
 
-Keep this PowerShell window open, as you will be using it for the remaining steps.
+Keep this PowerShell window open to run all of the PowerShell commands.
 
 ## Create an Azure Active Directory app registration
 
@@ -85,7 +85,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
     -azureAdminPassword $servicePrincipalCredentials.Password `
     -applicationName $appName
 ```
-After you've created the web app for the management tool and associated it with the Azure AD application, you must add a redirect URI to the Azure AD application to successfully login users.
+After you've created the web app, you must add a redirect URI to the Azure AD application to successfully login users.
 
 ## Set the Redirect URI
 
@@ -97,11 +97,11 @@ $redirectUri = "https://" + $webApp.DefaultHostName + "/"
 $azureADApplication = Get-AzureADApplication | where { $_.AppId -eq $servicePrincipalCredentials.UserName } 
 Get-AzureADApplication | where { $_.AppId -eq $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
 ```
-Now that you've added a redirect URI and users will be able to login, you must update the API URL so the management tool web app so the UI can interact with the service.
+Now that you've added a redirect URI for user login, you must update the API URL so the management tool UI can interact with the API backend service.
 
 ## Update the API URL for the web application
 
-Run the following commands to update the API URL in the web application front end:
+Run the following commands to update the API URL configuration in the web application front end:
 
 ```powershell
 .\updateWvdMgmtUxApiUrl.ps1 -AppName $appName -SubscriptionId $subscriptionId
@@ -117,7 +117,7 @@ To verify the Azure AD application configuration and provide consent:
 3. Select **All applications** and search for it using the unique app name you provided for the PowerShell script.
 4. In the left panel, select **Authentication** and verify that the redirect URI is the same as the web app URL for the management tool.
    ![The authentication page with the entered redirect URI](media/management-ui-redirect-uri.png)
-5. In the left panel, select **API permissions** to confirm that permissions were added. If you are a global admin, click the button and follow the dialog prompts to provide admin consent for your organization.
+5. In the left panel, select **API permissions** to confirm that permissions were added. If you're a global admin, click the button and follow the dialog prompts to provide admin consent for your organization.
     ![The API permissions page](media/management-ui-permissions.png)
 
 You can now start using the management tool.
@@ -126,7 +126,7 @@ You can now start using the management tool.
 
 You can now access the management tool at any time. Follow these instructions to launch the tool:
 
-1. In a web browser, enter the URL of the web app, for example <https://wvdmgmt20200101.azurewebsites.net>. If you do not remember it, sign in to Azure, find the app service you deployed, then click on the URL.
+1. In a web browser, enter the URL of the web app, for example <https://wvdmgmt20200101.azurewebsites.net>. If you don't remember it, sign in to Azure, find the app service you deployed, then click on the URL.
 2. Sign in using your Windows Virtual Desktop credentials.
    > [!NOTE]
    > If you were unable to grant admin consent earlier in these steps, each user who logs in will be need to provide their own user consent to use the tool.
@@ -137,7 +137,7 @@ You can now access the management tool at any time. Follow these instructions to
 
 ## Report issues
 
-If you encounter any issues with the management tool or other Windows Virtual Desktop tools, follow the directions in [ARM Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report them on GitHub.
+If you come across any issues with the management tool or other Windows Virtual Desktop tools, follow the directions in [ARM Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report them on GitHub.
 
 ## Next steps
 
