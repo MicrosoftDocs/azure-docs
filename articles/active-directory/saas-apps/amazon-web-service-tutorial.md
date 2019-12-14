@@ -71,10 +71,10 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of Amazon Web Services (AWS) into Azure AD, you need to add Amazon Web Services (AWS) from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a work account, school account, or personal Microsoft account.
+1. In the Azure portal, search for and select **Azure Active Directory**.
+1. Within the Azure Active Directory overview menu, choose **Enterprise Applications** > **All applications**.
+1. Select **New application** to add an application.
 1. In the **Add from the gallery** section, type **Amazon Web Services (AWS)** in the search box.
 1. Select **Amazon Web Services (AWS)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -120,7 +120,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. In the Azure portal, search for and select **Azure Active Directory**.
+1. Within the Azure Active Directory overview menu, choose **Users** > **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
@@ -132,8 +133,9 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Amazon Web Services (AWS).
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Amazon Web Services (AWS)**.
+1. In the Azure portal, search for and select **Azure Active Directory**.
+1. Within the Azure Active Directory overview menu, choose **Enterprise Applications** > **All applications**.
+1. In the application list, select **Amazon Web Services (AWS)**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
    ![The "Users and groups" link](common/users-groups-blade.png)
