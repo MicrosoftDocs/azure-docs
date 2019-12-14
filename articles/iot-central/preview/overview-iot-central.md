@@ -36,15 +36,11 @@ This article outlines, for IoT Central:
 > [!Note]
 > These known issues only apply to the IoT Central preview applications.
 
-- Rules don't support all actions (only email).
-- For complex types - rules, analytics, and device groups aren't supported.
 - Continuous data export doesn't support the Avro format (incompatibility).
-- Simulated devices don't support all complex types.
 - GeoJSON isn't currently supported.
 - Map tile isn't currently supported.
 - Jobs don't support complex types.
 - Array schema types aren't supported.
-- Application template export and application copy aren't supported.
 - Only the C device SDK and the Node.js device and service SDKs are supported.
 - It's only available in the United States and Europe locations.
 - Device capability models must have all the interfaces defined inline in the same file.
