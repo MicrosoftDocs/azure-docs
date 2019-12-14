@@ -33,6 +33,7 @@ This article will demonstrate individual enrollments.
 The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
 * [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
+
 * Latest version of [Git](https://git-scm.com/download/) installed.
 
 ## Prepare a development environment for the Azure IoT C SDK
@@ -55,14 +56,14 @@ In this section, you will prepare a development environment used to build the [A
 
     You should expect this operation to take several minutes to complete.
 
-4. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. Run the following commands from the *azure-iot-sdk-c* directory.
+4. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. Run the following commands from the `azure-iot-sdk-c` directory:
 
     ```cmd/sh
     mkdir cmake
     cd cmake
     ```
 
-5. The code sample uses an X.509 certificate to provide attestation via X.509 authentication. Run the following command to build a version of the SDK specific to your development platform that includes the device provisioning client. A Visual Studio solution for the simulated device is generated in the *cmake* directory.
+5. The code sample uses an X.509 certificate to provide attestation via X.509 authentication. Run the following command to build a version of the SDK specific to your development platform that includes the device provisioning client. A Visual Studio solution for the simulated device is generated in the `cmake` directory.
 
     ```cmd
     cmake -Duse_prov_client:BOOL=ON ..
