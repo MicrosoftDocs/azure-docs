@@ -29,7 +29,7 @@ In the setting page, choose **Send to Log Analytics**, and under **LOG** choose 
 
 ![Add a diagnostic setting](media/functions-monitor-log-analytics/choose-table.png)
 
-## User generated logs
+## User-generated logs
 
 To generate custom logs, you can use the specific logging statement depending on your language, here are sample code snippets:
 
@@ -62,6 +62,8 @@ To generate custom logs, you can use the specific logging statement depending on
 ```powershell
     Write-Host "My app logs here."
 ```
+
+---
 
 ## Querying the logs
 
