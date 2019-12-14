@@ -99,7 +99,7 @@ At preview, following are the known issues with Live Transcription
 
 * The feature is available only in West US 2.
 * Applications need to use the preview APIs, described in the [Media Services v3 OpenAPI Specification](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json) specification.
-* The only supported language is English.
+* The only supported language is English (en-us).
 * With respect to content protection, only AES envelope encryption is supported.
 
 ## Next steps

@@ -4,8 +4,8 @@ description: This topic helps you understand how to collect data and monitor com
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/21/2019
 
 ---
