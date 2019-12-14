@@ -24660,7 +24660,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/storage/storage-scalability-targets.md",
+      "source_path": "articles/storage/common/storage-scalability-targets.md",
       "redirect_url": "/azure/storage/blobs/scalability-targets",
       "redirect_document_id": true
     },
