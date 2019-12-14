@@ -69,7 +69,7 @@ When using Oracle Data Guard, you may also open your secondary database for read
 > [!NOTE]
 > Active Data Guard requires additional licensing. This license is also required to use the Far Sync feature. Please connect with your Oracle representative to discuss the licensing implications.
 
-#### Oracle Data Guard with FSF
+#### Oracle Data Guard with FSFO
 Oracle Data Guard with Fast-Start Failover (FSFO) can provide additional resiliency by setting up the broker on a separate machine. The Data Guard broker and the secondary database both run the observer and observe the primary database for downtime. This allows for redundancy in your Data Guard observer setup as well. 
 
 With Oracle Database version 12.2 and above, it is also possible to configure multiple observers with a single Oracle Data Guard broker configuration. This setup provides additional availability, in case one observer and the secondary database experience downtime. Data Guard Broker is lightweight and can be hosted on a relatively small virtual machine. To learn more about Data Guard Broker and its advantages, visit the [Oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html) on this topic.
