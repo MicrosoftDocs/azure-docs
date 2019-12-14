@@ -24,7 +24,7 @@ The Event Processor Host is an intelligent agent that simplifies receiving event
 
 3. On the **Create storage account** page, take the following steps: 
 
-   1. Enter the **storage account name**.
+   1. Enter the **Storage account name**.
    2. Choose an Azure **Subscription** that contains the event hub.
    3. Choose or create the **Resource group** that has the event hub.
    4. Pick a **Location** in which to create the resource. 
