@@ -24665,6 +24665,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-security-guide.md",
+      "redirect_url": "/azure/storage/blobs/security-recommendations",
+      "redirect_document_id": true
+    },    
+    {
       "source_path": "articles/storage/storage-service-encryption-customer-managed-keys.md",
       "redirect_url": "/azure/storage/common/storage-service-encryption-customer-managed-keys",
       "redirect_document_id": true

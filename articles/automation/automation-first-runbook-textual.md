@@ -3,13 +3,9 @@ title: My first PowerShell Workflow runbook in Azure Automation
 description: Tutorial that walks you through the creation, testing, and publishing of a simple text runbook using PowerShell Workflow.
 keywords: powershell workflow, powershell workflow examples, workflow powershell
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/24/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # My first PowerShell Workflow runbook
 
