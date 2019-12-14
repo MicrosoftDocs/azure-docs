@@ -33,14 +33,18 @@ Before deploying the management tool, you'll need an Azure Active Directory user
 - Have permission to create resources in your Azure subscription
 - Have permission to create an Azure AD application. Follow these steps to check if your user has the [required permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-After deploying the management tool, you'll want to launch the management UI to validate. This user must:
+To run the deploy the managment tool end-to-end, you will need to download the following PowerShell scripts from the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) and place them in the same folder on your local machine:
+  - **createWvdMgmtUxAppRegistration.ps1**
+  - **updateWvdMgmtUxApiUrl.ps1** 
+
+After deploying and configuring the management tool, you'll want to launch the management UI to validate. This user must:
 - Have a role assignment to view or edit your Windows Virtual Desktop tenant
 
-## Create an Azure Active Directory app registration
+## Authenticating to Azure and Azure AD
 
-This section will show you how to use PowerShell to create the Azure Active Directory app and assign the appropriate API permissions for it.
+To login to both the Az and AzureAD PowerShell modules in preparation for the remaining PowerShell steps:
 
-1. Open PowerShell as an Administrator.
+1. Open PowerShell as an Administrator and navigate to the directory where you saved the PowerShell scripts.
 2. Sign in to Azure with an account that has Owner or Contributor permissions on the Azure subscription you would like to use for the diagnostics tool:
     ```powershell
     Login-AzAccount
@@ -49,78 +53,72 @@ This section will show you how to use PowerShell to create the Azure Active Dire
     ```powershell
     Connect-AzureAD
     ```
-4. Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) and run the **createWvdMgmtUxAppRegistration.ps1** script in PowerShell.
-5.  When the script prompts you, enter the two parameters:
-    - AppName: A unique name for the app registration, like "wvdmgmt20200101".
-    - AzureSubscriptionId: The Azure subscription ID where the application will be registered and running.
+4. Navigate to the folder where you saved the two PowerShell scripts from the RDS-Templates GitHub repo.
 
-After the script successfully runs, it should show the following things in its output:
+Keep this PowerShell window open, as you will be using it for the remaining steps.
 
--  A message that confirms your app now has a service principal role assignment.
--  Your **Client ID** and **Client Secret Key** that you'll need for when you deploy the management tool.
+## Create an Azure Active Directory app registration
 
-Now that you've registered your app, it's time to verify the app registration.
+Run the following PowerShell commands to create the app registration with the required API permissions:
+```powershell
+    $appName = Read-Host -Prompt "Enter a unique name for the management tool's app registration"
+    $subscriptionId = Read-Host -Prompt "Enter the Azure subscription ID where you will be deploying the management tool"
 
-## Verify the app registration and provide consent
-
-Before you continue deploying the management tool, we recommend that you verify that your Azure Active Directory application has API permissions. To make sure your app registration has the appropriate API permissions:
-
-1. Open your internet browser and sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
-2. From the search bar at the top of the Azure portal, search for **App registrations** and select the item under **Services**.
-3. Select **All applications** and search for it using the unique app name you provided for the PowerShell script.
-4. In the left panel, select **API permissions** to confirm that permissions were added.
-5. If you are a global admin, click the button and follow the dialog prompts to provide admin consent for your organization.
-    ![The API permissions page](media/management-ui-permissions.png)
+    .\createWvdMgmtUxAppRegistration.ps1 -AppName $appName -SubscriptionId $subscriptionId
+```
+Now that you've completed the Azure AD app registration, you can deploy the management tool.
 
 ## Deploy the management tool
 
-Run the following PowerShell to deploy the management tool, associating it with the service principal you just created:
+Run the following PowerShell commands to deploy the management tool and associate it with the service principal you just created:
      
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
-$credentials = Get-Credential -Message "Enter credentials for the service principal, entering the Client ID and the Client Secret Key"
-$appName = Read-Host -Prompt "Enter a unique name for the web app that will be used as part of the website URL. This can match the app name you provided in the app registration."
-
+Select-AzSubscription -SubscriptionId $subscriptionId
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
     -TemplateUri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-management-ux/deploy/mainTemplate.json" `
     -isServicePrincipal $true `
-    -azureAdminUserPrincipalNameOrApplicationId $credentials.UserName `
-    -azureAdminPassword $credentials.Password `
+    -azureAdminUserPrincipalNameOrApplicationId $servicePrincipalCredentials.UserName `
+    -azureAdminPassword $servicePrincipalCredentials.Password `
     -applicationName $appName
 ```
+After you've created the web app for the management tool and associated it with the Azure AD application, you must add a redirect URI to the Azure AD application to successfully login users.
 
 ## Set the Redirect URI
-To set the Redirect URI:
 
-1.  In the [Azure portal](https://portal.azure.com/), go to **App Services** and locate the application you created.
-2.  Go to the **Overview** page and copy the **URL** you find there.
-3.  Navigate to **App registrations** and select the app you want to deploy.
-4.  In the left panel, select **Authentication**.
-5.  Enter the desired Redirect URI into the **Redirect URI** text box, then select **Save** in the top-left corner of the menu.
-6.  Select **Web** in the drop-down menu under Type.
-7.  Enter the URL from the web app overview page.
-    ![The authentication page with the redirect URI](media/management-ui-redirect-uri.png)
+Run the following PowerShell commands to retrieve the web app URL and set it as the authentication redirect URI (also called a reply URL):
+
+```powershell
+    $webApp = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
+    $redirectUri = "https://" + $webApp.DefaultHostName + "/"
+    $azureADApplication = Get-AzureADApplication | where { $_.AppId -eq $servicePrincipalCredentials.UserName } 
+    Get-AzureADApplication | where { $_.AppId -eq $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
+```
+Now that you've added a redirect URI and users will be able to login, you must update the API URL so the management tool web app so the UI can interact with the service.
 
 ## Update the API URL for the web application
 
-This section will show you how to use PowerShell to update API URL in web application front end of mainbundle.js file:
+Run the following commands to update the API URL in the web application front end:
 
-1. Open PowerShell as an Administrator.
-2. Sign in to Azure with an account that has Owner or Contributor permissions on the Azure subscription you would like to use for the diagnostics tool:
-   ```powershell
-   Login-AzAccount
-   ```
-3. Sign in to Azure AD with the same account:
-   ```powershell
-   Connect-AzureAD
-   ```
-4. Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) and run the **updateWvdMgmtUxApiUrl.ps1** script in PowerShell.
-5.  When the script prompts you, enter the two parameters:
-    - AppName: The same name you in the first PowerShell script for the app registration, like "wvdmgmt20200101".
-    - AzureSubscriptionId: The Azure subscription ID where the application will be registered and running.
+```powershell
+    .\updateWvdMgmtUxApiUrl.ps1 -AppName $appName -SubscriptionId $subscriptionId
+```
+Now that you've fully configured the management tool web app, it's time to verify the Azure AD application and provide consent.
+
+## Verify the Azure AD application and provide consent
+
+To verify the Azure AD application configuration and provide consent:
+
+1. Open your internet browser and sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
+2. From the search bar at the top of the Azure portal, search for **App registrations** and select the item under **Services**.
+3. Select **All applications** and search for it using the unique app name you provided for the PowerShell script.
+4. In the left panel, select **Authentication** and verify that the redirect URI is the same as the web app URL for the management tool.
+   ![The authentication page with the entered redirect URI](media/management-ui-redirect-uri.png)
+5. In the left panel, select **API permissions** to confirm that permissions were added. If you are a global admin, click the button and follow the dialog prompts to provide admin consent for your organization.
+    ![The API permissions page](media/management-ui-permissions.png)
 
 You can now start using the management tool.
 
