@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-> [!VIDEO https://mediusprodstatic.studios.ms/asset-124f618e-f5da-418b-90e8-bf98f390222e/THR3114_1280x720_3400.mp4?sv=2017-04-17&sr=c&si=147902a8-740b-4375-a449-6a9b7cfe7cfb&sig=Dzln9mHKWNGimFllKLRDQGhygiggf1vJCJf0h%2FsUKXE%3D&se=2024-11-03T04%3A41%3A28Z]
+> [!VIDEO https://myignite.techcommunity.microsoft.com/sessions/83929?source=sessions]
 
 Incremental snapshots (preview) are point in time backups for managed disks that, when taken, consist only of all the changes since the last snapshot. When you attempt to download or otherwise use an incremental snapshot, the full VHD is used. This new capability for managed disk snapshots can potentially allow them to be more cost effective, since you are no longer required to store the entire disk with each individual snapshot, unless you choose to. Just like regular snapshots, incremental snapshots can be used to create a full managed disk or, to make a regular snapshot.
 
