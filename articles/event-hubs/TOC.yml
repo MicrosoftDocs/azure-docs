@@ -164,12 +164,14 @@
       href: event-hubs-service-endpoints.md
     - name: Enable Virtual Networks Integration and Firewalls on Event Hubs Namespace
       href: event-hubs-tutorial-virtual-networks-firewalls.md
-    - name: Configure customer-managed keys for encrypting data at rest 
+    - name: Configure customer-managed keys for encrypting data at rest (Preview)
       href: configure-customer-managed-key.md
   - name: Troubleshoot
     items:
-    - name: Exceptions
+    - name: Troubleshooting guide
       href: event-hubs-messaging-exceptions.md
+    - name: Resource Manager exceptions
+      href: resource-manager-exceptions.md
 - name: Reference
   items:
   - name: Java

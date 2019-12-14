@@ -13,7 +13,7 @@ ms.date: 11/22/2019
 ms.custom: seodec18
 ---
 
-# MLOps: model management, deployment, and monitoring with Azure Machine Learning
+# MLOps: Model management, deployment and monitoring with Azure Machine Learning
 
 In this article, learn about how to use Azure Machine Learning to manage the lifecycle of your models. Azure Machine Learning uses a Machine Learning Operations (MLOps) approach. MLOps improves the quality and consistency of your machine learning solutions. 
 
@@ -111,7 +111,6 @@ For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI (preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
-
 ## Capture the governance data required for capturing the end-to-end ML lifecycle
 
 Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets. Specifically:
@@ -124,6 +123,7 @@ Azure ML gives you the capability to track the end-to-end audit trail of all of 
 ## Notify, automate, and alert on events in the ML lifecycle
 Azure ML publishes key events to Azure EventGrid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](how-to-use-event-grid.md).
 
+
 ## Monitor for operational & ML issues
 
 Monitoring enables you to understand what data is being sent to your model, and the predictions that it returns.
@@ -131,7 +131,6 @@ Monitoring enables you to understand what data is being sent to your model, and 
 This information helps you understand how your model is being used. The collected input data may also be useful in training future versions of the model.
 
 For more information, see [How to enable model data collection](how-to-enable-data-collection.md).
-
 
 ## Automate the ML lifecycle 
 

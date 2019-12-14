@@ -66,7 +66,7 @@ Users in this role can create application registrations when the "Users can regi
 
 ### [Authentication Administrator](#authentication-administrator-permissions)
 
-Users with this role can set or reset non-password credentials and can update passwords for all users. Authentication Administrators can require users to re-register against existing non-password credential (for example, MFA or FIDO) and revoke **remember MFA on the device**, which prompts for MFA on the next sign-in of users who are non-administrators or assigned the following roles only:
+The Authentication administrator role is currently in public preview. Users with this role can set or reset non-password credentials and can update passwords for all users. Authentication Administrators can require users to re-register against existing non-password credential (for example, MFA or FIDO) and revoke **remember MFA on the device**, which prompts for MFA on the next sign-in of users who are non-administrators or assigned the following roles only:
 
 * Authentication Administrator
 * Directory Readers
@@ -181,7 +181,7 @@ This role is available for assignment only as an additional local administrator 
 
 Users in this role can read basic directory information. This role should be used for:
 * Granting a specific set of guest users read access instead of granting it to all guest users.
-* Granting a specific set of non-admin users access to Azure Portal when “Restrict access to Azure AD portal to admins only” is set to “Yes”.
+* Granting a specific set of non-admin users access to Azure portal when “Restrict access to Azure AD portal to admins only” is set to “Yes”.
 * Granting service principals access to directory where Directory.Read.All is not an option.
 
 ### [Directory Synchronization Accounts](#directory-synchronization-accounts-permissions)
@@ -234,7 +234,7 @@ Users in this role can read settings and administrative information across Micro
 >- [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - Global reader can't read the provisioning mode of an enterprise app.
 >- [M365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global reader can't read customer lockbox requests. You won't find the **Customer lockbox requests** tab under **Support** in the left pane of M365 Admin Center.
 >- [M365 Security center](https://security.microsoft.com/homepage) - Global reader can't read sensitivity and retention labels. You won't find **Sensitivity labels**, **Retention labels**, and **Label analytics** tabs in the left pane of the M365 Security center.
->- [Office Security & Compliance Center](https://protection.microsoft.com) - Global reader can't read SCC audit logs or do content search.
+>- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - Global reader can't read SCC audit logs or do content search.
 >- [Teams admin center](https://admin.teams.microsoft.com) - Global reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management** and **App catalog**.
 >- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) doesn't support the Global reader role.
 >- [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) - Global reader is supported [for central reporting](https://docs.microsoft.com/azure/information-protection/reports-aip) only, and when your Azure AD organization isn't on the [unified labeling platform](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
@@ -242,9 +242,9 @@ Users in this role can read settings and administrative information across Micro
 > These features are currently in development.
 >
 
-### [Group Administrator](#group-administrator)
+### [Group Administrator](#group-administrator-permissions)
 
-Users in this role can create/manage groups and its settings like naming and expiration policies. It is important to understand that assigning a user to this role gives them the ability to manage all groups in the tenant across various workloads like Teams, SharePoint, Yammer in addition to Outlook. Also the user will be able to manage the various groups settings across various admin portals like Microsoft Admin Center, Azure Portal, as well as workload specific ones like Teams and SharePoint Admin Centers.
+Users in this role can create/manage groups and its settings like naming and expiration policies. It is important to understand that assigning a user to this role gives them the ability to manage all groups in the tenant across various workloads like Teams, SharePoint, Yammer in addition to Outlook. Also the user will be able to manage the various groups settings across various admin portals like Microsoft Admin Center, Azure portal, as well as workload specific ones like Teams and SharePoint Admin Centers.
 
 ### [Guest Inviter](#guest-inviter-permissions)
 
@@ -275,7 +275,9 @@ This role was previously called "Password Administrator" in the [Azure portal](h
 
 ### [Intune Administrator](#intune-service-administrator-permissions)
 
-Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
+Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
+
+This role can create and manage all security groups. However, Intune Admin does not have admin rights over Office groups. That means the admin cannot update owners or memberships of all Office groups in the tenant. However, he/she can manage the Office group that he creates which comes as a part of his/her end user privileges. So, any Office group (not security group) that he/she creates should be counted against his/her quota of 250.
 
 > [!NOTE]
 > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Intune Service Administrator ". It is "Intune Administrator" in the [Azure portal](https://portal.azure.com).
@@ -439,7 +441,7 @@ Users in this role can troubleshoot communication issues within Microsoft Teams 
 
 ### [User Administrator](#user-administrator-permissions)
 
-Users with this role can create users, and manage all aspects of users with some restrictions (see below), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User administrators don't have permission to manage some user properties for users in most administrator roles. The roles that are exceptions to this restriction are listed in the following table.
+Users with this role can create users, and manage all aspects of users with some restrictions (see below), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User administrators don't have permission to manage some user properties for users in most administrator roles. User with this role do not have permisssions to manage MFA. The roles that are exceptions to this restriction are listed in the following table.
 
 | | |
 | --- | --- |
@@ -1077,8 +1079,8 @@ Can read everything that a Global Administrator can, but not edit anything.
 | microsoft.office365.usageReports/allEntities/read	| Read Office 365 usage reports. |
 | microsoft.office365.webPortal/allEntities/standard/read	| Read standard properties on all resources in microsoft.office365.webPortal. |
 
-### Group Administrator
-Can manage all aspects of groups and group settings like naming and expiration policies
+### Group Administrator permissions
+Can manage all aspects of groups and group settings like naming and expiration policies.
 
 | **Actions** | **Description** |
 | --- | --- |

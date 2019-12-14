@@ -1,10 +1,10 @@
 ---
 title: How to configure multi-master in Azure Cosmos DB
-description: Learn how to configure multi-master in your applications in Azure Cosmos DB.
+description: Learn how to configure multi-master for your applications by using different SDKs in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ---
 

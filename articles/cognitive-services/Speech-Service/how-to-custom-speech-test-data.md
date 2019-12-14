@@ -1,5 +1,5 @@
 ---
-title: "Prepare test data for Custom Speech - Speech Service"
+title: "Prepare test data for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "Whether you're testing to see how accurate Microsoft speech recognition is or training your own models, you'll need data (in the form of audio and/or text). On this page, we cover the types of data, how they are used, and how to manage them."
 services: cognitive-services
@@ -20,7 +20,7 @@ Whether you're testing to see how accurate Microsoft speech recognition is or tr
 
 This table lists accepted data types, when each data type should be used, and the recommended quantity. Not every data type is required to create a model. Data requirements will vary depending on whether you're creating a test or training a model.
 
-| Data type | Used of testing | Quantity | Used for training | Quantity |
+| Data type | Used of testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/a |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5 - 5 hours of audio | Yes | 1 - 1,000 hours of audio |
@@ -57,6 +57,9 @@ Use this table to ensure that your audio files are formatted correctly for use w
 | Archive format | .zip |
 | Maximum archive size | 2 GB |
 
+> [!TIP]
+> When uploading training and testing data, the .zip file size cannot exceed 2 GB. If you require more data for training and testing, divide it into several .zip files and upload them separately. Later, you can choose to train and test from *multiple* datasets.
+
 If your audio doesn’t satisfy these properties or you want to check if it does, we suggest downloading [sox](http://sox.sourceforge.net) to check or convert the audio. Below are some examples of how each of these activities can be done through the command line:
 
 | Activity | Description | Sox command |
@@ -66,7 +69,7 @@ If your audio doesn’t satisfy these properties or you want to check if it does
 
 ## Audio + human-labeled transcript data for testing/training
 
-To measure the accuracy of Microsoft's speech-to-text accuracy when processing your audio files, you must provide human-labeled transcriptions (word-by-word) for comparison. While human-labeled transcription is often time consuming, it's necessary to evaluate accuracy and to train the model for your use cases. Keep in mind, the improvements in recognition will only be as good as the data provided. For that reason, it's important that only high-quality transcripts are uploaded.  
+To measure the accuracy of Microsoft's speech-to-text accuracy when processing your audio files, you must provide human-labeled transcriptions (word-by-word) for comparison. While human-labeled transcription is often time consuming, it's necessary to evaluate accuracy and to train the model for your use cases. Keep in mind, the improvements in recognition will only be as good as the data provided. For that reason, it's important that only high-quality transcripts are uploaded.
 
 | Property | Value |
 |----------|-------|
@@ -77,6 +80,9 @@ To measure the accuracy of Microsoft's speech-to-text accuracy when processing y
 | Sample format | PCM, 16-bit |
 | Archive format | .zip |
 | Maximum zip size | 2 GB |
+
+> [!TIP]
+> When uploading training and testing data, the .zip file size cannot exceed 2 GB. If you require more data for training and testing, divide it into several .zip files and upload them separately. Later, you can choose to train and test from *multiple* datasets.
 
 To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 1,000 hours of audio. The transcriptions for all WAV files should be contained in a single plain-text file. Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t).
 

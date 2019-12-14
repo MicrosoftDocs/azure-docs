@@ -1,7 +1,7 @@
 ---
 title: Use Visual Studio Code to connect to Azure Blockchain Service
 description: Connect to an Azure Blockchain Service consortium network using the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code
-ms.date: 11/19/2019
+ms.date: 12/05/2019
 ms.topic: quickstart
 ms.reviewer: chrisseg
 #Customer intent: As a developer, I want to connect to my blockchain consortium so that I can perform actions on a blockchain.
@@ -55,12 +55,12 @@ You can connect to consortium members using the Azure Blockchain Development Kit
 If you don't have access to an Azure Blockchain Service consortium member, complete the prerequisite [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md).
 
 1. In the VS Code explorer pane, expand the **Azure Blockchain** extension.
-1. Select **Connect to Consortium**.
+1. Select **Connect to network**.
 
-   ![Connect to consortium](./media/connect-vscode/connect-consortium.png)
+   ![Connect to network](./media/connect-vscode/connect-consortium.png)
 
     If prompted for Azure authentication, follow the prompts to authenticate using a browser.
-1. Choose **Connect to Azure Blockchain Service consortium** in the command palette dropdown.
+1. Choose **Azure Blockchain Service** in the command palette dropdown.
 1. Choose the subscription and resource group associated with your Azure Blockchain Service consortium member.
 1. Choose your consortium from the list.
 

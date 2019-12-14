@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 11/27/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
@@ -30,3 +30,7 @@ For instructions on creating and using availability sets when using the classic 
 ## Next steps
 To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+View Reference Architectures for running N-tier applications on SQL Server in IaaS
+
+* [Windows N-tier application on Azure with SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Run an N-tier application in multiple Azure regions for high availability](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

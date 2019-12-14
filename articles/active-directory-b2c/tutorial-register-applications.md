@@ -1,5 +1,6 @@
 ---
-title: Tutorial - Register an application - Azure Active Directory B2C
+title: "Tutorial: Register an application"
+titleSuffix: Azure AD B2C
 description: Learn how to register a web application in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
 author: mmacy

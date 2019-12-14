@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/12/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -41,7 +41,7 @@ Organizations may have many cloud applications in use. Not all of those applicat
 The following steps will help create a Conditional Access policy to require those assigned administrative roles to perform multi-factor authentication.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-1. Browse to **Azure Active Directory** > **Conditional Access**.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**
@@ -54,8 +54,24 @@ The following steps will help create a Conditional Access policy to require thos
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
+### Named locations
+
+Organizations may choose to incorporate known network locations known as **Named locations** to their Conditional Access policies. These named locations may include trusted IPv4 networks like those for a main office location. For more information about configuring named locations, see the article [What is the location condition in Azure Active Directory Conditional Access?](location-condition.md)
+
+In the example policy above, an organization may choose to not require multi-factor authentication if accessing a cloud app from their corporate network. In this case they could add the following configuration to the policy:
+
+1. Under **Assignments**, select **Conditions** > **Locations**.
+   1. Configure **Yes**.
+   1. Include **Any location**.
+   1. Exclude **All trusted locations**.
+   1. Select **Done**.
+1. Select **Done**.
+1. **Save** your policy changes.
+
 ## Next steps
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
+
+[Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
