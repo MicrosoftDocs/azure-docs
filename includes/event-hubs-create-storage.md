@@ -30,7 +30,7 @@ The Event Processor Host is an intelligent agent that simplifies receiving event
    4. Pick a **Location** in which to create the resource. 
    5. Select **Review + create**.
    
-            ![Review + create, Create storage account, Microsoft Azure portal](./media/event-hubs-create-storage/review-create.png)
+        ![Review + create, Create storage account, Microsoft Azure portal](./media/event-hubs-create-storage/review-create.png)
 
 4. On the **Review + create** page, review the values, and select **Create**. 
 
