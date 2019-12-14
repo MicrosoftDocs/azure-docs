@@ -33,7 +33,7 @@ Before deploying the management tool, you'll need an Azure Active Directory user
 - Have permission to create resources in your Azure subscription
 - Have permission to create an Azure AD application. Follow these steps to check if your user has the [required permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-To run the deploy the managment tool end-to-end, you will need to download the following PowerShell scripts from the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) and place them in the same folder on your local machine:
+To run the deploy the management tool end-to-end, you will need to download the following PowerShell scripts from the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) and place them in the same folder on your local machine:
   - **createWvdMgmtUxAppRegistration.ps1**
   - **updateWvdMgmtUxApiUrl.ps1** 
 
