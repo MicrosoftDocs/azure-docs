@@ -71,4 +71,4 @@ You will use the same client that you will be using to connect to Azure Resource
 
 ## Next steps
 
-[Connect to Azure Resource Manager](azure-stack-edge-r-series-connect-azure-resource-manager.md)
+[Connect to Azure Resource Manager](azure-stack-edge-r-series-connect-resource-manager.md)
