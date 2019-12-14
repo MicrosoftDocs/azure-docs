@@ -11,9 +11,7 @@ ms.date: 12/12/2019
 ---
 
 
-# Azure Monitor FAQ
-
-This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions about Log Analytics, go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+# Azure Monitor Frequently Asked Questions
 
 ## Overview
 
@@ -94,7 +92,6 @@ A yellow warning icon means the agent is having issues communication with Log An
 A: In System Center Operations Manager, remove the computer from the Log Analytics managed computers list. Operations Manager updates the configuration of the agent to no longer report to Log Analytics. For agents connected to Log Analytics directly, you can stop them from communicating through: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
 Under **Azure Log Analytics (OMS)**, remove all workspaces listed.
 
-## Agent data
 ### Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?
 A. There is no limit on the amount of data that is uploaded, it is based on the pricing option you select - Capacity Reservation or Pay-As-You-Go. A Log Analytics workspace is designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day. For further information, see [pricing details](https://azure.microsoft.com/pricing/details/monitor/).
 
