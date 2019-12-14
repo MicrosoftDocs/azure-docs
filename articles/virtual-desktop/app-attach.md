@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 12/14/2019
 ms.author: helohr
 ---
 # Set up MSIX app attach
