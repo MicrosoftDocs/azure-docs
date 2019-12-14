@@ -40,7 +40,7 @@ To run the deploy the managment tool end-to-end, you will need to download the f
 After deploying and configuring the management tool, you'll want to launch the management UI to validate. This user must:
 - Have a role assignment to view or edit your Windows Virtual Desktop tenant
 
-## Authenticating to Azure and Azure AD
+## Setting up PowerShell
 
 To login to both the Az and AzureAD PowerShell modules in preparation for the remaining PowerShell steps:
 
