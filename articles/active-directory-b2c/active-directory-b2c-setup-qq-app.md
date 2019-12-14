@@ -43,9 +43,9 @@ To use a QQ account as an identity provider in Azure Active Directory B2C (Azure
 
 ## Configure QQ as an identity provider
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Identity providers**, then select **QQ (Preview)**.
 1. Enter a **Name**. For example, *QQ*.
 1. For the **Client ID**, enter the APP ID of the QQ application that you created earlier.
