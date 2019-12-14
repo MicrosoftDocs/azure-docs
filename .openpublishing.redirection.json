@@ -1611,6 +1611,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/spark-api-introduction.md",
+      "redirect_url": "/azure/cosmos-db/analytics-usecases",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-python-application.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-python",
       "redirect_document_id": false
@@ -14341,11 +14346,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md",
-      "redirect_url": "/azure/synapse-analytics/sql-analytics/azure-synapse-resource-consumption-models",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
       "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": false
@@ -23072,6 +23072,16 @@
     {
       "source_path": "articles/storage/common/storage-create-storage-account.md",
       "redirect_url": "/azure/storage/common/storage-quickstart-create-account",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-quickstart-create-account.md",
+      "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-account-manage.md",
+      "redirect_url": "/azure/storage/common/storage-account-keys-manage",
       "redirect_document_id": true
     },
     {
@@ -41419,6 +41429,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/synapse-analytics/index.yml",
+      "redirect_url": "/azure/sql-data-warehouse/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-stack/user/index.yml",
       "redirect_url": "/azure-stack/user",
       "redirect_document_id": false
@@ -43981,6 +43996,11 @@
     {
       "source_path": "articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-storage.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/bandwidth-recommendations.md",
+      "redirect_url": "https://docs.microsoft.com/windows-server/remote/remote-desktop-services/network-guidance",
       "redirect_document_id": false
     }
   ]
