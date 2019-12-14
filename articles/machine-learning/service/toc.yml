@@ -15,6 +15,17 @@
 
 - name: Tutorials
   items:
+  - name: Studio & Designer
+    items:
+    - name: 'Designer: 1. Train a regression model'
+      displayName: studio
+      href: tutorial-designer-automobile-price-train-score.md
+    - name: 'Designer: 2. Deploy that model'
+      displayName: studio
+      href: tutorial-designer-automobile-price-deploy.md
+    - name: Create an automated ML experiment
+      displayName: automl, automated, auto ml, portal, ui
+      href: tutorial-first-experiment-automated-ml.md
   - name: Python SDK
     items:
     - name: Create first ML experiment
@@ -44,17 +55,6 @@
     items:
     - name: Create first ML experiment (R)
       href: tutorial-1st-r-experiment.md
-  - name: Designer
-    items:
-    - name: 1. Train regression model
-      displayName: studio
-      href: tutorial-designer-automobile-price-train-score.md
-    - name: 2. Deploy regression model
-      displayName: studio
-      href: tutorial-designer-automobile-price-deploy.md
-  - name: Automated ML (interface)
-    displayName: automl, automated, auto ml, portal, ui
-    href: tutorial-first-experiment-automated-ml.md
   - name: Machine Learning CLI
     href: tutorial-train-deploy-model-cli.md
 
