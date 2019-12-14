@@ -132,8 +132,8 @@ You can now access the management tool at any time. Follow these instructions to
    > If you were unable to grant admin consent earlier in these steps, each user who logs in will be need to provide their own user consent to use the tool.
 3. When prompted to choose a Tenant Group, select **Default Tenant Group** from the drop-down list.
 4. When you select Default Tenant Group, a menu should appear on the left side of your window. In this menu, find the name of your tenant group and select it.
-  > [!NOTE]
-  > If you have a custom Tenant Group, enter the name manually instead of choosing from the drop-down list.
+   > [!NOTE]
+   > If you have a custom Tenant Group, enter the name manually instead of choosing from the drop-down list.
 
 ## Report issues
 
