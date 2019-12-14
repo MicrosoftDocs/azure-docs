@@ -36,7 +36,7 @@ Note that this document assumes that SQL commands are executed from SQL Server M
 This tutorial assumes you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-* An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
+* An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 * Provisioned **SQL Server on an Azure VM**. For instructions, see [Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 

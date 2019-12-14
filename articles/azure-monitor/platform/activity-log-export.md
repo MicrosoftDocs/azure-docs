@@ -23,12 +23,12 @@ Archiving the Activity Log to a storage account is useful if you would like to r
 ## Stream Activity Log to Event Hub
 [Azure Event Hubs](/azure/event-hubs/) is a data streaming platform and event ingestion service that can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters. Two ways you might use the streaming capability for the Activity Log are:
 * **Stream to third-party logging and telemetry systems**: Over time, Azure Event Hubs streaming will become the mechanism to pipe your Activity Log into third-party SIEMs and log analytics solutions.
-* **Build a custom telemetry and logging platform**: If you already have a custom-built telemetry platform or are thinking about building one, the highly scalable publish-subscribe nature of Event Hubs enables you to flexibly ingest the activity log. 
+* **Build a custom telemetry and logging platform**: If you already have a custom-built telemetry platform or are thinking about building one, the highly scalable publish-subscribe nature of Event Hubs enables you to flexibly ingest the activity log.
 
 ## Prerequisites
 
 ### Storage account
-If you're archiving your Activity Log, you need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
+If you're archiving your Activity Log, you need to [create a storage account](../../storage/common/storage-account-create.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
 
 The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 > [!NOTE]
@@ -72,7 +72,7 @@ Create or edit a log profile with the **Export to Event Hub** option in the Azur
     ![Export button in portal](media/activity-log-export/portal-export.png)
 
 3. In the blade that appears, specify the following:
-   * Regions with the events to export. You should select all regions to ensure that you don't miss key events since the Activity Log is a global (non-regional) log and so most events do not have a region associated with them. 
+   * Regions with the events to export. You should select all regions to ensure that you don't miss key events since the Activity Log is a global (non-regional) log and so most events do not have a region associated with them.
    * If you want to write to storage account:
        * The Storage Account to which you would like to save events.
        * The number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
