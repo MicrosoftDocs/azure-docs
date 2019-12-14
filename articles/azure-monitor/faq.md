@@ -41,7 +41,7 @@ Azure Monitor collects data from a variety of sources including logs and metrics
 ### What data is collected by Azure Monitor? 
 Azure Monitor collects data from a variety of sources into [logs](platform/data-platform-logs.md) or [metrics](platform/data-platform-metrics.md). Each type of data has its own relative advantages, and each supports a particular set of features in Azure Monitor. There is a single metrics database for each Azure subscription, while you can create multiple Log Analytics workspaces to collect logs depending on your requirements. See [Azure Monitor data platform](platform/data-platform.md).
 
-## Is there a maximum amount of data that I can collect in Azure Monitor?
+### Is there a maximum amount of data that I can collect in Azure Monitor?
 There is no limit to the amount of metric data you can collect, but this data is stored for a maximum of 93 days. See [Retention of Metrics](platform/data-platform-metrics.md#retention-of-metrics).
 
 There is no limit on the amount of log data that you can collected, but it may be affected by the pricing tier you choose for the Log Analytics workspace. See [pricing details](https://azure.microsoft.com/pricing/details/monitor/).
