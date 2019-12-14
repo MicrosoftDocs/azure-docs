@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/13/2019
 ms.author: cherylmc
 
 ---
@@ -36,7 +36,7 @@ Yes. MACsec secures the physical connections between you and Microsoft. IPsec se
 ### Can I use Azure VPN gateway to set up the IPsec tunnel between my on-premises network and my Azure virtual network?
 Yes. You can set up this IPsec tunnel over Microsoft Peering of your ExpressRoute circuit. Follow our [configuration guide](site-to-site-vpn-over-microsoft-peering.md).
 ### Can I use Azure VPN gateway to set up the IPsec tunnel over Azure Private Peering?
-No. You have to deploy a third-party VPN gateway in your Azure virtual network and establish an IPsec tunnel between it and your on-premises VPN gateway.
+If you adopt Azure Virtual WAN you can follow [these steps](../virtual-wan/vpn-over-expressroute.md) to encrypt the end-to-end connection. If you have regular Azure VNET you can deploy a third-party VPN gateway in your VNET and establish an IPsec tunnel between it and your on-premises VPN gateway.
 ### What is the throughput I will get after enabling IPsec on my ExpressRoute connection?
 If Azure VPN gateway is used, check the [performance numbers here](../vpn-gateway/vpn-gateway-about-vpngateways.md). If a third-party VPN gateway is used, check with the vendor for the performance numbers.
 
