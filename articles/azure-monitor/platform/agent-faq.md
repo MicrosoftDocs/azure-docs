@@ -27,7 +27,7 @@ From Control Panel on the agent computer, select **Security & Settings**, **Micr
 
 For agents connected to Log Analytics directly, open the Control Panel and select **Security & Settings**, **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, remove all workspaces listed. In System Center Operations Manager, remove the computer from the Log Analytics managed computers list. Operations Manager updates the configuration of the agent to no longer report to Log Analytics. 
 
-### How much data is sent per agent?
+## How much data is sent per agent?
 The amount of data sent per agent depends on:
 
 * The solutions you have enabled
