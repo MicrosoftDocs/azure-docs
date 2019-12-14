@@ -61,10 +61,10 @@ Keep this PowerShell window open, as you will be using it for the remaining step
 
 Run the following PowerShell commands to create the app registration with the required API permissions:
 ```powershell
-    $appName = Read-Host -Prompt "Enter a unique name for the management tool's app registration"
-    $subscriptionId = Read-Host -Prompt "Enter the Azure subscription ID where you will be deploying the management tool"
+$appName = Read-Host -Prompt "Enter a unique name for the management tool's app registration"
+$subscriptionId = Read-Host -Prompt "Enter the Azure subscription ID where you will be deploying the management tool"
 
-    .\createWvdMgmtUxAppRegistration.ps1 -AppName $appName -SubscriptionId $subscriptionId
+.\createWvdMgmtUxAppRegistration.ps1 -AppName $appName -SubscriptionId $subscriptionId
 ```
 Now that you've completed the Azure AD app registration, you can deploy the management tool.
 
@@ -92,10 +92,10 @@ After you've created the web app for the management tool and associated it with 
 Run the following PowerShell commands to retrieve the web app URL and set it as the authentication redirect URI (also called a reply URL):
 
 ```powershell
-    $webApp = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
-    $redirectUri = "https://" + $webApp.DefaultHostName + "/"
-    $azureADApplication = Get-AzureADApplication | where { $_.AppId -eq $servicePrincipalCredentials.UserName } 
-    Get-AzureADApplication | where { $_.AppId -eq $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
+$webApp = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
+$redirectUri = "https://" + $webApp.DefaultHostName + "/"
+$azureADApplication = Get-AzureADApplication | where { $_.AppId -eq $servicePrincipalCredentials.UserName } 
+Get-AzureADApplication | where { $_.AppId -eq $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
 ```
 Now that you've added a redirect URI and users will be able to login, you must update the API URL so the management tool web app so the UI can interact with the service.
 
@@ -104,7 +104,7 @@ Now that you've added a redirect URI and users will be able to login, you must u
 Run the following commands to update the API URL in the web application front end:
 
 ```powershell
-    .\updateWvdMgmtUxApiUrl.ps1 -AppName $appName -SubscriptionId $subscriptionId
+.\updateWvdMgmtUxApiUrl.ps1 -AppName $appName -SubscriptionId $subscriptionId
 ```
 Now that you've fully configured the management tool web app, it's time to verify the Azure AD application and provide consent.
 
