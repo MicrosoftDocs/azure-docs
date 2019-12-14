@@ -41,6 +41,11 @@ Azure Monitor collects data from a variety of sources including logs and metrics
 ### What data is collected by Azure Monitor? 
 Azure Monitor collects data from a variety of sources into [logs](platform/data-platform-logs.md) or [metrics](platform/data-platform-metrics.md). Each type of data has its own relative advantages, and each supports a particular set of features in Azure Monitor. There is a single metrics database for each Azure subscription, while you can create multiple Log Analytics workspaces to collect logs depending on your requirements. See [Azure Monitor data platform](platform/data-platform.md).
 
+## Is there a maximum amount of data that I can collect in Azure Monitor?
+There is no limit to the amount of metric data you can collect, but this data is stored for a maximum of 93 days. See [Retention of Metrics](platform/data-platform-metrics.md#retention-of-metrics).
+
+There is no limit on the amount of log data that you can collected, but it may be affected by the pricing tier you choose for the Log Analytics workspace. See [pricing details](https://azure.microsoft.com/pricing/details/monitor/).
+
 ### How do I access data collected by Azure Monitor?
 Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data using Log Analytics. Analyze metrics in the Azure portal with the Metrics Explorer. See [Analyze log data in Azure Monitor](log-query/log-query-overview.md) and [Getting started with Azure Metrics Explorer](platform/metrics-getting-started.md).
 
@@ -80,16 +85,15 @@ You can connect your existing System Center Operations Manager management group 
 See [Move a Log Analytics workspace to different subscription or resource group](/platform/move-workspace.md) for details on moving a workspace between resource groups or subscriptions. You cannot move a workspace to a different region.
 
 ### What IP addresses does Azure Monitor use?
-See [IP addresses used by Application Insights and Log Analytics](app/ip-addresses.md) for a listing of the IP addresses and ports required for agents and other external resources to access Azure Monitor. 
+See [IP addresses used by Application Insights and Log Analytics](app/ip-addresses.md) for a listing of the IP addresses and ports required for agents and other external resources to access Azure Monitor. See [Network firewall requirements]
 
-As service deployments are made, the actual IP addresses of the Log Analytics service change. The DNS names to allow through your firewall are documented in [network requirements](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
 
 ### Does my Log Analytics traffic use my ExpressRoute connection?
-The different types of ExpressRoute traffic are described in the [ExpressRoute documentation](../../expressroute/expressroute-faqs.md#supported-services). Traffic to Azure Monitor uses the Microsoft peering ExpressRoute circuit.
+The different types of ExpressRoute traffic are described in the [ExpressRoute documentation](../expressroute/expressroute-faqs.md#supported-services). Traffic to Azure Monitor uses the Microsoft peering ExpressRoute circuit.
 
 ## Other FAQs
 
 - [Application Insights](app/troubleshoot-faq.md)
-- [Agents](platform/agents-faq.md)
+- [Agents](platform/agent-faq.md)
 - [Azure Monitor for Containers](insights/container-insights-faq.md)
 - [Azure Monitor for VMs](insights/vminsights-faq.md)

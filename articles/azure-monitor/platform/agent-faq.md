@@ -14,89 +14,61 @@ ms.date: 12/12/2019
 # Azure Monitor agents frequently asked questions
 
 
+## What does Azure Monitor use agents for?
+Azure Monitor requires an agent on virtual machines in order to collect monitoring data from their operating system and workflows. The virtual machines can be located in Azure, another cloud environment, or on-premises.
+
 ## What's the difference between the Azure Monitor agents?
+Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies. See [Overview of the Azure Monitor agents](agents-overview.md) for a more detailed comparison.
 
-VMs need agents - Log Analytics and Diagnostic Extension.  Samre for ASC.
+## How can I confirm that the Log Analytics agent is able to communicate with Azure Monitor?
+From Control Panel on the agent computer, select **Security & Settings**, **Microsoft Monitoring Agent** . Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent is able to communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
 
+## How do I stop the Log Analytics agent from communicating with Azure Monitor?
 
-## Q: How can I confirm that an agent is able to communicate with Log Analytics?
+For agents connected to Log Analytics directly, open the Control Panel and select **Security & Settings**, **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, remove all workspaces listed. In System Center Operations Manager, remove the computer from the Log Analytics managed computers list. Operations Manager updates the configuration of the agent to no longer report to Log Analytics. 
 
-A: To ensure that the agent can communicate with the Log Analytics workspace, go to: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
-
-Under the **Azure Log Analytics (OMS)** tab, look for a green check mark. A green check mark icon confirms that the agent is able to communicate with the Azure service.
-
-A yellow warning icon means the agent is having issues communication with Log Analytics. One common reason is the Microsoft Monitoring Agent service has stopped. Use service control manager to restart the service.
-
-### Q: How do I stop an agent from communicating with Log Analytics?
-
-A: In System Center Operations Manager, remove the computer from the Log Analytics managed computers list. Operations Manager updates the configuration of the agent to no longer report to Log Analytics. For agents connected to Log Analytics directly, you can stop them from communicating through: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
-Under **Azure Log Analytics (OMS)**, remove all workspaces listed.
-
-### Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?
-A. There is no limit on the amount of data that is uploaded, it is based on the pricing option you select - Capacity Reservation or Pay-As-You-Go. A Log Analytics workspace is designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day. For further information, see [pricing details](https://azure.microsoft.com/pricing/details/monitor/).
-
-The Log Analytics agent was designed to ensure it has a small footprint. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakdown by solution in the [Usage](../../azure-monitor/platform/data-usage.md) page.
-
-For more information, you can read a [customer blog](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the Log Analytics agent.
-
-### Q. How much network bandwidth is used by the Microsoft Management Agent (MMA) when sending data to Log Analytics?
-
-A. Bandwidth is a function on the amount of data sent. Data is compressed as it is sent over the network.
-
-### Q. How much data is sent per agent?
-
-A. The amount of data sent per agent depends on:
+### How much data is sent per agent?
+The amount of data sent per agent depends on:
 
 * The solutions you have enabled
 * The number of logs and performance counters being collected
 * The volume of data in the logs
 
-Overall usage is shown on the [Usage](../../azure-monitor/platform/data-usage.md) page.
+See [Manage usage and costs with Azure Monitor Logs](../../azure-monitor/platform/manage-cost-storage.md) for details.
 
 For computers that are able to run the WireData agent, use the following query to see how much data is being sent:
 
+```Kusto
+WireData
+| where ProcessName == "C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe" 
+| where Direction == "Outbound" 
+| summarize sum(TotalBytes) by Computer 
 ```
-Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe") (Direction=Outbound) | measure Sum(TotalBytes) by Computer
-```
 
-### Q. How can I be notified when data collection stops?
+## How much network bandwidth is used by the Microsoft Management Agent (MMA) when sending data to Azure Monitor?
+Bandwidth is a function on the amount of data sent. Data is compressed as it is sent over the network.
 
-A: Use the steps described in [create a new log alert](../../azure-monitor/platform/alerts-metric.md) to be notified when data collection stops.
 
-When creating the alert for when data collection stops, set the:
+## How can I be notified when data collection from the Log Analytics agent stops?
 
-- **Define alert condition** specify your Log Analytics workspace as the resource target.
-- **Alert criteria** specify the following:
-   - **Signal Name** select **Custom log search**.
-   - **Search query** to `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-   - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
-   - **Time period** of *30* minutes and **Alert frequency** to every *10* minutes
-- **Define alert details** specify the following:
-   - **Name** to *Data collection stopped*
-   - **Severity** to *Warning*
+Use the steps described in [create a new log alert](alerts-metric.md) to be notified when data collection stops. Use the following settings for the alert rule:
 
-Specify an existing or create a new [Action Group](../../azure-monitor/platform/action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
+- **Define alert condition**: Specify your Log Analytics workspace as the resource target.
+- **Alert criteria** 
+   - **Signal Name**: *Custom log search*
+   - **Search query**: `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - **Alert logic**: **Based on** *number of results*, **Condition** *Greater than*, **Threshold value** *0*
+   - **Evaluated based on**: **Period (in minutes)** *30*, **Frequency (in minutes)** *10*
+- **Define alert details** 
+   - **Name**: *Data collection stopped*
+   - **Severity**: *Warning*
 
-## Infrastructure
+Specify an existing or new [Action Group](action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
 
-### Q. Can you move an existing Log Analytics workspace to another Log Analytics workspace/Azure subscription?
-
-See [Move a Log Analytics workspace to different subscription or resource group](/platform/move-workspace.md) for details on moving a workspace between resource groups or subscriptions. You cannot move a workspace to a different region.
-
-### Q. What IP addresses does the Log Analytics service use? How do I ensure that my firewall only allows traffic to the Log Analytics service?
-
-A. The Log Analytics service is built on top of Azure. Log Analytics IP addresses are in the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653).
-
-As service deployments are made, the actual IP addresses of the Log Analytics service change. The DNS names to allow through your firewall are documented in [network requirements](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
-
-### Q. I use ExpressRoute for connecting to Azure. Does my Log Analytics traffic use my ExpressRoute connection?
-
-A. The different types of ExpressRoute traffic are described in the [ExpressRoute documentation](../../expressroute/expressroute-faqs.md#supported-services).
-
-Traffic to Log Analytics uses the public-peering ExpressRoute circuit.
 
 ## Other FAQs
 
-- [Application Insights](app/troubleshoot-faq.md)
-- [Azure Monitor for Containers](insights/container-insights-faq.md)
-- [Azure Monitor for VMs](insights/vminsights-faq.md)
+- [Azure Monitor](../faq.md)
+- [Application Insights](../app/troubleshoot-faq.md)
+- [Azure Monitor for Containers](../insights/container-insights-faq.md)
+- [Azure Monitor for VMs](../insights/vminsights-faq.md)
