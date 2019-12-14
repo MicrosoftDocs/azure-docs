@@ -53,7 +53,7 @@ Follow these instructions to deploy the Azure Resource Management template:
         5. Paste the link you copied to the text editor into the address bar.
 3. When entering the parameters, do the following:
     - For the **isServicePrincipal** parameter, select **false**.
-    - For the credentials, enter your Azure Active Directory credentials with multi-factor authentication disabled. These credentials will be the ones you use to sign in to Azure and create the Azure AD application and Azure web app resources. To learn more, see the [pre-requisites](#pre-requisites).
+    - For the credentials, enter your Azure Active Directory credentials with multi-factor authentication disabled. These credentials will be used to create the Azure AD application and Azure resources. To learn more, see the [pre-requisites](#pre-requisites).
     - For the **applicationName**, use a unique name for your app that will be registered in your Azure Active Directory. This name will also be used for the web app URL. For example, you can use a name like "Apr3UX."
 4. Once you provide the parameters, accept the terms and conditions and select **Purchase**.
 
@@ -61,7 +61,7 @@ Follow these instructions to deploy the Azure Resource Management template:
 
 After the GitHub Azure Resource Manager template completes, you'll find a resource group containing two app services along with one app service plan in the Azure portal.
 
-Before you sign in and use the management tool, you'll need to provide consent for the new Azure Active Directory application that is associated with the management tool. By providing consent, you are allowing the management tool to make Windows Virtual Desktop management calls on behalf of the user who's signed into the tool.
+Before you sign in and use the management tool, you must provide consent for the new Azure Active Directory application that is associated with the management tool. Providing consent allows the management tool to make Windows Virtual Desktop management calls on behalf of the user who's signed into the tool.
 
 ![A screenshot showing the permissions being provided when you consent to the UI management tool.](media/management-ui-delegated-permissions.png)
 
@@ -73,7 +73,7 @@ To determine which user you can use to sign in to the tool, go to your [Azure Ac
 - If the value is set to **No**, you must sign in as a Global Administrator in the Azure Active Directory and provide admin consent for all users in the directory. No other users will face a consent prompt.
 
 
-Once you decide which user you will use to provide consent, follow these instructions to provide consent to the tool:
+Once you decide which user you'll use to provide consent, follow these instructions to provide consent to the tool:
 
 1. Go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Sign in using the appropriate Azure Active Directory user account.
@@ -98,7 +98,7 @@ Follow these instructions to launch the tool:
 
 ## Report issues
 
-If you encounter any issues with the management tool or other Windows Virtual Desktop tools, follow the directions in [ARM Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report them on GitHub.
+If you come across any issues with the management tool or other Windows Virtual Desktop tools, follow the directions in [ARM Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report them on GitHub.
 
 ## Next steps
 
