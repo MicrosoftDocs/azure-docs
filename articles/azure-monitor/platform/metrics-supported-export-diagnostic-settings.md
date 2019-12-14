@@ -53,7 +53,7 @@ Yes | Microsoft.AnalysisServices/servers | ProcessingPoolJobQueueLength | Proces
 Yes | Microsoft.AnalysisServices/servers | qpu_metric | QPU | Count | Average
 Yes | Microsoft.AnalysisServices/servers | QueryPoolBusyThreads | Query Pool Busy Threads | Count | Average
 Yes | Microsoft.AnalysisServices/servers | QueryPoolIdleThreads | Threads: Query pool idle threads | Count | Average
-Yes | Microsoft.AnalysisServices/servers | QueryPoolJobQueueLength | Threads: Query pool job queue lengt | Count | Average
+Yes | Microsoft.AnalysisServices/servers | QueryPoolJobQueueLength | Threads: Query pool job queue length | Count | Average
 Yes | Microsoft.AnalysisServices/servers | Quota | Memory: Quota | Bytes | Average
 Yes | Microsoft.AnalysisServices/servers | QuotaBlocked | Memory: Quota Blocked | Count | Average
 Yes | Microsoft.AnalysisServices/servers | RowsConvertedPerSec | Processing: Rows converted per sec | CountPerSecond | Average
@@ -897,7 +897,7 @@ Yes | Microsoft.Logic/integrationServiceEnvironments | IntegrationServiceEnviron
 Yes | Microsoft.Logic/integrationServiceEnvironments | IntegrationServiceEnvironmentWorkflowProcessorUsage | Workflow Processor Usage for Integration Service Environment | Percent | Average
 Yes | Microsoft.Logic/integrationServiceEnvironments | RunFailurePercentage | Run Failure Percentage | Percent | Total
 Yes | Microsoft.Logic/integrationServiceEnvironments | RunLatency | Run Latency | Seconds | Average
-Yes | Microsoft.Logic/integrationServiceEnvironments | RunsCancelled | Runs Cancelled | Count | Total
+Yes | Microsoft.Logic/integrationServiceEnvironments | RunsCancelled | Runs Canceled | Count | Total
 Yes | Microsoft.Logic/integrationServiceEnvironments | RunsCompleted | Runs Completed | Count | Total
 Yes | Microsoft.Logic/integrationServiceEnvironments | RunsFailed | Runs Failed | Count | Total
 Yes | Microsoft.Logic/integrationServiceEnvironments | RunsStarted | Runs Started | Count | Total
@@ -933,7 +933,7 @@ Yes | Microsoft.Logic/workflows | BillingUsageStorageConsumption | Billing Usage
 Yes | Microsoft.Logic/workflows | BillingUsageStorageConsumption | Billing Usage for Storage Consumption Executions | Count | Total
 Yes | Microsoft.Logic/workflows | RunFailurePercentage | Run Failure Percentage | Percent | Total
 Yes | Microsoft.Logic/workflows | RunLatency | Run Latency | Seconds | Average
-Yes | Microsoft.Logic/workflows | RunsCancelled | Runs Cancelled | Count | Total
+Yes | Microsoft.Logic/workflows | RunsCancelled | Runs Canceled | Count | Total
 Yes | Microsoft.Logic/workflows | RunsCompleted | Runs Completed | Count | Total
 Yes | Microsoft.Logic/workflows | RunsFailed | Runs Failed | Count | Total
 Yes | Microsoft.Logic/workflows | RunsStarted | Runs Started | Count | Total

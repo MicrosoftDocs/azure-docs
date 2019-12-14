@@ -1162,7 +1162,7 @@
     - name: Supported metrics
       href: platform/metrics-supported.md
     - name: Metrics exportable with Diagnostic Settings
-      href: platform/metrics-supported-export-diag-settings.md
+      href: platform/metrics-supported-export-diagnostic-settings.md
     - name: Supported metrics for newer alerts
       href: platform/alerts-metric-near-real-time.md 
   - name: Platform log services, categories, and schemas
