@@ -97,7 +97,7 @@ The different types of ExpressRoute traffic are described in the [ExpressRoute d
 Azure Monitor requires an agent on virtual machines in order to collect monitoring data from their operating system and workflows. The virtual machines can be located in Azure, another cloud environment, or on-premises.
 
 ### What's the difference between the Azure Monitor agents?
-Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies. See [Overview of the Azure Monitor agents](agents-overview.md) for a more detailed comparison.
+Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies. See [Overview of the Azure Monitor agents](platform/agents-overview.md) for a more detailed comparison.
 
 ### How can I confirm that the Log Analytics agent is able to communicate with Azure Monitor?
 From Control Panel on the agent computer, select **Security & Settings**, **Microsoft Monitoring Agent** . Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent is able to communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
@@ -130,7 +130,7 @@ Bandwidth is a function on the amount of data sent. Data is compressed as it is 
 
 ### How can I be notified when data collection from the Log Analytics agent stops?
 
-Use the steps described in [create a new log alert](alerts-metric.md) to be notified when data collection stops. Use the following settings for the alert rule:
+Use the steps described in [create a new log alert](platform/alerts-metric.md) to be notified when data collection stops. Use the following settings for the alert rule:
 
 - **Define alert condition**: Specify your Log Analytics workspace as the resource target.
 - **Alert criteria** 
@@ -142,7 +142,7 @@ Use the steps described in [create a new log alert](alerts-metric.md) to be noti
    - **Name**: *Data collection stopped*
    - **Severity**: *Warning*
 
-Specify an existing or new [Action Group](action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
+Specify an existing or new [Action Group](platform/action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
 
 
 
@@ -154,8 +154,8 @@ Specify an existing or new [Action Group](action-groups.md) so that when the log
 ### Configuration problems
 *I'm having trouble setting up my:*
 
-* [.NET app](asp-net-troubleshoot-no-data.md)
-* [Monitoring an already-running app](monitor-performance-live-website-now.md#troubleshoot)
+* [.NET app](app/asp-net-troubleshoot-no-data.md)
+* [Monitoring an already-running app](app/monitor-performance-live-website-now.md#troubleshoot)
 * [Azure diagnostics](platform/diagnostics-extension-to-application-insights.md)
 * [Java web app](app/java-troubleshoot.md)
 
@@ -170,7 +170,7 @@ Specify an existing or new [Action Group](action-groups.md) so that when the log
 * [Web apps on an IIS server in Azure VM or Azure virtual machine scale set](app/azure-vm-vmss-apps.md)
 * [Web apps on an IIS server - on-premises or in a VM](app/asp-net.md)
 * [Java web apps](app/java-get-started.md)
-* [Node.js apps](napp/odejs.md)
+* [Node.js apps](app/odejs.md)
 * [Web apps on Azure](app/azure-web-apps.md)
 * [Cloud Services on Azure](app/cloudservices.md)
 * [App servers running in Docker](app/docker.md)
@@ -217,7 +217,7 @@ The details depend on the type of project. For a web application:
 * (New projects only - if you [add Application Insights to an existing project][start], you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the master page Views/Shared/_Layout.cshtml
 
 ### How do I upgrade from older SDK versions?
-See the [release notes](release-notes.md) for the SDK appropriate to your type of application.
+See the [release notes](app/release-notes.md) for the SDK appropriate to your type of application.
 
 ### <a name="update"></a>How can I change which Azure resource my project sends data to?
 In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
@@ -226,7 +226,7 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 
 A desktop app that you can use in your IIS web server to help configure Application Insights in web apps. It doesn't collect telemetry: you can stop it when you are not configuring an app. 
 
-[Learn more](monitor-performance-live-website-now.md#questions).
+[Learn more](app/monitor-performance-live-website-now.md#questions).
 
 ### What telemetry is collected by Application Insights?
 
@@ -235,7 +235,7 @@ From server web apps:
 * HTTP requests
 * [Dependencies](app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
 * [Exceptions](app/asp-net-exceptions.md) and stack traces.
-* [Performance Counters](app/performance-counters.md) - If you use [Status Monitor](app/monitor-performance-live-website-now.md), [Azure monitoring for App Services](azure-web-apps.md), [Azure monitoring for VM or virtual machine scale set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-collectd.md).
+* [Performance Counters](app/performance-counters.md) - If you use [Status Monitor](app/monitor-performance-live-website-now.md), [Azure monitoring for App Services](app/azure-web-apps.md), [Azure monitoring for VM or virtual machine scale set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-collectd.md).
 * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
 * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
 
@@ -261,7 +261,7 @@ Yes, in the server you can write:
 * Telemetry Processor to filter or add properties to selected telemetry items before they are sent from your app.
 * Telemetry Initializer to add properties to all items of telemetry.
 
-Learn more for [ASP.NET](api-filtering-sampling.md) or [Java](java-filter-telemetry.md).
+Learn more for [ASP.NET](app/api-filtering-sampling.md) or [Java](app/java-filter-telemetry.md).
 
 ### How are city, country/region, and other geo location data calculated?
 
@@ -438,9 +438,9 @@ For more information see dotnet's article on [DefaultProxy](https://docs.microso
 
 ### Can I run Availability web tests on an intranet server?
 
-Our [web tests](monitor-web-app-availability.md) run on points of presence that are distributed around the globe. There are two solutions:
+Our [web tests](app/monitor-web-app-availability.md) run on points of presence that are distributed around the globe. There are two solutions:
 
-* Firewall door - Allow requests to your server from [the long and changeable list of web test agents](ip-addresses.md).
+* Firewall door - Allow requests to your server from [the long and changeable list of web test agents](app/ip-addresses.md).
 * Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights using the TrackAvailability() API.
 
 ### How long does it take for telemetry to be collected?
@@ -452,7 +452,7 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 
 <!--Link references-->
 
-[data]: data-retention-privacy.md
-[platforms]: platforms.md
-[start]: app-insights-overview.md
-[windows]: app-insights-windows-get-started.md
+[data]: app/data-retention-privacy.md
+[platforms]: app/platforms.md
+[start]: app/app-insights-overview.md
+[windows]: app/app-insights-windows-get-started.md
