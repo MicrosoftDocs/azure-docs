@@ -110,8 +110,10 @@
     href: troubleshoot-windows-7-vm.md
   - name: Troubleshoot the Windows Virtual Desktop management tool
     href: troubleshoot-management-tool.md
-  - name: Remote Desktop client connections
-    href: troubleshoot-client-connection.md
+  - name: Remote Desktop service connections
+    href: troubleshoot-service-connection.md
+  - name: Remote Desktop client issues
+    href: troubleshoot-client.md
   - name: Windows Virtual Desktop PowerShell
     href: troubleshoot-powershell.md
   - name: Diagnosing graphics performance issues
