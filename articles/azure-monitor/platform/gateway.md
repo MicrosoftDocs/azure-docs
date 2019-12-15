@@ -4,8 +4,8 @@ description: Connect your devices and Operations Manager-monitored computers by 
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/30/2019
 
 ---
