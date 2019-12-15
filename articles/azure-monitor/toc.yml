@@ -42,6 +42,10 @@
     href: learn/tutorial-logs-dashboards.md
   - name: Create alert from log query
     href: learn/tutorial-response.md
+  - name: Archive platform metric and log data 
+    href: learn/tutorial-archive-data.md
+  - name: Autoscale on performance and schedule
+    href: learn/tutorial-autoscale-performance-schedule.md
   - name: Application Insights
     items:  
     - name: Find application run-time exceptions
@@ -54,10 +58,6 @@
       href: learn/tutorial-users.md
     - name: Dashboard with application data
       href: learn/tutorial-app-dashboards.md
-  - name: Archive platform metric and log data 
-    href: learn/tutorial-archive-data.md
-  - name: Autoscale on performance and schedule
-    href: learn/tutorial-autoscale-performance-schedule.md
 - name: Samples
   items:
   - name: Azure PowerShell
