@@ -60,18 +60,6 @@ If you have three virtual machines, each one can potentially contribute a score 
 
 ### Calculations
 
-* **Secure Score** (Single subscription)
-    * Calculation: (Sum of your current points / sum of the maximum score available) * 100
-    * Example:
-
-    ![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)
-    
-    In this example, there is a single subscription with all Security Controls available (a potential maximum score of 60 points). The score shows 27 points out of a possible 60 and that is reflected in the figures on the recommendations page.
-    
-    ![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)
-
-
-
 |Metric|Calculation|Example|
 |-|-|-|
 |**Secure Score**<br>Single subscription|(Sum of your current points /<br> sum of the maximum score available)<br> * 100|![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription with all Security Controls available (a potential maximum score of 60 points). The score shows 27 points out of a possible 60 and that is reflected in the figures on the recommendations page.<br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
