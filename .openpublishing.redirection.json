@@ -44002,6 +44002,11 @@
       "source_path": "articles/virtual-desktop/bandwidth-recommendations.md",
       "redirect_url": "https://docs.microsoft.com/windows-server/remote/remote-desktop-services/network-guidance",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/troubleshoot-client-connection.md",
+      "redirect_url": "/azure/virtual-desktop/troubleshoot-client",
+      "redirect_document_id": false
     }
   ]
 }
