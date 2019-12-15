@@ -33,7 +33,7 @@ Security Center continually assesses your resources, subscriptions, and organiza
 
 You can also use this score to track your security posture over time, and track security efforts and projects in your organization. The enhanced Secure Score (currently in preview) adds a percentage to the display to make it even simpler to track over time:
 
-[![The enhanced Secure Score (preview) now includes a percentage](media/secure-score-and-controls/secure-score-with-percentage.png)](media/secure-score-and-controls/secure-score-with-percentage.png#lightbox)
+[![The enhanced Secure Score (preview) now includes a percentage](media/secure-score-security-controls/secure-score-with-percentage.png)](media/secure-score-security-controls/secure-score-with-percentage.png#lightbox)
 
 
 ## Locating your Secure Score
@@ -48,19 +48,42 @@ As part of the enhancements to the Secure Score, recommendations are now grouped
 
 The contribution of each Security Control towards the overall Secure Score is shown clearly on the recommendations page.
 
-[![The enhanced Secure Score (preview) introduces Security Controls](media/secure-score-and-controls/security-controls.png)](media/secure-score-and-controls/security-controls.png#lightbox)
+[![The enhanced Secure Score (preview) introduces Security Controls](media/secure-score-security-controls/security-controls.png)](media/secure-score-security-controls/security-controls.png#lightbox)
 
 To get all the possible points for a Security Control, all your resources must comply with all of the security recommendations within the Security Control. For example, Security Center has multiple recommendations regarding how to secure your management ports. In the past, you could remediate some of those related and interdependent recommendations while leaving others unsolved, and your Secure Score would improve. When looked at objectively, it's easy to argue that your security hadn't improved until you had resolved them all. Now, you must remediate them all to make a difference to your Secure Score.
 
 For example, the Security Control called "Apply system updates" has a maximum score of six points:
 
-![The enhanced Secure Score (preview) introduces Security Controls](media/secure-score-and-controls/apply-system-updates-control.png)
+![The enhanced Secure Score (preview) introduces Security Controls](media/secure-score-security-controls/apply-system-updates-control.png)
 
 If you have three virtual machines, each one can potentially contribute a score of 0 or 2 (since it must meet all recommendations). 
 
+### Calculations
+
+* **Secure Score** (Single subscription)
+    * Calculation: (Sum of your current points / sum of the maximum score available) * 100
+    * Example:
+
+    ![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)
+    
+    In this example, there is a single subscription with all Security Controls available (a potential maximum score of 60 points). The score shows 27 points out of a possible 60 and that is reflected in the figures on the recommendations page.
+    
+    ![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)
+
+
+
+|Metric|Calculation|Example|
+|-|-|-|
+|**Secure Score**<br>Single subscription|(Sum of your current points /<br> sum of the maximum score available)<br> * 100|![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription with all Security Controls available (a potential maximum score of 60 points). The score shows 27 points out of a possible 60 and that is reflected in the figures on the recommendations page.<br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
+|**Secure Score**<br>Multiple subscriptions|||
+
+*  = The  
+* Secure Score (percentage) = 
+* When viewing multiple subscriptions, Secure Score evaluates all resources within all enabled policies and produces the value and percentage as above
+
 ## Improving your Secure Score
 
-To improve your Secure Score, remediate security recommendations from your recommendations list. You can remediate each recommendation manually for each resource, or by using the **quick fix** option (when available) to apply a remediation for a recommendation to a group of resources quickly. For more information, see [Remediate recommendations](security-center-remediate-recommendations.md).
+To improve your Secure Score, remediate security recommendations from your recommendations list. You can remediate each recommendation manually for each resource, or by using the **Quick Fix!** option (when available) to apply a remediation for a recommendation to a group of resources quickly. For more information, see [Remediate recommendations](security-center-remediate-recommendations.md).
 
 Only built-in recommendations have an impact on the Secure Score.
 
