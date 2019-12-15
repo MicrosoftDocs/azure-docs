@@ -4,8 +4,8 @@ description: This article describes the considerations and recommendations for c
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/20/2019
 
 ---

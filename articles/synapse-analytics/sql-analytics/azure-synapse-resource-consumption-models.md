@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.date: 10/24/2019
 ms.author: vvasic
-ms.reviewer: jrasnick
+ms.reviewer: jrasnick  
 ---
 
 # Synapse Analytics SQL resource consumption
@@ -20,11 +20,11 @@ SQL Analytics on-demand is a pay per query service that doesn't require you to p
 
 ## SQL Analytics pool - Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
 
-Recommendations on choosing the ideal number of data warehouse units (DWUs, cDWUs) to optimize price and performance, and how to change the number of units.
+Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
 
 ### What are Data Warehouse Units
 
-Azure SQL Data Warehouse CPU, memory, and IO are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. A change to your service level alters the number of DWUs that are available to the system, which in turn adjusts the performance, and the cost, of your system.
+A [SQL pool](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) represents a collection of analytic resources that are being provisioned when using [SQL Analytics](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse). Analytic resources are defined as a combination of CPU, memory and IO. These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. A change to your service level alters the number of DWUs that are available to the system, which in turn adjusts the performance, and the cost, of your system.
 
 For higher performance, you can increase the number of data warehouse units. For less performance, reduce data warehouse units. Storage and compute costs are billed separately, so changing data warehouse units does not affect storage costs.
 
@@ -43,21 +43,17 @@ Increasing DWUs:
 ### Service Level Objective
 
 The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000.
-  > [!NOTE]
-  > Azure SQL Data Warehouse Gen2 recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing data warehouses currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information, see [Upgrade to Gen2](../../sql-data-warehouse/upgrade-to-latest-generation.md).
 
-In T-SQL, the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your data warehouse.
+The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 SQL pool are measured in data warehouse units (DWU), for example DW2000c.
+ 
+
+> [!NOTE]
+> Azure SQL Data Warehouse Gen2 recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing data warehouses currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information, see [Upgrade to Gen2](../../sql-data-warehouse/upgrade-to-latest-generation.md).
+
+In T-SQL, the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your SQL pool.
 
 ```sql
---Gen1
-CREATE DATABASE myElasticSQLDW
-WITH
-(    SERVICE_OBJECTIVE = 'DW1000'
-)
-;
-
---Gen2
-CREATE DATABASE myComputeSQLDW
+CREATE DATABASE mySQLDW
 (Edition = 'Datawarehouse'
  ,SERVICE_OBJECTIVE = 'DW1000c'
 )
@@ -122,7 +118,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 #### Azure portal
 
-To change DWUs or cDWUs:
+To change DWUs:
 
 1. Open the [Azure portal](https://portal.azure.com), open your database, and click **Scale**.
 
@@ -134,32 +130,32 @@ To change DWUs or cDWUs:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To change the DWUs or cDWUs, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
+To change the DWUs, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
 
 ```Powershell
-Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
 For more information, see [PowerShell cmdlets for SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md)
 
 #### T-SQL
 
-With T-SQL you can view the current DWU or cDWU settings, change the settings, and check the progress.
+With T-SQL you can view the current DWUsettings, change the settings, and check the progress.
 
-To change the DWUs or cDWUs:
+To change the DWUs:
 
 1. Connect to the master database associated with your logical SQL Database server.
-2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) TSQL statement. The following example sets the service level objective to DW1000 for the database MySQLDW.
+2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) TSQL statement. The following example sets the service level objective to DW1000c for the database MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
-MODIFY (SERVICE_OBJECTIVE = 'DW1000')
+MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 ;
 ```
 
 #### REST APIs
 
-To change the DWUs, use the [Create or Update Database](/rest/api/sql/databases/createorupdate) REST API. The following example sets the service level objective to DW1000 for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
+To change the DWUs, use the [Create or Update Database](/rest/api/sql/databases/createorupdate) REST API. The following example sets the service level objective to DW1000c for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -203,7 +199,7 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-This DMV returns information about various management operations on your SQL Data Warehouse such as the operation and the state of the operation, which is either IN_PROGRESS or COMPLETED.
+This DMV returns information about various management operations on your SQL pool such as the operation and the state of the operation, which is either IN_PROGRESS or COMPLETED.
 
 ### The scaling workflow
 
@@ -211,3 +207,7 @@ When you start a scale operation, the system first kills all open sessions, roll
 
 - For a scale-up operation, the system detaches all compute nodes, provisions the additional compute nodes, and then reattaches to the storage layer.
 - For a scale-down operation, the system detaches all compute nodes and then reattaches only the needed nodes to the storage layer.
+
+## Next steps
+
+To learn more about managing performance, see [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md) and [Memory and concurrency limits](../../sql-data-warehouse/memory-concurrency-limits.md).

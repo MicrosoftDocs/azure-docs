@@ -20,7 +20,7 @@ Learn about managing compute resources in Azure SQL Data Warehouse. Lower costs 
 The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale compute to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural consequence of this architecture is that [billing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) for compute and storage is separate. If you don't need to use your data warehouse for a while, you can save compute costs by pausing compute. 
 
 ## Scaling compute
-You can scale out or scale back compute by adjusting the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) setting for your data warehouse. Loading and query performance can increase linearly as you add more data warehouse units. 
+You can scale out or scale back compute by adjusting the [data warehouse units](../synapse-analytics/sql-analytics/azure-synapse-resource-consumption-models.md) setting for your data warehouse. Loading and query performance can increase linearly as you add more data warehouse units. 
 
 For scale-out steps, see the [Azure portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), or [T-SQL](quickstart-scale-compute-tsql.md) quickstarts. You can also perform scale-out operations with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
