@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 11/27/2019
+ms.date: 12/16/2019
 ---
 
 # Set up access for multiple integration service environments in Azure Logic Apps
