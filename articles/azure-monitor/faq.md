@@ -113,7 +113,7 @@ The amount of data sent per agent depends on:
 * The number of logs and performance counters being collected
 * The volume of data in the logs
 
-See [Manage usage and costs with Azure Monitor Logs](../../azure-monitor/platform/manage-cost-storage.md) for details.
+See [Manage usage and costs with Azure Monitor Logs](platform/manage-cost-storage.md) for details.
 
 For computers that are able to run the WireData agent, use the following query to see how much data is being sent:
 
@@ -156,34 +156,34 @@ Specify an existing or new [Action Group](action-groups.md) so that when the log
 
 * [.NET app](asp-net-troubleshoot-no-data.md)
 * [Monitoring an already-running app](monitor-performance-live-website-now.md#troubleshoot)
-* [Azure diagnostics](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Java web app](java-troubleshoot.md)
+* [Azure diagnostics](platform/diagnostics-extension-to-application-insights.md)
+* [Java web app](app/java-troubleshoot.md)
 
 *I get no data from my server*
 
-* [Set firewall exceptions](ip-addresses.md)
-* [Set up an ASP.NET server](monitor-performance-live-website-now.md)
-* [Set up a Java server](java-agent.md)
+* [Set firewall exceptions](app/ip-addresses.md)
+* [Set up an ASP.NET server](app/monitor-performance-live-website-now.md)
+* [Set up a Java server](app/java-agent.md)
 
 ### Can I use Application Insights with ...?
 
-* [Web apps on an IIS server in Azure VM or Azure virtual machine scale set](azure-vm-vmss-apps.md)
-* [Web apps on an IIS server - on-premises or in a VM](asp-net.md)
-* [Java web apps](java-get-started.md)
-* [Node.js apps](nodejs.md)
-* [Web apps on Azure](azure-web-apps.md)
-* [Cloud Services on Azure](cloudservices.md)
-* [App servers running in Docker](docker.md)
-* [Single-page web apps](javascript.md)
-* [SharePoint](sharepoint.md)
-* [Windows desktop app](windows-desktop.md)
-* [Other platforms](platforms.md)
+* [Web apps on an IIS server in Azure VM or Azure virtual machine scale set](app/azure-vm-vmss-apps.md)
+* [Web apps on an IIS server - on-premises or in a VM](app/asp-net.md)
+* [Java web apps](app/java-get-started.md)
+* [Node.js apps](napp/odejs.md)
+* [Web apps on Azure](app/azure-web-apps.md)
+* [Cloud Services on Azure](app/cloudservices.md)
+* [App servers running in Docker](app/docker.md)
+* [Single-page web apps](app/javascript.md)
+* [SharePoint](app/sharepoint.md)
+* [Windows desktop app](app/windows-desktop.md)
+* [Other platforms](app/platforms.md)
 
 ### Is it free?
 
 Yes, for experimental use. In the basic pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development, and publishing an app for a small number of users. You can set a cap to prevent more than a specified amount of data from being processed.
 
-Larger volumes of telemetry are charged by the Gb. We provide some tips on how to [limit your charges](pricing.md).
+Larger volumes of telemetry are charged by the Gb. We provide some tips on how to [limit your charges](app/pricing.md).
 
 The Enterprise plan incurs a charge for each day that each web server node sends telemetry. It is suitable if you want to use Continuous Export on a large scale.
 
@@ -233,26 +233,26 @@ A desktop app that you can use in your IIS web server to help configure Applicat
 From server web apps:
 
 * HTTP requests
-* [Dependencies](asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
-* [Exceptions](asp-net-exceptions.md) and stack traces.
-* [Performance Counters](performance-counters.md) - If you use [Status Monitor](monitor-performance-live-website-now.md), [Azure monitoring for App Services](azure-web-apps.md), [Azure monitoring for VM or virtual machine scale set](azure-vm-vmss-apps.md), or the [Application Insights collectd writer](java-collectd.md).
-* [Custom events and metrics](api-custom-events-metrics.md) that you code.
-* [Trace logs](asp-net-trace-logs.md) if you configure the appropriate collector.
+* [Dependencies](app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
+* [Exceptions](app/asp-net-exceptions.md) and stack traces.
+* [Performance Counters](app/performance-counters.md) - If you use [Status Monitor](app/monitor-performance-live-website-now.md), [Azure monitoring for App Services](azure-web-apps.md), [Azure monitoring for VM or virtual machine scale set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-collectd.md).
+* [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
+* [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
 
-From [client web pages](javascript.md):
+From [client web pages](app/javascript.md):
 
-* [Page view counts](usage-overview.md)
-* [AJAX calls](asp-net-dependencies.md) Requests made from a running script.
+* [Page view counts](app/usage-overview.md)
+* [AJAX calls](app/asp-net-dependencies.md) Requests made from a running script.
 * Page view load data
 * User and session counts
-* [Authenticated user IDs](api-custom-events-metrics.md#authenticated-users)
+* [Authenticated user IDs](app/api-custom-events-metrics.md#authenticated-users)
 
 From other sources, if you configure them:
 
-* [Azure diagnostics](../platform/diagnostics-extension-to-application-insights.md)
-* [Import to Analytics](../platform/data-collector-api.md)
-* [Log Analytics](../platform/data-collector-api.md)
-* [Logstash](../platform/data-collector-api.md)
+* [Azure diagnostics](platform/diagnostics-extension-to-application-insights.md)
+* [Import to Analytics](platform/data-collector-api.md)
+* [Log Analytics](platform/data-collector-api.md)
+* [Logstash](platform/data-collector-api.md)
 
 ### Can I filter out or modify some telemetry?
 
@@ -274,7 +274,7 @@ We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](http
 
 You can configure the `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it is moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
-You can [use Power BI](export-power-bi.md ) to display your request telemetry on a map.
+You can [use Power BI](app/export-power-bi.md ) to display your request telemetry on a map.
 
 
 ### <a name="data"></a>How long is data retained in the portal? Is it secure?
@@ -282,7 +282,7 @@ Take a look at [Data Retention and Privacy][data].
 
 ### Could personal data be sent in the telemetry?
 
-This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](data-retention-privacy.md).
+This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](app/data-retention-privacy.md).
 
 **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
 
@@ -305,36 +305,36 @@ We don't log POST data automatically, but you can use a TrackTrace call: put the
 
 Use a single resource for all the components or roles in a single business system. Use separate resources for development, test, and release versions, and for independent applications.
 
-* [See the discussion here](separate-resources.md)
-* [Example - cloud service with worker and web roles](cloudservices.md)
+* [See the discussion here](app/separate-resources.md)
+* [Example - cloud service with worker and web roles](app/cloudservices.md)
 
 ### How do I dynamically change the instrumentation key?
 
-* [Discussion here](separate-resources.md)
-* [Example - cloud service with worker and web roles](cloudservices.md)
+* [Discussion here](app/separate-resources.md)
+* [Example - cloud service with worker and web roles](app/cloudservices.md)
 
 ### What are the User and Session counts?
 
 * The JavaScript SDK sets a user cookie on the web client, to identify returning users, and a session cookie to group activities.
-* If there is no client-side script, you can [set cookies at the server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* If there is no client-side script, you can [set cookies at the server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-app/).
 * If one real user uses your site in different browsers, or using in-private/incognito browsing, or different machines, then they will be counted more than once.
-* To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](api-custom-events-metrics.md#authenticated-users).
+* To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
 
 ### <a name="q17"></a> Have I enabled everything in Application Insights?
 | What you should see | How to get it | Why you want it |
 | --- | --- | --- |
-| Availability charts |[Web tests](monitor-web-app-availability.md) |Know your web app is up |
-| Server app perf: response times, ... |[Add Application Insights to your project](asp-net.md) or [Install AI Status Monitor on server](monitor-performance-live-website-now.md) (or write your own code to [track dependencies](api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
-| Dependency telemetry |[Install AI Status Monitor on server](monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
-| Get stack traces from exceptions |[Insert TrackException calls in your code](asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
-| Search log traces |[Add a logging adapter](asp-net-trace-logs.md) |Diagnose exceptions, perf issues |
-| Client usage basics: page views, sessions, ... |[JavaScript initializer in web pages](javascript.md) |Usage analytics |
-| Client custom metrics |[Tracking calls in web pages](api-custom-events-metrics.md) |Enhance user experience |
-| Server custom metrics |[Tracking calls in server](api-custom-events-metrics.md) |Business intelligence |
+| Availability charts |[Web tests](app/monitor-web-app-availability.md) |Know your web app is up |
+| Server app perf: response times, ... |[Add Application Insights to your project](app/asp-net.md) or [Install AI Status Monitor on server](app/monitor-performance-live-website-now.md) (or write your own code to [track dependencies](app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
+| Dependency telemetry |[Install AI Status Monitor on server](app/monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
+| Get stack traces from exceptions |[Insert TrackException calls in your code](app/asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
+| Search log traces |[Add a logging adapter](app/asp-net-trace-logs.md) |Diagnose exceptions, perf issues |
+| Client usage basics: page views, sessions, ... |[JavaScript initializer in web pages](app/javascript.md) |Usage analytics |
+| Client custom metrics |[Tracking calls in web pages](app/api-custom-events-metrics.md) |Enhance user experience |
+| Server custom metrics |[Tracking calls in server](app/api-custom-events-metrics.md) |Business intelligence |
 
 ### Why are the counts in Search and Metrics charts unequal?
 
-[Sampling](sampling.md) reduces the number of telemetry items (requests, custom events, and so on) that are actually sent from your app to the portal. In Search, you see the number of items actually received. In metric charts that display a count of events, you see the number of original events that occurred. 
+[Sampling](app/sampling.md) reduces the number of telemetry items (requests, custom events, and so on) that are actually sent from your app to the portal. In Search, you see the number of items actually received. In metric charts that display a count of events, you see the number of original events that occurred. 
 
 Each item that is transmitted carries an `itemCount` property that shows how many original events that item represents. To observe sampling in operation, you can run this query in Analytics:
 
@@ -347,7 +347,7 @@ Each item that is transmitted carries an `itemCount` property that shows how man
 
 #### Configuring Application Insights
 
-You can [write PowerShell scripts](powershell.md) using Azure Resource Monitor to:
+You can [write PowerShell scripts](app/powershell.md) using Azure Resource Monitor to:
 
 * Create and update Application Insights resources.
 * Set the pricing plan.
@@ -359,7 +359,7 @@ You can't set up a Metric Explorer report or set up continuous export.
 
 #### Querying the telemetry
 
-Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](analytics.md) queries.
+Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](app/analytics.md) queries.
 
 ### How can I set an alert on an event?
 
@@ -374,7 +374,7 @@ This doesn't depend on where your Application Insights resource is hosted. It ju
 
 ### Can I send telemetry to the Application Insights portal?
 
-We recommend you use our SDKs and use the [SDK API](api-custom-events-metrics.md). There are variants of the SDK for various [platforms](platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
+We recommend you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
 
 ### Can I monitor an intranet web server?
 
@@ -384,7 +384,7 @@ Yes, but you will need to allow traffic to our services by either firewall excep
 - TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
 
-Review our full list of services and IP addresses [here](../../azure-monitor/app/ip-addresses.md).
+Review our full list of services and IP addresses [here](app/ip-addresses.md).
 
 #### Firewall exception
 
@@ -424,7 +424,7 @@ _Note ApplicationIdProvider is available starting in v2.6.0_
 #### Proxy passthrough
 
 Proxy passthrough can be achieved by configuring either a machine level or application level proxy.
-For more information see dotnet's article on [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+For more information see dotnet's article on [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-app/file-schema/network/defaultproxy-element-network-settings).
  
  Example Web.config:
  ```xml
