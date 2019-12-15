@@ -64,13 +64,11 @@ You can connect your existing System Center Operations Manager management group 
 ### What is an insight in Azure Monitor?
 Insights provide a customized monitoring experience for particular Azure services. They use the same metrics and logs as other features in Azure Monitor but may collect additional data and provide a unique experience in the Azure portal. See [Insights in Azure Monitor](insights/insights-overview.md).
 
-### Where do I find insights?
 To view insights in the Azure portal, see the **Insights** section of the **Monitor** menu or the **Monitoring** section of the service's menu.
 
 ### What is a solution in Azure Monitor?
 Monitoring solutions are packaged sets of logic for monitoring a particular application or service based on Azure Monitor features. They collect log data in Azure Monitor and provide log queries and views for their analysis using a common experience in the Azure portal. See [Monitoring solutions in Azure Monitor](insights/solutions.md).
 
-### Where do I find solutions?
 To view solutions in the Azure portal, click **...More** in the **Insights** section of the **Monitor** menu. Click **Add** to add additional solutions to the workspace.
 
 
@@ -221,7 +219,7 @@ The details depend on the type of project. For a web application:
 ### How do I upgrade from older SDK versions?
 See the [release notes](release-notes.md) for the SDK appropriate to your type of application.
 
-## <a name="update"></a>How can I change which Azure resource my project sends data to?
+### <a name="update"></a>How can I change which Azure resource my project sends data to?
 In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
 
 ### What is Status Monitor?
@@ -445,7 +443,7 @@ Our [web tests](monitor-web-app-availability.md) run on points of presence that 
 * Firewall door - Allow requests to your server from [the long and changeable list of web test agents](ip-addresses.md).
 * Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights using the TrackAvailability() API.
 
-## How long does it take for telemetry to be collected?
+### How long does it take for telemetry to be collected?
 
 Most Application Insights data has a latency of under 5 minutes. Some data can take longer; typically larger log files. For more information, see the [Application Insights SLA](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).
 
