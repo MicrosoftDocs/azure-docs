@@ -49,7 +49,7 @@ In ADAL.NET, broker support was enabled on a per-authentication context basis. I
 
 `useBroker` flag to true in the `PlatformParameters` constructor to call the broker:
 
-```CSharp
+```csharp
 public PlatformParameters(
         UIViewController callerViewController, 
         bool useBroker)
@@ -57,7 +57,7 @@ public PlatformParameters(
 Also, in the platform-specific code, in this example, in the page renderer for iOS, set the 
 `useBroker` 
 flag to true:
-```CSharp
+```csharp
 page.BrokerParameters = new PlatformParameters(
           this, 
           true, 
@@ -65,7 +65,7 @@ page.BrokerParameters = new PlatformParameters(
 ```
 
 Then, include the parameters in the acquire token call:
-```CSharp
+```csharp
  AuthenticationResult result =
                     await
                         AuthContext.AcquireTokenAsync(
@@ -82,7 +82,7 @@ In MSAL.NET, broker support is enabled on a per-PublicClientApplication basis. I
 `WithBroker()` 
 parameter (set to true by default) in order to call the broker:
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -90,7 +90,7 @@ var app = PublicClientApplicationBuilder
                 .Build();
 ```
 In the acquire token call:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
@@ -106,7 +106,7 @@ A UIViewController is passed into
 
 `PlatformParameters` in the iOS-specific platform.
 
-```CSharp
+```csharp
 page.BrokerParameters = new PlatformParameters(
           this, 
           true, 
@@ -125,16 +125,16 @@ This assignment ensures that there's a UIViewController with the call to the bro
 **For example:**
 
 In `App.cs`:
-```CSharp
+```csharp
    public static object RootViewController { get; set; }
 ```
 In `AppDelegate.cs`:
-```CSharp
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 In the acquire token call:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
@@ -143,7 +143,7 @@ result = await app.AcquireTokenInteractive(scopes)
 </table>
 
 ### Step 3: Update AppDelegate to handle the callback
-Both ADAL and MSAL call the broker, and the broker in turn calls back to your application through the `OpenUrl` method of the `AppDelegate` class. For more information, see [this documentation](msal-net-use-brokers-with-xamarin-apps.md#step-2-update-appdelegate-to-handle-the-callback).
+Both ADAL and MSAL call the broker, and the broker in turn calls back to your application through the `OpenUrl` method of the `AppDelegate` class. For more information, see [this documentation](msal-net-use-brokers-with-xamarin-apps.md#step-3-update-appdelegate-to-handle-the-callback).
 
 There are no changes here between ADAL.NET and MSAL.NET.
 
@@ -168,7 +168,7 @@ as a prefix, followed by your
 For example:
 `$"msauth.(BundleId")`
 
-```CSharp
+```csharp
  <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -201,7 +201,7 @@ Uses
 `msauth`
 
 
-```CSharp
+```csharp
 <key>LSApplicationQueriesSchemes</key>
 <array>
      <string>msauth</string>
@@ -213,10 +213,11 @@ Uses
 `msauthv2`
 
 
-```CSharp
+```csharp
 <key>LSApplicationQueriesSchemes</key>
 <array>
      <string>msauthv2</string>
+     <string>msauthv3</string>
 </array>
 ```
 </table>
@@ -243,7 +244,7 @@ Example:
 
 </table>
 
-For more information about how to register the redirect URI in the portal, see [Leverage the broker in Xamarin.iOS applications](msal-net-use-brokers-with-xamarin-apps.md#step-7-make-sure-the-redirect-uri-is-registered-with-your-app).
+For more information about how to register the redirect URI in the portal, see [Leverage the broker in Xamarin.iOS applications](msal-net-use-brokers-with-xamarin-apps.md#step-8-make-sure-the-redirect-uri-is-registered-with-your-app).
 
 ## Next steps
 

@@ -16,7 +16,7 @@ Azure policies can be used to deploy associations to associate resources to a cu
 
 Deploy associations for a custom provider is a built-in policy that can be used to deploy association to associate a resource to a custom provider. The policy accepts three parameters:
 
-- Custom provider Id - This ID is the resource ID of the custom provider to which the resources need to be associated.
+- Custom provider ID - This ID is the resource ID of the custom provider to which the resources need to be associated.
 - Resource types to associate - These resource types are the list of resource types to be associated to the custom provider. You can associate multiple resource types to a custom provider using the same policy.
 - Association name prefix - This string is the prefix to be added to the name of the association resource being created. The default value is "DeployedByPolicy".
 

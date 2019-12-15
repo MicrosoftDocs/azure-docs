@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Join sensor data with weather forecast data by using Azure Notebooks(Python) | Microsoft Docs"
-description: "Tutorial: This tutorial shows you how to join sensor data with weather forecast data from Azure Maps weather service by using Azure Notebooks(Python)." 
+title: 'Tutorial: Join sensor data with weather forecast data by using Azure Notebooks(Python) | Microsoft Docs'
+description: 'Tutorial: This tutorial shows you how to join sensor data with weather forecast data from Azure Maps weather service by using Azure Notebooks(Python).'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/09/2019
@@ -30,8 +30,11 @@ In this tutorial, you will:
 
 To complete this tutorial, you first need to:
 
-1. Create an Azure Maps account subscription in the S0 pricing tier by following instructions in [Manage your Azure Maps account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account).
-2. Get the primary subscription key for your account, follow the instructions in [Get the primary key for your account](./tutorial-search-location.md#getkey).
+1. Create an Azure Maps account subscription in the S0 pricing tier by following instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps).
+2. Get the primary subscription key for your account, follow the instructions in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+
+
+For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 To get familiar with Azure notebooks and to know how to get started, follow the instructions [Create an Azure Notebook](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook).
 
@@ -63,7 +66,7 @@ In our example scenario, we would like to request daily forecast for each sensor
 
 
 ```python
-subscription_key = "Your Azure Maps primary subscription key"
+subscription_key = "Your Azure Maps key"
 
 # Get a lists of unique station IDs and their coordinates 
 station_ids = pd.unique(df[['StationID']].values.ravel())
@@ -167,7 +170,7 @@ windsPlot.set_xlabel("Date")
 windsPlot.set_ylabel("Wind direction")
 ```
 
-The graphs below visualize the forecast data for the change of wind speed (left graph) and direction (right graph) in the next 15 days from the current day.
+The graphs below visualize the forecast data for the change of wind speed (left graph) and direction (right graph) in the next 15 days from the day the data is requested.
 
 <center>
 
