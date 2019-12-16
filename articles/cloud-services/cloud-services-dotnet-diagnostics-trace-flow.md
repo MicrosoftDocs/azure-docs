@@ -1,5 +1,6 @@
 ---
-title: Trace the flow in a Cloud Services Application with Azure Diagnostics | Microsoft Docs
+title: Trace the flow in Cloud Services Application with Azure Diagnostics
+titleSuffix: Azure Cloud Services
 description: Add tracing messages to an Azure application to help debugging, measuring performance, monitoring, traffic analysis, and more.
 services: cloud-services
 documentationcenter: .net

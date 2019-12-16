@@ -477,7 +477,7 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
 
 The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](resource-group-create-multiple.md#property-iteration), you can use the reference function for `input` because the expression is assigned to the resource property. You can't use it with `count` because the count must be determined before the reference function is resolved.
 
-You can't use the reference function in the outputs of a [nested template](resource-group-linked-templates.md#nested-template) to return a resource you've deployed in the nested template. Instead, use a [linked template](resource-group-linked-templates.md#external-template).
+You can't use the reference function in the outputs of a [nested template](resource-group-linked-templates.md#nested-template) to return a resource you've deployed in the nested template. Instead, use a [linked template](resource-group-linked-templates.md#linked-template).
 
 If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
 

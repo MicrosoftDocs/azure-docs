@@ -1,5 +1,6 @@
 ---
-title: Using PowerShell, enable Remote Desktop for a Role (Azure Cloud Services)
+title: Use PowerShell to enable Remote Desktop for a Role
+titleSuffix: Azure Cloud Services
 description: How to configure your azure cloud service application using PowerShell to allow remote desktop connections
 services: cloud-services
 documentationcenter: ''
