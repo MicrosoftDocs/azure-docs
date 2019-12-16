@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/16/2019
 ms.author: diberry
 ---
 
@@ -39,9 +39,9 @@ At the top of `CreateKB.java`, add the following lines to add necessary dependen
 [!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
 
 ## Add the required constants
-After the preceding required dependencies, add the required constants to the `CreateKB` class to access QnA Maker. 
+After the preceding required dependencies, add the required constants to the `CreateKB` class to access QnA Maker.
 
-You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** in the Azure portal for your QnA Maker resource. 
+You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** in the Azure portal for your QnA Maker resource.
 
 You do not need to add the final curly bracket to end the class; it is in the final code snippet at the end of this quickstart.
 
