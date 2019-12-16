@@ -91,10 +91,7 @@ For different authentication types, refer to the following sections on prerequis
     "properties": {
         "type": "AzureSqlDW",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-            }
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -112,10 +109,7 @@ For different authentication types, refer to the following sections on prerequis
     "properties": {
         "type": "AzureSqlDW",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-            },
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -168,10 +162,7 @@ To use service principal-based Azure AD application token authentication, follow
     "properties": {
         "type": "AzureSqlDW",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
-            },
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -217,10 +208,7 @@ To use managed identity authentication, follow these steps:
     "properties": {
         "type": "AzureSqlDW",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
-            }
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

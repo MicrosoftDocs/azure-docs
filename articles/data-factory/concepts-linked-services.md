@@ -73,10 +73,7 @@ The following linked service is an Azure Storage linked service. Notice that the
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
