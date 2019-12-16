@@ -135,7 +135,9 @@
       href: concepts-network-security-group-with-site-recovery.md
     - name: Using public IP addresses with Site Recovery
       href: concepts-public-ip-address-with-site-recovery.md
-  - name: About failover and recovery plans
+  - name: About on-premises failover/failback
+    href: failover-failback-overview.md
+  - name: About recovery plans
     href: recovery-plan-overview.md
   - name: About migration to Azure
     href: migrate-overview.md

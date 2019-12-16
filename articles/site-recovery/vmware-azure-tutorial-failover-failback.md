@@ -6,13 +6,13 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 08/22/2019
+ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
 ---
 # Fail over and fail back VMware VMs
 
-This article describes how to fail over an on-premises VMware virtual machine (VM) to [Azure Site Recovery](site-recovery-overview.md).
+This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md).
 
 This is the fifth tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises machines.
 
@@ -20,10 +20,12 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Verify that the VMware VM properties conform with Azure requirements.
-> * Run a failover to Azure.
+> * Fail over specific VMs to Azure.
 
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario. They use default options where possible and don't show all possible settings and paths. If you want to learn about failover in detail, see [Fail over VMs and physical servers](site-recovery-failover.md).
+
+If you want to learn how to fail over multiple VMs in a recovery plan, [review](site-recovery-failover.md) this article.
 
 ## Before you start
 

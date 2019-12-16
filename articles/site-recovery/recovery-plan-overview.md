@@ -1,54 +1,13 @@
 ---
-title: About failover and recovery plans in Azure Site Recovery
-description: Learn about failover and recovery plans in Azure Site Recovery. 
+title: About recovery plans in Azure Site Recovery
+description: Learn about recovery plans in Azure Site Recovery. 
 ms.topic: conceptual
 ms.date: 11/12/2019
 
 ---
-# About failover and recovery plans
+# About frecovery plans
 
-This article provides an overview of failover and recovery plans in [Azure Site Recovery](site-recovery-overview.md).
-
-## Failover
-
-You perform a failover as part of disaster recovery. As a first step in disaster recovery, you enable replicate of machines from a source location to a target location. Users access workloads and apps in the source location. If the need arises, for example if there's an outage at the source site, you can fail machines over from the source to the target, and users can continue accessing apps continuously from the target site. When the source site is available again, you can fail machines back from the target location to the source.
-
-## Failover types
-
-Always complete a test failover on an app, before running a full failover. Test failovers help you to check whether the app comes up on the recovery site.
-
-If you find you've missed something, trigger a clean-up, and then rerun the test failover.
-
-Run a test failover multiple times, until you're sure that the app recovers smoothly.
-
-Because each app is unique, you need to build recovery plans that are customized for each application, and run a test failover on each.
-
-Apps and their dependencies change frequently. To ensure recovery plans are up to date, run a test failover for each app every quarter.
-
-Site Recovery failover options are summarized in the following table.
-
-**Failover** | **Details** | **Recovery** | **Workflow**
---- | --- | --- | ---
-**Test failover** | Used to run a drill that validates your replication and business continuity and disaster recovery (BCDR) strategy, without any data loss or downtime.| It creates a copy of the VM in Azure, with no impact on ongoing replication, or on your production environment. | 1. Run a test failover on a single VM, or on multiple VMs in a recovery plan.<br/><br/> 2. You select a recovery point to use for the test failover, and an Azure network in which the Azure VM will be located after failover. The network is only used for the test failover.<br/><br/> 3. After you verify that the drill worked as expected, Site Recovery can automatically clean up VMs created in Azure during the drill.
-**Planned failover-Hyper-V**  | Usually used for planned downtime.<br/><br/> Planned failover for Hyper-V performs a graceful shutdown of the VM, and overrides the replication frequency you specified when you set up disaster recovery, to synchronize and replicate final changes before initiating the failover. | Zero data loss for planned activity. | 1. Plan a downtime maintenance window and notify users.<br/><br/> 2. Take the user-facing app offline.<br/><br/> 3. Initiate a planned failover in Site Recovery. Site Recovery uses the latest recovery point available.<br/><br/> 4. After the failover, you check that the replica Azure VM is active in Azure, and then you commit the failover.<br/>If required, you can select older recovery point to use for the failover instead of the latest. You can select a recovery point from the retention window of 24 hours.<br/><br/> 5. As required, you can fail back by running a new planned failover from Azure to on-premises.<br/> After failback is complete and committed, you enable reverse replication to reprotect the on-premises VM to Azure.
-**Failover-Hyper-V** | Usually run if there's an unplanned outage, or the primary site isn't available.<br/><br/> When you fail over Hyper-V VMs, Site Recovery provides the option to shut down the VM, and to synchronize and replicate final changes before initiating the failover.  | Minimal data loss for apps. | 1. Initiate your organization's backup, continuity, and disaster recovery (BCDR) plan. <br/><br/> 2. Initiate a failover from Site Recovery. You can optionally specify that Site Recovery should shut down the VM and synchronize/replicate the latest changes before triggering the failover.<br/><br/> 3. You can fail over to a number of recovery point options, summarized in the table below.<br/>If you don't enable the option to shut down the VM, or if Site Recovery is unable to shut down the VM, the latest recovery point is used for the failover.<br/>The failover runs even if the machine can't be shut down.<br/><br/> 4. After the failover, you check that the replica Azure VM is active in Azure, and then you commit the failover. Before committing you can change the recovery point is required. The commit action deletes all available recovery points.<br/><br/> 5. When your primary site is available again, you can fail back by running a new planned failover from Azure to on-premises.<br/> After failback is complete and committed, you enable reverse replication to reprotect the on-premises VM to Azure.
-**Failover-VMware** | Usually run if there's an unplanned outage, or the primary site isn't available.<br/><br/> When you fail over VMware VMs, Site Recovery provides the option to trigger a shutdown of the VM, and to synchronize and replicate final changes before initiating the failover.  | Minimal data loss for apps. | 1. Initiate your organization's backup, continuity, and disaster recovery (BCDR) plan. <br/><br/> 2. Initiate a failover from Site Recovery. You can optionally specify that Site Recovery should try to trigger shutdown of the VM, before running the failover.<br/><br/> 3. You can fail over to a number of recovery point options, summarized in the table below.<br/>Note that failover runs even if the machine can't be shut down.<br/><br/> 4. After the failover, you check that the replica Azure VM is active in Azure, and then you commit the failover. Before committing, you can change the recovery point if necessary. The commit action deletes all available recovery points.<br/><br/> 5. When your primary site is available, you reprotect the Azure VM so that it starts replicating to the on-premises site, and then fail the machine back to the on-premises site by running a failover from Azure to VMware.  
-
-
-## Recovery points
-
-During failover, you can select a number of recovery point options.
-
-**Option** | **Details**
---- | ---
-**Latest (lowest RPO)** | This option provides the lowest recovery point objective (RPO). It first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM, before failing over to it. This recovery point has all the data replicated to Site Recovery when the failover was triggered.
-**Latest processed**  | This option fails over VMs to the latest recovery point processed by Site Recovery. To see the latest recovery point for a specific VM, check **Latest Recovery Points** in the VM settings. This option provides a low RTO (Recovery Time Objective), because no time is spent processing unprocessed data.
-**Latest app-consistent** |  This option fails over VMs to the latest application-consistent recovery point processed by Site Recovery, if app-consistent recovery points are enabled. Check the latest recovery point in the VM settings.
-**Latest multi-VM processed** | This option is available for recovery plans with one or more VMs that have multi-VM consistency enabled. VMs with the setting enabled fail over to the latest common multi-VM consistent recovery point. Any other VMs in the plan fail over to the latest processed recovery point.
-**Latest multi-VM app-consistent** |  This option is available for recovery plans with one or more VMs that have multi-VM consistency enabled. VMs that are part of a replication group fail over to the latest common multi-VM application-consistent recovery point. Other VMs fail over to their latest application-consistent recovery point.
-**Custom** | Use this option to fail over a specific VM to a particular recovery point in time. This option isn't available for recovery plans.
-
-## Recovery plans
+This article provides an overview of recovery plans in [Azure Site Recovery](site-recovery-overview.md).
 
 A recovery plan gathers machines into recovery groups. A recovery plan helps you to define a systematic recovery process, by creating small independent units that you can fail over. A unit typically represents an app in your environment.
 
