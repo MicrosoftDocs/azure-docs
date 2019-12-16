@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ---
 
-# Frequently asked questions about provisioned throughput in autopilot mode (Preview)
+# Frequently asked questions about provisioned throughput in Azure Cosmos DB autopilot mode (Preview)
 With autopilot mode, Azure Cosmos DB will automatically manage and scale the RU/s of your container or database based on usage. This article answers commonly asked questions about autopilot mode. 
 
 ## Frequently asked questions
@@ -26,10 +26,10 @@ Refer to the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/
 Autopilot mode can be enabled on new containers and databases created using the Azure portal. 
 
 ### Is there CLI or SDK support to create containers or databases with autopilot mode?
-Currently, in the preview release, you can only create resources with autopilot mode from the Azure portal. Support for CLI and SDK is not yet available and is planned for GA release.
+Currently, in the preview release, you can only create resources with autopilot mode from the Azure portal. Support for CLI and SDK is not yet available.
 
 ### Can I enable autopilot on an existing container or a database?
-Currently, you can enable autopilot on new containers and databases when creating them. Support to enable autopilot mode on existing containers and databases is planned for GA. You can migrate existing containers to a new container using [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) or [change feed](change-feed.md). 
+Currently, you can enable autopilot on new containers and databases when creating them. Support to enable autopilot mode on existing containers and databases is not yet available. You can migrate existing containers to a new container using [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) or [change feed](change-feed.md). 
 
 ### Can I turn off autopilot mode on a container or database?
 Yes, you can turn off autopilot by switching to the 'Manual' option for the provisioned throughput. In the preview release, after switching from autopilot mode to manual mode, you cannot enable autopilot again for the same resource. 
@@ -52,7 +52,7 @@ If the storage limit associated with the max throughput of the database or conta
 Autopilot will instantaneously scale up or scale down the RU/s within the minimum and maximum RU/s range, based on incoming traffic. Billing is done at a 1-hour granularity, where you are charged for the highest RU/s in a particular hour. 
 
 ### Can I specify a custom max throughput (RU/s) value for autopilot mode?
-Currently, during the preview release, you can select between [four options](provision-throughput-autopilot.md#autopilot-limits) for max throughput (RU/s). Support for custom, user-specified values of max throughput is planned for GA.
+Currently, during the preview release, you can select between [four options](provision-throughput-autopilot.md#autopilot-limits) for max throughput (RU/s).
 
 ### Can I increase the max RU/s (move to a higher tier) on the database or container? 
 Yes. From the **Scale & Settings** option for your container, or **Scale** option for your database, you can select a higher max RU/s for autopilot. This is an asynchronous scale-up operation that may take sometime to complete (typically 4-6 hours, depending on the RU/s selected) as the service provisions more resources to support the higher scale. 
