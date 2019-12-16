@@ -26,7 +26,13 @@ An Asset is mapped to a blob container in the [Azure Storage account](storage-ac
 
 The **Archive** storage tier is only recommended for very large source files that have already been encoded and the encoding Job output was put in an output blob container. The blobs in the output container that you want to associate with an Asset and use to stream or analyze your content must exist in a **Hot** or **Cool** storage tier.
 
-### Naming blobs
+### Naming 
+
+#### Assets
+
+Asset's names must be unique. Media Services v3 resource names (for example, Assets, Jobs, Transforms) are subject to Azure Resource Manager naming constraints. For more information, see [Naming conventions](media-services-apis-overview.md#naming-conventions).
+
+#### Blobs
 
 The names of files/blobs within an asset must follow both the [blob name requirements](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) and the [NTFS name requirements](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). The reason for these requirements is the files can get copied from blob storage to a local NTFS disk for processing.
 
