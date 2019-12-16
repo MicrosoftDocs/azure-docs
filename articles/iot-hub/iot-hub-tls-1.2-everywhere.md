@@ -11,7 +11,7 @@ ms.date: 12/16/2019
 
 # Overview and date of enforcement
 
-To provide best-in-class encryption, IoT Hub and Device Provisioning Service are moving to Transport Layer Security (TLS) 1.2 as the encryption mechanism of choice for IoT devices. As such, legacy support for TLS 1.0 and TLS 1.1 as well as several legacy ciphers will be deprecated in **July 1st, 2020**. Please see our documentation page for the details.
+To provide best-in-class encryption, IoT Hub and Device Provisioning Service are moving to Transport Layer Security (TLS) 1.2 as the encryption mechanism of choice for IoT devices. As such, legacy support for TLS 1.0 and TLS 1.1 as well as several legacy ciphers will be deprecated in **July 1, 2020**.
 
 
 # Impact
@@ -34,4 +34,4 @@ Only the following ciphers will be allowed during TLS handshake:
 
 # Feedback
 
-While the TLS 1.2 enforcement is an industry-wide best-in-class encryption choice and will be enabled as planned, we still would like to hear from customers regarding their specific deployments and difficulties adopting TLS 1.2. For this purpose, please send your comments to [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).
+While the TLS 1.2 enforcement is an industry-wide best-in-class encryption choice and will be enabled as planned, we still would like to hear from customers regarding their specific deployments and difficulties adopting TLS 1.2. For this purpose, you can send your comments to [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).
