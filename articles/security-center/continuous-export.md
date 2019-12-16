@@ -88,7 +88,7 @@ To view alerts and recommendations from Security Center in Azure Monitor, config
 
     ![Azure Monitor's alerts page](./media/continuous-export/azure-monitor-alerts.png)
 
-1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log):
+1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)):
 
     * For **Resource**, select the Log Analytics workspace to which you exported security alerts and recommendations.
 
@@ -106,8 +106,7 @@ To download a CSV report for alerts or recommendations, open the **Security aler
 [![Download alerts data as a CSV file](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
 
 > [!NOTE]
-> These reports contain alerts and recommendations for resources from the currently selected subscriptions in the Directory + subscription filter in the Azure Portal:
-> ![The filter for selecting Directory + subscription](./media/continuous-export/filter-for-export-csv.png)
+> These reports contain alerts and recommendations for resources from the currently selected subscriptions.
 
 ## Next steps
 
