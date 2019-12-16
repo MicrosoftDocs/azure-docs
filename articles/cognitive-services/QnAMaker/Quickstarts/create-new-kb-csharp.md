@@ -69,7 +69,7 @@ At the top of the Program class, add the required constants to access QnA Maker.
 
 Set the following values in environment variables:
 
-* `QNA_MAKER_SUBSCRIPTION_KEY` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quick start page. This is not the same as the prediction endpoint key.
+* `QNA_MAKER_SUBSCRIPTION_KEY` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quickstart page. This is not the same as the prediction endpoint key.
 * `QNA_MAKER_ENDPOINT` - The **endpoint** is the URL for authoring, in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. This is not the same URL used to query the prediction endpoint.
 
 [!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=17-26 "Add the required constants")]
