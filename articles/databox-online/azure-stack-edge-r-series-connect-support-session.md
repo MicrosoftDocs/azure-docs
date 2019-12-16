@@ -30,11 +30,11 @@ The following sections describe in details each of the following steps.
 Before you begin, make sure that:
 
 - Your Windows client that will be used to connect to your Azure Stack Edge device is running Windows PowerShell 5.0 or later.
-- Your Azure Stack Edge device is activated. For security reasons, the support session certificate can only be uploaded after the device is activated. When the device is not activation, you won't see the Support certificate session. 
+- Your Azure Stack Edge device is activated. For security reasons, the Support session certificate can only be uploaded after the device is activated. When the device is not activated, you won't see the Support certificate session. 
 
-## (Optional) Create and install Support session certificate
+## Create and install Support session certificate
 
-A self-signed certificate is generated when the device is activated. You can bring your own Support session certificate.
+A self-signed certificate for Support session is generated when the device is activated. You can replace this with your own Support session certificate.
 
 When you bring your own certificate, you must:
 
