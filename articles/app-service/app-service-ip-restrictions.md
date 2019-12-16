@@ -24,7 +24,7 @@ The ability to restrict access to your web app from an Azure Virtual Network (VN
 
 ![access restrictions flow](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
-## Adding and editing Access Restriction rules in the portal ##
+## Adding and editing access restriction rules in the portal ##
 
 To add an access restriction rule to your app, use the menu to open **Network**>**Access Restrictions** and click on **Configure Access Restrictions**
 
@@ -89,13 +89,13 @@ In addition to being able to control access to your app, you can also restrict a
 [Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) and [Azure PowerShell](https://docs.microsoft.com/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) has support for editing access restrictions. 
 Example of adding an access restriction using Azure CLI:
 
-```bash
+```azurecli-interactive
 az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
 ```
 Example of adding an access restriction using Azure PowerShell:
 
-```powershell
+```azurepowershell-interactive
 Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
     -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
 ```
@@ -122,7 +122,7 @@ The JSON syntax for the earlier example is:
 }
 ```
 
-## Function App Access Restrictions
+## Azure Function App Access Restrictions
 
 Access restrictions are available for both Function Apps with the same functionality as App Service plans. Enabling access restrictions will disable the portal code editor for any disallowed IPs.
 
