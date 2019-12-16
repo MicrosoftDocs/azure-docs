@@ -3550,7 +3550,7 @@ You can set the values for the parameters either on the command line or through 
 
 > [!NOTE]
 >
-> &amp; is the HTML entity reference for &. URL parameters are still separated by a single &, but if you mention the URL in HTML, you need to encode it. So, if you have any "&" in your pingURL parameter value, you have to escape it with "&amp;"
+> `&amp`; is the HTML entity reference for &. URL parameters are still separated by a single &, but if you mention the URL in HTML, you need to encode it. So, if you have any "&" in your pingURL parameter value, you have to escape it with "`&amp`;"
 
 Save the json below as availabilityalert.parameters.json and modify it as required.
 
