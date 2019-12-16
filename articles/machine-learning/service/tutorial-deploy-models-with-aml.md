@@ -64,7 +64,7 @@ import matplotlib.pyplot as plt
 import azureml
 from azureml.core import Workspace, Run
 
-# display the core SDK version number
+# Display the core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```
 

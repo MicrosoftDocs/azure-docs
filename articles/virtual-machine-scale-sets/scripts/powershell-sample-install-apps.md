@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Samples - Install apps | Microsoft Docs
-description: Azure PowerShell Samples
+title: Azure PowerShell Samples - Install apps
+description: This script creates a virtual machine scale set running Windows Server 2016 and uses the Custom Script Extension to install a basic web application.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn

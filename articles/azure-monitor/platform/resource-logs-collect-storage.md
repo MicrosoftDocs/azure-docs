@@ -13,7 +13,7 @@ ms.subservice: logs
 [Resource logs](resource-logs-overview.md) in Azure provide rich, frequent data about the internal operation of an Azure resource. This article describes collecting resource logs to an Azure storage account to retain data for archiving.
 
 ## Prerequisites
-You need to [create an Azure storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. The storage account does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+You need to [create an Azure storage account](../../storage/common/storage-account-create.md) if you don't already have one. The storage account does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 
 > [!IMPORTANT]

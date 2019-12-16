@@ -14,7 +14,7 @@ ms.subservice: files
 
 Originally, standard file shares could only scale up to 5 TiB, now, with large file shares, they can scale up to 100 TiB. Premium file shares scale up to 100 TiB by default. 
 
-In order to scale up to 100 TiB using standard file shares, you must enable your storage account to use large file shares. You can either enable an existing account or create a new account to use large file shares.
+In order to scale up to 100 TiB using standard file shares, you must enable your storage account to use large file shares. You can either enable an existing account or create a new account to use large file shares. If you enable large file shares on an existing storage account, you must expand existing share's quota to take advantage of increased capacity and scale.
 
 ## Prerequisites
 
@@ -94,7 +94,7 @@ You can also enable large file shares on existing accounts. If you do this, then
 
 ![enable-large-file-shares-on-existing.png](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
 
-You've now enabled large file shares on your storage account.
+You've now enabled large file shares on your storage account. Next, you must update existing share's quota to take advantage of increased capacity and scale.
 
 If you receive the following error: "Large file shares are not available for the account yet." You can either wait some time, as your region is likely in the middle of completing its roll out, or, if you have urgent needs, reach out to support.
 

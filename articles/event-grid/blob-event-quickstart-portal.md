@@ -32,7 +32,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
    ![Select storage](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. To subscribe to events, create either a general-purpose v2 storage account or a Blob storage account. For more information, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+1. To subscribe to events, create either a general-purpose v2 storage account or a Blob storage account. For more information, see [Create a storage account](../storage/common/storage-account-create.md).
 
    ![Start steps](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

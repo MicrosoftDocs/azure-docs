@@ -1,5 +1,5 @@
 ---
-title: Create a function app on Linux from the Azure portal 
+title: Create a function app on Linux from the Azure portal
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 ms.topic: quickstart
 ms.date: 02/28/2019
@@ -32,15 +32,15 @@ You must have a function app to host the execution of your functions on Linux. T
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  | 
-    | **Subscription** | Your subscription | The subscription under which this new function app is created. | 
+    | **App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  |
+    | **Subscription** | Your subscription | The subscription under which this new function app is created. |
     | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. |
     | **OS** | Linux | The function app runs on Linux. |
     | **Publish** | Code | The default Linux container for your **Runtime Stack** is used. All you need to provide is your function app project code. Another option is to publish a custom [Docker image](functions-create-function-linux-custom-image.md). |
     | **[Hosting plan](functions-scale.md)** | App Service plan | Hosting plan that defines how resources are allocated to your function app. When you run in an App Service plan, you can control the [scaling of your function app](functions-scale.md).  |
     | **App Service plan/Location** | Create plan | Choose **Create new** and supply an **App Service plan** name. Choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. Choose your desired **[Pricing tier](https://azure.microsoft.com/pricing/details/app-service/linux/)**. <br/>You can't run both Linux and Windows function apps in the same App Service plan. |
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. |
-    | **[Storage](../storage/common/storage-quickstart-create-account.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meets the [storage account requirements](functions-scale.md#storage-account-requirements). |
+    | **[Storage](../storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meets the [storage account requirements](functions-scale.md#storage-account-requirements). |
     | **[Application Insights](functions-monitoring.md)** | Enabled | Application Insights is disabled by default. We recommend enabling Application Insights integration now and choosing a hosting location near your App Service plan location. If you want to do this later, see [Monitor Azure Functions](functions-monitoring.md).  |
 
 3. Select **Create** to provision and deploy the function app.
@@ -78,7 +78,7 @@ Now, you can run the new function by sending an HTTP request.
 
 ## Test the function
 
-1. In your new function, click **</> Get function URL** at the top right, select **default (Function key)**, and then click **Copy**. 
+1. In your new function, click **</> Get function URL** at the top right, select **default (Function key)**, and then click **Copy**.
 
     ![Copy the function URL from the Azure portal](./media/create-function-app-linux-app-service-plan/function-app-develop-tab-testing.png)
 

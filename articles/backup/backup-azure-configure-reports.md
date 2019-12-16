@@ -24,7 +24,7 @@ Please download the latest App (version 1.8) to avoid this issue.
 
 ## Prerequisites
 
-- Create an [Azure storage account](../storage/common/storage-quickstart-create-account.md) to configure it for reports. This storage account is used to store reports-related data.
+- Create an [Azure storage account](../storage/common/storage-account-create.md) to configure it for reports. This storage account is used to store reports-related data.
 - [Create a Power BI account](https://powerbi.microsoft.com/landing/signin/) to view, customize, and create your own reports by using the Power BI portal.
 - Register the resource provider **Microsoft.insights**, if it's not registered already. Use the subscriptions for the storage account and the Recovery Services vault so that reporting data can flow to the storage account. To do this step, go to the Azure portal, select **Subscription** > **Resource providers**, and check for this provider to register it.
 
@@ -82,7 +82,7 @@ If you wish to customize and share the report, create a workspace and do the fol
 4. Enter the name of the storage account that was configured in the previous step 5, and select **Next**.
 
     ![Enter storage account name](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)
-5. Using Authentication method "Key", enter the storage account key for this storage account. To [view and copy storage access keys](../storage/common/storage-account-manage.md#access-keys), go to your storage account in the Azure portal.
+5. Using Authentication method "Key", enter the storage account key for this storage account. You can find your storage account access keys in the Azure portal. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
 
      ![Enter storage account](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
 

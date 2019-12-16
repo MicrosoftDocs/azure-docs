@@ -47,7 +47,7 @@ In this tutorial, we learn how to extract the information from such tables into 
 
 You use this container to upload sample data that is required to train the model.
 
-1. Follow the instructions in [Create an Azure Storage account](../../storage/common/storage-quickstart-create-account.md) to create a storage account. Use **formrecostorage** as the storage account name.
+1. Follow the instructions in [Create an Azure Storage account](../../storage/common/storage-account-create.md) to create a storage account. Use **formrecostorage** as the storage account name.
 1. Follow the instructions in [Create an Azure blob container](../../storage/blobs/storage-quickstart-blobs-portal.md) to create a container within the Azure Storage account. Use **formrecocontainer** as the container name. Make sure you set the public access level to **Container (anonymous read access for containers and blobs)**.
 
     > [!div class="mx-imgBorder"]

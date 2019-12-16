@@ -222,6 +222,10 @@ There are two ways to improve download speed:
     1.  Client controlled: either player app auto selects or user selects video  quality layer and audio tracks to download;
     2.  Service controlled: one can use Dynamic Manifest feature in Azure Media Services to create a (global) filter, which limits HLS playlist or DASH MPD to a single video quality layer and selected audio tracks. Then the download URL presented to end users will include this filter.
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Summary
 
 This article discussed how to implement offline mode playback for DASH content protected by Widevine on Android devices.  It also answered some common questions related to offline streaming of Widevine protected content.
