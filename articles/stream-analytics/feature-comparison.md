@@ -20,7 +20,7 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 |Cross platform     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
 |Script authoring     |Yes         |Yes         |Yes         |
 |Script Intellisense     |Syntax highlighting         |Syntax highlighting</br>Code completion</br>Error marker         |Syntax highlighting</br>Code completion</br>Error marker         |
-|Define all types ofinputs, outputs, and job configurations     |Yes         |Yes         |Yes         |
+|Define all types of inputs, outputs, and job configurations     |Yes         |Yes         |Yes         |
 |Source control     |No         |Yes         |Yes         |
 |CI/CD support     |Partial         |Yes         |Yes         |
 |Share inputs and outputs across multiple queries     |No         |Yes         |Yes         |
