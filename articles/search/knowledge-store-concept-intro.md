@@ -46,7 +46,7 @@ Enumerated, the benefits of knowledge store include the following:
 
 The physical expression of a knowledge store is articulated through the `projections` element of a `knowledgeStore` definition in a Skillset. The projection defines a structure of the output so that it matches your intended use.
 
-Projections can be articulated as objects, tables, or files.
+Projections can be articulated as tables, objects, or files.
 
 ```json
 "knowledgeStore": { 
