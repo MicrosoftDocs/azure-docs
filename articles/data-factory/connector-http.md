@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 12/10/2019
 ms.author: jingwang
 
 ---
@@ -206,63 +206,6 @@ The following properties are supported for HTTP under `location` settings in for
 }
 ```
 
-### Legacy dataset model
-
->[!NOTE]
->The following dataset model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above section going forward, and the ADF authoring UI has switched to generating the new model.
-
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The **type** property of the dataset must be set to **HttpFile**. | Yes |
-| relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. | No |
-| requestMethod | The HTTP method. Allowed values are **Get** (default) and **Post**. | No |
-| additionalHeaders | Additional HTTP request headers. | No |
-| requestBody | The body for the HTTP request. | No |
-| format | If you want to retrieve data from the HTTP endpoint as-is without parsing it, and then copy the data to a file-based store, skip the **format** section in both the input and output dataset definitions.<br/><br/>If you want to parse the HTTP response content during copy, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Under **format**, set the **type** property to one of these values. For more information, see [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Text format](supported-file-formats-and-compression-codecs.md#text-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format). |No |
-| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Supported types: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels:  **Optimal** and **Fastest**. |No |
-
-> [!NOTE]
-> The supported HTTP request payload size is around 500 KB. If the payload size you want to pass to your web endpoint is larger than 500 KB, consider batching the payload in smaller chunks.
-
-**Example 1: Using the Get method (default)**
-
-```json
-{
-    "name": "HttpSourceDataInput",
-    "properties": {
-        "type": "HttpFile",
-        "linkedServiceName": {
-            "referenceName": "<HTTP linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-        }
-    }
-}
-```
-
-**Example 2: Using the Post method**
-
-```json
-{
-    "name": "HttpSourceDataInput",
-    "properties": {
-        "type": "HttpFile",
-        "linkedServiceName": {
-            "referenceName": "<HTTP linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "requestMethod": "Post",
-            "requestBody": "<body for POST HTTP request>"
-        }
-    }
-}
-```
-
 ## Copy Activity properties
 
 This section provides a list of properties that the HTTP source supports.
@@ -325,10 +268,70 @@ The following properties are supported for HTTP under `storeSettings` settings i
 ]
 ```
 
-#### Legacy source model
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Legacy models
 
 >[!NOTE]
->The following copy source model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
+>The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the ADF authoring UI has switched to generating the new model.
+
+### Legacy dataset model
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property of the dataset must be set to **HttpFile**. | Yes |
+| relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. | No |
+| requestMethod | The HTTP method. Allowed values are **Get** (default) and **Post**. | No |
+| additionalHeaders | Additional HTTP request headers. | No |
+| requestBody | The body for the HTTP request. | No |
+| format | If you want to retrieve data from the HTTP endpoint as-is without parsing it, and then copy the data to a file-based store, skip the **format** section in both the input and output dataset definitions.<br/><br/>If you want to parse the HTTP response content during copy, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Under **format**, set the **type** property to one of these values. For more information, see [JSON format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Avro format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs-legacy.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |No |
+| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/><br/>Supported types: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels:  **Optimal** and **Fastest**. |No |
+
+> [!NOTE]
+> The supported HTTP request payload size is around 500 KB. If the payload size you want to pass to your web endpoint is larger than 500 KB, consider batching the payload in smaller chunks.
+
+**Example 1: Using the Get method (default)**
+
+```json
+{
+    "name": "HttpSourceDataInput",
+    "properties": {
+        "type": "HttpFile",
+        "linkedServiceName": {
+            "referenceName": "<HTTP linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "typeProperties": {
+            "relativeUrl": "<relative url>",
+            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+        }
+    }
+}
+```
+
+**Example 2: Using the Post method**
+
+```json
+{
+    "name": "HttpSourceDataInput",
+    "properties": {
+        "type": "HttpFile",
+        "linkedServiceName": {
+            "referenceName": "<HTTP linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "typeProperties": {
+            "relativeUrl": "<relative url>",
+            "requestMethod": "Post",
+            "requestBody": "<body for POST HTTP request>"
+        }
+    }
+}
+```
+
+### Legacy copy activity source model
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -366,11 +369,6 @@ The following properties are supported for HTTP under `storeSettings` settings i
     }
 ]
 ```
-
-## Lookup activity properties
-
-To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
-
 
 ## Next steps
 
