@@ -40,11 +40,11 @@ For absolute time values, use the `from=<integer>` and `to=<integer>` parameters
 * `to=<integer>`is a value in JavaScript milliseconds of the end time for the search span.
 
 > [!TIP]
-> To easily translate dates into JavaScript milliseconds try the [Epoch & Unix Timestamp Converter](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html).
+> To easily translate dates into JavaScript milliseconds, try the [Epoch & Unix Timestamp Converter](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html).
 
 ### Relative time values
 
-For a relative time value, use `relativeMillis=<value>`, where *value* is in JavaScript milliseconds from the most recent data on the backend.
+For a relative time value, use `relativeMillis=<value>`, where *value* is in JavaScript milliseconds from the most recent timestamp received from the API.
 
 For example, `&relativeMillis=3600000` displays the most recent 60 minutes of data.
 
@@ -61,7 +61,7 @@ Accepted values correspond to the Time Series Insights explorer **quick time** m
 
 ### Optional parameters
 
-The `timeSeriesDefinitions=<collection of term objects>` parameter specifies the terms of a Time Series Insights view:
+The `timeSeriesDefinitions=<collection of term objects>` parameter specifies predicate terms that will appear in a Time Series Insights view:
 
 | Parameter | URL Item | Description |
 | --- | --- | --- |
@@ -69,7 +69,11 @@ The `timeSeriesDefinitions=<collection of term objects>` parameter specifies the
 | **splitBy** | `\<string>` | The column name to *split by*. |
 | **measureName** | `\<string>` | The column name of *measure*. |
 | **predicate** | `\<string>` | The *where* clause for server-side filtering. |
-| **useSum** | `true` | An optional parameter that specifies using sum for your measure. </br>  Note, if `Events` is the selected measure, count is selected by default.  </br>  If `Events` is not selected, average is selected by default. |
+| **useSum** | `true` | An optional parameter that specifies using sum for your measure. |
+
+> [!NOTE]
+> If `Events` is the selected **useSum** measure, count is selected by default.  
+> If `Events` is not selected, average is selected by default. |
 
 * The `multiChartStack=<true/false>` key-value pair enables stacking in the chart.
 * The `multiChartSameScale=<true/false>` key-value pair enables the same Y-axis scale across terms within an optional parameter.  
@@ -79,9 +83,13 @@ The `timeSeriesDefinitions=<collection of term objects>` parameter specifies the
 | Pair(s) | Description |
 | --- | --- |
 | `multiChartStack=false` | `true` is enabled by default so pass `false` to stack. |
-| `multiChartStack=false&multiChartSameScale=true` | Stacking must be enabled to use the same Y-axis scale across terms.  It's `false` by default, so passing 'true' enables this functionality. |
-| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Units = days, hours, minutes, seconds, milliseconds.  Always capitalize the unit. </br> Define the number of units by passing the desired integer for timeBucketSize.  Note: you smooth up to 7 days.  |
-| `timezoneOffset=-<integer>` | The integer is always in milliseconds. </br> Note, this functionality is slightly different than what we enable in the Time Series Insights explorer, where we enable you to choose local (browser time) or UTC. |
+| `multiChartStack=false&multiChartSameScale=true` | Stacking must be enabled to use the same Y-axis scale across terms.  It's `false` by default, so passing `true` enables this functionality. |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Units = `days`, `hours`, `minutes`, `seconds`, `milliseconds`.  Always capitalize the unit. </br> Define the number of units by passing the desired integer for **timeBucketSize**.  |
+| `timezoneOffset=-<integer>` | The integer is always in milliseconds. |
+
+> [!NOTE]
+> **timeBucketUnit** values can be smoothed up to 7 days.
+> **timezoneOffset** values are neither UTC nor local time.
 
 ### Examples
 
@@ -96,7 +104,7 @@ Use the example time series definitions for:
 
 * The environment ID
 * The last 60 minutes of data
-* The terms (F1PressureID, F2TempStation, and F3VibrationPL) that comprise the optional parameters
+* The terms (**F1PressureID**, **F2TempStation**, and **F3VibrationPL**) that comprise the optional parameters
 
 You can construct the following parameterized URL for a view:
 
