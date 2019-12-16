@@ -82,9 +82,14 @@ This article provides answers to some of the most common questions about running
    To have a free passive license for a standby secondary availability group or failover clustered instance, you must meet all of the following criteria as outlined by the [licensing guide PDF](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf):
 
    1. You have [license mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) through [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
-   1. The passive SQL Server instance does not serve SQL Server data to clients or run active SQL Server workloads. It is only used to synchronize with the primary server and otherwise maintain the passive database in a warm standby state. If it is serving data, such as reports to clients running active SQL Server workloads, or performing any "work", such as additional backups from the secondary server, then it must be a paid licensed SQL Server instance. 
+   1. The passive SQL Server instance does not serve SQL Server data to clients or run active SQL Server workloads. It is only used to synchronize with the primary server and otherwise maintain the passive database in a warm standby state. If it is serving data, such as reports to clients running active SQL Server workloads, or performing any "work"<sup>1<sup>, then it must be a paid licensed SQL Server instance. 
    1. The active SQL Server license is covered by Software Assurance and allows for **one** passive secondary SQL Server instance, with up to the same amount of compute as the licensed active server, only. 
-   1. The secondary SQL Server VM utilizes the [Disaster Recovery](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) license in the Azure portal. 
+   1. The secondary SQL Server VM utilizes the [Disaster Recovery](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) license in the Azure portal.
+
+   <sup>1<sup>
+   The term "work" differs between SQL Server 2019 and previous versions of SQL Server. 
+   **SQL Server 2019**:  A SQL Server replica is one that is not serving SQL Server data to clients or running active SQL Server workloads. These may only be used to synchronize with the primary server and perform the following maintenance-related operations for the permitted passive fail-over instances: Database consistency checks, log backups, full backups, monitoring resource usage data. Customers may also run the primary and the corresponding disaster recovery replicas simultaneously for brief periods of diaster recovery testing every 90 days. 
+   **SQL Server 2017**: A SQL Server replica cannot serve data, and cannot perform any additional work such as backups, or consistency checks. 
 
 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
