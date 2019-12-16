@@ -1,7 +1,7 @@
 ---
 title: Brand detection - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to brand/logo detection using the Computer Vision API.
+description: This article discusses a specialized mode of object detection; brand and/or logo detection using the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

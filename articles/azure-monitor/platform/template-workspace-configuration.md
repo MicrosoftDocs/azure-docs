@@ -1,18 +1,13 @@
 ---
 title: Use Azure Resource Manager templates to Create and Configure a Log Analytics Workspace | Microsoft Docs
 description: You can use Azure Resource Manager templates to create and configure Log Analytics workspaces.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 10/22/2019
-ms.author: magoedte
+
 ---
 
 # Manage Log Analytics workspace using Azure Resource Manager templates
@@ -185,7 +180,7 @@ The following template sample illustrates how to:
     },
     "immediatePurgeDataOn30Days": {
       "type": "bool",
-      "defaultValue": "false",
+      "defaultValue": "[bool('false')]",
       "metadata": {
         "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }

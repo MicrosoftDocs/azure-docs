@@ -17,6 +17,69 @@ The BlockBlobStorage account kind lets you create block blobs with premium perfo
 
 For more information about BlockBlobStorage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+# [Portal](#tab/azure-portal)
+
+None.
+
+# [PowerShell](#tab/azure-powershell)
+
+This how-to article requires the Azure PowerShell module Az version 1.2.0 or later. Run `Get-Module -ListAvailable Az` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+
+# [Azure CLI](#tab/azure-cli)
+
+You can sign in to Azure and run Azure CLI commands in one of two ways:
+
+- You can run CLI commands from within the Azure portal, in Azure Cloud Shell.
+- You can install the CLI and run CLI commands locally.
+
+### Use Azure Cloud Shell
+
+Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is pre-installed and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
+
+[![Cloud Shell](../common/media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
+
+The button launches an interactive shell that you can use to run the steps outlined in this how-to article:
+
+[![Screenshot showing the Cloud Shell window in the portal](../common/media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+
+### Install the CLI locally
+
+You can also install and use the Azure CLI locally. This how-to article requires that you are running the Azure CLI version 2.0.46 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+
+---
+
+## Sign in to Azure
+
+# [Portal](#tab/azure-portal)
+
+Sign in to the [Azure portal](https://portal.azure.com).
+
+# [PowerShell](#tab/azure-powershell)
+
+Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to authenticate.
+
+```powershell
+Connect-AzAccount
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
+
+To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
+
+```cli
+az login
+```
+
+---
+
+## Create a BlockBlobStorage account
+
 ## [Portal](#tab/azure-portal)
 To create a BlockBlobStorage account in the Azure portal, follow these steps:
 
@@ -114,6 +177,8 @@ To create a block blob account by using the Azure CLI, you must first install Az
     --kind "BlockBlobStorage" \
     --sku "Premium_LRS"
    ```
+
+---
 
 ## Next steps
 

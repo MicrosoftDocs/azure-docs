@@ -24,7 +24,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
 ## Create a classroom lab
 
-1. Navigate to [Azure Lab Services website](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
+1. Navigate to [Azure Lab Services website](https://labs.azure.com). Internet Explorer 11 is not supported yet. 
 2. Select **Sign in** and enter your credentials. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. Select **New lab**. 
     
@@ -119,6 +119,10 @@ To switch to another classroom lab from the current, select the drop-down list o
 
 You can also create a new lab using the **New lab** in this drop-down list. 
 
+> [!NOTE]
+> You can also use the Az.LabServices PowerShell module (preview) to manage labs. For more information, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
+
+To switch to a different lab account, select the drop-down next to the lab account and select the other lab account. 
 
 ## Next steps
 See the following articles:

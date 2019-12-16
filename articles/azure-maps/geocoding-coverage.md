@@ -26,7 +26,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
 | Antarctica                                          |                 |                |              |      ✓     |          ✓         |
-| Antigua And Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
+| Antigua and Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Argentina                                           |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | Aruba                                               |                 |                |              |      ✓     |          ✓         |
 | Bahamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -65,7 +65,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Peru                                                |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Puerto Rico                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Saint Barthélemy                                    |                 |                |       ✓      |      ✓     |          ✓         |
-| Saint Kitts And Nevis                               |                 |                |       ✓      |      ✓     |          ✓         |
+| Saint Kitts and Nevis                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Lucia                                         |                 |                |              |      ✓     |          ✓         |
 | Saint Martin                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Pierre and Miquelon                           |                 |                |       ✓      |      ✓     |          ✓         |
@@ -122,7 +122,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Pakistan                                            |                 |                |              |      ✓     |          ✓         |
 | Palau                                               |                 |                |              |      ✓     |          ✓         |
 | Papua New Guinea                                    |                 |                |              |      ✓     |          ✓         |
-| Paracel Islands                                     |                 |                |              |      ✓     |                    |
 | Philippines                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Samoa                                               |                 |                |              |      ✓     |          ✓         |
@@ -130,7 +129,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Singapore                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Solomon Islands                                     |                 |                |              |      ✓     |          ✓         |
 | Southern Kurils                                     |        ✓        |                |              |      ✓     |          ✓         |
-| Spratly Islands                                     |                 |                |              |      ✓     |                    |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
 | Taiwan                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Thailand                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |

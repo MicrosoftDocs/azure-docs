@@ -16,31 +16,31 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ## FHIR version
 
-Latest version supported (available on the OSS implementation only): `4.0.0`
+Latest version supported: `4.0.0`
 
-Previous versions also currently supported include (available on both PaaS and OSS implementations): `3.0.1`
+Previous versions also currently supported include : `3.0.1`
 
 ## REST API
 
-| API                            | Supported | Comment |
-|--------------------------------|-----------|---------|
-| read                           | Yes       |         |
-| vread                          | Yes       |         |
-| update                         | Yes       |         |
-| update with optimistic locking | Yes       |         |
-| update (conditional)           | No        |         |
-| patch                          | No        |         |
-| delete                         | Yes       |         |
-| delete (conditional)           | No        |         |
-| create                         | Yes       | Support both POST/PUT |
-| create (conditional)           | No        |         |
-| search                         | Partial   | See below |
-| capabilities                   | Yes       |         |
-| batch                          | No        |         |
-| transaction                    | No        |         |
-| history                        | Yes       |         |
-| paging                         | Partial   | `self` and `next` are supported |
-| intermediaries                 | No        |         |
+| API                            | Supported | Comment                                             |
+|--------------------------------|-----------|-----------------------------------------------------|
+| read                           | Yes       |                                                     |
+| vread                          | Yes       |                                                     |
+| update                         | Yes       |                                                     |
+| update with optimistic locking | Yes       |                                                     |
+| update (conditional)           | Yes       |                                                     |
+| patch                          | No        |                                                     |
+| delete                         | Yes       |                                                     |
+| delete (conditional)           | No        |                                                     |
+| create                         | Yes       | Support both POST/PUT                               |
+| create (conditional)           | Yes       |                                                     |
+| search                         | Partial   | See below                                           |
+| capabilities                   | Yes       |                                                     |
+| batch                          | No        |                                                     |
+| transaction                    | No        |                                                     |
+| history                        | Yes       |                                                     |
+| paging                         | Partial   | `self` and `next` are supported                     |
+| intermediaries                 | No        |                                                     |
 
 ## Search
 
@@ -56,6 +56,7 @@ All search parameter types are supported. Chained parameters and reverse chainin
 | Composite             | Yes       |         |
 | Quantity              | Yes       | Issue [#103](https://github.com/Microsoft/fhir-server/issues/103) |
 | URI                   | Yes       |         |
+| Special               | No        |        
 
 
 | Modifiers             | Supported | Comment |
@@ -114,7 +115,7 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 ## Next steps
 
-In this article, you've read about the supported FHIR features in Azure API for FHIR. Next deploy an FHIR API in Azure.
+In this article, you've read about the supported FHIR features in Azure API for FHIR. Next deploy the Azure API for FHIR.
  
 >[!div class="nextstepaction"]
->[Deploy Open Source FHIR server](fhir-oss-powershell-quickstart.md)
+>[Getting started with Azure API for FHIR](tutorial-2-setup-environment.md)

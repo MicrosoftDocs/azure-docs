@@ -1,19 +1,14 @@
 ---
-title: Link templates for Azure deployment | Microsoft Docs
+title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.author: tomfitz
+ms.date: 12/11/2019
 ---
 # Using linked and nested templates when deploying Azure resources
 
-To deploy your solution, you can use either a single template or a main template with many related templates. The related templates can either be separate files that are linked to from the main template, or templates that are nested within the main template.
+To deploy complex solutions, you can break your template into many related templates, and then deploy them together through a main template. The related templates can be separate files or template syntax that is embedded within the main template. This article uses the term **linked template** to refer to a separate template file that is linked to from the main template. It uses the term **nested template** to refer to embedded template syntax within the main template.
 
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. You can easily reuse these templates for other scenarios.
-
-When using linked templates, you create a main template that receives the parameter values during deployment. The main template contains all the linked templates and passes values to those templates as needed.
 
 For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./resource-manager-tutorial-create-linked-templates.md).
 
@@ -21,84 +16,299 @@ For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](.
 > For linked or nested templates, you can only use [Incremental](deployment-modes.md) deployment mode.
 >
 
-## Deployments resource
-
-To link to another template, add a **deployments** resource to your main template.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2018-05-01",
-    "name": "linkedTemplate",
-    "properties": {
-        "mode": "Incremental",
-        <nested-template-or-external-template>
-    }
-  }
-]
-```
-
-The properties you provide for the deployment resource vary based on whether you're linking to an external template or nesting an inline template in the main template.
-
 ## Nested template
 
-To nest the template within the main template, use the **template** property and specify the template syntax.
+To nest a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the **template** property, specify the template syntax.
 
 ```json
-"resources": [
-  {
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2018-05-01",
-    "name": "nestedTemplate",
-    "properties": {
-      "mode": "Incremental",
-      "template": {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-04-01",
-            "name": "[variables('storageName')]",
-            "location": "West US",
-            "kind": "StorageV2",
-            "sku": {
-                "name": "Standard_LRS"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [
+        {
+            "apiVersion": "2017-05-10",
+            "name": "nestedTemplate1",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                  <nested-template-syntax>
+                }
             }
-          }
-        ]
-      }
+        }
+    ],
+    "outputs": {
     }
-  }
-]
+}
+```
+
+The following example deploys a storage account through a nested template.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-05-10",
+            "name": "nestedTemplate1",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources": [
+                        {
+                            "type": "Microsoft.Storage/storageAccounts",
+                            "apiVersion": "2019-04-01",
+                            "name": "[parameters('storageAccountName')]",
+                            "location": "West US",
+                            "kind": "StorageV2",
+                            "sku": {
+                                "name": "Standard_LRS"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
+```
+
+### Scope for expressions in nested templates
+
+When using a nested template, you can specify whether template expressions are evaluated within the scope of the parent template or the nested template. The scope determines how parameters, variables, and functions like [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) and [subscription](resource-group-template-functions-resource.md#subscription) are resolved.
+
+You set the scope through the `expressionEvaluationOptions` property. By default, the `expressionEvaluationOptions` property is set to `outer`, which means it uses the parent template scope. Set the value to `inner` to scope expressions to the nested template.
+
+```json
+{
+  "apiVersion": "2017-05-10",
+  "name": "nestedTemplate1",
+  "type": "Microsoft.Resources/deployments",
+  "properties": {
+    "expressionEvaluationOptions": {
+      "scope": "inner"
+    },
+    ...
+```
+
+The following template demonstrates how template expressions are resolved according to the scope. It contains a variable named `exampleVar` that is defined in both the parent template and the nested template. It returns the value of the variable.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
+    "variables": {
+        "exampleVar": "from parent template"
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-05-10",
+            "name": "nestedTemplate1",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "variables": {
+                        "exampleVar": "from nested template"
+                    },
+                    "resources": [
+                    ],
+                    "outputs": {
+                        "testVar": {
+                            "type": "string",
+                            "value": "[variables('exampleVar')]"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "messageFromLinkedTemplate": {
+            "type": "string",
+            "value": "[reference('nestedTemplate1').outputs.testVar.value]"
+        }
+    }
+}
+```
+
+The value of the variable changes based on the scope. The following table shows the results for both scopes.
+
+| Scope | Output |
+| ----- | ------ |
+| inner | from nested template |
+| outer (or default) | from parent template |
+
+The following example deploys a SQL server and retrieves a key vault secret to use for the password. The scope is set to `inner` because it dynamically creates the key vault ID and passes it as a parameter to the nested template.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "The location where the resources will be deployed."
+            }
+        },
+        "vaultName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the keyvault that contains the secret."
+            }
+        },
+        "secretName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the secret."
+            }
+        },
+        "vaultResourceGroupName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the resource group that contains the keyvault."
+            }
+        },
+        "vaultSubscription": {
+            "type": "string",
+            "defaultValue": "[subscription().subscriptionId]",
+            "metadata": {
+                "description": "The name of the subscription that contains the keyvault."
+            }
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-05-01",
+            "name": "dynamicSecret",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                        "adminLogin": {
+                            "type": "string"
+                        },
+                        "adminPassword": {
+                            "type": "securestring"
+                        },
+                        "location": {
+                            "type": "string"
+                        }
+                    },
+                    "variables": {
+                        "sqlServerName": "[concat('sql-', uniqueString(resourceGroup().id, 'sql'))]"
+                    },
+                    "resources": [
+                        {
+                            "name": "[variables('sqlServerName')]",
+                            "type": "Microsoft.Sql/servers",
+                            "apiVersion": "2018-06-01-preview",
+                            "location": "[parameters('location')]",
+                            "properties": {
+                                "administratorLogin": "[parameters('adminLogin')]",
+                                "administratorLoginPassword": "[parameters('adminPassword')]"
+                            }
+                        }
+                    ],
+                    "outputs": {
+                        "sqlFQDN": {
+                            "type": "string",
+                            "value": "[reference(variables('sqlServerName')).fullyQualifiedDomainName]"
+                        }
+                    }
+                },
+                "parameters": {
+                    "location": {
+                        "value": "[parameters('location')]"
+                    },
+                    "adminLogin": {
+                        "value": "ghuser"
+                    },
+                    "adminPassword": {
+                        "reference": {
+                            "keyVault": {
+                                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+                            },
+                            "secretName": "[parameters('secretName')]"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
 ```
 
 > [!NOTE]
-> For nested templates, you cannot use parameters or variables that are defined within the nested template. You can use parameters and variables from the main template. In the preceding example, `[variables('storageName')]` retrieves a value from the main template, not the nested template. This restriction does not apply to external templates.
 >
-> For two resources defined inside a nested template and one resource depends on the other, the value of the dependency is simply the name of the dependent resource:
-> ```json
-> "dependsOn": [
->   "[variables('storageAccountName')]"
-> ],
-> ```
->
-> You can't use the `reference` function in the outputs section of a nested template for a resource you have deployed in the nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
+> When scope is set to `outer`, you can't use the `reference` function in the outputs section of a nested template for a resource you have deployed in the nested template. To return the values for a deployed resource in a nested template, either use inner scope or convert your nested template to a linked template.
 
-The nested template requires the [same properties](resource-group-authoring-templates.md) as a standard template.
+## Linked template
 
-## External template
+To link a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the **templateLink** property, specify the URI of the template to include. The following example links to a template that deploys a new storage account.
 
-To link to an external template, use the **templateLink** property. You can't specify a local file or a file that is only available on your local network. You can only provide a URI value that includes either **http** or **https**. Resource Manager must be able to access the template.
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                  "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+                  "contentVersion":"1.0.0.0"
+                }
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
+```
 
-One option is to place your linked template in a storage account, and use the URI for that item.
+You can't specify a local file or a file that is only available on your local network. You can only provide a URI value that includes either **http** or **https**. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item.
 
-You can provide the parameters for your external template either in an external file or inline.
+You don't have to provide the `contentVersion` property for the template or parameters. If you don't provide a content version value, the current version of the template is deployed. If you provide a value for content version, it must match the version in the linked template; otherwise, the deployment fails with an error.
 
-### External parameters
+### Parameters for linked template
 
-When providing an external parameter file, use the **parametersLink** property:
+You can provide the parameters for your linked template either in an external file or inline. When providing an external parameter file, use the **parametersLink** property:
 
 ```json
 "resources": [
@@ -121,13 +331,7 @@ When providing an external parameter file, use the **parametersLink** property:
 ]
 ```
 
-You don't have to provide the `contentVersion` property for the template or parameters. If you don't provide a content version value, the current version of the template is deployed. If you provide a value for content version, it must match the version in the linked template; otherwise, the deployment fails with an error.
-
-### Inline parameters
-
-Or, you can provide the parameter inline. You can't use both inline parameters and a link to a parameter file. The deployment fails with an error when both `parametersLink` and `parameters` are specified.
-
-To pass a value from the main template to the linked template, use the **parameters** property.
+To pass parameter values inline, use the **parameters** property.
 
 ```json
 "resources": [
@@ -149,9 +353,11 @@ To pass a value from the main template to the linked template, use the **paramet
 ]
 ```
 
+You can't use both inline parameters and a link to a parameter file. The deployment fails with an error when both `parametersLink` and `parameters` are specified.
+
 ## Using copy
 
-To create multiple instances of a resource with a nested template, add the copy element at the level of the **Microsoft.Resources/deployments** resource.
+To create multiple instances of a resource with a nested template, add the copy element at the level of the **Microsoft.Resources/deployments** resource. Or, if the scope is inner, you can add the copy within the nested template.
 
 The following example template shows how to use copy with a nested template.
 
@@ -168,6 +374,9 @@ The following example template shows how to use copy with a nested template.
     },
     "properties": {
       "mode": "Incremental",
+      "expressionEvaluationOptions": {
+        "scope": "inner"
+      },
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
@@ -181,7 +390,8 @@ The following example template shows how to use copy with a nested template.
             "sku": {
               "name": "Standard_LRS"
             }
-            // no, copy doesn't work here
+            // Copy works here when scope is inner
+            // But, when scope is default or outer, you get an error
             //"copy":{
             //  "name": "storagecopy",
             //  "count": 2
@@ -373,9 +583,9 @@ To use the public IP address from the preceding template when deploying a load b
 }
 ```
 
-## Linked and nested templates in deployment history
+## Deployment history
 
-Resource Manager processes each template as a separate deployment in the deployment history. Therefore, a main template with three linked or nested templates appears in the deployment history as:
+Resource Manager processes each template as a separate deployment in the deployment history. A main template with three linked or nested templates appears in the deployment history as:
 
 ![Deployment history](./media/resource-group-linked-templates/deployment-history.png)
 

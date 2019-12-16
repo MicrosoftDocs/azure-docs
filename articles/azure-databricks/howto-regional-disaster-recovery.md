@@ -41,7 +41,7 @@ To create your own regional disaster recovery topology, follow these requirement
 
    This article shows a number of code examples that use the command-line interface for most of the automated steps, since it is an easy-to-user wrapper over Azure Databricks REST API.
 
-   Before performing any migration steps, install the databricks-cli on your desktop computer or a virtual machine where you plan to do the work. For more information, see [Install Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
+   Before performing any migration steps, install the databricks-cli on your desktop computer or a virtual machine where you plan to do the work. For more information, see [Install Databricks CLI](/azure/databricks/dev-tools/databricks-cli)
 
    ```bash
    pip install databricks-cli
@@ -280,7 +280,7 @@ To create your own regional disaster recovery topology, follow these requirement
 
 8. **Migrate Azure blob storage and Azure Data Lake Storage mounts**
 
-   Manually remount all [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) and [Azure Data Lake Storage (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) mount points using a notebook-based solution. The storage resources would have been mounted in the primary workspace, and that has to be repeated in the secondary workspace. There is no external API for mounts.
+   Manually remount all [Azure Blob storage](/azure/databricks/data/data-sources/azure/azure-storage) and [Azure Data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) mount points using a notebook-based solution. The storage resources would have been mounted in the primary workspace, and that has to be repeated in the secondary workspace. There is no external API for mounts.
 
 9. **Migrate cluster init scripts**
 
@@ -296,7 +296,7 @@ To create your own regional disaster recovery topology, follow these requirement
 
 10. **Manually reconfigure and reapply access control.**
 
-    If your existing primary workspace is configured to use the Premium tier (SKU), it's likely you also are using the [Access Control feature](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    If your existing primary workspace is configured to use the Premium tier (SKU), it's likely you also are using the [Access Control feature](/azure/databricks/administration-guide/access-control/index).
 
     If you do use the Access Control feature, manually reapply the access control to the resources (Notebooks, Clusters, Jobs, Tables).
 
@@ -306,4 +306,4 @@ If you are using other Azure services, be sure to implement disaster recovery be
 
 ## Next steps
 
-For more information, see [Azure Databricks documentation](https://docs.azuredatabricks.net/user-guide/index.html).
+For more information, see [Azure Databricks documentation](index.yml).

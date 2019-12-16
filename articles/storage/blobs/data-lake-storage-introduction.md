@@ -79,7 +79,7 @@ Several open source platforms support Data Lake Storage Gen2. Those platforms ap
 
 ## Supported Azure services
 
-Data Lake Storage gen2 supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Integrate Azure Data Lake Storage with Azure services](data-lake-store-integrate-with-azure-services.md).
+Data Lake Storage gen2 supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md).
 
 ## Next steps
 
@@ -88,4 +88,4 @@ The following articles describe some of the main concepts of Data Lake Storage G
 - [Hierarchical namespace](data-lake-storage-namespace.md)
 - [Create a storage account](data-lake-storage-quickstart-create-account.md)
 - [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
-- [Integrate Azure Data Lake Storage with Azure services](data-lake-store-integrate-with-azure-services.md);
+- [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md);

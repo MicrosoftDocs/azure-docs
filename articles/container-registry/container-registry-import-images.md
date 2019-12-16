@@ -1,14 +1,8 @@
 ---
-title: Import container images to Azure Container Registry 
+title: Import container images
 description: Import container images to an Azure container registry by using Azure APIs, without needing to run Docker commands.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 02/06/2019
-ms.author: danlep
 ---
 
 # Import container images to a container registry

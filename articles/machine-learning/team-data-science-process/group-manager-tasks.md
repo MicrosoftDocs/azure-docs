@@ -1,6 +1,6 @@
 ---
 title: Team Data Science Process group manager tasks
-description: A detailed walkthrough of the tasks for a group manager on a data science team project.
+description: Follow this detailed walkthrough of the tasks a group manager completes on a data science team project.
 author: marktab
 manager: cgronlun
 editor: cgronlun

@@ -17,9 +17,9 @@ ms.reviewer: jroth
 ---
 # Bulk register SQL virtual machines in Azure with the SQL VM resource provider
 
-This article describes how to bulk register your SQL Server virtual machine (VM) in Azure with the SQL VM resource provider using the 'Register-SqlVMs' PowerShell cmdlet.
+This article describes how to bulk register your SQL Server virtual machine (VM) in Azure with the SQL VM resource provider using the `Register-SqlVMs` PowerShell cmdlet.
 
-The 'Register-SqlVMs' cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines in _lightweight_ management mode, and then generate both a [report and a log file](#output-description). 
+The `Register-SqlVMs` cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines in _lightweight_ management mode, and then generate both a [report and a log file](#output-description). 
 
 The registration process carries no risk, has no downtime, and will not restart SQL Server or the virtual machine. 
 
@@ -32,6 +32,7 @@ To register your SQL Server VM with the resource provider, you'll need the follo
 - An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](virtual-machines-windows-sql-register-with-resource-provider.md#register-subscription-with-rp) and contains unregistered SQL Server virtual machines. 
 - The client credentials used to register the virtual machines exist in any of the following RBAC roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
 - The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
+- The latest version of [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
 ## Getting started
 
@@ -214,18 +215,19 @@ Errors are logged in the log file named `VMsNotRegisteredDueToError<Timestamp>.l
 
 ## Remarks
 
-When registering SQL Server VMs with the resource provider using the provided script, consider the following:
+When you register SQL Server VMs with the resource provider using the provided script, consider the following:
 
-- Registration with the resource provider requires a guest agent running on the SQL Server VM. Windows Server 2008 images do not have a guest agent, so these virtual machines will fail and must be registered manually using the [NoAgent management mode](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms).
+- Registration with the resource provider requires a guest agent running on the SQL Server VM. Windows Server 2008 images do not have a guest agent, so these virtual machines will fail and must be registered manually using the [NoAgent management mode](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes).
 - There is retry logic built-in to overcome transparent errors. If the virtual machine is successfully registered, then it is a rapid operation. However, if the registration fails, then each virtual machine will be retried.  As such, you should allow significant time to complete the registration process -  though actual time requirement is dependent on the type and number of errors. 
 
 ## Full script
+
+For the full script on GitHub, see [Bulk register SQL VMs with Az PowerShell](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1). 
 
 Copy the full script and save it as `RegisterSqLVMs.psm1`.
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
 
-For the full script on GitHub, see [Bulk register SQL VMs with Az PowerShell](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1). 
 
 
 ## Next steps

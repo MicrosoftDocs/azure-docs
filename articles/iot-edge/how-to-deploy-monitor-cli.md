@@ -1,5 +1,5 @@
 ---
-title: Create automatic deployments from command line - Azure IoT Edge | Microsoft Docs 
+title: Deploy modules at scale using Azure CLI - Azure IoT Edge
 description: Use the IoT extension for Azure CLI to create automatic deployments for groups of IoT Edge devices
 keywords: 
 author: kgremban
@@ -9,7 +9,6 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Deploy and monitor IoT Edge modules at scale using the Azure CLI
@@ -23,7 +22,7 @@ In this article, you set up Azure CLI and the IoT extension. You then learn how 
 ## CLI Prerequisites
 
 * An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription. 
-* [IoT Edge devices](how-to-register-device-cli.md) with the IoT Edge runtime installed.
+* [IoT Edge devices](how-to-register-device.md#prerequisites-for-the-azure-cli) with the IoT Edge runtime installed.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework. 
 * The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 

@@ -3,7 +3,7 @@ title: Azure Monitor log query examples | Microsoft Docs
 description: Examples of log queries in Azure Monitor using the Kusto query language.
 ms.service:  azure-monitor
 ms.subservice: logs
-ms.topic: article
+ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
@@ -171,7 +171,6 @@ let EndTime = now()-4d;
 Perf
 | where CounterName == "% Processor Time"  
 | where TimeGenerated > StartTime and TimeGenerated < EndTime
-and TimeGenerated < EndTime
 | project TimeGenerated, Computer, cpu=CounterValue 
 | join kind= inner (
    Perf

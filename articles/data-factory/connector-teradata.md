@@ -1,18 +1,18 @@
 ---
-title: Copy data from Teradata Vantage by using Azure Data Factory | Microsoft Docs
+title: Copy data from Teradata Vantage by using Azure Data Factory 
 description: The Teradata Connector of the Data Factory service lets you copy data from a Teradata Vantage to data stores supported by Data Factory as sinks. 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/24/2019
 ms.author: jingwang
 
 ---
@@ -68,6 +68,13 @@ The Teradata linked service supports the following properties:
 | username | Specify a user name to connect to Teradata. Applies when you are using Windows authentication. | No |
 | password | Specify a password for the user account you specified for the user name. You can also choose to [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br>Applies when you are using Windows authentication, or referencing a password in Key Vault for basic authentication. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |Yes |
+
+More connection properties you can set in connection string per your case:
+
+| Property | Description | Default value |
+|:--- |:--- |:--- |
+| CharacterSet | The character set to use for the session. E.g., `CharacterSet=UTF16`.<br><br/>This value can be a user-defined character set, or one of the following pre-defined character sets: <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)<br/>- EUC (Unix compatible, KANJIEC_0U)<br/>- IBM Mainframe (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | Default value is `ASCII`. |
+| MaxRespSize |The maximum size of the response buffer for SQL requests, in kilobytes (KBs). E.g., `MaxRespSize=‭10485760‬`.<br/><br/>For Teradata Database version 16.00 or later, the maximum value is 7361536. For connections that use earlier versions, the maximum value is 1048576. | Default value is `65536`. |
 
 **Example using basic authentication**
 

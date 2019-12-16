@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery troubleshooting for Azure-to-Azure network connectivity issues and errors| Microsoft Docs
+title: Troubleshoot connectivity for Azure to Azure disaster recovery with Azure Site Recovery 
 description: Troubleshoot errors and issues when you replicate Azure virtual machines for disaster recovery
 services: site-recovery
 author: asgang

@@ -1,6 +1,6 @@
 ---
 title: Manage user data in Azure Security Center | Microsoft Docs
-description: " Learn how to manage user data in Azure Security Center. "
+description: Learn how to manage the user data in Azure Security Center. Managing user data includes the ability to access, delete, or export data.
 services: security-center
 documentationcenter: na
 author: memildin

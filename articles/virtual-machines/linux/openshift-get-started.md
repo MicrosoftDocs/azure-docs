@@ -1,5 +1,5 @@
 ---
-title: OpenShift in Azure overview | Microsoft Docs
+title: OpenShift in Azure overview 
 description: An overview of OpenShift in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines

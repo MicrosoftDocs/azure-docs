@@ -1,11 +1,8 @@
 ---
-title: Best practices for Azure Resource Manager templates
+title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates. Offers suggestions to avoid common problems when using templates. 
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.author: tomfitz
+ms.date: 12/02/2019
 ---
 # Azure Resource Manager template best practices
 
@@ -90,7 +87,7 @@ The information in this section can be helpful when you work with [parameters](t
 
 * Don't use a parameter for the API version for a resource type. Resource properties and values can vary by version number. IntelliSense in a code editor can't determine the correct schema when the API version is set to a parameter. Instead, hard-code the API version in the template.
 
-* Use `allowedValues` sparingly. Use it only when you must make sure some values aren't included in the permitted options. If you use `allowedValues` too broadly, you might block valid deployments by not keeping your list up-to-date.
+* Use `allowedValues` sparingly. Use it only when you must make sure some values aren't included in the permitted options. If you use `allowedValues` too broadly, you might block valid deployments by not keeping your list up to date.
 
 * When a parameter name in your template matches a parameter in the PowerShell deployment command, Resource Manager resolves this naming conflict by adding the postfix **FromTemplate** to the template parameter. For example, if you include a parameter named **ResourceGroupName** in your template, it conflicts with the **ResourceGroupName** parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. During deployment, you're prompted to provide a value for **ResourceGroupNameFromTemplate**.
 
@@ -201,7 +198,7 @@ The following information can be helpful when you work with [resources](resource
    }
    ```
    
-   If the storage account is deployed in the same template that you're creating and the name of the storage account is not shared with another resource in the template, you don't need to specify the provider namespace or the apiVersion when you reference the resource. The following example shows the simplified syntax:
+   If the storage account is deployed in the same template that you're creating and the name of the storage account isn't shared with another resource in the template, you don't need to specify the provider namespace or the apiVersion when you reference the resource. The following example shows the simplified syntax:
    
    ```json
    "diagnosticsProfile": {
@@ -273,23 +270,6 @@ The following information can be helpful when you work with [resources](resource
    > To ensure that secrets are encrypted when they are passed as parameters to VMs and extensions, use the **protectedSettings** property of the relevant extensions.
    > 
    > 
-
-## Outputs
-
-If you use a template to create public IP addresses, include an [outputs section](template-outputs.md) that returns details of the IP address and the fully qualified domain name (FQDN). You can use output values to easily retrieve details about public IP addresses and FQDNs after deployment.
-
-```json
-"outputs": {
-    "fqdn": {
-        "value": "[reference(parameters('publicIPAddresses_name')).dnsSettings.fqdn]",
-        "type": "string"
-    },
-    "ipaddress": {
-        "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]",
-        "type": "string"
-    }
-}
-```
 
 ## Next steps
 

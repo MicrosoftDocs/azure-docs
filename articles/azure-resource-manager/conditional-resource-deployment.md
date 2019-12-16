@@ -1,11 +1,8 @@
 ---
-title: Conditional deployment with Azure Resource Manager templates
+title: Conditional deployment with templates
 description: Describes how to conditionally deploy a resource in an Azure Resource Manager template.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/03/2019
-ms.author: tomfitz
+ms.date: 12/03/2019
 ---
 
 # Conditional deployment in Resource Manager templates
@@ -76,6 +73,8 @@ For the complete template, see [Azure SQL logical server](https://github.com/Azu
 If you use a [reference](resource-group-template-functions-resource.md#reference) or [list](resource-group-template-functions-resource.md#list) function with a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the function refers to a resource that doesn't exist.
 
 Use the [if](resource-group-template-functions-logical.md#if) function to make sure the function is only evaluated for conditions when the resource is deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
+
+You set a [resource as dependent](resource-group-define-dependencies.md) on a conditional resource exactly as you would any other resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
 ## Condition with complete mode
 

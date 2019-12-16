@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure new support request File Upload utility guidelines | Microsoft Docs
-description: Describes the guidelines when using Microsoft Azure new support request File Upload utility
+title: Azure support request - file upload guidelines
+description: Describes the guidelines when using Microsoft Azure support request file upload option
 author: genlin
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
@@ -10,15 +10,15 @@ ms.date: 10/31/2018
 ms.author: genli
 
 ---
-# Microsoft Azure new support request File Upload utility guidelines
-When you [create a support request](https://portal.azure.com/#create/Microsoft.Support), the File Upload utility can help you easily upload diagnostic files or any other files that you think are relevant to the incident.  
+# Microsoft Azure new support request file upload utility guidelines
+When you [create a support request](https://portal.azure.com/#create/Microsoft.Support), the file upload option can help you easily upload diagnostic files or any other files that you think are relevant to the incident.  
 
 > [!NOTE]
 > To protect your privacy, do not include any personal information in your upload.
 >
 >
 
-Follow these guidelines when you use the File Upload utility:
+Follow these guidelines when you use the file upload option:
 
 * All files must have a file name extension, such as .docx or .xlsx. See the table for the list of allowed file name extensions.
 * The file name must be no longer than 110 characters.

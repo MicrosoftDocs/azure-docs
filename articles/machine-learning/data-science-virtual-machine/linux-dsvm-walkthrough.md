@@ -29,7 +29,7 @@ Before you can use a Linux DSVM, you must have the following prerequisites:
 * [**Linux Data Science Virtual Machine**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information about provisioning the virtual machine, see [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installed on your computer with an open XFCE session. For more information, see [Install and configure the X2Go client](linux-dsvm-intro.md#x2go).
 * For a smoother scrolling experience, in the DSVM's Firefox web browser, toggle the `gfx.xrender.enabled` flag in `about:config`. [Learn more](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider setting `mousewheel.enable_pixel_scrolling` to `False`. [Learn more](https://support.mozilla.org/questions/981140).
-* **Azure Machine Learning account**. If you don't already have one, sign up for a new account on the [Azure Machine Learning home page](https://studio.azureml.net/). You can try it for free to help you get started.
+* **Azure Machine Learning account**. If you don't already have one, sign up for a new account on the [Azure Machine Learning home page](https://azure.microsoft.com/free/services/machine-learning//).
 
 ## Download the spambase dataset
 
@@ -55,8 +55,8 @@ Then, concatenate the two files together:
 
 The dataset has several types of statistics for each email:
 
-* Columns like **word\_freq\_*WORD*** indicate the percentage of words in the email that match *WORD*. For example, if **word\_freq\_make** is **1**, then 1% of all words in the email were *make*.
-* Columns like **char\_freq\_*CHAR*** indicate the percentage of all characters in the email that are *CHAR*.
+* Columns like **word\_freq\__WORD_** indicate the percentage of words in the email that match *WORD*. For example, if **word\_freq\_make** is **1**, then 1% of all words in the email were *make*.
+* Columns like **char\_freq\__CHAR_** indicate the percentage of all characters in the email that are *CHAR*.
 * **capital\_run\_length\_longest** is the longest length of a sequence of capital letters.
 * **capital\_run\_length\_average** is the average length of all sequences of capital letters.
 * **capital\_run\_length\_total** is the total length of all sequences of capital letters.
@@ -169,11 +169,11 @@ Let's also try a random forest model. Random forests train a multitude of decisi
     accuracy
 
 
-## Deploy a model to Azure Machine Learning Studio
+## Deploy a model to Azure Machine Learning Studio (classic)
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) is a cloud service that makes it easy to build and deploy predictive analytics models. A nice feature of Azure Machine Learning Studio is its ability to publish any R function as a web service. The Azure Machine Learning Studio R package makes deployment easy, right from your R session on the DSVM.
+[Azure Machine Learning Studio (classic)](https://studio.azureml.net/) is a cloud service that makes it easy to build and deploy predictive analytics models. A nice feature of the classic version of Azure Machine Learning Studio is its ability to publish any R function as a web service. The Azure Machine Learning Studio R package makes deployment easy, right from your R session on the DSVM.
 
-To deploy the decision tree code from the preceding section, sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sign in. To find these values and initialize the Azure Machine Learning variables with them, complete these steps:
+To deploy the decision tree code from the preceding section, sign in to Azure Machine Learning Studio (classic). You need your workspace ID and an authorization token to sign in. To find these values and initialize the Azure Machine Learning variables with them, complete these steps:
 
 1. In the left menu, select **Settings**. Note the value for **WORKSPACE ID**.
 
