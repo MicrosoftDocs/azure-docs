@@ -5,17 +5,19 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 12/16/2019
 ---
 
-# Autopilot mode FAQ (Preview)
+# Frequently asked questions about provisioned throughput in autopilot mode (Preview)
 With autopilot mode, Azure Cosmos DB will automatically manage and scale the RU/s of your container or database based on usage. This article answers commonly asked questions about autopilot mode. 
+
+## Frequently asked questions
 
 ### Is autopilot mode supported for all APIs?
 Yes, autopilot mode is supported for all APIs: Core (SQL), Gremlin, Table, Cassandra, and API for MongoDB.
 
 ### Is autopilot mode supported for multi-master accounts?
-Yes, autopilot mode is supported for multi-master accounts.
+Yes, autopilot mode is supported for multi-master accounts. The max RU/s are available in each region that is added to the Cosmos account. 
 
 ### What is the pricing for autopilot?
 Refer to the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for details. 
@@ -27,7 +29,7 @@ Once you are [enrolled in the preview](provision-throughput-autopilot.md#enable-
 Currently, in the preview release, you can only create resources with autopilot mode from the Azure portal. Support for CLI and SDK is not yet available and is planned for GA release.
 
 ### Can I enable autopilot on an existing container or a database?
-Currently, autopilot can only be enabled on new containers and databases when they are first created. Support to enable autopilot on existing resources is planned for GA. 
+Currently, you can enable autopilot on new containers and databases when creating them. Support to enable autopilot mode on existing containers and databases is planned for GA. You can migrate existing containers to a new container using [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) or [change feed](change-feed.md). 
 
 ### Can I turn off autopilot mode on a container or database?
 Yes, you can turn off autopilot by switching to the 'Manual' option for the provisioned throughput. In the preview release, after switching from autopilot mode to manual mode, you cannot enable autopilot again for the same resource. 
