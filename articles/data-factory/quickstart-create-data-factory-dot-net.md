@@ -328,7 +328,10 @@ Creating linked service AzureStorageLinkedService...
   "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>"
+      "connectionString": {
+        "value": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>",
+        "type": "SecureString"
+      }
     }
   }
 }

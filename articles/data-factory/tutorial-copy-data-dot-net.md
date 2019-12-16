@@ -444,7 +444,10 @@ Creating linked service AzureStorageLinkedService...
   "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
+      "connectionString": {
+        "type": "SecureString",
+        "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
+      }
     }
   }
 }
@@ -453,7 +456,10 @@ Creating linked service AzureSqlDbLinkedService...
   "properties": {
     "type": "AzureSqlDatabase",
     "typeProperties": {
-      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+      "connectionString": {
+        "type": "SecureString",
+        "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+      }
     }
   }
 }

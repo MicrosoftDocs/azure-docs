@@ -169,8 +169,11 @@ This sample shows how you can use the referenceObjects and extendedProperties to
             "type": "LinkedServiceReference"
           }]
         },
-        "extendedProperties": {
-          "connectionString": "aSampleSecureString",
+        "extendedProperties": {          
+          "connectionString": {
+            "type": "SecureString",
+            "value": "aSampleSecureString"
+          },
           "PropertyBagPropertyName1": "PropertyBagValue1",
           "propertyBagPropertyName2": "PropertyBagValue2",
           "dateTime1": "2015-04-12T12:13:14Z"
@@ -305,7 +308,10 @@ Sensitive property values designated as type *SecureString*, as shown in some of
 
 ```json
 "extendedProperties": {
-  "connectionString": "aSampleSecureString"
+  "connectionString": {
+    "type": "SecureString",
+    "value": "aSampleSecureString"
+  }
 }
 ```
 
