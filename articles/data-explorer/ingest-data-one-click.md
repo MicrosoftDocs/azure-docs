@@ -58,7 +58,7 @@ This article shows you how to use one-click ingestion for quick ingestion of a n
 
 1. Above the **Editor** pane, select the **v** button to open the editor. In the editor, you can view and copy the automatic queries generated from your inputs. 
 
-1. In table: 
+1. In the table: 
     * Right-click new column headers to **Change data type**, **Rename column**, **Delete column**, **Sort ascending**, or **Sort descending**. On existing columns, only data sorting is available. 
     * Double-click the new column name to edit.
 
