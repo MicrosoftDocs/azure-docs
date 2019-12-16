@@ -50,15 +50,15 @@ Indexer was unable to read the document from the data source. This can happen du
 
 <a name="could-not-extract-document-content"/>
 
-## Error: Could not extract document content
-Indexer with a Blob data source was unable to extract the content from the document (for example, a PDF file). This can happen due to:
+## Error: Could not extract content or metadata from your document
+Indexer with a Blob data source was unable to extract the content or metadata from the document (for example, a PDF file). This can happen due to:
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | blob is over the size limit | Document is `'150441598'` bytes, which exceeds the maximum size `'134217728'` bytes for document extraction for your current service tier. | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob has unsupported content type | Document has unsupported content type `'image/png'` | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob is encrypted | Document could not be processed - it may be encrypted or password protected. | You can skip the blob with [blob settings](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
-| transient issues | Error processing blob: The request was aborted: The request was canceled. | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
+| transient issues | "Error processing blob: The request was aborted: The request was canceled." "Document timed out during processing." | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 
 <a name="could-not-parse-document"/>
 
