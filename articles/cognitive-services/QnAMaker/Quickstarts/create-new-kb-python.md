@@ -30,8 +30,6 @@ This quickstart calls QnA Maker APIs:
 * [Python 3.7](https://www.python.org/downloads/)
 * You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and endpoint (which includes the resource name), select **Quickstart** for your resource in the Azure portal.
 
-[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
-
 ## Create a knowledge base Python file
 
 Create a file named `create-new-knowledge-base-3x.py`.
