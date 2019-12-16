@@ -16,7 +16,7 @@ ms.author: banders
 
 Your billing account for Microsoft Customer Agreement provides you flexibility to organize your invoice based on your needs whether it by department, project, or development environment. 
 
-This article describes how you can use the Azure portal or the Azure APIs to organize the costs in your invoice. It applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
+This article describes how you can use the Azure portal to organize the costs in your invoice. It applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
 ## Billing profile and invoice sections
 
