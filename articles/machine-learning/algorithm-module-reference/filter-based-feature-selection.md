@@ -1,7 +1,7 @@
 ---
 title: "Filter Based Feature Selection: Module reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Filter Based Feature Selection module in the Azure Machine Learning service to identify the features in a dataset with the greatest predictive power.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Filter Based Feature Selection module in Azure Machine Learning to identify the features in a dataset with the greatest predictive power.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -130,5 +130,5 @@ If you use Pearson correlation on a numeric feature and a categorical label, the
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 
 

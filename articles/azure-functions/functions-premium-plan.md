@@ -10,7 +10,7 @@ ms.author: jehollan
 
 # Azure Functions Premium plan
 
-The Azure Functions Premium plan is a hosting option for function apps. The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the Premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
+The Azure Functions Premium plan (sometimes referred to as Elastic Premium plan)  is a hosting option for function apps. The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the Premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
 ## Create a Premium plan
 
@@ -99,27 +99,28 @@ Below are the currently supported regions for each OS.
 |Australia Central| ✔<sup>1</sup> | |
 |Australia Central 2| ✔<sup>1</sup> | |
 |Australia East| ✔ | |
-|Australia Southeast | ✔ | ✔ |
+|Australia Southeast | ✔ | ✔<sup>1</sup> |
 |Brazil South| ✔<sup>2</sup> |  |
 |Canada Central| ✔ |  |
 |Central US| ✔ |  |
 |East Asia| ✔ |  |
-|East US | ✔ | ✔ |
+|East US | ✔ | ✔<sup>1</sup> |
 |East US 2| ✔ |  |
 |France Central| ✔ |  |
-|Japan East| ✔ | ✔ |
+|Germany West Central| ✔ | |
+|Japan East| ✔ | ✔<sup>1</sup> |
 |Japan West| ✔ | |
 |Korea Central| ✔ |  |
 |North Central US| ✔ |  |
-|North Europe| ✔ | ✔ |
-|South Central US| ✔ |  |
+|North Europe| ✔ | ✔<sup>1</sup> |
+|South Central US| ✔ | ✔<sup>1</sup> |
 |South India | ✔ | |
-|Southeast Asia| ✔ | ✔ |
+|Southeast Asia| ✔ | ✔<sup>1</sup> |
 |UK South| ✔ | |
 |UK West| ✔ |  |
-|West Europe| ✔ | ✔ |
+|West Europe| ✔ | ✔<sup>1</sup> |
 |West India| ✔ |  |
-|West US| ✔ | ✔ |
+|West US| ✔ | ✔<sup>1</sup> |
 |West US 2| ✔ |  |
 
 <sup>1</sup>Maximum scale out limited to 20 instances.  
