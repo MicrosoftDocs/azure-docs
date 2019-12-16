@@ -96,7 +96,7 @@ The prebuilt entity, geographyV2, extracts location information, including city 
     > ![Add roles to prebuilt entity](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 
 1. Select **Intents** from the left-side navigation, then select the **MoveEmployeeToCity** intent. Notice the city names are labeled with the prebuilt entity **geographyV2**.
-1. In the context toolbar, select the **Entity pallete**.
+1. In the context toolbar, select the **Entity palette**.
 
     > [!div class="mx-imgBorder"]
     > ![Select Entity Palette from content toolbar](media/tutorial-entity-roles/intent-detail-context-toolbar-select-entity-palette.png)
