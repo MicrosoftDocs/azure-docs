@@ -63,16 +63,16 @@ Projections can be articulated as objects, tables, or files.
             "files": [ ]
         }
 ```
-            
-Physical storage varies depending on the type of projections you specify.
 
-+ Blob storage is used when you define `objects` or `files`. The physical representation of an `object` is a hierarchical JSON structure that represents an enriched document. A `file` is an image extracted from a document, stored in Blob storage.
+The type of projection you specify in this structure determines the type of storage used by knowledge store.
 
 + Table storage is used when you define `tables`. Define a table projection when you need tabular reporting structures for inputs to analytical tools or export as data frames to other data stores. You can specify multiple `tables` to get a subset or cross section of enriched documents. Within the same projection group, table relationships are preserved so that you can work with all of them.
 
-A single projection object contains on set of `objects`, `files`, `tables`, and for many developers, creating one projection might be enough. 
++ Blob storage is used when you define `objects` or `files`. The physical representation of an `object` is a hierarchical JSON structure that represents an enriched document. A `file` is an image extracted from a document, transferred intact to Blob storage.
 
-However, it is possible to create multiple sets of `tables`-`objects`-`files` projections, and you might do that if you want different data relationships. Within a set, data is related, assuming those relationships can be detected. If you create additional sets, the documents in each group are never related. An example of using multiple projection groups might be if you want the same data projected for use with your online system and it needs to be represented a specific way, you also want the same data projected for use in a data science pipeline that is represented differently.
+A single projection object contains one set of `tables`, `objects`, `files`, and for many scenarios, creating one projection might be enough. 
+
+However, it is possible to create multiple sets of `table`-`object`-`file` projections, and you might do that if you want different data relationships. Within a set, data is related, assuming those relationships exist and can be detected. If you create additional sets, the documents in each group are never related. An example of using multiple projection groups might be if you want the same data projected for use with your online system and it needs to be represented a specific way, you also want the same data projected for use in a data science pipeline that is represented differently.
 
 ## Requirements 
 
@@ -200,12 +200,8 @@ The body of request is a JSON document that defines a skillset, which includes `
                 { "tableName": "Organizations", "generatedKeyName": "OrganizationId", "source": "/document/organizations*"}, 
                 { "tableName": "Sentiment", "generatedKeyName": "SentimentId", "source": "/document/mySentiment"}
                 ], 
-                "objects": [ 
-                
-                ], 
-                "files": [ 
-                
-                ]       
+                "objects": [ ], 
+                "files": [  ]       
             }    
         ]     
     } 
@@ -214,7 +210,7 @@ The body of request is a JSON document that defines a skillset, which includes `
 
 ### Request body syntax  
 
-The following JSON specifies a `knowledgeStore`, which is part of a skillset, which is invoked by an indexer (not shown). If you are already familiar with AI enrichment, a skillset determines the composition of an enriched document. A skillset must contain at least one skill, most likely a Shaper skill if you are modulating data structures.
+The following JSON specifies a `knowledgeStore`, which is part of a [`skillset`](https://docs.microsoft.com/rest/api/searchservice/create-skillset), which is invoked by an `indexer` (not shown). If you are already familiar with AI enrichment, a skillset determines the composition of an enriched document. A skillset must contain at least one skill, most likely a Shaper skill if you are modulating data structures.
 
 The syntax for structuring the request payload is as follows.
 
@@ -247,26 +243,18 @@ The syntax for structuring the request payload is as follows.
                 ]  
             },
             {
-                "tables": [
-
-                ],
-                "objects": [
-
-                ],
-                "files":  [
-
-                ]
+                "tables": [ ],
+                "objects": [ ],
+                "files":  [ ]
             }  
         ]     
     } 
 }
 ```
 
-A `skills` definition is a complex definition that is documented in full elsewhere. For more information and examples, see [Create Skillset REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset) or [Skillset concepts and composition](cognitive-search-working-with-skillsets.md).
+A `knowledgeStore` has two properties: a `storageConnectionString` to an Azure Storage account, and `projections` that defines physical storage. You can use any storage account, but it's cost-effective to use services in the same region.
 
-A `knowledgeStore` has two properties: a connection string to an Azure Storage account, and `projections`. You can use any storage account, but it's cost-effective to use services in the same region.
-
-A `projections` collection contains projection objects used to create items in Azure Storage. Each projection object must have `tables`, `objects`, `files` (one of each), which are either specified or null. The syntax above shows two objects, one fully specified and the other fully null. Within a projection object, once it is expressed in storage, any relationships among the data, if detected, are preserved. 
+A `projections` collection contains projection objects. Each projection object must have `tables`, `objects`, `files` (one of each), which are either specified or null. The syntax above shows two objects, one fully specified and the other fully null. Within a projection object, once it is expressed in storage, any relationships among the data, if detected, are preserved. 
 
 Create as many projection objects as you need to support isolation and specific scenarios (for example, data structures used for exploration, versus those needed in a data science workload). You can get isolation and customization for specific scenarios by setting `source` and `storageContainer` or `table` to different values within an object. For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
 
