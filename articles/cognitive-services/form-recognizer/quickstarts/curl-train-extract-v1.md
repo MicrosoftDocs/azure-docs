@@ -20,7 +20,7 @@ In this quickstart, you'll use the Azure Form Recognizer REST API with cURL to t
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!IMPORTANT]
-> This quickstart uses the Form Recognizer v1.0 API. If your subscription is in the `westus` or `europe` region, you should follow the v[2.0 API quickstart](./curl-train-extract.md) instead.
+> This quickstart uses the Form Recognizer v1.0 API. If your subscription is in the `West US 2` or `West Europe` region, you should follow the v[2.0 API quickstart](./curl-train-extract.md) instead.
 
 ## Prerequisites
 To complete this quickstart, you must have:
