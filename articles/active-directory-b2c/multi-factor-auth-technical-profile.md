@@ -18,11 +18,9 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for verifying a phone number by using Azure Multi-Factor Authentication (MFA). Use this technical profile to send a code to a phone number and then verify the code.
+Azure Active Directory B2C (Azure AD B2C) provides support for verifying a phone number by using Azure Multi-Factor Authentication (MFA). Use this technical profile to generate and send a code to a phone number, and then verify the code.
 
-The Azure MFA technical profile may also return an error message. You can design the integration with Azure MFA in the following way:
-
-- **Validation technical profile** - A validation technical profile calls the Azure MFA service. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message is display on a self-asserted page.
+The Azure MFA technical profile may also return an error message. You can design the integration with Azure MFA by using a **Validation technical profile**. A validation technical profile calls the Azure MFA service. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message is display on a self-asserted page.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -37,56 +35,57 @@ Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, 
 The following example shows an Azure MFA technical profile:
 
 ```XML
-<TechnicalProfile Id="REST-UserMembershipValidator">
-  <DisplayName>Validate user input data and return loyaltyNumber claim</DisplayName>
-  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-  ...
+<TechnicalProfile Id="AzureMfa-SendSms">
+    <DisplayName>Send Sms</DisplayName>
+    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+
 ```
 
-## Input claims
+## Send SMS
 
-The **InputClaims** element contains a list of claims to send to Azure MFA. You can also map the name of your claim to the name defined in the REST API.
+The first mode of this technical profile is to generate a code and send it. The following options can be configured for this mode.
 
-| ClaimReferenceId | Required for OneWaySMS | Required for Verify | Description |
+### Input claims
+
+The **InputClaims** element contains a list of claims to send to Azure MFA. You can also map the name of your claim to the name defined in the MFA technical profile.
+
+| ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- | ----------- |
-| userPrincipalName | Yes | No | The identifier for the user who owns the phone number. |
-| phoneNumber | Yes | Yes | The phone number to send an SMS code to. |
-| verificationCode | No | Yes | The verification code to send an SMS code to. |
-| companyName | No | No |The company name in the SMS. If not provided, the name of your application is used. |
+| userPrincipalName | Yes | The identifier for the user who owns the phone number. |
+| phoneNumber | Yes | The phone number to send an SMS code to. |
+| companyName | No |The company name in the SMS. If not provided, the name of your application is used. |
 | locale | No | No |The locale of the SMS. If not provided, the browser locale of the user is used. |
 
-The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending to the REST API.
+The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending to the Azure MFA service.
 
-## Output claims
-
+### Output claims
+(TODO: in the sample i see the `sessionId` output claim?)
 The Azure MFA protocol provider does not return any **OutputClaims**, thus there is no need to specify output claims. You can, however, include claims that aren't returned by the Azure MFA identity provider as long as you set the `DefaultValue` attribute.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
-## Metadata
+### Metadata
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Operation | Yes | Either **OneWaySMS** or **Verify** |
+| Operation | Yes | Must be **OneWaySMS**.  |
 | UserMessageIfInvalidFormat | No | Custom error message if the phone number provided is not a valid phone number |
 | UserMessageIfCouldntSendSms | No | Custom error message if the phone number provided does not accept SMS |
-| UserMessageIfWrongCodeEntered | No | Custom error message if the code entered for verification is wrong |
-| UserMessageIfMaxAllowedCodeRetryReached | No | Custom error message if the user has attempted a verification code too many times |
-| UserMessageIfThrottled | No | Custom error message if the user is throttled |
 | UserMessageIfServerError | No | Custom error message if the server has encountered an internal error |
 
-## Return an error message
+### Return an error message
 
 As described in [Metadata](#metadata), you can customize the error message shown to the user for different error cases. You can further localize those messages by prefixing the locale. For example:
 
 ```XML
-<Item Key="en.UserMessageIfWrongCodeEntered">Wrong code has been entered.</Item>
+<Item Key="en.UserMessageIfInvalidFormat">Invalid phone number.</Item>
 ```
 
-## Example
+### Example: send an SMS
 
 The following example shows an Azure MFA technical profile that is used to send a code via SMS.
 
+(TODO: to check the session claim)
 ```XML
 <TechnicalProfile Id="AzureMfa-SendSms">
     <DisplayName>Send Sms</DisplayName>
@@ -105,8 +104,51 @@ The following example shows an Azure MFA technical profile that is used to send 
 </TechnicalProfile>
 ```
 
+## Verify code
+
+The second mode of this technical profile is to verify a code. The following options can be configured for this mode.
+
+### Input claims
+
+The **InputClaims** element contains a list of claims to send to Azure MFA. You can also map the name of your claim to the name defined in the MFA technical profile.
+
+| ClaimReferenceId | Required | Description |
+| --------- | -------- | ----------- | ----------- |
+| userPrincipalName  | No | The identifier for the user who owns the phone number. (TODO: to check what is the primary key for code validation. The UPN, phone number or the session id?) |
+| verificationCode  | Yes | The verification code provided by the user to be verified |
+
+The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before calling the Azure MFA service.
+
+### Output claims
+
+The Azure MFA protocol provider does not return any **OutputClaims**, thus there is no need to specify output claims. You can, however, include claims that aren't returned by the Azure MFA identity provider as long as you set the `DefaultValue` attribute.
+
+The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
+
+## Metadata
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| Operation | Yes | Must be **Verify** |
+| UserMessageIfInvalidFormat | No | Custom error message if the phone number provided is not a valid phone number |
+| UserMessageIfWrongCodeEntered | No | Custom error message if the code entered for verification is wrong |
+| UserMessageIfMaxAllowedCodeRetryReached | No | Custom error message if the user has attempted a verification code too many times |
+| UserMessageIfThrottled | No | Custom error message if the user is throttled |
+| UserMessageIfServerError | No | Custom error message if the server has encountered an internal error |
+
+### Return an error message
+
+As described in [Metadata](#metadata), you can customize the error message shown to the user for different error cases. You can further localize those messages by prefixing the locale. For example:
+
+```XML
+<Item Key="en.UserMessageIfWrongCodeEntered">Wrong code has been entered.</Item>
+```
+
+### Example: verify a code
+
 The following example shows an Azure MFA technical profile used to verify the code.
 
+(TODO: to check the sample with regard to the primary key (input claim))
 ```XML
 <TechnicalProfile Id="AzureMfa-VerifySms">
     <DisplayName>Verify Sms</DisplayName>
