@@ -535,46 +535,51 @@ After you have created departments and subscriptions, you can see data in the us
 
 You can also access usage data via the reporting API. For detailed information and sample code, see [Reporting API documentation](https://ea.azure.com/helpdocs/reportingAPI).
 
-\***
+### Can I set a spending quota and get alerts as I approach my limit?
 
-### Can I set the spending quota and get alerts as I approach my limit?
+You can set a spending quota at department level and the system will automatically notify you as your spending limits meet 50%, 75%, 90%, and 100% of the quota you define.
 
-You can set spending quota at department level and system will automatically notify you as your spending limits meet 50%, 75%, 90%, and 100% of the quota you define.
+To define your spending quota, select a department and then select the edit icon. After you edit the spending limit details, select **Save**.
 
-To define your spending quota, select on the department you want to add a spending limit to and select on the edit icon. Select **Save** to save details.
+### I used Resource Groups (RGs) to implement RBAC and track usage. How can I view the associated usage details?
 
-### I used Resource Groups (RGs) to implement RBAC and track usage, how can I view the associated usage details?
+If you use _Resource Groups_ and _Tags_, this information is tracked at service level and you can access it in the detailed usage download (CSV) file. See the [download usage report](https://ea.azure.com/report/downloadusage) in the Azure Enterprise portal.
 
-Information like “Resource Groups” and “Tag” if used is tracked at service level and the information is available in the detailed usage download (CSV) file, which can be downloaded from the Azure Enterprise portal [https://ea.azure.com/report/downloadusage](https://ea.azure.com/report/downloadusage).
+You can also access usage via API. For detailed information and sample code, see the [Reporting API](https://ea.azure.com/helpdocs/reportingAPI) in the Azure Enterprise portal documentation.
 
-You can also access the usage via API, detailed information, and sample code is available at [https://ea.azure.com/helpdocs/reportingAPI](https://ea.azure.com/helpdocs/reportingAPI).
-
-Please that you can only apply tags to resources that support Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. You must re-deploy these resources through the Resource Manager to support tagging. All other resources support tagging.
+> [!NOTE]
+> You can only apply tags to resources that support Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. You must re-deploy these resources through the Resource Manager to support tagging. All other resources support tagging.
 
 ### Can I perform analyses using Power BI?
 
-Yes. With the Microsoft Azure Enterprise content pack for Power BI, you can quickly import and analyze Azure consumption for your enterprise enrollment, find out which department, account, or subscription consumed the most usage, which service your organization used most, or track spending and usage trends.
+Yes. With the Microsoft Azure Enterprise content pack for Power BI, you can:
+- Quickly import and analyze Azure consumption for your enterprise enrollment
+- Find out which department, account, or subscription consumed the most usage
+- Learn which service your organization used most
+- Track spending and usage trends
 
-**Navigate to the Power BI website:**
+To use Power BI:
 
- 1. Sign in with a valid work or school account.
-    - The work or school account can be the same or different than what is used to access the enrollment through the Azure Enterprise portal.
- 1. On the Dashboard of services, choose:
-    - Microsoft Azure Enterprise tile.
-    - Select **Connect**.
- 1. On the "Connect to Azure Enterprise" screen, choose:
-    - Azure Environment URL: [https://ea.azure.com](https://ea.azure.com).
-    - Number of Months: choose between 1 and 36.
-    - Enrollment Number: enter the enrollment number.
-    - Select **Next**.
- 1. Enter the API Key in the Authentication Key Box. You can get the API key in the Azure Enterprise portal under “Download Usage” tab, select **API Access Key**.
-    - Copy and paste the key into "Account Key" box.
-    - The data will take approximately 5-30 minutes to load in Power BI, depending on the dataset size.
+1. Go to the Power BI website.
+1. Sign in with a valid work or school account.
 
-Power BI Reporting is available for Azure EA direct, partner, and indirect customers who are able to view billing information.
+   The work or school account can be the same or different than what is used to access the enrollment through the Azure Enterprise portal.
+1. On the Dashboard of services, choose the Microsoft Azure Enterprise tile, and select **Connect**.
+1. On the **Connect to Azure Enterprise** screen, enter:
+    - Azure Environment URL: [https://ea.azure.com](https://ea.azure.com)
+    - Number of Months: between 1 and 36
+    - Enrollment Number: your enrollment number
+1. Select **Next**.
+1. Enter the API Key in the **Account Key** box.
+
+   You can find the API key in the Azure Enterprise portal. Look under the **Download Usage** tab, and then select **API Access Key**. Copy it, and then paste the key into **Account Key** box in Power BI.
+
+Depending on the size of the data set, it can take between five and thirty minutes for the data to load in Power BI.
+
+Power BI reporting is available for Azure EA direct, partner, and indirect customers who are able to view billing information.
 
 ## Next steps
 
 - Azure Enterprise portal administrators should read [Azure Enterprise portal administration](billing-ea-portal-administration.md) to learn about common administrative tasks.
 - If you need help with troubleshooting Azure Enterprise portal issues, see [Troubleshoot Azure Enterprise portal access](billing-ea-portal-troubleshoot.md).
-- For an Azure EA onboarding guide, see [Azure EA Onboarding Guide](https://ea.azure.com/api/v3Help/v2AzureEAOnboardingGuide).
+- For an Azure EA onboarding guide, see [Azure EA Onboarding Guide (PDF)](https://ea.azure.com/api/v3Help/v2AzureEAOnboardingGuide).
