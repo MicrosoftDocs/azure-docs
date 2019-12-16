@@ -28,8 +28,8 @@ In this tutorial, you learn how to:
 Complete the previous tutorials:
 
 1. Make sure you've [set up Azure](tutorial-prepare-azure.md) for on-premises disaster recovery of VMware VMs, Hyper-V VMs, and physical machines to Azure.
-2. Prepare your on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) or [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) environment for disaster recovery. If you're setting up disaster recovery for physical servers, review the [support matrix](vmware-physical-secondary-support-matrix.md).
-3. Set up disaster recovery for [VMware VMs](vmware-azure-tutorial.md), [Hyper-V VMs](hyper-v-azure-tutorial.md), or [physical machines](physical-azure-disaster-recovery.md).
+2. Prepare your on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) environment for disaster recovery. 
+3. Set up disaster recovery for [VMware VMs](vmware-azure-tutorial.md).
 4. Run a [disaster recovery drill](tutorial-dr-drill-azure.md) to make sure that everything's working as expected.
 
 ## Verify VM properties
