@@ -27,7 +27,7 @@ Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Mak
 
 [Sign in](https://www.qnamaker.ai/) to the QnA Maker portal.
 
-## Create a new knowledge base from the multi-turn .docx file
+## Create a new knowledge base from the multi-turn sample.docx file
 
 1. Select **Create a knowledge base** from the tool bar.
 1. Skip **Step 1** because you should already have a QnA Maker resource, moving on to **Step 2** to select your existing resource information:
