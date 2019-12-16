@@ -101,7 +101,7 @@ Download the CSV template, and add server information to it.
 Gather server data, and add it to the CSV file.
 
 - To gather data, you can export it from tools you use for on-premises server management, such as VMware vSphere or your configuration management database (CMDB).
-- To review sample data, download our [example file](https://go.microsoft.com/fwlink/?linkid=2108405).
+- To review sample data, download our [example file](https://go.microsoft.com/fwlink/?linkid=2109031).
 
 
 The following table summarizes the file fields to fill in.
