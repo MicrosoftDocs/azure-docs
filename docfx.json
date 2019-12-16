@@ -217,6 +217,11 @@
         "articles/dev-spaces/**/*.md": "zr-msft",
         "articles/site-recovery/*.md": "rayne-wiselman",
         "articles/migrate/*.md": "rayne-wiselman",
+        "articles/virtual-machines/linux/*.md": "cynthn",
+        "articles/virtual-machines/windows/*.md": "cynthn",
+        "articles/virtual-machines/*.md": "cynthn",
+        "articles/virtual-machines-scale-sets/*.md": "ju-shim",
+        "articles/batch/*.md": "ju-shim",
         "articles/notebooks/*.md": "kraigb",
         "articles/service-fabric/*.md": "athinanthny",
         "articles/service-fabric-mesh/*.md": "athinanthny"
@@ -435,6 +440,11 @@
         "articles/dev-spaces/**/*.md": "zarhoads",
         "articles/site-recovery/*.md": "raynew",
         "articles/migrate/*.md": "raynew",
+        "articles/virtual-machines/linux/*.md": "cynthn",
+        "articles/virtual-machines/windows/*.md": "cynthn",
+        "articles/virtual-machines/*.md": "cynthn",
+        "articles/virtual-machines-scale-sets/*.md": "jushiman",
+        "articles/batch/*.md": "jushiman",
         "articles/notebooks/*.md": "kraigb",
         "articles/service-fabric/*.md": "atsenthi",
         "articles/service-fabric-mesh/*md": "atsenthi"
