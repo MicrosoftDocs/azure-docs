@@ -4,18 +4,10 @@ description: Service Fabric clusters run on Windows Server and Linux, which mean
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-
 ---
 
 # Overview of Service Fabric clusters on Azure
