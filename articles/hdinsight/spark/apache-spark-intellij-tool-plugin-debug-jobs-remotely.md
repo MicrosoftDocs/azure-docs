@@ -144,7 +144,7 @@ We recommend that you also create an Apache Spark cluster in Azure HDInsight tha
 
 1. Update the `core-site.xml` file to make the following changes:
 
-   a. Replace the encrypted key. The `core-site.xml` file includes the encrypted key to the storage account associated with the cluster. In the `core-site.xml` file that you added to the project, replace the encrypted key with the actual storage key associated with the default storage account. For more information, see [Manage your storage access keys](../../storage/common/storage-account-manage.md#access-keys).
+   a. Replace the encrypted key. The `core-site.xml` file includes the encrypted key to the storage account associated with the cluster. In the `core-site.xml` file that you added to the project, replace the encrypted key with the actual storage key associated with the default storage account. For more information, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 
     ```xml
     <property>

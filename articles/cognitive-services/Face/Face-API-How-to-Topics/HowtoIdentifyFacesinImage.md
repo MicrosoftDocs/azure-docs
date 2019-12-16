@@ -139,7 +139,7 @@ string testImageFile = @"D:\Pictures\test_img1.jpg";
 using (Stream s = File.OpenRead(testImageFile))
 {
     var faces = await faceClient.Face.DetectWithStreamAsync(s);
-    var faceIds = faces.Select(face => face.FaceId).ToArray();
+    var faceIds = faces.Select(face => face.FaceId.Value).ToArray();
  
     var results = await faceClient.Face.IdentifyAsync(faceIds, personGroupId);
     foreach (var identifyResult in results)

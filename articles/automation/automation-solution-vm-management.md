@@ -2,13 +2,9 @@
 title: Start/Stop VMs during off-hours solution
 description: This VM management solution starts and stops your Azure Resource Manager virtual machines on a schedule and proactively monitors from Azure Monitor logs.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 11/06/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Start/Stop VMs during off-hours solution in Azure Automation
 
@@ -113,7 +109,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    - Specify a name for the new **Log Analytics workspace**, such as "ContosoLAWorkspace".
    - Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
    - For **Resource Group**, you can create a new resource group or select an existing one.
-   - Select a **Location**. Currently, the only locations available are **Australia Southeast**, **Canada Central**, **Central India**, **East US**, **Japan East**, **Southeast Asia**, **UK South**, **West Europe**, and **West US 2**.
+   - Select a **Location**.
    - Select a **Pricing tier**. Choose the **Per GB (Standalone)** option. Azure Monitor logs have updated [pricing](https://azure.microsoft.com/pricing/details/log-analytics/) and the Per GB tier is the only option.
 
    > [!NOTE]
@@ -422,7 +418,7 @@ To delete the solution, perform the following steps:
 
 The Automation account and Log Analytics workspace are not deleted as part of this process. If you do not want to retain the Log Analytics workspace, you need to manually delete it. This can be accomplished from the Azure portal:
 
-1. From the  Azure portal home screen, select **Log Analytics workspaces**.
+1. In Azure portal, search for and select **Log Analytics workspaces**.
 1. On the **Log Analytics workspaces** page, select the workspace.
 1. Select **Delete** from the menu on the workspace settings page.
 
