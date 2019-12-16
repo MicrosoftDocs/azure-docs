@@ -4,9 +4,9 @@ description: This topic helps you understand how to collect data and monitor com
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
-ms.date: 10/07/2019
+author: bwren
+ms.author: bwren
+ms.date: 11/21/2019
 
 ---
 
@@ -105,11 +105,10 @@ The information below list the proxy and firewall configuration information requ
 |*.ods.opinsights.azure.com |Port 443 |Outbound|Yes |  
 |*.oms.opinsights.azure.com |Port 443 |Outbound|Yes |  
 |*.blob.core.windows.net |Port 443 |Outbound|Yes |  
-|*.azure-automation.net |Port 443 |Outbound|Yes |  
 
 For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
-If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 The Windows and Linux agent supports communicating either through a proxy server or Log Analytics gateway to Azure Monitor using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  For the Windows agent connected directly to the service, the proxy configuration is specified during installation or [after deployment](agent-manage.md#update-proxy-settings) from Control Panel or with PowerShell.  
 

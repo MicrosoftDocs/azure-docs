@@ -1,5 +1,5 @@
 ---
-title: Model interpretability in Azure Machine Learning service
+title: Model interpretability in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model makes predictions.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: trbye
 ms.date: 10/25/2019
 ---
 
-# Model interpretability in Azure Machine Learning service
+# Model interpretability in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 ## Overview of model interpretability
@@ -107,9 +107,9 @@ The explanation functions accept both models and pipelines as input. If a model 
 
 ### Local and remote compute target
 
-The `explain` package is designed to work with both local and remote compute targets. If run locally, The SDK functions will not contact any Azure services. You can run explanation remotely on Azure Machine Learning Compute and log the explanation info into Azure Machine Learning Run History Services. Once this information is logged, reports and visualizations from the explanation are readily available on Azure Machine Learning Workspace portal for user analysis.
+The `explain` package is designed to work with both local and remote compute targets. If run locally, The SDK functions will not contact any Azure services. You can run explanation remotely on Azure Machine Learning Compute and log the explanation info into Azure Machine Learning Run History Services. Once this information is logged, reports and visualizations from the explanation are readily available on Azure Machine Learning workspace for user analysis.
 
 
 ## Next steps
 
-See the [how-to](how-to-machine-learning-interpretability-aml.md) for enabling interpretability for models training both locally and on Azure Machine Learning remote compute resources. See the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/tabular-data) for additional scenarios.
+See the [how-to](how-to-machine-learning-interpretability-aml.md) for enabling interpretability for models training both locally and on Azure Machine Learning remote compute resources. See the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) for additional scenarios.

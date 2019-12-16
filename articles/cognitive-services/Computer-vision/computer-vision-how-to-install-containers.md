@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/21/2019
 ms.author: dapine
 ms.custom: seodec18
 ---
 
-# Install and run Read containers
+# Install and run Read containers (Preview)
 
 Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Computer Vision container.
 

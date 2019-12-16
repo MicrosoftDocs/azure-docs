@@ -1,16 +1,10 @@
 ﻿---
-title: Configure PHP runtime - Azure App Service
+title: Configure PHP runtime
 description: Learn how to configure the default PHP installation or add a custom PHP installation for Azure App Service.
-services: app-service
-documentationcenter: php
-author: msangapu
-manager: cfowler
+author: msangapu-msft
 
 ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: PHP
+ms.devlang: php
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu

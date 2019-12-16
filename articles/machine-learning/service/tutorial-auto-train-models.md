@@ -1,7 +1,7 @@
 ---
 title: 'Regression tutorial: Automated ML'
 titleSuffix: Azure Machine Learning
-description: Learn how to generate a machine learning model by using automated machine learning. Azure Machine Learning can perform data preprocessing, algorithm selection, and hyperparameter selection in an automated way for you. Then the final model is deployed with Azure Machine Learning.
+description: In this tutorial, you learn how to generate a machine learning model by using automated machine learning. Azure Machine Learning can perform data preprocessing, algorithm selection, and hyperparameter selection in an automated way for you.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -902,7 +902,7 @@ Define the experiment parameter and model settings for training. View the full l
 |----|----|---|
 |**iteration_timeout_minutes**|2|Time limit in minutes for each iteration. Reduce this value to decrease total runtime.|
 |**experiment_timeout_minutes**|20|Maximum amount of time in minutes that all iterations combined can take before the experiment terminates.|
-|**enable_early_stopping**|True|Flag to enble early termination if the score is not improving in the short term.|
+|**enable_early_stopping**|True|Flag to enable early termination if the score is not improving in the short term.|
 |**primary_metric**| spearman_correlation | Metric that you want to optimize. The best-fit model will be chosen based on this metric.|
 |**featurization**| auto | By using **auto**, the experiment can preprocess the input data (handling missing data, converting text to numeric, etc.)|
 |**verbosity**| logging.INFO | Controls the level of logging.|
@@ -1069,7 +1069,7 @@ The traditional machine learning model development process is highly resource-in
 
 Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
-### Stop the Notebook VM
+### Stop the compute instance
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 

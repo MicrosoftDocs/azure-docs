@@ -84,8 +84,7 @@ Copy the storage access keys in the format of:
 Example: 
 `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 
-
- For more information, see [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys). 
+For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md). 
 
 ## 4 - Create a publisher database
 

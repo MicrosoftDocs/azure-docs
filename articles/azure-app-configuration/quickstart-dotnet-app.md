@@ -109,7 +109,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it with a .NET Framework console app. The value `AppSettings` of `ConfiguratoinManager` won't change after the application is started. The App Configuration .NET Standard configuration provider library, however can also be used in a .NET Framework app. To learn how to enable your .NET Framework app to dynamically refresh configuration settings, continue to the next tutorial.
+In this quickstart, you created a new App Configuration store and used it with a .NET Framework console app. The value `AppSettings` of `ConfigurationManager` won't change after the application is started. The App Configuration .NET Standard configuration provider library, however can also be used in a .NET Framework app. To learn how to enable your .NET Framework app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-dotnet.md)

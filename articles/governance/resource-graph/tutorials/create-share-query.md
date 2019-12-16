@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Manage queries in Azure portal"
 description: In this tutorial, you create a Resource Graph Query and share the new query with others in the Azure portal.
-ms.date: 10/23/2019
+ms.date: 11/21/2019
 ms.topic: tutorial
 ---
 # Tutorial: Create and share an Azure Resource Graph query in the Azure portal
@@ -65,7 +65,7 @@ follow these steps:
    query, it's loaded into a new tab with that query's name.
 
    > [!NOTE] 
-   >When a saved query is open and the tab shows its name, selecting the **Save** button
+   > When a saved query is open and the tab shows its name, selecting the **Save** button
    > updates it with any changes that have been made. To create a new saved query from this open
    > query, select **Save as** and proceed as if you were saving a brand new query.
 
@@ -201,9 +201,8 @@ longer want them.
 
 ## Next steps
 
-- Run your first query by using the [Azure portal](../first-query-portal.md).
-- Get more information about the [query language](../concepts/query-language.md).
-- Learn more about how to [explore resources](../concepts/explore-resources.md).
-- See samples of [Starter queries](../samples/starter.md).
-- See samples of [Advanced queries](../samples/advanced.md).
-- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+In this tutorial, you've created Private and Shared queries. To learn more about the Resource graph
+language, continue to the query language details page.
+
+> [!div class="nextstepaction"]
+> [Get more information about the query language](../concepts/query-language.md)

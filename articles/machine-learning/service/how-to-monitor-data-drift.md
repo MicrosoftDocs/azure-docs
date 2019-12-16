@@ -26,7 +26,7 @@ In the context of machine learning, data drift is the change in model input data
 With Azure Machine Learning, you can monitor the inputs to a model deployed on AKS and compare this data to the training dataset for the model. At regular intervals, the inference data is [snapshot and profiled](how-to-explore-prepare-data.md), then computed against the baseline dataset to produce a data drift analysis that: 
 
 + Measures the magnitude of data drift, called the drift coefficient.
-+ Measures the data drift contribution by feature, informing which features caused data drift.
++ Measures the data drift contribution by feature, indicating which features caused data drift.
 + Measures distance metrics. Currently Wasserstein and Energy Distance are computed.
 + Measures distributions of features. Currently kernel density estimation and histograms.
 + Send alerts to data drift by email.
@@ -85,7 +85,7 @@ from azureml.datadrift import DataDriftDetector, AlertConfiguration
 # if email address is specified, setup AlertConfiguration
 alert_config = AlertConfiguration('your_email@contoso.com')
 
-# create a new DatadriftDetector object
+# create a new DataDriftDetector object
 datadrift = DataDriftDetector.create(ws, model.name, model.version, services, frequency="Day", alert_config=alert_config)
     
 print('Details of Datadrift Object:\n{}'.format(datadrift))
@@ -107,7 +107,7 @@ run = datadrift.run(target_date, services, feature_list=feature_list, compute_ta
 
 # show details of the data drift run
 exp = Experiment(ws, datadrift._id)
-dd_run = Run(experiment=exp, run_id=run)
+dd_run = Run(experiment=exp, run_id=run.id)
 RunDetails(dd_run).show()
 ```
 
@@ -137,7 +137,7 @@ The following Python example demonstrates how to plot relevant data drift metric
 # start and end are datetime objects 
 drift_metrics = datadrift.get_output(start_time=start, end_time=end)
 
-# Show all data drift result figures, one per serivice.
+# Show all data drift result figures, one per service.
 # If setting with_details is False (by default), only the data drift magnitude will be shown; if it's True, all details will be shown.
 drift_figures = datadrift.show(with_details=True)
 ```
