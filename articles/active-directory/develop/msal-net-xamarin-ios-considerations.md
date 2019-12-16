@@ -67,7 +67,7 @@ This change is *in addition* to enabling keychain access in the `Entitlements.pl
 </dict>
 ```
 
-When using the `WithIosKeychainSecurityGroup()` api, MSAL will automatically append your security group to the end of the application's "team ID" (AppIdentifierPrefix) because when you build your application using xcode, it will do the same. [See iOS entitlements documentation for more details](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps). That's why the entitlements need to include `$(AppIdentifierPrefix)` before the keychain access group in the `Entitlements.plist`.
+When you use the `WithIosKeychainSecurityGroup()` api, MSAL automatically appends your security group to the end of the application's *team ID* (AppIdentifierPrefix) because when you build your application using xcode, it will do the same. For more information, see [iOS entitlements documentation](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps). That's why the entitlements need to include `$(AppIdentifierPrefix)` before the keychain access group in the `Entitlements.plist`.
 
 ### Enable token cache sharing across iOS applications
 
@@ -110,6 +110,6 @@ Sample | Platform | Description
 ## Known issues with iOS 12 and authentication
 Microsoft has released a [security advisory](https://github.com/aspnet/AspNetCore/issues/4647) to provide information about an incompatibility between iOS12 and some types of authentication. The incompatibility breaks social, WSFed, and OIDC logins. This advisory also provides guidance on what developers can do to remove current security restrictions added by ASP.NET to their applications to become compatible with iOS12.  
 
-When developing MSAL.NET applications on Xamarin iOS, you may see an infinite loop when trying to sign in to websites from iOS 12 (similar to this [ADAL issue](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329). 
+When developing MSAL.NET applications on Xamarin iOS, you might see an infinite loop when trying to sign in to websites from iOS 12 (similar to this [ADAL issue](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329)). 
 
 You might also see a break in ASP.NET Core OIDC authentication with iOS 12 Safari as described in this [WebKit issue](https://bugs.webkit.org/show_bug.cgi?id=188165).
