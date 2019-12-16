@@ -10,11 +10,11 @@ ms.date: 12/16/2019
 
 Start using the Bing Spell Check Search API by creating one of the Azure resources below.
 
-* [Create a trial resource](https://azure.microsoft.com/en-us/try/cognitive-services/?api=spellcheck-api-v7):
+* [Create a trial resource](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api-v7):
     * No Azure subscription needed.
     * Valid for seven days, for free. After signing up, a trial key and endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 
-* [Create a Bing Entity Search resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7):
+* [Create a Bing Spell Check resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7):
     * Available through the Azure portal until you delete the resource.
     * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
     * Bing Entity Search is also offered in some tiers of the [Bing Search v7 resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7).
