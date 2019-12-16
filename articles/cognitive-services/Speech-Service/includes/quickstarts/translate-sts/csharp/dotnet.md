@@ -25,7 +25,7 @@ Before you get started, make sure to:
 
 1. Open **Program.cs**, and replace all the code in it with the following.
 
-   ```CSharp
+   ```csharp
    using System;
    using System.Threading.Tasks;
    using Microsoft.CognitiveServices.Speech;
