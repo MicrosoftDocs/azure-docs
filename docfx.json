@@ -222,9 +222,9 @@
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
         "articles/batch/*.md": "ju-shim",
-        "articles/notebooks/*.md": "kraigb",
         "articles/service-fabric/*.md": "athinanthny",
-        "articles/service-fabric-mesh/*.md": "athinanthny"
+        "articles/service-fabric-mesh/*.md": "athinanthny",
+        "articles/notebooks/*.md": "kraigb"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -445,9 +445,9 @@
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "jushiman",
         "articles/batch/*.md": "jushiman",
-        "articles/notebooks/*.md": "kraigb",
         "articles/service-fabric/*.md": "atsenthi",
-        "articles/service-fabric-mesh/*md": "atsenthi"
+        "articles/service-fabric-mesh/*md": "atsenthi",
+        "articles/notebooks/*.md": "kraigb"
       },
       "ms.service": {
         "articles/governance/*.md": "governance",
