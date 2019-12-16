@@ -17,10 +17,11 @@ Azure HDInsight 4.0 offers the latest open-source components with significant en
 
 HDInsight 3.6 supports two versions of Kafka: 1.0.0 and 1.1.0. HDInsight 4.0 supports 1.1.0 and 2.1.0. Depending on which version of Kafka and which version of HDInsight you would like to run, there are multiple supported migration paths. These paths are explained below and illustrated in the following diagram.
 
-* Run both Kafka and HDInsight on latest versions (recommended): Migrate an HDInsight 3.6 and Kafka 1.0.0 or 1.1.0 application to HDInsight 4.0 with Kafka 2.1.0 (paths D and E below). 
-* Run HDInsight on latest version, but Kafka only on a more recent version: Migrate an HDInsight 3.6 and Kafka 1.0.0 application to HDInsight 4.0 with Kafka 1.1.0 (path B below).
-* Run HDInsight on latest version, retain Kafka version: Migrate an HDInsight 3.6 and Kafka 1.1.0 application to HDInsight 4.0 with Kafka 1.1.0 (path C below).
-* Run Kafka on a more recent version, retain HDInsight version: Migrate a Kafka 1.0.0 application to 1.1.0 and stay on HDInsight 3.6 (path A below). Note that this option will still require deploying a new cluster, as in-place upgrades are not supported. After you create a cluster with the version you want, migrate your Kafka clients to use the new cluster.
+* **Run both Kafka and HDInsight on latest versions (recommended)**: Migrate an HDInsight 3.6 and Kafka 1.0.0 or 1.1.0 application to HDInsight 4.0 with Kafka 2.1.0 (paths D and E below). 
+* **Run HDInsight on latest version, but Kafka only on a more recent version**: Migrate an HDInsight 3.6 and Kafka 1.0.0 application to HDInsight 4.0 with Kafka 1.1.0 (path B below).
+* **Run HDInsight on latest version, retain Kafka version**: Migrate an HDInsight 3.6 and Kafka 1.1.0 application to HDInsight 4.0 with Kafka 1.1.0 (path C below).
+* **Run Kafka on a more recent version, retain HDInsight version**: Migrate a Kafka 1.0.0 application to 1.1.0 and stay on HDInsight 3.6 (path A below). Note that this option will still require deploying a new cluster, as in-place upgrades are not supported. After you create a cluster with the version you want, migrate your Kafka clients to use the new cluster.
+
 
 ![Upgrade path for Apache Kafka on 3.6](./media/upgrade-threesix-to-four/apache-kafka-upgrade-path.png)
 
