@@ -24,7 +24,7 @@ The following table summarizes the various endpoints exposed on your device, the
 
 | # | Endpoint | Supported protocols | Port used | Used for |
 | --- | --- | --- | --- | --- |
-| 1. | Azure Resource Manager | https | 30005 | To connect to Azure Resource Manager for automation |
+| 1. | Azure Resource Manager | https | 443 | To connect to Azure Resource Manager for automation |
 | 2. | Security token service | https | 443 | To authenticate via access and refresh tokens |
 | 3. | Blob | https | 443 | To connect to Blob storage via REST |
 
@@ -296,7 +296,7 @@ Check if the endpoint name is resolved on the client that you are using to conne
 Set the Azure Resource Manager environment and verify that your device to client communication via Azure Resource Manager is working fine. Take the following steps for this verification:
 
 
-1. Use the `Add-AzureRmEnvironment` cmdlet to further ensure that the communication via Azure Resource Manager is working properly and the API calls are going through the port dedicated for Azure Resource Manager - 30005.
+1. Use the `Add-AzureRmEnvironment` cmdlet to further ensure that the communication via Azure Resource Manager is working properly and the API calls are going through the port dedicated for Azure Resource Manager - 443.
 
     The `Add-AzureRmEnvironment` cmdlet adds endpoints and metadata to enable Azure Resource Manager cmdlets to connect with a new instance of Azure Resource Manager. 
 
@@ -305,20 +305,20 @@ Set the Azure Resource Manager environment and verify that your device to client
     > The Azure Resource Manager endpoint URL that you provide in the following cmdlet is case-sensitive. Make sure the endpoint URL is all in lowercase and matches what you provided in the hosts file. If the case doesn't match, then you will see an error.
 
     ```powershell
-    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>:30005/"
+    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>:443/"
     ```
 
     A sample output is shown below:
     
     ```powershell
-    PS C:\windows\system32> Add-AzureRmEnvironment -Name AzDBE -ARMEndpoint https://management.dbe-n6hugc2ra.microsoftdatabox.com:30005/
+    PS C:\windows\system32> Add-AzureRmEnvironment -Name AzDBE -ARMEndpoint https://management.dbe-n6hugc2ra.microsoftdatabox.com:443/
     
     Name  Resource Manager Url                    ActiveDirectory Authority
     ----  --------------------                   -------------------------
-    AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com:30005 https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
+    AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com:443 https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. Set the environment as Azure Stack Edge and the port to be used for Azure Resource Manager calls as 30005. You define the environment in two ways:
+2. Set the environment as Azure Stack Edge and the port to be used for Azure Resource Manager calls as 443. You define the environment in two ways:
 
     - Set the environment. Type the following command:
 
@@ -357,7 +357,7 @@ Set the Azure Resource Manager environment and verify that your device to client
         
             An alternative way to log in is to use the `login-AzureRmAccount` cmdlet. 
             
-            `login-AzureRMAccount -EnvironmentName <Environment Name>`
+            `login-AzureRMAccount -EnvironmentName <Environment Name>` -TenantId c0257de7-538f-415c-993a-1b87a031879d 
 
             Here is a sample output of the command. 
          

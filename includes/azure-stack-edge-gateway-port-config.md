@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 11/15/2019
+ms.date: 12/16/2019
 ms.author: alkohli
 ---
 
@@ -15,8 +15,8 @@ ms.author: alkohli
 | TCP 5985 (WinRM)|Out/In|LAN|In some cases<br>See notes|This port is required to connect to the device via remote PowerShell over HTTP.  |
 | UDP 67 (DHCP)|Out|LAN|In some cases<br>See notes|This port is required only if you're using a local DHCP server.  |
 | TCP 80 (HTTP)|Out/In|LAN|Yes|This port is the inbound port for local UI on the device for local management. <br>Accessing the local UI over HTTP will automatically redirect to HTTPS.  |
-| TCP 443 (HTTPS)|Out/In|LAN|Yes|This port is the inbound port for local UI on the device for local management. This port is also used to connect to Blob storage via REST APIs and to the Security token service (STS) to authenticate via access and refresh tokens.|
+| TCP 443 (HTTPS)|Out/In|LAN|Yes|This port is the inbound port for local UI on the device for local management. This port is also used to connect Azure Resource Manager to the device local APIs, to connect Blob storage via REST APIs, and to the Security token service (STS) to authenticate via access and refresh tokens.|
 | TCP 445 (SMB)|In|LAN|In some cases<br>See notes|This port is required only if you are connecting via SMB. |
 | TCP 2049 (NFS)|In|LAN|In some cases<br>See notes|This port is required only if you are connecting via NFS. |
-| TCP 30005 |In|LAN|In some cases<br>See notes|This port is required only if you are connecting via the Azure Resource Manager to the device local APIs. |
+
 
