@@ -77,6 +77,10 @@ When you trigger a reprotect job, and the target VM and disks do not exist, the 
 3. The entire disks are copied from the failed over region to the new target region.
 4. After the synchronization completes, the delta replication begins, and creates a recovery point in line with the replication policy.
 
+When the VM is re-protected after failing back to the primary region (i.e., if the VM is re-protected from primary region to DR region), the target VM and associated NIC(s) are deleted. 
+
+When the VM is re-protected from the DR region to the primary region, we do not delete the erstwhile primary VM and associated NIC(s).
+
 ## Next steps
 
 After the VM is protected, you can initiate a failover. The failover shuts down the VM in the secondary region, and creates and boots VM in the primary region, with some small downtime. We recommend you choose a time accordingly, and that you run a test failover before initiating a full failover to the primary site. [Learn more](site-recovery-failover.md) about failover.
