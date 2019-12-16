@@ -33,7 +33,7 @@ Before your logic app can access any service, you first create a *connection* to
 
 A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. In the logic app, type "onedrive" to get a list of the triggers:  
+1. In the Logic App Designer, type `onedrive` to get a list of the triggers:  
 
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
@@ -61,7 +61,7 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 
 2. Choose **Add an action**.
 
-3. In the text box, type “onedrive” to get a list of all the available actions.
+3. In the search box, type `onedrive` to get a list of all the available actions.
 
    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
