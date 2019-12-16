@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 In this article, learn about Azure Machine Learning releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference page.
 
-See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
+See [the list of known issues](service/resource-known-issues.md) to learn about known bugs and workarounds.
 
 ## 2019-12-09
 
@@ -147,18 +147,18 @@ Access the following web-based authoring tools from the studio:
 | Web-based tool | Description | Edition |
 |-|-|-|
 | Notebook VM(preview) | Fully managed cloud-based workstation | Basic & Enterprise |
-| [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
+| [Automated machine learning](service/tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
 | [Designer](ui-concept-visual-interface.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the the designer | Enterprise |
 
 
 ### Azure Machine Learning designer enhancements 
 
 + Formerly known as the visual interface 
-+	11 new [modules](../algorithm-module-reference/module-reference.md) including recommenders, classifiers, and training utilities including feature engineering, cross validation, and data transformation.
++	11 new [modules](algorithm-module-reference/module-reference.md) including recommenders, classifiers, and training utilities including feature engineering, cross validation, and data transformation.
 
 ### R SDK 
  
-Data scientists and AI developers use the [Azure Machine Learning SDK for R](tutorial-1st-r-experiment.md) to build and run machine learning workflows with Azure Machine Learning.
+Data scientists and AI developers use the [Azure Machine Learning SDK for R](service/tutorial-1st-r-experiment.md) to build and run machine learning workflows with Azure Machine Learning.
 
 The Azure Machine Learning SDK for R uses the `reticulate` package to bind to the Python SDK. By binding directly to Python, the SDK for R allows you access to core objects and methods implemented in the Python SDK from any R environment you choose.
 
@@ -264,7 +264,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
 
 ### Visual interface (preview)
 
-+ The Azure Machine Learning visual interface (preview) has been overhauled to run on [Azure Machine Learning pipelines](concept-ml-pipelines.md). Pipelines (previously known as experiments) authored in the visual interface are now fully integrated with the core Azure Machine Learning experience.
++ The Azure Machine Learning visual interface (preview) has been overhauled to run on [Azure Machine Learning pipelines](service/concept-ml-pipelines.md). Pipelines (previously known as experiments) authored in the visual interface are now fully integrated with the core Azure Machine Learning experience.
   + Unified management experience with SDK assets
   + Versioning and tracking for visual interface models, pipelines, and endpoints 
   + Redesigned UI
@@ -518,8 +518,8 @@ The new web experience enables data scientists and data engineers to complete th
 
 Using this new Azure Machine Learning interface, you can now:
 + Manage your notebooks or link out to Jupyter
-+ [Run automated ML experiments](tutorial-first-experiment-automated-ml.md)
-+ [Create datasets from local files, datastores, & web files](how-to-create-register-datasets.md)
++ [Run automated ML experiments](service/tutorial-first-experiment-automated-ml.md)
++ [Create datasets from local files, datastores, & web files](service/how-to-create-register-datasets.md)
 + Explore & prepare datasets for model creation
 + Monitor data drift for your models 
 + View recent resources from a dashboard
@@ -1072,7 +1072,7 @@ In Azure portal, you can now:
 ### Notebook Virtual Machine 
 
 Use a Notebook VM as a secure, enterprise-ready hosting environment for Jupyter notebooks in which you can program machine learning experiments, deploy models as web endpoints and perform all other operations supported by Azure Machine Learning SDK using Python. It provides several capabilities:
-+ [Quickly spin up a preconfigured notebook VM](tutorial-1st-experiment-sdk-setup.md) that has the latest version of Azure Machine Learning SDK and related packages.
++ [Quickly spin up a preconfigured notebook VM](service/tutorial-1st-experiment-sdk-setup.md) that has the latest version of Azure Machine Learning SDK and related packages.
 + Access is secured through proven technologies, such as HTTPS, Azure Active Directory authentication and authorization.
 + Reliable cloud storage of notebooks and code in your Azure Machine Learning Workspace blob storage account. You can safely delete your notebook VM without losing your work.
 + Preinstalled sample notebooks to explore and experiment with Azure Machine Learning features.
@@ -1083,7 +1083,7 @@ Use a Notebook VM as a secure, enterprise-ready hosting environment for Jupyter
 ### Azure Machine Learning SDK for Python v1.0.33 released.
 
 + Azure ML Hardware Accelerated Models on [FPGAs](concept-accelerate-with-fpgas.md) is generally available.
-  + You can now [use the azureml-accel-models package](how-to-deploy-fpga-web-service.md) to:
+  + You can now [use the azureml-accel-models package](service/how-to-deploy-fpga-web-service.md) to:
     + Train the weights of a supported deep neural network (ResNet 50, ResNet 152, DenseNet-121, VGG-16, and SSD-VGG)
     + Use transfer learning with the supported DNN
     + Register the model with Model Management Service and containerize the model
@@ -1378,7 +1378,7 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 Azure Machine Learning is now generally available.
 
 ### Azure Machine Learning Compute
-With this release, we are announcing a new managed compute experience through the [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute). This compute target replaces Azure Batch AI compute for Azure Machine Learning. 
+With this release, we are announcing a new managed compute experience through the [Azure Machine Learning Compute](service/how-to-set-up-training-targets.md#amlcompute). This compute target replaces Azure Batch AI compute for Azure Machine Learning. 
 
 This compute target:
 + Is used for model training and batch inference/scoring
@@ -1430,19 +1430,19 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
 ### Docs and notebooks
 + ML Pipelines
   + New and updated notebooks for getting started with pipelines, batch scoping,  and style transfer examples: https://aka.ms/aml-pipeline-notebooks
-  + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md)
-  + Learn how to [run batch predictions using pipelines](how-to-run-batch-predictions.md)
+  + Learn how to [create your first pipeline](service/how-to-create-your-first-pipeline.md)
+  + Learn how to [run batch predictions using pipelines](service/how-to-run-batch-predictions.md)
 + Azure Machine Learning compute target
   + [Sample notebooks](https://aka.ms/aml-notebooks) are now updated to use the new managed compute.
-  + [Learn about this compute](how-to-set-up-training-targets.md#amlcompute)
+  + [Learn about this compute](service/how-to-set-up-training-targets.md#amlcompute)
 
 ### Azure portal: new features
-+ Create and manage [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute) types in the portal.
-+ Monitor quota usage and [request quota](how-to-manage-quotas.md) for Azure Machine Learning Compute.
++ Create and manage [Azure Machine Learning Compute](service/how-to-set-up-training-targets.md#amlcompute) types in the portal.
++ Monitor quota usage and [request quota](service/how-to-manage-quotas.md) for Azure Machine Learning Compute.
 + View Azure Machine Learning Compute cluster status in real time.
 + Virtual network support was added for Azure Machine Learning Compute and Azure Kubernetes Service creation.
 + Rerun your published pipelines with existing parameters.
-+ New [automated machine learning charts](how-to-understand-automated-ml.md) for classification models (lift, gains, calibration, feature importance chart with model explainability) and regression models (residuals and feature importance chart with model explainability). 
++ New [automated machine learning charts](service/how-to-understand-automated-ml.md) for classification models (lift, gains, calibration, feature importance chart with model explainability) and regression models (residuals and feature importance chart with model explainability). 
 + Pipelines can be viewed in Azure portal
 
 
@@ -1541,7 +1541,7 @@ The Azure portal for Azure Machine Learning has the following updates:
 ### Azure Machine Learning SDK for Python v0.1.65
 [Version 0.1.65](https://pypi.org/project/azureml-sdk/0.1.65) includes new features, more documentation, bug fixes, and more [sample notebooks](https://aka.ms/aml-notebooks).
 
-See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
+See [the list of known issues](service/resource-known-issues.md) to learn about known bugs and workarounds.
 
 + **Breaking changes**
   * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services return dictionary, previously returned list. See [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API documentation.
@@ -1600,4 +1600,4 @@ A new, refreshed release of Azure Machine Learning: Read more about this release
 
 ## Next steps
 
-Read the overview for [Azure Machine Learning](../service/overview-what-is-azure-ml.md).
+Read the overview for [Azure Machine Learning](service/overview-what-is-azure-ml.md).
