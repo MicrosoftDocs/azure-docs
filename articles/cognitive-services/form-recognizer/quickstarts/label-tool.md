@@ -43,7 +43,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     ```
 * Now you're ready to run the container with `docker run`.
     ```
-    docker run -it -p 3000:80 containerpreview.azurecr.io//microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool:latest -amd64-preview eula=accept
+    docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
     ```
     This will make the sample labeling tool available through a web browser. Go to [https://localhost:3000](https://localhost:3000).
 

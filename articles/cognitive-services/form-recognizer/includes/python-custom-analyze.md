@@ -18,31 +18,40 @@ Next, you'll use your newly trained model to analyze a document and extract key-
 1. Replace `<subscription key>` with your subscription key.
 
     ```python
-    ########### Python Form Recognizer Analyze #############
-    import http.client, urllib.request, urllib.parse, urllib.error, base64
+    ########### Python Form Recognizer Async Analyze #############
+    import json
+    import time
+    from requests import get, post
     
     # Endpoint URL
-    file_path = r"<path to your form>"
+    endpoint = r"<Endpoint>"
+    apim_key = "<Subscription Key>"
     model_id = "<modelID>"
+    post_url = endpoint + "/formrecognizer/v2.0-preview/custom/models/%s/analyze" % model_id
+    source = r"<path or url to your form>"
+    prefix = "<prefix string>"
+    params = {
+        "includeTextDetails": True
+    }
+    
     headers = {
         # Request headers
         'Content-Type': '<file type>',
-        'Ocp-Apim-Subscription-Key': '<subscription key>',
+        'Ocp-Apim-Subscription-Key': apim_key,
     }
-
+    with open(source, "rb") as f:
+        data_bytes = f.read()
+    
     try:
-        with open(file_path, "rb") as f:
-            data_bytes = f.read()  
-        body = data_bytes
-        conn = http.client.HTTPSConnection('<Endpoint>')
-        conn.request("POST", "/formrecognizer/v2.0-preview/custom/models/" + model_id + "/analyze", body, headers)
-        response = conn.getresponse()
-        data = response.read()
-        operationURL = "" + response.getheader("Location")
-        print ("Location header: " + operationURL)
-        conn.close()
+        resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
+        if resp.status_code != 202:
+            print("POST analyze failed:\n%s" % resp.text)
+            quit()
+        print("POST analyze succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["operation-location"]
     except Exception as e:
-        print(str(e))
+        print("POST analyze failed:\n%s" % str(e))
+        quit() 
     ```
 
 1. Save the code in a file with a .py extension. For example, *form-recognizer-analyze.py*.
@@ -53,23 +62,31 @@ When you call the **Analyze Form** API, you'll receive a `201 (Success)` respons
 
 ## Get the Analyze results
 
-Add the following code to the bottom of your Python script. This extracts the ID value from the previous call and passes it to a new API call to retrieve the analysis results. The **Analyze Form** operation is asynchronous, so this script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
+Add the following code to the bottom of your Python script. This uses the ID value from the previous call in a new API call to retrieve the analysis results. The **Analyze Form** operation is asynchronous, so this script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
 
 ```python 
-operationId = operationURL.split("operations/")[1]
-
-conn = http.client.HTTPSConnection('<Endpoint>')
-while True:
+n_tries = 10
+n_try = 0
+wait_sec = 6
+while n_try < n_tries:
     try:
-        conn.request("GET", "/formrecognizer/v2.0-preview/custom/models/" + model_id + "/analyzeResults/" + operationId, "", headers)
-        responseString = conn.getresponse().read().decode('utf-8')
-        responseDict = json.loads(responseString)
-        conn.close()
-        print(responseString)
-        if 'status' in responseDict and responseDict['status'] not in ['notStarted','running']:
-            break
-        time.sleep(1)
+        resp = get(url = get_url, headers = {"Ocp-Apim-Subscription-Key": apim_key})
+        resp_json = json.loads(resp.text)
+        if resp.status_code != 200:
+            print("GET analyze results failed:\n%s" % resp_json)
+            quit()
+        status = resp_json["status"]
+        if status == "succeeded":
+            print("Analysis succeeded:\n%s" % resp_json)
+            quit()
+        if status == "failed":
+            print("Analysis failed:\n%s" % resp_json)
+            quit()
+        # Analysis still running. Wait and retry.
+        time.sleep(wait_sec)
+        n_try += 1     
     except Exception as e:
-        print(e)
-        exit()
+        msg = "GET analyze results failed:\n%s" % str(e)
+        print(msg)
+        quit()
 ```

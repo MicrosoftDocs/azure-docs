@@ -40,34 +40,51 @@ First, you'll need a set of training data in an Azure Storage blob container. Yo
 > [!NOTE]
 > You can use the labeled data feature to manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more.
 
-To train a Form Recognizer model with the documents in your Azure blob container, call the **TrainC Custom Model** API by running the following python code. Before you run the code, make these changes:
+To train a Form Recognizer model with the documents in your Azure blob container, call the **Train Custom Model** API by running the following python code. Before you run the code, make these changes:
 
 1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Replace `<Subscription key>` with the subscription key you copied from the previous step.
 1. Replace `<Endpoint>` with the endpoint URL for your Form Recognizer resource.
 
     ```python
-    ########### Python Form Recognizer Train #############
-    import http.client, urllib.request, urllib.parse, urllib.error, base64
-
+    ########### Python Form Recognizer Labeled Async Train #############
+    import json
+    import time
+    from requests import get, post
+    
     # Endpoint URL
+    endpoint = r"<Endpoint>"
+    post_url = endpoint + r"/formrecognizer/v2.0-preview/custom/models"
     source = r"<SAS URL>"
+    prefix = "<folder name>"
+    includeSubFolders = False
+    useLabelFile = False
+    
     headers = {
         # Request headers
         'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': '<Subscription Key>',
     }
-    body = {"source": source}
+    
+    body = 	{
+        "source": source,
+        "sourceFilter": {
+            "prefix": prefix,
+            "includeSubFolders": includeSubFolders
+        },
+        "useLabelFile": useLabelFile
+    }
+    
     try:
-        conn = http.client.HTTPSConnection('<Endpoint>')
-        conn.request("POST", "/formrecognizer/v2.0-preview/custom/models", body, headers)
-        response = conn.getresponse()
-        data = response.read()
-        operationURL = "" + response.getheader("Location")
-        print ("Location header: " + operationURL)
-        conn.close()
+        resp = post(url = post_url, json = body, headers = headers)
+        if resp.status_code != 201:
+            print("POST model failed:\n%s" % resp.text)
+            quit()
+        print("POST model succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["location"]
     except Exception as e:
-        print(str(e))
+        print("POST model failed:\n%s" % str(e))
+        quit() 
     ```
 1. Save the code in a file with a .py extension. For example, *form-recognizer-train.py*.
 1. Open a command prompt window.
@@ -75,25 +92,33 @@ To train a Form Recognizer model with the documents in your Azure blob container
 
 ## Get training results
 
-After you've started the train operation, you use the returned ID to get the status of the operation. Add the following code to the bottom of your Python script. This extracts the ID value from the training call and passes it to a new API call. The training operation is asynchronous, so this script calls the API at regular intervals until the training status is completed. We recommend an interval of one second or more.
+After you've started the train operation, you use the returned ID to get the status of the operation. Add the following code to the bottom of your Python script. This uses the ID value from the training call in a new API call. The training operation is asynchronous, so this script calls the API at regular intervals until the training status is completed. We recommend an interval of one second or more.
 
 ```python 
-operationId = operationURL.split("operations/")[1]
-
-conn = http.client.HTTPSConnection('<Endpoint>')
-while True:
+n_tries = 10
+n_try = 0
+wait_sec = 3
+while n_try < n_tries:
     try:
-        conn.request("GET", f"/formrecognizer/v2.0-preview/custom/models/{operationId}", "", headers)
-        responseString = conn.getresponse().read().decode('utf-8')
-        responseDict = json.loads(responseString)
-        conn.close()
-        print(responseString)
-        if 'status' in responseDict and responseDict['status'] not in ['creating','created']:
-            break
-        time.sleep(1)
+        resp = get(url = get_url, headers = headers)
+        resp_json = json.loads(resp.text)
+        if resp.status_code != 200:
+            print("GET model failed:\n%s" % resp_json)
+            quit()
+        model_status = resp_json["modelInfo"]["status"]
+        if model_status == "ready":
+            print("Training succeeded:\n%s" % resp_json)
+            quit()
+        if model_status == "invalid":
+            print("Training failed. Model is invalid:\n%s" % resp_json)
+            quit()
+        # Training still running. Wait and retry.
+        time.sleep(wait_sec)
+        n_try += 1     
     except Exception as e:
-        print(e)
-        exit()
+        msg = "GET model failed:\n%s" % str(e)
+        print(msg)
+        quit()
 ```
 
 When the training process is completed, you'll receive a `201 (Success)` response with JSON content like the following:

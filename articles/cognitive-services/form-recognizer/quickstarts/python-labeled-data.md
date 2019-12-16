@@ -157,14 +157,17 @@ To train a model with labeled data, call the **Train Custom Model** API by runni
 
 ```python
 ########### Python Form Recognizer Labeled Async Train #############
-from requests import post as http_post
+import json
+import time
+from requests import get, post
 
 # Endpoint URL
-base_url = r"<Endpoint>" + "/formrecognizer/v2.0-preview/custom"
-source = "<SAS URL>"
+endpoint = r"<Endpoint>"
+post_url = endpoint + r"/formrecognizer/v2.0-preview/custom/models"
+source = r"<SAS URL>"
 prefix = "<folder name>"
-includeSubFolders = "false"
-useLabelFile = "true"
+includeSubFolders = False
+useLabelFile = True
 
 headers = {
     # Request headers
@@ -172,22 +175,25 @@ headers = {
     'Ocp-Apim-Subscription-Key': '<Subscription Key>',
 }
 
-url = base_url + "/asyncTrain" 
 body = 	{
     "source": source,
     "sourceFilter": {
-    "prefix": prefix,
-    "includeSubFolders": includeSubFolders
+        "prefix": prefix,
+        "includeSubFolders": includeSubFolders
     },
     "useLabelFile": useLabelFile
 }
 
 try:
-    resp = http_post(url = url, json = body, headers = headers)
-    print("Response status code: %d" % resp.status_code)
-    print("Response header: %s" % resp.headers) 
+    resp = post(url = post_url, json = body, headers = headers)
+    if resp.status_code != 201:
+        print("POST model failed:\n%s" % resp.text)
+        quit()
+    print("POST model succeeded:\n%s" % resp.headers)
+    get_url = resp.headers["location"]
 except Exception as e:
-    print(str(e))
+    print("POST model failed:\n%s" % str(e))
+    quit() 
 ```
 
 ## Get training results
