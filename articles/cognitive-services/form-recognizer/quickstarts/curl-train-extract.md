@@ -140,7 +140,7 @@ Next, you'll use your newly trained model to analyze a document and extract key-
 
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<model ID>` with the model ID that you received in the previous section.
-1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf). For this quickstart, you can use the files under the **Test** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
+1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf). This can also be a URL to a remote file. For this quickstart, you can use the files under the **Test** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
 1. Replace `<file type>` with the file type. Supported types: `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`.
 1. Replace `<subscription key>` with your subscription key.
 
@@ -164,7 +164,7 @@ curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model
 
 You'll receive a `200 (Success)` response with a JSON body in the following format. The output has been shortened for simplicity. Notice the `"status"` field near the bottom. This will have the value `"succeeded"` when the Analyze operation is complete. If the Analyze operation hasn't completed, you'll need to query the service again by rerunning the command. We recommend an interval of one second or more between calls.
 
-The main key/value associations are in the `"pageResults"` node. If you also specified plain text extraction through the *includeTextDetails* URL parameter, then the `"readResults"` node will show the content and positions of all the text in the document.
+The main key/value pair associations and tables are in the `"pageResults"` node. If you also specified plain text extraction through the *includeTextDetails* URL parameter, then the `"readResults"` node will show the content and positions of all the text in the document.
 
 ```json
 {
