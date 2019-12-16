@@ -96,7 +96,7 @@ For more information on certificates, go to [Manage certificates on your Azure S
 
 ## Connect to device from a remote client
 
-    [!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
+[!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 ## Get encryption password
  
