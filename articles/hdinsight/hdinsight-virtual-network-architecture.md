@@ -29,7 +29,7 @@ Azure HDInsight clusters have different types of virtual machines, or nodes. Eac
 
 ## Resource naming conventions
 
-Please use Fully Qualified Domain Names (FQDNs) when addressing nodes in your cluster. You can get the FQDNs for various node types in your cluster using the [Ambari API](../hdinsight-hadoop-manage-ambari-rest-api.md). 
+Please use Fully Qualified Domain Names (FQDNs) when addressing nodes in your cluster. You can get the FQDNs for various node types in your cluster using the [Ambari API](hdinsight-hadoop-manage-ambari-rest-api.md). 
 
 These FQDNs will be of the form `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
 
