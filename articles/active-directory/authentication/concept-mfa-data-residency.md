@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 12/16/2019
 
 ms.author: iainfou
 author: iainfoulds
@@ -54,7 +54,7 @@ For Azure public clouds, excluding Azure B2C authentication, NPS Extension, and 
 | Microsoft Authenticator notification | In MFA logs<br />MFA activity report data store<br />Blocked users if fraud reported<br />Change requests when Microsoft Authenticator device token changes |
 
 > [!NOTE]
-> The MFA activity report data store is stored in the North America geography for all clouds, regardless of the region that processes the authentication request. Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, and Microsoft Government Cloud have their own independent data stores separate from public cloud region data stores, however this data is always stored in North America.
+> The MFA activity report data store is stored in the United States for all clouds, regardless of the region that processes the authentication request. Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, and Microsoft Government Cloud have their own independent data stores separate from public cloud region data stores, however this data is always stored in the United States.
 
 For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, Azure B2C authentication, NPS Extension, and Windows Server 2016 or 2019 AD FS Adapter, the following personal data is stored:
 
@@ -97,9 +97,9 @@ And for Azure MFA Server, the following Azure portal pages may contain organizat
 
 ## Log data location
 
-Where log information is stored depends on which region they're processed in. Most geographies have native Azure MFA capabilities, so log data is stored in the same region that processes the MFA request. In geographies without native Azure MFA support, they're serviced by either North America or Europe geographies and log data is stored in the same region that processes the MFA request.
+Where log information is stored depends on which region they're processed in. Most geographies have native Azure MFA capabilities, so log data is stored in the same region that processes the MFA request. In geographies without native Azure MFA support, they're serviced by either the United States or Europe geographies and log data is stored in the same region that processes the MFA request.
 
-Some core authentication log data is only stored in the North America geography. Microsoft Azure Germany and Microsoft Azure Operated by 21Vianet are always stored in their respective cloud. Microsoft Government Cloud log data is always stored in North America.
+Some core authentication log data is only stored in the United States. Microsoft Azure Germany and Microsoft Azure Operated by 21Vianet are always stored in their respective cloud. Microsoft Government Cloud log data is always stored in the United States.
 
 ## Next steps
 
