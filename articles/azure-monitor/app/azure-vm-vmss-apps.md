@@ -1,5 +1,5 @@
 ---
-title: Monitor application performance hosted on Azure VM and Azure virtual machine scale sets | Microsoft Docs
+title: Monitor performance on Azure VMs - Azure Application Insights
 description: Application performance monitoring for Azure VM and Azure virtual machine scale sets. Chart load and response time, dependency information, and set alerts on performance.
 ms.service:  azure-monitor
 ms.subservice: application-insights

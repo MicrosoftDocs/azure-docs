@@ -174,7 +174,7 @@ Now, use the code snippet provided by these steps to create an Azure function th
 
 1. After the editor opens, replace the template code with this sample code, which removes the HTML and returns results to the caller:
 
-   ```CSharp
+   ```csharp
    #r "Newtonsoft.Json"
 
    using System.Net;

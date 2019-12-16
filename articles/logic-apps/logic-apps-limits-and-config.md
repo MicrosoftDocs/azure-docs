@@ -57,7 +57,11 @@ Here are the limits for a single logic app run:
 
 To change the default limit for run duration and storage retention, follow these steps. To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
 
-1. In the Azure portal, on your logic app's menu, select **Workflow settings**.
+1. Go to the [Azure portal](https://portal.azure.com). In the portal search box, find and select **Logic apps**.
+
+1. Select and then open your logic app in the Logic App Designer. 
+
+1. On the logic app's menu, select **Workflow settings**.
 
 1. Under **Runtime options**, from the **Run history retention in days** list, select **Custom**.
 
@@ -230,7 +234,7 @@ For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/
 | Artifact | Limit | Notes |
 | -------- | ----- | ----- |
 | Assembly | 8 MB | To upload files larger than 2 MB, use an [Azure storage account and blob container](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
-| Map (XSLT file) | 8 MB | To upload files larger than 2 MB, use the [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). |
+| Map (XSLT file) | 8 MB | To upload files larger than 2 MB, use the [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). <p><p>**Note**: The amount of data or records that a map can successfully process is based on the message size and action timeout limits in Azure Logic Apps. For example, if you use an HTTP action, based on [HTTP message size and timeout limits](#request-limits), a map can process data up to the HTTP message size limit if the operation completes within the HTTP timeout limit. |
 | Schema | 8 MB | To upload files larger than 2 MB, use an [Azure storage account and blob container](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
