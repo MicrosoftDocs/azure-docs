@@ -490,7 +490,7 @@ The Container Monitoring solution doesn’t support RBAC, but it is supported wi
 
 The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the omsagent. For more information, see the [Azure Monitor for containers](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) GitHub page. 
 
-## How do I update the omsagent to the latest released version?
+### How do I update the omsagent to the latest released version?
 
 To learn how to upgrade the agent, see [Agent management](container-insights-manage-agent.md).
 
@@ -578,7 +578,7 @@ Health criteria can't be disabled in this release.
 ### Are the health alert severities configurable?  
 Health alert severity cannot be modified, they can only be enabled or disabled. Additionally, some alert severities update based on the state of health criteria. 
 
-## #If I reconfigure the settings of a particular health criteria, can it be scoped to a specific instance?  
+###If I reconfigure the settings of a particular health criteria, can it be scoped to a specific instance?  
 If you modify any setting of a health criterion instance, all health criteria instances of the same type on the Azure VM are modified. For example, if the threshold of the disk free-space health criterion instance that corresponds to logical disk C: is modified, this threshold applies to all other logical disks that are discovered and monitored for the same VM.
 
 ### Does the Health feature monitor logical processors and cores?
