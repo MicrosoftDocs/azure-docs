@@ -21,7 +21,7 @@ Azure Personalizer is a cloud-based API service that helps your client applicati
 
 ## When to use Personalizer
 
-* You have content you want presented in a ranked order.
+* You have content you want presented in a ranked order. No need to clean and label the data before sending to Personalizer.
 * You have information describing the content (_actions_ and _context_ - explained below).
 * You have enough real-time traffic (~XK transactions/day) to give to Personalizer to rank the content.
 
