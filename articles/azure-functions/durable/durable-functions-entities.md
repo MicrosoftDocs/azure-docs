@@ -161,7 +161,7 @@ The following examples illustrate these various ways of accessing entities.
 
 ### Example: Client signals an entity
 
-To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client output binding](durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
+To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
 
 ```csharp
 [FunctionName("AddFromQueue")]
