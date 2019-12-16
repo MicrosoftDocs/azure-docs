@@ -330,6 +330,9 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: 'Designer: Retrain using published pipelines'
+      displayName: retrain, designer, published pipeline
+      href: how-to-retrain-designer.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
