@@ -37,7 +37,7 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
     let https = require('https');
     ```
 
-2. Create variables for the API endpoint, image API search path, your subscription key, and search term. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+2. Create variables for the API endpoint, image API search path, your subscription key, and search term. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
 
     ```javascript
     let subscriptionKey = 'enter key here';

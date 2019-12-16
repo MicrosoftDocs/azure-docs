@@ -33,8 +33,6 @@ To set up a console application using the Bing News Search SDK, browse to the `M
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## Create and initialize a project
 
 1. Create a new C# console solution in Visual Studio. Then add the following into the main code file.
