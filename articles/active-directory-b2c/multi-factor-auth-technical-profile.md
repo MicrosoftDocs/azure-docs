@@ -50,11 +50,11 @@ The first mode of this technical profile is to generate a code and send it. The 
 The **InputClaims** element contains a list of claims to send to Azure MFA. You can also map the name of your claim to the name defined in the MFA technical profile.
 
 | ClaimReferenceId | Required | Description |
-| --------- | -------- | ----------- | 
+| --------- | -------- | ----------- |
 | userPrincipalName | Yes | The identifier for the user who owns the phone number. |
 | phoneNumber | Yes | The phone number to send an SMS code to. |
 | companyName | No |The company name in the SMS. If not provided, the name of your application is used. |
-| locale | No | No |The locale of the SMS. If not provided, the browser locale of the user is used. |
+| locale | No | The locale of the SMS. If not provided, the browser locale of the user is used. |
 
 The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending to the Azure MFA service.
 
