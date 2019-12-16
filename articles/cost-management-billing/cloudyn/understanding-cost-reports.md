@@ -124,7 +124,7 @@ Each numbered area in the preceding image is described in detail in the followin
 
     Use Cost Model to select a cost model that you previously created with Cost Allocation 360. You might have multiple Cloudyn cost models, depending on your cost allocation requirements. Some of your organizational teams might have cost allocation requirements that differ from others. Each team can have their own dedicated cost model.
 
-    For information about creating a cost allocation model definition, see [Use custom tags to allocate costs](../../cost-management/tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
+    For information about creating a cost allocation model definition, see [Use custom tags to allocate costs](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
 7. **Amortization**
 

@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 This article describes the purpose of the Cloudyn reports that are included in the Cloudyn portal. It also describes how you can effectively use the reports. Most reports are intuitive and have a uniform look and feel. Most of the actions that you can do in one report, you can also do in other reports. For an overview about how to use Cloudyn reports, including how to customize and save or to schedule reports, see [Understanding cost reports](understanding-cost-reports.md).
 
-Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information, see [Azure Cost Management](../../cost-management/overview-cost-mgt.md).
+Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information, see [Azure Cost Management](overview-cost-mgt.md).
 
 ## Report types
 
@@ -44,13 +44,13 @@ You can schedule any report for periodic delivery. Cost reports allow setting a 
 
 _Cost analysis_ reports display billing data from your cloud providers. Using the reports, you can group and drill into various data segments itemized from the billing file. The reports enable granular cost navigation across your cloud vendor's raw billing data.
 
-Some _cost analysis_ reports don't group costs by resource tags. And, tag-based billing information only appears in reports after you allocate costs by creating a cost model using [Cost Allocation 360](../../cost-management/tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
+Some _cost analysis_ reports don't group costs by resource tags. And, tag-based billing information only appears in reports after you allocate costs by creating a cost model using [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-_Cost allocation_ reports are available after you create a cost model using [Cost Allocation 360](../../cost-management/tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cloudyn processes cost and billing data and _matches_ the data to the usage and tag data of your cloud accounts. To match the data, Cloudyn requires access to your usage data. If you have accounts that are missing credentials, they are labeled as _uncategorized resources_.
+_Cost allocation_ reports are available after you create a cost model using [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cloudyn processes cost and billing data and _matches_ the data to the usage and tag data of your cloud accounts. To match the data, Cloudyn requires access to your usage data. If you have accounts that are missing credentials, they are labeled as _uncategorized resources_.
 
 ## Dashboards
 
-Dashboards in Cloudy provide a high-level view of reports. Dashboards are made up of widgets and each widget is essentially a report thumbnail. When you [customize reports](understanding-cost-reports.md#save-and-schedule-reports), you save them to My Reports and they're added to the dashboard. For more information about dashboards, see [View key cost metrics with dashboards](../../cost-management/dashboards.md).
+Dashboards in Cloudy provide a high-level view of reports. Dashboards are made up of widgets and each widget is essentially a report thumbnail. When you [customize reports](understanding-cost-reports.md#save-and-schedule-reports), you save them to My Reports and they're added to the dashboard. For more information about dashboards, see [View key cost metrics with dashboards](dashboards.md).
 
 ## Budget information in reports
 
@@ -76,7 +76,7 @@ By default, major views in the report show:
 
 The Cost Analysis report is a calculation of showback and chargeback, based on your policy. It aggregates your cloud consumption during a selected time frame, after having applied all allocation rules to your cost. For example, it calculates the costs by tags, reassigns the costs of untagged resources and optionally allocates the utilization of reserved instances.
 
-The policies set in [Cost Allocation 360](../../cost-management/tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in the Cost Analysis report and results are then combined with information from your cloud vendor's raw data.
+The policies set in [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in the Cost Analysis report and results are then combined with information from your cloud vendor's raw data.
 
 How is this report calculated? The Cloudyn service ensures allocation retains the integrity of each linked account by applying _account affinity_. Affinity ensures an account that doesn't use a specific service doesn't have any costs of this service allocated to it. The costs accrued in that account remain in that account and are not calculated by the allocation policies. For example, you might have five linked accounts. If only three of them use storage services, then the cost of storage services is only allocated across tags in the three accounts.
 
@@ -96,7 +96,7 @@ To use the Cost Analysis report:
 
 ### Cost Over Time report
 
-The Cost over Time report displays the results of cost allocation as time series. It allows you to observe trends and detect irregularities in your deployment. It essentially shows costs distributed over a defined period. The report includes your main cost contributors including ongoing costs and one-time reserved instance fees that are being spent during a selected time frame. Policies set in [Cost Allocation 360](../../cost-management/tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in this report.
+The Cost over Time report displays the results of cost allocation as time series. It allows you to observe trends and detect irregularities in your deployment. It essentially shows costs distributed over a defined period. The report includes your main cost contributors including ongoing costs and one-time reserved instance fees that are being spent during a selected time frame. Policies set in [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in this report.
 
 Use the Cost Over Time report to:
 
@@ -153,7 +153,7 @@ Amortized cost reports include:
 
 ### Cost Analysis report
 
-The Cost Analysis report provides insight into your cloud consumption and spending during a selected time frame. The policies set in the [Cost Allocation 360](../../cost-management/tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in the Cost Analysis report.
+The Cost Analysis report provides insight into your cloud consumption and spending during a selected time frame. The policies set in the [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in the Cost Analysis report.
 
 How does Cloudyn calculate this report?
 
@@ -166,7 +166,7 @@ Use the Cost Analysis report to:
 
 ### Cost Over Time report
 
-The Cost Over Time report displays spending over time so you can spot trends and notice irregularities in your deployment. It essentially shows costs distributed over a defined period. The report includes your main cost contributors including ongoing costs and one-time reserved instance fees that are being spent during a selected time frame. Policies set in [Cost Allocation 360](../../cost-management/tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in this report.
+The Cost Over Time report displays spending over time so you can spot trends and notice irregularities in your deployment. It essentially shows costs distributed over a defined period. The report includes your main cost contributors including ongoing costs and one-time reserved instance fees that are being spent during a selected time frame. Policies set in [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in this report.
 
 Use the Cost Over Time report to:
 
@@ -203,7 +203,7 @@ Custom charges are shown in Cost reports. For example, open the Actual Cost Anal
 
 You use Cost Allocation 360 to create custom cost allocation models to assign costs to consumed cloud resources. Many reports show information from custom cost models that you've created with custom cost models. And, some reports only show information after you've created a custom cost model with cost allocation.
 
-For more information about creating custom cost models, see [Tutorial: Manage costs by using Cloudyn](../../cost-management/tutorial-manage-costs.md).
+For more information about creating custom cost models, see [Tutorial: Manage costs by using Cloudyn](tutorial-manage-costs.md).
 
 ### Cost vs. Budget Over Time report
 
@@ -245,11 +245,11 @@ When completed, your budget is shown in Cost Analysis reports and in the Cost vs
 
 ### Azure Resource Explorer report
 
-The Azure Resource Explorer report shows a bulk list of all the Azure resources available in Cloudyn. To effectively use the report, your Azure accounts should have extended metrics enabled. Extended metrics provide Cloudyn access to your Azure VMs. For more information, see [Add extended metrics for Azure virtual machines](../../cost-management/azure-vm-extended-metrics.md).
+The Azure Resource Explorer report shows a bulk list of all the Azure resources available in Cloudyn. To effectively use the report, your Azure accounts should have extended metrics enabled. Extended metrics provide Cloudyn access to your Azure VMs. For more information, see [Add extended metrics for Azure virtual machines](azure-vm-extended-metrics.md).
 
 ### Azure Resources Over Time report
 
-The Azure Resources Over Time report shows a breakdown of all resources running over a specific period. To effectively use the report, your Azure accounts should have extended metrics enabled. Extended metrics provide Cloudyn access to your Azure VMs. For more information, see [Add extended metrics for Azure virtual machines](../../cost-management/azure-vm-extended-metrics.md).
+The Azure Resources Over Time report shows a breakdown of all resources running over a specific period. To effectively use the report, your Azure accounts should have extended metrics enabled. Extended metrics provide Cloudyn access to your Azure VMs. For more information, see [Add extended metrics for Azure virtual machines](azure-vm-extended-metrics.md).
 
 ### Instance Explorer report
 
@@ -289,13 +289,13 @@ Use the report to:
 - Check compute power within a specified date range.
 - View compute times based on cost allocation models.
 
-This report is linked to your [Cost Allocation 360](../../cost-management/tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) policies so results are shown based on the defined tagging and policies your selected cost policy. When you don't have a policy created, then results aren't shown.
+This report is linked to your [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) policies so results are shown based on the defined tagging and policies your selected cost policy. When you don't have a policy created, then results aren't shown.
 
 ### Compute Power Average Cost Over Time report
 
 You use the Compute Power Average Cost Over Time report to view more than just the cost of each running machine. The report shows your average cost per instance hour, core hour, compute unit hour, and GB RAM hour. The report provides insight into the efficiency of your deployment.
 
-This report is linked to your [Cost Allocation 360](../../cost-management/tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) policies so results are displayed based on the defined tagging and policies your selected cost policy. When you don't have a policy created, then results aren't shown.
+This report is linked to your [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) policies so results are displayed based on the defined tagging and policies your selected cost policy. When you don't have a policy created, then results aren't shown.
 
 ### S3 Cost Over Time report
 
@@ -512,4 +512,4 @@ You can use **Search** to find specific line items.
 ## Next steps
 
 - Learn about how to use reports, including how to customize or save and schedule reports, see [Understanding cost reports](understanding-cost-reports.md).
-- Learn about the dashboards included in Cloudyn and about how to create your own custom dashboards, see [View key cost metrics with dashboards](../../cost-management/dashboards.md).
+- Learn about the dashboards included in Cloudyn and about how to create your own custom dashboards, see [View key cost metrics with dashboards](dashboards.md).

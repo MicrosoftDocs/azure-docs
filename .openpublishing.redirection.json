@@ -26092,7 +26092,7 @@
         {
             "source_path": "articles/billing/billing-understand-free-service-meter-mapping.md",
             "redirect_url": "/azure/cost-management-billing/manage/check-free-service-usage",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-azure-portal-enable-preview-access.md",
@@ -44096,7 +44096,7 @@
         {
             "source_path": "articles/billing/billing-check-free-service-usage.md",
             "redirect_url": "/azure/cost-management-billing/manage/check-free-service-usage",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/billing/billing-cost-management-automation-scenarios.md",
@@ -70734,7 +70734,7 @@
     {
       "source_path": "articles/billing/billing-understand-free-service-meter-mapping.md",
       "redirect_url": "/azure/cost-management-billing/manage/check-free-service-usage",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-azure-portal-enable-preview-access.md",
