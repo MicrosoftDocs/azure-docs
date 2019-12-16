@@ -78,9 +78,8 @@ This extracts the country code and the national number from the input claim, and
 | OutputClaim | nationalNumber | string | The string claim for the national number of the phone number. |
 | OutputClaim | countryCode | string | The string claim for the country code of the phone number. |
 
-(TODO: I'm not sure about this section. Also the CT may return an error message. But this is something that other CT do. Specially if the phone number was previously validated with the above CT.)
 
-The **GetNationalNumberAndCountryCodeFromPhoneNumberString** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **UserMessageIfPhoneNumberParseFailure** self-asserted technical profile metadata controls the error message that is presented to the user.
+If the **GetNationalNumberAndCountryCodeFromPhoneNumberString** claims transformation is executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md) or a [display control action](display-controls.md#display-control-actions), then the **UserMessageIfPhoneNumberParseFailure** self-asserted technical profile metadata controls the error message that is presented to the user.
 
 ![Diagram of error message execution path](./media/phone-authentication/assert-execution.png)
 

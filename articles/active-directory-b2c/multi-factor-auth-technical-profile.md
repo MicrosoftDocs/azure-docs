@@ -59,7 +59,6 @@ The **InputClaims** element contains a list of claims to send to Azure MFA. You 
 The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending to the Azure MFA service.
 
 ### Output claims
-(TODO: in the sample i see the `sessionId` output claim?)
 The Azure MFA protocol provider does not return any **OutputClaims**, thus there is no need to specify output claims. You can, however, include claims that aren't returned by the Azure MFA identity provider as long as you set the `DefaultValue` attribute.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
@@ -85,7 +84,6 @@ As described in [Metadata](#metadata), you can customize the error message shown
 
 The following example shows an Azure MFA technical profile that is used to send a code via SMS.
 
-(TODO: to check the session claim)
 ```XML
 <TechnicalProfile Id="AzureMfa-SendSms">
     <DisplayName>Send Sms</DisplayName>
@@ -148,7 +146,6 @@ As described in [Metadata](#metadata), you can customize the error message shown
 
 The following example shows an Azure MFA technical profile used to verify the code.
 
-(TODO: to check the sample with regard to the primary key (input claim))
 ```XML
 <TechnicalProfile Id="AzureMfa-VerifySms">
     <DisplayName>Verify Sms</DisplayName>
@@ -157,7 +154,7 @@ The following example shows an Azure MFA technical profile used to verify the co
         <Item Key="Operation">Verify</Item>
     </Metadata>
     <InputClaims>
-        <InputClaim ClaimTypeReferenceId="fullPhoneNumber" PartnerClaimType="phoneNumber" />
+        <InputClaim ClaimTypeReferenceId="phoneNumber" PartnerClaimType="phoneNumber" />
         <InputClaim ClaimTypeReferenceId="verificationCode" />
     </InputClaims>
 </TechnicalProfile>
