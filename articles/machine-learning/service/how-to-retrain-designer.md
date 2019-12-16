@@ -84,7 +84,7 @@ You can add pipeline parameters to dynamically set variables at runtime. For thi
     > [!NOTE]
     > You can inspect and edit your pipeline parameters by selecting the **Settings gear icon** next to the title of your pipeline draft. 
 
-[Screenshot showing how to create a pipeline parameter](./media/how-to-retrain-designer/add-pipeline-parameter)
+[Screenshot showing how to create a pipeline parameter](./media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 ## Publish a training pipeline
 
