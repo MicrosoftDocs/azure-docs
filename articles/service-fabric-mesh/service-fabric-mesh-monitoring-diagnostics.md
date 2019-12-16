@@ -2,7 +2,6 @@
 title: Monitoring and diagnostics in Azure Service Fabric Mesh applications 
 description: Learn about monitoring and diagnosing application in Service Fabric Mesh on Azure.
 author: srrengar
-ms.assetid: 
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar

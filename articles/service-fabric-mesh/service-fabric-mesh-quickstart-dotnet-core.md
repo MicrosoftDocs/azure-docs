@@ -2,7 +2,6 @@
 title: Quickstart - Deploy a web app to Azure Service Fabric Mesh 
 description: This quickstart shows you how to create an ASP.NET Core website and publish it to Azure Service Fabric Mesh using Visual Studio.
 author: dkkapur
-ms.assetid: 
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: dekapur

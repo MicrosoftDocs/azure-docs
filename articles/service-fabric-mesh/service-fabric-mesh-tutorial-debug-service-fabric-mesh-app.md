@@ -2,7 +2,6 @@
 title: Tutorial- Debug an Azure Service Fabric Mesh web application running in your local development cluster 
 description: In this tutorial, debug an Azure Service Fabric Mesh application running on your local cluster.
 author: dkkapur
-ms.assetid:  
 ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: dekapur

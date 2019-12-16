@@ -2,7 +2,6 @@
 title: Tutorial- Deploy a Service Fabric Mesh application  
 description: Learn how to use Visual Studio to publish an Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service.
 author: dkkapur
-ms.assetid:  
 ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur

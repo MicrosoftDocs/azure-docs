@@ -2,7 +2,6 @@
 title: Tutorial- Cleanup Azure Service Fabric Mesh resources 
 description: Learn how to remove Azure Service Fabric Mesh resources so that you do not get charged for resources you are no longer using.
 author: dkkapur
-ms.assetid:  
 ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur

@@ -2,7 +2,6 @@
 title: Tutorial- Upgrade an app running in Azure Service Fabric Mesh 
 description: In this tutorial, you learn how to upgrade a Service Fabric application running in Service Fabric Mesh.
 author: dkkapur
-ms.assetid:  
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: dekapur

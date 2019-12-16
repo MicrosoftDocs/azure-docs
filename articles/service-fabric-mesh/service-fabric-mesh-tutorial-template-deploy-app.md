@@ -2,7 +2,6 @@
 title: Tutorial- Deploy an app to Azure Service Fabric Mesh 
 description: In this tutorial, you learn how to deploy an application to Service Fabric Mesh using a template.
 author: dkkapur
-ms.assetid:  
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: dekapur
