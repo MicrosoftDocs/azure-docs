@@ -43,8 +43,28 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
 
       ![Default backup policy](./media/backup-during-vm-creation/daily-policy.png)
 
-> [!NOTE]
-> Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in *Retain instant recovery snapshot* section of the Azure Virtual Machine Backup policy.  Applying a lock to this resource group can cause backup failures. <br> This resource group should also be excluded from any name/tag restrictions as a restriction policy would block creation of Resource Point collections in it again causing backup failures.
+## Customize resource group name
+
+We are releasing an update to Azure Backup policy for virtual machines with an addition to customize the Resource group name created by Azure Backup.
+
+Today, Backup service creates a separate resource group from the resource group of the VM to store restore point collection (RP Collection houses the instant recovery points of managed VMs). The default naming format of the resource group created by Backup service is: `AzureBackupRG_<Geo>_<number>`. For example: *AzureBackupRG_northeurope_1*.
+
+Points to note:
+
+1. With this release, you can either use the default name, or can update it as per your company requirements.
+2. The user provides the RG name pattern as input during VM backup policy creation. The RG name should be of the format:
+              `<alpha-numeric string>* n <alpha-numeric string>`. ‘n’ would be replaced with an integer (starting from 1) and would be used for scaling out if the first RG is full. One RG can have a max of 600 RPC's today.
+              ![Choose name when creating policy](./media/backup-during-vm-creation/create-policy.png)
+3. The pattern should follow the RG naming rules and the total length should not exceed the maximum allowed RG name length.
+    1. Resource group names only allow alphanumeric characters, periods, underscores, hyphens, and parenthesis. They cannot end in a period.
+    2. Resource group names can contain up to 74 characters, including the name of the RG and the suffix.
+4. The first `<alpha-numeric-string>` is mandatory while the second one after ‘n’ is optional. This applies only if the user gives a customized name. If the user doesn’t enter anything in either of the textboxes, the default name is taken.
+5. The user can edit the name of the RG by modifying the policy if and when required. If the name pattern is changed, new RPs would be created in the new RG. However, the old RPs would still reside in the old RG and won’t be moved, as RP Collection does not support resource move. Eventually the RPs will get garbage collected as the points expire.
+![Change name when modifying policy](./media/backup-during-vm-creation/modify-policy.png)
+6. Customers are advised not to lock the resource group created for use by the Backup service.
+
+Release schedule:
+The portal deployment has begun and is expected to be completed by December 18, 2019 in all public geos. National clouds will be deployed by January 10, 2020. PowerShell/ CLI support should be available by February 2020.
 
 ## Start a backup after creating the VM
 
