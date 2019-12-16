@@ -22940,11 +22940,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/machine-learning/service/azure-machine-learning-release-notes.md",
-            "redirect_url": "/azure/machine-learning/azure-machine-learning-release-notes",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-audit-log-schema.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema",
             "redirect_document_id": false
