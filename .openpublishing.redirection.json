@@ -26091,7 +26091,7 @@
         },
         {
             "source_path": "articles/billing/billing-understand-free-service-meter-mapping.md",
-            "redirect_url": "/azure/billing/billing-check-free-service-usage",
+            "redirect_url": "/azure/cost-management-billing/manage/check-free-service-usage",
             "redirect_document_id": true
         },
         {
@@ -44601,11 +44601,6 @@
         {
             "source_path": "articles/cost-management/tutorial-manage-costs.md",
             "redirect_url": "/azure/cost-management-billing/cloudyn/tutorial-manage-costs",
-            "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/billing/billing-check-free-service-usage.md",
-            "redirect_url": "/azure/cost-management-billing/manage/check-free-service-usage",
             "redirect_document_id": true
         },
         {
@@ -70738,7 +70733,7 @@
     },
     {
       "source_path": "articles/billing/billing-understand-free-service-meter-mapping.md",
-      "redirect_url": "/azure/billing/billing-check-free-service-usage",
+      "redirect_url": "/azure/cost-management-billing/manage/check-free-service-usage",
       "redirect_document_id": true
     },
     {
