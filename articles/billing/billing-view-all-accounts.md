@@ -51,9 +51,9 @@ A scope is a node within a billing account that you use to view and manage billi
 
 |Scope  |Definition  |
 |---------|---------|
-|Billing account    | Represents an Enterprise Agreement enrollment. Invoice is generated at this scope. It is structured using departments and accounts. |
-|Department     |  Optional grouping of accounts.      |
-|Account     |  Represents a single account owner. Azure subscriptions are created under this scope.  |
+|Billing account    | Represents an Enterprise Agreement enrollment. It is structured using departments and accounts. Invoice is generated at this scope. |
+|Department     |  Optional grouping of accounts. Departments are used to segment costs into logical groupings and set budget or quota.     |
+|Account     |  Represents a single account owner. Account owners have permissions to create and manage Azure subscriptions that are billed to the enrollment. |
 
 ### Microsoft Customer Agreement
 
@@ -61,9 +61,9 @@ A scope is a node within a billing account that you use to view and manage billi
 
 |Scope  |Tasks  |
 |---------|---------|
-|Billing account     |   Represents a customer agreement for multiple Microsoft products and services. It is structured using billing profiles and invoice sections.   |
-|Billing profile     |   Represents an invoice and its payment methods. Invoice is generated at this scope. It can have multiple invoice sections.      |
-|Invoice section     |   Represents a group of costs in an invoice. Subscriptions and other purchases are associated to this scope.    |
+|Billing account     |   Represents an agreement that a customer accepts to use Microsoft products and services. It contains one or more billing profile. |
+|Billing profile     |   Represents an invoice and the related billing information such as payment methods and billing address. I contains one or more invoice sections. |
+|Invoice section     |   Represents a grouping of costs in an invoice. Azure subscriptions and other purchases such as Azure marketplace and App source products are associated to this scope.    |
 
 ### Microsoft Partner Agreement
 
@@ -72,9 +72,9 @@ A scope is a node within a billing account that you use to view and manage billi
 |Scope  |Tasks  |
 |---------|---------|
 |Billing account     |   Represents a partner agreement to manage customers' Microsoft products and services in the new commerce experience. It is structured using billing profiles and customers.   |
-|Billing profile     |   Represents an invoice for a currency. Invoice is generated at this scope.     |
-|Customer    |   Represents a customer for a Cloud Solution Provider (CSP) partner. Subscriptions and other purchases are associated to this scope.    |
-|Reseller    |   Reseller that provides services to the customer. It is an optional field for a subscription and is applicable only for Indirect providers in the CSP two-tier model.     |
+|Billing profile     |   Represents an invoice for a currency.     |
+|Customer    |   Represents a customer for a Cloud Solution Provider (CSP) partner.  Azure subscriptions and other purchases such as Azure marketplace and App source products are associated to this scope.  |
+|Reseller    |   Reseller that provides services to a customer. It is an optional field for a subscription and is applicable only for Indirect providers in the CSP two-tier model.     |
 
 ## Switch billing scope in the Azure portal
 
