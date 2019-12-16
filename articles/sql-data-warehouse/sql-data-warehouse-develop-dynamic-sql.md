@@ -38,5 +38,5 @@ If the string is short, you can use [sp_executesql](/sql/relational-databases/sy
 > 
 
 ## Next steps
-For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
+For more development tips, see [development overview](../synapse-analytics/sql-analytics/azure-synapse-development-overview.md).
 

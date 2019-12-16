@@ -119,8 +119,8 @@ For more information on Azure Synapse as a whole, see our [Overview] page.
 [Security]: ./sql-data-warehouse-overview-manage-security.md
 [Microsoft Compliance]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
 [capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
-[data types]: ./sql-data-warehouse-tables-data-types.md
-[Unsupported Table Features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
+[data types]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-data-types.md
+[Unsupported Table Features]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-overview.md#unsupported-table-features
 [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Database projects feature request]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu

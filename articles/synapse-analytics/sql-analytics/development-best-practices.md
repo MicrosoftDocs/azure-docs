@@ -88,7 +88,7 @@ Use the [Azure SQL Analytics pool Feedback][Azure SQL Analytics pool Feedback] p
 <!--Article references-->
 [Create a support ticket]: ../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md
 [Create table as select (CTAS)]: ../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md
-[Table overview]: ../../sql-data-warehouse/sql-data-warehouse-tables-overview.md
+[Table overview]:azure-synapse-development-tables-overview.md
 [Table data types]: development-tables-data-types.md
 [Table distribution]: ../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md
 [Table indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md

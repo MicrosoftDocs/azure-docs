@@ -59,6 +59,6 @@ RENAME OBJECT DimDate_New TO DimDate;
 However, this approach can result in tables appearing and disappearing from a user's view as well as "table does not exist" error messages. Views can be used to provide users with a consistent presentation layer whilst the underlying objects are renamed. By providing access to data through views, users do not need visibility to the underlying tables. This layer provides a consistent user experience while ensuring that the data warehouse designers can evolve the data model. Being able to evolve the underlying tables means designers can use CTAS to maximize performance during the data loading process.   
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview](sql-data-warehouse-overview-develop.md).
+For more development tips, see [SQL Data Warehouse development overview](../synapse-analytics/sql-analytics/azure-synapse-development-overview.md).
 
 
