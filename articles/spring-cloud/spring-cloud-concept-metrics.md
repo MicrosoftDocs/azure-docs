@@ -1,6 +1,6 @@
 ---
 title: Understanding metrics for Azure Spring Cloud
-description: Learn how to review metrics in the Azure Spring Cloud
+description: Learn how to review metrics in Azure Spring Cloud
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.author: jeconnoc
 
 ---
 
-# Metrics for Azure Spring Cloud
+# Understand metrics for Azure Spring Cloud
 
 Azure Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources. 
 
@@ -30,15 +30,15 @@ Each application's **Application Overview** page presents a metrics chart that a
 
  ![Application Metrics Overview](media/metrics/metrics-3.png)
 
-We provide 5 charts with metrics updated every minute for the following:
+Azure Spring Cloud provides these five charts with metrics that are updated every minute:
 
-* **Http Server Errors**: Error count for HTTP requests to your app.
-* **Data In**: Bytes received by your app.
-* **Data Out**: Bytes sent to your app.
-* **Requests**: Requests received by your app.
-* **Average Response Time**: Average response time from your app.
+* **Http Server Errors**: Error count for HTTP requests to your app
+* **Data In**: Bytes received by your app
+* **Data Out**: Bytes sent by your app
+* **Requests**: Requests received by your app
+* **Average Response Time**: Average response time from your app
 
-You can select a time range for the chart between 1 hour up to 7 Days.
+For the chart, you can select a time range from one hour to seven days.
 
 ## Common metrics page
 
@@ -72,7 +72,6 @@ You can use 2 kinds of filters (properties):
 YOu can also use the **Apply splitting** option, which will draw multiple lines for one app:
 
 ![Metric Splitting](media/metrics/metrics-8.png)
-
 
 >[!TIP]
 > You can build your own charts in metrics page and pin them to your **Dashboard**. Start by naming your chart.  Next, select **Pin to dashboard in the top right corner**. You can now check on your application at your Portal **Dashboard**.
@@ -275,3 +274,4 @@ The following table shows the available metrics and details.
 * [Tutorial: Monitor Spring Cloud resources using alerts and action groups](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
 
 * [Quotas and Service Plans for Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-quotas)
+
