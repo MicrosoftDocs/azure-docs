@@ -197,6 +197,8 @@ The extension supports several remote compute targets for Azure Machine Learning
 
 ### Create compute targets for Azure Machine Learning in Visual Studio Code
 
+
+
 To create a compute target:
 
 1. On the Visual Studio Code activity bar, select the Azure icon. The Azure Machine Learning sidebar appears.
