@@ -20,18 +20,18 @@ With a Data Science Virtual Machine (DSVM), you can build your analytics against
 
 The following data platform tools are supported on the DSVM.
 
-## SQL Server 2019 Developer Edition
+## SQL Server Developer Edition
 
 | | |
 | ------------- | ------------- |
 | What is it?   | A local relational database instance      |
-| Supported DSVM editions      | Windows      |
+| Supported DSVM editions      | Windows: SQL Server 2017, Windows 2019 (Preview) : SQL Server 2019      |
 | Typical uses      | Rapid development locally with smaller dataset <br/> Run In-database R   |
 | Links to samples      |    A small sample of a New York City dataset is loaded into the SQL database:<br/>  `nyctaxi` <br/> Jupyter sample showing Microsoft Machine Learning Server and in-database analytics can be found at:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | Related tools on the DSVM       | SQL Server Management Studio <br/> ODBC/JDBC drivers<br/> pyodbc, RODBC<br />Apache Drill      |
 
 > [!NOTE]
-> SQL Server 2019 Developer Edition can be used only for development and test purposes. You need a license or one of the SQL Server VMs to run it in production.
+> SQL Server Developer Edition can be used only for development and test purposes. You need a license or one of the SQL Server VMs to run it in production.
 
 
 ### Setup
