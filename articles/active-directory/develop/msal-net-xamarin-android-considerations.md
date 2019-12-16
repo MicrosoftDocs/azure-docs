@@ -3,7 +3,7 @@ title: Xamarin Android considerations (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about specific considerations when using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
