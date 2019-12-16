@@ -22,6 +22,7 @@ Azure Database Migration Service hybrid mode manages database migrations by usin
 >
 >- Azure SQL Database managed instance with near zero downtime (online).
 >- Azure SQL Database single database with some downtime (offline).
+>- MongoDb to Azure CosmosDB, both online and offline.
 
 In this Quickstart, you use the Azure portal to create an instance of Azure Database Migration Service in hybrid mode. Afterwards, you download, install, and set up the hybrid worker in your on-premises network. During preview, you can use Azure Database Migration Service hybrid mode to migrate data from an on-premises instance of SQL Server to Azure SQL Database.
 
