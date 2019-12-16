@@ -29,39 +29,41 @@ In the setting page, choose **Send to Log Analytics**, and under **LOG** choose 
 
 ![Add a diagnostic setting](media/functions-monitor-log-analytics/choose-table.png)
 
-## User generated logs
+## User-generated logs
 
 To generate custom logs, you can use the specific logging statement depending on your language, here are sample code snippets:
 
-**JavaScript**
+# [JavaScript](#tab/javascript)
 
 ```javascript
     context.log('My app logs here.');
 ```
 
-**Python**
+# [Python](#tab/python)
 
 ```python
     logging.info('My app logs here.')
 ```
 
-**.NET**
+# [C#](#tab/csharp)
 
 ```csharp
     log.LogInformation("My app logs here.");
 ```
 
-**Java**
+# [Java](#tab/java)
 
 ```java
     context.getLogger().info("My app logs here.");
 ```
 
-**PowerShell**
+# [PowerShell](#tab/powershell)
 
 ```powershell
     Write-Host "My app logs here."
 ```
+
+---
 
 ## Querying the logs
 

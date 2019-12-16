@@ -1,5 +1,6 @@
 ---
-title: Azure PowerShell samples | Microsoft Docs
+title: Azure PowerShell samples
+titleSuffix: Azure API Management
 description: Learn about the Azure PowerShell scripts available for Azure API Management.
 services: api-management
 documentationcenter: ''
