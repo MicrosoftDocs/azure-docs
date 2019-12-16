@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 012/16/2019
 ms.author: erhopf
 ---
 
@@ -27,6 +27,9 @@ This table lists accepted data types, when each data type should be used, and th
 | [Related text](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
+
+> [!TIP]
+> To quickly get started, consider using sample data. See this GitHub repository for <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">sample Custom Speech data <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ## Upload data
 
