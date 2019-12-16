@@ -63,7 +63,7 @@ MLflow Tracking with Azure Machine Learning lets you store the logged metrics an
 Install the `azureml-contrib-run` package to use MLflow Tracking with Azure Machine Learning on your experiments locally run in a Jupyter Notebook or code editor.
 
 ```shell
-pip install azureml-contrib-run
+pip install azureml-mlflow
 ```
 
 >[!NOTE]

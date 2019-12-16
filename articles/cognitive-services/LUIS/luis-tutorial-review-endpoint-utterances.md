@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Reviewing endpoint utterances - LUIS"
 titleSuffix: Azure Cognitive Services
-description: Improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity.
+description: In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity.
 services: cognitive-services
 author: diberry
 manager: nitinme
