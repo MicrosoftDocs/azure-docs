@@ -132,6 +132,9 @@
       href: ./how-to/disable-autoscaling.md
     - name: Configure Autoscaling Settings
       href: ./how-to/configure-autoscaling.md
+  - name: Troubleshoot
+    href: ./how-to/troubleshoot.md
+
 - name: Reference
   items:
   - name: Cluster Reference
@@ -191,6 +194,8 @@
       href: htcondor.md
     - name: IBM Spectrum LSF
       href: lsf.md
+  - href: Log Locations
+    href: log_locations.md
   - name: Error Messages
     href: error_messages.md
 - name: Resources
