@@ -218,7 +218,7 @@ To add authentication with the Microsoft identity platform (formerly Azure AD v2
 
 The following code is available from [Startup.cs#L33-L34](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/1-WebApp-OIDC/1-1-MyOrg/Startup.cs#L33-L34).
 
-```CSharp
+```csharp
 public class Startup
 {
  ...
@@ -253,7 +253,7 @@ In addition to the configuration, you can specify the name of the configuration 
 
 Tracing OpenId Connect middleware events can help you troubleshoot your web application if authentication doesn't work. Setting `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` to `true` will show you how information gets elaborated by the set of ASP.NET Core middleware as it progresses from the HTTP response to the identity of the user in `HttpContext.User`.
 
-```CSharp
+```csharp
 /// <summary>
 /// Add authentication with the Microsoft identity platform.
 /// This method expects the configuration file to have a section named "AzureAd" with the necessary settings to initialize authentication options.
@@ -318,7 +318,7 @@ The `AadIssuerValidator` class enables the issuer of the token to be validated i
 
 The code related to authentication in an ASP.NET web app and web APIs is located in the [App_Start/Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs#L17-L61) file.
 
-```CSharp
+```csharp
  public void ConfigureAuth(IAppBuilder app)
  {
   app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);

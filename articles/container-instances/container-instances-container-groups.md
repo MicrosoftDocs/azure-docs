@@ -39,21 +39,19 @@ To preserve a container group's configuration, you can export the configuration 
 
 ## Resource allocation
 
-Azure Container Instances allocates resources such as CPUs, memory, and optionally [GPUs][gpus] (preview) to a container group by adding the [resource requests][resource-requests] of the instances in the group. Taking CPU resources as an example, if you create a container group with two instances, each requesting 1 CPU, then the container group is allocated 2 CPUs.
+Azure Container Instances allocates resources such as CPUs, memory, and optionally [GPUs][gpus] (preview) to a multi-container group by adding the [resource requests][resource-requests] of the instances in the group. Taking CPU resources as an example, if you create a container group with two instances, each requesting 1 CPU, then the container group is allocated 2 CPUs.
 
 ### Resource usage by instances
 
-Each container instance is allocated the resources specified in its resource request. However, the resource usage by a container instance in a group depends on how you configure its optional [resource limit][resource-limits] property. The resource limit must be less than than the mandatory [resource request][resource-requests] property.
+Each container instance in a group is allocated the resources specified in its resource request. However, the maximum resources used by an instance in a group could be different if you configure its optional [resource limit][resource-limits] property. The resource limit of an instance must be greater than or equal to the mandatory [resource request][resource-requests] property.
 
 * If you don't specify a resource limit, the instance's maximum resource usage is the same as its resource request.
 
-* If you specify a resource limit for an instance, you can adjust the instance's resource usage for its workload, either reducing or increasing usage relative to the resource request. The maximum resource limit you can set is the total resources allocated to the group.
+* If you specify a limit for an instance, the instance's maximum usage could be greater than the request, up to the limit you set. Correspondingly, resource usage by other instances in the group could decrease. The maximum resource limit you can set for an instance is the total resources allocated to the group.
     
-For example, in a group with two instances requesting 1 CPU, one of your containers might run a workload that requires more CPUs to run than the other.
+For example, in a group with two instances each requesting 1 CPU, one of your containers might run a workload that requires more CPUs to run than the other.
 
-In this scenario, you could set a resource limit of 0.5 CPU for one instance, and a limit of 2 CPUs for the second. This configuration limits the first container's resource usage to 0.5 CPU, allowing the second container to use up to the full 2 CPUs if available.
-
-For more information, see the [ResourceRequirements][resource-requirements] property in the container groups REST API.
+In this scenario, you could set a resource limit of 2 CPUs for the instance. This configuration allows the container to use up to the full 2 CPUs if available.
 
 ### Minimum and maximum allocation
 
