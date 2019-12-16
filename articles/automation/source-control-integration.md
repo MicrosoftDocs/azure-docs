@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/26/2019
+ms.date: 12/10/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -24,7 +24,7 @@ Azure Automation supports three types of source control:
 
 * A source control repository (GitHub or Azure Repos)
 * A [Run-As Account](manage-runas-account.md)
-* Ensure you have the [latest Azure modules](automation-update-azure-modules.md) in your Automation Account
+* Ensure you have the [latest Azure modules](automation-update-azure-modules.md) in your Automation Account, including **AzureRM.Profile** module. 
 
 > [!NOTE]
 > Source control sync jobs run under the users Automation Account and are billed at the same rate as other Automation jobs.
