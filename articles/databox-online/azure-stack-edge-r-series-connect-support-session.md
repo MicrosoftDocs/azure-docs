@@ -27,7 +27,10 @@ The following sections describe in details each of the following steps.
 
 ## Prerequisites
 
-Before you begin, make sure that your Windows client is running Windows PowerShell 5.0 or later.
+Before you begin, make sure that:
+
+- Your Windows client that will be used to connect to your Azure Stack Edge device is running Windows PowerShell 5.0 or later.
+- Your Azure Stack Edge device is activated. For security reasons, the support session certificate can only be uploaded after the device is activated. When the device is not activation, you won't see the Support certificate session. 
 
 ## (Optional) Create and install Support session certificate
 
@@ -35,8 +38,8 @@ A self-signed certificate is generated when the device is activated. You can bri
 
 When you bring your own certificate, you must:
 
-    - Upload the certificate to your Azure Stack Edge device in appropriate format.
-    - Import the Support session certificate into your client where the decrypt tool is installed. 
+- Upload the certificate to your Azure Stack Edge device in appropriate format.
+- Import the Support session certificate into your client where the decrypt tool is installed. 
 
 For more information on certificates, go to [Manage certificates on your Azure Stack Edge device](azure-stack-edge-r-series-manage-certificates.md).
 
@@ -142,9 +145,7 @@ Do the following steps on the client.
     ----                -------------         ------ ----
     -a----        7/17/2017   2:46 PM          36864 Microsoft.Management.Infrastructure.dll
     -a----        12/9/2019   4:03 PM           9728 SupportPasswordDecrypter.dll
-    -a----        12/9/2019   4:03 PM          24064 SupportPasswordDecrypter.pdb
     -a----        7/17/2017   2:46 PM         360448 System.Management.Automation.dll
-    -a----        7/17/2017   2:46 PM        7145771 System.Management.Automation.xml
     ```
  
 ## Get the decrypted password
@@ -162,7 +163,7 @@ Do the following steps on the client.
 
     `Get-HcsSupportPassword -EncryptedPassword “<Encrypted password that was copied>”`
 
-    This command generates a 15 character password. Copy the password and use this password to login to the support session. Here is a sample output:
+    This command generates a 15 character password. Copy the password and use this password to log in to the support session. Here is a sample output:
 
 ```powershell
     PS C:\SupportSessionDecrypter> Get-HcsSupportPassword -EncryptedPassword "UAAAAEMAQgBGADUAQwBFADIAQgA0ADYAMgBBAEQARQBGADkAMgBFADAANgA2ADkANgA3AEMARQBGADMARgA4AEIAMgAzADQARABFADMAMwAzADQAKesIJVfckNe3d9OvWQNru3ZiPQUPzY++ZapnY7MklkT6Vhz7Bb78pkYOgA46WqvMHJDGoAp3emj3pxZITFAITEtnPBIRa+B5+Ta46QiuwuoUNEamm9+pKOBbI75h1sX/xkm0nkeO9lp32xWilFXLhZsdGgWsJ+efwADnwkm5a/b+5FQXKFZCO5XPFN1whpLF8n5CsUQsjo0wTtiDhl6jNmdN8tvrm2iL5XaD1t1/lmDrBZa7X0M3kSScq6rnRsG4I7iWIO3ldrOY4xiQigaIRkoeoTH9dRyPSDDMvXRNwj8lvQVc//+9MljwsvWgCBzmOq54UPsJlVE3HBBfNBBDWQ=="
@@ -171,6 +172,8 @@ Do the following steps on the client.
 ```
 
 ## Start the Support session
+
+### Use http
 
 1. Use the same PowerShell windows where the support password was generated or run PowerShell as administrator to open a new PowerShell Window.
 
@@ -190,15 +193,36 @@ Do the following steps on the client.
         [10.126.70.62]: PS C:\Users\EdgeSupport\Documents>
     ```
 
-    After the authentication is successful, you are connected to a Support session on your Azure Stack Edge device.
+After the authentication is successful, you are connected to a Support session on your Azure Stack Edge device over *http*.
 
+### Use https
+
+1. Use the same PowerShell windows where the support password was generated or run PowerShell as administrator to open a new PowerShell Window.
+
+2. Log in to the device support session. Type the following commands:
+
+    ```powershell
+        $ip = “FQDN of node”
+        $soptions = New-PSSessionOption -SkipCACheck -SkipRevocationCheck                
+        Enter-PSSession -ComputerName $ip -Credential ~\EdgeSupport -ConfigurationName SupportSession -Port 5986 -SessionOption $soptions -UseSSL
+    ```
+3. In the Windows PowerShell credential request dialog, enter the 15 character decrypted password you got in the earlier step.
+
+After the authentication is successful, you are connected to a Support session on your Azure Stack Edge device over *https*.
+
+### Verify the connection
 
 To confirm that you have entered the Support session, type the following command:
- whoami,
 
- output should be <applianceserial>\edgesupport
-Example output:
+    `whoami`
 
+The output should be `<Device serial no.>\edgesupport`. Here is a sample output: 
+
+```powershell
+[10.126.70.62]: PS C:\Users\EdgeSupport\Documents> whoami
+2l7c4z2\edgesupport
+[10.126.70.62]: PS C:\Users\EdgeSupport\Documents>
+```
 
 ## Exit Support session
 
@@ -207,7 +231,7 @@ To exit Support session, do the following steps:
 1. To disable support access, run `Disable-HcsSupportAccess`.
 2. Close the PowerShell window.
 
-The Azure Stack Edge device will also attempt to disable support access 8 hours after the session was initiated. 
+The Azure Stack Edge device will also attempt to disable support access 5 hours after the session was initiated. 
 
 > [!TIP]
 > It is a best practice to change your Azure Stack Edge device credentials after initiating a support session.
