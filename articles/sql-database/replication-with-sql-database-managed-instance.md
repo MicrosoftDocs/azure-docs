@@ -25,7 +25,8 @@ You can also use transactional replication to push changes made in an instance d
 Transactional replication is in public preview on [Azure SQL Database managed instance](sql-database-managed-instance.md). A managed instance can host publisher, distributor, and subscriber databases. See [transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
 
   > [!NOTE]
-  > This article is intended to guide a user in configuring replication with an Azure Database managed instance from end to end, starting with creating the resource group. If you already have managed instances deployed, skip ahead to  [Step 4](#4---create-a-publisher-database) to create your publisher database, or [Step 6](#6---configure-distribution) if you already have a publisher and subscriber database, and are ready to start configuring replication.  
+  > - This article is intended to guide a user in configuring replication with an Azure Database managed instance from end to end, starting with creating the resource group. If you already have managed instances deployed, skip ahead to  [Step 4](#4---create-a-publisher-database) to create your publisher database, or [Step 6](#6---configure-distribution) if you already have a publisher and subscriber database, and are ready to start configuring replication.  
+  > - This article configures your publisher and distributor on the same managed instance. To place the distributor on a separate manged instance, see the tutorial [Configure replication between an MI publisher and an MI distributor](sql-database-managed-instance-configure-replication-tutorial.md). 
 
 ## Requirements
 
@@ -75,10 +76,15 @@ You will also need to [Configure an Azure VM to connect](sql-database-managed-in
 Copy the file share path in the format of:
 `\\storage-account-name.file.core.windows.net\file-share-name`
 
+Example: `\\replstorage.file.core.windows.net\replshare`
+
 Copy the storage access keys in the format of:
 `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
- For more information, see [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys). 
+Example: 
+`DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
+
+For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md). 
 
 ## 4 - Create a publisher database
 
@@ -156,8 +162,9 @@ On your publisher managed instance `sql-mi-pub`, change the query execution to [
 :setvar username loginUsedToAccessSourceManagedInstance
 :setvar password passwordUsedToAccessSourceManagedInstance
 :setvar file_storage "\\storage-account-name.file.core.windows.net\file-share-name"
+-- example: file_storage "\\replstorage.file.core.windows.net\replshare"
 :setvar file_storage_key "DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net"
-
+-- example: file_storage_key "DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net"
 
 USE [master]
 EXEC sp_adddistpublisher
@@ -169,6 +176,9 @@ EXEC sp_adddistpublisher
   @working_directory = N'$(file_storage)',
   @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
+
+   > [!NOTE]
+   > Be sure to use only backslashes (`\`) for the file_storage parameter. Using a forward slash (`/`) can cause an error when connecting to the file share. 
 
 This script configures a local publisher on the managed instance, adds a linked server, and creates a set of jobs for the SQL Server Agent. 
 
@@ -324,4 +334,5 @@ You can clean up your Azure resources by [deleting the managed instance resource
 ## See Also
 
 - [Transactional replication](sql-database-managed-instance-transactional-replication.md)
+- [Tutorial: Configure transactional replication between an MI publisher and an MI subscriber](sql-database-managed-instance-configure-replication-tutorial.md)
 - [What is a Managed Instance?](sql-database-managed-instance.md)

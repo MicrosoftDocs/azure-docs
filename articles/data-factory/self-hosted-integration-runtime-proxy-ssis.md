@@ -5,7 +5,7 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
@@ -76,6 +76,13 @@ You can also enable this property when running existing packages without having 
 On your Self-Hosted IR, you can find the runtime logs in `C:\ProgramData\SSISTelemetry` folder and the execution logs of first staging tasks in `C:\ProgramData\SSISTelemetry\ExecutionLog` folder.  The execution logs of second staging tasks can be found in your SSISDB or specified logging paths, depending on whether you store your packages in SSISDB or file system/file shares/Azure Files, respectively.  The unique IDs of first staging tasks can also be found in the execution logs of second staging tasks, e.g. 
 
 ![Unique ID of the first staging task](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
+
+## Using Windows authentication in staging tasks
+If your staging tasks on Self-Hosted IR require Windows authentication, you need to [configure SSIS packages to use the same Windows authentication](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). Then the staging tasks will be launched with specified account on Self-Hosted IR. To ensure staging tasks can be started properly, the Self-Hosted IR service account (`NT SERVICE\DIAHostService` by default) and the Windows Authentication account require particular security policies. On the Self-Hosted IR server, open `Local Security Policy` -> `Local Policies` -> `User Rights Assignment`:
+- Self-Hosted IR service account: **Adjust memory quotas for a process**, **Replace a process level token**
+- Windows Authentication account: **Log on as a service**
+  
+Assign necessary policy to your Windows Authentication account. `NT SERVICE\DIAHostService` should be assigned to both polices during installation. If you are using a customized account to launch Self-Hosted IR service, also assign necessary policies to your account. 
 
 ## Billing for the first and second staging tasks
 The first staging tasks running on your Self-Hosted IR will be billed separately in the same way as any data movement activities running on Self-Hosted IR are billed as specified in the [ADF data pipeline pricing](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) article.

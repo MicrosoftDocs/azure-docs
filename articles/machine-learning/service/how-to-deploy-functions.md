@@ -231,7 +231,7 @@ At this point, the function app begins loading the image.
 
 ## Next steps
 
-* Learn to configure your Functions App in the [Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-linux-custom-imag) documentation.
+* Learn to configure your Functions App in the [Functions](/azure/azure-functions/functions-create-function-linux-custom-image) documentation.
 * Learn more about Blob storage triggers [Azure Blob storage bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
 * [Deploy your model to Azure App Service](how-to-deploy-app-service.md).
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
