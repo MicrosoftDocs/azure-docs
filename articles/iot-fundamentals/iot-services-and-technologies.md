@@ -58,7 +58,7 @@ You can further simplify how you create the embedded code for your devices by us
 
 ### Cloud connectivity
 
-The [Azure IoT Hub](../iot-hub/about-iot-hub.md) service enables reliable and secure bidirectional communications between millions of IoT devices and a cloud-based solution. [Azure IoT Hub Device Provisioning](../iot-dps/about-iot-dps.md) is a helper service for IoT Hub. The service provides zero-touch, just-in-time provisioning of devices to the right IoT hub without requiring human intervention. These capabilities enable customers to provision millions of devices in a secure and scalable manner.
+The [Azure IoT Hub](../iot-hub/about-iot-hub.md) service enables reliable and secure bidirectional communications between millions of IoT devices and a cloud-based solution. [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md) is a helper service for IoT Hub. The service provides zero-touch, just-in-time provisioning of devices to the right IoT hub without requiring human intervention. These capabilities enable customers to provision millions of devices in a secure and scalable manner.
 
 IoT Hub is a core component of the solution accelerators and you can use it to meet IoT implementation challenges such as:
 
