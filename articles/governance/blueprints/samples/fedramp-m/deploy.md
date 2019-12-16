@@ -1,11 +1,8 @@
 ---
-title: FedRAMP Moderate blueprint sample - Deploy steps
+title: Deploy FedRAMP Moderate blueprint sample
 description: Deploy steps for the FedRAMP Moderate blueprint sample including blueprint artifact parameter details.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/31/2019
 ms.topic: sample
-ms.service: blueprints
 ---
 # Deploy the FedRAMP Moderate blueprint sample
 
@@ -147,7 +144,7 @@ following articles to learn about the blueprint and control mapping:
 > [FedRAMP Moderate blueprint - Overview](./index.md)
 > [FedRAMP Moderate blueprint - Control mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

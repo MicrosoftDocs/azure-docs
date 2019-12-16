@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a public Basic Load Balancer by using the Azure portal'
-titlesuffix: Azure Load Balancer
+title: 'Quickstart: Create a public Basic Load Balancer - Azure portal'
+titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a public Basic load balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na

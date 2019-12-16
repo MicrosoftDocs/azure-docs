@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Job automation | Microsoft Docs
+title: Job automation
 description: 'Use Job Automation to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases'
 services: sql-database
 ms.service: sql-database

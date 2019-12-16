@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Check spelling with the Bing Spell Check REST API and PHP"
+title: "Quickstart: Check spelling with the REST API and PHP - Bing Spell Check"
 titleSuffix: Azure Cognitive Services
-description: Get started using the Bing Spell Check API to check spelling and grammar.
+description: This quickstart shows how a simple PHP application sends a request to the Bing Spell Check API and returns a list of suggested corrections.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: aahi
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and PHP
 
-Use this quickstart to make your first call to the Bing Spell Check REST API. This simple Python application sends a request to the API and returns a list of suggested corrections. While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to make your first call to the Bing Spell Check REST API. This simple PHP application sends a request to the API and returns a list of suggested corrections. While this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 

@@ -1,5 +1,5 @@
 ---
-title: Threat detection for Azure service layer in Azure Security Center | Microsoft Docs
+title: Azure service layer threat detection - Azure Security Center
 description: This topic presents the Azure service layer alerts available in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -18,6 +18,7 @@ This topic presents the Azure Security Center alerts available when monitoring t
 
 * [Azure network layer](#network-layer)
 * [Azure management layer (Azure Resource Manager) (Preview)](#management-layer)
+* [Azure Key Vault](#azure-keyvault)
 
 >[!NOTE]
 >The following analytics are applicable to all resource types. They use the telemetry that Security Center provides by tapping into Azure internal feeds.
@@ -26,21 +27,25 @@ This topic presents the Azure Security Center alerts available when monitoring t
 
 Security Center network-layer analytics are based on sample [IPFIX data](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), which are packet headers collected by Azure core routers. Based on this data feed, Security Center machine learning models identify and flag malicious traffic activities. To enrich IP addresses, Security Center makes use of the Microsoft Threat Intelligence database.
 
+### Supported scenarios for network alerts
+
+You'll get alerts for suspicious network activity if your virtual machine has a public IP address, or is on a load balancer with a public IP address. If your VM or load balancer don't have a public IP address, Security Center will not generate network security alerts.
+
 > [!div class="mx-tableFixed"]
 
 |Alert|Description|
 |---|---|
-|**Suspicious outgoing RDP network activity**|Sampled network traffic analysis detected anomalous outgoing Remote Desktop Protocol (RDP) communication, originating from a resource in your deployment. This activity is considered abnormal for this environment. It might indicate that your resource has been compromised, and is now being used to brute force attack an external RDP endpoint. Note that this type of activity might cause your IP to be flagged as malicious by external entities.|
-|**Suspicious outgoing RDP network activity to multiple destinations**|Sampled network traffic analysis detected anomalous outgoing RDP communication, originating from a resource in your deployment to multiple destinations. This activity is considered abnormal for this environment. It might indicate that your resource has been compromised, and is now being used to brute force attack external RDP endpoints. Note that this type of activity might cause your IP to be flagged as malicious by external entities.|
-|**Suspicious outgoing SSH network activity**|Sampled network traffic analysis detected anomalous outgoing Secure Shell (SSH) communication, originating from a resource in your deployment. This activity is considered abnormal for this environment. It might indicate that your resource has been compromised, and is now being used to brute force attack an external SSH endpoint. Note that this type of activity might cause your IP to be flagged as malicious by external entities.|
-|**Suspicious outgoing SSH network activity to multiple destinations**|Sampled network traffic analysis detected anomalous outgoing SSH communication, originating from a resource in your deployment to multiple destinations. This activity is considered abnormal for this environment. It might indicate that your resource has been compromised, and is now being used to brute force attack external SSH endpoints. Note that this type of activity might cause your IP to be flagged as malicious by external entities.|
+|**Suspicious outgoing RDP network activity**|Sampled network traffic analysis detected anomalous outgoing Remote Desktop Protocol (RDP) communication, originating from a resource in your deployment. This activity is considered abnormal for this environment. It might indicate that your resource has been compromised, and is now being used to brute force attack an external RDP endpoint. This type of activity might cause your IP to be flagged as malicious by external entities.|
+|**Suspicious outgoing RDP network activity to multiple destinations**|Sampled network traffic analysis detected anomalous outgoing RDP communication, originating from a resource in your deployment to multiple destinations. This activity is considered abnormal for this environment. It might indicate that your resource has been compromised, and is now being used to brute force attack external RDP endpoints. This type of activity might cause your IP to be flagged as malicious by external entities.|
+|**Suspicious outgoing SSH network activity**|Sampled network traffic analysis detected anomalous outgoing Secure Shell (SSH) communication, originating from a resource in your deployment. This activity is considered abnormal for this environment. It might indicate that your resource has been compromised, and is now being used to brute force attack an external SSH endpoint. This type of activity might cause your IP to be flagged as malicious by external entities.|
+|**Suspicious outgoing SSH network activity to multiple destinations**|Sampled network traffic analysis detected anomalous outgoing SSH communication, originating from a resource in your deployment to multiple destinations. This activity is considered abnormal for this environment. It might indicate that your resource has been compromised, and is now being used to brute force attack external SSH endpoints. This type of activity might cause your IP to be flagged as malicious by external entities.|
 |**Suspicious incoming SSH network activity from multiple sources**|Sampled network traffic analysis detected anomalous incoming SSH communications from multiple sources to a resource in your deployment. Various unique IPs connecting to your resource is considered abnormal for this environment. This activity might indicate an attempt to brute force attack your SSH interface from multiple hosts (Botnet).|
 |**Suspicious incoming SSH network activity**|Sampled network traffic analysis detected anomalous incoming SSH communication to a resource in your deployment. A relatively high number of incoming connections to your resource is considered abnormal for this environment. This activity might indicate an attempt to brute force attack your SSH interface.
 |**Suspicious incoming RDP network activity from multiple sources**|Sampled network traffic analysis detected anomalous incoming RDP communications from multiple sources to a resource in your deployment. Various unique IPs connecting to your resource is considered abnormal for this environment. This activity might indicate an attempt to brute force attack your RDP interface from multiple hosts (Botnet).|
 |**Suspicious incoming RDP network activity**|Sampled network traffic analysis detected anomalous incoming RDP communication to a resource in your deployment. A relatively high number of incoming connections to your resource is considered abnormal for this environment. This activity might indicate an attempt to brute force attack your SSH interface.|
-|**Network communication with a malicious address has been detected**|Sampled network traffic analysis detected communication originating from a resource in your deployment with a possible command and control (C&C) server. Note that this type of activity could possibly cause your IP to be flagged as malicious by external entities.|
+|**Network communication with a malicious address has been detected**|Sampled network traffic analysis detected communication originating from a resource in your deployment with a possible command and control (C&C) server. This type of activity could possibly cause your IP to be flagged as malicious by external entities.|
 
-To understand how Security Center can use network related signals to apply threat protection, see [Heuristic DNS detections in Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
+To understand how Security Center can use network-related signals to apply threat protection, see [Heuristic DNS detections in Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
 >[!NOTE]
 >Azure network layer threat detection alerts, in Azure Security Center, are only generated on virtual machines which have been assigned the same IP address for the entire hour during which a suspicious communication has taken place. This applies to virtual machines, as well as virtual machines that are created in the customer’s subscription as part of a managed service (e.g. AKS, Databricks).
@@ -74,3 +79,28 @@ Security Center offers an additional layer of protection by using Azure Resource
 
 >[!NOTE]
 >Security Center stores security-related customer data in the same geo as its resource. If Microsoft hasn't yet deployed Security Center in the resource's geo, then it stores the data in the United States. When Cloud App Security is enabled, this information is stored in accordance with the geo location rules of Cloud App Security. For more information, see [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/).
+
+## Azure Key Vault <a name="azure-keyvault"></a>
+
+Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. 
+
+Azure Security Center includes Azure-native, advanced threat protection for Azure Key Vault, providing an additional layer of security intelligence. Security Center detects unusual and potentially harmful attempts to access or exploit Key Vault accounts. This layer of protection allows you to address threats without being a security expert, and without the need to manage third-party security monitoring systems.  
+
+When anomalous activities occur, Security Center shows alerts and optionally sends them via email to subscription administrators. These alerts include the details of the suspicious activity and recommendations on how to investigate and remediate threats. 
+
+> [!NOTE]
+> This service is not currently available in Azure government and sovereign cloud regions.
+
+> [!div class="mx-tableFixed"]
+
+|Alert|Description|
+|---|---|
+|**Access from a TOR exit node to a Key Vault**|The Key Vault has been accessed by someone using the TOR IP anonymization system to hide their location. Malicious actors often try to hide their location when attempting to gain unauthorized access to internet-connected resources.|
+|**Suspicious policy change and secret query in a Key Vault**|A Key Vault policy change has been made and then operations to list and/or get secrets occurred. In addition, this operation pattern isn't normally performed by the user on this vault. This is highly indicative that the Key Vault is compromised and the secrets within have been stolen by a malicious actor.|
+|**Suspicious secret listing and query in a Key Vault**|A Secret List operation was followed by many Secret Get operations. Also, this operation pattern isn't normally performed by the user on this vault. This indicates that someone could be dumping the secrets stored in the Key Vault for potentially malicious purposes.|
+|**Unusual user-application pair accessed a Key Vault**|The Key Vault has been accessed by a User-Application pairing that doesn't normally access it. This may be a legitimate access attempt (for example, following an infrastructure or code update). This is also a possible indication that your infrastructure is compromised and a malicious actor is trying to access your Key Vault.|
+|**Unusual application accessed a Key Vault**|The Key Vault has been accessed by an Application that doesn't normally access it. This may be a legitimate access attempt (for example, following an infrastructure or code update). This is also a possible indication that your infrastructure is compromised and a malicious actor is trying to access your Key Vault.|
+|**Unusual user accessed a Key Vault**|The Key Vault has been accessed by a User that doesn't normally access it. This may be a legitimate access attempt (for example, a new user needing access has joined the organization). This is also a possible indication that your infrastructure is compromised and a malicious actor is trying to access your Key Vault.|
+|**Unusual operation pattern in a Key Vault**|An unusual set of Key Vault operations has been performed compared with historical data. Key Vault activity is typically the same over time. This may be a legitimate change in activity. Alternatively, your infrastructure might be compromised and further investigations are necessary.|
+|**High volume of operations in a Key Vault**|A larger volume of Key Vault operations has been performed compared with historical data. Key Vault activity is typically the same over time. This may be a legitimate change in activity. Alternatively, your infrastructure might be compromised and further investigations are necessary.|
+|**User accessed high volume of Key Vaults**|The number of vaults that a user or application accesses has changed compared with historical data. Key Vault activity is typically the same over time. This may be a legitimate change in activity. Alternatively, your infrastructure might be compromised and further investigations are necessary.|

@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/16/2019
+ms.date: 11/06/2019
 
 
 ---
 
 # Regenerate storage account access keys
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to change the access keys for Azure Storage accounts used by Azure Machine Learning. Azure Machine Learning can use storage accounts to store data or trained models.
 
@@ -76,7 +77,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
 > [!IMPORTANT]
 > Perform all steps, updating both the workspace using the CLI, and datastores using Python. Updating only one or the other may cause errors until both are updated.
 
-1. Regenerate the key. For information on regenerating an access key, see the [Manage a storage account](/azure/storage/common/storage-account-manage#access-keys) article. Save the new key.
+1. Regenerate the key. For information on regenerating an access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md). Save the new key.
 
 1. To update the workspace to use the new key, use the following steps:
 

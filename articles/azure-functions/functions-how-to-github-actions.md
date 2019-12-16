@@ -2,8 +2,6 @@
 title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
 author: ahmedelnably
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
@@ -12,9 +10,6 @@ ms.author: aelnably
 # Continuous delivery by using GitHub Action
 
 [GitHub Actions](https://github.com/features/actions) lets you define a workflow to automatically build and deploy your functions code to function app in Azure. 
-
-> [!IMPORTANT]  
-> GitHub Actions is currently in beta. You must first [sign-up to join the preview](https://github.com/features/actions) using your GitHub account.
 
 In GitHub Actions, a [workflow](https://help.github.com/articles/about-github-actions#workflow) is an automated process that you define in your GitHub repository. This process tells GitHub how to build and deploy your functions app project on GitHub. 
 
@@ -28,6 +23,9 @@ For an Azure Functions workflow, the file has three sections:
 | **Build** | <ol><li>Set up the environment.</li><li>Build the function app.</li></ol> |
 | **Deploy** | <ol><li>Deploy the function app.</li></ol>|
 
+> [!NOTE]
+> You do not need to create a service principal if you decide to use publishing profile for authentication.
+
 ## Create a service principal
 
 You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com) in the Azure portal or by selecting the **Try it** button.
@@ -37,9 +35,6 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 ```
 
 In this example, replace the placeholders in the resource with your subscription ID, resource group, and function app name. The output is the role assignment credentials that provides access to your function app. Copy this JSON object, which you can use to authenticate from GitHub.
-
-> [!NOTE]
-> You do not need to create a service principal if you decide to use publishing profile for authentication.
 
 > [!IMPORTANT]
 > It is always a good practice to grant minimum access. This is why the scope in the previous example is limited to the specific function app and not the entire resource group.
@@ -213,7 +208,7 @@ The following example uses version 1 of the `functions-action`:
 
 ## Next steps
 
-To view a complete workflow .yaml, see one of the files in the [Azure GitHub Actions workflow samples repo](https://github.com/Azure/actions-workflow-samples) that have `functionapp` in the name. You can use these samples a starting point for your workflow.
+To view a complete workflow .yaml, see one of the files in the [Azure GitHub Actions workflow samples repo](https://aka.ms/functions-actions-samples) that have `functionapp` in the name. You can use these samples a starting point for your workflow.
 
 > [!div class="nextstepaction"]
 > [Learn more about GitHub Actions](https://help.github.com/en/articles/about-github-actions)

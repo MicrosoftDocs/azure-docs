@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database purchasing models | Microsoft Docs'
+title: Purchasing models
 description: Learn about the purchasing models that are available for Azure SQL Database.  
 services: sql-database
 ms.service: sql-database
@@ -123,7 +123,7 @@ If you want to migrate an existing on-premises or SQL Server virtual machine wor
 
 ### Workloads that benefit from an elastic pool of resources
 
-Pools are well-suited for databases with a low resource-utilization average and relatively infrequent utilization spikes. SQL Database automatically evaluates the historical resource usage of databases on an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. For more information, see [When should you consider a SQL Database elastic pool?](sql-database-elastic-pool.md).
+Pools are well-suited for databases with a low resource-utilization average and relatively infrequent utilization spikes. For more information, see [When should you consider a SQL Database elastic pool?](sql-database-elastic-pool.md).
 
 ## Frequently asked questions (FAQs)
 

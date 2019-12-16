@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create custom VM images with the Azure CLI | Microsoft Docs
+title: Tutorial - Create custom VM images with the Azure CLI 
 description: In this tutorial, you learn how to use the Azure CLI to create a custom virtual machine image in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines

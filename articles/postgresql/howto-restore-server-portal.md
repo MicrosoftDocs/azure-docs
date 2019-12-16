@@ -1,5 +1,5 @@
 ---
-title: How To Restore a Server in Azure Database for PostgreSQL - Single Server
+title: Backup and restore - Azure portal - Azure Database for PostgreSQL - Single Server
 description: This article describes how to restore a server in Azure Database for PostgreSQL - Single Server using the Azure portal.
 author: rachel-msft
 ms.author: raagyema

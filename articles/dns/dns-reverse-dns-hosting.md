@@ -3,7 +3,7 @@ title: Host reverse DNS lookup zones in Azure DNS | Microsoft Docs
 description: Learn how to use Azure DNS to host the reverse DNS lookup zones for your IP ranges
 services: dns
 documentationcenter: na
-author: vhorne
+author: asudbring
 manager: jeconnoc
 
 ms.service: dns
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: victorh
+ms.author: allensu
 ---
 
 # Host reverse DNS lookup zones in Azure DNS

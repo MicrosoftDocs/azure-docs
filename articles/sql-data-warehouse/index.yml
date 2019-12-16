@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
 title: Azure Synapse Analytics (formerly Azure SQL Data Warehouse)  # < 60 chars
-summary: Azure Synapse Analytics is a limitless cloud data warehouse that gives you the freedom to query data on your terms, using on-demand or provisioned resources. Synapse Analytics brings a multitude of new capabilities that simplify enterprise data lake and data warehousing solutions. # < 160 chars
+summary: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. # < 160 chars
 metadata:
   title: Azure Synapse Analytics # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Synapse Analytics Enables a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for your BI, machine learning, and AI needs. # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. # Required; article description that is displayed in search results. < 160 chars.
   services: sql-data-warehouse
   ms.service: sql-data-warehouse #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: design
@@ -20,18 +20,20 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Synapse Analytics 
+  - title: About Azure Synapse Analytics 
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Synapse Analytics?
+          - text: What is Azure Synapse?
             url: sql-data-warehouse-overview-what-is.md
       - linkListType: architecture
         links:
-          - text: Synapse Analytics architecture
+          - text: Azure Synapse architecture
             url: massively-parallel-processing-mpp-architecture.md
           - text: Tips and best practices
             url: cheat-sheet.md
+          - text: Reference Architecture
+            url: https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse
 
   # Card
   - title: Getting started
@@ -58,7 +60,7 @@ landingContent:
             url: sql-data-warehouse-load-from-azure-data-lake-store.md
       - linkListType: tutorial
         links:
-          - text: Load data from Azure bob storage
+          - text: Load data from Azure Blob storage
             url: load-data-from-azure-blob-storage-using-polybase.md
 
   # Card

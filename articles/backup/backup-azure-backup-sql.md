@@ -1,15 +1,11 @@
 ---
-title: Azure Backup for SQL Server workloads using DPM
+title: Back up SQL Server to Azure as a DPM workload
 description: An introduction to backing up SQL Server databases using the Azure Backup service
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: dacurwin
 ---
 # Back up SQL Server to Azure as a DPM workload
+
 This article leads you through the configuration steps for backup of SQL Server databases using Azure Backup.
 
 To back up SQL Server databases to Azure, you need an Azure account. If you don’t have an account, you can create a free trial account in just couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
@@ -21,9 +17,11 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 3. Recover the database from Azure.
 
 ## Before you start
+
 Before you begin, ensure that all the [prerequisites](backup-azure-dpm-introduction.md#prerequisites-and-limitations) for using Microsoft Azure Backup to protect workloads have been met. The prerequisites cover tasks such as: creating a backup vault, downloading vault credentials, installing the Azure Backup Agent, and registering the server with the vault.
 
 ## Create a backup policy to protect SQL Server databases to Azure
+
 1. On the DPM server, click the **Protection** workspace.
 2. On the tool ribbon, click **New** to create a new protection group.
 
@@ -107,6 +105,7 @@ Before you begin, ensure that all the [prerequisites](backup-azure-dpm-introduct
     ![Creation of Protection Group In-Progress](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## On-demand backup of a SQL Server database
+
 While the previous steps created a backup policy, a “recovery point” is created only when the first backup occurs. Rather than waiting for the scheduler to kick in, the steps below trigger the creation of a recovery point manually.
 
 1. Wait until the protection group status shows **OK** for the database before creating the recovery point.
@@ -123,6 +122,7 @@ While the previous steps created a backup policy, a “recovery point” is crea
     ![Monitoring console](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## Recover a SQL Server database from Azure
+
 The following steps are required to recover a protected entity (SQL Server database) from Azure.
 
 1. Open the DPM server Management Console. Navigate to **Recovery** workspace where you can see the servers backed up by DPM. Browse the required database (in this case ReportServer$MSDPM2012). Select a **Recovery from** time that ends with **Online**.
@@ -145,5 +145,6 @@ The following steps are required to recover a protected entity (SQL Server datab
 
     Once the recovery is completed, the restored database is application consistent.
 
-### Next Steps:
-•    [Azure Backup FAQ](backup-azure-backup-faq.md)
+## Next steps
+
+* [Azure Backup FAQ](backup-azure-backup-faq.md)

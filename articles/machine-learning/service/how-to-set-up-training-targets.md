@@ -1,22 +1,23 @@
 ---
-title: Create and use compute targets for model training
+title: Use compute targets for model training
 titleSuffix: Azure Machine Learning
 description: Configure the training environments (compute targets) for machine learning model training. You can easily switch between training environments. Start training locally. If you need to scale out, switch to a cloud-based compute target.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
 ---
 # Set up and use compute targets for model training 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
-You can create and manage a compute target using the Azure Machine Learning SDK, Azure portal, your workspace landing page (preview), Azure CLI or Azure Machine Learning VS Code extension. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning workspace.
+You can create and manage a compute target using the Azure Machine Learning SDK, Azure Machine Learning studio, Azure CLI or Azure Machine Learning VS Code extension. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning workspace.
  
 In this article, you learn how to use various compute targets for model training.  The steps for all compute targets follow the same workflow:
 1. __Create__ a compute target if you don’t already have one.
@@ -25,7 +26,7 @@ In this article, you learn how to use various compute targets for model training
 
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.39.
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.74.
 
 ## Compute targets for training
 
@@ -47,7 +48,7 @@ Learn more about [submitting experiments](#submit) at the end of this article.
 
 ## What's an estimator?
 
-To facilitate model training using popular frameworks, the Azure Machine Learning Python SDK provides an alternative higher-level abstraction, the estimator class. This class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn).
+To facilitate model training using popular frameworks, the Azure Machine Learning Python SDK provides an alternative higher-level abstraction, the estimator class.  This class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn). We recommend using an estimator for training as it automatically contructs embedded objects like an environment or RunConfiguration objects for you. If you wish to have more control over how these objects are created and specfify what packages to install for your experiement run, follow [these steps](#amlcompute) to submit your training experiments using a RunConfiguration object on an Azure Machine Learning Compute.
 
 For PyTorch, TensorFlow, and Chainer tasks, Azure Machine Learning also provides respective [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), and [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimators to simplify using these frameworks.
 
@@ -99,9 +100,6 @@ You can create an Azure Machine Learning compute environment on demand when you 
 
 You can create Azure Machine Learning Compute as a compute target at run time. The compute is automatically created for your run. The compute is deleted automatically once the run completes. 
 
-> [!NOTE]
-> To specify the max number of nodes to use, you would normally set `node_count` to the number of nodes. There is currently (04/04/2019) a bug that prevents this from working. As a workaround, use the `amlcompute._cluster_max_node_count` property of the run configuration. For example, `run_config.amlcompute._cluster_max_node_count = 5`.
-
 > [!IMPORTANT]
 > Run-based creation of Azure Machine Learning compute is currently in Preview. Don't use run-based creation if you use automated hyperparameter tuning or automated machine learning. To use hyperparameter tuning or automated machine learning, create a [persistent compute](#persistent) target instead.
 
@@ -126,7 +124,7 @@ A persistent Azure Machine Learning Compute can be reused across jobs. The compu
    You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) for details.
     
-   Or you can create and attach a persistent Azure Machine Learning Compute resource [in the Azure portal](#portal-create).
+   Or you can create and attach a persistent Azure Machine Learning Compute resource in [Azure Machine Learning studio](#portal-create).
 
 1. **Configure**: Create a run configuration for the persistent compute target.
 
@@ -173,7 +171,7 @@ Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for
    compute.wait_for_completion(show_output=True)
    ```
 
-   Or you can attach the DSVM to your workspace [using the Azure portal](#portal-reuse).
+   Or you can attach the DSVM to your workspace [using Azure Machine Learning studio](#portal-reuse).
 
 1. **Configure**: Create a run configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on the DSVM.
 
@@ -214,7 +212,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
    hdi_compute.wait_for_completion(show_output=True)
    ```
 
-   Or you can attach the HDInsight cluster to your workspace [using the Azure portal](#portal-reuse).
+   Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](#portal-reuse).
 
 1. **Configure**: Create a run configuration for the HDI compute target. 
 
@@ -264,9 +262,9 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## Set up in Azure portal
+## Set up in Azure Machine Learning studio
 
-You can access the compute targets that are associated with your workspace in the Azure portal.  You can use the portal to:
+You can access the compute targets that are associated with your workspace in the Azure Machine Learning studio.  You can use the studio to:
 
 * [View  compute targets](#portal-view) attached to your workspace
 * [Create a compute target](#portal-create) in your workspace
@@ -285,7 +283,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 To see the compute targets for your workspace, use the following steps:
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and open your workspace. You can also access these same steps in your [workspace landing page (preview)](https://ml.azure.com), although the images below show the Azure portal.
+1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
  
 1. Under __Applications__, select __Compute__.
 
@@ -304,7 +302,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
 1. Select **Machine Learning Compute** as the type of compute to use for __Training__. 
 
     >[!NOTE]
-    >Azure Machine Learning Compute is the only  managed-compute resource you can create in the Azure portal.  All other compute resources can be attached after they are created.
+    >Azure Machine Learning Compute is the only  managed-compute resource you can create in Azure Machine Learning studio.  All other compute resources can be attached after they are created.
 
 1. Fill out the form. Provide values for the required properties, especially **VM Family**, and the **maximum nodes** to use to spin up the compute.  
 
@@ -330,7 +328,7 @@ Follow the steps described earlier to view the list of compute targets. Then use
 1. Select the type of compute to attach for __Training__:
 
     > [!IMPORTANT]
-    > Not all compute types can be attached from the Azure portal. 
+    > Not all compute types can be attached from Azure Machine Learning studio. 
     > The compute types that can currently be attached for training include:
     >
     > * A remote VM
@@ -361,7 +359,7 @@ For more information, see [Resource management](reference-azure-machine-learning
 
 ## Set up with VS Code
 
-You can access, create and manage the compute targets that are associated with your workspace using the [VS Code extension](how-to-vscode-tools.md#create-and-manage-compute-targets) for Azure Machine Learning.
+You can access, create, and manage the compute targets that are associated with your workspace using the [VS Code extension](how-to-vscode-tools.md#create-and-manage-compute-targets) for Azure Machine Learning.
 
 ## <a id="submit"></a>Submit training run using Azure Machine Learning SDK
 
@@ -441,6 +439,8 @@ The run configuration file is YAML formatted, with following sections
  * Configuration details specific to the framework selected.
  * Data reference and data store details.
  * Configuration details specific for Machine Learning Compute for creating a new cluster.
+
+See the example [JSON file](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) for a full runconfig schema.
 
 ### Create an experiment
 

@@ -1,19 +1,9 @@
 ---
-title: Configure Azure Active Directory authentication - Azure App Service
-description: Learn how to configure Azure Active Directory authentication for your App Service app.
-author: cephalin
-services: app-service
-documentationcenter: ''
-manager: gwallace
-editor: ''
-
+title: Configure Azure AD authentication
+description: Learn how to configure Azure Active Directory authentication as an identity provider for your App Service app.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
-ms.service: app-service
-ms.workload: web,mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/03/2019
-ms.author: cephalin
 ms.custom: seodec18
 ms.custom: fasttrack-edit
 
@@ -26,7 +16,7 @@ ms.custom: fasttrack-edit
 This article shows you how to configure Azure App Service to use Azure Active Directory (Azure AD) as an authentication provider.
 
 > [!NOTE]
-> At this time, Azure App Service and Azure Functions are only supported by Azure AD v1.0. They're not supported by the [Microsoft identity platform v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview), which includes Microsoft Authentication Libraries (MSAL).
+> At this time, Azure App Service and Azure Functions are only supported by Azure AD v1.0. They're not supported by the [Microsoft identity platform v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-overview), which includes Microsoft Authentication Libraries (MSAL).
 
 Follow these best practices when setting up your app and authentication:
 

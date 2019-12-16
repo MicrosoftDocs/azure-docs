@@ -83,18 +83,20 @@ landingContent:
             url: security-info-setup-signin.md
   
   # Card
-  - title: Manage your info on the My Profile portal (preview)
+  - title: Manage your info on the My Account portal
     linkLists:
       - linkListType: overview
         links:
-          - text: What is the My Profile (preview) portal?
-            url: myprofile-portal-overview.md
+          - text: What is the My Account portal?
+            url: my-account-portal-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Manage your organizations
-            url: myprofile-portal-organizations-page.md
           - text: Manage your connected devices
-            url: myprofile-portal-devices-page.md
+            url: my-account-portal-devices-page.md
+          - text: Manage your organizations
+            url: my-account-portal-organizations-page.md
+          - text: View your recent sign-in activity
+            url: my-account-portal-sign-ins-page.md
   
   # Card
   - title: Reset your own password

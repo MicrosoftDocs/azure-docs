@@ -1,18 +1,14 @@
 ---
-title: Authentication flows (Microsoft Authentication Library) 
+title: MSAL authentication flows | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about the authentication flows and grants used by the Microsoft Authentication Library (MSAL).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/16/2019
 ms.author: twhitney
@@ -39,7 +35,7 @@ This article describes the different authentication flows provided by Microsoft 
 
 ## How each flow emits tokens and codes
  
-Depending on how your client is built, it can use one (or several) of the authentication flows supported by the Microsoft identity platform.  These flows can produce a variety of tokens (id_tokens, refresh tokens, access tokens) as well as authorization codes, and require different tokens to make them work. This chart proides an overview:
+Depending on how your client is built, it can use one (or several) of the authentication flows supported by the Microsoft identity platform.  These flows can produce a variety of tokens (id_tokens, refresh tokens, access tokens) as well as authorization codes, and require different tokens to make them work. This chart provides an overview:
  
 |Flow | Requires | id_token | access token | refresh token | authorization code | 
 |-----|----------|----------|--------------|---------------|--------------------|
@@ -200,7 +196,7 @@ This means that one of the following is true:
 - You have provided a way for users to consent to the application (see [Requesting individual user consent](v2-permissions-and-consent.md#requesting-individual-user-consent)).
 - You have provided a way for the tenant admin to consent for the application (see [admin consent](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)).
 
-The IWA flow is enabled for .NET desktop, .NET Core, and Windows Universal Platform apps. On .NET Core, only the overload taking the username is available. The .NET Core platform can't ask the username to the operating system.
+The IWA flow is enabled for .NET desktop, .NET Core, and Windows Universal Platform apps. On .NET Core you must provide the username to IWA, because .NET Core can't obtain usernames from the operating system.
   
 For more information on consent, see [v2.0 permissions and consent](v2-permissions-and-consent.md).
 

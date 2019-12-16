@@ -1,6 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Configure a custom domain name for your Azure API Management instance | Microsoft Docs
+title: Configure custom domain name for Azure API Management instance
+titleSuffix: Azure API Management
 description: This topic describes how to configure a custom domain name for your Azure API Management instance.
 services: api-management
 documentationcenter: ''
@@ -85,7 +86,7 @@ When configuring DNS for your custom domain name, you have two options:
 -   Configure an A-record that points to your API Management gateway IP address.
 
 > [!NOTE]
-> Although the API Managment instance IP address is static, it may change in a few scenarios. Because of this it's recommended to use CNAME when configuring custom domain. Take that into consideration when choosing DNS configuration method. Read more in the [API Mananagement FAQ](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
+> Although the API Managment instance IP address is static, it may change in a few scenarios. Because of this it's recommended to use CNAME when configuring custom domain. Take that into consideration when choosing DNS configuration method. Read more in the [API Management FAQ](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
 
 ## Next steps
 

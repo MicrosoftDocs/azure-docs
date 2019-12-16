@@ -1,10 +1,10 @@
 ---
 title: Azure Cosmos DB multi-master benefits
-description: Understand the benefits of multi-master in Azure Cosmos DB. 
+description: Understand the benefits of multi-master in Azure Cosmos DB, comparison of latency and SLA requirements in single and multiple write locations. 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ---
 

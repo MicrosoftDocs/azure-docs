@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
 
 ---
@@ -26,6 +26,10 @@ Once the Bastion service is provisioned and deployed in your virtual network, yo
 3. Select **Refresh** to see the updated list of remote sessions. When you select Refresh, Azure Bastion will fetch the latest monitoring information and refresh it in the portal.
 
    ![refresh](./media/session-monitoring/refresh.png)
+
+>[!IMPORTANT]
+> Enable port 4443 for inbound traffic from Gateway Manager for session monitoring to work.
+>
 
 ## <a name="view"></a>Delete or force-disconnect an ongoing remote session
 

@@ -1,13 +1,12 @@
 ---
-title: Require app protection policy for cloud app access with Conditional Access in Azure Active Directory | Microsoft Docs
+title: App protection policies with Conditional Access - Azure Active Directory
 description: Learn how to require app protection policy for cloud app access with Conditional Access in Azure Active Directory.
-
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 4/4/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -330,7 +329,7 @@ Any Intune app protection policies are required before access is granted to corp
 
 ### Configuration
 
-**Step 1: Configure an Azure AD Conditional Access policy for Exchange Online**
+**Step 1: Configure an Azure AD Conditional Access policy for Exchange Online and SharePoint Online**
 
 For the Conditional Access policy in this step, configure the following components:
 
@@ -338,7 +337,7 @@ For the Conditional Access policy in this step, configure the following componen
 
 1. Enter the name of your Conditional Access policy.
 1. Under **Assignments**, in **Users and groups**, select at least one user or group for each Conditional Access policy.
-1. In **Cloud apps**, select **Office 365 Exchange Online**. 
+1. In **Cloud apps**, select **Office 365 Exchange Online** and **Office 365 SharePoint Online**. 
 
    ![Conditional Access](./media/app-protection-based-conditional-access/02.png)
 

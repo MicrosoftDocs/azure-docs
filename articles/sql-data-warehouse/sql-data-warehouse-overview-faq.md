@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics (formerly SQL DW) Frequently Asked Questions | Microsoft Docs
+title: Azure Synapse Analytics (formerly SQL DW) Frequently Asked Questions 
 description: This article lists out frequently asked questions about Azure Synapse Analytics (formerly SQL DW) from customers and developers
 services: sql-data-warehouse
 author: mlee3gsd
@@ -16,32 +16,36 @@ ms.reviewer: igorstan
 
 ## General
 
-Q. What is Azure Synapse Analytics?
+Q. What is Azure Synapse?
 
-A. Azure Synapse is a limitless analytics service that brings together traditional data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources - at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs. For more information see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Azure Synapse is a limitless analytics service that brings together data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources - at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs. For more information see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. What happened to Azure SQL Data Warehouse?
 
-A. Azure Synapse is Azure SQL Data Warehouse (SQL DW) evolved. We have taken the same industry leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production today with Azure Synapse and you will automatically benefit from the preview capabilities when they become generally available. Azure Synapse has four components, SQL Analytics is the component that includes data warehouses. For more information see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Azure Synapse is Azure SQL Data Warehouse (SQL DW) evolved. We have taken the same industry leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production today with Azure Synapse and automatically benefit from the new capabilities which are in preview. For more information see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-Q. How do I get started with Azure Synapse Analytics?
+Q. What is SQL Analytics?
+
+A. SQL Analytics refers to the enterprise data warehousing features that are generally available with Azure Synapse. For more information see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+
+Q. How do I get started with Azure Synapse?
 
 A. You can get started with an [Azure free account](https://azure.microsoft.com/free/sql-data-warehouse/) or [contact sales for more information](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html). 
 
-Q. What does SQL DW offer for data security?
+Q. What does Azure Synapse offer for data security?
 
-A. SQL DW offers several solutions for protecting data such as TDE and auditing. For more information, see [Security].
+A. Azure Synapse offers several solutions for protecting data such as TDE and auditing. For more information, see [Security].
 
-Q. Where can I find out what legal or business standards SQL DW is compliant with?
+Q. Where can I find out what legal or business standards Azure Synapse is compliant with?
 
 A. Visit the [Microsoft Compliance] page for various compliance offerings by product such as SOC and ISO. 
-First choose by Compliance title, then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure services are compliant.
+First choose by Compliance title, then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure Synapse compliant.
 
-Q. Can I connect PowerBI?
+Q. Can I connect Power BI?
 
-A. Yes! Though PowerBI supports direct query with SQL DW, it’s not intended for large number of users or real-time data. For production use of PowerBI, we recommend using PowerBI on top of Azure Analysis Services or Analysis Service IaaS. 
+A. Yes! Though Power BI supports direct query with Azure Synapse, it’s not intended for a large number of users or real-time data. To optimize Power BI performance further, consider using Power BI on top of Azure Analysis Services or Analysis Service IaaS.
 
-Q. What are SQL Analytics Capacity Limits?
+Q. What are SQL Analytics capacity limits?
 
 A. See our current [capacity limits] page. 
 
@@ -57,7 +61,7 @@ A. If you have a feature request, submit it on our [UserVoice] page
 
 Q. How can I do x?
 
-A. For help in developing with Azure Synapse Analytics, you can ask questions on our [Stack Overflow] page. 
+A. For help in developing with Azure Synapse, you can ask questions on our [Stack Overflow] page. 
 
 Q. How do I submit a support ticket?
 
@@ -74,11 +78,6 @@ Q. What table features do you support?
 A. Many features are supported, the ones that are not supported and are documented in [Unsupported Table Features].
 
 ## Tooling and administration
-
-Q. Do you support Database projects in Visual Studio.
-
-A. We currently do not support Database projects in Visual Studio. If you'd like to cast a vote to get this feature, visit our User Voice 
-[Database projects feature request].
 
 Q. Does SQL Analytics support REST APIs?
 
@@ -109,7 +108,7 @@ Q: Can I connect to HDI?
 A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, then you can load that data into SQL DW. However, you cannot generate pushdown computation to the HDI instance. 
 
 ## Next steps
-For more information on Azure Synapse Analytics as a whole, see our [Overview] page.
+For more information on Azure Synapse as a whole, see our [Overview] page.
 
 
 <!-- Article references -->

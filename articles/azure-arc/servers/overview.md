@@ -30,7 +30,7 @@ Machines will have a status of **Connected** or **Disconnected** based on how re
 
 In Public Preview, we support:
 
-- Windows Server 2012 R2 and above
+- Windows Server 2012 R2 and newer
 - Ubuntu 16.04 and 18.04
 
 The Public Preview release is designed for evaluation purposes and should not be used to manage critical production resources.
@@ -79,7 +79,7 @@ See the section [Proxy server configuration](quickstart-onboard-powershell.md#pr
 
 ## Register the required Resource Providers
 
-Once the 'Feature Flag' registration has been approved, you must register the required Resource Providers.
+In order to use Azure Arc for Servers, you must register the required Resource Providers.
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -105,6 +105,40 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 You can also register the Resource Providers using the portal by following the steps under [Azure portal](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
+## Machine changes after installing the agent
+
+If you have a change tracking solution deployed in your environment, you can use the list below to track, identify, and allow the changes made by the **Azure Connected Machine Agent (AzCMAgent)** installation package.
+
+After you install the agent you see the following changes made to your servers.
+
+### Windows
+
+Services installed:
+
+* `Himds` - The **Azure Connected Machine Agent** service.
+* `Dscservice` or `gcd` - The **Guest Configuration** service.
+
+Files added to the server:
+
+* `%ProgramFiles%\AzureConnectedMachineAgent\*.*` - Location of **Azure Connected Machine Agent** files.
+* `%ProgramData%\GuestConfig\*.*` - **Guest Configuration** logs.
+
+Registry key locations:
+
+* `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Connected Machine Agent` - Registry keys for **Azure Connected Machine Agent**.
+
+### Linux
+
+Services installed:
+
+* `Himdsd` - The **Azure Connected Machine Agent** service.
+* `dscd` or `gcd` - The **Guest Configuration** service.
+
+Files added to the server:
+
+* `/var/opt/azcmagent/**` - Location of **Azure Connected Machine Agent** files.
+* `/var/lib/GuestConfig/**` - **Guest Configuration** logs.
+
 ## Supported Scenarios
 
 After you register a node you can start managing your nodes using other Azure services.
@@ -128,7 +162,7 @@ Log data collected by the [Microsoft Monitoring Agent (MMA)](https://docs.micros
 
 - Machines that already have the MMA agent installed, will have **Azure Arc** functionality enabled via updated Management Packs.
 - [MMA agent version 10.20.18011 or above](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version) is required for Azure Arc for servers integration.
-- When querying for log data in [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#log-queries), the returned data schema will contain the Hybrid **ResourceId** in the form `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
+- When querying for log data in [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), the returned data schema will contain the Hybrid **ResourceId** in the form `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
 
 For more information, see [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 

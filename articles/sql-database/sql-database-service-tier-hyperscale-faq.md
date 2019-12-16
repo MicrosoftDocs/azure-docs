@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Hyperscale FAQ | Microsoft Docs
+title: Azure SQL Database Hyperscale FAQ
 description: Answers to common questions customers ask about an Azure SQL database in the Hyperscale service tier - commonly called a Hyperscale database.
 services: sql-database
 ms.service: sql-database
@@ -7,8 +7,8 @@ ms.subservice:
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
 ms.reviewer:
 ms.date: 10/12/2019
 ---
@@ -121,7 +121,7 @@ Not at this time, however you can scale your compute and number of replicas down
 
 ### Can I provision a compute replica with extra RAM for my memory-intensive workload
 
-No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute).
+No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5).
 
 ### Can I provision multiple compute replicas of different sizes
 

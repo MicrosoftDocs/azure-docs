@@ -1,7 +1,7 @@
 ---
 title: Configure containers - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Configure various settings for Recognize Text containers in Computer Vision.
+description: This article shows you how to configure both required and optional settings for Recognize Text containers in Computer Vision.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme

@@ -21,4 +21,4 @@ ms.author: marsma
 1. Select **New client secret**.
 1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.
 1. Under **Expires**, select a duration for which the secret is valid, and then select **Add**.
-1. Record the secret's **VALUE**. You use this value for configuration in a later step.
+1. Record the secret's **Value**. You use this value for configuration in a later step.

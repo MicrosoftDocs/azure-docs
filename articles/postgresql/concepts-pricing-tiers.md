@@ -1,11 +1,11 @@
 ---
-title: Pricing tiers for Azure Database for PostgreSQL - Single Server
-description: This article describes the pricing tiers for Azure Database for PostgreSQL - Single Server.
+title: Pricing tiers - Azure Database for PostgreSQL - Single Server
+description: This article describes the compute and storage options in Azure Database for PostgreSQL - Single Server.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ---
 
 # Pricing tiers in Azure Database for PostgreSQL - Single Server
@@ -17,7 +17,7 @@ You can create an Azure Database for PostgreSQL server in one of three different
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memory per vCore | 2 GB | 5 GB | 10 GB |
-| Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
+| Storage size | 5 GB to 1 TB | 5 GB to 16 TB | 5 GB to 16 TB |
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |
 
@@ -42,9 +42,15 @@ The storage you provision is the amount of storage capacity available to your Az
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
+| Storage size | 5 GB to 1 TB | 5 GB to 16 TB | 5 GB to 16 TB |
 | Storage increment size | 1 GB | 1 GB | 1 GB |
-| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |
+| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
+
+> [!NOTE]
+> Storage up to 16TB and 20,000 IOPS is supported in the following regions: East US, East US 2, Central US, West US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East.
+>
+> All other regions support up to 4TB of storage and 6000 IOPS.
+>
 
 You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload. 
 
@@ -54,26 +60,6 @@ You can add additional storage capacity during and after the creation of the ser
 The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
-
-### Large storage (Preview)
-
-We are increasing the storage limits in our General Purpose and Memory Optimized tiers. Newly created servers that opt-in to the preview can provision up to 16 TB of storage. The IOPS scale at a 3:1 ratio up to 20,000 IOPS. As with the current generally available storage, you can add additional storage capacity after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload.
-
-|              | **General Purpose** | **Memory Optimized** |
-|:-------------|:--------------------|:---------------------|
-| Storage type | Azure Premium Storage | Azure Premium Storage |
-| Storage size | 32 GB to 16 TB| 32 GB to 16 TB |
-| Storage increment size | 1 GB | 1 GB |
-| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
-
-> [!IMPORTANT]
-> Large storage is currently in public preview in the following regions: East US, East US 2, Central US, West US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East.
->
-> The large storage preview currently does not support:
->
-> * Incoming connections through virtual network service endpoints
-> * Geographically redundant backups
-> * Read replicas
 
 ### Reaching the storage limit
 

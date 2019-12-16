@@ -1,12 +1,10 @@
 ---
-title: Set up incremental indexing of enriched content based change tracking
+title: Add incremental indexing (preview) 
 titleSuffix: Azure Cognitive Search
-description: Enable change tracking and preserve state of enriched content for controlled processing in a cognitive skillset.
-
+description: Enable change tracking and preserve state of enriched content for controlled processing in a cognitive skillset. This feature is currently in public preview.
 author: vkurpad 
 manager: eladz
 ms.author: vikurpad
-
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
@@ -15,15 +13,13 @@ ms.date: 11/04/2019
 
 # How to set up incremental indexing of enriched documents in Azure Cognitive Search
 
+> [!IMPORTANT] 
+> Incremental indexing is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.
+
 This article shows you how to add state and caching to enriched documents moving through an Azure Cognitive Search enrichment pipeline so that you can incrementally index documents from any of the supported data sources. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental indexing, the indexer can determine which parts of the pipeline have changed, reusing existing enrichments for unchanged parts, and revising enrichments for the steps that do change. Cached content is placed in Azure Storage.
 
 If you're not familiar with setting up indexers, start with [indexer overview](search-indexer-overview.md) and then continue on to [skillsets](cognitive-search-working-with-skillsets.md) to learn about enrichment pipelines. For more background on key concepts, see [incremental indexing](cognitive-search-incremental-indexing-conceptual.md).
-
-Incremental indexing is configured using the [Search REST api-version=2019-05-06-Preview](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations).
-
-> [!NOTE]
-> This feature is not yet available in the portal and has to be used programmatically.
->
 
 ## Modify an existing indexer
 
@@ -41,13 +37,31 @@ api-key: [admin key]
 
 ### Step 2: Add the cache property
 
-Edit the response from the GET request to add the `cache` property to the indexer. The cache object requires only a single property, and that is the connection string to an Azure Storage account.
+Edit the response from the GET request to add the `cache` property to the indexer. The cache object requires only a single property, `storageConnectionString` which is the connection string to the storage account. 
 
 ```json
-    "cache": {
-        "storageConnectionString": "[your storage connection string]"
+{
+    "name": "myIndexerName",
+    "targetIndexName": "myIndex",
+    "dataSourceName": "myDatasource",
+    "skillsetName": "mySkillset",
+    "cache" : {
+        "storageConnectionString" : "Your storage account connection string",
+        "enableReprocessing": true,
+        "id" : "Auto generated Id you do not need to set"
+    },
+    "fieldMappings" : [],
+    "outputFieldMappings": [],
+    "parameters": {
+        "configuration": {
+            "enableAnnotationCache": true
+        }
     }
+}
 ```
+#### Enable reporocessing
+
+You can optionally set the `enableReprocessing` boolean property within the cache which is by default set to true. The `enableReprocessing` flag allows you to control the behavior of your indexer. In scenarios where you want the indexer to prioritize adding new documents to the index, you would set the flag to false. Once your indexer is caught up with the new documents, flipping the flag to true would then allow the indexer to start driving existing documents to eventual consistency. During the period when the `enableReprocessing` flag is set to false, the indexer only writes to the cache but will not process any existing documents based on identified changes to the enrichment pipeline.
 
 ### Step 3: Reset the indexer
 

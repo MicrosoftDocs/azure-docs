@@ -1,7 +1,7 @@
 ---
 title: Reviews, Workflows, and Jobs concepts - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Learn about Reviews, Workflows, and Jobs
+description: In this article, you will learn about the core concepts of the Review tool; reviews, workflows, and jobs.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

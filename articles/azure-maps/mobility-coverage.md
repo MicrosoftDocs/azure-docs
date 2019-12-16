@@ -52,7 +52,7 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Australia      | <p>Adelaide, Alice Springs, Bowen, Brisbane, Bundaberg QLD, Burnie, Cairns, Canberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, Mackay, Magnetic Island, Maryborough-Hervey Bay, Melbourne, New South Wales, Perth, RockHampton, South East Queensland, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
 | China | <p> Changchun, Changsha, Chengdu, Chongqing, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Shanghai, Beijing, Guangzhou, Shenzhen, Zhengzhou</P>| 
 | Hong Kong SAR | Hong Kong SAR*|
-| Macau SAR | Macau SAR*|
+| Macao SAR | Macao SAR*|
 | India | Ahmedabad, Bengaluru, Delhi, Mumbai, Mysuru|
 | Indonesia | Bandung, Banyuwangi, Batam, Denpasar, Jakarta, Kediri, Malang, Palembang, Semarang, Surabaya, Surakarta, Yogyakarta |
 | Japan | Shizuoka Prefecture, Tokyo, Wakkanai, Yamanashi Prefecture |

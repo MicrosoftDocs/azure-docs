@@ -258,7 +258,7 @@ If you have virtual machines, you must take additional steps before you migrate 
 
 **How do I move from a classic storage account to an Azure Resource Manager storage account?**
 
-You can use the **Move-AzStorageAccount** cmdlet. This cmdlet has multiple steps (validate, prepare, commit). You can validate the move before you make it.
+You can use the **Move-AzureStorageAccount** cmdlet. This cmdlet has multiple steps (validate, prepare, commit). You can validate the move before you make it.
 
 If you have virtual machines, you must take additional steps before you migrate the storage account data. For more information, see [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
@@ -282,8 +282,7 @@ To give other people access to the storage resources:
     resource. 
 
 -   Provide a user with the primary or secondary key for the
-    storage account. For more information, see [Manage your storage
-    account](storage-account-manage.md#access-keys).
+    storage account. For more information, see [Manage storage account access keys](storage-account-keys-manage.md).
 
 -   Change the access policy to allow anonymous access. For more
     information, see [Grant anonymous users permissions to containers

@@ -1,14 +1,11 @@
 ---
-title: Add and call Azure functions from Azure Logic Apps
-description: Add and run Azure functions from logic apps
+title: Add and call Azure Functions from Azure Logic Apps
+description: Call and run custom code in your Azure Functions from automated tasks and workflows in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.reviewer: klam, LADocs
 ---
 
 # Call Azure functions from Azure Logic Apps
@@ -109,7 +106,7 @@ Before you can create an Azure function starting from inside your logic app by u
 
    * Between existing steps in your logic app's workflow, move your mouse over the arrow, select the plus (+) sign, and then select **Add an action**.
 
-1. In the search box, enter "azure functions" as your filter. From the actions list, select this action: **Choose an Azure function**
+1. In the search box, enter "azure functions" as your filter. From the actions list, select the **Choose an Azure function** action, for example:
 
    ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -121,26 +118,26 @@ Before you can create an Azure function starting from inside your logic app by u
 
    1. In the **Function name** box, provide a name for your function.
 
-   1. In the **Code** box, add your code to the function template, including the response and payload that you want returned to your logic app after your function finishes running.
+   1. In the **Code** box, add your code to the function template, including the response and payload that you want returned to your logic app after your function finishes running. When you're done, select **Create**.
 
-      ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
+   For example:
 
-      In the template's code, the *`context` object* refers to the message that your logic app sends through the **Request Body** field in a later step. To access the `context` object's properties from inside your function, use this syntax:
+   ![Define your function](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-      `context.body.<property-name>`
+   In the template's code, the *`context` object* refers to the message that your logic app sends through the **Request Body** field in a later step. To access the `context` object's properties from inside your function, use this syntax:
 
-      For example, to reference the `content` property inside the `context` object, use this syntax:
+   `context.body.<property-name>`
 
-      `context.body.content`
+   For example, to reference the `content` property inside the `context` object, use this syntax:
 
-      The template code also includes an `input` variable, which stores the value from the `data` parameter so your function can perform operations on that value. Inside JavaScript functions, the `data` variable is also a shortcut for `context.body`.
+   `context.body.content`
 
-      > [!NOTE]
-      > The `body` property here applies to the `context` object and 
-      > isn't the same as the **Body** token from an action's output, 
-      > which you might also pass to your function.
+   The template code also includes an `input` variable, which stores the value from the `data` parameter so your function can perform operations on that value. Inside JavaScript functions, the `data` variable is also a shortcut for `context.body`.
 
-   1. When you're done, select **Create**.
+   > [!NOTE]
+   > The `body` property here applies to the `context` object and 
+   > isn't the same as the **Body** token from an action's output, 
+   > which you might also pass to your function.
 
 1. In the **Request Body** box, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object.
 
@@ -164,7 +161,7 @@ To call existing Azure functions from your logic apps, you can add Azure functio
 
 1. Under the step where you want to add the function, select **New step**.
 
-1. Under **Choose an action**, in the search box, enter "azure functions" as your filter. From the actions list, select this action: **Choose an Azure function**
+1. Under **Choose an action**, in the search box, enter "azure functions" as your filter. From the actions list, select the **Choose an Azure function** action.
 
    ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 

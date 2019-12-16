@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure IoT Hub module identity and module twin (Python) | Microsoft Docs
+title: Azure IoT Hub module identity and module twin (Python)
 description: Learn how to create module identity and update module twin using IoT SDKs for Python.
 author: chrissie926
 ms.service: iot-hub

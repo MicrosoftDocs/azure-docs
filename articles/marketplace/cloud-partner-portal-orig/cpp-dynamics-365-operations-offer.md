@@ -4,6 +4,7 @@ description: Deprecated CPP article and linked to PC article; was "Explains how 
 services: Azure Marketplace, Cloud Partner Portal, 
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen

@@ -1,10 +1,10 @@
 ---
-title: Authentication and user permissions in Azure Analysis Services | Microsoft Docs
-description: Learn about authentication and user permissions in Azure Analysis Services.
+title: Azure Analysis Services authentication and user permissions| Microsoft Docs
+description: This article describes how Azure Analysis Services uses Azure Active Directory (Azure AD) for identity management and user authentication.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 

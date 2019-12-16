@@ -17,7 +17,7 @@ ms.author: yegu
 
 # Point-in-time snapshot
 
-Azure App Configuration keeps records of the precise times when a new key-value pair is created and then modified. These records form a complete timeline in key-value changes. An app configuration store can reconstruct the history of any key value and replay its past value at any given moment, up to the present. With this feature, you can “time-travel” backward and retrieve an old key value. For example, you can get yesterday's configuration settings, just before the most recent deployment, in order to recover a previous configuration and roll back the application.
+Azure App Configuration keeps records of the precise times when a new key-value pair is created and then modified. These records form a complete timeline in key-value changes. An App Configuration store can reconstruct the history of any key value and replay its past value at any given moment, up to the present. With this feature, you can “time-travel” backward and retrieve an old key value. For example, you can get yesterday's configuration settings, just before the most recent deployment, in order to recover a previous configuration and roll back the application.
 
 ## Key-value retrieval
 

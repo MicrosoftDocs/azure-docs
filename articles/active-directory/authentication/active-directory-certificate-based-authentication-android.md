@@ -1,15 +1,15 @@
 ---
-title: Certificate-based authentication on Android - Azure Active Directory
+title: Android certificate-based authentication - Azure Active Directory
 description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication in solutions with Android devices
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 

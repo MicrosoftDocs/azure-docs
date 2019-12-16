@@ -4,8 +4,8 @@ description: Azure Monitor PowerShell Samples
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/14/2017
 
 ms.custom: mvc
