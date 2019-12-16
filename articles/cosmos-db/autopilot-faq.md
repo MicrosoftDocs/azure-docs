@@ -23,7 +23,7 @@ Yes, autopilot mode is supported for multi-master accounts. The max RU/s are ava
 Refer to the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for details. 
 
 ### How do I enable autopilot for my containers or databases?
-Once you are [enrolled in the preview](provision-throughput-autopilot.md#enable-autopilot), autopilot mode can be enabled on new containers and databases created using the Azure portal. 
+Autopilot mode can be enabled on new containers and databases created using the Azure portal. 
 
 ### Is there CLI or SDK support to create containers or databases with autopilot mode?
 Currently, in the preview release, you can only create resources with autopilot mode from the Azure portal. Support for CLI and SDK is not yet available and is planned for GA release.
