@@ -64,15 +64,15 @@ Use the **time brush** to investigate an interesting area of the chart such as a
 ## Apply dimension filters and splitting
 See the following references for advanced features that allow you to perform additional analysis on your metrics and identify potential outliers in your data.
 
-- [Filtering](metrics-charts.md#apply-filters-to-charts) lets you choose which dimension values are included in the chart. For example, you might want to show successful requests when charting the *server response time* metric. 
+- [Filtering](../platform/metrics-charts.md#apply-filters-to-charts) lets you choose which dimension values are included in the chart. For example, you might want to show successful requests when charting the *server response time* metric. 
 
-- [Splitting](metrics-charts.md#apply-splitting-to-a-chart) controls whether the chart displays separate lines for each value of a dimension, or aggregates the values into a single line. For example, you can see one line for an average response time across all server instances, or see separate lines for each server. 
+- [Splitting](../platform/metrics-charts.md#apply-splitting-to-a-chart) controls whether the chart displays separate lines for each value of a dimension, or aggregates the values into a single line. For example, you can see one line for an average response time across all server instances, or see separate lines for each server. 
 
-See [examples of the charts](metric-chart-samples.md) that have filtering and splitting applied. The article shows the steps were used to configure the charts.
+See [examples of the charts](../platform/metric-chart-samples.md) that have filtering and splitting applied. The article shows the steps were used to configure the charts.
 
 ## Advanced chart settings
 
-You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. Follow [product documentation](metrics-charts.mds#lock-boundaries-of-chart-y-axis) to learn about these and other advanced features of Azure Monitor metrics explorer.
+You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. See [Advanced features of Azure Metrics Explorer](../platform/metrics-charts.md#lock-boundaries-of-chart-y-axis) to learn about these and other advanced features of Azure Monitor metrics explorer.
 
 
 ## Next steps

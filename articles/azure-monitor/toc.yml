@@ -32,20 +32,16 @@
       href: app/website-monitoring.md 
 - name: Tutorials
   items:
+  - name: Create a metrics chart
+    href: learn/tutorial-metrics-explorer.md
   - name: Collect logs from Azure resource
     href: learn/tutorial-resource-logs.md
-  - name: Use Log Analytics
-    href: log-query/get-started-portal.md
   - name: Write log queries
     href: log-query/get-started-queries.md
   - name: Create a dashboard from log query
     href: learn/tutorial-logs-dashboards.md
   - name: Create alert from log query
     href: learn/tutorial-response.md
-  - name: Archive platform metric and log data 
-    href: learn/tutorial-archive-data.md
-  - name: Autoscale on performance and schedule
-    href: learn/tutorial-autoscale-performance-schedule.md
   - name: Application Insights
     items:  
     - name: Find application run-time exceptions

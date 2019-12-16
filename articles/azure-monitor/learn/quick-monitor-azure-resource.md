@@ -10,7 +10,7 @@ ms.date: 12/15/2019
 ---
 
 # Quickstart: Monitor an Azure resource with Azure Monitor
-[Azure Monitor](../overview.md) starts collecting data from Azure resources the moment that they're created. This quickstart provides a brief walkthrough of the data that's collected and how to view it in the Azure portal for a particular resource. Later, you can go to the **Azure Monitor** menu to use the same tool to access data collected for all the resources in your subscription.
+[Azure Monitor](../overview.md) starts collecting data from Azure resources the moment that they're created. This quickstart provides a brief walkthrough of the data that's collected and how to view it in the Azure portal for a particular resource. Once you understand the data that's available, you can go to the **Azure Monitor** menu to use the same tools to access data collected for all the resources in your subscription.
 
 For more detailed descriptions of monitoring data collected from Azure resources  see [Monitoring Azure resources with Azure Monitor](../insights/monitor-azure-resource.md).
 
@@ -21,10 +21,10 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 
 ## Overview page
-Many services will include monitoring data on their Overview page as a quick glance to their operation. This will typically be based on a subset of platform metrics stored in Azure Monitor Metrics.
+Many services will include monitoring data on their **Overview** page as a quick glance to their operation. This will typically be based on a subset of platform metrics stored in Azure Monitor Metrics.
 
 1. Locate an Azure resource in your subscription.
-2. Go to the **Overview** page and note if there's any performance data. This data will be provided by Azure Monitor. The example below is the **Overview** page for an Azure storage account, and you can see that there are multiple metrics displayed.
+2. Go to the **Overview** page and note if there's any performance data displayed. This data will be provided by Azure Monitor. The example below is the **Overview** page for an Azure storage account, and you can see that there are multiple metrics displayed.
 
     ![Overview page](media/quick-monitor-azure-resource/overview.png)
 
