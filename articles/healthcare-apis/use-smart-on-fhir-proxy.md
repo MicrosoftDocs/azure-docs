@@ -106,7 +106,7 @@ The application needs a few configuration settings, which you can set in `appset
 }
 ```
 
-We recommend that you also use the `dotnet user-secrets` feature:
+We recommend that you use the `dotnet user-secrets` feature:
 
 ```PowerShell
 dotnet user-secrets set FhirServerUrl https://MYFHIRAPI.azurehealthcareapis.com
