@@ -8,22 +8,22 @@ ms.date: 08/08/2019
 ms.author: rogarana
 ---
 
+# Enable Azure Active Directory over SMB
+
 Azure Files supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) (GA) and Active Directory Domain Service (AD DS) (pPreview). This article focuses on the newly introduced pPreview support of leveraging Active Directory Domain Service for authentication to Azure Files. If you are interested in enabling Azure Active Directory Domain Service (Azure AD DS) authentication for Azure Files, please refer tosee this article. 
 
+> [!NOTE]
+> Azure Files only supports authentication against one domain service, either Azure Active Directory Domain Service (Azure AD DS) or Active Directory Domain Service (AD DS). 
+>
+> AD identities used for Azure Files authentication must be synced to Azure AD. Password hash synchronization (PSH) is optional. 
+> 
+> AD DS authentication does not support authentication against Computer accounts created in AD DS. 
+> 
+> AD DS authentication can only be supported against one AD forest where the storage account is registered to. Hence, you can only access Azure file share with the AD credentials from the single AD forest.  
+> 
+> AD DS authentication for SMB access and NTFS DACL persistence is not supported for Azure file shares managed by Azure File Sync.
+
 When you enable AD DS Authentication for Azure Files over SMB access, your AD domain joined machines from on-premise or Cloud Azure can mount Azure Files using your existing AD credentials. You can enable this capability with an AD environment hosted in on-prem machines or in Azure VM. Note that the AD identities that are used to access Azure Files must be synced to Azure AD to enforce share level file permission through the standard role-based access control (RBAC) model. NTFS DACLs on files/directories carried over from existing file servers will be preserved and enforced intact. This offers seamless integration with your enterprise AD domain infrastructure. As you replace on-prem file servers with Azure file shares, all existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
-
-Note:  
-
-Azure Files can only support authentication against one domain service, either Azure Active Directory Domain Service (Azure AD DS) or Active Directory Domain Service (AD DS). 
-
-AD identities used for Azure Files authentication must be synced to Azure AD. Password hash synchronization (PSH) is optional. 
-
-AD DS authentication does not support authentication against Computer accounts created in AD DS. 
-
-AD DS authentication can only be supported against one AD forest where the storage account is registered to. Hence, you can only access Azure file share with the AD credentials from the single AD forest.  
-
-AD DS authentication for SMB access and NTFS DACL persistence is not supported onfor Azure file shares managed by Azure File Sync. 
-
  
 
 Overview of the workflow 
@@ -32,13 +32,13 @@ Before you enable AD DS Authentication over SMB for Azure Files, we recommend th
 
 Next, grant access to Azure Files resources with AD credentials by following these steps: 
 
-Enable Azure Files AD DS authentication on your storage account.  
+- Enable Azure Files AD DS authentication on your storage account.  
 
-Assign access permissions for a share to the Azure AD identity (a user, group, or service principal) that is in sync with the target AD identity. 
+- Assign access permissions for a share to the Azure AD identity (a user, group, or service principal) that is in sync with the target AD identity. 
 
-Configure NTFS permissions over SMB for directories and files. 
+- Configure NTFS permissions over SMB for directories and files. 
 
-Mount an Azure file share from an AD domain joined VM. 
+- Mount an Azure file share from an AD domain joined VM. 
 
 The following diagram illustrates the end-to-end workflow for enabling Azure AD DS authentication over SMB for Azure Files. 
 
@@ -71,6 +71,9 @@ Verify Azure Files connectivity by mounting Azure file shares using your storage
 To verify that your device and file share are properly configured, try mounting the file share using your storage account key. For more information, see Mount an Azure file share and access the share in Windows. 
 
  
+
+<START HERE, ROY>
+
 
 Enable AD DS authentication for your account 
 
