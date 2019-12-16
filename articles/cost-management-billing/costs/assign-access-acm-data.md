@@ -24,7 +24,7 @@ Watch the [How to assign access with Azure Cost Management](https://www.youtube.
 
 ## Cost Management scopes
 
-Cost management supports a variety of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md). The type of account determines available scopes.
+Cost management supports a variety of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). The type of account determines available scopes.
 
 ### Azure EA subscription scopes
 
@@ -59,7 +59,7 @@ To view cost data for other Azure subscriptions, a user must have at least read 
 - Management group
 - Resource group
 
-Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Azure Cost Management for partners](../cost-management-billing/costs/get-started-partners.md).
+Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Azure Cost Management for partners](get-started-partners.md).
 
 ## Enable access to costs in the EA portal
 
@@ -177,4 +177,4 @@ Currently, Azure Cost Management has limited support for cross-tenant authentica
 
 ## Next steps
 
-- If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+- If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).

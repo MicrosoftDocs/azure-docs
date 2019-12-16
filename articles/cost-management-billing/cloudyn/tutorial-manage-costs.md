@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a  [free account](https://azure.
 - You must have an Azure account.
 - You must have either a trial registration or paid subscription for Cloudyn.
 - [Unactivated accounts must be activated](activate-subs-accounts.md) in the Cloudyn portal.
-- [Guest-level monitoring](../cost-management-billing/cloudyn/azure-vm-extended-metrics.md) must be enabled on your virtual machines.
+- [Guest-level monitoring](azure-vm-extended-metrics.md) must be enabled on your virtual machines.
 
 
 ## Use custom tags to allocate costs
@@ -137,4 +137,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn about controlling access to data.
 
 > [!div class="nextstepaction"]
-> [Control access to data](../cost-management-billing/cloudyn/tutorial-user-access.md)
+> [Control access to data](tutorial-user-access.md)
