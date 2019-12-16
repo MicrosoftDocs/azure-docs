@@ -1,20 +1,20 @@
 ---
 title: "Quickstart: QnA Maker with REST APIs for Node.js"
-titleSuffix: Azure Cognitive Services 
-description: This quickstart shows how to get started with the QnA Maker REST APIs for Node.js. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals. 
+titleSuffix: Azure Cognitive Services
+description: This quickstart shows how to get started with the QnA Maker REST APIs for Node.js. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/16/2019
 ms.author: diberry
 ---
 
 # Quickstart: QnA Maker REST APIs for Node.js
 
-Get started with the QnA Maker REST APIs for Node.js. Follow these steps to try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals. 
+Get started with the QnA Maker REST APIs for Node.js. Follow these steps to try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals.
 
 Use the QnA Maker REST APIs for Node.js to:
 
@@ -39,19 +39,19 @@ Use the QnA Maker REST APIs for Node.js to:
 
 ### Create a QnA Maker Azure resource
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for QnA Maker using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. 
+Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for QnA Maker using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine.
 
 After getting a key from your resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the resource, named `QNAMAKER_RESOURCE_KEY` and `QNAMAKER_AUTHORING_ENDPOINT`. Use the key and endpoint values found in the Resource's **Quickstart** page in the Azure portal.
 
 ### Create a new Node.js application
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Run the `npm init -y` command to create a node `package.json` file. 
+Run the `npm init -y` command to create a node `package.json` file.
 
 ```console
 npm init -y
@@ -76,9 +76,7 @@ These code snippets show you how to do the following with the QnA Maker REST API
 
 ## Add the dependencies
 
-
-
-Create a file named `rest-apis.js` and add the following _requires_ statement to make HTTP requests. 
+Create a file named `rest-apis.js` and add the following _requires_ statement to make HTTP requests.
 
 ```javascript
 const request = require("requestretry");
@@ -88,17 +86,22 @@ const request = require("requestretry");
 
 Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
+Set the following environment values:
+
+* `QNAMAKER_RESOURCE_KEY` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quick start page. This is not the same as the prediction endpoint key.
+* `QNAMAKER_AUTHORING_ENDPOINT` - Your authoring endpoint, in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, includes your **resource name**. This is not the same URL used to query the prediction endpoint.
+
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=authorization)]
 
 ## Create a knowledge base
 
 A knowledge base stores question and answer pairs, created from a JSON object of:
 
-* **Editorial content**. 
-* **Files** - local files that do not require any permissions. 
+* **Editorial content**.
+* **Files** - local files that do not require any permissions.
 * **URLs** - publicly available URLs.
 
-Use the [REST API to create a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). 
+Use the [REST API to create a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=createKb)]
 
@@ -117,7 +120,7 @@ Use the [REST API to publish a knowledge base](https://docs.microsoft.com/rest/a
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=publish)]
 
-## Download the knowledge base 
+## Download the knowledge base
 
 Use the [REST API to download a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download).
 
