@@ -155,8 +155,6 @@ For example, to specify all fields for a second disk, add these columns:
 - Disk 2 read throughput
 - Disk 2 write throughput
 
-Optionally, you can add specific fields only for a disk.
-
 ### Add multiple applications
 
 The template provides fields for a single application. You can add similar columns for up to five apps.  
@@ -167,8 +165,6 @@ For example, to specify all fields for a second app, add these columns:
 - Application 2 type
 - Application 2 version
 - Application 2 license expiry
-
-Optionally, you can add specific fields only for an app.
 
 > [!NOTE]
 > App information is useful in evaluating your on-premises environment for migration. However, Azure Migrate Server Assessment doesn't currently perform app-level assessment or take apps into account when creating an assessment.
@@ -297,7 +293,7 @@ Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Window
 Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
 -->
 
-<!-- Attempt to redo table by using "columns" syntax -->
+<!-- Table rewritten by using "columns" syntax -->
 
 <!-- BEGIN A - H -->
 
@@ -359,9 +355,9 @@ Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vis
       Novell NetWare 6
    :::column-end:::
    :::column span="":::
-      Oracle Linux
-       Oracle Linux 4/5
-      Oracle Solaris 10
+      Oracle Linux<br/>
+       Oracle Linux 4/5<br/>
+      Oracle Solaris 10<br/>
        Oracle Solaris 11
    :::column-end:::
 :::row-end:::
