@@ -66,3 +66,5 @@ In **Protected Items**, click **Replicated Items** > VM.
 > **Don't cancel a failover in progress**: If you cancel in progress, failover stops, but the VM won't replicate again.
 
 ## Next steps
+
+After failover, reprotect the Azure VMs so that they replicate from Azure to on-premises. Then, after the VMs are reprotected and replicating to the on-premises site, fail back from Azure when you're ready.
