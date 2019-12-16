@@ -1,5 +1,5 @@
 ---
-title: Resources for developing with Azure SQL Analytics | Microsoft Docs
+title: Resources for developing with Azure SQL Analytics
 description: Development concepts, design decisions, recommendations and coding techniques for SQL Analytics.
 services: synapse analytics
 author: filippopovic
