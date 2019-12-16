@@ -256,7 +256,8 @@ The `GenerateOtp` technical profile generates a code for the email address. The 
         <InputClaim ClaimTypeReferenceId="verificationCode" PartnerClaimType="otpToVerify" />
       </InputClaims>
     </TechnicalProfile>
-  </ClaimsProviders>
+   </TechnicalProfiles>
+</ClaimsProviders>
 ```
 
 ## Add a REST API technical profile
