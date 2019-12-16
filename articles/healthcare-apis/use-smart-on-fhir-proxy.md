@@ -30,7 +30,7 @@ SMART on FHIR requires that `Audience` has an identifier URI equal to the URI of
 
 Suppose that the URI for your Azure API for FHIR is `https://MYFHIRAPI.azurehealthcareapis.com`. You need to configure a [resource application registration](register-resource-azure-ad-client-app.md) with that identifier URI.
 
-After you set up a resource application, you also need a client application registration. Most SMART on FHIR applications are single-page javascript applications. So you should follow the instructions for configuring a [public Azure AD client application](register-public-azure-ad-client-app.md).
+After you set up a resource application, you also need a client application registration. Most SMART on FHIR applications are single-page JavaScript applications. So you should follow the instructions for configuring a [public Azure AD client application](register-public-azure-ad-client-app.md).
 
 After you complete these steps, you should have:
 
@@ -61,7 +61,7 @@ Because of this two-step relay of the authentication code, you need to set the r
 https://MYFHIRAPI.azurehealthcareapis.com/AadSmartOnFhirProxy/callback/aHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMS9zYW1wbGVhcHAvaW5kZXguaHRtbA
 ```
 
-In that reply, `aHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMS9zYW1wbGVhcHAvaW5kZXguaHRtbA` is a URL-safe, base64-encoded version of the reply URL for the SMART on FHIR app. For the SMART app launcher, when the app is running locally, the reply URL is `https://localhost:5001/sampleapp/index.html`. 
+In that reply, `aHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMS9zYW1wbGVhcHAvaW5kZXguaHRtbA` is a URL-safe, base64-encoded version of the reply URL for the SMART on FHIR app. For the SMART on FHIR app launcher, when the app is running locally, the reply URL is `https://localhost:5001/sampleapp/index.html`. 
 
 You can generate the combined reply URL by using a script like this:
 
@@ -85,7 +85,7 @@ Add the reply URL to the public client application that you created earlier for 
 
 To test the Azure API for FHIR and the SMART on FHIR proxy, you'll need to have at least one patient in the database. If you have not interacted with the API yet and you don't have data in the database, follow the [FHIR API Postman tutorial](access-fhir-postman-tutorial.md) to load a patient. Make a note of the ID of a specific patient.
 
-## Download the SMART app launcher
+## Download the SMART on FHIR app launcher
 
 The open-source [FHIR Server for Azure repository](https://github.com/Microsoft/fhir-server) includes a simple SMART on FHIR app launcher and a sample SMART on FHIR app. In this tutorial, use this SMART on FHIR launcher locally to test the setup.
 
