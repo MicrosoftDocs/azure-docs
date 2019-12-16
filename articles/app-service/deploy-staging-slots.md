@@ -38,8 +38,10 @@ To scale your app to a different tier, make sure that the target tier supports t
 ## Add a slot
 The app must be running in the **Standard**, **Premium**, or **Isolated** tier in order for you to enable multiple deployment slots.
 
-1. in the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources).
-
+1. in the [Azure portal](https://portal.azure.com/), search for and select **App Services** and select your app. 
+   
+    ![Search for App Services](./media/web-sites-staged-publishing/search-for-app-services.png)
+   
 2. In the left pane, select **Deployment slots** > **Add Slot**.
    
     ![Add a new deployment slot](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
@@ -274,7 +276,7 @@ By default, new slots are given a routing rule of `0%`, shown in grey. When you 
 
 ## Delete a slot
 
-Go to your app's resource page. Select **Deployment slots** > *\<slot to delete>* > **Overview**. Select **Delete** on the command bar.  
+Search for and select your app. Select **Deployment slots** > *\<slot to delete>* > **Overview**. Select **Delete** on the command bar.  
 
 ![Delete a deployment slot](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
