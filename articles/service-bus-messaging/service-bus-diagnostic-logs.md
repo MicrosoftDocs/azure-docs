@@ -96,7 +96,7 @@ Operational logs are disabled by default. To enable diagnostics logs, do the fol
 
    a. In the **Name** box, enter a name for the diagnostics settings.  
 
-   b. Select one of the following three destination for your diagnostics logs:  
+   b. Select one of the following three destinations for your diagnostics logs:  
    - If you select **Archive to a storage account**, you need to configure the storage account where the diagnostics logs will be stored.  
    - If you select **Stream to an event hub**, you need to configure the event hub that you want to stream the diagnostics logs to.
    - If you select **Send to Log Analytics**, you need to specify which instance of Log Analytics the diagnostics will be sent to.  
