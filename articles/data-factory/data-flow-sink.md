@@ -13,13 +13,9 @@ ms.date: 12/12/2019
 
 # Sink transformation in mapping data flow
 
-<<<<<<< HEAD
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-After you transform your data flow, you can sink the data into a destination dataset. In the sink transformation, choose a dataset definition for the destination output data. You can have as many sink transformations as your data flow requires.
-=======
 After you transform your data, you can sink the data into a destination dataset. Every data flow requires at least one sink transformation, but you can write to as many sinks as necessary to complete your transformation flow. To write to additional sinks, create new streams via new branches and conditional splits.
->>>>>>> 3f3dfba31bb5b2ac9ca2418601f646a46560f0f2
 
 Each sink transformation is associated with exactly one Data Factory dataset. The dataset defines the shape and location of the data you want to write to.
 
