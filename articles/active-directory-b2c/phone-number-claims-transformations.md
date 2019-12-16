@@ -24,7 +24,7 @@ This article provides reference and examples for using the phone number claims t
 
 ## ConvertStringToPhoneNumberClaim
 
-This claim validates the format of the phone number. If the it is in a valid format, change it to a standard format used by Azure AD B2C. If the provided phone number is not in a valid format, an error message is returned.
+This claim validates the format of the phone number. If it is in a valid format, change it to a standard format used by Azure AD B2C. If the provided phone number is not in a valid format, an error message is returned.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
