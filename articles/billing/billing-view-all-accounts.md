@@ -61,9 +61,9 @@ A scope is a node within a billing account that you use to view and manage billi
 
 |Scope  |Tasks  |
 |---------|---------|
-|Billing account     |   Represents an agreement that a customer accepts to use Microsoft products and services. It contains one or more billing profile. |
-|Billing profile     |   Represents an invoice and the related billing information such as payment methods and billing address. I contains one or more invoice sections. |
-|Invoice section     |   Represents a grouping of costs in an invoice. Azure subscriptions and other purchases such as Azure marketplace and App source products are associated to this scope.    |
+|Billing account     |   Represents an agreement that a customer accepts to use Microsoft products and services. It contains one or more billing profiles. |
+|Billing profile     |   Represents an invoice and the related billing information such as payment methods and billing address. I contain one or more invoice sections. |
+|Invoice section     |   Represents a grouping of costs in an invoice. Azure subscriptions and other purchases such as Azure Marketplace and App source products are associated to this scope.    |
 
 ### Microsoft Partner Agreement
 
@@ -73,7 +73,7 @@ A scope is a node within a billing account that you use to view and manage billi
 |---------|---------|
 |Billing account     |   Represents a partner agreement to manage customers' Microsoft products and services in the new commerce experience. It is structured using billing profiles and customers.   |
 |Billing profile     |   Represents an invoice for a currency.     |
-|Customer    |   Represents a customer for a Cloud Solution Provider (CSP) partner.  Azure subscriptions and other purchases such as Azure marketplace and App source products are associated to this scope.  |
+|Customer    |   Represents a customer for a Cloud Solution Provider (CSP) partner.  Azure subscriptions and other purchases such as Azure Marketplace and App source products are associated to this scope.  |
 |Reseller    |   Reseller that provides services to a customer. It is an optional field for a subscription and is applicable only for Indirect providers in the CSP two-tier model.     |
 
 ## Switch billing scope in the Azure portal
