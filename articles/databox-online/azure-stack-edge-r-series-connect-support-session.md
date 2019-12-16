@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Connect to a Support session on an Azure Stack Edge device via Windows PowerShell
 
-The Azure Stack Edge device provides the capability to log a new support request within the service summary blade. If you encounter any issues with your Azure Stack Edge solution, you will need to engage with the Microsoft Support team. In an online session with your support engineer, you may also need to start a support session on your Azure Stack Edge device. 
+The Azure Stack Edge device provides the capability to log a new support request within the Azure portal. If you encounter any issues with your Azure Stack Edge solution, you will need to engage with the Microsoft Support team. In an online session with your support engineer, you may also need to start a support session on your Azure Stack Edge device. 
 
 This article walks you through how to start a support session in the Windows PowerShell interface of your Azure Stack Edge device. To start a Support session, you need to:
 
