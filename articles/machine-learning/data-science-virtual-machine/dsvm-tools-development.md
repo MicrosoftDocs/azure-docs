@@ -67,9 +67,9 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Client IDE for Julia language   |
-| Supported DSVM versions      | Linux      |
+| Supported DSVM versions      | Windows, Linux      |
 | Typical uses      |  Julia development     |
-| How to use and run it      | Desktop shortcut (`/opt/JuliaPro-VERSION/Juno`) on Linux      |
+| How to use and run it      | Desktop shortcut (`C:\JuliaPro-0.5.1.1\Juno.bat`) on Windows, desktop shortcut (`/opt/JuliaPro-VERSION/Juno`) on Linux      |
 | Related tools on the DSVM      |   Visual Studio, Visual Studio Code, RStudio      |
 
 ## Pycharm
@@ -77,7 +77,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Client IDE for Python language    |
-| Supported DSVM versions      | Windows, Linux      |
+| Supported DSVM versions      | Windows 2019 (Preview), Linux      |
 | Typical uses      |  Python development     |
 | How to use and run it      | Desktop shortcut (`C:\Program Files\tk`) on Windows. Desktop shortcut (`/usr/bin/pycharm`) on Linux      |
 | Related tools on the DSVM      |   Visual Studio, Visual Studio Code, RStudio      |

@@ -50,9 +50,9 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 |    |           |
 | ------------- | ------------- |
 | What is it?   | A fast, distributed, high-performance gradient-boosting (GBDT, GBRT, GBM, or MART) framework based on decision tree algorithms. It's used for ranking, classification, and many other machine-learning tasks.    |
-| Supported versions      | Linux    |
+| Supported versions      | Windows, Linux    |
 | Typical uses      | General-purpose gradient-boosting framework      |
-| How is it configured or installed?      | On Linux, the command-line executable is in `/opt/LightGBM/lightgbm`, the R package is installed, and Python packages are installed.     |
+| How is it configured or installed?      | On Windows, LightGBM is installed as a Python package. On Linux, the command-line executable is in `/opt/LightGBM/lightgbm`, the R package is installed, and Python packages are installed.     |
 | Link to samples      | [LightGBM guide](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
 | Related tools      | MXNet, XgBoost  |
 
@@ -60,9 +60,9 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 |    |           |
 | ------------- | ------------- |
 | What is it?   |   A graphical user interface for data mining by using R.   |
-| Supported editions     | Linux     |
+| Supported editions     | Windows, Linux     |
 | Typical uses      | General UI data-mining tool for R    |
-| How to use or run it      | As a UI tool. On Linux, connect with X2Go, start a terminal, run R, and then inside R, run `rattle()`. |
+| How to use or run it      | As a UI tool. On Windows, start a command prompt, run R, and then inside R, run `rattle()`. On Linux, connect with X2Go, start a terminal, run R, and then inside R, run `rattle()`. |
 | Link to samples      | [Rattle](https://togaware.com/onepager/) |
 | Related tools      |LightGBM, Weka, XGBoost   |
 
@@ -82,9 +82,9 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 |    |           |
 | ------------- | ------------- |
 | What is it?   |  A collection of machine-learning algorithms for data-mining tasks. The algorithms can be either applied directly to a data set or called from your own Java code. Weka contains tools for data pre-processing, classification, regression, clustering, association rules, and visualization. |
-| Supported editions     | Linux     |
+| Supported editions     | Windows, Linux     |
 | Typical uses      | General machine-learning tool     |
-| How to use or run it      | On Linux, sign in with X2Go, and then go to **Applications** > **Development** > **Weka**. |
+| How to use or run it      | On Windows, search for Weka on the **Start** menu. On Linux, sign in with X2Go, and then go to **Applications** > **Development** > **Weka**. |
 | Link to samples      | [Weka samples](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Related tools      |LightGBM, Rattle, XGBoost   |
 
@@ -103,7 +103,7 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Open-source SQL query engine on big data    |
-| Supported DSVM versions      | Windows, Linux  |
+| Supported DSVM versions      | Windows 2019 (Preview), Linux  |
 | How is it configured and installed on the DSVM?      |  Installed in `/dsvm/tools/drill*` in embedded mode only   |
 | Typical uses      |  For in-place data exploration without requiring extract, transform, load (ETL). Query different data sources and formats, including CSV, JSON, relational tables, and Hadoop.     |
 | How to use and run it      | Desktop shortcut  <br/> [Get started with Drill in 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |
