@@ -33,17 +33,44 @@ To get started, enable one of these services to receive the data. To learn about
 > [!NOTE]
 > There might be a gap of up to 15 minutes between when logs or metrics are emitted and when they appear in your storage account, your event hub, or Log Analytics.
 
-## View the logs
+## View the logs and metrics
+There are various methods to view logs and metrics as described under the following headings.
+
+### Use Logs blade
+
+1. In the Azure portal, go to your Azure Spring Cloud instance.
+1. To open the **Log Search** pane, select **Logs**.
+1. In the **Log** search box
+   * To view logs, enter a simple query such as:
+
+    ```sql
+    AppPlatformLogsforSpring
+    | limit 50
+    ```
+   * To view metrics, enter a simple query such as:
+
+    ```sql
+    AzureMetrics
+    | limit 50
+    ```
+1. To view the search result, select **Run**.
 
 ### Use Log Analytics
 
 1. In the Azure portal, in the left pane, select **Log Analytics**.
 1. Select the Log Analytics workspace that you chose when you added your diagnostics settings.
 1. To open the **Log Search** pane, select **Logs**.
-1. In the **Log** search box, enter a simple query such as:
+1. In the **Log** search box,
+   * to view logs, enter a simple query such as:
 
     ```sql
     AppPlatformLogsforSpring
+    | limit 50
+    ```
+    * to view metrics, enter a simple query such as:
+
+    ```sql
+    AzureMetrics
     | limit 50
     ```
 
