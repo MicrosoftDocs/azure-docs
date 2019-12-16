@@ -92,41 +92,18 @@ The following table shows the available metrics and details.
 | OldGenPromotedBytes | Promote to Old Generation Data Size | jvm.gc.memory.promoted | Bytes | Count of positive increases in the size of the old generation memory pool before GC to after GC. |
 | YoungGenPromotedBytes | Promote to Young Generation Data Size | jvm.gc.memory.allocated | Bytes | Incremented for an increase in the size of the young generation memory pool after one GC to before the next. |
 | GCPauseTotalCount | GC Pause Count | jvm.gc.pause (total-count) | Count | Total GC count after this JMV started, including Young and Old GC. |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-
+| GCPauseTotalTime | GC Pause Total Time | jvm.gc.pause (total-time) | Milliseconds | Total GC time consumed after this JMV started, including Young and Old GC. |
+| TomcatSentBytes | Tomcat Total Sent Bytes | tomcat.global.sent | Bytes | Amount of data Tomcat web server sent, in bytes |
+| TomcatReceivedBytes | Tomcat Total Received Bytes | tomcat.global.received | Bytes | Amount of data Tomcat web server received, in bytes |
+| TomcatRequestTotalTime | Tomcat Request Total Time | tomcat.global.request (total-time) | Milliseconds | Total time of Tomcat web server to process the requests. |
+| TomcatRequestTotalCount | Tomcat Request Total Count | tomcat.global.request (total-count) | Count | Total count of Tomcat web server processed requests |
+| TomcatRequestMaxTime | Tomcat Request Max Time | tomcat.global.request.max | Milliseconds | Maximum time of Tomcat web server to process a request |
+| TomcatErrorCount | Tomcat Global Error | tomcat.global.error | Count | Number of errors occurs of processed requests |
+| TomcatSessionActiveMaxCount | Tomcat Session Max Active Count | tomcat.sessions.active.max | Count | Maximum number of sessions that have been active at the same time |
+| TomcatSessionAliveMaxTime | Tomcat Session Max Alive Time | tomcat.sessions.alive.max | Milliseconds | Longest time (in seconds) that an expired session had been alive |
+| TomcatSessionCreatedCount | Tomcat Session Created Count | tomcat.sessions.created | Count | Number of sessions that have been created |
+| TomcatSessionExpiredCount | Tomcat Session Expired Count | tomcat.sessions.expired | Count | Number of sessions that have expired |
+| TomcatSessionRejectedCount | Tomcat Session Rejected Count | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
 
 ## See also
 * [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
