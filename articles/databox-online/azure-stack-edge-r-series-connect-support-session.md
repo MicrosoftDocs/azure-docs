@@ -38,7 +38,7 @@ When you bring your own certificate, you must:
     - Upload the certificate to your Azure Stack Edge device in appropriate format.
     - Import the Support session certificate into your client where the decrypt tool is installed. 
 
-For more information on certificates, go to [Manage certificates on your Azure Stack Edge device](azure-stack-edge-r-series-manage-certificates).
+For more information on certificates, go to [Manage certificates on your Azure Stack Edge device](azure-stack-edge-r-series-manage-certificates.md).
 
 **For test and development purposes only**, do the following steps to generate a self-signed support session certificate:
 
@@ -91,7 +91,7 @@ For more information on certificates, go to [Manage certificates on your Azure S
 
     ![Add certificate](media/azure-stack-edge-r-series-connect-support-session/add-certificate-6.png)
 
-    For more information on certificates, go to [Manage certificates on your Azure Stack Edge device](azure-stack-edge-r-series-manage-certificates).
+    For more information on certificates, go to [Manage certificates on your Azure Stack Edge device](azure-stack-edge-r-series-manage-certificates.md).
 
 
 ## Connect to device from a remote client
@@ -126,7 +126,7 @@ Do the following steps on the client.
 
 1. Create a folder*SupportSessionDecrypter* on your system.
 
-2. Go to [http://aka.ms/support-password-decrypter](http://aka.ms/support-password-decrypter) to get the Support password decrypter tool. 
+2. Go to [https://aka.ms/support-password-decrypter](https://aka.ms/support-password-decrypter) to get the Support password decrypter tool. 
 
 3. Copy the tool to the folder you've created. 
 
