@@ -17,6 +17,8 @@ ms.author: diberry
 
 Azure Personalizer is a cloud-based API service that helps your client application choose the best _content_ to show each user. The service **ranks** your content, in real-time, based on information your provide. After you present the ranked content to your user, return a **reward** to the Personalizer service so it can continue to improve its ability to rank content.
 
+**Content** can be any unit of information such as text, images, urls, or emails that you want to rank.
+
 ## When to use Personalizer
 
 * You have content you want presented in a ranked order.
@@ -27,7 +29,7 @@ Personalizer is not a service to persist and manage user profile information, or
 
 ## How does Personalizer rank your content?
 
-Personalizer uses reinforcement learning to rank information about your content and its context. **Content** can be any unit of information such as text, images, urls, or emails that you want to rank.
+Personalizer uses reinforcement learning to rank information about your content and its context.
 
 * Content ID - any string representation of your content
 * Actions - information about the content
