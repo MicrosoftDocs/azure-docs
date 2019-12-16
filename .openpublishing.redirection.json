@@ -44559,6 +44559,56 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cost-management/activate-subs-accounts.md",
+            "redirect_url": "/azure/cost-management-billing/cloudyn/activate-subs-accounts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/assign-access-acm-data.md",
+            "redirect_url": "/azure/cost-management-billing/costs/assign-access-acm-data",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/aws-integration-manage.md",
+            "redirect_url": "/azure/cost-management-billing/costs/aws-integration-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/aws-integration-set-up-configure.md",
+            "redirect_url": "/azure/cost-management-billing/aws-integration-set-up-configure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/dashboards.md",
+            "redirect_url": "/azure/cost-management-billing/cloudyn/dashboards",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/overview.md",
+            "redirect_url": "/azure/cost-management-billing/cloudyn/overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/overview-cost-mgt.md",
+            "redirect_url": "/azure/cost-management-billing/costs/overview-cost-mgt",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/storage-accounts.md",
+            "redirect_url": "/azure/cost-management-billing/cloudyn/storage-accounts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cost-management/tutorial-manage-costs.md",
+            "redirect_url": "/azure/cost-management-billing/cloudyn/tutorial-manage-costs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-check-free-service-usage.md",
+            "redirect_url": "/azure/cost-management-billing/manage/check-free-service-usage",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md",
             "redirect_url": "/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations",
             "redirect_document_id": true
