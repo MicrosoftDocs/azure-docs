@@ -1,7 +1,7 @@
 ---
 title: What is Personalizer?
 titleSuffix: Azure Cognitive Services
-description: Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior. 
+description: Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,56 +10,64 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 10/23/2019
 ms.author: diberry
-#Customer intent: 
+#Customer intent:
 ---
 
 # What is Personalizer?
 
-Azure Personalizer is a cloud-based API service that allows your application to choose the best experience to show to your users, learning from their collective real-time behavior.
+Azure Personalizer is a cloud-based API service that helps your client application choose the best _content_ to show each user. The service **ranks** your content, in real-time, based on information your provide. After you present the ranked content to your user, return a **reward** to the Personalizer service so it can continue to improve its ability to rank content.
 
-* Provide information about your users and content and receive the top action to show your users. 
-* No need to clean and label data before using Personalizer.
-* Provide feedback to Personalizer when it is convenient to you. 
-* View real-time analytics. 
+## When to use Personalizer
 
-See a demonstration of [how Personalizer works](https://personalizercontentdemo.azurewebsites.net/)
+* You have content you want presented in a ranked order.
+* You have information describing the content (_actions_ and _context_ - explained below).
+* You have enough real-time traffic (~XK transactions/day) to give to Personalizer to rank the content.
 
-## How does Personalizer work?
+Personalizer is not a service to persist and manage user profile information, or to log individual users' preferences or history.
 
-Personalizer uses machine learning models to discover what action to rank highest in a context. Your client application provides a list of possible actions, with information about them; and information about the context, which may include information about the user, device, etc. Personalizer determines the action to take. Once your client application uses the chosen action, it provides feedback to Personalizer in the form of a reward score. After the feedback is received, Personalizer automatically updates its own model used for future ranks. Over time, Personalizer will train one model that can suggest the best action to choose in each context based on their features.
+## How does Personalizer rank your content?
 
-## How do I use the Personalizer?
+Personalizer uses reinforcement learning to rank information about your content and its context. **Content** can be any unit of information such as text, images, urls, or emails that you want to rank.
 
-![Using Personalizer to choose which video to show to a user](media/what-is-personalizer/personalizer-example-highlevel.png)
+* Content ID - any string representation of your content
+* Actions - information about the content
+* Context - information about the context information
 
-1. Choose an experience in your app to personalize.
-1. Create and configure an instance of the Personalization Service in the Azure portal. Each instance is a Personalizer Loop.
-1. Use the [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) to call Personalizer with information (_features_) about your users, and the content (_actions_). You don't need to provide clean, labeled data before using Personalizer. APIs can be called directly or using SDKs available for different programming languages.
-1. In the client application, show the user the action selected by Personalizer.
-1. Use the [Reward API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) to provide feedback to Personalizer indicating if the user selected Personalizer's action. This is a _[reward score](concept-rewards.md)_.
-1. View analytics in the Azure portal to evaluate how the system is working and how your data is helping personalization.
+You need to determine the information groups for actions and context based on your scenario. Several example scenarios are:
 
-## Where can I use Personalizer?
+|Content|Actions|Context|
+|--|--|--|
+|News|News type<br>Subject<br>Content type (text, image, video)|Device news is read from<br>Time of day, month, or season<br>|
+|Movies|Movie genre<br>Main actors<br>Directory<br>Film rating<br>length|Device movie is watched from<br>screen size<br>Time of day, month, or season<br>|
+|Products|Price<br>Size<br>Availability<br>Time to package<br>Time to ship<br>On Sale|Device shopping  is read from<br>Spending tier of user<br>Time of day, month, or season|
 
-For example, your client application can add Personalizer to:
+## Personalizer can rank content from the recommendation engine
 
-* Personalize what article is highlighted on a news website.    
-* Optimize ad placement on a website.
-* Display a personalized "recommended item" on a shopping website.
-* Suggest user interface elements such as filters to apply to a specific photo.
-* Choose a chat bot's response to clarify user intent or suggest an action.
-* Prioritize suggestions of what a user should do as the next step in a business process.
+Personalizer can be used _with_ your existing recommendation engine as a last-step ranker, selecting the _top_ choice of content, from the list of choices provided by the recommendation engine. Learn how to [use Personalizer with recommendation engines]().
 
-Personalizer is not a service to persist and manage user profile information, or to log individual users' preferences or history. Personalizer learns from each interaction's features in the action of a context in a single model that can obtain maximum rewards when similar features occur. 
+## Call Personalizer in real-time
 
-## Personalization for developers
+Personalizer's **Rank** API is called _every time_ you present content, in real-time. This is known as an **event**, noted with an _event ID_.
 
-Personalizer Service has two APIs:
+Personalizer's **Reward** API can be called in real-time or delayed to better fit your infrastructure. You determine the reward score based on your business needs. That can be a single value such as 1 for good, and 0 for bad, or an algorithm you create based on your business needs.
 
-* *Rank*: Use the Rank API to determine which _action_ to show, in the current _context_. Actions are sent as an array of JSON objects, with an ID and information (_features_) about each; context is sent as another JSON object. The API returns the actionId that your application should render to the user.
-* *Reward*: After your user interacts with your application, you measure how well the personalization worked as a number between 0 and 1 and send it as a [reward score](concept-rewards.md). 
+## How do you get started?
 
-![Basic sequence of events for Personalization](media/what-is-personalizer/personalization-intro.png)
+[architectural image]
+
+1. Design and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
+1. Create a Personalizer resource in the Azure portal. This is also known as a _learning loop_. The loop is the combination of both the Rank and Reward calls for each _event_.
+1. Add Personalizer to your website or content system:
+    1. Add a **Rank** call to Personalizer in your application, website or system to determine the ranking of content before the content is shown to the user.
+    1. Display ranked content to user.
+    1. Collect information about how the user behaved when presented with the ranked content, such as:
+        * Immediately selected top-ranked content
+        * Or selected other content
+        * Or paused, scrolling around indecisively, before selecting  content
+    1. Add a **Reward** call
+        * Immediately after showing your content
+        * Or sometime later in an offline system
+
 
 ## Next steps
 
