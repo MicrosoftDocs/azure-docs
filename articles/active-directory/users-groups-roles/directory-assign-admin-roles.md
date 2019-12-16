@@ -1521,6 +1521,7 @@ Can read security information and reports in Azure AD and Office 365.
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
+| microsoft.directory/policies/conditionalAccess/basic/read | Read policies.conditionalAccess property in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Read all resources in microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
