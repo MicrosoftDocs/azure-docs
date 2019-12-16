@@ -6,10 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.reviewer: peterlu
 ms.author: peterlu
 author: peterclu
-ms.date: 12/11/2019
+ms.date: 12/15/2019
 ---
 
 # Retrain models with Azure Machine Learning designer (preview)
