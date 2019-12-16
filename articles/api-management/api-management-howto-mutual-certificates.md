@@ -28,14 +28,14 @@ For information about managing certificates using the API Management REST API, s
 
 This guide shows you how to configure your API Management service instance to use client certificate authentication to access the back-end service for an API. Before following the steps in this article, you should have your back-end service configured for client certificate authentication ([to configure certificate authentication in Azure WebSites refer to this article][to configure certificate authentication in Azure WebSites refer to this article]). You need access to the certificate and the password for uploading it to the API Management service.
 
-## <a name="step1"> </a>Upload a client certificate
+## <a name="step1"> </a>Upload a Certificate
 
-![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert.png)
+![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-new.png)
 
 Follow the steps below to upload a new client certificate. If you have not created an API Management service instance yet, see the tutorial [Create an API Management service instance][Create an API Management service instance].
 
 1. Navigate to your Azure API Management service instance in the Azure portal.
-2. Select **Client certificates** from the menu.
+2. Select **Certificates** from the menu.
 3. Click the **+ Add** button.  
     ![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)  
 4. Browse for the certificate, provide its ID and password.  
@@ -44,7 +44,7 @@ Follow the steps below to upload a new client certificate. If you have not creat
 > [!NOTE]
 > The certificate must be in **.pfx** format. Self-signed certificates are allowed.
 
-Once the certificate is uploaded, it shows in the **Client certificates**.  If you have many certificates, make a note of the thumbprint of the desired certificate in order to [Configure an API to use a client certificate for gateway authentication][Configure an API to use a client certificate for gateway authentication].
+Once the certificate is uploaded, it shows in the **Certificates**.  If you have many certificates, make a note of the thumbprint of the desired certificate in order to [Configure an API to use a client certificate for gateway authentication][Configure an API to use a client certificate for gateway authentication].
 
 > [!NOTE]
 > To turn off certificate chain validation when using, for example, a self-signed certificate, follow the steps described in this FAQ [item](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).
@@ -53,7 +53,7 @@ Once the certificate is uploaded, it shows in the **Client certificates**.  If y
 
 To delete a certificate, click context menu **...** and select **Delete** beside the certificate.
 
-![Delete client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-delete.png)
+![Delete client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-delete-new.png)
 
 If the certificate is in use by an API, then a warning screen is displayed. To delete the certificate, you must first remove the certificate from any APIs that are configured to use it.
 
