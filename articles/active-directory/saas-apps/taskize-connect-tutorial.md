@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/13/2019
+ms.date: 12/16/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -90,29 +90,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL:
     `https://connect.taskize.com/connect/`
 
-1. Taskize Connect application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+1. Taskize Connect application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/edit-attribute.png)
 
-1. In addition to above, Taskize Connect application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table:
+1. In addition to above, Taskize Connect application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
 	| Name | Source Attribute|
 	| ------------------- | -------------------- |    
 	| urn:oid:0.9.2342.19200300.100.1.3 | user.userprincipalname |
-
-	1. Click **Add new claim** to open the **Manage user claims** dialog.
-
-	1. In the **Name** textbox, type the attribute name shown for that row.
-
-	1. Leave the **Namespace** blank.
-
-	1. Select Source as **Attribute**.
-
-	1. From the **Source attribute** list, type the attribute value shown for that row.
-
-	1. Click **Ok**
-
-	1. Click **Save**.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
