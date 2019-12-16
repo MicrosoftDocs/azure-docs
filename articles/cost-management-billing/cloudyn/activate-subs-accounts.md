@@ -26,7 +26,7 @@ Specific permissions are needed to complete the procedures in this article. Eith
 - Permission to register the CloudynCollector application with your Azure AD tenant.
 - The ability to assign the application to a role in your Azure subscriptions.
 
-In your Azure subscriptions, your accounts must have `Microsoft.Authorization/*/Write` access to assign the CloudynCollector application. This action is granted through the [Owner](../role-based-access-control/built-in-roles.md#owner) role or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) role.
+In your Azure subscriptions, your accounts must have `Microsoft.Authorization/*/Write` access to assign the CloudynCollector application. This action is granted through the [Owner](../../role-based-access-control/built-in-roles.md#owner) role or [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role.
 
 If your account is assigned the **Contributor** role, you do not have adequate permission to assign the application. You receive an error when attempting to assign the CloudynCollector application to your Azure subscription.
 
@@ -60,7 +60,7 @@ When you add an account update a subscription, you grant Cloudyn access to your 
     2. In the Azure portal, select **Azure Active Directory**.
     3. To get the tenant ID, select **Properties** for your Azure AD tenant.
     4. Copy the Directory ID GUID. This value is your tenant ID.
-    For more information, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    For more information, see [Get tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 3. If necessary, select your Rate ID. If you don't know your rate ID, use the following steps to find it.
     1. In the upper-right of the Azure portal, click your user information and then click **View my bill**.
     2. Under **Billing Account**, click **Subscriptions**.
@@ -94,7 +94,7 @@ Here's how to fix the problems:
 
 Before you can generate the Azure Enterprise Agreement API key to set up Cloudyn, you must enable the Azure Billing API by following the instructions at:
 
-- [Overview of Reporting APIs for Enterprise customers](../cost-management-billing/manage/enterprise-api.md)
+- [Overview of Reporting APIs for Enterprise customers](../manage/enterprise-api.md)
 - [Microsoft Azure enterprise portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) under **Enabling data access to the API**
 
 You also might need to give department administrators, account owners, and enterprise administrators permissions to _view charges_ with the Billing API.
@@ -129,4 +129,4 @@ $url = "https://login.windows.net/"+$tenant+"/oauth2/authorize?api-version=1&res
 
 ## Next steps
 
-- If you haven't already completed the first tutorial for Cloudyn, read it at [Review usage and costs](../cost-management-billing/cloudyn/tutorial-review-usage.md).
+- If you haven't already completed the first tutorial for Cloudyn, read it at [Review usage and costs](tutorial-review-usage.md).

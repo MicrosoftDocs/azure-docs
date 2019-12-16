@@ -25,11 +25,11 @@ Dashboards are also used to create views for people with different responsibilit
 
 Dashboards are made up of widgets and each widget is essentially a report thumbnail. Click a widget to open its report. When you customize reports, you save them to My Reports and they're added to the dashboard.
 
-Dashboard versions differ for Management (MSP), Enterprise, and Premium Cloudyn users. The differences are determined by entity access levels. For more information about access levels, see [Entity access levels](../cost-management-billing/cloudyn/tutorial-user-access.md#entity-access-levels).
+Dashboard versions differ for Management (MSP), Enterprise, and Premium Cloudyn users. The differences are determined by entity access levels. For more information about access levels, see [Entity access levels](tutorial-user-access.md#entity-access-levels).
 
 Dashboard availability depends on the type of cloud service provider account that is used when viewing dashboards. The type of information available and collected by Cloudyn affects reports in dashboards. For example, if you don't have an AWS account then you won't see the S3 Tracker dashboard. Similarly, if you don't enable Azure Resource Manager access to Cloudyn then you won't see any Azure-specific information in Optimizer dashboard widgets.
 
-You can use any of the premade dashboards or you can create your own dashboard with customized reports. If you're unfamiliar with Cloudyn reports, see [Use Cloudyn reports](../cost-management-billing/cloudyn/use-reports.md).
+You can use any of the premade dashboards or you can create your own dashboard with customized reports. If you're unfamiliar with Cloudyn reports, see [Use Cloudyn reports](use-reports.md).
 
 ## Create a custom dashboard
 
@@ -292,4 +292,4 @@ This widget highlights the best mapping of elastic compute units between Amazon 
 - Click the widget to open the Instances Type Mapping report.
 
 ## Next steps
-- Read the [Use Cloudyn reports](../cost-management-billing/cloudyn/use-reports.md) article to learn more about reports.
+- Read the [Use Cloudyn reports](use-reports.md) article to learn more about reports.

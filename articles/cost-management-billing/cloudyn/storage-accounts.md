@@ -22,7 +22,7 @@ You can save Cloudyn reports in the Cloudyn portal, Azure storage, or AWS storag
 
 You must have either an Azure storage account or an Amazon storage bucket.
 
-If you don't have an Azure storage account, you need to create one. For more information about creating an Azure storage account, see [Create a storage account](../storage/common/storage-account-create.md).
+If you don't have an Azure storage account, you need to create one. For more information about creating an Azure storage account, see [Create a storage account](../../storage/common/storage-account-create.md).
 
 If you don't have an AWS simple storage service (S3) bucket, you need to create one. For more information about creating an S3 bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html).
 
@@ -159,4 +159,4 @@ You can now save reports to Azure storage. In any report, click **Actions**  and
 
 ## Next steps
 
-- Review [Understanding Cloudyn reports](../cost-management-billing/cloudyn/understanding-cost-reports.md) to learn about the basic structure and functions of Cloudyn reports.
+- Review [Understanding Cloudyn reports](understanding-cost-reports.md) to learn about the basic structure and functions of Cloudyn reports.

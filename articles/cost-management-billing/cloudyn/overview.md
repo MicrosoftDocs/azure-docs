@@ -18,7 +18,7 @@ Cloudyn, a Microsoft subsidiary, allows you to track cloud usage and expenditure
 
 To watch an introductory video, see [Introduction to Azure Cloudyn](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
 
-Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information, see [Azure Cost Management](overview-cost-mgt.md).
+Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information, see [Azure Cost Management](../costs/overview-cost-mgt.md).
 
 Watch the [Azure Cost Management and Cloudyn video](https://www.youtube.com/watch?v=PmwFWwSluh8) to see recommendations when you should use either Azure Cost Management or Cloudyn, based on your business needs.
 
@@ -80,4 +80,4 @@ If you provisioned AWS Reserved Instances, you can improve your reserved instanc
 
 Now that you’re familiar with Cloudyn, the next step is to register your cloud environment and start exploring your data.
 
-- [Register an individual Azure subscription](../cost-management-billing/cloudyn/quick-register-azure-sub.md)
+- [Register an individual Azure subscription](quick-register-azure-sub.md)
