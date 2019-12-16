@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a web app project
 
-Create a new project in Visual Studio, using the ASP.NET Core Web Application template with built-in Model-View-Controller. Name the project "QuickStartSampleApp".
+Create a new project in Visual Studio, using the ASP.NET Core Web Application template with built-in Model-View-Controller, and ASP.NET Core 2.1. Name the project "QuickStartSampleApp".
 
 ![New Project](./media/vswebapp.png)
 
@@ -65,7 +65,7 @@ Right-click on the project in the _Solution Explorer_ and choose **Manage User S
 
 The following code uses objects from the **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet package so you will need to add a reference to that package in your project.
 
-Open the NuGet Package Manager Console from **Tools -> NuGet Package Manager -> Package Manager Console** and type in the following:
+Open the NuGet Package Manager Console from **Tools -> NuGet Package Manager -> Package Manager Console** and run the following:
 
 ```powershell
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.1.0
@@ -159,7 +159,7 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 
 ## Add sample content
 
-Now, we'll add some sample content to this web app. Open _Views\Home\Index.cshtml_ and replace the automatically generated code with this sample:
+Now, we'll add sample content to this web app. Open _Views\Home\Index.cshtml_ and replace all automatically generated code with this sample:
 
 ```html
 @{
@@ -275,7 +275,7 @@ Refresh the webpage in your browser. You should see:
 ## Launch the Immersive Reader
 
 ### Add Javascript to handle launching the Immersive Reader
-Inside of ```@section Scripts```, after the ```<script>``` that we have already added, add the following code:
+Open _Views\Home\Index.cshtml_. Inside of ```@section Scripts```, after the ```<script>``` that we have already added, add the following code:
 
 ```html
 <script>
@@ -308,6 +308,7 @@ Inside of ```@section Scripts```, after the ```<script>``` that we have already 
                 const token = response["token"];
                 const subdomain = response["subdomain"];
 
+                // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#chunk
                 const data = {
                     title: $("#ir-title").text(),
                     chunks: [{
@@ -316,6 +317,7 @@ Inside of ```@section Scripts```, after the ```<script>``` that we have already 
                     }]
                 };
 
+                // Learn more about options https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#options
                 const options = {
                     "onExit": exitCallback,
                     "uiZIndex": 2000
