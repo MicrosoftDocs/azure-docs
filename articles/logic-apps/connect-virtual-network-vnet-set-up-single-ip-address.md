@@ -1,6 +1,6 @@
 ---
-title: Set up access for multiple ISEs
-description: For multiple integration service environments (ISEs), you can set up a single public outbound IP address to access external systems from Azure Logic Apps
+title: Set up a public outbound IP address for ISEs
+description: Learn how to set up a single public outbound IP address for integration service environments (ISEs) in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ---
 
-# Set up access for multiple integration service environments in Azure Logic Apps
+# Set up a single IP address for one or more integration service environments in Azure Logic Apps
 
 When you work with Azure Logic Apps, you can set up an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) for hosting logic apps that need access to resources in an [Azure virtual network](../virtual-network/virtual-networks-overview.md). When you have multiple ISE instances that need access to other endpoints that have IP restrictions, deploy an [Azure Firewall](../firewall/overview.md) or a [network virtual appliance](../virtual-network/virtual-networks-overview.md#filter-network-traffic) into your virtual network and route outbound traffic through that firewall or network virtual appliance. You can then have all the ISE instances in your virtual network use a single, public, static, and predictable IP address to communicate with destination systems. That way, you don't have to set up additional firewall openings at those destination systems for each ISE.
 
