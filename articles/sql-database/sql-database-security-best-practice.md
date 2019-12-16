@@ -510,7 +510,7 @@ Prevent client machines and applications connecting to Azure SQL Database from w
 
 - If you are using a managed instance, use the **Proxy** connection type (default) as this enforces encryption from the server side. The **Redirect** connection type currently doesn't support encryption enforcement and is only available on private IP connections. 
   - For more information, see [Azure SQL Connectivity Architecture - Connection policy](sql-database-connectivity-architecture.md#connection-policy).
-  - There are future plans to have encryption enforced for both **Proxy** and **Redirect** connection types. 
+  - Encryption is enforced for both Proxy and Redirect connection types. 
 
 ### Minimize Attack Surface
 Minimize the number of features that can be attacked by a malicious user by implementing network access controls for Azure SQL Database.
@@ -648,19 +648,16 @@ Tracking of database events helps you understand database activity, and gain ins
 
 **How to implement**:
 
-- Enable [SQL Database Auditing](sql-database-auditing.md) to track database events and write them to an audit log in your Azure storage account, Log Analytics workspace, or Event Hubs. 
+- Enable [SQL Database Auditing](sql-database-auditing.md) to track database events and write them to an audit log in your Azure storage account, Log Analytics workspace (preview), or Event Hubs (preview). 
 
 - Audit logs can be written to an Azure storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each. 
 
 **Best practices**:
 
 - By configuring [SQL Database Auditing](sql-database-auditing.md) on your database server to audit events, all existing and newly created databases on that server will be audited.
-
-- Auditing all database and server events may result in performance hit or event loss. The recommendations are for customers to customize which events will be audited based on their regulatory and compliance requirements using [PowerShell cmdlets](sql-database-auditing.md#subheading-7) or the [REST API](sql-database-auditing.md#subheading-9). These events should include but shouldn’t be limited to: 
-  - Configuration of Audit
-  - Access to sensitive data
-
+- By default auditing policy includes all actions (queries, stored procedures and successful and failed logins) against the databases, which may result in high volume of audit logs. It is recommended for customers to [configure auditing for different types of actions and action groups using PowerShell]((sql-database-auditing.md#subheading-7), to control the amount of audited actions, and to minimize the risk of event loss. This will allow customers to capture only the truly needed audit data.
 - Audit logs can be consumed directly in the [Azure portal](https://portal.azure.com/), or from the storage location that was configured. 
+
 
 > [!NOTE]
 > Enabling auditing to Log Analytics will incur cost based on ingestion rates. Please be aware of the associated cost with using this [option](https://azure.microsoft.com/pricing/details/monitor/), or consider storing the audit logs in an Azure storage account. 
@@ -761,27 +758,23 @@ This section helps you find security measures to protect against certain attack 
 
 Data exfiltration is the unauthorized copying, transfer, or retrieval of data from a computer or server. See a definition for [data exfiltration](https://en.wikipedia.org/wiki/Data_exfiltration) on Wikipedia.
 
-For most customers connecting to Azure SQL Database over a public endpoint presents a data exfiltration risk as it requires them to open their firewalls to public IPs.  
+Connecting to Azure SQL Database server over a public endpoint presents a data exfiltration risk as it requires customers to open their firewalls to public IPs.  
 
-**Scenario 1**: A SQL Database is connected to an Azure VM. A rogue actor gets access to the VM and compromises it. In this scenario, data exfiltration means that an external entity using the rogue VM connects to SQL Database, copies Personal Identifiable information (PII) data and stores it in blob storage or a different SQL Database in a different subscription.
+**Scenario 1**: An application on an Azure VM connects to a database in an Azure SQL Database server. A rogue actor gets access to the VM and compromises it. In this scenario, data exfiltration means that an external entity using the rogue VM connects to the database, copies Personal Identifiable information (PII) data and stores it in a blob storage or a different SQL database in a different subscription.
 
 **Scenario 2**: A Rouge DBA. This scenario is often raised by security sensitive customers from regulated industries. In this scenario, a high privilege user might copy data from Azure SQL Database to another subscription not controlled by the data owner.
 
 **Potential mitigations**:
 
-- Today, we offer the following techniques for mitigating data exfiltration threats: 
-  - Use a combination of Allow and Deny rules on the NSGs of Azure VMs to control which regions can be accessed from the VM. 
-  - If using Azure SQL Database, set the following:
-    - Allow Azure Services to OFF.
-    - Only allow traffic from the subnet containing your Azure VM by setting up a VNet Firewall rule.
-- Use [Private Link](sql-database-private-endpoint-overview.md)
-  - For a managed instance, using private IP access by default addresses the first data exfiltration concern of a rogue VM. 
-  - The Rogue DBA concern is more exposed with a managed instance as MI has a larger surface area and networking requirements are visible to customers. The best mitigation for this is applying all of the practices in this security guide to prevent the Rogue DBA scenario in the first place (not only for data exfiltration). Always Encrypted is one method to protect sensitive data by encrypting it and keeping the key inaccessible for the DBA.
+Today, Azure SQL Database offers the following techniques for mitigating data exfiltration threats: 
 
-**Future mitigation implementations**:
-
-- In the short term, we are working on a subnet delegation feature that will allow us to automatically set the most restrictive policy on a managed instance subnet. 
-- In the future, we will provide data/system traffic separation so high privileged users will not be in a position to exfiltrate data. 
+- Use a combination of Allow and Deny rules on the NSGs of Azure VMs to control which regions can be accessed from the VM. 
+- If using an Azure SQL Database server, set the following:
+  - Allow Azure Services to OFF.
+  - Only allow traffic from the subnet containing your Azure VM by setting up a VNet Firewall rule.
+  - Use [Private Link](sql-database-private-endpoint-overview.md)
+- For a managed instance, using private IP access by default addresses the first data exfiltration concern of a rogue VM. Turn on subnet delegation feature on a subnet that will service to automatically set the most restrictive policy on a managed instance subnet.
+- The Rogue DBA concern is more exposed with a managed instance as it has a larger surface area and networking requirements are visible to customers. The best mitigation for this is applying all of the practices in this security guide to prevent the Rogue DBA scenario in the first place (not only for data exfiltration). Always Encrypted is one method to protect sensitive data by encrypting it and keeping the key inaccessible for the DBA.
 
 ## Security aspects of business continuity and availability
 
