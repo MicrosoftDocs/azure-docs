@@ -44,15 +44,35 @@ Enumerated, the benefits of knowledge store include the following:
 
 ## Physical storage
 
-The physical expression of a knowledge store is articulated through the `projections` element of a `knowledgeStore` definition. The projection defines a structure of the output so that it matches your intended use.
+The physical expression of a knowledge store is articulated through the `projections` element of a `knowledgeStore` definition in a Skillset. The projection defines a structure of the output so that it matches your intended use.
 
-Projections can be articulated as objects or tables:
+Projections can be articulated as objects, tables, or files.
 
-+ Blob storage is used when projections specify `objects` or `files`. The projection is saved to a container, within which are the objects or hierarchical JSON structures useful for scenarios like data science pipelines or other downstream processes.
+```json
+"knowledgeStore": { 
+    "storageConnectionString": "<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>", 
+    "projections": [ 
+        { 
+            "tables": [ ], 
+            "objects": [ ], 
+            "files": [ ]
+        },
+                { 
+            "tables": [ ], 
+            "objects": [ ], 
+            "files": [ ]
+        }
+```
+            
+Physical storage varies depending on the type of projections you specify.
 
-+ Table storage is used projections specify `tables`. A tabular representation preserves relationships for scenarios like data analysis or export as data frames for machine learning. The enriched projections can then be easily imported into other data stores. 
++ Blob storage is used when you define `objects` or `files`. The physical representation of an `object` is a hierarchical JSON structure that represents an enriched document. A `file` is an image extracted from a document, stored in Blob storage.
 
-You can create multiple projections in a knowledge store to accommodate various constituencies in your organization. A developer might need access to the full JSON representation of an enriched document, while data scientists or analysts might want granular or modular data structures shaped by your skillset. For example, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents. the tabular projection would work well.
++ Table storage is used when you define `tables`. Define a table projection when you need tabular reporting structures for inputs to analytical tools or export as data frames to other data stores. You can specify multiple `tables` to get a subset or cross section of enriched documents. Within the same projection group, table relationships are preserved so that you can work with all of them.
+
+A single projection object contains on set of `objects`, `files`, `tables`, and for many developers, creating one projection might be enough. 
+
+However, it is possible to create multiple sets of `tables`-`objects`-`files` projections, and you might do that if you want different data relationships. Within a set, data is related, assuming those relationships can be detected. If you create additional sets, the documents in each group are never related. An example of using multiple projection groups might be if you want the same data projected for use with your online system and it needs to be represented a specific way, you also want the same data projected for use in a data science pipeline that is represented differently.
 
 ## Requirements 
 
@@ -246,7 +266,7 @@ A `skills` definition is a complex definition that is documented in full elsewhe
 
 A `knowledgeStore` has two properties: a connection string to an Azure Storage account, and `projections`. You can use any storage account, but it's cost-effective to use services in the same region.
 
-A `projections` collection contains projection objects used to create items in Azure Storage. Each projection object must have `tables`, `objects`, `files` (one of each), which are either specified or null. The syntax above shows two objects, one fully specified and the other fully null. Within a projection object, once it is expressed in storeage, any relationships among the data, if detected, are preserved. 
+A `projections` collection contains projection objects used to create items in Azure Storage. Each projection object must have `tables`, `objects`, `files` (one of each), which are either specified or null. The syntax above shows two objects, one fully specified and the other fully null. Within a projection object, once it is expressed in storage, any relationships among the data, if detected, are preserved. 
 
 Create as many projection objects as you need to support isolation and specific scenarios (for example, data structures used for exploration, versus those needed in a data science workload). You can get isolation and customization for specific scenarios by setting `source` and `storageContainer` or `table` to different values within an object. For more information and examples, see [Working with projections in a knowledge store](knowledge-store-projection-overview.md).
 
