@@ -1,6 +1,6 @@
 ---
-title: Connect to OneDrive
-description: Upload and manage files with OneDrive REST APIs and Azure Logic Apps
+title: Access and manage files in Microsoft OneDrive
+description: Upload and manage files in OneDrive by creating automated workflows in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -9,9 +9,9 @@ ms.date: 10/18/2016
 tags: connectors
 ---
 
-# Get started with the OneDrive connector
+# Access and manage files in OneDrive connector by using Azure Logic Apps
 
-Connect to OneDrive to manage your files, including upload, get, delete files, and more. With OneDrive, you can perform these tasks:
+By using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [OneDrive connector](/connectors/onedriveconnector/), you can create automated tasks and workflows to manage your files, including upload, get, delete files, and more. With OneDrive, you can perform these tasks:
 
 * Build your workflow by storing files in OneDrive, or update existing files in OneDrive. 
 * Use triggers to start your workflow when a file is created or updated within your OneDrive.
