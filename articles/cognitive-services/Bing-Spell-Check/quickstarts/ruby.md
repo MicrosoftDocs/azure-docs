@@ -27,7 +27,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API usi
 
 1. Create a new Ruby file in your favorite editor or IDE, and add the following requirements. 
 
-    ```javascript
+    ```ruby
     require 'net/http'
     require 'uri'
     require 'json'
@@ -76,6 +76,16 @@ Use this quickstart to make your first call to the Bing Spell Check REST API usi
     result = JSON.pretty_generate(JSON.parse(response.body))
     puts result
     ```
+
+## Run the application
+
+Build and run your project.
+
+If you're using the command line, use the following command to run the application.
+
+```bash
+ruby <FILE_NAME>.rb
+```
 
 ## Example JSON response
 

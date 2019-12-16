@@ -93,6 +93,18 @@ req.write ("text=" + text);
 req.end ();
 ```
 
+
+## Run the application
+
+Build and run your project.
+
+If you're using the command line, use the following commands to build and run the application.
+
+```bash
+node <FILE_NAME>.js
+```
+
+
 ## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example:

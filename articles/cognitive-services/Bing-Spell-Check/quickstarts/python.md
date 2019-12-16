@@ -80,6 +80,15 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     print(json.dumps(json_response, indent=4))
     ```
 
+
+## Run the application
+
+If you're using the command line, use the following command to run the application.
+
+```bash
+python <FILE_NAME>.py
+```
+
 ## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example:

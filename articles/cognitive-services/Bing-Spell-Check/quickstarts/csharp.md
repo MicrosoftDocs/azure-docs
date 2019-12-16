@@ -132,6 +132,10 @@ static void Main(string[] args)
 }
 ```
 
+## Run the application
+
+Build and run your project. If you're using Visual Studio, press **F5** to debug the file.
+
 ## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
