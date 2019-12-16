@@ -22,7 +22,7 @@ and runs separately from the public, "global", multi-tenant Logic Apps service.
 Separating your isolated private instance and the public global 
 instance also helps reduce the impact that other Azure tenants 
 might have on your apps' performance, which is also known as the 
-["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides you with your own static IP address so that you don't have to use the same static IP address for everyone's logic apps.
+["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides you with your own static IP addresses. These IP addresses are separate from the static IP addresses that are shared by the logic apps in the public, multi-tenant service.
 
 After creating your ISE, when you go to create your logic app 
 or integration account, you can select your ISE as your logic 
