@@ -197,7 +197,7 @@ In order to cancel the operation, go to the overview blade and click on notifica
 
 ![canceling operation](./media/sql-database-managed-instance/canceling-operation.png)
 
-After cancel request has been submitted and processed, you will get notification if cancel submission has been successfull or not. In case of success, operation will be canceled couple of minutes resulting with failure.
+After cancel request has been submitted and processed, you will get notification if cancel submission has been successful or not. In case of success, operation will be canceled couple of minutes resulting with failure.
 
 ![canceling operation result](./media/sql-database-managed-instance/canceling-operation-result.png)
 
