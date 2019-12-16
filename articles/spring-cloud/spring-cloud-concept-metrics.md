@@ -13,13 +13,13 @@ ms.author: jeconnoc
 
 Azure Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources. 
 
-In Azure Spring Cloud, there are two view point for metrics.
+In Azure Spring Cloud, there are two view points for metrics.
 * Charts in each application overview page
 * Common metrics page
 
  ![Metrics Charts](media/metrics/metrics-1.png)
 
-Charts in the application **Overview** provides quick status check for each application. The common **Metrics** page contains all metrics available for reference. You can build your own charts in the common metrics page and pin them in Dashboard.
+Charts in the application **Overview** provide quick status checks for each application. The common **Metrics** page contains all metrics available for reference. You can build your own charts in the common metrics page and pin them in Dashboard.
 
 ## Application overview page
 Select an app in **App Management** to find charts in the overview page.  
@@ -63,7 +63,7 @@ Time range to show can also be modified.  The time range can be chosen from last
 
 The default view includes all of an Azure Spring Cloud service's application's metrics together. Metrics of one app or instance can be filtered in the display.  Click **Add filter**, set the property to **App**, and select the target application you want to monitor in the **Values** text box. 
 
-You can use 2 kinds of filters (properties):
+You can use two kinds of filters (properties):
 * App: filter by app name
 * Instance: filter by app instance
 
@@ -93,14 +93,14 @@ The following table shows the available metrics and details.
     <td>System CPU Usage Percentage</td>
     <td>system.cpu.usage</td>
     <td>Percent</td>
-    <td>Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed. All values betweens 0.0 and 1.0 are possible depending of the activities going on in the system. If the system recent cpu usage is not available, the method returns a negative value.</td>
+    <td>Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed. All values between 0.0 and 1.0 are possible depending on the activities going on in the system. If the system recent cpu usage is not available, the method returns a negative value.</td>
    </tr>
   <tr>
     <td>AppCpuUsagePercentage</td>
     <td>App CPU Usage Percentage</td>
     <td>process.cpu.usage</td>
     <td>Percent</td>
-    <td>Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads. All values betweens 0.0 and 1.0 are possible depending of the activities going on in the JVM process and the whole system. If the Java Virtual Machine recent CPU usage is not available, the method returns a negative value.</td>
+    <td>Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads. All values between 0.0 and 1.0 are possible depending on the activities going on in the JVM process and the whole system. If the Java Virtual Machine recent CPU usage is not available, the method returns a negative value.</td>
    </tr>
   <tr>
     <td>AppMemoryCommitted</td>
