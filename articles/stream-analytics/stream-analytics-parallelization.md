@@ -56,7 +56,7 @@ An *embarrassingly parallel* job is the most scalable scenario we have in Azure 
 
 2. Once the data is laid out on the input side, you must make sure that your query is partitioned. This requires you to use **PARTITION BY** in all the steps. Multiple steps are allowed, but they all must be partitioned by the same key. Under compatibility level 1.0 and 1.1, the partitioning key must be set to **PartitionId** in order for the job to be fully parallel. For jobs with compatility level 1.2 and higher, custom column can be specified as Partition Key in the input settings and the job will be paralellized automoatically even without PARTITION BY clause.
 
-3. Most of our output can take advantage of partitioning, however if you use an output type that doesn't support partitioning your job won't be fully parallel. Refer to the [output section](#outputs) for more details.
+3. Most of our output can take advantage of partitioning, however if you use an output type that doesn't support partitioning your job won't be fully parallel. For Event Hub outputs, ensure **Partition key column** is set same as the query partition key. Refer to the [output section](#outputs) for more details.
 
 4. The number of input partitions must equal the number of output partitions. Blob storage output can support partitions and inherits the partitioning scheme of the upstream query. When a partition key for Blob storage is specified, data is partitioned per input partition thus the result is still fully parallel. Here are examples of partition values that allow a fully parallel job:
 
