@@ -42,7 +42,8 @@ Note the following before you start:
     ![Exclude disks from replication](./media/hyper-v-exclude-disk/enable-replication6-with-exclude-disk.png)
 
 
-
+## Next steps
+After your deployment is set up and running, [learn more](failover-failback-overview.md) about different types of failover.
 
 ## Next steps
 After your deployment is up and running, [learn more](site-recovery-failover.md) about different types of failover.
