@@ -75,7 +75,8 @@ You can customize the list view by clicking **Columns** in the toolbar.
 
 ![Sign-in activity](./media/concept-sign-ins/19.png "Sign-in activity")
 
-The **Columns** dialog gives you access to the selectable attributes. In a sign-in report, you can only have attributes that don't have a one-to-many relationship to other attributes as column.
+The **Columns** dialog gives you access to the selectable attributes. In a sign-in report, you can't have fields
+that have more than one value for a given sign-in request as column. This is, for example, true for authentication details, conditional access data and network location.   
 
 ![Sign-in activity](./media/concept-sign-ins/columns.png "Sign-in activity")
 
