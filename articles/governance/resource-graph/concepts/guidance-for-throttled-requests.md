@@ -92,9 +92,9 @@ small and targeted queries. The group size is recommended to be less than _300_.
   }
   ```
 
-- Example #2 of an optimized grouping approach
+- Example #2 of an optimized grouping approach for getting multiple resources in one query
 
-  ``kusto
+  ```kusto
   Resources | where id in~ ({resourceIdGroup}) | project name, type
   ```
 
