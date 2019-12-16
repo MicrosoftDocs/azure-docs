@@ -209,9 +209,9 @@ The script also requires Python and bash components to execute and connect secur
 
 ## File recovery from Virtual machine backups having large disks
 
-This section explains how to perform file recovery from Azure Virtual machine backups whose number of disks are > 16 and each disk size is > 4 TB.
+This section explains how to perform file recovery from Azure Virtual machine backups whose number of disks are > 16 and each disk size is > 32 TB.
 
-Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 4 TB each) are used, the following action points are recommended:
+Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 32 TB each) are used, the following action points are recommended:
 
 - Keep a separate restore server (Azure VM D2v3 VMs) for file recovery. You can use that only file recovery and then shut down when not required. Restoring on the original machine is not recommended since it will have significant impact on the VM itself.
 - Then run the script once to check if the file recovery operation succeeds.
