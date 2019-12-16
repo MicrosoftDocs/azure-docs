@@ -80,6 +80,10 @@ You can set up Azure SQL databases, and instance databases to collect the follow
 
 You can use the **Diagnostics settings** menu for each single, pooled, or instance database in Azure portal to configure streaming of diagnostics telemetry. In addition, diagnostic telemetry can also be configured separately for database containers: elastic pools and managed instances. You can set the following destinations to stream the diagnostics telemetry: Azure Storage, Azure Event Hubs, and Azure Monitor logs.
 
+> [!NOTE]
+> Diagnostic settings cannot be configured for the **master** system database.
+
+
 ### Configure streaming of diagnostics telemetry for elastic pools
 
    ![Elastic pool icon](./media/sql-database-metrics-diag-logging/icon-elastic-pool-text.png)

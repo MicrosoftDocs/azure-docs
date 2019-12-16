@@ -1,5 +1,5 @@
 ---
-title: Azure AD authentication and authorization error codes | Azure
+title: Azure AD authentication & authorization error codes
 description: Learn about the AADSTS error codes that are returned from the Azure AD security token service (STS).
 services: active-directory
 documentationcenter: ''

@@ -4,8 +4,8 @@ description: You can use the Active Directory Health Check solution to assess th
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/10/2019
 
 ---
