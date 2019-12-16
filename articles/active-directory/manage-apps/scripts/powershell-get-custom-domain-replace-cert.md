@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Get all Application Proxy applications published with the identical certificate and replace it
 
-This PowerShell script example lists all the Azure Active Directory (Azure AD) Application Proxy applications that are published with the identical certificate and allows you to replace the certificate in bulk with a new one.
+This PowerShell script example allows you to replace the certificate in bulk for all the Azure Active Directory (Azure AD) Application Proxy applications that are published with the identical certificate.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -24,7 +24,7 @@ This PowerShell script example lists all the Azure Active Directory (Azure AD) A
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-This sample requires the Azure AD PowerShell Module Version for Graph. If needed, install the module using the instructions found in [Azure Active Directory PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+This sample requires the [AzureAD V2 PowerShell for Graph module](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
 
 ## Sample script
 

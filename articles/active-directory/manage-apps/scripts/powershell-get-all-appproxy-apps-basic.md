@@ -1,6 +1,6 @@
 ---
 title: PowerShell sample - List basic info for Application Proxy apps
-description: PowerShell example that lists Azure Active Directory (Azure AD) Application Proxy applications along with the application ID (AppId), name (DisplayName), and object ID (OjbId).
+description: PowerShell example that lists Azure Active Directory (Azure AD) Application Proxy applications along with the application ID (AppId), name (DisplayName), and object ID (ObjId).
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Get all Application Proxy apps and list basic information
 
-This PowerShell script example lists information about all Azure Active Directory (Azure AD) Application Proxy applications, including the application ID (AppId), name (DisplayName), and object ID (OjbId).
+This PowerShell script example lists information about all Azure Active Directory (Azure AD) Application Proxy applications, including the application ID (AppId), name (DisplayName), and object ID (ObjId).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -24,8 +24,7 @@ This PowerShell script example lists information about all Azure Active Director
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-This sample requires the Azure AD PowerShell Module Version for Graph. If needed, install the module using the instructions found in [Azure Active Directory PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
-
+This sample requires the [AzureAD V2 PowerShell for Graph module](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
 ## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/application-proxy/get-all-appproxy-apps-basic.ps1 "Get all Application Proxy apps")]

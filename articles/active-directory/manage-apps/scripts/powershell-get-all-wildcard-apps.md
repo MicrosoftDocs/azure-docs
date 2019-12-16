@@ -14,9 +14,9 @@ ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ---
 
-# Get all Application Proxy apps using wildcards
+# Get all Application Proxy apps using wildcard publishing
 
-This PowerShell script example lists all Azure Active Directory (Azure AD) Application Proxy applications that are using wildcards.
+This PowerShell script example lists all Azure Active Directory (Azure AD) Application Proxy applications that are using wildcard publishing.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -24,7 +24,7 @@ This PowerShell script example lists all Azure Active Directory (Azure AD) Appli
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-This sample requires the Azure AD PowerShell Module Version for Graph. If needed, install the module using the instructions found in [Azure Active Directory PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+This sample requires the [AzureAD V2 PowerShell for Graph module](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
 
 ## Sample script
 
