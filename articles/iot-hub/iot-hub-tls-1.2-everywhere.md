@@ -17,7 +17,7 @@ To provide best-in-class encryption, IoT Hub and Device Provisioning Service are
 
 
 ## Impact
-Based on customers' specific circumstances and configurations, deprecation of TLS 1.0 and 1.1 and supported ciphers can be an impactful change for your IoT devices and services communicating with IoT Hub or DPS. In some cases, devices and services that are incompatible with these changes will not be able to connect to the IoT Hub or DPS after the aforementioned cut-off date.
+Based on customers' specific circumstances and configurations, deprecation of TLS 1.0 and 1.1 and the supported ciphers can be an impactful change for your IoT devices and services communicating with IoT Hub or DPS. In some cases, devices and services that are incompatible with these changes will not be able to connect to the IoT Hub or DPS after the aforementioned cut-off date.
 
 
 ## Supported ciphers
