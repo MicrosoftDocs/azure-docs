@@ -55,7 +55,7 @@ az vmss extension set  \
     --name VMAccessForLinux \
     --publisher Microsoft.OSTCExtensions \
     --version 1.4 \
-    --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
+    --protected-settings "{\"username\":\"sshuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
 
 az vmss update-instances --instance-ids '*' \
     --resource-group $CLUSTER_RESOURCE_GROUP \
@@ -112,7 +112,7 @@ To add your SSH keys to the node, use the [az vm user update][az-vm-user-update]
 az vm user update \
     --resource-group $CLUSTER_RESOURCE_GROUP \
     --name aks-nodepool1-79590246-0 \
-    --username azureuser \
+    --username sshuser \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
@@ -173,7 +173,7 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
 1. Create an SSH connection to your AKS node. Again, the default username for AKS nodes is *azureuser*. Accept the prompt to continue with the connection as the SSH key is first trusted. You are then provided with the bash prompt of your AKS node:
 
     ```console
-    $ ssh -i id_rsa azureuser@10.240.0.4
+    $ ssh -i id_rsa sshuser@10.240.0.4
 
     ECDSA key fingerprint is SHA256:A6rnRkfpG21TaZ8XmQCCgdi9G/MYIMc+gFAuY9RUY70.
     Are you sure you want to continue connecting (yes/no)? yes
@@ -190,7 +190,7 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
 
     [...]
 
-    azureuser@aks-nodepool1-79590246-0:~$
+    sshuser@aks-nodepool1-79590246-0:~$
     ```
 
 ## Remove SSH access
