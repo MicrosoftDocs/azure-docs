@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions about throughput in autopilot mode
+title: Frequently asked questions about throughput in Azure Cosmos DB autopilot mode
 description: Frequently asked questions about autopilot mode for Azure Cosmos DB databases and containers
 author: deborahc
 ms.author: dech
