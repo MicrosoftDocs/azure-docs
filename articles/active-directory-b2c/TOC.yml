@@ -163,6 +163,9 @@
         href: active-directory-b2c-reference-kmsi-custom.md
       - name: Password change
         href: active-directory-b2c-reference-password-change-custom.md
+      - name: Phone sign-up & sign-in
+        href: phone-authentication.md
+        displayName: otp, passwordless, phone number
     - name: UX customization
       items:
       - name: Configure user input
@@ -262,6 +265,8 @@
             href: integer-transformations.md
           - name: JSON
             href: json-transformations.md
+          - name: Phone number
+            href: phone-number-claims-transformations.md
           - name: External accounts
             href: social-transformations.md
           - name: StringCollection
@@ -285,6 +290,9 @@
           items:
           - name: About technical profiles
             href: technical-profiles-overview.md
+          - name: Azure Multi-Factor Authentication
+            href: multi-factor-auth-technical-profile.md
+            displayName: mfa
           - name: Claim resolvers
             href: claim-resolver-overview.md
           - name: Azure Active Directory
