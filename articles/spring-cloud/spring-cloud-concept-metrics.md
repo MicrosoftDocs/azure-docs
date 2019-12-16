@@ -84,6 +84,49 @@ The following table shows the available metrics and details.
 |:-----|:-----|:-----|:-----|:-----|
 | SystemCpuUsagePercentage | System CPU Usage Percentage | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed. All values between 0.0 and 1.0 are possible depending on the activities going on in the system. If the system recent cpu usage is not available, the method returns a negative value. |
 | AppCpuUsagePercentage | App CPU Usage Percentage | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads. All values between 0.0 and 1.0 are possible depending on the activities going on in the JVM process and the whole system. If the Java Virtual Machine recent CPU usage is not available, the method returns a negative value. |
+| AppMemoryCommitted | App Memory Assigned | jvm.memory.committed | Bytes | Represents the amount of memory (in bytes) that is guaranteed to be available for use by the Java virtual machine. The amount of committed memory may change over time (increase or decrease). The Java virtual machine may release memory to the system and committed could be less than init. committed will always be greater than or equal to used. |
+| AppMemoryUsed | App Memory Used | jvm.memory.used | Bytes | Represents the amount of memory currently used in bytes. |
+| AppMemoryMax | App Memory Max | jvm.memory.max | Bytes | Represents the maximum amount of memory (in bytes) that can be used for memory management. Its value may be undefined. The maximum amount of memory may change over time if defined. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory). |
+| MaxOldGenMemoryPoolBytes | Max Available Old Generation Data Size | jvm.gc.max.data.size | Bytes | The peak memory usage of the old generation memory pool since the Java virtual machine was started. |
+| OldGenMemoryPoolBytes | Old Generation Data Size | jvm.gc.live.data.size | Bytes | Size of old generation memory pool after a full GC. |
+| OldGenPromotedBytes | Promote to Old Generation Data Size | jvm.gc.memory.promoted | Bytes | Count of positive increases in the size of the old generation memory pool before GC to after GC. |
+| YoungGenPromotedBytes | Promote to Young Generation Data Size | jvm.gc.memory.allocated | Bytes | Incremented for an increase in the size of the young generation memory pool after one GC to before the next. |
+| GCPauseTotalCount | GC Pause Count | jvm.gc.pause (total-count) | Count | Total GC count after this JMV started, including Young and Old GC. |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+
 
 ## See also
 * [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
