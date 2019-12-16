@@ -59,8 +59,9 @@ The *Read and write directory data* permission that you granted earlier does **N
 
 If you want to give your application the ability to delete users or update passwords, you need to grant it the *User administrator* role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and switch to the directory that contains your Azure AD B2C tenant.
-1. Select **Azure AD B2C** in the left menu. Or, select **All services** and then search for and select **Azure AD B2C**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Roles and administrators**.
 1. Select the **User administrator** role.
 1. Select **Add assignment**.
@@ -360,6 +361,5 @@ By using `B2CGraphClient`, you have a service application that can manage your B
 As you incorporate this functionality into your own application, remember a few key points for B2C applications:
 
 * Grant the application the required permissions in the tenant.
-* For now, you need to use ADAL (not MSAL) to get access tokens. (You can also send protocol messages directly, without using a library.)
 * When you call the Graph API, use `api-version=1.6`.
 * When you create and update consumer users, a few properties are required, as described above.

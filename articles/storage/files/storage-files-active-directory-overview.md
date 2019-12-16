@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure Active Directory authentication over SMB for Azure Files - Azure Storage
+title: Overview - Azure AD Domain Services authorization - Azure Files
 description: Azure Files supports identity-based authentication over SMB (Server Message Block) through Azure Active Directory (Azure AD) Domain Services. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares using Azure AD credentials. 
 author: roygara
 ms.service: storage

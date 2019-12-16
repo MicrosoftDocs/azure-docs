@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -75,9 +75,10 @@ You can customize the list view by clicking **Columns** in the toolbar.
 
 ![Sign-in activity](./media/concept-sign-ins/19.png "Sign-in activity")
 
-Displays additional fields or remove fields that are already displayed.
+The **Columns** dialog gives you access to the selectable attributes. In a sign-in report, you can't have fields
+that have more than one value for a given sign-in request as column. This is, for example, true for authentication details, conditional access data and network location.   
 
-![Sign-in activity](./media/concept-sign-ins/02.png "Sign-in activity")
+![Sign-in activity](./media/concept-sign-ins/columns.png "Sign-in activity")
 
 Select an item in the list view to get more detailed information.
 
@@ -153,7 +154,8 @@ Click the **Download** option to create a CSV or JSON file of the most recent 25
 ![Download](./media/concept-sign-ins/71.png "Download")
 
 > [!IMPORTANT]
-> The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
+> The number of records you can download is constrained by the [Azure Active 
+> Directory report retention policies](reference-reports-data-retention.md).  
 
 
 ## Sign-ins data shortcuts

@@ -140,9 +140,7 @@
     href: score-svd-recommender.md
   - name: Train SVD Recommender
     href: train-svd-recommender.md
-- name: Troubleshooting
-  items: 
-  - name: Troubleshoot module errors
-    href: machine-learning-module-error-codes.md
+- name: Module errors & troubleshooting
+  href: designer-error-codes.md
   
 

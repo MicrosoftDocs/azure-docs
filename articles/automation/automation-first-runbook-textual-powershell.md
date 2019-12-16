@@ -3,13 +3,9 @@ title: My first PowerShell runbook in Azure Automation
 description: Tutorial that walks you through the creation, testing, and publishing of a simple PowerShell runbook.
 keywords: azure powershell, powershell script tutorial, powershell automation
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 11/27/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # My first PowerShell runbook
 
