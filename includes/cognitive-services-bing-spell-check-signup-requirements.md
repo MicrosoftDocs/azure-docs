@@ -17,7 +17,7 @@ Start using the Bing Spell Check Search API by creating one of the Azure resourc
 * [Create a Bing Spell Check resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7):
     * Available through the Azure portal until you delete the resource.
     * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
-    * Bing Entity Search is also offered in some tiers of the [Bing Search v7 resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7).
+    * Bing Spell Check API is also offered in some tiers of the [Bing Search v7 resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7).
     
 * [Create a Multi-Service resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
     * Available through the Azure portal until you delete the resource.  
