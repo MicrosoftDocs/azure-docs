@@ -1,5 +1,5 @@
 ---
-title: Create a standalone Azure Service Fabric cluster | Microsoft Docs
+title: Create a standalone Azure Service Fabric cluster 
 description: Create an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in any cloud.
 author: dkkapur
 

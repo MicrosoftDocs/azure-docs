@@ -1,5 +1,5 @@
 ---
-title: Create a Windows container app on Service Fabric in Azure | Microsoft Docs
+title: Create a Windows container app on Service Fabric in Azure 
 description: In this quickstart, you create your first Windows container application on Azure Service Fabric.  
 
 ms.topic: quickstart

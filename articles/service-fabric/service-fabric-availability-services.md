@@ -1,5 +1,5 @@
 ---
-title: Availability of Service Fabric services | Microsoft Docs
+title: Availability of Service Fabric services 
 description: Describes fault detection, failover, and recovery of services
 author: masnider
 

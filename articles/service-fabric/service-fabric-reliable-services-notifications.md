@@ -1,5 +1,5 @@
 ---
-title: Reliable Services notifications | Microsoft Docs
+title: Reliable Services notifications 
 description: Conceptual documentation for Service Fabric Reliable Services notifications
 author: mcoskun
 

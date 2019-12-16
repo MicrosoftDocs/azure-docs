@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric security best practices | Microsoft Docs
+title: Azure Service Fabric security best practices 
 description: Best practices for Azure Service Fabric security.
 author: peterpogorski
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial creating the infrastructure for a Service Fabric cluster on Azure VMs - Azure Service Fabric | Microsoft Docs
+title: Tutorial creating the infrastructure for a Service Fabric cluster on Azure VMs - Azure Service Fabric 
 description: In this tutorial, you learn how to set up the Azure VM infrastructure to run a Service Fabric cluster.
 
 ms.topic: tutorial

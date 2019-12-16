@@ -1,5 +1,5 @@
 ---
-title: On-demand backup in Azure Service Fabric | Microsoft Docs
+title: On-demand backup in Azure Service Fabric 
 description: Use the backup and restore feature in Service Fabric to back up your application data on a need basis.
 author: aagup
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Production Readiness Checklist| Microsoft Docs
+title: Azure Service Fabric Production Readiness Checklist
 description: Get your Service Fabric application and cluster production ready by following best practices.
 
 ms.topic: conceptual

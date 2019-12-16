@@ -1,5 +1,5 @@
 ---
-title: Common questions about Microsoft Azure Service Fabric | Microsoft Docs
+title: Common questions about Microsoft Azure Service Fabric 
 description: Frequently asked questions about Service Fabric and their answers
 
 ms.topic: troubleshooting

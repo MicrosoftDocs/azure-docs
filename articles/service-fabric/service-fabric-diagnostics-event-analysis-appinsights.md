@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Event Analysis with Application Insights | Microsoft Docs
+title: Azure Service Fabric Event Analysis with Application Insights 
 description: Learn about visualizing and analyzing events using Application Insights for monitoring and diagnostics of Azure Service Fabric clusters.
 author: srrengar
 

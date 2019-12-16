@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh service-replica | Microsoft Docs
+title: Azure Service Fabric CLI- sfctl mesh service-replica 
 description: Describes the Service Fabric CLI sfctl mesh service-replica commands.
 author: jeffj6123
 

@@ -1,5 +1,5 @@
 ---
-title: Simulate faults in Azure Service Fabric apps | Microsoft Docs
+title: Simulate faults in Azure Service Fabric apps 
 description: How to harden your services against graceful and ungraceful failures.
 author: anmolah
 

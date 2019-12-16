@@ -1,5 +1,5 @@
 ---
-title: Reliable Services communication overview | Microsoft Docs
+title: Reliable Services communication overview 
 description: Overview of the Reliable Services communication model, including opening listeners on services, resolving endpoints, and communicating between services.
 author: vturecek
 

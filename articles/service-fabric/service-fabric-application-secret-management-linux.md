@@ -1,5 +1,5 @@
 ---
-title: Set up an encryption certificate and encrypt secrets on Azure Service Fabric Linux clusters | Microsoft Docs
+title: Set up an encryption certificate and encrypt secrets on Azure Service Fabric Linux clusters 
 description: Learn how to set up an encryption certificate and encrypt secrets on Linux clusters.
 author: shsha
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Performance Monitoring | Microsoft Docs
+title: Azure Service Fabric Performance Monitoring 
 description: Learn about performance counters for monitoring and diagnostics of Azure Service Fabric clusters.
 author: srrengar
 

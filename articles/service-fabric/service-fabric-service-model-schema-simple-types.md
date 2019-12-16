@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric service model XML schema simple types | Microsoft Docs
+title: Azure Service Fabric service model XML schema simple types 
 description: Describes the simple types in the XML schema of the Service Fabric service model.
 
 ms.topic: reference

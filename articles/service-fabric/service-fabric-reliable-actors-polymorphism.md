@@ -1,5 +1,5 @@
 ---
-title: Polymorphism in the Reliable Actors framework | Microsoft Docs
+title: Polymorphism in the Reliable Actors framework 
 description: Build hierarchies of .NET interfaces and types in the Reliable Actors framework to reuse functionality and API definitions.
 author: vturecek
 

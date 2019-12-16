@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric infrastructure as Code Best Practices | Microsoft Docs
+title: Azure Service Fabric infrastructure as Code Best Practices 
 description: Best practices for managing Service Fabric as infrastructure as code.
 author: peterpogorski
 

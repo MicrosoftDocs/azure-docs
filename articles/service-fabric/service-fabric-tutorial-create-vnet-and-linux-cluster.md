@@ -1,5 +1,5 @@
 ---
-title: Create a Linux Service Fabric cluster in Azure | Microsoft Docs
+title: Create a Linux Service Fabric cluster in Azure 
 description: Learn how to deploy a Linux Service Fabric cluster into an existing Azure virtual network using Azure CLI.
 
 ms.topic: conceptual

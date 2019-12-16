@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Secrets Store | Microsoft Docs
+title: Service Fabric Secrets Store 
 description: This article describes how to use Service Fabric Secrets Store.
 
 ms.topic: conceptual 

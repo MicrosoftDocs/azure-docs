@@ -1,5 +1,5 @@
 ---
-title: Learn about Azure Service Fabric Support options | Microsoft Docs
+title: Learn about Azure Service Fabric Support options 
 description: Azure Service Fabric cluster versions supported and links to file support tickets
 author: pkcsf
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Diagnose Common Scenarios | Microsoft Docs
+title: Azure Service Fabric Diagnose Common Scenarios 
 description: Learn how to troubleshoot common scenarios with Azure Service Fabric
 author: srrengar
 

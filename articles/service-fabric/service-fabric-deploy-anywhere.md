@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure and standalone Service Fabric clusters | Microsoft Docs
+title: Overview of Azure and standalone Service Fabric clusters 
 description: You can create Service Fabric clusters on any VMs or computers running Windows Server or Linux. This means you are able to deploy and run Service Fabric applications in any environment where you have a set of Windows Server or Linux computers that are interconnected- on-premises, Microsoft Azure, or with any cloud provider.
 author: dkkapur
 

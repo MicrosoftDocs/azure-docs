@@ -1,5 +1,5 @@
 ---
-title: Balance your Azure Service Fabric cluster | Microsoft Docs
+title: Balance your Azure Service Fabric cluster 
 description: An introduction to balancing your cluster with the Service Fabric Cluster Resource Manager.
 author: masnider
 

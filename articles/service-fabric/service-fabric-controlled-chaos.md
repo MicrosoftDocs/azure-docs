@@ -1,5 +1,5 @@
 ---
-title: Induce Chaos in Service Fabric clusters | Microsoft Docs
+title: Induce Chaos in Service Fabric clusters 
 description: Using Fault Injection and Cluster Analysis Service APIs to manage Chaos in the cluster.
 author: motanv
 

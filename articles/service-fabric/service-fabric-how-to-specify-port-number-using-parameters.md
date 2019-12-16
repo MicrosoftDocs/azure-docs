@@ -1,5 +1,5 @@
 ---
-title: How to specify the port number of a service using parameters in Azure Service Fabric | Microsoft Docs
+title: How to specify the port number of a service using parameters in Azure Service Fabric 
 description: Shows you how to use parameters to specify the port for an application in Service Fabric
 author: mikkelhegn
 

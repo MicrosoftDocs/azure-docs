@@ -1,5 +1,5 @@
 ---
-title: Create your first Service Fabric application in C# | Microsoft Docs
+title: Create your first Service Fabric application in C# 
 description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
 author: vturecek
 

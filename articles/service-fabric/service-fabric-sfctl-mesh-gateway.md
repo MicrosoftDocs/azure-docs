@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh gateway | Microsoft Docs
+title: Azure Service Fabric CLI- sfctl mesh gateway 
 description: Describes the Service Fabric CLI sfctl mesh gateway commands.
 author: jeffj6123
 

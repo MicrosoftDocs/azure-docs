@@ -1,5 +1,5 @@
 ---
-title: Change FabricTransport settings in Azure Service Fabric actors | Microsoft Docs
+title: Change FabricTransport settings in Azure Service Fabric actors 
 description: Learn about configuring Azure Service Fabric actor communication settings.
 author: suchiagicha
 

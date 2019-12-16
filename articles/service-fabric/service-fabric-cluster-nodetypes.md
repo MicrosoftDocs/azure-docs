@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric node types and virtual machine scale sets | Microsoft Docs
+title: Azure Service Fabric node types and virtual machine scale sets 
 description: Learn how Azure Service Fabric node types relate to virtual machine scale sets, and how to remotely connect to a scale set instance or cluster node.
 
 ms.topic: conceptual

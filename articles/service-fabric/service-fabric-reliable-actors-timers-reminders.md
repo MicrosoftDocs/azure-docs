@@ -1,5 +1,5 @@
 ---
-title: Reliable Actors timers and reminders | Microsoft Docs
+title: Reliable Actors timers and reminders 
 description: Introduction to timers and reminders for Service Fabric Reliable Actors.
 author: vturecek
 

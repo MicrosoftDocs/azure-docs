@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Programmatic Scaling | Microsoft Docs
+title: Azure Service Fabric Programmatic Scaling 
 description: Scale an Azure Service Fabric cluster in or out programmatically, according to custom triggers
 author: mjrousos
 

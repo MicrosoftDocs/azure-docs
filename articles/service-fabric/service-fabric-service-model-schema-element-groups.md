@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric service model XML schema element groups | Microsoft Docs
+title: Azure Service Fabric service model XML schema element groups 
 description: Describes the element groups in the XML schema of the Service Fabric service model.
 
 ms.topic: reference

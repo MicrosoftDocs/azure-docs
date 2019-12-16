@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting application upgrades | Microsoft Docs
+title: Troubleshooting application upgrades 
 description: This article covers some common issues around upgrading a Service Fabric application and how to resolve them.
 
 ms.topic: conceptual

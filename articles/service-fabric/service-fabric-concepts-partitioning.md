@@ -1,5 +1,5 @@
 ---
-title: Partitioning Service Fabric services | Microsoft Docs
+title: Partitioning Service Fabric services 
 description: Describes how to partition Service Fabric stateful services. Partitions enables data storage on the local machines so data and compute can be scaled together.
 
 ms.topic: conceptual

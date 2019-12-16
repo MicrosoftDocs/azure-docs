@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric application resource model  | Microsoft Docs
+title: Azure Service Fabric application resource model  
 description: This article provides an overview of managing an Azure Service Fabric application with Azure Resource Manager
 
 ms.topic: conceptual 

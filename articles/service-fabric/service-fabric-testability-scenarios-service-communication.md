@@ -1,5 +1,5 @@
 ---
-title: 'Testability: Service communication | Microsoft Docs'
+title: 'Testability: Service communication 
 description: Service-to-service communication is a critical integration point of a Service Fabric application. This article discusses design considerations and testing techniques.
 author: vturecek
 

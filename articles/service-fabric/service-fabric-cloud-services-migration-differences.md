@@ -1,5 +1,5 @@
 ---
-title: Differences between Cloud Services and Service Fabric | Microsoft Docs
+title: Differences between Cloud Services and Service Fabric 
 description: A conceptual overview for migrating applications from Cloud Services to Service Fabric.
 author: vturecek
 

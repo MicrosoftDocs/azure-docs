@@ -1,5 +1,5 @@
 ---
-title: Package and deploy containers as a Service Fabric app in Azure | Microsoft Docs
+title: Package and deploy containers as a Service Fabric app in Azure 
 description: In this tutorial, you learn how to generate an Azure Service Fabric application definition using Yeoman and package the application. 
 author: suhuruli
 

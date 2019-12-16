@@ -1,5 +1,5 @@
 ---
-title: Reconfiguration in Azure Service Fabric | Microsoft Docs
+title: Reconfiguration in Azure Service Fabric 
 description: Understand reconfiguration of partitions in Service Fabric
 author: appi101
 

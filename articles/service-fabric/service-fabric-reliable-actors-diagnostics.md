@@ -1,5 +1,5 @@
 ---
-title: Actors diagnostics and monitoring | Microsoft Docs
+title: Actors diagnostics and monitoring 
 description: This article describes the diagnostics and performance monitoring features in the Service Fabric Reliable Actors runtime, including the events and performance counters emitted by it.
 author: abhishekram
 

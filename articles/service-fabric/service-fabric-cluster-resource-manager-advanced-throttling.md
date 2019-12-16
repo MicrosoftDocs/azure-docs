@@ -1,5 +1,5 @@
 ---
-title: Throttling in the Service Fabric cluster resource manager | Microsoft Docs
+title: Throttling in the Service Fabric cluster resource manager 
 description: Learn to configure the throttles provided by the Service Fabric Cluster Resource Manager.
 author: masnider
 

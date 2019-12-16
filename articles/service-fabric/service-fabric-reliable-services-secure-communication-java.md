@@ -1,5 +1,5 @@
 ---
-title: Secure service remoting communications with Java in Azure Service Fabric | Microsoft Docs
+title: Secure service remoting communications with Java in Azure Service Fabric 
 description: Learn how to secure service remoting based communication for Java reliable services that are running in an Azure Service Fabric cluster.
 author: PavanKunapareddyMSFT
 

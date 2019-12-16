@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric cluster scaling | Microsoft Docs
+title: Azure Service Fabric cluster scaling 
 description: Learn about scaling Azure Service Fabric clusters in or out and up or down.
 
 ms.topic: conceptual

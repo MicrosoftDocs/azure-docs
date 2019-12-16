@@ -1,5 +1,5 @@
 ---
-title: Service Fabric app upgrade tutorial| Microsoft Docs
+title: Service Fabric app upgrade tutorial
 description: This article walks through the experience of deploying a Service Fabric application, changing the code, and rolling out an upgrade by using Visual Studio.
 
 ms.topic: conceptual

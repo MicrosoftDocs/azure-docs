@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh deployment | Microsoft Docs
+title: Azure Service Fabric CLI- sfctl mesh deployment 
 description: Describes the Service Fabric CLI sfctl mesh deployment commands.
 author: jeffj6123
 

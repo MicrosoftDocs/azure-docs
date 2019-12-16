@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh secretvalue | Microsoft Docs
+title: Azure Service Fabric CLI- sfctl mesh secretvalue 
 description: Describes the Service Fabric CLI sfctl mesh secretvalue commands.
 author: jeffj6123
 

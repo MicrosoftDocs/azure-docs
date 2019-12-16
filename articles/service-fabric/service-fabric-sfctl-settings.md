@@ -1,5 +1,5 @@
 ---	
-title: Azure Service Fabric CLI- sfctl settings | Microsoft Docs	
+title: Azure Service Fabric CLI- sfctl settings 
 description: Describes the Service Fabric CLI sfctl settings commands.	
 author: jeffj6123
 

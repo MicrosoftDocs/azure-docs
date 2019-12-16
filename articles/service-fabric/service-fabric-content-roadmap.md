@@ -1,5 +1,5 @@
 ---
-title: Learn more about Azure Service Fabric | Microsoft Docs
+title: Learn more about Azure Service Fabric 
 description: Learn about the core concepts and major areas of Azure Service Fabric. Provides an extended overview of Service Fabric and how to create microservices. 
 
 ms.topic: conceptual

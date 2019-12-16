@@ -1,5 +1,5 @@
 ---
-title: Set up your development environment on Mac OS X to work with Azure Service Fabric| Microsoft Docs
+title: Set up your development environment on Mac OS X to work with Azure Service Fabric
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on Mac OS X.
 author: suhuruli
 

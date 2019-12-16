@@ -1,5 +1,5 @@
 ---
-title: Service Fabric project creation next steps | Microsoft Docs
+title: Service Fabric project creation next steps 
 description: Learn about the application project you just created in Visual Studio.  Learn how to build services using tutorials and learn more about developing services for Service Fabric.
 
 ms.topic: conceptual

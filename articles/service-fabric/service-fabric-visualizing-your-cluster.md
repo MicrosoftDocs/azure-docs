@@ -1,5 +1,5 @@
 ﻿---
-title: Visualizing your cluster using Azure Service Fabric Explorer | Microsoft Docs
+title: Visualizing your cluster using Azure Service Fabric Explorer 
 description: Service Fabric Explorer is an application for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster.
 author: mikkelhegn
 

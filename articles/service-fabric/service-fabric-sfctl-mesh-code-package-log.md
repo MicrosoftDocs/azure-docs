@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh code-package-log | Microsoft Docs
+title: Azure Service Fabric CLI- sfctl mesh code-package-log 
 description: Describes the Service Fabric CLI sfctl mesh code-package-log commands.
 author: jeffj6123
 

@@ -1,5 +1,5 @@
 ---
-title: Supported cluster versions in Azure Service Fabric | Microsoft Docs
+title: Supported cluster versions in Azure Service Fabric 
 description: Learn about cluster versions in Azure Service Fabric.
 
 ms.topic: troubleshooting

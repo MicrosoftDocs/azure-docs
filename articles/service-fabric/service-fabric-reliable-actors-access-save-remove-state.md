@@ -1,5 +1,5 @@
 ---
-title: Manage Azure Service Fabric state | Microsoft Docs
+title: Manage Azure Service Fabric state 
 description: Learn how to access, save, and remove Service Fabric Reliable Actors state.
 author: vturecek
 

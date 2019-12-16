@@ -1,5 +1,5 @@
 ---
-title: Working with Reliable Collections | Microsoft Docs
+title: Working with Reliable Collections 
 description: Learn the best practices for working with Reliable Collections.
 
 ms.topic: conceptual

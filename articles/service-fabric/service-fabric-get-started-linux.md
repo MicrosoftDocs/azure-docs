@@ -1,5 +1,5 @@
 ---
-title: Set up your development environment on Linux | Microsoft Docs
+title: Set up your development environment on Linux 
 description: Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you'll be ready to build applications.
 
 ms.topic: conceptual

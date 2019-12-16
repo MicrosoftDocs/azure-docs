@@ -1,5 +1,5 @@
 ---
-title: Fault Analysis Service overview | Microsoft Docs
+title: Fault Analysis Service overview 
 description: This article describes the Fault Analysis Service in Service Fabric for inducing faults and running test scenarios against your services.
 author: anmolah
 

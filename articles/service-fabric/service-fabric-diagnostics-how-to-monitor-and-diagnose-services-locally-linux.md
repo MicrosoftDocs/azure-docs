@@ -1,5 +1,5 @@
 ---
-title: Debug Azure Service Fabric apps in Linux | Microsoft Docs
+title: Debug Azure Service Fabric apps in Linux 
 description: Learn how to monitor and diagnose your Service Fabric services on a local Linux development machine.
 
 ms.topic: conceptual

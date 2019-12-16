@@ -1,5 +1,5 @@
 ---
-title: Roll over an Azure Service Fabric cluster certificate | Microsoft Docs
+title: Roll over an Azure Service Fabric cluster certificate 
 description: Learn how to roll over a Service Fabric cluster certificate identified by the certificate common name.
 
 ms.topic: conceptual

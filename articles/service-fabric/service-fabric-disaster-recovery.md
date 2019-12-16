@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric disaster recovery | Microsoft Docs
+title: Azure Service Fabric disaster recovery 
 description: Azure Service Fabric offers the capabilities necessary to deal with all types of disasters. This article describes the types of disasters that can occur and how to deal with them.
 author: masnider
 

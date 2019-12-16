@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric CLI- sfctl store | Microsoft Docs
+title: Azure Service Fabric CLI- sfctl store 
 description: Describes the Service Fabric CLI sfctl store commands.
 author: jeffj6123
 

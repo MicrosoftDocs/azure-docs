@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric networking best practices | Microsoft Docs
+title: Azure Service Fabric networking best practices 
 description: Best practices for managing Service Fabric networking.
 author: peterpogorski
 ms.topic: conceptual

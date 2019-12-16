@@ -1,5 +1,5 @@
 ---
-title: 'Service Fabric cluster security: client roles | Microsoft Docs'
+title: 'Service Fabric cluster security: client roles 
 description: This article describes the two client roles and the permissions provided to the roles.
 
 ms.topic: conceptual

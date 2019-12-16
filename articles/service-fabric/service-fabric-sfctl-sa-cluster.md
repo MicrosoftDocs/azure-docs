@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric CLI- sfctl sa-cluster | Microsoft Docs
+title: Azure Service Fabric CLI- sfctl sa-cluster 
 description: Describes the Service Fabric CLI sfctl standalone cluster commands.
 author: jeffj6123
 

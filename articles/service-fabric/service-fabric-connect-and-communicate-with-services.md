@@ -1,5 +1,5 @@
 ---
-title: Connect and communicate with services in Azure Service Fabric | Microsoft Docs
+title: Connect and communicate with services in Azure Service Fabric 
 description: Learn how to resolve, connect, and communicate with services in Service Fabric.
 author: vturecek
 

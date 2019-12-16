@@ -1,5 +1,5 @@
 ---
-title: Service Fabric programming model overview | Microsoft Docs
+title: Service Fabric programming model overview 
 description: 'Service Fabric offers two frameworks for building services: the actor framework and the services framework. They offer distinct trade-offs in simplicity and control.'
 author: vturecek
 

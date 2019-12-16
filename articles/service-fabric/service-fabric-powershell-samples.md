@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Samples - Service Fabric | Microsoft Docs
+title: Azure PowerShell Samples - Service Fabric 
 description: Azure PowerShell Samples - Service Fabric
 
 ms.topic: sample

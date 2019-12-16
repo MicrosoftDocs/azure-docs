@@ -1,5 +1,5 @@
 ---
-title: Restoring backup in Azure Service Fabric | Microsoft Docs
+title: Restoring backup in Azure Service Fabric 
 description: Use the periodic backup and restore feature in Service Fabric for restoring data from a backup of your application data.
 author: aagup
 

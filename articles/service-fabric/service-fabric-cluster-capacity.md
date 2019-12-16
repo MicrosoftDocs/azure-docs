@@ -1,5 +1,5 @@
 ---
-title: Planning the Service Fabric cluster capacity | Microsoft Docs
+title: Planning the Service Fabric cluster capacity 
 description: Service Fabric cluster capacity planning considerations. Nodetypes, Operations, Durability and Reliability tiers
 
 ms.topic: conceptual

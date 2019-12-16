@@ -1,5 +1,5 @@
 ---
-title: Reentrancy in Azure Service Fabric actors | Microsoft Docs
+title: Reentrancy in Azure Service Fabric actors 
 description: Introduction to reentrancy for Service Fabric Reliable Actors.
 author: vturecek
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Monitoring Partners | Microsoft Docs
+title: Azure Service Fabric Monitoring Partners 
 description: Learn how to monitor Azure Service Fabric with partner monitoring solutions
 author: srrengar
 

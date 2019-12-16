@@ -1,5 +1,5 @@
 ---
-title: Set up Azure Active Directory for Service Fabric client authentication | Microsoft Docs
+title: Set up Azure Active Directory for Service Fabric client authentication 
 description: Learn how to set up Azure Active Directory (Azure AD) to authenticate clients for Service Fabric clusters.
 
 ms.topic: conceptual

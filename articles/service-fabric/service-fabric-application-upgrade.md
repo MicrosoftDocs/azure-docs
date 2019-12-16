@@ -1,5 +1,5 @@
 ---
-title: Service Fabric application upgrade | Microsoft Docs
+title: Service Fabric application upgrade 
 description: This article provides an introduction to upgrading a Service Fabric application, including choosing upgrade modes and performing health checks.
 
 ms.topic: conceptual

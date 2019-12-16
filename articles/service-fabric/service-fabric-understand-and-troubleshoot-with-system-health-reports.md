@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot with system health reports | Microsoft Docs
+title: Troubleshoot with system health reports 
 description: Describes the health reports sent by Azure Service Fabric components and their usage for troubleshooting cluster or application problems
 author: oanapl
 

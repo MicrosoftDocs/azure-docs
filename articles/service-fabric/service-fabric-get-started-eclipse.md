@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric plug-in for Eclipse | Microsoft Docs
+title: Azure Service Fabric plug-in for Eclipse 
 description:  Get started with the Service Fabric plug-in for Eclipse.  
 author: rapatchi
 

@@ -1,5 +1,5 @@
 ---
-title: Debug your application in Visual Studio | Microsoft Docs
+title: Debug your application in Visual Studio 
 description: Improve the reliability and performance of your services by developing and debugging them in Visual Studio on a local development cluster.
 author: vturecek
 

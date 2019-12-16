@@ -1,5 +1,5 @@
 ---
-title: Reliable Actors state management | Microsoft Docs
+title: Reliable Actors state management 
 description: Describes how Reliable Actors state is managed, persisted, and replicated for high availability.
 author: vturecek
 

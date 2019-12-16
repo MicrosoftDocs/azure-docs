@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Cluster Resource Manager - Affinity | Microsoft Docs
+title: Service Fabric Cluster Resource Manager - Affinity 
 description: Overview of configuring affinity for Service Fabric Services
 services: service-fabric
 documentationcenter: .net

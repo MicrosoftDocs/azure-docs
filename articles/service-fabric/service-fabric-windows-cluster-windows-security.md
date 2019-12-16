@@ -1,5 +1,5 @@
 ---
-title: Secure a cluster running on Windows by using Windows security | Microsoft Docs
+title: Secure a cluster running on Windows by using Windows security 
 description: Learn how to configure node-to-node and client-to-node security on a standalone cluster running on Windows by using Windows security.
 author: dkkapur
 

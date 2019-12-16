@@ -1,5 +1,5 @@
 ---
-title: Debug a Java app on a local Service Fabric cluster | Microsoft Docs
+title: Debug a Java app on a local Service Fabric cluster 
 description: In this tutorial, learn how to debug and get logs from a Service Fabric Java application running on a local cluster.
 author: suhuruli
 

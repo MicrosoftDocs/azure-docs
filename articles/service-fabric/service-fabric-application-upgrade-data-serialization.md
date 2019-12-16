@@ -1,5 +1,5 @@
 ---
-title: 'Application upgrade: data serialization | Microsoft Docs'
+title: 'Application upgrade: data serialization 
 description: Best practices for data serialization and how it affects rolling application upgrades.
 author: vturecek
 

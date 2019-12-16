@@ -1,5 +1,5 @@
 ---
-title: Service communication with the ASP.NET Core | Microsoft Docs
+title: Service communication with the ASP.NET Core 
 description: Learn how to use ASP.NET Core in stateless and stateful Reliable Services.
 author: vturecek
 

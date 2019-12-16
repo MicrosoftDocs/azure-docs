@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric DNS service | Microsoft Docs
+title: Azure Service Fabric DNS service 
 description: Use Service Fabric's dns service for discovering microservices from inside the cluster.
 
 ms.topic: conceptual

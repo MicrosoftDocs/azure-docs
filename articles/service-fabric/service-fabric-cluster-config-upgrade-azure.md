@@ -1,5 +1,5 @@
 ---
-title: Upgrade the configuration of an Azure Service Fabric cluster | Microsoft Docs
+title: Upgrade the configuration of an Azure Service Fabric cluster 
 description: Learn how to upgrade the configuration that runs a Service Fabric cluster in Azure using a Resource Manager template.
 author: dkkapur
 

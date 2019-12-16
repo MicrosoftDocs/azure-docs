@@ -1,5 +1,5 @@
 ---
-title: Capacity planning and scaling for Azure Service Fabric | Microsoft Docs
+title: Capacity planning and scaling for Azure Service Fabric 
 description: Best practices for planning and scaling Service Fabric clusters and applications.
 author: peterpogorski
 

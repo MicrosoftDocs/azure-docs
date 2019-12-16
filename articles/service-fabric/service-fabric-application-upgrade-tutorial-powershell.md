@@ -1,5 +1,5 @@
 ﻿---
-title: Service Fabric App upgrade using PowerShell| Microsoft Docs
+title: Service Fabric App upgrade using PowerShell
 description: This article walks through the experience of deploying a Service Fabric application, changing the code, and rolling out an upgrade using PowerShell.
 
 ms.topic: conceptual

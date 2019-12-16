@@ -1,5 +1,5 @@
 ---
-title: Deploy an Azure Service Fabric cluster across Availability Zones| Microsoft Docs
+title: Deploy an Azure Service Fabric cluster across Availability Zones
 description: Learn how to create an Azure Service Fabric cluster across Availability Zones.
 author: peterpogorski
 

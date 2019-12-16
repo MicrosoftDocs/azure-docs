@@ -1,5 +1,5 @@
 ---
-title: Configure the upgrade of a Service Fabric application | Microsoft Docs
+title: Configure the upgrade of a Service Fabric application 
 description: Learn how to configure the settings for upgrading a Service Fabric application by using Microsoft Visual Studio.
 author: mikkelhegn
 

@@ -1,5 +1,5 @@
 ---
-title: Add custom Service Fabric health reports | Microsoft Docs
+title: Add custom Service Fabric health reports 
 description: Describes how to send custom health reports to Azure Service Fabric health entities. Gives recommendations for designing and implementing quality health reports.
 author: oanapl
 

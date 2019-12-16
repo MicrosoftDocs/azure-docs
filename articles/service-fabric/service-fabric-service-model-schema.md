@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric service model XML schema descriptions | Microsoft Docs
+title: Azure Service Fabric service model XML schema descriptions 
 description: Describes the XML schema of the Service Fabric service model.
 
 ms.topic: reference
@@ -48,7 +48,7 @@ def writeOverviewFile(filename, namedElements, namedComplexTypes, namedElementGr
 
         # Write header info
         file.write('---\n')
-        file.write('title: Azure Service Fabric service model XML schema descriptions | Microsoft Docs\n')
+        file.write('title: Azure Service Fabric service model XML schema descriptions 
         file.write('description: Describes the XML schema of the Service Fabric service model.\n')
         file.write('services: service-fabric\n')
         file.write('documentationcenter: na\n')
@@ -117,7 +117,7 @@ def writeElementGroupsFile(filename, namedElementGroups):
 
         # Write header info
         file.write('---\n')
-        file.write('title: Azure Service Fabric service model XML schema element groups | Microsoft Docs\n')
+        file.write('title: Azure Service Fabric service model XML schema element groups 
         file.write('description: Describes the element groups in the XML schema of the Service Fabric service model.\n')
         file.write('services: service-fabric\n')
         file.write('documentationcenter: na\n')
@@ -185,7 +185,7 @@ def writeElementsFile(filename, namedElements):
 
         # Write header info
         file.write('---\n')
-        file.write('title: Azure Service Fabric service model XML schema elements | Microsoft Docs\n')
+        file.write('title: Azure Service Fabric service model XML schema elements 
         file.write('description: Describes the elements in the XML schema of the Service Fabric service model.\n')
         file.write('services: service-fabric\n')
         file.write('documentationcenter: na\n')

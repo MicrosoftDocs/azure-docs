@@ -1,5 +1,5 @@
 ---
-title: Upgrade the Service Fabric runtime in Azure | Microsoft Docs
+title: Upgrade the Service Fabric runtime in Azure 
 description: In this tutorial, you learn how to use PowerShell to upgrade the runtime of an Azure-hosted Service Fabric cluster.
 
 ms.topic: tutorial

@@ -1,5 +1,5 @@
 ---
-title:  Azure Service Fabric Java Client APIs | Microsoft Docs
+title:  Azure Service Fabric Java Client APIs 
 description: Generate and use Service Fabric Java client APIs using Service Fabric client REST API specification
 author: rapatchi
 

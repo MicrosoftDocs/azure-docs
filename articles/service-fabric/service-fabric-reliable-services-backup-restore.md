@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Backup and Restore | Microsoft Docs
+title: Service Fabric Backup and Restore 
 description: Conceptual documentation for Service Fabric Backup and Restore
 author: mcoskun
 

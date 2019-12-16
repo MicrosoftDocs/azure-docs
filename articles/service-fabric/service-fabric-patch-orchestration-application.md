@@ -1,5 +1,5 @@
 ---
-title: Patch the Windows operating system in your Service Fabric cluster | Microsoft Docs
+title: Patch the Windows operating system in your Service Fabric cluster 
 description: This article discusses how to automate operating system patching on a Service Fabric cluster by using Patch Orchestration Application.
 services: service-fabric
 documentationcenter: .net

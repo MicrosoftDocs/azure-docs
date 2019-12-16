@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric set up reverse proxy | Microsoft Docs
+title: Azure Service Fabric set up reverse proxy 
 description: Understand how to set up and configure Service Fabric's reverse proxy.
 documentationcenter: na
 author: atinanthny

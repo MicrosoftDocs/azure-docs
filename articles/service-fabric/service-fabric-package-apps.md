@@ -1,5 +1,5 @@
 ---
-title: Package an Azure Service Fabric app | Microsoft Docs
+title: Package an Azure Service Fabric app 
 description: How to package a Service Fabric application before deploying to a cluster.
 
 ms.topic: conceptual

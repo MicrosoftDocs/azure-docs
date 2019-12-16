@@ -1,5 +1,5 @@
 ---
-title: Create a Service Fabric cluster running Windows in Azure | Microsoft Docs
+title: Create a Service Fabric cluster running Windows in Azure 
 description: In this tutorial, you learn how to deploy a Windows Service Fabric cluster into an Azure virtual network and network security group by using PowerShell.
 
 ms.topic: tutorial

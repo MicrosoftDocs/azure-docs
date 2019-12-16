@@ -1,5 +1,5 @@
 ---
-title: Configure your Azure Service Fabric standalone cluster | Microsoft Docs
+title: Configure your Azure Service Fabric standalone cluster 
 description: Learn how to configure your standalone or on-premises Azure Service Fabric cluster.
 author: dkkapur
 

@@ -1,5 +1,5 @@
 ﻿---
-title: How to view Azure Service Fabric entities' aggregated health | Microsoft Docs
+title: How to view Azure Service Fabric entities' aggregated health 
 description: Describes how to query, view, and evaluate Azure Service Fabric entities' aggregated health, through health queries and general queries.
 author: oanapl
 

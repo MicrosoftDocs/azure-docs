@@ -1,5 +1,5 @@
 ---
-title: Scalability of Service Fabric services | Microsoft Docs
+title: Scalability of Service Fabric services 
 description: Describes how to scale Service Fabric services
 author: masnider
 

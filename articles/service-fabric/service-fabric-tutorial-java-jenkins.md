@@ -1,5 +1,5 @@
 ---
-title: Configure Jenkins for a Java app on Service Fabric in Azure | Microsoft Docs
+title: Configure Jenkins for a Java app on Service Fabric in Azure 
 description: In this tutorial, learn how to set up continuous integration using Jenkins to deploy a Java Service Fabric application.
 author: suhuruli
 

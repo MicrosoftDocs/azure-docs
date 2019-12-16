@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Stateful Reliable Services diagnostics | Microsoft Docs
+title: Azure Service Fabric Stateful Reliable Services diagnostics 
 description: Diagnostic functionality for Stateful Reliable Services in Azure Service Fabric
 author: dkkapur
 

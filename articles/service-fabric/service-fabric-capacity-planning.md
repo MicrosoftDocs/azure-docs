@@ -1,5 +1,5 @@
 ---
-title: Capacity planning for Service Fabric apps | Microsoft Docs
+title: Capacity planning for Service Fabric apps 
 description: Describes how to identify the number of compute nodes required for a Service Fabric application
 
 ms.topic: conceptual

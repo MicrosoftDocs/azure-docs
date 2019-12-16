@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Event Store  | Microsoft Docs
+title: Azure Service Fabric Event Store  
 description: Learn about Azure Service Fabric's EventStore
 author: srrengar
 

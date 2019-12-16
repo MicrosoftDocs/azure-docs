@@ -1,5 +1,5 @@
 ---
-title: Health monitoring in Service Fabric | Microsoft Docs
+title: Health monitoring in Service Fabric 
 description: An introduction to the Azure Service Fabric health monitoring model, which provides monitoring of the cluster and its applications and services.
 author: oanapl
 

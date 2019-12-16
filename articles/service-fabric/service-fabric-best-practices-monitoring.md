@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric monitoring best practices | Microsoft Docs
+title: Azure Service Fabric monitoring best practices 
 description: Best practices for monitoring Service Fabric clusters and applications.
 author: peterpogorski
 

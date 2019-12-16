@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric image store connection string | Microsoft Docs
+title: Azure Service Fabric image store connection string 
 description: Understand the image store connection string
 author: alexwun
 

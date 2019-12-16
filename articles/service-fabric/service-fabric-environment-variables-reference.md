@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric environment variables | Microsoft Docs
+title: Azure Service Fabric environment variables 
 description: Reference documentation for Service Fabric environment variables
 author: mikkelhegn
 

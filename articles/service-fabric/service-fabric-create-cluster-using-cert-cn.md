@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Service Fabric cluster using certificate common name | Microsoft Docs
+title: Create an Azure Service Fabric cluster using certificate common name 
 description: Learn how to create a Service Fabric cluster using certificate common name from a template.
 
 ms.topic: conceptual

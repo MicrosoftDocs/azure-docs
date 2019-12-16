@@ -1,5 +1,5 @@
 ---
-title: Parameterize config files in Azure Service Fabric | Microsoft Docs
+title: Parameterize config files in Azure Service Fabric 
 description: Learn how to parameterize configuration files in Service Fabric.
 author: mikkelhegn
 

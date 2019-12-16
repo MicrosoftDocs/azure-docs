@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric service model XML schema complex types | Microsoft Docs
+title: Azure Service Fabric service model XML schema complex types 
 description: Describes the complex types in the XML schema of the Service Fabric service model.
 
 ms.topic: reference
