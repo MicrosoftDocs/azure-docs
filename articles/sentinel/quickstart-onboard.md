@@ -36,7 +36,7 @@ After you connect your data sources, choose from a gallery of expertly created w
  
 ## Enable Azure Sentinel <a name="enable"></a>
 
-1. Sign in to the Azure portal. Make sure that the subscription in which Azure Sentinel is created, is selected.
+1. Sign in to the Azure portal. Make sure that the subscription in which Azure Sentinel is created is selected.
 
 1. Search for and select **Azure Sentinel**.
 
