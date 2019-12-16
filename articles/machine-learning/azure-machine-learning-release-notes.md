@@ -148,7 +148,7 @@ Access the following web-based authoring tools from the studio:
 |-|-|-|
 | Notebook VM(preview) | Fully managed cloud-based workstation | Basic & Enterprise |
 | [Automated machine learning](service/tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
-| [Designer](ui-concept-visual-interface.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the the designer | Enterprise |
+| [Designer](service/concept-designer.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the the designer | Enterprise |
 
 
 ### Azure Machine Learning designer enhancements 
@@ -1082,7 +1082,7 @@ Use a Notebook VM as a secure, enterprise-ready hosting environment for Jupyter
 
 ### Azure Machine Learning SDK for Python v1.0.33 released.
 
-+ Azure ML Hardware Accelerated Models on [FPGAs](concept-accelerate-with-fpgas.md) is generally available.
++ Azure ML Hardware Accelerated Models on [FPGAs](service/how-to-deploy-fpga-web-service.md) is generally available.
   + You can now [use the azureml-accel-models package](service/how-to-deploy-fpga-web-service.md) to:
     + Train the weights of a supported deep neural network (ResNet 50, ResNet 152, DenseNet-121, VGG-16, and SSD-VGG)
     + Use transfer learning with the supported DNN
