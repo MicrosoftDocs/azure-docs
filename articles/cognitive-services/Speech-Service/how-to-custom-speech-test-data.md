@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 12/16/2019
 ms.author: erhopf
 ---
 
@@ -27,6 +27,9 @@ This table lists accepted data types, when each data type should be used, and th
 | [Related text](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
+
+> [!TIP]
+> To quickly get started, consider using sample data. See this GitHub repository for <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">sample Custom Speech data <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ## Upload data
 
@@ -57,6 +60,9 @@ Use this table to ensure that your audio files are formatted correctly for use w
 | Archive format | .zip |
 | Maximum archive size | 2 GB |
 
+> [!TIP]
+> When uploading training and testing data, the .zip file size cannot exceed 2 GB. If you require more data for training and testing, divide it into several .zip files and upload them separately. Later, you can choose to train and test from *multiple* datasets.
+
 If your audio doesn’t satisfy these properties or you want to check if it does, we suggest downloading [sox](http://sox.sourceforge.net) to check or convert the audio. Below are some examples of how each of these activities can be done through the command line:
 
 | Activity | Description | Sox command |
@@ -66,7 +72,7 @@ If your audio doesn’t satisfy these properties or you want to check if it does
 
 ## Audio + human-labeled transcript data for testing/training
 
-To measure the accuracy of Microsoft's speech-to-text accuracy when processing your audio files, you must provide human-labeled transcriptions (word-by-word) for comparison. While human-labeled transcription is often time consuming, it's necessary to evaluate accuracy and to train the model for your use cases. Keep in mind, the improvements in recognition will only be as good as the data provided. For that reason, it's important that only high-quality transcripts are uploaded.  
+To measure the accuracy of Microsoft's speech-to-text accuracy when processing your audio files, you must provide human-labeled transcriptions (word-by-word) for comparison. While human-labeled transcription is often time consuming, it's necessary to evaluate accuracy and to train the model for your use cases. Keep in mind, the improvements in recognition will only be as good as the data provided. For that reason, it's important that only high-quality transcripts are uploaded.
 
 | Property | Value |
 |----------|-------|
@@ -77,6 +83,9 @@ To measure the accuracy of Microsoft's speech-to-text accuracy when processing y
 | Sample format | PCM, 16-bit |
 | Archive format | .zip |
 | Maximum zip size | 2 GB |
+
+> [!TIP]
+> When uploading training and testing data, the .zip file size cannot exceed 2 GB. If you require more data for training and testing, divide it into several .zip files and upload them separately. Later, you can choose to train and test from *multiple* datasets.
 
 To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 1,000 hours of audio. The transcriptions for all WAV files should be contained in a single plain-text file. Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t).
 

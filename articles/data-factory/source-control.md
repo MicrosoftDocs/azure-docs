@@ -1,18 +1,18 @@
 ---
-title: Source control in Azure Data Factory 
+title: Source control
 description: Learn how to configure source control in Azure Data Factory
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: naF
-ms.topic: conceptual
-ms.date: 01/09/2019
 author: djpmsft
 ms.author: daperlov
-ms.reviewer: 
-manager: craigg
+manager: anandsub
+ms.reviewer:
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 01/09/2019
 ---
+
 # Source control in Azure Data Factory
 
 The Azure Data Factory user interface experience (UX) has two experiences available for visual authoring:

@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -119,9 +119,10 @@ The following table provides a brief description of each built-in role. Click th
 > | [Monitoring Reader](#monitoring-reader) | Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | [Network Contributor](#network-contributor) | Lets you manage networks, but not access to them. | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
 > | [New Relic APM Account Contributor](#new-relic-apm-account-contributor) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them. | 5d28c62d-5b37-4476-8438-e587778df237 |
+> | [Policy Insights Data Writer (Preview)](#policy-insights-data-writer-preview) | Allows read access to resource policies and write access to resource component policy events. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
 > | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys. | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | [Redis Cache Contributor](#redis-cache-contributor) | Lets you manage Redis caches, but not access to them. | e0f68234-74aa-48ed-b826-c38b57376e17 |
-> | [Resource Policy Contributor (Preview)](#resource-policy-contributor-preview) | (Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | [Resource Policy Contributor](#resource-policy-contributor) | Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Search Service Contributor](#search-service-contributor) | Lets you manage Search services, but not access to them. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Security Admin](#security-admin) | In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations | fb1c8493-542b-48eb-b624-b4c8fea62acd |
@@ -662,6 +663,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
 > | Microsoft.OperationsManagement/solutions/read | Get exiting OMS solution |
 > | Microsoft.OperationalInsights/workspaces/query/read | Run queries over the data in the workspace |
+> | Microsoft.OperationalInsights/workspaces/query/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Get datasources under a workspace. |
 > | Microsoft.Insights/workbooks/* |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
@@ -689,6 +691,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.OperationalInsights/workspaces/savedSearches/read | Gets a saved search query |
 > | Microsoft.OperationsManagement/solutions/read | Get exiting OMS solution |
 > | Microsoft.OperationalInsights/workspaces/query/read | Run queries over the data in the workspace |
+> | Microsoft.OperationalInsights/workspaces/query/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Get datasources under a workspace. |
 > | Microsoft.Insights/workbooks/read | Read a workbook |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
@@ -718,6 +721,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.OperationalInsights/workspaces/savedSearches/read | Gets a saved search query |
 > | Microsoft.OperationsManagement/solutions/read | Get exiting OMS solution |
 > | Microsoft.OperationalInsights/workspaces/query/read | Run queries over the data in the workspace |
+> | Microsoft.OperationalInsights/workspaces/query/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Get datasources under a workspace. |
 > | Microsoft.Insights/workbooks/read | Read a workbook |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
@@ -1357,6 +1361,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | **NotActions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
 > | Microsoft.DocumentDB/databaseAccounts/regenerateKey/* |  |
@@ -1627,6 +1632,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2135,6 +2141,24 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## Policy Insights Data Writer (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows read access to resource policies and write access to resource component policy events. |
+> | **Id** | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
+> | **Actions** |  |
+> | Microsoft.Authorization/policyassignments/read | Get information about a policy assignment. |
+> | Microsoft.Authorization/policydefinitions/read | Get information about a policy definition. |
+> | Microsoft.Authorization/policysetdefinitions/read | Get information about a policy set definition. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.PolicyInsights/checkDataPolicyCompliance/action | Check the compliance status of a given component against data policies. |
+> | Microsoft.PolicyInsights/policyEvents/logDataEvents/action | Log the resource component policy events. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## Reader and Data Access
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2173,11 +2197,11 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Resource Policy Contributor (Preview)
+## Resource Policy Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | (Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy. |
+> | **Description** | Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy. |
 > | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | **Actions** |  |
 > | */read | Read resources of all types, except secrets. |
@@ -2339,6 +2363,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | Microsoft.RecoveryServices/vaults/replicationOperationStatus/read | Read any Vault Replication Operation Status |
 > | Microsoft.Support/* | Create and manage support tickets |
 > | **NotActions** |  |
 > | *none* |  |
