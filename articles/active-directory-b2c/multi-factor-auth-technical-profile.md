@@ -114,7 +114,7 @@ The **InputClaims** element contains a list of claims to send to Azure MFA. You 
 
 | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- | ----------- |
-| userPrincipalName  | No | The identifier for the user who owns the phone number. (TODO: to check what is the primary key for code validation. The UPN, phone number or the session id?) |
+| phoneNumber| Yes | Same phone number as previously used to send a code. It is also used to locate a phone verification session. |
 | verificationCode  | Yes | The verification code provided by the user to be verified |
 
 The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before calling the Azure MFA service.
