@@ -39,7 +39,7 @@ First you have to create an Application Insights resource which will generate an
 
    A configuration box appears; use the following table to fill out the input fields.
 
-    | Settings        | Value           | Description  |
+   | Settings        | Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
    | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data |
