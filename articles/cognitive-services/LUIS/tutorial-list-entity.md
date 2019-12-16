@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 12/13/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity.
 ---
@@ -47,7 +47,7 @@ A list entity is a good choice for this type of data when:
 
 ## Import example .json and add utterances
 
-1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+1.  Download and save the [app JSON file](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
 
     [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
