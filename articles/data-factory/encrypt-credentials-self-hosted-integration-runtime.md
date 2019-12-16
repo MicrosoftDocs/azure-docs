@@ -34,10 +34,7 @@ Replace `<servername>`, `<databasename>`, `<username>`, and `<password>` with va
 	"properties": {
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": {
-				"type": "SecureString",
-				"value": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
-			}
+			"connectionString": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
 		},
 		"connectVia": {
 			"type": "integrationRuntimeReference",
