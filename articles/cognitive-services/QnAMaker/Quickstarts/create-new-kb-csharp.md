@@ -23,15 +23,14 @@ This quickstart calls QnA Maker APIs:
 * [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish)
 
+[Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [C# Sample](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs)
+
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## Prerequisites
 
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * You must have a [QnA Maker resource](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and endpoint (which includes the resource name), select **Quickstart** for your resource in the Azure portal.
-
-> [!NOTE]
-> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
 
 ### Create a new C# application
 
@@ -67,7 +66,11 @@ At the top of Program.cs, replace the single using statement with the following 
 
 ## Add the required constants
 
-At the top of the Program class, add the following constants to access QnA Maker:
+At the top of the Program class, add the required constants to access QnA Maker.
+
+The key is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quick start page.
+
+The endpoint is the URL for authoring, in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. This is not the same URL used to query the prediction endpoint. 
 
 [!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=17-26 "Add the required constants")]
 
