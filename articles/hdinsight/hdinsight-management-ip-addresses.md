@@ -1,13 +1,13 @@
 ---
 title: Azure HDInsight management IP addresses
 description: Learn which IP addresses you must allow inbound traffic from, in order to properly configure network security groups and user defined routes for virtual networking with Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+author: hol82
+ms.author: hol
+ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/16/2019
 ---
 
 # HDInsight management IP addresses
@@ -73,6 +73,7 @@ Allow traffic from the IP addresses listed for the Azure HDInsight health and ma
 | &nbsp; | West Central US | 52.161.23.15</br>52.161.10.167 | \*:443 | Inbound |
 | &nbsp; | West US | 13.64.254.98</br>23.101.196.19 | \*:443 | Inbound |
 | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Inbound |
+| &nbsp; | UAE North | 65.52.252.96</br>65.52.252.97 | \*:443 | Inbound |
 
 For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
 
