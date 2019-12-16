@@ -1,16 +1,9 @@
 ---
-title: Use an Azure Files based volume in a Service Fabric Mesh application | Microsoft Docs
+title: Use an Azure Files based volume in a Service Fabric Mesh application 
 description: Learn how to store state in an Azure Service Fabric Mesh application by mounting an Azure Files based volume inside a service using the Azure CLI.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
 ms.assetid: 
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter 
@@ -222,8 +215,7 @@ application:
   schemaVersion: 1.0.0-preview2
   name: VolumeTest
   properties:
-    services:
-      - name: VolumeTestService
+          - name: VolumeTestService
         properties:
           description: VolumeTestService description.
           osType: Windows
