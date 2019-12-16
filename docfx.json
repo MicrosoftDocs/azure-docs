@@ -474,7 +474,7 @@
         "articles/migrate/*.md": "azure-migrate",
         "articles/notebooks/*.md": "azure-notebooks",
         "articles/service-fabric/*.md": "service-fabric",
-        "articles/service-fabric/*.md": "service-fabric-mesh"
+        "articles/service-fabric-mesh/*.md": "service-fabric-mesh"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture"
