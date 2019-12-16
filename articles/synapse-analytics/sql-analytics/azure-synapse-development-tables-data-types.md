@@ -1,16 +1,15 @@
 ---
 title: Defining data types
 description: Recommendations for defining table data types in Azure SQL Data Warehouse. 
-services: sql-data-warehouse
+services: synapse analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice:
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
 ---
 
 # Table data types in Azure SQL Data Warehouse
@@ -63,4 +62,4 @@ The following list shows the data types that SQL Data Warehouse does not support
 
 
 ## Next steps
-For more information on developing tables, see [Table Overview](azure-synapse-development-tables-overview.md).
+For more information on developing tables, see [Table Overview](development-overview.md).
