@@ -237,7 +237,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.12|Your Microsoft Teams app name may not include "app", "plug-in", or derivatives.|
 |14.13|The UI (buttons, links, text fields) of your Microsoft Teams app must be intuitive and obvious in their purpose. Users must not be required to read support content to perform basic operations.|
 |14.14|Microsoft's review and publication of your Microsoft Teams app to the Microsoft Teams gallery is not an endorsement of your Microsoft Teams app.|
-|14.15|Microsoft Teams apps can fail validation for issues related to [Microsoft Teams app design guidelines](https://aka.ms/microsoftteamsdesignguidelines) or issues that impede the customer experience within Microsoft Teams. To pass validation, Microsoft Teams apps must meet the following requirements|
+|14.15|Microsoft Teams apps can fail validation for issues related to [Microsoft Teams app design guidelines](https://aka.ms/microsoftteamsdesignguidelines) or issues that impede the customer experience within Microsoft Teams. To pass validation, Microsoft Teams apps must meet requirements 14.15.1 through 14.15.9.|
 |14.15.1|A tab experience must provide value beyond simply hosting an existing website: A tab must fulfill a valid user scenario within it|
 |14.15.2|Content in a channel tab must be contextually the same for all members of the channel and not scoped for individual use.|
 |14.15.3|Content in a tab should not have excessive chrome or layered navigation (also known as "chrome").|
@@ -279,6 +279,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|December 16, 2019|Updated policy 14.15.|
 |2.2|December 6, 2019|Added policies 14.19, 14.20, and 14.21.|
 |2.2|December 4, 2019|Update policy 14.15.|
 |2.2|September 23, 2019|Updated policy 14.18.|
