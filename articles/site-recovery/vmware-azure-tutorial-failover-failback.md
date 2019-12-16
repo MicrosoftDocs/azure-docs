@@ -1,16 +1,12 @@
 ---
-title: Fail over and fail back VMware VMs and physical servers during disaster recovery to Azure with Site Recovery | Microsoft Docs
-description: Learn how to fail over VMware VMs and physical servers to Azure, and how to fail back to the on-premises site, during disaster recovery to Azure by using Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+title: Fail over VMware VMs to Azure with Site Recovery 
+description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
 ms.date: 12/16/2019
-ms.author: raynew
 ms.custom: MVC
 ---
-# Fail over and fail back VMware VMs
+# Fail over  VMware VMs
 
 This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md).
 
@@ -25,7 +21,7 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario. They use default options where possible and don't show all possible settings and paths. If you want to learn about failover in detail, see [Fail over VMs and physical servers](site-recovery-failover.md).
 
-If you want to learn how to fail over multiple VMs in a recovery plan, [review](site-recovery-failover.md) this article.
+[Learn about](failover-failback-overview.md#types-of-failover) different types of failover. If you want to fail over multiple VMs in a recovery plan, review [this article](site-recovery-failover.md).
 
 ## Before you start
 
@@ -35,15 +31,6 @@ Complete the previous tutorials:
 2. Prepare your on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) or [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) environment for disaster recovery. If you're setting up disaster recovery for physical servers, review the [support matrix](vmware-physical-secondary-support-matrix.md).
 3. Set up disaster recovery for [VMware VMs](vmware-azure-tutorial.md), [Hyper-V VMs](hyper-v-azure-tutorial.md), or [physical machines](physical-azure-disaster-recovery.md).
 4. Run a [disaster recovery drill](tutorial-dr-drill-azure.md) to make sure that everything's working as expected.
-
-## Failover and failback
-
-Failover and failback have four stages:
-
-1. **Fail over to Azure:** When your on-premises primary site goes down, fail machines over to Azure. After failover, Azure VMs are created from replicated data.
-2. **Reprotect Azure VMs:** In Azure, reprotect the Azure VMs so that they start replicating back to on-premises VMware VMs. The on-premises VM is turned off during reprotection, to help ensure data consistency.
-3. **Fail over to on-premises:** When your on-premises site is up and running, run a failover to fail back from Azure.
-4. **Reprotect on-premises VMs:** After data has failed back, reprotect the on-premises VMs to which you failed back, so that they start replicating to Azure.
 
 ## Verify VM properties
 
