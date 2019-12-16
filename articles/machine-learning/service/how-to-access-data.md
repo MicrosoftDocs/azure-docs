@@ -56,11 +56,11 @@ When you register an Azure storage solution as a datastore, you automatically cr
 
 All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*.
 
-The information you need to populate the register() method can be found via the [Azure Machine Learning studio](https://ml.azure.com) and these steps
+The information you need to populate the register() method can be found via the [Azure Portal](https://portal.azure.com) and these steps
 
 1. Select **Storage Accounts** on the left pane and choose the storage account you want to register. 
 2. The **Overview** page provides information such as, the account name and container or file share name. 
-3. For authentication information, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left. 
+3. For authentication information, like account key or SAS token, navigate to **Access Keys** under the **Settings** pane on the left. 
 
 > [!IMPORTANT]
 > If your storage account is in a VNET, only Azure blob datastore creation is supported. Set the parameter, `grant_workspace_access` to `True` to grant your workspace access to your storage account.
