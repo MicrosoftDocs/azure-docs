@@ -50,11 +50,7 @@ $vmAction = "Start"
 Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Get the lab information
-if ($(Get-Module -Name AzureRM).Version.Major -eq 6) {
-    $devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -Name $devTestLabName
-} else {
-    $devTestLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
-}
+$devTestLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
 
 # Start the VM and return a succeeded or failed status
 $returnStatus = Invoke-AzResourceAction `
