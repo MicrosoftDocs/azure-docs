@@ -26,7 +26,7 @@ Public plans let you promote your services to new customers. These are usually m
 If appropriate, you can include both public and private plans in the same offer.
 
 > [!IMPORTANT]
-> Once a plan has been published as public, you can't change it to private. To control which customers can accept your offer and delegate resources, use a private plan. With a public plan, you can't restrict availability to certain customers or even to a certain number of customers (although you can stop selling the plan completely if you choose to do so). There is currently no mechanism to reject or remove delegations once a customer accepts an offer, although you can always reach out to a customer and ask them to [remove your access](view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Once a plan has been published as public, you can't change it to private. To control which customers can accept your offer and delegate resources, use a private plan. With a public plan, you can't restrict availability to certain customers or even to a certain number of customers (although you can stop selling the plan completely if you choose to do so). There is currently no mechanism to reject or remove delegations once a customer accepts an offer, although you can always reach out to a customer and ask them to [remove your access](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 ## Publish managed service offers
 
