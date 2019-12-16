@@ -42,7 +42,7 @@ Use the settings in the table below when setting up a classroom lab.  For more i
 | Lab settings | Value/instructions |
 | ------------ | ------------------ |
 |Virtual Machine Size| Small GPU (Compute). This size is best suited for compute-intensive and network-intensive applications like Artificial Intelligence and Deep Learning. |
-|Virtual Machine Image| SQL Server 2019 Standard on Windows Server 2019|
+|Virtual Machine Image| Data Science Virtual Machine - Windows 2016|
 
 ## Template machine
 

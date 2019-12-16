@@ -851,14 +851,14 @@
       href: ./hdinsight-service-tags.md
   - name: How to
     items:
+    - name: Use ID Broker for credential management
+      href: ./domain-joined/identity-broker.md    
     - name: Create ESP clusters and sync with on-premises
       href: ./domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Create VNETs for HDInsight
       href: ./hdinsight-create-virtual-network.md
     - name: Connect HDInsight with on-premises network
       href: ./connect-on-premises-network.md
-    - name: Configure enterprise security in HDInsight
-      href: ./domain-joined/apache-domain-joined-configure.md
     - name: Configure ESP clusters using Azure AD DS
       href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
     - name: Synchronize Azure AD users to an HDInsight cluster

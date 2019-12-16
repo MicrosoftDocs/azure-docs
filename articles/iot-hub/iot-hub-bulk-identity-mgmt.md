@@ -86,7 +86,7 @@ Only 1 active device import or export job is allowed at a time for all IoT Hub t
 
 ## Export devices
 
-Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an [Azure Storage](../storage/index.yml) blob container using a [Shared Access Signature](../storage/common/storage-security-guide.md#authorization).
+Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an Azure Storage blob container using a shared access signature (SAS). For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
 
 This method enables you to create reliable backups of your device information in a blob container that you control.
 
