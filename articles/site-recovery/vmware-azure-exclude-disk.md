@@ -46,4 +46,4 @@ Before you exclude disks from replication:
 
 
 ## Next steps
-After your deployment is up and running, [learn more](site-recovery-failover.md) about different types of failover.
+After your deployment is set up and running, [learn more](failover-failback-overview.md) about different types of failover.
