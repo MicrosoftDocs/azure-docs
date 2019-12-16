@@ -15,13 +15,15 @@ ms.author: banders
 ---
 # Track Microsoft Customer Agreement Azure credit balance
 
-You can check the Azure credit balance for your billing account for a Microsoft Customer Agreement in the Azure portal. 
+You can check the Azure credit balance for your billing account for a Microsoft Customer Agreement in the Azure portal or through REST APIs.
 
 In the billing account for a Microsoft Customer Agreement, credits are assigned to a billing profile. Each billing profile has its own credits that are automatically applied to the charges on its invoice. You must have an owner, contributor, reader, or invoice manager role on the billing profile or owner, contributor, or reader role on the billing account to view Azure credit balance for a billing profile. To learn more about the roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](billing-understand-mca-roles.md).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
-## Check your credit balance in the Azure portal
+## Check your credit balance
+
+### [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -45,7 +47,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
     
    #### Balance
    
-   The balance section display a summary of your Azure credit balance.
+   The balance section displays the summary of your Azure credit balance.
 
    ![Screenshot of credit balance for a billing profile](./media/billing-mca-check-azure-credits-balance/mca-credit-balance.png)
 
@@ -73,7 +75,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
    #### Transactions
 
-   The transactions section displays all transactions that affected the credits balance.
+   The transactions section displays all transactions that affected your credits balance.
 
    ![Screenshot of credit transactions for a billing profile](./media/billing-mca-check-azure-credits-balance/mca-credits-transactions.png)
     
@@ -86,13 +88,13 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
     > [!NOTE]
     >
-    > If you don't see Azure credits in the payment methods page, either you don't have credits or you have not selected the right scope. Select the billing profile which has credits or its billing account. To learn how to change scopes, see [Switch billing scopes in the Azure portal](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
+    > If you don't see Azure credits in the payment methods page, either you don't have credits or you have not selected the right scope. Select the billing account which has credits or one of its billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
 
 5. If you are viewing Azure credits at the billing account scope and the billing account has more than one billing profiles, the Azure credits page will show a table with a summary of Azure credits for each billing profile. Select a billing profile from the list, select payment methods and then Azure credits to view details for a billing profile.
 
     ![Screenshot of credit list for a billing account](./media/billing-mca-check-azure-credits-balance/mca-account-credit-list.png)
 
-## Check your credit balance programmatically
+### [REST API](#tab/rest)
 
 You can use the [Azure Billing](https://docs.microsoft.com/rest/api/billing/) and the [Consumption](https://docs.microsoft.com/rest/api/consumption/) APIs to programmatically get the credit balance for your billing account.
 
@@ -353,6 +355,8 @@ The API response returns all transactions that affected the credit balance for y
 | `closedBalance`  | The balance after the transaction.   |
 | `eventType`  | The type of transaction.   |
 | `invoiceNumber`  | The invoice number of the invoice on which the transaction is billed. It will be empty for pending transaction.   |
+
+---
 
 ## How credits are used
 
