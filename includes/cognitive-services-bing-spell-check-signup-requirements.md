@@ -8,7 +8,7 @@ ms.date: 12/16/2019
 
 ## Create an Azure resource
 
-Start using the Bing Spell Check Search API by creating one of the Azure resources below.
+Start using the Bing Spell Check API by creating one of the Azure resources below.
 
 * [Create a trial resource](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api-v7):
     * No Azure subscription needed.
