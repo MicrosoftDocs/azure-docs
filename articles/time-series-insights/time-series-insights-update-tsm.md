@@ -337,7 +337,9 @@ Variables conform to the following JSON example:
 ```JSON
 "Status": {
   "kind": "categorical",
-  "value": "toLong($event.[Status].Double)",
+  "value": {
+    "tsx": "toLong($event.[Status].Double)",
+  },
   "interpolation": {
     "kind": "step",
     "boundary": {
