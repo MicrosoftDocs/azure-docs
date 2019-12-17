@@ -183,6 +183,6 @@ aci_service.regen_key("Primary")
 aci_service.regen_key("Secondary")
 ```
 
-Web-services also support token-based authentication, but only for Azure Kubernetes Service deployments. See the [how-to](how-to-consume-web-service.md) on consuming web-services for more additional information on authenticating.
+Web-services also support token-based authentication, but only for Azure Kubernetes Service deployments. See the [how-to](how-to-consume-web-service.md) on consuming web-services for additional information on authenticating.
 
 ## Azure Machine Learning REST API auth
