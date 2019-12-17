@@ -55,13 +55,39 @@ You can work around the problem by running the BACPAC import or export directly 
 
 The Azure SQL Database Query Editor is deployed on VMs in Azure. These VMs are not in your VNet. Therefore the VMs get an Azure IP when connecting to your database. On removing **Allow Azure services to access server**, these VMs will not be able to access your databases.
 
-### Table Auditing
-
-At present, there are two ways to enable auditing on your SQL Database. Table auditing fails after you have enabled service endpoints on your Azure SQL Server. Mitigation here is to move to Blob auditing.
-
 ### Impact on Data Sync
 
 Azure SQL Database has the Data Sync feature that connects to your databases using Azure IPs. When using service endpoints, you will turn off **Allow Azure services to access server** access to your SQL Database server and will break the Data Sync feature.
+
+To use the Data sync feature with **Allow Azure services to access server** set to OFF, you need to create individual firewall rule entries to [add IP addresses](sql-database-server-level-firewall-rule.md) covered under the SQL **service tag**
+
+The following PowerShell script shows how to enumerate the IP address range that is under the SQL service tag
+```powershell
+PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
+PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }
+PS C:\> $sql.Properties.AddressPrefixes.Count
+70
+PS C:\> $sql.Properties.AddressPrefixes
+13.86.216.0/25
+13.86.216.128/26
+13.86.216.192/27
+13.86.217.0/25
+13.86.217.128/26
+13.86.217.192/27
+```
+
+> [!TIP]
+> Get-AzNetworkServiceTag returns the global range for SQL Service Tag. Be sure to filter it to the region that hosts the databases using Data Sync
+
+Note that the output of the PowerShell script is in  Classless Inter Domain Routing(CIDR) notation. 
+Use [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) to convert from CIDR notation to Start and End IP addresses- which you can then enter as firewall rules.
+
+```powershell
+PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26                                                                   
+start        end
+-----        ---
+52.229.17.64 52.229.17.127
+```
 
 ## IP firewall rules
 Ip based firewall is a feature of Azure SQL Server that prevents all access to your database server until you explicitly [add IP addresses](sql-database-server-level-firewall-rule.md) of the client machines.
