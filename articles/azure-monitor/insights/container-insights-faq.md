@@ -9,6 +9,10 @@ ms.date: 10/15/2019
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
+## I dont see 'Image' and 'Name' fields populated for my logs in ContainerLog table
+
+Starting with the agent version ciprod12042019 (and later) these two fields are not populated for every logline, to save customer costs on log data collected. Please alter your queries to get 'Image' and 'ImageTag' fields from 'ContainerInventory' table by joining on 'ContainerID' field. You can get the 'Name' field (as it used to appear in ContainerLog table) from 'KubepodInventory' table's 'ContainerName' field by joining on 'ContainerID' field.
+
 ## Can I view metrics collected in Grafana?
 
 Azure Monitor for containers supports viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We have provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and  reference to help you learn how to query additional data from your monitored clusters to visualize in custom Grafana dashboards. 
