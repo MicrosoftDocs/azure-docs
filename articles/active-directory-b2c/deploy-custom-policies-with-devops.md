@@ -1,7 +1,7 @@
 ---
-title: Deploy custom policies with Azure DevOps
+title: Deploy custom policies with Azure Pipelines
 titleSuffix: Azure AD B2C
-description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using Azure DevOps.
+description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using Azure Pipelines within Azure DevOps Services.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -14,15 +14,15 @@ ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Deploy custom policies from an Azure DevOps pipeline
+# Deploy custom policies from an Azure Pipeline
 
-By using a continuous integration and delivery (CI/CD) pipeline that you set up in [Azure DevOps][devops], you can include your Azure AD B2C custom policies in your software delivery and code control automation. As you deploy to different Azure AD B2C environments, for example dev, test, and production, we recommend that you remove manual processes and perform automated testing by using Azure DevOps.
+By using a continuous integration and delivery (CI/CD) pipeline that you set up in [Azure Pipelines][devops-pipelines], you can include your Azure AD B2C custom policies in your software delivery and code control automation. As you deploy to different Azure AD B2C environments, for example dev, test, and production, we recommend that you remove manual processes and perform automated testing by using Azure Pipelines.
 
-There are three primary steps required for enabling Azure DevOps to manage custom policies within Azure AD B2C:
+There are three primary steps required for enabling Azure Pipelines to manage custom policies within Azure AD B2C:
 
 1. Create a web application registration in your Azure AD B2C tenant
-1. Configure an Azure DevOps Git repository
-1. Configure an Azure DevOps release pipeline
+1. Configure an Azure Repo
+1. Configure an Azure Pipeline
 
 > [!IMPORTANT]
 > Managing Azure AD B2C custom policies currently uses **preview** operations available on the Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
@@ -30,15 +30,15 @@ There are three primary steps required for enabling Azure DevOps to manage custo
 ## Prerequisites
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the *Global Admin* role
-* [Azure DevOps pipeline](https://azure.microsoft.com/services/devops/pipelines/), and access to an [Azure DevOps project][devops-create-project]
+* [Azure Pipeline](https://azure.microsoft.com/services/devops/pipelines/), and access to an [Azure DevOps Services project][devops-create-project]
 
 ## Client credentials grant flow
 
-The scenario described here makes use of service-to-service calls between Azure DevOps and Azure AD B2C by using the OAuth 2.0 [client credentials grant flow](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md). This grant flow permits a web service like Azure DevOps (the confidential client) to use its own credentials instead of impersonating a user to authenticate when calling another web service (the Microsoft Graph API, in this case). Azure DevOps obtains a token non-interactively, then makes requests to the Microsoft Graph API.
+The scenario described here makes use of service-to-service calls between Azure Pipelines and Azure AD B2C by using the OAuth 2.0 [client credentials grant flow](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md). This grant flow permits a web service like Azure Pipelines (the confidential client) to use its own credentials instead of impersonating a user to authenticate when calling another web service (the Microsoft Graph API, in this case). Azure Pipelines obtains a token non-interactively, then makes requests to the Microsoft Graph API.
 
 ## Register an application for management tasks
 
-Start by creating an application registration that your PowerShell scripts executed by Azure DevOps will use to communicate with Azure AD B2C. If you already have an application registration that you use for automation tasks, you can skip to the [Grant permissions](#grant-permissions) section.
+Start by creating an application registration that your PowerShell scripts executed by Azure Pipelines will use to communicate with Azure AD B2C. If you already have an application registration that you use for automation tasks, you can skip to the [Grant permissions](#grant-permissions) section.
 
 ### Register application
 
@@ -80,11 +80,11 @@ To authenticate with Azure AD B2C, your PowerShell script needs to specify a cli
 
 [!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
-## Configure an Azure DevOps Git repository
+## Configure an Azure Repo
 
 With a management application registered, you're ready to configure a repository for your policy files.
 
-1. Sign in to your Azure DevOps organization.
+1. Sign in to your Azure DevOps Services organization.
 1. [Create a new project][devops-create-project] or select an existing project.
 1. In your project, navigate to **Repos** and select the **Files** page. Select an existing repository or create one for this exercise.
 1. Create a folder named *B2CAssets*. Name the required placeholder file *README.md* and **Commit** the file. You can remove this file later, if you like.
@@ -135,26 +135,26 @@ With a management application registered, you're ready to configure a repository
     exit 0
     ```
 
-## Configure your Azure DevOps release pipeline
+## Configure your Azure pipeline
 
 With your repository initialized and populated with your custom policy files, you're ready to set up the release pipeline.
 
 ### Create pipeline
 
-1. Sign in to your Azure DevOps organization and navigate to your project.
+1. Sign in to your Azure DevOps Services organization and navigate to your project.
 1. In your project, select **Pipelines** > **Releases** > **New pipeline**.
 1. Select **Empty Job** at the top of navigation pane to choose a template.
 1. Enter a **Stage name**, for example *DeployCustomPolicies*, then close the pane.
 1. Select **Add an artifact**, and under **Source type**, select **Azure Repository**.
     1. Choose the source repository containing the *Scripts* folder that you populated with the PowerShell script.
     1. Choose a **Default branch**. If you created a new repository in the previous section, the default branch is *master*.
-    1. Leave the **Default version** setting of *Latest form the default branch*.
+    1. Leave the **Default version** setting of *Latest from the default branch*.
 1. Select **Add**, and then select **Save** to save the pipeline configuration.
 
 ### Configure pipeline variables
 
 1. Select the **Variables** tab.
-1. Add following variables under **Pipeline variables** and set their values as specified:
+1. Add the following variables under **Pipeline variables** and set their values as specified:
 
     | Name | Value |
     | ---- | ----- |
@@ -191,7 +191,7 @@ With your repository initialized and populated with your custom policy files, yo
 
 1. Select **Save** to save the Agent job.
 
-This example tasks uploads one policy to Azure AD B2C. Before proceeding, try running the **Agent job** to ensure that it completes successfully before creating additional tasks.
+This example task uploads one policy to Azure AD B2C. Before proceeding, try running the **Agent job** to ensure that it completes successfully before creating additional tasks.
 
 If the task completes successfully, add deployment tasks by performing the preceding steps for each of the custom policy files. Modify the `-PolicyId` and `-PathToFile` argument values for each policy.
 
@@ -226,15 +226,16 @@ To test your release pipeline:
 1. Select the pipeline you created earlier, for example *DeployCustomPolicies*.
 1. Select **Create release**, then select **Create** to queue the release.
 
-You should see a notification banner that says that a release been queued. To view its status, select the link in the notification banner, or select it in the list on the **Releases** tab.
+You should see a notification banner that says that a release has been queued. To view its status, select the link in the notification banner, or select it in the list on the **Releases** tab.
 
 ## Next steps
 
 Learn more about:
 
 * [Service-to-service calls using client credentials](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
-* [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
+* [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
 
 <!-- LINKS - External -->
 [devops]: https://docs.microsoft.com/azure/devops/?view=azure-devops
 [devops-create-project]:  https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops
+[devops-pipelines]: https://docs.microsoft.com/azure/devops/pipelines
