@@ -5,7 +5,7 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 012/13/2019
+ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ""
 ---
