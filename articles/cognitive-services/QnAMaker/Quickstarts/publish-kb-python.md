@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/16/2019
 ms.author: diberry
 ---
 
@@ -30,7 +30,7 @@ This quickstart calls QnA Maker REST APIs:
 
     If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](../how-to/create-knowledge-base.md).
 
-> [!NOTE] 
+> [!NOTE]
 > The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-python** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## Create a knowledge base Python file
@@ -67,11 +67,11 @@ Enter the following command at a command-line to run the program. It will send t
 python publish-kb-3x.py
 ```
 
-[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
 ## Next steps
 
-After the knowledge base is published, you need the [endpoint URL to generate an answer](../Tutorials/create-publish-answer.md#generating-an-answer). 
+After the knowledge base is published, you need the [endpoint URL to generate an answer](../Tutorials/create-publish-answer.md#generating-an-answer).
 
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)
