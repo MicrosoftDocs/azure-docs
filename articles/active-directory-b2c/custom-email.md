@@ -209,7 +209,7 @@ Add the following claims transformation to the `<ClaimsTransformations>` element
 
 ## Add DataUri content definition
 
-Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](content=definitions.md) to reference the version 2.0.0 data URI:
+Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.0.0 data URI:
 
 ```XML
 <ContentDefinitions>
