@@ -218,7 +218,7 @@ The following example shows an HTTP-triggered function that sends an email using
       "name": "sendGridMessage",
       "direction": "out",
       "apiKey": "SendGrid_API_Key",
-      "from": "user@example.com"
+      "from": "sender@contoso.com"
     }
   ]
 }
@@ -323,14 +323,14 @@ The following table lists the binding configuration properties available in the 
 
 | *function.json* property | Attribute/annotation property | Description | Optional |
 |--------------------------|-------------------------------|-------------|----------|
-|`type`|| Must be set to `sendGrid`.| No |
-|`direction`|| Must be set to `out`.| No |
-|`name`|| The variable name used in function code for the request or request body. This value is `$return` when there is only one return value. |  No |
-|`apiKey`|`ApiKey`| The name of an app setting that contains your API key. If not set, the default app setting name is *AzureWebJobsSendGridApiKey*.| No |
-|`to`|`To`| The recipient's email address. | Yes |
-|`from`|`From`| The sender's email address. |  Yes |
-|`subject`|`Subject`| The subject of the email. | Yes |
-|`text`|`Text`| The email content. | Yes |
+| type || Must be set to `sendGrid`.| No |
+| direction || Must be set to `out`.| No |
+| name || The variable name used in function code for the request or request body. This value is `$return` when there is only one return value. |  No |
+| apiKey | ApiKey | The name of an app setting that contains your API key. If not set, the default app setting name is *AzureWebJobsSendGridApiKey*.| No |
+| to`| To | The recipient's email address. | Yes |
+| from`| From | The sender's email address. |  Yes |
+| subject`| Subject | The subject of the email. | Yes |
+| text`| Text | The email content. | Yes |
 
 Optional properties may have default values defined in the binding and either added or overridden programmatically.
 
