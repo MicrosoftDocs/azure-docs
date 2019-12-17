@@ -26,7 +26,7 @@ Managing customized Conditional Access policies requires an Azure AD Premium lic
 
 ## Baseline policies
 
-![Conditional Access baseline policies in the Azure portal](./media/concept-baseline-protection/conditional-access-policies.png)
+![Conditional Access baseline policies in the Azure portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
 There are four baseline policies:
 
