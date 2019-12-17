@@ -59,18 +59,11 @@ GitHub can now authenticate to your function app in Azure.
 
 ## Set up the environment 
 
-Setting up the environment can be done using one of the publish setup actions.
-
-|Language | Setup Action |
-|---------|---------|
-|**.NET**     | `actions/setup-dotnet` |
-|**Java**    | `actions/setup-java` |
-|**JavaScript**     | `actions/setup-node` |
-|**Python**   | `actions/setup-python` |
-
-The following examples show the part of the workflow that sets up the environment for the various supported languages:
+Setting up the environment is done using a language-specific publish setup action.
 
 # [JavaScript](#tab/javascript)
+
+The following example shows the part of the workflow that uses the `actions/setup-node` action to set up the environment:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -85,6 +78,8 @@ The following examples show the part of the workflow that sets up the environmen
 
 # [Python](#tab/python)
 
+The following example shows the part of the workflow that uses the `actions/setup-python` action to set up the environment:
+
 ```yaml
     - name: 'Login via Azure CLI'
       uses: Azure/actions/login@master
@@ -98,6 +93,8 @@ The following examples show the part of the workflow that sets up the environmen
 
 # [C#](#tab/csharp)
 
+The following example shows the part of the workflow that uses the `actions/setup-dotnet` action to set up the environment:
+
 ```yaml
     - name: 'Login via Azure CLI'
       uses: Azure/actions/login@master
@@ -110,6 +107,8 @@ The following examples show the part of the workflow that sets up the environmen
 ```
 
 # [Java](#tab/java)
+
+The following example shows the part of the workflow that uses the  `actions/setup-java` action to set up the environment:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -129,7 +128,7 @@ The following examples show the part of the workflow that sets up the environmen
 
 This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language.
 
-The following examples show the part of the workflow that builds the function app, in the various supported languages.:
+The following example shows the part of the workflow that builds the function app, which is language specific:
 
 # [JavaScript](#tab/javascript)
 
