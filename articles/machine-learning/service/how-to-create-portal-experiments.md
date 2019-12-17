@@ -19,7 +19,7 @@ ms.date: 11/04/2019
 
  In this article, you learn how to create, explore, and deploy automated machine learning experiments in Azure Machine Learning studio without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](../concept-automated-ml.md).
 
- If you prefer a more code-based experience, you can also [configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+ If you prefer a more code-based experience, you can also [configure your automated machine learning experiments in Python](../how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## Prerequisites
 
@@ -107,17 +107,17 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
     1. For forecasting:
         1. Select time column: This column contains the time data to be used.
 
-        1. Select forecast horizon: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it will become. [Learn more about forecasting and forecast horizon](how-to-auto-train-forecast.md).
+        1. Select forecast horizon: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it will become. [Learn more about forecasting and forecast horizon](../how-to-auto-train-forecast.md).
 
 1. (Optional) Addition configurations: additional settings you can use to better control the training job. Otherwise, defaults are applied based on experiment selection and data. 
 
     Additional configurations|Description
     ------|------
-    Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#explore-model-metrics).
+    Primary metric| Main metric used for scoring your model. [Learn more about model metrics](../how-to-configure-auto-train.md#explore-model-metrics).
     Automatic featurization| Select to enable or disable the preprocessing done by automated machine learning. Preprocessing includes automatic data cleansing, preparing, and transformation to generate synthetic features. [Learn more about preprocessing](#preprocess).
     Blocked algorithm| Select algorithms you want to exclude from the training job.
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
-    Validation| Select one of the cross validation options to use in the training job. [Learn more about cross validation](how-to-configure-auto-train.md).
+    Validation| Select one of the cross validation options to use in the training job. [Learn more about cross validation](../how-to-configure-auto-train.md).
     Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. <br> *Max cores per iteration*: Select the multi-core limits you would like to use when using multi-core compute.
 
 <a name="profile"></a>

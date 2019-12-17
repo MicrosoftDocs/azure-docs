@@ -55,11 +55,11 @@ To learn more about upcoming API changes, see [Dataset API change notice](https:
 
 By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost. You can create both `TabularDataset` and `FileDataset` data sets by using the Python SDK or workspace landing page (preview).
 
-For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web URLs.
+For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](../how-to-access-data.md) or public web URLs.
 
 ### Use the SDK
 
-To create datasets from an [Azure datastore](how-to-access-data.md) by using the Python SDK:
+To create datasets from an [Azure datastore](../how-to-access-data.md) by using the Python SDK:
 
 1. Verify that you have `contributor` or `owner` access to the registered Azure datastore.
 

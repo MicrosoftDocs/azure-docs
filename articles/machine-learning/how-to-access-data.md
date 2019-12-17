@@ -17,7 +17,7 @@ ms.custom: seodec18
 ---
 
 # Access data in Azure storage services
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to easily access your data in Azure storage services via Azure Machine Learning datastores. Datastores are used to store connection information, like your subscription ID and token authorization. Using datastores allows you to access your storage without having to hard code connection information in your scripts. You can create datastores from these [Azure storage solutions](#matrix). For unsupported storage solutions, and to save data egress cost during machine learning experiments, we recommend you move your data to our supported Azure storage solutions. [Learn how to move your data](#move). 
 
@@ -37,7 +37,7 @@ You'll need
 - The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or access to [Azure Machine Learning studio](https://ml.azure.com/).
 
 - An Azure Machine Learning workspace. 
-    - Either [Create an Azure Machine Learning workspace](how-to-manage-workspace.md) or use an existing one using the Python SDK.
+    - Either [Create an Azure Machine Learning workspace](service/how-to-manage-workspace.md) or use an existing one using the Python SDK.
 
         ```Python
         import azureml.core
@@ -157,7 +157,7 @@ The information you need to populate the form can be found via  [Azure portal](h
 
 The following example demonstrates what the form looks like for Azure blob datastore creation. 
     
- ![New datastore](media/how-to-access-data/new-datastore-form.png)
+ ![New datastore](./media/how-to-access-data/new-datastore-form.png)
 
 
 <a name="get"></a>
@@ -234,7 +234,7 @@ The `target_path` parameter is the location of the local directory to download t
 ## Access your data during training
 
 > [!IMPORTANT]
-> Using [Azure Machine Learning datasets](how-to-create-register-datasets.md) is the new recommended way to access your data in training. Datasets provide functions that load tabular data into pandas or spark DataFrame, and the ability to download or mount files of any format from Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. Learn more about [how to train with datasets](how-to-train-with-datasets.md).
+> Using [Azure Machine Learning datasets](service/how-to-create-register-datasets.md) is the new recommended way to access your data in training. Datasets provide functions that load tabular data into pandas or spark DataFrame, and the ability to download or mount files of any format from Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. Learn more about [how to train with datasets](service/how-to-train-with-datasets.md).
 
 The following table lists the methods that tell the compute target how to use the datastores during runs. 
 
@@ -260,7 +260,7 @@ datastore.path('./bar').as_download()
 
 We recommend using the [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class for accessing data during training. 
 
-The `script_params` variable is a dictionary containing parameters to the entry_script. Use it to pass in a datastore and describe how data is made available on the compute target. Learn more from our end-to-end [tutorial](tutorial-train-models-with-aml.md).
+The `script_params` variable is a dictionary containing parameters to the entry_script. Use it to pass in a datastore and describe how data is made available on the compute target. Learn more from our end-to-end [tutorial](service/tutorial-train-models-with-aml.md).
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -310,18 +310,18 @@ input_data = DataReference(
 
 ### Compute and datastore matrix
 
-Datastores currently support storing connection information to the storage services listed in the following matrix. This matrix displays the available data access functionalities for the different compute targets and datastore scenarios. Learn more about the [compute targets for Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
+Datastores currently support storing connection information to the storage services listed in the following matrix. This matrix displays the available data access functionalities for the different compute targets and datastore scenarios. Learn more about the [compute targets for Azure Machine Learning](service/how-to-set-up-training-targets.md#compute-targets-for-training).
 
 |Compute|[AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py)                                       |[AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py)                                      |[AzureDataLakeDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakedatastore?view=azure-ml-py) |[AzureDataLakeGen2Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) [AzurePostgreSqlDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_postgre_sql_datastore.azurepostgresqldatastore?view=azure-ml-py) [AzureSqlDatabaseDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_sql_database_datastore.azuresqldatabasedatastore?view=azure-ml-py) |
 |--------------------------------|----------------------------------------------------------|----------------------------------------------------------|------------------------|----------------------------------------------------------------------------------------|
 | Local|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|N/A         |N/A                                                                         |
-| Azure Machine Learning Compute |[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](../concept-ml-pipelines.md)|[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](../concept-ml-pipelines.md)|N/A         |N/A                                                                         |
+| Azure Machine Learning Compute |[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|N/A         |N/A                                                                         |
 | Virtual machines               |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                           | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |N/A         |N/A                                                                         |
 | HDInsight                      |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |N/A         |N/A                                                                         |
-| Data transfer                  |[ML&nbsp;pipelines](../concept-ml-pipelines.md)                                               |N/A                                           |[ML&nbsp;pipelines](../concept-ml-pipelines.md)            |[ML&nbsp;pipelines](../concept-ml-pipelines.md)                                                                            |
-| Databricks                     |[ML&nbsp;pipelines](../concept-ml-pipelines.md)                                              |N/A                                           |[ML&nbsp;pipelines](../concept-ml-pipelines.md)             |N/A                                                                         |
-| Azure Batch                    |[ML&nbsp;pipelines](../concept-ml-pipelines.md)                                               |N/A                                           |N/A         |N/A                                                                         |
-| Azure DataLake Analytics       |N/A                                           |N/A                                           |[ML&nbsp;pipelines](../concept-ml-pipelines.md)             |N/A                                                                         |
+| Data transfer                  |[ML&nbsp;pipelines](concept-ml-pipelines.md)                                               |N/A                                           |[ML&nbsp;pipelines](concept-ml-pipelines.md)            |[ML&nbsp;pipelines](concept-ml-pipelines.md)                                                                            |
+| Databricks                     |[ML&nbsp;pipelines](concept-ml-pipelines.md)                                              |N/A                                           |[ML&nbsp;pipelines](concept-ml-pipelines.md)             |N/A                                                                         |
+| Azure Batch                    |[ML&nbsp;pipelines](concept-ml-pipelines.md)                                               |N/A                                           |N/A         |N/A                                                                         |
+| Azure DataLake Analytics       |N/A                                           |N/A                                           |[ML&nbsp;pipelines](concept-ml-pipelines.md)             |N/A                                                                         |
 
 > [!NOTE]
 > There may be scenarios in which highly iterative, large data processes run faster using `as_download()` instead of `as_mount()`; this can be validated experimentally.
@@ -343,9 +343,9 @@ Azure Machine Learning provides several ways to use your models for scoring. Som
 
 | Method | Datastore access | Description |
 | ----- | :-----: | ----- |
-| [Batch prediction](how-to-run-batch-predictions.md) | ✔ | Make predictions on large quantities of data asynchronously. |
-| [Web service](how-to-deploy-and-where.md) | &nbsp; | Deploy model(s) as a web service. |
-| [IoT Edge module](how-to-deploy-and-where.md) | &nbsp; | Deploy model(s) to IoT Edge devices. |
+| [Batch prediction](service/how-to-run-batch-predictions.md) | ✔ | Make predictions on large quantities of data asynchronously. |
+| [Web service](service/how-to-deploy-and-where.md) | &nbsp; | Deploy model(s) as a web service. |
+| [IoT Edge module](service/how-to-deploy-and-where.md) | &nbsp; | Deploy model(s) to IoT Edge devices. |
 
 For situations where the SDK doesn't provide access to datastores, you may be able to create custom code using the relevant Azure SDK to access the data. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) is a client library that you can use to access data stored in blobs or files.
 
@@ -356,6 +356,6 @@ Azure Machine Learning supports accessing data from Azure Blob, Azure File, Azur
 
 ## Next steps
 
-* [Train a model](how-to-train-ml-models.md).
+* [Train a model](service/how-to-train-ml-models.md).
 
-* [Deploy a model](how-to-deploy-and-where.md).
+* [Deploy a model](service/how-to-deploy-and-where.md).

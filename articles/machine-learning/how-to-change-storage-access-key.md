@@ -15,7 +15,7 @@ ms.date: 11/06/2019
 ---
 
 # Regenerate storage account access keys
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to change the access keys for Azure Storage accounts used by Azure Machine Learning. Azure Machine Learning can use storage accounts to store data or trained models.
 
@@ -23,11 +23,11 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* An Azure Machine Learning workspace. For more information, see the [Create a workspace](service/how-to-manage-workspace.md) article.
 
 * The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* The [Azure Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
+* The [Azure Machine Learning CLI extension](service/reference-azure-machine-learning-cli.md).
 
 <a id="whattoupdate"></a> 
 
@@ -77,7 +77,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
 > [!IMPORTANT]
 > Perform all steps, updating both the workspace using the CLI, and datastores using Python. Updating only one or the other may cause errors until both are updated.
 
-1. Regenerate the key. For information on regenerating an access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md). Save the new key.
+1. Regenerate the key. For information on regenerating an access key, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md). Save the new key.
 
 1. To update the workspace to use the new key, use the following steps:
 
@@ -93,7 +93,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
 
-        [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
+        [!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
 
         This command automatically syncs the new keys for the Azure storage account used by the workspace.
 

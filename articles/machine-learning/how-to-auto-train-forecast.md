@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 ---
 
 # Auto-train a time-series forecast model
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to train a time-series forecasting regression model using automated machine learning in Azure Machine Learning. Configuring a forecasting model is similar to setting up a standard regression model using automated machine learning, but certain configuration options and pre-processing steps exist for working with time-series data. The following examples show you how to:
 
@@ -54,8 +54,8 @@ AutoRegressive Integrated Moving Average(ARIMA) is a popular statistical method 
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
-* This article assumes basic familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the basic automated machine learning experiment design patterns.
+* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](service/how-to-manage-workspace.md).
+* This article assumes basic familiarity with setting up an automated machine learning experiment. Follow the [tutorial](service/tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the basic automated machine learning experiment design patterns.
 
 ## Preparing data
 
@@ -185,7 +185,7 @@ See the [energy demand notebook](https://github.com/Azure/MachineLearningNoteboo
 In order to leverage DNNs for forecasting, you will need to set the `enable_dnn` parameter in the AutoMLConfig to true. 
 
 In order to use DNNs, we recommend using an AML Compute cluster with GPU SKUs and at least 2 nodes as the compute target. 
-See the [AML Compute documentation](how-to-set-up-training-targets.md#amlcompute) for more information. 
+See the [AML Compute documentation](service/how-to-set-up-training-targets.md#amlcompute) for more information. 
 See [GPU optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) for more information on the VM sizes that include GPUs.
 
 To allow sufficient time for the DNN training to complete, we recommend setting the experiment timeout to at least a couple of hours.
@@ -248,5 +248,5 @@ Repeat the necessary steps to load this future data to a dataframe and then run 
 
 ## Next steps
 
-* Follow the [tutorial](tutorial-auto-train-models.md) to learn how to create experiments with automated machine learning.
+* Follow the [tutorial](service/tutorial-auto-train-models.md) to learn how to create experiments with automated machine learning.
 * View the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference documentation.

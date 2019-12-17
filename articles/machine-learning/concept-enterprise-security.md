@@ -107,7 +107,7 @@ The following table lists some of the major Azure Machine Learning operations an
 | View models/images | ✓ | ✓ | ✓ |
 | Call web service | ✓ | ✓ | ✓ |
 
-If the built-in roles don't meet your needs, you can create custom roles. Custom roles are supported only for operations on the workspace and Machine Learning Compute. Custom roles can have read, write, or delete permissions on the workspace and on the compute resource in that workspace. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](service/how-to-assign-roles.md).
+If the built-in roles don't meet your needs, you can create custom roles. Custom roles are supported only for operations on the workspace and Machine Learning Compute. Custom roles can have read, write, or delete permissions on the workspace and on the compute resource in that workspace. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 ### Securing compute targets and data
 
@@ -148,7 +148,7 @@ For information on how to use your own keys for data stored in Azure Blob storag
 
 Training data is typically also stored in Azure Blob storage so that it's accessible to training compute targets. This storage isn't managed by Azure Machine Learning but mounted to compute targets as a remote file system.
 
-For information on regenerating the access keys for the Azure storage accounts used with your workspace, see [Regenerate storage access keys](service/how-to-change-storage-access-key.md).
+For information on regenerating the access keys for the Azure storage accounts used with your workspace, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
 
 #### Azure Cosmos DB
 

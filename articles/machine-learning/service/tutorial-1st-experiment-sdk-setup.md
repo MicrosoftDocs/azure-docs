@@ -20,7 +20,7 @@ In this tutorial, you complete the end-to-end steps to get started with the Azur
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Create an [Azure Machine Learning Workspace](concept-workspace.md) to use in the next tutorial.
+> * Create an [Azure Machine Learning Workspace](../concept-workspace.md) to use in the next tutorial.
 > * Clone the tutorials notebook to your folder in the workspace.
 > * Create a cloud-based compute instance with Azure Machine Learning Python SDK installed and pre-configured.
 

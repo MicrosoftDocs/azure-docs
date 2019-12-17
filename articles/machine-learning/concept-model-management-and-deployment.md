@@ -67,7 +67,7 @@ Azure Machine Learning can use profiling to determine the ideal CPU and memory s
 
 Converting your model to [Open Neural Network Exchange](https://onnx.ai) (ONNX) may improve performance. On average, converting to ONNX can yield a 2x performance increase.
 
-For more information on ONNX with Azure Machine Learning, see the [Create and accelerate ML models](service/concept-onnx.md) article.
+For more information on ONNX with Azure Machine Learning, see the [Create and accelerate ML models](concept-onnx.md) article.
 
 ### Use models
 

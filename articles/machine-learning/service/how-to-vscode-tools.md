@@ -158,7 +158,7 @@ At the moment, viewing run metrics is only supported in the studio. The **View E
 
 In the walkthrough above, we submitted an experiment by following the easiest path. As you may have noticed the extension  minimizes the steps that you need to manage to run an experiment. In this section, we'll cover how you can manage all the Azure Machine Learning concepts individually, providing maximum control.
 
-Before you start training and deploying machine learning models in Visual Studio Code, you need to create an [Azure Machine Learning workspace](concept-workspace.md) in the cloud. This workspace will contain your models and resources.
+Before you start training and deploying machine learning models in Visual Studio Code, you need to create an [Azure Machine Learning workspace](../concept-workspace.md) in the cloud. This workspace will contain your models and resources.
 
 ### Create a workspace
 
