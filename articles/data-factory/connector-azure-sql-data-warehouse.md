@@ -23,12 +23,12 @@ ms.date: 12/12/2019
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
-=======
-<<<<<<< HEAD
+
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure SQL Data Warehouse, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
-=======
+
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities

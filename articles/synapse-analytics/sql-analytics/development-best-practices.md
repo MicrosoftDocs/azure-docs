@@ -26,7 +26,7 @@ Ensure you update your statistics daily or after each load.  There are always tr
 
 For example, you might want to update date columns, where new values may be added on a daily basis. **You will gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.**
 
-See also [Manage table statistics][Manage table statistics], [CREATE STATISTICS][CREATE STATISTICS], [UPDATE STATISTICS][UPDATE STATISTICS].
+See also [Manage table statistics][Manage table statistics], [CREATE STATISTICS]((azure-synapse-development-tables-statistics.md), [UPDATE STATISTICS][UPDATE STATISTICS].
 
 ### Hash distribute large tables
 By default, tables are Round Robin distributed.  This makes it easy for users to start creating tables without having to decide how their tables should be distributed.  Round Robin tables may perform sufficiently for some workloads. But, in most cases, selecting a distribution column will perform much better.  
@@ -58,7 +58,7 @@ See also [Understanding transactions][Understanding transactions], [Optimizing t
 ### Use the smallest possible column size
 When defining your DDL, using the smallest data type which will support your data will improve query performance.  This is especially important for CHAR and VARCHAR columns.  If the longest value in a column is 25 characters, then define your column as VARCHAR(25).  Avoid defining all character columns to a large default length.  In addition, define columns as VARCHAR when that is all that is needed rather than use NVARCHAR.
 
-See also [Table overview][Table overview], [Table data types][Table data types], [CREATE TABLE][CREATE TABLE]
+See also [Table overview][Table overview], [Table data types](azure-synapse-development-tables-data-types.md), [CREATE TABLE][CREATE TABLE]
 
 ### Optimize clustered columnstore tables
 Clustered columnstore indexes are one of the most efficient ways you can store your data in SQL Analytics pool.  By default, tables in SQL Analytics pool are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  
@@ -89,13 +89,11 @@ Use the [Azure SQL Analytics pool Feedback][Azure SQL Analytics pool Feedback] p
 [Create a support ticket]: ../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md
 [Create table as select (CTAS)]: ../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md
 [Table overview]:azure-synapse-development-tables-overview.md
-[Table data types]: development-tables-data-types.md
 [Table distribution]: ../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md
 [Table indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md
 [Causes of poor columnstore index quality]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuilding columnstore indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Table partitioning]: ../../sql-data-warehouse/sql-data-warehouse-tables-partition.md
-[Manage table statistics]: ./development-tables-statistics.md
 [Temporary tables]: ./development-tables-temporary.md
 [Guide for using PolyBase]: ../../sql-data-warehouse/guidance-for-loading-data.md
 [Load data]: ../../sql-data-warehouse/esign-elt-data-loading.md
