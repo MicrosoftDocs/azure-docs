@@ -33,7 +33,7 @@ landingContent:
             url: quickstart-create-data-migration-service-hybrid-portal.md
       - linkListType: reference
         links:
-          - text: Known issues - Using Hybrid mode
+          - text: Known issues - Using hybrid mode
             url: known-issues-dms-hybrid-mode.md
       - linkListType: video
         links:            
