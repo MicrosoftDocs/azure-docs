@@ -21,15 +21,15 @@ The FTP/S endpoint for your app is already active. No configuration is necessary
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**.
 
-![Search for App services.](media/app-service-continuous-deployment/search-for-app-services.png)
+    ![Search for App services.](media/app-service-continuous-deployment/search-for-app-services.png)
 
-2. Select the web app you want to deploy and open its [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources).
+2. Select the web app you want to deploy.
 
-![Select your app.](media/app-service-continuous-deployment/select-your-app.png)
+    ![Select your app.](media/app-service-continuous-deployment/select-your-app.png)
 
 3. Select **Deployment Center** > **FTP** > **Dashboard**.
 
-![Open FTP dashboard](./media/app-service-deploy-ftp/open-dashboard.png)
+    ![Open FTP dashboard](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## Get FTP connection information
 
