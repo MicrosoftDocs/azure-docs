@@ -37,8 +37,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-core**
     + Compute target can now be specified as a parameter to the corresponding deployment config objects. This is specifically the name of the compute target to deploy to, not the SDK object.
     + Added CreatedBy information to Model and Service objects. May be accessed through <var>.created_by
-    + ``` - Fixed ContainerImage.run(), which was not correctly setting up the Docker container's HTTP port. ```
-    +  Make `azureml-dataprep` optional for `az ml dataset register` cli command
+    + Fixed ContainerImage.run(), which was not correctly setting up the Docker container's HTTP port.
+    + Make `azureml-dataprep` optional for `az ml dataset register` cli command
   + **azureml-dataprep**
     + Fixed a bug where TabularDataset.to_pandas_dataframe would incorrectly fall back to an alternate reader and print out a warning.
   + **azureml-explain-model**
