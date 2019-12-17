@@ -1,5 +1,6 @@
 ---
-title: "Quickstart: Create an Azure Database Migration Service hybrid mode instance using the Azure portal | Microsoft Docs"
+title: "Quickstart: Create a hybrid mode instance with the Azure portal"
+titleSuffix: Database Migration Service
 description: Use the Azure portal to create an instance of Azure Database Migration Service in hybrid mode
 services: database-migration
 author: HJToland3
@@ -8,7 +9,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: "seo-lt-2019"​
 ms.topic: quickstart
 ms.date: 12/17/2019
 ---

@@ -1,6 +1,6 @@
 ---
-title: Redeploy SQL Server Integration Services packages to Azure SQL Database | Microsoft Docs
-description: Learn how to migrate SQL Server Integration Services packages to Azure SQL Database.
+title: Migrate SSIS packages to Azure SQL Database single database
+description: Learn how to migrate or redeploy SQL Server Integration Services packages and projects to Azure SQL Database single database.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,7 +8,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: "seo-lt-2019"​
 ms.topic: article
 ms.date: 06/08/2019
 ---
