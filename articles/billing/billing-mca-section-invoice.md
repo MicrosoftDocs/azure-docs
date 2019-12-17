@@ -26,7 +26,7 @@ In the billing account for a Microsoft Customer Agreement, you use billing profi
 
 ### Billing profile
 
-A billing profile represents an invoice and the related billing information such as payment methods and billing address. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains charges for Azure subscriptions and other purchases from the previous month.
+A billing profile represents an invoice and the related billing information such as payment methods and billing address. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains charges for Azure subscriptions and other purchases such as Azure marketplace and App source products from the previous month.
 
 A billing profile is automatically created for your billing account. You may create additional billing profiles to set up additional monthly invoices for your account. 
 
@@ -38,11 +38,11 @@ A billing profile is automatically created for your billing account. You may cre
 
 An invoice section represents a grouping of costs in your invoice. An invoice section is automatically created for each billing profile in your account. You may create additional sections to organize the cost in you invoice. 
 
-When an invoice section is created, you give others permission to create Azure subscriptions for the section. Charges for these Azure subscriptions are billed to the section and show up on its billing profile's invoice.
+When an invoice section is created, you give others permission to create Azure subscriptions and buy other products for the section. Charges for these Azure subscriptions and products are displayed under the section on its billing profile's invoice.
 
-## Structure your billing account to organize your cost
+## Structure your billing account to organize your costs
 
-This section describes common scenarios and the corresponding billing account structures:
+This section describes common scenarios for organizing costs and the corresponding billing account structures:
 
 |Scenario  |Structure  |
 |---------|---------|
@@ -52,7 +52,7 @@ This section describes common scenarios and the corresponding billing account st
 
 |Scenario  |Structure  |
 |---------|---------|
-|Contoso is a small organization that wants a single invoice but group costs by their departments - marketing and finance.  | A billing profile for Contoso and an invoice section each for marketing and finance departments. |
+|Contoso is a small organization that wants a single monthly invoice but group costs by their departments - marketing and finance.  | A billing profile for Contoso and an invoice section each for marketing and finance departments. |
 
 ![Info graphic for a simple billing scenario](./media/billing-mca-section-invoice/organize-billing-scenario2.png)
 
@@ -107,8 +107,8 @@ To create a billing profile, you need to be a **billing account owner** or a **b
     |Field  |Definition  |
     |---------|---------|
     |Name     | The display name that helps you easily identify the billing profile in the Azure portal.  |
-    |PO number    | An optional purchase order number. The PO number will appear on the invoice for the billing profile. |
-    |Billing address   | The billing address appears on the invoice for the billing profile. |
+    |PO number    | An optional purchase order number. The PO number will be displayed on the invoices for the billing profile. |
+    |Billing address   | The billing address will be displayed on the invoices for the billing profile. |
     |Email invoice   | Check the email invoice box to receive the invoices for this billing profile by email. If you opt in, all users with owner, contributor, or invoice manager role on this billing profile will receive invoices by email.|
 
 5. Select **Create**.
