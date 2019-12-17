@@ -61,14 +61,14 @@
     href: data-manager-cosmosdb.md
 - name: Resources
   items:
-  - name: Blockchain REST API
-    href: https://docs.microsoft.com/rest/api/blockchain/
-  - name: Blog
-    href: https://azure.microsoft.com/blog/topics/blockchain/
   - name: Azure Blockchain dev kit
     href: https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki
+  - name: Blockchain REST API
+    href: https://docs.microsoft.com/rest/api/blockchain/
   - name: Code samples
     href: https://github.com/Azure-Samples/blockchain
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/blockchain/
   - name: MSDN support forum
     href: https://aka.ms/workbenchforum
   - name: Community support

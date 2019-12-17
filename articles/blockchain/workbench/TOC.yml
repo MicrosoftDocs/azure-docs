@@ -55,10 +55,10 @@
     href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
 - name: Resources
   items:
-  - name: Blog
-    href: https://azure.microsoft.com/blog/topics/blockchain/
   - name: Code samples
     href: https://github.com/Azure-Samples/blockchain
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/blockchain/
   - name: MSDN support forum
     href: https://aka.ms/workbenchforum
   - name: Community support
