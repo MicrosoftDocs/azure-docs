@@ -57,11 +57,12 @@ The Azure SQL Database Query Editor is deployed on VMs in Azure. These VMs are n
 
 ### Impact on Data Sync
 
-Azure SQL Database has the Data Sync feature that connects to your databases using Azure IPs. When using service endpoints, you will turn off **Allow Azure services to access server** access to your SQL Database server and will break the Data Sync feature.
+Azure SQL Database has the Data Sync feature that connects to your databases using Azure IPs. 
 
-To use the Data sync feature with **Allow Azure services to access server** set to OFF, you need to create individual firewall rule entries to [add IP addresses](sql-database-server-level-firewall-rule.md) covered under the SQL **service tag**
+To use the Data sync feature with **Allow Azure services to access server** set to OFF, you need to create individual firewall rule entries to [add IP addresses](sql-database-server-level-firewall-rule.md) from the Sql **service tag** for the region hosting the **Hub** database.
+Add these server level firewall rules to the logical servers hosting both **Hub** and **Member** databases ( which may be in different regions)
 
-The following PowerShell script shows how to enumerate the IP address range that is under the SQL service tag
+Use the following PowerShell script to generate the IP addresses corresponding to Sql service tag for West US region
 ```powershell
 PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
 PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }
@@ -77,7 +78,7 @@ PS C:\> $sql.Properties.AddressPrefixes
 ```
 
 > [!TIP]
-> Get-AzNetworkServiceTag returns the global range for SQL Service Tag. Be sure to filter it to the region that hosts the databases using Data Sync
+> Get-AzNetworkServiceTag returns the global range for SQL Service Tag despite specifying the Location parameter. Be sure to filter it to the region that hosts the Hub database used by your sync group
 
 Note that the output of the PowerShell script is in  Classless Inter Domain Routing(CIDR) notation. 
 Use [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) to convert from CIDR notation to Start and End IP addresses- which you can then enter as firewall rules.
