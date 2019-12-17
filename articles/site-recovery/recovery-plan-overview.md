@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 
 ---
-# About frecovery plans
+# About recovery plans
 
 This article provides an overview of recovery plans in [Azure Site Recovery](site-recovery-overview.md).
 
