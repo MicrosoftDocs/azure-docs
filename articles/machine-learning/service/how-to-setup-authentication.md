@@ -120,7 +120,7 @@ The following is a simplified example of the JSON output from the command. Take 
 }
 ```
 
-Next, use the following command to assign your service principle access to your machine learning workspace. You will need your workspace name, and it's resource group name for the `-w` and `-g` parameters, respectively. For the `--user` parameter, use the `objectId` value from the previous step. The `--role` parameter allows you to set the access role for the service principle, and in general you will use either **owner** or **contributor**. Both have write access to existing resources like compute clusters and datastores, but only **owner** can provision these resources. 
+Next, use the following command to assign your service principle access to your machine learning workspace. You will need your workspace name, and its resource group name for the `-w` and `-g` parameters, respectively. For the `--user` parameter, use the `objectId` value from the previous step. The `--role` parameter allows you to set the access role for the service principle, and in general you will use either **owner** or **contributor**. Both have write access to existing resources like compute clusters and datastores, but only **owner** can provision these resources. 
 
 ```azurecli-interactive
 az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
@@ -153,11 +153,11 @@ ws.get_details()
 
 ## Azure Machine Learning REST API auth
 
-The service principal created in the steps above can also be used to authenticate to the Azure Machine Learning [REST API](https://docs.microsoft.com/rest/api/azureml/). You use the Azure Active Directory [client credentials grant flow](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow), which allow service-to-service calls for headless authentication in automated workflows. The examples are implemented with the [ADAL library](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) in both Python and Node.js, but you can also use any open source library that supports OpenID Connect 1.0. 
+The service principal created in the steps above can also be used to authenticate to the Azure Machine Learning [REST API](https://docs.microsoft.com/rest/api/azureml/). You use the Azure Active Directory [client credentials grant flow](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow), which allow service-to-service calls for headless authentication in automated workflows. The examples are implemented with the [ADAL library](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) in both Python and Node.js, but you can also use any open-source library that supports OpenID Connect 1.0. 
 
 > ![NOTE]
 > MSAL.js is a newer library than ADAL, but you cannot do service-to-service authentication using client credentials with MSAL.js, since it is primarily a client-side library intended 
-> for interactive/UI authentication tied to a specific user. We recommend using ADAL to build automated workflows with the REST API.
+> for interactive/UI authentication tied to a specific user. We recommend using ADAL as shown below to build automated workflows with the REST API.
 
 ### Node.js
 
@@ -189,7 +189,7 @@ context.acquireTokenWithClientCredentials(
 );
 ```
 
-The variable `tokenResponse` is an object that includes the token and associated metadata like expiration time. Tokens are valid for 1 hour, and can refreshed by running the same call again to retrieve a new token. The following is a sample response.
+The variable `tokenResponse` is an object that includes the token and associated metadata like expiration time. Tokens are valid for 1 hour, and can be refreshed by running the same call again to retrieve a new token. The following is a sample response.
 
 ```javascript
 { 
@@ -224,7 +224,7 @@ token_response = auth_context.acquire_token_with_client_credentials("https://man
 print(token_response)
 ```
 
-The variable `token_response` is a dictionary that includes the token and associated metadata like expiration time. Tokens are valid for 1 hour, and can refreshed by running the same call again to retrieve a new token. The following is a sample response.
+The variable `token_response` is a dictionary that includes the token and associated metadata like expiration time. Tokens are valid for 1 hour, and can be refreshed by running the same call again to retrieve a new token. The following is a sample response.
 
 ```python
 {
