@@ -65,7 +65,7 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
 Central identity management offers the following benefits:
 
-- Manage group accounts and control user permissions without duplicating logins across Azure SQL logical servers and databases.
+- Manage group accounts and control user permissions without duplicating logins across Azure SQL Database servers and databases.
 - Simplified and flexible permission management.
 - Management of applications at scale.
 
@@ -260,7 +260,7 @@ The following best practices are optional but will result in better manageabilit
   - End user 
 
 - Remember that permissions in SQL Server Database Engine can be applied on the following scopes. The smaller the scope, the smaller the impact of the granted permissions: 
-  - Logical server (special roles in master database) 
+  - Azure SQL Database server (special roles in master database) 
   - Database 
   - Schema (also see: [Schema-design for SQL Server: recommendations for Schema design with security in mind](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Object (table, view, procedure, etc.) 
@@ -655,7 +655,7 @@ Tracking of database events helps you understand database activity, and gain ins
 **Best practices**:
 
 - By configuring [SQL Database Auditing](sql-database-auditing.md) on your database server to audit events, all existing and newly created databases on that server will be audited.
-- By default auditing policy includes all actions (queries, stored procedures and successful and failed logins) against the databases, which may result in high volume of audit logs. It is recommended for customers to [configure auditing for different types of actions and action groups using PowerShell]((sql-database-auditing.md#subheading-7), to control the amount of audited actions, and to minimize the risk of event loss. This will allow customers to capture only the truly needed audit data.
+- By default auditing policy includes all actions (queries, stored procedures and successful and failed logins) against the databases, which may result in high volume of audit logs. It is recommended for customers to [configure auditing for different types of actions and action groups using PowerShell](sql-database-auditing.md#subheading-7), to control the amount of audited actions, and to minimize the risk of event loss. This will allow customers to capture only the truly needed audit data.
 - Audit logs can be consumed directly in the [Azure portal](https://portal.azure.com/), or from the storage location that was configured. 
 
 
@@ -734,7 +734,7 @@ Monitor who accesses sensitive data and capture queries on sensitive data in aud
 **How to implement**:
 
 - Use SQL Audit and Data Classification in combination. 
-  - In your [SQL Database Audit](sql-database-auditing.md) log, you can track access specifically to sensitive data, and view information such as the data that was accessed as well as its sensitivity label ([Auditing access to sensitive data](sql-database-data-discovery-and-classification.md#subheading-3). 
+  - In your [SQL Database Audit](sql-database-auditing.md) log, you can track access specifically to sensitive data, and view information such as the data that was accessed as well as its sensitivity label (see [Auditing access to sensitive data](sql-database-data-discovery-and-classification.md#subheading-3)). 
 
 **Best practices**:
 
@@ -769,7 +769,7 @@ Connecting to Azure SQL Database server over a public endpoint presents a data e
 Today, Azure SQL Database offers the following techniques for mitigating data exfiltration threats: 
 
 - Use a combination of Allow and Deny rules on the NSGs of Azure VMs to control which regions can be accessed from the VM. 
-- If using an Azure SQL Database server, set the following:
+- If using an Azure SQL Database server (containing singleton databases or elastic pools), set the following:
   - Allow Azure Services to OFF.
   - Only allow traffic from the subnet containing your Azure VM by setting up a VNet Firewall rule.
   - Use [Private Link](sql-database-private-endpoint-overview.md)
