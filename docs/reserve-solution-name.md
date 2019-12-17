@@ -31,4 +31,4 @@ After you reserve a name, you have three months to submit your solution. If you 
 
 ## Choose product display name
 
-If you reserve more than one name for your product, you can specify which name you want to use for the display name in Partner Center. In the **Names for this product** list, choose **Make alias** in the Actions column next to the reserved name that you would like to use for the display name.
+If you reserve more than one name for your product, you can specify which name you want to use for the display name in Partner Center. In the **Names for this product** list, choose **Set as dashboard name** in the Actions column next to the reserved name that you would like to use for the display name.
