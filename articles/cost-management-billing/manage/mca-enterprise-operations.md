@@ -146,6 +146,6 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 - [Understand billing account for a Microsoft Customer Agreement](../understand/mca-overview.md)
-- [Understand your invoice](../understand/understand-individual-bill.md)
+- [Understand your invoice](../understand/review-individual-bill.md)
 - [Understand your bill](../understand/understand-invoice.md)
 - [Get billing ownership of Azure subscriptions from other users](mca-request-billing-ownership.md)

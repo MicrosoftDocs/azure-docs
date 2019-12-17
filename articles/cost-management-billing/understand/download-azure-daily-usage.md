@@ -69,7 +69,7 @@ If you have questions or need help, [create a support request](https://go.micros
 To learn more about your invoice and usage charges, see:
 
 - [Understand terms on your Microsoft Azure detailed usage](understand-usage.md)
-- [Understand your bill for Microsoft Azure](understand-individual-bill.md)
+- [Understand your bill for Microsoft Azure](review-individual-bill.md)
 - [View and download your Microsoft Azure invoice](download-azure-invoice.md)
 - [View and download your organization's Azure pricing](../manage/ea-pricing.md)
 

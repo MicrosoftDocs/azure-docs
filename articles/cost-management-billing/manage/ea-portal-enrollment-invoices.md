@@ -670,5 +670,5 @@ The resource rate is derived based on the charges and often doesn't match the ac
 For overage charge calculations, raw resource utilization data is reported up to a maximum of six decimal places as can be seen in the download usage data report. However, the Azure EA Portal rounds usage to four decimal places for commitment units and truncates to zero decimals for overage units. That means that under the Azure EA Portal for all usage charged as an overage we charge only for the full units. There will be an extensive difference seen between the unit price and the resource rate for usage that is charged as an overage or in mixed months.
 
 ## Next steps
-- For information about understanding your invoice and charges, see [Understand your Azure Enterprise Agreement bill](understand-ea-bill.md).
+- For information about understanding your invoice and charges, see [Understand your Azure Enterprise Agreement bill](../understand/review-enterprise-agreement-bill.md).
 - To start using the Azure EA portal, see [Get started with the Azure EA portal](ea-portal-get-started.md).
