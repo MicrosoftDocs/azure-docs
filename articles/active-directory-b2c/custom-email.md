@@ -177,15 +177,15 @@ These claims types are necessary to generate and verify the email address using 
 
 ## Add the claims transformation
 
-Add the following claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid. Make the following updates to the claims transformation XML:
+Next, you need a claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid.
+
+The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties. For more information about JSON claims transformations, see [JSON claims transformations](json-transformations.md).
+
+Add the following claims transformation to the `<ClaimsTransformations>` element within `<BuildingBlocks>`. Make the following updates to the claims transformation XML:
 
 * Update the `template_id` InputParameter value with the ID of the SendGrid transactional template you created earlier in [Create SendGrid template](#create-sendgrid-template).
 * Update the `from.email` address value. Use a valid email address to help prevent the verification email from being marked as spam.
 * Update the value of the `personalizations.0.dynamic_template_data.subject` subject line input parameter with a subject line appropriate for your organization.
-
-The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties. For more information about JSON claims transformations, see [JSON claims transformations](json-transformations.md).
-
-Add the following claims transformation to the `<ClaimsTransformations>` element within `<BuildingBlocks>`.
 
 ```XML
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
@@ -349,37 +349,42 @@ In the final step, add a reference to the DisplayControl you created. Replace yo
 For more information, see [Self-asserted technical profile](restful-technical-profile.md) and [DisplayControl](display-controls.md).
 
 ```XML
-<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-  <DisplayName>Email signup</DisplayName>
-  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-  <Metadata>
-    <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
-    <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
-    <Item Key="language.button_continue">Create</Item>
-  </Metadata>
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" />
-  </InputClaims>
-  <DisplayClaims>
-    <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
-    <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
-    <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
-    <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
-    <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
-    <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
-  </DisplayClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="email" Required="true" />
-    <OutputClaim ClaimTypeReferenceId="objectId" />
-    <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
-    <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-    <OutputClaim ClaimTypeReferenceId="newUser" />
-  </OutputClaims>
-  <ValidationTechnicalProfiles>
-    <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
-  </ValidationTechnicalProfiles>
-  <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-</TechnicalProfile>
+<ClaimsProvider>
+  <DisplayName>Local Account</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+      <DisplayName>Email signup</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
+        <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
+        <Item Key="language.button_continue">Create</Item>
+      </Metadata>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" />
+      </InputClaims>
+      <DisplayClaims>
+        <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+        <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
+        <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
+        <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
+        <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
+        <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+      </DisplayClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="email" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" />
+        <OutputClaim ClaimTypeReferenceId="newUser" />
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
+        <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
+      </ValidationTechnicalProfiles>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
 ```
 
 ## Next steps
