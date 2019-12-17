@@ -26,7 +26,7 @@ Multi-factor authentication is supported if Azure Active Directory (Azure AD) is
 1. The client presents the token to Azure Resource Manager and to all Azure Machine Learning.
 1. The Machine Learning service provides a Machine Learning service token to the user compute target (for example, Machine Learning Compute). This token is used by the user compute target to call back into the Machine Learning service after the run is complete. Scope is limited to the workspace.
 
-[![Authentication in Azure Machine Learning](./media/concept-enterprise-security/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
+[![Authentication in Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
 
 ### Authentication for web service deployment
 
@@ -189,7 +189,7 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 You can use Azure Monitor metrics to view and monitor metrics for your Azure Machine Learning workspace. In the [Azure portal](https://portal.azure.com), select your workspace and then select **Metrics**:
 
-[![Screenshot showing example metrics for a workspace](./media/concept-enterprise-security/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
+[![Screenshot showing example metrics for a workspace](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
 
 The metrics include information on runs, deployments, and registrations.
 
@@ -201,7 +201,7 @@ You can view the activity log of a workspace to see various operations that are 
 
 This screenshot shows the activity log of a workspace:
 
-[![Screenshot showing the activity log of a workspace](./media/concept-enterprise-security/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
+[![Screenshot showing the activity log of a workspace](media/concept-enterprise-security/workspace-activity-log.png)](media/concept-enterprise-security/workspace-activity-log-expanded.png#lightbox)
 
 Scoring request details are stored in Application Insights. Application Insights is created in your subscription when you create a workspace. Logged information includes fields like HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, and Duration.
 
@@ -229,7 +229,7 @@ Additional resources are created in the user's subscription during workspace cre
 
 The user can also provision other compute targets that are attached to a workspace (like Azure Kubernetes Service or VMs) as needed.
 
-[![Create workspace workflow](./media/concept-enterprise-security/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
+[![Create workspace workflow](media/concept-enterprise-security/create-workspace.png)](media/concept-enterprise-security/create-workspace-expanded.png#lightbox)
 
 ### Save source code (training scripts)
 
@@ -237,7 +237,7 @@ The following diagram shows the code snapshot workflow.
 
 Associated with an Azure Machine Learning workspace are directories (experiments) that contain the source code (training scripts). These scripts are stored on your local machine and in the cloud (in the Azure Blob storage for your subscription). The code snapshots are used for execution or inspection for historical auditing.
 
-[![Code snapshot workflow](./media/concept-enterprise-security/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
+[![Code snapshot workflow](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot-expanded.png#lightbox)
 
 ### Training
 
@@ -264,7 +264,7 @@ Because Machine Learning Compute is a managed compute target (that is, it's mana
 
 In the flow diagram below, this step occurs when the training compute target writes the run metrics back to Azure Machine Learning from storage in the Cosmos DB database. Clients can call Azure Machine Learning. Machine Learning will in turn pull metrics from the Cosmos DB database and return them back to the client.
 
-[![Training workflow](./media/concept-enterprise-security/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
+[![Training workflow](media/concept-enterprise-security/training-and-metrics.png)](media/concept-enterprise-security/training-and-metrics-expanded.png#lightbox)
 
 ### Creating web services
 
@@ -279,7 +279,7 @@ Here are the details:
 * Scoring request details are stored in Application Insights, which is in the user’s subscription.
 * Telemetry is also pushed to the Microsoft/Azure subscription.
 
-[![Inference workflow](./media/concept-enterprise-security/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
+[![Inference workflow](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
 
 ## Next steps
 

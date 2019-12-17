@@ -114,7 +114,7 @@ Developers who prefer a visual design surface can use the Azure Machine Learning
 
 When you visually design pipelines, the inputs and outputs of a step are displayed visibly. You can drag and drop data connections, allowing you to quickly understand and modify the dataflow of your pipeline.
  
-![Azure Machine Learning designer example](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
+![Azure Machine Learning designer example](./media/concept-designer/designer-drag-and-drop.gif)
 
 ### Understanding the execution graph
 
@@ -208,4 +208,4 @@ Azure ML pipelines are a powerful facility that begins delivering value in the e
 
 + See the SDK reference docs for [pipeline core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) and [pipeline steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py).
 
-+ Try out example Jupyter notebooks showcasing [Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Learn how to [run notebooks to explore this service](samples-notebooks.md).
++ Try out example Jupyter notebooks showcasing [Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Learn how to [run notebooks to explore this service](service/samples-notebooks.md).

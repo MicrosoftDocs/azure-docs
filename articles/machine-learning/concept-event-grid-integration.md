@@ -93,6 +93,6 @@ Azure Event Grid allows customers to build de-coupled message handlers, which ca
 
 Learn more about Event Grid and give Azure Machine Learning events a try:
 
-- [About Event Grid](../../event-grid/overview.md)
+- [About Event Grid](../event-grid/overview.md)
 - [Azure Event Grid event schema for Azure Machine Learning](../event-grid/event-schema-machine-learning.md)
 - [Create event driven workflows with Azure Machine Learning](service/how-to-use-event-grid.md)

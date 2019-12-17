@@ -24,7 +24,7 @@ The designer uses your Azure Machine Learning [workspace](service/concept-worksp
 + [Pipelines](#pipeline)
 + [Datasets](#datasets)
 + [Compute resources](#compute)
-+ [Registered models](service/concept-azure-machine-learning-architecture.md#models)
++ [Registered models](concept-azure-machine-learning-architecture.md#models)
 + [Published pipelines](#publish)
 + [Real-time endpoints](#deploy)
 
@@ -45,7 +45,7 @@ The designer gives you a visual canvas to build, test, and deploy machine learni
 
 ## Pipeline
 
-A [pipeline](service/concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical modules, which you connect together. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
+A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical modules, which you connect together. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
 
 ### Pipeline draft
 
@@ -64,7 +64,7 @@ When you're ready to run your pipeline draft, you submit a pipeline run.
 
 Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline run**. You can go back to any pipeline run to inspect it for troubleshooting or auditing purposes. **Clone** a pipeline run to create a new pipeline draft for you to edit.
 
-Pipeline runs are grouped into [experiments](service/concept-azure-machine-learning-architecture.md#experiments) to organize run history. You can set the experiment for every pipeline run. 
+Pipeline runs are grouped into [experiments](concept-azure-machine-learning-architecture.md#experiments) to organize run history. You can set the experiment for every pipeline run. 
 
 ## Datasets
 

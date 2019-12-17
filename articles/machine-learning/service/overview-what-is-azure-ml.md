@@ -67,7 +67,7 @@ For code-free or low-code training and deployment, try:
 
   Learn more in [the Azure Machine Learning designer overview article](../concept-designer.md). 
 
-  ![Azure Machine Learning designer example](media/concept-ml-pipelines/designer-drag-and-drop.gif)
+  ![Azure Machine Learning designer example](media/overview-what-is-azure-ml/designer-drag-and-drop.gif)
 
 + **Automated machine learning UI**
 
