@@ -1,8 +1,8 @@
 ---
 title: Exclude disks from replication with Azure Site Recovery
-description: How to exclude disks from replication to Azure with Azure Site Recovery
+description: How to exclude disks from replication to Azure with Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 12/17/2019
 
 ---
 # Exclude disks from disaster recovery
@@ -10,8 +10,8 @@ ms.date: 12/11/2019
 This article describes how to exclude disks from replication during disaster recovery from on-premises to Azure with [Azure Site Recovery](site-recovery-overview.md). You might exclude disks from replication for a number of reasons:
 
 - So that unimportant data churned on the excluded disk isn't replicated.
-- To optimize the consumed replication bandwidth, or the target-side resources.
-- To save storage and network resources by not replicating data you don't need.
+- To optimize consumed replication bandwidth, or target-side resources.
+- To save storage and network resources by not replicating data that you don't need.
 - Azure VMs have reached Site Recovery replication limits.
 
 
@@ -28,7 +28,7 @@ Yes (using PowerShell) | Yes | Yes
 **Limitation** | **Azure VMs** | **VMware VMs** | **Hyper-V VMs**
 --- | --- | ---
 **Disk types** | Exclude basic disks from replication.<br/><br/> You can't exclude operating system disks or dynamic disks. Temp disks are excluded by default. | Exclude basic disks from replication.<br/><br/> You can't exclude operating system disks or dynamic disks. | Exclude basic disks from replication.<br/><br/> You can't exclude operating system disks. We recommend that you don't exclude dynamic disks. Site Recovery can't identify which VHS is basic or dynamic in the guest VM. If all dependent dynamic volume disks aren't excluded, the protected dynamic disk becomes a failed disk on a failover VM, and the data on that disk isn't accessible.
-**Rplicating disk** | You can't exclude a disk that's replicating. Disable and reenable replication for the VM. |  You can't exclude a disk that's replicating. |  You can't exclude a disk that's replicating.
+**Replicating disk** | You can't exclude a disk that's replicating. Disable and reenable replication for the VM. |  You can't exclude a disk that's replicating. |  You can't exclude a disk that's replicating.
 **Mobility service (VMware)** | Not relevant | You can exclude disks on VMs that have the Mobility service installed.<br/><br/> This means that you have to manually install the Mobility service on the VMs for which you want to exclude disks. You can't use the push installation mechanism because this only installs the Mobility service after replication is enabled. | Not relevant.
 **Add/Remove** | Supported for Azure VMs with managed disks. | You can't add or remove disks after replication is enabled. Disable and then reenable replication to add a disk. | You can't add or remove disks after replication is enabled. Disable and then reenable replication.
 **Failover** | If an app needs a disk that you excluded, after failover to Azure you need to create the disk manually so that the replicated app can run.<br/><br/> Alternatively, you can integrate Azure automation into a recovery plan, to create the disk during VM failover. | If you exclude a disk that an app needs, create it manually in Azure after failover. | If you exclude a disk that an app needs, create it manually in Azure after failover.
@@ -71,7 +71,7 @@ DB-Disk4 | Disk4 |G:\ | User Database2
 
 ### Handle disks during failover
 
-Since disks aren't replicated, when you fail over to Azure these disks aren't present on the Azure VM created after failover. The Azure VM has these disks.
+Since disks aren't replicated, when you fail over to Azure these disks aren't present on the Azure VM created after failover. The Azure VM has the disks summarized in this table.
 
 **Guest OS disk** | **Drive letter** | **Disk data type**
 --- | --- | ---
@@ -141,7 +141,7 @@ Disk1 |	E:\ | Temporary storage.
 Disk2 | D:\ | SQL system database and User Database1.
 Disk3 | G:\ | User Database2.
 
-After failback, the VMware VM in the original location has these disks.
+After failback, the VMware VM in the original location has the disks summarized in the table.
 
 **Guest OS disk** | **Drive letter** | **Disk data type**
 --- | --- | ---
@@ -167,7 +167,7 @@ Disk1 |	E:\ | Temporary storage.
 Disk2 | D:\ | SQL system database and User Database1.
 Disk3 | G:\ | User Database2.
 
-After planned failover (failback) from Azure to on-premises Hyper-V, the Hyper-V VM in the original location has these disks.
+After planned failover (failback) from Azure to on-premises Hyper-V, the Hyper-V VM in the original location has the disks summarized in the table.
 
 **Disk Name** | **Guest OS disk#** | **Drive letter** | **Disk data type**
  --- | --- | --- | ---
@@ -203,7 +203,7 @@ Our paging file settings on the source VM are as follows:
 
 #### Disks after failover
 
-After failover the Azure VM has these disks.
+After failover the Azure VM has the disks summarized in the table.
 
 **Disk name** | **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
@@ -238,7 +238,7 @@ Our paging file settings on the on-premises VM are as follows:
 
 #### Disks after failover
 
-After failover the Azure VM has these disks.
+After failover the Azure VM has the disks summarized in the table.
 
 **Disk name** | **Guest OS disk#** | **Drive letter** | **Disk data type**
 --- | --- | --- | ---
