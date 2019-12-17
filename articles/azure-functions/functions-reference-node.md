@@ -4,7 +4,7 @@ description: Understand how to develop functions by using JavaScript.
 
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
-ms.date: 02/24/2019
+ms.date: 12/17/2019
 
 ---
 # Azure Functions JavaScript developer guide
