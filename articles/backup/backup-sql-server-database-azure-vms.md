@@ -226,9 +226,7 @@ To create a backup policy:
 
     ![Edit the log backup policy](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-13. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression**.
-    * Compression is disabled by default.
-    * On the back end, Azure Backup uses SQL native backup compression.
+13. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression** or not. This option is disabled by default. If enabled, SQL Server will send a compressed backup stream to the VDI.  Please note that Azure Backup overrides instance level defaults with COMPRESSION / NO_COMPRESSION clause depending on the value of this control.
 
 14. After you complete the edits to the backup policy, select **OK**.
 
