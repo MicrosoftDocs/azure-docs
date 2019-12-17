@@ -1,6 +1,6 @@
 ---
-title: Connect to OneDrive
-description: Upload and manage files with OneDrive REST APIs and Azure Logic Apps
+title: Access and manage files in Microsoft OneDrive
+description: Upload and manage files in OneDrive by creating automated workflows in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -9,9 +9,9 @@ ms.date: 10/18/2016
 tags: connectors
 ---
 
-# Get started with the OneDrive connector
+# Access and manage files in OneDrive connector by using Azure Logic Apps
 
-Connect to OneDrive to manage your files, including upload, get, delete files, and more. With OneDrive, you can perform these tasks:
+By using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [OneDrive connector](/connectors/onedriveconnector/), you can create automated tasks and workflows to manage your files, including upload, get, delete files, and more. With OneDrive, you can perform these tasks:
 
 * Build your workflow by storing files in OneDrive, or update existing files in OneDrive. 
 * Use triggers to start your workflow when a file is created or updated within your OneDrive.
@@ -33,7 +33,7 @@ Before your logic app can access any service, you first create a *connection* to
 
 A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. In the logic app, type "onedrive" to get a list of the triggers:  
+1. In the Logic App Designer, type `onedrive` to get a list of the triggers:  
 
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
@@ -61,7 +61,7 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 
 2. Choose **Add an action**.
 
-3. In the text box, type “onedrive” to get a list of all the available actions.
+3. In the search box, type `onedrive` to get a list of all the available actions.
 
    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 

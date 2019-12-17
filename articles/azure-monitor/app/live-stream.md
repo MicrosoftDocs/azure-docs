@@ -153,7 +153,7 @@ For Azure Function Apps (v2), securing the channel with an API key can be accomp
 
 Create an API key from within your Application Insights resource and go to **Application Settings** for your Function App. Select **add new setting** and enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` and a value that corresponds to your API key.
 
-### ASP.NET Core (Requires Application Insights ASP.NET Core SDK 2.3.0-beta or greater)
+### ASP.NET Core (Requires Application Insights ASP.NET Core SDK 2.3.0 or greater)
 
 Modify your startup.cs file as follows:
 
