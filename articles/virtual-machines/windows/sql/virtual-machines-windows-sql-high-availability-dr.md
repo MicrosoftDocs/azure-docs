@@ -80,7 +80,7 @@ In the image below, the setup uses SQL Server running on an Azure Virtual Machin
 
 ![Free DR replica in Azure](media/virtual-machines-windows-sql-high-availability-dr/free-dr-replica-azure.png)
 
-For more information, see the [licensing guide](https://download.microsoft.com/download/6/6/0/66078040-86d8-4f6e-b0c5-e9919bbcb537/SQL%20Server%202019%20Licensing%20guide.pdf). 
+For more information, see the [Product Licensing Terms](https://www.microsoft.com/licensing/product-licensing/products). 
 
 To enable this benefit, navigate to your [SQL Server virtual machine resource](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource), select **Configure** under settings, and then choose the **Disaster Recovery** option under **SQL Server License**. Select the checkbox to confirm that this SQL Server VM will be used as a passive replica, and then select **Apply** to save your settings. 
 
