@@ -43,22 +43,12 @@ You can also change this setting via the firewall pane after the Azure SQL Serve
 
 When set  to **ON** Azure SQL Server allows communications from all resources inside the Azure boundary, that may or may not be part of your subscription.
 
-In many cases, the **ON** setting is more permissive than what most customers want.They may want to set this setting to **OFF** and replace it with more restrictive IP firewall rules or Virtual Network firewall rules. Doing so affects the following features:
+In many cases, the **ON** setting is more permissive than what most customers want.They may want to set this setting to **OFF** and replace it with more restrictive IP firewall rules or Virtual Network firewall rules. Doing so affects the following features that run on VMs in Azure that not part of your VNet and hence connect to Sql Database via an Azure IP address.
 
 ### Import Export Service
+Import Export Service does not work  **Allow Azure services to access server** set to OFF. However you can work around the problem by manually running sqlpackage.exe from an Azure VM or performing the export directly in your code by using the DACFx API.
 
-Azure SQL Database Import Export Service runs on VMs in Azure. These VMs are not in your VNet and hence get an Azure IP when connecting to your
-database. On removing **Allow Azure services to access server** these VMs will not be able to access your databases.
-You can work around the problem by running the BACPAC import or export directly in your code by using the DACFx API.
-
-### SQL Database Query Editor
-
-The Azure SQL Database Query Editor is deployed on VMs in Azure. These VMs are not in your VNet. Therefore the VMs get an Azure IP when connecting to your database. On removing **Allow Azure services to access server**, these VMs will not be able to access your databases.
-
-### Impact on Data Sync
-
-Azure SQL Database has the Data Sync feature that connects to your databases using Azure IPs. 
-
+### Data Sync
 To use the Data sync feature with **Allow Azure services to access server** set to OFF, you need to create individual firewall rule entries to [add IP addresses](sql-database-server-level-firewall-rule.md) from the **Sql service tag** for the region hosting the **Hub** database.
 Add these server level firewall rules to the logical servers hosting both **Hub** and **Member** databases ( which may be in different regions)
 
