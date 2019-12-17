@@ -21,6 +21,8 @@
       href: storage-quickstart-queues-java.md
     - name: Python (v12)
       href: storage-quickstart-queues-python.md
+    - name: JavaScript (v12)
+      href: storage-quickstart-queues-nodejs.md
 - name: Tutorials
   items:
   - name: Work with Azure storage queues
