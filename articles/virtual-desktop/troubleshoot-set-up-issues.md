@@ -83,7 +83,7 @@ The Windows Virtual Desktop – Provision a host pool template is available from
     2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
     ```
 
-### Error: After entering all parameters, you receive generic "template deployment ... is not valid"
+### Error: You receive "template deployment is not valid" error
 
 ![Screenshot of "template deployment ... is not valid" error](media/troubleshooting-marketplace-validaiton-error-generic.png)
 
@@ -102,7 +102,7 @@ To verify:
 
 **Fix 1**: Re-run the Azure Marketplace with similar parameters, but with fewer VMs and VM cores to stay under the quota.
 
-**Fix 2**: Submit a request to increase your quota for the given VM SKU, following the link provided in the "statusMessage" field.
+**Fix 2**: Open the link you see in the **statusMessage** field in a browser to submit a request to increase the quota for your VM SKU.
 
 ## Azure Resource Manager template and PowerShell Desired State Configuration (DSC) errors
 
