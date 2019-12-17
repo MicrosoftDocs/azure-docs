@@ -84,10 +84,12 @@ Named Entity Recognition v2 uses a single endpoint for NER and entity linking re
 
 ### Entity types
 
-Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3 can recognize the following categories of entities. For a detailed list of supported entities and languages, see the [Named entity types](../named-entity-types.md) article.
+Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3 can recognize the following categories of entities:
 
 * General
 * Personal Information 
+
+For a detailed list of supported entities and languages, see the [Named entity types](../named-entity-types.md) article.
 
 ### Request endpoints
 
@@ -111,7 +113,7 @@ Entity linking
 
 ### Preparation
 
-You must have JSON documents in this format: ID, text, language
+You must have JSON documents in this format: ID, text, language.
 
 Each document must must be under 5,120 characters, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request.
 
@@ -151,7 +153,7 @@ Entity linking
 
 ---
 
-Set a request header to include your Text Analytics API key. In the request body, provide the JSON documents collection you prepared for this analysis.
+Set a request header to include your Text Analytics API key. In the request body, provide the JSON documents you prepared.
 
 ### Example Sentiment Analysis request 
 
@@ -281,16 +283,13 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
 
 In this article, you learned concepts and workflow for entity linking using Text Analytics in Cognitive Services. In summary:
 
-+ Named Entity Recognition is available for selected languages in two versions.
-+ JSON documents in the request body include an ID, text, and language code.
-+ POST requests are sent to one or more endpoints, using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that is valid for your subscription.
-+ Response output, which consists of linked entities (including confidence scores, offsets, and web links, for each document ID) can be used in any application
+* Named Entity Recognition is available for selected languages in two versions.
+* JSON documents in the request body include an ID, text, and language code.
+* POST requests are sent to one or more endpoints, using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that is valid for your subscription.
+* Response output, which consists of linked entities (including confidence scores, offsets, and web links, for each document ID) can be used in any application
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Text Analytics API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
-
 * [Text Analytics overview](../overview.md)
-* [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
-* [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712)
+* [Using the Text Analytics client library](../quickstarts/text-analytics-sdk.md)
+* [What's new](../whats-new.md)
