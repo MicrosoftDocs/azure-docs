@@ -102,7 +102,6 @@ To view the error in the activity log:
 If your operation template goes over the quota limit, you can do one of the following things to fix it:
 
  - Run the Azure Marketplace with the parameters you used the first time, but this time use fewer VMs and VM cores.
-
  - Open the link you see in the **statusMessage** field in a browser to submit a request to increase the quota for your Azure subscription for the specified VM SKU.
 
 ## Azure Resource Manager template and PowerShell Desired State Configuration (DSC) errors
