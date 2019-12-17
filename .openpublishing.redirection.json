@@ -44031,28 +44031,31 @@
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md",
             "redirect_url": "/azure/synapse-analytics/sql-analytics/data-loading-columnstore-compression",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-develop.md",
-            "redirect_url": "/azure/synapse-analytics/sql-analytics/azure-synapse-development-overview",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-overview",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-data-types.md",
-            "redirect_url": "/azure/synapse-analytics/sql-analytics/azure-synapse-development-tables-data-types",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-tables-data-types",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-overview.md",
-            "redirect_url": "/azure/synapse-analytics/sql-analytics/azure-synapse-development-tables-overview",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-tables-overview",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-statistics.md",
-            "redirect_url": "/azure/synapse-analytics/sql-analytics/azure-synapse-development-tables-statistics",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-tables-statistics",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-temporary.md",
-            "redirect_url": "/azure/synapse-analytics/sql-analytics/azure-synapse-development-tables-temporary",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-tables-temporary",
             "redirect_document_id": true
         }
     ]

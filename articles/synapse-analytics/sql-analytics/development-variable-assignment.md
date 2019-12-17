@@ -61,4 +61,4 @@ You cannot use UPDATE for variable assignment.
 
 ## Next steps
 
-For more development tips, see [SQL analytics development overview](azure-synapse-development-overview.md).
+For more development tips, see [SQL analytics development overview](development-overview.md).

@@ -215,5 +215,5 @@ Temporary tables in SQL Analytics on-demand are supported but their usage is lim
 
 ## Next steps
 
-To learn more about developing tables, see the [Table Overview](azure-synapse-development-tables-overview.md).
+To learn more about developing tables, see the [Table Overview](development-tables-overview.md).
 

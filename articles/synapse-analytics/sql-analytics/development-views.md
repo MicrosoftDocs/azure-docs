@@ -72,6 +72,6 @@ Views in SQL analytics are stored as metadata only. Consequently, the following 
 * There are no indexed views in SQL analytics
 
 ## Next steps
-For more development tips, see [SQL analytics development overview](azure-synapse-development-overview.md).
+For more development tips, see [SQL analytics development overview](development-overview.md).
 
 

@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](get-started-visual-studio.md)
-> * [sqlcmd](azure-synapse-get started-connect-sqlcmd.md) 
+> * [sqlcmd](get-started-connect-sqlcmd.md) 
 > * [SSMS](get-started-ssms.md)
 > 
 > 
@@ -75,7 +75,7 @@ Now that a connection has been established to your database, you'll write a quer
     ![Query results][7]
 
 ## Next steps
-Now that you can connect and query, try [visualizing the data with Power BI][visualizing the data with PowerBI].
+Now that you can connect and query, try [visualizing the data with Power BI][visualizing the data with Power BI].
 
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Pool][Authenticate to SQL Pool].
 

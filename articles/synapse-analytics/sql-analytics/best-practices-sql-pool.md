@@ -31,7 +31,7 @@ It's equally important to update statistics as significant changes happen to you
 
 To shorten statistics maintenance time, be selective about which columns have statistics, or need the most frequent updating. For example, you might want to update date columns where new values may be added daily. Focus on having statistics for columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
-Additional information on statistics can be found in the [Manage table statistics](azure-synapse-development-tables-statistics.md), [CREATE STATISTICS]( https://msdn.microsoft.com/library/ms188038.aspx), and [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx) articles.
+Additional information on statistics can be found in the [Manage table statistics](development-tables-statistics.md), [CREATE STATISTICS]( https://msdn.microsoft.com/library/ms188038.aspx), and [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx) articles.
 
 ## Group INSERT statements into batches
 A one-time load to a small table with an INSERT statement such as `INSERT INTO MyLookup VALUES (1, 'Type 1')`may be the best approach depending on your needs. However, if you need to load thousands or millions of rows throughout the day, it's likely that singleton INSERTS aren't optimal. 
@@ -73,7 +73,7 @@ For example, if you have an orders table distributed by order_id, and a transact
 When loading a distributed table, your incoming data shouldn't be sorted on the distribution key. Doing so will slow down your loads. 
 
 The article links provided below will give you additional details about improving performance via selecting a distribution column. Also, you'll find information about how to define a distributed table in the WITH clause of your CREATE TABLE statement:  
-- [Table overview](azure-synapse-development-tables-overview.md) 
+- [Table overview](development-tables-overview.md) 
 - [Table distribution](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md) 
 - [Selecting table distribution](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/) 
 - [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest) 
@@ -100,7 +100,7 @@ For unpartitioned tables, consider using a CTAS to write the data you want to ke
 
 Further information on content related to this section is included in the articles below: 
 - [Create table as select (CTAS)](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md)
-- [Understanding transactions](azure-synapse-development-transactions.md)
+- [Understanding transactions](development-transactions.md)
 - [Optimizing transactions](../../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md) 
 - [Table partitioning](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md) 
 - [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx) 
@@ -112,7 +112,7 @@ Reducing query results sizes helps you avoid client-side issues caused by large 
 ## Use the smallest possible column size
 When defining your DDL, use the smallest data type that will support your data as doing so will improve query performance.  This recommendation is particularly important for CHAR and VARCHAR columns.  If the longest value in a column is 25 characters, then define your column as VARCHAR(25).  Avoid defining all character columns to a large default length.  Additionally, define columns as VARCHAR when that is all that is needed rather than using NVARCHAR.
 
-Please see the [Table overview](azure-synapse-development-tables-overview.md), [Table data types](azure-synapse-development-tables-data-types.md), and [CREATE TABLE](/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest) articles for a more detailed review of essential concepts relevant to the above information.
+Please see the [Table overview](development-tables-overview.md), [Table data types](development-tables-data-types.md), and [CREATE TABLE](/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest) articles for a more detailed review of essential concepts relevant to the above information.
 
 ## Use temporary heap tables for transient data
 When you're temporarily landing data on SQL pools, heap tables will generally make the overall process faster.  If you're loading data only to stage it before running more transformations, loading the table to a heap table will be quicker than loading the data to a clustered columnstore table.  
@@ -122,16 +122,17 @@ Loading data to a temp table will also load much faster than loading a table to 
 For additional guidance, refer to the [Temporary tables](https://msdn.microsoft.com/library/ms190273.aspx), [CREATE TABLE](/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest), and [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx) articles. 
 
 ## Optimize clustered columnstore tables
+
 Clustered columnstore indexes are one of the most efficient ways you can store your data in SQL pool.  By default, tables in SQL pool are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  
 
 Segment quality can be measured by the number of rows in a compressed Row Group. See the [Causes of poor columnstore index quality](../../sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality) in the [Table indexes](../../sql-data-warehouse/sql-data-warehouse-tables-index.md) article for step-by-step instructions on detecting and improving segment quality for clustered columnstore tables.  
 
-Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](azure -synapse-resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
+Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](azure-synapse-resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
 
 Columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table. Each SQL pool table is partitioned into 60 tables. As such, columnstore tables won't benefit a query unless the table has more than 60 million rows.  
 
 > [!TIP]
-For tables with less than 60 million rows, having a columnstore index may not be the optimal solution.  
+>  For tables with less than 60 million rows, having a columnstore index may not be the optimal solution.  
 
 If you partition your data, each partition will need to have 1 million rows to benefit from a clustered columnstore index.  For a table with 100 partitions, it needs to have at least 6 billion rows to benefit from a clustered columns store (60 distributions * 100 partitions * 1 million rows).  
 

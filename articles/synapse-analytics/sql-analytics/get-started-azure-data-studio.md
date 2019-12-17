@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](azure-synapse-get started-connect-sqlcmd.md)
+> * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 > 
 > 
@@ -70,7 +70,7 @@ OPENROWSET(
 ```
 
 ## Next steps 
-For more about details about the options available in sqlcmd see [sqlcmd documentation](azure-synapse-get started-connect-sqlcmd.md).
+For more about details about the options available in sqlcmd see [sqlcmd documentation](get-started-connect-sqlcmd.md).
 
 <!--Image references-->
 [1]: media/sql-analytics-query-ads/1-start.png

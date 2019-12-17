@@ -396,7 +396,7 @@ The UPDATE STATISTICS statement is easy to use. Just remember that it updates *a
 > [!NOTE]
 > When updating all statistics on a table, SQL Analytics pool does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
 
-For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables](azure-synapse-development-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
+For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables](development-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
 
 For the full syntax, see [Update Statistics](/sql/t-sql/statements/update-statistics-transact-sql).
 

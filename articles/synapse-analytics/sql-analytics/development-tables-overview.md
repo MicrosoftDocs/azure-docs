@@ -42,9 +42,9 @@ This document is related to key concepts for designing tables in Azure SQL Analy
 | [Unsupported table features](#unsupported-table-features)    | Yes                | No                      |
 | [Table size queries](#table-size-queries)                    | Yes                | No                      |
 
-- [Data types](azure-synapse-development-tables-data-types.md)
-- [Statistics](azure-synapse-development-tables-statistics.md)
-- [Temporary tables](azure-synapse-development-tables-temporary.md)
+- [Data types](development-tables-data-types.md)
+- [Statistics](development-tables-statistics.md)
+- [Temporary tables](development-tables-temporary.md)
 
 ## Determine table category 
 
@@ -92,7 +92,7 @@ A temporary table only exists for the duration of the session. You can use a tem
 
 SQL Analytics on-demand supports temporary tables but its usage is somewhat limited as you can select from temporary table but cannot join it with files in storage. 
 
-For more information, see  [Temporary tables](azure-synapse-development-tables-temporary.md).
+For more information, see  [Temporary tables](development-tables-temporary.md).
 
 ### External table
 An [External tables](development-tables-external-tables.md) points to data located in Azure Storage blob or Azure Data Lake Store. 
@@ -104,7 +104,7 @@ In SQL Analytics on-demand, you can use [CETAS](development-tables-cetas.md) to 
 ## Data types
 SQL Analytics pool supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. 
 
-For guidance on using data types, see [Data types](azure-synapse-development-tables-data-types.md).
+For guidance on using data types, see [Data types](development-tables-data-types.md).
 
 ## Distributed tables
 A fundamental feature of SQL Analytics pool is the way it can store and operate on tables across [distributions](../../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md#distributions).  SQL Analytics pool supports three methods for distributing data, round-robin (default), hash, and replicated.
@@ -172,10 +172,10 @@ ORDER BY
 
 By default, SQL Analytics pool stores a table as a clustered columnstore index. This form of data storage achieves high data compression and query performance on large tables.  The clustered columnstore index is usually the best choice, but in some cases a clustered index or a heap is the appropriate storage structure.  A heap table can be especially useful for loading transient data, such as a staging table which is transformed into a final table.
 
-For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](azure-synapse-data-loading-columnstore-compression.md).
+For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](data-loading-columnstore-compression.md).
 
 ## Statistics
-The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to have statistics on individual columns, especially columns used in query joins. SQL Analytics supports automatic creation of statistics. However, updating statistics does not happen automatically. You should update statistics after a significant number of rows are added or changed. For example, update statistics after a load. For more information, see [Statistics guidance](azure-synapse-development-tables-statistics.md).
+The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to have statistics on individual columns, especially columns used in query joins. SQL Analytics supports automatic creation of statistics. However, updating statistics does not happen automatically. You should update statistics after a significant number of rows are added or changed. For example, update statistics after a load. For more information, see [Statistics guidance](development-tables-statistics.md).
 
 ## Primary key and unique key
 PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported when NOT ENFORCED is used.  Check [SQL Analytics pool Table Constraints](../../sql-data-warehouse/sql-data-warehouse-table-constraints.md).

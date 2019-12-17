@@ -176,5 +176,5 @@ ORDER BY 1,2,3
 By breaking the code up into sections and generating a looping construct, the code becomes more manageable and maintainable.
 
 ## Next steps
-For more development tips, see [development overview](azure-synapse-development-overview.md).
+For more development tips, see [development overview](development-overview.md).
 
