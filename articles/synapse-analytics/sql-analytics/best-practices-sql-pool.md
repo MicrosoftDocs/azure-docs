@@ -127,7 +127,7 @@ Clustered columnstore indexes are one of the most efficient ways you can store y
 
 Segment quality can be measured by the number of rows in a compressed Row Group. See the [Causes of poor columnstore index quality](../../sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality) in the [Table indexes](../../sql-data-warehouse/sql-data-warehouse-tables-index.md) article for step-by-step instructions on detecting and improving segment quality for clustered columnstore tables.  
 
-Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](azure-synapse-resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
+Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
 
 Columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table. Each SQL pool table is partitioned into 60 tables. As such, columnstore tables won't benefit a query unless the table has more than 60 million rows.  
 

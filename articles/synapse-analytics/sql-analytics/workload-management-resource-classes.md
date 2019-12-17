@@ -35,7 +35,7 @@ Resource classes use concurrency slots to measure resource consumption.  [Concur
 
 ### Static resource classes
 
-Static resource classes allocate the same amount of memory regardless of the current performance level, which is measured in [data warehouse units](azure-synapse-resource-consumption-models.md). Since queries get the same memory allocation regardless of the performance level, [scaling out the data warehouse](../../sql-data-warehouse/quickstart-scale-compute-portal.md) allows more queries to run within a resource class.  Static resource classes are ideal if the data volume is known and constant.
+Static resource classes allocate the same amount of memory regardless of the current performance level, which is measured in [data warehouse units](resource-consumption-models.md). Since queries get the same memory allocation regardless of the performance level, [scaling out the data warehouse](../../sql-data-warehouse/quickstart-scale-compute-portal.md) allows more queries to run within a resource class.  Static resource classes are ideal if the data volume is known and constant.
 
 The static resource classes are implemented with these pre-defined database roles:
 
