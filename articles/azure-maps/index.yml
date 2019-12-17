@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Maps Documentation
-summary: Azure Maps provides developers from all industries, powerful geospatial capabilities, packed with the freshest mapping data available to provide geographic context to web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs for Maps, Search, Routing, Traffic, Mobility, Weather, Time Zones, Geolocation, Geofencing, Map Data, and Spatial Operations accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms.
+summary: Microsoft Azure Maps provides developers from all industries, powerful geospatial capabilities, packed with the freshest mapping data available to provide geographic context to web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs for Maps, Search, Routing, Traffic, Mobility, Weather, Time Zones, Geolocation, Geofencing, Map Data, and Spatial Operations accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms.
 
 metadata:
   title:  Azure Maps Documentation | Microsoft Docs
@@ -44,19 +44,19 @@ landingContent:
             url: quick-demo-map-app.md
       - linkListType: concept
         links:
-          - text: Choose the right pricing tier
+          - text: Choose the right pricing tier for Maps account
             url: choose-pricing-tier.md
           - text: Authentication with Azure Maps
             url: azure-maps-authentication.md
       - linkListType: how-to-guide
         links:
-          - text: Manage accounts
+          - text: Manage Azure Maps accounts
             url: how-to-manage-account-keys.md
-          - text: Manage authentication
+          - text: Manage authentication with Azure Maps
             url: how-to-manage-authentication.md
-          - text: Manage pricing tier
+          - text: Manage maps account pricing tier
             url: how-to-manage-pricing-tier.md
-          - text: View usage metrics
+          - text: View maps API usage metrics
             url: how-to-view-api-usage.md
           
   # Card
@@ -94,7 +94,7 @@ landingContent:
         links:
           - text: Getting started with Android map control
             url: how-to-use-android-map-control-library.md
-          - text: Display feature information
+          - text: Display metadata information of a feature
             url: display-feature-information-android.md
           - text: Add a tile layer to a map
             url: how-to-add-tile-layer-android-map.md
@@ -114,7 +114,7 @@ landingContent:
             url: tutorial-ev-routing.md
       - linkListType: how-to-guide
         links:
-          - text: Search for an address
+          - text: Search for an address (geocoding)
             url: how-to-search-for-address.md
           - text: Best practices for search
             url: how-to-use-best-practices-for-search.md
@@ -132,7 +132,7 @@ landingContent:
             url: https://docs.microsoft.com/en-us/rest/api/maps/timezone
   
   # Card
-  - title: Spatial analytics in IoT
+  - title: Spatial Analytics
     linkLists:
       - linkListType: concept
         links:
@@ -170,7 +170,7 @@ landingContent:
             url: https://docs.microsoft.com/en-us/rest/api/maps/mobility
 
   # Card
-  - title: Developing with Weather services
+  - title: Developing with Weather Services
     linkLists:
       - linkListType: concept
         links:
