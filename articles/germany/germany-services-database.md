@@ -38,7 +38,7 @@ The address for SQL Database in Azure Germany is different from the address in g
 
 
 ## Azure Cache for Redis
-For details on Azure Cache for Redis and how to use it, see [Azure Cache for Redis global documentation](../azure-cache-for-redis/index.md).
+For details on Azure Cache for Redis and how to use it, see [Azure Cache for Redis global documentation](../azure-cache-for-redis/index.yml).
 
 ### Variations
 The URLs for accessing and managing Azure Cache for Redis in Azure Germany are different from the URLs in global Azure:
