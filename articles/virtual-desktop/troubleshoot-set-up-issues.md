@@ -99,13 +99,11 @@ To view the error in the activity log:
 4. Select JSON, then scroll down to the bottom of the screen until you see the "statusMessage" field.
    ![Screenshot of failed activity, with a red box around the statusMessage property of the JSON text.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
-#### Issue: Operation would exceed quota limit
+If your operation template goes over the quota limit, you can do one of the following things to fix it:
 
-If the operation would exceed quota, you can take either option below to proceed:
+ - Run the Azure Marketplace with the parameters you used the first time, but this time use fewer VMs and VM cores.
 
-**Option 1**: Re-run the Azure Marketplace with similar parameters, but with fewer VMs and VM cores to stay within the quota for your Azure subscription.
-
-**Option 2**: Open the link you see in the **statusMessage** field in a browser to submit a request to increase the quota for your Azure subscription for the specified VM SKU.
+ - Open the link you see in the **statusMessage** field in a browser to submit a request to increase the quota for your Azure subscription for the specified VM SKU.
 
 ## Azure Resource Manager template and PowerShell Desired State Configuration (DSC) errors
 
