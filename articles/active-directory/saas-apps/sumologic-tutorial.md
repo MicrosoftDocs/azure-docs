@@ -94,8 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://<tenantname>.eu.sumologic.com` |
 	| `https://<tenantname>.au.sumologic.com` |
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<tenantname>.au.sumologic.com`
+    b. In the **Reply URL** text box, type a URL using the following pattern: `https://<tenantname>.au.sumologic.com`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [SumoLogic Client support team](https://www.sumologic.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
