@@ -55,8 +55,8 @@ All of these files should occupy the same sub-folder and be in the following for
 
 You need OCR result files in order for the service to consider the corresponding input files for labeled training. To obtain OCR results for a given source form, follow the steps below:
 
-* Call the **/formrecognizer/v2.0-preview/readLayout/asyncAnalyze** API on the read Layout container with the input file as part of the request body. Save the ID found in the response's **Operation-Location** header.
-* Call the **/formrecognizer/v2.0-preview/readLayout/asyncAnalyzeOperations/{id}** API, using operation ID from the previous step.
+* Call the **/formrecognizer/v2.0-preview/layout/analyze** API on the read Layout container with the input file as part of the request body. Save the ID found in the response's **Operation-Location** header.
+* Call the **/formrecognizer/v2.0-preview/layout/analyzeResults/{id}** API, using operation ID from the previous step.
 * Get the response and write the contents to a file. For each source form, the corresponding OCR file should have the original file name appended with `.ocr.json`. The OCR JSON output should have the following format: 
 
     ```json
