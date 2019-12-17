@@ -9,40 +9,42 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: helohr
 ---
-# Use diagnostics with Log Analytics
+# Use Log Analytics for the diagnostics feature
 
-Windows Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity whenever a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end-user and administrative actions, and can be categorized into three main buckets: 
+Windows Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. This feature logs diagnostics information whenever someone assigned Windows Virtual Desktop role uses the service. Each log contains information about which Windows Virtual Desktop role was involved in the activity, any error messages that appear during the session, tenant information, and user information. The diagnostics feature creates activity logs for both user and administrative actions. Each activity log falls under three main categories: 
 
-- Feed subscription activities: the end-user triggers these activities whenever they try to connect to their feed through Microsoft Remote Desktop applications. 
-- Connection activities: the end-user triggers these activities whenever they try to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications. 
-- Management activities: the administrator triggers these activities whenever they perform management operations on the system, such as creating host pools, assigning users to app groups, and creating role assignments. 
+- Feed subscription activities: when a user tries to connect to their feed through Microsoft Remote Desktop applications.
+- Connection activities: when a user tries to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
+- Management activities: when an administrator performs management operations on the system, such as creating host pools, assigning users to app groups, and creating role assignments.
 
-Connections that don’t reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
+Connections that don’t reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the user is experiencing network connectivity issues.
 
 ## Why you should use Log Analytics
 
-We recommend you use Log Analytics to analyze diagnostics data in the Azure client that goes beyond single-user troubleshooting. As you can pull in VM performance counters into Log Analytics you have one tool to gather information for your deployment. 
+We recommend you use Log Analytics to analyze diagnostics data in the Azure client that goes beyond single-user troubleshooting. As you can pull in VM performance counters into Log Analytics you have one tool to gather information for your deployment.
 
 ## Before you get started
 
 Before you can use Log Analytics with the diagnostics feature, you'll need to [create a workspace](../azure-monitor/learn/quick-collect-windows-computer.md#create-a-workspace).
 
-After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) to get the following info: 
+After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) to get the following information: 
 
-- Workspace ID
-- Primary Key 
+- The workspace ID
+- The primary key of your workspace
+
+You'll need this information later in the setup process.
 
 ## Push diagnostics data to your workspace 
 
-You can push diagnostics data from your Windows Virtual Desktop tenant into your Log Analytics workspace. You can either set up this feature by linking your workspace to your tenant when you first create your tenant, or you can set it up later.
+You can push diagnostics data from your Windows Virtual Desktop tenant into the Log Analytics for your workspace. You can set up this feature right away when you first create your tenant by linking your workspace to your tenant, or you can set it up later with an existing tenant.
 
-To link your tenant to your Log Analytics workspace, run the following cmdlet to sign in to Windows Virtual Desktop with your TenantCreator user account: 
+To link your tenant to your Log Analytics workspace while you're setting up your new tenant, run the following cmdlet to sign in to Windows Virtual Desktop with your TenantCreator user account: 
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com 
 ```
 
-If you're going to link an existing tenant instead of a new tenant, run the following cmdlet: 
+If you're going to link an existing tenant instead of a new tenant, run this cmdlet instead: 
 
 ```powershell
 Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String> 
@@ -51,7 +53,7 @@ Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnaly
 You'll need to run these cmdlets for every tenant you want to link to Log Analytics. 
 
 >[!NOTE]
->If you want to not link the Log Analytics workspace when you create a tenant, run the `New-RdsTenant` cmdlet. 
+>If you don't want to link the Log Analytics workspace when you create a tenant, run the `New-RdsTenant` cmdlet instead. 
 
 ## Cadence for sending diagnostic events
 
@@ -59,10 +61,9 @@ Diagnostic events are sent to Log Analytics when completed.
 
 ## Example queries
 
-The following example queries demonstrate how to generate a report for the most frequent activities in your system:
+The following example queries show how the diagnostics feature generates a report for the most frequent activities in your system:
 
-- The first example shows connection activities initiated by users with supported remote desktop clients. 
-- The second example shows management activities administrators perform on tenants. 
+This first example shows connection activities initiated by users with supported remote desktop clients:
 
 ```powershell
 WVDActivityV1_CL 
@@ -86,9 +87,11 @@ WVDActivityV1_CL
     ) on $left.Id_g  == $right.ActivityId_g  
 
 |project-away ActivityId_g, ActivityId_g1 
+```
 
- 
+This next example query shows management activities by admins on tenants:
 
+```powershell
 WVDActivityV1_CL 
 
 | where Type_s == "Management" 
@@ -112,7 +115,7 @@ WVDActivityV1_CL
 |project-away ActivityId_g, ActivityId_g1 
 ```
  
-## Stop Sending Data to Log Analytics 
+## Stop sending data to Log Analytics 
 
 To stop sending data from an existing tenant to Log Analytics, run the following cmdlet and set empty strings:
 
@@ -124,4 +127,4 @@ You'll need to run this cmdlet for every tenant you want to stop sending data fr
 
 ## Next steps 
 
-Check out [Identify and diagnoise issues](diagnostics-role-service.md#common-error-scenarios) to review common error scenarios that the diagnostics feature can identify.
+Check out [Identify and diagnoise issues](diagnostics-role-service.md#common-error-scenarios) to review common error scenarios that the diagnostics feature can identify for you.
