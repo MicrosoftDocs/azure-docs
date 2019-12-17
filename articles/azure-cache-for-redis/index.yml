@@ -40,21 +40,21 @@ landingContent:
             url: cache-best-practices.md
           - text: ASP.NET Session State Provider for Azure Cache for Redis
             url: cache-aspnet-session-state-provider.md
-  - title: Quickstarts
+  - title: 'Quickstarts: Azure Cache for Redis'
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Use Azure Cache for Redis with a .NET Framework app
+          - text: Code a .NET Framework app
             url: cache-dotnet-how-to-use-azure-redis-cache.md
-          - text: Use Azure Cache for Redis with a .NET Core app
+          - text: Code a .NET Core app
             url: cache-dotnet-core-quickstart.md
-          - text: Use Azure Cache for Redis with an ASP.NET web app
+          - text: Code an ASP.NET web app
             url: cache-web-app-howto.md
-          - text: Use Azure Cache for Redis with Java
+          - text: Code a Java app
             url: cache-java-get-started.md
-          - text: Use Azure Cache for Redis with Node.js
+          - text: Code a Node.js app
             url: cache-nodejs-get-started.md
-          - text: Use Azure Cache for Redis with Python
+          - text: Code a Python app
             url: cache-python-get-started.md
       - linkListType: tutorial
         links:
@@ -64,15 +64,7 @@ landingContent:
         links:
           - text: Samples
             url: cache-redis-samples.md
-  - title: Scripting command-line interfaces for Azure Cache for Redis
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Azure PowerShell
-            url: /powershell/module/az.rediscache
-          - text: Azure CLI
-            url: /cli/azure/redis
-  - title: Programming SDKs for Azure Cache for Redis
+  - title: SDKs and command-lines
     linkLists:
       - linkListType: reference
         links:
@@ -86,3 +78,21 @@ landingContent:
             url: https://redis.io/clients
           - text: Redis commands
             url: https://redis.io/commands
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.rediscache
+          - text: Azure CLI
+            url: /cli/azure/redis
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot client-side issues
+            url: cache-troubleshoot-client.md
+          - text: Troubleshoot server-side issues
+            url: cache-troubleshoot-server.md
+          - text: Troubleshoot timeouts
+            url: cache-troubleshoot-timeouts.md
+          - text: Troubleshoot data loss issues
+            url: cache-troubleshoot-data-loss.md            
