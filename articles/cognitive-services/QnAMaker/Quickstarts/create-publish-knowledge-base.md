@@ -140,6 +140,8 @@ You created a new knowledge base, added a public URL to the knowledge base, adde
 
 After publishing the knowledge base, you created a bot, and tested the bot.
 
+This was all accomplished in a few minutes without having to write any code and clean the content.
+
 ## Clean up resources
 
 Clean up the QnA Maker and Bot framework resources in the Azure portal.
