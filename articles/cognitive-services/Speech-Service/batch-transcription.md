@@ -40,7 +40,7 @@ As with all features of the Speech service, you create a subscription key from t
 
 ### Custom models
 
-.If you plan to customize acoustic or language models, follow the steps in [Customize acoustic models](how-to-customize-acoustic-models.md) and [Design customization language models](how-to-customize-language-model.md). To use the created models in batch transcription, you need their model IDs. You can retrieve the model ID when you inspect the details of the model. A deployed custom endpoint is not needed for the batch transcription service.
+If you plan to customize acoustic or language models, follow the steps in [Customize acoustic models](how-to-customize-acoustic-models.md) and [Design customization language models](how-to-customize-language-model.md). To use the created models in batch transcription, you need their model IDs. You can retrieve the model ID when you inspect the details of the model. A deployed custom endpoint is not needed for the batch transcription service.
 
 ## The Batch Transcription API
 
