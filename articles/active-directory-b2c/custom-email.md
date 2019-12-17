@@ -295,7 +295,10 @@ This REST API technical profile generates the email content (using the SendGrid 
 
 ## Add the claims transformation
 
-Add the following claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid. Update the `template_id` InputParameter value with the ID of the SendGrid transactional template you created earlier in [Create SendGrid template](#create-sendgrid-template).
+Add the following claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid. Make the following updates to the claims transformation XML:
+
+* Update the `template_id` InputParameter value with the ID of the SendGrid transactional template you created earlier in [Create SendGrid template](#create-sendgrid-template).
+* Update the value of the `personalizations.0.dynamic_template_data.subject` subject line input parameter with a subject line appropriate for your organization.
 
 The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties. For more information about JSON claims transformations, see [JSON claims transformations](json-transformations.md).
 
@@ -310,7 +313,8 @@ The JSON object's structure is defined by the IDs in dot notation of the InputPa
     <!-- Update the template_id value with the ID of your SendGrid template. -->
     <InputParameter Id="template_id" DataType="string" Value="d-989077fbba9746e89f3f6411f596fb96"/>
     <InputParameter Id="from.email" DataType="string" Value="my_email@mydomain.com"/>
-    <InputParameter Id="personalizations.0.subject" DataType="string" Value="Contoso account email verification code"/>
+    <!-- Update with a subject line appropriate for your organization. -->
+    <InputParameter Id="personalizations.0.dynamic_template_data.subject" DataType="string" Value="Contoso account email verification code"/>
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="sendGridReqBody" TransformationClaimType="outputClaim"/>
