@@ -28,7 +28,7 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](https://docs.m
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/application-proxy/assign-group-to-app.ps1 "Assign a group to a specific Azure AD Application Proxy application")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/application-proxy/assign-group-to-app.ps1 "Assign a group to a specific Azure AD Application Proxy application")]
 
 ## Script explanation
 

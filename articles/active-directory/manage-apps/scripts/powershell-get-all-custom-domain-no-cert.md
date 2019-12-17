@@ -28,7 +28,7 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](https://docs.m
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/application-proxy/get-all-custom-domain-no-cert.ps1 "Get all Azure AD Proxy application apps published with no certificate uploaded")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/application-proxy/get-all-custom-domain-no-cert.ps1 "Get all Azure AD Proxy application apps published with no certificate uploaded")]
 
 ## Script explanation
 

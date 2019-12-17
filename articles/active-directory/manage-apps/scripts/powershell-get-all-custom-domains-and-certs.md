@@ -28,7 +28,7 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](https://docs.m
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/application-proxy/get-all-custom-domains-and-certs.ps1 "Get all Application Proxy apps using custom domains and certificate information")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/application-proxy/get-all-custom-domains-and-certs.ps1 "Get all Application Proxy apps using custom domains and certificate information")]
 
 ## Script explanation
 
