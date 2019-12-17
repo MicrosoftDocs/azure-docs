@@ -1,11 +1,11 @@
 ---
 title: Use-cases for built-in analytics with Azure Cosmos DB.
 description: Learn how to use built-in analytics with Azure Cosmos DB in different use cases. 
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
-ms.author: rimman
 ms.reviewer: sngun
 ---
 

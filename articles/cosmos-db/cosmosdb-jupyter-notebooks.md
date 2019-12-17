@@ -4,8 +4,8 @@ description: Learn how you can use the built-in Jupyter notebooks support in Azu
 ms.service: cosmos-db
 ms.topic: overview 
 ms.date: 09/22/2019
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ---
 
 # Built-in Jupyter notebooks support in Azure Cosmos DB

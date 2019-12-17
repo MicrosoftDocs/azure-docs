@@ -1,5 +1,5 @@
 ---
-title: Enterprise Security Package with Azure Active Directory in HDInsight
+title: Enterprise Security with Azure AD - Azure HDInsight
 description: Learn how to set up and configure a HDInsight Enterprise Security Package cluster by using Azure Active Directory Domain Services.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -65,7 +65,7 @@ Once the managed identity is created and given the correct role, the AAD-DS admi
 ## Networking considerations
 
 > [!NOTE]  
-> Azure AD-DS must be deployed in an Azure Resource Manager based vNET. Classic virtual networks are not supported for Azure AD-DS. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/tutorial-create-instance.md#create-and-configure-the-virtual-network).
+> Azure AD-DS must be deployed in an Azure Resource Manager based vNET. Classic virtual networks are not supported for Azure AD-DS. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/tutorial-create-instance-advanced.md#create-and-configure-the-virtual-network).
 
 After you enable Azure AD-DS, a local Domain Name Service (DNS) server runs on the AD Virtual Machines (VMs). Configure your Azure AD-DS Virtual Network (VNET) to use these custom DNS servers. To locate the right IP addresses, select **Properties** under the **Manage** category and look at the IP Addresses listed beneath **IP Address on Virtual Network**.
 
@@ -88,7 +88,7 @@ You should make sure that all of the [required ports](/previous-versions/windows
 
 ## Create a HDInsight cluster with ESP
 
-After setting up the previous steps correctly, the next step is to create the HDInsight cluster with ESP enabled. When you create an HDInsight cluster, you can enable Enterprise Security Package in the **Security + networking** tab. If you prefer to use an Azure Resource Manager template for deployment, use the portal experience once and download the pre-filled template on the **Review + create** page for future reuse.
+After setting up the previous steps correctly, the next step is to create the HDInsight cluster with ESP enabled. When you create an HDInsight cluster, you can enable Enterprise Security Package in the **Security + networking** tab. If you prefer to use an Azure Resource Manager template for deployment, use the portal experience once and download the pre-filled template on the **Review + create** page for future reuse. The [HDInsight ID Broker](identity-broker.md) feature can also be enabled during cluster creation. The ID Broker feature lets you sign in to Ambari using MFA and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS).
 
 > [!NOTE]  
 > The first six characters of the ESP cluster names must be unique in your environment. For example, if you have multiple ESP clusters in different VNETs, you should choose a naming convension that ensures the first six characters on the cluster names are unique.

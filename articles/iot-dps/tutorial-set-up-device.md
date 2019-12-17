@@ -1,9 +1,9 @@
 ---
-title: Set up device for the Azure IoT Hub Device Provisioning Service
-description: Set up device to provision via the IoT Hub Device Provisioning Service during the device manufacturing process
+title: 'Tutorial - Set up device for the Azure IoT Hub Device Provisioning Service'
+description: 'This tutorial shows how you can set up device to provision via the IoT Hub Device Provisioning Service (DPS) during the device manufacturing process'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
@@ -11,7 +11,7 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Set up a device to provision using the Azure IoT Hub Device Provisioning Service
+# Tutorial: Set up a device to provision using the Azure IoT Hub Device Provisioning Service
 
 In the previous tutorial, you learned how to set up the Azure IoT Hub Device Provisioning Service to automatically provision your devices to your IoT hub. This tutorial shows you how to set up your device during the manufacturing process, enabling it to be auto-provisioned with IoT Hub. Your device is provisioned based on its [Attestation mechanism](concepts-device.md#attestation-mechanism), upon first boot and connection to the provisioning service. This tutorial covers the following tasks:
 
@@ -207,4 +207,3 @@ Advance to the next tutorial to learn how to provision the device to your IoT hu
 
 > [!div class="nextstepaction"]
 > [Provision the device to your IoT hub](tutorial-provision-device-to-hub.md)
-

@@ -7,9 +7,9 @@ author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ---
 
@@ -113,7 +113,7 @@ To repeat this process with your own scenario:
 
 Once the app downloads the trained model, it will switch to the **Scoring** state and start scoring images from the camera in a continuous loop.
 
-For each captured image, the app will display the top tag on the screen. If it doesn't recognize the visual state, it will display **No Matches**). The app also sends these messages to the IoT Hub, and if there is a class being detected, the message will include the label, the confidence score, and a property called `detectedClassAlert`, which can be used by IoT Hub clients interested in doing fast message routing based on properties.
+For each captured image, the app will display the top tag on the screen. If it doesn't recognize the visual state, it will display **No Matches**. The app also sends these messages to the IoT Hub, and if there is a class being detected, the message will include the label, the confidence score, and a property called `detectedClassAlert`, which can be used by IoT Hub clients interested in doing fast message routing based on properties.
 
 In addition, the sample uses a [Sense HAT library](https://github.com/emmellsoft/RPi.SenseHat) to detect when it's running on a Raspberry Pi with a Sense HAT unit, so it can use it as an output display by setting all display lights to red whenever it detects a class and blank when it doesn't detect anything.
 

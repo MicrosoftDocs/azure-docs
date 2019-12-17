@@ -1,5 +1,5 @@
 ---
-title: Create Azure Cosmos containers with large partition key using the Azure portal and various SDKs.
+title: Create Azure Cosmos containers with large partition key
 description: Learn how to create a container in Azure Cosmos DB with large partition key using Azure portal and different SDKs. 
 author: markjbrown
 ms.service: cosmos-db
@@ -16,7 +16,7 @@ Large partition keys are supported by using the functionality of an enhanced ver
 
 ## Create a large partition key (Azure portal)
 
-To create a large partition key, while you create a new container using the Azure portal, check the **My partition key is larger than 100-bytes** option. By default, all the new containers are opted into using the large partition keys. Unselect the checkbox if you don’t need large partition keys or if you have applications running on SDKs version older than 1.18.
+To create a large partition key, when you create a new container using the Azure portal, check the **My partition key is larger than 100-bytes** option. Unselect the checkbox if you don’t need large partition keys or if you have applications running on SDKs version older than 1.18.
 
 ![Create large partition keys using Azure portal](./media/large-partition-keys/large-partition-key-with-portal.png)
 
@@ -67,6 +67,7 @@ The Large partition keys are supported with the following minimum versions of SD
 |Java sync     |   2.4.0      |
 |Java Async   |  2.5.0        |
 | REST API | version higher than `2017-05-03` by using the `x-ms-version` request header.|
+| Resource Manager template | version 2 by using the `"version":2` property within the `partitionKey` object. |
 
 Currently, you cannot use containers with large partition key within in Power BI and Azure Logic Apps. You can use containers without a large partition key from these applications.
 

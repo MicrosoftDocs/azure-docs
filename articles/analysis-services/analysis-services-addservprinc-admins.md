@@ -1,11 +1,10 @@
 ---
-title: Add a service principal to Azure Analysis Services server admin role | Microsoft Docs
-description: Learn how to add an automation service principal to the server admin role
+title: Add service principal to Azure Analysis Services admin role | Microsoft Docs
+description: Learn how to add an automation service principal to the Azure Analysis Services server admin role
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 

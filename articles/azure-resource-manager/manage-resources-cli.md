@@ -1,16 +1,10 @@
 ---
-title: Manage Azure resources by using Azure CLI | Microsoft Docs
-description: Use Azure CLI and Azure Resource Manage to manage your resources. 
-services: azure-resource-manager
-documentationcenter: ''
+title: Manage resources - Azure CLI
+description: Use Azure CLI and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
 author: mumian
-
-
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-
 ---
 # Manage Azure resources by using Azure CLI
 

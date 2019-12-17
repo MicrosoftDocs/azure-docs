@@ -1,17 +1,8 @@
 ---
 title: Create an Azure Notebooks project with a custom environment
 description: Create a new project in Azure Notebooks that's configured with a specific set of installed packages and startup scripts.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
 ---
 
 # Quickstart: Create a project with a custom environment

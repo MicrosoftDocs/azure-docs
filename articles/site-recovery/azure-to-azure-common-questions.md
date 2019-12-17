@@ -1,5 +1,5 @@
 ---
-title: Common questions about Azure-to-Azure disaster recovery with Azure Site Recovery
+title: Common questions about Azure VM disaster recovery with Azure Site Recovery
 description: This article answers common questions about disaster recovery of Azure VMs to another Azure region using Azure Site Recovery
 author: asgang
 manager: rochakm

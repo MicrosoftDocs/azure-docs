@@ -74,7 +74,7 @@ As part of HDInsight, you can create an HDInsight cluster with [ML Services](../
 
 ### Azure Machine Learning and Apache Hive
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) provides tools to model predictive analytics, as well as a fully managed service you can use to deploy your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud to quickly create, test, operationalize, and manage predictive models. Select from a large algorithm library, use a web-based studio for building models, and easily deploy your model as a web service.
+[Azure Machine Learning Studio (classic)](https://studio.azureml.net/) provides tools to model predictive analytics, as well as a fully managed service you can use to deploy your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud to quickly create, test, operationalize, and manage predictive models. Select from a large algorithm library, use a web-based studio for building models, and easily deploy your model as a web service.
 
 ### Apache Spark and Deep learning
 

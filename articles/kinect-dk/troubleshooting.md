@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect known issues and troubleshooting
-description: Known issues and troubleshooting Azure Kinect device
+description: Learn about some of the known issues and troubleshooting tips when using the Sensor SDK with Azure Kinect DK.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -157,6 +157,10 @@ To better understand which USB port is connected on your PC, repeat these steps 
 
 The laser used by the depth camera to calculate image depth data, has a limited lifespan. To maximize the life of the lasers, the depth camera will detect when depth data is not being consumed. The depth camera power downs when the device is streaming for several minutes but the host PC is not reading the data. 
 It also impacts Multi Device Synchronization where subordinate devices start up in a state where the depth camera is streaming and depth frames are actively help up waiting for the master device to start synchronizing captures. To avoid this problem in Multi Device capture scenarios, ensure the master device starts within a minute of the first subordinate being started. 
+
+## Using Body Tracking SDK with Unreal
+
+To use the Body Tracking SDK with Unreal, make sure you have added `<SDK Installation Path>\tools` to the environment variable `PATH` and copied `dnn_model_2_0.onnx` and `cudnn64_7.dll` to `Program Files/Epic Games/UE_4.23/Engine/Binaries/Win64`.
 
 ## Next steps
 

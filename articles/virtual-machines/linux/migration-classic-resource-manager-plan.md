@@ -1,5 +1,5 @@
 ---
-title: Planning for migration of IaaS resources from classic to Azure Resource Manager | Microsoft Docs
+title: Planning for migration from classic to Azure Resource Manager 
 description: Planning for migration of IaaS resources from classic to Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''

@@ -1,6 +1,6 @@
 ---
 title: Retrieve Azure Kinect image data 
-description: Retrieve Images using the Kinect Sensor SDK
+description: Learn how to retrieve Azure Kinect image data using the Kinect Sensor SDK.
 author: cdedmonds
 ms.author: cedmonds
 ms.prod: kinect-dk

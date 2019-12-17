@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/07/2019
 ---
 
 # Routing events and messages
@@ -26,7 +26,9 @@ Users can specify one or more egress endpoints to send out events or to forward 
 
 [![Azure Digital Twins events routing](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
-Routing to Event Hubs maintains the order in which telemetry messages are sent. So they arrive at the endpoint in the same sequence as they were originally received. Event Grid and Service Bus don't guarantee that endpoints will receive events in the same order that they occurred. However, the event schema includes a timestamp that can be used to identify the order after the events arrive at the endpoint.
+Routing to Event Hubs maintains the order in which telemetry messages are sent. So they arrive at the endpoint in the same sequence as they were originally received. 
+
+Event Grid and Service Bus don't guarantee that endpoints will receive events in the same order that they occurred. However, the event schema includes a timestamp that can be used to identify the order after the events arrive at the endpoint.
 
 ## Route implementation
 

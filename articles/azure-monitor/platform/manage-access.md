@@ -1,31 +1,24 @@
 ---
 title: Manage Log Analytics workspaces in Azure Monitor | Microsoft Docs
-description: You can manage access to data stored in a Log Analytics workspace in Azure Monitor using resource, workspace, or table-level permissions. This article details how to complete these .
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: You can manage access to data stored in a Log Analytics workspace in Azure Monitor using resource, workspace, or table-level permissions. This article details how to complete.
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.author: magoedte
+author: bwren
+ms.author: bwren
+ms.date: 10/22/2019
+
 ---
 
 # Manage access to log data and workspaces in Azure Monitor
 
-Azure Monitor stores [log](data-platform-logs.md) data in a Log Analytics workspace, which is essentially a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
+Azure Monitor stores [log](data-platform-logs.md) data in a Log Analytics workspace. A workspace is a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
 
-This article explains how to manage access to logs and to administer the workspaces that contain them, including:
+This article explains how to manage access to logs and to administer the workspaces that contain them, including how to grant access to: 
 
-* How to grant access to users who need access to log data from specific resources using Azure role-based access control (RBAC).
-
-* How to grant access to the workspace using workspace permissions.
-
-* How to grant access to users who need access to log data in a specific table in the workspace using Azure RBAC.
+* The workspace using workspace permissions.
+* Users who need access to log data from specific resources using Azure role-based access control (RBAC).
+* Users who need access to log data in a specific table in the workspace using Azure RBAC.
 
 ## Configure access control mode
 
@@ -145,15 +138,15 @@ The Log Analytics Reader role includes the following Azure actions:
 
 Members of the *Log Analytics Contributor* role can:
 
-* Read all monitoring data as Log Analytics Reader can
-* Creating and configuring Automation accounts
-* Adding and removing management solutions
+* Includes all the privileges of the *Log Analytics Reader role*, allowing the user to read all monitoring data
+* Create and configure Automation accounts
+* Add and remove management solutions
 
     > [!NOTE]
     > In order to successfully perform the last two actions, this permission needs to be granted at the resource group or subscription level.
 
-* Reading storage account keys
-* Configure collection of logs from Azure Storage
+* Read storage account keys
+* Configure the collection of logs from Azure Storage
 * Edit monitoring settings for Azure resources, including
   * Adding the VM extension to VMs
   * Configuring Azure diagnostics on all Azure resources
@@ -184,7 +177,7 @@ Use these roles to give users access at different scopes:
 * Resource Group - Access to all workspace in the resource group
 * Resource - Access to only the specified workspace
 
-You should perform assignments at the resource level (workspace) to assure accurate access control.  Use [custom roles](../../role-based-access-control/custom-roles.md) to create roles with the specific permissions needed.
+We recommend performing assignments at the resource level (workspace) to assure accurate access control. Use [custom roles](../../role-based-access-control/custom-roles.md) to create roles with the specific permissions needed.
 
 ### Resource permissions
 
@@ -195,7 +188,7 @@ When users query logs from a workspace using resource-context access, they'll ha
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Examples:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Ability to view all log data for the resource.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Ability to configure diagnostics setting to allow setting up logs for this resource. |
 
-`/read` permission is usually granted from a role that includes _\*/read or_ _\*_ permissions such as the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles. Note that custom roles that include specific actions or dedicated built-in roles might not include this permission.
+`/read` permission is usually granted from a role that includes _\*/read or_ _\*_ permissions such as the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles. Custom roles that include specific actions or dedicated built-in roles might not include this permission.
 
 See [Defining per-table access control](#table-level-rbac) below if you want to create different access control for different tables.
 
@@ -221,7 +214,7 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
     * Grant users the following permissions to their resources: `Microsoft.Insights/logs/*/read`.
 
-    * Add the following NonAction to block users from reading the SecurityEvent type: `Microsoft.Insights/logs/SecurityEvent/read`. The NonAction shall be in the same custom role as the action that provides the read permission (`Microsoft.Insights/logs/*/read`). If the user inherent the read action from another role that is assigned to this resource or to the subscription or resource group, they would be able to read all log types. This is also true if they inherit `*/read` that exist for example, with the Reader or Contributor role.
+    * Add the following NonAction to block users from reading the SecurityEvent type: `Microsoft.Insights/logs/SecurityEvent/read`. The NonAction shall be in the same custom role as the action that provides the read permission (`Microsoft.Insights/logs/*/read`). If the user inherent the read action from another role that is assigned to this resource or to the subscription or resource group, they would be able to read all log types. This is also true if they inherit `*/read`, that exist for example, with the Reader or Contributor role.
 
 4. To grant a user access to log data from their resources and read all Azure AD sign-in and read Update Management solution log data from the workspace, perform the following:
 
@@ -256,20 +249,24 @@ For example, to create a role with access to the _Heartbeat_ and _AzureActivity_
 
 ```
 "Actions":  [
-              "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
-              "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
+    "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
   ],
 ```
 
 To create a role with access to only _SecurityBaseline_ and no other tables, create a custom role using the following actions:
 
 ```
-    "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
-    ],
-    "NotActions":  [
-        "Microsoft.OperationalInsights/workspaces/query/*/read"
-    ],
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+],
+"NotActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
 ```
 
 ### Custom logs
@@ -279,9 +276,11 @@ To create a role with access to only _SecurityBaseline_ and no other tables, cre
  You can't currently grant or deny access to individual custom logs, but you can grant or deny access to all custom logs. To create a role with access to all custom logs, create a custom role using the following actions:
 
 ```
-    "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
-    ],
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
+],
 ```
 
 ### Considerations
@@ -290,7 +289,7 @@ To create a role with access to only _SecurityBaseline_ and no other tables, cre
 * If a user is granted per-table access but no other permissions, they would be able to access log data from the API but not from the Azure portal. To provide access from the Azure portal, use Log Analytics Reader as its base role.
 * Administrators of the subscription will have access to all data types regardless of any other permission settings.
 * Workspace owners are treated like any other user for per-table access control.
-* You should assign roles to security groups instead of individual users to reduce the number of assignments. This will also help you use existing group management tools to configure and verify access.
+* We recommend assigning roles to security groups instead of individual users to reduce the number of assignments. This will also help you use existing group management tools to configure and verify access.
 
 ## Next steps
 

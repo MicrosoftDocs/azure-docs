@@ -1,7 +1,7 @@
 ---
 title: Limits and quotas - Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: Learn about the limits and quotas for the Custom Vision Service.
+description: This article explains the different types of licensing keys and about the limits and quotas for the Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme

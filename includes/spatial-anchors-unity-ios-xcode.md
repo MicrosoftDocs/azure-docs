@@ -29,8 +29,8 @@ open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> If you see a `library not found for -lPods-Unity-iPhone` error, you probably opened the `.xcodeproj` file instead of the
-> `.xcworkspace` file. 
+> See the troubleshooting steps [here](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015)
+> if you're having CocoaPod issues after upgrading to macOS Catalina (10.15).
 
 Select the root **Unity-iPhone** node to view the project settings, and then select the **General** tab.
 
@@ -47,3 +47,7 @@ Connect the iOS device to the Mac and set the **active scheme** to your iOS devi
 Select **Build and then run the current scheme**.
 
 ![Deploy and run](./media/spatial-anchors-unity/deploy-run.png)
+
+> [!NOTE]
+> If you see a `library not found for -lPods-Unity-iPhone` error, you probably opened the `.xcodeproj` file instead of the
+> `.xcworkspace` file.

@@ -1,5 +1,5 @@
 ---
-title: Set up Azure SQL Data Sync | Microsoft Docs
+title: Set up Data Sync
 description: This tutorial shows you how to set up Azure SQL Data Sync
 services: sql-database
 ms.service: sql-database
@@ -7,8 +7,8 @@ ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
 ---
@@ -27,14 +27,20 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
 ## Create sync group
 
-1. In the browser, navigate to the Azure portal. Locate your SQL database from the dashboard or, select the **SQL databases** icon on the toolbar and on the **SQL databases** page, select the database you want to use as the hub database for Data Sync.
+1. Go to the [Azure portal](https://portal.azure.com) to find your SQL database. Search for and select **SQL databases**.
+
+    ![Search for SQL databases, Microsoft Azure portal](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
+
+1. Select the database you want to use as the hub database for Data Sync.
+
+    ![Select from SQL database list, Microsoft Azure portal](media/sql-database-get-started-sql-data-sync/select-sql-database.png)
 
     > [!NOTE]
-    > The hub database a sync topology's central endpoint, in which a sync group has multiple database endpoints. All other member databases with endpoints in the sync group, sync with the hub database.
+    > The hub database is a sync topology's central endpoint, in which a sync group has multiple database endpoints. All other member databases with endpoints in the sync group, sync with the hub database.
 
-1. On the **SQL database** page for the selected database, select **Sync to other databases**.
+1. On the **SQL database** menu for the selected database, select **Sync to other databases**.
 
-    ![Sync to other databases option](media/sql-database-get-started-sql-data-sync/datasync-overview.png)
+    ![Sync to other databases, SQL database, Microsoft Azure portal](media/sql-database-get-started-sql-data-sync/sync-to-other-databases.png)
 
 1. On the **Sync to other databases** page, select **New Sync Group**. The **New sync group** page opens with **Create sync group (step 1)** highlighted.
 

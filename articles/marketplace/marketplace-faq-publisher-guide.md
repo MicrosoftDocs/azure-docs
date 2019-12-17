@@ -4,6 +4,7 @@ description: Answers to common questions about the Azure Marketplace and Microso
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
@@ -19,15 +20,15 @@ Answers to common questions about the Azure Marketplace and Microsoft AppSource.
 
 **What is Azure Marketplace?**
 
-[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) provides access and information on solutions and services available from Microsoft and our partners. Customers (IT professionals and developers) can discover, try to buy cloud software solutions built on or built for Azure. Our catalog of 8,000+ listings provides Azure building blocks, such as Virtual Machines (VMs), APIs, Azure apps, Solution Templates and managed applications, SaaS apps, containers, and consulting services. 
+[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) provides access and information on solutions and services available from Microsoft and our partners. Customers can discover, try, or buy cloud software solutions built on or for Azure. Our catalog of 8,000+ listings provides Azure building blocks, such as Virtual Machines (VMs), APIs, Azure apps, Solution Templates and managed applications, SaaS apps, containers, and consulting services.
 
 **Who are Azure Marketplace customers?**
 
-Azure Marketplace is designed for IT professionals and cloud developers who are interested in commercial IT software and services.
+Azure Marketplace is designed for IT professionals and cloud developers interested in commercial IT software and services.
 
 **What type of products are currently available in the Azure Marketplace?**
 
-The Azure Marketplace offers technical solutions and services from Microsoft and partners built to extend Azure products and services. The solution catalog spans several categories, including but not limited to:
+The Azure Marketplace offers technical solutions and services from Microsoft and partners built to extend Azure products and services. The solution catalog spans several categories, including:
 
 * base operating systems
 * databases
@@ -36,9 +37,6 @@ The Azure Marketplace offers technical solutions and services from Microsoft and
 * networking
 * blockchain
 * developer tools
-* and more
-
-Azure Marketplace offers SaaS applications, Virtual Machines, Solution Templates, Azure-Managed applications, and consulting services.
 
 ### Azure Marketplace for Customers
 
@@ -162,7 +160,7 @@ Enterprise Agreement (EA) indirect customers must contact their Licensing Soluti
 
 **Can I control my employees' access to Azure Marketplace and purchasing privileges?**
 
-Yes, for Enterprise Agreement (EA) customers, the enrollment administrator may turn off purchase privileges for all accounts on the enrollment and turn it back on long enough to make a purchase. Additionally, all customers can use Azure Policy to restrict deployment options for their Azure subscriptions, including management of Azure Marketplace resources.
+Yes, for Enterprise Agreement (EA) customers, the enrollment administrator may turn off purchase privileges for all accounts on the enrollment and turn it back on long enough to make a purchase.
 
 **What payment methods are supported for commercial marketplace purchases?**
 
@@ -244,7 +242,7 @@ Licenses that are cancelled will be subject to the refund policy found in this F
 
 **Are refunds supported for consumption-based offers?**
 
-Any charges based on consumption – whether it’s hourly VMs or custom meters – are not refundable through cancellation. Once the consumption has taken place, the charges are processed by Microsoft’s commerce platform, and any quality of service disputes where a refund is requested would be handled outside Microsoft systems between the publisher and the customer directly. Offers that support a flat rate plus metered billing follows the standard refund policy for the flat rate charges.
+Any charges based on consumption - whether it's hourly VMs or custom meters - are not refundable through cancellation. Once the consumption has taken place, the charges are processed by Microsoft's commerce platform, and any quality of service disputes where a refund is requested would be handled outside Microsoft systems between the publisher and the customer directly. Offers that support a flat rate plus metered billing follows the standard refund policy for the flat rate charges.
 
 **Is it possible to change plans mid-term?**
 
@@ -283,7 +281,7 @@ Azure Marketplace provides a market for Microsoft Partners to promote and sell p
 
 Microsoft Partners can choose where to publish based on their target audience.
 
-Microsoft provides two distinct cloud marketplace storefronts – Azure Marketplace and AppSource. These storefronts allow customers to find, try, and buy cloud applications and services. Each storefront serves unique customer needs and enables Microsoft Partners to target their solutions or services based on the target audience.
+Microsoft provides two distinct cloud marketplace storefronts - Azure Marketplace and AppSource. These storefronts allow customers to find, try, and buy cloud applications and services. Each storefront serves unique customer needs and enables Microsoft Partners to target their solutions or services based on the target audience.
 
 Select [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) to target IT professionals and developers, or technical users.
 
@@ -333,7 +331,7 @@ Leads are customers who are deploying your products from the Marketplace. Whethe
 
 **Where can I get help in setting up my lead destination?**
 
-Learn more in [Cloud Partner Portal-Get Customer Leads](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) documentation, or submit a support ticket through [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) by selecting your offer type and lead management.
+Learn more in [Partner Center-Get Customer Leads](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) documentation, or submit a support ticket through [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) by selecting your offer type and lead management.
 
 **Am I required to configure a lead destination to publish an offer on Marketplace?**
 
@@ -341,7 +339,7 @@ Yes, if publishing a **Contact Me**, **SaaS app**, or **consulting services** of
 
 **How can I confirm that the lead configuration is correct?**
 
-After completing the offer and setting up a lead destination, the listing can properly be published in the [Cloud Partner Portal](https://cloudpartner.azure.com/). Before the listing goes live, you can validate if the lead configuration set-up is working correctly.  Send a test-lead to the lead destination configured in the offer.
+After completing the offer and setting up a lead destination, the listing can properly be published in  [Partner Center](https://cloudpartner.azure.com/). Before the listing goes live, you can validate if the lead configuration set-up is working correctly.  Send a test-lead to the lead destination configured in the offer.
 
 **What countries/regions are Azure Marketplace available for publishers to sell from?**
 
@@ -351,7 +349,7 @@ Publishers based in the following countries/regions can currently sell in the Az
 
 *Virtual Machine & Azure Apps:*
 
-1. Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
+1. Sign in to [Partner Center](https://cloudpartner.azure.com/).
 1. Select the offer from the **All Offers** tab.
 1. In the pane on the left side of the screen, select the **SKUs** tab.
 1. Select the SKU for deletion and click the **delete** button for that SKU.
@@ -361,7 +359,7 @@ For more information, see [Deleting an offer](./cloud-partner-portal/manage-offe
 
 *Web Apps (SaaS apps, Add-ons) & Consulting Services:*
 
-1. In the Cloud Partner Portal, select the question mark icon and then click **Support**.
+1. In Partner Center, select the question mark icon and then click **Support**.
 1. Go to <https://go.microsoft.com/fwlink/?linkid=844975>.
 1. On the support page, select the offer type.
 1. Select **Remove** a published offer.
@@ -376,7 +374,7 @@ For more information, see [Deleting an offer](./cloud-partner-portal/manage-offe
     > [!NOTE]
     > Apps disappear from an existing listing after 90 days.
 
-**Why aren’t my changes reflected in the offer?**
+**Why aren't my changes reflected in the offer?**
 
 Changes made within Partner Center are only updated in the system and store fronts once you have republished the offer. Please make sure that you have submitted the offer for publication after any modifications.
 
@@ -414,19 +412,19 @@ Log a ticket with [Microsoft Support](https://support.microsoft.com/getsupport?o
 
 **Who do I contact for general support issues with Azure Marketplace?**
 
-For general application support regarding usability or troubleshooting, contact [Cloud Partner Portal Support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636565784998876007).
+For general application support regarding usability or troubleshooting, contact [Partner Center Support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636565784998876007).
 
 For billing and subscription issues with your Azure Marketplace purchase, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 **Who do I contact with publishing or offer management questions?**
 
-Visit the [Azure Marketplace Publisher Guide](marketplace-publishers-guide.md) for up-to-date resource and documentations on frequently asked questions. Additionally, you can log a ticket with [Microsoft Support in the Cloud Partner Portal](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
+Visit the [Azure Marketplace Publisher Guide](marketplace-publishers-guide.md) for up-to-date resource and documentations on frequently asked questions. Additionally, you can log a ticket with [Microsoft Support in Partner Center](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
 
 ### Azure Marketplace for publishers
 
 **How do I define my geographic availability to enable selling in different countries/regions?**
 
-1.  In the Cloud Partner Portal, navigate to the SKU to which you want to add new countries/regions.  Within the **SKU Details**, navigate to **Country/Region availability** and click **Select regions**.
+1.  In Partner Center, navigate to the SKU to which you want to add new countries/regions.  Within the **SKU Details**, navigate to **Country/Region availability** and click **Select regions**.
 
     ![Select regions](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 
@@ -461,7 +459,7 @@ A Free Tier subscription offering is perpetually free.  A Free Software Trial (T
 
 **What is the process to validate the end to end purchase and provisioning flow?**
 
-During the publishing process, you will be provided with access to a preview of your offer. Access is restricted to users that you specified in the Preview tab, and this is a live offer that is not visible to anyone else. You can purchase this and test the process; however, you will be charged the full amount according to your offer’s configuration.
+During the publishing process, you will be provided with access to a preview of your offer. Access is restricted to users that you specified in the Preview tab, and this is a live offer that is not visible to anyone else. You can purchase this and test the process; however, you will be charged the full amount according to your offer's configuration.
 
 To complete a purchase at a very low price, Microsoft suggests publishing a private Plan to yourself set at a price you can accept as the cost of testing. Zero is supported but will not reflect the full experience like a paid subscription.
 

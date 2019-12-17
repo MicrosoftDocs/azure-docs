@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create custom VM images with Azure PowerShell | Microsoft Docs
+title: Tutorial - Create custom VM images with Azure PowerShell 
 description: In this tutorial, you learn how to use Azure PowerShell to create a custom virtual machine image in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -122,7 +122,7 @@ This example creates a VM named *myVMfromImage* from the *myImage* image, in *my
 New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
-	-ImageName "myImage" `
+    -ImageName "myImage" `
     -Location "East US" `
     -VirtualNetworkName "myImageVnet" `
     -SubnetName "myImageSubnet" `
@@ -132,6 +132,7 @@ New-AzVm `
 ```
 
 We recommend that you limit the number of concurrent deployments to 20 VMs from a single image. If you are planning large-scale, concurrent deployments of over 20 VMs from the same custom image, you should use a [Shared Image Gallery](shared-image-galleries.md) with multiple image replicas. 
+
 
 ## Image management 
 

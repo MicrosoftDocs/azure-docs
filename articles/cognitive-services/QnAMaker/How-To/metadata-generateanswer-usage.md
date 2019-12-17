@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 11/22/2019
 ms.author: diberry
 ---
 
@@ -78,6 +78,7 @@ An example JSON body looks like:
     "top": 6,
     "isTest": true,
     "scoreThreshold": 30,
+    "rankerType": "" // values: QuestionOnly
     "strictFilters": [
     {
         "name": "category",
@@ -86,6 +87,8 @@ An example JSON body looks like:
     "userId": "sd53lsY="
 }
 ```
+
+Learn more about [rankerType](../concepts/best-practices.md#choosing-ranker-type).
 
 The previous JSON requested only answers that are at 30% or above the threshold score. 
 
@@ -249,7 +252,7 @@ You can search through the published kb, using `isTest=false`, or in the test kb
 
 ## Next steps
 
-The **Publish** page also provides information to generate an answer with [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) and [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
+The **Publish** page also provides information to [generate an answer](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) with Postman or cURL.
 
 > [!div class="nextstepaction"]
 > [Create a knowledge base bot](../tutorials/integrate-qnamaker-luis.md)

@@ -1,4 +1,4 @@
-- name: Container Instances
+- name: Container Instances documentation
   href: index.yml
 - name: Overview
   items:
@@ -91,6 +91,8 @@
     items:
     - name: Configure liveness probes
       href: container-instances-liveness-probe.md
+    - name: Configure readiness probes
+      href: container-instances-readiness-probe.md
     - name: Stop and start containers
       href: container-instances-stop-start.md
     - name: Update running containers

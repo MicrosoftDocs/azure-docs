@@ -1,5 +1,5 @@
 ---
-title: Use a Windows VM system-assigned managed identity to access Azure SQL
+title: Tutorial`:` Use a managed identity to access Azure SQL - Windows - Azure AD
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure SQL.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2018
+ms.date: 10/16/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
@@ -98,7 +98,7 @@ Code running in the VM can now get a token using its system-assigned managed ide
 
 Azure SQL natively supports Azure AD authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. You use the **access token** method of creating a connection to SQL. This is part of Azure SQL's integration with Azure AD, and is different from supplying credentials on the connection string.
 
-Here's a .NET code example of opening a connection to SQL using an access token. This code must run on the VM to be able to access the VM's system-assigned managed identity's endpoint. **.NET Framework 4.6** or higher is required to use the access token method. Replace the values of AZURE-SQL-SERVERNAME and DATABASE accordingly. Note the resource ID for Azure SQL is `https://database.windows.net/`.
+Here's a .NET code example of opening a connection to SQL using an access token. This code must run on the VM to be able to access the VM's system-assigned managed identity's endpoint. **.NET Framework 4.6** or higher or **.NET Core 2.2** or higher is required to use the access token method. Replace the values of AZURE-SQL-SERVERNAME and DATABASE accordingly. Note the resource ID for Azure SQL is `https://database.windows.net/`.
 
 ```csharp
 using System.Net;

@@ -4,6 +4,7 @@ description: Deprecated CPP article, linked to PC article; was "Describes the pr
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Dynamics 365 for Customer Engagement 
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: v-chjen

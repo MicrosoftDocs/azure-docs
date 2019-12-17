@@ -1,15 +1,9 @@
 ---
-title: Use the Ethereum Blockchain connector with Azure Logic Apps
+title: Use Ethereum Blockchain connector with Azure Logic Apps - Azure Blockchain Service
 description: Use the Ethereum Blockchain connector with Azure Logic Apps to trigger smart contract functions and respond to smart contract events.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 09/26/2019
-ms.topic: tutorial
-ms.service: azure-blockchain
+ms.date: 10/14/2019
+ms.topic: article
 ms.reviewer: chrisseg
-manager: femila
 #Customer intent: As a developer, I want to use Azure Logic Apps and Azure Blockchain Service so that I can trigger smart contract functions and respond to smart contract events.
 ---
 
@@ -215,7 +209,7 @@ For more information on the account address and password, see [Ethereum account]
 
 ## Get the contract ABI
 
-The contract ABI defines the smart contract interfaces. It describes how to interact with the smart contract. You can get the contract ABI by using the Azure Blockchain Development Kit for Ethereum. You can also get it from the contract metadata file in the Solidity compiler.
+The contract ABI defines the smart contract interfaces. It describes how to interact with the smart contract. You can get the contract ABI by using the Azure Blockchain Development Kit for Ethereum. You can also get it from the contract metadata file created by the Solidity compiler.
 
 **To use the development kit:**
 

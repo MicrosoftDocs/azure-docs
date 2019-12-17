@@ -1,12 +1,12 @@
 ---
-title: "Advertise custom routes for point-to-site VPN clients | Azure | Microsoft Docs"
+title: 'Azure VPN Gateway: Advertise custom routes for P2S VPN clients'
 description: Steps to advertise custom routes to your point-to-site clients
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 11/11/2019
 ms.author: cherylmc
 
 ---
@@ -48,7 +48,14 @@ Use the following example to view custom routes:
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
   $gw.CustomRoutes | Format-List
   ```
+## To delete custom routes
 
+Use the following example to delete custom routes:
+
+  ```azurepowershell-interactive
+  $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
+  Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute @0
+  ```
 ## Next steps
 
 For additional P2S routing information, see [About point-to-site routing](vpn-gateway-about-point-to-site-routing.md).

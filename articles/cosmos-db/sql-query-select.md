@@ -8,7 +8,7 @@ ms.date: 06/10/2019
 ms.author: girobins
 ---
 
-# SELECT clause
+# SELECT clause in Azure Cosmos DB
 
 Every query consists of a SELECT clause and optional [FROM](sql-query-from.md) and [WHERE](sql-query-where.md) clauses, per ANSI SQL standards. Typically, the source in the FROM clause is enumerated, and the WHERE clause applies a filter on the source to retrieve a subset of JSON items. The SELECT clause then projects the requested JSON values in the select list.
 

@@ -132,4 +132,4 @@ An HDInsight HBase cluster includes the [Ambari UI](hdinsight-hadoop-manage-amba
 
 ## See also
 
-* [Use Apache Phoenix with Linux-based HBase clusters in HDInsight](hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [Use Apache Phoenix with Linux-based HBase clusters in HDInsight](hbase/apache-hbase-query-with-phoenix.md)

@@ -4,7 +4,7 @@ description: Learn about how to change your Azure subscription and switch to a d
 author: bandersmsft
 manager: amberb
 tags: billing,top-support-issue
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

@@ -5,7 +5,7 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/20/2019
+ms.date: 11/25/2019
 ms.author: ancav
 ms.subservice: metrics
 ---
@@ -18,7 +18,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 >
 > *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
 >
->
+> For a list of platform metrics exportable via diagnostic settings, see [this article](metrics-supported-export-diagnostic-settings.md).
 
 ## Microsoft.AnalysisServices/servers
 
@@ -26,6 +26,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|---|
 |qpu_metric|QPU|Count|Average|QPU. Range 0-100 for S1, 0-200 for S2 and 0-400 for S4|ServerResourceType|
 |memory_metric|Memory|Bytes|Average|Memory. Range 0-25 GB for S1, 0-50 GB for S2 and 0-100 GB for S4|ServerResourceType|
+|private_bytes_metric|Private Bytes |Bytes|Average|The total amount of memory the Analysis Services engine process and Mashup container processes have allocated, not including memory shared with other processes.|ServerResourceType|
+|virtual_bytes_metric|Virtual Bytes |Bytes|Average|The current size of the virtual address space that Analysis Services engine process and Mashup container processes are using.|ServerResourceType|
 |TotalConnectionRequests|Total Connection Requests|Count|Average|Total connection requests. These are arrivals.|ServerResourceType|
 |SuccessfullConnectionsPerSec|Successful Connections Per Sec|CountPerSecond|Average|Rate of successful connection completions.|ServerResourceType|
 |TotalConnectionFailures|Total Connection Failures|Count|Average|Total failed connection attempts.|ServerResourceType|
@@ -67,6 +69,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |memory_thrashing_metric|Memory Thrashing|Percent|Average|Average memory thrashing.|ServerResourceType|
 |mashup_engine_qpu_metric|M Engine QPU|Count|Average|QPU usage by mashup engine processes|ServerResourceType|
 |mashup_engine_memory_metric|M Engine Memory|Bytes|Average|Memory usage by mashup engine processes|ServerResourceType|
+|mashup_engine_private_bytes_metric|M Engine Private Bytes |Bytes|Average|The total amount of memory Mashup container processes have allocated, not including memory shared with other processes.|ServerResourceType|
+|mashup_engine_virtual_bytes_metric|M Engine Virtual Bytes |Bytes|Average|The current size of the virtual address space Mashup container processes are using.|ServerResourceType|
 
 ## Microsoft.ApiManagement/service
 
@@ -1120,6 +1124,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|---|
 |ApplicationRuleHit|Application rules hit count|Count|Total|Number of times Application rules were hit|Status, Reason, Protocol|
 |NetworkRuleHit|Network rules hit count|Count|Total|Number of times Network rules were hit|Status, Reason, Protocol|
+|DataProcessed|Data Processed|Bytes|Total|Amount of data traversing the firewall|No Dimensions|
+|FirewallHealthState|Firewall Health State|Percent|Average|Indicates the health of the firewall|Status, Reason|
+|SNATPortUtilization|SNAT Port Utilization|Percent|Average|The percentage of SNAT ports that have been utilized by the firewall|No Dimensions|
 
 ## Microsoft.Network/applicationGateways
 
@@ -1427,68 +1434,81 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|cpu_percent|CPU percentage|Percent|Average|CPU percentage|No Dimensions|
-|physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|No Dimensions|
-|log_write_percent|Log IO percentage|Percent|Average|Log IO percentage. Not applicable to data warehouses.|No Dimensions|
-|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage. Applies to DTU-based databases.|No Dimensions|
-|storage|Data space used|Bytes|Maximum|Total database size. Not applicable to data warehouses.|No Dimensions|
-|connection_successful|Successful Connections|Count|Total|Successful Connections|No Dimensions|
-|connection_failed|Failed Connections|Count|Total|Failed Connections|No Dimensions|
-|blocked_by_firewall|Blocked by Firewall|Count|Total|Blocked by Firewall|No Dimensions|
-|deadlock|Deadlocks|Count|Total|Deadlocks. Not applicable to data warehouses.|No Dimensions|
-|storage_percent|Data space used percent|Percent|Maximum|Database size percentage. Not applicable to data warehouses or hyperscale databases.|No Dimensions|
-|xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent. Not applicable to data warehouses.|No Dimensions|
-|workers_percent|Workers percentage|Percent|Average|Workers percentage. Not applicable to data warehouses.|No Dimensions|
-|sessions_percent|Sessions percentage|Percent|Average|Sessions percentage. Not applicable to data warehouses.|No Dimensions|
-|dtu_limit|DTU Limit|Count|Average|DTU Limit. Applies to DTU-based databases.|No Dimensions|
-|dtu_used|DTU used|Count|Average|DTU used. Applies to DTU-based databases.|No Dimensions|
-|cpu_limit|CPU limit|Count|Average|CPU limit. Applies to vCore-based databases.|No Dimensions|
-|cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based databases.|No Dimensions|
-|dwu_limit|DWU limit|Count|Maximum|DWU limit. Applies only to data warehouses.|No Dimensions|
-|dwu_consumption_percent|DWU percentage|Percent|Maximum|DWU percentage. Applies only to data warehouses.|No Dimensions|
-|dwu_used|DWU used|Count|Maximum|DWU used. Applies only to data warehouses.|No Dimensions|
-|dw_cpu_percent|DW node level CPU percentage|Percent|Average|DW node level CPU percentage|DwLogicalNodeId|
-|dw_physical_data_read_percent|DW node level Data IO percentage|Percent|Average|DW node level Data IO percentage|DwLogicalNodeId|
-|cache_hit_percent|Cache hit percentage|Percent|Maximum|Cache hit percentage. Applies only to data warehouses.|No Dimensions|
-|cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage. Applies only to data warehouses.|No Dimensions|
-|local_tempdb_usage_percent|Local tempdb percentage|Percent|Average|Local tempdb percentage. Applies only to data warehouses.|No Dimensions|
+|allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated. Not applicable to data warehouses.|No Dimensions|
 |app_cpu_billed|App CPU billed|Count|Total|App CPU billed. Applies to serverless databases.|No Dimensions|
 |app_cpu_percent|App CPU percentage|Percent|Average|App CPU percentage. Applies to serverless databases.|No Dimensions|
 |app_memory_percent|App memory used percentage|Percent|Average|App memory used percentage. Applies to serverless databases.|No Dimensions|
-|allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated. Not applicable to data warehouses.|No Dimensions|
+|blocked_by_firewall|Blocked by Firewall|Count|Total|Blocked by Firewall|No Dimensions|
+|cache_hit_percent|Cache hit percentage|Percent|Maximum|Cache hit percentage. Applies only to data warehouses.|No Dimensions|
+|cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage. Applies only to data warehouses.|No Dimensions|
+|connection_failed|Failed Connections|Count|Total|Failed Connections|No Dimensions|
+|connection_successful|Successful Connections|Count|Total|Successful Connections|No Dimensions|
+|cpu_percent|CPU percentage|Percent|Average|CPU percentage|No Dimensions|
+|cpu_limit|CPU limit|Count|Average|CPU limit. Applies to vCore-based databases.|No Dimensions|
+|cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based databases.|No Dimensions|
+|deadlock|Deadlocks|Count|Total|Deadlocks. Not applicable to data warehouses.|No Dimensions|
+|diff_backup_size_bytes|Differential backup storage size|Bytes|Maximum|Cumulative differential backup storage size. Applies to General Purpose and Business Critical databases. Does not currently apply to Manage instance databases.|No Dimensions|
+|dtu_limit|DTU Limit|Count|Average|DTU Limit. Applies to DTU-based databases.|No Dimensions|
+|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage. Applies to DTU-based databases.|No Dimensions|
+|dtu_used|DTU used|Count|Average|DTU used. Applies to DTU-based databases.|No Dimensions|
+|dw_cpu_percent|DW node level CPU percentage|Percent|Average|DW node level CPU percentage|DwLogicalNodeId|
+|dw_physical_data_read_percent|DW node level Data IO percentage|Percent|Average|DW node level Data IO percentage|DwLogicalNodeId|
+|dwu_consumption_percent|DWU percentage|Percent|Maximum|DWU percentage. Applies only to data warehouses.|No Dimensions|
+|dwu_limit|DWU limit|Count|Maximum|DWU limit. Applies only to data warehouses.|No Dimensions|
+|dwu_used|DWU used|Count|Maximum|DWU used. Applies only to data warehouses.|No Dimensions|
+|full_backup_size_bytes|Full backup storage size|Bytes|Maximum|Cumulative full backup storage size. Applies to General Purpose and Business Critical databases. Does not currently apply to Manage instance databases.|No Dimensions|
+|local_tempdb_usage_percent|Local tempdb percentage|Percent|Average|Local tempdb percentage. Applies only to data warehouses.|No Dimensions|
+|log_backup_size_bytes|Log backup storage size|Bytes|Maximum|Cumulative log backup storage size. Applies to General Purpose and Business Critical databases. Does not currently apply to Manage instance databases.|No Dimensions|
+|log_write_percent|Log IO percentage|Percent|Average|Log IO percentage. Not applicable to data warehouses.|No Dimensions|
+|physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|No Dimensions|
+|sessions_percent|Sessions percentage|Percent|Average|Sessions percentage. Not applicable to data warehouses.|No Dimensions|
+|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|This metric is a placeholder and not populated at this time.|No Dimensions|
+|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|This metric is a placeholder and not populated at this time.|No Dimensions|
+|storage|Data space used|Bytes|Maximum|Total database size. Not applicable to data warehouses.|No Dimensions|
+|storage_percent|Data space used percent|Percent|Maximum|Database size percentage. Not applicable to data warehouses or hyperscale databases.|No Dimensions|
+|tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models.|No Dimensions|
+|tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models.|No Dimensions|
+|tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models.|No Dimensions|
+|workers_percent|Workers percentage|Percent|Average|Workers percentage. Not applicable to data warehouses.|No Dimensions|
+|xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent. Not applicable to data warehouses.|No Dimensions|
 
 ## Microsoft.Sql/servers/elasticPools
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|cpu_percent|CPU percentage|Percent|Average|CPU percentage|No Dimensions|
-|physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|No Dimensions|
-|log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|No Dimensions|
-|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage. Applies to DTU-based elastic pools.|No Dimensions|
-|storage_percent|Data space used percent||Percent|Average|Storage percentage|No Dimensions|
-|workers_percent|Workers percentage|Percent|Average|Workers percentage|No Dimensions|
-|sessions_percent|Sessions percentage|Percent|Average|Sessions percentage|No Dimensions|
-|eDTU_limit|eDTU limit|Count|Average|eDTU limit. Applies to DTU-based elastic pools.|No Dimensions|
-|storage_limit|Data max size|Bytes|Average|Storage limit|No Dimensions|
-|eDTU_used|eDTU used|Count|Average|eDTU used. Applies to DTU-based elastic pools.|No Dimensions|
-|storage_used|Data space used|Bytes|Average|Storage used|No Dimensions|
-|xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|No Dimensions|
-|cpu_limit|CPU limit|Count|Average|CPU limit. Applies to vCore-based elastic pools.|No Dimensions|
-|cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based elastic pools.|No Dimensions|
 |allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|No Dimensions|
 |allocated_data_storage_percent|Data space allocated percent|Percent|Maximum|Data space allocated percent|No Dimensions|
+|cpu_limit|CPU limit|Count|Average|CPU limit. Applies to vCore-based elastic pools.|No Dimensions|
+|cpu_percent|CPU percentage|Percent|Average|CPU percentage|No Dimensions|
+|cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based elastic pools.|No Dimensions|
+|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage. Applies to DTU-based elastic pools.|No Dimensions|
+|eDTU_limit|eDTU limit|Count|Average|eDTU limit. Applies to DTU-based elastic pools.|No Dimensions|
+|eDTU_used|eDTU used|Count|Average|eDTU used. Applies to DTU-based elastic pools.|No Dimensions|
+|log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|No Dimensions|
+|physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|No Dimensions|
+|sessions_percent|Sessions percentage|Percent|Average|Sessions percentage|No Dimensions|
+|storage_limit|Data max size|Bytes|Average|Storage limit|No Dimensions|
+|storage_percent|Data space used percent||Percent|Average|Storage percentage|No Dimensions|
+|storage_used|Data space used|Bytes|Average|Storage used|No Dimensions|
+|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|This metric is a placeholder and not populated at this time.|No Dimensions|
+|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|This metric is a placeholder and not populated at this time.|No Dimensions|
+|tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models.|No Dimensions|
+|tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models.|No Dimensions|
+|tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models.|No Dimensions|
+|workers_percent|Workers percentage|Percent|Average|Workers percentage|No Dimensions|
+|xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|No Dimensions|
 
 ## Microsoft.Sql/managedInstances
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|virtual_core_count|Virtual core count|Count|Average|Virtual core count|No Dimensions|
 |avg_cpu_percent|Average CPU percentage|Percent|Average|Average CPU percentage|No Dimensions|
+|io_bytes_read|IO bytes read|Bytes|Average|IO bytes read|No Dimensions|
+|io_requests|IO requests count|Count|Average|IO requests count|No Dimensions|
+|io_bytes_written|IO bytes written|Bytes|Average|IO bytes written|No Dimensions|
 |reserved_storage_mb|Storage space reserved|Count|Average|Storage space reserved|No Dimensions|
 |storage_space_used_mb|Storage space used|Count|Average|Storage space used|No Dimensions|
-|io_requests|IO requests count|Count|Average|IO requests count|No Dimensions|
-|io_bytes_read|IO bytes read|Bytes|Average|IO bytes read|No Dimensions|
-|io_bytes_written|IO bytes written|Bytes|Average|IO bytes written|No Dimensions|
+|virtual_core_count|Virtual core count|Count|Average|Virtual core count|No Dimensions|
 
 ## Microsoft.Storage/storageAccounts
 

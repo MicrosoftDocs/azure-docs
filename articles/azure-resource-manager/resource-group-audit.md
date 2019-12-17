@@ -1,12 +1,8 @@
 ---
-title: View Azure activity logs to monitor resources | Microsoft Docs
+title: View Azure activity logs to monitor resources
 description: Use the activity logs to review user actions and errors. Shows Azure portal PowerShell, Azure CLI, and REST.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: tomfitz
-
 ---
 # View activity logs to monitor actions on resources
 
@@ -26,9 +22,11 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
 ## Azure portal
 
-1. To view the activity logs through the portal, select **Monitor**.
+To view the activity logs through the portal, follow these steps:
 
-    ![Select monitor](./media/resource-group-audit/select-monitor.png)
+1. On the Azure portal menu, select **Monitor**, or search for and select **Monitor** from any page.
+
+    ![Select monitor](./media/resource-group-audit/select-monitor-from-menu.png)
 
 1. Select **Activity Log**.
 
@@ -62,9 +60,9 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
     ![Name filters](./media/resource-group-audit/name-filters.png)
 
-1. The filter is available in the dashboard.
+1. The filter is available in the dashboard. On the Azure portal menu, select **Dashboard**.
 
-    ![Show filter on dashboard](./media/resource-group-audit/show-dashboard.png)
+    ![Show filter on dashboard](./media/resource-group-audit/activity-log-on-dashboard.png)
 
 1. From the portal, you can view changes to a resource. Go back to the default view in Monitor, and select an operation that involved changing a resource.
 
@@ -188,8 +186,7 @@ The REST operations for working with the activity log are part of the [Insights 
 
 * Azure Activity logs can be used with Power BI to gain greater insights about the actions in your subscription. See [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * To learn about setting security policies, see [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md).
-* To view more details about the changes to your applications from the infrastructure layer all the way to application deployment, see [Use Application Change Analysis in Azure Monitor](../azure-monitor/app/change-analysis
-.md).
+* To view more details about the changes to your applications from the infrastructure layer all the way to application deployment, see [Use Application Change Analysis in Azure Monitor](../azure-monitor/app/change-analysis.md).
 * To learn about the commands for viewing deployment operations, see [View deployment operations](resource-manager-deployment-operations.md).
 * To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 * To see the list of operations available for each Microsoft Azure Resource Manager provider, see [Azure Resource Manager Resource Provider operations](../role-based-access-control/resource-provider-operations.md)

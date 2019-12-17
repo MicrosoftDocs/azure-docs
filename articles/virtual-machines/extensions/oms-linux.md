@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor virtual machine extension for Linux | Microsoft Docs
+title: Azure Monitor virtual machine extension for Linux 
 description: Deploy the Log Analytics agent on Linux virtual machine using a virtual machine extension.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -167,7 +167,7 @@ When placing the extension JSON at the root of the template, the resource name i
 
 ## Azure CLI deployment
 
-The Azure CLI can be used to deploy the Log Analytics Agent VM extension to an existing virtual machine. Replace the *workspaceId* and *workspaceKey* with those from your Log Analytics workspace. 
+The Azure CLI can be used to deploy the Log Analytics Agent VM extension to an existing virtual machine. Replace the *myWorkspaceKey* value below with your workspace key and the *myWorkspaceId* value with your workspace ID. These values can be found in your Log Analytics workspace in the Azure portal under *Advanced Settings*. 
 
 ```azurecli
 az vm extension set \
@@ -175,8 +175,8 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.10.1 --protected-settings '{"workspaceKey":"omskey"}' \
-  --settings '{"workspaceId":"omsid"}'
+  --version 1.10.1 --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --settings '{"workspaceId":"myWorkspaceId"}'
 ```
 
 ## Troubleshoot and support

@@ -1,21 +1,16 @@
 ---
 title: ApplicationInsights.config reference - Azure | Microsoft Docs
 description: Enable or disable data collection modules, and add performance counters and other parameters.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.reviewer: olegan
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 05/22/2019
 
+ms.reviewer: olegan
 ---
+
 # Configuring the Application Insights SDK with ApplicationInsights.config or .xml
 The Application Insights .NET SDK consists of a number of NuGet packages. The
 [core package](https://www.nuget.org/packages/Microsoft.ApplicationInsights) provides the API for sending telemetry to
@@ -269,17 +264,18 @@ This determines the Application Insights resource in which your data appears. Ty
 
 If you want to set the key dynamically - for example if you want to send results from your application to different resources - you can omit the key from the configuration file, and set it in code instead.
 
-To set the key for all instances of TelemetryClient, including standard Telemetry Modules, set the key in TelemetryConfiguration.Active. Do this in an initialization method, such as global.aspx.cs in an ASP.NET service:
+To set the key for all instances of TelemetryClient, including standard Telemetry Modules. Do this in an initialization method, such as global.aspx.cs in an ASP.NET service:
 
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights;
 
     protected void Application_Start()
     {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey =
-          // - for example -
-          WebConfigurationManager.AppSettings["ikey"];
-      //...
+        TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+        configuration.InstrumentationKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+        var telemetryClient = new TelemetryClient(configuration);
+   
 ```
 
 If you just want to send a specific set of events to a different resource, you can set the key for a specific TelemetryClient:

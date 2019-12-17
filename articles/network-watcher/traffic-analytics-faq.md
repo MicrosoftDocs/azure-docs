@@ -88,19 +88,22 @@ You can use traffic analytics for NSGs in any of the following supported regions
 - Japan East
 - Japan West
 - US Gov Virginia
+- China East 2
 
 The Log Analytics workspace must exist in the following regions:
 - Canada Central
 - West Central US
-- West US
-- West US 2
-- South Central US
-- Central US
 - East US
 - East US 2
+- North Central US
+- South Central US
+- Central US
+- West US
+- West US 2
 - France Central
 - West Europe
 - North Europe
+- UK West
 - UK South
 - Australia East
 - Australia Southeast
@@ -110,6 +113,7 @@ The Log Analytics workspace must exist in the following regions:
 - Central India
 - Japan East
 - US Gov Virginia
+- China East 2
 
 ## Can the NSGs I enable flow logs for be in different regions than my workspace?
 

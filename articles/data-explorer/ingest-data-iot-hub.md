@@ -17,17 +17,15 @@ ms.date: 08/27/2019
 > * [Portal](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
+> * [Azure Resource Manager template](data-connection-iot-hub-resource-manager.md)
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from IoT Hub, a big data streaming platform and IoT ingestion service.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-
 * Create [a test cluster and database](create-cluster-database-portal.md) with database name *testdb*.
-
 * [A sample app](https://github.com/Azure-Samples/azure-iot-samples-csharp) and documentation for simulating a device.
-
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) to run the sample app.
 
 ## Create an Iot Hub

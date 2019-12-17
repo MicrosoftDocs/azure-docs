@@ -9,10 +9,11 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 07/24/2019
+ms.date: 10/25/2019
 ---
 
 # Deploy a deep learning model for inference with GPU
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled model as a web service. The information in this article is based on deploying a model on Azure Kubernetes Service (AKS). The AKS cluster provides a GPU resource that is used by the model for inference.
 
@@ -110,13 +111,15 @@ def init():
     global X, output, sess
     tf.reset_default_graph()
     model_root = os.getenv('AZUREML_MODEL_DIR')
+    # the name of the folder in which to look for tensorflow model files
+    tf_model_folder = 'model'
     saver = tf.train.import_meta_graph(
-        os.path.join(model_root, 'mnist-tf.model.meta'))
+        os.path.join(model_root, tf_model_folder, 'mnist-tf.model.meta'))
     X = tf.get_default_graph().get_tensor_by_name("network/X:0")
     output = tf.get_default_graph().get_tensor_by_name("network/output/MatMul:0")
 
     sess = tf.Session()
-    saver.restore(sess, os.path.join(model_root, 'mnist-tf.model'))
+    saver.restore(sess, os.path.join(model_root, tf_model_folder, 'mnist-tf.model'))
 
 
 def run(raw_data):
@@ -131,7 +134,7 @@ This file is named `score.py`. For more information on entry scripts, see [How a
 
 ## Define the conda environment
 
-The conda environment file specifies the dependencies for the service. It includes dependencies required by both the model and the entry script. The following YAML defines the environment for a Tensorflow model. It specifies `tensorflow-gpu`, which will make use of the GPU used in this deployment:
+The conda environment file specifies the dependencies for the service. It includes dependencies required by both the model and the entry script. Please note that you must indicate azureml-defaults with verion >= 1.0.45 as a pip dependency, because it contains the functionality needed to host the model as a web service. The following YAML defines the environment for a Tensorflow model. It specifies `tensorflow-gpu`, which will make use of the GPU used in this deployment:
 
 ```yaml
 name: project_environment
@@ -141,7 +144,8 @@ dependencies:
 - python=3.6.2
 
 - pip:
-  - azureml-defaults==1.0.43.*
+  # You must list azureml-defaults as a pip dependency
+  - azureml-defaults>=1.0.45
 - numpy
 - tensorflow-gpu=1.12
 channels:
@@ -167,17 +171,18 @@ For more information, see the reference documentation for [AksService.deploy_con
 
 ## Define the inference configuration
 
-The inference configuration points to the entry script and conda environment file. It also enables GPU support, which installs CUDA in the docker image created for the web service:
+The inference configuration points to the entry script and an environment object, which uses a docker image with GPU support. Please note that the YAML file used for environment definition must list azureml-defaults with version >= 1.0.45 as a pip dependency, because it contains the functionality needed to host the model as a web service.
 
 ```python
 from azureml.core.model import InferenceConfig
+from azureml.core.environment import Environment, DEFAULT_GPU_IMAGE
 
-inference_config = InferenceConfig(runtime="python",
-                                   entry_script="score.py",
-                                   conda_file="myenv.yml",
-                                   enable_gpu=True)
+myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
+myenv.docker.base_image = DEFAULT_GPU_IMAGE
+inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 ```
 
+For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 For more information, see the reference documentation for [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py).
 
 ## Deploy the model
@@ -210,7 +215,7 @@ For more information, see the reference documentation for [Model](https://docs.m
 
 ## Issue a sample query to your service
 
-Send a test query to the deployed model. When you send a jpeg image to the model, it scores the image. The following code sample downloads test data and then selects a random test image to send to the service. 
+Send a test query to the deployed model. When you send a jpeg image to the model, it scores the image. The following code sample downloads test data and then selects a random test image to send to the service.
 
 ```python
 # Used to test your webservice

@@ -1,5 +1,5 @@
 ---
-title: Download issues using JDBC/ODBC and Apache Thrift framework - Azure HDInsight
+title: Issues with JDBC/ODBC & Apache Thrift framework - Azure HDInsight
 description: Unable to download large data sets using JDBC/ODBC and Apache Thrift software framework in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting

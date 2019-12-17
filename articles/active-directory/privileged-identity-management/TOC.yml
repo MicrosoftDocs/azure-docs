@@ -45,6 +45,8 @@
       href: pim-resource-roles-activate-your-roles.md
   - name: Manage Azure AD roles
     items:
+    - name: Feature update
+      href: azure-ad-roles-features.md
     - name: Assign roles
       href: pim-how-to-add-role-to-user.md
     - name: Approve requests
@@ -83,6 +85,8 @@
       href: azure-pim-resource-rbac.md
     - name: Use custom roles
       href: pim-resource-roles-custom-role-policy.md
+  - name: Troubleshoot PIM
+    href: pim-troubleshoot.md
   - name: Access reviews
     items:
     - name: Azure AD roles

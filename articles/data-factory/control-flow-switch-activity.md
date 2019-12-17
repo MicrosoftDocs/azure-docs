@@ -1,5 +1,5 @@
 ---
-title: Switch activity in Azure Data Factory | Microsoft Docs
+title: Switch activity in Azure Data Factory 
 description: The Switch activity allows you to control the processing flow based on a condition.
 services: data-factory
 author: djpmsft
@@ -21,39 +21,39 @@ The Switch activity provides the same functionality that a switch statement prov
 
 {
    "name": "<Name of the activity>",
-        "type": "Switch",
-        "typeProperties": {
-            "expression": {
-                "value": "<expression that evaluates to some string value>",
-                "type": "Expression"
+    "type": "Switch",
+    "typeProperties": {
+        "expression": {
+            "value": "<expression that evaluates to some string value>",
+            "type": "Expression"
+        },
+        "cases": [
+            {
+                "value": "<string value that matches expression evaluation>",
+                "activities": [
+                    {
+                        "<Activity 1 definition>"
+                    },
+                    {
+                        "<Activity 2 definition>"
+                    },
+                    {
+                        "<Activity N definition>"
+                    }
+                ]
+            }           
+        ],
+        "defaultActivities": [
+            {
+                "<Activity 1 definition>"
             },
-            "cases": [
-                {
-                    "value": "<string value that matches expression evaluation>",
-                    "activities": [
-                        {
-                            "<Activity 1 definition>"
-                        },
-                        {
-                            "<Activity 2 definition>"
-                        },
-                        {
-                            "<Activity N definition>"
-                        }
-                    ]
-                }           
-            ],
-            "defaultActivities": [
-                {
-                    "<Activity 1 definition>"
-                },
-                {
-                    "<Activity 2 definition>"
-                },
-                {
-                    "<Activity N definition>"
-                }
-            ]
+            {
+                "<Activity 2 definition>"
+            },
+            {
+                "<Activity N definition>"
+            }
+        ]
     }
 }
 ```
@@ -231,10 +231,7 @@ The pipeline in this example copies data from an input folder to an output folde
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

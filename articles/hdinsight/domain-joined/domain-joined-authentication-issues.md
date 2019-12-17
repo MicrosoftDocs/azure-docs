@@ -1,12 +1,12 @@
 ---
 title: Authentication issues in Azure HDInsight
 description: Authentication issues in Azure HDInsight
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 08/09/2019
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 11/08/2019
 ---
 
 # Authentication issues in Azure HDInsight
@@ -93,7 +93,7 @@ Password is expired.
 
 ### Resolution
 
-Change the password in the Azure portal (on your on-premise system) and then wait for 30 minutes for sync to catch up.
+Change the password in the Azure portal (on your on-premises system) and then wait for 30 minutes for sync to catch up.
 
 ---
 
@@ -186,6 +186,24 @@ The required OAuth access token was not found for the job / command to succeed. 
 ### Resolution
 
 Ensure that you have successfully logged in to the Ambari portal once through the username whose identity is used to run the job.
+
+---
+
+## Error fetching access token
+
+### Issue
+
+User receives error message `Error fetching access token`.
+
+### Cause
+
+This error occurs intermittently when users try to access the ADLS Gen2 using ACLs and the Kerberos token has expired.
+
+### Resolution
+
+* For Azure Data Lake Storage Gen1, clean browser cache and log into Ambari again.
+
+* For Azure Data Lake Storage Gen2, Run `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` for the user the user is trying to login as
 
 ---
 
