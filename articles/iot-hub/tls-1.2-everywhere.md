@@ -11,8 +11,6 @@ ms.date: 12/16/2019
 
 # TLS 1.0 and 1.1 deprecation in IoT Hub and Device Provisioning Service
 
-## Overview and date of enforcement
-
 To provide best-in-class encryption, IoT Hub and Device Provisioning Service (DPS) are moving to Transport Layer Security (TLS) 1.2 as the encryption mechanism of choice for IoT devices and services. As such, legacy support for TLS 1.0 and TLS 1.1 as well as several non-recommended legacy ciphers will be deprecated in **July 1, 2020**.
 
 
