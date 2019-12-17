@@ -69,6 +69,10 @@ There are a number of factors that impact how instances of your function app sca
 
 Reuse connections to external resources whenever possible.  See [how to manage connections in Azure Functions](./manage-connections.md).
 
+### Avoid sharing storage accounts
+
+When you create a function app, you must associate it with a storage account (via the [AzureWebJobsStorage application setting](./functions-app-settings.md#azurewebjobsstorage)). To maximize performance, use a separate storage account for each function app. This particularly helps if you are using Durable Functions or an Event Hub triggered function, because both of these features generate a high volume of storage transactions. If your application logic needs to interact with Azure Storage (either directly with an SDK or via bindings), again make this a separate storage account. For example, if you have an Event Hub triggered function writing some data to blob storage for another component to consume, use two storage accounts - one for the function app and another for the blobs.
+
 ### Don't mix test and production code in the same function app
 
 Functions within a function app share resources. For example, memory is shared. If you're using a function app in production, don't add test-related functions and resources to it. It can cause unexpected overhead during production code execution.
