@@ -58,7 +58,7 @@ As part of their daily monitoring activities, Jeff signs in to Azure and opens S
 
 5. When Jeff clicks **Compute and apps**, they see a list of recommendations and handles them according to the secure score impact.
 
-6. Jeff has numerous Internet facing VMs, and because their ports are exposed, they're worried that an attacker could gain control over the servers. So Jeff chooses to use (**just-in-time VM access**)[security-center-just-in-time.md].
+6. Jeff has numerous Internet facing VMs, and because their ports are exposed, they're worried that an attacker could gain control over the servers. So Jeff chooses to use [**just-in-time VM access**](security-center-just-in-time.md).
 
 Jeff continues to move through the high priority and medium priority recommendations, and makes decisions on implementation. For each recommendation, Jeff looks at the detailed information provided by Security Center to understand which resources are impacted, what the secure score impact is, what each recommendation means and remediation steps for how to mitigate each issue.
 

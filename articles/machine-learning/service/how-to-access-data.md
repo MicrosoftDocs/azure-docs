@@ -56,11 +56,11 @@ When you register an Azure storage solution as a datastore, you automatically cr
 
 All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*.
 
-The information you need to populate the register() method can be found via the [Azure Machine Learning studio](https://ml.azure.com) and these steps
+The information you need to populate the register() method can be found via the [Azure portal](https://portal.azure.com) and these steps
 
 1. Select **Storage Accounts** on the left pane and choose the storage account you want to register. 
 2. The **Overview** page provides information such as, the account name and container or file share name. 
-3. For authentication information, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left. 
+3. For authentication information, like account key or SAS token, navigate to **Access Keys** under the **Settings** pane on the left. 
 
 > [!IMPORTANT]
 > If your storage account is in a VNET, only Azure blob datastore creation is supported. Set the parameter, `grant_workspace_access` to `True` to grant your workspace access to your storage account.
@@ -69,7 +69,7 @@ The following examples show how to register an Azure Blob Container,   an Azure 
 
 + For an **Azure Blob Container Datastore**, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)
 
-    The following code creates and registers the datastore, `my_datastore`, to the workspace, `ws`. This datastore accesses the Azure blob container, `my_blob_container`, on the Azure storage account, `my_storage_account` using the provided account key.
+    The following code creates and registers the datastore, `blob_datastore_name`, to the workspace, `ws`. This datastore accesses the Azure blob container `my-container-name`, on the Azure storage account, `my-account-name` using the provided account key.
 
     ```Python
     blob_datastore_name='azblobsdk' # Name of the Datastore  to workspace
@@ -86,7 +86,7 @@ The following examples show how to register an Azure Blob Container,   an Azure 
 
 + For an **Azure File Share Datastore**, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
-    The following code creates and registers the datastore, `my_datastore`, to the workspace, `ws`. This datastore accesses the Azure file share, `my_file_share`, on the Azure storage account, `my_storage_account` using the provided account key.
+    The following code creates and registers the datastore, `file_datastore_name`, to the workspace, `ws`. This datastore accesses the Azure file share, `my-fileshare-name`, on the Azure storage account, `my-account-name` using the provided account key.
 
     ```Python
     file_datastore_name='azfilesharesdk' # Name of the Datastore to workspace
@@ -205,9 +205,6 @@ The [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data
 To upload a directory to a datastore `datastore`:
 
 ```Python
-import azureml.data
-from azureml.data.azure_storage_datastore import AzureFileDatastore, AzureBlobDatastore
-
 datastore.upload(src_dir='your source directory',
                  target_path='your target path',
                  overwrite=True,
@@ -304,7 +301,7 @@ input_data = DataReference(
        data_reference_name="input_data",
        path_on_datastore="20newsgroups/20news.pkl")
 
-   output = PipelineData("output", datastore=def_blob_store)
+output = PipelineData("output", datastore=def_blob_store)
 ```
 <a name="matrix"></a>
 
