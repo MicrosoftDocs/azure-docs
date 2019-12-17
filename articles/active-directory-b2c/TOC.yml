@@ -76,8 +76,11 @@
   items:
   - name: App integration
     items:
-    - name: Register an application
+    - name: Register an OIDC application
       href: tutorial-register-applications.md
+    - name: Register a SAML service provider
+      href: connect-with-saml-service-providers.md
+      displayName: SP, RP, service provider, connect
     - name: Add a web API application
       href: add-web-application.md
     - name: Add a native client application
@@ -160,6 +163,9 @@
         href: active-directory-b2c-reference-kmsi-custom.md
       - name: Password change
         href: active-directory-b2c-reference-password-change-custom.md
+      - name: Phone sign-up & sign-in
+        href: phone-authentication.md
+        displayName: otp, passwordless, phone number
     - name: UX customization
       items:
       - name: Configure user input
@@ -199,8 +205,10 @@
         items:
         - name: ADFS
           href: active-directory-b2c-custom-setup-adfs2016-idp.md
+          displayName: SAML
         - name: Salesforce
           href: active-directory-b2c-setup-sf-app-custom.md
+          displayName: SAML
     - name: Tokens and session management
       items:
       - name: Customize tokens
@@ -257,6 +265,8 @@
             href: integer-transformations.md
           - name: JSON
             href: json-transformations.md
+          - name: Phone number
+            href: phone-number-claims-transformations.md
           - name: External accounts
             href: social-transformations.md
           - name: StringCollection
@@ -280,6 +290,9 @@
           items:
           - name: About technical profiles
             href: technical-profiles-overview.md
+          - name: Azure Multi-Factor Authentication
+            href: multi-factor-auth-technical-profile.md
+            displayName: mfa
           - name: Claim resolvers
             href: claim-resolver-overview.md
           - name: Azure Active Directory
