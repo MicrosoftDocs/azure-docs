@@ -10,7 +10,7 @@ ms.author: rogarana
 
 # Enable Azure Active Directory over SMB
 
-Azure Files supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) (GA) and Active Directory Domain Service (AD DS) (pPreview). This article focuses on the newly introduced pPreview support of leveraging Active Directory Domain Service for authentication to Azure Files. If you are interested in enabling Azure Active Directory Domain Service (Azure AD DS) authentication for Azure Files, please refer tosee this article. 
+Azure Files supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) (GA) and Active Directory Domain Service (AD DS) (preview). This article focuses on the newly introduced preview support of leveraging Active Directory Domain Service for authentication to Azure Files. If you are interested in enabling Azure Active Directory Domain Service (Azure AD DS) authentication for Azure Files, please see [Enable Azure Active Directory Domain Services authentication over SMB for Azure Files](storage-files-active-directory-enable.md). 
 
 > [!NOTE]
 > Azure Files only supports authentication against one domain service, either Azure Active Directory Domain Service (Azure AD DS) or Active Directory Domain Service (AD DS). 
@@ -23,10 +23,33 @@ Azure Files supports identity-based authentication over Server Message Block (
 > 
 > AD DS authentication for SMB access and NTFS DACL persistence is not supported for Azure file shares managed by Azure File Sync.
 
-When you enable AD DS Authentication for Azure Files over SMB access, your AD domain joined machines from on-premise or Cloud Azure can mount Azure Files using your existing AD credentials. You can enable this capability with an AD environment hosted in on-prem machines or in Azure VM. Note that the AD identities that are used to access Azure Files must be synced to Azure AD to enforce share level file permission through the standard role-based access control (RBAC) model. NTFS DACLs on files/directories carried over from existing file servers will be preserved and enforced intact. This offers seamless integration with your enterprise AD domain infrastructure. As you replace on-prem file servers with Azure file shares, all existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
+When you enable AD DS Authentication for Azure Files over SMB access, your AD domain joined machines from on-premise or Azure can mount Azure Files using your existing AD credentials. You can enable this capability with an AD environment hosted in on-prem machines or in Azure. AD identities used to access Azure Files must be synced to Azure AD to enforce share level file permissions through the standard role-based access control (RBAC) model. NTFS DACLs on files/directories carried over from existing file servers will be preserved and enforced. This offers seamless integration with your enterprise AD domain infrastructure. As you replace on-prem file servers with Azure file shares, all existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
+ 
+## Prerequisites 
+
+Before you enable AD Authentication for Azure Files, make sure you have completed the following prerequisites: 
+
+- Select or create your AD environment and sync it to Azure AD. 
+
+    You can enable the feature on a new or existing AD environment. Identities used for access must be synced to Azure AD. The Azure AD tenant and the file share that you want to access must be associated with the same subscription. 
+
+    To setup an AD domain environment, you can refer to Active Directory Domain Services Overview. If you have not synced your AD to Azure AD, follow the guidance in What is hybrid identity with Azure Active Directory? to determine your preferred authentication method and Azure AD Connect setup option. 
+
+- Domain-join an on-premises machine or Azure VM with AD DS. 
+
+    To access a file share by using AD credentials from a machine or VM, your device must be domain-joined to AD DS. For more information about how to domain-join to AD, see Join a Computer to a Domain. 
+
+- Select or create an Azure file share. 
+
+    Select a new or existing file share that's associated with the same subscription as your Azure AD tenant. Please make sure that the storage account you plan to deploy share to is not already configured for Azure AD DS Authentication. If Azure Files Azure AD DS Authentication is enabled on the storage account, it needs to be disabled before changing to use AD DS. This implies that existing ACLs configured in Azure AD DS environment will need to be reconfigured for proper permission enforcement. For information about creating a new file share, see Create a file share in Azure Files. For optimal performance, we recommend that your file share be in the same region as the VM from which you plan to access the share. 
+
+- Verify Azure Files connectivity by mounting Azure file shares using your storage account key. 
+
+    To verify that your device and file share are properly configured, try mounting the file share using your storage account key. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). 
+
  
 
-Overview of the workflow 
+## Overview of the workflow 
 
 Before you enable AD DS Authentication over SMB for Azure Files, we recommend that you walk through the prerequisites to make sure you've completed all the required steps. This will validate that your AD, Azure AD and Azure Storage environments are properly configured. 
 
@@ -44,42 +67,27 @@ The following diagram illustrates the end-to-end workflow for enabling Azure AD 
 
 https://microsoft.sharepoint.com/teams/AzureStorage/Private%20Test/2016/Azure%20Files/Planning/AccessControl&AAD/ADDSAuthentication-Feature-Enablement.vsdx 
 
-Prerequisites 
+> [!NOTE]
+> AD DS authentication over SMB for Azure Files is supported only on machines or VMs running on OS versions above Windows 7 or Windows Server 2008 R2. 
 
-Before you enable AD Authentication for Azure Files, make sure you have completed the following prerequisites: 
 
-Select or create your AD environment and sync it to Azure AD. 
-
-You can enable the feature on a new or existing AD environment. Identities that you plan to be used for access must be synced to Azure AD. The Azure AD tenant and the file share that you want to access must be associated with the same subscription. 
-
-To setup an AD domain environment, you can refer to Active Directory Domain Services Overview. If you have not synced your AD to Azure AD, follow the guidance in What is hybrid identity with Azure Active Directory? to determine your preferred authentication method and Azure AD Connect setup option . 
-
-Domain-join an on-premises machine or Azure VM with AD DS. 
-
-To access a file share by using AD credentials from a machine or VM, your device must be domain-joined to AD DS. For more information about how to domain-join to AD, see Join a Computer to a Domain. 
-
-Note: 
-
-AD DS authentication over SMB for Azure Files is supported only on machines or VMs running on OS versions above Windows 7 or Windows Server 2008 R2. 
-
-Select or create an Azure file share. 
-
-Select a new or existing file share that's associated with the same subscription as your Azure AD tenant. Please make sure that the storage account you plan to deploy share to is not already configured for Azure AD DS Authentication. If Azure Files Azure AD DS Authentication is enabled on the storage account, it needs to be disabled before changing to use AD DS. This implies that existing ACLs configured in Azure AD DS environment will need to be reconfigured for proper permission enforcement. For information about creating a new file share, see Create a file share in Azure Files. For optimal performance, we recommend that your file share be in the same region as the VM from which you plan to access the share. 
-
-Verify Azure Files connectivity by mounting Azure file shares using your storage account key. 
-
-To verify that your device and file share are properly configured, try mounting the file share using your storage account key. For more information, see Mount an Azure file share and access the share in Windows. 
-
- 
 
 <START HERE, ROY>
 
 
-Enable AD DS authentication for your account 
+## Enable AD DS authentication for your account 
 
-To enable AD DS authentication over SMB for Azure Files, you need to first register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares under the account. We strongly recommend you leverage the new join-AzStorageAccountForAuth cmdlet to execute the workflow for feature enablement. You can find the detailed description of the end to end workflow in the section below. 
+To enable AD DS authentication over SMB for Azure Files, you need to first register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares under the account. We strongly recommend you leverage the new `join-AzStorageAccountForAuth` cmdlet to execute the workflow for feature enablement. You can find the detailed description of the end to end workflow in the following section. 
 
-PowerShell 
+```PowerShell 
+#Import the latest Azure module
+Install-Module -Name Az -AllowClobber -Scope CurrentUser
+
+#Change the execution policy to unblock importing AzureFilesActiveDirectoryUtilities.psm1 module
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Currentuser
+
+#Import AzureFilesActiveDirectoryUtilities module, it includes Az.Storage 1.8.2-preview version
+```
 
 To enable AD DS authentication with Azure PowerShell, install the latest Az module (2.4 or newer) or the Az.Storage module (1.5 or newer). For more information about installing PowerShell, see Install Azure PowerShell on Windows with PowerShellGet. 
 
@@ -89,15 +97,14 @@ Unlike other Azure PowerShell command, this command must be executed in a device
 
 PS: 
 
-# Login with an Azure AD credential with storage account Owner or Contributor role assignment 
+## Login with an Azure AD credential with storage account Owner or Contributor role assignment 
 
 Connect-AzAccount 
 
 join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>" additional flags? 
 
-Note:  
-
-You can either run the Join-AzStorageAccountForAuth command to perform the registration and feature enablement or perform the operations manually described in the workflow below. You DO NOT need to do both.  
+> [!NOTE]
+> You can either run the Join-AzStorageAccountForAuth command to perform the registration and feature enablement or perform the operations manually described in the workflow below. You DO NOT need to do both.  
 
 Join-AzStorageAccountForAuth 
 
@@ -123,9 +130,8 @@ The command will create a new OU under the provided path with maximum password a
 
  
 
-Note: 
-
-Please consult your AD administrator for advice on not enforcing password expiration on an OU and only execute this step if this is approved. If you register the AD account under an OU that enforces password expiration, you must rotate the password before the maximum password age. If the password gets expired, all authentication requests to the file share will be denied by AD DS, which may result in availability impact to your services. 
+> [!IMPORTANT]
+> Please consult your AD administrator for advice on not enforcing password expiration on an OU and only execute this step if this is approved. If you register the AD account under an OU that enforces password expiration, you must rotate the password before the maximum password age. If the password gets expired, all authentication requests to the file share will be denied by AD DS, which may result in availability impact to your services. 
 
  
 
