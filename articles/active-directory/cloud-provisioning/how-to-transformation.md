@@ -20,7 +20,7 @@ For more information on cloud provisioning attributes, see [Understanding the Az
 
 
 ## Retrieve the schema
-To retrieve the schema, follow the steps in [Viewing the schema](concept-attributes.md#viewing-the-schema). 
+To retrieve the schema, follow the steps in [View the schema](concept-attributes.md#view-the-schema). 
 
 ## Custom attribute mapping
 To add a custom attribute mapping, follow these steps.
@@ -58,7 +58,7 @@ To add a custom attribute mapping, follow these steps.
                             },
     ```
  1.  Edit the code so that the company attribute is mapped to `ExtensionAttribute3`.
-            ```
+           ```
                                     {
                                         "defaultValue": null,
                                         "exportMissingReferences": false,
@@ -83,7 +83,7 @@ To add a custom attribute mapping, follow these steps.
                                             ]
                                         }
                                     },
-            ```
+           ```
  1. Copy the schema back into Graph Explorer, change the **Request Type** to **PUT**, and select **Run Query**.
 
     ![Run Query](media/how-to-transformation/transform2.png)
