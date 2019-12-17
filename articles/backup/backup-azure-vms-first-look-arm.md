@@ -56,10 +56,6 @@ In order to back up Azure VMs, Azure Backup installs an extension on the VM agen
     - Until the initial backup completes, the **Last backup status** shows as **Warning (Initial backup pending)**.
     - To see when the next scheduled backup will run, click the backup policy name.
 
-> [!NOTE]
-> Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in “Retain instant recovery snapshot” section of the Azure Virtual Machine Backup policy. Applying a lock to this resource group can cause backup failures.<br>
-This resource group should also be excluded from any name/tag restrictions as a restriction policy would block creation of Resource Point collections in it again causing backup failures.
-
 ## Run a backup immediately
 
 1. To run a backup immediately, in the VM menu, click **Backup** > **Backup now**.

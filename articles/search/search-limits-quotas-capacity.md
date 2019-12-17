@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 
 # Service limits in Azure Cognitive Search
 
-Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Cognitive Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
+Maximum limits on storage, workloads, and quantities of indexes and other objects depend on whether you [provision Azure Cognitive Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
 
 + **Free** is a multi-tenant shared service that comes with your Azure subscription. Indexing and query requests execute on replicas and partitions that are used by other tenants.
 
@@ -61,7 +61,7 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 ## Document limits 
 
-As of October 2018, there are no longer any document limits<sup>1</sup> for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. While most regions have had unlimited document counts since November/December 2017, there were five regions that continued to impose document limits. Depending on when and where you created a search service, you might be running a service that is still subject to document limits.
+As of October 2018, there are no longer any document limits<sup>1</sup> for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. While most regions have had unlimited document counts since November/December 2017, there were a few regions that continued to impose document limits after that date. Depending on when and where you created a search service, you might be running a service that is still subject to document limits.
 
 To determine whether your service has document limits, check the Usage tile in the overview page of your service. Document counts are either unlimited, or subject to a limit based on tier.
 

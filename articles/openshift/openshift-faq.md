@@ -118,7 +118,7 @@ Syslog, docker logs, journal, and dmesg are handled by the managed service and a
 
 ## How can a customer get access to metrics like CPU/memory at the node level to take action to scale, debug issues, etc. I cannot seem to run `kubectl top` on an ARO cluster.
 
-`kubectl top` is not available on Red Hat OpenShift. It requires a backing metrics source, either Heapster (deprecated) or metrics-server (incubating or alpha), neither of which are included in the OpenShift monitoring stack.
+Customers can access the CPU/Memory metrics at the node level by using the command `oc adm top nodes` or `kubectl top nodes` with the customer-admin clusterrole.  Customers can also access the CPU/Memory metrics of `pods` with the command `oc adm top pods` or `kubectl top pods`
 
 ## What is the default pod scheduler configuration for ARO?
 
