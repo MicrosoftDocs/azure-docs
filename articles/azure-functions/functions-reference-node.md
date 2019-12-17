@@ -420,8 +420,9 @@ Because Node.js is a single-threaded runtime, a host instance for Node.js can pr
 
 To run a function asynchronously, use the `async function` statement (available in Node.js 8 or later, which requires version 2.x of the Functions runtime).
 
-```python
-myAsyncFunction = async function(args) {
+```javascript
+async function myAsyncFunction(args) {
+    // Code that uses await, etc.
     ...
 }
 ```
