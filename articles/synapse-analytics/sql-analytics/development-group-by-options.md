@@ -115,7 +115,7 @@ FROM GrpCube;
 
 The following shows the results of the CTAS:
 
-![Group by cube](../../sql-data-warehouse/media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
+![Group by cube](media/development-group-by-options/develop-group-by-cube.png)
 
 The second step is to specify a target table to store interim results:
 
