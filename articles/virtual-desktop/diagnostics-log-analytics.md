@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 12/18/2019
 ms.author: helohr
 ---
 # Use Log Analytics for the diagnostics feature
