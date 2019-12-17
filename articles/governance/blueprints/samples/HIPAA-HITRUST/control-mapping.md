@@ -35,7 +35,7 @@ definitions that monitor for missing endpoint protection on virtual machines in 
 
 - Deploy default Microsoft IaaS Antimalware extension for windows server
 - Diagnostic logs in Batch accounts should be enabled
-- System updates should be installed on you machines
+- System updates should be installed on your machines
 
 
 ## Management of Removable Media
@@ -99,7 +99,7 @@ For any public-facing Web applications, application-level firewalls are implemen
 
 ## Network Connection Control
 
-Network traffic is controlled in accordance with the organizations access control policy through firewall and other network-related restrictions for each network access point or external telecommunication service's managed interface.
+Network traffic is controlled in accordance with the organization's access control policy through firewall and other network-related restrictions for each network access point or external telecommunication service's managed interface.
 
 - Access through Internet facing endpoints should be restricted
 - SQL managed instance TDE protector should be encrypted with your own key
@@ -107,7 +107,7 @@ Network traffic is controlled in accordance with the organizations access contro
 
 ## Network Controls
 
-The organizations uses secured and encrypted communication channels when migrating physical servers, applications or data to virtualized servers.
+The organization uses secured and encrypted communication channels when migrating physical servers, applications or data to virtualized servers.
 
 - Disk encryption should be applied on VMs
 - SQL server TDE protector should be encrypted with your own key
