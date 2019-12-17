@@ -14,6 +14,7 @@ ms.date: 02/05/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
+ms.custom: fasttrack-edit
 #Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
 ms.collection: M365-identity-device-management
 ---
@@ -55,7 +56,7 @@ If you don't have an existing tenant associated with your account, you'll see a 
 
 ### Create a new Azure AD tenant
 
-If you don't already have an Azure AD tenant or want to create a new one for development, follow the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). You will have to provide the following info to create your new tenant:
+If you don't already have an Azure AD tenant or want to create a new one for development, see the [quickstart](active-directory-access-create-new-tenant.md) or simply follow the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). You will have to provide the following info to create your new tenant:
 
 - **Organization name**
 - **Initial domain** - this will be part of *.onmicrosoft.com. You can customize the domain more later.
