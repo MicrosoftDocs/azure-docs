@@ -148,7 +148,7 @@ Access the following web-based authoring tools from the studio:
 |-|-|-|
 | Notebook VM(preview) | Fully managed cloud-based workstation | Basic & Enterprise |
 | [Automated machine learning](service/tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
-| [Designer](service/concept-designer.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the the designer | Enterprise |
+| [Designer](concept-designer.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the the designer | Enterprise |
 
 
 ### Azure Machine Learning designer enhancements 
@@ -264,7 +264,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
 
 ### Visual interface (preview)
 
-+ The Azure Machine Learning visual interface (preview) has been overhauled to run on [Azure Machine Learning pipelines](service/concept-ml-pipelines.md). Pipelines (previously known as experiments) authored in the visual interface are now fully integrated with the core Azure Machine Learning experience.
++ The Azure Machine Learning visual interface (preview) has been overhauled to run on [Azure Machine Learning pipelines](concept-ml-pipelines.md). Pipelines (previously known as experiments) authored in the visual interface are now fully integrated with the core Azure Machine Learning experience.
   + Unified management experience with SDK assets
   + Versioning and tracking for visual interface models, pipelines, and endpoints 
   + Redesigned UI

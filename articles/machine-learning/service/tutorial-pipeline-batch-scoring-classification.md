@@ -18,7 +18,7 @@ ms.date: 11/04/2019
 
 In this tutorial, you use a pipeline in Azure Machine Learning to run a batch scoring job. The example uses the pretrained [Inception-V3](https://arxiv.org/abs/1512.00567) convolutional neural network Tensorflow model to classify unlabeled images. After you build and publish a pipeline, you configure a REST endpoint that you can use to trigger the pipeline from any HTTP library on any platform.
 
-Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on your expertise - machine learning - instead of on infrastructure and automation. [Learn more about machine learning pipelines](concept-ml-pipelines.md).
+Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on your expertise - machine learning - instead of on infrastructure and automation. [Learn more about machine learning pipelines](../concept-ml-pipelines.md).
 
 In this tutorial, you complete the following tasks:
 

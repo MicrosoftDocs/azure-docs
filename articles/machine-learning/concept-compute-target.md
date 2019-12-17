@@ -21,28 +21,28 @@ In a typical model development lifecycle, you might:
 2. Scale up to larger data, or do distributed training using one of these [training compute targets](#train).  
 3. Once your model is ready, deploy it to a web hosting environment or IoT device with one of these [deployment compute targets](#deploy).
 
-The compute resources you use for your compute targets are attached to a [workspace](concept-workspace.md). Compute resources other than the local machine are shared by users of the workspace.
+The compute resources you use for your compute targets are attached to a [workspace](service/concept-workspace.md). Compute resources other than the local machine are shared by users of the workspace.
 
 ## <a name="train"></a> Training compute targets
 
 Azure Machine Learning has varying support across different compute resources.  You can also attach your own compute resource, although support for various scenarios may vary.
 
-[!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
+[!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Learn more about [setting up and using a compute target for model training](how-to-set-up-training-targets.md).
+Learn more about [setting up and using a compute target for model training](service/how-to-set-up-training-targets.md).
 
 ## <a name="deploy"></a>Deployment targets
 
 The following compute resources can be used to host your model deployment.
 
-[!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
+[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
 
-Learn [where and how to deploy your model to a compute target](how-to-deploy-and-where.md).
+Learn [where and how to deploy your model to a compute target](service/how-to-deploy-and-where.md).
 
 <a name="amlcompute"></a>
 ## Azure Machine Learning compute (managed)
 
-A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters and [compute instances](concept-compute-instance.md) are the only managed computes. Additional managed compute resources may be added in the future.
+A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters and [compute instances](service/concept-compute-instance.md) are the only managed computes. Additional managed compute resources may be added in the future.
 
 You can create Azure Machine Learning compute instances (preview) or compute clusters in:
 
@@ -55,7 +55,7 @@ When created these compute resources are automatically part of your workspace un
 
 > [!NOTE]
 > Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead. 
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](service/concept-compute-instance.md#notebookvm) instead. 
 
 ### Compute clusters
 
@@ -75,5 +75,5 @@ An unmanaged compute target is *not* managed by Azure Machine Learning. You crea
 ## Next steps
 
 Learn how to:
-* [Set up a compute target to train your model](how-to-set-up-training-targets.md)
-* [Deploy your model to a compute target](how-to-deploy-and-where.md)
+* [Set up a compute target to train your model](service/how-to-set-up-training-targets.md)
+* [Deploy your model to a compute target](service/how-to-deploy-and-where.md)

@@ -125,7 +125,7 @@ Use custom validation dataset if random split is not acceptable, usually time se
 
 Next determine where the model will be trained. An automated machine learning training experiment can run on the following compute options:
 *	Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
-*	A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
+*	A remote machine in the cloud – [Azure Machine Learning Managed Compute](../concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
 
 See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for example notebooks with local and remote compute targets.
 
@@ -183,7 +183,7 @@ Learn about the specific definitions of these in [Understand automated machine l
 
 ### Data preprocessing & featurization
 
-In every automated machine learning experiment, your data is [automatically scaled and normalized](concept-automated-ml.md#preprocess) to help *certain* algorithms that are sensitive to features that are on different scales.  However, you can also enable additional preprocessing/featurization, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess).
+In every automated machine learning experiment, your data is [automatically scaled and normalized](../concept-automated-ml.md#preprocess) to help *certain* algorithms that are sensitive to features that are on different scales.  However, you can also enable additional preprocessing/featurization, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess).
 
 To enable this featurization, specify `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
@@ -334,7 +334,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### Automated feature engineering
 
-See the list of preprocessing and [automated feature engineering](concept-automated-ml.md#preprocess) that happens when feauturization =auto.
+See the list of preprocessing and [automated feature engineering](../concept-automated-ml.md#preprocess) that happens when feauturization =auto.
 
 Consider this example:
 + There are 4 input features: A (Numeric), B (Numeric), C (Numeric), D (DateTime)
@@ -432,7 +432,7 @@ featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of
 
 ### Scaling/Normalization and algorithm with hyperparameter values:
 
-To understand the scaling/normalization and algorithm/hyperparameter values for a pipeline, use fitted_model.steps. [Learn more about scaling/normalization](concept-automated-ml.md#preprocess). Here is a sample output:
+To understand the scaling/normalization and algorithm/hyperparameter values for a pipeline, use fitted_model.steps. [Learn more about scaling/normalization](../concept-automated-ml.md#preprocess). Here is a sample output:
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))

@@ -21,7 +21,7 @@ This article shows you how to run your [TensorFlow](https://www.tensorflow.org/o
 
 Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-existing-model.md) into the cloud, you can use Azure Machine Learning to scale out open-source training jobs to build, deploy, version, and monitor production-grade models.
 
-Learn more about [deep learning vs machine learning](concept-deep-learning-vs-machine-learning.md).
+Learn more about [deep learning vs machine learning](../concept-deep-learning-vs-machine-learning.md).
 
 ## Prerequisites
 
@@ -130,7 +130,7 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
+For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 
 ## Create a TensorFlow estimator
 
@@ -180,7 +180,7 @@ As the Run is executed, it goes through the following stages:
 
 ## Register or download a model
 
-Once you've trained the model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md). By specifying the parameters `model_framework`, `model_framework_version`, and `resource_configuration`, no-code model deployment becomes available. This allows you to directly deploy your model as a web service from the registered model, and the `ResourceConfiguration` object defines the compute resource for the web service.
+Once you've trained the model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](../concept-model-management-and-deployment.md). By specifying the parameters `model_framework`, `model_framework_version`, and `resource_configuration`, no-code model deployment becomes available. This allows you to directly deploy your model as a web service from the registered model, and the `ResourceConfiguration` object defines the compute resource for the web service.
 
 ```Python
 from azureml.core import Model

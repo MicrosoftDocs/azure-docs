@@ -22,7 +22,7 @@ If you have a machine learning model that was trained outside Azure Machine Lear
 > [!TIP]
 > This article provides basic information on registering and deploying an existing model. Once deployed, Azure Machine Learning provides monitoring for your model. It also allows you to store input data sent to the deployment, which can be used for data drift analysis or training new versions of the model.
 >
-> For more information on the concepts and terms used here, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
+> For more information on the concepts and terms used here, see [Manage, deploy, and monitor machine learning models](../concept-model-management-and-deployment.md).
 >
 > For general information on the deployment process, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -67,7 +67,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 For more information, see the [az ml model register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) reference.
 
 
-For more information on model registration in general, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
+For more information on model registration in general, see [Manage, deploy, and monitor machine learning models](../concept-model-management-and-deployment.md).
 
 
 ## Define inference configuration

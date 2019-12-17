@@ -30,9 +30,9 @@ Azure Machine Learning provides the following MLOps capabilities:
 
 Use ML pipelines from Azure Machine Learning to stitch together all of the steps involved in your model training process.
 
-An ML pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [ML pipelines](concept-ml-pipelines.md).
+An ML pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [ML pipelines](service/concept-ml-pipelines.md).
 
-If you use the [Designer](concept-designer.md) to create your ML pipelines, you may at any time click the **"..."** at the top-right of the Designer page and then select **Clone**. Cloning your pipeline allows you to iterate your pipeline design without losing your old versions.  
+If you use the [Designer](service/concept-designer.md) to create your ML pipelines, you may at any time click the **"..."** at the top-right of the Designer page and then select **Clone**. Cloning your pipeline allows you to iterate your pipeline design without losing your old versions.  
 
 ## Register, package, and deploy models from anywhere
 
@@ -49,7 +49,7 @@ Registered models are identified by name and version. Each time you register a m
 > You can also register models trained outside Azure Machine Learning.
 
 You can't delete a registered model that is being used in an active deployment.
-For more information, see the register model section of [Deploy models](how-to-deploy-and-where.md#registermodel).
+For more information, see the register model section of [Deploy models](service/how-to-deploy-and-where.md#registermodel).
 
 ### Package and debug models
 
@@ -57,7 +57,7 @@ Before deploying a model into production, it is packaged into a Docker image. In
 
 If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
 
-For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](how-to-troubleshoot-deployment.md).
+For more information, see [Deploy models](service/how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](service/how-to-troubleshoot-deployment.md).
 
 ### Validate and profile models
 
@@ -67,7 +67,7 @@ Azure Machine Learning can use profiling to determine the ideal CPU and memory s
 
 Converting your model to [Open Neural Network Exchange](https://onnx.ai) (ONNX) may improve performance. On average, converting to ONNX can yield a 2x performance increase.
 
-For more information on ONNX with Azure Machine Learning, see the [Create and accelerate ML models](concept-onnx.md) article.
+For more information on ONNX with Azure Machine Learning, see the [Create and accelerate ML models](service/concept-onnx.md) article.
 
 ### Use models
 
@@ -85,7 +85,7 @@ You also provide the configuration of the target deployment platform. For exampl
 When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service and interact with IoT Edge.
 
 #### Batch scoring
-Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](how-to-run-batch-predictions.md).
+Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](service/how-to-run-batch-predictions.md).
 
 #### Real-time web services
 
@@ -101,13 +101,13 @@ To deploy the model as a web service, you must provide the following items:
 * Dependencies required to use the model. For example, a script that accepts requests and invokes the model, conda dependencies, etc.
 * Deployment configuration that describes how and where to deploy the model.
 
-For more information, see [Deploy models](how-to-deploy-and-where.md).
+For more information, see [Deploy models](service/how-to-deploy-and-where.md).
 
 #### IoT Edge devices
 
 You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to a hardware device, which enables inference, or model scoring, on the device.
 
-For more information, see [Deploy models](how-to-deploy-and-where.md).
+For more information, see [Deploy models](service/how-to-deploy-and-where.md).
 
 ### Analytics
 
@@ -117,13 +117,13 @@ Microsoft Power BI supports using machine learning models for data analytics. Fo
 
 Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets. Specifically:
 
-- Azure ML [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
-- [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data. 
+- Azure ML [integrates with Git](service/how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
+- [Azure ML Datasets](service/how-to-create-register-datasets.md) help you track, profile, and version data. 
 - Azure ML Run history stores a snapshot of the code, data, and compute used to train a model.
 - The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
 
 ## Notify, automate, and alert on events in the ML lifecycle
-Azure ML publishes key events to Azure EventGrid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](how-to-use-event-grid.md).
+Azure ML publishes key events to Azure EventGrid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](service/how-to-use-event-grid.md).
 
 
 ## Monitor for operational & ML issues
@@ -132,7 +132,7 @@ Monitoring enables you to understand what data is being sent to your model, and 
 
 This information helps you understand how your model is being used. The collected input data may also be useful in training future versions of the model.
 
-For more information, see [How to enable model data collection](how-to-enable-data-collection.md).
+For more information, see [How to enable model data collection](service/how-to-enable-data-collection.md).
 
 ## Automate the ML lifecycle 
 
@@ -149,15 +149,15 @@ For more information on using Azure Pipelines with Azure Machine Learning, see t
 
 Learn more by reading and exploring the following resources:
 
-+ [How & where to deploy models](how-to-deploy-and-where.md) with Azure Machine Learning
++ [How & where to deploy models](service/how-to-deploy-and-where.md) with Azure Machine Learning
 
-+ [Tutorial: Deploy an image classification model in ACI](tutorial-deploy-models-with-aml.md).
++ [Tutorial: Deploy an image classification model in ACI](service/tutorial-deploy-models-with-aml.md).
 
 + [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
 
 + [CI/CD of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
 
-+ Create clients that [consume a deployed model](how-to-consume-web-service.md)
++ Create clients that [consume a deployed model](service/how-to-consume-web-service.md)
 
 + [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 

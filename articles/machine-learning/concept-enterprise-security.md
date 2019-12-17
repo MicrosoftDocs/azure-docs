@@ -26,7 +26,7 @@ Multi-factor authentication is supported if Azure Active Directory (Azure AD) is
 1. The client presents the token to Azure Resource Manager and to all Azure Machine Learning.
 1. The Machine Learning service provides a Machine Learning service token to the user compute target (for example, Machine Learning Compute). This token is used by the user compute target to call back into the Machine Learning service after the run is complete. Scope is limited to the workspace.
 
-[![Authentication in Azure Machine Learning](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
+[![Authentication in Azure Machine Learning](./media/concept-enterprise-security/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### Authentication for web service deployment
 
@@ -107,7 +107,7 @@ The following table lists some of the major Azure Machine Learning operations an
 | View models/images | ✓ | ✓ | ✓ |
 | Call web service | ✓ | ✓ | ✓ |
 
-If the built-in roles don't meet your needs, you can create custom roles. Custom roles are supported only for operations on the workspace and Machine Learning Compute. Custom roles can have read, write, or delete permissions on the workspace and on the compute resource in that workspace. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md).
+If the built-in roles don't meet your needs, you can create custom roles. Custom roles are supported only for operations on the workspace and Machine Learning Compute. Custom roles can have read, write, or delete permissions on the workspace and on the compute resource in that workspace. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](service/how-to-assign-roles.md).
 
 ### Securing compute targets and data
 
@@ -134,7 +134,7 @@ Azure Machine Learning creates an additional application (the name starts with `
 
 Azure Machine Learning relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. You can create these compute targets in a virtual network. For example, you can use Azure Data Science Virtual Machine to train a model and then deploy the model to AKS.  
 
-For more information, see [How to run experiments and inference in a virtual network](how-to-enable-virtual-network.md).
+For more information, see [How to run experiments and inference in a virtual network](service/how-to-enable-virtual-network.md).
 
 ## Data encryption
 
@@ -148,7 +148,7 @@ For information on how to use your own keys for data stored in Azure Blob storag
 
 Training data is typically also stored in Azure Blob storage so that it's accessible to training compute targets. This storage isn't managed by Azure Machine Learning but mounted to compute targets as a remote file system.
 
-For information on regenerating the access keys for the Azure storage accounts used with your workspace, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
+For information on regenerating the access keys for the Azure storage accounts used with your workspace, see [Regenerate storage access keys](service/how-to-change-storage-access-key.md).
 
 #### Azure Cosmos DB
 
@@ -189,7 +189,7 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 You can use Azure Monitor metrics to view and monitor metrics for your Azure Machine Learning workspace. In the [Azure portal](https://portal.azure.com), select your workspace and then select **Metrics**:
 
-[![Screenshot showing example metrics for a workspace](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
+[![Screenshot showing example metrics for a workspace](./media/concept-enterprise-security/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
 The metrics include information on runs, deployments, and registrations.
 
@@ -201,7 +201,7 @@ You can view the activity log of a workspace to see various operations that are 
 
 This screenshot shows the activity log of a workspace:
 
-[![Screenshot showing the activity log of a workspace](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
+[![Screenshot showing the activity log of a workspace](./media/concept-enterprise-security/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
 Scoring request details are stored in Application Insights. Application Insights is created in your subscription when you create a workspace. Logged information includes fields like HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, and Duration.
 
@@ -229,7 +229,7 @@ Additional resources are created in the user's subscription during workspace cre
 
 The user can also provision other compute targets that are attached to a workspace (like Azure Kubernetes Service or VMs) as needed.
 
-[![Create workspace workflow](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
+[![Create workspace workflow](./media/concept-enterprise-security/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
 
 ### Save source code (training scripts)
 
@@ -237,7 +237,7 @@ The following diagram shows the code snapshot workflow.
 
 Associated with an Azure Machine Learning workspace are directories (experiments) that contain the source code (training scripts). These scripts are stored on your local machine and in the cloud (in the Azure Blob storage for your subscription). The code snapshots are used for execution or inspection for historical auditing.
 
-[![Code snapshot workflow](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
+[![Code snapshot workflow](./media/concept-enterprise-security/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
 ### Training
 
@@ -264,7 +264,7 @@ Because Machine Learning Compute is a managed compute target (that is, it's mana
 
 In the flow diagram below, this step occurs when the training compute target writes the run metrics back to Azure Machine Learning from storage in the Cosmos DB database. Clients can call Azure Machine Learning. Machine Learning will in turn pull metrics from the Cosmos DB database and return them back to the client.
 
-[![Training workflow](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
+[![Training workflow](./media/concept-enterprise-security/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
 ### Creating web services
 
@@ -279,16 +279,16 @@ Here are the details:
 * Scoring request details are stored in Application Insights, which is in the user’s subscription.
 * Telemetry is also pushed to the Microsoft/Azure subscription.
 
-[![Inference workflow](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
+[![Inference workflow](./media/concept-enterprise-security/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
 
 ## Next steps
 
-* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
-* [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
-* [How to run batch predictions](how-to-run-batch-predictions.md)
-* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
-* [Collect data for models in production](how-to-enable-data-collection.md)
+* [Secure Azure Machine Learning web services with SSL](service/how-to-secure-web-service.md)
+* [Consume a Machine Learning model deployed as a web service](service/how-to-consume-web-service.md)
+* [How to run batch predictions](service/how-to-run-batch-predictions.md)
+* [Monitor your Azure Machine Learning models with Application Insights](service/how-to-enable-app-insights.md)
+* [Collect data for models in production](service/how-to-enable-data-collection.md)
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Use Azure Machine Learning with Azure Virtual Network](how-to-enable-virtual-network.md)
+* [Use Azure Machine Learning with Azure Virtual Network](service/how-to-enable-virtual-network.md)
 * [Best practices for building recommendation systems](https://github.com/Microsoft/Recommenders)
 * [Build a real-time recommendation API on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

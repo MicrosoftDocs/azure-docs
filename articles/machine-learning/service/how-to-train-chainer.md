@@ -21,7 +21,7 @@ The example training script in this article uses the popular [MNIST dataset](htt
 
 Whether you're training a deep learning Chainer model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning. 
 
-Learn more about [deep learning vs machine learning](concept-deep-learning-vs-machine-learning.md).
+Learn more about [deep learning vs machine learning](../concept-deep-learning-vs-machine-learning.md).
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
@@ -106,7 +106,7 @@ experiment = Experiment(ws, name=experiment_name)
 
 ## Create or get a compute target
 
-You need a [compute target](concept-compute-target.md) for training your model. In this example, you use Azure ML managed compute (AmlCompute) for your remote training compute resource.
+You need a [compute target](../concept-compute-target.md) for training your model. In this example, you use Azure ML managed compute (AmlCompute) for your remote training compute resource.
 
 **Creation of AmlCompute takes approximately 5 minutes**. If the AmlCompute with that name is already in your workspace, this code skips the creation process.  
 
@@ -134,7 +134,7 @@ except ComputeTargetException:
 print(compute_target.get_status().serialize())
 ```
 
-For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
+For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 
 ## Create a Chainer estimator
 
@@ -180,7 +180,7 @@ As the Run is executed, it goes through the following stages:
 
 ## Save and register the model
 
-Once you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
+Once you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](../concept-model-management-and-deployment.md).
 
 
 After the model training has completed, register the model to your workspace with the following code.  

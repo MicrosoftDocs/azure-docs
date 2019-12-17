@@ -272,7 +272,7 @@ myenv.docker.base_image_registry="your_registry_location"
 
 ## Using environments for training
 
-To submit a training run, you need to combine your environment, [compute target](concept-compute-target.md)
+To submit a training run, you need to combine your environment, [compute target](../concept-compute-target.md)
 and training Python script into a run configuration; a wrapper object used for submitting runs.
 
 When you submit a training run, the building of a new environment can take several minutes depending on the size of the required dependencies. The environments are cached by the service, therefore as long as the environment definition remains unchanged, the full setup time is incurred only once.

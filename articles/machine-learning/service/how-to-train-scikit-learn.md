@@ -119,7 +119,7 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
+For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 
 ## Create a scikit-learn estimator
 
@@ -164,7 +164,7 @@ As the Run is executed, it goes through the following stages:
 
 ## Save and register the model
 
-Once you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
+Once you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](../concept-model-management-and-deployment.md).
 
 Add the following code to your training script, train_iris.py, to save the model. 
 

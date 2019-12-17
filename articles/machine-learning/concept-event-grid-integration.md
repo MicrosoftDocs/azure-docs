@@ -17,7 +17,7 @@ Azure Machine Learning manages the entire lifecycle of machine learning process,
 
 These events are published through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Using Azure portal, Powershell or Azure CLI, customers can easily subscribe events by [specifying one or more event types, and filtering conditions](/azure/event-grid/event-filtering). Customers also have choice to build a wide range of event handlers such as Azure Functions, Azure Logic Apps, or generic webhooks. Azure Machine Learning, along with Azure Event Grid, provides a high available, reliable, and fault-tolerant event delivery platform for you to build event driven applications.
 
-For information on using Azure Machine Learning with Event Grid, see [Create Event Driven Machine Learning Workflows (Preview)](how-to-use-event-grid.md).
+For information on using Azure Machine Learning with Event Grid, see [Create Event Driven Machine Learning Workflows (Preview)](service/how-to-use-event-grid.md).
 
 ## The event model 
 
@@ -40,7 +40,7 @@ Azure Machine Learning provides events in the various points of machine learning
 
 ## Subscribe to Machine Learning events
 
-Subscriptions for Azure Machine Learning events are protected by role-based access control (RBAC). Only [contributor or owner](how-to-assign-roles.md#default-roles) of a workspace can create, update, and delete event subscriptions.
+Subscriptions for Azure Machine Learning events are protected by role-based access control (RBAC). Only [contributor or owner](service/how-to-assign-roles.md#default-roles) of a workspace can create, update, and delete event subscriptions.
 
 Event subscriptions can be filtered based on a variety of conditions. Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) of the event subscription or [at a later time](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). 
 
@@ -59,7 +59,7 @@ Azure Event Grid supports subject filters based on __begins with__ and __ends wi
 
 ### Advanced filtering
 
-Azure Event Grid also supports advanced filtering based on published event schema. Azure Machine Learning event schema details can be found in [Azure Event Grid event schema for Azure Machine Learning](../../event-grid/event-schema-machine-learning.md).
+Azure Event Grid also supports advanced filtering based on published event schema. Azure Machine Learning event schema details can be found in [Azure Event Grid event schema for Azure Machine Learning](../event-grid/event-schema-machine-learning.md).
 
 Some sample advanced filterings you can perform include:
 
@@ -94,5 +94,5 @@ Azure Event Grid allows customers to build de-coupled message handlers, which ca
 Learn more about Event Grid and give Azure Machine Learning events a try:
 
 - [About Event Grid](../../event-grid/overview.md)
-- [Azure Event Grid event schema for Azure Machine Learning](../../event-grid/event-schema-machine-learning.md)
-- [Create event driven workflows with Azure Machine Learning](how-to-use-event-grid.md)
+- [Azure Event Grid event schema for Azure Machine Learning](../event-grid/event-schema-machine-learning.md)
+- [Create event driven workflows with Azure Machine Learning](service/how-to-use-event-grid.md)
