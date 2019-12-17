@@ -1,5 +1,5 @@
 ---
-title: Request process & email notifications in entitlement management - Azure AD
+title: Request process & notifications - Azure AD entitlement management
 description: Learn about the request process for an access package and when email notifications are sent in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
