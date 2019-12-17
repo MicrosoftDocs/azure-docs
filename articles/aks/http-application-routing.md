@@ -47,12 +47,13 @@ az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addo
 After the cluster is deployed or updated, use the [az aks show][az-aks-show] command to retrieve the DNS zone name. This name is needed to deploy applications to the AKS cluster.
 
 ```azurecli
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpapplicationrouting.config.HTTPApplicationRoutingZoneName -o table
+```
 
 Result
------------------------------------------------------
+
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
-```
+
 
 ## Deploy HTTP routing: Portal
 
