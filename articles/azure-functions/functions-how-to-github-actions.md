@@ -186,6 +186,7 @@ The following examples show the part of the workflow that builds the function ap
         mvn azure-functions:package
         popd
 ```
+---
 
 ## Deploy the function app
 
