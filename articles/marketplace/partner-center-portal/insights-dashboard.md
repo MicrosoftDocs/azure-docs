@@ -50,7 +50,7 @@ You can view the Marketplace metrics in a variety of ways:
 - The default selection is ‘All’ for each of the filter options
 - Applied filters show the count of selection(s) for the choices made. Applied filters will not be displayed for the default ‘All’ selection.
 
-         ![Partner Center Insights filters applied](./media/insights-page-filter-2.png)
+![Partner Center Insights filters applied](./media/insights-page-filter-two.png)
 
 **Insights date filters**: This filter applies to the entire Marketplace Insights section. Filters can include pre-determined date ranges or a custom date range.
 
