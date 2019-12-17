@@ -29,7 +29,7 @@ The template contains three activities:
 - **ForEach** gets the container list from the **GetMetadata** activity and then iterates over the list and passes each container to the Copy activity.
 - **Copy** copies each container from the source storage store to the destination store.
 
-The template defines following parameters:
+The template defines the following parameters:
 - *SourceFileFolder* is the folder path of your data source store, where you can get a list of the containers. The path is the root directory, which contains multiple container folders. The default value of this parameter is `sourcefolder`.
 - *SourceFileDirectory* is the subfolder path under the root directory of your data source store. The default value of this parameter is `subfolder`.
 - *DestinationFileFolder* is the folder path where the files will be copied to in your destination store. The default value of this parameter is `destinationfolder`.
