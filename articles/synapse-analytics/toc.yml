@@ -333,15 +333,15 @@
         - name: Stored procedures
           href: sql-analytics/development-stored-procedures.md
         - name: Transactions
-          href: sql-analytics/development-transactions.md
+          href: sql-analytics/azure-synapse-development-transactions.md
         - name: Transaction best practices
           href: sql-analytics/development-transaction-best-practices.md
         - name: User-defined schemas
-          href: sql-analytics/development-user-defined-schemas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/azure-synapse-development-user-defined-schemas.md
         - name: Variable assignment
-          href: sql-analytics/development-variable-assignment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/azure-synapse-development-variable-assignment.md
         - name: Views
-          href: sql-analytics/development-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/azure-synapse-development-views.md
     - name: Querying
       items:
       - name: Dynamic SQL
@@ -949,7 +949,7 @@
       - name: Connection strings
         href: sql-analytics/connection-strings.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with sqlcmd
-        href: sql-analytics/get-started-connect-sqlcmd.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/azure-synapse-get-started-connect-sqlcmd.md
       - name: Query with SSMS
         href: sql-analytics/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with Visual Studio

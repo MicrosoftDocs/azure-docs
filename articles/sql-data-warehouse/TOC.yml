@@ -113,8 +113,8 @@
       href: design-elt-data-loading.md
     - name: Best practices
       href: guidance-for-loading-data.md
-    - name: Columnstore compression
-      href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
+    # - name: Columnstore compression
+    #   href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
   - name: Development
     items:
     - name: Overview
@@ -197,16 +197,16 @@
         href: sql-data-warehouse-develop-loops.md
       - name: Stored procedures
         href: sql-data-warehouse-develop-stored-procedures.md
-      - name: Transactions
-        href: sql-data-warehouse-develop-transactions.md
+      # - name: Transactions
+      #   href: sql-data-warehouse-develop-transactions.md
       - name: Transactions best practices
         href: sql-data-warehouse-develop-best-practices-transactions.md
-      - name: User-defined schemas
-        href: sql-data-warehouse-develop-user-defined-schemas.md
-      - name: Variable assignment
-        href: sql-data-warehouse-develop-variable-assignment.md
-      - name: Views
-        href: sql-data-warehouse-develop-views.md
+      # - name: User-defined schemas
+      #   href: sql-data-warehouse-develop-user-defined-schemas.md
+      # - name: Variable assignment
+      #   href: sql-data-warehouse-develop-variable-assignment.md
+      # - name: Views
+      #   href: sql-data-warehouse-develop-views.md
   - name: Querying
     items:
     - name: Dynamic SQL
@@ -301,8 +301,8 @@
         href: sql-data-warehouse-query-visual-studio.md
       - name: SSMS
         href: sql-data-warehouse-query-ssms.md
-      - name: sqlcmd
-        href: sql-data-warehouse-get-started-connect-sqlcmd.md
+      # - name: sqlcmd
+      #   href: sql-data-warehouse-get-started-connect-sqlcmd.md
   - name: Workload management
     items:
     - name: Analyze your workload
