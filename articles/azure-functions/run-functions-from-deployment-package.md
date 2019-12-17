@@ -60,6 +60,7 @@ The following shows a function app configured to run from a .zip file hosted in 
 - Tar and gzip formats are not supported.
 - This feature does not compose with local cache.
 - For improved cold-start performance, use the local Zip option (`WEBSITE_RUN_FROM_PACKAGE`=1).
+- Run From Package is incompatible with deployment customization option (`SCM_DO_BUILD_DURING_DEPLOYMENT=true`), the build step will be ignored during deployment.
 
 ## Next steps
 
