@@ -124,10 +124,69 @@ The following chart shows the list of roles and the supported actions on managem
 *: MG Contributor and MG Reader only allow users to do those actions on the management group scope.  
 **: Role Assignments on the Root management group aren't required to move a subscription or management group to and from it.  See [Manage your resources with management groups](manage.md) for details on moving items within the hierarchy.
 
-### Custom RBAC Role Definition and Assignment
+## Custom RBAC role definition and assignment
 
-Custom RBAC roles aren't supported on management groups at this time. See the [management group
-feedback forum](https://aka.ms/mgfeedback) to view the status of this item.
+Custom RBAC roles support for management groups is currently in Public Preview.  You are able to define the management group scope in the Role Definition's assignable scope.  That custom RBAC Role will then be available for assignment on that management group and any management group, subscription, resource group, or resource under it. This custom role will inherit down the hierarchy like any built-in role.    
+
+### Example definition
+[Defining and creating a custom role](custom-roles.md) does not change with the inclusion of management groups. To define the scope of a management group use the full path of **/providers/microsoft.management/managementgroups/<MgID>**. 
+
+Use the management group's ID and not the management group's display name. This is a common error that happens since they are both custom defined fields when creating a management group. 
+
+```json
+...
+{
+  "Name": "MG Test Custom Role",
+  "Id": "id", 
+  "IsCustom": true,
+  "Description": "This role provides members understand custom roles.",
+  "Actions": [
+    "Microsoft.Management/managementgroups/delete",
+    "Microsoft.Management/managementgroups/read",
+    "Microsoft.Management/managementgroup/write",
+    "Microsoft.Management/managementgroup/subscriptions/delete",
+    "Microsoft.Management/managementgroup/subscriptions/write",
+    "Microsoft.resources/subscriptions/read",
+    "Microsoft.Authorization/policyAssignments/*",
+    "Microsoft.Authorization/policyDefinitions/*",
+    "Microsoft.Authorization/policySetDefinitions/*",
+    "Microsoft.PolicyInsights/*",
+    "Microsoft.Authorization/roleAssignments/*",
+    "Microsoft.Authorization/roledefinitions/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+        "/providers/microsoft.management/managementGroups/ContosoCorporate"
+  ]
+}
+...
+```
+
+### Issues with breaking the role definition and assignment hierarchy path
+Role definitions can have an assignable scope anywhere within the management group hierarchy. A role definition can be defined on a parent management group while the actual role assignment exists on the child subscription. Since there is a relationship between the two items, you will receive an error when trying to separated the assignment from its definition. 
+
+For example: 
+Let's look a small section of a hierarchy for a visual. 
+
+![sub-tree](./media/subtree.png)
+
+Let's say there is a custom role defined on the Marketing management group. That custom role is then assigned on the two free trial subscriptions.  
+
+If we try to move one of those subscriptions to be a child of the Production management group, this would break the path from subscription role assignment to the Marketing management group role definition. In this scenario you will receive an error saying the move is not allowed since it will break this relationship.  
+
+There are a couple different options to fix this:
+- Remove the role assignment from the subscription prior to moving the subscription to a new parent MG.
+- Change the assignable scope within the role definition. In the above example you can update the assignable scopes from Marketing to Root Management Group so that the definition can be reach by both branches of the hierarchy.   
+- Create an additional Custom Role that will be defined in the other branch.  This will require the role assignment to be changed on the subscription also.  
+
+
+### Limitations  
+There are a few limitations that exist when using custom roles on management groups within the Public Preview. 
+
+ - You can only define one management group in the assignable scopes of a new role.  This limitation is in place to reduce the the number of situations where role definitions and role assignments are disconnected.  This situation happens when a child subscription or management group with a role assignment is moved to a different parent that doesn't have the role definition.   
+ - RBAC Data Plane actions are not allowed to be defined in management group custom roles.  This restriction is in place as there is a latency issues with RBAC actions updating the data plane resource providers. Until this latency is reduced to appropriate time frame these actions will be disabled from the role definition to reduce any risks.  We are looking to eliminate any risks in scenarios like a user's write access is removed from a storage resource but it takes 24 hours for that to update.     
 
 ## Audit management groups using activity logs
 
