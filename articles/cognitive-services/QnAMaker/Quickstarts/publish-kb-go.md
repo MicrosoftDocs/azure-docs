@@ -25,7 +25,7 @@ This quickstart calls QnA Maker APIs:
 * [Go 1.10.1](https://golang.org/dl/)
 * You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and endpoint (which includes the resource name), select **Quickstart** for your resource in the Azure portal.
 
-* QnA Maker knowledge base (KB) ID found in the URL in the kbid query string parameter as shown below.
+* QnA Maker knowledge base (KB) ID found in the URL in the `kbid` query string parameter as shown below.
 
     ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
