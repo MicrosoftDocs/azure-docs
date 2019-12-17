@@ -1,7 +1,6 @@
 ---
 title: "Quickstart: Recognize speech from a microphone, C# - Speech service"
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
