@@ -48,7 +48,7 @@ The following control plane operations on Managed Disks may involve movement of 
 - Create a managed disk from a snapshot.
 - Convert unmanaged disks to managed disks.
 
-# Performance Application Checklist for disks
+## Performance Application Checklist for disks
 
 The first step in designing high-performance applications running on Azure Premium Storage is understanding the performance requirements of your application. After you have gathered performance requirements, you can optimize your application to achieve the most optimal performance.
 
@@ -377,4 +377,3 @@ For a striped volume, maintain a high enough queue depth such that, every disk h
 Azure Premium Storage provisions specified number of IOPS and Throughput depending on the VM sizes and disk sizes you choose. Anytime your application tries to drive IOPS or Throughput above these limits of what the VM or disk can handle, Premium Storage will throttle it. This manifests in the form of degraded performance in your application. This can mean higher latency, lower Throughput, or lower IOPS. If Premium Storage does not throttle, your application could completely fail by exceeding what its resources are capable of achieving. So, to avoid performance issues due to throttling, always provision sufficient resources for your application. Take into consideration what we discussed in the VM sizes and Disk sizes sections above. Benchmarking is the best way to figure out what resources you will need to host your application.
 
 ## Next steps
-
