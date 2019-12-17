@@ -495,7 +495,7 @@ For more details on these ```az ml``` CLI commands and full set of arguments, se
 
 ## Git tracking and integration
 
-When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For more information, see [Git integration for Azure Machine Learning](../concept-train-model-git-integration.md).
 
 ## Notebook examples
 

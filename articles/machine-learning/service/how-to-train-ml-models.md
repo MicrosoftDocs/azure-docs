@@ -23,9 +23,9 @@ To facilitate deep learning model training, the Azure Machine Learning Python SD
 
 ## Train with an estimator
 
-Once you've created your [workspace](concept-workspace.md) and set up your [development environment](how-to-configure-environment.md), training a model in Azure Machine Learning involves the following steps:  
+Once you've created your [workspace](../concept-workspace.md) and set up your [development environment](how-to-configure-environment.md), training a model in Azure Machine Learning involves the following steps:  
 1. Create a [remote compute target](how-to-set-up-training-targets.md) (note you can also use local computer as compute target)
-2. Upload your [training data](how-to-access-data.md) to datastore (Optional)
+2. Upload your [training data](../how-to-access-data.md) to datastore (Optional)
 3. Create your [training script](tutorial-train-models-with-aml.md#create-a-training-script)
 4. Create an `Estimator` object
 5. Submit the estimator to an experiment object under the workspace
@@ -34,7 +34,7 @@ This article focuses on steps 4-5. For steps 1-3, refer to the [train a model tu
 
 ### Single-node training
 
-Use an `Estimator` for a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](how-to-set-up-training-targets.md#amlcompute) object `compute_target` and your [datastore](how-to-access-data.md) object `ds`.
+Use an `Estimator` for a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](how-to-set-up-training-targets.md#amlcompute) object `compute_target` and your [datastore](../how-to-access-data.md) object `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -134,7 +134,7 @@ model = run.register_model(model_name='sklearn-sample')
 
 ## GitHub tracking and integration
 
-When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For more information, see [Git integration for Azure Machine Learning](../concept-train-model-git-integration.md).
 
 ## Examples
 For a notebook that shows the basics of an estimator pattern, see:

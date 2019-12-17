@@ -63,7 +63,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
+The [Azure Machine Learning workspace](../concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
 
 Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 

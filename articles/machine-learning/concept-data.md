@@ -40,7 +40,7 @@ To access your data in your storage account, Azure Machine Learning offers datas
 
 ### Datastores
 
-An Azure Machine Learning datastore is a storage abstraction over your Azure storage services. [Register and create a datastore](service/how-to-access-data.md) to easily connect to your Azure storage account, and access the data in your underlying Azure storage services.
+An Azure Machine Learning datastore is a storage abstraction over your Azure storage services. [Register and create a datastore](how-to-access-data.md) to easily connect to your Azure storage account, and access the data in your underlying Azure storage services.
 
 Supported Azure storage services that can be registered as datastores:
 + Azure Blob Container
@@ -58,7 +58,7 @@ Supported Azure storage services that can be registered as datastores:
 
 Datasets can be created from local files, public urls, [Azure Open Datasets](#open), or specific file(s) in your datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file. Datasets aren't copies of your data, but are references that point to the data in your storage service, so no extra storage cost is incurred. 
 
-The following diagram shows that if you don't have an Azure storage service, you can create a dataset directly from local files, public urls, or an Azure Open Dataset. Doing so connects your dataset to the default datastore that was automatically created with your experiment's [Azure Machine Learning workspace](service/concept-workspace.md).
+The following diagram shows that if you don't have an Azure storage service, you can create a dataset directly from local files, public urls, or an Azure Open Dataset. Doing so connects your dataset to the default datastore that was automatically created with your experiment's [Azure Machine Learning workspace](concept-workspace.md).
 
 ![Data-concept-diagram](./media/concept-data/dataset-workflow.svg)
 

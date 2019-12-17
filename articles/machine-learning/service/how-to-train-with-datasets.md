@@ -189,7 +189,7 @@ The [dataset notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand 
 
 ## Next steps
 
-* [Auto train machine learning models](how-to-auto-train-remote.md) with TabularDatasets.
+* [Auto train machine learning models](../how-to-auto-train-remote.md) with TabularDatasets.
 
 * [Train image classification models](https://aka.ms/filedataset-samplenotebook) with FileDatasets.
 

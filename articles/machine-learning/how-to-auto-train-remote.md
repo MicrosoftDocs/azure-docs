@@ -16,7 +16,7 @@ ms.date: 11/04/2019
 ---
 # Train models with automated machine learning in the cloud
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In Azure Machine Learning, you train your model on different types of compute resources that you manage. The compute target could be a local computer or a resource in the cloud.
 
@@ -26,7 +26,7 @@ In this article, you learn how to build a model using automated ML with AmlCompu
 
 ## How does remote differ from local?
 
-The tutorial "[Train a classification model with automated machine learning](tutorial-auto-train-models.md)" teaches you how to use a local computer to train a model with automated ML. The workflow when training locally also applies to  remote targets as well. However, with remote compute, automated ML experiment iterations are executed asynchronously. This functionality allows you to cancel a particular iteration, watch the status of the execution, or continue to work on other cells in the Jupyter notebook. To train remotely, you first create a remote compute target such as AmlCompute. Then you configure the remote resource and submit your code there.
+The tutorial "[Train a classification model with automated machine learning](service/tutorial-auto-train-models.md)" teaches you how to use a local computer to train a model with automated ML. The workflow when training locally also applies to  remote targets as well. However, with remote compute, automated ML experiment iterations are executed asynchronously. This functionality allows you to cancel a particular iteration, watch the status of the execution, or continue to work on other cells in the Jupyter notebook. To train remotely, you first create a remote compute target such as AmlCompute. Then you configure the remote resource and submit your code there.
 
 This article shows the extra steps needed to run an automated ML experiment on a remote AmlCompute target. The workspace object, `ws`, from the tutorial is used throughout the code here.
 
@@ -176,7 +176,7 @@ You will see output similar to the following example:
 
 ## Explore results
 
-You can use the same [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) as shown in [the training tutorial](tutorial-auto-train-models.md#explore-the-results) to see a graph and table of results.
+You can use the same [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) as shown in [the training tutorial](service/tutorial-auto-train-models.md#explore-the-results) to see a graph and table of results.
 
 ```python
 from azureml.widgets import RunDetails
@@ -196,15 +196,15 @@ If you aren't in a Jupyter notebook, you can display the URL  from the run itsel
 remote_run.get_portal_url()
 ```
 
-The same information is available in your workspace.  To learn more about these results, see [Understand automated machine learning results](how-to-understand-automated-ml.md).
+The same information is available in your workspace.  To learn more about these results, see [Understand automated machine learning results](service/how-to-understand-automated-ml.md).
 
 ## Example
 
 The following [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) demonstrates concepts in this article.
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 
 * Learn [how to configure settings for automatic training](how-to-configure-auto-train.md).
-* See the [how-to](how-to-machine-learning-interpretability-automl.md) on enabling model interpretability features in automated ML experiments.
+* See the [how-to](service/how-to-machine-learning-interpretability-automl.md) on enabling model interpretability features in automated ML experiments.

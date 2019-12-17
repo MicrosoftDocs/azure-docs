@@ -70,7 +70,7 @@ You can set the task as part of your automated ML experiment run creation in the
 ## Next steps
 
 + Learn more about [automated ml](../concept-automated-ml.md) in Azure Machine Learning.
-+ Learn more about [auto-training a time-series forecast model](how-to-auto-train-forecast.md) in Azure Machine Learning
++ Learn more about [auto-training a time-series forecast model](../how-to-auto-train-forecast.md) in Azure Machine Learning
 + Try the [Automated Machine Learning Classification](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation) tutorial.
 + Try the [Automated Machine Learning Regression](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation) sample notebook.
 

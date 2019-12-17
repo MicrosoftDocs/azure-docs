@@ -19,7 +19,7 @@ Azure Machine Learning designer lets you visually connect [datasets](#datasets) 
 
 ![Azure Machine Learning designer example](./media/concept-designer/designer-drag-and-drop.gif)
 
-The designer uses your Azure Machine Learning [workspace](service/concept-workspace.md) to organize shared resources such as:
+The designer uses your Azure Machine Learning [workspace](concept-workspace.md) to organize shared resources such as:
 
 + [Pipelines](#pipeline)
 + [Datasets](#datasets)
@@ -89,7 +89,7 @@ Use compute resources from your workspace to run your pipeline and host your dep
 | Azure Machine Learning compute | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Compute targets are attached to your [Azure Machine Learning workspace](service/concept-workspace.md). You manage your compute targets in your workspace in [Azure Machine Learning Studio (classic)](https://ml.azure.com).
+Compute targets are attached to your [Azure Machine Learning workspace](concept-workspace.md). You manage your compute targets in your workspace in [Azure Machine Learning Studio (classic)](https://ml.azure.com).
 
 ## Deploy
 

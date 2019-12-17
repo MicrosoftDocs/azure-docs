@@ -40,7 +40,7 @@ Azure Machine Learning provides events in the various points of machine learning
 
 ## Subscribe to Machine Learning events
 
-Subscriptions for Azure Machine Learning events are protected by role-based access control (RBAC). Only [contributor or owner](service/how-to-assign-roles.md#default-roles) of a workspace can create, update, and delete event subscriptions.
+Subscriptions for Azure Machine Learning events are protected by role-based access control (RBAC). Only [contributor or owner](how-to-assign-roles.md#default-roles) of a workspace can create, update, and delete event subscriptions.
 
 Event subscriptions can be filtered based on a variety of conditions. Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) of the event subscription or [at a later time](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). 
 

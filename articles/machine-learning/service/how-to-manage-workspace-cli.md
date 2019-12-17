@@ -302,7 +302,7 @@ To share a workspace with another user on your subscription, use the following c
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-For more information on roles-based access control (RBAC) with Azure Machine Learning, see [Manage users and roles](how-to-assign-roles.md).
+For more information on roles-based access control (RBAC) with Azure Machine Learning, see [Manage users and roles](../how-to-assign-roles.md).
 
 For more information, see the [az ml workspace share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share) documentation.
 
@@ -314,7 +314,7 @@ If you change access keys for one of the resources used by your workspace, use t
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 ```
 
-For more information on changing keys, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
+For more information on changing keys, see [Regenerate storage access keys](../how-to-change-storage-access-key.md).
 
 For more information, see the [az ml workspace sync-keys](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys) documentation.
 

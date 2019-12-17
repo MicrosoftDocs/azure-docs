@@ -160,7 +160,7 @@ For an example of using an experiment, see [Tutorial: Train your first model](se
 
 When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
 
-For more information, see [Git integration for Azure Machine Learning](service/concept-train-model-git-integration.md).
+For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
 ### Logging
 
@@ -230,7 +230,7 @@ For an example, see [Tutorial: Train an image classification model with Azure Ma
 
 ### Workspaces
 
-[The workspace](service/concept-workspace.md) is the top-level resource for Azure Machine Learning. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning. You can share a workspace with others. For a detailed description of workspaces, see [What is an Azure Machine Learning workspace?](service/concept-workspace.md).
+[The workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning. You can share a workspace with others. For a detailed description of workspaces, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
 
 ### Next steps
 

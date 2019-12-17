@@ -896,7 +896,7 @@ To automatically train a model, take the following steps:
 
 ### Define training settings
 
-Define the experiment parameter and model settings for training. View the full list of [settings](how-to-configure-auto-train.md). Submitting the experiment with these default settings will take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_minutes` parameter.
+Define the experiment parameter and model settings for training. View the full list of [settings](../how-to-configure-auto-train.md). Submitting the experiment with these default settings will take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_minutes` parameter.
 
 |Property| Value in this tutorial |Description|
 |----|----|---|

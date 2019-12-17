@@ -21,7 +21,7 @@ In a typical model development lifecycle, you might:
 2. Scale up to larger data, or do distributed training using one of these [training compute targets](#train).  
 3. Once your model is ready, deploy it to a web hosting environment or IoT device with one of these [deployment compute targets](#deploy).
 
-The compute resources you use for your compute targets are attached to a [workspace](service/concept-workspace.md). Compute resources other than the local machine are shared by users of the workspace.
+The compute resources you use for your compute targets are attached to a [workspace](concept-workspace.md). Compute resources other than the local machine are shared by users of the workspace.
 
 ## <a name="train"></a> Training compute targets
 

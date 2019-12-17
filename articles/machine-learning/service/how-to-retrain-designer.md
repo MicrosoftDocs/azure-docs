@@ -49,7 +49,7 @@ In order to retrain a model, you first need an initial model. In this section, y
 
     ![Screenshot showing a sample configuration of the Import Data module](./media/how-to-retrain-designer/import-data-settings.png)
 
-    For this example, the data is stored in an [Azure datastore](how-to-access-data.md). If you don't already have a datastore, you can create one now by selecting **New datastore**.
+    For this example, the data is stored in an [Azure datastore](../how-to-access-data.md). If you don't already have a datastore, you can create one now by selecting **New datastore**.
 
 1. Specify the path to your data. You can also select **Browse path** to visually browse your datastore. 
 
