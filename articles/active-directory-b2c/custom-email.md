@@ -147,6 +147,7 @@ With a SendGrid account created and SendGrid API key stored in a Azure AD B2C po
     </html>
     ```
 
+1. Expand **Settings** on the left, and for **Email Subject**, enter `{{subject}}`.
 1. Select **Save Template**.
 1. Return to the **Transactional Templates** page by selecting the back arrow.
 1. Record the **ID** of template you created for use in a later step. For example, `d-989077fbba9746e89f3f6411f596fb96`. You specify this ID when you [add the claims transformation](#add-the-claims-transformation).
