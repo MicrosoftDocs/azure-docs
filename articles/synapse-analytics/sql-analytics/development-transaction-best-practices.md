@@ -412,5 +412,5 @@ The best scenario is to let in flight data modification transactions complete pr
 * Break the operation into chunks; operating on a subset of the rows
 
 ## Next steps
-See [Transactions in SQL Data Warehouse](development-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL Data Warehouse Best Practices](../../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+See [Transactions in SQL Data Warehouse](azure-synapse-development-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL Data Warehouse Best Practices](../../sql-data-warehouse/sql-data-warehouse-best-practices.md).
 

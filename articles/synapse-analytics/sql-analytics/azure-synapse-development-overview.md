@@ -22,8 +22,8 @@ The following articles highlight concepts and design decisions for development u
 | -----------------------------------------------------    | ---- | ---- |
 | [Connections](connect-overview.md)                               | Yes | Yes |
 | [Resource classes and concurrency](workload-management-resource-classes.md) | Yes    | No |
-| [Transactions](development-transactions.md)                             | Yes | No |
-| [User-defined schemas](development-user-defined-schemas.md)             | Yes | Yes |
+| [Transactions](azure-synapse-development-transactions.md)                             | Yes | No |
+| [User-defined schemas](azure-synapse-development-user-defined-schemas.md)             | Yes | Yes |
 | [Table distribution](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md)               | Yes | No |
 | [Table indexes](../../sql-data-warehouse/sql-data-warehouse-tables-index.md)                          | Yes | No |
 | [Table partitions](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md)                     | Yes | No |
@@ -40,12 +40,12 @@ The following articles highlight specific coding techniques, tips, and recommend
 | ------------------------------------------ | ------------------ | ----------------------- |
 | [Stored procedures](development-stored-procedures.md)     | Yes                | No                      |
 | [Labels](development-label.md)                           | Yes                | No                      |
-| [Views](development-views.md)                            | Yes                | Yes                     |
+| [Views](azure-synapse-views.md)                            | Yes                | Yes                     |
 | [Temporary tables](azure-synapse-development-tables-temporary.md)       | Yes                | Yes                     |
 | [Dynamic SQL](development-dynamic-sql.md)                 | Yes                | Yes                     |
 | [Looping](development-loops.md)                         | Yes                | Yes                     |
 | [Group by options](development-group-by-options.md)       | Yes                | No                      |
-| [Variable assignment](development-variable-assignment.md) | Yes                | Yes                     |
+| [Variable assignment](azure-synapse-variable-assignment.md) | Yes                | Yes                     |
 
 
 

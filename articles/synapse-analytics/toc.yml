@@ -281,7 +281,7 @@
       - name: Best practices
         href: sql-analytics/data-loading-best-practices.md
       - name: Columnstore compression
-        href: sql-analytics/data-loading-columnstore-compression.md
+        href: sql-analytics/azure-synapse-data-loading-columnstore-compression.md
     - name: Development
       items:
       - name: Overview

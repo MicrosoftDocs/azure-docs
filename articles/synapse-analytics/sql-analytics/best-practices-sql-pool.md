@@ -100,7 +100,7 @@ For unpartitioned tables, consider using a CTAS to write the data you want to ke
 
 Further information on content related to this section is included in the articles below: 
 - [Create table as select (CTAS)](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md)
-- [Understanding transactions](development-transactions.md)
+- [Understanding transactions](azure-synapse-development-transactions.md)
 - [Optimizing transactions](../../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md) 
 - [Table partitioning](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md) 
 - [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx) 

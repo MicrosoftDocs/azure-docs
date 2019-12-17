@@ -105,7 +105,7 @@ Use the [Azure SQL Analytics pool Feedback][Azure SQL Analytics pool Feedback] p
 [Pause compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
 [Scale compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#scale-compute
-[Understanding transactions]:development-transactions.md
+[Understanding transactions]:azure-synapse-development-transactions.md
 [Optimizing transactions]: ../../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md
 [Troubleshooting]: ../../sql-data-warehouse/sql-data-warehouse-troubleshoot.md
 [LABEL]: development-label.md

@@ -100,7 +100,7 @@ We recommend allowing existing transactions to finish before you initiate a paus
 
 When you pause or scale your SQL Data Warehouse, behind the scenes your queries are canceled when you initiate the pause or scale request.  Canceling a simple SELECT query is a quick operation and has almost no impact to the time it takes to pause or scale your instance.  However, transactional queries, which modify your data or the structure of the data, may not be able to stop quickly.  **Transactional queries, by definition, must either complete in their entirety or rollback their changes.**  Rolling back the work completed by a transactional query can take as long, or even longer, than the original change the query was applying.  For example, if you cancel a query which was deleting rows and has already been running for an hour, it could take the system an hour to insert back the rows which were deleted.  If you run pause or scaling while transactions are in flight, your pause or scaling may seem to take a long time because pausing and scaling has to wait for the rollback to complete before it can proceed.
 
-See also [Understanding transactions](../synapse-analytics/sql-analytics/development-transactions.md), and [Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md).
+See also [Understanding transactions](../synapse-analytics/sql-analytics/azure-synapse-development-transactions.md), and [Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## Automating compute management
 To automate the compute management operations, see [Manage compute with Azure functions](manage-compute-with-azure-functions.md).

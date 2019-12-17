@@ -114,7 +114,7 @@ For more help in finding solution to your issue, here are some other resources y
 <!--MSDN references-->
 [sys.database_principals]: /sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql
 [CREATE FUNCTION]: /sql/t-sql/statements/create-function-sql-data-warehouse
-[sqlcmd]:../synapse-analytics/sql-analytics/get-started-connect-sqlcmd.md
+[sqlcmd]:../synapse-analytics/sql-analytics/azure-synapse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
