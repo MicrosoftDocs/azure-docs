@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2019
+ms.date: 12/17/2019
 ms.author: kumud
 ---
 
@@ -146,7 +146,12 @@ az network lb address-pool create \
 --name dsLbBackEndPool_v6  \
 --resource-group DsResourceGroup01
 ```
+### Create a health probe
+Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) to monitor the health of the virtual machines. 
 
+```azurecli
+az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
+```
 ### Create a load balancer rule
 
 A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. 
@@ -162,6 +167,7 @@ az network lb rule create \
 --protocol Tcp  \
 --frontend-port 80  \
 --backend-port 80  \
+--probe-name dsProbe \
 --backend-pool-name dsLbBackEndPool_v4
 
 
@@ -173,6 +179,7 @@ az network lb rule create \
 --protocol Tcp  \
 --frontend-port 80 \
 --backend-port 80  \
+--probe-name dsProbe \
 --backend-pool-name dsLbBackEndPool_v6
 
 ```
