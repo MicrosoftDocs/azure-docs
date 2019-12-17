@@ -13,8 +13,9 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  - title: About Azure Cache for Redis 
-      linkLists:
+  # Card
+  - title: About Azure Cache for Redis
+    linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Cache for Redis?
@@ -31,16 +32,24 @@ landingContent:
             url: https://azure.microsoft.com/resources/videos/azure-redis-cache-best-practices/
           - text: Improve performance
             url: https://azure.microsoft.com/resources/videos/increase-performance-through-redis-cluster-in-azure-redis-cache/
+      - linkListType: whats-new
+        links:
+          - text: Frequently asked questions
+            url: cache-faq.md
+          - text: Best practices for Azure Cache for Redis
+            url: cache-best-practices.md
+          - text: ASP.NET Session State Provider for Azure Cache for Redis
+            url: cache-aspnet-session-state-provider.md
   - title: Quickstarts
-      linkLists:
+    linkLists:
       - linkListType: quickstart
         links:
-          - text: Use Azure Cache for Redis with an ASP.NET web app
-            url: cache-web-app-howto.md
+          - text: Use Azure Cache for Redis with a .NET Framework app
+            url: cache-dotnet-how-to-use-azure-redis-cache.md
           - text: Use Azure Cache for Redis with a .NET Core app
             url: cache-dotnet-core-quickstart.md
-          - text: Use Azure Cache for Redis with a .NET Framework application
-            url: cache-dotnet-how-to-use-azure-redis-cache.md
+          - text: Use Azure Cache for Redis with an ASP.NET web app
+            url: cache-web-app-howto.md
           - text: Use Azure Cache for Redis with Java
             url: cache-java-get-started.md
           - text: Use Azure Cache for Redis with Node.js
@@ -51,11 +60,12 @@ landingContent:
         links:
           - text: Create a cache-aside leaderboard on ASP.NET
             url: cache-web-app-cache-aside-leaderboard.md
-      - linkListType: sample
+      - linkListType: get-started
+        links:
           - text: Samples
             url: cache-redis-samples.md
   - title: Scripting command line interfaces for Azure Cache for Redis
-      linkLists:
+    linkLists:
       - linkListType: reference
         links:
           - text: Azure PowerShell
@@ -63,7 +73,7 @@ landingContent:
           - text: Azure CLI
             url: /cli/azure/redis
   - title: Programming SDKs for Azure Cache for Redis
-      linkLists:
+    linkLists:
       - linkListType: reference
         links:
           - text: .NET
