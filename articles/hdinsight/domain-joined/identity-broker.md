@@ -11,13 +11,13 @@ ms.date: 12/12/2019
 
 # HDInsight ID Broker (preview)
 
-This article describes how to set up and use the ID Broker feature in Azure HDInsight. You can use this feature to sign in to Apache Ambari by using Azure Multi-Factor Authentication and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (Azure AD DS).
+This article describes how to set up and use the ID Broker feature in Azure HDInsight. You can use this feature to sign in to Apache Ambari through Azure Multi-Factor Authentication and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (Azure AD DS).
 
 ## Overview
 
 ID Broker simplifies complex authentication setups in the following scenarios:
 
-* Your organization relies on federation to authenticate users for accessing cloud resources. Previously, to use HDInsight Enterprise Security Package (ESP) clusters, you had to enable password hash sync from your on-premises environment to Azure Active Directory (Azure AD). This requirement might be difficult or undesirable for some organizations.
+* Your organization relies on federation to authenticate users for accessing cloud resources. Previously, to use HDInsight Enterprise Security Package (ESP) clusters, you had to enable password hash sync from your on-premises environment to Azure Active Directory. This requirement might be difficult or undesirable for some organizations.
 
 * You're building solutions that use technologies which rely on different authentication mechanisms. For example, Apache Hadoop and Apache Ranger rely on Kerberos, whereas Azure Data Lake Storage relies on OAuth.
 
@@ -45,7 +45,7 @@ The ID Broker feature will add one extra VM to the cluster. This VM is the ID Br
 
 The HDInsight [IntelliJ plug-in](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) is updated to support OAuth. You can use this plug-in to connect to the cluster and submit jobs.
 
-## SSH access without password hash in Azure AD
+## SSH access without a password hash in Azure AD DS
 
 After ID Broker is enabled, you'll still need a password hash stored in Azure AD DS for SSH scenarios with domain accounts. To SSH to a domain-joined VM, or to run the `kinit` command, you need to provide a password. 
 
