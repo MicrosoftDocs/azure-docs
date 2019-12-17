@@ -71,7 +71,7 @@ Your **Get started** page displays the various settings that are required to con
 
     ![Local web UI "Get started" page](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-device-1.png)
 
-2. (Optional) On the **Network settings** tile, select **Configure**.  
+2. On the **Network settings** tile, select **Configure**.  
     
     ![Local web UI "Network settings" tile](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-device-3.png)
 
