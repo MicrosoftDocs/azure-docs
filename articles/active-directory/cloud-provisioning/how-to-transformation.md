@@ -58,6 +58,7 @@ To add a custom attribute mapping, follow these steps.
                             },
     ```
  1.  Edit the code so that the company attribute is mapped to `ExtensionAttribute3`.
+
            ```
                                     {
                                         "defaultValue": null,
@@ -83,7 +84,7 @@ To add a custom attribute mapping, follow these steps.
                                             ]
                                         }
                                     },
-           ```
+            ```
  1. Copy the schema back into Graph Explorer, change the **Request Type** to **PUT**, and select **Run Query**.
 
     ![Run Query](media/how-to-transformation/transform2.png)
