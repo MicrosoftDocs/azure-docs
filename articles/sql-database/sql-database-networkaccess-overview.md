@@ -59,7 +59,7 @@ The Azure SQL Database Query Editor is deployed on VMs in Azure. These VMs are n
 
 Azure SQL Database has the Data Sync feature that connects to your databases using Azure IPs. 
 
-To use the Data sync feature with **Allow Azure services to access server** set to OFF, you need to create individual firewall rule entries to [add IP addresses](sql-database-server-level-firewall-rule.md) from the Sql **service tag** for the region hosting the **Hub** database.
+To use the Data sync feature with **Allow Azure services to access server** set to OFF, you need to create individual firewall rule entries to [add IP addresses](sql-database-server-level-firewall-rule.md) from the **Sql service tag** for the region hosting the **Hub** database.
 Add these server level firewall rules to the logical servers hosting both **Hub** and **Member** databases ( which may be in different regions)
 
 Use the following PowerShell script to generate the IP addresses corresponding to Sql service tag for West US region
@@ -78,17 +78,28 @@ PS C:\> $sql.Properties.AddressPrefixes
 ```
 
 > [!TIP]
-> Get-AzNetworkServiceTag returns the global range for SQL Service Tag despite specifying the Location parameter. Be sure to filter it to the region that hosts the Hub database used by your sync group
+> Get-AzNetworkServiceTag returns the global range for Sql Service Tag despite specifying the Location parameter. Be sure to filter it to the region that hosts the Hub database used by your sync group
 
-Note that the output of the PowerShell script is in  Classless Inter Domain Routing(CIDR) notation. 
-Use [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) to convert from CIDR notation to Start and End IP addresses- which you can then enter as firewall rules.
-
+Note that the output of the PowerShell script is in  Classless Inter Domain Routing (CIDR) notation and this needs to be converted to a format of Start and End IP address using [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) like this
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26                                                                   
 start        end
 -----        ---
 52.229.17.64 52.229.17.127
 ```
+
+Do the following additional steps to convert all the IP addresses from CIDR to Start and End IP address format.
+
+```powershell
+PS C:\>foreach( $i in $sql.Properties.AddressPrefixes) {$ip,$cidr= $i.split('/') ; Get-IPrangeStartEnd -ip $ip -cidr $cidr;}                                                                                                                
+start          end
+-----          ---
+13.86.216.0    13.86.216.127
+13.86.216.128  13.86.216.191
+13.86.216.192  13.86.216.223
+```
+You can now add these as distinct firewall rules and then set **Allow Azure services to access server**  to OFF.
+
 
 ## IP firewall rules
 Ip based firewall is a feature of Azure SQL Server that prevents all access to your database server until you explicitly [add IP addresses](sql-database-server-level-firewall-rule.md) of the client machines.
