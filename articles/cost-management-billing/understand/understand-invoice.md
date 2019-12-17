@@ -126,7 +126,7 @@ your Invoice.
 
 ## How do I make sure that the charges in my invoice are correct?
 If there is a charge on your invoice that you would like more details
-on, see [Understand your bill for Microsoft Azure.](understand-individual-bill.md)
+on, see [Understand your bill for Microsoft Azure.](review-individual-bill.md)
 
 ## Need help? Contact us.
 

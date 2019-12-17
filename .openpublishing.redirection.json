@@ -26090,6 +26090,31 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cost-management-billing/understand/mca-understand-your-bill.md",
+            "redirect_url": "/azure/cost-management-billing/understand/understand/review-customer-agreement-bill",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cost-management-billing/costs/overview-cost-mgt.md",
+            "redirect_url": "/azure/cost-management-billing/cost-management-billing-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cost-management-billing/manage/understand-ea-bill.md",
+            "redirect_url": "/azure/cost-management-billing/understand/review-enterprise-agreement-bill",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cost-management-billing/understand/understand-individual-bill.md",
+            "redirect_url": "/azure/cost-management-billing/understand/review-individual-bill",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cost-management-billing/understand/mpa-understand-your-bill.md",
+            "redirect_url": "/azure/cost-management-billing/understand/review-partner-agreement-bill",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/billing/billing-understand-free-service-meter-mapping.md",
             "redirect_url": "/azure/cost-management-billing/manage/check-free-service-usage",
             "redirect_document_id": false

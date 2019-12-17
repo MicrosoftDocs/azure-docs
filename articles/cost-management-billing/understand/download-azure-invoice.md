@@ -53,7 +53,7 @@ There could be several reasons that you don't see an invoice:
 1. Click the download icon or ellipsis (`...`) at the end of the row.
 1. In the download menu, select **Invoice**.
 
-For more information about your invoice, see [Understand your bill for Microsoft Azure](understand-individual-bill.md). For help with managing your costs, see [Prevent unexpected costs with Azure billing and cost management](../manage/getting-started.md).
+For more information about your invoice, see [Understand your bill for Microsoft Azure](review-individual-bill.md). For help with managing your costs, see [Prevent unexpected costs with Azure billing and cost management](../manage/getting-started.md).
 
 ## Get your subscription's invoices in email
 
@@ -111,14 +111,14 @@ If you have questions or need help, [create a support request](https://go.micros
 To learn more about your invoice and charges, see:
 
 - [View and download your Microsoft Azure usage and charges](download-azure-daily-usage.md)
-- [Understand your bill for Microsoft Azure](understand-individual-bill.md)
+- [Understand your bill for Microsoft Azure](review-individual-bill.md)
 - [Understand terms on your Azure invoice](understand-invoice.md)
 - [Understand terms on your Microsoft Azure detailed usage](understand-usage.md)
 - [View your organization's Azure pricing](../manage/ea-pricing.md)
 
 If you have a Microsoft Customer Agreement, see:
 
-- [Understand the charges on the invoice for your billing profile](mca-understand-your-bill.md)
+- [Understand the charges on the invoice for your billing profile](review-customer-agreement-bill.md)
 - [Understand terms on the invoice for your billing profile](mca-understand-your-invoice.md)
 - [Understand the Azure usage and charges file for your billing profile](mca-understand-your-usage.md)
 - [View and download tax documents for your billing profile](mca-download-tax-document.md)

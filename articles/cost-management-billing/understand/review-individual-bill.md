@@ -17,8 +17,8 @@ ms.author: banders
 To understand your Azure bill, you compare your invoice with the detailed daily usage file and with cost management reports in the Azure portal.
 
 This article doesn't apply to the following customers:
-- Azure customers with an Enterprise Agreement (EA customers). If you're an EA customer, see [Understand your bill for Azure customers with an Enterprise Agreement](../manage/understand-ea-bill.md).
-- Azure customers with a [Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement). If you have a Microsoft Customer Agreement, see [Understand the Azure charges on your Microsoft Customer Agreement invoice](mca-understand-your-bill.md).
+- Azure customers with an Enterprise Agreement (EA customers). If you're an EA customer, see [Understand your bill for Azure customers with an Enterprise Agreement](review-enterprise-agreement-bill.md).
+- Azure customers with a [Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement). If you have a Microsoft Customer Agreement, see [Understand the Azure charges on your Microsoft Customer Agreement invoice](review-customer-agreement-bill.md).
 
 For an explanation of how billing works in the Azure Cloud Solution Provider (Azure CSP) program, including the billing cycle, pricing, and usage, see [Azure CSP Billing Overview](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
@@ -47,15 +47,15 @@ Your usage charges are displayed at the meter level. The following terms mean th
 
 The **Usage Charges** section of your invoice shows the total value for each meter that was consumed during your billing period. For example, the following image shows a usage charge for the Azure Scheduler service.
 
-![Invoice usage charges](./media/understand-individual-bill/invoice-usage-charges.png)
+![Invoice usage charges](./media/review-individual-bill/invoice-usage-charges.png)
 
 The **Statement** section of your detailed usage CSV shows the same charge. Both the *Consumed* amount and *Value* match the invoice.
 
-![CSV usage charges](./media/understand-individual-bill/csv-usage-charges.png)
+![CSV usage charges](./media/review-individual-bill/csv-usage-charges.png)
 
 To see a daily breakdown of the charge, go to the **Daily Usage** section of the CSV file. Filter for *Scheduler* under *Meter Category*. You can see which days the meter was used and how much was consumed. The *Resource* and *Resource group* information is also shown for comparison. The *Consumed* values should add up to and match what's shown on the invoice.
 
-![Daily Usage section in the CSV](./media/understand-individual-bill/daily-usage-section.png)
+![Daily Usage section in the CSV](./media/review-individual-bill/daily-usage-section.png)
 
 To get the cost per day, multiply the *Consumed* amounts with the *Rate* value from the **Statement** section.
 
@@ -73,11 +73,11 @@ The Azure portal can also help you verify your charges. To get a quick overview 
 1. Filter by **Timespan**.
 1. To continue the previous example, you see a usage charge for the Azure Scheduler service.
 
-   ![Cost analysis view in Azure portal](./media/understand-individual-bill/cost-analysis.png)
+   ![Cost analysis view in Azure portal](./media/review-individual-bill/cost-analysis.png)
 
 1. Select the row that shows the charge to see the daily cost breakdown.
 
-   ![Cost history view in Azure portal](./media/understand-individual-bill/cost-history-view.png)
+   ![Cost history view in Azure portal](./media/review-individual-bill/cost-history-view.png)
 
 To learn more, see [Prevent unexpected costs with Azure billing and cost management](../manage/getting-started.md#costs).
 

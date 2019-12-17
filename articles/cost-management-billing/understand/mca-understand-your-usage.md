@@ -111,7 +111,7 @@ tags | Tags you assign to the resource
 
 ### Make sure that charges are correct
 
-If you want to make sure that the charges in your detailed usage file are correct, you can verify them. See [Understand the charges on your billing profile's invoice](mca-understand-your-bill.md)
+If you want to make sure that the charges in your detailed usage file are correct, you can verify them. See [Understand the charges on your billing profile's invoice](review-customer-agreement-bill.md)
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

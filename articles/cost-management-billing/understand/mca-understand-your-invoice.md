@@ -66,7 +66,7 @@ For each invoice section under your billing profile, you'll see the charges, the
 
 ### Details by invoice section
 
-The details show the cost for each invoice section broken down by product order. Within each product order, cost is broken down by the type of service. You can find daily charges for your products and services in the Azure portal and Azure usage and charges CSV. To learn more see [Understand the charges on your invoice for a Microsoft Customer Agreement](mca-understand-your-bill.md).
+The details show the cost for each invoice section broken down by product order. Within each product order, cost is broken down by the type of service. You can find daily charges for your products and services in the Azure portal and Azure usage and charges CSV. To learn more see [Understand the charges on your invoice for a Microsoft Customer Agreement](review-customer-agreement-bill.md).
 
 The total amount due for each service family is calculated by subtracting *Azure credits* from *Credits/charges* and adding *Tax*:
 
@@ -100,7 +100,7 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [Understand the charges on your billing profile's invoice](mca-understand-your-bill.md)
+- [Understand the charges on your billing profile's invoice](review-customer-agreement-bill.md)
 - [How to get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md)
 - [View your organization's Azure pricing](../manage/ea-pricing.md)
 - [View tax documents for your billing profile](mca-download-tax-document.md)

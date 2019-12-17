@@ -93,7 +93,7 @@ If you're an EA customer, see:
 - [Manage access to your EA billing information for Azure](manage-billing-access.md)
 - [View and download your Microsoft Azure invoice](../understand/download-azure-invoice.md)
 - [View and download your Microsoft Azure usage and charges](../understand/download-azure-daily-usage.md)
-- [Understand your bill for Enterprise Agreement customers](understand-ea-bill.md)
+- [Understand your bill for Enterprise Agreement customers](../understand/review-enterprise-agreement-bill.md)
 
 If you have a Microsoft Customer Agreement, see:
 
@@ -101,4 +101,4 @@ If you have a Microsoft Customer Agreement, see:
 - [View and download your Microsoft Azure invoice](../understand/download-azure-invoice.md)
 - [View and download your Microsoft Azure usage and charges](../understand/download-azure-daily-usage.md)
 - [View and download tax documents for your billing profile](../understand/mca-download-tax-document.md)
-- [Understand the charges on your billing profile's invoice](../understand/mca-understand-your-bill.md)
+- [Understand the charges on your billing profile's invoice](../understand/review-customer-agreement-bill.md)
