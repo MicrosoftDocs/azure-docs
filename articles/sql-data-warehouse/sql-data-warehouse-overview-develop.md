@@ -59,10 +59,10 @@ For more reference information, see [SQL Data Warehouse T-SQL statements](sql-da
 [table indexes]: ./sql-data-warehouse-tables-index.md
 [table partitions]: ./sql-data-warehouse-tables-partition.md
 [temporary tables]: ./sql-data-warehouse-tables-temporary.md
-[transactions]: ./sql-data-warehouse-develop-transactions.md
-[user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
-[variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
-[views]: ./sql-data-warehouse-develop-views.md
+[transactions]:../synapse-analytics/sql-analytics/development-transactions.md
+[user-defined schemas]:../synapse-analytics/sql-analytics/development-user-defined-schemas.md
+[variable assignment]:../synapse-analytics/sql-analytics/development-variable-assignment.md
+[views]:../synapse-analytics/sql-analytics/development-views.md
 
 
 <!--MSDN references-->
