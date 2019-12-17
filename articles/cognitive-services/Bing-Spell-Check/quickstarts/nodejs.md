@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/02/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ---
 
@@ -26,7 +26,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 ## Create and initialize a project
 
-1. Create a new JavaScript file in your favorite IDE or editor. Set the strictness, and require `https`. Then create variables for your API endpoint's host, path, and your subscription key.
+1. Create a new JavaScript file in your favorite IDE or editor. Set the strictness, and require `https`. Then create variables for your API endpoint's host, path, and your subscription key. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     'use strict';
@@ -92,6 +92,18 @@ let req = https.request (request_params, response_handler);
 req.write ("text=" + text);
 req.end ();
 ```
+
+
+## Run the application
+
+Build and run your project.
+
+If you're using the command line, use the following commands to build and run the application.
+
+```bash
+node <FILE_NAME>.js
+```
+
 
 ## Example JSON response
 
