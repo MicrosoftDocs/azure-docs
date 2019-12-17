@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: ML pipelines for batch scoring'
 titleSuffix: Azure Machine Learning
-description: Build a machine learning pipeline for running batch scoring on an image classification model in Azure Machine Learning. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on your expertise - machine learning - instead of on infrastructure and automation.
+description: In this tutorial, you build a machine learning pipeline for running batch scoring on an image classification model in Azure Machine Learning. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on your expertise - machine learning - instead of on infrastructure and automation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,7 +12,7 @@ ms.reviewer: trbye
 ms.date: 11/04/2019
 ---
 
-# Build & use an Azure Machine Learning pipeline for batch scoring
+# Tutorial: Build an Azure Machine Learning pipeline for batch scoring
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -297,7 +297,8 @@ Before you run the pipeline, create an object that defines the Python environmen
 
 ```python
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
-from azureml.core.runconfig import CondaDependencies, RunConfiguration
+azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
 
 cd = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.13.1", "azureml-defaults"])
 
@@ -520,7 +521,7 @@ RunDetails(published_pipeline_run).show()
 
 Don't complete this section if you plan to run other Azure Machine Learning tutorials.
 
-### Stop the Notebook VM
+### Stop the compute instance
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 

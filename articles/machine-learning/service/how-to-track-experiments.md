@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 12/05/2019
 
 ms.custom: seodec18
 ---
@@ -200,7 +200,7 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 3. Configure a user-managed local environment.
 
    ```python
-   from azureml.core import Environment
+   from azureml.core.environment import Environment
     
    # Editing a run configuration property on-fly.
    user_managed_env = Environment("user-managed-env")
@@ -228,6 +228,25 @@ The [Start, monitor, and cancel training runs](how-to-manage-runs.md) article hi
 
 ## View run details
 
+### View active/queued runs from the browser
+
+Compute targets used to train models are a shared resource. As such, they may have multiple runs queued or active at a given time. To see the runs for a specific compute target from your browser, use the following steps:
+
+1. From the [Azure Machine Learning studio](https://ml.azure.com/), select your workspace, and then select __Compute__ from the left side of the page.
+
+1. Select __Training Clusters__ to display a list of compute targets used for training. Then select the cluster.
+
+    ![Select the training cluster](./media/how-to-track-experiments/select-training-compute.png)
+
+1. Select __Runs__. The list of runs that use this cluster is displayed. To view details for a specific run, use the link in the __Run__ column. To view details for the experiment, use the link in the __Experiment__ column.
+
+    ![Select runs for training cluster](./media/how-to-track-experiments/show-runs-for-compute.png)
+    
+    > [!TIP]
+    > A run can contain child runs, so one training job can result in multiple entries.
+
+Once a run completes, it is no longer displayed on this page. To view information on completed runs, visit the __Experiments__ section of the studio and select the experiment and run. For more information, see the [Query run metrics](#queryrunmetrics) section.
+
 ### Monitor run with Jupyter notebook widget
 When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
 
@@ -240,11 +259,11 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
 
    ![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/run-details-widget.png)
 
-You can also get a link to the same display in your workspace.
+   You can also get a link to the same display in your workspace.
 
-```python
-print(run.get_portal_url())
-```
+   ```python
+   print(run.get_portal_url())
+   ```
 
 2. **[For automated machine learning runs]** To access the charts from a previous run. Replace `<<experiment_name>>` with the appropriate experiment name:
 
@@ -267,6 +286,7 @@ To view further details of a pipeline click on the Pipeline you would like to ex
 
 Model training and monitoring occur in the background so that you can run other tasks while you wait. You can also wait until the model has completed training before running more code. When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output. 
 
+<a id="queryrunmetrics"></a>
 
 ### Query run metrics
 

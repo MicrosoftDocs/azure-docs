@@ -122,4 +122,6 @@ Refer to our [design for high performance](../articles/virtual-machines/windows/
 
 ## Next steps
 
+If you'd like a video going into more detail on managed disks, check out: [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
+
 Learn more about the individual disk types Azure offers, which type is a good fit for your needs, and learn about their performance targets in our article on disk types.

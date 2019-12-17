@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/10/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb, rogoya
+ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
 ---
@@ -23,7 +23,7 @@ Managing customized Conditional Access policies requires an Azure AD Premium lic
 
 ## Baseline policies
 
-![Conditional Access baseline policies in the Azure portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
+![Conditional Access baseline policies in the Azure portal](./media/concept-baseline-protection/conditional-access-policies.png)
 
 There are four baseline policies:
 
@@ -84,6 +84,6 @@ To protect privileged actions, this **Require MFA for service management (previe
 
 For more information, see:
 
+* [Enabling security defaults](../fundamentals/concept-fundamentals-security-defaults.md)
 * [Common Conditional Access policies](concept-conditional-access-policy-common.md)
 * [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md)
-* [What is Conditional Access in Azure Active Directory?](overview.md)

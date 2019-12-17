@@ -329,7 +329,9 @@ Now that the blueprint has been assigned to a subscription, verify the progress 
    that there were no errors during the deployment. If errors occurred, see [Troubleshooting blueprints](./troubleshoot/general.md)
    for steps to determine what went wrong.
 
-## Unassign a blueprint
+## Clean up resources
+
+### Unassign a blueprint
 
 If you no longer need a blueprint assignment, remove it from a subscription. The blueprint might
 have been replaced by a newer blueprint with updated patterns, policies, and designs. When a
@@ -343,7 +345,7 @@ blueprint assignment, follow these steps:
 
 1. Read the confirmation message and then select **OK**.
 
-## Delete a blueprint
+### Delete a blueprint
 
 1. Select **Blueprint definitions** from the page on the left.
 

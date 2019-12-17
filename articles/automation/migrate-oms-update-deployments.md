@@ -2,13 +2,9 @@
 title: Migrate your OMS Update Deployments to Azure
 description: This article describes how to migrate your existing OMS Update deployments to Azure
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
 ms.date: 07/16/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # Migrate your OMS Update Deployments to Azure
 

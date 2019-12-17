@@ -4,7 +4,7 @@ description: Monitoring solutions in Azure Monitor are a collection of logic, vi
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
+author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 11/22/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -77,7 +77,7 @@ The option to *require a device to be marked as compliant* is the strongest form
 
 This option requires a device to be registered with Azure AD, and also to be marked as compliant by:
          
-- Intune.
+- Intune
 - A third-party mobile device management (MDM) system that manages Windows 10 devices via Azure AD integration. Third-party MDM systems for device OS types other than Windows 10 are not supported.
  
 ![Device-based conditions](./media/require-managed-devices/46.png)
@@ -88,6 +88,10 @@ For a device that is marked as compliant, you can assume that:
 - Mobile apps your workforce uses are managed
 - Your company information is protected by helping to control the way your workforce accesses and shares it
 - The device and its apps are compliant with company security requirements
+
+### Known behavior
+
+On Windows 7, iOS, Android, macOS, and some third-party web browsers Azure AD identifies the device using a client certificate that is provisioned when the device is registered with Azure AD. When a user first signs in through the browser the user is prompted to select the certificate. The end user must select this certificate before they can continue to use the browser.
 
 ## Next steps
 

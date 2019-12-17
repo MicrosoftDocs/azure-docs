@@ -3,12 +3,12 @@ title: Managed identity for Data Factory
 description: Learn about managed identity for Azure Data Factory. 
 services: data-factory
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: ''
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 04/08/2019

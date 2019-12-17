@@ -123,12 +123,12 @@
     - name: Configure clusters
       href: /azure/databricks/clusters/configure
       maintainContext: true
+    - name: Custom containers
+      href: /azure/databricks/clusters/custom-containers
+      maintainContext: true
     - name: Initialize cluster nodes
       href: /azure/databricks/clusters/init-scripts
       maintainContext: true
-    - name: Custom containers
-      href: /azure/databricks/clusters/custom-containers
-      maintainContext: true 
     - name: GPU-enabled clusters
       href: /azure/databricks/clusters/gpu
       maintainContext: true 
@@ -226,9 +226,6 @@
     maintainContext: true
   - name: Data
     items:
-    - name: Databricks File System
-      href: /azure/databricks/data/databricks-file-system
-      maintainContext: true
     - name: Databases and tables
       href: /azure/databricks/data/tables
       maintainContext: true
@@ -242,7 +239,7 @@
       - name: SQL databases using JDBC
         href: /azure/databricks/data/data-sources/sql-databases
         maintainContext: true 
-      - name: Azure SQL Database using the Apache Spark connector
+      - name: SQL databases using the Apache Spark connector
         href: /azure/databricks/data/data-sources/sql-databases-azure
         maintainContext: true 
       - name: Azure Blob storage
@@ -254,7 +251,7 @@
       - name: Azure Data Lake Storage
         href: /azure/databricks/data/data-sources/azure/azure-datalake
         maintainContext: true
-      - name: Azure Data Lake Storage passthrough
+      - name: Azure Data Lake Storage credential passthrough
         href: /azure/databricks/data/data-sources/azure/adls-passthrough
         maintainContext: true 
       - name: Cosmos DB
@@ -263,7 +260,7 @@
       - name: Azure SQL Data Warehouse
         href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
         maintainContext: true
-      - name: Binary files
+      - name: Binary file
         href: /azure/databricks/data/data-sources/binary-file
         maintainContext: true 
       - name: Cassandra
@@ -275,7 +272,7 @@
       - name: ElasticSearch
         href: /azure/databricks/data/data-sources/elasticsearch
         maintainContext: true 
-      - name: Images
+      - name: Image
         href: /azure/databricks/data/data-sources/image
         maintainContext: true 
       - name: Hive tables
@@ -317,6 +314,9 @@
       - name: ZIP files
         href: /azure/databricks/data/data-sources/zip-files
         maintainContext: true 
+    - name: Databricks File System (DBFS)
+      href: /azure/databricks/data/databricks-file-system
+      maintainContext: true
     - name: FileStore
       href: /azure/databricks/data/filestore
       maintainContext: true
@@ -618,7 +618,7 @@
       - name: Uncache Table
         href: /azure/databricks/spark/latest/spark-sql/language-manual/uncache-table
         maintainContext: true
-      - name: Update  (Delta Lake on Azure Databricks
+      - name: Update  (Delta Lake on Azure Databricks)
         href: /azure/databricks/spark/latest/spark-sql/language-manual/update
         maintainContext: true
       - name: Use Database
@@ -629,22 +629,22 @@
         maintainContext: true
     - name: Spark SQL examples
       items:
-      - name: Cost-Based Optimizer
+      - name: Cost-Based optimizer
         href: /azure/databricks/spark/latest/spark-sql/cbo
         maintainContext: true
-      - name: Data Skipping Index
+      - name: Data skipping index
         href: /azure/databricks/spark/latest/spark-sql/dataskipping-index
         maintainContext: true
-      - name: Transactional Writes to Cloud Storage with DBIO
+      - name: Transactional writes to cloud storage with DBIO
         href: /azure/databricks/spark/latest/spark-sql/dbio-commit
         maintainContext: true
       - name: Handle bad records and files
         href: /azure/databricks/spark/latest/spark-sql/handling-bad-records
         maintainContext: true 
-      - name: Task Preemption for High Concurrency
+      - name: Task p for high concurrency
         href: /azure/databricks/spark/latest/spark-sql/preemption
         maintainContext: true
-      - name: Handle Large Queries in interactive workflows
+      - name: Handle large queries in interactive workflows
         href: /azure/databricks/spark/latest/spark-sql/query-watchdog
         maintainContext: true
       - name: Optimize conversion between Spark and  Pandas DataFrames
@@ -656,10 +656,10 @@
       - name: User-defined functions - Python
         href: /azure/databricks/spark/latest/spark-sql/udf-python
         maintainContext: true
-      - name: Pandas user-defined Functions
+      - name: Pandas user-defined functions
         href: /azure/databricks/spark/latest/spark-sql/udf-python-pandas
         maintainContext: true
-      - name: Apache Hive Compatibility
+      - name: Apache Hive compatibility
         href: /azure/databricks/spark/latest/spark-sql/compatibility/hive
         maintainContext: true
   - name: R
@@ -764,17 +764,25 @@
         href: /azure/databricks/applications/deep-learning/data-prep/ddl-data
         maintainContext: true
       - name: Load data using Petastorm
-        href: /azure/databricks//applications/deep-learning/data-prep/petastorm
+        href: /azure/databricks/applications/deep-learning/data-prep/petastorm
         maintainContext: true
       - name: Save DataFrames and Datasets to TFRecord files
-        href: /azure/databricks//applications/deep-learning/data-prep/dataset-to-tfrecords
+        href: /azure/databricks/applications/deep-learning/data-prep/dataset-to-tfrecords
         maintainContext: true
       - name: Load data from TFRecord files with TensorFlow
-        href: /azure/databricks//applications/deep-learning/data-prep/tfrecords-to-tensorflow
+        href: /azure/databricks/applications/deep-learning/data-prep/tfrecords-to-tensorflow
         maintainContext: true
       - name: Save data to TFRecord files with TensorFlow
-        href: /azure/databricks//applications/deep-learning/data-prep/tensorflow-to-tfrecords
+        href: /azure/databricks/applications/deep-learning/data-prep/tensorflow-to-tfrecords
         maintainContext: true
+      - name: Featurization
+        items:
+        - name: Featurization overview
+          href: /azure/databricks/applications/deep-learning/featurization/index
+          maintainContext: true
+        - name: Transfer learning
+          href: /azure/databricks/applications/deep-learning/featurization/transfer-learning-keras
+          maintainContext: true
     - name: Single node training
       items:
       - name: Single node training overview
@@ -832,6 +840,9 @@
       - name: Model inference performance tuning
         href: /azure/databricks/applications/deep-learning/inference/model-inference-performance
         maintainContext: true
+    - name: Reference solution for distributed image model inference
+      href: /azure/databricks/applications/deep-learning/reference-solutions/images-etl-inference
+      maintainContext: true
   - name: MLflow
     items: 
     - name: MLflow overview
@@ -995,13 +1006,13 @@
       - name: Account management overview
         href: /azure/databricks/administration-guide/account-settings/index
         maintainContext: true
-      - name: Manage Your Subscription
+      - name: Manage your subscription
         href: /azure/databricks/administration-guide/account-settings/account
         maintainContext: true
       - name: Diagnostic logging in Azure Databricks
         href: /azure/databricks/administration-guide/account-settings/azure-diagnostic-logs
         maintainContext: true
-    - name: Manage Users and Groups
+    - name: Manage users and groups
       items:
       - name: Users and groups overview
         href: /azure/databricks/administration-guide/users-groups/index
@@ -1061,6 +1072,17 @@
     - name: Manage workspace storage
       href: /azure/databricks/administration-guide/workspace-storage/storage
       maintainContext: true
+    - name: Enable cluster configurations
+      items:
+      - name: Cluster configuration overview
+        href: /azure/databricks/administration-guide/clusters/index
+        maintainContext: true
+      - name: Enable Container Services
+        href: /azure/databricks/administration-guide/clusters/container-services
+        maintainContext: true
+      - name: Enable Databricks Runtime for Genomics
+        href: /azure/databricks/administration-guide/clusters/genomics-runtime
+        maintainContext: true
     - name: Manage virtual networks
       items:
       - name: Virtual networks overview
@@ -1084,7 +1106,7 @@
   - name: Troubleshooting
     items:
     - name: Common questions
-      href: /azure/databricks//azure/azure-databricks/frequently-asked-questions-databricks
+      href: /azure/azure-databricks/frequently-asked-questions-databricks
       maintainContext: true
     - name: Administration
       items: 
@@ -1126,9 +1148,6 @@
         maintainContext: true 
       - name: Configuration setting overwrites default  settings
         href: /azure/databricks/kb/clusters/conf-overwrites-default-settings
-        maintainContext: true 
-      - name: Run JNI libraries on single-core executors
-        href: /azure/databricks/kb/clusters/multiple-executors-single-worker
         maintainContext: true 
       - name: Overwrite log4j configurations
         href: /azure/databricks/kb/clusters/overwrite-log4j-logs
@@ -1516,11 +1535,37 @@
     href: /azure/databricks/dev-tools/databricks-utils
     maintainContext: true
   - name: Databricks CLI
-    href: /azure/databricks/dev-tools/databricks-cli
-    maintainContext: true
-  - name: Stack CLI
-    href: /azure/databricks/dev-tools/stack
-    maintainContext: true
+    items:
+    - name: Databricks CLI overview
+      href: /azure/databricks/dev-tools/cli/index
+      maintainContext: true
+    - name: Clusters
+      href: /azure/databricks/dev-tools/cli/clusters-cli
+      maintainContext: true
+    - name: DBFS
+      href: /azure/databricks/dev-tools/cli/dbfs-cli
+      maintainContext: true
+    - name: Groups
+      href: /azure/databricks/dev-tools/cli/groups-cli
+      maintainContext: true
+    - name: Instance pools
+      href: /azure/databricks/dev-tools/cli/instance-pools-cli
+      maintainContext: true
+    - name: Jobs
+      href: /azure/databricks/dev-tools/cli/jobs-cli
+      maintainContext: true
+    - name: Libraries
+      href: /azure/databricks/dev-tools/cli/libraries-cli
+      maintainContext: true
+    - name: Secrets
+      href: /azure/databricks/dev-tools/cli/secrets-cli
+      maintainContext: true
+    - name: Stack
+      href: /azure/databricks/dev-tools/cli/stack-cli
+      maintainContext: true
+    - name: Workspace
+      href: /azure/databricks/dev-tools/cli/workspace-cli
+      maintainContext: true
   - name: Azure Databricks REST API
     href: /rest/api/databricks
   - name: Resource Manager template
@@ -1533,6 +1578,9 @@
       items:
       - name: Platform release notes 
         href: /azure/databricks/release-notes/product/index
+        maintainContext: true
+      - name: December 2019
+        href: /azure/databricks/release-notes/product/2019/december
         maintainContext: true
       - name: November 2019
         href: /azure/databricks/release-notes/product/2019/november
@@ -1615,6 +1663,9 @@
             maintainContext: true
           - name: Databricks Runtime 6.2 ML
             href: /azure/databricks/release-notes/runtime/6.2ml
+            maintainContext: true
+          - name: Databricks Runtime 6.2 Genomics
+            href: /azure/databricks/release-notes/runtime/6.2genomics
             maintainContext: true
           - name: Databricks Runtime 6.1
             href: /azure/databricks/release-notes/runtime/6.1

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory authentication and authorization error codes | Microsoft Docs
+title: Azure AD authentication & authorization error codes
 description: Learn about the AADSTS error codes that are returned from the Azure AD security token service (STS).
 services: active-directory
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Authentication and authorization error codes
+# Azure AD Authentication and authorization error codes
 
 Looking for info about the AADSTS error codes that are returned from the Azure Active Directory (Azure AD) security token service (STS)? Read this document to find AADSTS error descriptions, fixes, and some suggested workarounds.
 

@@ -1,12 +1,9 @@
 ---
-title: Exchange messages with Azure Service Bus - Azure Logic Apps
-description: Send and receive messages by using Azure Service Bus in Azure Logic Apps
+title: Exchange messages with Azure Service Bus
+description: Create automated tasks and workflows that send and receive messages by using Azure Service Bus in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
