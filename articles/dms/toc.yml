@@ -78,6 +78,8 @@
       href: known-issues-azure-postgresql-online.md
     - name: Known Issues - Online migration from Oracle to Azure DB for PostgreSQL–Single server
       href: known-issues-oracle-azure-postgresql-online.md
+    - name: Known Issues - Using Hyrbid mode
+      href: known-issues-dms-hybrid-mode.md
   - name: Videos
     items:
     - name: Use the Database Migration Guide
