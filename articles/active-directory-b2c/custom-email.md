@@ -318,6 +318,18 @@ The JSON object's structure is defined by the IDs in dot notation of the InputPa
 </ClaimsTransformation>
 ```
 
+## Add DataUri content definition
+
+Add the following ContentDefinition within BuildingBlocks to reference the version 2.0.0 data URI:
+
+```XML
+<ContentDefinitions>
+ <ContentDefinition Id="api.localaccountsignup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+  </ContentDefinition>
+</ContentDefinitions>
+```
+
 ## Make a reference to the DisplayControl
 
 In the final step, add a reference to the DisplayControl you created. Replace your existing `LocalAccountSignUpWithLogonEmail` self-asserted technical profile with the following if you used an earlier version of Azure AD B2C policy. This technical profile uses `DisplayClaims` with a reference to the DisplayControl.
