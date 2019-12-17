@@ -178,10 +178,10 @@ The [configuration](#configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, input) {    
+module.exports = function (context, input) {
     var message = {
          "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
-        from: { email: "sender@contoso.com" },        
+        from: { email: "sender@contoso.com" },
         subject: "Azure news",
         content: [{
             type: 'text/plain',
@@ -195,7 +195,60 @@ module.exports = function (context, input) {
 
 # [Python](#tab/python)
 
-**TODO**
+The following example shows an HTTP-triggered function that sends an email using the SendGrid binding. You can provide default values in the binding configuration. For instance, the *from* email address is configured in *function.json*. 
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "authLevel": "function",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "sendGrid",
+      "name": "sendGridMessage",
+      "direction": "out",
+      "apiKey": "SendGrid_API_Key",
+      "from": "user@example.com"
+    }
+  ]
+}
+```
+
+The following function shows how you can provide custom values for optional properties.
+
+```python
+import logging
+import json
+import azure.functions as func
+
+def main(req: func.HttpRequest, sendGridMessage: func.Out[str]) -> func.HttpResponse:
+
+    value = "Sent from Azure Functions"
+
+    message = {
+        "personalizations": [ {
+          "to": [{
+            "email": "user@contoso.com"
+            }]}],
+        "subject": "Azure Functions email with SendGrid",
+        "content": [{
+            "type": "text/plain",
+            "value": value }]}
+
+    sendGridMessage.set(json.dumps(message))
+
+    return func.HttpResponse(f"Sent")
+```
 
 # [Java](#tab/java)
 
@@ -260,24 +313,26 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-**TODO**
+The [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) annotation allows you to declaratively configure the SendGrid binding by providing configuration values. See the [example](#example) and [configuration](#configuration) sections for more detail.
 
 ---
 
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `SendGrid` attribute.
+The following table lists the binding configuration properties available in the  *function.json* file and the `SendGrid` attribute/annotation.
 
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type**|| Required - must be set to `sendGrid`.|
-|**direction**|| Required - must be set to `out`.|
-|**name**|| Required - the variable name used in function code for the request or request body. This value is ```$return``` when there is only one return value. |
-|**apiKey**|**ApiKey**| The name of an app setting that contains your API key. If not set, the default app setting name is "AzureWebJobsSendGridApiKey".|
-|**to**|**To**| the recipient's email address. |
-|**from**|**From**| the sender's email address. |
-|**subject**|**Subject**| the subject of the email. |
-|**text**|**Text**| the email content. |
+| *function.json* property | Attribute/annotation property | Description | Optional |
+|--------------------------|-------------------------------|-------------|----------|
+|`type`|| Must be set to `sendGrid`.| No |
+|`direction`|| Must be set to `out`.| No |
+|`name`|| The variable name used in function code for the request or request body. This value is `$return` when there is only one return value. |  No |
+|`apiKey`|`ApiKey`| The name of an app setting that contains your API key. If not set, the default app setting name is *AzureWebJobsSendGridApiKey*.| No |
+|`to`|`To`| The recipient's email address. | Yes |
+|`from`|`From`| The sender's email address. |  Yes |
+|`subject`|`Subject`| The subject of the email. | Yes |
+|`text`|`Text`| The email content. | Yes |
+
+Optional properties may have default values defined in the binding and either added or overridden programmatically.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
