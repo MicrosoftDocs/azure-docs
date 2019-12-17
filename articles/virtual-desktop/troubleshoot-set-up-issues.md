@@ -93,12 +93,13 @@ To verify:
 
 1. Exit the current Azure Marketplace deployment offering.
 2. In the top search bar, search for and select **Activity Log**.
-   ![Screenshot of Activity Log](media/troubleshooting-marketplace-validation-error-activity-log.png)
 3. Find an activity named **Validate Deployment** that has a status of **Failed** and select the activity.
    ![Screenshot of individual **Validate Deployment** activity with a **Failed** status](media/troubleshooting-marketplace-validation-error-activity-summary.png)
+
 4. Select JSON, then scroll down to the bottom of the screen until you see the "statusMessage" field.
-5. In this example, the failed deployment was requesting 16 cores of the H VM SKU when the subscription has a quota of 8.
    ![Screenshot of failed activity, with a red box around the statusMessage property of the JSON text.](media/troubleshooting-marketplace-validaiton-error-json-boxed.png)
+   
+5. In this example, the failed deployment was requesting 16 cores of the H VM SKU when the subscription has a quota of 8.
 
 **Fix 1**: Re-run the Azure Marketplace with similar parameters, but with fewer VMs and VM cores to stay under the quota.
 
