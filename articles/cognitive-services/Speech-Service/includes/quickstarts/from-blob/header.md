@@ -13,7 +13,7 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
-In this quickstart you will use the [Batch Transcription REST API](../../../batch-transcription.md) to recognize speech stored in a [SAS blob](https://aka.ms/ignite2019/speech/placeholder). After satisfying a few prerequisites, recognizing speech using a REST API only takes a few steps:
+In this quickstart, you will use the [Batch Transcription REST API](../../../batch-transcription.md) to recognize speech from audio files stored in a [SAS blob](../../../../../storage/common/storage-sas-overview.md). After satisfying a few prerequisites, recognizing speech using a REST API only takes a few steps:
 > [!div class="checklist"]
 > * Send the JSON request to the Speech service to begin transcribing speech.
 > * Check the status of the transcription.
