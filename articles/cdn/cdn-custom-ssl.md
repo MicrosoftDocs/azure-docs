@@ -203,7 +203,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add verification@digicert.com to its whitelist. If you don't receive an email within 24 hours, contact Microsoft support.
+You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add verification@digicert.com to its allow list. If you don't receive an email within 24 hours, contact Microsoft support.
     
 ![Domain validation email](./media/cdn-custom-ssl/domain-validation-email.png)
 
@@ -317,7 +317,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 7. *How do cert renewals work with Bring Your Own Certificate?*
 
-    To ensure a newer certificate is deployed to PoP infrastructure, simply upload your new certificate to Azure KeyVault, and then in your SSL settings on Azure CDN, choose the newest certificate version and hit save. Azure CDN will then propogate your new updated cert. 
+    To ensure a newer certificate is deployed to PoP infrastructure, simply upload your new certificate to Azure KeyVault, and then in your SSL settings on Azure CDN, choose the newest certificate version and hit save. Azure CDN will then propagate your new updated cert. 
 
 ## Next steps
 
