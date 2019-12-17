@@ -58,6 +58,8 @@ If your machine has limited internet access, ensure that firewall settings on th
 * 20.190.128.0/18
 * 40.126.0.0/18
 
+Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
+
 ## Create a Recovery Services vault
 
 A Recovery Services vault stores all the backups and recovery points you create over time, and contains the backup policy applied to backed up machines. Create a vault as follows:
