@@ -1,7 +1,7 @@
 ---
-title: Using user-defined schemas in SQL Analytics | Microsoft Docs
-description: Tips for using T-SQL user-defined schemas in Azure SQL Analytics for developing solutions.
-services: synapse analytics 
+title: Using user-defined schemas
+description: Tips for using T-SQL user-defined schemas in SQL Analytics for developing solutions.
+services: synapse-analytics 
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -117,4 +117,4 @@ FROM    [edw].customer
 
 ## Next steps
 
-For more development tips, see [SQL analytics development overview](azure-synapse-development-overview.md).
+For more development tips, see [SQL analytics development overview](development-overview.md).

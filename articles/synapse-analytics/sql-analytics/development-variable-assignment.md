@@ -1,7 +1,7 @@
 ---
-title: Assign variables in Azure SQL analytics | Microsoft Docs
-description: Tips for assigning T-SQL variables in Azure SQL analytics for developing solutions.
-services: synapse analytics
+title: Assign variables
+description: Tips for assigning T-SQL variables in Azure Synapse Analytics for developing solutions.
+services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -61,4 +61,4 @@ You cannot use UPDATE for variable assignment.
 
 ## Next steps
 
-For more development tips, see [SQL analytics development overview](azure-synapse-development-overview.md).
+For more development tips, see [SQL analytics development overview](development-overview.md).

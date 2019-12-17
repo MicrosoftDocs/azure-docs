@@ -346,9 +346,9 @@ For more development tips, see [SQL data warehouse development overview][SQL Dat
 <!--Article references-->
 [Create a SQL Analytics data warehouse]: sql-data-warehouse-get-started-provision.md
 [Load data into SQL Analytics data warehouse]: sql-data-warehouse-overview-load.md
-[SQL Analytics data warehouse development overview]:../synapse-analytics/sql-analytics/azure-synapse-development-overview.md
+[SQL Analytics data warehouse development overview]:../synapse-analytics/sql-analytics/development-overview.md
 [manage columnstore indexes]: sql-data-warehouse-tables-index.md
-[Statistics]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-statistics.md
+[Statistics]:../synapse-analytics/sql-analytics/development-tables-statistics.md
 [CTAS]: sql-data-warehouse-develop-ctas.md
 [label]:../synapse-analytics/sql-analytics/development-label.md
 

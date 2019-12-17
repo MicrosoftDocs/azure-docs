@@ -113,7 +113,7 @@ Now that a connection has been established to your database, you'll write a quer
     ![Query results][6]
 
 ## Next steps
-Now that you can connect and query, try [visualizing the data with Power BI][visualizing the data with PowerBI].
+Now that you can connect and query, try [visualizing the data with Power BI][visualizing the data with Power BI].
 
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL analytics][Authenticate to SQL analytics].
 

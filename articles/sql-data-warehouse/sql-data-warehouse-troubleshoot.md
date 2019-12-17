@@ -90,16 +90,16 @@ For more help in finding solution to your issue, here are some other resources y
 [Provisioning instructions]: sql-data-warehouse-get-started-provision.md
 [Configure server firewall access for your client IP]: sql-data-warehouse-get-started-provision.md
 [SQL Data Warehouse best practices]: sql-data-warehouse-best-practices.md
-[Table sizes]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-overview.md#table-size-queries
-[Unsupported table features]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-overview.md#unsupported-table-features
-[Unsupported data types]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-data-types.md#unsupported-data-types
-[Overview]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-overview.md
-[Data types]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-data-types.md
+[Table sizes]:../synapse-analytics/sql-analytics/development-tables-overview.md#table-size-queries
+[Unsupported table features]:../synapse-analytics/sql-analytics/development-tables-overview.md#unsupported-table-features
+[Unsupported data types]:../synapse-analytics/sql-analytics/development-tables-data-types.md#unsupported-data-types
+[Overview]:../synapse-analytics/sql-analytics/development-tables-overview.md
+[Data types]:../synapse-analytics/sql-analytics/development-tables-data-types.md
 [Distribute]: sql-data-warehouse-tables-distribute.md
 [Index]: sql-data-warehouse-tables-index.md
 [Partition]: sql-data-warehouse-tables-partition.md
-[Statistics]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-statistics.md
-[Temporary]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-temporary.md
+[Statistics]:../synapse-analytics/sql-analytics/development-tables-statistics.md
+[Temporary]:../synapse-analytics/sql-analytics/development-tables-temporary.md
 [Poor columnstore index quality]: sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Workload management]: resource-classes-for-workload-management.md
@@ -114,7 +114,7 @@ For more help in finding solution to your issue, here are some other resources y
 <!--MSDN references-->
 [sys.database_principals]: /sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql
 [CREATE FUNCTION]: /sql/t-sql/statements/create-function-sql-data-warehouse
-[sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
+[sqlcmd]:../synapse-analytics/sql-analytics/get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/

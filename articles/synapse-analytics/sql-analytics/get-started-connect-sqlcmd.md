@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure SQL Analytics sqlcmd | Microsoft Docs
-description: Use sqlcmd command-line utility to connect to and query an Azure SQL Analytics.
+title: Connect using sqlcmd
+description: Use the sqlcmd command-line utility to connect to and query an Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
