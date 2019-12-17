@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 12/17/2019
 ms.author: erhopf
 ---
 
@@ -61,7 +61,7 @@ Use this table to ensure that your audio files are formatted correctly for use w
 | Maximum archive size | 2 GB |
 
 > [!TIP]
-> When uploading training and testing data, the .zip file size cannot exceed 2 GB. If you require more data for training and testing, divide it into several .zip files and upload them separately. Later, you can choose to train and test from *multiple* datasets.
+> When uploading training and testing data, the .zip file size cannot exceed 2 GB. If you require more data for training, divide it into several .zip files and upload them separately. Later, you can choose to train from *multiple* datasets. However, you can only test from a *single* dataset.
 
 If your audio doesn’t satisfy these properties or you want to check if it does, we suggest downloading [sox](http://sox.sourceforge.net) to check or convert the audio. Below are some examples of how each of these activities can be done through the command line:
 
@@ -144,7 +144,7 @@ This includes examples of a spoken utterance, and a custom pronunciation for eac
 
 | Recognized/displayed form | Spoken form |
 |--------------|--------------------------|
-| 3CPO | three c p o |  
+| 3CPO | three c p o |
 | CNTK | c n t k |
 | IEEE | i triple e |
 
