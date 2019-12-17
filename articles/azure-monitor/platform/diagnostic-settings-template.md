@@ -33,6 +33,12 @@ Depending on the [destinations](diagnostic-settings.md#destinations) for the dia
     "description": "Name of the Storage Account in which platform logs should be saved."
   }
 },
+"resourceName": {
+  "type": "string",
+  "metadata": {
+    "description": "Name of the resource you are creating the diagnostic setting for."
+  }
+},
 "eventHubAuthorizationRuleId": {
   "type": "string",
   "metadata": {
@@ -59,8 +65,8 @@ In the resources array of the resource for which you want to create the diagnost
 ```json
 "resources": [
   {
-    "type": "providers/diagnosticSettings",
-    "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
+    "type": "[concat(parameters('resourceName'),'/diagnosticSettings')]"
+    "name": "[concat(parameters('resourceName'),'Microsoft.Insights/', parameters('settingName'))]",
     "dependsOn": [
       "[/*resource Id for which resource logs will be enabled>*/]"
     ],
