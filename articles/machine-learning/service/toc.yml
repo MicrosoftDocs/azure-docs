@@ -330,6 +330,9 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+  - name: Setup authentication
+    displayName: authentication, auth, oauth
+    href: how-to-setup-authentication.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
