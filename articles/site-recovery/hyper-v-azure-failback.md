@@ -21,7 +21,7 @@ This article describes how to fail back Azure VMs that were created after failov
 
 ## Before you start
 
-1. [Review the types of failback](concepts-types-of-failback.md) you can use - original location recovery and alternate location recovery.
+1. [Review the types of failback](failover-failback-overview.md#hyper-v-reprotectionfailback) you can use - original location recovery and alternate location recovery.
 2. Ensure that the Azure VMs are using a storage account and not managed disks. Failback of Hyper-V VMs replicated using managed disks isn't supported.
 3. Check that the on-premises Hyper-V host (or System Center VMM server if you're using with Site Recovery) is running and connected to Azure. 
 4. Make sure that failover and commit are complete for the VMs. You don't need to set up any specific Site Recovery components for failback of Hyper-V VMs from Azure.
