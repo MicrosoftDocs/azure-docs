@@ -1,5 +1,5 @@
 ---
-title: 'Application upgrade: upgrade parameters 
+title: 'Application upgrade: upgrade parameters' 
 description: Describes parameters related to upgrading a Service Fabric application, including health checks to perform and policies to automatically undo the upgrade.
 
 ms.topic: conceptual

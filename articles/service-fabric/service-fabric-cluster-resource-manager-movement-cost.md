@@ -1,5 +1,5 @@
 ---
-title: 'Service Fabric Cluster Resource Manager: Movement cost 
+title: 'Service Fabric Cluster Resource Manager: Movement cost'
 description: Overview of movement cost for Service Fabric services
 author: masnider
 
