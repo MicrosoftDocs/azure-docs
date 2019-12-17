@@ -114,11 +114,7 @@ public HomeController(Microsoft.Extensions.Configuration.IConfiguration configur
         throw new ArgumentNullException("Subdomain is null! Did you add that info to secrets.json?");
     }
 }
-```
 
-Now we will create a function that uses these Azure AD values to acquire an authentication token. After the code that you added above, add the following code.
-
-```csharp
 /// <summary>
 /// Get an Azure AD authentication token
 /// </summary>
@@ -134,11 +130,7 @@ private async Task<string> GetTokenAsync()
 
     return authResult.AccessToken;
 }
-```
 
-Now, we will create a function that will return a token and the subdomain to the web app. After the code that you added above, add the following code.
-
-```csharp
 [HttpGet]
 public async Task<JsonResult> GetTokenAndSubdomain()
 {
@@ -158,6 +150,11 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 ```
 
 ## Add sample content
+First, open _Views\Shared\Layout.cshtml_. Before the line ```</head>```, add the following code:
+
+```html
+@RenderSection("Styles", required: false)
+```
 
 Now, we'll add sample content to this web app. Open _Views\Home\Index.cshtml_ and replace all automatically generated code with this sample:
 
@@ -166,7 +163,20 @@ Now, we'll add sample content to this web app. Open _Views\Home\Index.cshtml_ an
     ViewData["Title"] = "Immersive Reader C# Quickstart";
 }
 
+@section Styles {
+    <style type="text/css">
+        .immersive-reader-button {
+            background-color: white;
+            margin-top: 5px;
+            border: 1px solid black;
+            float: right;
+        }
+    </style>
+}
+
 <div class="container">
+    <button class="immersive-reader-button" data-button-style="iconAndText" data-locale="en"></button>
+
     <h1 id="ir-title">About Immersive Reader</h1>
     <div id="ir-content" lang="en-us">
         <p>
@@ -210,17 +220,86 @@ Now, we'll add sample content to this web app. Open _Views\Home\Index.cshtml_ an
         </p>
     </div>
 </div>
-
-
-@section Scripts
-{
-    <script src="https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.3.js"></script>
-}
 ```
 
 Notice that all of the text has a **lang** attribute which describes the languages of the text. This helps the Immersive Reader provide relevant language and grammar features.
 
-### Build and run the app
+## Add Javascript to handle launching the Immersive Reader
+
+The The Immersive Reader library provides functionality such as launching the Immersive Reader, and rendering Immersive Reader buttons. Learn more [here](https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference).
+
+At the bottom of _Views\Home\Index.cshtml_, add the following code:
+
+```html
+
+@section Scripts
+{
+    <script src="https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.3.js"></script>
+    <script>
+        function getTokenAndSubdomainAsync() {
+            return new Promise(function (resolve, reject) {
+                $.ajax({
+                    url: "@Url.Action("GetTokenAndSubdomain", "Home")",
+                    type: "GET",
+                    success: function (data) {
+                        if (data.error) {
+                            reject(data.error);
+                        } else {
+                            resolve(data);
+                        }
+                    },
+                    error: function (err) {
+                        reject(err);
+                    }
+                });
+            });
+        }
+    
+        $(".immersive-reader-button").click(function () {
+            handleLaunchImmersiveReader();
+        });
+    
+        function handleLaunchImmersiveReader() {
+            getTokenAndSubdomainAsync()
+                .then(function (response) {
+                    const token = response["token"];
+                    const subdomain = response["subdomain"];
+    
+                    // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#chunk
+                    const data = {
+                        title: $("#ir-title").text(),
+                        chunks: [{
+                            content: $("#ir-content").html(),
+                            mimeType: "text/html"
+                        }]
+                    };
+    
+                    // Learn more about options https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#options
+                    const options = {
+                        "onExit": exitCallback,
+                        "uiZIndex": 2000
+                    };
+    
+                    ImmersiveReader.launchAsync(token, subdomain, data, options)
+                        .catch(function (error) {
+                            alert("Error in launching the Immersive Reader. Check the console.");
+                            console.log(error);
+                        });
+                })
+                .catch(function (error) {
+                    alert("Error in getting the Immersive Reader token and subdomain. Check the console.");
+                    console.log(error);
+                });
+        }
+    
+        function exitCallback() {
+            console.log("This is the callback function. It is executed when the Immersive Reader closes.");
+        }
+    </script>
+}
+```
+
+## Build and run the app
 
 From the menu bar, select **Debug > Start Debugging**, or press **F5** to start the application.
 
@@ -228,122 +307,9 @@ In your browser, you should see:
 
 ![Sample app](./media/quickstart-result.png)
 
-## Add the Immersive Reader button
-
-Now, we will add an Immersive Reader button which will be used to launch the Immersive Reader. The Immersive Reader library automatically styles Immersive Reader buttons inside of elements which have the class _immersive-reader-button_.
-The Immersive Reader button is available in a variety of styles and languages. Learn more [here](https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#optional-attributes).
-
-In _Views\Home\Index.cshtml_, after the line ```<div class="container">```, add the following code.
-
-```html
-<button class="immersive-reader-button" data-button-style="iconAndText" data-locale="en"></button>
-```
-
-Refresh the webpage in your browser. You should see:
-
-![Immersive Reader Button](./media/button-result.png)
-
-### Style the Immersive Reader button
-
-In this section, we will make the Immersive Reader button have a white background color, float to the right, and set the margins and border.
-
-First, open _Views\Shared\Layout.cshtml_. Before the line ```</head>```, add the following code:
-
-```html
-@RenderSection("Styles", required: false)
-```
-
-Now, open _Views\Home\Index.cshtml_. Above the line ```<div class="container">```, add the following code:
-
-```html
-@section Styles {
-    <style type="text/css">
-        .immersive-reader-button {
-            background-color: white;
-            margin-top: 5px;
-            border: 1px solid black;
-            float: right;
-        }
-    </style>
-}
-```
-
-Refresh the webpage in your browser. You should see:
-
-![Immersive Reader Button After Styling](./media/button-result-styled.png)
-
 ## Launch the Immersive Reader
 
-### Add Javascript to handle launching the Immersive Reader
-Open _Views\Home\Index.cshtml_. Inside of ```@section Scripts```, after the ```<script>``` that we have already added, add the following code:
-
-```html
-<script>
-    function getTokenAndSubdomainAsync() {
-        return new Promise(function (resolve, reject) {
-            $.ajax({
-                url: "@Url.Action("GetTokenAndSubdomain", "Home")",
-                type: "GET",
-                success: function (data) {
-                    if (data.error) {
-                        reject(data.error);
-                    } else {
-                        resolve(data);
-                    }
-                },
-                error: function (err) {
-                    reject(err);
-                }
-            });
-        });
-    }
-
-    $(".immersive-reader-button").click(function () {
-        handleLaunchImmersiveReader();
-    });
-
-    function handleLaunchImmersiveReader() {
-        getTokenAndSubdomainAsync()
-            .then(function (response) {
-                const token = response["token"];
-                const subdomain = response["subdomain"];
-
-                // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#chunk
-                const data = {
-                    title: $("#ir-title").text(),
-                    chunks: [{
-                        content: $("#ir-content").html(),
-                        mimeType: "text/html"
-                    }]
-                };
-
-                // Learn more about options https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#options
-                const options = {
-                    "onExit": exitCallback,
-                    "uiZIndex": 2000
-                };
-
-                ImmersiveReader.launchAsync(token, subdomain, data, options)
-                    .catch(function (error) {
-                        alert("Error in launching the Immersive Reader. Check the console.");
-                        console.log(error);
-                    });
-            })
-            .catch(function (error) {
-                alert("Error in getting the Immersive Reader token and subdomain. Check the console.");
-                console.log(error);
-            });
-    }
-
-    function exitCallback() {
-        console.log("This is the callback function. It is executed when the Immersive Reader closes.");
-    }
-</script>
-```
-
-### Click Immersive Reader Button
-
-Refresh the page. When you click on the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
+When you click on the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
 
 ![Immersive Reader](./media/quickstart-immersive-reader.png)
 
