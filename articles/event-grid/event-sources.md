@@ -163,7 +163,7 @@ Subscribe to Azure SignalR Service events to respond to client connection events
 
 |Title | Description |
 |---------|---------|
-| [React to Azure SignalR Service events by using Event Grid](../machine-learning/concept-event-grid-integration.md) | Overview of integrating Azure SignalR Service with Event Grid. |
+| [React to Azure SignalR Service events by using Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Overview of integrating Azure SignalR Service with Event Grid. |
 | [How to send Azure SignalR Service events to Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Shows how to send  Azure SignalR Service events to an application through Event Grid. |
 | [Event schema](event-schema-azure-signalr.md) | Shows fields in Azure SignalR Service events. |
 
