@@ -105,6 +105,28 @@ landingContent:
             url: service-fabric-diagnostics-oms-syslog.md
 
   # Card
+  - title: Secure your cluster
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Security best practices
+            url: service-fabric-best-practices-security.md
+          - text: Application security
+            url: service-fabric-application-and-service-security.md
+          - text: Cluster security
+            url: service-fabric-cluster-security.md
+          - text: Security controls for Service Fabric
+            url: service-fabric-security-controls.md
+          - text: Service Fabric Secrets Store
+            url: service-fabric-application-secret-store.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect to a secure cluster
+            url: service-fabric-connect-to-secure-cluster.md
+          - text: Use Managed Identity for Service Fabric apps
+            url: configure-existing-cluster-enable-managed-identity-token-service.md
+  
+  # Card
   - title: Manage your cluster
     linkLists:
       - linkListType: how-to-guide
@@ -154,24 +176,3 @@ landingContent:
           - text: Upgrade the Service Fabric runtime
             url: service-fabric-cluster-upgrade-windows-server.md
 
-  # Card
-  - title: Secure your cluster
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Security best practices
-            url: service-fabric-best-practices-security.md
-          - text: Application security
-            url: service-fabric-application-and-service-security.md
-          - text: Cluster security
-            url: service-fabric-cluster-security.md
-          - text: Security controls for Service Fabric
-            url: service-fabric-security-controls.md
-          - text: Service Fabric Secrets Store
-            url: service-fabric-application-secret-store.md
-      - linkListType: how-to-guide
-        links:
-          - text: Connect to a secure cluster
-            url: service-fabric-connect-to-secure-cluster.md
-          - text: Use Managed Identity for Service Fabric apps
-            url: configure-existing-cluster-enable-managed-identity-token-service.md
