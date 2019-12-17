@@ -2087,9 +2087,11 @@ And returns the subject text as a string, for example: `"Hello world"`
 
 <a name="formatNumber"></a>
 
+### formatNumber
+
 Return a number as a string that's based on the specified format.
 
-```
+```text
 formatNumber(<number>, <format>, <locale>?)
 ```
 
