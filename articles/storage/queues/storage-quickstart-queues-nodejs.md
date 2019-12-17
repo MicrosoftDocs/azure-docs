@@ -222,7 +222,7 @@ for (i = 0; i < peekedMessages.peekedMessageItems.length; i++) {
 
 ### Update a message in a queue
 
-Update the contents of a message by calling the [updateMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) method. The `updateMessage` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in values from the response that was saved earlier in the code. The `sendMessageResponse` properties identify which message to update.
+Update the contents of a message by calling the [updateMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) method. The `updateMessage` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in `messageId` and `popReceipt` from the response that was saved earlier in the code. The `sendMessageResponse` properties identify which message to update.
 
 ```javascript
 console.log("\nUpdating the third message in the queue...");
