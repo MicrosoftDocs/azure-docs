@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 11/21/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ---
 
@@ -93,10 +93,17 @@ Document size must be under 5,120 characters per document. You can have up to 1,
 
 ## Structure the request
 
-Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the following **API testing console** links to quickly structure and send one. 
-    
-* [Sentiment Analysis v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
-* [Sentiment Analysis v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
+Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the **API testing console** in the following reference links to quickly structure and send one. 
+
+#### [Version 2](#tab/version-2)
+
+* [Sentiment Analysis v2 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
+
+#### [Version 3 (Public preview)](#tab/version-3)
+
+* [Sentiment Analysis v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
+
+---
 
 Set the HTTPS endpoint for sentiment analysis by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include the correct URL for the version you want to use. For example:
     
