@@ -4,12 +4,12 @@ titleSuffix: Azure Cloud Services
 description: Add tracing messages to an Azure application to help debugging, measuring performance, monitoring, traffic analysis, and more.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
-ms.author: gwallace
+ms.author: tagore
 
 ---
 # Trace the flow of a Cloud Services application with Azure Diagnostics
@@ -67,4 +67,7 @@ After you complete the steps to add the listener, you can add trace statements t
     ```
 3. Add Trace statements where you want to capture information about the state of your application. You can use a variety of methods to format the output of the Trace statement. For more information, see [How to: Add Trace Statements to Application Code](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 4. Save the source file.
+
+
+
 
