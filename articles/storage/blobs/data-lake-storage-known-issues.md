@@ -57,6 +57,7 @@ The following table lists all other features and tools that are not yet supporte
 
 | Feature / Tool    | More information    |
 |--------|-----------|
+| **Account failover** |Not yet supported|
 | **AzCopy** | Version-specific support <br><br>Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.|
 | **Azure Blob Storage lifecycle management policies** | Lifecycle management policies are supported (Preview).  All access tiers are supported. The archive access tier is currently in preview. The deletion of blob snapshots is not yet supported. <br><br> There are currently some bugs affecting lifecycle management policies and the archive access tier.  Sign up for the preview of lifecycle management policies and archive access tier [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   |
 | **Azure Content Delivery Network (CDN)** | Not yet supported|
