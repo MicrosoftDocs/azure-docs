@@ -36,8 +36,8 @@ Before you buy, calculate the total DBU quantity consumed for different workload
 
 You can buy Databricks plans in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). To buy reserved capacity, you must have the owner role for at least one enterprise subscription.
 
-- Currently, pre-purchase is available only for Enterprise Agreement customers.
-- You must be in an Owner role for at least one Enterprise subscription.
+- You must be in an Owner role for at least one Enterprise agreement or a subscription with a pay-as-you-go rate or a Microsoft customer agreement (MCA) subscription. 
+- For EA subscriptions, the Add Reserved Instances option must be enabled in the EA portal. Or, if that setting is disabled, you must be an EA Admin for the subscription.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin of the subscription.
 
 **To Purchase:**
