@@ -12706,6 +12706,56 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/machine-learning/service/concept-automated-ml.md",
+            "redirect_url": "/azure/machine-learning/concept-automated-ml",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/concept-azure-machine-learning-architecture.md",
+            "redirect_url": "/azure/machine-learning/concept-azure-machine-learning-architecture",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/concept-compute-target.md",
+            "redirect_url": "/azure/machine-learning/concept-compute-target",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/concept-data.md",
+            "redirect_url": "/azure/machine-learning/concept-data",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/concept-deep-learning-vs-machine-learning.md",
+            "redirect_url": "/azure/machine-learning/concept-deep-learning-vs-machine-learning",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/concept-designer.md",
+            "redirect_url": "/azure/machine-learning/concept-designer",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/concept-enterprise-security.md",
+            "redirect_url": "/azure/machine-learning/concept-enterprise-security",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/concept-event-grid-integration.md",
+            "redirect_url": "/azure/machine-learning/concept-event-grid-integration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/concept-ml-pipelines.md",
+            "redirect_url": "/azure/machine-learning/concept-ml-pipelines",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/concept-model-management-and-deployment.md",
+            "redirect_url": "/azure/machine-learning/concept-model-management-and-deployment",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
             "redirect_url": "/azure/monitoring/monitoring-solutions",
             "redirect_document_id": false
@@ -44007,6 +44057,6 @@
             "source_path": "articles/virtual-desktop/bandwidth-recommendations.md",
             "redirect_url": "https://docs.microsoft.com/windows-server/remote/remote-desktop-services/network-guidance",
             "redirect_document_id": false
-        },
+        }
     ]
 }
