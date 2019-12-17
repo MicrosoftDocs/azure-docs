@@ -1,12 +1,12 @@
 ---
 title: Apache Kafka REST proxy - Azure HDInsight
-description: This article describes how to create Apache Kafka clusters with a REST proxy for interacting with the cluster over HTTP.
+description: Learn how to perform Apache Kafka operations using a Kafka REST proxy on Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 12/17/2019
 ---
 # Interact with Apache Kafka clusters using a REST proxy
 
