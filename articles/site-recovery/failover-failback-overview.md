@@ -110,8 +110,8 @@ To reprotect and fail back VMware machines and physical servers from Azure to on
 
 Learn more about VMware/physical reprotection and failback:
 - [Review](vmware-azure-reprotect.md#before-you-begin) additional requirements for reprotection and failback.
-- [Deploy](vmware-azure-reprotect.md#deploy-a-process-server-in-azure) a process server in Azure.
-- [Deploy](vmware-azure-reprotect.md#deploy-a-separate-master-target-server) a separate master target server.
+- [Deploy](vmware-azure-prepare-failback.md#deploy-a-process-server-in-azure) a process server in Azure.
+- [Deploy](vmware-azure-prepare-failback.md#deploy-a-separate-master-target-server) a separate master target server.
 
 When you reprotect Azure VMs to on-premises, you can specify that you want to fail back to the original location, or to an alternate location.
 
