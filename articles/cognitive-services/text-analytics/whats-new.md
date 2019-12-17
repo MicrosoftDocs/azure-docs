@@ -30,7 +30,7 @@ The next version of Named Entity Recognition(NER) is now available for public pr
 Entity linking supports English and Spanish. NER language support varies by the entity type. 
 
 > [!div class="nextstepaction"]
-> [Learn more about Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview)
+> [Learn more about Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
 
 ## Sentiment Analysis v3 public preview - October 2019
 
