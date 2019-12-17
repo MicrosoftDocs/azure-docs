@@ -38,7 +38,7 @@ In your Azure IoT Central application, add a new **Windows IoT Core** device tem
    ![Device Template](media/howto-connect-windowsiotcore/adddevicetemplate.png)
    
 
-2. Select **Raspberry Pi** and create the Raspberry Pi device template
+2. Select **Windows IoT Core** and create the Windows IoT Core device template
    ![Add Device template](media/howto-connect-windowsiotcore/newdevicetemplate.png)
 
 For full details on the configuration of the device template, see [Windows IoT Core Device template details](#device-template-details).
