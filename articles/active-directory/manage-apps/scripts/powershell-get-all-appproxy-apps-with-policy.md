@@ -28,7 +28,7 @@ This sample requires the [AzureAD V2 PowerShell for Graph module preview version
 
 ## Sample script
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/application-proxy/get-all-appproxy-apps-with-policy.ps1 "Get all Application Proxy apps with a token lifetime policy")]
+[!code-azurepowershell[main](~/powershell_scripts/application-proxy/get-all-appproxy-apps-with-policy.ps1 "Get all Application Proxy apps with a token lifetime policy")]
 
 ## Script explanation
 
