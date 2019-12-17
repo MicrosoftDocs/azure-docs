@@ -22,6 +22,8 @@ landingContent:
             url: service-fabric-overview.md
           - text: Learn more about Service Fabric
             url: service-fabric-content-roadmap.md
+          - text: Service Fabric programming model overview
+            url: service-fabric-choose-framework.md
       - linkListType: get-started
         links:
           - text: Develop on Windows
@@ -39,6 +41,10 @@ landingContent:
             url: service-fabric-overview-microservices.md
           - text: Application scenarios
             url: service-fabric-application-scenarios.md
+          - text: Guest executables
+            url: service-fabric-guest-executables-introduction.md
+          - text: Reliable Services
+            url: service-fabric-reliable-services-introduction.md
       - linkListType: whats-new
         links:
           - text: Release notes
@@ -53,6 +59,8 @@ landingContent:
             url: service-fabric-quickstart-dotnet.md
           - text: Deploy a Windows container app to Service Fabric
             url: service-fabric-quickstart-containers.md
+          - text: Create a guest executable app on Windows
+            url: quickstart-guest-app.md
       - linkListType: tutorial
         links:
           - text: Create, deploy, and manage a Service Fabric .NET app
@@ -63,10 +71,10 @@ landingContent:
         links:
           - text: Develop apps with Visual Studio
             url: service-fabric-manage-application-in-visual-studio.md
+          - text: Get started with Reliable Services (C# on Windows)
+            url: service-fabric-reliable-services-quick-start.md
           - text: Create Windows clusters in an Azure virtual network
             url: service-fabric-tutorial-create-vnet-and-windows-cluster.md
-          - text: Create a guest executable app on Windows
-            url: quickstart-guest-app.md
           - text: Windows cluster diagnostics
             url: service-fabric-diagnostics-event-aggregation-wad.md
 
@@ -89,6 +97,8 @@ landingContent:
         links:
           - text: Develop apps with Eclipse
             url: service-fabric-get-started-eclipse.md
+          - text: Get started with Reliable Services (Java on Linux)
+            url: service-fabric-reliable-services-quick-start-java.md
           - text: Create Linux clusters in an Azure virtual network
             url: service-fabric-tutorial-create-vnet-and-linux-cluster.md
           - text: Linux cluster diagnostics
@@ -137,6 +147,8 @@ landingContent:
         links:
           - text: Plan for standalone cluster deployment
             url: service-fabric-cluster-standalone-deployment-preparation.md
+          - text: Create a standalone cluster running on Windows Server
+            url: service-fabric-cluster-creation-for-windows-server.md
           - text: Configure periodic backups
             url: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
           - text: Upgrade the Service Fabric runtime
