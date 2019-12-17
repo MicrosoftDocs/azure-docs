@@ -87,9 +87,9 @@ The Windows Virtual Desktop – Provision a host pool template is available from
 
 ![Screenshot of "template deployment ... is not valid" error](media/troubleshooting-marketplace-validaiton-error-generic.png)
 
-**Cause** Creating the number of VMs you defined in the Azure Marketplace offering would exceed the quota for your Azure subscription.
+Before taking specific action, you'll need to check the activity log which has a more detailed error for the failed deployment validation.
 
-To verify:
+To view the error in the activity log:
 
 1. Exit the current Azure Marketplace deployment offering.
 2. In the top search bar, search for and select **Activity Log**.
@@ -98,12 +98,14 @@ To verify:
 
 4. Select JSON, then scroll down to the bottom of the screen until you see the "statusMessage" field.
    ![Screenshot of failed activity, with a red box around the statusMessage property of the JSON text.](media/troubleshooting-marketplace-validaiton-error-json-boxed.png)
-   
-5. In this example, the failed deployment was requesting 16 cores of the H VM SKU when the subscription has a quota of 8.
 
-**Fix 1**: Re-run the Azure Marketplace with similar parameters, but with fewer VMs and VM cores to stay under the quota.
+#### Issue: Operation would exceed quota limit
 
-**Fix 2**: Open the link you see in the **statusMessage** field in a browser to submit a request to increase the quota for your VM SKU.
+In this example, the failed deployment was requesting 16 cores of the H VM SKU when the subscription has a quota of 8.
+
+**Option 1**: Re-run the Azure Marketplace with similar parameters, but with fewer VMs and VM cores to stay under the quota.
+
+**Option 2**: Open the link you see in the **statusMessage** field in a browser to submit a request to increase the quota for your VM SKU.
 
 ## Azure Resource Manager template and PowerShell Desired State Configuration (DSC) errors
 
