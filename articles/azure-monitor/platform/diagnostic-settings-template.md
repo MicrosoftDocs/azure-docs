@@ -66,7 +66,7 @@ In the resources array of the resource for which you want to create the diagnost
 "resources": [
   {
     "type": "[concat(parameters('resourceName'),'/diagnosticSettings')]"
-    "name": "[concat(parameters('resourceName'),'Microsoft.Insights/', parameters('settingName'))]",
+    "name": "[concat(parameters('resourceName'),'/microsoft.insights/', parameters('settingName'))]",
     "dependsOn": [
       "[/*resource Id for which resource logs will be enabled>*/]"
     ],
