@@ -85,7 +85,7 @@ The Windows Virtual Desktop – Provision a host pool template is available from
 
 ### Error: You receive "template deployment is not valid" error
 
-![Screenshot of "template deployment ... is not valid" error](media/troubleshooting-marketplace-validaiton-error-generic.png)
+![Screenshot of "template deployment ... is not valid" error](media/troubleshooting-marketplace-validation-error-generic.png)
 
 Before taking specific action, you'll need to check the activity log to see the detailed error for the failed deployment validation.
 
@@ -97,7 +97,7 @@ To view the error in the activity log:
    ![Screenshot of individual **Validate Deployment** activity with a **Failed** status](media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Select JSON, then scroll down to the bottom of the screen until you see the "statusMessage" field.
-   ![Screenshot of failed activity, with a red box around the statusMessage property of the JSON text.](media/troubleshooting-marketplace-validaiton-error-json-boxed.png)
+   ![Screenshot of failed activity, with a red box around the statusMessage property of the JSON text.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
 #### Issue: Operation would exceed quota limit
 
