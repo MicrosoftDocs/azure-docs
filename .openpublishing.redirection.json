@@ -566,6 +566,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-pattern-roles.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-tutorial-pattern",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-pattern-any.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-tutorial-pattern",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
       "redirect_document_id": false
@@ -24668,7 +24678,7 @@
       "source_path": "articles/storage/common/storage-security-guide.md",
       "redirect_url": "/azure/storage/blobs/security-recommendations",
       "redirect_document_id": true
-    },    
+    },
     {
       "source_path": "articles/storage/storage-service-encryption-customer-managed-keys.md",
       "redirect_url": "/azure/storage/common/storage-service-encryption-customer-managed-keys",
