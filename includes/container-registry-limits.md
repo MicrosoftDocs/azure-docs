@@ -19,7 +19,7 @@ ms.custom: include file
 | WriteOps per minute<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | Download bandwidth MBps<sup>2</sup> | 30 | 60 | 100 |
 | Upload bandwidth MBps<sup>2</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
+| Webhooks | 2 | 10 | 500 |
 | Geo-replication | N/A | N/A | [Supported][geo-replication] |
 | Content trust | N/A | N/A | [Supported][content-trust] |
 | Virtual network access | N/A | N/A | [Preview][vnet] |
