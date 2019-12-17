@@ -78,7 +78,7 @@ To reprotect a failed-over VM, the Azure VM must be running so that Mobility Ser
 
 **The datastore is not accessible from ESXi host.**
 
-Check the [master target prerequisites and supported data stores](vmware-azure-reprotect.md#deploy-a-separate-master-target-server) for failback.
+Check the [master target prerequisites and supported data stores](vmware-azure-prepare-failback.md#deploy-a-separate-master-target-server) for failback.
 
 
 ## Troubleshoot failback errors
