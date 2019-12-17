@@ -59,10 +59,14 @@
     href: https://azure.microsoft.com/blog/topics/blockchain/
   - name: Code samples
     href: https://github.com/Azure-Samples/blockchain
-  - name: Community
+  - name: Community support
     href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
-  - name: Support forum
+  - name: MSDN support forum
     href: https://aka.ms/workbenchforum
+  - name: Community support
+    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
+  - name: Stack Overflow support
+    href: https://stackoverflow.com/questions/tagged/azure-blockchain-workbench
   - name: Product feedback
     href: https://aka.ms/blockchainuservoice
 - name: Solution templates
