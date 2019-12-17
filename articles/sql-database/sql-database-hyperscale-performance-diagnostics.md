@@ -29,7 +29,7 @@ The following wait types (in [sys.dm_os_wait_stats](/sql/relational-databases/sy
 |RBIO_RG_REPLICA        | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the readable secondary replica(s).         |
 |RBIO_RG_LOCALDESTAGE   | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the log service.         |
 
-## Page Server Reads
+## Page server reads
 
 The compute replicas do not cache a full copy of the database locally. The data local to the compute replica is stored in the Buffer Pool (in memory) and in the local Resilient Buffer Pool Extension (RBPEX) cache that is a partial (non-covering) cache of data pages. This local RBPEX cache is sized proportionally to the compute size and is three times the memory of the compute tier. RBPEX is similar to the Buffer Pool in that it has the most frequently accessed data. Each page server, on the other hand, has a covering RBPEX cache for the portion of the database it maintains.
  
@@ -58,7 +58,7 @@ Several DMVs and extended events have columns and fields that specify the number
 > [!NOTE]
 > To view these attributes in the query plan properties window, SSMS 18.3 or later is required.
 
-## Virtual File Stats and IO accounting
+## Virtual file stats and IO accounting
 
 In Azure SQL Database, the [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF is the primary way to monitor SQL Server IO. IO characteristics in Hyperscale are different due to its [distributed architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). In this section, we focus on IO (reads and writes) to data files as seen in this DMF. In Hyperscale, each data file visible in this DMF corresponds to a remote page server. The RBPEX cache mentioned here is a local SSD-based cache, that is a non-covering cache on the compute replica.
 
@@ -70,34 +70,34 @@ Local RBPEX cache exists on the compute replica, on local SSD storage. Thus, IO 
 
 A ratio of reads done on RBPEX to aggregated reads done on all other data files provides RBPEX cache hit ratio.
 
-### Data Reads
+### Data reads
 
 - When reads are issued by the SQL Server engine on a compute replica, they may be served either by the local RBPEX cache, or by remote page servers, or by a combination of the two if reading multiple pages.
 - When the compute replica reads some pages from a specific file, for example file_id 1, if this data resides solely on the local RBPEX cache, all IO for this read is accounted against file_id 0 (RBPEX). If some part of that data is in the local RBPEX cache, and some part is on a remote page server, then IO is accounted towards file_id 0 for the part served from RBPEX, and the part served from the remote page server is accounted towards file_id 1. 
 - When a compute replica requests a page at a particular [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) from a page server, if the page server has not caught up to the LSN requested, the read on the compute replica will wait until the page server catches up before the page is returned to the compute replica. For any read from a page server on the compute replica, you will see the PAGEIOLATCH_* wait type if it is waiting on that IO. In Hyperscale, this wait time includes both the time to catch up the requested page on the page server to the LSN required, and the time needed to transfer the page from the page server to the compute replica.
 - Large reads such as read-ahead are often done using ["Scatter-Gather" Reads](/sql/relational-databases/reading-pages/). This allows reads of up to 4 MB of pages at a time, considered a single read in the SQL Server engine. However, when data being read is in RBPEX, these reads are accounted as multiple individual 8 KB reads, since the buffer pool and RBPEX always use 8 KB pages. As the result, the number of read IOs seen against RBPEX may be larger than the actual number of IOs performed by the engine.
 
-### Data Writes
+### Data writes
 
 - The primary compute replica does not write directly to page servers. Instead, log records from the Log service are replayed on corresponding page servers. 
 - Writes that happen on the compute replica are predominantly writes to the local RBPEX (file_id 0). For writes on logical files that are larger than 8 KB, in other words those done using [Gather-write](/sql/relational-databases/writing-pages/), each write operation is translated into multiple 8 KB individual writes to RBPEX since the buffer pool and RBPEX always use 8 KB pages. As the result, the number of write IOs seen against RBPEX may be larger than the actual number of IOs performed by the engine.
 - Non-RBPEX files, or data files other than file_id 0 that correspond to page servers, also show writes. In the Hyperscale service tier, these writes are simulated, because the compute replicas never write directly to page servers. Write IOPS and throughput are accounted as they occur on the compute replica, but latency for data files other than file_id 0 does not reflect the actual latency of page server writes.
 
-### Log Writes
+### Log writes
 
 - On the primary compute, a log write is accounted for in file_id 2 of sys.dm_io_virtual_file_stats. A log write on primary compute is a write to the log Landing Zone.
-- Log records are not hardened on the secondary replica on a commit. In Hyperscale, log is applied by the Xlog service to the secondary replicas. Because log writes don't actually occur on secondary replicas, any accounting of Log IOs on the secondary replicas is for tracking purposes only.
+- Log records are not hardened on the secondary replica on a commit. In Hyperscale, log is applied by the Log service to the secondary replicas asynchronously. Because log writes don't actually occur on secondary replicas, any accounting of Log IOs on the secondary replicas is for tracking purposes only.
 
 ## Data IO in resource utilization statistics
 
 In a non-Hyperscale database, combined read and write IOPS against data files, relative to the [resource governance](/sql-database-resource-limits-database-server#resource-governance) data IOPS limit, are reported in [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) views, in the `avg_data_io_percent` column. The same value is reported in the portal as _Data IO Percentage_. 
 
-In a Hyperscale database, this column reports on data IOPS utilization relative to the limit for local storage on compute replica only, specifically IO against RBPEX and `tempdb`. A 100% value in this column indicates that resource governance is limiting local storage IOPS. If this is correlated with a performance problem, tune the workload to generate less IO, or increase database service objective to increase the resource governance _Max Data IOPS_ [limit](/sql-database-vcore-resource-limits-single-databases). Note that for resource governance of RBPEX reads and writes, the system counts individual 8 KB IOs, rather than larger IOs that may be issued by the SQL Server engine. 
+In a Hyperscale database, this column reports on data IOPS utilization relative to the limit for local storage on compute replica only, specifically IO against RBPEX and `tempdb`. A 100% value in this column indicates that resource governance is limiting local storage IOPS. If this is correlated with a performance problem, tune the workload to generate less IO, or increase database service objective to increase the resource governance _Max Data IOPS_ [limit](/sql-database-vcore-resource-limits-single-databases). For resource governance of RBPEX reads and writes, the system counts individual 8 KB IOs, rather than larger IOs that may be issued by the SQL Server engine. 
 
 Data IO against remote page servers is not reported in resource utilization views or in the portal, but is reported in the [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF, as noted earlier.
 
 
-## Additional Resources
+## Additional resources
 
 - For vCore resource limits for a Hyperscale single database see [Hyperscale service tier vCore Limits](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5)
 - For Azure SQL Database performance tuning, see [Query performance in Azure SQL Database](sql-database-performance-guidance.md)
