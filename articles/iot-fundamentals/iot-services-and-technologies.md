@@ -13,13 +13,15 @@ ms.author: robinsh
 
 Azure IoT technologies and services provide you with options to create a wide variety of IoT solutions that enable digital transformation for your organization. For example, you can:
 
-- Use an [Azure IoT Central](https://apps.azureiotcentral.com) application platform to deploy a customizable enterprise-grade solution IoT Central includes application templates for specific industries such as retail and energy.
-- Extend the open source code base for an Azure IoT [solution accelerator](https://www.azureiotsolutions.com) to implement a common IoT scenario such as remote monitoring or predictive maintenance.
-- Use Azure IoT technologies and services such as [Azure IoT Hub](../iot-hub/about-iot-hub.md) and the [Azure IoT device SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build a custom IoT solution from scratch. 
+- Use [Azure IoT Central](https://apps.azureiotcentral.com), a managed IoT application platform, to build and deploy a secure, enterprise-grade IoT solution. IoT Central features a collection of industry-specific application templates, such as retail and healthcare, to accelerate your solution development process.
+- Extend the open-source code base for an Azure IoT [solution accelerator](https://www.azureiotsolutions.com) to implement a common IoT scenario such as remote monitoring or predictive maintenance.
+- Use Azure IoT platform services such as [Azure IoT Hub](../iot-hub/about-iot-hub.md) and the [Azure IoT device SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build a custom IoT solution from scratch.
+
+![Azure IoT technologies, services, and solutions](./media/iot-services-and-technologies/iot-technologies-services.png)
 
 ## Azure IoT Central
 
-The [IoT Central application platform](https://apps.azureiotcentral.com) reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. IoT Central's customizable web UI in lets you monitor device conditions, create rules, and manage millions of devices and their data throughout their life cycle.
+The [IoT Central application platform](https://apps.azureiotcentral.com) reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. IoT Central's customizable web UI in lets you monitor device conditions, create rules, and manage millions of devices and their data throughout their life cycle. The API surface within IoT Central gives you programmatic access to configure and interact with your IoT solution.
 
 Azure IoT Central is a fully managed application platform that you can use to create custom IoT solutions. IoT Central uses application templates to create solutions. There are templates for generic solutions and for specific industries such as energy, healthcare, government, and retail. IoT Central application templates let you deploy an IoT Central application in minutes that you can then customize with themes, dashboards, and views.
 
@@ -38,7 +40,7 @@ Azure IoT solution accelerators provide a high level of control over your IoT so
   - Predictive maintenance
   - Device simulation
 
-The open source code base for all the solution accelerators is available on GitHub. Download the code to customize a solution accelerator to meet your specific IoT requirements.
+The open-source code base for all the solution accelerators is available on GitHub. Download the code to customize a solution accelerator to meet your specific IoT requirements.
 
 The solution accelerators use Azure services such as Azure IoT Hub and Azure Storage that you must manage in your Azure subscription.
 
@@ -54,7 +56,7 @@ You can further simplify how you create the embedded code for your devices by us
 
 [Azure IoT Edge](../iot-edge/about-iot-edge.md) lets you offload parts of your IoT workload from your Azure cloud services to your devices. IoT Edge can reduce latency in your solution, reduce the amount of data your devices exchange with the cloud, and enable off-line scenarios. You can manage IoT Edge devices from IoT Central and some solution accelerators.
 
-[Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere) is a secured, high-level application platform with built-in communication and security features for internet-connected devices. It comprises a secured  microcontroller unit, a custom Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
+[Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere) is a secured, high-level application platform with built-in communication and security features for internet-connected devices. It includes a secured  microcontroller unit, a custom Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
 
 ### Cloud connectivity
 
@@ -75,7 +77,7 @@ Iot Central uses digital twins to synchronize devices and data in the real world
 
 ### Data and analytics
 
-IoT devices typically generate large amounts of time series data, such as temperature readings from sensors. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) can connect to an IoT hub, read the telemetry stream from your devices, stores that data, and enable you to query and visualize the data.
+IoT devices typically generate large amounts of time series data, such as temperature readings from sensors. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) can connect to an IoT hub, read the telemetry stream from your devices, store that data, and enable you to query and visualize it.
 
 ## Next steps
 
