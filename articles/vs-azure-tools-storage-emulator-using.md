@@ -36,13 +36,13 @@ To access the storage emulator from code within a role, you will want to configu
 
 ## Initializing and running the storage emulator
 
-You can specify that when you run or debug your service in Visual Studio, Visual Studio automatically launches the storage emulator. In Solution Explorer, open the shortcut menu for your **Azure** project and choose **Properties**. On the **Development** tab, in the **Start Azure Storage Emulator** list, choose **True** (if it isn't already set to that value).  Some project types do not have the **Development** tab. If that's the case, you can enable or disable the storage emulator startup by setting the `StartDevelopmentStorage` element in the project file.  For example, in an Azure Functions project, open the project file for editing and modify the XML code as follows:
+You can specify that when you run or debug your service in Visual Studio, Visual Studio automatically launches the storage emulator. In Solution Explorer, open the shortcut menu for your **Azure** project and choose **Properties**. On the **Development** tab, in the **Start Azure Storage Emulator** list, choose **True** (if it isn't already set to that value).  Some project types do not have the **Development** tab. If that's the case, you can enable or disable the storage emulator startup by setting the `StartDevelopmentStorage` element in the project file to **True** to enable it, or **False** to disable it.  For example, in an Azure Functions project, open the project file for editing and modify the XML code as follows:
 
 ```xml
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
-    <StartDevelopmentStorage>False</StartDevelopmentStorage>
+    <StartDevelopmentStorage>True</StartDevelopmentStorage>
   </PropertyGroup>
 ```
 
