@@ -154,7 +154,7 @@ With a SendGrid account created and SendGrid API key stored in a Azure AD B2C po
 
 ## Add Azure AD B2C claim types
 
-In your policy, add the following claim types.
+In your policy, add the following claim types to the `<ClaimsSchema>` element within `<BuildingBlocks>`.
 
 These claims types are necessary to generate and verify the email address using a one-time password (OTP) code.
 
@@ -175,6 +175,50 @@ These claims types are necessary to generate and verify the email address using 
 </ClaimType>
 ```
 
+## Add the claims transformation
+
+Add the following claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid. Make the following updates to the claims transformation XML:
+
+* Update the `template_id` InputParameter value with the ID of the SendGrid transactional template you created earlier in [Create SendGrid template](#create-sendgrid-template).
+* Update the `from.email` address value. Use a valid email address to help prevent the verification email from being marked as spam.
+* Update the value of the `personalizations.0.dynamic_template_data.subject` subject line input parameter with a subject line appropriate for your organization.
+
+The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties. For more information about JSON claims transformations, see [JSON claims transformations](json-transformations.md).
+
+Add the following claims transformation to the `<ClaimsTransformations>` element within `<BuildingBlocks>`.
+
+```XML
+<ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
+    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.dynamic_template_data.email" />
+  </InputClaims>
+  <InputParameters>
+    <!-- Update the template_id value with the ID of your SendGrid template. -->
+    <InputParameter Id="template_id" DataType="string" Value="d-989077fbba9746e89f3f6411f596fb96"/>
+    <InputParameter Id="from.email" DataType="string" Value="my_email@mydomain.com"/>
+    <!-- Update with a subject line appropriate for your organization. -->
+    <InputParameter Id="personalizations.0.dynamic_template_data.subject" DataType="string" Value="Contoso account email verification code"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="sendGridReqBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+## Add DataUri content definition
+
+Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](content=definitions.md) to reference the version 2.0.0 data URI:
+
+```XML
+<ContentDefinitions>
+ <ContentDefinition Id="api.localaccountsignup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+  </ContentDefinition>
+</ContentDefinitions>
+```
+
 ## Create a DisplayControl
 
 A verification display control is used to verify the email address with a verification code that's sent to the user.
@@ -188,7 +232,7 @@ This example display control is configured to:
 
 ![Send verification code email action](media/custom-email/display-control-verification-email-action-01.png)
 
-Under [ClaimsSchema](claimsschema.md), add the following [DisplayControl](display-controls.md) of type [VerificationControl](display-control-verification.md) to your policy.
+Under content definitions, still within `<BuildingBlocks>`, add the following [DisplayControl](display-controls.md) of type [VerificationControl](display-control-verification.md) to your policy.
 
 ```XML
 <DisplayControls>
@@ -220,6 +264,8 @@ Under [ClaimsSchema](claimsschema.md), add the following [DisplayControl](displa
 ## Add OTP technical profiles
 
 The `GenerateOtp` technical profile generates a code for the email address. The `VerifyOtp` technical profile verifies the code associated with the email address. You can change the configuration of the format and the expiration of the one-time password. For more information about OTP technical profiles, see [Define a one-time password technical profile](one-time-password-technical-profile.md).
+
+Add the following technical profiles to the `<ClaimsProviders>` element.
 
 ```XML
 <ClaimsProvider>
@@ -267,6 +313,8 @@ The `GenerateOtp` technical profile generates a code for the email address. The 
 
 This REST API technical profile generates the email content (using the SendGrid format). For more information about RESTful technical profiles, see [Define a RESTful technical profile](restful-technical-profile.md).
 
+As with the OTP technical profiles, add the following technical profiles to the `<ClaimsProviders>` element.
+
 ```XML
 <ClaimsProvider>
   <DisplayName>RestfulProvider</DisplayName>
@@ -292,47 +340,6 @@ This REST API technical profile generates the email content (using the SendGrid 
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-```
-
-## Add the claims transformation
-
-Add the following claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid. Make the following updates to the claims transformation XML:
-
-* Update the `template_id` InputParameter value with the ID of the SendGrid transactional template you created earlier in [Create SendGrid template](#create-sendgrid-template).
-* Update the value of the `personalizations.0.dynamic_template_data.subject` subject line input parameter with a subject line appropriate for your organization.
-
-The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties. For more information about JSON claims transformations, see [JSON claims transformations](json-transformations.md).
-
-```XML
-<ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
-    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.dynamic_template_data.email" />
-  </InputClaims>
-  <InputParameters>
-    <!-- Update the template_id value with the ID of your SendGrid template. -->
-    <InputParameter Id="template_id" DataType="string" Value="d-989077fbba9746e89f3f6411f596fb96"/>
-    <InputParameter Id="from.email" DataType="string" Value="my_email@mydomain.com"/>
-    <!-- Update with a subject line appropriate for your organization. -->
-    <InputParameter Id="personalizations.0.dynamic_template_data.subject" DataType="string" Value="Contoso account email verification code"/>
-  </InputParameters>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="sendGridReqBody" TransformationClaimType="outputClaim"/>
-  </OutputClaims>
-</ClaimsTransformation>
-```
-
-## Add DataUri content definition
-
-Add the following ContentDefinition within BuildingBlocks to reference the version 2.0.0 data URI:
-
-```XML
-<ContentDefinitions>
- <ContentDefinition Id="api.localaccountsignup">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
-  </ContentDefinition>
-</ContentDefinitions>
 ```
 
 ## Make a reference to the DisplayControl
