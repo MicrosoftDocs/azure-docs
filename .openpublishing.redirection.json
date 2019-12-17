@@ -556,6 +556,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs.md",
+      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/publish-kb-nodejs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-kb-using-postman.md",
       "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
       "redirect_document_id": false
@@ -24668,7 +24673,7 @@
       "source_path": "articles/storage/common/storage-security-guide.md",
       "redirect_url": "/azure/storage/blobs/security-recommendations",
       "redirect_document_id": true
-    },    
+    },
     {
       "source_path": "articles/storage/storage-service-encryption-customer-managed-keys.md",
       "redirect_url": "/azure/storage/common/storage-service-encryption-customer-managed-keys",
@@ -31767,11 +31772,6 @@
     {
       "source_path": "articles/cognitive-services/QnAMaker/glossary.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/concepts/knowledge-base",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs#publish-a-knowledge-base",
       "redirect_document_id": false
     },
     {
