@@ -59,7 +59,7 @@ root group initially. After elevating access, the administrator can assign any R
 ### Important facts about the Root management group
 
 - By default, the root management group's display name is **Tenant root group**. The ID is the Azure Active Directory ID.
-- To change the display name, your account must be assigned the Owner or Contributor role on the root management group. For the steps to change the name, see [Change the name of a management group](manage.md#change-the-name-of-a-management-group).
+- To change the display name, your account must be assigned the Owner or Contributor role on the root management group. See [Change the name of a management group](manage.md#change-the-name-of-a-management-group) to update the name of a management group.
 - The root management group can't be moved or deleted, unlike other management groups.  
 - All subscriptions and management groups fold up to the one root management group within the directory.
   - All resources in the directory fold up to the root management group for global management.
@@ -129,9 +129,9 @@ The following chart shows the list of roles and the supported actions on managem
 Custom RBAC roles support for management groups is currently in Public Preview.  You are able to define the management group scope in the Role Definition's assignable scope.  That custom RBAC Role will then be available for assignment on that management group and any management group, subscription, resource group, or resource under it. This custom role will inherit down the hierarchy like any built-in role.    
 
 ### Example definition
-[Defining and creating a custom role](custom-roles.md) does not change with the inclusion of management groups. To define the scope of a management group use the full path of **/providers/microsoft.management/managementgroups/<MgID>**. 
+[Defining and creating a custom role](./role-based-access-control/custom-roles.md) does not change with the inclusion of management groups. Use the full path to define the management group **/providers/microsoft.management/managementgroups/<MgID>**. 
 
-Use the management group's ID and not the management group's display name. This is a common error that happens since they are both custom defined fields when creating a management group. 
+Use the management group's ID and not the management group's display name. This common error happens since they are both custom defined fields when creating a management group. 
 
 ```json
 ...
@@ -174,19 +174,19 @@ Let's look a small section of a hierarchy for a visual.
 
 Let's say there is a custom role defined on the Marketing management group. That custom role is then assigned on the two free trial subscriptions.  
 
-If we try to move one of those subscriptions to be a child of the Production management group, this would break the path from subscription role assignment to the Marketing management group role definition. In this scenario you will receive an error saying the move is not allowed since it will break this relationship.  
+If we try to move one of those subscriptions to be a child of the Production management group, this move would break the path from subscription role assignment to the Marketing management group role definition. In this scenario, you will receive an error saying the move is not allowed since it will break this relationship.  
 
-There are a couple different options to fix this:
+There are a couple different options to fix this scenario:
 - Remove the role assignment from the subscription prior to moving the subscription to a new parent MG.
-- Change the assignable scope within the role definition. In the above example you can update the assignable scopes from Marketing to Root Management Group so that the definition can be reach by both branches of the hierarchy.   
-- Create an additional Custom Role that will be defined in the other branch.  This will require the role assignment to be changed on the subscription also.  
+- Change the assignable scope within the role definition. In the above example, you can update the assignable scopes from Marketing to Root Management Group so that the definition can be reach by both branches of the hierarchy.   
+- Create an additional Custom Role that will be defined in the other branch.  This new role will require the role assignment to be changed on the subscription also.  
 
 
 ### Limitations  
 There are a few limitations that exist when using custom roles on management groups within the Public Preview. 
 
  - You can only define one management group in the assignable scopes of a new role.  This limitation is in place to reduce the the number of situations where role definitions and role assignments are disconnected.  This situation happens when a child subscription or management group with a role assignment is moved to a different parent that doesn't have the role definition.   
- - RBAC Data Plane actions are not allowed to be defined in management group custom roles.  This restriction is in place as there is a latency issues with RBAC actions updating the data plane resource providers. Until this latency is reduced to appropriate time frame these actions will be disabled from the role definition to reduce any risks.  We are looking to eliminate any risks in scenarios like a user's write access is removed from a storage resource but it takes 24 hours for that to update.     
+ - RBAC Data Plane actions are not allowed to be defined in management group custom roles.  This restriction is in place as there is a latency issues with RBAC actions updating the data plane resource providers. This latency issue is being worked on an these actions will be disabled from the role definition to reduce any risks.  We are looking to eliminate any risks in scenarios like a user's write access is removed from a storage resource but it takes 24 hours for that to update.     
 
 ## Audit management groups using activity logs
 
