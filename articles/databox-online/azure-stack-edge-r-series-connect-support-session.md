@@ -165,11 +165,11 @@ Do the following steps on the client.
 
     This command generates a 15 character password. Copy the password and use this password to log in to the support session. Here is a sample output:
 
-```powershell
-    PS C:\SupportSessionDecrypter> Get-HcsSupportPassword -EncryptedPassword "UAAAAEMAQgBGADUAQwBFADIAQgA0ADYAMgBBAEQARQBGADkAMgBFADAANgA2ADkANgA3AEMARQBGADMARgA4AEIAMgAzADQARABFADMAMwAzADQAKesIJVfckNe3d9OvWQNru3ZiPQUPzY++ZapnY7MklkT6Vhz7Bb78pkYOgA46WqvMHJDGoAp3emj3pxZITFAITEtnPBIRa+B5+Ta46QiuwuoUNEamm9+pKOBbI75h1sX/xkm0nkeO9lp32xWilFXLhZsdGgWsJ+efwADnwkm5a/b+5FQXKFZCO5XPFN1whpLF8n5CsUQsjo0wTtiDhl6jNmdN8tvrm2iL5XaD1t1/lmDrBZa7X0M3kSScq6rnRsG4I7iWIO3ldrOY4xiQigaIRkoeoTH9dRyPSDDMvXRNwj8lvQVc//+9MljwsvWgCBzmOq54UPsJlVE3HBBfNBBDWQ=="
-    yH2PzmkMfVWrzIx
-    PS C:\SupportSessionDecrypter>
-```
+    ```powershell
+        PS C:\SupportSessionDecrypter> Get-HcsSupportPassword -EncryptedPassword "UAAAAEMAQgBGADUAQwBFADIAQgA0ADYAMgBBAEQARQBGADkAMgBFADAANgA2ADkANgA3AEMARQBGADMARgA4AEIAMgAzADQARABFADMAMwAzADQAKesIJVfckNe3d9OvWQNru3ZiPQUPzY++ZapnY7MklkT6Vhz7Bb78pkYOgA46WqvMHJDGoAp3emj3pxZITFAITEtnPBIRa+B5+Ta46QiuwuoUNEamm9+pKOBbI75h1sX/xkm0nkeO9lp32xWilFXLhZsdGgWsJ+efwADnwkm5a/b+5FQXKFZCO5XPFN1whpLF8n5CsUQsjo0wTtiDhl6jNmdN8tvrm2iL5XaD1t1/lmDrBZa7X0M3kSScq6rnRsG4I7iWIO3ldrOY4xiQigaIRkoeoTH9dRyPSDDMvXRNwj8lvQVc//+9MljwsvWgCBzmOq54UPsJlVE3HBBfNBBDWQ=="
+        yH2PzmkMfVWrzIx
+        PS C:\SupportSessionDecrypter>
+    ```
 
 ## Start the Support session
 

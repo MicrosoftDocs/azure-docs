@@ -35,7 +35,7 @@ Take the following steps in the Azure portal to create a trigger.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Edge compute > Trigger**. Select **+ Add trigger** on the command bar.
 
-    ![Select add trigger](media/azure-stack-edge-r-series-manage-compute/add-trigger-1.png)
+    ![Select add trigger](media/azure-stack-edge-r-series-manage-compute/add-trigger-1m.png)
 
 2. In **Add trigger** blade, provide a unique name for your trigger.
     
@@ -63,15 +63,15 @@ Take the following steps in the Azure portal to delete a trigger.
 
 1. From the list of triggers, select the trigger that you want to delete.
 
-    ![Select trigger](media/azure-stack-edge-r-series-manage-compute/add-trigger-1.png)
+    ![Select trigger](media/azure-stack-edge-r-series-manage-compute/delete-trigger-1.png)
 
 2. Right-click and then select **Delete**.
 
-    ![Select delete](media/azure-stack-edge-r-series-manage-compute/add-trigger-1.png)
+    ![Select delete](media/azure-stack-edge-r-series-manage-compute/delete-trigger-2.png)
 
 3. When prompted for confirmation, click **Yes**.
 
-    ![Confirm delete](media/azure-stack-edge-r-series-manage-compute/add-trigger-1.png)
+    ![Confirm delete](media/azure-stack-edge-r-series-manage-compute/delete-trigger-3.png)
 
 The list of triggers updates to reflect the deletion.
 

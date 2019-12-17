@@ -63,12 +63,16 @@
         href: azure-stack-edge-r-series-manage-access-power-connectivity-mode.md
       - name: Via PowerShell
         href: azure-stack-edge-r-series-connect-powershell-interface.md
+      - name: Update your device
+        href: azure-stack-edge-r-series-install-update.md
+      - name: Set Azure Resource Manager password
+        href: azure-stack-edge-r-series-set-azure-resource-manager-password.md
+      - name: Connect to Support session
+        href: azure-stack-edge-r-series-connect-support-session.md
     - name: Troubleshoot 
       href: azure-stack-edge-r-series-troubleshoot.md
     - name: Contact Microsoft Support
-      href: azure-stack-edge-r-series-placeholder.md
-    - name: Monitor
-      href: azure-stack-edge-r-series-placeholder.md
+      href: azure-stack-edge-r-series-contact-microsoft-support.md
     - name: Return or replace device
       href: azure-stack-edge-r-series-return-device.md
     - name: Deploy Azure services as modules
