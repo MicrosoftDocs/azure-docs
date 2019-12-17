@@ -39,7 +39,7 @@ Adding template utterances as a pattern allows you to provide fewer example utte
 
 A pattern is applied as a combination of expression matching and machine learning.  The template utterance, along with the example utterances, give LUIS a better understanding of what utterances fit the intent.
 
-## Import example app
+## Import example app and clone to new version
 
 Use the following steps:
 
@@ -59,15 +59,15 @@ Use the following steps:
 
     ![Create new message pop-up window](media/luis-tutorial-pattern/hr-create-new-intent-popup.png)
 
-4. Add example utterances to the intent.
+4. Add example utterances to the intent. This utterances are not _exactly_ alike but do have a pattern that can be extracted.
 
     |Example utterances|
     |--|
-    |Who is John W. Smith the subordinate of?|
-    |Who does John W. Smith report to?|
-    |Who is John W. Smith's manager?|
-    |Who does Jill Jones directly report to?|
-    |Who is Jill Jones supervisor?|
+    |`Who is John W. Smith the subordinate of?`|
+    |`Who does John W. Smith report to?`|
+    |`Who is John W. Smith's manager?`|
+    |`Who does Jill Jones directly report to?`|
+    |`Who is Jill Jones supervisor?`|
 
     [![Screenshot of LUIS adding new utterances to intent](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Screenshot of LUIS adding new utterances to intent")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
