@@ -79,7 +79,7 @@ The Azure portal can also help you verify your charges. To get a quick overview 
 
    ![Cost history view in Azure portal](./media/review-individual-bill/cost-history-view.png)
 
-To learn more, see [Prevent unexpected costs with Azure billing and cost management](../../active-directory/develop/getting-started.md#costs).
+To learn more, see [Prevent unexpected costs with Azure billing and cost management](../manage/getting-started.md#costs).
 
 ## <a name="external"></a>External services billed separately
 
@@ -125,7 +125,7 @@ To check the status of your payment, [create a support ticket](https://portal.az
   - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/)
   - [Total cost of ownership calculator](https://aka.ms/azure-tco-calculator)
   - [Detailed pricing information for each service](https://azure.microsoft.com/pricing/)
-- [Review your usage and costs regularly in the Azure portal](../../active-directory/develop/getting-started.md#costs)
+- [Review your usage and costs regularly in the Azure portal](../manage/getting-started.md#costs)
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
@@ -140,4 +140,4 @@ If you have questions or need help,  [create a support request](https://go.micro
 - [Understand terms on your Microsoft Azure invoice](understand-invoice.md)
 - [Understand terms on your Microsoft Azure detailed usage](understand-usage.md)
 - [Azure portal cost management](https://docs.microsoft.com/azure/billing/billing-getting-started)
-- [Prevent unexpected costs with Azure billing and cost management](../../active-directory/develop/getting-started.md#costs)
+- [Prevent unexpected costs with Azure billing and cost management](../manage/getting-started.md#costs)
