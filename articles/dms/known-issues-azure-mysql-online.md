@@ -9,7 +9,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019" "seo-dt-2019"
+ms.custom: "seo-lt-2019";"seo-dt-2019"
 ms.topic: article
 ms.date: 11/08/2019
 ---
