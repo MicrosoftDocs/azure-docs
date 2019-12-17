@@ -78,7 +78,7 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [Understand the charges on your billing profile's invoice](mca-understand-your-bill.md)
+- [Understand the charges on your billing profile's invoice](review-customer-agreement-bill.md)
 - [How to get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md)
 - [View your organization's Azure pricing](../manage/ea-pricing.md)
 - [View tax documents for your billing profile](mca-download-tax-document.md)

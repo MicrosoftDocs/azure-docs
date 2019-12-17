@@ -76,7 +76,7 @@ To learn more about your invoice and usage charges, see:
 If you have a Microsoft Customer Agreement, see:
 
 - [Understand terms on your Microsoft Customer Agreement Azure detailed usage](mca-understand-your-usage.md)
-- [Understand the charges on your Microsoft Customer Agreement invoice](mca-understand-your-bill.md)
+- [Understand the charges on your Microsoft Customer Agreement invoice](review-customer-agreement-bill.md)
 - [View and download your Microsoft Azure invoice](download-azure-invoice.md)
 - [View and download tax documents for your Microsoft Customer Agreement](mca-download-tax-document.md)
 - [View and download your organization's Azure pricing](../manage/ea-pricing.md)

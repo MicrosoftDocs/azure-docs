@@ -51,11 +51,11 @@ You use your billing profile to track charges and Azure credits balance for your
 
 To learn how to view credit balance for a billing profile, see [track Azure credit balance for your billing profile](mca-check-azure-credits-balance.md).
 
-To learn how to view charges for a billing profile, see [understand the charges on your Microsoft Customer Agreement's invoice](../understand/mca-understand-your-bill.md).
+To learn how to view charges for a billing profile, see [understand the charges on your Microsoft Customer Agreement's invoice](../understand/review-customer-agreement-bill.md).
 
 ### View charges for a department
 
-An invoice section is created for each department you had in your Enterprise Agreement. You can view charges for an invoice section in the Azure portal. For more information, see [view transactions by invoice sections](../understand/mca-understand-your-bill.md#view-transactions-by-invoice-sections).
+An invoice section is created for each department you had in your Enterprise Agreement. You can view charges for an invoice section in the Azure portal. For more information, see [view transactions by invoice sections](../understand/review-customer-agreement-bill.md#view-transactions-by-invoice-sections).
 
 ### View charges for an account
 

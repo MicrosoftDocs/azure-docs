@@ -127,7 +127,7 @@ UsageStart | Date
 
 To learn more about detailed usage and charges, read about how to understand your
 [pay-as-you-go](review-individual-bill.md)
-or [Microsoft Customer Agreement](mca-understand-your-bill.md) invoice.
+or [Microsoft Customer Agreement](review-customer-agreement-bill.md) invoice.
 
 ## Need help? Contact us.
 

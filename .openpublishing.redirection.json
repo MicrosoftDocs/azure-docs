@@ -26090,6 +26090,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cost-management-billing/understand/mca-understand-your-bill.md",
+            "redirect_url": "/azure/cost-management-billing/understand/understand/review-customer-agreement-bill",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cost-management-billing/costs/overview-cost-mgt.md",
             "redirect_url": "/azure/cost-management-billing/cost-management-billing-overview",
             "redirect_document_id": false
