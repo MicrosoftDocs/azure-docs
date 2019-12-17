@@ -54,7 +54,7 @@ To delete everything for the service, including the locked infrastructure resour
 ![Delete service](./media/resource-group-lock-resources/delete-service.png)
 
 ## Portal
-[!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
+[!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
 ## Template
 
