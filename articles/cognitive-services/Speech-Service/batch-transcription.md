@@ -1,5 +1,5 @@
 ---
-title: How to use Batch transcription - Speech service
+title: How to use batch transcription - Speech service
 titleSuffix: Azure Cognitive Services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
@@ -12,16 +12,16 @@ ms.date: 12/17/2019
 ms.author: panosper
 ---
 
-# How to use Batch transcription?
+# How to use batch transcription
 
-Batch transcription is ideal for transcribing large quantity of audio in storage. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results.
+Batch transcription is ideal for transcribing a large amount of audio in storage. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results.
 
-The API offers asynchronous speech-to-text transcription, along with additional features. It is a REST API that exposes methods to:
+The API offers asynchronous speech-to-text transcription and other features. You can use REST API to expose methods to:
 
-1. Create a batch processing requests
-1. Query the status
-1. Download transcription results
-1. Delete transcription information from the service
+- Create a batch processing requests
+- Query the status
+- Download transcription results
+- Delete transcription information from the service
 
 The detailed API is available as a [Swagger document](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), under the heading `Custom Speech transcriptions`.
 
@@ -185,7 +185,7 @@ To request that your audio transcription request is processed for diarization, y
 }
 ```
 
-Word level timestamps would also have to be 'turned on' as the parameters in the above request indicate.
+Word-level timestamps would also have to be 'turned on' as the parameters in the above request indicate.
 
 ## Sentiment analysis
 
