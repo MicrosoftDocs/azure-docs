@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/11/2019
+ms.date: 12/13/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge device so that I can manage resources.
 ---
@@ -24,7 +24,7 @@ The following table summarizes the various endpoints exposed on your device, the
 
 | # | Endpoint | Supported protocols | Port used | Used for |
 | --- | --- | --- | --- | --- |
-| 1. | Azure Resource Manager | https | 30005 | To connect to Azure Resource Manager for automation |
+| 1. | Azure Resource Manager | https | 443 | To connect to Azure Resource Manager for automation |
 | 2. | Security token service | https | 443 | To authenticate via access and refresh tokens |
 | 3. | Blob | https | 443 | To connect to Blob storage via REST |
 
@@ -41,8 +41,7 @@ The process of connecting to local APIs of the device using Azure Resource Manag
 | 4. | [Set up Azure PowerShell on the client](#step-4-set-up-azure-powershell-on-the-client) | Windows client |
 | 5. | [Modify host file for endpoint name resolution](#step-5-modify-host-file-for-endpoint-name-resolution) | Windows client or DNS server |
 | 6. | [Check that the endpoint name is resolved](#step-6-verify-endpoint-name-resolution-on-the-client) | Windows client |
-| 7. | [Set Azure Resource Manager password](#step-7-set-azure-resource-manager-password) | Windows client |
-| 8. | [Use Azure PowerShell cmdlets to verify connection to Azure Resource Manager](#step-8-set-azure-resource-manager-environment) | Windows client |
+| 7. | [Use Azure PowerShell cmdlets to verify connection to Azure Resource Manager](#step-7-set-azure-resource-manager-environment) | Windows client |
 
 The following sections detail each of the above steps in connecting to Azure Resource Manager.
 
@@ -291,64 +290,13 @@ Check if the endpoint name is resolved on the client that you are using to conne
     ![Ping in command prompt](media/azure-stack-edge-r-series-connect-resource-manager/ping-command-prompt.png)
 
 
-## Step 7: Set Azure Resource Manager password
 
-Take the following steps to set a new password for the user trying to log into Azure Resource Manager. 
-
-Use the PowerShell option in Azure CLI to run the following cmdlets. <!--need to add the version of Azure CLI>
-
-1. Set the tenant, subscription, and environment for cmdlets to use in the current session using Set-AzContext. 
-
-    `Set-AzureContext`
-
-    Here is the sample output.
-
-    ```azurepowershell
-    PS Azure:\> Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
-       
-    Name    Account             SubscriptionName    Environment     TenantId
-    ----    -------             ----------------    -----------     -------
-    Work    test@outlook.com    Subscription1       AzureCloud      xxxxxxxx
-    ```
-
-
-2. Get the SDK encryption key from the Azure portal. 
-
-    1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Device properties**. 
-
-    2. Copy the Encryption Key. You will use this key later.
- 
-
-3. Set the password to connect to the device local APIs via Azure Resource Manager. Type:
-
-    `Execute Set-AzDataBoxEdgeUser`
-
-    The password and encryption key parameters must be passed as secure strings. Use the following cmdlets to convert the password and encryption key to secure strings. 
-
-    
-    ```azurepowershell
-    $pass = ConvertTo-SecureString “Password1” -AsPlainText -Force
-    $key = ConvertTo-SecureString “xxxxxxxxxxxxxxxxxx” -AsPlainText -Force
-    ```
-
-    Use the above generated secure strings as parameters in the Execute Set-AzDataBoxEdgeUser cmdlet to reset the password. Here is the sample output.
-
-    
-    ```azurepowershell
-    PS C:\> Set-AzDataBoxEdgeUser -ResourceGroupName sampleRGName -DeviceName SampleDeviceName -Name EdgeARMUser  -Password $pass -EncryptionKey $key
-       
-        User name   Type ResourceGroupName DeviceName
-        ---------   ---- ----------------- ----------
-        EdgeARMUser ARM   sampleRGName     SampleDeviceName
-    ```
-
-
-## Step 8: Set Azure Resource Manager environment
+## Step 7: Set Azure Resource Manager environment
 
 Set the Azure Resource Manager environment and verify that your device to client communication via Azure Resource Manager is working fine. Take the following steps for this verification:
 
 
-1. Use the `Add-AzureRmEnvironment` cmdlet to further ensure that the communication via Azure Resource Manager is working properly and the API calls are going through the port dedicated for Azure Resource Manager - 30005.
+1. Use the `Add-AzureRmEnvironment` cmdlet to further ensure that the communication via Azure Resource Manager is working properly and the API calls are going through the port dedicated for Azure Resource Manager - 443.
 
     The `Add-AzureRmEnvironment` cmdlet adds endpoints and metadata to enable Azure Resource Manager cmdlets to connect with a new instance of Azure Resource Manager. 
 
@@ -357,20 +305,20 @@ Set the Azure Resource Manager environment and verify that your device to client
     > The Azure Resource Manager endpoint URL that you provide in the following cmdlet is case-sensitive. Make sure the endpoint URL is all in lowercase and matches what you provided in the hosts file. If the case doesn't match, then you will see an error.
 
     ```powershell
-    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>:30005/"
+    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>:443/"
     ```
 
     A sample output is shown below:
     
     ```powershell
-    PS C:\windows\system32> Add-AzureRmEnvironment -Name AzDBE -ARMEndpoint https://management.dbe-n6hugc2ra.microsoftdatabox.com:30005/
+    PS C:\windows\system32> Add-AzureRmEnvironment -Name AzDBE -ARMEndpoint https://management.dbe-n6hugc2ra.microsoftdatabox.com:443/
     
     Name  Resource Manager Url                    ActiveDirectory Authority
     ----  --------------------                   -------------------------
-    AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com:30005 https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
+    AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com:443 https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. Set the environment as Azure Stack Edge and the port to be used for Azure Resource Manager calls as 30005. You define the environment in two ways:
+2. Set the environment as Azure Stack Edge and the port to be used for Azure Resource Manager calls as 443. You define the environment in two ways:
 
     - Set the environment. Type the following command:
 
@@ -409,7 +357,7 @@ Set the Azure Resource Manager environment and verify that your device to client
         
             An alternative way to log in is to use the `login-AzureRmAccount` cmdlet. 
             
-            `login-AzureRMAccount -EnvironmentName <Environment Name>`
+            `login-AzureRMAccount -EnvironmentName <Environment Name>` -TenantId c0257de7-538f-415c-993a-1b87a031879d 
 
             Here is a sample output of the command. 
          

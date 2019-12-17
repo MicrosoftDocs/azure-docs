@@ -35,15 +35,15 @@ To reset your device using the local web UI, take the following steps.
 1. In the local web UI, go to **Maintenance > Device reset**.
 2. Select **Reset device**.
 
-    ![Reset device](media/data-box-edge-return-device/device-reset-1.png)
+    ![Reset device](media/azure-stack-edge-r-series-return-device/reset-device-1.png)
 
 3. When prompted for confirmation, review the warning and select **Yes** to continue.
 
-    ![Confirm reset](media/data-box-edge-return-device/device-reset-2.png)  
+    ![Confirm reset](media/azure-stack-edge-r-series-return-device/reset-device-2.png)  
 
 The reset erases the data off the device data disks. Depending on the amount of data on your device, this process takes about 30-40 minutes.
 
-Alternatively, connect to the PowerShell interface of the device and use the `Reset-HcsAppliance` cmdlet to erase the data from the data disks. For more information, see [Reset your device](data-box-edge-connect-powershell-interface.md#reset-your-device).
+Alternatively, connect to the PowerShell interface of the device and use the `Reset-HcsAppliance` cmdlet to erase the data from the data disks. For more information, see [Reset your device](azure-stack-edge-r-series-connect-powershell-interface.md#reset-your-device).
 
 > [!NOTE]
 > - If you're exchanging or upgrading to a new device, we recommend that you reset your device only after you've received the new device.
@@ -55,7 +55,7 @@ To begin the return process, take the following steps.
 
 1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the problem type as **Azure Stack Edge Hardware**.
 
-    ![Open Support ticket](media/data-box-edge-return-device/open-support-ticket-1.png)  
+    ![Open Support ticket](media/azure-stack-edge-r-series-return-device/open-return-device-support-ticket-1.png)  
 
 2. A Microsoft Support engineer will contact you. Provide the shipping details.
 3. If you need a return shipping box, you can request it. Answer **Yes** to the question **Need an empty box to return**.
@@ -95,11 +95,11 @@ Take the following steps to delete the device and the resource in Azure portal.
 
 1. In the Azure portal, go to your resource and then to **Overview**. From the command bar, select **Delete**.
 
-    ![Select delete](media/data-box-edge-return-device/delete-resource-1.png)
+    ![Select delete](media/azure-stack-edge-r-series-return-device/delete-resource-1.png)
 
 2. In the **Delete device** blade, type the name of the device you want to delete and select **Delete**.
 
-    ![Confirm delete](media/data-box-edge-return-device/delete-resource-2.png)
+    ![Confirm delete](media/azure-stack-edge-r-series-return-device/delete-resource-2.png)
 
 You're notified after the device and the associated resource is successfully deleted.
 
@@ -108,8 +108,8 @@ You're notified after the device and the associated resource is successfully del
 A replacement device is needed when the existing device has a hardware failure or needs an upgrade. Take the following steps when your device has a hardware issue:
 
 1. [Open a Support ticket for hardware issue](#open-a-support-ticket). Microsoft Support will determine that a Field Replacement Unit (FRU) is not available for this instance or the device needs a hardware upgrade. In either case, Support will order a replacement device.
-2. [Create a new resource](data-box-edge-deploy-prep.md#create-a-new-resource) for the replacement device. Make sure to select the check box against **I have a Azure Stack Edge device**. 
-3. After you receive a replacement device, [install](data-box-edge-deploy-install.md) and [activate](data-box-edge-deploy-connect-setup-activate.md) the replacement device against the new resource.
+2. [Create a new resource](azure-stack-edge-r-series-deploy-prep.md#create-a-new-resource) for the replacement device. Make sure to select the check box against **I have a Azure Stack Edge device**. 
+3. After you receive a replacement device, [install](azure-stack-edge-r-series-deploy-install.md) and [activate](azure-stack-edge-r-series-deploy-connect-setup-activate.md) the replacement device against the new resource.
 4. Follow all the steps to return the original device:
     1. Open another ticket to return the original device.
     2. [Erase the data on the device](#erase-data-from-the-device).

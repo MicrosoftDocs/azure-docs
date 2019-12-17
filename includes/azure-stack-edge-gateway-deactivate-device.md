@@ -2,27 +2,26 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 12/12/2019
+ms.date: 12/16/2019
 ms.author: alkohli
 ---
 
 To reset your device, you need to securely wipe out all the data on the data disk and the boot disk of your device. 
 
-Use the `Reset-HcsAppliance` cmdlet to wipe out both the data disks and the boot disk or just the data disks. The `ClearData` and `BootDisk` switches allow you to wipe the data disks and the boot disk respectively.
+Use the `Reset-HcsAppliance` cmdlet to wipe out both the data disks and the boot disk. 
 
 If you use the device reset in the local web UI, only the data disks are securely wiped but the boot disk is kept intact. The boot disk contains the device configuration.
 
 1. [Connect to the PowerShell interface](#connect-to-the-powershell-interface).
-2. At the command prompt, type:
+2. If you want to reset the device just as you would from local web UI and securely erase your data disks as well as OS disk (boot disk), then type: 
 
-    `Reset-HcsAppliance -ClearData -BootDisk`
+    `Reset-HcsAppliance -UseDefaults`
 
-    The following example shows how to use this cmdlet:
-    ```
-    [10.128.24.33]: PS>Reset-HcsAppliance -ClearData -BootDisk
-    
-    Confirm
-    Are you sure you want to perform this action?
-    Performing the operation "Reset-HcsAppliance" on target "ShouldProcess appliance".
-    [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [?] Help (default is "Y"): N
-    ```
+    If you want the data to be securely erased from your OS disk and data disks and the device to not boot up after reset, type: 
+
+    `Reset-HcsAppliance -SecureWipeBootDisk -SecureWipeDataDisks -MakeNonBootable`
+
+3. The secure data erasure event is captured in the Azure Stack Edge device logs. To get these logs, type: 
+
+    `Get-HcsNodeSecureEraseLogs -OutPutFolderPath \\<Output path for the log file> -Credential $c`
+
