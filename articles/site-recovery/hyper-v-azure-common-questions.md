@@ -223,4 +223,4 @@ After your on-premises infrastructure is up and running again, you can fail back
 5. After workloads have failed back, you enable reverse replication, so that the on-premises VMs replicate to Azure again.
 
 ### Can I fail back to a different location?
-Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](hyper-v-azure-failback.md#failback-to-an-alternate-location).
+Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](hyper-v-azure-failback.md#fail-back-to-an-alternate-location).
