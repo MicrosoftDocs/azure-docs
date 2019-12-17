@@ -17,9 +17,9 @@
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/blockchain/
   - name: Azure Blockchain Service Visual Studio Code extension
-  - name: Community
-    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
   - name: Product feedback
     href: https://feedback.azure.com/forums/586780-blockchain
+  - name: Community
+    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/blockchain-tokens
