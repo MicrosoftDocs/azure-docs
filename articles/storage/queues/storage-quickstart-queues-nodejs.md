@@ -38,7 +38,7 @@ This section walks you through preparing a project to work with the Azure Queue 
 
 ### Create the project
 
-Create a JavaScript application named *queues-quickstart-v12*.
+Create a Node.js application named *queues-quickstart-v12*.
 
 1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project.
 
