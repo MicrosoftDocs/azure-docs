@@ -57,7 +57,7 @@ https://aadap-portcheck.connectorporttest.msappproxy.net/
 
 This test verifies that your agents can communicate with Azure over port 443. Open a browser, and go to the previous URL from the server where the agent is installed.
 
-![Services](media/how-to-install/verify2.png)
+![Verification of port reachability](media/how-to-install/verify2.png)
 
 ### Additional requirements
 - [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 
@@ -67,7 +67,7 @@ This test verifies that your agents can communicate with Azure over port 443. Op
 >[!NOTE]
 >Transport Layer Security (TLS) is a protocol that provides for secure communications. Changing the TLS settings affects the entire forest. For more information, see [Update to enable TLS 1.1 and TLS 1.2 as default secure protocols in WinHTTP in Windows](https://support.microsoft.com/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi).
 
-The Windows server that hosts the Azure AD Connect cloud provisioning agent needs to have TLS 1.2 enabled before you install it.
+The Windows server that hosts the Azure AD Connect cloud provisioning agent must have TLS 1.2 enabled before you install it.
 
 To enable TLS 1.2, follow these steps.
 
