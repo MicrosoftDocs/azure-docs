@@ -316,7 +316,7 @@ For example, we can modify the previous `Counter` entity example so that it send
 
 ---
 
-## Entity coordination (.NET only)
+## <a name="entity-coordination"></a>Entity coordination (.NET only)
 
 There might be times when you need to coordinate operations across multiple entities. For example, in a banking application, you might have entities that represent individual bank accounts. When you transfer funds from one account to another, you must ensure that the source account has sufficient funds. You also must ensure that updates to both the source and destination accounts are done in a transactionally consistent way.
 
