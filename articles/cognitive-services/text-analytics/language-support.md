@@ -25,7 +25,7 @@ If you have content expressed in a less frequently used language, you can try La
 
 ## Sentiment Analysis, Key Phrase Extraction, and Named Entity Recognition
 
-For sentiment analysis, key phrase extraction, and entity recognition, the list of supported languages is more selective as the analyzers are refined to accommodate the linguistic rules of additional languages. In Named Entity Recognition v2, support for the full set of [entity types](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2) is currently limited to the following languages: 
+For sentiment analysis, key phrase extraction, and entity recognition, the list of supported languages is more selective as the analyzers are refined to accommodate the linguistic rules of additional languages. In Named Entity Recognition v2, support for the full set of [entity types](how-tos/text-analytics-how-to-entity-linking.md#language-support) is currently limited to the following languages: 
 * English
 * Chinese-Simplified
 * French
