@@ -314,6 +314,10 @@ No. Compute is decoupled from the storage layer. This eliminates performance imp
 
 Because the storage is shared and there is no direct physical replication happening between primary and secondary compute replicas, technically, the throughput on primary replica will not be affected by adding secondary replicas. However, we may throttle continuous aggressively writing workload to allow log apply on secondary replicas and page servers to catch up, and avoid poor read performance on secondary replicas.
 
+### How do I diagnose and troubleshoot performance problems in a Hyperscale database
+
+For most performance problems, common SQL Server diagnostic and troubleshooting steps should be followed. For Hyperscale-specific diagnostics, see [SQL Hyperscale performance troubleshooting diagnostics](/sql-database-hyperscale-performance-diagnostics).
+
 ## Scalability Questions
 
 ### How long would it take to scale up and down a compute replica
