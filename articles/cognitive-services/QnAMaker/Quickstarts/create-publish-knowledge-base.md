@@ -134,6 +134,12 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
     ![Enter a user query into the test web chat.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
 
+## What did you accomplish?
+
+You created a new knowledge base, added a public URL to the knowledge base, added your own QnA set, trained, tested, and published the knowledge base.
+
+After publishing the knowledge base, you created a bot, and tested the bot.
+
 ## Clean up resources
 
 Clean up the QnA Maker and Bot framework resources in the Azure portal.
