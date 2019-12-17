@@ -372,7 +372,7 @@ This section provides steps for user account provisioning from Workday to each A
 
 5. Search for **Workday Provisioning to Active Directory**, and add that app from the gallery.
 
-6. After the app is added and the app details screen is shown, select **Provisioning**
+6. After the app is added and the app details screen is shown, select **Provisioning**.
 
 7. Change the **Provisioning** **Mode** to **Automatic**.
 
