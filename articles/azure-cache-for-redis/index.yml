@@ -64,7 +64,7 @@ landingContent:
         links:
           - text: Samples
             url: cache-redis-samples.md
-  - title: Scripting command line interfaces for Azure Cache for Redis
+  - title: Scripting command-line interfaces for Azure Cache for Redis
     linkLists:
       - linkListType: reference
         links:
