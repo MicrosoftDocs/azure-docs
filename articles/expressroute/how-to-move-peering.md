@@ -78,7 +78,7 @@ Configure route filters using any of the following articles:
 
 After verifying that the Microsoft peering is configured and the prefixes you wish to consume are correctly advertised on Microsoft peering, you can then delete the public peering. To delete the public peering, use any of the following articles:
 
-* [Delete Azure public peering using Azure PowerShell](about-public-peering.md#powershell)<br>
+* [Delete Azure public peering using Azure PowerShell](about-public-peering.md#powershell)
 * [Delete Azure public peering using CLI](about-public-peering.md#cli)
   
 ## <a name="view"></a>5. View peerings
