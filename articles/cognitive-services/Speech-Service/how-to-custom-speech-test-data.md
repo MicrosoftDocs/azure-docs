@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 12/17/2019
 ms.author: erhopf
 ---
 
@@ -27,6 +27,9 @@ This table lists accepted data types, when each data type should be used, and th
 | [Related text](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
+
+> [!TIP]
+> To quickly get started, consider using sample data. See this GitHub repository for <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">sample Custom Speech data <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ## Upload data
 
@@ -58,7 +61,7 @@ Use this table to ensure that your audio files are formatted correctly for use w
 | Maximum archive size | 2 GB |
 
 > [!TIP]
-> When uploading training and testing data, the .zip file size cannot exceed 2 GB. If you require more data for training and testing, divide it into several .zip files and upload them separately. Later, you can choose to train and test from *multiple* datasets.
+> When uploading training and testing data, the .zip file size cannot exceed 2 GB. If you require more data for training, divide it into several .zip files and upload them separately. Later, you can choose to train from *multiple* datasets. However, you can only test from a *single* dataset.
 
 If your audio doesn’t satisfy these properties or you want to check if it does, we suggest downloading [sox](http://sox.sourceforge.net) to check or convert the audio. Below are some examples of how each of these activities can be done through the command line:
 
@@ -141,7 +144,7 @@ This includes examples of a spoken utterance, and a custom pronunciation for eac
 
 | Recognized/displayed form | Spoken form |
 |--------------|--------------------------|
-| 3CPO | three c p o |  
+| 3CPO | three c p o |
 | CNTK | c n t k |
 | IEEE | i triple e |
 

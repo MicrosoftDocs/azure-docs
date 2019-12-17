@@ -93,18 +93,18 @@ After the virtual networks are peered, configure the HDInsight virtual network t
 
 If you're using network security group (NSG) rules in your HDInsight subnet, you should allow the [required IPs](../hdinsight-management-ip-addresses.md) for both inbound and outbound traffic.
 
-To test if your network is set up correctly, join a Windows VM to the HDInsight virtual network/subnet and ping the domain name. (It should resolve to an IP.) Then run **ldp.exe** to access Azure AD DS domain. Then join this Windows VM to the domain to confirm that all the required RPC calls succeed between the client and server. 
+To test if your network is set up correctly, join a Windows VM to the HDInsight virtual network/subnet and ping the domain name. (It should resolve to an IP.) Run **ldp.exe** to access the Azure AD DS domain. Then join this Windows VM to the domain to confirm that all the required RPC calls succeed between the client and server. 
 
-You can also use **nslookup** to confirm network access to your storage account or any external database that you might use (for example, external Hive metastore or Ranger DB). Make sure that all of the [required ports](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) are allowed in the Azure AD DS subnet's NSG rules, if Azure AD DS is secured by an NSG. If the domain joining of this Windows VM is successful, then you can continue to the next step and create ESP clusters.
+You can also use **nslookup** to confirm network access to your storage account or any external database that you might use (for example, external Hive metastore or Ranger DB). Make sure that all of the [required ports](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) are allowed in the Azure AD DS subnet's NSG rules, if an NSG helps secure Azure AD DS. If the domain joining of this Windows VM is successful, then you can continue to the next step and create ESP clusters.
 
 ## Create an HDInsight cluster with ESP
 
 After you've set up the previous steps correctly, the next step is to create the HDInsight cluster with ESP enabled. When you create an HDInsight cluster, you can enable Enterprise Security Package on the **Security + networking** tab. If you prefer to use an Azure Resource Manager template for deployment, use the portal experience once and download the prefilled template on the **Review + create** page for future reuse. 
 
-You can also enable the [HDInsight ID Broker](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/identity-broker) feature during cluster creation. The ID Broker feature lets you sign in to Ambari by using Multi-Factor Authentication and get the required Kerberos tickets without needing password hashes in Azure AD DS.
+You can also enable the [HDInsight ID Broker](identity-broker.md) feature during cluster creation. The ID Broker feature lets you sign in to Ambari by using Multi-Factor Authentication and get the required Kerberos tickets without needing password hashes in Azure AD DS.
 
 > [!NOTE]  
-> The first six characters of the ESP cluster names must be unique in your environment. For example, if you have multiple ESP clusters in different virtual networks, you should choose a naming convention that ensures the first six characters on the cluster names are unique.
+> The first six characters of the ESP cluster names must be unique in your environment. For example, if you have multiple ESP clusters in different virtual networks, choose a naming convention that ensures the first six characters on the cluster names are unique.
 
 ![Domain validation for Azure HDInsight Enterprise Security Package](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-esp.png)
 
