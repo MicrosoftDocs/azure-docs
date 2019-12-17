@@ -39,7 +39,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 2. In the new folder, run the following command to create a new ASP.NET Core console app project:
 
-    ```cli
+    ```CLI
         dotnet new console
     ```
 
@@ -47,13 +47,13 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 1. Add a reference to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by running the following command:
 
-    ```cli
+    ```CLI
         dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 2.0.0-preview-009470001-1371
     ```
 
 2. Run the following command to restore packages for your project:
 
-    ```cli
+    ```CLI
         dotnet restore
     ```
 
@@ -81,7 +81,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```cli
+    ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
@@ -97,13 +97,13 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 2. Run the following command to build the console app:
 
-    ```cli
+    ```CLI
         dotnet build
     ```
 
 3. After the build successfully completes, run the following command to run the app locally:
 
-    ```cli
+    ```CLI
         dotnet run
     ```
 
