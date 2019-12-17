@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/06/2019
+ms.date: 12/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure. 
 ---
@@ -15,7 +15,7 @@ Customer intent: As an IT admin, I need to understand how to connect and activat
 
 This tutorial describes how you can connect to, set up, and activate your Azure Stack Edge device by using the local web UI.
 
-The setup and activation process can take around 20 minutes to complete.
+The setup and activation process can take around 30 minutes to complete.
 
 In this tutorial, you learn how to:
 
@@ -30,7 +30,7 @@ Before you configure and set up your Azure Stack Edge device, make sure that:
 * You've installed the physical device as detailed in [Install Azure Stack Edge](azure-stack-edge-r-series-deploy-install.md).
 * You have the activation key from the Azure Stack Edge service that you created to manage the Azure Stack Edge device. For more information, go to [Prepare to deploy Azure Stack Edge](azure-stack-edge-r-series-deploy-prep.md).
 * You have a Base-64 encoded 32 character key that will be needed to configure double encryption for data-at-rest.
-* Except for Azure public cloud, you will also need a signing chain certificate befre you can activate your device. For details on certificate, go to [Manage certificates](azure-stack-edge-r-series-manage-certificates.md).
+* Except for Azure public cloud, you will also need a signing chain certificate before you can activate your device. For details on certificate, go to [Manage certificates](azure-stack-edge-r-series-manage-certificates.md).
 
 ## Connect to the local web UI setup 
 
@@ -125,6 +125,8 @@ Your **Get started** page displays the various settings that are required to con
     2. Provide a **DNS domain** for your device. This domain is used to set up the device as a file server.
 
     3. You can connect to this device using SMB, NFS, and REST protocols. If using REST to connect to the blob storage, select an **Azure consistent services network** from the dropdown list (that shows the available cluster networks available for the device). If using NFS (Linux clients) to connect to the device, select an **NFS network**. 
+    
+    The Azure consistent services network and NFS network are physical networks. If DHCP is enabled on these networks, you are not required to provide any IPs. You must provide IPs if you are using a static IP environment.
 
     4. To validate and apply the configured device settings, select **Apply**.
 
@@ -145,11 +147,11 @@ Your **Get started** page displays the various settings that are required to con
         You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
 
         > [!NOTE] 
-        > If a separate Windows Update server is configured, then signing chain certificates required to connect to the update server are needed.
+        > If a separate Windows Update server is configured, then signing chain certificates required to connect to the update server are needed. For information on how to create and upload certificates, go to [Manage certificates](azure-stack-edge-r-series-manage-certificates.md).
+        > For working in a disconnected mode such as your Azure Stack Edge device tiering to Tactical Compute Appliance or Tactical Datacenter, enable WSUS option. During activation, the device scans for updates and if the server is not set up, then the activation will fail. 
 
     - Select **Apply**.
-    - The updates will be applied to the device. Because your device is a 1-node device, when the updates are applied, the device will experience a down time.
-    - After the updates are applied, go back to **Get started**.
+    - After the update server is configured, go back to **Get started**.
 
 6. (Optional) On the **Device setup** tile, configure your **Time settings**. You can select the time zone, and the primary and secondary NTP servers for your device.  
     
@@ -169,7 +171,7 @@ Your **Get started** page displays the various settings that are required to con
 
     4. To validate and apply the configured time settings, select **Apply**.
 
-        ![Local web UI "Time settings" page](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-device-5.png)
+        ![Local web UI "Time settings" page](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-device-15.png)
 
     5. After the settings are applied, go back to **Get started**.
 
@@ -232,7 +234,7 @@ Your **Get started** page displays the various settings that are required to con
 
         ![Local web UI "Cloud settings" page updated](./media/azure-stack-edge-r-series-deploy-connect-setup-activate/set-up-device-18.png)
 
-    5. You are then prompted to select the key file. Select download key file and save the *keys.json* file in a safe location outside of the device. This key file contains the recovery keys for the OS disk and data disks on your device. Here are the contents of the *keys.json* file:
+    5. You are then prompted to select the key file. Select download key file and save the *keys.json* file in a safe location outside of the device.**This key file contains the recovery keys for the OS disk and data disks on your device**. Here are the contents of the *keys.json* file:
 
         
         ```json
