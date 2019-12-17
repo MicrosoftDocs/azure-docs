@@ -14,7 +14,7 @@ Resource Manager provides several functions for making comparisons in your templ
 * [less](#less)
 * [lessOrEquals](#lessorequals)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## equals
 `equals(arg1, arg2)`

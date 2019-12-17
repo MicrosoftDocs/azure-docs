@@ -8,7 +8,7 @@ ms.date: 02/15/2019
 
 This article describes the errors you may encounter when using a resource provider that you haven't previously used in your subscription.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Symptom
 

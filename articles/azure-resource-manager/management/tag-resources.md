@@ -12,7 +12,7 @@ After you apply tags, you can retrieve all the resources in your subscription wi
 
 Your taxonomy should consider a self-service metadata tagging strategy in addition to an autotagging strategy to reduce the burden on users and increase accuracy.
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
 ## Limitations
 
@@ -37,7 +37,7 @@ To apply tags to resources, the user must have write access to that resource typ
 
 You can use [Azure Policy](../governance/policy/overview.md) to enforce tagging rules and conventions. By creating a policy, you avoid the scenario of resources being deployed to your subscription that don't comply with the expected tags for your organization. Instead of manually applying tags or searching for resources that aren't compliant, you can create a policy that automatically applies the needed tags during deployment. Tags can also now be applied to existing resources with the new [Modify](../governance/policy/concepts/effects.md#modify) effect and a [remediation task](../governance/policy/how-to/remediate-resources.md). The following section shows example policies for tags.
 
-[!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-general-tags.md)]
 
 ## PowerShell
 
@@ -409,7 +409,7 @@ To apply tags from a resource group to a resource, use the [resourceGroup](resou
 
 ## Portal
 
-[!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
+[!INCLUDE [resource-manager-tag-resource](../../../includes/resource-manager-tag-resources.md)]
 
 ## REST API
 

@@ -21,7 +21,7 @@ Resource Manager provides the following functions for working with integers:
 
 <a id="add" />
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## add
 `add(operand1, operand2)`

@@ -8,7 +8,7 @@ ms.date: 03/09/2018
 
 This article describes quota errors you may encounter when deploying resources.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Symptom
 

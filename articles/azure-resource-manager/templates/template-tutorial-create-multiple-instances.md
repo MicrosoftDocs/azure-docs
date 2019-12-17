@@ -109,7 +109,7 @@ For more information about creating multiple instances, see [Deploy multiple ins
 
 Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 To list all three storage accounts, omit the --name parameter:
 

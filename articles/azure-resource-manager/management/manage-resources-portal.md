@@ -16,7 +16,7 @@ Other articles about managing resources:
 - [Manage Azure resources by using Azure CLI](./manage-resources-cli.md)
 - [Manage Azure resources by using Azure PowerShell](./manage-resources-powershell.md)
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
 ## Deploy resources to a resource group
 

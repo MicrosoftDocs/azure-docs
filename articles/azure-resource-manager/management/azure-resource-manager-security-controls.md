@@ -8,7 +8,7 @@ ms.date: 09/04/2019
 
 This article documents the security controls built into Azure Resource Manager.
 
-[!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
+[!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
 ## Data protection
 
