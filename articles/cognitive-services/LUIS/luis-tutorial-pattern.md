@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Patterns - LUIS"
 titleSuffix: Azure Cognitive Services
-description: Use patterns to increase intent and entity prediction while providing fewer example utterances in this tutorial. The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text.
+description: Use patterns to increase intent and entity prediction while providing fewer example utterances in this tutorial. The pattern is provided as a template utterance example, which includes syntax to identify entities and ignorable text.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -14,11 +14,9 @@ ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use patterns.
 ---
 
-# Tutorial: Add common pattern template utterance formats
+# Tutorial: Add common pattern template utterance formats to improve predictions
 
-In this tutorial, use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text. A pattern is a combination of expression matching and machine learning.  The template utterance example, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent.
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+In this tutorial, use patterns to increase intent and entity prediction, which allows you to provide fewer example utterances. The pattern is template utterance assigned to an intent, containing syntax to identify entities and ignorable text.
 
 **In this tutorial, you learn how to:**
 
@@ -30,13 +28,22 @@ In this tutorial, use patterns to increase intent and entity prediction while pr
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Import example app
+## Utterances in intent and pattern
 
-Continue with the app created in the last tutorial, named **HumanResources**.
+There are two types of utterances stored in the LUIS app:
+
+* Example utterances in the Intent
+* Template utterances in the Pattern
+
+Adding template utterances as a pattern allows you to provide fewer example utterances overall to an intent.
+
+A pattern is applied as a combination of expression matching and machine learning.  The template utterance, along with the example utterances, give LUIS a better understanding of what utterances fit the intent.
+
+## Import example app
 
 Use the following steps:
 
-1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
+1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
 2. Import the JSON into a new app.
 
