@@ -150,11 +150,11 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 How to create an Azure Blueprint:
 https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
-## 1.1: Document Traffic Configuration Rules
+## 1.10: Document Traffic Configuration Rules
 
 | Azure ID | CIS Control IDs | Responsibility |
 |--|--|--|
-| 1.1 | 11.2 | Customer |
+| 1.10 | 11.2 | Customer |
 
 Use Tags for NSGs and other resources related to network security and traffic flow. For individual NSG rules, use the &quot;Description&quot; field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
 

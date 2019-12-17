@@ -124,11 +124,11 @@ How to configure Named Locations in Azure:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
-## 3.1: Use Azure Active Directory
+## 3.10: Use Azure Active Directory
 
 | Azure ID | CIS Control IDs | Responsibility |
 |--|--|--|
-| 3.1 | 16.1, 16.2, 16.4, 16.5, 16.6 | Customer |
+| 3.10 | 16.1, 16.2, 16.4, 16.5, 16.6 | Customer |
 
 Use Azure Active Directory (AAD) as the central authentication and authorization system. AAD protects data by using strong encryption for data at rest and in transit. AAD also salts, hashes, and securely stores user credentials.
 

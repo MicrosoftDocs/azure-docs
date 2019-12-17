@@ -147,11 +147,11 @@ How to remediate recommendations in Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
-## 7.1: Implement Automated Configuration Monitoring for Operating Systems
+## 7.10: Implement Automated Configuration Monitoring for Operating Systems
 
 | Azure ID | CIS Control IDs | Responsibility |
 |--|--|--|
-| 7.1 | 5.5 | Customer |
+| 7.10 | 5.5 | Customer |
 
 Use Azure Security Center to perform baseline scans for OS and Docker Settings for Containers.
 
