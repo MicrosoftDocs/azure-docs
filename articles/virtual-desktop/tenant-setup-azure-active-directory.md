@@ -135,9 +135,11 @@ Replace the bracketed values with values relevant to your organization and tenan
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
 ```
-As a final precaution, assign administrative access to a second user in case you lose access to your account. Run the following cmdlet with this structure, inserting your tenant name and the UPN of the second user:
+
+It's a good idea to assign administrative access to a second user in case you ever find yourself locked out or need someone to administer the tenant in your absence. To assign admin access to a second user, run the following cmdlet with TenantName and Upn replaced with your tenant name and the second user's UPN
+
 ```powershell
-New-RdsRoleAssignment -TenantName <TenantName> -SignInName <upn> -RoleDefinitionName "RDS Owner"
+New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
 ## Next steps
