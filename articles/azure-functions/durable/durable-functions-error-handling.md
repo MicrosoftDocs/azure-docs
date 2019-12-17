@@ -16,7 +16,7 @@ Any exception that is thrown in an activity function is marshaled back to the or
 
 For example, consider the following orchestrator function that transfers funds from one account to another:
 
-### Precompiled C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -54,49 +54,10 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 }
 ```
 
-### C# Script
-
-```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
-public static async Task Run(IDurableOrchestrationContext context)
-{
-    var transferDetails = ctx.GetInput<TransferOperation>();
-
-    await context.CallActivityAsync("DebitAccount",
-        new
-        {
-            Account = transferDetails.SourceAccount,
-            Amount = transferDetails.Amount
-        });
-
-    try
-    {
-        await context.CallActivityAsync("CreditAccount",
-            new
-            {
-                Account = transferDetails.DestinationAccount,
-                Amount = transferDetails.Amount
-            });
-    }
-    catch (Exception)
-    {
-        // Refund the source account.
-        // Another try/catch could be used here based on the needs of the application.
-        await context.CallActivityAsync("CreditAccount",
-            new
-            {
-                Account = transferDetails.SourceAccount,
-                Amount = transferDetails.Amount
-            });
-    }
-}
-```
-
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -132,13 +93,15 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 If the first **CreditAccount** function call fails, the orchestrator function compensates by crediting the funds back to the source account.
 
 ## Automatic retry on failure
 
 When you call activity functions or sub-orchestration functions, you can specify an automatic retry policy. The following example attempts to call a function up to three times and waits 5 seconds between each retry:
 
-### Precompiled C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
@@ -154,25 +117,10 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 }
 ```
 
-### C# Script
-
-```csharp
-public static async Task Run(IDurableOrchestrationContext context)
-{
-    var retryOptions = new RetryOptions(
-        firstRetryInterval: TimeSpan.FromSeconds(5),
-        maxNumberOfAttempts: 3);
-
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
-
-    // ...
-}
-```
-
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -185,6 +133,8 @@ module.exports = df.orchestrator(function*(context) {
     // ...
 });
 ```
+
+---
 
 The `CallActivityWithRetryAsync` (.NET) or `callActivityWithRetry` (JavaScript) API takes a `RetryOptions` parameter. Sub-orchestration calls using the `CallSubOrchestratorWithRetryAsync` (.NET) or `callSubOrchestratorWithRetry` (JavaScript) API can use these same retry policies.
 
@@ -201,7 +151,7 @@ There are several options for customizing the automatic retry policy:
 
 You might want to abandon a function call within an orchestrator function if it's taking too long to complete. The proper way to do this today is by creating a [durable timer](durable-functions-timers.md) using `context.CreateTimer` (.NET) or `context.df.createTimer` (JavaScript) in conjunction with `Task.WhenAny` (.NET) or `context.df.Task.any` (JavaScript), as in the following example:
 
-### Precompiled C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
@@ -231,39 +181,10 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 }
 ```
 
-### C# Script
-
-```csharp
-public static async Task<bool> Run(IDurableOrchestrationContext context)
-{
-    TimeSpan timeout = TimeSpan.FromSeconds(30);
-    DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
-
-    using (var cts = new CancellationTokenSource())
-    {
-        Task activityTask = context.CallActivityAsync("FlakyFunction");
-        Task timeoutTask = context.CreateTimer(deadline, cts.Token);
-
-        Task winner = await Task.WhenAny(activityTask, timeoutTask);
-        if (winner == activityTask)
-        {
-            // success case
-            cts.Cancel();
-            return true;
-        }
-        else
-        {
-            // timeout case
-            return false;
-        }
-    }
-}
-```
-
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -286,6 +207,8 @@ module.exports = df.orchestrator(function*(context) {
     }
 });
 ```
+
+---
 
 > [!NOTE]
 > This mechanism does not actually terminate in-progress activity function execution. Rather, it simply allows the orchestrator function to ignore the result and move on. For more information, see the [Timers](durable-functions-timers.md#usage-for-timeout) documentation.

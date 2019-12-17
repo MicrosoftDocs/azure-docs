@@ -24,7 +24,7 @@ When you create a timer that expires at 4:30 pm, the underlying Durable Task Fra
 
 The following example illustrates how to use durable timers for delaying execution. The example is issuing a billing notification every day for 10 days.
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -43,7 +43,7 @@ public static async Task Run(
 > [!NOTE]
 > The previous C# example targets Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```js
 const df = require("durable-functions");
@@ -58,6 +58,8 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 > [!WARNING]
 > Avoid infinite loops in orchestrator functions. For information about how to safely and efficiently implement infinite loop scenarios, see [Eternal Orchestrations](durable-functions-eternal-orchestrations.md).
 
@@ -65,7 +67,7 @@ module.exports = df.orchestrator(function*(context) {
 
 This example illustrates how to use durable timers to implement timeouts.
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -99,7 +101,7 @@ public static async Task<bool> Run(
 > [!NOTE]
 > The previous C# example targets Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```js
 const df = require("durable-functions");
@@ -124,6 +126,8 @@ module.exports = df.orchestrator(function*(context) {
     }
 });
 ```
+
+---
 
 > [!WARNING]
 > Use a `CancellationTokenSource` to cancel a durable timer (.NET) or call `cancel()` on the returned `TimerTask` (JavaScript) if your code will not wait for it to complete. The Durable Task Framework will not change an orchestration's status to "completed" until all outstanding tasks are completed or canceled.
