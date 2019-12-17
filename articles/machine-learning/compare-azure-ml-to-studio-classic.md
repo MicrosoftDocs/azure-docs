@@ -39,7 +39,7 @@ Here is a quick comparison.
 |Modules for interface| [Many popular modules](algorithm-module-reference/module-reference.md) | Many |
 |Training compute targets| AML Compute(GPU/CPU)|Proprietary compute target, CPU only|
 |Inferencing compute targets| Azure Kubernetes Service for real-time inference <br/>AML Compute for batch inference|Proprietary web service format, not customizable | 
-|ML Pipeline| Pipeline authoring <br/> Published pipeline <br/> Pipeline endpoint <br/> [Learn more about ML pipeline](service/concept-ml-pipelines.md)|Not supported | 
+|ML Pipeline| Pipeline authoring <br/> Published pipeline <br/> Pipeline endpoint <br/> [Learn more about ML pipeline](concept-ml-pipelines.md)|Not supported | 
 |ML Ops| Configurable deployment, model and pipeline versioning|Basic model management and deployment | 
 |Model| Standard format, various depends on the training job|Proprietary, non portable format.| 
 |Automated model training|Not yet in the designer, but possible through the interface and SDKs.| No | 
@@ -52,7 +52,7 @@ The following resources can help you get started with Azure Machine Learning
 
 - [Create your first designer pipeline](service/tutorial-designer-automobile-price-train-score.md) to predict auto prices.
 
-![Azure Machine Learning designer example](service/media/concept-ml-pipelines/designer-drag-and-drop.gif)
+![Azure Machine Learning designer example](media/concept-designer/designer-drag-and-drop.gif)
 
 ## Next steps
 

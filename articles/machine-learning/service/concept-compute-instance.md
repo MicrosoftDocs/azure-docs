@@ -121,7 +121,7 @@ The dedicated cores per region quota, which applies to compute instance creation
 
 ## Compute Target
 
-Compute instances can be used as a [training compute target](concept-compute-target.md#train) similar to Azure Machine Learning compute training clusters. Provision a multi-GPU VM to run distributed training jobs using TensorFlow/PyTorch estimators. You can also create a run configuration and use it to run your experiment on compute instance. 
+Compute instances can be used as a [training compute target](../concept-compute-target.md#train) similar to Azure Machine Learning compute training clusters. Provision a multi-GPU VM to run distributed training jobs using TensorFlow/PyTorch estimators. You can also create a run configuration and use it to run your experiment on compute instance. 
 You can use compute instance as a local inferencing deployment target for testing/debugging scenarios.
 
 ## <a name="notebookvm"></a>What happened to Notebook VM?

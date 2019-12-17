@@ -13,13 +13,13 @@ ms.date: 11/12/2019
 ---
 
 # What is Azure Machine Learning designer (preview)? 
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Azure Machine Learning designer lets you visually connect [datasets](#datasets) and [modules](#module) on an interactive canvas to create machine learning models. To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
+Azure Machine Learning designer lets you visually connect [datasets](#datasets) and [modules](#module) on an interactive canvas to create machine learning models. To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](service/tutorial-designer-automobile-price-train-score.md)
 
-![Azure Machine Learning designer example](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
+![Azure Machine Learning designer example](./media/concept-designer/designer-drag-and-drop.gif)
 
-The designer uses your Azure Machine Learning [workspace](concept-workspace.md) to organize shared resources such as:
+The designer uses your Azure Machine Learning [workspace](service/concept-workspace.md) to organize shared resources such as:
 
 + [Pipelines](#pipeline)
 + [Datasets](#datasets)
@@ -41,7 +41,7 @@ The designer gives you a visual canvas to build, test, and deploy machine learni
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
 + [Deploy](#deploy) a **real-time inference pipeline** to a real-time endpoint to make predictions on new data in real time.
 
-![Workflow diagram for training, batch inference, and real-time inference in the designer](media/concept-designer/designer-workflow-diagram.png)
+![Workflow diagram for training, batch inference, and real-time inference in the designer](./media/concept-designer/designer-workflow-diagram.png)
 
 ## Pipeline
 
@@ -68,7 +68,7 @@ Pipeline runs are grouped into [experiments](concept-azure-machine-learning-arch
 
 ## Datasets
 
-A machine learning dataset makes it easy to access and work with your data. A number of sample datasets are included in the designer for you to experiment with. You can [register](./how-to-create-register-datasets.md) more datasets as you need them.
+A machine learning dataset makes it easy to access and work with your data. A number of sample datasets are included in the designer for you to experiment with. You can [register](./service/how-to-create-register-datasets.md) more datasets as you need them.
 
 ## Module
 
@@ -76,9 +76,9 @@ A module is an algorithm that you can perform on your data. The designer has a n
 
 A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model. You can set the compute resources for individual modules in the designer. 
 
-![Module properties](media/concept-designer/properties.png)
+![Module properties](./media/concept-designer/properties.png)
 
-For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](../algorithm-module-reference/module-reference.md)
+For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](algorithm-module-reference/module-reference.md)
 
 ## <a name="compute"></a> Compute resources
 
@@ -89,7 +89,7 @@ Use compute resources from your workspace to run your pipeline and host your dep
 | Azure Machine Learning compute | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Compute targets are attached to your [Azure Machine Learning workspace](concept-workspace.md). You manage your compute targets in your workspace in [Azure Machine Learning Studio (classic)](https://ml.azure.com).
+Compute targets are attached to your [Azure Machine Learning workspace](service/concept-workspace.md). You manage your compute targets in your workspace in [Azure Machine Learning Studio (classic)](https://ml.azure.com).
 
 ## Deploy
 
@@ -97,13 +97,13 @@ To perform real-time inferencing, you must deploy a pipeline as a **real-time en
 
 Real-time endpoints must be deployed to an Azure Kubernetes Service cluster.
 
-To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](tutorial-designer-automobile-price-deploy.md).
+To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](service/tutorial-designer-automobile-price-deploy.md).
 
 ## Publish
 
 You can also publish a pipeline to a **pipeline endpoint**. Similar to a real-time endpoint, a pipeline endpoint lets you submit new pipeline runs from external applications using REST calls. However, you cannot send or receive data in real-time using a pipeline endpoint.
 
-Published pipelines are flexible, they can be used to train or retrain models, [perform batch inferencing](how-to-run-batch-predictions-designer.md), process new data, and much more. You can publish multiple pipelines to a single pipeline endpoint and specify which pipeline version to run.
+Published pipelines are flexible, they can be used to train or retrain models, [perform batch inferencing](service/how-to-run-batch-predictions-designer.md), process new data, and much more. You can publish multiple pipelines to a single pipeline endpoint and specify which pipeline version to run.
 
 A published pipeline runs on the compute resources you define in the pipeline draft for each module.
 
@@ -125,19 +125,19 @@ As a result of these updates, some concepts and terms for the visual interface h
 
 You can convert existing visual interface experiments and web services to pipelines and real-time endpoints in the designer. Use the following steps to migrate your visual interface assets:
 
-[!INCLUDE [migrate from the visual interface](../../../includes/aml-vi-designer-migration.md)]
+[!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
 
 
 ## Next steps
 
-* Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
+* Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](service/tutorial-designer-automobile-price-train-score.md)
 * Use one of the samples and modify to suite your needs:
 
-- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
+- [Sample 1 - Regression: Predict an automobile's price](service/how-to-designer-sample-regression-automobile-price-basic.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](service/how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Sample 3 - Classification with feature selection: Income Prediction](service/how-to-designer-sample-classification-predict-income.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](service/how-to-designer-sample-classification-churn.md)
+- [Sample 6 - Classification: Predict flight delays](service/how-to-designer-sample-classification-flight-delay.md)
+- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](service/how-to-designer-sample-text-classification.md)
 

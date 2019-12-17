@@ -17,9 +17,9 @@ ms.custom: seodec18
 # Create and run machine learning pipelines with Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Use **ML pipelines** to create a workflow that stitches together various ML phases, and then publish that pipeline into your Azure Machine Learning workspace to access later or share with others.  ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, as well as sharing ML workflows with others.
+In this article, you learn how to create, publish, run, and track a [machine learning pipeline](../concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Use **ML pipelines** to create a workflow that stitches together various ML phases, and then publish that pipeline into your Azure Machine Learning workspace to access later or share with others.  ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, as well as sharing ML workflows with others.
 
-While you can use a different kind of pipeline called an [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) for CI/CD automation of ML tasks, that type of pipeline is never stored inside your workspace. [Compare these different pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+While you can use a different kind of pipeline called an [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) for CI/CD automation of ML tasks, that type of pipeline is never stored inside your workspace. [Compare these different pipelines](../concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
 Each phase of an ML pipeline, such as data preparation and model training, can include one or more steps.
 
@@ -57,7 +57,7 @@ Create the resources required to run an ML pipeline:
 
 * Configure a `DataReference` object to point to data that lives in, or is accessible in, a datastore.
 
-* Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
+* Set up the [compute targets](../concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
 
 ### Set up a datastore
 
@@ -368,7 +368,7 @@ When you submit the pipeline, Azure Machine Learning checks the dependencies for
 > [!IMPORTANT]
 > To prevent files from being included in the snapshot, create a [.gitignore](https://git-scm.com/docs/gitignore) or `.amlignore` file in the directory and add the files to it. The `.amlignore` file uses the same syntax and patterns as the [.gitignore](https://git-scm.com/docs/gitignore) file. If both files exist, the `.amlignore` file takes precedence.
 >
-> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
+> For more information, see [Snapshots](../concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 from azureml.core import Experiment
@@ -387,7 +387,7 @@ When you first run a pipeline, Azure Machine Learning:
 * Runs the step in the compute target specified in the step definition. 
 * Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user’s default datastore.
 
-![Diagram of running an experiment as a pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
+![Diagram of running an experiment as a pipeline](media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 For more information, see the [Experiment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) reference.
 

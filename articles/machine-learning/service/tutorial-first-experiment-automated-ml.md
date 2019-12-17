@@ -216,7 +216,7 @@ In this automated machine learning tutorial, you used Azure Machine Learning stu
 
 + Learn more about [preprocessing](how-to-create-portal-experiments.md#preprocess).
 + Learn more about [data profiling](how-to-create-portal-experiments.md#profile).
-+ Learn more about [automated machine learning](concept-automated-ml.md).
++ Learn more about [automated machine learning](../concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
 
 >[!NOTE]

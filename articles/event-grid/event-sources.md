@@ -173,7 +173,7 @@ Subscribe to Azure Machine Learning workspace events to respond to model registr
 
 | Title | Description |
 | ----- | ----- |
-| [Consume Azure Machine Learning events](../machine-learning/service/concept-event-grid-integration.md) | Overview of integrating Azure Machine Learning with Event Grid. |
+| [Consume Azure Machine Learning events](../machine-learning/concept-event-grid-integration.md) | Overview of integrating Azure Machine Learning with Event Grid. |
 | [Azure Event Grid event schema for Azure Machine Learning](event-schema-machine-learning.md) | Shows fields in the Azure Machine Learning events. |
 
 ## Next steps

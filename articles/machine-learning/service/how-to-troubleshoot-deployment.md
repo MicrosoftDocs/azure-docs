@@ -35,7 +35,7 @@ When deploying a model in Azure Machine Learning, the system performs a number o
 
 4. Start up a new container (or containers) in ACI or AKS. 
 
-Learn more about this process in the [Model Management](concept-model-management-and-deployment.md) introduction.
+Learn more about this process in the [Model Management](../concept-model-management-and-deployment.md) introduction.
 
 ## Prerequisites
 

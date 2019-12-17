@@ -32,13 +32,13 @@ The diagram shows the following components of a workspace:
 + A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 
 + [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams or projects.
-+ [Compute targets](concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
++ [Compute targets](../concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
-+ [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  
-+ [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
-+ [Datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
++ [Experiments](../concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  
++ [Pipelines](../concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
++ [Datasets](../concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a registered model.
-+ Use the registered model and a scoring script to create a [deployment endpoint](concept-azure-machine-learning-architecture.md#endpoints).
++ Use the registered model and a scoring script to create a [deployment endpoint](../concept-azure-machine-learning-architecture.md#endpoints).
 
 ## Tools for workspace interaction
 
@@ -46,7 +46,7 @@ You can interact with your workspace in the following ways:
 
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
-    + [Azure Machine Learning designer (preview)](concept-designer.md) - Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces.
+    + [Azure Machine Learning designer (preview)](../concept-designer.md) - Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces.
 + In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + In any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
@@ -81,7 +81,7 @@ You can also perform the following workspace management tasks:
 
 ## <a name='create-workspace'></a> Create a workspace
 
-When you create a workspace, you decide whether to create it with [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku). The edition determines the features available in the workspace. Among other features, Enterprise edition gives you access to [Azure Machine Learning designer](concept-designer.md) and the studio version of building [automated machine learning experiments](tutorial-first-experiment-automated-ml.md).  For more details and pricing information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
+When you create a workspace, you decide whether to create it with [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku). The edition determines the features available in the workspace. Among other features, Enterprise edition gives you access to [Azure Machine Learning designer](../concept-designer.md) and the studio version of building [automated machine learning experiments](tutorial-first-experiment-automated-ml.md).  For more details and pricing information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 There are multiple ways to create a workspace:  
 

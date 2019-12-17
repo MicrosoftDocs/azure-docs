@@ -24,7 +24,7 @@ The example scripts in this article are used to classify chicken and turkey imag
 
 Whether you're training a deep learning PyTorch model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning. 
 
-Learn more about [deep learning vs machine learning](concept-deep-learning-vs-machine-learning.md).
+Learn more about [deep learning vs machine learning](../concept-deep-learning-vs-machine-learning.md).
 
 ## Prerequisites
 
@@ -121,7 +121,7 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
+For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 
 ## Create a PyTorch estimator
 
@@ -166,7 +166,7 @@ As the Run is executed, it goes through the following stages:
 
 ## Register or download a model
 
-Once you've trained the model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
+Once you've trained the model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](../concept-model-management-and-deployment.md).
 
 ```Python
 model = run.register_model(model_name='pt-dnn', model_path='outputs/')

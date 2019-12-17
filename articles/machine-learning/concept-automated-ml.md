@@ -46,21 +46,21 @@ Using **Azure Machine Learning**, you can design and run your automated ML train
 
 1. **Specify the source and format of the labeled training data**: Numpy arrays or Pandas dataframe
 
-1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, remote VMs, or Azure Databricks](how-to-set-up-training-targets.md).  Learn about automated training [on a remote resource](how-to-auto-train-remote.md).
+1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, remote VMs, or Azure Databricks](service/how-to-set-up-training-targets.md).  Learn about automated training [on a remote resource](service/how-to-auto-train-remote.md).
 
-1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  You can configure the settings for automatic training experiment in [Azure Machine Learning studio](https://ml.azure.com), or [with the SDK](how-to-configure-auto-train.md). 
+1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  You can configure the settings for automatic training experiment in [Azure Machine Learning studio](https://ml.azure.com), or [with the SDK](service/how-to-configure-auto-train.md). 
 
-    [!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
+    [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 1. **Submit the training run.**
 
-  ![Automated Machine learning](./media/how-to-automated-ml/automl-concept-diagram2.png)
+  ![Automated Machine learning](./media/concept-automated-ml/automl-concept-diagram2.png)
 
 During training, Azure Machine Learning creates a number of in parallel pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment.
 
-You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
+You can also inspect the logged run information, which [contains metrics](service/how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
-While model building is automated, you can also [learn how important or relevant features are](how-to-configure-auto-train.md#explain) to the generated models.
+While model building is automated, you can also [learn how important or relevant features are](service/how-to-configure-auto-train.md#explain) to the generated models.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
@@ -92,9 +92,9 @@ In every automated machine learning experiment, your data is automatically scale
 
 ### Advanced preprocessing: optional featurization
 
-Additional advanced preprocessing and featurization are also available, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). Enable this setting with:
+Additional advanced preprocessing and featurization are also available, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](service/how-to-create-portal-experiments.md#preprocess). Enable this setting with:
 
-+ Azure Machine Learning studio : Selecting the **View featurization settings** in the **Configuration Run** section [with these steps](how-to-create-portal-experiments.md).
++ Azure Machine Learning studio : Selecting the **View featurization settings** in the **Configuration Run** section [with these steps](service/how-to-create-portal-experiments.md).
 
 + Python SDK: Specifying `"feauturization": auto' / 'off' / FeaturizationConfig` for the [`AutoMLConfig` class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
@@ -155,7 +155,7 @@ Building forecasts is an integral part of any business, whether it’s revenue, 
 
 An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are “pivoted” to become additional dimensions for the regressor together with other predictors. This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
 
-Learn more and see an example of [automated machine learning for time series forecasting](how-to-auto-train-forecast.md). Or, see the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
+Learn more and see an example of [automated machine learning for time series forecasting](service/how-to-auto-train-forecast.md). Or, see the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
 
 * holiday detection and featurization
 * time-series and DNN learners (Auto-ARIMA, Prophet, ForecastTCN)
@@ -173,7 +173,7 @@ Automated machine learning supports ensemble models, which are enabled by defaul
 
 The [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) with sorted ensemble initialization is used to decide which models to use within the ensemble. At a high level, this algorithm initializes the ensemble with up to 5 models with the best individual scores, and verifies that these models are within 5% threshold of the best score to avoid a poor initial ensemble. Then for each ensemble iteration, a new model is added to the existing ensemble and the resulting score is calculated. If a new model improved the existing ensemble score, the ensemble is updated to include the new model.
 
-See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default ensemble settings in automated machine learning.
+See the [how-to](service/how-to-configure-auto-train.md#ensemble) for changing default ensemble settings in automated machine learning.
 
 ## <a name="imbalance"></a> Imbalanced data
 
@@ -193,9 +193,9 @@ In addition, automated ML runs generate the following charts automatically, whic
 
 Chart| Description
 ---|---
-[Confusion Matrix](how-to-understand-automated-ml.md#confusion-matrix)| Evaluates the correctly classified labels against the actual labels of the data. 
-[Precision-recall](how-to-understand-automated-ml.md#precision-recall-chart)| Evaluates the ratio of correct labels against the ratio of found label instances of the data 
-[ROC Curves](how-to-understand-automated-ml.md#roc)| Evaluates the ratio of correct labels against the ratio of false-positive labels.
+[Confusion Matrix](service/how-to-understand-automated-ml.md#confusion-matrix)| Evaluates the correctly classified labels against the actual labels of the data. 
+[Precision-recall](service/how-to-understand-automated-ml.md#precision-recall-chart)| Evaluates the ratio of correct labels against the ratio of found label instances of the data 
+[ROC Curves](service/how-to-understand-automated-ml.md#roc)| Evaluates the ratio of correct labels against the ratio of false-positive labels.
 
 ### Handle imbalanced data 
 
@@ -216,7 +216,7 @@ Automated ML is also available in other Microsoft solutions such as:
 |Integrations|Description|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Automatic model selection and training in .NET apps using Visual Studio and Visual Studio Code with ML.NET automated ML (preview).|
-|[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Scale out your automated ML training jobs on Spark in HDInsight clusters in parallel.|
+|[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Scale out your automated ML training jobs on Spark in HDInsight clusters in parallel.|
 |[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invoke machine learning models directly in Power BI (preview).|
 |[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Create new machine learning models over your data in SQL Server 2019 big data clusters.|
 
@@ -224,12 +224,12 @@ Automated ML is also available in other Microsoft solutions such as:
 
 See examples and learn how to build models using automated machine learning:
 
-+ Follow the [Tutorial: Automatically train a regression model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
++ Follow the [Tutorial: Automatically train a regression model with Azure Automated Machine Learning](service/tutorial-auto-train-models.md)
 
 + Configure the settings for automatic training experiment:
-  + In Azure Machine Learning studio, [use these steps](how-to-create-portal-experiments.md).
-  + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
+  + In Azure Machine Learning studio, [use these steps](service/how-to-create-portal-experiments.md).
+  + With the Python SDK, [use these steps](service/how-to-configure-auto-train.md).
 
-+ Learn how to auto train using time series data, [use these steps](how-to-auto-train-forecast.md).
++ Learn how to auto train using time series data, [use these steps](service/how-to-auto-train-forecast.md).
 
 + Try out [Jupyter Notebook samples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)

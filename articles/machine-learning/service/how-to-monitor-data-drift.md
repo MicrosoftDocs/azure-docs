@@ -59,7 +59,7 @@ Using Azure Machine Learning, data drift is monitored through datasets or deploy
 
 - Create a [dataset](how-to-create-register-datasets.md) from your model's training data.
 
-- Specify the training dataset when [registering](concept-model-management-and-deployment.md) the model. The following example demonstrates using the `datasets` parameter to specify the training dataset:
+- Specify the training dataset when [registering](../concept-model-management-and-deployment.md) the model. The following example demonstrates using the `datasets` parameter to specify the training dataset:
 
     ```python
     model = Model.register(model_path=model_file,

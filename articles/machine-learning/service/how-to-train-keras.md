@@ -24,7 +24,7 @@ Keras is a high-level neural network API capable of running top of other popular
 
 Whether you're developing a Keras model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning can help you build production-ready models.
 
-See the [conceptual article](concept-deep-learning-vs-machine-learning.md) for information on the differences between machine learning and deep learning.
+See the [conceptual article](../concept-deep-learning-vs-machine-learning.md) for information on the differences between machine learning and deep learning.
 
 ## Prerequisites
 
@@ -124,7 +124,7 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
+For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 
 ## Create a TensorFlow estimator and import Keras
 
@@ -181,7 +181,7 @@ As the Run is executed, it goes through the following stages:
 
 ## Register the model
 
-Once you've trained the DNN model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
+Once you've trained the DNN model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](../concept-model-management-and-deployment.md).
 
 ```Python
 model = run.register_model(model_name='keras-dnn-mnist', model_path='outputs/model')

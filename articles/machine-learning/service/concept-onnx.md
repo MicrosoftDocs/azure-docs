@@ -40,7 +40,7 @@ Many models including image classification, object detection, and text processin
 
 ## Deploy ONNX models in Azure
 
-With Azure Machine Learning, you can deploy, manage, and monitor your ONNX models. Using the standard [deployment workflow](concept-model-management-and-deployment.md) and ONNX Runtime, you can create a REST endpoint hosted in the cloud. See example Jupyter notebooks at the end of this article to try it out for yourself. 
+With Azure Machine Learning, you can deploy, manage, and monitor your ONNX models. Using the standard [deployment workflow](../concept-model-management-and-deployment.md) and ONNX Runtime, you can create a REST endpoint hosted in the cloud. See example Jupyter notebooks at the end of this article to try it out for yourself. 
 
 ### Install and use ONNX Runtime with Python
 

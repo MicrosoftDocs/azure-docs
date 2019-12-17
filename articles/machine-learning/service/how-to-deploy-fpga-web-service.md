@@ -242,7 +242,7 @@ The available models and the corresponding default classifier output tensors are
 
 ### Register model
 
-[Register](./concept-model-management-and-deployment.md) the model by using the SDK with the ZIP file in Azure Blob storage. Adding tags and other metadata about the model helps you keep track of your trained models.
+[Register](../concept-model-management-and-deployment.md) the model by using the SDK with the ZIP file in Azure Blob storage. Adding tags and other metadata about the model helps you keep track of your trained models.
 
 ```python
 from azureml.core.model import Model

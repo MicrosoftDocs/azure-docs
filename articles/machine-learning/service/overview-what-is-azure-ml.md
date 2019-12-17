@@ -65,9 +65,9 @@ For code-free or low-code training and deployment, try:
 
   Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
-  Learn more in [the Azure Machine Learning designer overview article](concept-designer.md). 
+  Learn more in [the Azure Machine Learning designer overview article](../concept-designer.md). 
 
-  ![Azure Machine Learning designer example](media/concept-ml-pipelines/designer-drag-and-drop.gif)
+  ![Azure Machine Learning designer example](media/overview-what-is-azure-ml/designer-drag-and-drop.gif)
 
 + **Automated machine learning UI**
 
@@ -82,7 +82,7 @@ Then you can manage your deployed models by using the [Azure Machine Learning SD
 
 These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
 
-And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment. Pipelines allow you to:
+And with advanced [machine learning pipelines](../concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment. Pipelines allow you to:
 
 * Automate the end-to-end machine learning process in the cloud
 * Reuse components and only rerun steps when needed
@@ -97,8 +97,8 @@ To get started using Azure Machine Learning, see [Next steps](#next-steps).
 
 Azure Machine Learning works with other services on the Azure platform, and also integrates with open source tools such as Git and MLFlow.
 
-+ Compute targets such as __Azure Kubernetes Service__, __Azure Container Instances__, __Azure Databricks__, __Azure Data Lake Analytics__, and __Azure HDInsight__. For more information on compute targets, see [What are compute targets?](concept-compute-target.md).
-+ __Azure Event Grid__. For more information, see [Consume Azure Machine Learning events](concept-event-grid-integration.md).
++ Compute targets such as __Azure Kubernetes Service__, __Azure Container Instances__, __Azure Databricks__, __Azure Data Lake Analytics__, and __Azure HDInsight__. For more information on compute targets, see [What are compute targets?](../concept-compute-target.md).
++ __Azure Event Grid__. For more information, see [Consume Azure Machine Learning events](../concept-event-grid-integration.md).
 + __Azure Monitor__. For more information, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
 + Data stores such as __Azure Storage accounts__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, and __Azure Open Datasets__. For more information, see [Access data in Azure storage services](how-to-access-data.md) and [Create datasets with Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
 + __Azure Virtual Networks__. For more information, see [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md).
@@ -136,4 +136,4 @@ Customers are responsible for costs incurred on compute and other Azure resource
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
 
-- Read the in-depth [Azure Machine Learning architecture and concepts](concept-azure-machine-learning-architecture.md) article.
+- Read the in-depth [Azure Machine Learning architecture and concepts](../concept-azure-machine-learning-architecture.md) article.

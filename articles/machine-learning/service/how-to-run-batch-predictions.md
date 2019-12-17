@@ -25,7 +25,7 @@ In this article, you learn the following tasks:
 
 > * Create a remote compute resource.
 > * Write a custom inference script.
-> * Create a [machine learning pipeline](concept-ml-pipelines.md) to register a pre-trained image classification model based on the [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) dataset. 
+> * Create a [machine learning pipeline](../concept-ml-pipelines.md) to register a pre-trained image classification model based on the [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) dataset. 
 > * Use the model to run batch inference on sample images available in your Azure Blob storage account. 
 
 ## Prerequisites

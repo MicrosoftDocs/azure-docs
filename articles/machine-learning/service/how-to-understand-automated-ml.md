@@ -263,5 +263,5 @@ For more information on enabling interpretability features, see the [how-to](how
 
 ## Next steps
 
-+ Learn more about [automated ml](concept-automated-ml.md) in Azure Machine Learning.
++ Learn more about [automated ml](../concept-automated-ml.md) in Azure Machine Learning.
 + Try the [Automated Machine Learning Model Explanation](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) sample notebooks.

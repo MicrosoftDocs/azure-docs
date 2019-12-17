@@ -39,15 +39,15 @@ Here is a quick comparison:
 
 || Machine Learning Studio (classic) | Azure Machine Learning |
 |---| --- | --- |
-| Drag and drop interface | Yes | Yes - [Azure Machine Learning designer (preview)](../service/concept-designer.md) |
+| Drag and drop interface | Yes | Yes - [Azure Machine Learning designer (preview)](../concept-designer.md) |
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
 | Modules for drag-and-drop interface | Many | Initial set of popular [modules](../algorithm-module-reference/module-reference.md)|
-|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute (GPU or CPU) and Notebook VMs.<br/>([Other computes supported in SDK](../service/concept-compute-target.md#train))|
+|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute (GPU or CPU) and Notebook VMs.<br/>([Other computes supported in SDK](../concept-compute-target.md#train))|
 |Inferencing compute targets| Proprietary web service format, not customizable |  Azure Kubernetes Service and AML Compute <br/>([Other computes supported in SDK](../service/how-to-deploy-and-where.md)) |
-| ML Pipeline | Not supported | [Pipelines](../service/concept-ml-pipelines.md) supported |
+| ML Pipeline | Not supported | [Pipelines](../concept-ml-pipelines.md) supported |
 | MLOps | Basic model management and deployment | Configurable deployment - model and pipeline versioning and tracking |
 | Model format | Proprietary format, Studio only | Standard format depending on training job type |
-|Automated model training and hyperparameter tuning | No | Not yet in the designer <br/> ([Supported in the SDK and workspace landing page](../service/concept-automated-ml.md)) | 
+|Automated model training and hyperparameter tuning | No | Not yet in the designer <br/> ([Supported in the SDK and workspace landing page](../concept-automated-ml.md)) | 
 
 Try out the designer with [Tutorial: Predict automobile price with the designer](../service/tutorial-designer-automobile-price-train-score.md)
 

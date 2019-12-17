@@ -64,7 +64,7 @@ Parameter | Description
 
 The constructor has another parameter called `pip_packages` that you use for any pip packages needed.
 
-Now that you've created your `Estimator` object, submit the training job to be run on the remote compute with a call to the `submit` function on your [Experiment](concept-azure-machine-learning-architecture.md#experiments) object `experiment`. 
+Now that you've created your `Estimator` object, submit the training job to be run on the remote compute with a call to the `submit` function on your [Experiment](../concept-azure-machine-learning-architecture.md#experiments) object `experiment`. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -124,7 +124,7 @@ print(run.get_portal_url())
 
 ## Registering a model
 
-Once you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
+Once you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](../concept-model-management-and-deployment.md).
 
 Running the following code will register the model to your workspace, and will make it available to reference by name in remote compute contexts or deployment scripts. See [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) in the reference docs for more information and additional parameters.
 

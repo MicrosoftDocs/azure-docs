@@ -26,7 +26,7 @@ Azure Machine Learning pipelines allow you to create workflows in your machine l
 
 These benefits become significant as soon as your machine learning project moves beyond pure exploration and into iteration. Even simple one-step pipelines can be valuable. Machine learning projects are often in a complex state, and it can be a relief to make the precise accomplishment of a single workflow a trivial process.
 
-Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
+Learn how to [create your first pipeline](service/how-to-create-your-first-pipeline.md).
 
 ![Machine learning pipelines in Azure Machine Learning](./media/concept-ml-pipelines/pipeline-flow.png)
 
@@ -54,7 +54,7 @@ Independent steps allow multiple data scientists to work on the same pipeline at
 
 After the pipeline is designed, there is often more fine-tuning around the training loop of the pipeline. When you rerun a pipeline, the run jumps to the steps that need to be rerun, such as an updated training script. Steps that do not need to be rerun are skipped. The same analysis applies to unchanged scripts used for the accomplishment of the step. This reuse functionality helps to avoid running costly and time-intensive steps like data ingestion and transformation if the underlying data hasn't changed.
 
-With Azure Machine Learning, you can use various toolkits and frameworks, such as PyTorch or TensorFlow, for each step in your pipeline. Azure coordinates the various [compute targets](concept-azure-machine-learning-architecture.md) you use, so your intermediate data can be shared with the downstream compute targets.
+With Azure Machine Learning, you can use various toolkits and frameworks, such as PyTorch or TensorFlow, for each step in your pipeline. Azure coordinates the various [compute targets](service/concept-azure-machine-learning-architecture.md) you use, so your intermediate data can be shared with the downstream compute targets.
 
 You can [track the metrics for your pipeline experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) directly in  Azure portal or your [workspace landing page (preview)](https://ml.azure.com). After a pipeline has been published, you can configure a REST endpoint, which allows you to rerun the pipeline from any platform or stack.
 
@@ -98,7 +98,7 @@ When you create and run a `Pipeline` object, the following high-level steps occu
     + When the step completes, its outputs are prepared as inputs to the next step and/or written to storage
     + Resources that are no longer needed are finalized and detached
 
-![Pipeline steps](media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
+![Pipeline steps](./media/concept-ml-pipelines/run_an_experiment_as_a_pipeline.png)
 
 ## Building pipelines with the Python SDK
 
@@ -114,7 +114,7 @@ Developers who prefer a visual design surface can use the Azure Machine Learning
 
 When you visually design pipelines, the inputs and outputs of a step are displayed visibly. You can drag and drop data connections, allowing you to quickly understand and modify the dataflow of your pipeline.
  
-![Azure Machine Learning designer example](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
+![Azure Machine Learning designer example](./media/concept-designer/designer-drag-and-drop.gif)
 
 ### Understanding the execution graph
 
@@ -202,10 +202,10 @@ The key advantages of using pipelines for your machine learning workflows are:
 Azure ML pipelines are a powerful facility that begins delivering value in the early development stages. The value increases as the team and project grows. This article has explained how pipelines are specified with the Azure Machine Learning Python SDK and orchestrated on Azure. You've seen some basic source code and been introduced to a few of the `PipelineStep` classes that are available. You should have a sense of when to use Azure ML pipelines and how Azure runs them. 
 
 
-+ Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
++ Learn how to [create your first pipeline](service/how-to-create-your-first-pipeline.md).
 
-+ Learn how to [run batch predictions on large data](tutorial-pipeline-batch-scoring-classification.md ).
++ Learn how to [run batch predictions on large data](service/tutorial-pipeline-batch-scoring-classification.md ).
 
 + See the SDK reference docs for [pipeline core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) and [pipeline steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py).
 
-+ Try out example Jupyter notebooks showcasing [Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Learn how to [run notebooks to explore this service](samples-notebooks.md).
++ Try out example Jupyter notebooks showcasing [Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Learn how to [run notebooks to explore this service](service/samples-notebooks.md).
