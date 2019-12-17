@@ -14,13 +14,24 @@ ms.custom: security-recommendations
 
 # Security Control: Inventory and Asset Management
 
-## 6.1: Utilize Azure Asset Discovery
+## 6.1: Use Azure Asset Discovery
 
 | Azure ID | CIS Control IDs | Responsibility |
 |--|--|--|
 | 6.1 | 1.1, 1.2, 1.3, 1.4, 9.1, 12.1 | Customer |
 
-Customer to utilize Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within their subscription(s). &nbsp;Customer to ensure they have appropriate (read) permissions in their tenant and are able to enumerate all Azure subscriptions as well as resources within their subscriptions.<br><br>Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and utilize ARM resources going forward.<br><br>How to create queries with Azure Graph:<br>https://docs.microsoft.com/en-us/azure/governance/resource-graph/first-query-portal<br><br>How to view your Azure Subscriptions:<br>https://docs.microsoft.com/en-us/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0<br><br>Understanding Azure RBAC:<br>https://docs.microsoft.com/en-us/azure/role-based-access-control/overview
+Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). &nbsp;Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
+
+Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and utilize ARM resources going forward.
+
+How to create queries with Azure Graph:
+https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
+How to view your Azure Subscriptions:
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+
+Understanding Azure RBAC:
+https://docs.microsoft.com/azure/role-based-access-control/overview
 
 ## 6.2: Maintain Asset Metadata
 
@@ -28,7 +39,11 @@ Customer to utilize Azure Resource Graph to query/discover all resources (such a
 |--|--|--|
 | 6.2 | 1.5 | Customer |
 
-Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.<br><br><br><br>How to create and utilize Tags:<br><br>https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags
+Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
+
+How to create and utilize Tags:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 ## 6.3: Delete Unauthorized Azure Resources
 
@@ -36,7 +51,19 @@ Apply tags to Azure resources giving metadata to logically organize them into a 
 |--|--|--|
 | 6.3 | 1.6 | Customer |
 
-Customer to utilize tagging, management groups, and separate subscriptions, where appropriate, to organize and track assets. Customer to reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.<br><br><br><br>How to create additional Azure subscriptions:<br><br>https://docs.microsoft.com/en-us/azure/billing/billing-create-subscription<br><br><br><br>How to create Management Groups:<br><br>https://docs.microsoft.com/en-us/azure/governance/management-groups/create<br><br><br><br>How to create and utilize Tags:<br><br>https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags
+Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
+
+How to create additional Azure subscriptions:
+
+https://docs.microsoft.com/azure/billing/billing-create-subscription
+
+How to create Management Groups:
+
+https://docs.microsoft.com/azure/governance/management-groups/create
+
+How to create and utilize Tags:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 ## 6.4: Maintain inventory of approved Azure resources and software titles.
 
@@ -44,7 +71,7 @@ Customer to utilize tagging, management groups, and separate subscriptions, wher
 |--|--|--|
 | 6.4 | 2.1 | Customer |
 
-Customer to define list of approved Azure resources and approved software for their compute resources
+Define approved Azure resources and approved software for compute resources.
 
 ## 6.5: Monitor for Unapproved Azure Resources
 
@@ -52,7 +79,17 @@ Customer to define list of approved Azure resources and approved software for th
 |--|--|--|
 | 6.5 | 2.3, 2.4 | Customer |
 
-Customer to utilize Azure policy to put restrictions on the type of resources that can be created in customer subscription(s).<br><br><br><br>Customer to utilize Azure Resource Graph to query/discover resources within their subscription(s). &nbsp;Ensure that all Azure resources present in the environment are approved.<br><br><br><br>How to configure and manage Azure Policy:<br><br>https://docs.microsoft.com/en-us/azure/governance/policy/tutorials/create-and-manage<br><br><br><br>How to create queries with Azure Graph:<br><br>https://docs.microsoft.com/en-us/azure/governance/resource-graph/first-query-portal
+Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s).
+
+Use Azure Resource Graph to query/discover resources within their subscription(s). &nbsp;Ensure that all Azure resources present in the environment are approved.
+
+How to configure and manage Azure Policy:
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
+How to create queries with Azure Graph:
+
+https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 ## 6.6: Monitor for Unapproved Software Applications within Compute Resources
 
@@ -60,7 +97,11 @@ Customer to utilize Azure policy to put restrictions on the type of resources th
 |--|--|--|
 | 6.6 | 2.3/2.4 | Customer |
 
-Utilize Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, customer required to enable guest-level diagnostic and bring the Windows Event logs into a Log Analytics Workspace.<br><br><br><br>How to enable Azure VM Inventory:<br><br>https://docs.microsoft.com/en-us/azure/automation/automation-tutorial-installed-software
+Use Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event logs into a Log Analytics Workspace.
+
+How to enable Azure VM Inventory:
+
+https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software
 
 ## 6.7: Remove Unapproved Azure Resources and Software Applications
 
@@ -68,23 +109,43 @@ Utilize Azure Virtual Machine Inventory to automate the collection of informatio
 |--|--|--|
 | 6.7 | 2.5 | Customer |
 
-Customer to Utilize Change Tracking and VM Inventory to identify all software installed on Virtual Machines. Customer to implement own process for removing unauthorized. (When Change Tracking and VM Inventory not available, customer to utilize third party solution to identify unapproved software.)<br><br><br><br>How to enable Azure VM Inventory:<br><br>https://docs.microsoft.com/en-us/azure/automation/automation-tutorial-installed-software<br><br><br><br>Understanding Change Tracking:<br><br>https://docs.microsoft.com/en-us/azure/automation/change-tracking
+Use Change Tracking and VM Inventory to identify all software installed on Virtual Machines. Implement a process for removing unauthorized VMs and software. When Change Tracking and VM Inventory not available, use third-party solutions to identify unapproved software.&nbsp;
 
-## 6.8: Utilize only approved applications
+How to enable Azure VM Inventory:
+
+https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software
+
+Understanding Change Tracking:
+
+https://docs.microsoft.com/azure/automation/change-tracking
+
+## 6.8: Use only approved applications
 
 | Azure ID | CIS Control IDs | Responsibility |
 |--|--|--|
 | 6.8 | 2.6 | Customer |
 
-Utilize Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.<br><br><br><br>How to use Azure Security Center Adaptive Application Controls:<br><br>https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-application
+Use Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
-## 6.9: Utilize only approved Azure Services
+How to use Azure Security Center Adaptive Application Controls:
+
+https://docs.microsoft.com/azure/security-center/security-center-adaptive-application
+
+## 6.9: Use only approved Azure Services
 
 | Azure ID | CIS Control IDs | Responsibility |
 |--|--|--|
 | 6.9 | 2.6 | Customer |
 
-Leverage Azure Policy to restrict which services you can provision in your environment.<br><br><br><br>How to configure and manage Azure Policy:<br><br>https://docs.microsoft.com/en-us/azure/governance/policy/tutorials/create-and-manage<br><br><br><br>How to deny a specific resource type with Azure Policy:<br><br>https://docs.microsoft.com/en-us/azure/governance/policy/samples/not-allowed-resource-types
+Use Azure Policy to restrict which services you can provision in your environment.
+
+How to configure and manage Azure Policy:
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
+How to deny a specific resource type with Azure Policy:
+
+https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 ## 6.1: Implement approved application list
 
@@ -92,7 +153,13 @@ Leverage Azure Policy to restrict which services you can provision in your envir
 |--|--|--|
 | 6.1 | 2.7 | Customer |
 
-Utilize Azure Security Center Adaptive Application Controls to specify which file types a rule may or may not apply to. Note: Microsoft documentation states: &quot;This can be EXE, Script, MSI, or any permutation of these types.&quot;<br><br><br><br>Customer to implement third party solution if this does not meet the requirement.<br><br><br><br>How to use Azure Security Center Adaptive Application Controls:<br><br>https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-application
+Use Azure Security Center Adaptive Application Controls to specify which file types a rule may or may not apply to.
+
+Implement third party solution if this does not meet the requirement.
+
+How to use Azure Security Center Adaptive Application Controls:
+
+https://docs.microsoft.com/azure/security-center/security-center-adaptive-application
 
 ## 6.11: Limit Users' Ability to interact with ARM via Scripts
 
@@ -100,7 +167,11 @@ Utilize Azure Security Center Adaptive Application Controls to specify which fil
 |--|--|--|
 | 6.11 | 2.8 | Customer |
 
-Utilize Azure Conditional Access to limit users' ability to interact with ARM by configuring &quot;Block access&quot; for the &quot;Microsoft Azure Management&quot; App.<br><br><br><br>How to configure Conditional Access to block access to ARM:<br><br>https://docs.microsoft.com/en-us/azure/role-based-access-control/conditional-access-azure-management
+Use Azure Conditional Access to limit users' ability to interact with ARM by configuring &quot;Block access&quot; for the &quot;Microsoft Azure Management&quot; App.
+
+How to configure Conditional Access to block access to ARM:
+
+https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 ## 6.12: Limit Users' Ability to Execute Scripts within Compute Resources
 
@@ -108,7 +179,10 @@ Utilize Azure Conditional Access to limit users' ability to interact with ARM by
 |--|--|--|
 | 6.12 | 2.8 | Customer |
 
-Customer to utilize operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.<br><br>For example, how to control PowerShell script execution in Windows Environments:<br>https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
+Use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
+
+For example, how to control PowerShell script execution in Windows Environments:
+https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 
 ## 6.13: Physically or Logically Segregate High Risk Applications
 
@@ -116,5 +190,13 @@ Customer to utilize operating system specific configurations or third-party reso
 |--|--|--|
 | 6.13 | 2.9 | Customer |
 
-Software that is required for business operations but may incur higher risk for the organization should be isolated within its own Virtual Machine and/or Virtual Network and sufficiently secured with either an Azure Firewall or Network Security Group.<br><br><br><br>How to create a Virtual Network:<br><br>https://docs.microsoft.com/en-us/azure/virtual-network/quick-create-portal<br><br><br><br>How to create an NSG with a Security Config:<br><br>https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-filter-network-traffic
+Software that is required for business operations but may incur higher risk for the organization should be isolated within its own Virtual Machine and/or Virtual Network and sufficiently secured with either an Azure Firewall or Network Security Group.
+
+How to create a Virtual Network:
+
+https://docs.microsoft.com/azure/virtual-network/quick-create-portal
+
+How to create an NSG with a Security Config:
+
+https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 

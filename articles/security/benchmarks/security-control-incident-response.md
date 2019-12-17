@@ -20,7 +20,10 @@ ms.custom: security-recommendations
 |--|--|--|
 | 10.1 | 19.1, 19.2, 19.3 | Customer |
 
-Ensure that there are written incident response plans that defines roles of personnel as well as phases of incident handling/management.<br><br>How to configure Workflow Automations within Azure Security Center:<br>https://docs.microsoft.com/en-us/azure/security-center/security-center-planning-and-operations-guide
+Ensure that there are written incident response plans that defines roles of personnel as well as phases of incident handling/management.
+
+How to configure Workflow Automations within Azure Security Center:
+https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
 
 ## 10.2: Create Incident Scoring and Prioritization Procedure
 
@@ -36,7 +39,10 @@ Security Center assigns a severity to alerts, to help you prioritize the order i
 |--|--|--|
 | 10.3 | 19.5 | Customer |
 
-Security incident contact information will be used by Microsoft to contact the customer if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party.<br><br>How to set the Azure Security Center Security Contact:<br>https://docs.microsoft.com/en-us/azure/security-center/security-center-provide-security-contact-details
+Security incident contact information will be used by Microsoft to contact the customer if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party.
+
+How to set the Azure Security Center Security Contact:
+https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 ## 10.4: Incorporate security alerts into your incident response system
 
@@ -44,7 +50,13 @@ Security incident contact information will be used by Microsoft to contact the c
 |--|--|--|
 | 10.4 | 19.6 | Customer |
 
-Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. Customer may utilize the Azure Security Center data connector to stream the alerts Sentinel.<br><br>How to configure continuous export:<br>https://docs.microsoft.com/en-us/azure/security-center/continuous-export<br><br>How to stream alerts into Azure Sentinel:<br>https://docs.microsoft.com/en-us/azure/sentinel/connect-azure-security-center
+Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. Customer may utilize the Azure Security Center data connector to stream the alerts Sentinel.
+
+How to configure continuous export:
+https://docs.microsoft.com/azure/security-center/continuous-export
+
+How to stream alerts into Azure Sentinel:
+https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 ## 10.5: Automate the response to security alerts
 
@@ -52,5 +64,8 @@ Export your Azure Security Center alerts and recommendations using the Continuou
 |--|--|--|
 | 10.5 | 19 | Customer |
 
-Utilize the Workflow Automation feature in Azure Security Center to automatically trigger responses via &quot;Logic Apps&quot; on security alerts and recommendations.<br><br>How to configure Workflow Automation and Logic Apps:<br>https://docs.microsoft.com/en-us/azure/security-center/workflow-automation
+Utilize the Workflow Automation feature in Azure Security Center to automatically trigger responses via &quot;Logic Apps&quot; on security alerts and recommendations.
+
+How to configure Workflow Automation and Logic Apps:
+https://docs.microsoft.com/azure/security-center/workflow-automation
 

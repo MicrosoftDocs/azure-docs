@@ -14,13 +14,17 @@ ms.custom: security-recommendations
 
 # Security Control: Data Protection
 
-## 4.1: Maintain an Inventory of Sensitive Information
+## 4.1: Maintain an inventory of sensitive Information
 
 | Azure ID | CIS Control IDs | Responsibility |
 |--|--|--|
 | 4.1 | 13.1 | Customer |
 
-Utilize Tags to assist in tracking Azure resources that store or process sensitive information.<br><br><br><br>How to create and utilize Tags:<br><br>https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags
+Use Tags to assist in tracking Azure resources that store or process sensitive information.
+
+How to create and utilize Tags:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 ## 4.2: Isolate systems storing or processing sensitive information
 
@@ -28,39 +32,83 @@ Utilize Tags to assist in tracking Azure resources that store or process sensiti
 |--|--|--|
 | 4.2 | 13.2 | Customer |
 
-Customer to implement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by Vnet/Subnet, tagged appropriately, and secured within an NSG or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated. For Virtual Machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.<br><br>How to create additional Azure subscriptions:<br>https://docs.microsoft.com/en-us/azure/billing/billing-create-subscription<br><br>How to create Management Groups:<br>https://docs.microsoft.com/en-us/azure/governance/management-groups/create<br><br>How to create and utilize Tags:<br>https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags<br><br>How to create a Virtual Network:<br>https://docs.microsoft.com/en-us/azure/virtual-network/quick-create-portal<br><br>How to create an NSG with a Security Config:<br>https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-filter-network-traffic<br><br>How to deploy Azure Firewall:<br>https://docs.microsoft.com/en-us/azure/firewall/tutorial-firewall-deploy-portal<br><br>How to configure alert or alert and deny with Azure Firewall:<br>https://docs.microsoft.com/en-us/azure/firewall/threat-intel
+Customer to implement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by VNet/Subnet, tagged appropriately, and secured within an NSG or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated. For Virtual Machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.
 
-## 4.3: Monitor and Block unauthorized transfer of sensitive information
+How to create additional Azure subscriptions:
+https://docs.microsoft.com/azure/billing/billing-create-subscription
+
+How to create Management Groups:
+https://docs.microsoft.com/azure/governance/management-groups/create
+
+How to create and utilize Tags:
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
+How to create a Virtual Network:
+https://docs.microsoft.com/azure/virtual-network/quick-create-portal
+
+How to create an NSG with a Security Config:
+https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
+
+How to deploy Azure Firewall:
+https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
+
+How to configure alert or alert and deny with Azure Firewall:
+https://docs.microsoft.com/azure/firewall/threat-intel
+
+## 4.3: Monitor and block unauthorized transfer of sensitive information.
 
 | Azure ID | CIS Control IDs | Responsibility |
 |--|--|--|
 | 4.3 | 13.3 | Customer |
 
-Customer to implement third party solution. Deploy an automated tool on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.
+Deploy an automated tool on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.
 
-## 4.4: Encrypt All Sensitive Information in Transit
+## 4.4: Encrypt all sensitive information in transit
 
 | Azure ID | CIS Control IDs | Responsibility |
 |--|--|--|
 | 4.4 | 14.4 | Shared |
 
-Encrypt all sensitive information in transit. Ensure that any clients connecting to your Azure resources are able to negotiate TLS 1.2 or greater.<br><br>Understanding encryption in transit with Azure:<br>https://docs.microsoft.com/en-us/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit
+Encrypt all sensitive information in transit. Ensure that any clients connecting to your Azure resources are able to negotiate TLS 1.2 or greater.
 
-## 4.5: Utilize an Active Discovery Tool to Identify Sensitive Data
+Understanding encryption in transit with Azure:
+https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit
+
+## 4.5: Use an active discovery tool to identify sensitive data
 
 | Azure ID | CIS Control IDs | Responsibility |
 |--|--|--|
 | 4.5 | 14.5 | Customer |
 
-When no feature is available for your specific service in Azure, utilize a third party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located onsite or at a remote service provider and update the organization's sensitive information inventory.<br><br><br><br>Customer to Utilize Azure Information Protection for identifying sensitive information within Office 365 documents.<br><br><br><br>Customer to Utilize Azure SQL Information Protection to assist in the classification and labeling of information stored in Azure SQL Databases.<br><br><br><br>How to implement Azure SQL Data Discovery:<br><br>https://docs.microsoft.com/en-us/azure/sql-database/sql-database-data-discovery-and-classification<br><br><br><br>How to implement Azure Information Protection:<br><br>https://docs.microsoft.com/en-us/azure/information-protection/deployment-roadmap
+When no feature is available for your specific service in Azure, use a third party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site or at a remote service provider and update the organization's sensitive information inventory.
 
-## 4.6: Utilize Azure RBAC to control access to resources
+Use Azure Information Protection for identifying sensitive information within Office 365 documents.
+
+Use Azure SQL Information Protection to assist in the classification and labeling of information stored in Azure SQL Databases.
+
+How to implement Azure SQL Data Discovery:
+
+https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification
+
+How to implement Azure Information Protection:
+
+https://docs.microsoft.com/azure/information-protection/deployment-roadmap
+
+## 4.6: Use Azure RBAC to control access to resources
 
 | Azure ID | CIS Control IDs | Responsibility |
 |--|--|--|
 | 4.6 | 14.6 | Customer |
 
-Utilize Azure AD RBAC to control access to data and resources, otherwise utilize service specific access control methods.<br><br><br><br>Understanding Azure RBAC:<br><br>https://docs.microsoft.com/en-us/azure/role-based-access-control/overview<br><br><br><br>How to configure RBAC in Azure:<br><br>https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal
+Use Azure AD RBAC to control access to data and resources, otherwise use service specific access control methods.
+
+Understanding Azure RBAC:
+
+https://docs.microsoft.com/azure/role-based-access-control/overview
+
+How to configure RBAC in Azure:
+
+https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 ## 4.7: Use host-based Data Loss Prevention to enforce access control
 
@@ -68,7 +116,7 @@ Utilize Azure AD RBAC to control access to data and resources, otherwise utilize
 |--|--|--|
 | 4.7 | 14.7 | Customer |
 
-Customer to implement a third party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to data even when data is copied off a system.
+Implement a third-party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to data even when data is copied off a system.
 
 ## 4.8: Encrypt Sensitive Information at Rest
 
@@ -76,7 +124,15 @@ Customer to implement a third party tool, such as an automated host-based Data L
 |--|--|--|
 | 4.8 | 14.8 | Customer |
 
-Customer to utilize encryption at rest on all Azure resources. Recommended to allow Microsoft Azure to manage your encryption keys, however there is the option for customers to manage their own keys in some instances.<br><br><br><br>Understand encryption at rest in Azure:<br><br>https://docs.microsoft.com/en-us/azure/security/fundamentals/encryption-atrest<br><br><br><br>How to configure customer managed encryption keys:<br><br>https://docs.microsoft.com/en-us/azure/storage/common/storage-encryption-keys-portal
+Use&nbsp; encryption at rest on all Azure resources. Allow Microsoft Azure to manage your encryption keys, however there is the option for you to manage your own keys in some instances.
+
+Understand encryption at rest in Azure:
+
+https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
+
+How to configure customer managed encryption keys:
+
+https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
 ## 4.9: Log and alert on changes to critical Azure resources
 
@@ -84,5 +140,13 @@ Customer to utilize encryption at rest on all Azure resources. Recommended to al
 |--|--|--|
 | 4.9 | 14.9 | Customer |
 
-Utilize Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources.<br><br><br><br>How to create alerts for Azure Activity Log events:<br><br>https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-activity-log<br><br><br><br>How to create alerts for Azure Activity Log events:<br><br>https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-activity-log
+Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources.
+
+How to create alerts for Azure Activity Log events:
+
+https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+
+How to create alerts for Azure Activity Log events:
+
+https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
