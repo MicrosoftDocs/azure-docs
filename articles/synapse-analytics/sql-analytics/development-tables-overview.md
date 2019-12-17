@@ -172,7 +172,7 @@ ORDER BY
 
 By default, SQL Analytics pool stores a table as a clustered columnstore index. This form of data storage achieves high data compression and query performance on large tables.  The clustered columnstore index is usually the best choice, but in some cases a clustered index or a heap is the appropriate storage structure.  A heap table can be especially useful for loading transient data, such as a staging table which is transformed into a final table.
 
-For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](data-loading-columnstore-compression.md).
+For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](data-load-columnstore-compression.md).
 
 ## Statistics
 The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to have statistics on individual columns, especially columns used in query joins. SQL Analytics supports automatic creation of statistics. However, updating statistics does not happen automatically. You should update statistics after a significant number of rows are added or changed. For example, update statistics after a load. For more information, see [Statistics guidance](development-tables-statistics.md).

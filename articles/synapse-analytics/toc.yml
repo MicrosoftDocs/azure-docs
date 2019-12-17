@@ -269,7 +269,7 @@
       - name: Architecture
         href: ../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Resource consumption models
-        href: sql-analytics/azure-synapse-resource-consumption-models.md
+        href: sql-analytics/resource-consumption-models.md
       - name: Best practices SQL on-demand
         href: sql-analytics/best-practices-sql-on-demand.md
       - name: Best practices SQL pools
@@ -281,11 +281,11 @@
       - name: Best practices
         href: sql-analytics/data-loading-best-practices.md
       - name: Columnstore compression
-        href: sql-analytics/azure-synapse-data-loading-columnstore-compression.md
+        href: sql-analytics/data-load-columnstore-compression.md
     - name: Development
       items:
       - name: Overview
-        href: sql-analytics/azure-synapse-development-overview.md
+        href: sql-analytics/development-overview.md
       - name: Best practices
         href: sql-analytics/development-best-practices.md
       - name: Materialized view
@@ -301,13 +301,13 @@
       - name: Tables
         items:
         - name: Overview
-          href: sql-analytics/azure-synapse-development-tables-overview.md
+          href: sql-analytics/development-tables-overview.md
         - name: CETAS
           href: sql-analytics/development-tables-cetas.md
         - name: CTAS
           href: ../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Data types
-          href: sql-analytics/azure-synapse-development-tables-data-types.md
+          href: sql-analytics/development-tables-data-types.md
         - name: Distributed tables
           href: ../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: External tables
@@ -323,9 +323,9 @@
         - name: Replicated tables
           href: ../sql-data-warehouse/design-guidance-for-replicated-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Statistics
-          href: sql-analytics/azure-synapse-development-tables-statistics.md
+          href: sql-analytics/development-tables-statistics.md
         - name: Temporary
-          href: sql-analytics/azure-synapse-development-tables-temporary.md
+          href: sql-analytics/development-tables-temporary.md
       - name: T-SQL language elements
         items:
         - name: Loops
@@ -333,15 +333,15 @@
         - name: Stored procedures
           href: sql-analytics/development-stored-procedures.md
         - name: Transactions
-          href: sql-analytics/azure-synapse-development-transactions.md
+          href: sql-analytics/development-transactions.md
         - name: Transaction best practices
           href: sql-analytics/development-transaction-best-practices.md
         - name: User-defined schemas
-          href: sql-analytics/azure-synapse-development-user-defined-schemas.md
+          href: sql-analytics/development-user-defined-schemas.md
         - name: Variable assignment
-          href: sql-analytics/azure-synapse-development-variable-assignment.md
+          href: sql-analytics/development-variable-assignment.md
         - name: Views
-          href: sql-analytics/azure-synapse-development-views.md
+          href: sql-analytics/development-views.md
     - name: Querying
       items:
       - name: Dynamic SQL
@@ -949,7 +949,7 @@
       - name: Connection strings
         href: sql-analytics/connection-strings.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with sqlcmd
-        href: sql-analytics/azure-synapse-get-started-connect-sqlcmd.md
+        href: sql-analytics/get-started-connect-sqlcmd.md
       - name: Query with SSMS
         href: sql-analytics/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with Visual Studio

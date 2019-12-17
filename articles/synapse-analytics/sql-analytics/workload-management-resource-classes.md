@@ -179,7 +179,7 @@ We recommend creating a user that is dedicated to running a specific type of que
 
 `CREATE TABLE` uses clustered columnstore indexes by default. Compressing data into a columnstore index is a memory-intensive operation, and memory pressure can reduce the index quality. Memory pressure can lead to needing a higher resource class when loading data. To ensure loads have enough memory, you can create a user that is designated for running loads and assign that user to a higher resource class.
 
-The memory needed to process loads efficiently depends on the nature of the table loaded and the data size. For more information on memory requirements, see [Maximizing rowgroup quality](data-loading-columnstore-compression.md).
+The memory needed to process loads efficiently depends on the nature of the table loaded and the data size. For more information on memory requirements, see [Maximizing rowgroup quality](data-load-columnstore-compression.md).
 
 Once you have determined the memory requirement, choose whether to assign the load user to a static or dynamic resource class.
 
@@ -577,7 +577,7 @@ GO
 
 ## Next step
 
-For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](data-loading-columnstore-compression.md).
+For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](data-load-columnstore-compression.md).
 
 <!--Image references-->
 
