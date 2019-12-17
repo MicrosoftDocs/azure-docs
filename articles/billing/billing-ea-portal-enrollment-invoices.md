@@ -1,5 +1,5 @@
 ---
-title: Azure enterprise enrollment invoices
+title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 keywords:
 author: bandersmsft
@@ -10,49 +10,60 @@ ms.service: cost-management-billing
 manager: boalcsva
 ---
 
-# Azure enterprise enrollment invoices
+# Azure Enterprise enrollment invoices
 
-This article explains how to manage and act on your Azure Enterprise invoice. Your invoice is a representation of your bill, so you should review it for accuracy. You should also get familiar with other tasks that might be needed to manage your invoice.
+This article explains how to manage and act on your Azure Enterprise Agreement (Azure EA) invoice. Your invoice is a representation of your bill. You should review it for accuracy. You should also get familiar with other tasks that might be needed to manage your invoice.
 
 ## Change a PO number for an overage invoice
 
-The Azure EA portal automatically generates a default purchase order (PO) number unless the EA admin sets one before the invoice date. An EA admin can update the PO number up to seven days after receiving an automated invoice notification email.
+The Azure Enterprise portal automatically generates a default purchase order (PO) number unless the Enterprise administrator sets one before the invoice date. An Enterprise administrator can update the PO number up to seven days after receiving an automated invoice notification email.
 
 ### To update the Azure services purchase order number:
 
-1. From the Azure EA Portal, click **Report** then **Usage Summary**.
+1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
 1. Select **Edit PO Numbers** in the upper right corner.
 1. Select the **Azure Services** radio button.
-1. Select an **Invoice Period** from the date ranges drop-down menu. PO numbers can be edited for up to seven days after notification of the invoice or until the invoice is paid, whichever comes first.
-1. Enter new PO number in the **PO Number** field.
-1. Click **Save** to submit change.
+1. Select an **Invoice Period** from the date ranges drop-down menu.
+
+   PO numbers can be edited for up to seven days after notification of the invoice or until the invoice is paid, whichever comes first.
+1. Enter a new PO number in the **PO Number** field.
+1. Select **Save** to submit your change.
 
 ### To update the marketplace purchase order number:
 
-1. From the Azure EA Portal, click **Report** then **Usage Summary**.
-1. Select **Edit PO Numbers** in the upper right corner
-1. Select the **Marketplace** radio button
-1. Select an **Invoice Period** from the date ranges drop-down menu. PO numbers can be edited for up to seven days after notification of the invoice or until the invoice is paid, whichever comes first.
-1. Enter new PO number in the **PO Number** field.
-1. Click **Save** to submit change.
+1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
+1. Select **Edit PO Numbers** in the upper right corner.
+1. Select the **Marketplace** radio button.
+1. Select an **Invoice Period** from the date ranges drop-down menu.
 
-## Cadence of Azure EA billing
+   PO numbers can be edited for up to seven days after notification of the invoice or until the invoice is paid, whichever comes first.
+1. Enter a new PO number in the **PO Number** field.
+1. Select **Save** to submit your change.
 
-### Billing Intervals
+## Cadence of Azure Enterprise billing
 
-Microsoft will bill annually at the enrollment effective date for any commitment purchases of the Microsoft Azure services and in arrears for any usage in exceeding the commitment amounts. Commitment fees are quoted based on a monthly rate and billed annually in advance. Overage fees are calculated each month and billed in arrears at the end of your billing period.
+Microsoft bills annually at the enrollment effective date for any commitment purchases of the Microsoft Azure services. For any usage exceeding the commitment amounts, Microsoft bills in arrears. 
+
+- Commitment fees are quoted based on a monthly rate and billed annually in advance.
+- Overage fees are calculated each month and billed in arrears at the end of your billing period.
+
+### Billing intervals
 
 Depending on how you choose to make your commitment purchases, your annual commitment will either be coterminous with your enrollment anniversary date or with the effective date of your one-year Amendment Subscription.
 
-You'll receive your overage invoice depending on your enrollment start date and set-up.
+When you receive your overage invoice depends on your enrollment start date and set-up:
 
-**Direct enrollments with a start date before May 1, 2018**: Direct Enterprise Azure (EA) Customers are set up as an Annual Billing cycle for Azure Services (excluding Marketplace services). Your billing cycle is based on the Anniversary date. The Anniversary date is the date on which your agreement became effective. To receive the first Azure Service Overage invoice, you must surpass 150% of your Monetary Commitment ('MC') threshold.  Once total service consumption surpasses 150% of your MC threshold, you'll convert automatically to a Quarterly Billing cycle based on the Anniversary date.  If you don't surpass 150% of your MC threshold, the enrollment will remain on an Annual Billing cycle and the Overage invoice will be received at the end of the Commitment year.
+- **Direct enrollments with a start date before May 1, 2018**:
 
-**Direct enrollments with a start date after May 1, 2018**: The Customer’s Azure Consumption and Charges Billed Separately Invoices will be on a Monthly Billing cycle.  Any charges that aren't covered by the Azure Monetary Commitment will be due as an Overage payment.  
+  \***
 
-**Indirect enrollments with an enrollment that started before May 1, 2018**: Indirect Enterprise Azure (EA) Customers are set up as a Quarterly Billing cycle.  The Channel Partner (CP) will be invoicing the Customer directly.  
+  Direct Enterprise Agreement (EA) customers are set up as an annual billing cycle for Azure services (excluding Azure Marketplace services). Your billing cycle is based on the anniversary date. The anniversary date is the date on which your agreement became effective. To receive the first Azure Service Overage invoice, you must surpass 150% of your Monetary Commitment (MC) threshold.  After your total service consumption surpasses 150% of your MC threshold, you'll convert automatically to a Quarterly Billing cycle based on the anniversary date. If you don't surpass 150% of your MC threshold, the enrollment will remain on an Annual Billing cycle and the Overage invoice will be received at the end of the Commitment year.
 
-**Indirect enrollments with a start date after May 1, 2018**: Any Indirect Agreement with a start date greater than or equal to May 1, 2018 will be billed Monthly.  
+- **Direct enrollments with a start date after May 1, 2018**: The Customer’s Azure Consumption and Charges Billed Separately Invoices will be on a Monthly Billing cycle.  Any charges that aren't covered by the Azure Monetary Commitment will be due as an Overage payment.  
+
+- **Indirect enrollments with an enrollment that started before May 1, 2018**: Indirect Enterprise Azure (EA) Customers are set up as a Quarterly Billing cycle.  The Channel Partner (CP) will be invoicing the Customer directly.  
+
+- **Indirect enrollments with a start date after May 1, 2018**: Any Indirect Agreement with a start date greater than or equal to May 1, 2018 will be billed Monthly.  
 
 ### Increasing Commitment
 
@@ -71,17 +82,13 @@ Overage invoicing is automated.  The timing of notifications and invoices depend
 Effective April 2019 billing cycle, customers will start to receive a single Azure invoice, as we’ve combined all Azure and Azure Marketplace charges into a single invoice instead of two separate invoices. (This change does not affect customers in Australia, Japan, or Singapore.)
 During the transition to a consolidated invoice, you’ll receive a partial Marketplace invoice. This final separate invoice will show Marketplace charges prior to the date of your billing update. Marketplace charges after that date will appear on your Azure invoice. After the transition period, you’ll see all Azure and Marketplace charges on the consolidated invoice.  
 
-### Purchase Order Numbers
-
-The purchase order default is a system-generated Purchase Order number. Users can update their Purchase Order number in the Enterprise Portal by logging in an Enterprise Administrator and navigating to the Reports section. there's a box for PO number in the upper right-hand corner of the window that will allow the Enterprise Administrator to edit the PO number by clicking on the Pencil icon.
-
 ## Adjust billing frequency
 
 A customer's billing frequency is annual, quarterly, or monthly. The billing cycle is determined when a customer signs their agreement. Monthly billing is smallest billing interval.
 
 Approval from enterprise admin is required to change a billing cycle change from annual to quarterly for direct enrollments. Approval from a partner admin is required for indirect enrollments. The change becomes effective at the end of the current billing quarter.
 
-To change a billing cycle annual or quarterly to monthly, an amendment to the agreement is required.  Any change to the existing enrollment billing cycle requires approval of an enterprise admin or from the individual identified as the _Bill to Contact_ in your agreement. You can submit your approval in the [Azure EA Portal Support](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c) and then select the Issue Category **Billing and Invoicing**.  The change becomes effective at the end of the current billing quarter.
+To change a billing cycle annual or quarterly to monthly, an amendment to the agreement is required.  Any change to the existing enrollment billing cycle requires approval of an enterprise admin or from the individual identified as the _Bill to Contact_ in your agreement. You can submit your approval in the [Azure Enterprise portal Support](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c) and then select the Issue Category **Billing and Invoicing**.  The change becomes effective at the end of the current billing quarter.
 
 If an Amendment M503 is signed, you can move any agreement from any frequency to monthly billing. ​
 
@@ -92,7 +99,7 @@ All credits or adjustments that are applied to your enrollment are visible at [h
 To view the credits, follow these steps:
 
 1. Select the **Reports** section.
-1. Click on **Usage Summary**.
+1. Select **Usage Summary**.
 1. In the top-right corner, change the _M_ to _C_ view.
 1. Extend the adjustment field in the Azure service commitment table.
 1. In this line, you'll see the credits applied to your enrollment as well as a short explanation for example: Service Level Agreement Credit.
@@ -118,14 +125,14 @@ Enterprise admins can view the price list associated with their enrollment for A
 
 To View the current Price Sheet:
 
-1. In the Azure EA portal, click **Reports** and then click **Price Sheet**.
-2. View the price sheet or click **Download**.
+1. In the Azure Enterprise portal, select **Reports** and then select **Price Sheet**.
+2. View the price sheet or select **Download**.
 
 ![Example showing price sheet information](./media/billing-ea-portal-enrollment-invoices/ea-create-view-price-sheet-information.png)
 
 To download a historical price list:
 
-1. In the Azure EA portal, click **Reports** and then click **Download usage**.
+1. In the Azure Enterprise portal, select **Reports** and then select **Download usage**.
 2. Download the price sheet.
 
 ![Example showing where to download an older price sheet](./media/billing-ea-portal-enrollment-invoices/create-ea-view-price-sheet-download-historical-price-list.png)
@@ -138,7 +145,7 @@ If an enrollment goes into an extended term, the pricing also changes. Prices ch
 
 ## Request detailed usage information
 
-Enterprise admins can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Azure EA portal. The charges are presented at the summary level across all accounts and subscriptions.
+Enterprise admins can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Azure Enterprise portal. The charges are presented at the summary level across all accounts and subscriptions.
 
 To view detailed usage in specific accounts, you can download the Usage Detail report by navigating to **Reports** > **Download Usage**. The report doesn't include any applicable taxes. There might be a latency of up to eight hours from the time when usage was incurred to when it's reflected on the report.
 
@@ -146,7 +153,7 @@ For indirect enrollments, your partner needs to enable the markup function befor
 
 ## Reports
 
-Enterprise Administrators can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Enterprise Portal. The charges will be presented at the summary level across all accounts and subscriptions.
+Enterprise Administrators can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Enterprise portal. The charges will be presented at the summary level across all accounts and subscriptions.
 
 **EA Reports**
 
@@ -161,7 +168,7 @@ Enterprise Administrators can view a summary of their usage data, monetary commi
 
 **To view the usage summary reports and graphs**
 
-1. From the Azure EA Portal click **Reports** on the left navigation, and view the **Usage Summary** tab.
+1. From the Azure Enterprise portal select **Reports** on the left navigation, and view the **Usage Summary** tab.
 1. Select the desired commitment term from the drop-down menu of date ranges on the top left.
 1. Select the desired period or month on the graph to view additional detail.
 1. View graph of month over month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and marketplace charges.
@@ -177,10 +184,10 @@ Please note that there may also be a latency of up to five days between the incu
 
 ### To view the report:
 
-1. Sign into the Enterprise Portal.
-1. Click **Reports** on the left navigation.
-1. Click the **Usage Summary** tab.
-1. Click on the desired date range.
+1. Sign into the Enterprise portal.
+1. Select **Reports** on the left navigation.
+1. Select the **Usage Summary** tab.
+1. Select the desired date range.
 1. Choose which accounts or subscriptions to view.
 1. Change the view from Charge by Services or Charge by Hierarchy to display different breakdowns.
 1. View details including Service Name, Unit of Measure, Consumed Units, Effective Rate, and Extended Cost.
@@ -191,7 +198,7 @@ The Monthly Report Download page allows enterprise administrators to download se
 
 ## To download reports:
 
-1. From the Azure EA portal, click **Report**.
+1. From the Azure Enterprise portal, select **Report**.
 1. Select **Usage Download** from the top ribbon.
 1. Select **Download** next to the appropriate month's report.
 
@@ -199,7 +206,7 @@ The Monthly Report Download page allows enterprise administrators to download se
 
 ## CSV report formatting
 
-Customers viewing the Azure EA Portal's CSV reports in euros may run into formatting issues with regards to commas and periods.
+Customers viewing the Azure Enterprise portal's CSV reports in euros may run into formatting issues with regards to commas and periods.
 
 For example, you may see:
 
@@ -238,10 +245,10 @@ The Balance and Charge Report offers a monthly summary of information on balance
 
 ### Download the balance and charge report
 
-1. Sign in to the Azure EA Portal as an enterprise administrator.
-1. Click on **Reports** on the left navigation.
-1. Click the **Report Download** tab.
-1. Select the appropriate month under the _Balance and Charge_ column and click to download the report.
+1. Sign in to the Azure Enterprise portal as an enterprise administrator.
+1. Select **Reports** on the left navigation.
+1. Select the **Report Download** tab.
+1. Select the appropriate month under the _Balance and Charge_ column and select to download the report.
 
 ## Usage detail report
 
@@ -249,12 +256,12 @@ The Usage Detail Report offers a monthly summary of the services and quantities 
 
 ### Download the usage detail report
 
-1. Sign in to the Azure EA Portal as an enterprise administrator.
-1. Click on **Reports** on the left navigation.
-1. Click the **Download Usage** tab.
-1. Select the appropriate month under the _Usage Detail_ column and click to download the report.
+1. Sign in to the Azure Enterprise portal as an enterprise administrator.
+1. Select **Reports** on the left navigation.
+1. Select the **Download Usage** tab.
+1. Select the appropriate month under the _Usage Detail_ column and select to download the report.
 
-## Marketplace charges in Azure EA Portal reports
+## Marketplace charges in Azure Enterprise portal reports
 
 Additional information on Marketplace charges can be found [here.](https://azure.microsoft.com/marketplace/faq/)
 
@@ -263,7 +270,7 @@ There are two types of marketplace charges:
 - **Usage-based:** Products measured in transactional units.  For example, virtual machines are charged hourly, Bing API searches are charged by number of searches.
 - **Monthly Fee:** Billed monthly based on usage/access.
 
-To view the different charges in the Enterprise Portal:
+To view the different charges in the Enterprise portal:
 
 1. **Usage Summary Report –** Shows **both** usage based and monthly fee marketplace charges.
 1. **Marketplace Charges Report –** Shows **only** the usage-based marketplace charges.  One time fees aren't shown.
@@ -283,25 +290,25 @@ For reporting on specific date ranges or accounts, the advanced report download 
 
 ## Reporting for non-enterprise administrators
 
-Enterprise Administrators can enable access to view costs for Department Administrators (DA) and Account Owners (AO) on an enrollment. Once enabled, an account owner can download .csv reports specific to their account and subscriptions, and view the information visually under the reporting section of the Enterprise Portal.
+Enterprise Administrators can enable access to view costs for Department Administrators (DA) and Account Owners (AO) on an enrollment. Once enabled, an account owner can download .csv reports specific to their account and subscriptions, and view the information visually under the reporting section of the Enterprise portal.
 
 ### To enable access:
 
  1. Sign in as an enterprise administrator.
- 1. Click **Manage** on the left navigation.
- 1. Click the **Enrollment** tab.
+ 1. Select **Manage** on the left navigation.
+ 1. Select the **Enrollment** tab.
  1. Under the Enrollment Detail section, select the pencil icon next to:
     - DA View Charges
     - AO View Charges
  1. Select **Enabled**.
- 1. Click **Save**.
+ 1. Select **Save**.
 
 ### To view reports:
 
-1. Sign in to the Azure EA Portal as a department administrator or an account owner.
-1. Click **Reports** on the left navigation.
-1. Click the **Usage Summary** tab to view information on the account and subscription visually.
-1. Click on **Usage Download** to view the .csv reports.
+1. Sign in to the Azure Enterprise portal as a department administrator or an account owner.
+1. Select **Reports** on the left navigation.
+1. Select the **Usage Summary** tab to view information on the account and subscription visually.
+1. Select **Usage Download** to view the .csv reports.
 
 Department administrators and account owners are unable to view charges when using the _Advanced Report Download_ function. Costs display as $0.
 
@@ -330,11 +337,11 @@ Microsoft may drop the current Enterprise Program price for individual Azure ser
 
 ### Current effective pricing
 
-Customer and channel partners can view their current pricing for an enrollment by logging into the [Azure Enterprise Portal](https://ea.azure.com/) and navigating to the price sheet page for that enrollment.  If you purchase Azure indirectly through one of our channel partners, you'll need to obtain your pricing updates from your channel partner if they've not enabled markup pricing to be displayed for your enrollment.
+Customer and channel partners can view their current pricing for an enrollment by logging into the [Azure Enterprise portal](https://ea.azure.com/) and navigating to the price sheet page for that enrollment.  If you purchase Azure indirectly through one of our channel partners, you'll need to obtain your pricing updates from your channel partner if they've not enabled markup pricing to be displayed for your enrollment.
 
 ### Introduction of new Azure services
 
-We're continually enhancing Azure and periodically add new services that are priced separately from existing services.  Some preview services are automatically available, while others require customer action via in the [Azure Account Portal](https://account.windowsazure.com/PreviewFeatures). Note also that as services move from Preview to GA, prices may increase as full performance and reliability SLAs are applied. Lastly, some services are provided with Promotional pricing in effect when first introduced which may be increased at a future date. Any such increases moving from Preview or Promotional pricing to GA aren't constrained by normal Baseline price protection and will apply to usage of those services moving forward. Customers can avoid charges related to these services by electing to not use the new service.
+We're continually enhancing Azure and periodically add new services that are priced separately from existing services.  Some preview services are automatically available, while others require customer action via in the [Azure Account portal](https://account.windowsazure.com/PreviewFeatures). Note also that as services move from Preview to GA, prices may increase as full performance and reliability SLAs are applied. Lastly, some services are provided with Promotional pricing in effect when first introduced which may be increased at a future date. Any such increases moving from Preview or Promotional pricing to GA aren't constrained by normal Baseline price protection and will apply to usage of those services moving forward. Customers can avoid charges related to these services by electing to not use the new service.
 
 ### Introduction of regional pricing
 
@@ -342,23 +349,23 @@ In addition to the introduction of new services, services also periodically chan
 
 ### Enterprise MSDN Dev/Test
 
-Enterprise Administrators can enable Account Owners to create subscriptions based on the EA MSDN Dev/Test offer. In order for this to function correctly, the Account Owner will need to set up the EA MSDN Dev/Test subscriptions needed for the underlying MSDN subscribers. This enables active MSDN subscribers to run development and testing workloads on Azure at special dev/test rates. For more information, see [EA MSDN Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
+Enterprise Administrators can enable Account Owners to create subscriptions based on the EA MSDN Dev/Test offer. In order for this to function correctly, the Account Owner will need to set up the EA MSDN Dev/Test subscriptions needed for the underlying MSDN subscribers. This enables active MSDN subscribers to run development and testing workloads on Azure at special dev/test rates. For more information, see [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ### Enterprise program usage calculation guidelines
 
-Please refer to [Azure Services](https://azure.microsoft.com/services/) and [Azure Pricing](https://azure.microsoft.com/pricing/) for basic public pricing information, units of measure, FAQs, and usage reporting guidelines for each individual service. In addition, when calculating service usage, the following Enterprise Program guidelines should be used.
+Please refer to [Azure services](https://azure.microsoft.com/services/) and [Azure pricing](https://azure.microsoft.com/pricing/) for basic public pricing information, units of measure, FAQs, and usage reporting guidelines for each individual service. In addition, when calculating service usage, the following Enterprise Program guidelines should be used.
 
 ### Enterprise program units of measure
 
-The units of measure for Enterprise Programs are often different than seen in our other programs such as the Microsoft Online Services Agreement program (MOSA). This means that, for a number of services, the unit of measure is aggregated to provide the normalized pricing. The unit of measure shown within the Usage Summary view of the Enterprise Portal is always the Enterprise measure. A full list of current units of measure and conversions for each service is provided within [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx).
+The units of measure for Enterprise Programs are often different than seen in our other programs such as the Microsoft Online Services Agreement program (MOSA). This means that, for a number of services, the unit of measure is aggregated to provide the normalized pricing. The unit of measure shown within the Usage Summary view of the Enterprise portal is always the Enterprise measure. A full list of current units of measure and conversions for each service is provided within [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx).
 
 ### Rounding rules
 
-Rounding done within the Enterprise Portal uses the IEEE standard Banker Rounding or Gaussian Rounding logic. This rounds to the nearest even digit for half digit values where the more typical Half Round Up rounding functions always round half digits up to the next highest digit. This method actually provides a more accurate total sum over the group when compared to the standard Excel logic.
+Rounding done within the Enterprise portal uses the IEEE standard Banker Rounding or Gaussian Rounding logic. This rounds to the nearest even digit for half digit values where the more typical Half Round Up rounding functions always round half digits up to the next highest digit. This method actually provides a more accurate total sum over the group when compared to the standard Excel logic.
 
 When the first digit dropped is 5 and there are no digits following or the digits following are zeros, make the preceding digit even (i.e. round off to the nearest even digit). E.g., 2.315 and 2.325 are both 2.32 when rounded off to the nearest 100th.
 
-For reference, when using Excel to model the rounding and conversion rules used within the Enterprise Portal, the MROUND formulas should be used as shown below.
+For reference, when using Excel to model the rounding and conversion rules used within the Enterprise portal, the MROUND formulas should be used as shown below.
 
 | Scenario | Banker Logic Formula |
 | --- | --- |
@@ -368,9 +375,9 @@ For reference, when using Excel to model the rounding and conversion rules used 
 
 **Table**  **2**  **– Cloud Service and Virtual Machine Hours Conversion**
 
-### Conversion between Download Usage File and Usage Summary Portal View
+### Conversion between Download Usage File and Usage Summary portal View
 
-Raw resource utilization data is reported up to a maximum of six decimal places as can be seen in the download usage data report. However, the Azure Enterprise Portal rounds usage to four decimal places for commitment units and truncates to zero decimals for overage units. The Raw Usage is first rounded to four digits prior to conversion to Enterprise unit of measure, and the resulting Enterprise Units is rounded again to four digits. The actual consumed hours before conversion are shown only in the download usage report and not within the UI itself.
+Raw resource utilization data is reported up to a maximum of six decimal places as can be seen in the download usage data report. However, the Azure Enterprise portal rounds usage to four decimal places for commitment units and truncates to zero decimals for overage units. The Raw Usage is first rounded to four digits prior to conversion to Enterprise unit of measure, and the resulting Enterprise Units is rounded again to four digits. The actual consumed hours before conversion are shown only in the download usage report and not within the UI itself.
 
 As an example, assume 694.533404 actual SQL Server hours are reported in the Download Usage Report. These units are then converted to 6.94533404 units of 100 Compute Hours that is then rounded to 6.9453 to be displayed in the Enterprise portal.
 
@@ -446,9 +453,9 @@ If there's no overage usage at the end of the standard billing cycle, charges bi
 
 ## Azure marketplace for EA customers
 
-For direct customers, marketplace charges are visible on the Azure EA Portal. Marketplace purchases and consumption will be billed outside of monetary commitment and is billed quarterly/monthly and in arrears.
+For direct customers, marketplace charges are visible on the Azure Enterprise portal. Marketplace purchases and consumption will be billed outside of monetary commitment and is billed quarterly/monthly and in arrears.
 
-Indirect customers can find their Azure marketplace subscriptions on the 'Manage Subscriptions' page of the Azure EA Portal, but pricing will be hidden. Customers should contact their LSP for information on marketplace charges.
+Indirect customers can find their Azure marketplace subscriptions on the 'Manage Subscriptions' page of the Azure Enterprise portal, but pricing will be hidden. Customers should contact their LSP for information on marketplace charges.
 
 New monthly or annually recurring marketplace purchases will be billed the full amount in the period in which the marketplace items were purchased. These items will autorenew in the following period on the same day of the original purchase.
 
@@ -458,13 +465,13 @@ Some third-party reseller services available on the Azure marketplace now consum
 
 ### Partners
 
-LSPs can download a marketplace-specific price list by navigating to the price sheet in the Azure EA Portal and clicking on the **Marketplace Price list** link in the upper right-hand corner. The marketplace price list will be a reflection of all available services and their prices.
+LSPs can download a marketplace-specific price list by navigating to the price sheet in the Azure Enterprise portal and selecting on the **Marketplace Price list** link in the upper right-hand corner. The marketplace price list will be a reflection of all available services and their prices.
 
 **To download the price list, please follow the following steps:**
 
 1. Navigate to Reports > Price Sheet.
 1. In the top-right corner, find the link to the Azure marketplace price list under your username.
-1. Right click the link and select **Save Target As**.
+1. Right-click the link and select **Save Target As**.
 1. On the Save window, change the title of the document to _AzureMarketplacePricelist.zip_, which will change the file from an xlsx to a zip file.
 1. Once the download is complete, you'll have a zip file with country-specific price lists.
 1. LSPs should reference the individual country file for country-specific pricing. LSPs should use the 'Notifications' tab to see SKUs that are net new to the marketplace as well as SKUs that have been removed.
@@ -475,17 +482,17 @@ LSPs can download a marketplace-specific price list by navigating to the price s
 
 Enterprise administrators have the ability to 'disable' or 'enable' marketplace purchases for all Azure subscriptions under that enrollment. If the enterprise administrator disables purchases and there are Azure subscriptions that already have marketplace subscriptions, those marketplace subscriptions won't be canceled or impacted.
 
-Although customers can convert their direct Azure subscriptions to EA by associating them to their enrollment in the Azure EA Portal, this action does not automatically convert the child marketplace subscriptions.
+Although customers can convert their direct Azure subscriptions to EA by associating them to their enrollment in the Azure Enterprise portal, this action does not automatically convert the child marketplace subscriptions.
 
 **To enable marketplace purchases:**
 
-1. Sign in to the Azure EA portal as an enterprise administrator.
+1. Sign in to the Azure Enterprise portal as an enterprise administrator.
 1. Navigate to _Manage_.
-1. Under _Enrollment Detail,_ click the pencil icon next to the _Azure Marketplace_ line item.
+1. Under _Enrollment Detail,_ select the pencil icon next to the _Azure Marketplace_ line item.
 1. Toggle _Enabled/Disabled_ or Free _BYOL SKU`s Only\*_ as appropriate.
-1. Click **Save**.
+1. Select **Save**.
 
-### Marketplace charges in Azure EA Portal reports
+### Marketplace charges in Azure Enterprise portal reports
 
 Additional information on marketplace charges can be found [here.](https://azure.microsoft.com/marketplace/faq/)
 
@@ -550,7 +557,7 @@ Please see these additional sources of information for more details. These files
 
 | Appendix Title | Description | URL Naming Convention |
 | --- | --- | --- |
-| [**Friendly Service Names**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Provides a listing of all active services with the service category, friendly service name, commitment name and part number, consumption name and part number, units of measure, and conversion factors between reported usage and displayed Enterprise Portal usage. | Friendly\_Service\_Names.xlsx |
+| [**Friendly Service Names**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Provides a listing of all active services with the service category, friendly service name, commitment name and part number, consumption name and part number, units of measure, and conversion factors between reported usage and displayed Enterprise portal usage. | Friendly\_Service\_Names.xlsx |
 | [**Service Download Fields**](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | This spreadsheet provides a listing of all possible combinations of the service-related fields in the Usage Download Report. | Service\_Download\_Fields.xlsx |
 
 **Table**  **5**  **– Additional Information Sources**
@@ -576,25 +583,25 @@ To sign up for the free trial, go to the gear icon and selecting **Manage person
 
 ### To access the Microsoft Azure Consumption Insights content pack:
 
-1. Navigate to [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Click **Get It Now**.
-1. Provide Enrollment Number and Number of Months. Click **Next**.
-1. Provide your API access key to connect. You can find the key for your enrollment in the [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Click **Sign In**.
-1. The import process will begin automatically. When complete, a new dashboard, report, and model will appear in the navigation pane. Click the dashboard to view your imported data.
+1. Navigate to [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Select **Get It Now**.
+1. Provide Enrollment Number and Number of Months. Select **Next**.
+1. Provide your API access key to connect. You can find the key for your enrollment in the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Select **Sign In**.
+1. The import process will begin automatically. When complete, a new dashboard, report, and model will appear in the navigation pane. Select the dashboard to view your imported data.
 
-For more information on how to generate the API key for your enrollment, please visit the API Reports help file on the [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). For more information on the new content pack, please download the [Microsoft Azure Consumption Insights](https://automaticbillingspec.blob.core.windows.net/spec/Microsoft%20Azure%20Consumption%20Insights.docx?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26) document.
+For more information on how to generate the API key for your enrollment, please visit the API Reports help file on the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). For more information on the new content pack, please download the [Microsoft Azure Consumption Insights](https://automaticbillingspec.blob.core.windows.net/spec/Microsoft%20Azure%20Consumption%20Insights.docx?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26) document.
 
 ### To access the legacy Power BI EA content pack:
 
  1. Navigate to the [Power BI Website](https://app.powerbi.com/getdata/services/azure-enterprise).
  1. Sign in with a valid work or school account.
-    - The work or school account can be the same or different than what is used to access the enrollment through the Azure EA Portal.
- 1. On the dashboard of services, select **Microsoft Azure Enterprise** and click **Connect**.
+    - The work or school account can be the same or different than what is used to access the enrollment through the Azure Enterprise portal.
+ 1. On the dashboard of services, select **Microsoft Azure Enterprise** and select **Connect**.
  1. On the "Connect to Azure Enterprise" screen, choose:
     - Azure Environment URL: [https://ea.azure.com](https://ea.azure.com/).
     - Number of Months: choose between 1 and 36.
     - Enrollment Number: enter the enrollment number.
-    - Click **Next**.
- 1. On Authentication Key Box, enter the API Key. You can get the API key here in the Azure Enterprise portal, under "Download Usage" tab above, click "API Access Key"
+    - Select **Next**.
+ 1. On Authentication Key Box, enter the API Key. You can get the API key here in the Azure Enterprise portal, under "Download Usage" tab above, select "API Access Key"
     - Copy and Paste the Key into the box for "Account Key"
  1. Data will take approximately 5 minutes -30 minutes to load in Power BI depending on the size of the datasets.
 
@@ -607,18 +614,18 @@ This section of the article answers common questions relating to interpreting re
 ### Why is my cost showing as $0?
 
 **Direct enrollment**
-If you're an account owner or department admin, please contact your EA administrator to enable pricing feature:
+If you're an account owner or department admin, please contact your Enterprise administrator to enable pricing feature:
 
-1. Click **Manage** on the left navigation.
-1. Click the blue pencil next to DA (department administrator) view charges.
+1. Select **Manage** on the left navigation.
+1. Select the blue pencil next to DA (department administrator) view charges.
 1. Select **Enabled** and save.
-1. Click the blue pencil next to AO (account owner) view charges.
+1. Select the blue pencil next to AO (account owner) view charges.
 1. Select **Enabled** and save.
 
 This action will provide account owners and department admins with access to cost/pricing information on the usage reports.
 
 **Indirect enrollment**
-Please check with your partner that they've enabled the pricing feature for you. This can only be done by the partner and once they've turned on the feature, you can view the cost and pricing on your enrollment as an EA administrator.
+Please check with your partner that they've enabled the pricing feature for you. This can only be done by the partner and once they've turned on the feature, you can view the cost and pricing on your enrollment as an Enterprise administrator.
 
 If you wish to enable the view charges feature for your account owners and department admin, please follow the steps above listed under **Direct Enrollment** above.
 
@@ -632,7 +639,7 @@ Marketplace Charges Report shows only the usage-based marketplace charges. One t
 
 ### There is no information on my API report
 
-API keys expire every six months. Please generate a new API key if you're facing an issue. It's also important to request your EA administrator to generate the new API Keys and follow the steps on the API Report FAQ.
+API keys expire every six months. Please generate a new API key if you're facing an issue. It's also important to request your Enterprise administrator to generate the new API Keys and follow the steps on the API Report FAQ.
 
 ### My Power BI report isn't working
 
@@ -651,8 +658,8 @@ Resource Rate in the detailed usage report is a calculated value and represents 
 **Total RAW Units:** Consumed Quantity within the detailed usage report.
 **MOCP Resource Per Unit:** Upstream usage system emits the usages for each service in different units. (Preset)
 **Consumption Per Unit:** EA Unit of Measure. (Preset)
-**Price:** Unit price from the Azure EA Portal.
-**Total Cost:** Extended cost from the detailed usage report or commitment usage + overage from the Azure EA Portal.
+**Price:** Unit price from the Azure Enterprise portal.
+**Total Cost:** Extended cost from the detailed usage report or commitment usage + overage from the Azure Enterprise portal.
 
 
 ### Charges calculation
@@ -667,8 +674,8 @@ Resource Rate in the detailed usage report is a calculated value and represents 
 
 The resource rate is derived based on the charges and often doesn't match the actual unit price in the price sheet.
 
-For overage charge calculations, raw resource utilization data is reported up to a maximum of six decimal places as can be seen in the download usage data report. However, the Azure EA Portal rounds usage to four decimal places for commitment units and truncates to zero decimals for overage units. That means that under the Azure EA Portal for all usage charged as an overage we charge only for the full units. There will be an extensive difference seen between the unit price and the resource rate for usage that is charged as an overage or in mixed months.
+For overage charge calculations, raw resource utilization data is reported up to a maximum of six decimal places as can be seen in the download usage data report. However, the Azure Enterprise portal rounds usage to four decimal places for commitment units and truncates to zero decimals for overage units. That means that under the Azure Enterprise portal for all usage charged as an overage we charge only for the full units. There will be an extensive difference seen between the unit price and the resource rate for usage that is charged as an overage or in mixed months.
 
 ## Next steps
 - For information about understanding your invoice and charges, see [Understand your Azure Enterprise Agreement bill](billing-understand-your-bill-ea.md).
-- To start using the Azure EA portal, see [Get started with the Azure EA portal](billing-ea-portal-get-started.md).
+- To start using the Azure Enterprise portal, see [Get started with the Azure Enterprise portal](billing-ea-portal-get-started.md).
