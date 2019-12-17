@@ -33,17 +33,6 @@ In the setting page, choose **Send to Log Analytics**, and under **LOG** choose 
 
 To generate custom logs, you can use the specific logging statement depending on your language, here are sample code snippets:
 
-# [JavaScript](#tab/javascript)
-
-```javascript
-    context.log('My app logs here.');
-```
-
-# [Python](#tab/python)
-
-```python
-    logging.info('My app logs here.')
-```
 
 # [C#](#tab/csharp)
 
@@ -57,10 +46,22 @@ To generate custom logs, you can use the specific logging statement depending on
     context.getLogger().info("My app logs here.");
 ```
 
+# [JavaScript](#tab/javascript)
+
+```javascript
+    context.log('My app logs here.');
+```
+
 # [PowerShell](#tab/powershell)
 
 ```powershell
     Write-Host "My app logs here."
+```
+
+# [Python](#tab/python)
+
+```python
+    logging.info('My app logs here.')
 ```
 
 ---
