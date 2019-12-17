@@ -54,43 +54,64 @@ Depending on how you choose to make your commitment purchases, your annual commi
 When you receive your overage invoice depends on your enrollment start date and set-up:
 
 - **Direct enrollments with a start date before May 1, 2018**:
+  - If you're on a direct Enterprise Agreement (EA), you're on an annual billing cycle for Azure services, excluding Azure Marketplace services. Your billing cycle is based on the anniversary date: the date when your agreement became effective.
+  - If you surpass 150% of your Monetary Commitment (MC) threshold, you'll automatically be converted to a Quarterly Billing cycle based on the anniversary date, and you'll receive an Azure Service Overage invoice.
+  - If you don't surpass 150% of your MC threshold, the enrollment will remain on an Annual Billing cycle and the Overage invoice will be received at the end of the Commitment year.
 
-  \***
+- **Direct enrollments with a start date after May 1, 2018**:
+  - Your Azure Consumption and Charges Billed Separately invoices are on a Monthly Billing cycle.
+  - Any charges not covered by the Azure Monetary Commitment are due as an Overage payment.  
 
-  Direct Enterprise Agreement (EA) customers are set up as an annual billing cycle for Azure services (excluding Azure Marketplace services). Your billing cycle is based on the anniversary date. The anniversary date is the date on which your agreement became effective. To receive the first Azure Service Overage invoice, you must surpass 150% of your Monetary Commitment (MC) threshold.  After your total service consumption surpasses 150% of your MC threshold, you'll convert automatically to a Quarterly Billing cycle based on the anniversary date. If you don't surpass 150% of your MC threshold, the enrollment will remain on an Annual Billing cycle and the Overage invoice will be received at the end of the Commitment year.
+- **Indirect enrollments with an enrollment that started before May 1, 2018**:
+  
+  If you're an indirect Enterprise Agreement (EA) customer with a start date before May 1, 2018, you're set up on a Quarterly Billing cycle. The Channel Partner (CP) invoices you directly.  
 
-- **Direct enrollments with a start date after May 1, 2018**: The Customer’s Azure Consumption and Charges Billed Separately Invoices will be on a Monthly Billing cycle.  Any charges that aren't covered by the Azure Monetary Commitment will be due as an Overage payment.  
-
-- **Indirect enrollments with an enrollment that started before May 1, 2018**: Indirect Enterprise Azure (EA) Customers are set up as a Quarterly Billing cycle.  The Channel Partner (CP) will be invoicing the Customer directly.  
-
-- **Indirect enrollments with a start date after May 1, 2018**: Any Indirect Agreement with a start date greater than or equal to May 1, 2018 will be billed Monthly.  
+- **Indirect enrollments with a start date after May 1, 2018**:
+  
+  You're on a Monthly Billing cycle.  
 
 ### Increasing Commitment
 
-Commitment can be increased at any time and will be billed for the number of months remaining for that year’s commitment period. For example, if you sign up for a one-year Amendment Subscription and increase your commitment during month six, you'll be invoiced for the remaining six months of that term. Your commitment quantities will then be updated for the last six months of your commitment term for determining any overage charges.
+You can increase your commitment at any time. You'll be billed for the number of months remaining in that year's commitment period. For example, if you sign up for a one-year Amendment Subscription and increase your commitment during month six, you'll be invoiced for the remaining six months of that term. Your commitment quantities will then be updated for the last six months of your commitment term for determining any overage charges.
 
 ### Overage
 
-For overage, you're billed for the usage or reservations that exceeded your commitment during the billing period. To view a breakdown of how the overage quantities for individual items were calculated, please refer to the Usage Summary Report or contact your channel partner.
+For overage, you're billed for the usage or reservations that exceed your commitment during the billing period. To view a breakdown of how the overage quantities for individual items were calculated, refer to the Usage Summary Report or contact your channel partner.
 
-For each item on the invoice, you'll see the total charges (Extended Amount), the amount of commitment used to cover the charges (Commitment Usage) and the amount of charges in exceeding commitment (Net Amount).  Applicable taxes are computed only on the net amount in exceeding of commitment.
+For each item on the invoice, you'll see:
 
-Overage invoicing is automated.  The timing of notifications and invoices depends on the customer’s billing period end date.  Notification of overage is sent usually seven days following the customer’s billing end date, during which customers can go into the portal, review their charges, and update the system-generated PO#s (This can also be updated at any time before the overage is released).  Overage invoices will be sent 7-9 days afterwards.
+- Extended Amount: the total charges
+- Commitment Usage: the amount of your commitment used to cover the charges
+- Net Amount: the charges that exceed your commitment
+
+Applicable taxes are computed only on the net amount that exceeds your commitment.
+
+Overage invoicing is automated. The timing of notifications and invoices depends on your billing period end date.
+
+- Overage notification is sent usually seven days following your billing end date.
+- Overage invoices are sent seven to nine days after notification.
+- You can review charges and update system-generated PO numbers during the seven days between the overage notification and invoicing.
 
 ### Azure Marketplace
 
-Effective April 2019 billing cycle, customers will start to receive a single Azure invoice, as we’ve combined all Azure and Azure Marketplace charges into a single invoice instead of two separate invoices. (This change does not affect customers in Australia, Japan, or Singapore.)
-During the transition to a consolidated invoice, you’ll receive a partial Marketplace invoice. This final separate invoice will show Marketplace charges prior to the date of your billing update. Marketplace charges after that date will appear on your Azure invoice. After the transition period, you’ll see all Azure and Marketplace charges on the consolidated invoice.  
+Effective from the April 2019 billing cycle, customers started to receive a single Azure invoice that combines all Azure and Azure Marketplace charges into a single invoice instead of two separate invoices. This change does not affect customers in Australia, Japan, or Singapore.
+
+During the transition to a consolidated invoice, you'll receive a partial Marketplace invoice. This final separate invoice will show Marketplace charges incurred prior to the date of your billing update. Marketplace charges incurred after that date will appear on your Azure invoice. After the transition period, you'll see all Azure and Marketplace charges on the consolidated invoice.  
 
 ## Adjust billing frequency
 
 A customer's billing frequency is annual, quarterly, or monthly. The billing cycle is determined when a customer signs their agreement. Monthly billing is smallest billing interval.
 
-Approval from enterprise admin is required to change a billing cycle change from annual to quarterly for direct enrollments. Approval from a partner admin is required for indirect enrollments. The change becomes effective at the end of the current billing quarter.
+- **Approval** from Enterprise administrator is required to change a billing cycle change from annual to quarterly for direct enrollments. Approval from a partner administrator is required for indirect enrollments. The change becomes effective at the end of the current billing quarter.
+- **An amendment** to the agreement is required to change a billing cycle from annual or quarterly to monthly.  Any change to the existing enrollment billing cycle requires approval of an Enterprise administator or from the individual identified as the _Bill to Contact_ in your agreement.
+- **Submit** your approval in the [Azure Enterprise portal Support](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Select the Issue Category: **Billing and Invoicing**. 
 
-To change a billing cycle annual or quarterly to monthly, an amendment to the agreement is required.  Any change to the existing enrollment billing cycle requires approval of an enterprise admin or from the individual identified as the _Bill to Contact_ in your agreement. You can submit your approval in the [Azure Enterprise portal Support](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c) and then select the Issue Category **Billing and Invoicing**.  The change becomes effective at the end of the current billing quarter.
+The change becomes effective at the end of the current billing quarter.
 
 If an Amendment M503 is signed, you can move any agreement from any frequency to monthly billing. ​
+
+
+\***
 
 ## Credits and adjustments
 
