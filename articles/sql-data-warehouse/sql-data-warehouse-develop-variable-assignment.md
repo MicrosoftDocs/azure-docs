@@ -1,23 +1,25 @@
 ---
 title: Assign variables
-description: Tips for assigning T-SQL variables in Azure Synapse Analytics for developing solutions.
-services: synapse-analytics
-author: azaricstefan 
-ms.service: synapse-analytics
+description: Tips for assigning T-SQL variables in Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+author: XiaoyuMSFT 
+manager: craigg
+ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice:
-ms.date: 10/23/2019 
-ms.author: v-stazar 
-ms.reviewer: jrasnick
+ms.subservice: development
+ms.date: 04/17/2018
+ms.author: xiaoyul
+ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
-# Assigning variables in Azure SQL analytics
+# Assigning variables in Azure SQL Data Warehouse
 
-Tips for assigning T-SQL variables in Azure SQL analytics for developing solutions.
+Tips for assigning T-SQL variables in Azure SQL Data Warehouse for developing solutions.
 
 ## Setting variables with DECLARE
 
-Variables in SQL analytics are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL analytics.
+Variables in SQL Data Warehouse are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL Data Warehouse.
 
 ```sql
 DECLARE @v  int = 0
@@ -61,4 +63,4 @@ You cannot use UPDATE for variable assignment.
 
 ## Next steps
 
-For more development tips, see [SQL analytics development overview](azure-synapse-development-overview.md).
+For more development tips, see [development overview](../synapse-analytics/sql-analytics/azure-synapse-development-overview.md).

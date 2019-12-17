@@ -1119,4 +1119,4 @@ You did these things:
 Advance to the development overview to learn how to migrate an existing database to SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Design decisions to migrate an existing database to SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
+>[Design decisions to migrate an existing database to SQL Data Warehouse](../synapse-analytics/sql-analytics/azure-synapse-development-overview.md)

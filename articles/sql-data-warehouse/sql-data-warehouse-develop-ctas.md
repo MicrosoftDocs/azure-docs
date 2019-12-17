@@ -411,5 +411,5 @@ CTAS is one of the most important statements in SQL Data Warehouse. Make sure yo
 
 ## Next steps
 
-For more development tips, see the [development overview](sql-data-warehouse-overview-develop.md).
+For more development tips, see the [development overview](../synapse-analytics/sql-analytics/azure-synapse-development-overview.md).
 

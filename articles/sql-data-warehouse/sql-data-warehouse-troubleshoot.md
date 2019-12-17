@@ -90,16 +90,16 @@ For more help in finding solution to your issue, here are some other resources y
 [Provisioning instructions]: sql-data-warehouse-get-started-provision.md
 [Configure server firewall access for your client IP]: sql-data-warehouse-get-started-provision.md
 [SQL Data Warehouse best practices]: sql-data-warehouse-best-practices.md
-[Table sizes]: sql-data-warehouse-tables-overview.md#table-size-queries
-[Unsupported table features]: sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Unsupported data types]: sql-data-warehouse-tables-data-types.md#unsupported-data-types
-[Overview]: sql-data-warehouse-tables-overview.md
-[Data types]: sql-data-warehouse-tables-data-types.md
+[Table sizes]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-overview.md#table-size-queries
+[Unsupported table features]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-overview.md#unsupported-table-features
+[Unsupported data types]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-data-types.md#unsupported-data-types
+[Overview]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-overview.md
+[Data types]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-data-types.md
 [Distribute]: sql-data-warehouse-tables-distribute.md
 [Index]: sql-data-warehouse-tables-index.md
 [Partition]: sql-data-warehouse-tables-partition.md
-[Statistics]: sql-data-warehouse-tables-statistics.md
-[Temporary]: sql-data-warehouse-tables-temporary.md
+[Statistics]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-statistics.md
+[Temporary]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-temporary.md
 [Poor columnstore index quality]: sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Workload management]: resource-classes-for-workload-management.md

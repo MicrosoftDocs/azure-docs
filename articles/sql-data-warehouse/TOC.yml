@@ -117,8 +117,8 @@
     #   href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
   - name: Development
     items:
-    - name: Overview
-      href: sql-data-warehouse-overview-develop.md
+    # - name: Overview
+    #   href: sql-data-warehouse-overview-develop.md
     - name: Best practices
       href: sql-data-warehouse-best-practices-development.md
     - name: JSON
@@ -169,12 +169,12 @@
         href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
     - name: Tables
       items:
-      - name: Overview
-        href: sql-data-warehouse-tables-overview.md
+      # - name: Overview
+      #   href: sql-data-warehouse-tables-overview.md
       - name: CTAS
         href: sql-data-warehouse-develop-ctas.md
-      - name: Data types
-        href: sql-data-warehouse-tables-data-types.md
+      # - name: Data types
+      #   href: sql-data-warehouse-tables-data-types.md
       - name: Distributed tables
         href: sql-data-warehouse-tables-distribute.md
       - name: Table constraints 
@@ -187,10 +187,10 @@
         href: sql-data-warehouse-tables-partition.md
       - name: Replicated tables
         href: design-guidance-for-replicated-tables.md
-      - name: Statistics
-        href: sql-data-warehouse-tables-statistics.md
-      - name: Temporary
-        href: sql-data-warehouse-tables-temporary.md
+      # - name: Statistics
+      #   href: sql-data-warehouse-tables-statistics.md
+      # - name: Temporary
+      #   href: sql-data-warehouse-tables-temporary.md
     - name: T-SQL language elements
       items:
       - name: Loops

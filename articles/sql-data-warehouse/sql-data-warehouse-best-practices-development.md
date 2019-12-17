@@ -70,15 +70,15 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 <!--Article references-->
 [Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
-[Table overview]: ./sql-data-warehouse-tables-overview.md
-[Table data types]: ./sql-data-warehouse-tables-data-types.md
+[Table overview]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-overview.md
+[Table data types]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-data-types.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Table indexes]: ./sql-data-warehouse-tables-index.md
 [Causes of poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuilding columnstore indexes]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary tables]: ./sql-data-warehouse-tables-temporary.md
+[Manage table statistics]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-statistics.md
+[Temporary tables]:../synapse-analytics/sql-analytics/azure-synapse-development-tables-temporary.md
 [Guide for using PolyBase]: ./guidance-for-loading-data.md
 [Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md

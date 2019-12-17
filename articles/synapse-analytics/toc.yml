@@ -285,7 +285,7 @@
     - name: Development
       items:
       - name: Overview
-        href: sql-analytics/development-overview.md
+        href: sql-analytics/azure-synapse-development-overview.md
       - name: Best practices
         href: sql-analytics/development-best-practices.md
       - name: Materialized view
@@ -301,13 +301,13 @@
       - name: Tables
         items:
         - name: Overview
-          href: sql-analytics/development-tables-overview.md
+          href: sql-analytics/azure-synapse-development-tables-overview.md
         - name: CETAS
           href: sql-analytics/development-tables-cetas.md
         - name: CTAS
           href: ../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Data types
-          href: sql-analytics/development-tables-data-types.md
+          href: sql-analytics/azure-synapse-development-tables-data-types.md
         - name: Distributed tables
           href: ../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: External tables
@@ -323,9 +323,9 @@
         - name: Replicated tables
           href: ../sql-data-warehouse/design-guidance-for-replicated-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Statistics
-          href: sql-analytics/development-tables-statistics.md
+          href: sql-analytics/azure-synapse-development-tables-statistics.md
         - name: Temporary
-          href: sql-analytics/development-tables-temporary.md
+          href: sql-analytics/azure-synapse-development-tables-temporary.md
       - name: T-SQL language elements
         items:
         - name: Loops

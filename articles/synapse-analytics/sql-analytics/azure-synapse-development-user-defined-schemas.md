@@ -117,4 +117,4 @@ FROM    [edw].customer
 
 ## Next steps
 
-For more development tips, see [SQL analytics development overview](development-overview.md).
+For more development tips, see [SQL analytics development overview](azure-synapse-development-overview.md).

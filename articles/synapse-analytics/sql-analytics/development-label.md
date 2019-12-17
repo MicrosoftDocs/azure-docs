@@ -45,6 +45,6 @@ WHERE   r.[label] = 'My Query Label'
 > 
 
 ## Next steps
-For more development tips, see [development overview](development-overview.md).
+For more development tips, see [development overview](azure-synapse-development-overview.md).
 
 
