@@ -70,7 +70,7 @@
     href: set-up-scaling-script.md
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
-  - name: Use the diagnostics tool
+  - name: Use service diagnostics
     items:
         - name: Deploy the diagnostics tool
           href: deploy-diagnostics.md
