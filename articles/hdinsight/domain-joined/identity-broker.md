@@ -32,7 +32,7 @@ HIB allows you to log in to ESP clusters using MFA, without providing any passwo
 To create an ESP cluster with ID Broker enabled, do the following steps:
 
 1. Log in to the [Azure portal](https://portal.azure.com).
-1. Follow the basic creation steps for an ESP cluster. For more information, see [Create a HDInsight cluster with ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
+1. Follow the basic creation steps for an ESP cluster. For more information, see [Create a HDInsight cluster with ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 1. Check **Enable HDInsight ID Broker**.
 
 The HIB feature will add one extra VM to the cluster. This VM is the ID Broker Node and includes server components to support authentication. The HIB node is domain-joined to the Azure AD-DS domain as well.
