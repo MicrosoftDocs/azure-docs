@@ -139,7 +139,7 @@ One approach for estimating capacity is to start with the Free tier. Remember th
 
 + [Create a free service](search-create-service-portal.md).
 + Prepare a small, representative dataset.
-+ [Build an initial index in the portal](search-create-index-portal.md) and note its size. Features and attributes have an impact on storage. For example, adding suggesters (typeahead) will increase storage requirements. Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#storage-implications).
++ [Build an initial index in the portal](search-create-index-portal.md) and note its size. Features and attributes have an impact on storage. For example, adding suggesters (typeahead) will increase storage requirements. Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#index-size).
 
 With a rough estimate in hand, you might double that amount to budget for two indexes (development and production) and then choose your tier accordingly.
 

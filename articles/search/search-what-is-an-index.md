@@ -180,7 +180,7 @@ The index is based on the [built-in real estate sample](search-get-started-porta
 
 Although these index variants are artificial, we can refer to them for broad comparisons of how attributes affect storage. Does setting **retrievable** increase index size? No. Does adding fields to a **Suggester** increase index size? Yes.
 
-Indexes that support filter and sort are proportionally larger than indexes that support just full text search. The reason is that filter and sort query on exact matches so documents are stored intact. In contrast, searchable fields supporting full-text and fuzzy search use inverted indexes, which are populated with tokenized terms that consume less space than whole documents. 
+Indexes that support filter and sort are proportionally larger than those supporting just full text search. Filter and sort operations scan for exact matches, requiring the presence of intact documents. In contrast, searchable fields supporting full-text and fuzzy search use inverted indexes, which are populated with tokenized terms that consume less space than whole documents. 
 
 > [!Note]
 > Storage architecture is considered an implementation detail of Azure Cognitive Search and could change without notice. There is no guarantee that current behavior will persist in the future.
