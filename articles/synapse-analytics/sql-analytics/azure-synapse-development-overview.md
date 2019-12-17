@@ -40,12 +40,12 @@ The following articles highlight specific coding techniques, tips, and recommend
 | ------------------------------------------ | ------------------ | ----------------------- |
 | [Stored procedures](development-stored-procedures.md)     | Yes                | No                      |
 | [Labels](development-label.md)                           | Yes                | No                      |
-| [Views](azure-synapse-views.md)                            | Yes                | Yes                     |
+| [Views](azure-synapse-development-views.md)                            | Yes                | Yes                     |
 | [Temporary tables](azure-synapse-development-tables-temporary.md)       | Yes                | Yes                     |
 | [Dynamic SQL](development-dynamic-sql.md)                 | Yes                | Yes                     |
 | [Looping](development-loops.md)                         | Yes                | Yes                     |
 | [Group by options](development-group-by-options.md)       | Yes                | No                      |
-| [Variable assignment](azure-synapse-variable-assignment.md) | Yes                | Yes                     |
+| [Variable assignment](azure-synapse-development-variable-assignment.md) | Yes                | Yes                     |
 
 
 
