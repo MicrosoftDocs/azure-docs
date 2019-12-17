@@ -18,6 +18,40 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2019-12-23
+
+### Azure Machine Learning SDK for Python v1.0.TBD
+
++ **New features**
+  + [Insert new features below. Reference articles and/or doc pages]
+  
+  + **Preview features**
+    + [Contrib features below] 
+
++ **Breaking changes**
+  + [Reference upcoming breaking changes and old API support drop date]
+
++ **Bug fixes and improvements**
+  + **azureml-contrib-interpret**
+    + defer shap dependency to interpret-community from azureml-interpret
+  + **azureml-core**
+    + Compute target can now be specified as a parameter to the corresponding deployment config objects. This is specifically the name of the compute target to deploy to, not the SDK object.
+    + Added CreatedBy information to Model and Service objects. May be accessed through <var>.created_by
+    + ``` - Fixed ContainerImage.run(), which was not correctly setting up the Docker container's HTTP port. ```
+    +  Make `azureml-dataprep` optional for `az ml dataset register` cli command
+  + **azureml-dataprep**
+    + Fixed a bug where TabularDataset.to_pandas_dataframe would incorrectly fall back to an alternate reader and print out a warning.
+  + **azureml-explain-model**
+    + defer shap dependency to interpret-community from azureml-interpret
+    + Added is_engineered field to explanation on MimicWrapper.
+    + is_engineered is now a valid filter for listing and downloading explanations
+  + **azureml-pipeline-core**
+    + Releasing a new azure machine learning pipeline step as `NotebookRunnerStep`, to run a local notebook as a step in pipeline.
+    + Removed deprecated get_all functions for PublishedPipelines, Schedules, and PipelineEndpoints
+  + **azureml-train-automl-client**
+    + Started deprecation of data_script as an input to AutoML.
+  
+  
 ## 2019-12-09
 
 ### Azure Machine Learning SDK for Python v1.0.79
