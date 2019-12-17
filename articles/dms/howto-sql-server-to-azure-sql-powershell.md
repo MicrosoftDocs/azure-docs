@@ -195,6 +195,24 @@ $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDb `
   -SelectedDatabase  $selectedDbs `
 ```
 
+The following example creates and starts the same migration task as above but also performs all three validations:
+
+```powershell
+$migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDb `
+  -ResourceGroupName myResourceGroup `
+  -ServiceName $service.Name `
+  -ProjectName $project.Name `
+  -TaskName myDMSTask `
+  -SourceConnection $sourceConnInfo `
+  -SourceCred $sourceCred `
+  -TargetConnection $targetConnInfo `
+  -TargetCred $targetCred `
+  -SelectedDatabase  $selectedDbs `
+  -SchemaValidation `
+  -DataIntegrityValidation `
+  -QueryAnalysisValidation `
+```
+
 ## Monitor the migration
 You can monitor the migration task running by querying the state property of the task as shown in the following example:
 
