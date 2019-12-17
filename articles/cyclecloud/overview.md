@@ -2,13 +2,18 @@
 title: Overview
 description: Azure CycleCloud overview and introduction.
 author: KimliW
-ms.date: 08/01/2018
-ms.author: adjohnso
+ms.date: 12/16/2019
+ms.author: jechia
 ---
 
 # What is Azure CycleCloud?
 
-Azure CycleCloud is a tool for creating, managing, operating, and optimizing HPC & Big Compute clusters in Azure. With Azure CycleCloud, users can dynamically provision HPC Azure clusters and orchestrate data and jobs for hybrid and cloud workflows. Azure CycleCloud provides alerting, monitoring, and automatically scales HPC infrastructure to ensure your jobs run efficiently at any scale. Azure CycleCloud offers advanced policy and governance features such as: cost reporting and controls, usage reporting, AD/LDAP integration, monitoring and alerting, and audit/event logging to give users full control over who runs what, where, and at what cost within Azure.
+Azure CycleCloud is an enterprise-friendly tool for orchestrating and managing High Performance Computing (HPC) environments on Azure. With Azure CycleCloud, users can provision infrastructure for HPC systems, deploy and use familiar HPC schedulers, and automatically scale up the infrastructure to run jobs efficiently at any scale. Through CycleCloud users are also able to create different types of file systems that are needed to support an HPC workload, and mount these file systems into the compute cluster nodes.
+
+Azure CycleCloud is targeted at HPC administrators and users who want to deploy an HPC environment with a specific scheduler in mind -- commonly used schedulers such as Slurm, PBSPro, LSF, Grid Engine, and HT-Condor are supported out of the box. CycleCloud is the sister product to [Azure Batch](https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview), which provides a Scheduler as a Service on Azure. 
+
+See [High Performance Computing (HPC) on Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) for information about how CycleCloud compares against other HPC solutions available on Azure.
+
 
 ![Overview Intro](~/images/overview-gui.png)
 
@@ -16,28 +21,33 @@ Azure CycleCloud is a tool for creating, managing, operating, and optimizing HPC
 
 ## Why Should I Use Azure CycleCloud?
 
-Azure CycleCloud makes it easy to create High Performance Computing (HPC) clusters in the cloud, orchestrating workloads from the user to overcome the challenges typically associated with cloud HPC. Azure CycleCloud gives you the ability to:
+Organizations who have operated HPC environments for a while typically accumulate years of expertise and in-house tooling around a specific scheduler, and re-architecting or deploying these environments on Azure can be daunting. CycleCloud abstracts away the basic Azure building blocks such as VMs, Scalesets, network interfaces, and disks, and allows an HPC administrator to focus on the familiar: an HPC cluster comprising of nodes and a configurable scheduler of choice.
+
+CycleCloud deploys autoscaling plugins on top of the supported schedulers, so users do not need to implement complex autoscaling functions and routines themselves, but rather interface only with scheduler-level configurations that they are familiar with.
+
+Additionally, with a rich, declarative, templating format, CycleCloud provides powerful tooling to construct complete HPC environments on Azure, allowing users to deploy environments that include NFS servers, parallel file systems, login hosts, license servers, and directory services -- essentially all the components needed in an HPC system -- through a single management plane.
+
+CycleCloud integrates with Azure services such as [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) and [Azure Cost Management tools](https://docs.microsoft.com/en-us/azure/cost-management/overview-cost-mgt), that provides control and monitoring tools. 
+
+### Additional CycleCloud Capabilities
 
 [//]: # (might want to convert this to a table with mini screenshots similar to App Insights overview)
+* **BYO Scheduler**: use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycelCloud autoscaling plugins to work with your own scheduler
 * **Manage compute resources**: manage virtual machines and scale sets to provide a flexible set of compute resources that can meet your dynamic workload requirements
 * **Orchestrate compute workloads**: monitor job load, manage job submissions and job requirements.
 * **Auto scale resources**: automatically adjust cluster size and components based upon job load, availability, and time requirements
-* **Create reports**: create reports on a number of metrics including cost, usage, and performance.
 * **Monitor and analyze**: collect and analyze performance data using visualization tools
-* **Create alerts**: create custom alerts that can warn of overruns, job outliers, and workload problems
-* **Audit usage**: use audit and event logs to track usage across the organization
-* **Customize images**: use Azure Marketplace or custom images with pre-installed applications
 * **Template clusters**: use CycleCloud templates to share parameterized clusters with the community
-* **Customize and extend functionality**: use the comprehensive RESTful API to customize and extend functionality, and integrate into existing workloads
-* **Integrate into existing workflows**: integrate into existing workflows and tools using the built-in CLI and data management CLI
+* **Customize and extend functionality**: use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers
+* **Integrate into existing workflows**: integrate into existing workflows and tools using the built-in CLI
 
 ## How Do I Use Azure CycleCloud?
 
-Azure CycleCloud is an installable web application that you can run on premise or in your Azure subscription. Once installed, CycleCloud can be configured to use compute and data resources in your prepared Azure subscription. CycleCloud provides a number of official cluster templates including schedulers (Grid Engine, Slurm, HTCondor), filesystems (Redis, Avere), containers (Docker, Singularity) and many scientific applications. Cluster templates provided by the CycleCloud community are also available. You can use these cluster templates unmodified or you can customize them for your specific needs.
+Azure CycleCloud is an installable web application that you can run on premise or in an VM in your Azure subscription. Once installed, CycleCloud can be configured to use compute and data resources in your prepared Azure subscription. CycleCloud provides a number of official cluster templates for schedulers (PBSPro, LSF, Grid Engine, Slurm, HTCondor), and filesystems (NFS, BeeGFS). Cluster templates provided by the CycleCloud community are also available. You can use these cluster templates unmodified or you can customize them for your specific needs.
 
-Once a cluster is created, you can manually add compute nodes and node arrays to handle the computational jobs that are submitted to the cluster. Alternatively, you can configure the cluster to dynamically adjust the compute resources to meet the job load. This allows you to limit cluster cost for reduced workloads and scale up the cluster to meet spikes in demand.
+Once a cluster is created, it is automatically configured to autoscale by default to handle the computational jobs that are submitted to the scheduler. CycleCloud administrative features provide and govern access to the CycleCloud cluster for other users in your organization.
 
-CycleCloud administrative features provide and govern access to the CyleCloud cluster for other users in your organization. You can monitor, audit and alert on a number of metrics including usage, cost and quotas.
+Tooling using templates and configuration scripts enable you to build complex HPC environments quickly, and replicate these for separate teams across your organization.
 
 [//]: # (## What cluster types are available?)
 
