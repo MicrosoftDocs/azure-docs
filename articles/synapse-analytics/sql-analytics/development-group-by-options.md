@@ -1,16 +1,15 @@
 ---
-title: Using group by options 
+title: Using group by options
 description: Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.
-services: sql-data-warehouse
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: query
+ms.subservice:
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
 ---
 
 # Group by options in SQL Data Warehouse
@@ -116,7 +115,7 @@ FROM GrpCube;
 
 The following shows the results of the CTAS:
 
-![Group by cube](./media/development-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
+![Group by cube](../../sql-data-warehouse/media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
 The second step is to specify a target table to store interim results:
 
