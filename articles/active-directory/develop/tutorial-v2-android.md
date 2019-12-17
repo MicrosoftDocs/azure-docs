@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 # Tutorial: Sign in users and call the Microsoft Graph from an Android application 
 
 >[!NOTE]
->This tutorial demonstrates simplified examples of how to work with MSAL for Android. For simplicity, this tutorial only uses Single Account Mode. You can also view the repo and clone [the preconfigured sample app](https://github.com/Azure-Samples/ms-identity-android-java/) to explore Multi Account or B2C mode. View the [Quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-android) for more on the sample app, configuration, and registration. 
+>This tutorial demonstrates simplified examples of how to work with MSAL for Android. For simplicity, this tutorial only uses Single Account Mode. You can also view the repo and clone [the preconfigured sample app](https://github.com/Azure-Samples/ms-identity-android-java/) to explore more complex scenarios. View the [Quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-android) for more on the sample app, configuration, and registration. 
 
 In this tutorial, you'll learn how to integrate your android app with the Microsoft identity platform using the Microsoft Authentication Library for Android. You'll learn how to sign in and sign out a user, get an access token to call the Microsoft Graph API, and make a request to the Graph API. 
 
@@ -57,7 +57,7 @@ This sample uses the Microsoft Authentication library for Android (MSAL) to impl
 
 ### Prerequisites
 
-* This tutorial requires Android Studio version 3.5.
+* This tutorial requires Android Studio version 3.5+
 
 ## Create a Project
 If you do not already have an Android application, follow these steps to set up a new project. 
@@ -91,13 +91,31 @@ If you do not already have an Android application, follow these steps to set up 
 
 1. In Android Studio's project pane, navigate to **app\src\main\res**.
 2. Right-click **res** and choose **New** > **Directory**. Enter `raw` as the new directory name and click **OK**.
-3. In **app** > **src** > **main** > **res** > **raw**, create a new JSON file called `auth_config_single_account.json` and paste the MSAL Configuration that you saved earlier. 
+3. In **app** > **src** > **main** > **res** > **raw**, create a new JSON file called `auth_configbn_single_account.json` and paste the MSAL Configuration that you saved earlier. 
 
     Below the redirect URI, paste: 
     ```json
       "account_mode" : "SINGLE",
-      "broker_redirect_uri_registered": true,
     ```
+    Your config file should resemble this example: 
+    ```json   
+    {
+      "client_id" : "0984a7b6-bc13-4141-8b0d-8f767e136bb7",
+      "authorization_user_agent" : "DEFAULT",
+      "redirect_uri" : "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D",
+      "account_mode" : "SINGLE",
+      "authorities" : [
+        {
+          "type": "AAD",
+          "audience": {
+            "type": "AzureADandPersonalMicrosoftAccount",
+            "tenant_id": "common"
+          }
+        }
+      ]
+    }
+```
+    
    >[!NOTE]
    >This tutorial only demonstrates how to configure an app in Single Account mode. View the documentation for more information on [single vs. multiple account mode](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account) and [configuring your app](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration)
    
@@ -120,6 +138,10 @@ If you do not already have an Android application, follow these steps to set up 
 
     Substitute the package name you registered in the Azure portal for the `android:host=` value.
     Substitute the key hash you registered in the Azure portal for the `android:path=` value. The Signature Hash should **not** be URL encoded. Ensure that there is a leading `/` at the beginning of your Signature Hash. 
+    >[!NOTE]
+    >The "Package Name" you will replace the `android:host` value with should look similar to: "com.azuresamples.msalandroidapp"
+    >The "Signature Hash" you will replace your `android:path` value with should look similar to: "/1wIqXSqBj7w+h11ZifsnqwgyKrY="
+    >You will also be able to find these values in the Authentication blade of your app registration. Note that your redirect URI will look similar to: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". While the Signature Hash is URL encoded at the end of this value, the Signature Hash should **not** be URL encoded in your `android:path` value. 
 
 ## Use MSAL 
 
@@ -153,13 +175,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.JsonObject;
-import com.microsoft.graph.authentication.IAuthenticationProvider;
+import com.microsoft.graph.authentication.IAuthenticationProvider; //Imports the Graph sdk Auth interface
 import com.microsoft.graph.concurrency.ICallback;
 import com.microsoft.graph.core.ClientException;
 import com.microsoft.graph.http.IHttpRequest;
 import com.microsoft.graph.models.extensions.*;
 import com.microsoft.graph.requests.extensions.GraphServiceClient;
-import com.microsoft.identity.client.AuthenticationCallback;
+import com.microsoft.identity.client.AuthenticationCallback; // Imports MSAL auth methods
 import com.microsoft.identity.client.*;
 import com.microsoft.identity.client.exception.*;
 ```
@@ -167,11 +189,22 @@ import com.microsoft.identity.client.exception.*;
 ## Instantiate PublicClientApplication
 #### Initialize Variables 
 ```java
-private static String[] SCOPES = {"user.Read"};
+private final static String[] SCOPES = {"U ser.Read"};
 /* Azure AD v2 Configs */
 final static String AUTHORITY = "https://login.microsoftonline.com/common";
 private ISingleAccountPublicClientApplication mSingleAccountApp;
+
+private static final String TAG = MainActivity.class.getSimpleName();
+
+/* UI & Debugging Variables */
+Button signInButton;
+Button signOutButton;
+Button callGraphApiInteractiveButton;
+Button callGraphApiSilentButton;
+TextView logTextView;
+TextView currentUserTextView;
 ```
+
 ### onCreate
 Inside the `MainActivity` class, refer to the following onCreate() method to instantiate MSAL using the `SingleAccountPublicClientApplication`.
 
@@ -184,8 +217,7 @@ protected void onCreate(Bundle savedInstanceState) {
     initializeUI();
 
     PublicClientApplication.createSingleAccountPublicClientApplication(getApplicationContext(),
-            R.raw.auth_config_single_account,
-            new IPublicClientApplication.ISingleAccountApplicationCreatedListener() {
+            R.raw.auth_config_single_account,            new IPublicClientApplication.ISingleAccountApplicationCreatedListener() {
                 @Override
                 public void onCreated(ISingleAccountPublicClientApplication application) {
                     mSingleAccountApp = application;
@@ -202,6 +234,7 @@ protected void onCreate(Bundle savedInstanceState) {
 ### loadAccount 
 
 ```java
+//When app comes to the foreground, load existing account to determine if user is signed in 
 private void loadAccount() {
     if (mSingleAccountApp == null) {
         return;
@@ -213,7 +246,7 @@ private void loadAccount() {
             // You can use the account data to update your UI or your app database.
             updateUI(activeAccount);
         }
-
+        
         @Override
         public void onAccountChanged(@Nullable IAccount priorAccount, @Nullable IAccount currentAccount) {
             if (currentAccount == null) {
@@ -230,17 +263,75 @@ private void loadAccount() {
 }
 ```
 
-## Sign-in user 
+### initializeUI
+Listen to buttons and call methods or log errors accordingly. 
+```java
+private void initializeUI(){
+        signInButton = findViewById(R.id.signIn);
+        callGraphApiSilentButton = findViewById(R.id.callGraphSilent);
+        callGraphApiInteractiveButton = findViewById(R.id.callGraphInteractive);
+        signOutButton = findViewById(R.id.clearCache);
+        logTextView = findViewById(R.id.txt_log);
+        currentUserTextView = findViewById(R.id.current_user);
+        
+        //Sign in user 
+        signInButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                if (mSingleAccountApp == null) {
+                    return;
+                }
+                mSingleAccountApp.signIn(MainActivity.this, null, SCOPES, getAuthInteractiveCallback());
+            }
+        });
+        
+        //Sign out user
+        signOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mSingleAccountApp == null){
+                    return;
+                }
+                mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallback() {
+                    @Override
+                    public void onSignOut() {
+                        updateUI(null);
+                        performOperationOnSignOut();
+                    }
+                    @Override
+                    public void onError(@NonNull MsalException exception){
+                        displayError(exception);
+                    }
+                });
+            }
+        });
+        
+        //Interactive 
+        callGraphApiInteractiveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mSingleAccountApp == null) {
+                    return;
+                }
+                mSingleAccountApp.acquireToken(MainActivity.this, SCOPES, getAuthInteractiveCallback());
+            }
+        });
 
-To sign-in a user on the SingleAccount PublicClientApplication: 
-```java
-mSingleAccountApp.signIn(MainActivity.this, null, SCOPES, getAuthInteractiveCallback());
+        //Silent
+        callGraphApiSilentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mSingleAccountApp == null){
+                    return;
+                }
+                mSingleAccountApp.acquireTokenSilentAsync(SCOPES, AUTHORITY, getAuthSilentCallback());
+            }
+        });
+    }
 ```
-## Acquire token interactive
-To acquire a token for a signed in user with an interactive experience:
-```java
-mSingleAccountApp.acquireToken(MainActivity.this, SCOPES, getAuthInteractiveCallback());
-```
+
+> [!Important]
+> Signing out with MSAL removes all known information about a user from the application, but the user will still have an active session on their device. If the user attempts to sign in again they may see sign-in UI, but may not need to reenter their credentials because the device session is still active. 
+
 ### getAuthInteractiveCallback
 Callback used for interactive requests.
 
@@ -251,8 +342,7 @@ private AuthenticationCallback getAuthInteractiveCallback() {
         public void onSuccess(IAuthenticationResult authenticationResult) {
             /* Successfully got a token, use it to call a protected resource - MSGraph */
             Log.d(TAG, "Successfully authenticated");
-            Log.d(TAG, "ID Token: " + authenticationResult.getAccount().getClaims().get("id_token"));
-            /* Update account */
+            /* Update UI */
             updateUI(authenticationResult.getAccount());
             /* call graph */
             callGraphAPI(authenticationResult);
@@ -263,11 +353,6 @@ private AuthenticationCallback getAuthInteractiveCallback() {
             /* Failed to acquireToken */
             Log.d(TAG, "Authentication failed: " + exception.toString());
             displayError(exception);
-            if (exception instanceof MsalClientException) {
-                /* Exception inside MSAL, more info inside MsalError.java */
-            } else if (exception instanceof MsalServiceException) {
-                /* Exception when communicating with the STS, likely config issue */
-            }
         }
         @Override
         public void onCancel() {
@@ -277,11 +362,7 @@ private AuthenticationCallback getAuthInteractiveCallback() {
     };
 }
 ```
-## Acquire token silent 
-To aquire a token for a signed in user with a silent experience: 
-```java 
-mSingleAccountApp.acquireTokenSilentAsync(SCOPES, AUTHORITY, getAuthSilentCallback());
-```
+
 ### getAuthSilentCallback
 Callback used for silent requests 
 ```java 
@@ -342,101 +423,10 @@ private void callGraphAPI(IAuthenticationResult authenticationResult) {
 }
 ```
 
-## Sign-out user 
-Add support for SingleAccount sign-out.
-
-> [!Important]
-> Signing out with MSAL removes all known information about a user from the application, but the user will still have an active session on their device. If the user attempts to sign in again they may see sign-in UI, but may not need to reenter their credentials because the device session is still active. 
-
-```java
-mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallback() {
-                    @Override
-                    public void onSignOut() {
-                        updateUI(null);
-                        performOperationOnSignOut();
-                    }
-                    @Override
-                    public void onError(@NonNull MsalException exception){
-                        displayError(exception);
-                    }
-                });
-```
-
 ## Add UI
 ### Activity 
 If you would like to model your UI off this tutorial, the following methods provide a guide to updating text and listening to buttons.
-#### Initialize Variables 
-```java 
-private static final String TAG = MainActivity.class.getSimpleName();
-/* UI & Debugging Variables */
-Button signInButton;
-Button signOutButton;
-Button callGraphApiInteractiveButton;
-Button callGraphApiSilentButton;
-TextView logTextView;
-TextView currentUserTextView;
-```
-#### initializeUI
-Listen to buttons and call methods or log errors accordingly. 
-```java
-private void initializeUI(){
-        signInButton = findViewById(R.id.signIn);
-        callGraphApiSilentButton = findViewById(R.id.callGraphSilent);
-        callGraphApiInteractiveButton = findViewById(R.id.callGraphInteractive);
-        signOutButton = findViewById(R.id.clearCache);
-        logTextView = findViewById(R.id.txt_log);
-        currentUserTextView = findViewById(R.id.current_user);
 
-        signInButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-                if (mSingleAccountApp == null) {
-                    return;
-                }
-                mSingleAccountApp.signIn(MainActivity.this, null, SCOPES, getAuthInteractiveCallback());
-            }
-        });
-
-        signOutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mSingleAccountApp == null){
-                    return;
-                }
-                mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallback() {
-                    @Override
-                    public void onSignOut() {
-                        updateUI(null);
-                        performOperationOnSignOut();
-                    }
-                    @Override
-                    public void onError(@NonNull MsalException exception){
-                        displayError(exception);
-                    }
-                });
-            }
-        });
-
-        callGraphApiInteractiveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mSingleAccountApp == null) {
-                    return;
-                }
-                mSingleAccountApp.acquireToken(MainActivity.this, SCOPES, getAuthInteractiveCallback());
-            }
-        });
-
-        callGraphApiSilentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mSingleAccountApp == null){
-                    return;
-                }
-                mSingleAccountApp.acquireTokenSilentAsync(SCOPES, AUTHORITY, getAuthSilentCallback());
-            }
-        });
-    }
-```
 #### updateUI
 Enable/disable buttons based on sign-in state and set text.  
 ```java 
@@ -583,7 +573,7 @@ After you sign in, the app will display the data returned from the Microsoft Gra
 
 ### Consent
 
-The first time any user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested.  While most users are capable of consenting, some Azure AD tenants have disabled user consent which requires admins to consent on behalf of all users. To support this scenario, register your app's scopes in the Azure portal.
+The first time any user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested. Some Azure AD tenants have disabled user consent which requires admins to consent on behalf of all users. To support this scenario, you will either need to create your own tenant or receive admin consent. 
 
 ## Clean up resources
 
