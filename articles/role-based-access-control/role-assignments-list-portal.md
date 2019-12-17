@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -76,6 +76,32 @@ To list access for a user, group, service principal, or managed identity, you li
     ![assignments pane](./media/role-assignments-list-portal/check-access-assignments.png)
 
     On this pane, you can see the roles assigned to the selected security principal and the scope. If there are any deny assignments at this scope or inherited to this scope, they will be listed.
+
+## List role assignments for a system-assigned managed identity
+
+1. In the Azure portal, open a system-assigned managed identity.
+
+1. In the left menu, click **Identity**.
+
+    ![System-assigned managed identity](./media/role-assignments-list-portal/identity-system-assigned.png)
+
+1. Under **Role assignments**, click **Show the Azure RBAC roles assigned to this managed identity**.
+
+    You see a list of roles assigned to the selected system-assigned managed identity at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
+
+    ![Role assignments for a system-assigned managed identity](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
+
+## List role assignments for a user-assigned managed identity
+
+1. In the Azure portal, open a system-assigned managed identity.
+
+1. Click **Azure resources**.
+
+    You see a list of roles assigned to the selected user-assigned managed identity at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
+
+    ![Role assignments for a system-assigned managed identity](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
+
+1. To change the subscription, click the **Subscriptions** list.
 
 ## Next steps
 

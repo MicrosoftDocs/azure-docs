@@ -107,7 +107,7 @@ Now, you can access your secrets in code. The next steps are different depending
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-        private static string GetKeyVaultEndpoint() => "https://WebApplication4-3-kv.vault.azure.net";
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     ```
 
 1. Next open one of the page files, such as *Index.cshtml.cs* and write the following code:

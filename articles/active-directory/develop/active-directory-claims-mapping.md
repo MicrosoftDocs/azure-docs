@@ -1,5 +1,5 @@
 ---
-title: Customize claims for Azure AD tenant apps
+title: Customize Azure AD tenant app claims (Powershell)
 titleSuffix: Microsoft identity platform
 description: This page describes Azure Active Directory claims mapping.
 services: active-directory
