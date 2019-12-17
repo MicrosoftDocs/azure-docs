@@ -97,11 +97,11 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 #### [Version 2](#tab/version-2)
 
-* [Sentiment Analysis v2 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
+[Sentiment Analysis v2 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
 #### [Version 3 (Public preview)](#tab/version-3)
 
-* [Sentiment Analysis v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
+[Sentiment Analysis v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
 
 ---
 
