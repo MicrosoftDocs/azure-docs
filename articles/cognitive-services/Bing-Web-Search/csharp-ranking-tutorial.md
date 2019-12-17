@@ -9,7 +9,7 @@ ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ---
 
@@ -92,7 +92,7 @@ This method:
 
 ## Search for query results using the Bing Web Search API
 
-Next, add a method that queries the API and displays the results:
+Next, add a method that queries the API and displays the results. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.:
 
 ```csharp
 static void RunQueryAndDisplayResults(string userQuery)
