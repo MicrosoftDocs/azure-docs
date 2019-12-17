@@ -70,6 +70,8 @@
       href: how-to-use-shared-image-gallery.md            
     - name: Enable remote desktop connection for Linux
       href: how-to-enable-remote-desktop-linux.md
+    - name: Enable automatic shutdown on disconnect
+      href: how-to-enable-shutdown-disconnect.md       
     - name: Enable nested virtualization on a template VM
       href: how-to-enable-nested-virtualization-template-vm.md
     - name: Prepare a Windows template VM

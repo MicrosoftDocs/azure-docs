@@ -5,7 +5,7 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/20/2019
+ms.date: 11/25/2019
 ms.author: ancav
 ms.subservice: metrics
 ---
@@ -18,7 +18,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 >
 > *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
 >
->
+> For a list of platform metrics exportable via diagnostic settings, see [this article](metrics-supported-export-diagnostic-settings.md).
 
 ## Microsoft.AnalysisServices/servers
 
