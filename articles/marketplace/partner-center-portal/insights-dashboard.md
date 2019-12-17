@@ -42,6 +42,8 @@ You can view the Marketplace metrics in a variety of ways:
 
 **Storefront tabs**: You can view the metrics of your offers separately via the AppSource & Azure Marketplace tabs. Select the offer(s) from the offer dropdown list on the right to see a visualization of the metrics for the selected offer(s). By default, all offers are selected.
 
+![Partner Center Insights dashboard offer dropdown list](./media/insights-offer-dropdown.png)
+
 **Insights page filters**: These filters are applied at the offer (product detail page) level. You can select multiple filters for the criteria you would like to view. This filter applies to the entire Marketplace Insights section including charts and details.
 
 ![Partner Center Insights dashboard page filters](./media/insights-page-filter.png)
