@@ -6140,7 +6140,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.StorSimple/managers/listPublicEncryptionKey/action | List public encryption keys of a StorSimple Device Manager. |
 > | Action | Microsoft.StorSimple/managers/metrics/read | Lists or gets the Metrics |
 > | Action | Microsoft.StorSimple/managers/metricsDefinitions/read | Lists or gets the Metrics Definitions |
-> | Action | Microsoft.StorSimple/managers/migrateClassicToResourceManager/action | Migrate Classic To Resource Manager of Mangers |
+> | Action | Microsoft.StorSimple/managers/migrateClassicToResourceManager/action | Migrate from Classic To Resource Manager |
 > | Action | Microsoft.StorSimple/managers/migrationSourceConfigurations/read | List the Migration Source Configurations (8000 Series Only) |
 > | Action | Microsoft.StorSimple/managers/operationResults/read | Lists or gets the Operation Results |
 > | Action | Microsoft.StorSimple/managers/provisionCloudAppliance/action | Create a new cloud appliance. |
