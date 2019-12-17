@@ -48,7 +48,7 @@ table, just call it on a representative table from each colocation group.
 ## Increase vCores
 
 In addition to adding new nodes, you can increase the capabilities of existing
-nodes. This feature is currently in preview -- to request increased vCores for
+nodes. This feature is currently in preview — to request increased vCores for
 nodes in your server group, please [contact Azure
 support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
