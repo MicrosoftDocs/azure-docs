@@ -26,7 +26,7 @@ Ensure you update your statistics daily or after each load.  There are always tr
 
 For example, you might want to update date columns, where new values may be added on a daily basis. **You will gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.**
 
-See also [Manage table statistics][development-tables-statistics.md], [CREATE STATISTICS](development-tables-statistics.md), [UPDATE STATISTICS][UPDATE STATISTICS].
+See also [Manage table statistics](development-tables-statistics.md), [CREATE STATISTICS](development-tables-statistics.md), [UPDATE STATISTICS][UPDATE STATISTICS].
 
 ### Hash distribute large tables
 By default, tables are Round Robin distributed.  This makes it easy for users to start creating tables without having to decide how their tables should be distributed.  Round Robin tables may perform sufficiently for some workloads. But, in most cases, selecting a distribution column will perform much better.  
