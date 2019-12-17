@@ -40,7 +40,7 @@ When you're enabling secure LDAP, put the domain name in the subject name and th
 
 The following example creates a self-signed certificate. The domain name *contoso100.onmicrosoft.com* is in both `Subject` (subject name) and `DnsName` (subject alternative name).
 
-```PowerShell
+```powershell
 $lifetime=Get-Date
 New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
