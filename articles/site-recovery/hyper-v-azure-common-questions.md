@@ -1,12 +1,8 @@
 ---
 title: Common questions for Hyper-V disaster recovery with Azure Site Recovery 
 description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.author: raynew
 
 ---
 # Common questions - Hyper-V to Azure disaster recovery
@@ -227,4 +223,4 @@ After your on-premises infrastructure is up and running again, you can fail back
 5. After workloads have failed back, you enable reverse replication, so that the on-premises VMs replicate to Azure again.
 
 ### Can I fail back to a different location?
-Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
+Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](hyper-v-azure-failback.md#failback-to-an-alternate-location).

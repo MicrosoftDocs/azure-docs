@@ -110,7 +110,7 @@ To move a few virtual machines to a new vCenter:
 
 1. If protected virtual machines are moved from one ESXi host to another, will it impact replication?
 
-    No, this will not impact the ongoing replication. However, [ensure to deploy the master target server with sufficient privileges](vmware-azure-reprotect.md#deploy-a-separate-master-target-server)
+    No, this will not impact the ongoing replication. However, [ensure to deploy the master target server with sufficient privileges](vmware-azure-prepare-failback.md#deploy-a-separate-master-target-server)
 
 2. What are the port numbers used to for communication between vCenter and other Site Recovery components?
 
