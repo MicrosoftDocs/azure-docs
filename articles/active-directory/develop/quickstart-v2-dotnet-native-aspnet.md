@@ -1,5 +1,5 @@
 ---
-title: Call an ASP.NET Web API protected by Azure AD - Microsoft identity
+title: Call Azure AD protected ASP.NET Web API - Microsoft identity platform
 description: In this quickstart, learn how to call an ASP.NET web API protected by Azure Active Directory from a Windows Desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
 services: active-directory
 author: jmprieur
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application built using Node.js with Express.
@@ -73,7 +73,7 @@ If you want to register your apps manually, as a first step you'll need to:
      - Keep **State** as **Enabled**
      - Select **Add scope**
 
-### Configure the service and client projects to match the registered Web API 
+### Configure the service project to match the registered Web API 
 
 1. Open the solution in Visual Studio and then open the **Web.config** file under the root of **TodoListService** project.
 1. Replace the value of `ida:ClientId` parameter with the **Client ID (Application ID)** from the application you just registered in the Application Registration Portal.
@@ -101,7 +101,7 @@ In this step, you configure your *TodoListClient* project by registering a new a
    - Change **Supported account types** to **Accounts in any organizational directory**.
    - Select **Register** to create the application.
 1. From the app's Overview page, select the **Authentication** section.
-   - In the **Redirect URLs** | **Suggested Redirect URLs for public clients (mobile, desktop)** section, check **urn:ietf:wg:oauth:2.0:oob**
+   - In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**
    - Select **Save**.
 1. Select the **API permissions** section
    - Click the **Add a permission** button and then,

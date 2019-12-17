@@ -200,7 +200,7 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 3. Configure a user-managed local environment.
 
    ```python
-   from azureml.core import Environment
+   from azureml.core.environment import Environment
     
    # Editing a run configuration property on-fly.
    user_managed_env = Environment("user-managed-env")

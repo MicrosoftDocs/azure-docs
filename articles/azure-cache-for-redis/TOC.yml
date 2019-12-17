@@ -1,5 +1,5 @@
 - name: Azure Cache for Redis Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Azure Cache for Redis

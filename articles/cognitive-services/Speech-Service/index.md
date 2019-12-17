@@ -586,7 +586,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Use Custom Commands</h3>
-                                                    <p>Learn to build simple and robust command and control interactions with language understanding and error correction.</p>
+                                                    <p>Learn to easily build robust command and control voice applications, so that users can complete tasks by using their voice.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -599,7 +599,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                         <a href="#support">Support</a>
                         <ul id="support" class="cardsC">
                             <li>
-                                <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive&type=&language=">
+                                <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -618,7 +618,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                 </a>
                             </li>
                             <li>
-                                <a href="https://stackoverflow.com/questions/tagged/microsoft-cognitive">
+                                <a href="https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

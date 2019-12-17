@@ -829,9 +829,9 @@
       - name: Model inference performance tuning
         href: /azure/databricks/applications/deep-learning/inference/model-inference-performance
         maintainContext: true
-        name: Reference solution for distributed image model inference
-        href: /azure/databricks/applications/deep-learning/reference-solutions/images-etl-inference
-        maintainContext: true
+    - name: Reference solution for distributed image model inference
+      href: /azure/databricks/applications/deep-learning/reference-solutions/images-etl-inference
+      maintainContext: true
   - name: MLflow
     items: 
     - name: MLflow overview
@@ -1623,6 +1623,9 @@
             maintainContext: true
           - name: Databricks Runtime 6.2 ML
             href: /azure/databricks/release-notes/runtime/6.2ml
+            maintainContext: true
+          - name: Databricks Runtime 6.2 Genomics
+            href: /azure/databricks/release-notes/runtime/6.2genomics
             maintainContext: true
           - name: Databricks Runtime 6.1
             href: /azure/databricks/release-notes/runtime/6.1

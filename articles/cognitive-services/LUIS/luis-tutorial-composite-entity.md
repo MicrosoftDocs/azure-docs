@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Composite entity tutorial - LUIS"
 titleSuffix: Azure Cognitive Services
-description: Add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
+description: In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/13/2019
 ms.author: diberry
 ---
 
@@ -41,7 +41,8 @@ The composite entity is a good fit for this type of data because the data:
 
 ## Import example app
 
-1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) from the List entity tutorial.
+1.  Download and save the [app JSON file](
+https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json?raw=true) from the List entity tutorial.
 
 2. Import the JSON into a new app.
 
