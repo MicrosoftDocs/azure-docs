@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create an Azure AD B2C tenant
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using an Azure account assigned the [Contributor](../role-based-access-control/built-in-roles.md) role within the subscription or to a resource group within the subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/). Sign in with an Azure account that's been assigned at least the [Contributor](../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription.
 
 1. Select the directory that contains your subscription.
 
