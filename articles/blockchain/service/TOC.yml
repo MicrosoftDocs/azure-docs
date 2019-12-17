@@ -69,15 +69,16 @@
     href: https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki
   - name: Code samples
     href: https://github.com/Azure-Samples/blockchain
-  - name: Community
-    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
-  - name: Forum
+  - name: MSDN support forum
     href: https://aka.ms/workbenchforum
+  - name: Community support
+    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
+  - name: Stack Overflow support
+    href: https://stackoverflow.com/questions/tagged/AzureBlockchainService
   - name: Product feedback
     href: https://feedback.azure.com/forums/921130-azure-blockchain-service
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/blockchain-service
   - name: Region availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/AzureBlockchainService
+
