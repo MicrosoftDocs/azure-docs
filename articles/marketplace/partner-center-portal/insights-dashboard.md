@@ -1,6 +1,6 @@
 ---
 title: Marketplace Insights dashboard in Commercial Marketplace analytics on Partner Center
-description: Learn how to access a summary of marketplace web analytics, which enables publishers to measure customer engagement for their respective product detail pages listed in AppSource and Azure Marketplace storefronts.
+description: Access a summary of marketplace web analytics, which enables publishers to measure customer engagement in AppSource and Azure Marketplace storefronts.
 author: ChJenk
 manager: evansma
 ms.author: v-chjen
@@ -20,13 +20,13 @@ To access the **Marketplace Insights dashboard** in Partner Center, open the **[
 
 You can view graphical representations of the following items:  
 
-- [Marketplace Insights summary](marketplace-insights-summary)
-- [Page visits by geography](page-visits-by-geography)  
-- [Page visits versus unique visitors trend](page-visits-versus-unique-visitors-trend)
-- [Call to action versus unique visitors with CTAs](call-to-action-versus-unique-visitors-with-ctas)
-- [Page visits and call to action by offers](page-visits-and-calls-to-action-by-offers)
-- [Call to action percentage trend](call-to-action-percentage-trend)
-- [Page visits and calls to action by referral domains and campaigns](page-visits-and-calls-to-action-by-referral-domains-and-campaigns)
+- [Marketplace Insights summary](#marketplace-insights-summary)
+- [Page visits by geography](#page-visits-by-geography)  
+- [Page visits versus unique visitors trend](#page-visits-versus-unique-visitors-trend)
+- [Call to action versus unique visitors with CTAs](#call-to-action-versus-unique-visitors-with-ctas)
+- [Page visits and call to action by offers](#page-visits-and-calls-to-action-by-offers)
+- [Call to action percentage trend](#call-to-action-percentage-trend)
+- [Page visits and calls to action by referral domains and campaigns](#page-visits-and-calls-to-action-by-referral-domains-and-campaigns)
 - [Marketplace Insights details table](#marketplace-insights-details-table)
 
 >[!NOTE]
@@ -66,11 +66,11 @@ This number represents the count of distinct user sessions on the offer page (pr
 
 ### Unique visitors
 
-This number represents the distinct visitor count during the selected date range for the offer(s) selected in the page filter. A visitor who has visited one or more product detail pages will be counted as 1 unique visitor.
+This number represents the distinct visitor count during the selected date range for the offer(s) selected in the page filter. A visitor who has visited one or more product detail pages will be counted as one unique visitor.
 
 ### Call to action
 
-This number represents the count of **Call to Action** button clicks completed on the offer page (product detail page). **Calls to action** are counted when the **Get it now**,**Free trial**, **Contact me**, and **Test drive** buttons are selected.
+This number represents the count of **Call to Action** button clicks completed on the offer page (product detail page). **Calls to action** are counted when the **Get it now**, **Free trial**, **Contact me**, and **Test drive** buttons are selected.
 
 ![Partner Center Insights call to action summary](./media/insights-summary.png)
 
@@ -96,7 +96,7 @@ The columns below represent the count of monthly page visits, which are displaye
 
 The stacked columns represent monthly calls to action (CTA), which are broken down by CTA types (**Get it now**, **Contact me**, and **Free Trial**) and plotted on the Y-axis (axis on the left side of the page). The trend line represents the monthly trend of unique visitors with CTAs, which is displayed on the secondary Y-Axis (axis on the right side of the chart), for your offers published in Azure Marketplace and AppSource.
 
-![Partner Center Insights call to action versus unique visitors with CTAs](./media/insights-call-to-action-versus-unique-visitors-with-cal.png)
+![Partner Center Insights call to action versus unique visitors with CTAs](./media/insights-call-to-action-unique-visitors.png)
 
 ## Page visits and calls to action by offers
 
@@ -120,7 +120,7 @@ Selecting the **Campaign** tab displays the monthly trend of **Page visits** and
 
 ![Partner Center Insights page visits and calls to action by referral domains and campaigns](./media/insights-page-visits-call-to-actions.png)
 
-For offer expansion and growth, publishers can now use **Microsoft campaigns** on Partner center. Campaigns are a newly supported feature for the marketplace that allow publishers to track the channels responsible for sending customers to the offer. For more information, see [How to make a Campaign](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/web-analytics).
+For offer expansion and growth, publishers can now use **Microsoft campaigns** on Partner center. Campaigns are a newly supported feature for the marketplace that allows publishers to track the channels responsible for sending customers to the offer. For more information, see [How to make a Campaign](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/web-analytics).
 
 ## Marketplace Insights details table
 
