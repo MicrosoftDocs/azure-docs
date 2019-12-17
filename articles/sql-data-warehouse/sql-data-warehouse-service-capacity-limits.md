@@ -25,7 +25,7 @@ Maximum values allowed for various components of Azure Synapse.
 | Database connection |Maximum Concurrent open sessions |1024<br/><br/>The number of concurrent open sessions will vary based on the selected DWU. DWU600c and above support a maximum of 1024 open sessions. DWU500c and below, support a maximum concurrent open session limit of 512. Note, there are limits on the number of queries that can execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed. |
 | Database connection |Maximum memory for prepared statements |20 MB |
 | [Workload management](resource-classes-for-workload-management.md) |Maximum concurrent queries |128<br/><br/>  A maximum of 128 concurrent queries will execute and remaining queries will be queued.<br/><br/>The number of concurrent queries can decrease when users are assigned to higher resource classes or when the [data warehouse unit](memory-concurrency-limits.md) setting is lowered. Some queries, like DMV queries, are always allowed to run and do not impact the concurrent query limit. For more details on concurrent query execution, see the [concurrency maximums](memory-concurrency-limits.md) article. |
-| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100. Therefore at DWU1000, tempdb is sized to 3.99 TB. |
+| [tempdb](../synapse-analytics/sql-analytics/azure-synapse-development-tables-temporary.md) |Maximum GB |399 GB per DW100. Therefore at DWU1000, tempdb is sized to 3.99 TB. |
 
 ## Database objects
 | Category | Description | Maximum |
@@ -34,7 +34,7 @@ Maximum values allowed for various components of Azure Synapse.
 | Table |Max size |60 TB compressed on disk |
 | Table |Tables per database | 100,000 |
 | Table |Columns per table |1024 columns |
-| Table |Bytes per column |Dependent on column [data type](sql-data-warehouse-tables-data-types.md). Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types. |
+| Table |Bytes per column |Dependent on column [data type](../synapse-analytics/sql-analytics/azure-synapse-development-tables-data-types.md). Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types. |
 | Table |Bytes per row, defined size |8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, row-overflow storage is supported, which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see [Row-Overflow Data Exceeding 8-KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Table |Partitions per table |15,000<br/><br/>For high performance, we recommend minimizing the number of partitions you need while still supporting your business requirements. As the number of partitions grows, the overhead for Data Definition Language (DDL) and Data Manipulation Language (DML) operations grows and causes slower performance. |
 | Table |Characters per partition boundary value. |4000 |

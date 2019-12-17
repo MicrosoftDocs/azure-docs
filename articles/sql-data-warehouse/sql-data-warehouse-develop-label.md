@@ -46,6 +46,6 @@ WHERE   r.[label] = 'My Query Label'
 > 
 
 ## Next steps
-For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
+For more development tips, see [development overview](../synapse-analytics/sql-analytics/azure-synapse-development-overview.md).
 
 

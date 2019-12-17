@@ -23,12 +23,12 @@ ms.date: 12/12/2019
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
-=======
-<<<<<<< HEAD
+
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure SQL Data Warehouse, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
-=======
+
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
@@ -744,7 +744,7 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 When you copy data from or to Azure Synapse Analytics, the following mappings are used from Azure Synapse Analytics data types to Azure Data Factory interim data types. See [schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn how Copy Activity maps the source schema and data type to the sink.
 
 >[!TIP]
->Refer to [Table data types in Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md) article on SQL DW supported data types and the workarounds for unsupported ones.
+>Refer to [Table data types in Azure Synapse Analytics](../synapse-analytics/sql-analytics/azure-synapse-development-tables-data-types.md) article on SQL DW supported data types and the workarounds for unsupported ones.
 
 | Azure Synapse Analytics data type    | Data Factory interim data type |
 | :------------------------------------ | :----------------------------- |
