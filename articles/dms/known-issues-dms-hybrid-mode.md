@@ -64,9 +64,9 @@ By default, the Azure Database Migration Service hybrid worker service runs as t
 
     a. Open certmgr to view the following keys:
     
-        - DMS Hybrid App Key
-        - DMS Hybrid Worker Setup Key
-        - DMS Scenario Engine Key Pair
+       - DMS Hybrid App Key
+       - DMS Hybrid Worker Setup Key
+       - DMS Scenario Engine Key Pair
 
     b. Right-click the **DMS Hybrid App Key** entry, point to **All Tasks**, and then select **Manage Private Keys**.
 
