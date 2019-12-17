@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ---
 
 # Choose a pricing tier for Azure Cognitive Search
@@ -22,8 +22,6 @@ Although all tiers, including the Free tier, generally offer feature parity, lar
 > [!NOTE] 
 > The exception to feature parity is [indexers](search-indexer-overview.md), which are not available on S3 HD.
 >
-
-<!-- For Basic tier and up, you can [adjust replica and partition resources](search-capacity-planning.md) to increase or decrease scale. You could start with one or two of each and then temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with more resources/replicas offers better value and performance than a higher tier with fewer resources. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md). -->
 
 ## Available tiers
 
@@ -127,7 +125,9 @@ Capacity and the costs of running the service go hand in hand. Tiers impose limi
 
 Business requirements typically dictate the number of indexes you'll need. For example, you might need a global index for a large repository of documents. Or you might need  multiple indexes based on region, application, or business niche.
 
-To determine the size of an index, you have to [build one](search-create-index-portal.md). The data structure in Azure Cognitive Search is primarily an [inverted index](https://en.wikipedia.org/wiki/Inverted_index) structure, which has different characteristics than source data. For an inverted index, size and complexity are determined by content, not necessarily by the amount of data that you feed into it. A large data source with high redundancy could result in a smaller index than a smaller dataset that contains highly variable content. So it's rarely possible to infer index size based on the size of the original dataset.
+To determine the size of an index, you have to [build one](search-create-index-portal.md). It's size will be based on imported data and index configuration such as whether you enable suggesters, filtering, and sorting. For more information about configuration impact on size, see [Create a basic index ](search-what-is-an-index.md).
+
+For full text search, the primary data structure is an [inverted index](https://en.wikipedia.org/wiki/Inverted_index) structure, which has different characteristics than source data. For an inverted index, size and complexity are determined by content, not necessarily by the amount of data that you feed into it. A large data source with high redundancy could result in a smaller index than a smaller dataset that contains highly variable content. So it's rarely possible to infer index size based on the size of the original dataset.
 
 > [!NOTE] 
 > Even though estimating future needs for indexes and storage can feel like guesswork, it's worth doing. If a tier's capacity turns out to be too low, you'll need to provision a new service at a higher tier and then [reload your indexes](search-howto-reindex.md). There's no in-place upgrade of a service from one SKU to another.

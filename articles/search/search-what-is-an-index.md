@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ---
 # Create a basic index in Azure Cognitive Search
 
@@ -170,10 +170,9 @@ The APIs you use to build an index have varying default behaviors. For the [REST
 | `facetable` |Allows a field to be used in a [faceted navigation](search-faceted-navigation.md) structure for user self-directed filtering. Typically fields containing repetitive values that you can use to group multiple documents together (for example, multiple documents that fall under a single brand or service category) work best as facets. |
 | `searchable` |Marks the field as full-text searchable. |
 
+## Index size
 
-## Storage implications
-
-The attributes you select have an impact on storage. The following screenshot illustrates index storage patterns resulting from various combinations of attributes.
+The size of an index is determined by the size of the documents you upload, plus index configuration, such as whether you include suggesters, and how you set attributes on individual fields. The following screenshot illustrates index storage patterns resulting from various combinations of attributes.
 
 The index is based on the [built-in real estate sample](search-get-started-portal.md) data source, which you can index and query in the portal. Although the index schemas are not shown, you can infer the attributes based on the index name. For example, *realestate-searchable* index has the **searchable** attribute selected and nothing else, *realestate-retrievable* index has the **retrievable** attribute selected and nothing else, and so forth.
 
@@ -181,13 +180,13 @@ The index is based on the [built-in real estate sample](search-get-started-porta
 
 Although these index variants are artificial, we can refer to them for broad comparisons of how attributes affect storage. Does setting **retrievable** increase index size? No. Does adding fields to a **Suggester** increase index size? Yes.
 
-Indexes that support filter and sort are proportionally larger than indexes that support just full text search. The reason is that filter and sort query on exact matches so documents are stored intact. In contrast, searchable fields supporting full-text and fuzzy search use inverted indexes, which are populated with tokenized terms that consume less space than whole documents.
+Indexes that support filter and sort are proportionally larger than indexes that support just full text search. The reason is that filter and sort query on exact matches so documents are stored intact. In contrast, searchable fields supporting full-text and fuzzy search use inverted indexes, which are populated with tokenized terms that consume less space than whole documents. 
 
 > [!Note]
 > Storage architecture is considered an implementation detail of Azure Cognitive Search and could change without notice. There is no guarantee that current behavior will persist in the future.
 
 ## Suggesters
-A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically, partial search strings are sent to the [Suggestions (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) while the user is typing a search query, and the API returns a set of suggested phrases. 
+A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically, partial search strings are sent to the [Suggestions (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) while the user is typing a search query, and the API returns a set of suggested documents or phrases. 
 
 Fields added to a suggester are used to build type-ahead search terms. All of the search terms are created during indexing and stored separately. For more information about creating a suggester structure, see [Add suggesters](index-add-suggesters.md).
 
