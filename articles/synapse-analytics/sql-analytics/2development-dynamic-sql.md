@@ -1,7 +1,7 @@
 ---
-title: Using dynamic SQL in Azure SQL Data Warehouse | Microsoft Docs
+title: Using dynamic SQL 
 description: Tips for using dynamic SQL in Azure SQL Data Warehouse for developing solutions.
-services: synapse analytics
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -12,12 +12,12 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Dynamic SQL in SQL Data Warehouse
-Tips for using dynamic SQL in Azure SQL Data Warehouse for developing solutions.
+# Dynamic SQL
+Tips for using dynamic SQL for developing solutions.
 
 ## Dynamic SQL Example
 
-When developing application code for SQL Data Warehouse, you may need to use dynamic sql to help deliver flexible, generic, and modular solutions. SQL Data Warehouse does not support blob data types at this time. Not supporting blob data types might limit the size of your strings since blob data types include both varchar(max) and nvarchar(max) types. If you have used these types in your application code to build large strings, you need to break the code into chunks and use the EXEC statement instead.
+When developing application code, you may need to use dynamic sql to help deliver flexible, generic, and modular solutions. SQL Data Warehouse does not support blob data types at this time. Not supporting blob data types might limit the size of your strings since blob data types include both varchar(max) and nvarchar(max) types. If you have used these types in your application code to build large strings, you need to break the code into chunks and use the EXEC statement instead.
 
 A simple example:
 

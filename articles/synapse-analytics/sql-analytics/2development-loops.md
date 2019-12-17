@@ -1,7 +1,7 @@
 ---
-title: Using T-SQL loops in SQL Analytics | Microsoft Docs
+title: Using T-SQL loops
 description: Tips for using T-SQL loops and replacing cursors in Azure SQL Analytics for developing solutions.
-services: synapse analytics
+services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
