@@ -87,7 +87,7 @@ The Windows Virtual Desktop – Provision a host pool template is available from
 
 ![Screenshot of "template deployment ... is not valid" error](media/troubleshooting-marketplace-validaiton-error-generic.png)
 
-**Cause 1:** Creating the number of VMs you defined in the Azure Marketplace offering would exceed the quota for your Azure subscription.
+**Cause** Creating the number of VMs you defined in the Azure Marketplace offering would exceed the quota for your Azure subscription.
 
 To verify:
 
