@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 12/12/2019
+ms.date: 12/17/2019
 ms.author: helohr
 ---
 # Tutorial: Create a tenant in Windows Virtual Desktop
