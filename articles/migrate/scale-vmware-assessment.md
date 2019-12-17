@@ -12,7 +12,7 @@ ms.author: hamusa
 # Assess large numbers of VMware VMs for migration to Azure
 
 
-This article describes how to assess large numbers (1000-35,000) of on-premises VMware VMs for migration to Azure, using the Azure Migrate Server Assessment tool
+This article describes how to assess large numbers (1000-35,000) of on-premises VMware VMs for migration to Azure, using the Azure Migrate Server Assessment tool.
 
 [Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
 
