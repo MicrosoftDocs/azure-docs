@@ -44004,28 +44004,58 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-transactions.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-transactions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-user-defined-schemas.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-user-defined-schemas",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-variable-assignment.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-variable-assignment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-views.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-views",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-connect-sqlcmd.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/get-started-connect-sqlcmd",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/data-loading-columnstore-compression",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-develop.md",
-            "redirect_url": "/azure/synapse-analytics/sql-analytics/azure-synapse-development-overview",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-overview",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-data-types.md",
-            "redirect_url": "/azure/synapse-analytics/sql-analytics/azure-synapse-development-tables-data-types",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-tables-data-types",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-overview.md",
-            "redirect_url": "/azure/synapse-analytics/sql-analytics/azure-synapse-development-tables-overview",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-tables-overview",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-statistics.md",
-            "redirect_url": "/azure/synapse-analytics/sql-analytics/azure-synapse-development-tables-statistics",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-tables-statistics",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-temporary.md",
-            "redirect_url": "/azure/synapse-analytics/sql-analytics/azure-synapse-development-tables-temporary",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-tables-temporary",
             "redirect_document_id": true
         }
     ]

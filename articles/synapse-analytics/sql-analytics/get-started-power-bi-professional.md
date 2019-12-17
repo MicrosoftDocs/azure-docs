@@ -26,7 +26,6 @@ ms.reviewer: jrasnick
 
 In this tutorial, we will go through steps how to connect Power BI desktop to SQL on-demand.
 
-
 ## Prerequisites
 
 Tool to issue queries:
@@ -57,10 +56,10 @@ There are two steps prior to using samples:
 
 Since you will use demo environment, you should create your own database for demo purposes. Database is needed to create views in it. You will use this database in some of sample queries in this documentation. 
 
-> [!NOTES]
+> [!NOTE]
 > Note that databases are used only for view metadata, not for actual data.
 >
-> Write down database name you use. you will need it later on.
+> Write down database name you use, you will need it later on.
 
 ```sql
 DROP DATABASE IF EXISTS demo
@@ -72,7 +71,7 @@ DROP DATABASE IF EXISTS demo
 
 We need to create credential before you can run queries. This credential will be used by SQL on-demand service to access files in storage.
 
-> [!NOTES]
+> [!NOTE]
 > Note that you need to create credential for storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
 
 **Code snippet on how to create credentials for Census data containers**, run:
@@ -101,7 +100,6 @@ Select "Azure" in the menu and then "Azure SQL Database".
 ### Step 2 - Select database
 Write URL for the database and name of the database where view is residing.
 ![Select database on the endpoint.](./media/tutorial-bi-professional/step-2-db.png)
-
 
 ## Next steps 
 Advance to the next article to learn how to connect to SQL on-demand using Azure Data Studio.

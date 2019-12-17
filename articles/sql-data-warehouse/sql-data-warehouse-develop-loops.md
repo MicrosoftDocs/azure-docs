@@ -66,5 +66,5 @@ DROP TABLE #tbl;
 ```
 
 ## Next steps
-For more development tips, see [development overview](../synapse-analytics/sql-analytics/azure-synapse-development-overview.md).
+For more development tips, see [development overview](../synapse-analytics/sql-analytics/development-overview.md).
 

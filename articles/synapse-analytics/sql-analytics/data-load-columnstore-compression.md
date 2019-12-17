@@ -1,16 +1,15 @@
 ---
 title: Improve columnstore index performance
-description: Azure SQL Data Warehouse reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.
-services: sql-data-warehouse
+description: Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup for SQL Analytics.
+services: synapse-analytics
 author: kevinvngo 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: load-data
+ms.subservice:
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
 ---
 
 # Maximizing rowgroup quality for columnstore
@@ -132,10 +131,10 @@ OPTION (MAXDOP 1);
 
 DWU size and the user resource class together determine how much memory is available for a user query. To increase the memory grant for a load query, you can either increase the number of DWUs or increase the resource class.
 
-- To increase the DWUs, see [How do I scale performance?](quickstart-scale-compute-portal.md)
-- To change the resource class for a query, see [Change a user resource class example](resource-classes-for-workload-management.md#change-a-users-resource-class).
+- To increase the DWUs, see [How do I scale performance?](../../sql-data-warehouse/quickstart-scale-compute-portal.md)
+- To change the resource class for a query, see [Change a user resource class example](workload-management-resource-classes.md#change-a-users-resource-class).
 
 ## Next steps
 
-To find more ways to improve performance in SQL Data Warehouse, see the [Performance overview](sql-data-warehouse-overview-manage-user-queries.md).
+To find more ways to improve performance in SQL Data Warehouse, see the [Performance overview](../../sql-data-warehouse/sql-data-warehouse-overview-manage-user-queries.md).
 

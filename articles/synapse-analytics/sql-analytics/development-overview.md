@@ -27,7 +27,7 @@ The following articles highlight concepts and design decisions for development u
 | [Table distribution](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md)               | Yes | No |
 | [Table indexes](../../sql-data-warehouse/sql-data-warehouse-tables-index.md)                          | Yes | No |
 | [Table partitions](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md)                     | Yes | No |
-| [Statistics](azure-synapse-development-tables-statistics.md)           | Yes | Yes |
+| [Statistics](development-tables-statistics.md)           | Yes | Yes |
 | [CTAS](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md)                      | Yes | No |
 | [External tables](development-tables-external-tables.md) | Yes | Yes |
 | [CETAS](development-tables-cetas.md)                     | Yes | Yes |
@@ -41,7 +41,7 @@ The following articles highlight specific coding techniques, tips, and recommend
 | [Stored procedures](development-stored-procedures.md)     | Yes                | No                      |
 | [Labels](development-label.md)                           | Yes                | No                      |
 | [Views](development-views.md)                            | Yes                | Yes                     |
-| [Temporary tables](azure-synapse-development-tables-temporary.md)       | Yes                | Yes                     |
+| [Temporary tables](development-tables-temporary.md)       | Yes                | Yes                     |
 | [Dynamic SQL](development-dynamic-sql.md)                 | Yes                | Yes                     |
 | [Looping](development-loops.md)                         | Yes                | Yes                     |
 | [Group by options](development-group-by-options.md)       | Yes                | No                      |
