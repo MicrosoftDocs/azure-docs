@@ -59,6 +59,7 @@ The **InputClaims** element contains a list of claims to send to Azure MFA. You 
 The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending to the Azure MFA service.
 
 ### Output claims
+
 The Azure MFA protocol provider does not return any **OutputClaims**, thus there is no need to specify output claims. You can, however, include claims that aren't returned by the Azure MFA identity provider as long as you set the `DefaultValue` attribute.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
