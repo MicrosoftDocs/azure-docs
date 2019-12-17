@@ -70,7 +70,7 @@ Setting up the environment can be done using one of the publish setup actions.
 
 The following examples show the part of the workflow that sets up the environment for the various supported languages:
 
-**JavaScript**
+# [JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -83,7 +83,7 @@ The following examples show the part of the workflow that sets up the environmen
         node-version: '10.x'
 ```
 
-**Python**
+# [Python](#tab/python)
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -96,7 +96,7 @@ The following examples show the part of the workflow that sets up the environmen
         python-version: 3.6
 ```
 
-**.NET**
+# [C#](#tab/csharp)
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -109,7 +109,7 @@ The following examples show the part of the workflow that sets up the environmen
         dotnet-version: '2.2.300'
 ```
 
-**Java**
+# [Java](#tab/java)
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -123,6 +123,7 @@ The following examples show the part of the workflow that sets up the environmen
         # Please change the Java version to match the version in pom.xml <maven.compiler.source>
         java-version: '1.8.x'
 ```
+---
 
 ## Build the function app
 
@@ -130,7 +131,7 @@ This depends on the language and for languages supported by Azure Functions, thi
 
 The following examples show the part of the workflow that builds the function app, in the various supported languages.:
 
-**JavaScript**
+# [JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -145,7 +146,7 @@ The following examples show the part of the workflow that builds the function ap
         popd
 ```
 
-**Python**
+# [Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -159,7 +160,7 @@ The following examples show the part of the workflow that builds the function ap
         popd
 ```
 
-**.NET**
+# [C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -172,7 +173,7 @@ The following examples show the part of the workflow that builds the function ap
         popd
 ```
 
-**Java**
+# [Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'
