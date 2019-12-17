@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
 ---
 
@@ -59,7 +59,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. Create variables for your API endpoint, subscription key, and the path to your image:
+2. Create variables for your API endpoint, subscription key, and the path to your image. `endpoint` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource:
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";

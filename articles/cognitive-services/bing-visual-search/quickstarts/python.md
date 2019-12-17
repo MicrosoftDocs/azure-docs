@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
 ---
 
@@ -32,7 +32,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 * [Python 3.x](https://www.python.org/)
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## Initialize the application
 
@@ -42,7 +42,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     import requests, json
     ```
 
-2. Create variables for your subscription key, endpoint, and the path to the image you're uploading:
+2. Create variables for your subscription key, endpoint, and the path to the image you're uploading. `BASE_URI` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource:
 
     ```python
 

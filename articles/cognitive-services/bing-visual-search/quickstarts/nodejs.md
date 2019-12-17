@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
 ---
 
@@ -34,7 +34,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 * The Request module for JavaScript. You can use `npm install request` command to install the module.
 * The form-data module. You can use the `npm install form-data` command to install the module. 
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## Initialize the application
 
@@ -46,7 +46,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     var fs = require('fs');
     ```
 
-2. Create variables for your API endpoint, subscription key, and the path to your image:
+2. Create variables for your API endpoint, subscription key, and the path to your image. `baseUri` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource:
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
