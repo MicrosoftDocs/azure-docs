@@ -41,7 +41,7 @@ The ID Broker feature will add one extra VM to the cluster. This VM is the ID Br
 
 ![Option to enable ID Broker](./media/identity-broker/identity-broker-enable.png)
 
-## Tools integration
+## Tool integration
 
 The HDInsight [IntelliJ plug-in](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) is updated to support OAuth. You can use this plug-in to connect to the cluster and submit jobs.
 
