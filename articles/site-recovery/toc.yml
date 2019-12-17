@@ -253,11 +253,13 @@
         href: site-recovery-test-failover-to-azure.md
       - name: Run a failover to Azure
         href: site-recovery-failover.md
-      - name: Reprotect from Azure to on-premises VMware
+      - name: Prepare for reprotection/failback
+        href: vmware-azure-prepare-failback.md
+      - name: Reprotect from Azure to on-premises
         href: vmware-azure-reprotect.md
-      - name: Fail back from Azure to VMware
+      - name: Fail back from Azure to on-premises
         href: vmware-azure-failback.md
-      - name: Set up and manage a failback process server in Azure
+      - name: Set up a failback process server in Azure
         href: vmware-azure-set-up-process-server-azure.md
       - name: Set up a Linux master target server for failback
         href: vmware-azure-install-linux-master-target.md
