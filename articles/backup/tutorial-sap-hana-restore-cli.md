@@ -40,11 +40,11 @@ az backup recoverypoint list --resource-group saphanaResourceGroup \
 
 The list of recovery points will look as follows:
 
-Name        |          Time      |                         BackupManagementType |  Item Name    |           RecoveryPointType
-------------------- | --------------------------------- | --------------------- | ---------------------- | ------------------
-7660777527047692711 |  2019-12-10T04:00:32.346000+00:00 |  AzureWorkload   |       SAPHanaDtabase;hxe;hxe | Full
-7896624824685666836  | 2019-12-15T10:33:32.346000+00:00  | AzureWorkload   |       SAPHanaDtabase;hxe;hxe | Differential
-DefaultRangeRecoveryPoint          |       |               AzureWorkload    |      SAPHanaDtabase;hxe;hxe | Log
+>Name        |          Time      |                         BackupManagementType |  Item Name    |           RecoveryPointType
+>------------------- | --------------------------------- | --------------------- | ---------------------- | ------------------
+>7660777527047692711 |  2019-12-10T04:00:32.346000+00:00 |  AzureWorkload   |       SAPHanaDtabase;hxe;hxe | Full
+>7896624824685666836  | 2019-12-15T10:33:32.346000+00:00  | AzureWorkload   |       SAPHanaDtabase;hxe;hxe | Differential
+>DefaultRangeRecoveryPoint          |       |               AzureWorkload    |      SAPHanaDtabase;hxe;hxe | Log
 
 As you can see, the list above contains three recovery points: one each for full, differential, and log backup.
 
@@ -58,7 +58,6 @@ Before restoring a database, note the following:
 * You can restore the database only to an SAP HANA instance that is in the same region
 * The target instance must be registered with the same vault as the source
 * Azure Backup can't identify two different SAP HANA instances on the same VM. Therefore, restoring data from one instance to another on the same VM isn't possible.
-* To ensure that the target SAP HANA instance is ready for restore, check its Backup readiness status.
 
 ## Restore a database
 
@@ -77,7 +76,7 @@ To restore a database, use the [az restore restore-azurewl]() cmdlet, which requ
 
 To restore a database to an alternate location, use **AlternateWorkloadRestore** as the restore mode. You must then choose the restore point, which could either be a previous point-in-time or any of the previous restore points.
 
-In this tutorial, you'll restore to a previous restore point. [View the list of restore points for the database]() and choose the point you want to restore to. This tutorial will use the restore point with the name *7660777527047692711*.
+In this tutorial, you'll restore to a previous restore point. [View the list of restore points]() for the database and choose the point you want to restore to. This tutorial will use the restore point with the name *7660777527047692711*.
 
 Using the above restore point name and the restore mode, let's create the recovery config object using the [az backup recoveryconfig show]() cmdlet.
 
@@ -119,9 +118,9 @@ az backup restore restore-azurewl --resource-group saphanaResourceGroup \
 
 The output will look like this:
 
-Name | Resource
---- | ---
-5b198508-9712-43df-844b-977e5dfc30ea | SAPHANA
+>Name | Resource
+>--- | ---
+>5b198508-9712-43df-844b-977e5dfc30ea | SAPHANA
 
 The response will give you the job name. This job name can be used to track the job status using [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
@@ -158,14 +157,11 @@ az backup restore restore-azurewl --resource-group saphanaResourceGroup \
 
 The output will look like this:
 
-Name | Resource
---- | ---
-5b198508-9712-43df-844b-977e5dfc30ea | SAPHANA
+>Name | Resource
+>--- | ---
+>5b198508-9712-43df-844b-977e5dfc30ea | SAPHANA
 
 The response will give you the job name. This job name can be used to track the job status using the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
-
->[!NOTE]
-To monitor the status of restore operation on a database use the [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet.
 
 ## Next steps
 
