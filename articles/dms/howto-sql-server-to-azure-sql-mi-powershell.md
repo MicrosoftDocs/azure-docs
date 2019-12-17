@@ -1,7 +1,7 @@
 ---
 title: Migrate SQL Server to Azure SQL Database managed instance with PowerShell
 titleSuffix: Database Migration Service
-description: Learn to migrate from on-premises SQL Server to Azure SQL Database managed instance by using Azure PowerShell and the Database Migration Service.
+description: Learn to migrate from on-premises SQL Server to Azure SQL Database managed instance by using Azure PowerShell and the Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland

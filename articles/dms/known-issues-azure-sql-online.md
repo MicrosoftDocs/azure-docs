@@ -1,6 +1,6 @@
 ﻿---
 title: "Known issues: Online migrations to Azure SQL Database"
-description: Learn about known issues/migration limitations with online migrations to Azure SQL Database.
+description: Learn about known issues/migration limitations with online migrations to Azure SQL Database using the Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
