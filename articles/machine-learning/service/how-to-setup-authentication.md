@@ -1,7 +1,7 @@
 ---
-title: Setup authentication
+title: Set up authentication
 titleSuffix: Azure Machine Learning
-description: Learn how to setup and configure authentication for various resources and workflows in Azure Machine Learning. There are multiple ways to setup and use authentication within the service, ranging from simple UI-based auth for development or testing purposes, to full Azure Active Directory service principal authentication.
+description: Learn how to set up and configure authentication for various resources and workflows in Azure Machine Learning. There are multiple ways to configure and use authentication within the service, ranging from simple UI-based auth for development or testing purposes, to full Azure Active Directory service principal authentication.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ---
 
-# Setup authentication for ML resources
+# Set up authentication for Azure Machine Learning resources and workflows
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to setup and configure authentication for various resources and workflows in Azure Machine Learning. There are multiple ways to setup and use authentication within the service, ranging from simple UI-based auth for development or testing purposes, to full Azure Active Directory service principal authentication. This article also explains the differences in how web-service authentication works, as well as how to authenticate to the Azure Machine Learning REST API.
+In this article, you learn how to set up and configure authentication for various resources and workflows in Azure Machine Learning. There are multiple ways to authenticate to the service, ranging from simple UI-based auth for development or testing purposes to full Azure Active Directory service principal authentication. This article also explains the differences in how web-service authentication works, as well as how to authenticate to the Azure Machine Learning REST API.
 
 This how-to shows you how to do the following tasks:
 
 * Use interactive UI authentication for testing/development
-* Setup service principal authentication
+* Set up service principal authentication
 * Authenticating to your workspace
 * Get OAuth2.0 bearer-type tokens for Azure Machine Learning REST API
-* Understand web service authentication
+* Understand web-service authentication
 
 See the [concept article](concept-enterprise-security.md) for a general overview of security and authentication within Azure Machine Learning.
 
@@ -46,7 +46,7 @@ ws = Workspace.from_config()
 The `from_config()` function looks for a JSON file containing your workspace connection information. You can also specify the connection details explicitly by using the `Workspace` constructor, which will also prompt for interactive authentication. Both calls are equivalent.
 
 ```python
-ws = Workspace(subscription_id="your_sub-id",
+ws = Workspace(subscription_id="your-sub-id",
                resource_group="your-resource-group-id",
                workspace_name="your-workspace-name"
               )
@@ -59,11 +59,11 @@ from azureml.core.authentication import InteractiveLoginAuthentication
 interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
 ```
 
-While useful for testing and learning, interactive authentication will not help you with building automated or headless workflows. Setting up service principal authentication is the best approach for automated requirements that use the SDK.
+While useful for testing and learning, interactive authentication will not help you with building automated or headless workflows. Setting up service principal authentication is the best approach for automated processes that use the SDK.
 
-## Setup service principal authentication
+## Set up service principal authentication
 
-This setup process is necessary for enabling authentication that is decoupled from a specific user login, which allows you to authenticate to the Azure Machine Learning Python SDK in automated workflows. Service principle authentication will also allow you to [authenticate to the REST API](#azure-machine-learning-rest-api-auth).
+This process is necessary for enabling authentication that is decoupled from a specific user login, which allows you to authenticate to the Azure Machine Learning Python SDK in automated workflows. Service principal authentication will also allow you to [authenticate to the REST API](#azure-machine-learning-rest-api-auth).
 
 To set up service principal authentication, you first create an app registration in Azure Active Directory, and then grant your app role-based access to your ML workspace. The easiest way to complete this setup is through the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) in the Azure Portal. After you login to the portal, click the `>_` icon in the top right of the page near your name to open the shell.
 
@@ -76,7 +76,7 @@ az extension add -n azure-cli-ml
 > [!NOTE]
 > You must be an admin on the subscription to perform the following steps.
 
-Next, run the following command to create the service principle. Give it a name, in this case **ml-auth**.
+Next, run the following command to create the service principal. Give it a name, in this case **ml-auth**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --sdk-auth --name ml-auth
@@ -99,7 +99,7 @@ The output will be a JSON similar to the following. Take note of the `clientId`,
 }
 ```
 
-Next run the following command to get the details on the service principle you just created, using the `clientId` value from above as the input to the `--id` parameter.
+Next, run the following command to get the details on the service principal you just created, using the `clientId` value from above as the input to the `--id` parameter.
 
 ```azurecli-interactive
 az ad sp show --id your-client-id
@@ -120,7 +120,7 @@ The following is a simplified example of the JSON output from the command. Take 
 }
 ```
 
-Next, use the following command to assign your service principle access to your machine learning workspace. You will need your workspace name, and its resource group name for the `-w` and `-g` parameters, respectively. For the `--user` parameter, use the `objectId` value from the previous step. The `--role` parameter allows you to set the access role for the service principle, and in general you will use either **owner** or **contributor**. Both have write access to existing resources like compute clusters and datastores, but only **owner** can provision these resources. 
+Next, use the following command to assign your service principal access to your machine learning workspace. You will need your workspace name, and its resource group name for the `-w` and `-g` parameters, respectively. For the `--user` parameter, use the `objectId` value from the previous step. The `--role` parameter allows you to set the access role for the service principal, and in general you will use either **owner** or **contributor**. Both have write access to existing resources like compute clusters and datastores, but only **owner** can provision these resources. 
 
 ```azurecli-interactive
 az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
@@ -130,7 +130,7 @@ This call does not produce any output, but you now have service principal authen
 
 ## Authenticate to your workspace
 
-Now that you have service principal auth setup, you can authenticate to your workspace in the SDK without physical logging in as a user. Use the `ServicePrincipalAuthentication` class constructor, and use the values you got from the previous steps as the parameters. The `tenant_id` parameter maps to `tenantId` from above, `service_principal_id` maps to `clientId`, and `service_principal_password` maps to `clientSecret`.
+Now that you have service principal auth enabled, you can authenticate to your workspace in the SDK without physically logging in as a user. Use the `ServicePrincipalAuthentication` class constructor, and use the values you got from the previous steps as the parameters. The `tenant_id` parameter maps to `tenantId` from above, `service_principal_id` maps to `clientId`, and `service_principal_password` maps to `clientSecret`.
 
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication
@@ -140,7 +140,17 @@ sp = ServicePrincipalAuthentication(tenant_id="your-tenant-id", # tenantID
                                     service_principal_password="your-client-secret") # clientSecret
 ```
 
-The `sp` variable now holds an authentication object that you use directly in the SDK. In general, it is a good idea to store the ids/secrets used above in environment variables rather than embedding them as plain text. For automated workflows that run in Python and use the SDK primarily, you can use this object as-is in most cases for your authentication. The following code authenticates to your workspace using the auth object you just created.
+The `sp` variable now holds an authentication object that you use directly in the SDK. In general, it is a good idea to store the ids/secrets used above in environment variables as shown in the following code.
+
+```python
+import os 
+
+sp = ServicePrincipalAuthentication(tenant_id=os.environ['AML_TENANT_ID'],
+                                    service_principal_id=os.environ['AML_PRINCIPAL_ID'],
+                                    service_principal_password=os.environ['AML_PRINCIPAL_PASS'])
+```
+
+For automated workflows that run in Python and use the SDK primarily, you can use this object as-is in most cases for your authentication. The following code authenticates to your workspace using the auth object you just created.
 
 ```python
 from azureml.core import Workspace
@@ -161,14 +171,14 @@ The service principal created in the steps above can also be used to authenticat
 
 ### Node.js
 
-Use the following steps to generate an auth token using Node.js. In your environment, run `npm install adal-node`. Then, use your `tenantId`, `clientId`, and `clientSecret` from the service principle you created in the steps above as values for the matching variables in the following script.
+Use the following steps to generate an auth token using Node.js. In your environment, run `npm install adal-node`. Then, use your `tenantId`, `clientId`, and `clientSecret` from the service principal you created in the steps above as values for the matching variables in the following script.
 
 ```javascript
 const adal = require('adal-node').AuthenticationContext;
 
-const authorityHostUrl = 'https://login.microsoftonline.com';
+const authorityHostUrl = 'https://login.microsoftonline.com/';
 const tenantId = 'your-tenant-id';
-const authorityUrl = authorityHostUrl + '/' + tenantId;
+const authorityUrl = authorityHostUrl + tenantId;
 const clientId = 'your-client-id';
 const clientSecret = 'your-client-secret';
 const resource = 'https://management.azure.com/';
@@ -189,7 +199,7 @@ context.acquireTokenWithClientCredentials(
 );
 ```
 
-The variable `tokenResponse` is an object that includes the token and associated metadata like expiration time. Tokens are valid for 1 hour, and can be refreshed by running the same call again to retrieve a new token. The following is a sample response.
+The variable `tokenResponse` is an object that includes the token and associated metadata such as expiration time. Tokens are valid for 1 hour, and can be refreshed by running the same call again to retrieve a new token. The following is a sample response.
 
 ```javascript
 { 
@@ -208,7 +218,7 @@ Use the `accessToken` property to fetch the auth token. See the [REST API docume
 
 ### Python 
 
-Use the following steps to generate an auth token using Python. In your environment, run `pip install adal`. Then, use your `tenantId`, `clientId`, and `clientSecret` from the service principle you created in the steps above as values for the appropriate variables in the following script.
+Use the following steps to generate an auth token using Python. In your environment, run `pip install adal`. Then, use your `tenantId`, `clientId`, and `clientSecret` from the service principal you created in the steps above as values for the appropriate variables in the following script.
 
 ```python
 from adal import AuthenticationContext
@@ -224,7 +234,7 @@ token_response = auth_context.acquire_token_with_client_credentials("https://man
 print(token_response)
 ```
 
-The variable `token_response` is a dictionary that includes the token and associated metadata like expiration time. Tokens are valid for 1 hour, and can be refreshed by running the same call again to retrieve a new token. The following is a sample response.
+The variable `token_response` is a dictionary that includes the token and associated metadata such as expiration time. Tokens are valid for 1 hour, and can be refreshed by running the same call again to retrieve a new token. The following is a sample response.
 
 ```python
 {
@@ -234,8 +244,8 @@ The variable `token_response` is a dictionary that includes the token and associ
     'resource': 'https://management.azure.com/', 
     'accessToken': 'random-oauth-token', 
     'isMRRT': True, 
-    '_clientId': 'cdebd858-89c7-4071-a146-91fe507a69cc', 
-    '_authority': 'https://login.microsoftonline.com/0df21a74-32d0-424c-9d97-ee55e189568b'
+    '_clientId': 'your-client-id', 
+    '_authority': 'https://login.microsoftonline.com/your-tenant-id'
 }
 ```
 
@@ -243,7 +253,7 @@ Use `token_response["accessToken"]` to fetch the auth token. See the [REST API d
 
 ## Web-service authentication
 
-Web-services in Azure Machine Learning use a different authentication pattern than what is described above. The easiest way to authenticate to deployed web-services is to use **key-based authentication**, which generates static bearer-type authentication keys that do not need to be refreshed. If you only need to authenticate to a deployed web-service, you do not need to setup service principle authentication as shown above.
+Web-services in Azure Machine Learning use a different authentication pattern than what is described above. The easiest way to authenticate to deployed web-services is to use **key-based authentication**, which generates static bearer-type authentication keys that do not need to be refreshed. If you only need to authenticate to a deployed web-service, you do not need to set up service principle authentication as shown above.
 
 Web-services deployed on Azure Kubernetes Service have key-based auth *enabled* by default. Azure Container Instances deployed services have key-based auth *disabled* by default, but you can enable it by setting `auth_enabled=True`when creating the ACI web-service. The following is an example of creating an ACI deployment configuration with key-based auth enabled.
 
@@ -281,7 +291,7 @@ Web-services also support token-based authentication, but only for Azure Kuberne
 
 When you enable token authentication for a web service, users must present an Azure Machine Learning JSON Web Token to the web service to access it. The token expires after a specified time-frame and needs to be refreshed to continue making calls.
 
-* Token authentication is disabled by default when you deploy to Azure Kubernetes Service.
+* Token authentication is **disabled by default** when you deploy to Azure Kubernetes Service.
 * Token authentication **isn't supported** when you deploy to Azure Container Instances.
 
 To control token authentication, use the `token_auth_enabled` parameter when you create or update a deployment.
@@ -294,7 +304,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> You'll need to request a new token after the token's `refresh_by` time. If you need to refresh tokens outside of the Python SDK, one option is to use the REST API with service-principal authentication as shown in this article to make the `service.get_token()` call periodically.
+> You'll need to request a new token after the token's `refresh_by` time. If you need to refresh tokens outside of the Python SDK, one option is to use the REST API with service-principal authentication to periodically make the `service.get_token()` call, as discussed previously.
 >
 > We strongly recommend that you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. 
 >

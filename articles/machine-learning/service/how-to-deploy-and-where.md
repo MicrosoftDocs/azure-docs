@@ -617,7 +617,7 @@ See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.
 
 Every deployed web service provides a REST endpoint, so you can create client applications in any programming language.
 If you've enabled key-based authentication for your service, you need to provide a service key as a token in your request header.
-If you've enabled token-based authentication for your service, you need to provide an Azure Machine Learning JWT token as a bearer token in your request header. 
+If you've enabled token-based authentication for your service, you need to provide an Azure Machine Learning JSON Web Token (JWT) as a bearer token in your request header. 
 
 The primary difference is that **keys are static and can be regenerated manually**, and **tokens need to be refreshed upon expiration**. Key-based auth is supported for Azure Container Instance and Azure Kubernetes Service deployed web-services, and token-based auth is **only** available for Azure Kubernetes Service deployments. See the [how-to](how-to-setup-authentication.md#web-service-authentication) on authentication for more information and specific code samples.
 

@@ -117,6 +117,9 @@
           href: how-to-secure-web-service.md
         - name: Regenerate storage access keys
           href: how-to-change-storage-access-key.md
+      - name: Setup authentication
+        displayName: authentication, auth, oauth
+        href: how-to-setup-authentication.md
       - name: Monitor Azure Machine Learning
         href: monitor-azure-machine-learning.md
       - name: Event grid integration
@@ -342,9 +345,6 @@
     - name: 'Designer: Retrain using published pipelines'
       displayName: retrain, designer, published pipeline
       href: how-to-retrain-designer.md
-  - name: Setup authentication
-    displayName: authentication, auth, oauth
-    href: how-to-setup-authentication.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
