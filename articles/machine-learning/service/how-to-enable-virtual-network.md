@@ -1,5 +1,5 @@
 ---
-title: Secure experiments and inference in a virtual network
+title: Secure experiments and inference in virtual network
 titleSuffix: Azure Machine Learning
 description: learn how to secure experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network.
 services: machine-learning
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 10/25/2019
+ms.date: 11/13/2019
 ---
 
 # Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
@@ -23,6 +23,12 @@ A **virtual network** acts as a security boundary, isolating your Azure resource
 Azure Machine Learning relies on other Azure services for compute resources. Compute resources, or [compute targets](concept-compute-target.md), are used to train and deploy models. The targets can be created within a virtual network. For example, you can use Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see [Azure Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 This article also provides detailed information about *advanced security settings*, information that isn't necessary for basic or experimental use cases. Certain sections of this article provide configuration information for a variety of scenarios. You don't need to complete the instructions in order or in their entirety.
+
+> [!TIP]
+> Unless specifically called out, using resources such as storage accounts or compute targets inside a virtual network will work with both machine learning pipelines, and non-pipeline workflows such as script runs.
+
+> [!WARNING]
+> Microsoft does not support using the Azure Machine Learning designer or automated machine learning (from the studio) with resources inside a virtual network.
 
 ## Prerequisites
 
@@ -64,19 +70,13 @@ To use an Azure storage account for the workspace in a virtual network, do the f
 
    [![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
-1. When __running experiments__, in your experimentation code change the run config to use Azure Blob storage:
-
-    ```python
-    run_config.source_directory_data_store = "workspaceblobstore"
-    ```
-
 > [!IMPORTANT]
 > You can place the both the _default storage account_ for Azure Machine Learning, or _non-default storage accounts_ in a virtual network.
 >
 > The default storage account is
 > automatically provisioned when you create a workspace.
 >
-> For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
+> For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
 
 ## Use a key vault instance with your workspace
 
@@ -103,20 +103,20 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 <a id="amlcompute"></a>
 
-## Use a Machine Learning Compute
+## <a name="compute-instance"></a>Use a Machine Learning Compute
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+> Compute instances (preview) are available only for workspaces with a region of **North Central US** or **UK South**.
 > Use one of these regions to create a compute instance that can be added to virtual network.
 
 To use an Azure Machine Learning compute instance or compute cluster in a virtual network, the following network requirements must be met:
 
 > [!div class="checklist"]
 > * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
-> * The subnet that's specified for the compute  instance or cluster must have enough unassigned IP addresses to accommodate the number of VMs that are targeted. If the subnet doesn't have enough unassigned IP addresses, a compute cluster will be partially allocated.
+> * The subnet that's specified for the compute instance or cluster must have enough unassigned IP addresses to accommodate the number of VMs that are targeted. If the subnet doesn't have enough unassigned IP addresses, a compute cluster will be partially allocated.
 > * Check to see whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network. If you plan to secure the virtual network by restricting traffic, leave some ports open for the compute service. For more information, see the [Required ports](#mlcports) section.
 > * If you're going to put multiple compute instances or clusters in one virtual network, you might need to request a quota increase for one or more of your resources.
-> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster.
+> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster. If you are creating a compute instance in the same virtual network, you would need to detach the storage account(s) from the virtual network, create the compute instance in the virtual network, and then attach the storage account(s) back to the virtual network.
 
 The Machine Learning compute instance or cluster automatically allocates additional networking resources in the resource group that contains the virtual network. For each compute instance or cluster, the service allocates the following resources:
 
@@ -125,6 +125,7 @@ The Machine Learning compute instance or cluster automatically allocates additio
 * One load balancer
 
 These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+
 
 ### <a id="mlcports"></a> Required ports
 
@@ -139,6 +140,8 @@ Machine Learning Compute currently uses the Azure Batch service to provision VMs
 - Outbound traffic on any port to the virtual network.
 
 - Outbound traffic on any port to the internet.
+
+- For compute instance inbound TCP traffic on port 44224 from a __Service Tag__ of __AzureMachineLearning__.
 
 Exercise caution if you modify or add inbound or outbound rules in Batch-configured NSGs. If an NSG blocks communication to the compute nodes, the compute service sets the state of the compute nodes to unusable.
 
@@ -160,6 +163,7 @@ If you don't want to use the default outbound rules and you do want to limit the
    - Azure Storage, by using __Service Tag__ of __Storage.Region_Name__ (for example, Storage.EastUS)
    - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.Region_Name__ (for example, AzureContainerRegistry.EastUS)
    - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
+   - In case of compute instance, Azure Cloud, by using __Service Tag__ of __AzureCloud.Region_Name__ (for example, AzureCloud.NorthCentralUS)
 
 The NSG rule configuration in the Azure portal is shown in the following image:
 
@@ -167,7 +171,7 @@ The NSG rule configuration in the Azure portal is shown in the following image:
 
 ### User-defined routes for forced tunneling
 
-If you're using forced tunneling with Machine Learning Compute, add [user-defined routes (UDRs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) to the subnet that contains the compute resource.
+If you're using forced tunneling with the Machine Learning Compute, add [user-defined routes (UDRs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) to the subnet that contains the compute resource.
 
 * Establish a UDR for each IP address that's used by the Azure Batch service in the region where your resources exist. These UDRs enable the Batch service to communicate with compute nodes for task scheduling. To get a list of IP addresses of the Batch service, use one of the following methods:
 
@@ -245,29 +249,18 @@ except ComputeTargetException:
 
 When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
 
+## Use Azure Databricks
+
+To use Azure Databricks in a virtual network with your workspace, the following requirements must be met:
+
+> [!div class="checklist"]
+> * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
+> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Databricks cluster.
+> * In addition to the __databricks-private__ and __databricks-public__ subnets used by Azure Databricks, the __default__ subnet created for the virtual network is also required.
+
+For specific information on using Azure Databricks with a virtual network, see [Deploy Azure Databricks in your Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+
 <a id="vmorhdi"></a>
-
-### Create a compute instance in a virtual network
-
-Create an Azure Machine Learning compute instance in a virtual network. To create a compute instance, do the following:
-
-1. In the workspace studio, select **Compute** in left pane.
-
-1. On the compute instances tab select **New** to start creating a new compute instance.
-
-1. Set the Compute name and Virtual Machine size fields and enable/disable SSH access.
-
-1. To configure this compute instance to use a virtual network, do the following:
-
-    a. Select **Advanced settings**.
-
-    b. In the **Resource group** drop-down list, select the resource group that contains the virtual network.
-
-    c. In the **Virtual network** drop-down list, select the virtual network that contains the subnet.
-
-    d. In the **Subnet** drop-down list, select the subnet to use.
-
-1. Select **Create** to provision a compute instance inside a virtual network.
 
 ## Use a virtual machine or HDInsight cluster
 

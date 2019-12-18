@@ -1,5 +1,6 @@
 ---
-title: Tutorial - Grant access to an ASP.NET web API - Azure Active Directory B2C
+title: "Tutorial: Grant access to an ASP.NET web API"
+titleSuffix: Azure AD B2C
 description: Tutorial on how to use Active Directory B2C to protect an ASP.NET web API and call it from an ASP.NET web application.
 services: active-directory-b2c
 author: mmacy
@@ -35,7 +36,7 @@ Complete the steps and prerequisites in [Tutorial: Enable authenticate in a web 
 
 Web API resources need to be registered in your tenant before they can accept and respond to protected resource requests by client applications that present an access token.
 
-To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
+To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the new experience](https://aka.ms/b2cappregintro).
 
 #### [Applications](#tab/applications/)
 

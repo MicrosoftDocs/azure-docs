@@ -1,5 +1,5 @@
 ---
-title: Deploy models with a custom Docker base image
+title: Deploy models with custom Docker image
 titleSuffix: Azure Machine Learning
 description: 'Learn how to use a custom Docker base image when deploying your Azure Machine Learning models. While Azure Machine Learning provides a default base image for you, you can also use your own base image.'
 services: machine-learning
@@ -208,7 +208,7 @@ To use an image stored in the **Azure Container Registry for your workspace**, o
 + `docker.base_image`: Set to the registry and path to the image.
 
 ```python
-from azureml.core import Environment
+from azureml.core.environment import Environment
 # Create the environment
 myenv = Environment(name="myenv")
 # Enable Docker and reference an image
@@ -223,7 +223,19 @@ To use an image from a __private container registry__ that is not in your worksp
 myenv.docker.base_image_registry.address = "myregistry.azurecr.io"
 myenv.docker.base_image_registry.username = "username"
 myenv.docker.base_image_registry.password = "password"
+
+myenv.inferencing_stack_version = "latest"  # This will install the inference specific apt packages.
+
+# Define the packages needed by the model and scripts
+from azureml.core.conda_dependencies import CondaDependencies
+conda_dep = CondaDependencies()
+# Unless you are using your own custom inference stack,
+# you must list azureml-defaults as a pip dependency
+conda_dep.add_pip_package("azureml-defaults")
+myenv.python.conda_dependencies=conda_dep
 ```
+
+Please note that unless you are also using your own custom inference stack, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
 
 After defining the environment, use it with an [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) object to define the inference environment in which the model and web service will run.
 

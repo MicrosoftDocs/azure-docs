@@ -1,25 +1,28 @@
 ---
-title: Conditional Access baseline protection policies - Azure Active Directory
+title: Conditional Access baseline policies - Azure Active Directory
 description: Baseline Conditional Access policies to protect organizations from common attacks
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 12/17/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb, rogoya
+ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
 ---
 # What are baseline policies?
 
-Baseline policies are a set of predefined policies that help protect organizations against many common attacks. These common attacks can include password spray, replay, and phishing. Baseline policies are available in all editions of Azure AD. Microsoft is making these baseline protection policies available to everyone because identity-based attacks have been on the rise over the last few years. The goal of these four policies is to ensure that all organizations have a baseline level of security enabled at no extra cost.  
+Baseline policies are a set of predefined policies that help protect organizations against many common attacks. These common attacks can include password spray, replay, and phishing. Baseline policies are available in all editions of Azure AD. Microsoft is making these baseline protection policies available to everyone because identity-based attacks have been on the rise over the last few years. The goal of these four policies is to ensure that all organizations have a baseline level of security enabled at no extra cost.
 
 Managing customized Conditional Access policies requires an Azure AD Premium license.
+
+> [!IMPORTANT]
+> Baseline policies are being depricated. See [What's new in Azure Active Directory?](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) for more information.
 
 ## Baseline policies
 
@@ -84,6 +87,6 @@ To protect privileged actions, this **Require MFA for service management (previe
 
 For more information, see:
 
+* [Enabling security defaults](../fundamentals/concept-fundamentals-security-defaults.md)
 * [Common Conditional Access policies](concept-conditional-access-policy-common.md)
 * [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md)
-* [What is Conditional Access in Azure Active Directory?](overview.md)

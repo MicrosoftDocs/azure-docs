@@ -67,7 +67,7 @@ Now that you've registered your native application, you can give it access to ot
 1. Select **Add a permission**. The **Request API permissions** page appears.
 1. Under the **Select an API** setting, select **APIs my organization uses**. A list appears, containing the applications in your directory that expose APIs.
 1. Type in the search box or scroll to find the proxy application that you published in [Step 1: Publish your proxy application](#step-1-publish-your-proxy-application), and then select the proxy application.
-1. In the **What type of permissions does your application require?** heading, select the permission type. If your native application needs to access the proxy application API as the signed-in user, choose **Delegated permissions**. If your native application runs as a background service or daemon without a signed-in user, choose **Application permissions**.
+1. In the **What type of permissions does your application require?** heading, select the permission type. If your native application needs to access the proxy application API as the signed-in user, choose **Delegated permissions**.
 1. In the **Select permissions** heading, select the desired permission, and select **Add permissions**. The **API permissions** page for your native application now shows the proxy application and permission API that you added.
 
 ## Step 4: Edit the Active Directory Authentication Library

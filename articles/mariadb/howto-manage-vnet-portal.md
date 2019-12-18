@@ -1,11 +1,11 @@
 ---
-title: Create and manage Azure Database for MariaDB VNet service endpoints and rules using the Azure portal | Microsoft Docs
+title: Manage VNet endpoints - Azure portal - Azure Database for MariaDB
 description: Create and manage Azure Database for MariaDB VNet service endpoints and rules using the Azure portal
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 12/02/2019
 ---
 # Create and manage Azure Database for MariaDB VNet service endpoints and VNet rules by using the Azure portal
 

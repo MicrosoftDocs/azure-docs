@@ -4,8 +4,6 @@
   items:
   - name: What is Azure IoT Central
     href: overview-iot-central.md
-  - name: IoT Solution options
-    href: overview-iot-options.md
   - name: Tour of the UI
     href: overview-iot-central-tour.md    
 - name: Quickstarts
@@ -49,8 +47,6 @@
         href: howto-connect-windowsiotcore.md
       - name: Prepare and connect a SensorTile.box device
         href: howto-connect-sensortile.md
-      - name: Prepare and connect a RuuviTag device
-        href: howto-connect-ruuvi-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Monitor device connectivity using command line
         href: howto-use-iotc-explorer.md
   - name: Manage devices

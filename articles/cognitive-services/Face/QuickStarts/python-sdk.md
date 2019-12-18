@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Face client library for Python | Microsoft Docs"
-description: Get started with the Face client library for Python...
+title: "Quickstart: Face client library for Python"
+description: This quickstart will help you get started with the Face client library for Python to detect, find similar, identify, verify and more.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ---
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/17/2019
 ms.author: rkarlin
 
 ---
@@ -77,10 +77,7 @@ This tutorial helps you monitor your data in Azure Sentinel.
 
 You can delete Workbooks that were created from an Azure Sentinel template. 
 
-To delete a customized workbook:
-1.	Select **View workbook**.
-2.	Select **Open** at the top.
-3.	In the table listing your workbooks, in the line for the workbook you want to delete, select the three dots at the end of the line ... to open the menu, and then select **Delete**. This will remove the saved workbook.
+To delete a customized workbook, in the Workbooks page, select the saved workbook that you want to delete and select **Delete**. This will remove the saved workbook.
 
 > [!NOTE]
 > This removes the resource as well as any changes you made to the template. The original template will remain available.

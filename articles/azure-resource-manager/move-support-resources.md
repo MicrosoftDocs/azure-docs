@@ -1,11 +1,8 @@
 ---
-title: Move operation support by Azure resource type
+title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 10/24/2019
-ms.author: tomfitz
 ---
 
 # Move operation support for resources
@@ -1266,9 +1263,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | account | Yes | Yes |
-> | account / extension | Yes | Yes |
-> | account / project | Yes | Yes |
+> | account | No | No |
+> | account / extension | No | No |
+> | account / project | No | No |
 
 > [!IMPORTANT]
 > To change the subscription for Azure DevOps, see [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).

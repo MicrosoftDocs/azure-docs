@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/30/2018
+ms.date: 10/24/2018
 ms.author: gsacavdm
 
 ---
@@ -57,6 +57,18 @@ The URLs for accessing and managing Azure Notification Hub in Azure Government a
 | Azure Public        | Azure Government   | 
 | ------------------- | ------------------ | 
 | \*.servicebus.windows.net | \*.servicebus.usgovcloudapi.net |
+
+## Azure Maps 
+
+Azure Maps and the related features are now available in Azure Government cloud in preview. For details on this service and how to use it, see [Azure Maps documentation](https://docs.microsoft.com/azure/azure-maps/).
+
+### Variations
+
+The following URL for Azure Maps is different in Azure Government:
+
+| Azure Public        | Azure Government   | 
+| ------------------- | ------------------ | 
+| atlas.microsoft.com | atlas.azure.us |
 
 ## Next steps
 

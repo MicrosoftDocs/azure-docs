@@ -3,7 +3,7 @@ title: Manage authentication in Azure Maps | Microsoft Docs
 description: You can use the Azure portal to manage authentication in Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/11/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -16,11 +16,11 @@ After you create an Azure Maps account, a client ID and keys are created to supp
 
 ## View authentication details
 
+After creation of the Azure Maps account, the primary and secondary keys are generated. It is recommended to use primary key as subscription key, when calling Azure Maps using [shared key authentication](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Secondary key can be used in scenarios such as rolling key changes. To learn more, see [Authentication with Azure Maps](https://aka.ms/amauth).
+
 You can view your authentication details on the Azure portal. Go to your account and select **Authentication** on the **Settings** menu.
 
 ![Authentication details](./media/how-to-manage-authentication/how-to-view-auth.png)
-
- To learn more, see [Authentication with Azure Maps](https://aka.ms/amauth).
 
 
 ## Set up Azure AD app registration
@@ -86,7 +86,12 @@ After you register your app and associated it with Azure Maps, you can request a
 
 * If your application uses user-token authentication with the Azure Maps Web SDK, you need to configure your HTML page with the Azure Maps client ID and the Azure AD app ID.
 
-* If your application uses server/application authentication, you need to request a token from Azure AD login endpoint `https://login.microsoftonline.com` with the Azure AD resource ID `https://atlas.microsoft.com/`, the Azure Maps client ID, the Azure AD app ID, and the Azure AD app registration password or certificate.
+* If your application uses server/application authentication, you need to request a token from Azure AD token endpoint `https://login.microsoftonline.com` with the Azure AD resource ID `https://atlas.microsoft.com/`, the Azure Maps client ID, the Azure AD app ID, and the Azure AD app registration password or certificate.
+
+| Azure Environment   | Azure AD token endpoint | Azure Resource ID |
+| --------------------|-------------------------|-------------------|
+| Azure Public        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
+| Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
 
 For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
@@ -102,4 +107,4 @@ Learn how to see the API usage metrics for your Azure Maps account:
 For a list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps, see:
 
 > [!div class="nextstepaction"]
-> [AAD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

@@ -1,5 +1,5 @@
 ---
-title: Custom Web API skill in an enrichment pipeline
+title: Custom Web API skill in skillsets
 titleSuffix: Azure Cognitive Search
 description: Extend capabilities of Azure Cognitive Search skillsets by calling out to Web APIs. Use the Custom Web API skill to integrate your custom code.
 
@@ -53,7 +53,7 @@ There are no "predefined" outputs for this skill. Depending on the response your
 ```json
   {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "A custom skill that can count the number of words or characters or lines in text",
+        "description": "A custom skill that can identify positions of different phrases in the source text",
         "uri": "https://contoso.count-things.com",
         "batchSize": 4,
         "context": "/document",
@@ -67,14 +67,13 @@ There are no "predefined" outputs for this skill. Depending on the response your
             "source": "/document/languageCode"
           },
           {
-            "name": "countOf",
-            "source": "/document/propertyToCount"
+            "name": "phraseList",
+            "source": "/document/keyphrases"
           }
         ],
         "outputs": [
           {
-            "name": "count",
-            "targetName": "countOfThings"
+            "name": "hitPositions"
           }
         ]
       }
@@ -98,7 +97,7 @@ It will always follow these constraints:
            {
              "text": "Este es un contrato en Inglés",
              "language": "es",
-             "countOf": "words"
+             "phraseList": ["Este", "Inglés"]
            }
       },
       {
@@ -107,16 +106,16 @@ It will always follow these constraints:
            {
              "text": "Hello world",
              "language": "en",
-             "countOf": "characters"
+             "phraseList": ["Hi"]
            }
       },
       {
         "recordId": "2",
         "data":
            {
-             "text": "Hello world \r\n Hi World",
+             "text": "Hello world, Hi world",
              "language": "en",
-             "countOf": "lines"
+             "phraseList": ["world"]
            }
       },
       {
@@ -125,7 +124,7 @@ It will always follow these constraints:
            {
              "text": "Test",
              "language": "es",
-             "countOf": null
+             "phraseList": []
            }
       }
     ]
@@ -154,7 +153,7 @@ The "output" corresponds to the response returned from your Web API. The Web API
             },
             "errors": [
               {
-                "message" : "Cannot understand what needs to be counted"
+                "message" : "'phraseList' should not be null or empty"
               }
             ],
             "warnings": null
@@ -162,7 +161,7 @@ The "output" corresponds to the response returned from your Web API. The Web API
         {
             "recordId": "2",
             "data": {
-                "count": 2
+                "hitPositions": [6, 16]
             },
             "errors": null,
             "warnings": null
@@ -170,7 +169,7 @@ The "output" corresponds to the response returned from your Web API. The Web API
         {
             "recordId": "0",
             "data": {
-                "count": 6
+                "hitPositions": [0, 23]
             },
             "errors": null,
             "warnings": null
@@ -178,10 +177,12 @@ The "output" corresponds to the response returned from your Web API. The Web API
         {
             "recordId": "1",
             "data": {
-                "count": 11
+                "hitPositions": []
             },
             "errors": null,
-            "warnings": null
+            "warnings": {
+                "message": "No occurrences of 'Hi' were found in the input text"
+            }
         },
     ]
 }
@@ -200,4 +201,4 @@ For cases when the Web API is unavailable or returns a HTTP error, a friendly er
 
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Add custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
-+ [Example: Creating a custom skill for AI enrichment(cognitive-search-create-custom-skill-example.md)
++ [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)

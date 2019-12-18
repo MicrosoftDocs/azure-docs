@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create your first ML experiment: Setup"
+title: "Tutorial: Create your first ML experiment"
 titleSuffix: Azure Machine Learning
 description: In this tutorial, you'll to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks.  In Part 1, you create a workspace in which you'll manage experiments and ML models. 
 services: machine-learning
@@ -76,16 +76,18 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. On the top bar, select a compute instance to use to run the notebook. These VMs are pre-configured with [everything you need to run Azure Machine Learning](concept-compute-instance.md#contents). You can select a VM created by any user of your workspace. 
 
-1. If no VMs are found, select **+ Add Compute** to create the VM.
+1. If no VMs are found, select **+ Add** to create the compute instance VM. 
 
     1. When you create a VM, provide a name.  The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character, and must also be unique across your Azure subscription.
+
+    1.  Select the Virtual Machine size from the available choices.
 
     1. Then select **Create**. It can take approximately 5 minutes to set up your VM.
 
 1. Once the VM is available it will be displayed in the top toolbar.  You can now run the notebook either by using **Run all** in the toolbar, or by using **Shift+Enter** in the code cells of the notebook.
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+> Compute instances (preview) are available only for workspaces with a region of **North Central US** or **UK South**.
 >If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  You can use either a Notebook VM or a compute instance to run your notebook.
 
 ## Next steps

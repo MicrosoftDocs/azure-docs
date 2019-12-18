@@ -1,15 +1,19 @@
 ---
-title: 'Quickstart: Recognize speech from an audio file, C++ (Windows) - Speech Service'
+title: 'Quickstart: Recognize speech from an audio file, C++ (Windows) - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in C++ on Windows Desktop by using the Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
+<<<<<<< HEAD
+ms.date: 12/17/2019
+ms.author: wolfma61
+=======
 ms.date: 08/19/2019
 ms.author: wolfma
+>>>>>>> 34375507a6a9dabc49d422608c19b7fe54779f45
 ---
 
 ## Prerequisites
@@ -20,6 +24,8 @@ Before you get started, make sure to:
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## Add sample code
 
@@ -79,13 +85,16 @@ Before you get started, make sure to:
 
 1. From the menu bar, choose **File** > **Save All**.
 
+> [!NOTE]
+> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+
 ## Build and run the application
 
 1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Your audio file is transmitted to the Speech Services and the first utterance in the file is transcribed to text, which appears in the same window.
+1. Your audio file is transmitted to the Speech service and the first utterance in the file is transcribed to text, which appears in the same window.
 
    ```text
    Recognizing first result...

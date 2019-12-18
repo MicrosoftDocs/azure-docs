@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 ms.author: larryfr
 author: Blackmist
-ms.date: 08/30/2019
+ms.date: 11/05/2019
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI
@@ -95,6 +95,9 @@ For more information on working with resource groups, see [az group](https://doc
 ### Automatically create required resources
 
 To create a new workspace where the __services are automatically created__, use the following command:
+
+> [!TIP]
+> The commands in this section create a basic edition workspace. To create an enterprise workspace, use the `--sku enterprise` switch with the `az ml workspace create` command. For more information on Azure Machine Learning editions, see [What is Azure Machine Learning](overview-what-is-azure-ml.md#sku).
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>

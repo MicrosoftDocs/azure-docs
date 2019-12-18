@@ -1,5 +1,5 @@
 ---
-title: Linked services in Azure Data Factory | Microsoft Docs
+title: Linked services in Azure Data Factory 
 description: 'Learn about linked services in Data Factory. Linked services link compute/data stores to data factory.'
 services: data-factory
 documentationcenter: ''
@@ -72,10 +72,7 @@ The following linked service is an Azure Storage linked service. Notice that the
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

@@ -6,6 +6,7 @@ ms.author: avneets
 ms.date: 10/13/2019
 ms.topic: overview
 ms.service: iot-central
+ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
 ---

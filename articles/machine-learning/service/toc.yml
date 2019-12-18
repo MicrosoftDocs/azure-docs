@@ -15,6 +15,17 @@
 
 - name: Tutorials
   items:
+  - name: Studio & Designer
+    items:
+    - name: 'Designer: 1. Train a regression model'
+      displayName: studio
+      href: tutorial-designer-automobile-price-train-score.md
+    - name: 'Designer: 2. Deploy that model'
+      displayName: studio
+      href: tutorial-designer-automobile-price-deploy.md
+    - name: Create an automated ML experiment
+      displayName: automl, automated, auto ml, portal, ui
+      href: tutorial-first-experiment-automated-ml.md
   - name: Python SDK
     items:
     - name: Create first ML experiment
@@ -44,30 +55,25 @@
     items:
     - name: Create first ML experiment (R)
       href: tutorial-1st-r-experiment.md
-  - name: Designer
-    items:
-    - name: 1. Train regression model
-      displayName: studio
-      href: tutorial-designer-automobile-price-train-score.md
-    - name: 2. Deploy regression model
-      displayName: studio
-      href: tutorial-designer-automobile-price-deploy.md
-  - name: Automated ML (interface)
-    displayName: automl, automated, auto ml, portal, ui
-    href: tutorial-first-experiment-automated-ml.md
   - name: Machine Learning CLI
     href: tutorial-train-deploy-model-cli.md
+
 - name: Samples
   items:
-  - name: Notebooks
+  - name: Jupyter Notebooks
     displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
     href: samples-notebooks.md
   - name: Azure Open Datasets
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+  - name: End-to-end MLOps examples
+    href: https://github.com/microsoft/MLOps
+
 - name: Concepts
   items:
   - name: Workspace
     href: concept-workspace.md
+  - name: Data
+    href: concept-data.md    
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
@@ -105,7 +111,7 @@
         - name: Manage users and roles
           href: how-to-assign-roles.md
         - name: Use virtual networks
-          displayName: vnet
+          displayName: vnet, blob
           href: how-to-enable-virtual-network.md
         - name: Secure web services with SSL
           href: how-to-secure-web-service.md
@@ -113,12 +119,12 @@
           href: how-to-change-storage-access-key.md
       - name: Monitor Azure Machine Learning
         href: monitor-azure-machine-learning.md
+      - name: Event grid integration
+        href: concept-event-grid-integration.md
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
-  - name: Git integration
-    displayName: git github gitlab
-    href: concept-train-model-git-integration.md
+
 - name: How-to guides
   items:
   - name: Create & manage workspaces
@@ -147,10 +153,16 @@
     - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       href: how-to-vscode-tools.md
+    - name: Interactive debugging
+      displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
+      href: ../how-to-set-up-vs-code-remote.md
+    - name: Git integration
+      displayName: github gitlab
+      href: concept-train-model-git-integration.md 
   - name: Work with data
     items:
     - name: Get data from a datastore
-      displayName: blob, get, fileshare, access storage
+      displayName: blob, get, fileshare, access storage, mount, download
       href: how-to-access-data.md
     - name: Add & register datasets
       displayName: data, dataset
@@ -163,7 +175,13 @@
       href: how-to-monitor-datasets.md
     - name: Version & track datasets
       displayName: data, data set
-      href: how-to-version-track-datasets.md      
+      href: how-to-version-track-datasets.md     
+    - name: Get data labeled
+      displayName: data, dataset, labeling
+      href: how-to-create-labeling-projects.md
+    - name: Label images
+      displayName: data, dataset, labeling
+      href: how-to-label-images.md
   - name: Train models
     items:
     - name: Use the designer
@@ -187,7 +205,7 @@
       - name: "Predict flight delays"
         displayName: classification, studio
         href:  how-to-designer-sample-classification-flight-delay.md
-      - name: "Test classification"
+      - name: "Text classification"
         displayName: classification, studio
         href:  how-to-designer-sample-text-classification.md
     - name: Use estimators for ML
@@ -228,11 +246,14 @@
     - name: Use automated ML (Python)
       displayName: SDK automl
       href: how-to-configure-auto-train.md
-    - name: Use automated ML (workspace landing page)
+    - name: Use automated ML (interface)
       href: how-to-create-portal-experiments.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
+    - name: Define ML tasks
+      displayName: machine learning, task type
+      href: how-to-define-task-type.md
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
@@ -271,6 +292,9 @@
     - name: Azure App Service
       displayName: web app
       href: how-to-deploy-app-service.md
+    - name: Azure Functions
+      displayName: functions app
+      href: how-to-deploy-functions.md
     - name: Compute instances
       href: how-to-deploy-local-container-notebook-vm.md
     - name: Use custom Docker image
@@ -286,11 +310,14 @@
       displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
     - name: Run batch predictions
-      displayName: score scoring asynchronous consume pipeline
+      displayName: score scoring batch consume pipeline parallelrunstep inference
       href: how-to-run-batch-predictions.md
-    - name: Use the designer for batch predictions
-      displayName: score scoring asynchronous consume pipeline
-      href: how-to-run-batch-predictions-ui.md
+    - name: Designer batch predictions
+      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+      href: how-to-run-batch-predictions-designer.md
+    - name: Debug & troubleshoot batch predictions
+      displayName: debug_batch consume pipeline parallelrunstep inference
+      href: how-to-debug-batch-predictions.md
   - name: Monitor models
     items:
     - name: Collect & evaluate model data
@@ -312,160 +339,40 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: 'Designer: Retrain using published pipelines'
+      displayName: retrain, designer, published pipeline
+      href: how-to-retrain-designer.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
   - name: Export and delete data
     displayName: GDPR
     href: how-to-export-delete-data.md
+  - name: Create event driven workflows
+    displayName: event grid
+    href: how-to-use-event-grid.md
 - name: Reference
   items:
-  - name: ML SDK (Python)
+  - name: Python SDK
     displayName: api, core, package, python, class
     href: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
-  - name: ML SDK (R)
+  - name: R SDK
     displayName: api, core, package, R, class
     href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
-  - name: Machine Learning CLI
+  - name: CLI
     displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/azureml/
+  - name: Designer module reference
+    displayName: module, reference, algorithm, studio
+    href: ../algorithm-module-reference/module-reference.md
+  - name: ML at scale
+    href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
   - name: Monitor data reference
     href: monitor-resource-reference.md
   - name: Machine learning pipeline YAML reference
     href: reference-pipeline-yaml.md
-  - name: Designer modules
-    displayName: module, reference, algorithm, studio
-    items:
-    - name: Module reference overview
-      href: ../algorithm-module-reference/module-reference.md
-    - name: Data format conversions
-      items:
-      - name: Convert to CSV
-        href: ../algorithm-module-reference/convert-to-csv.md
-      - name: Convert to Dataset
-        href: ../algorithm-module-reference/convert-to-dataset.md
-    - name: Data input & output
-      items:
-      - name: Import Data
-        items: 
-        - name: Import Data
-          href: ../algorithm-module-reference/import-data.md
-      - name: Export Data
-        href: ../algorithm-module-reference/export-data.md
-      - name: Enter Data Manually
-        href: ../algorithm-module-reference/enter-data-manually.md
-    - name: Data transformations
-      items:
-      - name: Select Columns in Dataset
-        href: ../algorithm-module-reference/select-columns-in-dataset.md
-      - name: Select Columns Transform
-        href: ../algorithm-module-reference/select-columns-transform.md
-      - name: Edit Metadata
-        href: ../algorithm-module-reference/edit-metadata.md
-      - name: Clean Missing Data
-        href: ../algorithm-module-reference/clean-missing-data.md
-      - name: Feature Hashing
-        href: ../algorithm-module-reference/feature-hashing.md
-      - name: Permutation Feature Importance
-        href: ../algorithm-module-reference/permutation-feature-importance.md
-      - name: Filter Based Feature Selection
-        href: ../algorithm-module-reference/filter-based-feature-selection.md
-      - name: Extract N-Gram Features from Text
-        href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
-      - name: Add Columns
-        href: ../algorithm-module-reference/add-columns.md
-      - name: Add Rows
-        href: ../algorithm-module-reference/add-rows.md
-      - name: Remove Duplicate Rows
-        href: ../algorithm-module-reference/remove-duplicate-rows.md
-      - name: Preprocess Text
-        href: ../algorithm-module-reference/preprocess-text.md
-      - name: Join Data
-        href: ../algorithm-module-reference/join-data.md
-      - name: Split Data
-        href: ../algorithm-module-reference/split-data.md
-      - name: Normalize Data
-        href: ../algorithm-module-reference/normalize-data.md
-      - name: SMOTE
-        href: ../algorithm-module-reference/smote.md
-      - name: Partition and Sample
-        href: ../algorithm-module-reference/partition-and-sample.md
-      - name: Clip Values
-        href: ../algorithm-module-reference/clip-values.md
-      - name: Apply SQL Transformation
-        href: ../algorithm-module-reference/apply-sql-transformation.md
-    - name: Machine learning
-      items:
-      - name: Score Model
-        href: ../algorithm-module-reference/score-model.md
-      - name: Score SVD Recommender
-        href: ../algorithm-module-reference/score-svd-recommender.md
-      - name: Assign Data To Clusters
-        href: ../algorithm-module-reference/assign-data-to-clusters.md
-      - name: Train Model
-        href: ../algorithm-module-reference/train-model.md
-      - name: Train Clustering Model
-        href: ../algorithm-module-reference/train-clustering-model.md
-      - name: Train SVD Recommender
-        href: ../algorithm-module-reference/train-svd-recommender.md
-      - name: Tune Model Hyperparameters
-        href: ../algorithm-module-reference/tune-model-hyperparameters.md
-      - name: Cross Validate Model
-        href: ../algorithm-module-reference/cross-validate-model.md
-      - name: Evaluate Model
-        href: ../algorithm-module-reference/evaluate-model.md
-      - name: Evaluate Recommender
-        href: ../algorithm-module-reference/evaluate-recommender.md
-      - name: Apply Transformation
-        href: ../algorithm-module-reference/apply-transformation.md
-      - name: Linear Regression
-        href: ../algorithm-module-reference/linear-regression.md
-      - name: Neural Network Regression
-        href: ../algorithm-module-reference/neural-network-regression.md
-      - name: Decision Forest Regression
-        href: ../algorithm-module-reference/decision-forest-regression.md
-      - name: Boosted Decision Tree Regression
-        href: ../algorithm-module-reference/boosted-decision-tree-regression.md
-      - name: Two-class Boosted Decision Tree
-        href: ../algorithm-module-reference/two-class-boosted-decision-tree.md
-      - name: Two-Class Logistic Regression
-        href: ../algorithm-module-reference/two-class-logistic-regression.md
-      - name: Multiclass Logistic Regression
-        href: ../algorithm-module-reference/multiclass-logistic-regression.md
-      - name: Multiclass Neural Network
-        href: ../algorithm-module-reference/multiclass-neural-network.md
-      - name: Multiclass Decision Forest
-        href: ../algorithm-module-reference/multiclass-decision-forest.md
-      - name: Multiclass Boosted Decision Tree
-        href: ../algorithm-module-reference/multiclass-boosted-decision-tree.md
-      - name: One vs. All Multiclass
-        href: ../algorithm-module-reference/one-vs-all-multiclass.md
-      - name: Two-Class Averaged Perceptron
-        href: ../algorithm-module-reference/two-class-averaged-perceptron.md
-      - name: Two-Class Decision Forest
-        href: ../algorithm-module-reference/two-class-decision-forest.md
-      - name: Two-Class Neural Network
-        href: ../algorithm-module-reference/two-class-neural-network.md
-      - name: Two-Class Support Vector Machine
-        href: ../algorithm-module-reference/two-class-support-vector-machine.md
-      - name: K-Means Clustering
-        href: ../algorithm-module-reference/k-means-clustering.md
-    - name: Python and R language modules
-      items:
-      - name: Execute Python Script
-        href: ../algorithm-module-reference/execute-python-script.md
-      - name: Create Python Model
-        href: ../algorithm-module-reference/create-python-model.md
-      - name: Execute R Script
-        href: ../algorithm-module-reference/execute-r-script.md
-    - name: Statistical Functions
-      items: 
-      - name: Apply Math Operation
-        href: ../algorithm-module-reference/apply-math-operation.md
-      - name: Summarize Data
-        href: ../algorithm-module-reference/summarize-data.md
-    - name: Error messages & codes
-      href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources
   items:
   - name: Release notes

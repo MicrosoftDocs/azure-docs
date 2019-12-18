@@ -4,7 +4,7 @@ title:  Azure Open Datasets Documentation
 summary: Azure Open Datasets is curated and cleansed data - including weather, census, and holidays - that you can use with minimal preparation to enrich ML models. 
 
 metadata:
-  title: Open Datasets Documentation - Azure
+  title: Open Datasets Documentation - Tutorials, API reference - Azure
   description: Azure Open Datasets is curated and cleansed data - including weather, census, and holidays - that you can use with minimal preparation to enrich ML models. 
   services: machine-learning
   ms.service: machine-learning

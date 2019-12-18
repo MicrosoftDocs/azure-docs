@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Contextual data with roles - LUIS"
 titleSuffix: Azure Cognitive Services
-description: Find related data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. 
+description: Find related data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,24 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/17/2019
 ms.author: diberry
-#Customer intent: As a new user, I want to understand how and why to use roles on an entity. 
+#Customer intent: As a new user, I want to understand how and why to use roles on an entity.
 ---
 
 # Tutorial: Extract contextually related data from an utterance
 
-In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a transfer from one city to another. Both pieces of data may be required and they are related to each other.  
+In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a transfer from one city to another. Both pieces of data may be required and they are related to each other.
 
-A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns. 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns.
 
 **In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
 > * Create new app
-> * Add intent 
+> * Add intent
 > * Get origin and destination information using roles
 > * Train
 > * Publish
@@ -47,17 +45,22 @@ A role should be used when the entity data to extract:
 
 ## Create a new app
 
-[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+1. Sign in to the preview LUIS portal with the URL of [https://preview.luis.ai](https://preview.luis.ai).
+
+1. Select **Create new app**, enter the name `HumanResources` and keep the default culture, **English**. Leave the description empty.
+
+1. Select **Done**.
 
 ## Create an intent to move employees between cities
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Select **Create new intent**. 
+1. Select **Create new intent**.
 
-1. Enter `MoveEmployeeToCity` in the pop-up dialog box then select **Done**. 
+1. Enter `MoveEmployeeToCity` in the pop-up dialog box then select **Done**.
 
-    ![Screenshot of create new intent dialog with](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of create new intent dialog with](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
 1. Add example utterances to the intent.
 
@@ -73,7 +76,8 @@ A role should be used when the entity data to extract:
     |Transfer Steve Standish from San Diego toward Bellevue |
     |lift Tanner Thompson from Kansas city and shift to Chicago|
 
-    [![Screenshot of LUIS with new utterances in MoveEmployee intent](./media/tutorial-entity-roles/hr-enter-utterances.png)](./media/tutorial-entity-roles/hr-enter-utterances.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of LUIS with new utterances in MoveEmployee intent](./media/tutorial-entity-roles/hr-enter-utterances.png)
 
 ## Add prebuilt entity geographyV2
 
@@ -81,24 +85,38 @@ The prebuilt entity, geographyV2, extracts location information, including city 
 
 1. Select **Entities** from the left-side navigation.
 
-1. Select **Add prebuilt entity**, then select `geo` in the search bar to filter the prebuilt entities. 
+1. Select **Add prebuilt entity**, then select `geo` in the search bar to filter the prebuilt entities.
 
-    ![Add geographyV2 prebuilt entity to app](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Add geographyV2 prebuilt entity to app](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
+
 1. Select the checkbox and select **Done**.
-1. In the **Entities** list, select the **geographyV2** to open the new entity. 
-1. Add two roles, `Origin`, and `Destination`. 
+1. In the **Entities** list, select the **geographyV2** to open the new entity.
+1. Add two roles, `Origin`, and `Destination`.
 
-    ![Add roles to prebuilt entity](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Add roles to prebuilt entity](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
+
 1. Select **Intents** from the left-side navigation, then select the **MoveEmployeeToCity** intent. Notice the city names are labeled with the prebuilt entity **geographyV2**.
-1. In the first utterance of the list, select the origin location. A drop-down menu appears. Select **geographyV2** in the list, then follow the menu across to select **Origin**.
-1. Use the method from the previous step to mark all roles of locations in all the utterances. 
+1. In the context toolbar, select the **Entity palette**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Select Entity Palette from content toolbar](media/tutorial-entity-roles/intent-detail-context-toolbar-select-entity-palette.png)
+
+1. Select the prebuilt entity, **geographyV2**, then select the **Entity inspector**.
+1. In the **Entity inspector**, select one role, **Destination**. This changes the mouse cursor. Use the cursor to label the text in all the utterances that is the destination location.
+
+    > [!div class="mx-imgBorder"]
+    > ![Select Role in Entity Palette](media/tutorial-entity-roles/entity-palette-select-entity-role.png)
 
 
-## Add example utterances to the None intent 
+1. Return to the **Entity inspector**, change to the role to **Origin**. Use the cursor to label the text in all the utterances that is the origin location.
+
+## Add example utterances to the None intent
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## Train the app so the changes to the intent can be tested 
+## Train the app so the changes to the intent can be tested
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -148,9 +166,9 @@ The prebuilt entity, geographyV2, extracts location information, including city 
       ]
     }
     ```
-    
+
     The correct intent is predicted and the entities array has both the origin and destination roles in the corresponding **entities** property.
-    
+
 ## Clean up resources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
@@ -169,5 +187,5 @@ The prebuilt entity, geographyV2, extracts location information, including city 
 
 This tutorial created a new intent and added example utterances for the contextually learned data of origin and destination locations. Once the app is trained and published, a client-application can use that information to create a move ticket with the relevant information.
 
-> [!div class="nextstepaction"] 
-> [Learn how to add a composite entity](luis-tutorial-composite-entity.md) 
+> [!div class="nextstepaction"]
+> [Learn how to add a composite entity](luis-tutorial-composite-entity.md)

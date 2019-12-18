@@ -1,6 +1,6 @@
 ---
 title: Remote Monitoring solution accelerator overview - Azure | Microsoft Docs
-description: An overview of the Remote Monitoring solution accelerator.
+description: This article provides an overview of some of the key elements of the Remote Monitoring solution to enable you to understand how it works. 
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators

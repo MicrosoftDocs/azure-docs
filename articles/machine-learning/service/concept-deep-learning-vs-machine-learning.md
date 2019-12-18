@@ -1,6 +1,6 @@
 ---
 title: 'Deep learning vs. machine learning'
-titleSuffix: Azure Machine Learning
+titleSuffix: Azure
 description: Learn how deep learning relates to machine learning and artificial intelligence. Deep learning is used in scenarios such as fraud detection, voice & facial recognition, sentiment analytics, and time series forecasting.
 services: machine-learning
 ms.service: machine-learning

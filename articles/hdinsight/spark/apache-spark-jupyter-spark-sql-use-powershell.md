@@ -24,6 +24,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisite
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
 
 ## Create an HDInsight Spark cluster

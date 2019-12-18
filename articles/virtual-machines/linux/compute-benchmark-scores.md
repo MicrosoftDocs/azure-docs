@@ -1,5 +1,5 @@
 ---
-title: Compute benchmark scores for Azure Linux VMs | Microsoft Docs
+title: Compute benchmark scores for Azure Linux VMs 
 description: Compare CoreMark compute benchmark scores for Azure VMs running Linux.
 services: virtual-machines-linux
 documentationcenter: ''

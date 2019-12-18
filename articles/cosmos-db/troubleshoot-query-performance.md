@@ -1,5 +1,5 @@
 ---
-title: Diagnose and troubleshoot query issues when using Azure Cosmos DB 
+title: Troubleshoot query issues when using Azure Cosmos DB 
 description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB SQL query issues.
 author: ginamr
 ms.service: cosmos-db
@@ -21,7 +21,7 @@ The lowest possible latency is achieved by ensuring the calling application is l
 
 ## Log the executed SQL query 
 
-You can log the executed SQL query in a storage account or the diagnostic log table. [SQL query logs through diagnostic logs](logging.md#turn-on-logging-in-the-azure-portal) allows you to log the obfuscated query in a storage account of your choice. This allows you to look at the logs and find query that is using higher RUs. Later you can use the activity id to match the actual query in the QueryRuntimeStatistics. The query is obfuscated for security purpose and the query parameter names, and their values in where clauses are different than actual names and values. You can use logging to storage account to keep the long term retention of the executed queries.  
+You can log the executed SQL query in a storage account or the diagnostic log table. [SQL query logs through diagnostic logs](cosmosdb-monitor-resource-logs.md) allows you to log the obfuscated query in a storage account of your choice. This allows you to look at the logs and find query that is using higher RUs. Later you can use the activity ID to match the actual query in the QueryRuntimeStatistics. The query is obfuscated for security purpose and the query parameter names, and their values in where clauses are different than actual names and values. You can use logging to storage account to keep the long-term retention of the executed queries.  
 
 ## Log query metrics
 

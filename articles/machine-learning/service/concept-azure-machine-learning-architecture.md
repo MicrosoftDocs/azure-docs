@@ -53,7 +53,6 @@ Use these tools for Azure Machine Learning:
 
 ## Glossary
 + <a href="#activities">Activity</a>
-+ <a href="#compute-instance">Compute instance</a>
 + <a href="#compute-targets">Compute targets</a>
 + <a href="#datasets-and-datastores">Dataset & datastores</a>
 + <a href="#endpoints">Endpoints</a>
@@ -81,7 +80,7 @@ An activity represents a long running operation. The following operations are ex
 
 Activities can provide notifications through the SDK or the web UI so that you can easily monitor the progress of these operations.
 
-### Compute instance
+### <a name="compute-instance"></a>Compute instance (preview)
 
 > [!NOTE]
 > Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
@@ -145,7 +144,7 @@ For PyTorch, TensorFlow, and Chainer tasks, Azure Machine Learning also provides
 
 For more information, see the following articles:
 
-* [Train ML Models with estimators](how-to-train-ml-models.md).
+* [Train ML models with estimators](how-to-train-ml-models.md).
 * [Train Pytorch deep learning models at scale with Azure Machine Learning](how-to-train-pytorch.md).
 * [Train and register TensorFlow models at scale with Azure Machine Learning](how-to-train-tensorflow.md).
 * [Train and register Chainer models at scale with Azure Machine Learning](how-to-train-chainer.md).

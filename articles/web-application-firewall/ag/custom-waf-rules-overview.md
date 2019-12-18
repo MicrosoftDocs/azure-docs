@@ -158,6 +158,11 @@ List of values to match against, which can be thought of as being *OR*'ed. For e
 
 ## Geomatch custom rules (preview)
 
+Custom rules allow for the creation of tailored rules to suit the exact needs of your applications, and your security policies. Now, you are able restrict access to your web applications by country/region, which is available in public preview. As with all custom rules, this logic can be compounded with other rules to suit the needs of your application. 
+
+   > [!NOTE]
+   > Geomatch custom rules are available in South Central US and North Europe. To access them in the portal, please use [this link](https://aka.ms/AppGWWAFGeoMatch) until it goes live for everyone. 
+
 If you are using the Geomatch operator, the selectors can be any of the following two-digit country codes. 
 
 |Country code | Country name |

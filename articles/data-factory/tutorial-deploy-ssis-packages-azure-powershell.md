@@ -1,5 +1,5 @@
 ---
-title: Provision the Azure-SSIS Integration Runtime with PowerShell | Microsoft Docs
+title: Provision the Azure-SSIS Integration Runtime with PowerShell 
 description: Learn how to provision the Azure-SSIS integration runtime in Azure Data Factory with PowerShell so you can deploy and run SSIS packages in Azure.
 services: data-factory
 documentationcenter: ''
@@ -8,11 +8,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 06/26/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ---
 
 # Provision the Azure-SSIS Integration Runtime in Azure Data Factory with PowerShell
