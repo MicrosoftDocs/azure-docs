@@ -113,7 +113,7 @@ For more information on Azure Synapse as a whole, see our [Overview] page.
 
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Connection Strings]: ./sql-data-warehouse-connection-strings.md
+[Connection Strings]:../synapse-analytics/sql-analytics/connection-strings.md
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Support Tickets]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Security]: ./sql-data-warehouse-overview-manage-security.md

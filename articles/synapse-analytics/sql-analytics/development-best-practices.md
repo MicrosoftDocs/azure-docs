@@ -95,7 +95,7 @@ Use the [Azure SQL Analytics pool Feedback][Azure SQL Analytics pool Feedback] p
 [Rebuilding columnstore indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Table partitioning]: ../../sql-data-warehouse/sql-data-warehouse-tables-partition.md
 [Temporary tables]: ./development-tables-temporary.md
-[Guide for using PolyBase]: ../../sql-data-warehouse/guidance-for-loading-data.md
+[Guide for using PolyBase]:data-loading-best-practices.md
 [Load data]: ../../sql-data-warehouse/esign-elt-data-loading.md
 [Move data with Azure Data Factory]: ../../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ../../data-factory/load-azure-sql-data-warehouse.md

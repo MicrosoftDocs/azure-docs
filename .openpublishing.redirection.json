@@ -44087,6 +44087,36 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-stored-procedures.md",
             "redirect_url": "/azure/synapse-analytics/sql-analytics/development-stored-procedures",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/design-elt-data-loading.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/data-loading-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/guidance-for-loading-data.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/data-loading-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/performance-tuning-materialized-views.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-materialized-view-performance-tuning",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-best-practices-development.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-best-practices.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/best-practices-sql-pool",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-connection-strings.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/connection-strings",
+            "redirect_document_id": true
         }
     ]
 }

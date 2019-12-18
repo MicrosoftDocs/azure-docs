@@ -291,7 +291,7 @@ For more information about DMVs, see [System views][System views].
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse best practices]:../synapse-analytics/sql-analytics/best-practices-sql-pool.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
