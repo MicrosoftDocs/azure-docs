@@ -26,7 +26,7 @@ In the billing account for a Microsoft Customer Agreement, you use billing profi
 
 ### Billing profile
 
-A billing profile represents an invoice and the related billing information such as payment methods and billing address. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains charges for Azure subscriptions and other purchases such as Azure marketplace and App source products from the previous month.
+A billing profile represents an invoice and the related billing information such as payment methods and billing address. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains charges for Azure subscriptions and other purchases such as Azure Marketplace and App source products from the previous month.
 
 A billing profile is automatically created for your billing account. You may create additional billing profiles to organize your costs in multiple monthly invoices. 
 
@@ -38,7 +38,7 @@ A billing profile is automatically created for your billing account. You may cre
 
 An invoice section represents a grouping of costs in your invoice. An invoice section is automatically created for each billing profile in your account. You may create additional sections to organize your costs in sections on your invoice. 
 
-Once you create an invoice section, you give others permission to create Azure subscriptions and buy products such as Azure marketplace and App source resources. Charges for these Azure subscriptions and products are displayed under this section of the invoice.
+Once you create an invoice section, you give others permission to create Azure subscriptions and buy products such as Azure Marketplace and App source resources. Charges for these Azure subscriptions and products are displayed under this section of the invoice.
 
 ## Structure your billing account to organize your costs
 
@@ -72,28 +72,28 @@ Lets look at an example of how costs vary for two scenarios:
 
 #### You only have one billing profile.
 
-You're using Azure block blob storage, which costs USD .00184 per GB for first 50 terabyte (TB) and then .00177 per GB for next 450 terabyte (TB). You used 100 GB through subscriptions that are billed to your billing profile, here's how much you will be charged.
+Lets assume you're using Azure block blob storage, which costs USD .00184 per GB for first 50 terabytes (TB) and then .00177 per GB for next 450 terabytes (TB). You used 100 GB through subscriptions that are billed to your billing profile, here's how much you will be charged.
 
 
 |  |Price per GB  | Amount |
 |---------|---------|---------|
-|Charges for first 50 GB     | .00184        | .092   |
-|Charges for next 50 GB     |  .00177        | .0885   |
-|Total     |       | .1805  
+|Charges for first 50 GB     | .00184        | 0.092   |
+|Charges for next 50 GB     |  .00177        | 0.0885   |
+|Total     |       | 0.1805  
 
 #### You have multiple billing profiles.
 
-Now, let's assume you created another billing profile and used 50 GB through subscriptions in the first billing profile and 50 GB through subscriptions in the second billing profile, here's how much you will be charged.
+Now, lets assume you created another billing profile and used 50 GB through subscriptions in the first billing profile and 50 GB through subscriptions in the second billing profile, here's how much you will be charged.
 
 |  |Price per GB  | Amount |
 |---------|---------|---------|
-|Charges for 50 GB through billing profile 1    | .00184        | .092   |
-|Charges for 50 GB through billing profile 2   |  .00177        | .092     |
-|Total     |       | .184
+|Charges for 50 GB through billing profile 1    | .00184        | 0.092   |
+|Charges for 50 GB through billing profile 2   |  .00177        | 0.092     |
+|Total     |       | 0.184
 
 ### Azure reservation benefits aren't shared across billing profiles
 
-Azure reservations with shared scope are applied to subscriptions in a single billing profile and are not shared across billing profiles. For example, Contoso's billing account has two billing profiles. The first billing profile has two subscriptions, sub 1 and sub 2. The second billing profile only has one subscription, sub 3. If contoso buys an Azure reservation, they can apply the reservation to either sub 1 and sub 2 or just sub 3. The reservation can't be shared across billing profile so it can't be applied to all three subscriptions.
+Azure reservations with shared scope are applied to subscriptions in a single billing profile and are not shared across billing profiles. For example, lets assume Contoso's billing account has two billing profiles. The first billing profile has two subscriptions, sub 1 and sub 2. The second billing profile only has one subscription, sub 3. If contoso buys an Azure reservation, they can apply the reservation to either sub 1 and sub 2 or just sub 3. The reservation can't be shared across billing profile so it can't be applied to all three subscriptions.
 
 ## Create an invoice section in the Azure portal
 
