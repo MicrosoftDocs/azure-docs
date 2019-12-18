@@ -430,7 +430,7 @@ You can publish a pipeline to run it with different inputs later. For the REST e
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
      outputs=[out_data3],
-     target=compute_target,
+     compute_target=compute_target,
      source_directory=project_folder)
    ```
 
