@@ -20,7 +20,7 @@ This Azure CLI script example scales a single Azure SQL database to a different 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Sample script
 
@@ -31,7 +31,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Clean up deployment
 
-Use the following command to remove  the resource group and all resources associated with it.
+Use the following command to remove the resource group and all resources associated with it.
 
 ```azurecli-interactive
 az group delete --name $resourceGroupName
@@ -48,7 +48,6 @@ This script uses the following commands. Each command in the table links to comm
 | [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | Shows the size usage information for a single or pooled database. |
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Updates database properties (such as the service tier or compute size) or moves a database into, out of, or between elastic pools. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
-|||
 
 ## Next steps
 
