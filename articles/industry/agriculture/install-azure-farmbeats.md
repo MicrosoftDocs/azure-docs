@@ -72,7 +72,7 @@ Your Azure FarmBeats setup enables you to get free satellite imagery from Europe
 
 Follow the steps to create a free account with Sentinel:
 
-1. Go to the official sign-up page, [self-resgistation](https://scihub.copernicus.eu/dhus/#/self-registration).
+1. Go to the official [sign-up](https://scihub.copernicus.eu/dhus/#/self-registration) page.
 2. Provide the required details (first name, last name, username, password, and email ID) and complete the form.
 3. A verification link will be sent to the registered email ID. Select the link provided in the email and complete the verification.
 
