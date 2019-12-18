@@ -81,7 +81,7 @@ For more help in finding solution to your issue, here are some other resources y
 [SSMS]: /sql/ssms/download-sql-server-management-studio-ssms
 [SSDT for Visual Studio]: sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: sql-data-warehouse-connection-strings.md
-[Connect to Azure SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
+[Connect to Azure SQL Data Warehouse]:../synapse-analytics/sql-analytics/connect-overview.md
 [Create support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Scaling your SQL Data Warehouse]: sql-data-warehouse-manage-compute-overview.md
 [DWU]: sql-data-warehouse-overview-what-is.md
@@ -107,7 +107,7 @@ For more help in finding solution to your issue, here are some other resources y
 [UPDATE workarounds]: sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [MERGE workarounds]: sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[Stored procedure limitations]: sql-data-warehouse-develop-stored-procedures.md#limitations
+[Stored procedure limitations]:../synapse-analytics/sql-analytics/development-stored-procedures.md#limitations
 [Authentication to Azure SQL Data Warehouse]: sql-data-warehouse-authentication.md
 
 

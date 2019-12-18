@@ -1,7 +1,7 @@
 ---
 title: Connect to Azure SQL Analytics | Microsoft Docs
 description: Get connected to Azure SQL Analytics.
-services: synapse analytics 
+services: synapse-analytics 
 author: azaricstefan 
 ms.service: synapse-analytics 
 ms.topic: overview 

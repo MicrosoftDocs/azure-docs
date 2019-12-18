@@ -350,7 +350,7 @@ For more development tips, see [SQL data warehouse development overview][SQL Dat
 [manage columnstore indexes]: sql-data-warehouse-tables-index.md
 [Statistics]:../synapse-analytics/sql-analytics/development-tables-statistics.md
 [CTAS]: sql-data-warehouse-develop-ctas.md
-[label]: sql-data-warehouse-develop-label.md
+[label]:../synapse-analytics/sql-analytics/development-label.md
 
 <!--MSDN references-->
 [CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx

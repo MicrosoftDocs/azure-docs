@@ -44057,6 +44057,36 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-temporary.md",
             "redirect_url": "/azure/synapse-analytics/sql-analytics/development-tables-temporary",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-connect-overview.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/connect-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-dynamic-sql.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-dynamic-sql",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-group-by-options.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-group-by-options",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-label.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-label",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-loops.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-loops",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-stored-procedures.md",
+            "redirect_url": "/azure/synapse-analytics/sql-analytics/development-stored-procedures",
+            "redirect_document_id": true
         }
     ]
 }

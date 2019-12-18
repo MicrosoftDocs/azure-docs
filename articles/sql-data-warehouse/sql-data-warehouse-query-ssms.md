@@ -74,7 +74,7 @@ Now that you can connect and query, try [visualizing the data with PowerBI][visu
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Data Warehouse][Authenticate to SQL Data Warehouse].
 
 <!--Arcticles-->
-[Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
+[Connect to SQL Data Warehouse]:../synapse-analytics/sql-analytics/connect-overview.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
 [visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md 

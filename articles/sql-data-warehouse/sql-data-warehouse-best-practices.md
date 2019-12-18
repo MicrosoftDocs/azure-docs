@@ -168,7 +168,7 @@ Finally, please do use the [Azure Synapse Feedback][Azure SQL Data Warehouse Fee
 [Understanding transactions]:../synapse-analytics/sql-analytics/development-transactions.md
 [Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
 [Troubleshooting]: ./sql-data-warehouse-troubleshoot.md
-[LABEL]: ./sql-data-warehouse-develop-label.md
+[LABEL]:../synapse-analytics/sql-analytics/development-label.md
 
 <!--MSDN references-->
 [ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx

@@ -21,7 +21,7 @@ This quickstart describes how to set up a new Fivetran user to work with Azure S
 
 1. Find the fully qualified server name and database name that you use to connect to SQL Data Warehouse.
     
-    If you need help finding this information, see [Connect to Azure SQL Data Warehouse](sql-data-warehouse-connect-overview.md).
+    If you need help finding this information, see [Connect to Azure SQL Data Warehouse](../synapse-analytics/sql-analytics/connect-overview.md).
 
 2. In the setup wizard, choose whether to connect your database directly or by using an SSH tunnel.
 

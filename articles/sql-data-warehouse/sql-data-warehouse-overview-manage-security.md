@@ -94,7 +94,7 @@ For details and examples on connecting to your SQL Data Warehouse with different
 <!--Image references-->
 
 <!--Article references-->
-[Connect to SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
+[Connect to SQL Data Warehouse]:../synapse-analytics/sql-analytics/connect-overview.md
 [Encryption with Portal]: ./sql-data-warehouse-encryption-tde.md
 [Encryption with TSQL]: ./sql-data-warehouse-encryption-tde-tsql.md
 [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-authentication.md
