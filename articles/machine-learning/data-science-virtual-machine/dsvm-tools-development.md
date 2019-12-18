@@ -17,7 +17,7 @@ ms.date: 12/12/2019
 
 The Data Science Virtual Machine (DSVM) bundles several popular tools in a highly productive integrated development environment (IDE). Here are some tools that are provided on the DSVM.
 
-## Visual Studio Community Editoion
+## Visual Studio Community Edition
 
 |    |           |
 | ------------- | ------------- |
