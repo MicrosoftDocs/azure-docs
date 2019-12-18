@@ -133,7 +133,7 @@ df_cosmos.groupby("Item").size()
 ![nteract data explorer](media/use-notebook-features-and-commands/nteract-built-in-chart.png)
 
 ## Use the built-in Python SDK
-Version 4 of the [Azure Cosmos DB Python SDK for SQL API](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) is installed and included in the notebook environment for the Cosmos account.
+Version 4 of the [Azure Cosmos DB Python SDK for SQL API](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) is installed and included in the notebook environment for the Azure Cosmos account.
 
 Use the built-in ``cosmos_client`` instance to run any SDK operation. 
 
@@ -158,7 +158,7 @@ See [Python SDK samples](https://github.com/Azure/azure-sdk-for-python/tree/mast
 For more flexibility, you can create a custom instance of ``cosmos_client`` in order to:
 
 - Customize the [connection policy](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview)
-- Run operations against a different Cosmos account than the one you are in
+- Run operations against a different Azure Cosmos account than the one you are in
 
 You can access the connection string and primary key of the current account via the [environment variables](#access-the-account-endpoint-and-primary-key-env-variables). 
 
@@ -167,7 +167,7 @@ import os
 import azure.cosmos.cosmos_client as cosmos
 import azure.cosmos.documents as documents
 
-# These should be set to a region you've added for Cosmos DB
+# These should be set to a region you've added for Azure Cosmos DB
 region_1 = "Central US" 
 region_2 = "East US 2"
 
@@ -185,10 +185,10 @@ endpoint = os.environ["COSMOS_ENDPOINT"]
 primary_key = os.environ["COSMOS_KEY"]
 ```
 > [!IMPORTANT]
-> The ``COSMOS_ENDPOINT`` and ``COSMOS_KEY`` environment variables are only applicable for SQL API. For other APIs, find the endpoint and key in the **Connection Strings** or **Keys** blade in your Cosmos account.  
+> The ``COSMOS_ENDPOINT`` and ``COSMOS_KEY`` environment variables are only applicable for SQL API. For other APIs, find the endpoint and key in the **Connection Strings** or **Keys** blade in your Azure Cosmos account.  
 
 ## Reset notebooks workspace
-To reset the notebooks workspace to the default settings, select **Reset Workspace** on the command bar. This will remove any custom installed packages and restart the Jupyter server. Your notebooks, files, and Cosmos resources will not be affected.  
+To reset the notebooks workspace to the default settings, select **Reset Workspace** on the command bar. This will remove any custom installed packages and restart the Jupyter server. Your notebooks, files, and Azure Cosmos resources will not be affected.  
 
 ![Reset notebooks workspace](media/use-notebook-features-and-commands/reset-workspace.png)
 
