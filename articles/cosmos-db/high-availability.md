@@ -44,8 +44,7 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 
 - Multi-region accounts configured with multiple-write regions will be highly available for both writes and reads. Regional failovers are instantaneous and don't require any changes from the application.
 
-> [!IMPORTANT]
-> Single-region accounts may lose availability following a regional outage. It's always recommended to set up **at least two regions** (preferably, at least two write regions) with your Cosmos account to ensure high availability at all times.
+- Single-region accounts may lose availability following a regional outage. It's always recommended to set up **at least two regions** (preferably, at least two write regions) with your Cosmos account to ensure high availability at all times.
 
 - **Multi-region accounts with a single-write region (write region outage):**
   - During a write region outage, the Cosmos account will automatically promote a secondary region to be the new primary write region when **enable automatic failover** is configured on the Azure Cosmos account. When enabled, the failover will occur to another region in the order of region priority you’ve specified.
