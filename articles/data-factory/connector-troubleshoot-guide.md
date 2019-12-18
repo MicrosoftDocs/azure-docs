@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/26/2019
+ms.date: 08/26/2019
 ms.author: jingwang
 ms.reviewer: craigg
 ---
@@ -180,7 +180,8 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: If the error message contains "SqlException", SQL database throws the error indicating some specific operation failed.
 
-- **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, please contact Azure SQL support.
+- **Recommendation**:  If sql error is not clear, please try to alter the database to latest compatibility level '150'. This level can print more information, include the rows\columns. Reference doc:https://techcommunity.microsoft.com/t5/Azure-SQL-Database/General-availability-Database-compatibility-level-150-in-Azure/ba-p/1003458.
+          Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, please contact Azure SQL support.
 
 - **Cause**: If the error message contains "PdwManagedToNativeInteropException", usually it's caused by mismatch between source and sink column sizes.
 
@@ -267,13 +268,17 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Recommendation**:  If problem repro, please contact Azure SQL support.
 
 
-### Error code:  SqlBatchWriteRollbackFailed
+### Error code:  SqlBatchWriteTransactionFailed
 
-- **Message**: `Timeout in SQL write operation and rollback also fail.`
+- **Message**: `SQL transaction commit failed`
 
-- **Cause**: Could be SQL database transient failure.
+- **Cause**: If exception details constantly tell transaction timeout, the network latency between is higher than default threshold as 30 seconds.
 
-- **Recommendation**:  Please retry to update linked service connection string with larger connection timeout value.
+- **Recommendation**:  Please update Sql linked service connection string with 'connection timeout' value equals to 120 or higher and rerun the activity.
+
+- **Cause**: If exception details intermittently tell sqlconnection broken, it could just be transient network failure or Sql database side issue
+
+- **Recommendation**:  Please retry the activity and review Sql database side metrics.
 
 
 ### Error code:  SqlBulkCopyInvalidColumnLength
@@ -400,6 +405,150 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Recommendation**:  It may be caused by transient failure, please retry. If the issue persists, please contact Azure Storage support and provide the request ID in error message.
 
+
+
+## Dynamics
+
+### Error code:  DynamicsCreateServiceClientError
+
+- **Message**: `This is a transient issue on dynamics server side. Please try to rerun the pipeline.`
+
+- **Cause**: This is a transient issue on dynamics server side.
+
+- **Recommendation**:  Rerun the pipeline. If keep failing, try to reduce the parallelism. If still fail, please contact dynamics support.
+
+
+
+## Parquet Format
+
+### Error code:  ParquetJavaInvocationException
+
+- **Message**: `An error occurred when invoking java, message: %javeException;.`
+
+- **Cause**: When the error message contains 'java.lang.OutOfMemory', 'Java heap space' and 'doubleCapacity', usually it's a memory management issue in old version of integration runtime.
+
+- **Recommendation**:  If you are using Self-hosted Integration Runtime and the version is earlier than 3.20.7159.1, please upgrade to the latest version.
+
+- **Cause**: When the error message contains 'java.lang.OutOfMemory', the intergration runtime doesn't have enough resource to process the file(s).
+
+- **Recommendation**:  Please limit the concurrent runs on the integration runtime. For Self-hosted Integration Runtime, please scale up to a powerful machine with memory equal to or larger than 8 GB.
+
+- **Cause**: When error message contains 'NullPointerReference', it possible is a transient error.
+
+- **Recommendation**:  Please retry. If the problem persists, please contact support.
+
+
+### Error code:  ParquetInvalidFile
+
+- **Message**: `File is not a valid parquet file.`
+
+- **Cause**: Parquet file issue.
+
+- **Recommendation**:  please check the input is a vaild parquet file.
+
+
+### Error code:  ParquetNotSupportedType
+
+- **Message**: `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
+
+- **Cause**: The parquet format is not supported in Azure Data Factory.
+
+- **Recommendation**:  Please double check the source data. Please refer the doc: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
+
+
+### Error code:  ParquetMissedDecimalPrecisionScale
+
+- **Message**: `Decimal Precision or Scale information is not found in schema for column: %column;.`
+
+- **Cause**: Try to parse the number percision and scale, but no such information provide.
+
+- **Recommendation**:  'Source' does not return correct Precision and scale. Please check the issue cloumn precision and scale.
+
+
+### Error code:  ParquetInvalidDecimalPrecisionScale
+
+- **Message**: `Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;.`
+
+- **Cause**: The schema is invaild.
+
+- **Recommendation**:  Please check the issue cloumn precision and scale.
+
+
+### Error code:  ParquetColumnNotFound
+
+- **Message**: `Column %column; does not exist in Parquet file.`
+
+- **Cause**: Source schema is mismatch with sink schema.
+
+- **Recommendation**:  Please check the'mappings' in 'activity'. Make sure the source column can mapped to the right sink column.
+
+
+### Error code:  ParquetInvalidDataFormat
+
+- **Message**: `Incorrect format of %srcValue; for converting to %dstType;.`
+
+- **Cause**: The data cannot be converted into type specified in mappings.source
+
+- **Recommendation**:  Double check the source data or specify the correct data type for this column in copy activity column mapping. Please refer the doc: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
+
+
+### Error code:  ParquetDataCountNotMatchColumnCount
+
+- **Message**: `The data count in a row '%sourceColumnCount;' is not match the column count '%sinkColumnCount;' in given schema.`
+
+- **Cause**: Source column count and sink column count mismatch
+
+- **Recommendation**:  Please import, or double check source column count is same as sink column count in 'mapping'.
+
+
+
+## Delimited Text Format
+
+### Error code:  DelimitedTextColumnNameNotAllowNull
+
+- **Message**: `The name of column index %index; is empty. Please make sure column name is properly specified in the header row.`
+
+- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA,,ColumnB'.
+
+- **Recommendation**:  Please check the first row, and fix the value if there is empty value.
+
+
+### Error code:  DelimitedTextMoreColumnsThanDefined
+
+- **Message**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
+
+- **Cause**: The problematic row's column count is large than the first row's column count. It may be caused by data issue or incorrect column delimiter/quote char settings.
+
+- **Recommendation**:  Please get the row count in error message, check the row's column and and fix the data.
+
+- **Cause**: If the expected column count is "1" in error message, it's possible that you specified wrong compression or format settings, which caused ADF to wrongly parse your file(s).
+
+- **Recommendation**:  Please check the format settings to make sure it matches to your source file(s).
+
+- **Cause**: If your source is a folder, it's possible that the files under the specified folder have different schema.
+
+- **Recommendation**:  Please make sure the files under the given folder have identical schema.
+
+
+
+## General Copy Activity Error
+
+### Error code:  JreNotFound
+
+- **Message**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Please make sure Jave Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
+
+- **Cause**: The self-hosted integration runtime cannot find Jave Runtime. This is required for reading paticular source.
+
+- **Recommendation**:  Please check your integration runtime environment, the reference doc: https://docs.microsoft.com/en-us/azure/data-factory/format-parquet#using-self-hosted-integration-runtime
+
+
+### Error code:  WildcardPathSinkNotSupported
+
+- **Message**: `Wildcard in path is not supported in sink dataset. Please fix the path: '%setting;'.`
+
+- **Cause**: Sink dataset doesn't support wildcard.
+
+- **Recommendation**:  Please check the sink dataset and fix the path without wildcard value.
 
 ## Next steps
 
