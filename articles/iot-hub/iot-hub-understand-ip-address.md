@@ -14,11 +14,22 @@ ms.date: 11/21/2019
 The IP address prefixes of IoT hub are published periodically under the *AzureIoTHub* [service tag](../virtual-network/service-tags-overview.md). To ensure proper operation, your IoT devices must have outbound connectivity to address prefixes listed under *AzureIoTHub* service tag. Your IoT application services need to additionally have outbound connectivity to address prefixes listed under *EventHub* service tag.
 
 
+## IoT Hub routes
+
+When routing messages to custom endpoints (e.g., storage accounts, event hubs or service bus queues and topics) you may want to isolate network access to those resources. To perform routing functionality, IoT Hub needs to be able to connect to your custom endpoint. Hence ensure that you allow traffic from your IoT Hub resources' IP address in your region (and its region pair) by adding an `inbound rule`.
+
+
 ## Best practices
 
 * The IP address prefixes of IoT hub are subject to change. These changes are published periodically via service tags before taking effect. It is therefore important that you develop processes to regularly retrieve and use the latest service tags. This process can be automated via the [service tags discovery API](../virtual-network/service-tags-overview.md#service-tags-in-on-premises).
 * Use the *AzureIoTHub.[region name]* tag to identify IP prefixes used by IoT hub endpoints in a specific region. To account for datacenter disaster recovery, or [regional failover](iot-hub-ha-dr.md) ensure connectivity to IP prefixes of your IoT Hub's geo-pair region is also enabled.
 
+
+## Limitations
+
+* IP filtering rules are only enforced on your IoT Hub endpoint, and not your hub's built-in Event Hub. If you intend to enforce IP filtering on the event hub as well, you may do so only by provisioning your own event hub and setting up IP filtering rules on your event hub resource directly. In that case, ensure that you also whitelist IP address of IoT Hub in your region (and its region-pair) on the event hub resource.
+
+* When routing to a storage account, enforcing IP address filtering is only possible when the storage account is in a different region as your IoT Hub.
 
 ## Support for IPv6 
 
