@@ -8,13 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 11/04/2019
+ms.date: 12/13/2019
 # As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
 ---
 
 # What is an Azure Machine Learning compute instance?
 
-An Azure Machine Learning compute instance (preview) is a fully managed cloud-based workstation for data scientists. Compute instance makes it  easy to get started with Azure Machine Learning development. Compute instance provides management and enterprise readiness capabilities for IT administrators.  Use a compute instance as your fully configured and managed development environment in the cloud.
+An Azure Machine Learning compute instance (preview) is a fully-managed cloud-based workstation for data scientists. 
+
+Compute instances make it easy to get started with Azure Machine Learning development as well as provide management and enterprise readiness capabilities for IT administrators.  
+
+Use a compute instance as your fully configured and managed development environment in the cloud.
+
+Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
 > [!NOTE]
 > Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
@@ -22,19 +28,14 @@ An Azure Machine Learning compute instance (preview) is a fully managed cloud-ba
 
 ## Why use a compute instance?
 
-A compute instance is a managed virtual machine (VM), optimized to be your machine learning development environment in the cloud. It provides the following benefits:
+A compute instance is a fully-managed cloud-based workstation optimized for your machine learning development environment. It provides the following benefits:
 
-* **Productive**: Data scientists can build and deploy models using integrated notebooks and the following tools in their web browser:
-    * Jupyter
-    * JupyterLab
-    * RStudio
-* **Managed and secure**:  Reduce your security footprint and add compliance with enterprise security requirements. Compute instances  provide robust management policies and secure networking configurations such as:
-    * Automated provisioning through Resource Manager templates or Azure Machine Learning SDK
-    * [Role-based access control (RBAC)](/azure/role-based-access-control/overview).
-    * Virtual network support. You can [create a compute instance in a virtual network](how-to-enable-virtual-network.md#compute-instance).
-    * SSH policy to enable/disable SSH access
-* **Preconfigured for machine learning**: Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.
-* **Fully customizable**: Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. 
+|Key benefits||
+|----|----|
+|Productivity|Data scientists can build and deploy models using integrated notebooks and the following tools in their web browser:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio|
+|Managed & secure|Reduce your security footprint and add compliance with enterprise security requirements. Compute instances  provide robust management policies and secure networking configurations such as:<br/><br/>- Auto-provisioning from Resource Manager templates or Azure Machine Learning SDK<br/>- [Role-based access control (RBAC)](/azure/role-based-access-control/overview)<br/>- [Virtual network support](how-to-enable-virtual-network.md#compute-instance)<br/>- SSH policy to enable/disable SSH access|
+|Preconfigured&nbsp;or&nbsp;ML|Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.|
+|Fully customizable|Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. |
 
 ## <a name="contents"></a>Tools and environments
 
@@ -43,9 +44,7 @@ Azure Machine Learning compute instance enables you to author, train, and deploy
 
 These tools and environments are installed on the compute instance: 
 
-
-
-|General tools & environments|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|General tools & environments|Details|
 |----|:----:|
 |Drivers|`CUDA`</br>`cuDNN`</br>`NVIDIA`</br>`Blob FUSE` |
 |Intel MPI library||
@@ -57,7 +56,7 @@ These tools and environments are installed on the compute instance:
 |NCCL 2.0 ||
 |Protobuf|| 
 
-|**R** tools & environments|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+|**R** tools & environments|Details|
 |----|:----:|
 |RStudio Server Open Source Edition||
 |R kernel||
@@ -76,7 +75,6 @@ These tools and environments are installed on the compute instance:
 |ONNX packages|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|                           
 |Azure Machine Learning Python & R SDK samples||
 
-Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
 
 ## Accessing files
