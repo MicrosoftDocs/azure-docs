@@ -34,9 +34,9 @@ Make sure all the training documents are of the same format. If you have forms i
 
 In order to train a model using labeled data, you'll need the following files as inputs in the sub-folder. You will learn how to create these file below.
 
-1.	**Source forms** – the forms to extract data from. Supported types are JPEG, PNG, BMP, PDF, or TIFF.
-1.	**OCR layout files** - JSON files that describe the sizes and positions of all readable text in each source form. You'll use the Form Recognizer Layout API to generate this data. 
-1.	**Label files** - JSON files that describe data labels which a user has entered manually.
+* **Source forms** – the forms to extract data from. Supported types are JPEG, PNG, BMP, PDF, or TIFF.
+* **OCR layout files** - JSON files that describe the sizes and positions of all readable text in each source form. You'll use the Form Recognizer Layout API to generate this data. 
+* **Label files** - JSON files that describe data labels which a user has entered manually.
 
 All of these files should occupy the same sub-folder and be in the following format:
 
@@ -55,9 +55,9 @@ All of these files should occupy the same sub-folder and be in the following for
 
 You need OCR result files in order for the service to consider the corresponding input files for labeled training. To obtain OCR results for a given source form, follow the steps below:
 
-* Call the **/formrecognizer/v2.0-preview/layout/analyze** API on the read Layout container with the input file as part of the request body. Save the ID found in the response's **Operation-Location** header.
-* Call the **/formrecognizer/v2.0-preview/layout/analyzeResults/{id}** API, using operation ID from the previous step.
-* Get the response and write the contents to a file. For each source form, the corresponding OCR file should have the original file name appended with `.ocr.json`. The OCR JSON output should have the following format. See the [sample OCR file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) for a full example. 
+1. Call the **/formrecognizer/v2.0-preview/layout/analyze** API on the read Layout container with the input file as part of the request body. Save the ID found in the response's **Operation-Location** header.
+1. Call the **/formrecognizer/v2.0-preview/layout/analyzeResults/{id}** API, using operation ID from the previous step.
+1. Get the response and write the contents to a file. For each source form, the corresponding OCR file should have the original file name appended with `.ocr.json`. The OCR JSON output should have the following format. See the [sample OCR file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) for a full example. 
 
     ```json
     {
