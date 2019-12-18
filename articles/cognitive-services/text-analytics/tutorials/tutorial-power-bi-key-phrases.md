@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Integrate Power BI with the Text Analytics Cognitive Service'
 titleSuffix: Azure Cognitive Services
-description: Learn how to use Text Analytics to extract key phrases from text stored in Power BI.
+description: This tutorial shows how to use Text Analytics to extract key phrases from text stored in Power BI.
 services: cognitive-services
 author: aahill
 manager: nitinme

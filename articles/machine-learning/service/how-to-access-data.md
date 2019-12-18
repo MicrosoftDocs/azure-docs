@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sihhu
-author: MayMSFT
+ms.author: ylxiong
+author: YLXiong1125
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
+ms.date: 12/10/2019
 ms.custom: seodec18
 
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
@@ -56,41 +56,88 @@ When you register an Azure storage solution as a datastore, you automatically cr
 
 All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*.
 
-The information you need to populate the register() method can be found via the [Azure Machine Learning studio](https://ml.azure.com) and these steps
+The information you need to populate the register() method can be found via the [Azure portal](https://portal.azure.com) and these steps
 
 1. Select **Storage Accounts** on the left pane and choose the storage account you want to register. 
 2. The **Overview** page provides information such as, the account name and container or file share name. 
-3. For authentication information, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left. 
+3. For authentication information, like account key or SAS token, navigate to **Access Keys** under the **Settings** pane on the left. 
 
->[IMPORTANT]
+> [!IMPORTANT]
 > If your storage account is in a VNET, only Azure blob datastore creation is supported. Set the parameter, `grant_workspace_access` to `True` to grant your workspace access to your storage account.
 
-The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
+The following examples show how to register an Azure Blob Container,   an Azure File Share or an Azure SQL data as a datastore.
 
 + For an **Azure Blob Container Datastore**, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)
 
-    The following code creates and registers the datastore, `my_datastore`, to the workspace, `ws`. This datastore accesses the Azure blob container, `my_blob_container`, on the Azure storage account, `my_storage_account` using the provided account key.
+    The following code creates and registers the datastore, `blob_datastore_name`, to the workspace, `ws`. This datastore accesses the Azure blob container `my-container-name`, on the Azure storage account, `my-account-name` using the provided account key.
 
     ```Python
-       datastore = Datastore.register_azure_blob_container(workspace=ws, 
-                                                          datastore_name='my_datastore', 
-                                                          container_name='my_blob_container',
-                                                          account_name='my_storage_account', 
-                                                          account_key='your storage account key',
-                                                          create_if_not_exists=True)
+    blob_datastore_name='azblobsdk' # Name of the Datastore  to workspace
+    container_name=os.getenv("BLOB_CONTAINER", "<my-container-name>") # Name of Azure blob container
+    account_name=os.getenv("BLOB_ACCOUNTNAME", "<my-account-name>") # Storage account name
+    account_key=os.getenv("BLOB_ACCOUNT_KEY", "<my-account-key>") # Storage account key
+
+    blob_datastore = Datastore.register_azure_blob_container(workspace=ws, 
+                                                             datastore_name=blob_datastore_name, 
+                                                             container_name=container_name, 
+                                                             account_name=account_name,
+                                                             account_key=account_key)
     ```
 
 + For an **Azure File Share Datastore**, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
-    The following code creates and registers the datastore, `my_datastore`, to the workspace, `ws`. This datastore accesses the Azure file share, `my_file_share`, on the Azure storage account, `my_storage_account` using the provided account key.
+    The following code creates and registers the datastore, `file_datastore_name`, to the workspace, `ws`. This datastore accesses the Azure file share, `my-fileshare-name`, on the Azure storage account, `my-account-name` using the provided account key.
 
     ```Python
-       datastore = Datastore.register_azure_file_share(workspace=ws, 
-                                                      datastore_name='my_datastore', 
-                                                      file_share_name='my_file_share',
-                                                      account_name='my_storage account', 
-                                                      account_key='your storage account key',
-                                                      create_if_not_exists=True)
+    file_datastore_name='azfilesharesdk' # Name of the Datastore to workspace
+    file_share_name=os.getenv("FILE_SHARE_CONTAINER", "<my-fileshare-name>") # Name of Azure file share container
+    account_name=os.getenv("FILE_SHARE_ACCOUNTNAME", "<my-account-name>") # Storage account name
+    account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage Account Key
+
+    file_datastore = Datastore.register_azure_file_share(workspace=ws,
+                                                     datastore_name=file_datastore_name, 
+                                                     file_share_name=file_share_name, 
+                                                     account_name=account_name,
+                                                     account_key=account_key)
+    ```
+
++ For an **Azure SQL Datastore**, use [register_azure_sql_database()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none-) to register a credential Datastore connected to an Azure SQL database.  with SQL authentication or service principal permissions. 
+
+    #### By SQL authentication
+
+    ```python
+    sql_datastore_name="azsqlsdksql"
+    server_name=os.getenv("SQL_SERVERNAME", "<my-server-name>") # Name of Azure SQL server
+    database_name=os.getenv("SQL_DATBASENAME", "<my-database-name>") # Name of Azure SQL database
+    username=os.getenv("SQL_USER_NAME", "<my-sql-user-name>") # The username of the database user to access the database.
+    password=os.getenv("SQL_USER_PASSWORD", "<my-sql-user-password>") # The password of the database user to access the database.
+
+    sql_datastore = Datastore.register_azure_sql_database(workspace=ws,
+                                                      datastore_name=sql_datastore_name,
+                                                      server_name=server_name,
+                                                      database_name=database_name,
+                                                      username=username,
+                                                      password=password)
+
+    ```
+
+    #### By service principal
+
+    ```python 
+    sql_datastore_name="azsqlsdksp"
+    server_name=os.getenv("SQL_SERVERNAME", "<my-server-name>") # Name of SQL server
+    database_name=os.getenv("SQL_DATBASENAME", "<my-database-name>") # Name of SQL database
+    client_id=os.getenv("SQL_CLIENTNAME", "<my-client-id>") # client id of service principal with permissions to access database
+    client_secret=os.getenv("SQL_CLIENTSECRET", "<my-client-secret>") # the secret of service principal
+    tenant_id=os.getenv("SQL_TENANTID", "<my-tenant-id>") # tenant id of service principal
+
+    sql_datastore = Datastore.register_azure_sql_database(workspace=ws,
+                                                          datastore_name=sql_datastore_name,
+                                                          server_name=server_name,
+                                                          database_name=database_name,
+                                                          client_id=client_id,
+                                                          client_secret=client_secret,
+                                                          tenant_id=tenant_id)
     ```
 
 ####  Storage guidance
@@ -158,9 +205,6 @@ The [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data
 To upload a directory to a datastore `datastore`:
 
 ```Python
-import azureml.data
-from azureml.data.azure_storage_datastore import AzureFileDatastore, AzureBlobDatastore
-
 datastore.upload(src_dir='your source directory',
                  target_path='your target path',
                  overwrite=True,
@@ -203,7 +247,7 @@ To reference a specific folder or file in your datastore and make it available o
 #to mount the full contents in your storage to the compute target
 datastore.as_mount()
 
-#to download the contents of the `./bar` directory in your storage to the compute target
+#to download the contents of only the `./bar` directory in your storage to the compute target
 datastore.path('./bar').as_download()
 ```
 > [!NOTE]
@@ -211,9 +255,9 @@ datastore.path('./bar').as_download()
 
 ### Examples 
 
-The following code examples are specific to the [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class for accessing data during training.
+We recommend using the [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class for accessing data during training. 
 
-`script_params` is a dictionary containing parameters to the entry_script. Use it to pass in a datastore and describe how data is made available on the compute target. Learn more from our end-to-end [tutorial](tutorial-train-models-with-aml.md).
+The `script_params` variable is a dictionary containing parameters to the entry_script. Use it to pass in a datastore and describe how data is made available on the compute target. Learn more from our end-to-end [tutorial](tutorial-train-models-with-aml.md).
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -240,6 +284,24 @@ est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
+```
+If you prefer to use a RunConfig object for training, you need to set up a [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) object. 
+
+The following code shows how to work with a DataReference object in an estimation pipeline. For the full example, see this [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb).
+
+```Python
+from azureml.core import Datastore
+from azureml.data.data_reference import DataReference
+from azureml.pipeline.core import PipelineData
+
+def_blob_store = Datastore(ws, "workspaceblobstore")
+
+input_data = DataReference(
+       datastore=def_blob_store,
+       data_reference_name="input_data",
+       path_on_datastore="20newsgroups/20news.pkl")
+
+output = PipelineData("output", datastore=def_blob_store)
 ```
 <a name="matrix"></a>
 

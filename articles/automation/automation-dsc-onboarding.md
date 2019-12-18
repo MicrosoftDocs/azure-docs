@@ -347,6 +347,18 @@ For added security, the primary and secondary access keys of an Automation accou
 regenerated at any time (on the **Manage Keys** page) to prevent future node registrations using
 previous keys.
 
+## Certificate expiration and re-registration
+
+After registering a machine as a DSC node in Azure Automation State Configuration, there are a
+number of reasons why you may need to re-register that node in the future:
+
+- For versions of Windows Server prior to Windows Server 2019, each node automatically negotiates a unique certificate for authentication that expires after one year. Currently, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to re-register the nodes after a year's time. Before re-registering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node's authentication certificate expires, and the node is not re-registered, the node is unable to communicate with Azure Automation and is marked 'Unresponsive.' re-registration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.  A resolution to this issue is included in Windows Server 2019 and later.
+- To change any [PowerShell DSC Local Configuration Manager values](/powershell/scripting/dsc/managing-nodes/metaConfig4) that were set during initial registration of the node, such as ConfigurationMode. Currently, these DSC agent values can only be changed through re-registration. The one exception is the Node Configuration assigned to the node -- this can be changed in Azure Automation DSC directly.
+
+re-registration can be performed in the same way you registered the node initially, using any of the
+onboarding methods described in this document. You do not need to un-register a node from Azure
+Automation State Configuration before re-registering it.
+
 ## Troubleshooting Azure virtual machine onboarding
 
 Azure Automation State Configuration lets you easily onboard Azure Windows VMs for configuration
@@ -363,17 +375,7 @@ Azure portal navigate to the VM being onboarded, then click **Extensions** under
 click **DSC** or **DSCForLinux** depending on your operating system. For more details, you can
 click **View detailed status**.
 
-## Certificate expiration and reregistration
-
-After registering a machine as a DSC node in Azure Automation State Configuration, there are a
-number of reasons why you may need to reregister that node in the future:
-
-- For versions of Windows Server prior to Windows Server 2019, each node automatically negotiates a unique certificate for authentication that expires after one year. Currently, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to reregister the nodes after a year's time. Before reregistering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node's authentication certificate expires, and the node is not reregistered, the node is unable to communicate with Azure Automation and is marked 'Unresponsive.' Reregistration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.  A resolution to this issue is included in Windows Server 2019 and later.
-- To change any [PowerShell DSC Local Configuration Manager values](/powershell/scripting/dsc/managing-nodes/metaConfig4) that were set during initial registration of the node, such as ConfigurationMode. Currently, these DSC agent values can only be changed through reregistration. The one exception is the Node Configuration assigned to the node -- this can be changed in Azure Automation DSC directly.
-
-Reregistration can be performed in the same way you registered the node initially, using any of the
-onboarding methods described in this document. You do not need to unregister a node from Azure
-Automation State Configuration before reregistering it.
+For more information on troubleshooting, see [Troubleshooting issues with Azure Automation Desired State Configuration (DSC)](./troubleshoot/desired-state-configuration.md).
 
 ## Next steps
 

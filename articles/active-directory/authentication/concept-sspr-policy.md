@@ -50,7 +50,7 @@ The two-gate policy requires two pieces of authentication data, such as an **ema
   * Privileged Authentication administrator
 
 * If 30 days have elapsed in a trial subscription; or
-* A vanity domain is present, such as contoso.com; or
+* A custom domain has been configured for your Azure AD tenant, such as *contoso.com*; or
 * Azure AD Connect is synchronizing identities from your on-premises directory
 
 ### Exceptions
@@ -58,7 +58,7 @@ The two-gate policy requires two pieces of authentication data, such as an **ema
 A one-gate policy requires one piece of authentication data, such as an email address *or* phone number. A one-gate policy applies in the following circumstances:
 
 * It's within the first 30 days of a trial subscription; or
-* A vanity domain isn't present (*.onmicrosoft.com); and
+* A custom domain hasn't been configured for your Azure AD tenant so is using the default **.onmicrosoft.com*. Note that the default **.onmicrosoft.com* domain isn't recommended for production use; and
 * Azure AD Connect isn't synchronizing identities
 
 ## UserPrincipalName policies that apply to all user accounts

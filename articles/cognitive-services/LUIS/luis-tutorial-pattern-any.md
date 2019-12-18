@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Pattern.any entity - LUIS"
 titleSuffix: Azure Cognitive Services
-description: Use the pattern.any entity to extract data from utterances where the utterances is well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.  
+description: In this tutorial, use the pattern.any entity to extract data from utterances where the utterances is well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.
 services: cognitive-services
 ms.custom: seodec18
 author: diberry
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/11/2019
+ms.date: 12/13/2019
 ms.author: diberry
-#Customer intent: As a new user, I want to understand how and why to use pattern.any entity to improve predictions. 
+#Customer intent: As a new user, I want to understand how and why to use pattern.any entity to improve predictions.
 ---
 
 # Tutorial: Extract free-form data with Pattern.any entity
 
-In this tutorial, use the pattern.any entity to extract data from utterances where the utterances are well-formatted and where the end of the data may be easily confused with the remaining words of the utterance. 
+In this tutorial, use the pattern.any entity to extract data from utterances where the utterances are well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
@@ -34,9 +34,9 @@ In this tutorial, use the pattern.any entity to extract data from utterances whe
 
 ## Using Pattern.any entity
 
-The pattern.any entity allows you to find free-form data where the wording of the entity makes it difficult to determine the end of the entity from the rest of the utterance. 
+The pattern.any entity allows you to find free-form data where the wording of the entity makes it difficult to determine the end of the entity from the rest of the utterance.
 
-This Human Resources app helps employees find company forms. 
+This Human Resources app helps employees find company forms.
 
 |Utterance|
 |--|
@@ -44,7 +44,7 @@ This Human Resources app helps employees find company forms.
 |Who authored **HRF-123234**?|
 |**HRF-456098** is published in French?|
 
-However, each form has both a formatted name, used in the preceding table, as well as a friendly name, such as `Request relocation from employee new to the company 2018 version 5`. 
+However, each form has both a formatted name, used in the preceding table, as well as a friendly name, such as `Request relocation from employee new to the company 2018 version 5`.
 
 Utterances with the friendly form name look like:
 
@@ -64,13 +64,13 @@ The varying length includes words that may confuse LUIS about where the entity e
 
 ## Import example app
 
-1. Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
+1. Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json?raw=true).
 
 1. In the [LUIS portal](https://www.luis.ai), on the **My apps** page, import the JSON into a new app.
 
 1. From the **Manage** section, on the **Versions** tab, clone the version, and name it `patt-any`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
-## Add example utterances 
+## Add example utterances
 
 1. Select **Build** from the top navigation, then select **Intents** from left navigation.
 
@@ -88,13 +88,13 @@ The varying length includes words that may confuse LUIS about where the entity e
     Without a Pattern.any entity, it would be difficult for LUIS to understand where the form title ends because of the many variations of form names.
 
 ## Create a Pattern.any entity
-The Pattern.any entity extracts entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity.  
+The Pattern.any entity extracts entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity.
 
 1. Select **Entities** in the left navigation.
 
-1. Select **Create new entity**, enter the name `FormName`, and select **Pattern.any** as the type. Select **Done**. 
+1. Select **Create new entity**, enter the name `FormName`, and select **Pattern.any** as the type. Select **Done**.
 
-    You can't label the entity in an intent's example utterances because a Pattern.any is only valid in a pattern. 
+    You can't label the entity in an intent's example utterances because a Pattern.any is only valid in a pattern.
 
     If you want the extracted data to include other entities such as number or datetimeV2, you need to create a composite entity that includes the Pattern.any, as well as number and datetimeV2.
 
@@ -120,9 +120,9 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Test the new pattern for free-form data extraction
-1. Select **Test** from the top bar to open the test panel. 
+1. Select **Test** from the top bar to open the test panel.
 
-1. Enter the following utterance: 
+1. Enter the following utterance:
 
     `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
@@ -143,7 +143,7 @@ If you find that your pattern, when it includes a Pattern.any, extracts entities
 
 ## Next steps
 
-This tutorial added example utterances to an existing intent then created a new Pattern.any for the form name. Then the tutorial created a pattern for the existing intent with the new example utterances and entity. Interactive testing showed that the pattern and its intent were predicted because the entity was found. 
+This tutorial added example utterances to an existing intent then created a new Pattern.any for the form name. Then the tutorial created a pattern for the existing intent with the new example utterances and entity. Interactive testing showed that the pattern and its intent were predicted because the entity was found.
 
 > [!div class="nextstepaction"]
 > [Learn how to use roles with a pattern](luis-tutorial-pattern-roles.md)

@@ -13,16 +13,16 @@ Azure FarmBeats helps you to bring streaming data from your IoT devices and sens
 
   ![FarmBeats partners](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
 
-Integrating device data with Azure FarmBeats helps you get ground data from the IoT sensors deployed in your farm to the data hub. The data, once available, can be visualized through the FarmBeats accelerator. The data can be used for data fusion and machine learning/artificial intelligence (ML/AI) model building by using FarmBeats.
+Integrating device data with Azure FarmBeats helps you get ground data from the IoT sensors deployed in your farm to the datahub. The data, once available, can be visualized through the FarmBeats accelerator. The data can be used for data fusion and machine learning/artificial intelligence (ML/AI) model building by using FarmBeats.
 
 To start sensor data streaming, ensure the following:
 
 -  You installed FarmBeats in Azure Marketplace.
 -  You decided on the sensors and devices that you want to install on your farm.
--  If you plan on using soil moisture sensors, use the FarmBeats Soil Moisture Sensor Placement map to get a recommendation on the number of sensors and where exactly you should place them. For more information, see [Generate maps](generate-maps.md).
+-  If you plan on using soil moisture sensors, use the FarmBeats Soil Moisture Sensor Placement map to get a recommendation on the number of sensors and where exactly you should place them. For more information, see [Generate maps](generate-maps-in-azure-farmbeats.md).
 - You purchase and deploy devices or sensors from your device partner on your farm. Make sure you can access the sensor data via your device partners' solution.
 
-## Enable device integration with FarmBeats 
+## Enable device integration with FarmBeats
 
 After you start the streaming of sensor data, you can begin the process of getting the data into your FarmBeats system. Provide the following information to your device provider to enable the integration to FarmBeats:
 
@@ -150,4 +150,4 @@ Follow these steps.
 
 ## Next steps
 
-You now have sensor data flowing into your Azure FarmBeats instance. Now, learn how to [generate maps](generate-maps.md#generate-maps) for your farms.
+You now have sensor data flowing into your Azure FarmBeats instance. Now, learn how to [generate maps](generate-maps-in-azure-farmbeats.md#generate-maps) for your farms.

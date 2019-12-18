@@ -66,6 +66,8 @@ See the following receipt image and its corresponding JSON output. The output ha
 
 ![A receipt from Contoso store](../media/contoso-receipt.png)
 
+The `"recognitionResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `"understandingResults"` node contains the receipt-specific values that the model discovered. This is where you'll find useful key/value pairs like the tax, total, merchant address, and so on.
+
 ```json
 {
   "status": "Succeeded",

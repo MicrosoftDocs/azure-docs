@@ -17,7 +17,7 @@ ms.date: 10/25/2019
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to enable the interpretability features for automated machine learning (ML) in Azure Machine Learning service. Automated ML helps you understand both raw and engineered feature importance. In order to use model interpretability, set `model_explainability=True` in the `AutoMLConfig` object.  
+In this article, you learn how to enable the interpretability features for automated machine learning (ML) in Azure Machine Learning. Automated ML helps you understand both raw and engineered feature importance. In order to use model interpretability, set `model_explainability=True` in the `AutoMLConfig` object.  
 
 In this article, you learn how to:
 
@@ -153,7 +153,7 @@ scoring_explainer_model = automl_run.register_model(model_name='scoring_explaine
 
 ### Create the conda dependencies for setting up the service
 
-Next, create the necessary environment dependencies in the container for the deployed model.
+Next, create the necessary environment dependencies in the container for the deployed model. Please note that azureml-defaults with version >= 1.0.45 must be listed as a pip dependency, because it contains the functionality needed to host the model as a web service.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -180,22 +180,24 @@ Deploy the service using the conda file and the scoring file from the previous s
 
 ```python
 from azureml.core.webservice import Webservice
-from azureml.core.model import InferenceConfig
 from azureml.core.webservice import AciWebservice
-from azureml.core.model import Model
+from azureml.core.model import Model, InferenceConfig
+from azureml.core.environment import Environment
 
-aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
-                                               memory_gb=1, 
+aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
+                                               memory_gb=1,
                                                tags={"data": "Bank Marketing",  
-                                                     "method" : "local_explanation"}, 
+                                                     "method" : "local_explanation"},
                                                description='Get local explanations for Bank marketing test data')
-
-inference_config = InferenceConfig(runtime= "python", 
-                                   entry_script="score_local_explain.py",
-                                   conda_file="myenv.yml")
+myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
+inference_config = InferenceConfig(entry_script="score_local_explain.py", environment=myenv)
 
 # Use configs and models generated above
-service = Model.deploy(ws, 'model-scoring', [scoring_explainer_model, original_model], inference_config, aciconfig)
+service = Model.deploy(ws,
+                       'model-scoring',
+                       [scoring_explainer_model, original_model],
+                       inference_config,
+                       aciconfig)
 service.wait_for_deployment(show_output=True)
 ```
 

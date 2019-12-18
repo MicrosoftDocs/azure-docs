@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -27,8 +27,7 @@ To configure provisioning, use the following steps:
 
 4.  Click on **New configuration**.
 5.  On the configuration screen, the on-premises domain is pre-populated
-6. Enter a **Notification email**. This email will be notified 
-7. when provisioning is not healthy.  
+6. Enter a **Notification email**. This email will be notified when provisioning is not healthy.  
 8. Move the selector to **Enable** and click **Save**.
 ![](media/tutorial-single-forest/configure2.png)
 

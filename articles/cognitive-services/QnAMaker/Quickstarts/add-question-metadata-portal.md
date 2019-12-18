@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Add questions and answer in QnA Maker portal"
 titleSuffix: Azure Cognitive Services 
-description:  
+description:  This quickstart shows how to add question and answer sets with metadata so your users can find the right answer to their question.
 services: cognitive-services
 author: diberry
 manager: nitinme

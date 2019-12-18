@@ -1,5 +1,5 @@
 ---
-title: Create an OpenAPI definition for a serverless API using Azure API Management
+title: Expose your functions with OpenAPI using Azure API Management
 description: Create an OpenAPI definition that enables other apps and services to call your function in Azure.
 ms.topic: tutorial
 ms.date: 05/08/2019
