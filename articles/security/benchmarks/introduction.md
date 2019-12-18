@@ -1,6 +1,6 @@
 ---
 title: Security Benchmark Introduction
-description: Security Benchmark Introduction
+description: Security Benchmark introduction
 author: msmbaldwin
 manager: rkarlin
 
