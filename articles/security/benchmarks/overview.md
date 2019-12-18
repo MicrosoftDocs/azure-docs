@@ -16,9 +16,9 @@ ms.custom: security-baselines
 
 The Azure Security Controls Benchmark contains recommendations that help you improve the security of your applications and data on Azure.
 
-Azure Security Controls benchmark includes cloud-centric control areas. These controls are consistent with well-known security benchmarks, such as those described by the [Center for Internet Security (CIS) Controls](https://www.cisecurity.org/controls/) Version 7.
+This Benchmark focuses on cloud-centric control areas. These controls are consistent with well-known security benchmarks, such as those described by the [Center for Internet Security (CIS) Controls](https://www.cisecurity.org/controls/) Version 7.
 
-The following numbered control areas are used in the Azure Security Controls Benchmark: 
+The following controls are used in the Azure Security Benchmark: 
 
 - [Network security](security-control-network-security.md) 
 - [Logging & Monitoring](security-control-logging-and-monitoring.md) 
@@ -32,16 +32,13 @@ The following numbered control areas are used in the Azure Security Controls Ben
 - [Incident Response](security-control-incident-response.md)
 - [Penetration Tests and Red Team Exercises](security-control-penetration-tests-and-red-team-exercises.md)
 
-## Azure Security Controls Security Recommendations 
+## Azure Security Controls Security Recommendations
 
-The Azure Security Controls Benchmark contains recommendations for networking, logging, monitoring, identity and access management, data protection, and other security controls.
+Each recommendation includes the following information:
 
-Each recommendation includes the following information: 
-
-- **Recommendation**: The action or task for implementation. For example, Azure recommends, within the Network Security section, to “Ensure that only network ports, protocols and services listening on a system with validated business needs, are running on each service”. 
-- **Azure ID**: The Azure Security Controls Benchmark ID that corresponds to the recommendation. 
-- **CIS ID**: The CIS sub-control ID that corresponds to this recommendation.  
-- **Responsibility**: Whether the customer or the service-provider is responsible for implementing this recommendation. Security responsibilities are shared in the public cloud. Some security controls are only available to the cloud service provider and therefore responsibility for addressing those controls falls on Microsoft Azure.  
-- **Details**: How to implement the recommendation on Azure, plus links to documentation for more information. 
+- **Azure ID**: The Azure Security Benchmark ID that corresponds to the recommendation. 
+- **CIS ID**: The CIS benchmark recommendation # that corresponds to this recommendation.
+- **Responsibility**: Whether the customer or the service-provider (or both) is (are) responsible for implementing this recommendation. Security responsibilities are shared in the public cloud. Some security controls are only available to the cloud service provider and therefore the provider is responsible  for addressing those. These are general observations – for some individual services, the responsibility will be different than what is listed in the Azure Security Benchmark. Those differences are described in the baseline recommendations for the individual service.  For more information, see [Shared responsibility in the cloud](../fundamentals/shared-responsibility.md). 
+- **Details**: The rationale for the recommendation and links to guidance on how to implement the recommendation. If the recommendation is supported by Azure Security Center, that information will be listed here.  
 
 We welcome your detailed feedback and active participation in the Azure Security Benchmark effort. If you would like to provide the Benchmark team direct input, please fill out the form at [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).

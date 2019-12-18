@@ -26,6 +26,8 @@ landingContent:
             url: overview.md
           - text: Introduction to Security Controls
             url: introduction.md
+          - text: Shared responsibility in the cloud
+            url: ../fundamentals/shared-responsibility.md
   # Card  
   - title: Security Controls
     linkLists:
@@ -48,6 +50,7 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
+
           - text: Azure Security Fundamentals
             url: ../fundamentals/index.yml
           - text: Azure Security Center
