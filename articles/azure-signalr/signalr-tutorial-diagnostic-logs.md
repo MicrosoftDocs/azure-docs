@@ -61,6 +61,8 @@ All logs are stored in JavaScript Object Notation (JSON) format. Each entry has 
 
 Archive log JSON strings include elements listed in the following tables:
 
+**Format**
+
 Name | Description
 ------- | -------
 time | Log event time
@@ -70,9 +72,8 @@ location | Location of your Azure SignalR Service
 category | Category of the log event
 operationName | Operation name of the event
 callerIpAddress | IP address of your server/client
-properties | Detailed properties related to this log event. For more detail, see [`Properties Table`](#properties-table)
+properties | Detailed properties related to this log event. For more detail, see the properties table below
 
-<a href="properties-table"></a>
 **Properties Table**
 
 Name | Description
