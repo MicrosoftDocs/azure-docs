@@ -48,8 +48,8 @@ landingContent:
   # Card (optional)
   - title: Load data
     linkLists:
-      - linkListType: concept
-        links:
+      # - linkListType: concept
+      #   links:
           # - text: Design data loading strategy
           #   url: design-elt-data-loading.md
           # - text: Best practices

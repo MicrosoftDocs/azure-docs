@@ -211,8 +211,8 @@
     items:
     # - name: Dynamic SQL
     #   href: sql-data-warehouse-develop-dynamic-sql.md
-    - name: Group by options
-      href: sql-data-warehouse-develop-group-by-options.md
+    # - name: Group by options
+    #   href: sql-data-warehouse-develop-group-by-options.md
     # - name: Labels
     #   href: sql-data-warehouse-develop-label.md
   - name: Workload management
