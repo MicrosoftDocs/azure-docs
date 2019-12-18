@@ -38,7 +38,7 @@ The below image describes, where Akamai EAA fits into the broader Hybrid Secure 
 
 ### Key Authentication Scenarios
 
-Apart from Azure Active Directory native integration support for modern authentication protocols like Open ID Connect, SAML and WS-Fed, Akamai EAA extends secure access for legacy-based authentication apps for both internal and external access with Azure AD, enabling modern scenarios (e.g. password-less access) to these applications. This include:
+Apart from Azure Active Directory native integration support for modern authentication protocols like Open ID Connect, SAML and WS-Fed, Akamai EAA extends secure access for legacy-based authentication apps for both internal and external access with Azure AD, enabling modern scenarios (e.g. password-less access) to these applications. This includes:
 
 * Header-based authentication apps
 * Remote Desktop
@@ -47,7 +47,7 @@ Apart from Azure Active Directory native integration support for modern authenti
 * VNC (Virtual Network Computing)
 * Anonymous auth or no inbuilt authentication apps
 * NTLM authentication apps (protection with dual prompts for the user)
-* Forms Based Application (protection with dual prompts for the user)
+* Forms-Based Application (protection with dual prompts for the user)
 
 ### Integration Scenarios
 
@@ -63,7 +63,7 @@ Akamai EAA is configured as a single application on the Azure AD. Admin can conf
 
 **Cons**:
 
-• Users end up having two application portals
+• Users end up having two applications portals
 
 • Single Common CA Policy coverage for all Applications.
 
@@ -71,7 +71,7 @@ Akamai EAA is configured as a single application on the Azure AD. Admin can conf
 
 #### Integration Scenario 2
 
-Akamai EAA Application are set up individually on the Azure AD Portal. Admin can configure Individual he CA Policy on the Application(s) and once the conditions are satisfied users can directly be redirected to the specific application.
+Akamai EAA Application is set up individually on the Azure AD Portal. Admin can configure Individual he CA Policy on the Application(s) and once the conditions are satisfied users can directly be redirected to the specific application.
 
 **Pros**:
 
@@ -193,7 +193,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 **AKAMAI EAA IDP Configuration**
 
-1. Signin to **Akamai Enterprise Application Access** console.
+1. Sign in to **Akamai Enterprise Application Access** console.
 1. On the **Akamai EAA console**, Select **Identity** > **Identity Providers** and click **Add Identity Provider**.
 
 	![Configuring Akamai](./media/header-akamai-tutorial/configure01.png)
@@ -293,7 +293,7 @@ Click Save and Go to Authentication.
 
 #### Advanced Settings
 
-1. Under the **Customer HTTP Headers**, specify the **CustomerHeader** and **SAML Attrtibute**.
+1. Under the **Customer HTTP Headers**, specify the **CustomerHeader** and **SAML Attribute**.
 
     ![Configuring Akamai](./media/header-akamai-tutorial/configure12.png)
 
@@ -401,7 +401,7 @@ Click **Save and go to Advanced Settings**.
 
     e. Specify the Location for the connector and choose the connector.
 
-#### Authencation
+#### Authentication
 
 Click on **Save and go to Services**.
 
@@ -530,7 +530,7 @@ Assign the Identity Provider
     * Specify use any authentication Protocol
     * Click Add and Add the App Pool Account for the Kerberos Website. It should automatically resolve to correct SPN if configured correctly.
 
-#### Step 4 : Create a Keytab File for AKAMAI EAA
+#### Step 4: Create a Keytab File for AKAMAI EAA
 
 1. Here is the generic Syntax.
 
@@ -551,7 +551,7 @@ Assign the Identity Provider
 
     ![Configuring Akamai](./media/header-akamai-tutorial/administrator.png)
 
-#### Step 5 : Import Keytab in the AKAMAI EAA Console
+#### Step 5: Import Keytab in the AKAMAI EAA Console
 
 1. Click **System** > **Keytabs**.
 
