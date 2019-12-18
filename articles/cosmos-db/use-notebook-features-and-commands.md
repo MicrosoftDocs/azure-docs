@@ -121,7 +121,7 @@ You can set the default container ```%%sql``` commands will use for the notebook
 Run ```%container?``` in a cell to see documentation in the notebook.
 
 ## Use built-in nteract data explorer
-You can use the built-in [nteract data explorer](https://blog.nteract.io/designing-the-nteract-data-explorer-f4476d53f897) to filter and visualize a DataFrame. To enable this feature, set the option ``pd.options.display.html.table_schema`` to ``True`` and ``pd.options.display.max_rows`` to the desired value (``None`` to show all results).
+You can use the built-in [nteract data explorer](https://blog.nteract.io/designing-the-nteract-data-explorer-f4476d53f897) to filter and visualize a DataFrame. To enable this feature, set the option ``pd.options.display.html.table_schema`` to ``True`` and ``pd.options.display.max_rows`` to the desired value (you can set ``pd.options.display.max_rows`` to ``None`` to show all results).
 
 ```python
 import pandas as pd
