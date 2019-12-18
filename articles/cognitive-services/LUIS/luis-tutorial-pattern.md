@@ -641,7 +641,7 @@ One of the locations was extracted but the other location was not.
 
 Patterns will help the prediction score, however, the entities must be correctly predicted before the pattern matches the utterance.
 
-## Pattern with roles
+### Create template utterance with entity role
 
 1. Select **Build** in the top navigation.
 
@@ -822,15 +822,7 @@ The varying length includes words that may confuse LUIS about where the entity e
 |Who authored {FormName}[?]|
 |{FormName} is published in French[?]|
 
-## Import example app
-
-1. Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json?raw=true).
-
-1. In the [LUIS portal](https://www.luis.ai), on the **My apps** page, import the JSON into a new app.
-
-1. From the **Manage** section, on the **Versions** tab, clone the version, and name it `patt-any`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
-
-## Add example utterances
+### Add example utterances with Pattern.any
 
 1. Select **Build** from the top navigation, then select **Intents** from left navigation.
 
@@ -858,7 +850,7 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
     If you want the extracted data to include other entities such as number or datetimeV2, you need to create a composite entity that includes the Pattern.any, as well as number and datetimeV2.
 
-## Add a pattern that uses the Pattern.any
+### Add a pattern that uses the Pattern.any
 
 1. Select **Patterns** from the left navigation.
 
@@ -877,7 +869,7 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
 1. Train the app.
 
-## Test the new pattern for free-form data extraction
+### Test the new pattern for free-form data extraction
 1. Select **Test** from the top bar to open the test panel.
 
 1. Enter the following utterance:
