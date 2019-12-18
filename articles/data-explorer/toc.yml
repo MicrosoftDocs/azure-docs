@@ -142,6 +142,12 @@
       href: managed-identities.md
     - name: Manage cluster security
       href: manage-cluster-security.md
+    - name: Configure customer-managed-keys
+      items:
+        - name: C#
+          href: customer-managed-keys-csharp.md
+        - name: Azure Resource Manager template
+          href: customer-managed-keys-resource-manager.md
   - name: Manage
     items:
     - name: Cluster
