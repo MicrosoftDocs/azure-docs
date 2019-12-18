@@ -531,8 +531,6 @@
       href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
   - name: Tutorials
     items:
-    - name: Use Kafka REST proxy
-      href: ./kafka/rest-proxy.md
     - name: Use Apache Kafka Producer and Consumer API
       href: ./kafka/apache-kafka-producer-consumer-api.md
     - name: Develop app with Apache Kafka Streams API
@@ -541,6 +539,8 @@
       href: ./hdinsight-apache-kafka-spark-structured-streaming.md
   - name: Concepts
     items:
+    - name: Use Kafka REST proxy
+      href: ./kafka/rest-proxy.md
     - name: Storage and scalability
       href: ./kafka/apache-kafka-scalability.md
     - name: High availability of data
