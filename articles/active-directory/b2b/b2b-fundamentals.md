@@ -33,6 +33,6 @@ This article contains recommendations and best practices for business-to-busines
 | When developing an app, use UserType to determine guest user experience  | If you're developing an application and you want to provide different experiences for tenant users and guest users, use the UserType property. The UserType claim isn't currently included in the token. Applications should use the Graph API to query the directory for the user to get their UserType. |
 | Change the UserType property *only* if the user’s relationship to the organization changes | Although it’s possible to use PowerShell to convert the UserType property for a user from Member to Guest (and vice-versa), you should change this property only if the relationship of the user to your organization changes. See [Properties of a B2B guest user](user-properties.md).|
 
-## Next Steps
+## Next steps
 
 [Manage B2B sharing](delegate-invitations.md)
