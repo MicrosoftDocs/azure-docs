@@ -142,6 +142,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on **Yuhu Property Management Platform** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Yuhu Property Management Platform support team](mailto:hello@yuhu.io). They set this setting to have the SAML SSO connection set properly on both sides.
 
+### Create Yuhu Property Management Platform test user
+
+In this section, you create a user called B.Simon in Yuhu Property Management Platform. Work with [Yuhu Property Management Platform support team](mailto:hello@yuhu.io) to add the users in the Yuhu Property Management Platform platform. Users must be created and activated before you use single sign-on.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
