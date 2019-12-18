@@ -92,7 +92,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     reported state property as online
     ```
 
-1. In the the **/azure-iot-samples-node/digital-twins/Quickstarts/Service** folder, open the file **get_digital_twin.js**. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your device ID and save the file.
+1. In the **/azure-iot-samples-node/digital-twins/Quickstarts/Service** folder, open the file **get_digital_twin.js**. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your device ID and save the file.
 
 1. Go to the _service_ terminal and use the following command to run the sample for reading device information:
 

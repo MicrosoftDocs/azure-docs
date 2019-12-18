@@ -54,7 +54,7 @@ In VS Code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug a
     - **CMake Project on Linux**: for a device project that uses [CMake](https://cmake.org/) as build system on Linux. This option generates `CMakeLists.txt` with device SDK configurations in the same folder as the C code.
     - **MXChip IoT DevKit project**: for a device project that runs on an [MXChip IoT DevKit](https://aka.ms/iot-devkit) device. This option generates an Arduino project that you can [use in VS Code](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) or in the Arduino IDE to build and run on an IoT DevKit device.
 
-- **Device SDK type**. If you selects CMake as project type, this is the step to configure how generated code will include Azure IoT C device SDK in the `CMakeLists.txt`:
+- **Device SDK type**. If you select CMake as project type, this is the step to configure how generated code will include Azure IoT C device SDK in the `CMakeLists.txt`:
 
     - **Via Source Code**: the generated code relies on the [device SDK source code](https://github.com/Azure/azure-iot-sdk-c) to include in and build together with it. This is recommended when you have customized the device SDK source code.
     - **Via Vcpkg**: the generated code relies on the [device SDK Vcpkg](https://github.com/microsoft/vcpkg/tree/master/ports/azure-iot-sdk-c) to include in and build together with it. This is the recommended way for devices running Windows, Linux or macOS.
@@ -153,7 +153,7 @@ To build the device code together with the device C SDK on Windows using CMake a
 
 1. Install [Visual Studio 2019 (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload.
 
-1. Open Visual Studio, choose **File > Open > CMake..** to open the `CMakeLists.txt` in the folder contains generated code.
+1. Open Visual Studio, choose **File > Open > CMake...** to open the `CMakeLists.txt` in the folder contains generated code.
 
 1. In the **General** toolbar, find the **Configurations** dropdown. Select **Manage Configuration** to add the CMake setting for your project.
 

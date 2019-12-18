@@ -79,7 +79,7 @@ select * from devices where HAS_CAPABILITYMODEL('id without version', version)
 
 ### Creating digital twin routes
 
-Your solution can receive notifications of digital twin change events. To subscribe to these notifications, use the [IoT Hub routing feature](../iot-hub/iot-hub-devguide-endpoints.md) to send the notifications to an endpoint such as as blob storage, Event Hubs, or a Service Bus queue.
+Your solution can receive notifications of digital twin change events. To subscribe to these notifications, use the [IoT Hub routing feature](../iot-hub/iot-hub-devguide-endpoints.md) to send the notifications to an endpoint such as blob storage, Event Hubs, or a Service Bus queue.
 
 To create a digital twin route:
 
