@@ -1,5 +1,5 @@
 ---
-title: How to use cards with a Conversation Learner model, part 1 - Microsoft Cognitive Services | Microsoft Docs
+title: How to use cards with a Conversation Learner model, part 1 - Cognitive Research Technologies | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to use cards with a Conversation Learner model.
 services: cognitive-services

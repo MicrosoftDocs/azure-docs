@@ -1,5 +1,5 @@
 ---
-title: How to use Conversation Learner with other bot building technologies - Microsoft Cognitive Services | Microsoft Docs
+title: How to use Conversation Learner with other bot building technologies - Cognitive Research Technologies | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to use Conversation Learner with other bot building technologies.
 services: cognitive-services

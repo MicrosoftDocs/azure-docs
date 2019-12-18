@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Project Answer Search, Python"
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Python example get started using Project Answer Search.
 services: cognitive-services
 author: mikedodaro
@@ -19,7 +19,7 @@ The following Python example creates and sends a request for information about "
 
 ## Prerequisites
 
-Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
+Get an access key for the free trial [Cognitive Research Technologies](https://www.microsoft.com/en-us/research/project/answer-search/)
 
 This example uses Python 3.6.4
 

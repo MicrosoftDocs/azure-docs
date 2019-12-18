@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Project URL Preview, C#"
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Get started using Project URL Preview with C#.
 services: cognitive-services
 author: mikedodaro
@@ -22,7 +22,7 @@ The following C# example creates a Url Preview for the SwiftKey Web site: https:
 
 You will need [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
 
-Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
+Get an access key for the free trial [Cognitive Research Technologies](https://www.microsoft.com/en-us/research/project/answer-search/)
 
 ## Code scenario
 

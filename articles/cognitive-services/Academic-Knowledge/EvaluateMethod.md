@@ -1,6 +1,6 @@
 ---
 title: Evaluate method - Academic Knowledge API
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Use the Evaluate method to return a set of academic entities based on a query expression.
 services: cognitive-services
 author: alch-msft

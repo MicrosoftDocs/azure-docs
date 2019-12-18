@@ -1,5 +1,5 @@
 ---
-title: How to use Version Tagging with a Conversation Learner Model - Azure Cognitive Services | Microsoft Docs
+title: How to use Version Tagging with a Conversation Learner Model - Cognitive Research Technologies | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to use versioning and tagging with a Conversation Learner model.
 services: cognitive-services

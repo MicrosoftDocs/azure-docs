@@ -1,6 +1,6 @@
 ---
 title: What is Knowledge Exploration Service?
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Add interactive search and refinement to your app with Knowledge Exploration Service (KES).
 services: cognitive-services
 author: bojunehsu
@@ -21,7 +21,7 @@ See [Getting Started](GettingStarted.md) for a sample walkthrough of how to use 
 
 ![AcademicAutoComplete](AutoComplete.png)
 
-KES has moved from Cognitive Services Preview to Cognitive Services Labs. The new homepage for the project is [https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration](https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration).
+KES has moved from Cognitive Services Preview to Cognitive Research Technologies. The new homepage for the project is [https://www.microsoft.com/en-us/research/project/knowledge-exploration/](https://www.microsoft.com/en-us/research/project/knowledge-exploration/).
 
 ## Reference
 

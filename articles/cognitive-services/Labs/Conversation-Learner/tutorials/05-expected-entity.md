@@ -1,5 +1,5 @@
 ---
-title: How to use the "Expected Entity" property of Conversation Learner Actions - Microsoft Cognitive Services | Microsoft Docs
+title: How to use the "Expected Entity" property of Conversation Learner Actions - Cognitive Research Technologies | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to use the "Expected Entity" property of a Conversation Learner Model.
 services: cognitive-services

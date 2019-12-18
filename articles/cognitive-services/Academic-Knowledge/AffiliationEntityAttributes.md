@@ -1,6 +1,6 @@
 ---
 title: Affiliation entity attributes in the Academic Knowledge API
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Learn the attributes you can use with the Affiliation entity in the Academic Knowledge API.
 services: cognitive-services
 author: darrine

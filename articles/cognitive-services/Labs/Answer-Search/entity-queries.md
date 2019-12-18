@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Project Answer Search Entity query"
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Queries for Entities using Project Answer Search
 services: cognitive-services
 author: mikedodaro

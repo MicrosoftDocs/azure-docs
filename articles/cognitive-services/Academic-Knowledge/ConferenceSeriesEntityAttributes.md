@@ -1,6 +1,6 @@
 ---
 title: Conference Series entity attributes - Academic Knowledge API
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Learn about the attributes you can use with the Conference Series entity.
 services: cognitive-services
 author: darrine

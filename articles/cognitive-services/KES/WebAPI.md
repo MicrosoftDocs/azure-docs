@@ -1,6 +1,6 @@
 ---
 title: Web API interface - Knowledge Exploration Service API
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Use the web API interface to create a rich, semantic search experience in the Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu

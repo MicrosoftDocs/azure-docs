@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Project URL Preview, JavaScript"
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Script sample to quickly get started using the Bing URL Preview API with JavaScript.
 services: cognitive-services
 author: mikedodaro
@@ -20,7 +20,7 @@ The following single-page application uses JavaScript to create a URL Preview fo
 
 ## Prerequisites
 
-Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
+Get an access key for the free trial [Cognitive Research Technologies](https://www.microsoft.com/en-us/research/project/url-preview/)
 
 ## Code scenario
 The following javascript example includes a textbox input object where the user enters the URL to preview.  When the user clicks the **Preview** button, the onclick method routes to `getPreview` where code generates a Web request to the **UrlPreview** endpoint.

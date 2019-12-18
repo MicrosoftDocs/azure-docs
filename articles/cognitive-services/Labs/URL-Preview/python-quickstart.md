@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Project URL Preview, Python"
-titlesuffix: Azure Cognitive Services
+titlesuffix: Cognitive Research Technologies
 description: Script sample to quickly get started using the Project URL Previewwith Python.
 services: cognitive-services
 author: mikedodaro
@@ -19,7 +19,7 @@ The following Python example creates a Url Preview for the SwiftKey Web site: ht
 
 ## Prerequisites
 
-Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
+Get an access key for the free trial [Cognitive Research Technologies](https://www.microsoft.com/en-us/research/project/answer-search/)
 
 This example uses Python 3.6.
 

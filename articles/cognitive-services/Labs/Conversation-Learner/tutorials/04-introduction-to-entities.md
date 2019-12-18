@@ -1,5 +1,5 @@
 ---
-title: How to use entities with a Conversation Learner Model - Microsoft Cognitive Services | Microsoft Docs
+title: How to use entities with a Conversation Learner Model - Cognitive Research Technologies | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to use entities with a Conversation Learner Model.
 services: cognitive-services
