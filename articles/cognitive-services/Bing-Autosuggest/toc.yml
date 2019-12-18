@@ -23,6 +23,7 @@
   - name: Ruby
     href: quickstarts/ruby.md
 - name: Client library
+  items:
   - name: C#
     href: quickstarts/csharp-sdk.md
   - name: Go
