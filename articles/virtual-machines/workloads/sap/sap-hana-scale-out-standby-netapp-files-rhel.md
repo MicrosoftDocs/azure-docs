@@ -628,15 +628,15 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
 5. **[A]** Re-enable the firewall.  
    - Stop HANA
-    <pre><code>
-     sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StopSystem HDB
-    </code></pre>
+       <pre><code>
+        sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StopSystem HDB
+       </code></pre>
    - Re-enable the firewall
-    <pre><code>
-     # Execute as root
-     systemctl start firewalld
-     systemctl enable firewalld
-    </code></pre>
+       <pre><code>
+        # Execute as root
+        systemctl start firewalld
+        systemctl enable firewalld
+       </code></pre>
 
    - Open the necessary firewall ports
 
