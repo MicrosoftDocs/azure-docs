@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 12/02/2019
 ms.author: juliako
 ---
 
@@ -23,6 +23,43 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## November 2019
+ 
+* Korean custom language models support
+
+    Video indexer now supports custom language models in Korean (`ko-KR`) in both the API and portal. 
+* New languages supported for speech-to-text (STT)
+
+    Video Indexer APIs now support STT in Arabic Levantine (ar-SY), English UK dialect (en-GB), and English Australian dialect (en-AU).
+    
+    For video upload, we replaced zh-HANS to zh-CN, both are supported but zh-CN is recommended and more accurate.
+    
+## October 2019
+ 
+* Search for animated characters in the gallery
+
+    When indexing animated characters, you can now search for them in the account’s video galley. For more information, see [Animated characters recognition](animated-characters-recognition.md).
+
+## September 2019
+ 
+Multiple advancements announced at IBC 2019:
+ 
+* Animated character recognition  (public preview)
+
+    Ability to detect group ad recognize characters in animated content, via integration with custom vision. For more information, see [Animated character detection](animated-characters-recognition.md).
+* Multi-language identification (public preview)
+
+    Detect segments in multiple languages in the audio track and create a multilingual transcript based on them. Initial support: English, Spanish, German and French. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
+* Named entity extraction for People and Location
+
+    Extracts brands, locations, and people from speech and visual text via natural language processing (NLP).
+* Editorial shot type classification
+
+    Tagging of shots with editorial types such as close up, medium shot, two shot, indoor, outdoor etc. For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
+* Topic inferencing enhancement - now covering level 2
+    
+    The topic inferencing model now support deeper granularity of the IPTC taxonomy. Read full details at [Azure Media Services new AI-powered innovation](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
 ## August 2019
  

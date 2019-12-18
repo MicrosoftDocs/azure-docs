@@ -1,7 +1,7 @@
 ---
 title: "Image classification tutorial: Deploy models"
-titleSuffix: Azure Machine Learning service
-description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is the second of a two-part series.
+titleSuffix: Azure Machine Learning
+description: This tutorial shows how to use Azure Machine Learning to deploy an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is the second of a two-part series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,12 +15,13 @@ ms.custom: seodec18
 ---
 
 # Tutorial: Deploy an image classification model in Azure Container Instances
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
 
 Now you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). A web service is an image, in this case a Docker image. It encapsulates the scoring logic and the model itself. 
 
-In this part of the tutorial, you use Azure Machine Learning service for the following tasks:
+In this part of the tutorial, you use Azure Machine Learning for the following tasks:
 
 > [!div class="checklist"]
 > * Set up your testing environment.
@@ -36,9 +37,15 @@ Container Instances is a great solution for testing and understanding the workfl
 
 ## Prerequisites
 
-To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model](tutorial-train-models-with-aml.md).   Then open the  **tutorials/img-classification-part2-deploy.ipynb** notebook using the same notebook server.
+To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model](tutorial-train-models-with-aml.md).   Then open the  **img-classification-part2-deploy.ipynb** notebook in your cloned **tutorials** folder.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed `matplotlib` and `scikit-learn` in your environment. 
+
+> [!Important]
+> The rest of this article contains the same content as you see in the notebook.  
+>
+> Switch to the Jupyter notebook now if you want to read along as you run the code.
+> To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
 ## <a name="start"></a>Set up the environment
 
@@ -57,7 +64,7 @@ import matplotlib.pyplot as plt
 import azureml
 from azureml.core import Workspace, Run
 
-# display the core SDK version number
+# Display the core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```
 
@@ -202,7 +209,7 @@ from azureml.core.model import Model
 def init():
     global model
     # retrieve the path to the model file using the model name
-    model_path = Model.get_model_path('sklearn_mnist')
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
     model = joblib.load(model_path)
 
 def run(raw_data):
@@ -217,13 +224,14 @@ def run(raw_data):
 
 ### Create environment file
 
-Next create an environment file, called **myenv.yml**, that specifies all of the script's package dependencies. This file is used to make sure that all of those dependencies are installed in the Docker image. This model needs `scikit-learn` and `azureml-sdk`:
+Next create an environment file, called **myenv.yml**, that specifies all of the script's package dependencies. This file is used to make sure that all of those dependencies are installed in the Docker image. This model needs `scikit-learn` and `azureml-sdk`. All custom environment files need to list azureml-defaults with verion >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
 
 ```python
-from azureml.core.conda_dependencies import CondaDependencies 
+from azureml.core.conda_dependencies import CondaDependencies
 
 myenv = CondaDependencies()
 myenv.add_conda_package("scikit-learn")
+myenv.add_pip_package("azureml-defaults")
 
 with open("myenv.yml", "w") as f:
     f.write(myenv.serialize_to_string())
@@ -263,17 +271,18 @@ Configure the image and deploy. The following code goes through these steps:
 1. Start up a container in Container Instances by using the image.
 1. Get the web service HTTP endpoint.
 
+Please note that if you are defining your own environment file, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
 
 ```python
 %%time
 from azureml.core.webservice import Webservice
 from azureml.core.model import InferenceConfig
+from azureml.core.environment import Environment
 
-inference_config = InferenceConfig(runtime= "python", 
-                                   entry_script="score.py",
-                                   conda_file="myenv.yml")
+myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
+inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 
-service = Model.deploy(workspace=ws, 
+service = Model.deploy(workspace=ws,
                        name='sklearn-mnist-svc',
                        models=[model], 
                        inference_config=inference_config,
@@ -375,7 +384,7 @@ service.delete()
 
 ## Next steps
 
-+ Learn about all of the [deployment options for Azure Machine Learning service](how-to-deploy-and-where.md).
++ Learn about all of the [deployment options for Azure Machine Learning](how-to-deploy-and-where.md).
 + Learn how to [create clients for the web service](how-to-consume-web-service.md).
 +  [Make predictions on large quantities of data](how-to-run-batch-predictions.md) asynchronously.
 + Monitor your Azure Machine Learning models with [Application Insights](how-to-enable-app-insights.md).

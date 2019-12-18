@@ -1,10 +1,10 @@
 ---
-title: Azure PowerShell script - Account key and connection string operations for an Azure Cosmos account
+title: PowerShell script to get key and connection string operations for an Azure Cosmos account
 description: Azure PowerShell script sample - Account key and connection string operations for an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/20/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
 ---
 
@@ -16,7 +16,8 @@ ms.author: mjbrown
 
 ## Sample script
 
-This samples requires the resource group and account to exist. Use an existing PowerShell create sample to provision an account first.
+> [!NOTE]
+> This sample demonstrates using a SQL (Core) API account. To use this sample for other APIs, copy the related properties and apply to your API specific script
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 

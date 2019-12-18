@@ -62,5 +62,6 @@ Additional information on using the [Metrics Explorer](/azure/azure-monitor/plat
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Quickstart: Query data in Azure Data Explorer](web-query-data.md)
+* [Tutorial: Ingest and query monitoring data in Azure Data Explorer](/azure/data-explorer/ingest-data-no-code)
+* [Monitor Azure Data Explorer ingestion operations using diagnostic logs](/azure/data-explorer/using-diagnostic-logs)
+* [Quickstart: Query data in Azure Data Explorer](web-query-data.md)

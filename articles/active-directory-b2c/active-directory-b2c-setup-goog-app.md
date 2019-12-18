@@ -1,5 +1,6 @@
 ---
-title: Set up sign-up and sign-in with a Google account - Azure Active Directory B2C
+title: Set up sign-up and sign-in with a Google account
+titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Google accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -17,7 +18,7 @@ ms.subservice: B2C
 
 ## Create a Google application
 
-To use a Google account as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don't already have a Google account you can sign up at [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+To use a Google account as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your tenant that represents it. If you don't already have a Google account you can sign up at [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
 
 1. Sign in to the [Google Developers Console](https://console.developers.google.com/) with your Google account credentials.
 1. In the upper-left corner of the page, select the project list, and then select **New Project**.

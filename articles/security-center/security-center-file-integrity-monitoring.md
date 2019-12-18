@@ -1,11 +1,10 @@
 ---
 title: File Integrity Monitoring in Azure Security Center | Microsoft Docs
-description: " Learn how to enable File Integrity Monitoring in Azure Security Center. "
+description: Learn how to configure File Integrity Monitoring (FIM) in Azure Security Center using this walkthrough.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
@@ -14,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
-ms.author: v-mohabe
+ms.author: memildin
 
 ---
 # File Integrity Monitoring in Azure Security Center
@@ -90,7 +89,7 @@ The **File integrity monitoring** dashboard displays for workspaces where FIM is
 
 ![File Integrity Monitoring dashboard][6]
 
-The FIM dashboard for a workspace displays the following:
+The FIM dashboard for a workspace displays the following details:
 
 - Total number of machines connected to the workspace
 - Total number of changes that occurred during the selected time period
@@ -196,7 +195,7 @@ You can disable FIM. FIM uses the Azure Change Tracking solution to track and id
 4. Select **Remove** to disable.
 
 ## Next steps
-In this article you learned to use File Integrity Monitoring (FIM) in Security Center. To learn more about Security Center, see the following:
+In this article, you learned to use File Integrity Monitoring (FIM) in Security Center. To learn more about Security Center, see the following pages:
 
 * [Setting security policies](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.

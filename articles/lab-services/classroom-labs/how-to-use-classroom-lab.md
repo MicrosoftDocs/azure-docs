@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/19/2019
+ms.date: 09/19/2019
 ms.author: spelluru
 
 ---
@@ -24,8 +24,11 @@ This article describes how to register to a classroom lab, view all the labs tha
 
 1. Navigate to the **registration URL** that you received from the professor/educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 isn't supported yet. 
 1. Sign in to the service using your school account to complete the registration. 
-2. Once registered, confirm that you see the virtual machine for the lab you have access to. 
-3. Wait until the virtual machine is ready. On the VM tile, notice the following fields:
+
+    > [!NOTE]
+    > A Microsoft account is required for using Azure Lab Services. If you are trying to use your non-Microsoft account such as Yahoo or Google accounts to sign in to the portal, follow instructions to create a Microsoft account that will be linked to your non-Microsoft account. Then, follow the steps to complete the registration process. 
+1. Once registered, confirm that you see the virtual machine for the lab you have access to. 
+1. Wait until the virtual machine is ready. On the VM tile, notice the following fields:
     1. At the top of the tile, you see the **name of the lab**.
     1. To its right, you see the icon representing the **operating system (OS)** of the VM. In this example, it's Windows OS. 
     1. You see icons/buttons at the bottom of the tile to start/stop the VM, and connect to the VM. 
@@ -100,7 +103,7 @@ After you register to the labs, you can view all the classroom labs by taking th
 2. Sign in to the service by using the user account that you used to register to the lab. 
 3. Confirm that you see all the labs you have access to. 
 
-    ![View all labs](../media/how-to-use-classroom-lab/all-labs.png)
+    ![View all labs](../media/how-to-manage-classroom-labs/all-labs.png)
 
 
 ## Next steps

@@ -28,7 +28,7 @@ In this quickstart, you incorporate Azure App Configuration into a Java Spring a
 - A supported [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) with version 8.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
-## Create an app configuration store
+## Create an App Configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -55,7 +55,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
 
 3. After you specify the previous options, select **Generate Project**. When prompted, download the project to a path on your local computer.
 
-## Connect to an app configuration store
+## Connect to an App Configuration store
 
 1. After you extract the files on your local system, your simple Spring Boot application is ready for editing. Locate the *pom.xml* file in the root directory of your app.
 
@@ -65,7 +65,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M3</version>
+        <version>1.1.0.M5</version>
     </dependency>
     ```
 
@@ -116,7 +116,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
     }
     ```
 
-6. Create a new file named `bootstrap.properties` under the resources directory of your app, and add the following lines to the file. Replace the sample values with the appropriate properties for your app configuration store.
+6. Create a new file named `bootstrap.properties` under the resources directory of your app, and add the following lines to the file. Replace the sample values with the appropriate properties for your App Configuration store.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
@@ -135,7 +135,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
       ```shell
       curl -X GET http://localhost:8080/
       ```
-    You see the message that you entered in the app configuration store.
+    You see the message that you entered in the App Configuration store.
 
 ## Clean up resources
 
@@ -143,9 +143,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
 
 ## Next steps
 
-In this quickstart, you created a new app configuration store and used it with a Java Spring app. For more information, see [Spring on Azure](https://docs.microsoft.com/java/azure/spring-framework/).
-
-To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
+In this quickstart, you created a new App Configuration store and used it with a Java Spring app. For more information, see [Spring on Azure](https://docs.microsoft.com/java/azure/spring-framework/). To learn how to use an Azure managed identity to streamline access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

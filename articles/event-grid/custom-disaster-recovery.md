@@ -1,12 +1,12 @@
 ---
-title: 'Build your own disaster recovery for Custom Topics in Azure Event Grid | Microsoft Docs'
-description: Survive regional outages to keep Azure Event Grid connected.
+title: Disaster recovery for custom topics in Azure Event Grid
+description: Learn how to survive regional outages to keep Azure Event Grid connected.
 services: event-grid
 author: banisadr
 
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/16/2019
+ms.date: 10/22/2019
 ms.author: babanisa
 
 ---

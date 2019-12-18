@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database purchasing models | Microsoft Docs'
+title: Purchasing models
 description: Learn about the purchasing models that are available for Azure SQL Database.  
 services: sql-database
 ms.service: sql-database
@@ -16,7 +16,7 @@ ms.date: 04/26/2019
 
 Azure SQL Database lets you easily purchase a fully managed platform as a service (PaaS) database engine that fits your performance and cost needs. Depending on the deployment model you've chosen for Azure SQL Database, you can select the purchasing model that works for you:
 
-- [Virtual core (vCore)-based purchasing model](sql-database-service-tiers-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless (preview) compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. With this compute tier, you can also automatically pause and resume the database based on workload activity. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier.
+- [Virtual core (vCore)-based purchasing model](sql-database-service-tiers-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. With this compute tier, you can also automatically pause and resume the database based on workload activity. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier.
 - [Database transaction unit (DTU)-based purchasing model](sql-database-service-tiers-dtu.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
 
 Different purchasing models are available for different Azure SQL Database deployment models:
@@ -47,7 +47,7 @@ The cost of backup storage is the same for the business critical service tier an
 
 ### Serverless compute costs
 
-For a description of how compute capacity is defined and costs are calculated for the serverless compute tier, see [SQL Database serverless (preview)](sql-database-serverless.md).
+For a description of how compute capacity is defined and costs are calculated for the serverless compute tier, see [SQL Database serverless](sql-database-serverless.md).
 
 ## Storage costs
 
@@ -123,7 +123,7 @@ If you want to migrate an existing on-premises or SQL Server virtual machine wor
 
 ### Workloads that benefit from an elastic pool of resources
 
-Pools are well-suited for databases with a low resource-utilization average and relatively infrequent utilization spikes. SQL Database automatically evaluates the historical resource usage of databases on an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. For more information, see [When should you consider a SQL Database elastic pool?](sql-database-elastic-pool.md).
+Pools are well-suited for databases with a low resource-utilization average and relatively infrequent utilization spikes. For more information, see [When should you consider a SQL Database elastic pool?](sql-database-elastic-pool.md).
 
 ## Frequently asked questions (FAQs)
 

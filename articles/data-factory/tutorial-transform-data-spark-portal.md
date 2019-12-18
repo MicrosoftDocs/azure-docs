@@ -1,16 +1,16 @@
 ---
-title: 'Transform data by using Spark in Azure Data Factory | Microsoft Docs'
+title: 'Transform data by using Spark in Azure Data Factory '
 description: 'This tutorial provides step-by-step instructions for transforming data by using a Spark activity in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: tutorial
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
 ---
 # Transform data in the cloud by using a Spark activity in Azure Data Factory
 In this tutorial, you use the Azure portal to create an Azure Data Factory pipeline. This pipeline transforms data by using a Spark activity and an on-demand Azure HDInsight linked service. 
@@ -147,7 +147,7 @@ You author two linked services in this section:
    
    e. For **Service principal id**, enter the ID of the service principal that has permission to create an HDInsight cluster. 
    
-      This service principal needs to be a member of the Contributor role of the subscription or the resource group in which the cluster is created. For more information, see [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md).
+      This service principal needs to be a member of the Contributor role of the subscription or the resource group in which the cluster is created. For more information, see [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). The **Service principal id** is equivalent to the *Application ID*, and a **Service principal key** is equivalent to the value for a *Client secret*.
    
    f. For **Service principal key**, enter the key. 
    

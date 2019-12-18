@@ -4,12 +4,12 @@ description: Provides the solution for a problem in which No subscriptions found
 services: ''
 documentationcenter: ''
 author: genlin
-manager: adpick
+manager: dcscontentpm
 editor: ''
 tags: billing
 
 ms.assetid: d1545298-99db-4941-8e97-f24a06bb7cb6
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

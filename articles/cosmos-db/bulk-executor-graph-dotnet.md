@@ -1,10 +1,10 @@
 ---
-title: Using the graph bulk executor .NET library to perform bulk operations in Azure Cosmos DB Gremlin API
+title: Use the graph bulk executor .NET library with Azure Cosmos DB Gremlin API
 description: Learn how to use the bulk executor library to massively import graph data into an Azure Cosmos DB Gremlin API container.
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
@@ -68,7 +68,7 @@ catch (Exception e)
 }
 ```
 
-For more information on the parameters of the bulk executor library, refer to the [BulkImportData to Azure Cosmos DB topic](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#bulk-import-data-to-azure-cosmos-db).
+For more information on the parameters of the bulk executor library, refer to the [BulkImportData to Azure Cosmos DB topic](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
 
 The payload needs to be instantiated into `GremlinVertex` and `GremlinEdge` objects. Here is how these objects can be created:
 

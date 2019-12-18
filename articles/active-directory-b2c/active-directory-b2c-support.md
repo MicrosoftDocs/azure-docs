@@ -14,7 +14,7 @@ ms.subservice: B2C
 ---
 
 # Azure Active Directory B2C: File Support Requests
-You can file support requests for Azure Active Directory (Azure AD) B2C on the Azure portal using the following steps:
+You can file support requests for Azure Active Directory B2C (Azure AD B2C) on the Azure portal using the following steps:
 
 1. Switch from your B2C tenant to another tenant that has an Azure subscription associated with it. Typically, the latter is your employee tenant or the default tenant created for you when you signed up for an Azure subscription. To learn more, see [how an Azure subscription is related to Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

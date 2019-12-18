@@ -1,6 +1,6 @@
 ---
-title: Auto-grow Azure Database for PostgreSQL storage - Single Server using Azure CLI
-description: This article describes how you can enable auto grow storage using the Azure CLI in Azure Database for PostgreSQL - Single Server.
+title: Auto-grow storage - Azure CLI - Azure Database for PostgreSQL - Single Server
+description: This article describes how you can configure storage auto-grow using the Azure CLI in Azure Database for PostgreSQL - Single Server.
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
@@ -32,7 +32,7 @@ az postgres server update --name mydemoserver --resource-group myresourcegroup -
 Enable server auto-grow storage while creating a new server with the following command:
 
 ```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mydemoserver  --auto-grow Enabled --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver  --auto-grow Enabled --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
 
 ## Next steps

@@ -1,8 +1,9 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB create Gremlin API database and graph
+title: PowerShell script to create Azure Cosmos DB Gremlin API database and graph
 description: Azure PowerShell script - Azure Cosmos DB create Gremlin API database and graph
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown

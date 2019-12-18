@@ -3,13 +3,9 @@ title: My first PowerShell Workflow runbook in Azure Automation
 description: Tutorial that walks you through the creation, testing, and publishing of a simple text runbook using PowerShell Workflow.
 keywords: powershell workflow, powershell workflow examples, workflow powershell
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 09/24/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # My first PowerShell Workflow runbook
 
@@ -117,7 +113,7 @@ The runbook that you created is still in Draft mode. You must publish it before 
 
 ## Step 5 - Add authentication to manage Azure resources
 
-You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It can't do that though unless you've authenticated using the credentials that are referred to in the [prerequisites](#prerequisites). You do that with the **Connect-AzureRmAccount** cmdlet.
+You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It can't do that though unless you've authenticated using the credentials that are referred to in the [prerequisites](#prerequisites). You do that with the **Connect-AzAccount** cmdlet.
 
 1. Open the textual editor by clicking **Edit** on the MyFirstRunbook-Workflow pane.
 2. you don't need the **Write-Output** line anymore, so go ahead and delete it.
@@ -126,17 +122,17 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 
    ```powershell-interactive
    # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
+   $AzureContext = Select-AzSubscription -SubscriptionId $Conn.SubscriptionID
    ```
 
    > [!IMPORTANT]
-   > **Add-AzureRmAccount** and **Login-AzureRmAccount** are now  aliases for **Connect-AzureRMAccount**. If the **Connect-AzureRMAccount** cmdlet does not exist, you can use **Add-AzureRmAccount** or **Login-AzureRmAccount**, or you can [update your modules](automation-update-azure-modules.md) in your Automation Account to the latest versions.
+   > **Add-AzAccount** and **Login-AzAccount** are now  aliases for **Connect-AzAccount**. If the **Connect-AzAccount** cmdlet does not exist, you can use **Add-AzAccount** or **Login-AzAccount**, or you can [update your modules](automation-update-azure-modules.md) in your Automation Account to the latest versions.
 
 > [!NOTE]
 > You might need to [update your modules](automation-update-azure-modules.md) even though you have just created a new automation account.
@@ -148,22 +144,22 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 
 ## Step 6 - Add code to start a virtual machine
 
-Now that your runbook is authenticating to your Azure subscription, you can manage resources. you add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now you're hardcoding that name in the runbook. If you're managing resources across multiple subscriptions, you need to use the **-AzureRmContext** parameter along with [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
+Now that your runbook is authenticating to your Azure subscription, you can manage resources. you add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now you're hardcoding that name in the runbook. If you're managing resources across multiple subscriptions, you need to use the **-AzContext** parameter along with [Get-AzContext](/powershell/module/az.accounts/get-azcontext).
 
-1. After *Connect-AzureRmAccount*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.
+1. After *Connect-AzAccount*, type *Start-AzVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
    {
-   # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   # Ensures you do not inherit an AzContext in your runbook
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
+   $AzureContext = Select-AzSubscription -SubscriptionId $Conn.SubscriptionID
 
-   Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName' -AzureRmContext $AzureContext
+   Start-AzVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName' -AzContext $AzureContext
    }
    ```
 
@@ -174,7 +170,7 @@ Now that your runbook is authenticating to your Azure subscription, you can mana
 
 your runbook currently starts the virtual machine that you hardcoded in the runbook, but it would be more useful if you could specify the virtual machine when the runbook is started. You add input parameters to the runbook to provide that functionality.
 
-1. Add parameters for *VMName* and *ResourceGroupName* to the runbook and use these variables with the **Start-AzureRmVM** cmdlet as in the example below.
+1. Add parameters for *VMName* and *ResourceGroupName* to the runbook and use these variables with the **Start-AzVM** cmdlet as in the example below.
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
@@ -183,12 +179,12 @@ your runbook currently starts the virtual machine that you hardcoded in the runb
      [string]$VMName,
      [string]$ResourceGroupName
     )
-   # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   # Ensures you do not inherit an AzContext in your runbook
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-   Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Start-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
    }
    ```
 
@@ -204,7 +200,7 @@ your runbook currently starts the virtual machine that you hardcoded in the runb
 
 ## Next steps
 
-* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
 * To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
 * To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)

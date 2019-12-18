@@ -1,14 +1,14 @@
 ---
-title: Preview Azure administrator roles with customizable permissions - Azure Active Directory | Microsoft Docs
+title: Custom administrator roles in Azure Active Directory | Microsoft Docs
 description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -72,4 +72,4 @@ A scope is the restriction of permitted actions to a particular Azure AD resourc
 ## Next steps
 
 - Create custom role assignments using [the Azure portal, Azure AD PowerShell, and Graph API](roles-create-custom.md)
-- [View the assignments for a custom role](roles-view-assignments.md#view-assignments-of-a-role-with-single-application-scope-preview)
+- [View the assignments for a custom role](roles-view-assignments.md#view-assignments-of-single-application-scope)

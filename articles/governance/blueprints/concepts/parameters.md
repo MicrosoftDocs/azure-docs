@@ -1,12 +1,8 @@
 ---
 title: Use parameters to creating dynamic blueprints
-description: Learn about static and dynamic parameters and how using them creates dynamic blueprints.
-author: DCtheGeek
-ms.author: dacoulte
+description: Learn about static and dynamic parameters and how to use them to create secure and dynamic blueprints.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.service: blueprints
-manager: carmonm
 ---
 # Creating dynamic blueprints through parameters
 
@@ -18,7 +14,7 @@ assignment, to change properties on the artifacts deployed by the blueprint.
 
 A simple example is the resource group artifact. When a resource group is created, it has two
 required values that must be provided: name and location. When adding a resource group to your
-blueprint, if parameters didn’t exist, you would define that name and location for every use of the
+blueprint, if parameters didn't exist, you would define that name and location for every use of the
 blueprint. This repetition would cause every use of the blueprint to create artifacts in the same
 resource group. Resources inside that resource group would become duplicated and cause a conflict.
 

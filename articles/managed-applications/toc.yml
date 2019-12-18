@@ -31,6 +31,8 @@
     href: publish-marketplace-app.md 
   - name: Create managed application with custom provider
     href: tutorial-create-managed-app-with-custom-provider.md
+  - name: Resource onboarding with custom providers
+    href: tutorial-custom-providers-resource-onboarding.md
 - name: Samples
   items:
   - name: The Azure CLI
@@ -45,6 +47,14 @@
     href: custom-providers-overview.md
   - name: View definition artifact
     href: concepts-view-definition.md
+  - name: Role definition artifact
+    href: concepts-custom-role-definition.md
+  - name: Resource onboarding
+    href: concepts-custom-providers-resourceonboarding.md
+  - name: Azure Policy for custom provider associations
+    href: concepts-custom-providers-built-in-policy.md
+  - name: Azure Policy for managed application associations
+    href: concepts-managed-applications-built-in-policy.md
 - name: How-to guides
   items:
   - name: Custom providers
@@ -69,6 +79,8 @@
       href: key-vault-access.md
     - name: Deploy with Managed Identity
       href: publish-managed-identity.md
+    - name: Deploy with Notifications
+      href: publish-notifications.md    
   - name: Consumers
     items:
     - name: Monitor managed application
@@ -118,6 +130,8 @@
         href: microsoft-common-passwordbox.md
       - name: Section
         href: microsoft-common-section.md
+      - name: TagsByResource
+        href: microsoft-common-tagsbyresource.md
       - name: TextBlock
         href: microsoft-common-textblock.md
       - name: TextBox

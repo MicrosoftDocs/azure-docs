@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Translate text - Translator Text"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn to translate text from one language to another using the Translator Text API.
+description: In this quickstart, you'll learn to translate text using the Translator Text API.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 08/19/2019
+ms.date: 12/09/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
 ---
@@ -18,8 +18,6 @@ zone_pivot_groups: programming-languages-set-one
 In this quickstart, you'll learn how to translate a text string from English to German, Italian, Japanese, and Thai using the Translator Text REST API.
 
 This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
-
-[!INCLUDE [Custom subdomains notice](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 

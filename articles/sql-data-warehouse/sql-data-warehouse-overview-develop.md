@@ -1,5 +1,5 @@
 ---
-title: Resources for developing a data warehouse in Azure | Microsoft Docs
+title: Resources for developing a data warehouse in Azure 
 description: Development concepts, design decisions, recommendations and coding techniques for SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT

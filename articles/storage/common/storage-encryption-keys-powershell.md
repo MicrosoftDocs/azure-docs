@@ -1,25 +1,26 @@
 ---
-title: Configure customer-managed keys for Azure Storage encryption from PowerShell
+title: Use PowerShell to configure customer-managed keys
+titleSuffix: Azure Storage
 description: Learn how to use PowerShell to configure customer-managed keys for Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 04/16/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Configure customer-managed keys for Azure Storage encryption from PowerShell
+# Configure customer-managed keys with Azure Key Vault by using PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-This article shows how to configure a key vault with customer-managed keys using PowerShell.
+This article shows how to configure an Azure Key Vault with customer-managed keys using PowerShell. To learn how to create a key vault using  Azure CLI, see [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../../key-vault/quick-create-powershell.md).
 
 > [!IMPORTANT]
-> Using customer-managed keys with Azure Storage encryption requires that the key vault have two required properties configured, **Soft Delete** and **Do Not Purge**. These properties are enabled by default when you create a new key vault in the Azure portal. However, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
+> Using customer-managed keys with Azure Storage encryption requires that two properties be set on the key vault, **Soft Delete** and **Do Not Purge**. These properties are not enabled by default. To enable these properties, use either PowerShell or Azure CLI.
 > Only RSA keys and key size 2048 are supported.
 
 ## Assign an identity to the storage account
@@ -92,5 +93,5 @@ When you create a new version of a key, you'll need to update the storage accoun
 
 ## Next steps
 
-- [Azure Storage encryption for data at rest](storage-service-encryption.md) 
-- [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
+- [Azure Storage encryption for data at rest](storage-service-encryption.md)
+- [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

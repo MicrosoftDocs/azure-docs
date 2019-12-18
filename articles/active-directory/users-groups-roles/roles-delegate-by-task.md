@@ -1,12 +1,10 @@
 ---
-title: Delegate least privileged roles by administrator task - Azure Active Directory | Microsoft Docs
+title: Delegate roles by admin task - Azure Active Directory | Microsoft Docs
 description: Roles to delegate for identity tasks in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
-
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
@@ -144,7 +142,7 @@ Update single sign-on properties | Enterprise application owner ([see documentat
 ## Entitlement management
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Add resources to a catalog | User administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager))
+Add resources to a catalog | User administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners))
 Add SharePoint Online sites to catalog | Global administrator
 
 

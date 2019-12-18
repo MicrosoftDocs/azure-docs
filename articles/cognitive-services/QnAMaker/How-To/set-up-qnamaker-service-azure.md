@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -46,8 +46,8 @@ This procedure creates the Azure resources needed to manage the knowledge base c
     * Select the **Pricing tier** for the QnA Maker management services (portal and management APIs). See [more details about SKU pricing](https://aka.ms/qnamaker-pricing).
     * Create a new **Resource group** (recommended) or use an existing one in which to deploy this QnA Maker resource. QnA Maker creates several Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
     * Select a **Resource group location**.
-    * Choose the **Search pricing tier** of the Azure Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a Free Azure Search tier deployed through your subscription. In that case, you'll need to start with the Basic Azure Search tier. See [Azure Search pricing details](https://azure.microsoft.com/pricing/details/search/).
-    * Choose the **Search location** where you want Azure Search data to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Search.
+    * Choose the **Search pricing tier** of the Azure Cognitive Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a free service deployed through your subscription. In that case, you'll need to start with the Basic tier. See [Azure Cognitive Search pricing details](https://azure.microsoft.com/pricing/details/search/).
+    * Choose the **Search location** where you want Azure Cognitive Search indexes to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Cognitive Search.
     * In the **App name** field, enter a name for your Azure App Service instance.
     * By default, App Service defaults to the standard (S1) tier. You can change the plan after creation. Learn more about [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
     * Choose the **Website location** where App Service will be deployed.
@@ -81,6 +81,8 @@ You can view and reset your subscription keys from the Azure portal, where you c
 
 ## Find endpoint keys in the QnA Maker portal
 
+The endpoint is in the same region as the resource because the endpoint keys are used to make a call to the knowledge base.
+
 Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
 
 1. Sign in to the [QnA Maker portal](https://qnamaker.ai), go to your profile, and then select **Service settings**:
@@ -106,6 +108,8 @@ QnA Maker creates several Azure resources. To reduce management and benefit from
 |Application Insights|✔|Can be shared|
 |Search service|✔|1. `testkb` is a reserved name for the QnAMaker service; it can’t be used by others.<br>2. Synonym map by the name `synonym-map` is reserved for the QnAMaker service.<br>3. The number of published knowledge bases is limited by Search service tier. If there are free indexes available, other services can use them.|
 
+Learn more about the [App service](../../../app-service/index.yml) and [Search service](../../../search/index.yml).
+
 ### Using a single Search service
 
 If you create a QnA service and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker service. After these resources are created, you can update the App Service setting to use a previously existing Search service and remove the one you just created.
@@ -118,7 +122,7 @@ If you create a QnA service through Azure Resource Manager templates, you can cr
 |--|--|
 |[Upgrade](#upgrade-qna-maker-sku) QnA Maker management SKU|You want to have more questions and answers in your knowledge base.|
 |[Upgrade](#upgrade-app-service) App Service SKU|Your knowledge base needs to serve more requests from your client app, such as a chat bot.|
-|[Upgrade](#upgrade-the-azure-search-service) Azure Search service|You plan to have many knowledge bases.|
+|[Upgrade](#upgrade-the-azure-cognitive-search-service) Azure Cognitive Search service|You plan to have many knowledge bases.|
 
 
 ### Upgrade QnA Maker SKU
@@ -145,9 +149,9 @@ Go to the App Service resource in the Azure portal, and select the **Scale up** 
 
 ![QnA Maker App Service scale](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-### Upgrade the Azure Search service
+### Upgrade the Azure Cognitive Search service
 
-If you plan to have many knowledge bases, upgrade your Azure Search service pricing tier.
+If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
 
 Currently, you can't perform an in-place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the QnA Maker stack. To do this, follow these steps:
 
@@ -196,6 +200,8 @@ You can check your current version at https://www.qnamaker.ai/UserSettings. If y
 The management service of QnA Maker is used only for the QnA Maker portal and for initial data processing. This service is available only in the West US region. No customer data is stored in this West US service.
 
 ## Next steps
+
+Learn more about the [App service](../../../app-service/index.yml) and [Search service](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
 > [Create and publish a knowledge base](../Quickstarts/create-publish-knowledge-base.md)

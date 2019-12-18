@@ -103,8 +103,16 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 13. Select **Save** on the **Attribute Mapping** screen. 
 
 >[!IMPORTANT] 
-> Saving a new scoping filter triggers a new full sync for the application, where all users in the source system are evaluated again against the new scoping filter. If a user in the application was previously in scope for provisioning, but falls out of scope, their account is disabled or deprovisioned in the application.
+> Saving a new scoping filter triggers a new full sync for the application, where all users in the source system are evaluated again against the new scoping filter. If a user in the application was previously in scope for provisioning, but falls out of scope, their account is disabled or deprovisioned in the application. To override this default behavior, refer to [Skip deletion for user accounts that go out of scope](skip-out-of-scope-deletions.md).
 
+
+## Common scoping filters
+| Target Attribute| Operator | Value | Description|
+|----|----|----|----|
+|userPrincipalName|REGEX MATCH|.\*@domain.com |All users with userPrincipal that has the domain @domain.com will be in scope for provisioning|
+|userPrincipalName|NOT REGEX MATCH|.\*@domain.com|All users with userPrincipal that has the domain @domain.com will be out of scope for provisioning|
+|department|EQUALS|sales|All users from the sales department are in scope for provisioning|
+|workerID|REGEX MATCH|(1[0-9][0-9][0-9][0-9][0-9][0-9])| All employees with workerIDs between 1000000 and 2000000 are in scope for provisioning.|
 
 ## Related articles
 * [Automate user provisioning and deprovisioning to SaaS applications](user-provisioning.md)

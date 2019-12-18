@@ -4,7 +4,7 @@ description: Understand reserved IP addresses (Classic) and how to manage them u
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191

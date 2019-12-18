@@ -171,7 +171,7 @@ You can deploy a VM with an ephemeral OS disk using a template. The process to c
 
 
 ## Reimage a VM using REST
-Currently, the only method to reimage a Virtual Machine instance with ephemeral OS disk is through using REST API. For scale sets, reimaging is already available through Powershell, CLI, and the portal.
+You can reimage a Virtual Machine instance with ephemeral OS disk using REST API as described below and via Azure Portal by going to Overview pane of the VM. For scale sets, reimaging is already available through Powershell, CLI, and the portal.
 
 ```
 POST https://management.azure.com/subscriptions/{sub-

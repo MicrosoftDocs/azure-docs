@@ -15,7 +15,7 @@ manager: dikamath
 Your CloudSimple Private Cloud can be set up as a recovery site for on-premises applications to provide business continuity in case of a disaster. The recovery solution is based on Zerto Virtual Replication as the replication and orchestration platform. Critical infrastructure and application virtual machines can be replicated continuously from your on-premises vCenter to your Private Cloud. You can use your Private Cloud for failover testing and to ensure the availability of your application during a disaster. A similar approach can be followed to set up the Private Cloud as a primary site that is protected by a recovery site at a different location.
 
 > [!NOTE]
-> Refer to the Zerto document [Sizing Considerations For Zerto Virtual Replication](http://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) for guidelines on sizing your disaster recovery environment.
+> Refer to the Zerto document [Sizing Considerations For Zerto Virtual Replication](https://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) for guidelines on sizing your disaster recovery environment.
 
 The CloudSimple solution:
 

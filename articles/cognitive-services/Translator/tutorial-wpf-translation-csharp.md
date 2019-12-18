@@ -1,14 +1,14 @@
 ---
 title: "Tutorial: Create a translation app with WPF, C#  - Translator Text API"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, you'll create a Windows Presentation Foundation (WPF) app that uses Cognitive Service APIs for text translation, language detection, and spell checking with a single subscription key. This exercise will show you how to use features from the Translator Text API and Bing Spell Check API.
+description: In this tutorial, you'll create a WPF app to perform text translation, language detection, and spell checking with a single subscription key.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 12/09/2019
 ms.author: swmachan
 ---
 
@@ -43,7 +43,7 @@ This list includes the Cognitive Services used in this tutorial. Follow the link
 
 Before we continue, you'll need the following:
 
-* An Azure Cognitive Services subscription. [Get a Cognitive Services key](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-resource).
+* An Azure Cognitive Services subscription. [Get a Cognitive Services key](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#create-a-new-azure-cognitive-services-resource).
 * A Windows machine
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/) - Community or Enterprise
 

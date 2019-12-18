@@ -1,18 +1,19 @@
 ---
-title: Troubleshoot common search indexer issues - Azure Search
-description: Fix errors and common problems with indexers in Azure Search, including data source connection, firewall, and missing documents.
-author: mgottein
+title: Troubleshoot common search indexer issues
+titleSuffix: Azure Cognitive Search
+description: Fix errors and common problems with indexers in Azure Cognitive Search, including data source connection, firewall, and missing documents.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: mgottein
 ms.author: magottei
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Troubleshooting common indexer issues in Azure Search
+# Troubleshooting common indexer issues in Azure Cognitive Search
 
-Indexers can run into a number of issues when indexing data into Azure Search. The main categories of failure include:
+Indexers can run into a number of issues when indexing data into Azure Cognitive Search. The main categories of failure include:
 
 * [Connecting to a data source](#data-source-connection-errors)
 * [Document processing](#document-processing-errors)
@@ -24,7 +25,7 @@ Indexers can run into a number of issues when indexing data into Azure Search. T
 
 #### Storage account firewall
 
-Azure Storage provides a configurable firewall. By default, the firewall is disabled so Azure Search can connect to your storage account.
+Azure Storage provides a configurable firewall. By default, the firewall is disabled so Azure Cognitive Search can connect to your storage account.
 
 There's no specific error message when the firewall is enabled. Typically, firewall errors look like `The remote server returned an error: (403) Forbidden`.
 
@@ -38,13 +39,13 @@ You can find out the IP address of your search service by pinging its FQDN (`<yo
 
 #### Indexing isn't enabled
 
-Azure Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
+Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Cognitive Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
 ## Document Processing Errors
 
 ### Unprocessable or unsupported documents
 
-The blob indexer [documents which document formats are explicitly supported.](search-howto-indexing-azure-blob-storage.md#supported-document-formats). Sometimes, a blob storage container contains unsupported documents. Other times there may be problematic documents. You can avoid stopping your indexer on these documents by [changing configuration options](search-howto-indexing-azure-blob-storage.md#dealing-with-errors):
+The blob indexer [documents which document formats are explicitly supported.](search-howto-indexing-azure-blob-storage.md#SupportedFormats). Sometimes, a blob storage container contains unsupported documents. Other times there may be problematic documents. You can avoid stopping your indexer on these documents by [changing configuration options](search-howto-indexing-azure-blob-storage.md#DealingWithErrors):
 
 ```
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -84,5 +85,5 @@ Indexers find documents from a [data source](https://docs.microsoft.com/rest/api
 * The document hasn't been indexed. Check the portal for a successful indexer run.
 * The document was updated after the indexer run. If your indexer is on a [schedule](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), it will eventually rerun and pick up the document.
 * The [query](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) specified in the data source excludes the document. Indexers can't index documents that aren't part of the data source.
-* [Field mappings](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) or [cognitive search](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) have changed the document and it looks different than you expect.
+* [Field mappings](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) or [AI enrichment](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) have changed the document and it looks different than you expect.
 * Use the [lookup document API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) to find your document.

@@ -17,7 +17,7 @@ If you already have an Azure ExpressRoute connection from an external location (
 
 ## Before you begin
 
-A **/29** network address block is required for establishing Global Reach connection from on-premises.  The /29 address space is used for transit network between ExpressRoute circuits.  The transit network should not overlap with any of you Azure virtual networks, on-premises networks or CloudSimple Private Cloud networks.
+A **/29** network address block is required for establishing Global Reach connection from on-premises.  The /29 address space is used for transit network between ExpressRoute circuits.  The transit network should not overlap with any of your Azure virtual networks, on-premises networks, or CloudSimple Private Cloud networks.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ A **/29** network address block is required for establishing Global Reach connec
 
 ## Scenarios
 
-Connecting your on-premises network to your Private Cloud network allows you to use the Private Cloud in various ways, including the following:
+Connecting your on-premises network to your Private Cloud network allows you to use the Private Cloud in various ways, including the following scenarios:
 
 * Access your Private Cloud network without creating a Site-to-Site VPN connection.
 * Use your on-premises Active Directory as an identity source on your Private Cloud.
@@ -37,6 +37,7 @@ Connecting your on-premises network to your Private Cloud network allows you to 
 ## Connecting ExpressRoute circuits
 
 To establish the ExpressRoute connection, you must create an authorization on your ExpressRoute circuit and provide the authorization information to CloudSimple.
+
 
 ### Create ExpressRoute authorization
 
@@ -64,6 +65,11 @@ To establish the ExpressRoute connection, you must create an authorization on yo
     * Problem subtype: **Create ExpressRoute connection to on-premises**
     * Provide the resource ID and authorization key that you copied and saved in the details pane.
     * Provide a /29 network address space for transit network.
+    * Are you sending default route through ExpressRoute?
+    * Should the Private Cloud traffic use the default route sent through ExpressRoute?
+
+    > [!IMPORTANT]
+    > Sending default route allows you to send all internet traffic from Private Cloud using your on-premises internet connection.  To disable the default route configured on the Private Cloud and to use the on-premises connection default route, provide the details in the support ticket.
 
 ## Next steps
 

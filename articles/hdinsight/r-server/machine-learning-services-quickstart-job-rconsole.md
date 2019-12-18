@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Execute an R script on an ML Services cluster in Azure HDInsight using R console'
+title: 'Quickstart: R script on ML Services & R console - Azure HDInsight'
 description: In the quickstart, you execute an R script on an ML Services cluster in Azure HDInsight using R console.
 author: hrasheed-msft
 ms.reviewer: jasonh

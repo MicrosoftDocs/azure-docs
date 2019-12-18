@@ -1,11 +1,11 @@
 ---
 title: How to use Azure Cosmos DB change feed with Azure Functions
-description: Use Azure Cosmos DB change feed with Azure Functions 
-author: rimman
+description: Use Azure Functions to connect to Azure Cosmos DB change feed. Later you can create reactive Azure functions that are triggered on every new event. 
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: rimman
+ms.date: 12/03/2019
 ms.reviewer: sngun
 ---
 
@@ -24,7 +24,7 @@ With the [Azure Functions trigger for Cosmos DB](../azure-functions/functions-bi
 
 To implement a serverless event-based flow, you need:
 
-* **The monitored container**: The monitored container is the Azure Cosmos container being monitored, and it stores the data from which the change feed is generated. Any inserts and changes (e.g., CRUD) to the monitored container are reflected in the change feed of the container.
+* **The monitored container**: The monitored container is the Azure Cosmos container being monitored, and it stores the data from which the change feed is generated. Any inserts, updates to the monitored container are reflected in the change feed of the container.
 * **The lease container**: The lease container maintains state across multiple and dynamic serverless Azure Function instances and enables dynamic scaling. This lease container can be manually or automatically created by the Azure Functions trigger for Cosmos DB. To automatically create the lease container, set the *CreateLeaseCollectionIfNotExists* flag in the [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Partitioned lease containers are required to have a `/id` partition key definition.
 
 ## Create your Azure Functions trigger for Cosmos DB
@@ -32,7 +32,7 @@ To implement a serverless event-based flow, you need:
 Creating your Azure Function with an Azure Functions trigger for Cosmos DB is now supported across all Azure Functions IDE and CLI integrations:
 
 * [Visual Studio Extension](../azure-functions/functions-develop-vs.md) for Visual Studio users.
-* [Visual Studio Core Extension](https://code.visualstudio.com/tutorials/functions-extension/create-function) for Visual Studio Code users.
+* [Visual Studio Core Extension](/azure/javascript/tutorial-vscode-serverless-node-01) for Visual Studio Code users.
 * And finally [Core CLI tooling](../azure-functions/functions-run-local.md#create-func) for a cross-platform IDE agnostic experience.
 
 ## Run your trigger locally

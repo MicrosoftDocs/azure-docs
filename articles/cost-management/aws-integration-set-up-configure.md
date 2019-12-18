@@ -5,9 +5,9 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 08/15/2019
+ms.date: 12/13/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: ormaoz
 ms.custom:
 ---
@@ -63,7 +63,7 @@ Use the Create a New Role wizard:
 4. On the next page, select **Another AWS account**.
 5. In **Account ID**, enter **432263259397**.
 6. In **Options**, select **Require external ID (Best practice when a third party will assume this role)**.
-7. In **External ID**, enter the external ID. The external ID is a shared passcode between the AWS role and Azure Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. For example, an external ID resembles _Companyname1234567890123_.
+7. In **External ID**, enter the external ID which is a shared passcode between the AWS role and Azure Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID.
 
     > [!NOTE]
     > Don't change the selection for **Require MFA**. It should remain cleared.
@@ -167,7 +167,7 @@ Assigning connector permissions to users after discovery occurs doesn't assign p
 
 ## Take additional steps
 
-- [Set up management groups](../governance/management-groups/index.md#initial-setup-of-management-groups), if you haven't already.
+- [Set up management groups](../governance/management-groups/overview.md#initial-setup-of-management-groups), if you haven't already.
 - Check that new scopes are added to your scope picker. Select **Refresh** to view the latest data.
 - On the **Cloud connectors** page, select your connector and select **Go to billing account** to assign the linked account to management groups.
 
@@ -184,7 +184,7 @@ When you select a connector on the **Cloud connectors** page, you can:
 
 ## Set up Azure management groups
 
-Place your Azure subscriptions and AWS linked accounts in the same management group to create a single location where you can  see cross-cloud provider information. If you haven't already configured your Azure environment with management groups, see [Initial setup of management groups](../governance/management-groups/index.md#initial-setup-of-management-groups).
+Place your Azure subscriptions and AWS linked accounts in the same management group to create a single location where you can  see cross-cloud provider information. If you haven't already configured your Azure environment with management groups, see [Initial setup of management groups](../governance/management-groups/overview.md#initial-setup-of-management-groups).
 
 If you want to separate costs, you can create a management group that holds just AWS linked accounts.
 

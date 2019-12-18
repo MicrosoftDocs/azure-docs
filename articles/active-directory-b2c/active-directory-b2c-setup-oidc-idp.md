@@ -1,6 +1,7 @@
 ---
-title: Set up sign-up and sign-in with OpenID Connect - Azure Active Directory B2C | Microsoft Docs
-description: Set up sign-up and sign-in with OpenID Connect using Azure Active Directory B2C.
+title: Set up sign-up and sign-in with OpenID Connect
+titleSuffix: Azure AD B2C
+description: Set up sign-up and sign-in with any OpenID Connect identity provider (IdP) in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -44,7 +45,6 @@ Scope defines the information and permissions you are looking to gather from you
 The response type describes what kind of information is sent back in the initial call to the `authorization_endpoint` of the custom identity provider. The following response types can be used:
 
 * `code`: As per the [authorization code flow](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), a code will be returned back to Azure AD B2C. Azure AD B2C proceeds to call the `token_endpoint` to exchange the code for the token.
-* `token`: An access token is returned back to Azure AD B2C from the custom identity provider.
 * `id_token`: An ID token is returned back to Azure AD B2C from the custom identity provider.
 
 ## Response mode

@@ -9,12 +9,12 @@ editor: ''
 tags: billing
 
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 5/10/2018
+ms.date: 10/01/2019
 ms.author: banders
 ms.custom: seodec18
 ---

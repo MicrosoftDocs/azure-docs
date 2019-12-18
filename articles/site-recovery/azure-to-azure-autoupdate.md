@@ -1,12 +1,12 @@
 ---
-title: Automatic update of the Mobility service in Azure to Azure disaster recovery | Microsoft Docs
+title: Automatic update of the Mobility service in Azure Site Recovery 
 description: Overview of automatic update of the Mobility service when replicating Azure VMs by using Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram 
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 10/24/2019
 ms.author: rajanaki
 
 ---
@@ -26,7 +26,7 @@ When you use Site Recovery to manage updates, it deploys a global runbook (used 
 The default runbook schedule recurs daily at 12:00 AM in the time zone of the replicated VM's geo. You can also change the runbook schedule via the automation account.
 
 > [!NOTE]
-> Starting with Update Rollup 35, you can choose an existing automation account to use for updates. Prior to this update, Site Recovery created this account by default. This option is available when you enable replication for a VM. If you change the setting, it will apply for all Azure VMs protected in the same vault.
+> Starting with Update Rollup 35, you can choose an existing automation account to use for updates. Prior to this update, Site Recovery created this account by default. Note that you can only select this option when you enable replication for a VM. It isn't available for a replicating VM. The setting you select will apply for all Azure VMs protected in the same vault.
  
 > Turning on automatic updates doesn't require a restart of your Azure VMs or affect ongoing replication.
 
@@ -61,6 +61,8 @@ When you enable replication for a VM either starting [from the VM view](azure-to
 > [!Note]
 > Either option notifies you of the automation account used for managing updates. If you're using this feature in a vault for the first time, a new automation account is created by default. Alternately, you can customize the setting, and choose an existing automation account. All subsequent enable replications in the same vault use the previously created one. Currently the drop-down will only list Automation accounts that are in the same Resource Group as the vault.  
 
+> [!IMPORTANT]
+> The below script needs to be run in the context of an automation account
 For a custom automation account, use the following script:
 
 ```azurepowershell
@@ -341,7 +343,7 @@ $JobsFailedToStart = 0
 $JobsTimedOut = 0
 $Header = @{}
 
-$AzureRMProfile = Get-Module -ListAvailable -Name Az.Accounts | Select Name, Version, Path
+$AzureRMProfile = Get-Module -ListAvailable -Name AzureRM.Profile | Select Name, Version, Path
 $AzureRmProfileModulePath = Split-Path -Parent $AzureRMProfile.Path
 Add-Type -Path (Join-Path $AzureRmProfileModulePath "Microsoft.IdentityModel.Clients.ActiveDirectory.dll")
 
@@ -500,7 +502,7 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 ### Manage updates manually
 
-1. If there are new updates for the Mobility service installed on your VMs, you'll see the following notification: "New Site recovery replication agent update is available. Click to install"
+1. If there are new updates for the Mobility service installed on your VMs, you'll see the following notification: "New Site Recovery replication agent update is available. Click to install"
 
      ![Replicated items window](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 2. Select the notification to open the VM selection page.
@@ -533,7 +535,7 @@ If you couldn't enable automatic updates, see the following common errors and re
 
 -  **Error**: The Azure Run as Certificate used by the automation account is about to expire. 
 
-    The self-signed certificate that is created for the Run As account expires one year from the date of creation. You can renew it at any time before it expires. If you have signed up for email notifications, you will also receive emails when an action is required from your side. This error will be shown 2 months prior to the expiry date, and will change to a critical error if the certificate has expired. Once the certificate has expired, auto update will not be functional till you renew the same.
+    The self-signed certificate that is created for the Run As account expires one year from the date of creation. You can renew it at any time before it expires. If you have signed up for email notifications, you will also receive emails when an action is required from your side. This error will be shown two months prior to the expiry date, and will change to a critical error if the certificate has expired. Once the certificate has expired, auto update will not be functional until you renew the same.
 
    **Recommended action**: Click on 'Repair' and then 'Renew Certificate' to resolve this issue.
     

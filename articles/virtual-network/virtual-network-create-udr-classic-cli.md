@@ -4,7 +4,7 @@ description: Learn how to control routing in VNets using the Azure CLI in the cl
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Using Node.js to call the Text Analytics API'
+title: 'Quickstart: Use Node.js to call the Text Analytics REST API'
 titleSuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
+description: This quickstart shows how to get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,13 +11,14 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
+ms.custom: seo-javascript-september2019
 ---
-# Quickstart: Using Node.js to call the Text Analytics Cognitive Service  
+# Quickstart: Use Node.js to call the Text Analytics Cognitive Service  
 <a name="HOLTop"></a>
 
 This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Node.JS.
 
-Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## Prerequisites
 

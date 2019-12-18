@@ -7,22 +7,12 @@ ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 11/04/2019
 ---
 
 # Azure Red Hat OpenShift FAQ
 
 This article addresses frequently asked questions (FAQs) about Microsoft Azure Red Hat OpenShift.
-
-## How do I get started?
-
-Before you can use Azure Red Hat OpenShift, you'll need to purchase a minimum of 4 Azure Red Hat OpenShift reserved application nodes.
-
-If you are an Azure customer,[purchase Azure Red Hat OpenShift reserved instances](https://aka.ms/openshift/buy) through the Azure portal. After purchasing, your subscription will be activated within 24 hours, after which you'll be able to provision clusters.
-
-If you are not an Azure customer, [contact sales](https://aka.ms/openshift/contact-sales) and fill out the sales form at the bottom of the page to start the process.
-
-Refer to the [Azure Red Hat OpenShift pricing page](https://aka.ms/openshift/pricing) for more information.
 
 ## Which Azure regions are supported?
 
@@ -128,7 +118,7 @@ Syslog, docker logs, journal, and dmesg are handled by the managed service and a
 
 ## How can a customer get access to metrics like CPU/memory at the node level to take action to scale, debug issues, etc. I cannot seem to run `kubectl top` on an ARO cluster.
 
-`kubectl top` is not available on Red Hat OpenShift. It requires a backing metrics source, either Heapster (deprecated) or metrics-server (incubating or alpha), neither of which are included in the OpenShift monitoring stack.
+Customers can access the CPU/Memory metrics at the node level by using the command `oc adm top nodes` or `kubectl top nodes` with the customer-admin clusterrole.  Customers can also access the CPU/Memory metrics of `pods` with the command `oc adm top pods` or `kubectl top pods`
 
 ## What is the default pod scheduler configuration for ARO?
 
@@ -161,3 +151,45 @@ Refer to [upstream OpenShift docs](https://docs.openshift.com/container-platform
 Azure Red Hat OpenShift supports VNET peering and allows the customer to provide a VNET to peer with and a VNET CIDR in which the OpenShift network will operate.
 
 The VNET created by ARO will be protected and will not accept configuration changes. The VNET that is peered is controlled by the customer and resides in their subscription.
+
+## Does the cluster reside in a customer subscription? 
+
+The Azure Managed Application lives in a locked Resource Group with the customer subscription. Customer can view objects in that RG but not modify.
+
+## Is the SDN module configurable?
+
+SDN is openshift-ovs-networkpolicy and is not configurable.
+
+## Which UNIX rights (in IaaS) are available for Masters/Infra/App Nodes?
+
+Not applicable to this offering. Node access is forbidden.
+
+## Which OCP rights do we have? Cluster-admin? Project-admin?
+
+For details, see the Azure Red Hat OpenShift [cluster administration overview](https://docs.openshift.com/aro/admin_guide/index.html).
+
+## Which kind of federation with LDAP?
+
+This would be achieved via Azure AD integration. 
+
+## Is there any element in ARO shared with other customers? Or is everything independent?
+
+Each Azure Red Hat OpenShift cluster is dedicated to a given customer and lives within the customer's subscription. 
+
+## Can we choose any persistent storage solution, like OCS? 
+
+Two storage classes are available to select from: Azure Disk and Azure File.
+
+## How is a cluster updated (including majors and minors due to vulnerabilities)?
+
+See [What is the general upgrade process?](https://docs.microsoft.com/azure/openshift/openshift-faq#what-is-the-general-upgrade-process)
+
+## What Azure Load balancer is used by ARO?  Is it Standard or Basic and is it configurable?
+
+ARO uses Standard Azure Load Balancer, and it is not configurable.
+
+## Can ARO use NetApp-based storage?
+
+At the moment the only supported storage options are Azure Disk and Azure File storage classes. 
+
+

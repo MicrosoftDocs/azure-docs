@@ -46,7 +46,7 @@ Before you can assign users and groups to an application, you must require user 
 
 To assign one or more users to an application directly, follow the steps below:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator or as a non-admin application owner.**
 
 2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left hand navigation menu.
 
@@ -84,7 +84,7 @@ After a short period of time, the users you have selected will be able to launch
 
 To assign one or more groups to an application directly, follow the steps below:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or as a non-admin application owner with an Azure AD Premium license assigned.
 
 2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left hand navigation menu.
 

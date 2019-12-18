@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -74,7 +74,7 @@ When creating the **Streaming Locator**, in addition to asset's name, you need t
 
 Dynamic Packaging is used whether you stream your content live or on-demand. The following diagram shows the on-demand streaming with dynamic packaging workflow.
 
-![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or/and any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients.
 
@@ -98,6 +98,9 @@ You can use Media Services **Dynamic Manifests** to stream only a specific rendi
 - [Content protection](content-protection-overview.md)
 - [Dynamic manifests](filters-dynamic-manifest-overview.md)
 - [Filters](filters-concept.md)
+
+> [!NOTE]
+> Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Live streaming
 

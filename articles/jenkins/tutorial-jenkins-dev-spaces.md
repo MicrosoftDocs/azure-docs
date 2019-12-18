@@ -1,16 +1,11 @@
 ---
-title: Using the Azure Dev Spaces Plugin for Jenkins with Azure Kubenetes Service
+title: Using the Azure Dev Spaces Plug-in for Jenkins with Azure Kubernetes Service
 description: Learn how to use the Azure Dev Spaces plug-in in a continuous integration pipeline.
-author: tomarchermsft
-ms.author: tarcher
-ms.service: jenkins
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 07/31/2019
+ms.date: 10/23/2019
 ---
-<!-- GMinchAQ, 06/18/19 -->
 
-# Tutorial: Using the Azure Dev Spaces Plugin for Jenkins with Azure Kubenetes Service 
+# Tutorial: Using the Azure Dev Spaces Plug-in for Jenkins with Azure Kubernetes Service 
 
 Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. The Azure Dev Spaces plug-in for Jenkins helps you use Dev Spaces in your continuous integration and delivery (CI/CD) pipeline.
 
@@ -47,7 +42,7 @@ This tutorial assumes intermediate knowledge of core Azure services, AKS, ACR, A
 
 In this section, you create Azure resources:
 
-* A resource group to contain all of the Auzre resources for this tutorial.
+* A resource group to contain all of the Azure resources for this tutorial.
 * An [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) (AKS) cluster.
 * An [Azure container registry](https://docs.microsoft.com/azure/container-registry/) (ACR) to build (using ACR Tasks) and store Docker images.
 
@@ -127,7 +122,7 @@ For more information on using Azure Dev Spaces and multi-service development wit
     The Dev Spaces CLI's `azds prep` command generates Docker and Kubernetes assets with default settings. These files persist for the lifetime of the project, and they can be customized:
 
     * `./Dockerfile` and `./Dockerfile.develop` describe the app's container image, and how the source code is built and runs within the container.
-    * A [Helm chart](https://helm.sh/docs/developing_charts/) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
+    * A [Helm chart](https://helm.sh/docs/topics/charts/) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
     * `./azds.yaml` is the Azure Dev Spaces configuration file.
 
     For more information, see [How Azure Dev Spaces works and is configured](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).

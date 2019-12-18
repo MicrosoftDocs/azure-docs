@@ -1,10 +1,10 @@
 ---
 title: Enhance remote management security in Azure | Microsoft Docs
-description: "This article discusses steps for enhancing remote management security while administering Microsoft Azure environments, including cloud services, Virtual Machines, and custom applications."
+description: "This article discusses steps for enhancing remote management security while administering Microsoft Azure environments, including cloud services, virtual machines, and custom applications."
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/31/2019
 ms.author: terrylan
 
 ---
@@ -220,7 +220,6 @@ Using a hardened workstation configuration for administering your Azure cloud se
 ## Next steps
 The following resources are available to provide more general information about Azure and related Microsoft services, in addition to specific items referenced in this paper:
 
-* [Securing Privileged Access](https://technet.microsoft.com/library/mt631194.aspx) – get the technical details for designing and building a secure administrative workstation for Azure management
+* [Securing Privileged Access](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) – get the technical details for designing and building a secure administrative workstation for Azure management
 * [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure) - learn about Azure platform capabilities that protect the Azure fabric and the workloads that run on Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/security/dn440717.aspx) -- where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to [secure@microsoft.com](mailto:secure@microsoft.com)
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/) – keep up to date on the latest in Azure Security
+* [Microsoft Security Response Center](https://www.microsoft.com/msrc) -- where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to [secure@microsoft.com](mailto:secure@microsoft.com)

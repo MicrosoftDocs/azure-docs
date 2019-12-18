@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Azure SQL Database managed instance | Microsoft Docs
+title: Quickstart - SQL managed instance
 description: 'Learn how to quickly get started with Azure SQL Database - managed instance'
 services: sql-database
 ms.service: sql-database
@@ -67,6 +67,6 @@ Learn more about the [recommended migration process](sql-database-managed-instan
 ## Next steps
 
 - Find a [high-level list of supported features in managed instance here](sql-database-features.md) and [details and known issues here](sql-database-managed-instance-transact-sql-information.md).
-- Learn about [technical characteristics of managed instance](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+- Learn about [technical characteristics of managed instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 - Find more advanced how-to's in [how to use a managed instance in Azure SQL Database](sql-database-howto-managed-instance.md).
 - [Identify the right Azure SQL Database/Managed Instance SKU for your on-premises database](/sql/dma/dma-sku-recommend-sql-db/).

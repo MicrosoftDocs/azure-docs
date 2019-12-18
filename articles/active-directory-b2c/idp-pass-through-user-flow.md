@@ -1,5 +1,6 @@
 ---
-title: Pass an access token through a user flow to your application - Azure Active Directory B2C
+title: Pass an access token through a user flow to your app
+titleSuffix: Azure AD B2C
 description: Learn how to pass an access token for OAuth 2.0 identity providers as a claim in a user flow in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -27,7 +28,7 @@ Azure AD B2C currently only supports passing the access token of [OAuth 2.0](act
 ## Enable the claim
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. Select **User flows (policies)**, and then select your user flow. For example, **B2C_1_signupsignin1**.
 5. Select **Application claims**.

@@ -1,7 +1,7 @@
 ---
-title: "Feature Hashing: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Feature Hashing module in Azure Machine Learning service to featurize text data.
+title: "Feature Hashing module reference"
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Feature Hashing module in the Azure Machine Learning to featurize text data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,30 +11,30 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
 ---
-# Feature Hashing
+# Feature Hashing module reference
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module included in Azure Machine Learning designer (preview).
 
-Use the **Feature Hashing** module to transform a stream of English text into a set of integer features. You can then pass this hashed feature set to a machine learning algorithm to train a text analytics model.
+Use the Feature Hashing module to transform a stream of English text into a set of integer features. You can then pass this hashed feature set to a machine learning algorithm to train a text analytics model.
 
 The feature hashing functionality provided in this module is based on the nimbusml framework. For more information, see [NgramHash class](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
 
-## What is feature hashing
+## What is feature hashing?
 
 Feature hashing works by converting unique tokens into integers. It operates on the exact strings that you provide as input and does not perform any linguistic analysis or preprocessing. 
 
 For example, take a set of simple sentences like these, followed by a sentiment score. Assume that you want to use this text to build a model.
 
-|USERTEXT|SENTIMENT|
+|User text|Sentiment|
 |--------------|---------------|
 |I loved this book|3|
 |I hated this book|1|
 |This book was great|3|
 |I love books|2|
 
-Internally, the **Feature Hashing** module creates a dictionary of n-grams. For example, the list of bigrams for this dataset would be something like this:
+Internally, the Feature Hashing module creates a dictionary of n-grams. For example, the list of bigrams for this dataset would be something like this:
 
-|TERM (bigrams)|FREQUENCY|
+|Term (bigrams)|Frequency|
 |------------|---------------|
 |This book|3|
 |I loved|1|
@@ -43,14 +43,14 @@ Internally, the **Feature Hashing** module creates a dictionary of n-grams. For 
 
 You can control the size of the n-grams by using the **N-grams** property. If you choose bigrams, unigrams are also computed. The dictionary would also include single terms like these:
 
-|Term (unigrams)|FREQUENCY|
+|Term (unigrams)|Frequency|
 |------------|---------------|
 |book|3|
 |I|3|
 |books|1|
 |was|1|
 
-After the dictionary has been built, the **Feature Hashing** module converts the dictionary terms into hash values. It then computes whether a feature was used in each case. For each row of text data, the module outputs a set of columns, one column for each hashed feature.
+After the dictionary is built, the Feature Hashing module converts the dictionary terms into hash values. It then computes whether a feature was used in each case. For each row of text data, the module outputs a set of columns, one column for each hashed feature.
 
 For example, after hashing, the feature columns might look something like this:
 
@@ -62,38 +62,38 @@ For example, after hashing, the feature columns might look something like this:
 * If the value in the column is 0, the row didn't contain the hashed feature.
 * If the value is 1, the row did contain the feature.
 
-Feature hashing lets you represent text documents of variable-length as numeric feature vectors of equal-length to achieve dimensionality reduction. If you tried to use the text column for training as is, it would be treated as a categorical feature column with many distinct values.
+Feature hashing lets you represent text documents of variable length as numeric feature vectors of equal length to reduce dimensionality. If you tried to use the text column for training as is, it would be treated as a categorical feature column with many distinct values.
 
-Numeric outputs also make it possible to use common machine learning methods including classification, clustering, and information retrieval. Because lookup operations can use integer hashes rather than string comparisons, getting the feature weights is also much faster.
+Numeric outputs also make it possible to use common machine learning methods, including classification, clustering, and information retrieval. Because lookup operations can use integer hashes rather than string comparisons, getting the feature weights is also much faster.
 
-## Configure Feature Hashing
+## Configure the Feature Hashing module
 
-1.  Add the **Feature Hashing** module to your experiment in visual interface.
+1.  Add the Feature Hashing module to your pipeline in the designer.
 
 1. Connect the dataset that contains the text you want to analyze.
 
     > [!TIP]
-    > Because feature hashing does not perform lexical operations such as stemming or truncation, you can sometimes get better results by doing text preprocessing before applying feature hashing. 
+    > Because feature hashing does not perform lexical operations such as stemming or truncation, you can sometimes get better results by preprocessing text before you apply feature hashing. 
 
-1. Set **Target columns** to the text columns that you want to convert to hashed features. 
+1. Set **Target columns** to the text columns that you want to convert to hashed features. Keep in mind that:
 
     * The columns must be the string data type.
     
-    * Choosing multiple text columns can have a significant impact on feature dimensionality. For example, the number of columns for a 10-bit hash goes from 1024 for a single column to 2048 for two columns.
+    * Choosing multiple text columns can have a significant impact on feature dimensionality. For example, the number of columns for a 10-bit hash goes from 1,024 for a single column to 2,048 for two columns.
 
-1. Use **Hashing bitsize** to specify the number of bits to use when creating the hash table.
+1. Use **Hashing bitsize** to specify the number of bits to use when you're creating the hash table.
     
-    The default bit size is 10. For many problems, this value is adequate. You may need more space to avoid collisions depending on the size of the training text n-grams vocabulary.
+    The default bit size is 10. For many problems, this value is adequate. You might need more space to avoid collisions, depending on the size of the n-grams vocabulary in the training text.
     
-1. For **N-grams**, type a number that defines the maximum length of the n-grams to add to the training dictionary. An n-gram is a sequence of *n* words, treated as a unique unit.
+1. For **N-grams**, enter a number that defines the maximum length of the n-grams to add to the training dictionary. An n-gram is a sequence of *n* words, treated as a unique unit.
 
     For example, if you enter 3, unigrams, bigrams, and trigrams will be created.
 
-1. Run the experiment.
+1. Run the pipeline.
 
 ## Results
 
-After processing is complete, the module outputs a transformed dataset in which the original text column has been converted to multiple columns, each representing a feature in the text. Depending on how significant the dictionary is, the resulting dataset can be large:
+After processing is complete, the module outputs a transformed dataset in which the original text column has been converted to multiple columns. Each column represents a feature in the text. Depending on how significant the dictionary is, the resulting dataset can be large:
 
 |Column name 1|Column type 2|
 |-------------------|-------------------|
@@ -108,22 +108,22 @@ After you create the transformed dataset, you can use it as the input to the Tra
  
 ### Best practices
 
-The following best practices can help you get the most out of the **Feature Hashing** module:
+The following best practices can help you get the most out of the Feature Hashing module:
 
-* Add a **Preprocess Text** module before using **Feature Hashing** to preprocess the input text. 
+* Add a Preprocess Text module before using Feature Hashing to preprocess the input text. 
 
-* Add a **Select Columns** module after the **Feature Hashing** module to remove the text columns from the output data set. You don't need the text columns after the hashing features have been generated.
+* Add a Select Columns module after the Feature Hashing module to remove the text columns from the output dataset. You don't need the text columns after the hashing features have been generated.
     
 * Consider using these text preprocessing options, to simplify results and improve accuracy:
 
     * Word breaking
-    * Stop word removal
+    * Stopping word removal
     * Case normalization
     * Removal of punctuation and special characters
     * Stemming  
 
-The optimal set of preprocessing methods to apply in any individual solution depends on domain, vocabulary, and business need. Experiment with your data to see which text processing methods are most effective.
+The optimal set of preprocessing methods to apply in any solution depends on domain, vocabulary, and business need. pipeline with your data to see which text processing methods are most effective.
 
 ## Next steps
 			
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning 

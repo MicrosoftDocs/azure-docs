@@ -1,20 +1,20 @@
 ---
-title: Azure AD Password Protection operations and reporting - Azure Active Directory
+title: Password protection operations and reports - Azure Active Directory
 description: Azure AD Password Protection post-deployment operations and reporting
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
+
 ms.collection: M365-identity-device-management
 ---
-
 # Azure AD Password Protection operational procedures
 
 After you have completed the [installation of Azure AD Password Protection](howto-password-ban-bad-on-premises-deploy.md) on-premises, there are a couple items that must be configured in the Azure portal.
@@ -52,9 +52,12 @@ This message is only one example of several possible outcomes. The specific erro
 
 Affected end users may need to work with their IT staff to understand the new requirements and be more able to choose secure passwords.
 
+> [!NOTE]
+> Azure AD Password Protection has no control over the specific error message displayed by the client machine when a weak password is rejected.
+
 ## Enable Mode
 
-This setting should normally be left in its default enabled (Yes) state. Configuring this setting to disabled (No) will cause all deployed Azure AD Password Protection DC agents to go into a quiescent mode where all passwords are accepted as-is, and no validation activities will be executed whatsoever (for example, not even audit events will be emitted).
+This setting should be left in its default enabled (Yes) state. Configuring this setting to disabled (No) will cause all deployed Azure AD Password Protection DC agents to go into a quiescent mode where all passwords are accepted as-is, and no validation activities will be executed whatsoever (for example, not even audit events will be emitted).
 
 ## Next steps
 

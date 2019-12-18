@@ -2,12 +2,8 @@
 title: Learn how to onboard Update Management, Change Tracking, and Inventory solutions for multiple VMs in Azure Automation
 description: Learn how to onboard an Azure Virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation
 services: automation
-ms.service: automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 04/11/2019
 ms.topic: article
-manager: carmonm
 ms.custom: mvc
 ---
 # Enable Update Management, Change Tracking, and Inventory solutions on multiple VMs
@@ -141,12 +137,19 @@ When onboarding multiple machines, there may be machines that show as **Cannot e
 
 **Solution**: In order to onboard a VM to a solution the VM must be running. Click the **Start VM** inline link to start the VM without navigating away from the page.
 
+## Clean up resources
+
+To remove a VM from Update Management:
+
+* In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
+* Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+
 ## Next steps
 
-Now that the solution is enabled for your virtual machines, visit the Update Management overview article to learn how to view the update assessment for your machines.
+Now that the solution is enabled for your virtual machines, visit the Update Management overview article to learn how to create an **Update Deployment** for your machines.
 
 > [!div class="nextstepaction"]
-> [Update Management - View update assessment](./automation-update-management.md#viewing-update-assessments)
+> [Update Management - Manage updates and patches for your Azure VMs](./automation-tutorial-update-management.md)
 
 Addition tutorials on the solutions and how to use them:
 

@@ -2,16 +2,16 @@
 title: Deployment architecture - Azure Dedicated HSM | Microsoft Docs
 description: Basic design considerations when using Azure Dedicated HSM as part of an application architecture
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2019
-ms.author: barclayn
+ms.date: 11/11/2019
+ms.author: mbaldwin
 
 ---
 
@@ -28,6 +28,7 @@ The HSMs are distributed across Microsoft’s data centers and can be easily pro
 * East US
 * East US 2
 * West US
+* West US 2
 * South Central US
 * Southeast Asia
 * East Asia

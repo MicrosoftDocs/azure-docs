@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 8/22/2019
+ms.date: 11/04/2019
 ms.author: dapine
 ---
 
 # Use Computer Vision container with Kubernetes and Helm
 
-One option to manage your Computer Vision containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define the Recognize Text container image, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services. For more information about running Docker containers without Kubernetes orchestration, see [install and run Recognize Text containers](computer-vision-how-to-install-containers.md).
+One option to manage your Computer Vision containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define a Computer Vision container image, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services. For more information about running Docker containers without Kubernetes orchestration, see [install and run Computer Vision containers](computer-vision-how-to-install-containers.md).
 
 ## Prerequisites
 
@@ -23,7 +23,6 @@ The following prerequisites before using Computer Vision containers on-premises:
 |Required|Purpose|
 |--|--|
 | Azure Account | If you don't have an Azure subscription, create a [free account][free-azure-account] before you begin. |
-| Container Registry access | In order for Kubernetes to pull the docker images into the cluster, it will need access to the container registry. You're required to [request access to the container registry][vision-preview-access] first. |
 | Kubernetes CLI | The [Kubernetes CLI][kubernetes-cli] is required for managing the shared credentials from the container registry. Kubernetes is also needed before Helm, which is the Kubernetes package manager. |
 | Helm CLI | As part of the [Helm CLI][helm-install] install, you'll also need to initialize Helm, which will install [Tiller][tiller-install]. |
 | Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
@@ -73,7 +72,7 @@ secret "containerpreview" created
 To verify that the secret has been created, execute the [`kubectl get`][kubectl-get] with the `secrets` flag.
 
 ```console
-kuberctl get secrets
+kubectl get secrets
 ```
 
 Executing the `kubectl get secrets` prints all the configured secrets.
@@ -85,13 +84,13 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 
 ## Configure Helm chart values for deployment
 
-Start by creating a folder named *text-recognizer*, copy, and paste the following YAML content into a new file named `Chart.yml`.
+Start by creating a folder named *read*, then paste the following YAML content into a new file named *Chart.yml*.
 
 ```yaml
 apiVersion: v1
-name: text-recognizer
+name: read
 version: 1.0.0
-description: A Helm chart to deploy the microsoft/cognitive-services-recognize-text to a Kubernetes cluster
+description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
 ```
 
 To configure the Helm chart default values, copy and paste the following YAML into a file named `values.yaml`. Replace the `# {ENDPOINT_URI}` and `# {API_KEY}` comments with your own values.
@@ -99,12 +98,12 @@ To configure the Helm chart default values, copy and paste the following YAML in
 ```yaml
 # These settings are deployment specific and users can provide customizations
 
-recognizeText:
+read:
   enabled: true
   image:
-    name: cognitive-services-recognize-text
+    name: cognitive-services-read
     registry: containerpreview.azurecr.io/
-    repository: microsoft/cognitive-services-recognize-text
+    repository: microsoft/cognitive-services-read
     tag: latest
     pullSecret: containerpreview # Or an existing secret
     args:
@@ -116,7 +115,7 @@ recognizeText:
 > [!IMPORTANT]
 > If the `billing` and `apikey` values are not provided, the services will expire after 15 min. Likewise, verification will fail as the services will not be available.
 
-Create a *templates* folder under the *text-recognizer* directory. Copy and paste the following YAML into a file named `deployment.yaml`. The `deployment.yaml` file will serve as a Helm template.
+Create a *templates* folder under the *read* directory. Copy and paste the following YAML into a file named `deployment.yaml`. The `deployment.yaml` file will serve as a Helm template.
 
 > Templates generate manifest files, which are YAML-formatted resource descriptions that Kubernetes can understand. [- Helm Chart Template Guide][chart-template-guide]
 
@@ -124,42 +123,42 @@ Create a *templates* folder under the *text-recognizer* directory. Copy and past
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: text-recognizer
+  name: read
 spec:
   template:
     metadata:
       labels:
-        app: text-recognizer-app
+        app: read-app
     spec:
       containers:
-      - name: {{.Values.recognizeText.image.name}}
-        image: {{.Values.recognizeText.image.registry}}{{.Values.recognizeText.image.repository}}
+      - name: {{.Values.read.image.name}}
+        image: {{.Values.read.image.registry}}{{.Values.read.image.repository}}
         ports:
         - containerPort: 5000
         env:
         - name: EULA
-          value: {{.Values.recognizeText.image.args.eula}}
+          value: {{.Values.read.image.args.eula}}
         - name: billing
-          value: {{.Values.recognizeText.image.args.billing}}
+          value: {{.Values.read.image.args.billing}}
         - name: apikey
-          value: {{.Values.recognizeText.image.args.apikey}}
+          value: {{.Values.read.image.args.apikey}}
       imagePullSecrets:
-      - name: {{.Values.recognizeText.image.pullSecret}}
+      - name: {{.Values.read.image.pullSecret}}
 
 --- 
 apiVersion: v1
 kind: Service
 metadata:
-  name: text-recognizer
+  name: read
 spec:
   type: LoadBalancer
   ports:
   - port: 5000
   selector:
-    app: text-recognizer-app
+    app: read-app
 ```
 
-The template specifies a load balancer service and the deployment of your container/image for text recognition.
+The template specifies a load balancer service and the deployment of your container/image for Read.
 
 ### The Kubernetes package (Helm chart)
 
@@ -167,36 +166,37 @@ The *Helm chart* contains the configuration of which docker image(s) to pull fro
 
 > A [Helm chart][helm-charts] is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
 
-The provided *Helm charts* pull the docker images of the Computer Vision Service, and the recognize text services from the `containerpreview.azurecr.io` container registry.
+The provided *Helm charts* pull the docker images of the Computer Vision Service, and the corresponding service from the `containerpreview.azurecr.io` container 
+registry.
 
 ## Install the Helm chart on the Kubernetes cluster
 
-To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory above the `text-recognizer` folder.
+To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory above the `read` folder.
 
 ```console
-helm install text-recognizer --name text-recognizer
+helm install read --name read
 ```
 
 Here is an example output you might expect to see from a successful install execution:
 
 ```console
-NAME:   text-recognizer
-LAST DEPLOYED: Thu Aug 22 13:24:06 2019
+NAME: read
+LAST DEPLOYED: Thu Sep 04 13:24:06 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
 ==> v1/Pod(related)
-NAME                              READY  STATUS             RESTARTS  AGE
-text-recognizer-57cb76bcf7-45sdh  0/1    ContainerCreating  0         0s
+NAME                    READY  STATUS             RESTARTS  AGE
+read-57cb76bcf7-45sdh   0/1    ContainerCreating  0         0s
 
 ==> v1/Service
-NAME             TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)         AGE
-text-recognizer  LoadBalancer  10.110.44.86  localhost    5000:31301/TCP  0s
+NAME     TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)         AGE
+read     LoadBalancer  10.110.44.86  localhost    5000:31301/TCP  0s
 
 ==> v1beta1/Deployment
-NAME             READY  UP-TO-DATE  AVAILABLE  AGE
-text-recognizer  0/1    1           0          0s
+NAME    READY  UP-TO-DATE  AVAILABLE  AGE
+read    0/1    1           0          0s
 ```
 
 The Kubernetes deployment can take over several minutes to complete. To confirm that both pods and services are properly deployed and available, execute the following command:
@@ -208,21 +208,20 @@ kubectl get all
 You should expect to see something similar to the following output:
 
 ```console
-λ kubectl get all
-NAME                                   READY   STATUS    RESTARTS   AGE
-pod/text-recognizer-57cb76bcf7-45sdh   1/1     Running   0          17s
+kubectl get all
+NAME                        READY   STATUS    RESTARTS   AGE
+pod/read-57cb76bcf7-45sdh   1/1     Running   0          17s
 
-NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
-service/kubernetes        ClusterIP      10.96.0.1      <none>        443/TCP          45h
-service/text-recognizer   LoadBalancer   10.110.44.86   localhost     5000:31301/TCP   17s
+NAME                   TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes     ClusterIP      10.96.0.1      <none>        443/TCP          45h
+service/read           LoadBalancer   10.110.44.86   localhost     5000:31301/TCP   17s
 
-NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/text-recognizer   1/1     1            1           17s
+NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/read   1/1     1            1           17s
 
-NAME                                         DESIRED   CURRENT   READY   AGE
-replicaset.apps/text-recognizer-57cb76bcf7   1         1         1       17s
+NAME                              DESIRED   CURRENT   READY   AGE
+replicaset.apps/read-57cb76bcf7   1         1         1       17s
 ```
-
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -241,16 +240,15 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm
-[helm-install-cmd]: https://helm.sh/docs/helm/#helm-install
+[helm-install-cmd]: https://helm.sh/docs/intro/using_helm/#helm-install-installing-a-package
 [tiller-install]: https://helm.sh/docs/install/#installing-tiller
-[helm-charts]: https://helm.sh/docs/developing_charts
+[helm-charts]: https://helm.sh/docs/topics/charts/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-test]: https://helm.sh/docs/helm/#helm-test
 [chart-template-guide]: https://helm.sh/docs/chart_template_guide
 
 <!-- LINKS - internal -->
-[vision-preview-access]: computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry
 [vision-container-host-computer]: computer-vision-how-to-install-containers.md#the-host-computer
 [installing-helm-apps-in-aks]: ../../aks/kubernetes-helm.md
 [cog-svcs-containers]: ../cognitive-services-container-support.md

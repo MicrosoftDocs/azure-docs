@@ -1,10 +1,10 @@
 ---
-title: "Run analytics queries against tenant databases using Azure SQL Data Warehouse | Microsoft Docs"
+title: Run analytics queries against tenant databases
 description: "Cross-tenant analytics queries using data extracted from Azure SQL Database, SQL Data Warehouse, Azure Data Factory, or Power BI."
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: anumjs

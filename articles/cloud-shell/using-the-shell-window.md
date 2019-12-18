@@ -45,7 +45,7 @@ Click the upload/download files icon on the top left of the window, then select 
 ![Upload/download files](media/using-the-shell-window/uploaddownload.png)
 * For uploading files, use the pop-up to browse to the file on your local computer, select the desired file, and click the "Open" button.  The file will be uploaded into
 the `/home/user` directory.
-* For downloading files, enter the fully qualified file path into the pop-up window, and select the "Download" button.  
+* For downloading file, enter the fully qualified file path into the pop-up window (i.e., basically a path under the `/home/user` directory which shows up by default), and select the "Download" button.  
 > [!NOTE] 
 > Files and file paths are case sensitive in Cloud Shell. Double check your casing in your file path.
 

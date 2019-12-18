@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 11/19/2019
 ms.author: diberry
 ---
 
@@ -50,8 +50,6 @@ An app has a single author, the owner, but can have many collaborators. To allow
 
 1. Select **Add Collaborator** from the toolbar.
 
-    [![Add collaborator](./media/luis-how-to-collaborate/add-collaborator.png "Add collaborator")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
-
 1. Enter the email address the collaborator uses to sign in to the LUIS portal.
 
     ![Add collaborator's email address](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
@@ -86,7 +84,7 @@ The tenant admin should work directly with the user who needs access granted to 
 
 If the tenant admin only wants certain users to use LUIS, there are a couple of possible solutions:
 * Giving the "admin consent" (consent to all users of the Azure AD), but then set to "Yes" the "User assignment required" under Enterprise Application Properties, and finally assign/add only the wanted users to the Application. With this method, the Administrator is still providing "admin consent" to the App, however, it's possible to control the users that can access it.
-* A second solution, is by using [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) to provide consent to each specific user. 
+* A second solution, is by using the [Azure AD identity and access management API in Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) to provide consent to each specific user. 
 
 Learn more about Azure active directory users and consent: 
 * [Restrict your app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) to a set of users
@@ -94,6 +92,6 @@ Learn more about Azure active directory users and consent:
 ## Next steps
 
 * Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
-* Understand the concepts including the [authoring resource](/luis-concept-keys.md#authoring-key) and [contributors](luis-concept-keys.md#contributions-from-other-authors) on that resource.
+* Understand the concepts including the [authoring resource](luis-concept-keys.md#authoring-key) and [contributors](luis-concept-keys.md#contributions-from-other-authors) on that resource.
 * Learn [how to create](luis-how-to-azure-subscription.md) authoring and runtime resources
 * Migrate to the new [authoring resource](luis-migration-authoring.md) 

@@ -1,5 +1,5 @@
 ---
-title: What is the location condition in Azure Active Directory Conditional Access? | Microsoft Docs
+title: Location condition in Azure Active Directory Conditional Access
 description: Learn how to use the location condition to control access to your cloud apps based on a user's network location.
 
 services: active-directory
@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -48,7 +48,7 @@ A named location has the following components:
 - **IP ranges** - One or more IPv4 address ranges in CIDR format. Specifying an IPv6 address range is not supported.
 
    > [!NOTE]
-   > IPv6 address rangess cannot currently be included in a named location. This measn IPv6 ranges cannot be excluded from a Conditional Access policy.
+   > IPv6 address ranges cannot currently be included in a named location. This means IPv6 ranges cannot be excluded from a Conditional Access policy.
 
 - **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to Conditional Access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Countries/Regions** - This option enables you to select one or more country or region to define a named location.

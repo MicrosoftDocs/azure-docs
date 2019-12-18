@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
@@ -48,7 +48,7 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 
 The next steps are determined by where you are returning the device. The instructions are different for US/Canada, European Union (EU), Australia, or countries in Asia.
 
-### Pick up in US, Canada
+### [In US or Canada](#tab/in-us-or-canada)
 
 Take the following steps if returning the device in US or Canada.
 
@@ -64,7 +64,7 @@ Take the following steps if returning the device in US or Canada.
     - If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
     - Instead of scheduling the pickup, you can also drop off the Data Box Disk at the nearest drop-off location.
 
-### Pick up in Europe
+### [In Europe](#tab/in-europe)
 
 Take the following steps if returning the device in Europe.
 
@@ -77,7 +77,7 @@ Take the following steps if returning the device in Europe.
 4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.    
 3. Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
 
-### Pick up in Australia
+### [In Australia](#tab/in-australia)
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
 
@@ -85,11 +85,7 @@ Azure datacenters in Australia have an additional security notification. All the
 3. Affix the label on the box. 
 4. Book a pick-up online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### Pick up in Asia
-
-The pickup instructions are different for Japan, Korea, and Singapore.
-
-#### Pick up in Japan
+### [In Japan](#tab/in-japan)
 
 1. Write your company name and address information on the consignment note as your sender information.
 2. Email Quantium solution using the following email template.
@@ -116,7 +112,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 - Email：Customerservice.JP@quantiumsolutions.com 
 - Telephone：03-5755-0150 
 
-#### Pick up in Korea
+### [In Korea](#tab/in-korea)
 
 1. Make sure to include the return consignment note.
 2. To request pickup when consignment note is present:
@@ -130,17 +126,32 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
     3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
     4. You receive a verbal confirmation if the request is made via telephone.
 
-#### Pick up in Singapore
 
-1. Print the shipping label and attach onto the box. If the label is damaged or lost:
+### [In Singapore](#tab/in-singapore)
+
+1. Print the shipping label and attach it to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and get a return shipping label.
     - Affix the label on the device. Make sure that the label is visible.
 
-2. To request pickup:
-    - Call **SingPost** hotline at **6845 6485** during office hours (9am to 5pm, Monday to Friday).  
-    - Quote *Microsoft Azure pickup* and the service request number (tracking number on the return shipping label) to arrange for a collection. 
-    - You will get a verbal confirmation for the pickup schedule. 
-    - If the courier does not arrive for collection, call **SingPost** at **6845 6485** for alternate arrangements. 
+2. To request pickup, email SingPost Customer Service by using the following template with the tracking number (the tracking number can be found on the return label provided in the delivered package).
+
+    ```
+    To: kadcustcare@singpost.com
+    Subject: Microsoft Azure Pick-up - XZ00001234567 
+    Body: 
+     a.	Requestor name
+     b.	Requestor contact number
+     c.	Requestor collection address
+     d.	Preferred collection date
+    ```
+
+   > [!NOTE]
+   > For booking requests received on a business day:
+   > - Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
+   > - After 3 PM, pickup will be the next business day between 2 PM to 6 PM.
+
+   If you encounter any issues, kindly reach out to Data Box Operations Asia at adbo@microsoft.com. Provide the job name in the subject header and the issue encountered.
+
 3. Hand over to the courier. 
 
 

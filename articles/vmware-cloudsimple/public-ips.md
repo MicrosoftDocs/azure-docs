@@ -14,7 +14,7 @@ manager: dikamath
 
 Open the Public IPs tab on the Network page to allocate public IP addresses for virtual machines in your Private Cloud environment.
 
-1. [Access the CloudSimple portal](monitor-activity.md) and select **Network** on the side menu.
+1. [Access the CloudSimple portal](access-cloudsimple-portal.md) and select **Network** on the side menu.
 2. Select **Public IPs**.
 3. Click **New Public IP**.
 

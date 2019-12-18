@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
@@ -29,27 +29,30 @@ Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-i
 
 1. In the **Azure Active Directory** pane, select **Enterprise applications**.
 
-    ![Open enterprise applications](media/add-application-portal/open-enterprise-apps.png)
+    ![Open enterprise applications](media/add-gallery-app/open-enterprise-apps.png)
 
-1. Select **New application**.
 
-    ![New application](media/add-application-portal/new-application.png)
+3. To add a gallery app to your tenant, select **New application**.
 
-1. Under **Add from the gallery**, in the search box, enter the name of the application you want to add. 
+    ![Select New application to add a gallery app to your tenant](media/add-gallery-app/new-application.png)
 
-    ![Search by name or category](media/add-application-portal/categories.png)
+ 4. Switch to the new gallery preview experience: In the banner at the top of the **Add an application page**, select the link that says **Click here to try out the new and improved app gallery**.
 
-1. Select the application from the results.
+5. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Note that the applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning.
 
-1. (Optional) In the application-specific form, you can edit the name of the application to match the needs of your organization.
+    ![Search for an app by name or category](media/add-gallery-app/browse-gallery.png)
 
-1. Select **Add**. The application **Overview** page opens.
+6. Browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results. (Optional) In the form, you can edit the application name to match the needs of your organization.
+
+    ![Shows how to add an application from the gallery](media/add-gallery-app/create-application.png)
+
+7. Select **Create**. A getting started page appears with the options for configuring the application for your organization.
 
 ## Configure user sign-in properties
 
 1. Select **Properties** to open the properties pane for editing.
 
-    ![Edit properties pane](media/add-application-portal/edit-properties.png)
+    ![Edit properties pane](media/add-gallery-app/edit-properties.png)
 
 1. Set the following options to determine how users who are assigned or unassigned to the application can sign into the application and if a user can see the application in the access panel.
 
@@ -89,7 +92,7 @@ Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-i
 
 1. To use a custom logo, create a logo that is 215 by 215 pixels, and save it in PNG format. Then browse to your logo and upload it.
 
-    ![Change the logo](media/add-application-portal/change-logo.png)
+    ![Change the logo](media/add-gallery-app/change-logo.png)
 
 1. When you're finished, select **Save**.
 

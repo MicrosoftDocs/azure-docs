@@ -3,10 +3,8 @@ title: Security recommendations in Azure Security Center  | Microsoft Docs
 description: This document walks you through how recommendations in Azure Security Center help you protect your Azure resources and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
-ms.author: v-mohabe
+ms.author: memildin
 
 ---
 # Security recommendations in Azure Security Center 
@@ -33,7 +31,7 @@ Security Center periodically analyzing the security state of your Azure resource
 Each recommendation provides you with:
 
 - A short description of what is being recommended.
-- The remediation steps to carry out in order to implement the recommendation. <!-- In some cases, one-click remediation is available. -->
+- The remediation steps to carry out in order to implement the recommendation. <!-- In some cases, Quick Fix remediation is available. -->
 - Which resources are in need of you performing the recommended action on them.
 - The **secure score impact**, which is the amount that your secure score will go up if you implement this recommendation.
 

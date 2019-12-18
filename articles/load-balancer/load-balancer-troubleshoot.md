@@ -1,19 +1,18 @@
 ---
 title: Troubleshoot Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Troubleshoot known issues with Azure Load Balancer
+description: Learn how to troubleshoot known issues with Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: chadmath
-manager: cshepard
+author: asudbring
+manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2018
-ms.author: genli
+ms.date: 11/19/2019
+ms.author: allensu
 ---
 
 # Troubleshoot Azure Load Balancer
@@ -23,6 +22,8 @@ ms.author: genli
 This page provides troubleshooting information for common Azure Load Balancer questions. When the Load Balancer connectivity is unavailable, the most common symptoms are as follows: 
 - VMs behind the Load Balancer are not responding to health probes 
 - VMs behind the Load Balancer are not responding to the traffic on the configured port
+
+When the external clients to the backend VMs go through the load balancer, the IP address of the clients will be used for the communication. Make sure the IP address of the clients are added into the NSG allow list. 
 
 ## Symptom: VMs behind the Load Balancer are not responding to health probes
 For the backend servers to participate in the load balancer set, they must pass the probe check. For more information about health probes, see [Understanding Load Balancer Probes](load-balancer-custom-probe-overview.md). 
@@ -93,18 +94,20 @@ If a VM does not respond to the data traffic, it may be because either the targe
 2. Open a command prompt and run the following command to validate there is an application listening on the data port:  
             netstat -an 
 3. If the port is not listed with State “LISTENING”, configure the proper listener port 
-4. If the port is marked as Listening, then check the target application on that port for any possible issues. 
+4. If the port is marked as Listening, then check the target application on that port for any possible issues.
 
 ### Cause 2: Network security group is blocking the port on the Load Balancer backend pool VM  
 
 If one or more network security groups configured on the subnet or on the VM, is blocking the source IP or port, then the VM is unable to respond.
 
-* List the network security groups configured on the backend VM. For more information, see [Manage network security groups](../virtual-network/manage-network-security-group.md).
-* From the list of network security groups, check if:
+For the public load balancer, the IP address of the Internet clients will be used for communication between the clients and the load balancer backend VMs. Make sure the IP address of the clients are allowed in the backend VM's network security group.
+
+1. List the network security groups configured on the backend VM. For more information, see [Manage network security groups](../virtual-network/manage-network-security-group.md)
+1. From the list of network security groups, check if:
     - the incoming or outgoing traffic on the data port has interference. 
-    - a **Deny All** network security group rule on the NIC of the VM or the subnet that has a higher priority that the default rule that allows Load Balancer probes and traffic (network security groups must allow Load Balancer IP of 168.63.129.16, that is probe port) 
-* If any of the rules are blocking the traffic, remove and reconfigure those rules to allow the data traffic.  
-* Test if the VM has now started to respond to the health probes.
+    - a **Deny All** network security group rule on the NIC of the VM or the subnet that has a higher priority that the default rule that allows Load Balancer probes and traffic (network security groups must allow Load Balancer IP of 168.63.129.16, that is probe port)
+1. If any of the rules are blocking the traffic, remove and reconfigure those rules to allow the data traffic.  
+1. Test if the VM has now started to respond to the health probes.
 
 ### Cause 3: Accessing the Load Balancer from the same VM and Network interface 
 

@@ -1,5 +1,5 @@
 ---
-title: Stackify Retrace Azure Linux Agent Extension | Microsoft Docs
+title: Stackify Retrace Azure Linux Agent Extension 
 description: Deploy the Stackify Retrace Linux agent on a Linux virtual machine.
 services: virtual-machines-linux 
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services 
 ms.date: 04/12/2018
-ms.author: roiyz
+ms.author: akjosh
 
 ---
 # Stackify Retrace Linux Agent Extension

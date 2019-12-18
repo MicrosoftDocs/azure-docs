@@ -1,5 +1,6 @@
 ---
-title: Restrictions and known issues in Azure API Management API import | Microsoft Docs
+title: Restrictions and known issues in API import
+titleSuffix: Azure API Management
 description: Details of known issues and restrictions on import into Azure API Management using the Open API, WSDL or WADL formats.
 services: api-management
 documentationcenter: ''
@@ -12,7 +13,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 11/06/2019
 ms.author: apimpm
 ---
 
@@ -35,6 +36,9 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 -   **Recursion** - API Management doesn't support definitions defined recursively (for example, schemas referring to themselves).
 -   Source file URL (if available) is applied to relative server URLs.
 -   Security definitions are ignored.
+-   Inline schema definitions for API operations are not supported. Schema definitions are defined in the API scope and can be referenced in API operations request or response scopes.
+-   A defined URL parameter needs to be part of the URL template.
+-   **Produces** keyword, which describes MIME types returned by an API, is not supported. 
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2
 
@@ -45,9 +49,6 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 -   If many **servers** are specified, API Management will try to select the first HTTPs URL. If there aren't any HTTPs URLs - the first HTTP URL. If there aren't any HTTP URLs - the server URL will be empty.
 -   **Examples** isn't supported, but **example** is.
 -   **Multipart/form-data** isn't supported.
-
-> [!IMPORTANT]
-> See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
 
 ## <a name="wsdl"> </a>WSDL
 

@@ -4,7 +4,7 @@ description: How to troubleshoot unexpected reboots of VMs.
 keywords: ssh connection refused, ssh error, azure ssh, SSH connection failed
 services: virtual-machines
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 tags: top-support-issue,azure-service-management,azure-resource-manager
 
 ms.service: virtual-machines

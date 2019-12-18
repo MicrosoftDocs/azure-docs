@@ -1,21 +1,19 @@
 ---
-title: Copy data from SAP Business Warehouse via Open Hub using Azure Data Factory | Microsoft Docs
+title: Copy data from SAP Business Warehouse via Open Hub
 description: Learn how to copy data from SAP Business Warehouse (BW) via Open Hub to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.author: jingwang
-
 ---
+
 # Copy data from SAP Business Warehouse via Open Hub using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP Business Warehouse (BW) via Open Hub. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
@@ -24,6 +22,11 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 >To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction, comparsion and guidance.
 
 ## Supported capabilities
+
+This SAP Business Warehouse via Open Hub connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from SAP Business Warehouse via Open Hub to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -172,7 +175,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### SAP BW Open Hub as source
 
-To copy data from SAP BW Open Hub, The following properties are supported in the copy activity **source** section:
+To copy data from SAP BW Open Hub, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -232,6 +235,11 @@ When copying data from SAP BW Open Hub, the following mappings are used from SAP
 | P (BCD Packed, Currency, Decimal, Qty) | Decimal |
 | N (Numc) | String |
 | X (Binary and Raw) | String |
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

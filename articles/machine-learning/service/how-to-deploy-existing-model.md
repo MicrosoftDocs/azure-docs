@@ -1,7 +1,7 @@
 ---
 title: Use and deploy existing models
-titleSuffix: Azure Machine Learning service
-description: 'Learn how you can use Azure Machine Learning service with models that were trained outside the service. You can register models created outside Azure Machine Learning service, and then deploy them as a web service or Azure IoT Edge module.'
+titleSuffix: Azure Machine Learning
+description: 'Learn how you can use Azure Machine Learning with models that were trained outside the service. You can register models created outside Azure Machine Learning, and then deploy them as a web service or Azure IoT Edge module.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,28 +9,29 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/19/2019
+ms.date: 11/06/2019
 ---
 
-# Use an existing model with Azure Machine Learning service
+# Use an existing model with Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to use an existing machine learning model with the Azure Machine Learning service.
+Learn how to use an existing machine learning model with Azure Machine Learning.
 
-If you have a machine learning model that was trained outside the Azure Machine Learning service, you can still use the service to deploy the model as a web service or to an IoT Edge device. 
+If you have a machine learning model that was trained outside Azure Machine Learning, you can still use the service to deploy the model as a web service or to an IoT Edge device. 
 
 > [!TIP]
-> This article provides basic information on registering and deploying an existing model. Once deployed, Azure Machine Learning service provides monitoring for your model. It also allows you to store input data sent to the deployment, which can be used for data drift analysis or training new versions of the model.
+> This article provides basic information on registering and deploying an existing model. Once deployed, Azure Machine Learning provides monitoring for your model. It also allows you to store input data sent to the deployment, which can be used for data drift analysis or training new versions of the model.
 >
 > For more information on the concepts and terms used here, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
 >
-> For general information on the deployment process, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
+> For general information on the deployment process, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. For more information, see [Create a workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. For more information, see [Create a workspace](how-to-manage-workspace.md).
 
     > [!TIP]
-    > The Python examples in this article assume that the `ws` variable is set to your Azure Machine Learning service workspace.
+    > The Python examples in this article assume that the `ws` variable is set to your Azure Machine Learning workspace.
     >
     > The CLI examples use a placeholder of `myworkspace` and `myresourcegroup`. Replace these with the name of your workspace and the resource group that contains it.
 
@@ -41,7 +42,7 @@ If you have a machine learning model that was trained outside the Azure Machine 
 * A trained model. The model must be persisted to one or more files on your development environment.
 
     > [!NOTE]
-    > To demonstrate registering a model trained outside Azure Machine Learning service, the example code snippets in this article use the models created by Paolo Ripamonti's Twitter sentiment analysis project: [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
+    > To demonstrate registering a model trained outside Azure Machine Learning, the example code snippets in this article use the models created by Paolo Ripamonti's Twitter sentiment analysis project: [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
 
 ## Register the model(s)
 
@@ -53,11 +54,11 @@ from azureml.core.model import Model
 #      only some of the files from the directory
 model = Model.register(model_path = "./models",
                        model_name = "sentiment",
-                       description = "Sentiment analysis model trained outside Azure Machine Learning service",
+                       description = "Sentiment analysis model trained outside Azure Machine Learning",
                        workspace = ws)
 ```
 
-For more information, see the [Model.register()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none-) reference.
+For more information, see the [Model.register()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none-) reference.
 
 ```azurecli
 az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
@@ -74,14 +75,14 @@ For more information on model registration in general, see [Manage, deploy, and 
 The inference configuration defines the environment used to run the deployed model. The inference configuration references the following entities, which are used to run the model when it's deployed:
 
 * An entry script. This file (named `score.py`) loads the model when the deployed service starts. It is also responsible for receiving data, passing it to the model, and then returning a response.
-* An Azure Machine Learning service [environment](how-to-use-environments.md). An environment defines the software dependencies needed to run the model and entry script.
+* An Azure Machine Learning [environment](how-to-use-environments.md). An environment defines the software dependencies needed to run the model and entry script. Please note that if you are defining your own environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
 
 The following example shows how to use the SDK to create an environment and then use it with an inference configuration:
 
 ```python
 from azureml.core.model import InferenceConfig
-from azureml.core import Environment
-from azureml.core.environment import CondaDependencies
+from azureml.core.environment import Environment
+from azureml.core.conda_dependencies import CondaDependencies
 
 # Create the environment
 myenv = Environment(name="myenv")
@@ -91,6 +92,8 @@ conda_dep = CondaDependencies()
 conda_dep.add_conda_package("tensorflow")
 conda_dep.add_conda_package("numpy")
 conda_dep.add_conda_package("scikit-learn")
+# You must list azureml-defaults as a pip dependency
+conda_dep.add_pip_package("azureml-defaults")
 conda_dep.add_pip_package("keras")
 
 # Adds dependencies to PythonSection of myenv
@@ -130,7 +133,7 @@ dependencies:
     - keras
 ```
 
-For more information on inference configuration, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
+For more information on inference configuration, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### Entry script
 
@@ -142,13 +145,13 @@ The entry script has only two required functions, `init()` and `run(data)`. Thes
 The following Python code is an example entry script (`score.py`):
 
 ```python
+import os
 import pickle
 import json
 import time
 from keras.models import load_model
 from keras.preprocessing.sequence import pad_sequences
 from gensim.models.word2vec import Word2Vec
-from azureml.core.model import Model
 
 # SENTIMENT
 POSITIVE = "POSITIVE"
@@ -164,8 +167,8 @@ def init():
     global encoder
     global w2v_model
 
-    # Get the path where the model(s) registered as the name 'sentiment' can be found.
-    model_path = Model.get_model_path('sentiment')
+    # Get the path where the deployed model can be found.
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), './models')
     # load models
     model = load_model(model_path + '/model.h5')
     w2v_model = Word2Vec.load(model_path + '/model.w2v')
@@ -215,7 +218,7 @@ def predict(text, include_neutral=True):
        "elapsed_time": time.time()-start_at}  
 ```
 
-For more information on entry scripts, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
+For more information on entry scripts, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Define deployment
 
@@ -259,7 +262,7 @@ print(service.state)
 print("scoring URI: " + service.scoring_uri)
 ```
 
-For more information, see the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-) reference.
+For more information, see the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) reference.
 
 To deploy the model from the CLI, use the following command. This command deploys version 1 of the registered model (`sentiment:1`) using the inference and deployment configuration stored in the `inferenceConfig.json` and `deploymentConfig.json` files:
 

@@ -55,6 +55,8 @@ landingContent:
         links: 
           - text: Portal
             url: role-assignments-portal.md
+          - text: Portal - guest users
+            url: role-assignments-external-users.md
           - text: PowerShell
             url: role-assignments-powershell.md
           - text: Azure CLI

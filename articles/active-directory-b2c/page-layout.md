@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-You can enable JavaScript client-side code in your Azure Active Directory (Azure AD) B2C policies whether you’re using user flows or custom policies. To enable JavaScript for your applications, you must add an element to your [custom policy](active-directory-b2c-overview-custom.md), select a page layout, and use [b2clogin.com](b2clogin.md) in your requests.
+You can enable JavaScript client-side code in your Azure Active Directory B2C (Azure AD B2C) policies whether you’re using user flows or custom policies. To enable JavaScript for your applications, you must add an element to your [custom policy](active-directory-b2c-overview-custom.md), select a page layout, and use [b2clogin.com](b2clogin.md) in your requests.
 
 A page layout is an association of elements that Azure AD B2C provides and the content that you provide.
 
@@ -64,6 +64,17 @@ To set up a page layout, use the following table to find **DataUri** values.
 
 Page layout packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
 
+### 1.2.0 
+- All pages
+  - Accessibility fixes
+  - You can now add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. Scenarios include:
+      - Use this on your CSS link to load the CSS at the same time as your HTML so that it doesn't 'flicker' between loading the files
+      - This attribute allows you to control the order in which your Script tags are fetched and executed before the page load
+  - Email field is now `type=email` and mobile keyboards will provide the correct suggestions
+  - Support for Chrome translate
+- Unified and self-asserted page
+  - The username/email and password fields now use the form HTML element.  This will now allow Edge and IE to properly save this information
+  
 ### 1.1.0
 
 - Exception page (globalexception)

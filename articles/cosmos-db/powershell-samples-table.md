@@ -1,10 +1,10 @@
 ---
 title: Azure PowerShell samples for Azure Cosmos DB - Table API
-description: Azure PowerShell samples for Azure Cosmos DB - Table API
+description:  Get the Azure PowerShell samples to perform various common tasks in Azure Cosmos DB table API accounts
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ---
 
@@ -18,7 +18,8 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |[List or get tables](scripts/powershell/table/ps-table-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get tables. |
 |[Get RU/s](scripts/powershell/table/ps-table-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get RU/s for a table. |
 |[Update RU/s](scripts/powershell/table/ps-table-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Update RU/s for a table. |
-|[Add a region](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get an Azure Cosmos account and add a region to the list of locations. |
-|[Change the failover priority](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Change the failover priority of an Azure Cosmos account with a manual failover trigger. |
-|[Account keys and connection string tasks](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get the connection strings for an Azure Cosmos account. Get the primary and secondary keys of an Azure Cosmos account. Regenerate an account key. |
+|[Update an account or add a region](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Add a region to a Cosmos account. Can also be used to modify other account properties but these must be separate from changes to regions. |
+|[Change failover priority or trigger failover](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Change the regional failover priority of an Azure Cosmos account or trigger a manual failover. |
+|[Account keys or connection strings](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get primary and secondary keys, connection strings or regenerate an account key of an Azure Cosmos account. |
+|[Create a Cosmos Account with IP Firewall](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create an Azure Cosmos account with IP Firewall enabled. |
 |||

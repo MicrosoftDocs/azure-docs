@@ -1,16 +1,12 @@
 ---
-title: "Create a Kubernetes dev space in the cloud using .NET Core and VS Code"
-titleSuffix: Azure Dev Spaces
+title: "Create a Kubernetes dev space: Visual Studio Code & .NET Core"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio Code to debug and rapidly iterate a .NET Core application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
-# Get started on Azure Dev Spaces with .NET Core
+# Create a Kubernetes dev space: Visual Studio Code and .NET Core with Azure Dev Spaces
 
 In this guide, you will learn how to:
 
@@ -38,9 +34,10 @@ az login
 You can view your subscriptions by running: 
 
 ```cmd
-az account list
+az account list --output table
 ```
-Locate the  subscription which has `isDefault: true` in the JSON output.
+
+Locate the subscription which has *True* for *IsDefault*.
 If this isn't the subscription you want to use, you can change the default subscription:
 
 ```cmd
@@ -78,7 +75,7 @@ Enter the following Azure CLI command, using the resource group that contains yo
 Rich features like Kubernetes debugging are available for .NET Core and Node.js developers using VS Code.
 
 1. If you don't have it, install [VS Code](https://code.visualstudio.com/Download).
-1. Download and install the [VS Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Click Install once on the extension's Marketplace page, and again in VS Code. 
+1. Download and install the [VS Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) extensions. For each extension, click install on the extension's Marketplace page, and again in VS Code.
 
 ## Create a web app running in a container
 

@@ -8,7 +8,7 @@ ms.date: 06/10/2019
 ms.author: mjbrown
 
 ---
-# WHERE clause
+# WHERE clause in Azure Cosmos DB
 
 The optional WHERE clause (`WHERE <filter_condition>`) specifies condition(s) that the source JSON items must satisfy for the query to include them in results. A JSON item must evaluate the specified conditions to `true` to be considered for the result. The index layer uses the WHERE clause to determine the smallest subset of source items that can be part of the result.
   
@@ -104,5 +104,5 @@ You can also use property references in queries. For example, `SELECT * FROM Fam
 ## Next steps
 
 - [Getting started](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [FROM clause](sql-query-from.md)

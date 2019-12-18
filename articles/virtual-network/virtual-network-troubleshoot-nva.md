@@ -4,7 +4,7 @@ description: Learn how to troubleshoot the network virtual appliance issues in A
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 

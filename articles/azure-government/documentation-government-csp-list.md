@@ -232,11 +232,11 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Pitech Solutions Inc](http://www.pitechsol.com/)|
 |[Planet Technologies](https://go-planet.com)|
 |[Plexhosted LLC](https://plexhosted.com/)|
-|[Practical Solutions](https://www.ps4b.com)|
+|[Practical Solutions](https://ps4b.com/about.html)|
 |[ProArch IT Solutions](https://www.proarch.com/)|
 |[Project Hosts Inc.](https://www.projecthosts.com)|
 |[Protected Trust](https://www.proarch.com/)|
-|[Pueo Business Solutions, LLC](https://www.pueobusinesssolutions.com)|
+|[Pueo Business Solutions, LLC](https://www.pueo.com/)|
 |[Quality Technology Services LLC](https://www.qtsdatacenters.com/)|
 |[Ravnur Inc.](https://www.ravnur.com)|
 |[Razor Technology, LLC](https://www.razor-tech.com)|
@@ -278,7 +278,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Summit 7 Systems, Inc.](https://summit7systems.com/)|
 |[Surveillance and Cyber Security Solutions, LLC](https://www.scssllc.com)|
 |[SWC Technology Partners](https://www.swc.com)|
-|[Sybatech, Inc](https://www.sybatech.com)|
+|[Sybatech, Inc](https://www.linkedin.com/company/sybatech-inc-)|
 |[Synergy Technical, LLC](https://www.syntechva.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|

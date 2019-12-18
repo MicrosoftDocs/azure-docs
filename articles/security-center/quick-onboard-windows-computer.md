@@ -1,11 +1,10 @@
 ---
-title: Azure Security Center Quickstart - Onboard your Windows computers to Security Center | Microsoft Docs
+title: Onboard Windows computers to Azure Security Center
 description: This quickstart shows you how to provision the Microsoft Monitoring Agent on a Windows computer.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -15,7 +14,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Quickstart: Onboard Windows computers to Azure Security Center
@@ -61,7 +60,7 @@ You must now install the downloaded file on the target computer.
 4. On the **Destination Folder** page, change or keep the default installation folder and then select **Next**.
 5. On the **Agent Setup Options** page, choose to connect the agent to Azure Log Analytics and then select **Next**.
 6. On the **Azure Log Analytics** page, paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad in the previous procedure.
-7. If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** form the **Azure Cloud** dropdown list.  If the computer needs to communicate through a proxy server to the Log Analytics service, select **Advanced** and provide the URL and port number of the proxy server.
+7. If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** form the **Azure Cloud** dropdown list. If the computer needs to communicate through a proxy server to the Log Analytics service, select **Advanced** and provide the URL and port number of the proxy server.
 8. Select **Next** once you have completed providing the necessary configuration settings.
 
    ![Install the agent][5]

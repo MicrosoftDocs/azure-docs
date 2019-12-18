@@ -3,7 +3,7 @@ title: Guidelines for Azure NetApp Files network planning | Microsoft Docs
 description: Describes guidelines that can help you design an effective network architecture by using Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: ram-kakani
 manager: ''
 editor: ''
 
@@ -31,13 +31,13 @@ You should understand a few considerations when you plan for Azure NetApp Files 
 The features below are currently unsupported for Azure NetApp Files: 
 
 * Network security groups (NSGs) applied to the delegated subnet
-* User-defined routes (UDRs) with next hop as Azure NetApp files subnet
+* User-defined routes (UDRs) with address prefix as Azure NetApp files subnet
 * Azure policies (for example, custom naming policies) on the Azure NetApp Files interface
 * Load balancers for Azure NetApp Files traffic
 
 The following network restrictions apply to Azure NetApp Files:
 
-* The number of IPs in use in a VNet with Azure NetApp Files (including peered VNets) cannot exceed 1000.
+* The number of IPs in use in a VNet with Azure NetApp Files (including peered VNets) cannot exceed 1000. We are working towards increasing this limit to meet customer scale demands. In the interim, if you require for more IPs, reach out to our support team with your use case and required limit.
 * In each Azure Virtual Network (VNet), only one subnet can be delegated to Azure NetApp Files.
 
 
@@ -94,7 +94,7 @@ A basic scenario is to create or connect to an Azure NetApp Files volume from a 
 
 If you have additional VNets in the same region that need access to each other’s resources, the VNets can be connected using [VNet peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) to enable secure connectivity through the Azure infrastructure. 
 
-Consider VNet 2 and VNet 3 in the diagram above. If VM 2 needs to connect to VM 3 or Volume 2, or if VM 3 needs to connect to VM 2 or Volume 1, then you need to enable VNet peering between VNet 2 and VNet 3. 
+Consider VNet 2 and VNet 3 in the diagram above. If VM 1 needs to connect to VM 2 or Volume 2, or if VM 2 needs to connect to VM 1 or Volume 1, then you need to enable VNet peering between VNet 2 and VNet 3. 
 
 Additionally, consider a scenario where VNet 1 is peered with VNet 2, and VNet 2 is peered with VNet 3 in the same region. The resources from VNet 1 can connect to resources in VNet 2 but it cannot connect to resources in VNet 3, unless VNet 1 and VNet 3 are peered. 
 

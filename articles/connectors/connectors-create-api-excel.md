@@ -1,13 +1,9 @@
 ---
-title: Connect to Excel Online - Azure Logic Apps
-description: Manage data with Excel Online REST APIs and Azure Logic Apps
+title: Manage data, worksheets, and tables in Excel Online
+description: Manage data in worksheets and tables in Excel Online for Business or Excel Online for OneDrive by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
@@ -15,7 +11,9 @@ tags: connectors
 
 # Manage Excel Online data with Azure Logic Apps
 
-With Azure Logic Apps and the Excel Online connector, 
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the 
+[Excel Online for Business](/connectors/excelonlinebusiness/) connector or 
+[Excel Online for OneDrive](/connectors/excelonline/) connector, 
 you can create automated tasks and workflows based 
 on your data in Excel Online for Business or OneDrive. 
 This connector provides actions that help you work with 
@@ -69,6 +67,11 @@ logic app in the Logic App Designer, if not already open.
 
 1. In the search box, enter "excel" as your filter. Under the actions list, 
 select the action you want.
+
+   > [!NOTE]
+   > The Logic App Designer can't load tables that have 100 or more columns. 
+   > If possible, reduce the number of columns in the selected table so that 
+   > the designer can load the table.
 
 1. If prompted, sign in to your Office 365 account.
 

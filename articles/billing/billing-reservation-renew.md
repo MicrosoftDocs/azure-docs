@@ -4,9 +4,9 @@ description: Learn how you can automatically renew Azure reservations to continu
 services: billing
 author: bandersmsft
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/01/2019
 ms.author: banders
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Samples & walkthroughs
+title: Sample programs & ML walkthroughs
 titleSuffix: Azure Data Science Virtual Machine 
 description: Through these samples and walkthroughs, learn how to handle common tasks and scenarios with the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
@@ -20,6 +20,10 @@ ms.date: 09/24/2018
 Azure Data Science Virtual Machines (DSVMs) include a comprehensive set of sample code. These samples include Jupyter notebooks and scripts in languages like Python and R.
 > [!NOTE]
 > For more information about how to run Jupyter notebooks on your data science virtual machines, see the [Access Jupyter](#access-jupyter) section.
+
+## Prerequisites
+
+In order to run these samples, you must have provisioned a Data Science Virtual Machine. See the quickstarts for [Windows](./provision-vm.md) and [Ubuntu](./dsvm-ubuntu-intro.md).
 
 ## Available samples
 | Samples category | Description | Locations |

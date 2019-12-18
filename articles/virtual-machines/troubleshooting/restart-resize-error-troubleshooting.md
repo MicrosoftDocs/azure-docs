@@ -4,7 +4,7 @@ description: Troubleshoot Resource Manager deployment issues with restarting or 
 services: virtual-machines
 documentationcenter: ''
 author: Deland-Han
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 

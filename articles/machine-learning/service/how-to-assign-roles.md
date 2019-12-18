@@ -1,7 +1,7 @@
 ---
-title: Manage roles in an Azure Machine Learning workspace
-titleSuffix: Azure Machine Learning service
-description: Learn how to access to an Azure Machine Learning service workspace using role-based access control (RBAC).
+title: Manage roles in your workspace
+titleSuffix: Azure Machine Learning
+description: Learn how to access to an Azure Machine Learning workspace using role-based access control (RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/10/2019
+ms.date: 11/06/2019
 ms.custom: seodec18
 
 ---
 
 
 # Manage access to an Azure Machine Learning workspace
+[!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 In this article, you learn how to manage access to an Azure Machine Learning workspace. [Role-based access control (RBAC)](/azure/role-based-access-control/overview) is used to manage access to Azure resources. Users in your Azure Active Directory are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles.
 
@@ -104,11 +105,13 @@ After deployment, this role becomes available in the specified workspace. Now yo
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
+For more information on custom roles, see [Custom roles for Azure resources](/azure/role-based-access-control/custom-roles).
 
-For more information, see [Custom roles for Azure resources](/azure/role-based-access-control/custom-roles).
+For more information on the operations (actions) usable with custom roles, see [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## Next steps
 
 - [Enterprise security overview](concept-enterprise-security.md)
 - [Securely run experiments and inference/score inside a virtual network](how-to-enable-virtual-network.md)
 - [Tutorial: Train models](tutorial-train-models-with-aml.md)
+- [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

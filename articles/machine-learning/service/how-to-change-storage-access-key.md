@@ -1,7 +1,7 @@
 ---
 title: Change storage account access keys
-titleSuffix: Azure Machine Learning service
-description: Learn how to change the access keys for the Azure Storage account used by your workspace. Azure Machine Learning service uses an Azure Storage account to store data and models. When you regenerate the access key for the storage account, you must update the Azure Machine Learning service to use the new keys.
+titleSuffix: Azure Machine Learning
+description: Learn how to change the access keys for the Azure Storage account used by your workspace. Azure Machine Learning uses an Azure Storage account to store data and models. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,21 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/16/2019
+ms.date: 11/06/2019
 
 
 ---
 
 # Regenerate storage account access keys
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to change the access keys for Azure Storage accounts used by the Azure Machine Learning service. Azure Machine Learning can use storage accounts to store data or trained models.
+Learn how to change the access keys for Azure Storage accounts used by Azure Machine Learning. Azure Machine Learning can use storage accounts to store data or trained models.
 
 For security purposes, you may need to change the access keys for an Azure Storage account. When you regenerate the access key, Azure Machine Learning must be updated to use the new key. Azure Machine Learning may be using the storage account for both model storage and as a datastore.
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
 
 * The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -32,7 +33,7 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 ## What needs to be updated
 
-Storage accounts can be used by the Azure Machine Learning service workspace (storing logs, models, snapshots, etc.) and as a datastore. The process to update the workspace is a single Azure CLI command, and can be ran after updating the storage key. The process of updating datastores is more involved, and requires discovering what datastores are currently using the storage account and then re-registering them.
+Storage accounts can be used by the Azure Machine Learning workspace (storing logs, models, snapshots, etc.) and as a datastore. The process to update the workspace is a single Azure CLI command, and can be ran after updating the storage key. The process of updating datastores is more involved, and requires discovering what datastores are currently using the storage account and then re-registering them.
 
 > [!IMPORTANT]
 > Update the workspace using the Azure CLI, and the datastores using Python, at the same time. Updating only one or the other is not sufficient, and may cause errors until both are updated.
@@ -71,12 +72,12 @@ If an entry exists for the storage account that you plan on regenerating access 
 
 ## Update the access key
 
-To update Azure Machine Learning service to use the new key, use the following steps:
+To update Azure Machine Learning to use the new key, use the following steps:
 
 > [!IMPORTANT]
 > Perform all steps, updating both the workspace using the CLI, and datastores using Python. Updating only one or the other may cause errors until both are updated.
 
-1. Regenerate the key. For information on regenerating an access key, see the [Manage a storage account](/azure/storage/common/storage-account-manage#access-keys) article. Save the new key.
+1. Regenerate the key. For information on regenerating an access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md). Save the new key.
 
 1. To update the workspace to use the new key, use the following steps:
 

@@ -5,7 +5,7 @@ description: Get an overview of the supported settings in an Azure Active Direct
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: reference
 ms.date: 07/10/2019
 
 ms.author: joflore
@@ -70,7 +70,6 @@ You can assign a Conditional Access policy to the following cloud apps from Micr
 - Project Online
 - Skype for Business Online
 - Virtual Private Network (VPN)
-- Visual Studio App Center
 - Windows Defender ATP
 
 ### Other applications
@@ -123,7 +122,7 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | Android                | Microsoft Edge, Intune Managed Browser, Chrome  |
 | Windows Phone          | Microsoft Edge, Internet Explorer               |
 | Windows Server 2019    | Microsoft Edge, Internet Explorer, Chrome       |
-| Windows Server 2016    | Microsoft Edge, Internet Explorer               |
+| Windows Server 2016    | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer                       |
 | Windows Server 2008 R2 | Internet Explorer                       |
 | macOS                  | Chrome, Safari                                  |
@@ -234,6 +233,7 @@ This setting applies to the following client apps:
 - The approved client apps support the Intune mobile application management feature.
 - The **Require approved client app** requirement:
    - Only supports the iOS and Android for [device platform condition](#device-platform-condition).
+- Conditional Access cannot consider Microsoft Edge in InPrivate mode an approved client app.
 
 ## App protection policy requirement 
 
@@ -244,7 +244,6 @@ In your Conditional Access policy, you can require an app protection policy be p
 This setting applies to the following client apps:
 
 - Microsoft Cortana
-- Microsoft Edge
 - Microsoft OneDrive
 - Microsoft Outlook
 - Microsoft Planner

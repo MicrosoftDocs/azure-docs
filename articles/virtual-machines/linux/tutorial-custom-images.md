@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create custom VM images with the Azure CLI | Microsoft Docs
+title: Tutorial - Create custom VM images with the Azure CLI 
 description: In this tutorial, you learn how to use the Azure CLI to create a custom virtual machine image in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -31,7 +31,7 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * List all the images in your subscription
 > * Delete an image
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -108,6 +108,8 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
+
+We recommend that you limit the number of concurrent deployments to 20 VMs from a single image. If you are planning large-scale, concurrent deployments of over 20 VMs from the same custom image, you should use a [Shared Image Gallery](shared-image-galleries.md) with multiple image replicas. 
 
 ## Image management 
 

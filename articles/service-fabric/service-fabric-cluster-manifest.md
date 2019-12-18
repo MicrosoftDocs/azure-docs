@@ -198,6 +198,7 @@ To configure add-on features, configure the apiVersion as 04-2017 or higher, and
     ]
 }
 ```
+All available add-on features can be seen in the [Service Fabric REST API Reference](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### Container support
 To enable container support for both Windows Server containers and Hyper-V containers for standalone clusters, the DnsService add-on feature must be enabled.

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/18/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Enforce Azure AD password protection for Windows Server Active Directory
 
-Azure AD password protection is a feature that enhances password policies in an organization. On-premises deployment of password protection uses both the global and custom banned-password lists that are stored in Azure AD. It does the same checks on-premises as Azure AD for cloud-based changes.
+Azure AD password protection is a feature that enhances password policies in an organization. On-premises deployment of password protection uses both the global and custom banned-password lists that are stored in Azure AD. It does the same checks on-premises as Azure AD does for cloud-based changes. These checks are performed during password changes and password reset scenarios.
 
 ## Design principles
 

@@ -1,5 +1,5 @@
 ---
-title: Mount Azure File storage on Linux VMs using SMB | Microsoft Docs
+title: Mount Azure File storage on Linux VMs using SMB 
 description: How to mount Azure File storage on Linux VMs using SMB with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -112,5 +112,5 @@ For increased security in production environments, you should store your credent
 
 - [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md)
 - [Add a disk to a Linux VM](add-disk.md)
-- [Encrypt disks on a Linux VM by using the Azure CLI](encrypt-disks.md)
+- [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md)
 

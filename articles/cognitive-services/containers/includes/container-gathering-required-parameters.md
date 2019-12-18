@@ -6,21 +6,21 @@ manager: nitinme
 description: The parameters for all Cognitive Services' containers
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 7/24/2019
+ms.date: 10/15/2019
 ms.author: dapine
 ---
 
 ## Gathering required parameters
 
-There are three primary parameters for all Cognitive Services' containers that are required. The end-user license agreement (**EULA**) must be present with a value of `accept`. Additionally, both an Endpoint URL and API Key are needed.
+There are three primary parameters for all Cognitive Services' containers that are required. The end-user license agreement (EULA) must be present with a value of `accept`. Additionally, both an Endpoint URL and API Key are needed.
 
-### Endpoint URI `{Endpoint_URI}`
+### Endpoint URI `{ENDPOINT_URI}`
 
 The **Endpoint** URI value is available on the Azure portal *Overview* page of the corresponding Cognitive Service resource. Navigate to the *Overview* page, hover over the Endpoint, and a `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon will appear. Copy and use where needed.
 
 ![Gather the endpoint uri for later use](../media/overview-endpoint-uri.png)
 
-### Keys `{API_Key}`
+### Keys `{API_KEY}`
 
 This key is used to start the container, and is available on the Azure portal's Keys page of the corresponding Cognitive Service resource. Navigate to the *Keys* page, and click on the `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon.
 

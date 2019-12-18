@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 07/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -21,6 +21,9 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Running the installation wizard a second time
 The first time you run the Azure AD Connect installation wizard, it walks you through how to configure your installation. If you run the installation wizard again, it offers options for maintenance.
+
+>[!IMPORTANT]
+>Be aware that you cannot run the installation wizard while a synchronization is in progress.  Please verify that a synchronization is not running before  launching the wizard.
 
 You can find the installation wizard in the start menu named **Azure AD Connect**.
 

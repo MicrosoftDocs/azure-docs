@@ -1,32 +1,33 @@
 ---
-title: Build highly available Azure Storage applications on zone-redundant storage (ZRS) | Microsoft Docs
+title: Build highly available applications with zone-redundant storage (ZRS)
+titleSuffix: Azure Storage
 description: Zone-redundant storage (ZRS) offers a simple way to build highly available applications. ZRS protects against hardware failures in the datacenter, and against some regional disasters.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 06/28/2019
+ms.topic: conceptual
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ---
 
-# Zone-redundant storage (ZRS) for building highly available Azure Storage applications
+# Build highly available applications with zone-redundant storage (ZRS)
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## Support coverage and regional availability
 
-ZRS currently supports standard general-purpose v2 account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
+ZRS currently supports standard general-purpose v2, FileStorage and BlockBlobStorage storage account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
 
-ZRS is available for block blobs, non-disk page blobs, files, tables, and queues.
+General-purpose v2 ZRS accounts support block blobs, non-disk page blobs, standard file shares, tables, and queues.
 
-ZRS is generally available in the following regions:
+For general-purpose v2 accounts, ZRS is generally available in the following regions:
 
 - Asia Southeast
-- Europe West
 - Europe North
+- Europe West
 - France Central
 - Japan East
 - UK South
@@ -34,6 +35,11 @@ ZRS is generally available in the following regions:
 - US East
 - US East 2
 - US West 2
+
+For FileStorage accounts (premium file shares) and BlockBlobStorage accounts (premium block blobs), ZRS is generally available in the following regions:
+
+- Europe West
+- US East
 
 Microsoft continues to enable ZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about new regions.
 
@@ -60,6 +66,9 @@ There are two primary options for migration to ZRS:
 
 - Manually copy or move data to a new ZRS account from an existing account.
 - Request a live migration.
+
+> [!IMPORTANT]
+> Live migration is not currently supported for premium file shares. Only manually copying or moving data is currently supported.
 
 If you need the migration to complete by a certain date consider performing a manual migration. A manual migration provides more flexibility than a live migration. With a manual migration, you're in control of the timing.
 
@@ -90,7 +99,7 @@ You can request live migration through the [Azure Support portal](https://ms.por
 4. Specify the following values the **Problem** section: 
     - **Severity**: Leave the default value as-is.
     - **Problem Type**: Select **Data Migration**.
-    - **Category**: Select **Migrate to ZRS within a region**.
+    - **Category**: Select **Migrate to ZRS**.
     - **Title**: Type a descriptive title, for example, **ZRS account migration**.
     - **Details**: Type additional details in the **Details** box, for example, I would like to migrate to ZRS from [LRS, GRS] in the \_\_ region. 
 5. Select **Next**.
@@ -111,7 +120,7 @@ There is no data loss associated with the migration. During the migration proces
 
 **Are any updates required to the application(s) once the migration is complete?**
 
-Once the migration is complete the replication type of the account(s) will change to "Zone-redundant storage (ZRS)". Service endpoints, access keys, SAS and any other account configuration options remain unchanged and intact.
+Once the migration is complete the replication type of the account(s) will change to "Zone-redundant storage (ZRS)". Service endpoints, access keys, SAS, and any other account configuration options remain unchanged and intact.
 
 **Can I request a live migration of my general-purpose v1 account(s) to ZRS?**
 

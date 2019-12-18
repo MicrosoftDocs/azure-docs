@@ -3,17 +3,16 @@ title: Platforms supported by Azure Security Center | Microsoft Docs
 description: This document provides a list of platforms supported by Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/29/2019
-ms.author: "v-mohabe"
+ms.date: 08/29/2019
+ms.author: memildin
 ---
 # Supported platforms 
 
@@ -36,15 +35,12 @@ The following sections list the supported server operating systems on which the 
 
 ### Windows server operating systems <a name="os-windows"></a>
 
-* Windows Server 2019
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
-* Windows Server 2008
-
-> [!NOTE]
-> Integration with Microsoft Defender ATP supports only Windows Server 2012 R2 and Windows Server 2016.
+|OS|Supported by Azure Security Center|Support for integration with Microsoft Defender ATP|
+|:---|:-:|:-:|
+|Windows Server 2019|✔|X|
+|Windows Server 2016|✔|✔|
+|Windows Server 2012 R2|✔|✔|
+|Windows Server 2008 R2|✔|✔|
 
 To learn more about the supported features for the Windows operating systems, listed above, see [Virtual machine / server supported features](security-center-services.md##vm-server-features).
 
@@ -54,7 +50,7 @@ To learn more about the supported features for the Windows operating systems, li
 
 * CentOS 6 and 7
 * Amazon Linux 2017.09
-* Oracle Linux 6 and 7
+* Oracle Linux 6 and Oracle Linux 7
 * Red Hat Enterprise Linux Server 6 and 7
 * Debian GNU/Linux 8 and 9
 * Ubuntu Linux 14.04 LTS, 16.04 LTS, and 18.04 LTS
@@ -111,6 +107,8 @@ The following Azure PaaS resources are supported by Azure Security Center:
 * Key vault
 
 To learn more about the supported features for the above list of PaaS resources, see [PaaS services supported features](security-center-services.md#paas-services).
+
+Protection for Virtual Machines residing in Azure Stack is also supported. For more information about Security Center’s integration with Azure Stack, see [Onboard your Azure Stack virtual machines to Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
 ## Next steps
 

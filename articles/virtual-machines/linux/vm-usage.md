@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure virtual machine usage | Microsoft Docs
+title: Understanding Azure virtual machine usage 
 description: Understand virtual machine usage details
 services: virtual-machines
 documentationcenter: ''
@@ -22,7 +22,7 @@ ms.author: memccror
 By analyzing your Azure usage data, powerful consumption insights can be gained – insights that can enable better cost management and allocation throughout your organization. This document provides a deep dive into your Azure Compute consumption details. For more details on general Azure usage, navigate to [Understanding your bill](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
 ## Download your usage details
-To begin, [download your usage details](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). The table below provides the definition and example values of usage for Virtual Machines deployed via the Azure Resource Manager. This document does not contain detailed information for VMs deployed via our classic model.
+To begin, [download your usage details](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). The table below provides the definition and example values of usage for Virtual Machines deployed via the Azure Resource Manager. This document does not contain detailed information for VMs deployed via our classic model.
 
 
 | Fields             | Meaning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Example Values                                                                                                                                                                                                                                                                                                                                                   |

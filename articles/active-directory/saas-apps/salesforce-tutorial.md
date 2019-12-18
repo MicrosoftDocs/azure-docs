@@ -42,9 +42,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Salesforce supports **SP** initiated SSO
 
-* Salesforce supports **Just In Time** user provisioning
+* Salesforce supports [**Automated** user provisioning and deprovisioning](salesforce-provisioning-tutorial.md) (recommended)
 
-* Salesforce supports [**Automated** user provisioning](salesforce-provisioning-tutorial.md)
+* Salesforce supports **Just In Time** user provisioning
 
 * Salesforce Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
@@ -122,6 +122,9 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
+   
+    > [!NOTE]
+    > Salesforce user attributes are case sensitive for SAML validation.
 
 ### Assign the Azure AD test user
 

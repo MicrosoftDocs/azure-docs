@@ -1,5 +1,6 @@
 ---
-title: Application types that can be used in Azure Active Directory B2C
+title: Application types supported by Azure AD B2C
+titleSuffix: Azure AD B2C
 description: Learn about the types of applications you can use with Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -15,7 +16,7 @@ ms.subservice: B2C
 ---
 # Application types that can be used in Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C supports authentication for a variety of modern application architectures. All of them are based on the industry standard protocols [OAuth 2.0](active-directory-b2c-reference-protocols.md) or [OpenID Connect](active-directory-b2c-reference-protocols.md). This article describes the types of applications that you can build, independent of the language or platform you prefer. It also helps you understand the high-level scenarios before you start building applications.
+Azure Active Directory B2C (Azure AD B2C) supports authentication for a variety of modern application architectures. All of them are based on the industry standard protocols [OAuth 2.0](active-directory-b2c-reference-protocols.md) or [OpenID Connect](active-directory-b2c-reference-protocols.md). This article describes the types of applications that you can build, independent of the language or platform you prefer. It also helps you understand the high-level scenarios before you start building applications.
 
 Every application that uses Azure AD B2C must be registered in your [Azure AD B2C tenant](active-directory-b2c-get-started.md) by using the [Azure portal](https://portal.azure.com/). The application registration process collects and assigns values, such as:
 
@@ -120,7 +121,7 @@ To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth
 
 #### Web API chains (on-behalf-of flow)
 
-Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end and calls a Microsoft online service such as the Azure AD Graph API.
+Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end and calls a Microsoft online service such as the Microsoft Graph API or Azure AD Graph API.
 
 This chained web API scenario can be supported by using the OAuth 2.0 JWT bearer credential grant, also known as the on-behalf-of flow.  However, the on-behalf-of flow is not currently implemented in the Azure AD B2C.
 
@@ -128,12 +129,12 @@ This chained web API scenario can be supported by using the OAuth 2.0 JWT bearer
 
 Do not edit Azure AD B2C applications in these ways:
 
-- On other application management portals such as the [Application Registration Portal](https://apps.dev.microsoft.com/).
+- On other application management portals such as the [Application Registration Portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
 - Using Graph API or PowerShell.
 
 If you edit the Azure AD B2C application outside of the Azure portal, it becomes a faulted application and is no longer usable with Azure AD B2C. Delete the application and create it again.
 
-To delete the application, go to the [Application Registration Portal](https://apps.dev.microsoft.com/) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
+To delete the application, go to the [Application Registration Portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
 
 ## Next steps
 

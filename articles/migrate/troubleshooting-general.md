@@ -1,11 +1,12 @@
 ---
 title: Troubleshoot Azure Migrate issues | Microsoft Docs
 description: Provides an overview of known issues in the Azure Migrate service, as well as troubleshooting tips for common errors.
-author: rayne-wiselman
+author: musa-57
+ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/06/2019
-ms.author: raynew
+ms.date: 11/21/2019
+ms.author: hamusa
 ---
 
 # Troubleshoot Azure Migrate
@@ -73,7 +74,7 @@ To delete a project in the current version of Azure Migrate:
 2. In the resource group page, select **Show hidden types**.
 3. Select the migrate project you want to delete. The resource type is Microsoft.Migrate/migrateprojects, and deletes it.
 
-To delete a project in the older version of Azure Migrate: 
+To delete a project in the older version of Azure Migrate:
 
 1. Open the Azure resource group in which the project was created.
 2. Select the migrate project you want to delete. The resource type is Migration project, and deletes it.
@@ -85,7 +86,7 @@ Browse to the Log Analytics workspace attached to the project.
      * If you haven't deleted the Azure Migrate project, you can find the link to the workspace in **Essentials** > **Server Assessment**.
        ![LA Workspace](./media/troubleshooting-general/loganalytics-workspace.png)
 
-     * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it. 
+     * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it.
 
 
 ## Error "Requests must contain user identity headers"
@@ -148,7 +149,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
 
 ## Error: Appliance might not be registered
 
-- Error 60052, "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions. 
+- Error 60052, "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions.
     - Make sure that the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
     - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about required Azure roles and permissions.
 - Error 60039, "The appliance might not be registered successfully to the Azure Migrate project" can occur if registration fails because the Azure Migrate project used to the register the appliance can't be found.
@@ -157,7 +158,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
 
 ## Error: Key Vault management operation failed
 
-If you receive the error 60030 or 60031, "An Azure Key Vault management operation failed", do the following: 
+If you receive the error 60030 or 60031, "An Azure Key Vault management operation failed", do the following:
 - Make sure the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
 - Make sure the account has access to the key vault specified in the error message, and then retry the operation.
 - If the issue persists, contact Microsoft support.
@@ -182,10 +183,11 @@ Error 60025: "An Azure AD operation failed. The error occurred while creating or
 
 ## Discovered VMs not in portal
 
-If you start discovery so that **Server Assessment** and **Server Migration** show **Discovery in progress**, but don't yet see the VMs in the portal, note the following: 
+If you start discovery so that **Server Assessment** and **Server Migration** show **Discovery in progress**, but don't yet see the VMs in the portal, note the following:
 
 - After starting discovery from the appliance, it takes around 15 minutes for a VMware VM discovery, and around two minutes for each added host for Hyper-V VM discovery.
 - If you continue to see **Discovery in progress** even after these waiting periods, select **Refresh** on the **Servers** tab. This should show the count of the discovered servers in **Server Assessment** and **Server Migration**.
+- If you are discovering VMware servers, verify that the vCenter account you specified has permissions set correctly and has access granted to at least 1 VM. Please note that while you can set the discovery scope to vCenter Server datacenters, clusters, folder of clusters, hosts, folder of hosts, or individual VMs, Azure Migrate is not able to discover VMs if the vCenter account has access granted at vCenter VM folder level. Learn more about scoping discovery [here](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#scoping-discovery).
 
 
 ## Deleted VMs in the portal
@@ -197,7 +199,7 @@ If you've deployed an appliance that continuously discovers your on-premises env
 
     1. In **Servers** > **Azure Migrate Server Assessment**, select **Overview**.
     2. Under **Manage**, select **Agent Health**
-    3. Select **Refresh agent**. 
+    3. Select **Refresh agent**.
     1. Wait for the refresh operation to complete. You should now see up-to-date information.
 
 ## VM information isn't in the portal
@@ -207,7 +209,7 @@ If you've deployed an appliance that continuously discovers your on-premises env
 
     1. In **Servers** > **Azure Migrate Server Assessment**, select **Overview**.
     2. Under **Manage**, select **Agent Health**
-    3. Select **Refresh agent**. 
+    3. Select **Refresh agent**.
     1. Wait for the refresh operation to complete. You should now see up-to-date information.
 
 
@@ -223,6 +225,33 @@ Error 50004: "Can't connect to a host or cluster because the server name can't b
     4. Save and close the hosts file.
     5. Check whether the appliance can connect to the hosts, using the appliance management app. After 30 minutes, you should see the latest information for these hosts in the Azure portal.
 
+## Application discovery issues
+
+Discovery of applications is currently only supported for VMware VMs. Support for Hyper-V VMs and physical servers will be enabled in future.
+
+The discovery of applications requires you to provide VM credentials in the appliance, if you have not provided VM credentials in the appliance, application discovery will not work. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) about the access privileges needed for vCenter Server and for VMware VMs. If you have provided VM credentials in the appliance and the application discovery is failing, review the following table to identify the cause for the failure and remediation action:
+
+**Error code** | **Message** | **Possible cause** | **Recommended action**
+--- | --- | --- | ---
+10000 | Unable to discover the applications installed on the server. | This could happen if the operating system running on the server is neither Windows nor Linux. | Discovery of installed applications is only supported for Windows and Linux servers.
+10001 | Unable to retrieve the applications installed the server. | This is due to an internal error as there are some missing files in appliance. | Please contact Microsoft Support.
+10002 | Unable to retrieve the applications installed the server. | This could happen if the discovery agent in the Azure Migrate appliance is not working properly. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+10003 | Unable to retrieve the applications installed the server. | This could happen if the discovery agent is not working properly. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+10004 | Unable to discover installed applications for <Windows/Linux> machines. |  Credentials to access <Windows/Linux> machines were not provided in the Azure Migrate appliance | Please add a credential in the Azure Migrate appliance that has  access to the <Windows/Linux> machines.
+10005 | Unable to access the on-premises server. | This could happen if the credentials provided for machine to access the server is incorrect. | Please update the credentials provided in the appliance and ensure that the server is accessible using the credential.
+10006 | Unable to access the on-premises server. | This could happen if the operating system running on the server is neither Windows nor Linux. | Discovery of installed applications is only supported for Windows and Linux servers.
+9000 | Unable to discover the applications installed on the VM. | VMware tools might not be installed or is corrupted. | Install/Reinstall VMware tools in the VM and check if it is running.
+9001 | Unable to discover the applications installed on the VM. | VMware tools might not be installed or is corrupted. | Install/Reinstall VMware tools in the VM and check if it is running.
+9002 | Unable to discover the applications installed on the VM. | VMware tools might not be running. | Install/Reinstall VMware tools in the VM and check if it is running.
+9003 | Unable to discover the applications installed on the server. | This could happen if the operating system running on the server is neither Windows nor Linux. | Discovery of installed applications is only supported for Windows and Linux servers.
+9004 | Unable to discover the applications installed on the server. | This could happen if the VM is powered off. | To discover installed applications on the server, ensure that the VM is powered on.
+9005 | Unable to discover the applications installed on the VM. | This could happen if the operating system running on the VM is neither Windows nor Linux. | Discovery of installed applications is only supported for Windows and Linux servers.
+9006 | Unable to retrieve the applications installed the server. | This could happen if the discovery agent is not working properly. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+9007 | Unable to retrieve the applications installed the server. | This could happen if the discovery agent is not working properly. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+9008 | Unable to retrieve the applications installed the server. | The issue can occur due to an internal error.  | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+9009 | Unable to retrieve the applications installed the server. | The issue can occur if the Windows User Account Control (UAC) settings on the server are restrictive and prevent discovery of installed applications. | Search for 'User Account Control' settings on the server and configure the UAC setting on the server to be at one of the lower two levels.
+9010 | Unable to retrieve the applications installed the server. | The issue can occur due to an internal error.  | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+8084 | Unable to discover applications due to VMware error: <Exception from VMware> | The Azure Migrate appliance uses VMware APIs to discover applications. This issue can happen due to an exception thrown by vCenter Server while trying to discover applications. The fault message from VMware is displayed in the error message shown in portal. | Review the [VMware documentation](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html), search for the fault message and follow the troubleshooting steps in the VMware article to fix the issue. If you are still unable to fix the issue, reach out to Microsoft Support.
 
 
 ## Fix assessment readiness
@@ -254,10 +283,6 @@ Could not determine VM suitability because of an internal error | Try creating a
 Could not determine suitability for one or more disks because of an internal error | Try creating a new assessment for the group.
 Could not determine suitability for one or more network adapters because of an internal error | Try creating a new assessment for the group.
 
-## Can't add Enterprise Agreement (EA) in an assessment
-
-Azure Migrate Server Assessment doesn't currently support Enterprise Agreement (EA) pricing. To work around this limitation, use **Pay-As-You-Go** as the Azure offer, and use the **Discount** property to specify any custom discount that you receive. [Learn](https://aka.ms/migrate/selfhelp/eapricing) how to customize an assessment.
-
 ## Linux VMs are "conditionally ready"
 
 Server Assessment marks Linux VMs as  "Conditionally ready" due to a known gap in Server Assessment.
@@ -274,7 +299,7 @@ Azure Migrate Server Assessment might recommend Azure VM SKUs with more cores an
 
 
 - The VM SKU recommendation depends on the assessment properties.
-- This is affected by the type of assessment you perform in Server Assessment: *Performance-based*, or *As on-premises*. 
+- This is affected by the type of assessment you perform in Server Assessment: *Performance-based*, or *As on-premises*.
 - For performance-based assessments, Server Assessment considers the utilization data of the on-premises VMs (CPU, memory, disk, and network utilization) to determine the right target VM SKU for your on-premises VMs. It also adds a comfort factor when determining effective utilization.
 - For on-premises sizing, performance data is not considered, and the target SKU is recommended based on-premises allocation.
 
@@ -283,14 +308,14 @@ To show how this can affect recommendations, let's take an example:
 We have an on-premises VM with four cores and eight GB of memory, with 50% CPU utilization and 50% memory utilization, and a specified comfort factor of 1.3.
 
 -  If the assessment is **As on-premises**, an Azure VM SKU with 4 cores and 8 GB of memory is recommended.
-- If the assessment is performance-based, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and eight GB of memory (nearest supported memory size) is recommended. 
+- If the assessment is performance-based, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and eight GB of memory (nearest supported memory size) is recommended.
 - [Learn more](concepts-assessment-calculation.md#sizing) about assessment sizing.
 
 ## Azure disk SKUs bigger than on-premises
 
 Azure Migrate Server Assessment might recommend a bigger disk based on the type of assessment.
 - Disk sizing in Server Assessment depends on two assessment properties: sizing criteria and storage type.
-- If the sizing criteria is **Performance-based**, and the storage type is set to **Automatic**, the IOPS and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, or Premium). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk. 
+- If the sizing criteria is **Performance-based**, and the storage type is set to **Automatic**, the IOPS and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, or Premium). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk.
 - If the sizing criteria is **Performance-based**, and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, or **Premium**.
 
 As an example, if you have an on-premises disk with 32 GB of memory, but the aggregated read and write IOPS for the disk is 800 IOPS, Server Assessment recommends a premium disk (because of the higher IOPS requirements), and then recommends a disk SKU that can support the required IOPS and size. The nearest match in this example would be P15 (256 GB, 1100 IOPS). Even though the size required by the on-premises disk was 32 GB, Server Assessment recommends a larger disk because of the high IOPS requirement of the on-premises disk.
@@ -319,13 +344,11 @@ Server Assessment continuously collects performance data of on-premises machines
 - If you want to pick the peak usage for the period and don't want to miss any outliers, you should select the 99th percentile for percentile utilization.
 
 
-
 ## I can't find dependency visualization for Azure Government
 
 Azure Migrate depends on Service Map for the dependency visualization functionality. Because Service Map is currently unavailable in Azure Government, this functionality is not available in Azure Government.
 
 ## Dependencies don't show after installing agents
-
 
 After you've installed the dependency visualization agents on on-premises VMs, Azure Migrate typically takes 15-30 minutes to display the dependencies in the portal. If you've waited for more than 30 minutes, make sure that the Microsoft Monitoring Agent (MMA) can connect to the Log Analytics workspace.
 

@@ -1,17 +1,15 @@
 ---
-title: 'Quickstart: Set up a Geo Artificial Intelligence'
-titleSuffix: Azure Data Science Virtual Machine 
-description: Learn how to create and configure the Geo AI Data Science Virtual Machine. The Geo AI Data Science Virtual Machine provides you with the tools to create AI and ML solutions using geographic data.
-keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
-services: machine-learning
+title: 'Quickstart: Create a Geo AI DSVM' 
+description: Configure and create a Geo AI Data Science Virtual Machine on Azure for geospatial analytics and machine learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: quickstart
-ms.date: 03/05/2018
+ms.date: 09/13/2019
 
+# Customer intent: As a data scientist, I want to learn how to provision the Windows DSVM so that I can move my existing workflow to the cloud.
 ---
 
 # Quickstart: Set up a Geo Artificial Intelligence Virtual Machine on Azure 
