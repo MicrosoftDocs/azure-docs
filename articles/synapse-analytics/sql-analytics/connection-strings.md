@@ -1,20 +1,18 @@
 ---
 title: Connection strings
-description: Connection strings for SQL Data Warehouse
-services: sql-data-warehouse
-author: XiaoyuMSFT 
-manager: craigg
-ms.service: sql-data-warehouse
-ms.topic: conceptual
-ms.subservice: development
-ms.date: 04/17/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+description: Connection strings for SQL Analytics
+services: synapse analytics 
+author: azaricstefan 
+ms.service: synapse-analytics 
+ms.topic: overview 
+ms.subservice: 
+ms.date: 10/21/2019 
+ms.author: v-stazar 
+ms.reviewer: jrasnick
 ---
 
-# Connection strings for Azure SQL Data Warehouse
-You can connect to SQL Data Warehouse with several different application protocols such as, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] and [JDBC][JDBC]. Below are some examples of connections strings for each protocol.  You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
+# Connection strings for Azure SQL Analytics
+You can connect to SQL Analytics with several different application protocols such as, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] and [JDBC][JDBC]. Below are some examples of connections strings for each protocol. You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
 
 ## Sample ADO.NET connection string
 ```csharp
@@ -37,17 +35,21 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ```
 
 > [!NOTE]
-> Consider setting the connection timeout to 300 seconds in order to allow the connection to survive short periods of  unavailability.
+> Consider setting the connection timeout to 300 seconds to allow the connection to survive short periods of unavailability.
 > 
 > 
 
+## Recommendations
+
+For executing **SQL Analytics on-demand** queries, recommended tools are [Azure Data Studio](get-started-azure-data-studio.md) and Azure Synapse Studio.
+
 ## Next steps
-To start querying your data warehouse with Visual Studio and other applications, see [Query with Visual Studio][Query with Visual Studio].
+To start querying your analytics with Visual Studio and other applications, see [Query with Visual Studio][Query with Visual Studio].
 
 <!--Image references-->
 
 <!--Azure.com references-->
-[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[Query with Visual Studio]: ../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx

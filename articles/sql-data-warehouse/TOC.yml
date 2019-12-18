@@ -10,8 +10,8 @@
   #   href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Cheat sheet
     href: cheat-sheet.md
-  - name: Best practices
-    href: sql-data-warehouse-best-practices.md
+  # - name: Best practices
+  #   href: sql-data-warehouse-best-practices.md
   - name: Capacity limits
     href: sql-data-warehouse-service-capacity-limits.md
   - name: FAQ
@@ -109,18 +109,18 @@
         href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Data loading
     items:
-    - name: Overview
-      href: design-elt-data-loading.md
-    - name: Best practices
-      href: guidance-for-loading-data.md
+    # - name: Overview
+    #   href: design-elt-data-loading.md
+    # - name: Best practices
+    #   href: guidance-for-loading-data.md
     # - name: Columnstore compression
     #   href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
   - name: Development
     items:
     # - name: Overview
     #   href: sql-data-warehouse-overview-develop.md
-    - name: Best practices
-      href: sql-data-warehouse-best-practices-development.md
+    # - name: Best practices
+    #   href: sql-data-warehouse-best-practices-development.md
     - name: JSON
       items:
       - name: JSON
@@ -137,8 +137,8 @@
         href: /sql/t-sql/functions/openjson-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
     - name: Materialized view
       items:
-      - name: Performance tuning guidance  
-        href: performance-tuning-materialized-views.md
+      # - name: Performance tuning guidance  
+      #   href: performance-tuning-materialized-views.md
       - name: Create
         href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: Alter
@@ -285,8 +285,8 @@
     items:
     - name: Overview
       href: sql-data-warehouse-connect-overview.md
-    - name: Connection strings
-      href: sql-data-warehouse-connection-strings.md
+    # - name: Connection strings
+    #   href: sql-data-warehouse-connection-strings.md
     - name: Change management and deployment
       items:
       - name: Install Visual Studio SSDT
