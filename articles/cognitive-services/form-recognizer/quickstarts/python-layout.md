@@ -38,29 +38,36 @@ To start analyzing the layout, you call the **Analyze Layout** API using the Pyt
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
     ```python
-    import http.client, urllib.request, urllib.parse, urllib.error, base64
+    ########### Python Form Recognizer Async Layout #############
 
+    import json
+    import time
+    from requests import get, post
+    
+    # Endpoint URL
+    endpoint = r"<Endpoint>"
+    apim_key = "<Subscription Key>"
+    post_url = endpoint + "/formrecognizer/v2.0-preview/Layout/analyze"
     source = r"<path to your form>"
-    body = {"url":source}
-    body = json.dumps(body)
-
+    
     headers = {
         # Request headers
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': '<subscription key>',
+        'Content-Type': '<file type>',
+        'Ocp-Apim-Subscription-Key': apim_key,
     }
-
+    with open(source, "rb") as f:
+        data_bytes = f.read()
+    
     try:
-        conn = http.client.HTTPSConnection('<Endpoint>')
-        conn.request("POST", "/formrecognizer/v2.0-preview/layout/analyze", body, headers)
-        response = conn.getresponse()
-        data = response.read()
-        operationURL = "" + response.getheader("Operation-Location")
-        print ("Location header: " + operationURL)
-        conn.close()
+        resp = post(url = post_url, data = data_bytes, headers = headers)
+        if resp.status_code != 202:
+            print("POST analyze failed:\n%s" % resp.text)
+            quit()
+        print("POST analyze succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["operation-location"]
     except Exception as e:
-        print(e)
-        exit()
+        print("POST analyze failed:\n%s" % str(e))
+        quit()
     ```
 
 1. Save the code in a file with a .py extension. For example, *form-recognizer-layout.py*.
@@ -75,25 +82,33 @@ https://cognitiveservice/formrecognizer/v2.0-preview/layout/operations/54f0b076-
 
 ## Get the layout results
 
-After you've called the **Analyze Layout** API, you call the **Get Analyze Layout Result** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This extracts the operation ID value and passes it to a new API call. This script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
+After you've called the **Analyze Layout** API, you call the **Get Analyze Layout Result** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This uses the operation ID value in a new API call. This script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
 
 ```python
-operationId = operationURL.split("operations/")[1]
-
-conn = http.client.HTTPSConnection('<Endpoint>')
-while True:
+n_tries = 10
+n_try = 0
+wait_sec = 6
+while n_try < n_tries:
     try:
-        conn.request("GET", f"/formrecognizer/v2.0-preview/layout/analyzeResults/{operationId}", "", headers)
-        responseString = conn.getresponse().read().decode('utf-8')
-        responseDict = json.loads(responseString)
-        conn.close()
-        print(responseString)
-        if 'status' in responseDict and responseDict['status'] not in ['notStarted','running']:
-            break
-        time.sleep(1)
+        resp = get(url = get_url, headers = {"Ocp-Apim-Subscription-Key": apim_key})
+        resp_json = json.loads(resp.text)
+        if resp.status_code != 200:
+            print("GET Layout results failed:\n%s" % resp_json)
+            quit()
+        status = resp_json["status"]
+        if status == "succeeded":
+            print("Layout Analysis succeeded:\n%s" % resp_json)
+            quit()
+        if status == "failed":
+            print("Layout Analysis failed:\n%s" % resp_json)
+            quit()
+        # Analysis still running. Wait and retry.
+        time.sleep(wait_sec)
+        n_try += 1     
     except Exception as e:
-        print(e)
-        exit()
+        msg = "GET analyze results failed:\n%s" % str(e)
+        print(msg)
+        quit()
 ```
 
 1. Save the script.
