@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 12/18/2019
 ---
 
 # Known issues/migration limitations with online migrations to Azure SQL Database managed instance

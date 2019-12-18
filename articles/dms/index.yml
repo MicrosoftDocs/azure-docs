@@ -69,7 +69,7 @@ landingContent:
           - text: Known issues - Online migration to SQL Database single database
             url: known-issues-azure-sql-online.md
           - text: Known issues - Online migration to SQL Database managed instance
-            url: known-issues-azure-sql-db-mi-online.md
+            url: known-issues-azure-sql-db-managed-instance-online.md
           - text: Network topologies for SQL Database managed instance migrations
             url: resource-network-topologies.md
           - text: Custom roles for online migrations from SQL Server to SQL Database managed instance
