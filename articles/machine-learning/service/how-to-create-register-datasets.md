@@ -166,7 +166,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
 #### On the web 
-The following steps and animation show how to create a dataset in Azure Machine Learning Studio, https://ml.azure.com.
+The following steps and animation show how to create a dataset in Azure Machine Learning studio, https://ml.azure.com.
 
 ![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
 

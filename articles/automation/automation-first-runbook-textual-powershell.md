@@ -3,13 +3,9 @@ title: My first PowerShell runbook in Azure Automation
 description: Tutorial that walks you through the creation, testing, and publishing of a simple PowerShell runbook.
 keywords: azure powershell, powershell script tutorial, powershell automation
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/27/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # My first PowerShell runbook
 
@@ -28,7 +24,7 @@ To complete this tutorial, you need the following prerequisites:
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](automation-quickstart-create-account.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine. You stop and start this machine so it shouldn't be a production VM.
-* You may need to [update your Azure modules](automation-update-azure-modules.md) based on the cmdlets you use.
+* You may need to [import](shared-resources/modules.md)/[update your Azure modules](automation-update-azure-modules.md) based on the cmdlets you use.
 
 ## Create new runbook
 

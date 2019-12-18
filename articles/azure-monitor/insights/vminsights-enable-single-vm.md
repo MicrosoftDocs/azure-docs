@@ -4,8 +4,8 @@ description: Learn how to evaluate Azure Monitor for VMs on a single Azure virtu
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
 
 ---
