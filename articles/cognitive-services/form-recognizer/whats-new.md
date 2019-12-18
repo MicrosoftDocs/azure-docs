@@ -25,6 +25,17 @@ This article highlights the major changes that come with new versions of the For
 > [!IMPORTANT]
 > Form Recognizer 2.0 is currently available for subscriptions in the `West US 2` and `West Europe` regions. If your subscription is not in this region, use the 1.0 API. The quickstarts for training and using a custom model are available for both v1.0 and v2.0.
 
+### New features
+
+* **Supervised learning** You can now train a custom model with manually labeled data. This results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
+* **Text layout extraction** You can now use the Layout API to extract text data and table data from your forms.
+* **Extraction accuracy improvements** The built-in table extraction model and receipt extraction model have been improved.
+* **Receipt item extraction** The prebuilt receipt model can now extract individual line items and tip amount.
+* **Receipt extraction confidence** The prebuilt receipt model now reports confidence levels for each of its extractions.
+* **Large data support** Your training data set for custom models can now be up to 50 MB in size.
+* **TIFF file support** You can now train with and extract data from TIFF documents.
+
+
 ### Custom model API changes
 
 All of the APIs for training and using custom models have been renamed, and some synchronous methods are now asynchronous. The following are major changes:
@@ -42,10 +53,6 @@ The APIs for reading sales receipts have been renamed.
 ### Output format changes
 
 The JSON responses for all API calls have new formats. Some keys and values have been added, removed, or renamed. See the quickstarts for examples of the current JSON formats.
-
-### Large data support
-
-Your training data set for custom models can now be up to 50 MB in size.
 
 ## Next steps
 
