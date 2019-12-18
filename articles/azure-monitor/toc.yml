@@ -485,6 +485,7 @@
         displayName: Platform logs, Resource logs, Activity log
         href: platform/platform-logs-overview.md 
       - name: View Activity log
+        displayName: Platform logs
         href: platform/activity-log-view.md
       - name: Send to destinations
         items:
@@ -500,6 +501,7 @@
       - name: Legacy Activity log collection
         items:
         - name: Overview
+          displayName: Resource logs
           href: platform/diagnostic-settings-legacy.md
         - name: Collect and analyze
           displayname: Activity log
@@ -513,8 +515,10 @@
     - name: Diagnostic settings
       items: 
       - name: Create diagnostic setting
+        displayName: Platform logs, Resource logs, Activity log
         href: platform/diagnostic-settings.md
-      - name: Create diagnostic setting with Resource Manager
+      - name: Create with Resource Manager
+        displayName: diagnostic setting, Platform logs, Resource logs, Activity log
         href: platform/diagnostic-settings-template.md
       - name: Change to blob storage format
         displayname: Diagnostic settings
