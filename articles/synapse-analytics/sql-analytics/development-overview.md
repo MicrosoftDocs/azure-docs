@@ -35,7 +35,8 @@ The articles below highlight concepts and design decisions for SQL Analytics dev
 | [CETAS](development-tables-cetas.md)                     | Yes | Yes |
 
 
-## Development recommendations and coding techniques
+## Recommendations
+
 Below you'll find essential articles that emphasize specific coding techniques, tips, and recommendations for development:
 
 |                                            | SQL pool | SQL on-demand |
