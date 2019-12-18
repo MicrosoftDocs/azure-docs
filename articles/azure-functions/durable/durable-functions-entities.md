@@ -199,8 +199,8 @@ public static async Task<HttpResponseMessage> Run(
     [DurableClient] IDurableEntityClient client)
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
-    JObject state = await client.ReadEntityStateAsync<JObject>(entityId);
-    return req.CreateResponse(HttpStatusCode.OK, state);
+    EntityStateResponse<JObject> stateResponse = await client.ReadEntityStateAsync<JObject>(entityId);
+    return req.CreateResponse(HttpStatusCode.OK, stateResponse.EntityState);
 }
 ```
 
@@ -210,7 +210,8 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    return context.df.readEntityState(entityId);
+    const stateResponse = await context.df.readEntityState(entityId);
+    return stateResponse.entityState;
 };
 ```
 
