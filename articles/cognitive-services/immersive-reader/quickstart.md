@@ -31,13 +31,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Create a new project in Visual Studio, using the ASP.NET Core Web Application template with built-in Model-View-Controller, and ASP.NET Core 2.1. Name the project "QuickstartSampleWebApp".
 
-[!div class="mx-imgBorder"]
 ![New Project](./media/quickstart-csharp/1-createproject.png)
 
-[!div class="mx-imgBorder"]
 ![Configure New Project](./media/quickstart-csharp/2-configureproject.png)
 
-[!div class="mx-imgBorder"]
 ![New ASP.NET Core Web Application](./media/quickstart-csharp/3-createmvc.png)
 
 ## Acquire an Azure AD authentication token
@@ -307,14 +304,12 @@ From the menu bar, select **Debug > Start Debugging**, or press **F5** to start 
 
 In your browser, you should see:
 
-[!div class="mx-imgBorder"]
 ![Sample app](./media/quickstart-csharp/4-buildapp.png)
 
 ## Launch the Immersive Reader
 
 When you click on the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
 
-[!div class="mx-imgBorder"]
 ![Immersive Reader](./media/quickstart-csharp/5-viewimmersivereader.png)
 
 ## Next steps
