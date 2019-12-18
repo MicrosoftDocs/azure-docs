@@ -57,39 +57,55 @@ You need OCR result files in order for the service to consider the corresponding
 
 * Call the **/formrecognizer/v2.0-preview/layout/analyze** API on the read Layout container with the input file as part of the request body. Save the ID found in the response's **Operation-Location** header.
 * Call the **/formrecognizer/v2.0-preview/layout/analyzeResults/{id}** API, using operation ID from the previous step.
-* Get the response and write the contents to a file. For each source form, the corresponding OCR file should have the original file name appended with `.ocr.json`. The OCR JSON output should have the following format: 
+* Get the response and write the contents to a file. For each source form, the corresponding OCR file should have the original file name appended with `.ocr.json`. The OCR JSON output should have the following format. See the [sample OCR file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) for a full example. 
 
     ```json
     {
-        "status": "Succeeded",
-        "createdDateTime": "2019-09-24T20:20:51.1234794+00:00",
-        "lastUpdatedDateTime": "2019-09-24T20:20:52.6971409+00:00",
-        "analyzeResult": {
-            "version": "2.0",
-            "readResults": [
-                {
-                    "page": 1,
-                    "angle": -0.11,
-                    "width": 8.5,
-                    "height": 11,
-                    "unit": "inch",
-                    "language": "en",
-                    "lines": [
-                        {
-                            "boundingBox": [2.8267,1.0367,5.6733,1.0367,5.6733,1.21,2.8267,1.21],
-                            "text": "Credit Card Authorization Form",
-                            "words": [
-                                {
-                                    "boundingBox": [2.8499,1.0392,3.4099,1.0387,3.4089,1.2095,2.8503,1.2038],
-                                    "text": "Credit",
-                                    "confidence": 0.992
-                                },
-                                {
-                                    "boundingBox": [3.4422,1.0387,3.873,1.0385,3.8708,1.2124,3.4411,1.2098],
-                                    "text": "Card",
-                                    "confidence": 0.995
-                                },
-                                ...
+    "status": "succeeded",
+    "createdDateTime": "2019-11-12T21:18:12Z",
+    "lastUpdatedDateTime": "2019-11-12T21:18:17Z",
+    "analyzeResult": {
+        "version": "2.0.0",
+        "readResults": [
+            {
+                "page": 1,
+                "language": "en",
+                "angle": 0,
+                "width": 8.5,
+                "height": 11,
+                "unit": "inch",
+                "lines": [
+                    {
+                        "language": "en",
+                        "boundingBox": [
+                            0.5384,
+                            1.1583,
+                            1.4466,
+                            1.1583,
+                            1.4466,
+                            1.3534,
+                            0.5384,
+                            1.3534
+                        ],
+                        "text": "Contoso",
+                        "words": [
+                            {
+                                "boundingBox": [
+                                    0.5384,
+                                    1.1583,
+                                    1.4466,
+                                    1.1583,
+                                    1.4466,
+                                    1.3534,
+                                    0.5384,
+                                    1.3534
+                                ],
+                                "text": "Contoso",
+                                "confidence": 1
+                            }
+                        ]
+                    },
+                    ...
     ```
 
 ### Create the label files
@@ -98,49 +114,71 @@ Label files contain key-value associations that a user has entered manually. The
 
 When you create a label file, you can optionally specify regions&mdash;exact positions of values on the document. This will give the training even higher accuracy. Regions are formatted as a set of eight values corresponding to four X,Y coordinates: top-left, top-right, bottom-right, and bottom-left. Coordinate values are between zero and one, scaled to the dimensions of the page.
 
-For each source form, the corresponding label file should have the original file name appended with `.labels.json`. The label file should have the following format. See the [sample label file](https://github.com/Azure/CSContainers/blob/master/Form-Recognizer/feedback-loop/Form_01.pdf.labels.json) for a full example.
-<!-- tbd move file and replace link -->
+For each source form, the corresponding label file should have the original file name appended with `.labels.json`. The label file should have the following format. See the [sample label file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.labels.json) for a full example.
 
 ```json
 {
-    "version": "v1.0",
-    "docName": "Form_01.pdf",
+    "document": "Invoice_1.pdf",
     "labels": [
         {
-            "fieldKey": "Card Type",
-            "fieldValue": "Master Card",
-            "fieldValues": [
-                "Master",
-                "Card"
-            ],
-            "regions": [
+            "label": "Provider",
+            "key": null,
+            "value": [
                 {
-                    "pageNumber": 1,
-                    "polygon": [0.18432941176470588,
-                        0.23235454545454545,
-                        0.24398823529411764,
-                        0.23258181818181817,
-                        0.24320000000000003,
-                        0.24736363636363637,
-                        0.18363529411764706,
-                        0.2483818181818182
-                    ]
-                },
-                {
-                    "pageNumber": 1,
-                    "polygon": [
-                        0.24796470588235292,
-                        0.23260000000000003,
-                        0.2864,
-                        0.23278181818181817,
-                        0.28555294117647056,
-                        0.2460181818181818,
-                        0.24716470588235295,
-                        0.24726363636363635
+                    "page": 1,
+                    "text": "Contoso",
+                    "boundingBoxes": [
+                        [
+                            0.06334117647058823,
+                            0.1053,
+                            0.17018823529411767,
+                            0.1053,
+                            0.17018823529411767,
+                            0.12303636363636362,
+                            0.06334117647058823,
+                            0.12303636363636362
+                        ]
                     ]
                 }
             ]
         },
+        {
+            "label": "For",
+            "key": null,
+            "value": [
+                {
+                    "page": 1,
+                    "text": "Microsoft",
+                    "boundingBoxes": [
+                        [
+                            0.6122941176470589,
+                            0.1374,
+                            0.6841764705882353,
+                            0.1374,
+                            0.6841764705882353,
+                            0.14682727272727272,
+                            0.6122941176470589,
+                            0.14682727272727272
+                        ]
+                    ]
+                },
+                {
+                    "page": 1,
+                    "text": "1020",
+                    "boundingBoxes": [
+                        [
+                            0.6121882352941176,
+                            0.156,
+                            0.6462941176470588,
+                            0.156,
+                            0.6462941176470588,
+                            0.1653181818181818,
+                            0.6121882352941176,
+                            0.1653181818181818
+                        ]
+                    ]
+                },
+                ...
 ```
 
 > [!NOTE]
