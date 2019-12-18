@@ -44,7 +44,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-explain-model**
     + defer shap dependency to interpret-community from azureml-interpret
   + **azureml-pipeline-core**
-    + Releasing a new azure machine learning pipeline step as `NotebookRunnerStep`, to run a local notebook as a step in pipeline.
+    + Added new pipeline step `NotebookRunnerStep`, to run a local notebook as a step in pipeline.
     + Removed deprecated get_all functions for PublishedPipelines, Schedules, and PipelineEndpoints
   + **azureml-train-automl-client**
     + Started deprecation of data_script as an input to AutoML.
