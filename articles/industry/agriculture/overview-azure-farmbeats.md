@@ -48,6 +48,6 @@ Visit Azure FarmBeats [blog](https://aka.ms/AzureFarmBeats) and [forums](https:/
 
 ## Next steps
 
-To get started with Azure FarmBeats, select<br>
+To get started with Azure FarmBeats, see the installation process.<br>
 > [!div class="nextstepaction"]
 > [Install Azure FarmBeats](install-azure-farmbeats.md)
