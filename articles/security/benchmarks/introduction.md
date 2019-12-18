@@ -1,6 +1,6 @@
 ---
-title: Security Baseline for HDInsights
-description: Security Baselines for HDInsights
+title: Security Benchmark Introduction
+description: Security Benchmark Introduction
 author: msmbaldwin
 manager: rkarlin
 
@@ -14,10 +14,27 @@ ms.custom: security-baselines
 
 # Introduction
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis dolor, consectetur in pharetra nec, feugiat sit amet libero. Nam at ipsum augue. Sed varius volutpat elit, ut semper enim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum volutpat pretium ligula, ac fringilla ligula viverra eu. Curabitur pulvinar sit amet orci quis ullamcorper. Integer mollis ornare tortor sit amet lobortis. Phasellus cursus ipsum id leo elementum dictum. Proin ac felis venenatis tellus dapibus ullamcorper. Curabitur nec turpis et felis suscipit lobortis. Donec a nibh ac nisi accumsan malesuada.
+You may have several years or even decades of experience with on-premises computing. You know how to secure those deployments. But the cloud is different. How do you know if your cloud deployments are secure? What are the differences between on-premises security practices and those in the cloud? 
 
-Integer nulla velit, tempus ac imperdiet vitae, sagittis ut nibh. Duis arcu lacus, vehicula ac mi eget, luctus dapibus eros. Ut vitae posuere odio, vitae sollicitudin libero. Suspendisse eget tortor facilisis, viverra mi in, congue orci. Mauris vitae mauris tellus. Donec nisl sapien, pretium id quam vitae, commodo venenatis purus. Quisque aliquet suscipit diam, in accumsan enim volutpat accumsan. Curabitur dapibus sapien et nibh porttitor, quis viverra metus malesuada. Phasellus viverra magna ante, vitae dictum nunc egestas vitae. Morbi non ullamcorper sem.
+There is a large collection white papers, best practices, reference architectures, web guidance, open source tools, commercial solutions, intelligence feeds, and more that can be used to help secure the cloud. Which option should you use? What can you do to get an acceptable level of security in the cloud? 
 
-Vivamus molestie lectus in ipsum convallis consequat. Cras ac convallis orci. Praesent porta non felis ac tristique. Integer a quam blandit sem venenatis suscipit. Donec sollicitudin massa leo, et pulvinar velit malesuada ut. Mauris faucibus congue neque sit amet interdum. In ultricies lobortis placerat. Ut imperdiet porta arcu. Cras finibus elementum neque. Pellentesque semper turpis et pulvinar imperdiet.
+One of the best ways to secure your cloud deployments is to focus on cloud security benchmark recommendations. Benchmark recommendations for securing any service begin with a fundamental understanding of cybersecurity risk and how to manage it. You can then use this understanding by adopting benchmark security recommendations from your cloud service provider to help guide specific security configuration settings in your environment.  
 
-Donec ultricies metus quis faucibus interdum. Proin a dolor et diam porttitor tincidunt. Cras dignissim leo vel commodo aliquam. Nunc id ligula erat. Etiam eu eros quis urna suscipit condimentum non et neque. In dignissim erat accumsan lobortis fringilla. Sed libero sem, elementum sit amet imperdiet vel, varius nec ipsum. Cras vel consequat urna. Pellentesque malesuada erat tortor, vel finibus enim lacinia nec. Suspendisse potenti. Fusce quis facilisis erat, sit amet volutpat ligula. Praesent id ultrices libero. Nam ultricies libero tincidunt iaculis mattis. Aliquam odio urna, viverra at lacinia id, ultrices et justo. Integer eu sem quam.
+The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure most of the services you use in Azure. You can think of these recommendations as "general" or "organizational" as they are applicable to most Azure services. The Azure Security Benchmark recommendations are then customized for each Azure service, and this customized guidance is contained in service recommendations articles. 
+
+The Azure Security Benchmark documentation includes the following: 
+
+- **Security Controls**: The Azure Security Benchmark recommendations are categorized by security controls. Security controls represent high-level vendor-agnostic security requirements, such as network security and data protection. Each security control has a set of security recommendations and instructions that help you enable those recommendations. 
+- **Service Recommendations**: When available, benchmark recommendations for Azure services will include Azure Security Benchmark recommendations that are tailored for the service, as well as additional recommendations that are unique for the particular service. 
+
+The terms "Control", "Benchmark", and "Baseline" are used often in the Azure Security Benchmark documentation and it’s important to understand how Azure uses those terms. The table below provides a definition and example of each of these. 
+
+| Term | Description | Example |
+|--|--|--|
+Control | A **control** is a high-level description of a feature or activity that needs to be addressed. It is neither technology nor implementation specific. | Data Protection is one of the CIS security controls. This control contains specific actions that need to be addressed to help ensure data is protected. |
+| Benchmark | A **benchmark** contains security recommendations for a specific technology, such as Azure.  The recommendations are categorized by the control to which they belong. | The Azure Security Cloud Benchmark is based on the security controls defined by the Azure Security Controls Benchmark. |
+| Baseline | A **baseline** is the security requirements for an organization.  The security requirements are based on benchmark recommendations.  Each organization decides which benchmark recommendations to include in their baseline. | The Contoso company creates its security baseline by choosing to require specific recommendations in the Azure Security Cloud Benchmark. |
+
+We welcome your feedback on the Azure Security Controls Benchmark! We encourage you to provide comments in the feedback area below. If you prefer to share your input more privately with the Azure Security Control Benchmark team, you are welcome to fill out the form at https://aka.ms/AzSecBenchmark   
+
+ 

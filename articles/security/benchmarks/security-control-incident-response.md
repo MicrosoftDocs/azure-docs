@@ -14,9 +14,13 @@ ms.custom: security-recommendations
 
 # Security Control: Incident Response
 
+Protect the organization's information, as well as its reputation, by developing and implementing an incident response infrastructure (e.g., plans, defined roles, training, communications, management oversight) for quickly discovering an attack and then effectively containing the damage, eradicating the attacker's presence, and restoring the integrity of the network and systems.
+
+The following sections list the Azure security recommendations for Incident Response control.
+
 ## 10.1: Create incident response guide
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 10.1 | 19.1, 19.2, 19.3 | Customer |
 
@@ -27,7 +31,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 ## 10.2: Create Incident Scoring and Prioritization Procedure
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 10.2 | 19.8 | Customer |
 
@@ -35,7 +39,7 @@ Security Center assigns a severity to alerts, to help you prioritize the order i
 
 ## 10.3: Provide Security Incident Contact Details and Configure Alert Notifications &nbsp;for Security Incidents
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 10.3 | 19.5 | Customer |
 
@@ -46,7 +50,7 @@ https://docs.microsoft.com/azure/security-center/security-center-provide-securit
 
 ## 10.4: Incorporate security alerts into your incident response system
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 10.4 | 19.6 | Customer |
 
@@ -60,7 +64,7 @@ https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 ## 10.5: Automate the response to security alerts
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 10.5 | 19 | Customer |
 

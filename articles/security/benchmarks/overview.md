@@ -1,6 +1,6 @@
 ---
-title: Security Baseline for HDInsights
-description: Security Baselines for HDInsights
+title: Security Benchmark Overview
+description: Security Benchmark overview
 author: msmbaldwin
 manager: rkarlin
 
@@ -14,10 +14,34 @@ ms.custom: security-baselines
 
 # Overview
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis dolor, consectetur in pharetra nec, feugiat sit amet libero. Nam at ipsum augue. Sed varius volutpat elit, ut semper enim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum volutpat pretium ligula, ac fringilla ligula viverra eu. Curabitur pulvinar sit amet orci quis ullamcorper. Integer mollis ornare tortor sit amet lobortis. Phasellus cursus ipsum id leo elementum dictum. Proin ac felis venenatis tellus dapibus ullamcorper. Curabitur nec turpis et felis suscipit lobortis. Donec a nibh ac nisi accumsan malesuada.
+The Azure Security Controls Benchmark contains recommendations that help you improve the security of your applications and data on Azure.
 
-Integer nulla velit, tempus ac imperdiet vitae, sagittis ut nibh. Duis arcu lacus, vehicula ac mi eget, luctus dapibus eros. Ut vitae posuere odio, vitae sollicitudin libero. Suspendisse eget tortor facilisis, viverra mi in, congue orci. Mauris vitae mauris tellus. Donec nisl sapien, pretium id quam vitae, commodo venenatis purus. Quisque aliquet suscipit diam, in accumsan enim volutpat accumsan. Curabitur dapibus sapien et nibh porttitor, quis viverra metus malesuada. Phasellus viverra magna ante, vitae dictum nunc egestas vitae. Morbi non ullamcorper sem.
+Azure Security Controls benchmark includes cloud-centric control areas. These controls are consistent with well-known security benchmarks, such as those described by the [Center for Internet Security (CIS) Controls](https://www.cisecurity.org/controls/) Version 7.
 
-Vivamus molestie lectus in ipsum convallis consequat. Cras ac convallis orci. Praesent porta non felis ac tristique. Integer a quam blandit sem venenatis suscipit. Donec sollicitudin massa leo, et pulvinar velit malesuada ut. Mauris faucibus congue neque sit amet interdum. In ultricies lobortis placerat. Ut imperdiet porta arcu. Cras finibus elementum neque. Pellentesque semper turpis et pulvinar imperdiet.
+The following numbered control areas are used in the Azure Security Controls Benchmark: 
 
-Donec ultricies metus quis faucibus interdum. Proin a dolor et diam porttitor tincidunt. Cras dignissim leo vel commodo aliquam. Nunc id ligula erat. Etiam eu eros quis urna suscipit condimentum non et neque. In dignissim erat accumsan lobortis fringilla. Sed libero sem, elementum sit amet imperdiet vel, varius nec ipsum. Cras vel consequat urna. Pellentesque malesuada erat tortor, vel finibus enim lacinia nec. Suspendisse potenti. Fusce quis facilisis erat, sit amet volutpat ligula. Praesent id ultrices libero. Nam ultricies libero tincidunt iaculis mattis. Aliquam odio urna, viverra at lacinia id, ultrices et justo. Integer eu sem quam.
+- [Network security](security-control-network-security.md) 
+- [Logging & Monitoring](security-control-logging-and-monitoring.md) 
+- [Identity and Access Control](security-control-identity-and-access-control.md)
+- [Data protection](security-control-data-protection.md)
+- [Vulnerability Management](security-control-vulnerability-management.md)
+- [Inventory & Asset Management](security-control-inventory-and-asset-management.md)
+- [Secure Configuration](security-control-secure-configuration.md)
+- [Malware Defense](security-control-malware-defense.md)
+- [Data Recovery](security-control-data-recovery.md)
+- [Incident Response](security-control-incident-response.md)
+- [Penetration Tests and Red Team Exercises](security-control-penetration-tests-and-red-team-exercises.md)
+
+## Azure Security Controls Security Recommendations 
+
+The Azure Security Controls Benchmark contains recommendations for networking, logging, monitoring, identity and access management, data protection, and other security controls.
+
+Each recommendation includes the following information: 
+
+- **Recommendation**: The action or task for implementation. For example, Azure recommends, within the Network Security section, to “Ensure that only network ports, protocols and services listening on a system with validated business needs, are running on each service”. 
+- **Azure ID**: The Azure Security Controls Benchmark ID that corresponds to the recommendation. 
+- **CIS ID**: The CIS sub-control ID that corresponds to this recommendation.  
+- **Responsibility**: Whether the customer or the service-provider is responsible for implementing this recommendation. Security responsibilities are shared in the public cloud. Some security controls are only available to the cloud service provider and therefore responsibility for addressing those controls falls on Microsoft Azure.  
+- **Details**: How to implement the recommendation on Azure, plus links to documentation for more information. 
+
+We welcome your detailed feedback and active participation in the Azure Security Benchmark effort. If you would like to provide the Benchmark team direct input, please fill out the form at [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).

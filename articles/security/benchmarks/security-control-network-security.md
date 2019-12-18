@@ -14,9 +14,13 @@ ms.custom: security-recommendations
 
 # Security Control: Network Security
 
+Network security recommendations focus on specifying which network protocols, TCP/UDP ports, and network connected services are allowed or denied access to Azure services.
+
+The following sections list the recommendations for network security.
+
 ## 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 1.1 | 9.2, 9.4, 14.1-14.3 | Customer |
 
@@ -35,7 +39,7 @@ https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
 ## 1.2: Monitor and log Vnet, Subnet, and NIC configuration and traffic
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 1.2 | 9.3, 12.2 | Customer |
 
@@ -49,7 +53,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 ## 1.3: Protect Critical Web Applications
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 1.3 | 9.5 | Customer |
 
@@ -61,7 +65,7 @@ https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-a
 
 ## 1.4: Deny Communications with Known Malicious IP Addresses
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 1.4 | 12.3 | Customer |
 
@@ -80,7 +84,7 @@ https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-se
 
 ## 1.5: Record Network Packets and Flow Logs
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 1.5 | 12.5, 15.8 | Customer |
 
@@ -94,7 +98,7 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ## 1.6: Deploy Network Based Intrusion Detection/Intrusion Prevention Systems
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 1.6 | 12.6, 12.7 | Customer |
 
@@ -108,7 +112,7 @@ https://docs.microsoft.com/azure/firewall/threat-intel
 
 ## 1.7: Manage traffic to your web applications
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 1.7 | 12.9, 12.10 | Customer |
 
@@ -125,7 +129,7 @@ https://docs.microsoft.com/azure/application-gateway/overview
 
 ## 1.8: Minimize complexity and administrative overhead of network security rules
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 1.8 | 1.5 | Customer |
 
@@ -136,7 +140,7 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ## 1.9: Maintain Standard Security Configurations for Network Devices
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 1.9 | 11.1 | Customer |
 
@@ -152,7 +156,7 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 ## 1.10: Document Traffic Configuration Rules
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 1.10 | 11.2 | Customer |
 
@@ -169,7 +173,7 @@ https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 ## 1.11: Use Automated Tools to Monitor Network Resource Configurations and Detect Changes
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 1.11 | 11.3 | Customer |
 

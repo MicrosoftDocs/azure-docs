@@ -14,9 +14,13 @@ ms.custom: security-recommendations
 
 # Security Control: Inventory and Asset Management
 
+Inventory and Asset Management recommendations focus on addressing issues related to actively managing (inventory, track, and correct) all Azure resources so that only authorized resources are given access, and unauthorized and unmanaged resources are identified and removed.
+
+The following sections list the Azure security recommendations for Inventory and Asset Management Control.
+
 ## 6.1: Use Azure Asset Discovery
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.1 | 1.1, 1.2, 1.3, 1.4, 9.1, 12.1 | Customer |
 
@@ -35,7 +39,7 @@ https://docs.microsoft.com/azure/role-based-access-control/overview
 
 ## 6.2: Maintain Asset Metadata
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.2 | 1.5 | Customer |
 
@@ -47,7 +51,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ## 6.3: Delete Unauthorized Azure Resources
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.3 | 1.6 | Customer |
 
@@ -67,7 +71,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ## 6.4: Maintain inventory of approved Azure resources and software titles.
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.4 | 2.1 | Customer |
 
@@ -75,7 +79,7 @@ Define approved Azure resources and approved software for compute resources.
 
 ## 6.5: Monitor for Unapproved Azure Resources
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.5 | 2.3, 2.4 | Customer |
 
@@ -93,7 +97,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 ## 6.6: Monitor for Unapproved Software Applications within Compute Resources
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.6 | 2.3/2.4 | Customer |
 
@@ -105,7 +109,7 @@ https://docs.microsoft.com/azure/automation/automation-tutorial-installed-softwa
 
 ## 6.7: Remove Unapproved Azure Resources and Software Applications
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.7 | 2.5 | Customer |
 
@@ -121,7 +125,7 @@ https://docs.microsoft.com/azure/automation/change-tracking
 
 ## 6.8: Use only approved applications
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.8 | 2.6 | Customer |
 
@@ -133,7 +137,7 @@ https://docs.microsoft.com/azure/security-center/security-center-adaptive-applic
 
 ## 6.9: Use only approved Azure Services
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.9 | 2.6 | Customer |
 
@@ -149,7 +153,7 @@ https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-
 
 ## 6.10: Implement approved application list
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.10 | 2.7 | Customer |
 
@@ -163,7 +167,7 @@ https://docs.microsoft.com/azure/security-center/security-center-adaptive-applic
 
 ## 6.11: Limit Users' Ability to interact with ARM via Scripts
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.11 | 2.8 | Customer |
 
@@ -175,7 +179,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ## 6.12: Limit Users' Ability to Execute Scripts within Compute Resources
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.12 | 2.8 | Customer |
 
@@ -186,7 +190,7 @@ https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-e
 
 ## 6.13: Physically or Logically Segregate High Risk Applications
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.13 | 2.9 | Customer |
 

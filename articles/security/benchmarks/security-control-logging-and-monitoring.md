@@ -14,9 +14,13 @@ ms.custom: security-recommendations
 
 # Security Control: Logging and Monitoring
 
+Security logging recommendations focus on activities related to enabling, acquiring, and storing audit logs for Azure services.
+
+The following sections list the recommendations for Logging and Monitoring.
+
 ## 2.1: Use Approved Time Synchronization resource
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 2.1 | 6.1 | Microsoft |
 
@@ -27,7 +31,7 @@ https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 ## 2.2: Configure Central Security Log Management
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 2.2 | 6.5, 6.6 | Customer |
 
@@ -41,7 +45,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
 
 ## 2.3: Enable audit logging for Azure Resources
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 2.3 | 6.2, 6.3 | Customer |
 
@@ -55,7 +59,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
 ## 2.4: Collect Security Logs from Operating Systems
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 2.4 | 6.2, 6.3 | Customer |
 
@@ -69,7 +73,7 @@ https://docs.microsoft.com/azure/security-center/security-center-enable-data-col
 
 ## 2.5: Configure Security Log Storage Retention
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 2.5 | 6.4 | Customer |
 
@@ -80,7 +84,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#chan
 
 ## 2.6: Monitor and Review Logs
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 2.6 | 6.7 | Customer |
 
@@ -94,7 +98,7 @@ https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
 ## 2.7: Enable Alerts for Anomalous Activity
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 2.7 | 6.8 | Customer |
 
@@ -108,7 +112,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 ## 2.8: Centralize Anti-malware Logging
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 2.8 | 8.6 | Customer |
 
@@ -125,7 +129,7 @@ https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 ## 2.9: Enable DNS Query Logging
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 2.9 | 8.7 | Customer |
 
@@ -133,7 +137,7 @@ Implement third party solution for dns logging.
 
 ## 2.10: Enable Command-line Audit Logging
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 2.10 | 8.8 | Customer |
 

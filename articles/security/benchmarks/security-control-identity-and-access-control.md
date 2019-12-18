@@ -14,9 +14,13 @@ ms.custom: security-recommendations
 
 # Security Control: Identity and Access Control
 
+Identity and access management recommendations focus on addressing issues related to identity-basedaccess control, locking down administrative access, alerting on identity-related events, abnormal account behavior, and role-based access control.
+
+The following sections list the recommendations for Identity and Access Control.
+
 ## 3.1: Maintain Inventory of Administrative Accounts
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.1 | 4.1 | Customer |
 
@@ -28,7 +32,7 @@ https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemem
 
 ## 3.2: Change Default Passwords where Applicable
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.2 | 4.2 | Customer |
 
@@ -36,7 +40,7 @@ Azure AD does not have the concept of default passwords. Other Azure resources r
 
 ## 3.3: Use Dedicated Administrative Accounts
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.3 | 4.3 | Customer |
 
@@ -48,7 +52,7 @@ Learn more: https://docs.microsoft.com/azure/active-directory/privileged-identit
 
 ## 3.4: Use Azure Active Directory Single Sign-On (SSO)
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.4 | 4.4 | Customer |
 
@@ -59,7 +63,7 @@ https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sig
 
 ## 3.5: Use Multifactor Authentication for all Azure Active Directory based access.
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.5 | 4.5, 11.5, 12.11, 16.3 | Customer |
 
@@ -75,7 +79,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ## 3.6: Use Dedicated Machines (Privileged Access Workstations) for all Administrative Tasks
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.6 | 4.6, 11.6, 12.12 | Customer |
 
@@ -89,7 +93,7 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 ## 3.7: Limit users' ability to interact with ARM via scripting tools.
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.7 | 4.7 | Customer |
 
@@ -100,7 +104,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ## 3.8: Log and Alert on Suspicious Activity from Administrative Accounts
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.8 | 4.8, 4.9 | Customer |
 
@@ -114,7 +118,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ## 3.9: Manage Azure Resource from only Approved Locations
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.9 | 11.7 | Customer |
 
@@ -126,7 +130,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-
 
 ## 3.10: Use Azure Active Directory
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.10 | 16.1, 16.2, 16.4, 16.5, 16.6 | Customer |
 
@@ -137,7 +141,7 @@ https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-
 
 ## 3.11: Regularly Review and Reconcile User Access
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.11 | 16.9, 16.10 | Customer |
 
@@ -151,7 +155,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 ## 3.12: Monitor Attempts to Access Deactivated Accounts
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.12 | 16.12 | Customer |
 
@@ -164,7 +168,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 ## 3.13: Alert on Account Login Behavior Deviation
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.13 | 16.13 | Customer |
 
@@ -178,7 +182,7 @@ https://docs.microsoft.com/azure/active-directory/identity-protection/howto-iden
 
 ## 3.14: Regulate third-party access to company data
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.14 | 16 | Customer |
 

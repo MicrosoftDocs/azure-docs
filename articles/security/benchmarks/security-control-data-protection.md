@@ -14,9 +14,13 @@ ms.custom: security-recommendations
 
 # Security Control: Data Protection
 
+Data protection recommendations focus on addressing issues related to encryption, access control lists, identity-based access control, and audit logging for data access.
+
+The following sections list the recommendations for Data Protection.
+
 ## 4.1: Maintain an inventory of sensitive Information
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 4.1 | 13.1 | Customer |
 
@@ -28,7 +32,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ## 4.2: Isolate systems storing or processing sensitive information
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 4.2 | 13.2 | Customer |
 
@@ -57,7 +61,7 @@ https://docs.microsoft.com/azure/firewall/threat-intel
 
 ## 4.3: Monitor and block unauthorized transfer of sensitive information.
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 4.3 | 13.3 | Customer |
 
@@ -65,7 +69,7 @@ Deploy an automated tool on network perimeters that monitors for unauthorized tr
 
 ## 4.4: Encrypt all sensitive information in transit
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 4.4 | 14.4 | Shared |
 
@@ -76,7 +80,7 @@ https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encry
 
 ## 4.5: Use an active discovery tool to identify sensitive data
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 4.5 | 14.5 | Customer |
 
@@ -96,7 +100,7 @@ https://docs.microsoft.com/azure/information-protection/deployment-roadmap
 
 ## 4.6: Use Azure RBAC to control access to resources
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 4.6 | 14.6 | Customer |
 
@@ -112,7 +116,7 @@ https://docs.microsoft.com/azure/role-based-access-control/role-assignments-port
 
 ## 4.7: Use host-based Data Loss Prevention to enforce access control
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 4.7 | 14.7 | Customer |
 
@@ -120,7 +124,7 @@ Implement a third-party tool, such as an automated host-based Data Loss Preventi
 
 ## 4.8: Encrypt Sensitive Information at Rest
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 4.8 | 14.8 | Customer |
 
@@ -136,7 +140,7 @@ https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
 ## 4.9: Log and alert on changes to critical Azure resources
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 4.9 | 14.9 | Customer |
 

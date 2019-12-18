@@ -14,9 +14,13 @@ ms.custom: security-recommendations
 
 # Security Control: Data Recovery
 
+Ensure that all system data, configurations, and secrets, are automatically backed up on a regular basis.
+
+The following sections listthe Azure security recommendations for Data Recovery control
+
 ## 9.1: Ensure Regular Automated Back Ups
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 9.1 | 10.1 | Customer |
 
@@ -27,7 +31,7 @@ https://docs.microsoft.com/azure/backup/
 
 ## 9.2: Perform Complete System Backups and Backup any Customer Managed Keys
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 9.2 | 10.2 | Customer |
 
@@ -41,7 +45,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvau
 
 ## 9.3: Validate all Backups including Customer Managed Keys
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 9.3 | 10.3 | Customer |
 
@@ -57,7 +61,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 ## 9.4: Ensure Protection of Backups and Customer Managed Keys
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 9.4 | 10.4 | Customer |
 
@@ -68,7 +72,7 @@ https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azu
 
 ## 9.5: Ensure Backups Have At least One Non-Continuously Addressable Destination
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 9.5 | 10.5 | Customer |
 

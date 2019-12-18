@@ -14,9 +14,13 @@ ms.custom: security-recommendations
 
 # Security Control: Secure Configuration
 
+Establish, implement, and actively manage (track, report on, correct) the security configuration of Azure resources in order to prevent attackers from exploiting vulnerable services and settings.
+
+The following sections list the Azure security recommendations for Secure Configuration control.
+
 ## 7.1: Establish Secure Configurations for all Azure Resources
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.1 | 5.1 | Customer |
 
@@ -27,7 +31,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ## 7.2: Establish Secure Configurations for your Operating System
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.2 | 5.1 | Customer |
 
@@ -43,7 +47,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 ## 7.3: Maintain Secure Configurations for all Azure Resources
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.3 | 5.2 | Customer |
 
@@ -59,7 +63,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 ## 7.4: Maintain Secure Configurations for Operating Systems
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.4 | 5.2 | Shared |
 
@@ -77,7 +81,7 @@ https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview
 
 ## 7.5: Securely Store Configuration of Azure Resources
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.5 | 5.3 | Customer |
 
@@ -93,7 +97,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ## 7.6: Securely Store Custom Operating System Images
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.6 | 5.3 | Customer |
 
@@ -113,7 +117,7 @@ https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-rol
 
 ## 7.7: Deploy System Configuration Management Tools
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.7 | 5.4 | Customer |
 
@@ -125,7 +129,7 @@ https://docs.microsoft.com/en-us/azure/governance/policy/tutorials/create-and-ma
 
 ## 7.8: Deploy System Configuration Management Tools for Operating Systems
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.8 | 5.4 | Customer |
 
@@ -137,7 +141,7 @@ https://docs.microsoft.com/azure/virtual-machines/extensions/overview#how-can-i-
 
 ## 7.9: Implement Automated Configuration Monitoring for Azure Services
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.9 | 5.5 | Customer |
 
@@ -149,7 +153,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 ## 7.10: Implement Automated Configuration Monitoring for Operating Systems
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.10 | 5.5 | Customer |
 
@@ -161,7 +165,7 @@ https://docs.microsoft.com/azure/security-center/security-center-container-recom
 
 ## 7.11: Securely manage Azure secrets
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.11 | 13.1 | Customer |
 
@@ -178,7 +182,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 ## 7.12: Securely and automatically manage identities
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.12 | 4.1 | Customer |
 
@@ -189,7 +193,7 @@ https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resou
 
 ## 7.13: Eliminate unintended credential exposure
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.13 | 13.3 | Customer |
 

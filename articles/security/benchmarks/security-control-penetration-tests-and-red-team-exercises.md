@@ -14,9 +14,13 @@ ms.custom: security-recommendations
 
 # Security Control: Penetration Tests and Red Team Exercises
 
+Test the overall strength of an organization's defense (the technology, the processes, and the people) by simulating the objectives and actions of an attacker.
+
+The following sections list the Azure security recommendations for Penetration Tests and Red Team Exercises.
+
 ## 11.1: Conduct regular Penetration Testing of your Azure resources
 
-| Azure ID | CIS Control IDs | Responsibility |
+| Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 11.1 | 20.1-20.8 | Shared |
 
