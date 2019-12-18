@@ -42,7 +42,7 @@ Before you start loading data, verify that Phoenix is enabled and that query tim
 1. Create a file called `listCustomers.sql`, and copy the code below into the file. Then save and close the file.
 
     ```sql
-    SELECT Name, Income from Customers group by Country;
+    SELECT * from Customers;
     ```
 
 1. Create a file called `customers.csv`, and copy the code below into the file. Then save and close the file.
