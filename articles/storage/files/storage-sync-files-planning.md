@@ -338,14 +338,15 @@ Namespace data is stored in memory for performance reasons. Because of that, big
  
 In the following table, we have provided both the size of the namespace as well as a conversion to capacity for typical general purpose file shares, where the average file size is 500KB. If your file sizes are smaller, consider adding additional memory for the same amount of capacity. Base your memory configuration on the size of the namespace.
 
-|Namespace size - files & directories (millions)  |Typical capacity (TiB)  |CPU Cores  |Recommended memory (GB) |
+| Namespace size - files & directories (millions)  | Typical capacity (TiB)  | CPU Cores  | Recommended memory (GB) |
 |---------|---------|---------|---------|
-|3        |1.27     |2        |8 (initial sync)/ 2 (typical churn)      |
-|5        |2.09     |2        |16 (initial sync)/ 4 (typical churn)    |
-|10       |4.27     |4        |32  (initial sync)/ 8 (typical churn)   |
-|30       |12.73    |8        |48 (initial sync)/ 16 (typical churn)   |
-|50       |21.91    |16       |64  (initial sync)/ 32 (typical churn)  |
-|100*     |42.38    |32       |128 (initial sync)/ 32 (typical churn)  |
+| 3        | 1.27     | 2        | 8 (initial sync)/ 2 (typical churn)      |
+| 5        | 2.09     | 2        | 16 (initial sync)/ 4 (typical churn)    |
+| 10       | 4.27     | 4        | 32  (initial sync)/ 8 (typical churn)   |
+| 30       | 12.73    | 8        | 48 (initial sync)/ 16 (typical churn)   |
+| 50       | 21.91    | 16       | 64  (initial sync)/ 32 (typical churn)  |
+| 100*     | 42.38    | 32       | 128 (initial sync)/ 32 (typical churn)  |
+
 \*More than 100 million files & directories is not supported at this time. This is a soft limit.
 
 > [!TIP]
