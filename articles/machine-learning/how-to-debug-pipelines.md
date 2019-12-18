@@ -14,7 +14,7 @@ ms.date: 12/12/2019
 # Debug and troubleshoot machine learning pipelines
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-designer).
+In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/service/concept-designer).
 
 
 ## Debug and troubleshoot in the Azure Machine Learning SDK
@@ -88,11 +88,11 @@ First click on a pipeline run created from the designer.
 Then select a specific module and navigate the **Logs** tab in the right panel.
 ![Pipeline run detail page](./media/how-to-debug-pipelines/pipelinerun-05.png)
 
-Click on the log file `70_driver_log.txt` and find the problems. You can find the error code in the [exceptions and error code for the designer](https://docs.microsoft.com/en-us/azure/machine-learning/algorithm-module-reference/designer-error-codes).
+Click on the log file `70_driver_log.txt` and find the problems. You can find the error code in the [exceptions and error code for the designer](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/designer-error-codes).
 
 
 ## Next steps
 
 * See the SDK reference for help with the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) package.
 
-* Follow the [module reference](https://docs.microsoft.com/en-us/azure/machine-learning/algorithm-module-reference/module-reference) to use different modules in the designer.
+* Follow the [module reference](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference) to use different modules in the designer.
