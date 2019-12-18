@@ -43,7 +43,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Set up an Azure Storage Account
 
-Set up your Azure Storage account using the [Azure portal](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal). In the following example, you will access your **Azure Blob Storage** container and will upload the **iris.csv** file.
+Set up your Azure Storage account using the [Azure portal](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal). In the following example, you will access your **Azure Blob Storage** container and will upload the **iris.csv** file.
 
 1.  Select **Overview** &gt; **Blobs**
 
@@ -118,7 +118,7 @@ Access the **Azure portal** and check that the dataset is now saved in the outpu
 
 ### Set up an Azure Batch account
 
-Set up your **Azure Batch** account using the [Azure portal](%22https://docs.microsoft.com/en-us/azure/batch/quick-create-portal%22).
+Set up your **Azure Batch** account using the [Azure portal](%22https://docs.microsoft.com/azure/batch/quick-create-portal%22).
 
 1.  Select **Create a resource** &gt; **Compute** &gt; **Batch Service**. We named the Batch service as **mybatchtest**.
 
@@ -128,7 +128,7 @@ Set up your **Azure Batch** account using the [Azure portal](%22https://docs.mic
 
 4.  Keep the defaults for the remaining settings, and select **Create** to create the account.
 
-For more information about how to setup an Azure Batch account you can follow the official [documentation](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal).
+For more information about how to setup an Azure Batch account you can follow the official [documentation](https://docs.microsoft.com/azure/batch/batch-account-create-portal).
 
 
 ### Create a pool of compute nodes
@@ -158,7 +158,7 @@ Now that the Batch account is set up and is associated with the Blob storage acc
 
 ### Set up Azure Data Factory pipeline
 
-In this procedure, you create and validate a pipeline using a script in `Python` to load a .csv dataset from a **Blob Storage** container, perform a data manipulation process, and output the results of the analysis to a different folder in the **Blob Storage** container. For more information about how to create pipelines using **Data Factory** you can follow the official [documentation](https://docs.microsoft.com/en-us/azure/data-factory/concepts-pipelines-activities).
+In this procedure, you create and validate a pipeline using a script in `Python` to load a .csv dataset from a **Blob Storage** container, perform a data manipulation process, and output the results of the analysis to a different folder in the **Blob Storage** container. For more information about how to create pipelines using **Data Factory** you can follow the official [documentation](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities).
 
 1.  In the **Factory Resources** box, select the + (plus) button and then select **Pipeline**
 
@@ -195,7 +195,7 @@ In this procedure, you create and validate a pipeline using a script in `Python`
 
     ![](https://raw.githubusercontent.com/mammask/azure-docs-pr/master/articles/batch/media/run-python-batch-azure-data-factory/adf-create-custom-task-python-success-run.PNG?token=ABTT2GKSGTINC5OX3VEXPXS5ZLZXK)
 
-You can debug, trigger, monitor the pipeline manually, and schedule periodical executions of the script. For more information visit the Azure official [documentation](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal).
+You can debug, trigger, monitor the pipeline manually, and schedule periodical executions of the script. For more information visit the Azure official [documentation](https://docs.microsoft.com/azure/batch/batch-account-create-portal).
 
 ### Monitor the log files
 
