@@ -42,13 +42,13 @@ az storage share create --name $ACI_PERS_SHARE_NAME --account-name $ACI_PERS_STO
 
 To mount an Azure file share as a volume in Azure Container Instances, you need three values: the storage account name, the share name, and the storage access key.
 
-* **Storage account name** - If you used the script above, the storage account name was stored in the $ACI_PERS_STORAGE_ACCOUNT_NAME variable. To see the account name, type:
+* **Storage account name** - If you used the preceding script, the storage account name was stored in the `$ACI_PERS_STORAGE_ACCOUNT_NAME` variable. To see the account name, type:
 
   ```console
   echo $ACI_PERS_STORAGE_ACCOUNT_NAME
   ```
 
-* **Share name** - This value is already known (defined as *acishare* in the preceding script)
+* **Share name** - This value is already known (defined as `acishare` in the preceding script)
 
 * **Storage account key** - This value can be found using the following command:
 
