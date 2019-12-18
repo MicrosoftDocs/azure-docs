@@ -128,9 +128,10 @@ To view it:
    [![Overview](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 1. To look into your web service request metadata and response, select the **requests** table in the **Logs (Analytics)** section and select **Run** to view requests
-   [![Custom traces](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 1. To look into additional custom data logged using print statements, select the **traces** table, select **Run** and look for **STDOUT** messages.
+
+   [![Custom traces](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 To learn more about how to use Azure Application Insights, see [What is Application Insights?](../../azure-monitor/app/app-insights-overview.md).
 
