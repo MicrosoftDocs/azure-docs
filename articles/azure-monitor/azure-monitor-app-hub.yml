@@ -87,7 +87,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Azure VM & Azure virtual machine scale sets
         
-    - title: Quickstarts & Tutorials
+    - title: Quickstarts & tutorials
       links: 
         - url: ./learn/quick-monitor-portal.md
           itemType: how-to-guide
@@ -147,7 +147,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Queues & background tasks
 
-    - title: Synthetic Transactions & Availability monitoring
+    - title: Synthetic transactions & availability monitoring
       links: 
         - url: ./app/monitor-web-app-availability.md
           itemType: how-to-guide
@@ -162,7 +162,7 @@ conceptualContent:
           itemType: how-to-guide
           text:  Performance testing
 
-    - title: Metrics, Logs, & Traces 
+    - title: Metrics, logs, & traces 
       links: 
         - url: ./app/live-stream.md
           itemType: how-to-guide
@@ -193,7 +193,7 @@ conceptualContent:
           text:  Search
         
         
-    - title:  Profiler & Snapshot Debugger
+    - title:  Profiler & snapshot debugger
       links: 
         - url: ./app/profiler-overview.md
           itemType: overview
@@ -223,7 +223,7 @@ conceptualContent:
           itemType: how-to-guide
           text:  Upgrade Snapshot Debugger
  
-    - title:  Smart Detection
+    - title:  Smart detection
       links: 
         - url: ./app/proactive-diagnostics.md
           itemType: overview
@@ -256,7 +256,7 @@ conceptualContent:
           itemType: how-to-guide
           text: E-mail notification
 
-    - title:  Usage (User behavior analytics)
+    - title:  Usage (user behavior analytics)
       links: 
         - url: ./app/usage-overview.md
           itemType: overview
@@ -298,7 +298,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Geolocation & IP address handling
       
-    - title:  Advanced Configuration
+    - title:  Advanced configuration
       links: 
         - url: ./app/sampling.md
           itemType: how-to-guide
