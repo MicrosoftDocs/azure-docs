@@ -60,7 +60,7 @@ As you upload each file, Azure adds the prefix `B2C_1A_`.
 
 ## Test the custom policy
 
-1. Under **Custom policies**, select **B2C_1A_SignUpOrSignInWithPhoneOrEmail**.
+1. Under **Custom policies**, select **B2C_1A_SignUpOrSignInWithPhone**.
 1. Under **Select application**, select the *webapp1* application that you registered when completing the prerequisites.
 1. For **Select reply url**, choose `https://jwt.ms`.
 1. Select **Run now** and sign up using an email address or a phone number.

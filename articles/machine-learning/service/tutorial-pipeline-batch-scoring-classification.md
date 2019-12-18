@@ -297,7 +297,8 @@ Before you run the pipeline, create an object that defines the Python environmen
 
 ```python
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
-from azureml.core.runconfig import CondaDependencies, RunConfiguration
+azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
 
 cd = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.13.1", "azureml-defaults"])
 
