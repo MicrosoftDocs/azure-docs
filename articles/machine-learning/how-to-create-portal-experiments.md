@@ -35,7 +35,7 @@ ms.date: 11/04/2019
 
 1. Navigate to the left pane. Select **Automated ML** under the **Author** section.
 
-[![Azure Machine Learning studio navigation pane](./media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+[![Azure Machine Learning studio navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
  If this is your first time doing any experiments, you'll see an empty list and links to documentation. 
 
@@ -177,13 +177,13 @@ The **Run Detail** screen opens to the **Details** tab. This screen shows you a 
 
 The **Models** tab contains a list of the models created ordered by the metric score. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they are added to the list. Use this to get a quick comparison of the metrics for the models produced so far.
 
-[![Run details dashboard](./media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
+[![Run details dashboard](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
 ### View training run details
 
 Drill down on any of the completed models to see training run details, like run metrics on the **Model details** tab or performance charts on the **Visualizations** tab. [Learn more about charts](service/how-to-understand-automated-ml.md).
 
-[![Iteration details](./media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
+[![Iteration details](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
 ## Deploy your model
 
@@ -215,7 +215,7 @@ Automated ML helps you with deploying the model without writing code:
 
 1. Select **Deploy**. Deployment can take about 20 minutes to complete.
 
-Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI’s built in Azure Machine Learning support](service/how-to-consume-web-service.md#consume-the-service-from-power-bi).
+Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI’s built in Azure Machine Learning support](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
 ## Next steps
 
