@@ -444,7 +444,7 @@ conceptualContent:
         - url: ./app/azure-functions-supported-features.md
           itemType: reference
           text:  Azure Functions integration
-        - url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/insights?view=azure-dotnet
+        - url: https://docs.microsoft.com/dotnet/api/overview/azure/insights?view=azure-dotnet
           itemType: reference
           text: .NET SDK 
         - url: https://docs.microsoft.com/en-us/java/api/overview/azure/appinsights?view=azure-java-stable
