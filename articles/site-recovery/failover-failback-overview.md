@@ -11,49 +11,20 @@ This article provides an overview of failover and failback during disaster recov
 
 ## Recovery stages
 
-Failover and failback have four stages:
+Failover and failback in Site Recovery has four stages:
 
-- **Stage 1: Fail over from on-premises**: When your on-premises primary site goes down, you fail machines over to Azure. After failover, Azure VMs are created from replicated data.
-- **Stage 2: Reprotect Azure VMs**: After failover, in Azure, reprotect the Azure VMs so that they start replicating back to on-premises. The on-premises VM is turned off during reprotection, to help ensure data consistency.
-- **Stage 3: Fail over from Azure**: When your on-premises site is up and running, run a failover to fail back from Azure to your on-premises site.
-	- A VM needs at least one recovery point in order to fail back. In a recovery plan, all VMs in the plan need at least one recovery point.
-	- We recommend that  you select to use the Latest recovery point (this is a crash-consistent point).
-	- If you select the app-consistent recovery point, a single VM recovers to its latest available app-consistent recovery point. For a recovery plan with a replication group, each replication group recovers to its common available recovery point. App-consistent recovery points can be behind in time, and there might be loss in data.
-	- During failover from Azure to the on-premises site, Site Recovery shuts down the Azure VMs. When you commit the failover, Site Recovery removes the failed back Azure VMs in Azure.
-- **Stage 4: Reprotect on-premises machines**: After data has failed back, start replicating the on-premises machines to which you failed back to Azure.
+- **Stage 1: Fail over from on-premises**: After setting up replication to Azure for on-premises machines, when your on-premises site goes down, you fail those machines over to Azure. After failover, Azure VMs are created from replicated data.
+- **Stage 2: Reprotect Azure VMs**: In Azure, you reprotect the Azure VMs so that they start replicating back to the on-premises site. The on-premises VM (if available) is turned off during reprotection, to help ensure data consistency.
+- **Stage 3: Fail over from Azure**: When your on-premises site is running as normal again, you run another failover, this time to fail back Azure VMs to your on-premises site. You can fail back to the original location from which you failed over, or to an alternate location.
+- **Stage 4: Reprotect on-premises machines**: After failing back, again enable replication of the on-premises machines to Azure.
 
 ## Failover
 
 You perform a failover as part of your business continuity and disaster recovery (BCDR) strategy.
 
-- As a first step in disaster recovery, you set up ongoing replication of your on-premises machines to Azure. Users access workloads and apps in the source location
-- If the need arises, for example if there's an outage at the source site, you fail machines over from the on-premises site to Azure, and Azure VMs are created used the replicated data.
-- Users can then continue accessing apps continuously from the Azure VMs.
-
-
-## Connect to Azure after failover
-
-If you want to connect to Azure VMs using RDP/SSH after failover, there are a number of requirements.
-
-**Failover** | **Location** | **Actions**
---- | --- | ---
-**Azure VM running Windows** | On-premises machine before failover | To access the Azure VM over the internet, enable RDP, and make sure that TCP and UDP rules are added for **Public**, and that RDP is allowed for all profiles in **Windows Firewall** > **Allowed Apps**.<br/><br/> To access the Azure VM over a site-to-site connection, enable RDP on the machine, and ensure that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features**, for **Domain and Private** networks.<br/><br/>  Make sure the operating system SAN policy is set to **OnlineAll**. [Learn more](https://support.microsoft.com/kb/3031135).<br/><br/> Make sure there are no Windows updates pending on the VM when you trigger a failover. Windows update might start when you fail over, and you won't be able to log onto the VM until the update completes.
-**Azure VM running Windows** | Azure VM after failover |  [Add a public IP address](https://aka.ms/addpublicip) for the VM.<br/><br/> The network security group rules on the failed over VM (and the Azure subnet to which it is connected) need to allow incoming connections to the RDP port.<br/><br/> Check **Boot diagnostics** to verify a screenshot of the VM.<br/><br/> If you can't connect, check that the VM is running, and review these [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
-**Azure VM running Linux** | On-premises machine before failover | Ensure that the Secure Shell service on the VM is set to start automatically on system boot.<br/><br/> Check that firewall rules allow an SSH connection to it.
-**Azure VM running Linux** | Azure VM after failover | The network security group rules on the failed over VM (and the Azure subnet to which it is connected) need to allow incoming connections to the SSH port.<br/><br/> [Add a public IP address](https://aka.ms/addpublicip) for the VM.<br/><br/> Check **Boot diagnostics** for a screenshot of the VM.<br/><br/>
-
-## Types of failover
-
-Site Recovery failover options are summarized in the following table.
-
-**Failover** | **Details** | **Recovery** | **Workflow**
---- | --- | --- | ---
-**Test failover** | Use to run a drill that validates your BCDR strategy, without any data loss or downtime.| Creates a copy of the VM in Azure, with no impact on ongoing replication, or on your production environment. | 1. Run a test failover on a single VM, or on multiple VMs in a recovery plan.<br/><br/> 2. Select a recovery point to use for the test failover.<br/><br/> 3. Select an Azure network in which the Azure VM will be located when it's created after failover. The network is only used for the test failover.<br/><br/> 4. Verify that the drill worked as expected. Site Recovery automatically cleans up VMs created in Azure during the drill.
-**Planned failover-Hyper-V**  | Usually used for planned downtime.<br/><br/> Source VMs are shut down. The latest data is synchronized before initiating the failover. | Zero data loss for the planned workflow. | 1. Plan a downtime maintenance window and notify users.<br/><br/> 2. Take user-facing apps offline.<br/><br/> 3. Initiate a planned failover with the latest recovery point. The failover doesn't run if the machine isn't shut down, or if errors are encountered.<br/><br/> 4. After the failover, check that the replica Azure VM is active in Azure.<br/><br/> 5. Commit the failover to finish up. The commit action deletes all recovery points.
-**Failover-Hyper-V** | Usually run if there's an unplanned outage, or the primary site isn't available.<br/><br/> Optionally shut down the VM, and synchronize final changes before initiating the failover.  | Minimal data loss for apps. | 1. Initiate your BCDR plan. <br/><br/> 2. Initiate a failover. Specify whether Site Recovery should shut down the VM and synchronize/replicate the latest changes before triggering the failover.<br/><br/> 3. You can fail over to a number of recovery point options, summarized in the table below.<br/><br/> If you don't enable the option to shut down the VM, or if Site Recovery can't shut it down, the latest recovery point is used.<br/>The failover runs even if the machine can't be shut down.<br/><br/> 4. After failover, you check that the replica Azure VM is active in Azure.<br/> If required, you can select a different recovery point from the retention window of 24 hours.<br/><br/> 5. Commit the failover to finish up. The commit action deletes all available recovery points.
-**Failover-VMware** | Usually run if there's an unplanned outage, or the primary site isn't available.<br/><br/> Optionally specify that Site Recovery should try to trigger a shutdown of the VM, and to synchronize and replicate final changes before initiating the failover.  | Minimal data loss for apps. | 1. Initiate your BCDR plan. <br/><br/> 2. Initiate a failover from Site Recovery. Specify whether Site Recovery should try to trigger VM shutdown and synchronize before running the failover.<br/> The failover runs even if the machines can't be shut down.<br/><br/> 3. After the failover, check that the replica Azure VM is active in Azure. <br/>If required, you can select a different recovery point from the retention window of 72 hours.<br/><br/> 5. Commit the failover to finish up. The commit action deletes all recovery points.<br/> For Windows VMs, Site Recovery disables the VMware tools during failover. 
-
-### Failover/commit 
+- As a first step in your BCDR strategy, you replicate your on-premises machines to Azure on an ongoing basis. Users access workloads and apps running on the on-premises source machines.
+- If the need arises, for example if there's an outage on-premises, you fail the replicating machines over to Azure. Azure VMs are created using the replicated data.
+- For business continuity, users can continue accessing apps on the Azure VMs.
 
 Failover is a two-phase activity:
 
@@ -61,8 +32,31 @@ Failover is a two-phase activity:
 - **Commit**: After failover you verify the VM in Azure:
     - You can then commit the failover to the selected recovery point, or select a different point for the commit.
     - After committing the failover, the recovery point can't be changed.
+    
+    
+## Connect to Azure after failover
 
-### Failover processing
+To connect to the Azure VMs created after failuver using RDP/SSH, there are a number of requirements.
+
+**Failover** | **Location** | **Actions**
+--- | --- | ---
+**Azure VM (Windows(** | On the on-premises machine before failover | **Access over the internet**: Enable RDP. Make sure that TCP and UDP rules are added for **Public**, and that RDP is allowed for all profiles in **Windows Firewall** > **Allowed Apps**.<br/><br/> **Access over site-to-site VPN**: Enable RDP on the machine. Check that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features**, for **Domain and Private** networks.<br/><br/>  Make sure the operating system SAN policy is set to **OnlineAll**. [Learn more](https://support.microsoft.com/kb/3031135).<br/><br/> Make sure there are no Windows updates pending on the VM when you trigger a failover. Windows Update might start when you fail over, and you won't be able to log onto the VM until updates are done.
+**Azure VM running Windows** | On the Azure VM after failover |  [Add a public IP address](https://aka.ms/addpublicip) for the VM.<br/><br/> The network security group rules on the failed over VM (and the Azure subnet to which it is connected) must allow incoming connections to the RDP port.<br/><br/> Check **Boot diagnostics** to verify a screenshot of the VM. If you can't connect, check that the VM is running, and review [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Azure VM running Linux** | On the on-premises machine before failover | Ensure that the Secure Shell service on the VM is set to start automatically on system boot.<br/><br/> Check that firewall rules allow an SSH connection to it.
+**Azure VM running Linux** | On the Azure VM after failover | The network security group rules on the failed over VM (and the Azure subnet to which it is connected) need to allow incoming connections to the SSH port.<br/><br/> [Add a public IP address](https://aka.ms/addpublicip) for the VM.<br/><br/> Check **Boot diagnostics** for a screenshot of the VM.<br/><br/>
+
+## Types of failover
+
+Site Recovery provides different failover options.
+
+**Failover** | **Details** | **Recovery** | **Workflow**
+--- | --- | --- | ---
+**Test failover** | Used to run a drill that validates your BCDR strategy, without any data loss or downtime.| Creates a copy of the VM in Azure, with no impact on ongoing replication, or on your production environment. | 1. Run a test failover on a single VM, or on multiple VMs in a recovery plan.<br/><br/> 2. Select a recovery point to use for the test failover.<br/><br/> 3. Select an Azure network in which the Azure VM will be located when it's created after failover. The network is only used for the test failover.<br/><br/> 4. Verify that the drill worked as expected. Site Recovery automatically cleans up VMs created in Azure during the drill.
+**Planned failover-Hyper-V**  | Usually used for planned downtime.<br/><br/> Source VMs are shut down. The latest data is synchronized before initiating the failover. | Zero data loss for the planned workflow. | 1. Plan a downtime maintenance window and notify users.<br/><br/> 2. Take user-facing apps offline.<br/><br/> 3. Initiate a planned failover with the latest recovery point. The failover doesn't run if the machine isn't shut down, or if errors are encountered.<br/><br/> 4. After the failover, check that the replica Azure VM is active in Azure.<br/><br/> 5. Commit the failover to finish up. The commit action deletes all recovery points.
+**Failover-Hyper-V** | Usually run if there's an unplanned outage, or the primary site isn't available.<br/><br/> Optionally shut down the VM, and synchronize final changes before initiating the failover.  | Minimal data loss for apps. | 1. Initiate your BCDR plan. <br/><br/> 2. Initiate a failover. Specify whether Site Recovery should shut down the VM and synchronize/replicate the latest changes before triggering the failover.<br/><br/> 3. You can fail over to a number of recovery point options, summarized in the table below.<br/><br/> If you don't enable the option to shut down the VM, or if Site Recovery can't shut it down, the latest recovery point is used.<br/>The failover runs even if the machine can't be shut down.<br/><br/> 4. After failover, you check that the replica Azure VM is active in Azure.<br/> If required, you can select a different recovery point from the retention window of 24 hours.<br/><br/> 5. Commit the failover to finish up. The commit action deletes all available recovery points.
+**Failover-VMware** | Usually run if there's an unplanned outage, or the primary site isn't available.<br/><br/> Optionally specify that Site Recovery should try to trigger a shutdown of the VM, and to synchronize and replicate final changes before initiating the failover.  | Minimal data loss for apps. | 1. Initiate your BCDR plan. <br/><br/> 2. Initiate a failover from Site Recovery. Specify whether Site Recovery should try to trigger VM shutdown and synchronize before running the failover.<br/> The failover runs even if the machines can't be shut down.<br/><br/> 3. After the failover, check that the replica Azure VM is active in Azure. <br/>If required, you can select a different recovery point from the retention window of 72 hours.<br/><br/> 5. Commit the failover to finish up. The commit action deletes all recovery points.<br/> For Windows VMs, Site Recovery disables the VMware tools during failover. 
+
+## Failover processing
 
 In some scenarios, failover requires additional processing that takes around 8 to 10 minutes to complete. You might notice longer test failover times for:
 
@@ -95,6 +89,14 @@ After failover to Azure, the replicated Azure VMs are in an unprotected state.
 - After machines are replicating from Azure to on-premises, you can run a failover from Azure to your on-premises site.
 - After machines are running on-premises again, you can enable replication so that they replicate to Azure for disaster recovery.
 
+Failback works as follows:
+
+- To fail back, a VM needs at least one recovery point in order to fail back. In a recovery plan, all VMs in the plan need at least one recovery point.
+- We recommend that you use the **Latest** recovery point to fail back (this is a crash-consistent point).
+	- There is an app-consistent recovery point option. In this case, a single VM recovers to its latest available app-consistent recovery point. For a recovery plan with a replication group, each replication group recovers to its common available recovery point.
+	- App-consistent recovery points can be behind in time, and there might be loss in data.
+- During failover from Azure to the on-premises site, Site Recovery shuts down the Azure VMs. When you commit the failover, Site Recovery removes the failed back Azure VMs in Azure.
+
 
 ## VMware/physical reprotection/failback
 
@@ -116,9 +118,7 @@ Learn more about VMware/physical reprotection and failback:
 When you reprotect Azure VMs to on-premises, you can specify that you want to fail back to the original location, or to an alternate location.
 
 - **Original location recovery**: This fails back from Azure to the same source on-premises machine if it exists. In this scenario, only changes are replicated back to on-premises.
-- **Alternate location recovery**: If the on-premises machine doesn't exist, you can fail back from Azure to an alternate location. When you reprotect the Azure VM to on-premises, the on-premises machine is created. Full data replication occurs from Azure to on-premises. 
-
-[Review](concepts-types-of-failback.md) the requirements and limitations for location failback.
+- **Alternate location recovery**: If the on-premises machine doesn't exist, you can fail back from Azure to an alternate location. When you reprotect the Azure VM to on-premises, the on-premises machine is created. Full data replication occurs from Azure to on-premises. - - [Review](concepts-types-of-failback.md) the requirements and limitations for location failback.
 
 
 
@@ -142,8 +142,7 @@ When you reprotect Azure VMs to on-premises, you can specify that you want to fa
 
 - **Original location recovery**: This fails back from Azure to the same source on-premises machine if it exists. In this scenario, you select one of the synchronization options described in the previous procedure.
 - **Alternate location recovery**: If the on-premises machine doesn't exist, you can fail back from Azure to an alternate location. When you reprotect the Azure VM to on-premises, the on-premises machine is created. With this option, we recommend that you select the option to synchronize data before failover 
-
-[Review](hyper-v-azure-failback.md) the requirements and limitations for location failback.
+- [Review](hyper-v-azure-failback.md) the requirements and limitations for location failback.
 
 
 After failing back to the on-premises site, you enable **Reverse Replicate** to start replicating the VM to Azure, completing the cycle.
