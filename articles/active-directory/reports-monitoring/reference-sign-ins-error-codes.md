@@ -1,9 +1,9 @@
 ---
-title: Sign-in activity report error codes in the Azure Active Directory portal | Microsoft Docs
+title: Error codes in the Azure Active Directory portal | Microsoft Docs
 description: Reference of sign-in activity report error codes. 
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/08/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -33,9 +33,13 @@ When a sign-in fails, you will see an error code corresponding to the failure. T
 
 ## How can I display failed sign-ins? 
 
-Navigate to the [Sign-ins report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns) in the [Azure portal](https://portal.azure.com).
+On the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
 
-![Sign-in activity](./media/reference-sign-ins-error-codes/61.png "Sign-in activity")
+![Select Azure Active Directory](./media/reference-sign-ins-error-codes/select-azure-active-directory.png "Azure Active Directory")
+
+Under **Monitoring**, select **Sign-ins** to open the [Sign-ins report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Sign-in activity](./media/reference-sign-ins-error-codes/monitoring-sign-ins-in-azure-active-directory.png "Sign-in activity")
 
 Filter the report to display all failed sign-ins by selecting **Failure** from the **Sign-in status** drop-down box.
 
@@ -124,6 +128,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50177|External challenge is not supported for passthrough users.|
 |50178|Session Control  is not supported for passthrough users.|
 |50180|Windows Integrated authentication is needed. Enable the tenant for Seamless SSO.|
+|50181|OTP related failure during sign-in. |
 |50201|This message prompt interrupt will be shown to the user during login when additional information should be provided to user.|
 |51001|Domain Hint is not present with On-Premises Security Identifier - On-Premises UPN.|
 |51004|User account doesn’t exist in the directory.|
@@ -177,7 +182,8 @@ You can also programmatically access the sign-in data using the [reporting API](
 |90051|	Invalid Delegation Token. Invalid national Cloud ID ({cloudId}) is specified.|
 |90072| The account needs to be added as an external user in the tenant first. Sign-out and sign-in again with a different Azure AD account.|
 |90094| The grant requires administrator permissions. Ask your tenant administrator to provide consent for this application.|
-|500021|Tenant is restricted by company proxy. Denying the resource access.|
+|500011| The resource principal named <site address> was not found in the tenant named <tenant ID>. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.|
+|500021| Tenant is restricted by company proxy. Denying the resource access.|
 |500121| Authentication failed during strong authentication request.|
 |500133| The assertion is not within its valid time range. Ensure that the access token is not expired before using it for user assertion, or request a new token.|
 |530021|Application does not meet the Conditional Access approved app requirements.|

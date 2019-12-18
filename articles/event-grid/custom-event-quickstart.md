@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Send custom events with Event Grid and Azure CLI'
-description: Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application. 
+description: 'Quickstart Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
 services: event-grid 
 keywords: 
 author: spelluru
 ms.author: spelluru
-ms.date: 12/07/2018
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: [seodec18, seo-javascript-september2019, seo-python-october2019]
@@ -18,7 +18,7 @@ Typically, you send events to an endpoint that processes the event data and take
 
 When you're finished, you see that the event data has been sent to the web app.
 
-![Use Azure Event Grid viewer to verify that event data has been sent](./media/custom-event-quickstart/azure-event-grid-viewer-displays-event-data.png)
+![View results in the Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -90,7 +90,8 @@ az eventgrid event-subscription create \
 
 View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
 
-![View the subscription validation code in Azure Event Grid viewer](./media/custom-event-quickstart/view-subscription-validation-code-in-azure-event-grid-viewer.png)
+![View the subscription event in Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
+
 
 ## Send an event to your custom topic
 

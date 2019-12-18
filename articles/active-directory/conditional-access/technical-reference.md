@@ -5,7 +5,7 @@ description: Get an overview of the supported settings in an Azure Active Direct
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: reference
 ms.date: 07/10/2019
 
 ms.author: joflore
@@ -233,6 +233,7 @@ This setting applies to the following client apps:
 - The approved client apps support the Intune mobile application management feature.
 - The **Require approved client app** requirement:
    - Only supports the iOS and Android for [device platform condition](#device-platform-condition).
+- Conditional Access cannot consider Microsoft Edge in InPrivate mode an approved client app.
 
 ## App protection policy requirement 
 

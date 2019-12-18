@@ -103,7 +103,7 @@ After you register to the labs, you can view all the classroom labs by taking th
 2. Sign in to the service by using the user account that you used to register to the lab. 
 3. Confirm that you see all the labs you have access to. 
 
-    ![View all labs](../media/how-to-use-classroom-lab/all-labs.png)
+    ![View all labs](../media/how-to-manage-classroom-labs/all-labs.png)
 
 
 ## Next steps

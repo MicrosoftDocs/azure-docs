@@ -17,17 +17,15 @@ ms.date: 07/17/2019
 > * [Portal](ingest-data-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
+> * [Azure Resource Manager template](data-connection-event-hub-resource-manager.md)
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. [Event Hubs](/azure/event-hubs/event-hubs-about) can process millions of events per second in near real-time. In this article, you create an event hub, connect to it from Azure Data Explorer and see data flow through the system.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-
 * [A test cluster and database](create-cluster-database-portal.md).
-
 * [A sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an event hub. Download the sample app to your system.
-
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) to run the sample app.
 
 ## Sign in to the Azure portal
@@ -134,6 +132,8 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
     > [!NOTE]
     > * Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
     > * Only events enqueued after you create the data connection are ingested.
+    > * Enable GZip compression for static routing by opening a [support request in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Enable GZip compression for dynamic routing as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
+    > * Avro format and event system properties aren't supported on compression payload.
 
 ## Copy the connection string
 

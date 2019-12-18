@@ -1,19 +1,15 @@
 ---
-title: Best practices in Azure Container Registry
+title: Registry best practices
 description: Learn how to use your Azure container registry effectively by following these best practices.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: danlep
 ---
 
 # Best practices for Azure Container Registry
 
 By following these best practices, you can help maximize the performance and cost-effective use of your private Docker registry in Azure.
+
+See also [Recommendations for tagging and versioning container images](container-registry-image-tag-version.md) for strategies to tag and version images in your registry. 
 
 ## Network-close deployment
 

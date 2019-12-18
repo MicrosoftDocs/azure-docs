@@ -1,11 +1,12 @@
 ---
-title: Aggregate transformation in mapping data flow - Azure Data Factory | Microsoft Docs
+title: Aggregate transformation in mapping data flow
 description: Learn how to aggregate data at scale in Azure Data Factory with the mapping data flow Aggregate transformation.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/15/2019
 ---
 
@@ -63,7 +64,9 @@ Aggregate transformations are similar to SQL aggregate select queries. Columns t
 
 ### Example
 
-The below example takes an incoming stream `MoviesYear` and groups rows by column `year`. The transformation creates an aggregate column `avgrating` that evaluates to the average of column `Rating`. This aggregate transformation is named `AvgComedyRatingsByYear`. In the Data Factory UX, this transformation looks like the below image:
+The below example takes an incoming stream `MoviesYear` and groups rows by column `year`. The transformation creates an aggregate column `avgrating` that evaluates to the average of column `Rating`. This aggregate transformation is named `AvgComedyRatingsByYear`.
+
+In the Data Factory UX, this transformation looks like the below image:
 
 ![Group by example](media/data-flow/agg-script1.png "Group by example")
 

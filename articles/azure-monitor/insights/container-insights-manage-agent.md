@@ -1,19 +1,9 @@
 ---
 title: How to manage the Azure Monitor for containers agent | Microsoft Docs
-description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Azure Monitor for containers.  
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-
-ms.assetid: 
-ms.service: azure-monitor
+description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Azure Monitor for containers.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 12/06/2018
-ms.author: magoedte
+
 ---
 
 # How to manage the Azure Monitor for containers agent

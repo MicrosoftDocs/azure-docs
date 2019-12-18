@@ -1,17 +1,15 @@
 ---
-title: Collect details about all VMs in a subscription with PowerShell | Microsoft Docs
+title: Collect details about all VMs in a subscription with PowerShell 
 description: Collect details about all VMs in a subscription with PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: v-miegge
-manager: ???
+manager: dcscontentpm
 editor: v-miegge
 tags: azure-service-management
-
 ms.assetid:
 ms.service: virtual-machines-windows
-
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/01/2019

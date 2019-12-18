@@ -4,6 +4,7 @@ description: Configure lead management for an HTTPS endpoint.
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pabutler

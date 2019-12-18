@@ -1,6 +1,6 @@
 ---
 title: Update Azure Kinect DK firmware
-description: Instructions for updating Azure Kinect DK device firmware
+description: Learn how to update the Azure Kinect DK device firmware using the Azure Kinect firmware tool.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk

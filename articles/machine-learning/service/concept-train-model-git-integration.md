@@ -1,7 +1,7 @@
 ---
 title: Git integration for Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning integrates with a local Git repository.
+description: Learn how Azure Machine Learning integrates with a local Git repository. When submitting a training run from a local directory that is a Git repository, information about repo, branch, and current commit are tracked as part of the run.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -20,15 +20,15 @@ Since Azure Machine Learning tracks information from a local git repo, it isn't 
 
 When you submit a training run from the Python SDK or Machine Learning CLI, the files needed to train the model are uploaded to your workspace. If the `git` command is available on your development environment, the upload process uses it to check if the files are stored in a git repository. If so, then information from your git repository is also uploaded as part of the training run. This information is stored in the following properties for the training run:
 
-| Property | Description |
-| ----- | ----- |
-| `azureml.git.repository_uri` | The URI that your repository was cloned from. |
-| `mlflow.source.git.repoURL` | The URI that your repository was cloned from. |
-| `azureml.git.branch` | The active branch when the run was submitted. |
-| `mlflow.source.git.branch` | The active branch when the run was submitted. |
-| `azureml.git.commit` | The commit hash of the code that was submitted for the run. |
-| `mlflow.source.git.commit` | The commit hash of the code that was submitted for the run. |
-| `azureml.git.dirty` | `True`, if the commit is dirty; otherwise, `false`. |
+| Property | Git command used to get the value | Description |
+| ----- | ----- | ----- |
+| `azureml.git.repository_uri` | `git ls-remote --get-url` | The URI that your repository was cloned from. |
+| `mlflow.source.git.repoURL` | `git ls-remote --get-url` | The URI that your repository was cloned from. |
+| `azureml.git.branch` | `git symbolic-ref --short HEAD` | The active branch when the run was submitted. |
+| `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | The active branch when the run was submitted. |
+| `azureml.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the run. |
+| `mlflow.source.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the run. |
+| `azureml.git.dirty` | `git status --porcelain .` | `True`, if the branch/commit is dirty; otherwise, `false`. |
 
 This information is sent for runs that use an estimator, machine learning pipeline, or script run.
 
@@ -44,6 +44,8 @@ The git information is stored in the properties for a training run. You can view
 1. Select __Experiments__, and then select one of your experiments.
 1. Select one of the runs from the __RUN NUMBER__ column.
 1. Select __Logs__, and then expand the __logs__ and __azureml__ entries. Select the link that begins with __###\_azure__.
+
+    ![The ###_azure entry in the portal](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
 
 The logged information contains text similar to the following JSON:
 
@@ -84,5 +86,4 @@ For more information, see the [az ml run](https://docs.microsoft.com/cli/azure/e
 
 ## Next steps
 
-* For a walkthrough of how to train with Azure Machine Learning in Visual Studio Code, see [Tutorial: Train models with Azure Machine Learning](tutorial-train-models-with-aml.md).
-* For a walkthrough of how to edit, run, and debug code locally, see the [Python hello-world tutorial](https://code.visualstudio.com/docs/Python/Python-tutorial).
+* [Set up and use compute targets for model training](how-to-set-up-training-targets.md)

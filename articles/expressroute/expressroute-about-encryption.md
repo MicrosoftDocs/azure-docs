@@ -1,12 +1,12 @@
 ---
-title: About Encryption - Azure ExpressRoute| Microsoft Docs
+title: 'Azure ExpressRoute: About Encryption'
 description: Learn about ExpressRoute encryption. 
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/13/2019
 ms.author: cherylmc
 
 ---
@@ -27,7 +27,7 @@ No. If MACsec is configured and a key mismatch occurs, you lose connectivity to 
 ### Will enabling MACsec on ExpressRoute Direct degrade network performance?
 MACsec encryption and decryption occurs in hardware on the routers we use. There's no performance impact on our side. However, you should check with the network vendor for the devices you use and see if MACsec has any performance implication.
 ### which cipher suites are supported for encryption?
-We support AES128(GCM–AES–128) and AES256(GCM–AES–256).
+We support AES128 and AES256.
 
 ## End-to-end encryption by IPsec FAQ
 IPsec is an [IETF standard](https://tools.ietf.org/html/rfc6071). It encrypts data at the Internet Protocol (IP) level or Network Layer 3. You can use IPsec to encrypt an end-to-end connection between your on-premises network and your virtual network (VNET) on Azure. See other FAQs below.
@@ -36,7 +36,7 @@ Yes. MACsec secures the physical connections between you and Microsoft. IPsec se
 ### Can I use Azure VPN gateway to set up the IPsec tunnel between my on-premises network and my Azure virtual network?
 Yes. You can set up this IPsec tunnel over Microsoft Peering of your ExpressRoute circuit. Follow our [configuration guide](site-to-site-vpn-over-microsoft-peering.md).
 ### Can I use Azure VPN gateway to set up the IPsec tunnel over Azure Private Peering?
-No. You have to deploy a third-party VPN gateway in your Azure virtual network and establish an IPsec tunnel between it and your on-premises VPN gateway.
+If you adopt Azure Virtual WAN you can follow [these steps](../virtual-wan/vpn-over-expressroute.md) to encrypt the end-to-end connection. If you have regular Azure VNET you can deploy a third-party VPN gateway in your VNET and establish an IPsec tunnel between it and your on-premises VPN gateway.
 ### What is the throughput I will get after enabling IPsec on my ExpressRoute connection?
 If Azure VPN gateway is used, check the [performance numbers here](../vpn-gateway/vpn-gateway-about-vpngateways.md). If a third-party VPN gateway is used, check with the vendor for the performance numbers.
 

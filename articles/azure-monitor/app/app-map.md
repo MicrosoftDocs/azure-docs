@@ -1,21 +1,16 @@
 ---
 title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with the application map
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/15/2019
-ms.reviewer: sdash
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 03/15/2019
 
+ms.reviewer: sdash
 ---
+
 # Application Map: Triage Distributed Applications
 
 Application Map helps you spot performance bottlenecks or failure hotspots across all components of your distributed application. Each node on the map represents an application component or its dependencies; and has health KPI and alerts status. You can click through from any component to more detailed diagnostics, such as Application Insights events. If your app uses Azure services, you can also click through to Azure diagnostics, such as SQL Database Advisor recommendations.
@@ -70,13 +65,13 @@ Select **go to details** to explore the end-to-end transaction experience, which
 
 ![Screenshot of end-to-end transaction details](media/app-map/end-to-end-transaction.png)
 
-### View in Analytics
+### View Logs (Analytics)
 
-To query and investigate your applications data further, click **view in analytics**.
+To query and investigate your applications data further, click **view in Logs (Analytics)**.
 
-![Screenshot of view in analytics button](media/app-map/view-in-analytics.png)
+![Screenshot of view in analytics button](media/app-map/view-logs.png)
 
-![Screenshot of analytics experience](media/app-map/analytics.png)
+![Screenshot of analytics experience. Line graph summarizing the average response duration of a request over the past 12 hours.](media/app-map/log-analytics.png)
 
 ### Alerts
 
@@ -181,13 +176,23 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### Java
 
+Starting with Application Insights Java SDK 2.5.0, you can specify the cloud role name
+by adding `<RoleName>` to your `ApplicationInsights.xml` file, e.g.
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
 If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
 
 `spring.application.name=<name-of-app>`
 
 The Spring Boot starter will automatically assign cloud role name to the value you enter for the spring.application.name property.
-
-For further information on Java correlation and how to configure cloud role name for non-SpringBoot applications checkout this [section](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) on correlation.
 
 ### Client/browser-side JavaScript
 
@@ -226,7 +231,7 @@ Alternatively, **cloud role instance** can be helpful for scenarios where **clou
 
 A scenario where you might want to override the value for cloud role instance could be if your app is running in a containerized environment where just knowing the individual server might not be enough information to locate a given issue.
 
-For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 ## Troubleshooting
 

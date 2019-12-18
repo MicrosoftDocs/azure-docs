@@ -1,5 +1,5 @@
 ---
-title: B2B collaboration code and PowerShell samples - Azure Active Directory | Microsoft Docs
+title: B2B collaboration code and PowerShell samples - Azure AD
 description: Code and PowerShell samples for Azure Active Directory B2B collaboration
 
 services: active-directory

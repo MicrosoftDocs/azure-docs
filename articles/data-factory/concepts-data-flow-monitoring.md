@@ -1,11 +1,12 @@
 ---
-title: Azure Data Factory mapping data flow Visual Monitoring
+title: Mapping data flow Visual Monitoring
 description: How to visually monitor Azure Data Factory Data Flows
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/07/2019
 ---
 
@@ -19,7 +20,7 @@ When you execute your pipeline, you will be able to monitor the pipeline and all
 
 ![Data Flow Monitoring](media/data-flow/mon001.png "Data Flow Monitoring")
 
-You will see stats at this level as well including the run times and status. The Run ID at the activity level is different that the Run ID at the pipeline level. The Run ID at the previous level is for the pipeline. Clicking the eyeglasses will give you deep details on your data flow execution.
+You will see statistics at this level as well including the run times and status. The Run ID at the activity level is different that the Run ID at the pipeline level. The Run ID at the previous level is for the pipeline. Clicking the eyeglasses will give you deep details on your data flow execution.
 
 ![Data Flow Monitoring](media/data-flow/mon002.png "Data Flow Monitoring")
 
@@ -42,6 +43,11 @@ When your Data Flow is executed in Spark, Azure Data Factory determines optimal 
   * Computed: You use the column for conditional processing or within an expression in your data flow, but do not land it in the Sink
   * Derived: The column is a new column that you generated in your flow, i.e. it was not present in the Source
   * Mapped: The column originated from the source and your are mapping it to a sink field
+  * Data flow status: The current status of your execution
+  * Cluster startup time: Amount of time to acquire the JIT Spark compute environment for your data flow execution
+  * Number of transforms: How many transformation steps are being executed in your flow
+  
+![Data Flow Monitoring](media/data-flow/monitornew.png "Data Flow Monitoring New")  
   
 ## Monitor Icons
 

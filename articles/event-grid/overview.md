@@ -1,5 +1,5 @@
 ---
-title: Publish and subscribe to application events - Azure Event Grid
+title: What is Azure Event Grid? 
 description: Send event data from a source to handlers with Azure Event Grid. Build event-based applications, and integrate with Azure services.
 services: event-grid
 author: banisadr
@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: overview
-ms.date: 05/25/2019
+ms.date: 10/22/2019
 ms.author: babanisa
 ms.custom: seodec18
 ---
@@ -50,9 +50,9 @@ For full details on the capabilities of each handler as well as related articles
 * [Event Hubs](event-handlers.md#event-hubs)
 * [Hybrid Connections](event-handlers.md#hybrid-connections)
 * [Logic Apps](event-handlers.md#logic-apps)
-* [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
+* [Power Automate (Formerly known as Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [Queue Storage](event-handlers.md#queue-storage)
-* [Service Bus](event-handlers.md#service-bus-queue-preview) (Preview)
+* [Service Bus](event-handlers.md#service-bus)
 * [WebHooks](event-handlers.md#webhooks)
 
 ## Concepts

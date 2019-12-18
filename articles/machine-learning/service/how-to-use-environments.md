@@ -15,7 +15,8 @@ ms.date: 09/27/2019
 
 ---
 
-# Create and manage reusable environments for training and deployment with Azure Machine Learning.
+# Reuse environments for training & deployment with Azure Machine Learning.
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to create and manage Azure Machine Learning [environments](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) so you can track and reproduce your projects' software dependencies as they evolve.
 
@@ -44,7 +45,7 @@ Environments can broadly be divided into three categories: **curated**, **user-m
 
 Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They contain collections of Python packages and settings to help you get started different machine learning frameworks. 
 
-For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. Conda will not check your environment or install anything for you. 
+For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. Conda will not check your environment or install anything for you. Please note that if you are defining your own environment, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
 
 System-managed environments are used when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. The service assumes this type of environment by default, due to its usefulness on remote compute targets that are not manually configurable.
 
@@ -95,7 +96,7 @@ for env in envs:
 To manually create an environment, import the Environment class from the SDK and instantiate an environment object with the following code.
 
 ```python
-from azureml.core import Environment
+from azureml.core.environment import Environment
 Environment(name="myenv")
 ```
 
@@ -161,8 +162,8 @@ If a package is available in a Conda package repository, it is recommended to us
 The following example adds `scikit-learn`, specifically version 0.21.3, and `pillow` package to the environment, `myenv` with the [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) and [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-)  methods, respectively.
 
 ```python
-from azureml.core import Environment
-from azureml.core.environment import CondaDependencies
+from azureml.core.environment import Environment
+from azureml.core.conda_dependencies import CondaDependencies
 
 myenv = Environment(name="myenv")
 conda_dep = CondaDependencies()
@@ -258,7 +259,7 @@ myenv.docker.enabled = True
 
 Once built, the Docker image appears in the Azure Container Registry that's associated with the workspace, by default.  The repository name has the form *azureml/azureml_\<uuid\>*. The unique identifier (*uuid*) part corresponds to a hash computed from the environment configuration. This allows the service to determine whether an image corresponding to the given environment already exists for reuse.
 
-Additionally, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), and installs the specified Python packages. The base image has CPU and GPU versions. Azure Machine Learning service automatically detects which version to use.
+Additionally, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), and installs the specified Python packages. The base image has CPU and GPU versions. Azure Machine Learning automatically detects which version to use.
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -279,7 +280,8 @@ When you submit a training run, the building of a new environment can take sever
 The following local script run example shows where you would use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) as your wrapper object.
 
 ```python
-from azureml.core import Environment, ScriptRunConfig, Experiment
+from azureml.core import ScriptRunConfig, Experiment
+from azureml.core.environment import Environment
 
 exp = Experiment(name="myexp", workspace = ws)
 # Instantiate environment
@@ -331,7 +333,7 @@ run = experiment.submit(sk_est)
 
 You can use environments when deploying your model as a web service. This enables a reproducible, connected workflow where you can train, test, and deploy your model using the exact same libraries in both your training and inference computes.
 
-To deploy a web service, combine the environment, inference compute, scoring script, and registered model in your deployment object, [deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-). Learn more about [deploying web services](how-to-deploy-and-where.md).
+To deploy a web service, combine the environment, inference compute, scoring script, and registered model in your deployment object, [deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). Learn more about [deploying web services](how-to-deploy-and-where.md).
 
 In this example, assume you have completed a training run and want to deploy that model to an Azure Container Instance (ACI). When building the web service, the model and scoring files are mounted on the image and the Azure Machine Learning inference stack is added to the image.
 

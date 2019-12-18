@@ -48,7 +48,7 @@ The following control plane operations on Managed Disks may involve movement of 
 - Create a managed disk from a snapshot.
 - Convert unmanaged disks to managed disks.
 
-# Performance Application Checklist for disks
+## Performance Application Checklist for disks
 
 The first step in designing high-performance applications running on Azure Premium Storage is understanding the performance requirements of your application. After you have gathered performance requirements, you can optimize your application to achieve the most optimal performance.
 
@@ -293,12 +293,12 @@ Some of the versions require the latest Linux Integration Services (LIS), v4.0, 
 | SUSE | SLES 12 or newer| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 or newer| 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+ or newer| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0, or newer| &nbsp; | [LIS4 required](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
-| CentOS | 7.1+ or newer| 3.10.0-229.1.2.el7+ | [LIS4 recommended](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
+| CentOS | 6.5, 6.6, 6.7, 7.0, or newer| &nbsp; | [LIS4 required](https://www.microsoft.com/download/details.aspx?id=51612) <br> *See note in the next section* |
+| CentOS | 7.1+ or newer| 3.10.0-229.1.2.el7+ | [LIS4 recommended](https://www.microsoft.com/download/details.aspx?id=51612) <br> *See note in the next section* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+, or newer | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+, or newer | &nbsp; | UEK4 or RHCK |
-| Oracle | 7.0-7.1 or newer | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 or newer | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 or newer | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 6.4-6.7 or newer | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
 
 ### LIS drivers for OpenLogic CentOS
 
@@ -377,4 +377,3 @@ For a striped volume, maintain a high enough queue depth such that, every disk h
 Azure Premium Storage provisions specified number of IOPS and Throughput depending on the VM sizes and disk sizes you choose. Anytime your application tries to drive IOPS or Throughput above these limits of what the VM or disk can handle, Premium Storage will throttle it. This manifests in the form of degraded performance in your application. This can mean higher latency, lower Throughput, or lower IOPS. If Premium Storage does not throttle, your application could completely fail by exceeding what its resources are capable of achieving. So, to avoid performance issues due to throttling, always provision sufficient resources for your application. Take into consideration what we discussed in the VM sizes and Disk sizes sections above. Benchmarking is the best way to figure out what resources you will need to host your application.
 
 ## Next steps
-

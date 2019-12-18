@@ -127,7 +127,7 @@ The following table illustrates a few examples of these formulae for the provisi
 |102,400     | 100,000 | Up to 100,000 | 6,204 | 4,136   |
 
 > [!NOTE]
-> File shares performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. To achieve maximum performance scale, spread the load across multiple VMs. Please refer [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
+> File shares performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s ingress throughput. To achieve maximum performance scale, spread the load across multiple VMs. Please refer [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
 
 #### Bursting
 
@@ -202,25 +202,36 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 |-------|---------|
 |Australia East |LRS     |
 |Australia Southeast|LRS |
+|Canada Central  |LRS     |
+|Canada East     |LRS     |
 |Central India  |LRS     |
+|Central US*   |LRS     |
 |East Asia      |LRS     |
-|East US*        |LRS     |
+|East US*        |LRS,ZRS|
+|East US 2*      |LRS     |
 |France Central |LRS, ZRS|
 |France South   |LRS     |
+|Japan East     |LRS     |
+|North Central US |LRS   |
+|North Europe   |LRS     |
 |South India    |LRS     |
+|South Central US |LRS     |
 |Southeast Asia |LRS, ZRS|
+|UAE Central    |LRS     |
+|UK South   |LRS     |
+|UK West    |LRS     |
 |West Central US|LRS     |
 |West Europe*    |LRS, ZRS|
 |West US*        |LRS     |
 |West US 2      |LRS, ZRS|
 
-\* Supported for new accounts, not all existing accounts have completed the upgrade process.
+\* Supported for new accounts, not all existing accounts have completed the upgrade process. You can check if your existing storage accounts have completed the upgrade process by attempting to [Enable large file shares](storage-files-how-to-create-large-file-share.md).
 
 To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
 
 ### Enable and create larger file shares
 
-To begin using larger file shares, see our article [Enable large file shares](storage-files-how-to-create-large-file-share.md).
+To begin using larger file shares, see our article [How to enable and create large file shares](storage-files-how-to-create-large-file-share.md).
 
 ## Data growth pattern
 

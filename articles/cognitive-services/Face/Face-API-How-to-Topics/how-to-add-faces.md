@@ -1,7 +1,7 @@
 ---
 title: "Example: Add faces to a PersonGroup - Face API"
 titleSuffix: Azure Cognitive Services
-description: Use the Face API to add faces in images.
+description: This guide demonstrates how to add a large number of persons and faces to a PersonGroup object with the Azure Cognitive Services Face API.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme

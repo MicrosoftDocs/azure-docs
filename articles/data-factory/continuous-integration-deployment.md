@@ -1,5 +1,5 @@
 ﻿---
-title: Continuous integration and delivery in Azure Data Factory | Microsoft Docs
+title: Continuous integration and delivery in Azure Data Factory 
 description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
 services: data-factory
 documentationcenter: ''
@@ -51,11 +51,11 @@ From the **ARM template** dropdown, select **Export ARM template** to export the
 
 In your test and production data factories, select **Import ARM template**. This action takes you to the Azure portal, where you can import the exported template. Select **Build your own template in the editor** to open the Resource Manager template editor.
 
-![](media/continuous-integration-deployment/continuous-integration-image3.png) 
+![Custom Deployment Build your own template](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
 Click **Load file** and select the generated Resource Manager template.
 
-![](media/continuous-integration-deployment/continuous-integration-image4.png)
+![Custom Deployment Edit template](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
 In the settings pane, enter the configuration values such as linked service credentials. Once you're done, click **Purchase** to deploy the Resource Manager template.
 

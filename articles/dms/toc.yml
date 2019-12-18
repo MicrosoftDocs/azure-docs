@@ -10,6 +10,8 @@
   items:
   - name: Create service - Portal
     href: quickstart-create-data-migration-service-portal.md
+  - name: Create service in hybrid mode - Portal
+    href: quickstart-create-data-migration-service-hybrid-portal.md
 
 - name: Tutorials
   items:
@@ -58,8 +60,10 @@
     href: resource-scenario-status.md
   - name: Overview of prerequisites
     href: pre-reqs.md
-  - name: Network topologies for Azure SQL DB managed instance migrations
+  - name: Network topologies for Azure SQL DB MI migrations
     href: resource-network-topologies.md
+  - name: Custom roles for online migrations from SQL Server to Azure SQL DB MI
+    href: resource-custom-roles-sql-db-managed-instance.md
   - name: Troubleshooting and known issues
     items:
     - name: Troubleshoot source database connectivity issues
@@ -68,12 +72,16 @@
       href: known-issues-troubleshooting-dms.md
     - name: Known Issues - Online migration to Azure SQL DB single database
       href: known-issues-azure-sql-online.md
+    - name: Known Issues - Online migration to Azure SQL DB managed instance
+      href: known-issues-azure-sql-db-managed-instance-online.md
     - name: Known Issues - Online migration to Azure DB for MySQL
       href: known-issues-azure-mysql-online.md
-    - name: Known Issues - Online migration from PostgreSQL to Azure DB for PostgreSQL–Single server
+    - name: Known Issues - Online migration from PostgreSQL to Azure DB for PostgreSQL – Single server
       href: known-issues-azure-postgresql-online.md
-    - name: Known Issues - Online migration from Oracle to Azure DB for PostgreSQL–Single server
+    - name: Known Issues - Online migration from Oracle to Azure DB for PostgreSQL – Single server
       href: known-issues-oracle-azure-postgresql-online.md
+    - name: Known Issues - Using hybrid mode
+      href: known-issues-dms-hybrid-mode.md
   - name: Videos
     items:
     - name: Use the Database Migration Guide
@@ -94,7 +102,7 @@
       href: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
   - name: Tools and guidance
     items:
-    - name: Service and tools available for data migration scenarios
+    - name: Services and tools available for data migration scenarios
       href: dms-tools-matrix.md
     - name: Azure Database Migration Guide
       href: https://aka.ms/datamigration

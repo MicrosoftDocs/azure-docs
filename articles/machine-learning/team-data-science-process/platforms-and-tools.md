@@ -120,28 +120,30 @@ Run the following bash command to install Git on Linux (CentOS) machines:
 
 If you are using Linux (CentOS) machines to run the git commands, you need to add the public SSH key of your machine to your Azure DevOps Services, so that this machine is recognized by the Azure DevOps Services. First, you need to generate a public SSH key and add the key to SSH public keys in your Azure DevOps Services security setting page. 
 
-- To generate the SSH key, run the following two commands: 
+1. To generate the SSH key, run the following two commands: 
 
-		ssh-keygen
-		cat .ssh/id_rsa.pub
+   ```
+   ssh-keygen
+   cat .ssh/id_rsa.pub
+   ```
+   
+   ![Commands to generate the SSH key](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
-![Commands to generate the SSH key](./media/platforms-and-tools/resources-1-generate_ssh.png)
-
-- Copy the entire ssh key including *ssh-rsa*. 
-- Log in to your Azure DevOps Services. 
-- Click **<Your Name\>** at the top right corner of the page and click **security**. 
+1. Copy the entire ssh key including *ssh-rsa*. 
+1. Log in to your Azure DevOps Services. 
+1. Click **<Your Name\>** at the top right corner of the page and click **security**. 
 	
-	![Click your name and then click security](./media/platforms-and-tools/resources-2-user-setting.png)
+   ![Click your name and then click security](./media/platforms-and-tools/resources-2-user-setting.png)
 
-- Click **SSH public keys**, and click **+Add**. 
+1. Click **SSH public keys**, and click **+Add**. 
 
-	![Click SSH public keys and then click +Add](./media/platforms-and-tools/resources-3-add-ssh.png)
+   ![Click SSH public keys and then click +Add](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-- Paste the ssh key just copied into the text box and save.
+1. Paste the ssh key just copied into the text box and save.
 
 
 ## Next steps
 
 Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
-For examples executing steps in the Team Data Science Process that use Azure Machine Learning Studio, see the [With Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) learning path.
+For examples that show how to execute steps in the Team Data Science Process by using Azure Machine Learning Studio (classic), see the [With Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) learning path.

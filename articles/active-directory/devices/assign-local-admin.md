@@ -1,5 +1,5 @@
 ---
-title: How to manage the local administrators group on Azure AD joined devices | Microsoft Docs
+title: How to manage local administrators on Azure AD joined devices
 description: Learn how to assign Azure roles to the local administrators group of a Windows device.
 
 services: active-directory
@@ -47,7 +47,7 @@ To view and update the membership of the global administrator role, see:
 In the Azure portal, you can manage the device administrator role on the **Devices** page. To open the **Devices** page:
 
 1. Sign in to your [Azure portal](https://portal.azure.com) as a global administrator or device administrator.
-1. On the left navbar, click **Azure Active Directory**. 
+1. Search for and select *Azure Active Directory*.
 1. In the **Manage** section, click **Devices**.
 1. On the **Devices** page, click **Device settings**.
 
@@ -58,10 +58,10 @@ To modify the device administrator role, configure **Additional local administra
 >[!NOTE]
 > This option requires an Azure AD Premium tenant. 
 
-Device administrators are assigned to all Azure AD joined devices. You cannot scope device administrators to a specific set of devices. Updating the device administrator role doesn't necessarily have an immediate impact on the affected users. For the devices, a user is already signed into, the privilege update takes place:
+Device administrators are assigned to all Azure AD joined devices. You cannot scope device administrators to a specific set of devices. Updating the device administrator role doesn't necessarily have an immediate impact on the affected users. On devices where a user is already signed into, the privilege update takes place when *both* the below actions happen:
 
-- When a user signs off.
-- After 4 hours, when a new Primary Refresh Token is issued. 
+- 4 hours have passed for Azure AD to issue a new Primary Refresh Token with the appropriate privileges. 
+- User signs out and signs back in, not lock/unlock, to refresh their profile.
 
 ## Manage regular users
 

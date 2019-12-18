@@ -1,11 +1,8 @@
 ---
-title: Azure Resource Manager template syntax and expressions
+title: Template syntax and expressions
 description: Describes the declarative JSON syntax for Azure Resource Manager templates.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.author: tomfitz
 ---
 
 # Syntax and expressions in Azure Resource Manager templates

@@ -1,18 +1,13 @@
 ---
 title: Troubleshoot Azure Log Analytics Linux Agent | Microsoft Docs
 description: Describe the symptoms, causes, and resolution for the most common issues with the Log Analytics agent for Linux in Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: magoedte
+author: bwren
+ms.author: bwren
+ms.date: 11/21/2019
+
 ---
 
 # How to troubleshoot issues with the Log Analytics agent for Linux 
@@ -166,7 +161,8 @@ Below the output plugin, uncomment the following section by removing the `#` in 
     |*.ods.opinsights.azure.com | Port 443| Inbound and outbound |  
     |*.oms.opinsights.azure.com | Port 443| Inbound and outbound |  
     |*.blob.core.windows.net | Port 443| Inbound and outbound |  
-    |*.azure-automation.net | Port 443| Inbound and outbound | 
+
+    If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 ## Issue: You receive a 403 error when trying to onboard
 
