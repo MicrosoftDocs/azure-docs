@@ -181,7 +181,7 @@ If you find that you cannot establish SignalR client connections to Azure Signal
 ### Get help
 
 We recommend you troubleshoot by yourself first. Most issues are caused by app server or network issues. Follow [troubleshooting guide with diagnostic log](#troubleshooting-with-diagnostic-logs) and [basic trouble shooting guide](https://github.com/Azure/azure-signalr/blob/dev/docs/tsg.md) to find the root cause.
-If the issue still can't be resolved, then consider open an issue in github or create ticket in Azure Portal.
+If the issue still can't be resolved, then consider open an issue in Github or create ticket in Azure Portal.
 Provide:
 1. Time range about 30 minutes when the issue occurs
 2. Azure SignalR Service's resource ID
@@ -189,4 +189,4 @@ Provide:
 4. Logs collected from server/client side, and other material that might be useful
 5. [Optional] Repro code
 
-> Note: if you open issue in github, keep your sensitive information (For example, resource ID, server/client logs) private, only send to members in Microsoft organization privately.  
+> Note: if you open issue in Github, keep your sensitive information (For example, resource ID, server/client logs) private, only send to members in Microsoft organization privately.  
