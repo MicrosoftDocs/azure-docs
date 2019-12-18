@@ -28,9 +28,9 @@ Before you exclude disks from replication:
 
 - **Replication**: By default, all disks on a machine are replicated.
 - **Disk type**: Only basic disks can be excluded from replication. You can't exclude operating system or dynamic disks.
-- **Mobility service**: To exclude a disk from replication, you must manually install the Mobility service on the machine before you enable replication. You can't use the push installation, since this method only installs the Mobility service on a VM after replication is enabled.  
-- **Add/remove disks**: After you enable replication, you can't add or remove disks for replication. If you want to add or exclude a disk, you need to disable protection for the machine and then enable it again.
-- **Failover**: After failover, if failed over apps need disks that you've excluded in order to operate, you need to create those disks manually. Alternatively, you can  integrate Azure automation into a recovery plan to create the disk during failover of the machine.
+- **Mobility service**: To exclude a disk from replication, you must manually install the Mobility service on the machine before you enable replication. You can't use the push installation, since this method installs the Mobility service on a VM only after replication is enabled.  
+- **Add/remove/exclude disks**: After you enable replication, you can't add/remove/exclude disks for replication. If you want to add/remove or exclude disks, you need to disable protection for the machine and then enable it again.
+- **Failover**: After failover, if failed over apps need excluded disks in order to work, you need to create those disks manually. Alternatively, you can integrate Azure automation into a recovery plan, to create the disk during failover of the machine.
 - **Failback-Windows**: When you fail back to your on-premises site after failover, Windows disks that you create manually in Azure aren't failed back. For example, if you fail over three disks and create two disks directly on Azure VMs, only the three disks that were failed over will be failed back.
 - **Failback-Linux**: For failback of Linux machines, disks that you create manually in Azure are failed back. For example, if you fail over three disks and create two disks directly on Azure VMs, all five will be failed back. You can't exclude disks that were created manually in the failback, or in reprotection of VMs.
 
