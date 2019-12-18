@@ -8,7 +8,6 @@ ms.date: 11/06/2019
 ms.author: rohogue
 ---
 
-
 # Avere vFXT for Azure FAQ
 
 This article answers questions that can help you decide if Avere vFXT for Azure is right for your needs. It gives basic information about Avere vFXT and explains how it works with other Azure components and with products from outside vendors.
@@ -73,7 +72,7 @@ Yes, Avere vFXT runs exclusively as an HA solution.
 
 Yes, customers can use more than one cloud provider with the Avere vFXT cluster. It supports AWS S3 standard buckets, Google Cloud Services standard buckets, and Azure blob containers.
 
-> [!NOTE] 
+> [!NOTE]
 > A software fee applies to use Avere vFXT in AWS or Google Cloud, but not with Azure.
 
 ## Technical: Compute
@@ -93,7 +92,6 @@ No, you must choose one virtual machine type or the other.
 ### Can I move between virtual machine types?
 
 Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
-
 -->
 
 ### Does the Avere vFXT environment scale?
@@ -126,7 +124,7 @@ No. The high availability model in Avere vFXT currently does not support individ
 
 ### Can I clone Avere vFXT virtual machines?
 
-No, you must use the supported Python script to add or remove nodes in the Avere vFXT cluster. For more information, read [Manage the Avere vFXT cluster](avere-vfxt-manage-cluster.md).  
+No, you must use the supported Python script to add or remove nodes in the Avere vFXT cluster. For more information, read [Manage the Avere vFXT cluster](avere-vfxt-manage-cluster.md).
 
 ### Is there a "VM" version of the software I can run in my own local environment?
 

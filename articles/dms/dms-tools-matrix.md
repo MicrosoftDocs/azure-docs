@@ -1,5 +1,5 @@
 ---
-title: Data migration service and tools matrix - Azure | Microsoft Docs
+title: Azure Database Migration Service tools matrix
 description: Learn about the services and tools available to migrate databases and to support various phases of the migration process.
 services: database-migration
 author: HJToland3
