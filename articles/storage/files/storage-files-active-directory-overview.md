@@ -116,12 +116,6 @@ Before enabling this feature, verify that Azure AD Domain Services has been depl
 
 Azure AD Domain Services deployment generally takes 10 to 15 minutes. After Azure AD Domain Services has been deployed, you can enable Azure AD authentication over SMB for Azure Files. For more information, see [Enable Azure Active Directory Domain Service authentication over SMB for Azure Files](storage-files-active-directory-enable.md). 
 
-### Configure share-level permissions for Azure Files
-Once Azure AD Domain Service authentication has been enabled, you can configure custom RBAC roles for Azure AD identities and assign access rights to any file shares in the storage account.
-
-When an application running on a domain-joined VM tries to mount an Azure file share or access a directory or file, the application's Azure AD credentials are verified to ensure the proper share-level permissions and NTFS permissions. For information about configuring share-level permissions, see [Enable Azure Active Directory Domain Service authentication over SMB](storage-files-active-directory-enable.md).
-
-
 ## Pricing
 There is no additional service charge to enable Azure AD authentication over SMB on your storage account. For more information on pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) and [Azure AD Domain Services pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) pages.
 
