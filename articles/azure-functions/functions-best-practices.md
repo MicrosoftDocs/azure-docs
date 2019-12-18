@@ -3,7 +3,7 @@ title: Best Practices for Azure Functions
 description: Learn best practices and patterns for Azure Functions.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
-ms.date: 10/16/2017
+ms.date: 12/17/2019
 
 ms.custom: H1Hack27Feb2017
 
@@ -67,7 +67,7 @@ There are a number of factors that impact how instances of your function app sca
 
 ### Share and manage connections
 
-Reuse connections to external resources whenever possible.  See [how to manage connections in Azure Functions](./manage-connections.md).
+Reuse connections to external resources whenever possible. See [how to manage connections in Azure Functions](./manage-connections.md).
 
 ### Don't mix test and production code in the same function app
 
@@ -81,9 +81,20 @@ Don't use verbose logging in production code, which has a negative performance i
 
 ### Use async code but avoid blocking calls
 
-Asynchronous programming is a recommended best practice. However, always avoid referencing the `Result` property or calling `Wait` method on a `Task` instance. This approach can lead to thread exhaustion.
+Asynchronous programming is a recommended best practice.
+
+In C#, always avoid referencing the `Result` property or calling `Wait` method on a `Task` instance. This approach can lead to thread exhaustion.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+### Use multiple worker processes
+
+For single-threaded runtimes like Python and Node.js, you can improve performance by using two additional methods:
+
+- Use async functions for blocking I/O operations.
+- Use the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) to increase the number of worker processes per host (up to 10).
+
+For more information, see [Azure Functions Python developer guide - Scaling and concurrency](functions-reference-python.md#scaling-and-concurrency) and [Azure Functions Node.js developer guide - Scaling and concurrency](functions-reference-node.md#scaling-and-concurrency).
 
 ### Receive messages in batch whenever possible
 
