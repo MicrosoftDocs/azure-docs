@@ -81,7 +81,7 @@ If you have a Daily Execution Quota configured, your Function App will be tempor
 
 ## KUDU endpoint is not reachable
 
-If the Web App is hosted in an External ILB ASE environment and if NSG blocks the internet traffic, then the portal will fail to load the Functions. The Azure portal makes ARM calls to fetch the list of functions and also makes http call to KUDU endpoint. 
+Your function runtime will be unreachable if your function app is hosted in an [internally load balanced App Service Environment](./environment/create-ilb-ase.md) and is configured to block inbound internet traffic, or has [inbound IP restrictions](../azure-functions/functions-networking-options#inbound-ip-restrictions) configured to block internet access. The Azure portal makes calls directly to the running app to fetch the list of functions and also makes http call to KUDU endpoint. Platform level settings under the `Platform Features` tab will still be available.
 
 * To verify, navigate to NSG of the subnet where ASE resides and validate inbound rules to allow traffic coming over internet.[Read more about inbound rule configuration here](https://docs.microsoft.com/en-us/azure/app-service/environment/network-info#network-security-groups)
 
