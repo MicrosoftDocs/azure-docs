@@ -37,12 +37,18 @@ After [failover](site-recovery-failover.md) of on-premises VMware VMs or physica
 
 ## Enable reprotection
 
-Enable replication. You can reprotect specific VMs, or a recovery plan
+Enable replication. You can reprotect specific VMs, or a recovery plan:
 
 - If you reprotect a recovery plan, you must provide the values for every protected machine.
 - If VMs belong to a replication group for multi-VM consistency, they can only be reprotected using a recovery plan. VMs in a replication group must use the same master target server
 
-Enable as follows:
+### Before you start
+
+- After a VM boots in Azure after failover, it takes some time for the agent to register back to the configuration server (up to 15 minutes). During this time, you won't be able to reprotect and an error message indicates that the agent isn't installed. If this happens, wait for a few minutes, and then reprotect.
+- If you want to fail back the Azure VM to an existing on-premises VM, mount the on-premises VM datastores with read/write access on the master target server's ESXi host.
+- If you want to fail back to an alternate location, for example if the on-premises VM doesn't exist, select the retention drive and datastore that are configured for the master target server. When you fail back to the on-premises site, the VMware virtual machines in the failback protection plan use the same datastore as the master target server. A new VM is then created in vCenter.
+
+Enable reprotection as follows:
 
 1. Select **Vault** > **Replicated items**. Right-click the virtual machine that failed over, and then select **Re-Protect**. Or, from the command buttons, select the machine, and then select **Re-Protect**.
 2. Verify that the **Azure to On-premises** direction of protection is selected.
@@ -52,15 +58,13 @@ Enable as follows:
 6. The failback policy is automatically selected.
 7. Select **OK** to begin reprotection.
 
-    - A job begins to replicate the Azure VM to the on-premises site. You can track the progress on the **Jobs** tab. When the reprotection succeeds, the VM enters a protected state.
-    - The on-premises VM is turned off during reprotection. This helps ensure data consistency during replication. Don't turn on the VM after reprotection finishes.
-
     ![Reprotect dialog box](./media/vmware-azure-reprotect/reprotectinputs.png)
-Note that:
-- After a VM boots in Azure, it takes some time for the agent to register back to the configuration server (up to 15 minutes). During this time, you won't be able to reprotect and an error message indicates that the agent isn't installed. If this happens, wait for a few minutes, and then reprotect.
-- If you want to recover the Azure VM to an existing on-premises VM, mount the on-premises VM datastores with read/write access on the master target server's ESXi host.
-- If you want to recover to an alternate location, for example if the on-premises VM doesn't exist, select the retention drive and datastore that are configured for the master target server. When you fail back to the on-premises site, the VMware virtual machines in the failback protection plan use the same datastore as the master target server. A new VM is then created in vCenter.
-
+    
+8. A job begins to replicate the Azure VM to the on-premises site. You can track the progress on the **Jobs** tab.
+    - When the reprotection succeeds, the VM enters a protected state.
+    - The on-premises VM is turned off during reprotection. This helps ensure data consistency during replication.
+    - Don't turn on the on-premises VM after reprotection finishes.
+   
 
 ## Next steps
 
