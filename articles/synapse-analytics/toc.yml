@@ -947,7 +947,7 @@
       - name: Query with Azure Data Studio
         href: sql-analytics/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Connection strings
-        href: sql-analytics/connection-strings.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/connection-strings.md
       - name: Query with sqlcmd
         href: sql-analytics/get-started-connect-sqlcmd.md
       - name: Query with SSMS

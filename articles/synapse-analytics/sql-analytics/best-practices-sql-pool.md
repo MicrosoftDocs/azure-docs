@@ -16,7 +16,7 @@ ms.reviewer: igorstan
 This article provides a collection of best practices to help you achieve optimal performance for SQL pools in Azure Synapse Analytics. Below you'll find basic guidance and important areas to focus on as you build your solution. Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth.
 
 ## SQL pools loading
-For SQL pools loading guidance, see [Guidance for loading data](../../sql-data-warehouse/guidance-for-loading-data.md).
+For SQL pools loading guidance, see [Guidance for loading data](data-loading-best-practices.md).
 
 ## Reduce cost with pause and scale
 For more information about reducing costs through pausing and scaling, see [Manage compute](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md). 
@@ -49,8 +49,8 @@ PolyBase is designed to leverage the MPP (Massively Parallel Processing) archite
 PolyBase loads can be run using CTAS or INSERT INTO. CTAS will minimize transaction logging and is the fastest way to load your data. Azure Data Factory also supports PolyBase loads and can achieve performance similar to CTAS. PolyBase supports various file formats including Gzip files. 
 
 To maximize throughput when using Gzip text files, break up files into 60 or more files to maximize parallelism of your load. For faster total throughput, consider loading data concurrently. Additional information for the topics relevant to this section is included in the following articles:
-- [Load data](../../sql-data-warehouse/design-elt-data-loading.md) 
-- [Guide for using PolyBase](../../sql-data-warehouse/guidance-for-loading-data.md)
+- [Load data](data-loading-overview.md) 
+- [Guide for using PolyBase](data-loading-best-practices.md)
 - [Azure SQL pool loading patterns and strategies](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/) 
 - [Load Data with Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md) 
 - [Move data with Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md) 
@@ -60,7 +60,7 @@ To maximize throughput when using Gzip text files, break up files into 60 or mor
 ## Load then query external tables
 Polybase isn't optimal for queries. Polybase tables for SQL pools currently only support Azure blob files and Azure Data Lake storage. These files don't have any compute resources backing them. As a result, SQL pools can't offload this work and must read the entire file by loading it to tempdb so it can read the data. 
 
-If you have several queries for querying this data, it's better to load this data once and have queries use the local table. Further Polybase guidance is included in the  [Guide for using PolyBase](../../sql-data-warehouse/guidance-for-loading-data.md) article. 
+If you have several queries for querying this data, it's better to load this data once and have queries use the local table. Further Polybase guidance is included in the  [Guide for using PolyBase](data-loading-best-practices.md) article. 
 
 ## Hash distribute large tables
 By default, tables are Round Robin distributed.   This default makes it easy for users to start creating tables without having to decide how their tables should be distributed. Round Robin tables may perform sufficiently for some workloads. But, in most cases, a distribution column provides better performance.  

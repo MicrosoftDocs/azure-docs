@@ -80,7 +80,7 @@ For more help in finding solution to your issue, here are some other resources y
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SSMS]: /sql/ssms/download-sql-server-management-studio-ssms
 [SSDT for Visual Studio]: sql-data-warehouse-install-visual-studio.md
-[Drivers for Azure SQL Data Warehouse]: sql-data-warehouse-connection-strings.md
+[Drivers for Azure SQL Data Warehouse]:../synapse-analytics/sql-analytics/connection-strings.md
 [Connect to Azure SQL Data Warehouse]:../synapse-analytics/sql-analytics/connect-overview.md
 [Create support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Scaling your SQL Data Warehouse]: sql-data-warehouse-manage-compute-overview.md
@@ -89,7 +89,7 @@ For more help in finding solution to your issue, here are some other resources y
 [Learning how to monitor your queries]: sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: sql-data-warehouse-get-started-provision.md
 [Configure server firewall access for your client IP]: sql-data-warehouse-get-started-provision.md
-[SQL Data Warehouse best practices]: sql-data-warehouse-best-practices.md
+[SQL Data Warehouse best practices]:../synapse-analytics/sql-analytics/best-practices-sql-pool.md
 [Table sizes]:../synapse-analytics/sql-analytics/development-tables-overview.md#table-size-queries
 [Unsupported table features]:../synapse-analytics/sql-analytics/development-tables-overview.md#unsupported-table-features
 [Unsupported data types]:../synapse-analytics/sql-analytics/development-tables-data-types.md#unsupported-data-types
