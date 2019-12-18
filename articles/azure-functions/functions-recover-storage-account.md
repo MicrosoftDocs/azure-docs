@@ -27,7 +27,7 @@ We'll walk through the four most common error cases, how to identify, and how to
 1. Storage Account credentials invalid
 1. Storage Account Inaccessible
 1. Daily Execution Quota Full
-1. KUDU endpoint is not reachable 
+1. App is behind a firewall
 
 
 ## Storage account deleted
