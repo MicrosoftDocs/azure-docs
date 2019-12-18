@@ -196,7 +196,7 @@ There are several parts of this task to revise for your environment.
     ConnectedServiceName: '<your-connection-name>'
     ```
 
-- `subscriptionName`: Provide the target subscription ID. This property only applies to the Resource Group deployment scope and the subscription deployment scoop.
+- `subscriptionName`: Provide the target subscription ID. This property only applies to the Resource Group deployment scope and the subscription deployment scope.
 
 - `resourceGroupName` and `location`: provide the name and location of the resource group you want to deploy to. The task creates the resource group if it doesn't exist.
 

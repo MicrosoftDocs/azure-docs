@@ -4,8 +4,8 @@ description: You can use the Application Insights Connector solution to diagnose
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
 
 ---

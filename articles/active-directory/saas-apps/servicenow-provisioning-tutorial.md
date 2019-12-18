@@ -24,11 +24,12 @@ This tutorial describes the steps you need to perform in both ServiceNow and Azu
 
 
 ## Capabilities Supported
-* Create users in ServiceNow
-* Remove users in ServiceNow when they do not require access anymore
-* Keep user attributes synchronized between Azure AD and ServiceNow
-* Provision groups and group memberships in ServiceNow
-* [Single sign-on](servicenow-tutorial.md) to ServiceNow (recommended)
+> [!div class="checklist"]
+> * Create users in ServiceNow
+> * Remove users in ServiceNow when they do not require access anymore
+> * Keep user attributes synchronized between Azure AD and ServiceNow
+> * Provision groups and group memberships in ServiceNow
+> * [Single sign-on](servicenow-tutorial.md) to ServiceNow (recommended)
 
 ## Prerequisites
 

@@ -126,6 +126,52 @@ For a pool, on the Overview page, select **Configure**.
 
 Follow the steps to change configuration, and select the hardware generation as described in the previous steps.
 
+**To select a hardware generation when creating a managed instance**
+
+For detailed information, see [Create a managed instance](sql-database-managed-instance-get-started.md).
+
+On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select desired hardware generation:
+
+  ![configure managed instance](media/sql-database-service-tiers-vcore/configure-managed-instance.png)
+  
+**To change the hardware generation of an existing managed instance**
+
+Use the following PowerShell script:
+
+```powershell-interactive
+$subscriptionId = "**************"
+Select-AzSubscription -Subscription $subscriptionId
+
+$instanceName = "********"
+$resourceGroup = "****"
+
+# THIS IS IMPORTANT PARAMETER:
+$sku = @{name = "GP_Gen5" }
+
+# NOTE: These properties are not necessary, but it would be good to set them to the current values:
+# You might want to change vCores or storage with hardware generation
+# $admin_login = "******"
+# $admin_pass = "******"
+# $location = "***** # for example: ""northeurope"
+# $vCores = 8
+# $maxStorage = 1024
+# $license = "BasePrice"
+# $subnetId = "/subscriptions/****/subnets/*******"
+
+## NOTE: Uncomment some of the properties below if you have set them.
+$properties = New-Object System.Object
+# $properties | Add-Member -type NoteProperty -name subnetId -Value $subnetId
+# $properties | Add-Member -type NoteProperty -name administratorLogin -Value $admin_login
+# $properties | Add-Member -type NoteProperty -name administratorLoginPassword -Value $admin_pass
+# $properties | Add-Member -type NoteProperty -name vCores -Value $vCores
+# $properties | Add-Member -type NoteProperty -name storageSizeInGB -Value $maxStorage
+# $properties | Add-Member -type NoteProperty -name licenseType -Value $license
+
+Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType "Microsoft.SQL/managedInstances" -Sku $sku -ResourceGroupName $resourceGroup -Force -ApiVersion "2015-05-01-preview"
+```
+
+Make sure to enter your subscription id, name, and resource group of the managed instance.
+
 ### Hardware availability
 
 #### <a name="gen4gen5-1"></a> Gen4/Gen5
