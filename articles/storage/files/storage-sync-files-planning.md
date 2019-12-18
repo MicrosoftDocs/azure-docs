@@ -345,8 +345,7 @@ In the following table, we have provided both the size of the namespace as well 
 |10       |4.27     |4        |32       |8        |
 |30       |12.73    |8        |48       |16       |
 |50       |21.91    |16       |64       |32       |
-|100*      |42.38    |32       |128      |32      |
-
+|100*     |42.38    |32       |128      |32       |
 \*More than 100 million files & directories is not supported at this time. This is a soft limit.
 
 > [!TIP]
