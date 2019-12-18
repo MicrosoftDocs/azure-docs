@@ -82,7 +82,7 @@ In this tutorial, you learn how to:
 
 9. Find **LogQuery** from **myApp** > **src** > **main** > **scala**> **sample**> **LogQuery**. This tutorial uses **LogQuery** to run.
 
-   ![Commands for creating a Scala class from Project](./media/apache-spark-intellij-tool-synapse/select-LogQuery-file.png)
+   ![Commands for creating a Scala class from Project](./media/apache-spark-intellij-tool-synapse/select-logquery-file.png)
 
 ## Connect to your Synapse Spark Pools
 
@@ -277,5 +277,5 @@ It's convenient for you to foresee the script result by sending some code to the
 
    ![Send Selection to Spark Console](./media/apache-spark-intellij-tool-synapse/send-selection-to-console.png)
 
-> [!div class="nextstepaction"]
-> [Use Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
+## Next steps
+
