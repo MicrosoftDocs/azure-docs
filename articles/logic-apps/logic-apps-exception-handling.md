@@ -153,64 +153,94 @@ This table shows how Logic Apps generates a uniform random variable in the speci
 | .... | .... | .... |
 ||||
 
-## Catch and handle failures with the runAfter property
+<a name="control-run-after-behavior"></a>
 
-In a logic app, each action declares the preceding actions that must finish before that action can start, similar to how you specify the order in which steps run in your workflow. In an action definition, the `runAfter` object defines this ordering and is a JSON object that describes which other actions and action statuses cause that action to run.
+## Catch and handle failures by using "run after" behavior
 
-```json
-"<action-name>": {
-   "type": "<action-type>",
-   "inputs": {
-      "<action-specific-inputs>"
-   },
-   "runAfter": {
-      "<preceding-action>": [
-         "Succeeded"
-      ]
-   }
-}
-```
+When you add actions through the designer, you implicitly specify the order for running those actions. After an action finishes running, that same action is marked with a status, such as `Succeeded`, `Failed`, `Skipped`, or `TimedOut`. Each action declares the predecessor action that must finish running and the resulting status before the successor action can start running. By default, when you add an action through the designer, that action is set to run *only after* its predecessor finishes with `Succeeded` status. You can [customize this "run after" behavior](#customize-run-after) to an extent.
 
-So, an action runs only when all the preceding actions that appear inside the `runAfter` object finish with the specified statuses. By default, an action that you add by using the Logic App Designer is set to run when the preceding action is marked as `Succeeded`.
+The entire logic app run is marked as `Failed` under any of these conditions:
 
-If an error happens in a preceding action but isn't caught and handled, the logic app run is marked as `Failed`. However, if a preceding action fails, but the subsequent action runs and finishes successfully, that subsequent action is marked as `Succeeded`. In most logic apps, if you successfully catch all the failures in a workflow, the logic app run is marked as `Succeeded`. However, if your logic apps has parallel branches, if any actions at the end of those parallel branches are skipped or if any preceding skipped actions fail, the logic app run is marked as `Failed`.
+* A predecessor action results in an error that isn't caught and handled.
 
-### Customize runAfter behavior
+* In a logic app with parallel branches, an action that ends a branch is marked as `Failed`. Or, if that action is marked as `Skipped`, and after following all the predecessor paths ends with an action that's marked as `Failed`, `Succeeded`, `Cancelled`, or `TimedOut`, but any of
 
-You can customize the `runAfter` value so that actions run when the previous action's status is `Failed`, `Skipped`, or some combination of these values. For example, to add an item to a specific Service Bus topic after a specific `Insert_Row` action fails, you could use this example `runAfter` definition:
+In a logic app with parallel branches, if the predecessor action fails, but the successor action runs and finishes successfully, that successor action is marked as `Succeeded`. In most logic apps, if you successfully catch all the failures in a workflow, the logic app run is marked as `Succeeded`. 
 
-```json
-"Send_message": {
-   "inputs": {
-      "body": {
-         "ContentData": "@{encodeBase64(body('Insert_Row'))}",
-         "ContentType": "{ \"content-type\" : \"application/json\" }"
-      },
-      "host": {
-         "api": {
-            "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/servicebus"
-         },
-         "connection": {
-            "name": "@parameters('$connections')['servicebus']['connectionId']"
-         }
-      },
-      "method": "post",
-      "path": "/@{encodeURIComponent('failures')}/messages"
-   },
-   "runAfter": {
-      "Insert_Row": [
-         "Failed"
-      ]
-   }
-}
-```
 
-The `runAfter` property is set to run when the `Insert_Row` action is marked as `Failed`. To run the action whether the action is marked as `Succeeded`, `Failed`, or `Skipped`, use this syntax:
+However, if your logic apps has parallel branches, if any actions at the end of those parallel branches are skipped or if any preceding skipped actions fail, the logic app run is marked as `Failed`.
+
+<a name="customize-run-after"></a>
+
+### Customize "run after" behavior
+
+You can customize an action's "run after" behavior so that the action runs when the predecessor's status is either `Succeeded`, `Failed`, `Skipped`, `TimedOut`, or any of these statuses. For example, to send an email after the Excel Online `Add_a_row_into_a_table` predecessor action is marked `Failed`, rather than `Succeeded`, change the "run after" behavior by following either step:
+
+* In the design view, select the ellipses (**...**) button, and then select **Configure run after**.
+
+  ![Configure "run after" behavior for an action](./media/logic-apps-exception-handling/configure-run-after-property-setting.png)
+
+  The action shape shows the default status that's required for the predecessor action, which is **Add a row into a table** in this example:
+
+  ![Default "run after" behavior for an action](./media/logic-apps-exception-handling/change-run-after-property-status.png)
+
+  Change the "run after" behavior to the status that you want, which is **has failed** in this example:
+
+  ![Change "run after" behavior to "has failed"](./media/logic-apps-exception-handling/run-after-property-status-set-to-failed.png)
+
+  To specify that the action runs whether the predecessor action is marked as `Failed`, `Skipped` or `TimedOut`, select the other statuses:
+
+  ![Change "run after" behavior to have any other status](./media/logic-apps-exception-handling/run-after-property-multiple-statuses.png)
+
+* In code view, in the action's JSON definition, edit the `runAfter` property, which follows this syntax:
+
+  ```json
+  "<action-name>": {
+     "inputs": {
+        "<action-specific-inputs>"
+     },
+     "runAfter": {
+        "<preceding-action>": [
+           "Succeeded"
+        ]
+     },
+     "type": "<action-type>"
+  }
+  ```
+
+  For this example, change the `runAfter` property from `Succeeded` to `Failed`:
+
+  ```json
+  "Send_an_email_(V2)": {
+     "inputs": {
+        "body": {
+           "Body": "<p>Failed to&nbsp;add row to &nbsp;@{body('Add_a_row_into_a_table')?['Terms']}</p>",,
+           "Subject": "Add row to table failed: @{body('Add_a_row_into_a_table')?['Terms']}",
+           "To": "Sophia.Owen@fabrikam.com"
+        },
+        "host": {
+           "connection": {
+              "name": "@parameters('$connections')['office365']['connectionId']"
+           }
+        },
+        "method": "post",
+        "path": "/v2/Mail"
+     },
+     "runAfter": {
+        "Add_a_row_into_a_table": [
+           "Failed"
+        ]
+     },
+     "type": "ApiConnection"
+  }
+  ```
+
+  To specify that the action runs whether the predecessor action is marked as `Failed`, `Skipped` or `TimedOut`, add the other statuses:
 
 ```json
 "runAfter": {
-   "Insert_Row": [
-      "Failed", "Succeeded", "Skipped"
+   "Add_a_row_into_a_table": [
+      "Failed", "Skipped", "TimedOut"
    ]
 }
 ```
@@ -221,7 +251,7 @@ The `runAfter` property is set to run when the `Insert_Row` action is marked as 
 
 Similar to running steps after individual actions with the `runAfter` property, you can group actions together inside a [scope](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). You can use scopes when you want to logically group actions together, assess the scope's aggregate status, and perform actions based on that status. After all the actions in a scope finish running, the scope itself gets its own status. 
 
-To check a scope's status, you can use the same criteria that you use to check a logic app's run status, such as `Succeeded`, `Failed`, and so on. 
+To check a scope's status, you can use the same criteria that you use to check a logic app's run status, such as `Succeeded`, `Failed`, and so on.
 
 By default, when all the scope's actions succeed, the scope's status is marked `Succeeded`. If the final action in a scope results as `Failed` or `Aborted`, the scope's status is marked `Failed`.
 
