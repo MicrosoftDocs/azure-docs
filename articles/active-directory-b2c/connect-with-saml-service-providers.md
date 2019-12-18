@@ -160,7 +160,7 @@ Now that your tenant can issue SAML assertions, you need to create the SAML rely
 
 1. Open the *SignUpOrSigninSAML.xml* file in your preferred editor.
 
-1. Change the `PolicyId` and `PublicPolicyUri` of the policy to _B2C_1A_signup_signin_saml_ and _http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml_ as seen below.
+1. Change the `PolicyId` and `PublicPolicyUri` of the policy to _B2C_1A_signup_signin_saml_ and `http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml` as seen below.
 
     ```XML
     <TrustFrameworkPolicy

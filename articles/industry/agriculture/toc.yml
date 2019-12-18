@@ -1,6 +1,6 @@
 - name: Overview
   items:
-   - name: What is FarmBeats?
+   - name: What is Azure FarmBeats?
      href: overview-azure-farmbeats.md
 - name: Tutorials
   expanded: true
