@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/16/2019
+ms.date: 12/17/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use roles on an entity.
 ---
@@ -19,8 +19,6 @@ ms.author: diberry
 In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a transfer from one city to another. Both pieces of data may be required and they are related to each other.
 
 A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **In this tutorial, you learn how to:**
 
@@ -47,7 +45,11 @@ A role should be used when the entity data to extract:
 
 ## Create a new app
 
-[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+1. Sign in to the preview LUIS portal with the URL of [https://preview.luis.ai](https://preview.luis.ai).
+
+1. Select **Create new app**, enter the name `HumanResources` and keep the default culture, **English**. Leave the description empty.
+
+1. Select **Done**.
 
 ## Create an intent to move employees between cities
 

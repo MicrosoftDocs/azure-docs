@@ -13,8 +13,16 @@
       href: storage-quickstart-queues-portal.md
   - name: Develop with queues
     items:
-    - name: .NET
+    - name: .NET (v12)
       href: storage-quickstart-queues-dotnet.md
+    - name: .NET (v11)
+      href: storage-quickstart-queues-dotnet-legacy.md
+    - name: Java (v12)
+      href: storage-quickstart-queues-java.md
+    - name: Python (v12)
+      href: storage-quickstart-queues-python.md
+    - name: JavaScript (v12)
+      href: storage-quickstart-queues-nodejs.md
 - name: Tutorials
   items:
   - name: Work with Azure storage queues
