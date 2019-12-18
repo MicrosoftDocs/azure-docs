@@ -45,21 +45,21 @@ Use the following steps:
 
 1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-2. Import the JSON into a new app into the [preview LUIS portal](https://preview.luis.ai).
+1. Import the JSON into a new app into the [preview LUIS portal](https://preview.luis.ai).
 
-3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `patterns`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+1. From the **Manage** section, on the **Versions** tab, clone the version, and name it `patterns`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
 ## Create new intents and their utterances
 
 1. Select **Build** from the navigation bar.
 
-2. On the **Intents** page, select **+ Create** to create a new intent.
+1. On the **Intents** page, select **+ Create** to create a new intent.
 
-3. Enter `OrgChart-Manager` in the pop-up dialog box then select **Done**.
+1. Enter `OrgChart-Manager` in the pop-up dialog box then select **Done**.
 
     ![Create new message pop-up window](media/luis-tutorial-pattern/hr-create-new-intent-popup.png)
 
-4. Add example utterances to the intent. This utterances are not _exactly_ alike but do have a pattern that can be extracted.
+1. Add example utterances to the intent. This utterances are not _exactly_ alike but do have a pattern that can be extracted.
 
     |Example utterances|
     |--|
@@ -71,11 +71,11 @@ Use the following steps:
 
     Don't worry if the keyPhrase entity is labeled in the utterances of the intent instead of the employee entity. Both are correctly predicted in the Test pane and at the endpoint.
 
-5. Select **Intents** in the left navigation.
+1. Select **Intents** in the left navigation.
 
-6. Select **+ Create** to create a new intent. Enter `OrgChart-Reports` in the pop-up dialog box then select **Done**.
+1. Select **+ Create** to create a new intent. Enter `OrgChart-Reports` in the pop-up dialog box then select **Done**.
 
-8. Add example utterances to the intent.
+1. Add example utterances to the intent.
 
     |Example utterances|
     |--|
@@ -85,23 +85,23 @@ Use the following steps:
     |`Who are Jill Jones direct reports?`|
     |`Who does Jill Jones supervise?`|
 
-## Caution about example utterance quantity
+### Caution about example utterance quantity
 
 [!INCLUDE [Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
-## Train the app before testing or publishing
+### Train the app before testing or publishing
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## Publish the app to query from the endpoint
+### Publish the app to query from the endpoint
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
-## Get intent and entities from endpoint
+### Get intent and entities from endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-2. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is the utterance `query`.
+1. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is the utterance `query`.
 
     ```json
     {
@@ -228,9 +228,9 @@ In order for a pattern to be matched to an utterance, the entities within the ut
 
 1. Select **Build** in the top menu.
 
-2. In the left navigation, under **Improve app performance**, select **Patterns** from the left navigation.
+1. In the left navigation, under **Improve app performance**, select **Patterns** from the left navigation.
 
-3. Select the **OrgChart-Manager** intent, then enter the following template utterances:
+1. Select the **OrgChart-Manager** intent, then enter the following template utterances:
 
     |Template utterances|
     |:--|
@@ -241,7 +241,7 @@ In order for a pattern to be matched to an utterance, the entities within the ut
     |`Who is {Employee}['s] supervisor[?]`|
     |`Who is the boss of {Employee}[?]`|
 
-4. While still on the Patterns page, select the **OrgChart-Reports** intent, then enter the following template utterances:
+1. While still on the Patterns page, select the **OrgChart-Reports** intent, then enter the following template utterances:
 
     |Template utterances|
     |:--|
@@ -495,23 +495,23 @@ If you have difficulty with simple entity detection because it is a name such as
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Select **Entities** from the left navigation.
+1. Select **Entities** from the left navigation.
 
-3. Select **Create new entity**.
+1. Select **Create new entity**.
 
-4. In the pop-up window, enter `NewEmployee` as a **Simple** entity.
+1. In the pop-up window, enter `NewEmployee` as a **Simple** entity.
 
-5. Select **Create new entity**.
+1. Select **Create new entity**.
 
-6. In the pop-up window, enter `NewEmployeeRelocation` as a **Simple** entity.
+1. In the pop-up window, enter `NewEmployeeRelocation` as a **Simple** entity.
 
-7. Select **NewEmployeeRelocation** from the list of entities.
+1. Select **NewEmployeeRelocation** from the list of entities.
 
-8. Enter the first role as `NewEmployeeReloOrigin` and select enter.
+1. Enter the first role as `NewEmployeeReloOrigin` and select enter.
 
-9. Enter the second role as `NewEmployeeReloDestination` and select enter.
+1. Enter the second role as `NewEmployeeReloDestination` and select enter.
 
-## Create new intent
+### Create new intent
 Labeling the entities in these steps may be easier if the prebuilt keyPhrase entity is removed before beginning then added back after you are done with the steps in this section.
 
 1. Select **Intents** from the left navigation.
@@ -543,19 +543,13 @@ Labeling the entities in these steps may be easier if the prebuilt keyPhrase ent
 
     If you removed the keyPhrase entity, add it back to the app now.
 
-## Train
+1. Train and publish again.
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+### Get intent and entities from endpoint
 
-## Publish
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
-
-## Get intent and entities from endpoint
-
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
-
-2. Go to the end of the URL in the address and enter `Move Wayne Berry from Miami to Mount Vernon`. The last querystring parameter is `q`, the utterance **query**.
+1. Go to the end of the URL in the address and enter `Move Wayne Berry from Miami to Mount Vernon`. The last querystring parameter is `q`, the utterance **query**.
 
     ```json
     {
@@ -651,20 +645,20 @@ Patterns will help the prediction score, however, the entities must be correctly
 
 1. Select **Build** in the top navigation.
 
-2. Select **Patterns** in the left navigation.
+1. Select **Patterns** in the left navigation.
 
-3. Select **NewEmployeeRelocationProcess** from the **Select an intent** drop-down list.
+1. Select **NewEmployeeRelocationProcess** from the **Select an intent** drop-down list.
 
-4. Enter the following pattern: `move {NewEmployee} from {NewEmployeeRelocation:NewEmployeeReloOrigin} to {NewEmployeeRelocation:NewEmployeeReloDestination}[.]`
+1. Enter the following pattern: `move {NewEmployee} from {NewEmployeeRelocation:NewEmployeeReloOrigin} to {NewEmployeeRelocation:NewEmployeeReloDestination}[.]`
 
     If you train, publish, and query the endpoint, you may be disappointed to see that the entities are not found, so the pattern didn't match, therefore the prediction didn't improve. This is a consequence of not enough example utterances with labeled entities. Instead of adding more examples, add a phrase list to fix this problem.
 
-## Cities phrase list
+### Cities phrase list
 Cities, like people's names are tricky in that they can be any mix of words and punctuation. The cities of the region and world are known, so LUIS needs a phrase list of cities to begin learning.
 
 1. Select **Phrase list** from the **Improve app performance** section of the left menu.
 
-2. Name the list `Cities` and add the following `values` for the list:
+1. Name the list `Cities` and add the following `values` for the list:
 
     |Values of phrase list|
     |--|
@@ -679,13 +673,12 @@ Cities, like people's names are tricky in that they can be any mix of words and 
 
     Do not add every city in the world or even every city in the region. LUIS needs to be able to generalize what a city is from the list. Make sure to keep **These values are interchangeable** selected. This setting means the words on the list on treated as synonyms.
 
-3. Train and publish the app.
+1. Train and publish the app.
 
 ## Get intent and entities from endpoint
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
-
-2. Go to the end of the URL in the address and enter `Move wayne berry from miami to mount vernon`. The last querystring parameter is `q`, the utterance **query**.
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
+1. Go to the end of the URL in the address and enter `Move wayne berry from miami to mount vernon`. The last querystring parameter is `q`, the utterance **query**.
 
     ```json
     {
@@ -854,7 +847,7 @@ The varying length includes words that may confuse LUIS about where the entity e
 
     Without a Pattern.any entity, it would be difficult for LUIS to understand where the form title ends because of the many variations of form names.
 
-## Create a Pattern.any entity
+### Create a Pattern.any entity
 The Pattern.any entity extracts entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity.
 
 1. Select **Entities** in the left navigation.
@@ -882,9 +875,7 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
     If you want to account for variations of the form such as single quotes instead of double quotes or a period instead of a question mark, create a new pattern for each variation.
 
-## Train the LUIS app
-
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+1. Train the app.
 
 ## Test the new pattern for free-form data extraction
 1. Select **Test** from the top bar to open the test panel.
@@ -899,7 +890,7 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
 1. Close the test panel by selecting the **Test** button in the top navigation.
 
-## Using an explicit list
+### Using an explicit list
 
 If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](reference-pattern-syntax.md#explicit-lists) to correct this problem.
 
