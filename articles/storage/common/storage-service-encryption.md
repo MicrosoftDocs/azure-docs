@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
@@ -34,7 +34,7 @@ For more information about the cryptographic modules underlying Azure Storage en
 
 You can rely on Microsoft-managed keys for the encryption of your storage account, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys, you have two options:
 
-- You can specify a *customer-managed key* with Azure Key Vault to use for encrypting and decrypting data in Blob storage and in Azure Files.
+- You can specify a *customer-managed key* with Azure Key Vault to use for encrypting and decrypting data in your storage account. The customer-managed key is used to encrypt all data in the account, including blob, queue, table, and file data.
 - You can specify a *customer-provided key* on Blob storage operations. A client making a read or write request against Blob storage can include an encryption key on the request for granular control over how blob data is encrypted and decrypted.
 
 The following table compares key management options for Azure Storage encryption.
@@ -42,7 +42,7 @@ The following table compares key management options for Azure Storage encryption
 |                                        |    Microsoft-managed keys                             |    Customer-managed keys                                                                                                                        |    Customer-provided keys                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    Encryption/decryption operations    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    Azure Storage services supported    |    All                                                |    Blob storage, Azure Files                                                                                                               |    Blob storage                                                                  |
+|    Azure Storage services supported    |    All                                                |    All                                                                                                               |    Blob storage                                                                  |
 |    Key storage                         |    Microsoft key store    |    Azure Key Vault                                                                                                                              |    Azure Key Vault or any other key store                                                                 |
 |    Key rotation responsibility         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
 |    Key usage                           |    Microsoft                                          |    Azure portal, Storage Resource Provider REST API, Azure Storage management libraries, PowerShell, CLI        |    Azure Storage REST API (Blob storage), Azure Storage client libraries    |
