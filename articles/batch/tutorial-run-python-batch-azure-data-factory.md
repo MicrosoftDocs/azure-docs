@@ -53,7 +53,7 @@ Set up your Azure Storage account using the [Azure portal](https://docs.microsof
 
     ![](https://raw.githubusercontent.com/mammask/tutorial-run-r-batch-azure-data-factory/master/samples/select-blob-storage-container.PNG)
 
-3.  **Upload** &gt; **Files** &gt; iris.csv &gt; **Upload to folder** &gt; inputs. A new folder will be created even if it does not exist.
+3.  **Upload** &gt; **Files** &gt; [iris.csv](https://github.com/mammask/azure-docs-pr/blob/master/articles/batch/media/run-python-batch-azure-data-factory/iris.csv) &gt; **Upload to folder** &gt; inputs. A new folder will be created even if it does not exist.
 
     ![](https://raw.githubusercontent.com/mammask/tutorial-run-r-batch-azure-data-factory/master/samples/upload-to-blob-storage-container.PNG)
 
