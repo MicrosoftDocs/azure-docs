@@ -17,17 +17,6 @@ ms.author: scottwhi
 
 Use this quickstart to make your first call to the Bing Visual Search API and view the search results. This simple JavaScript application uploads an image to the API, and displays the information returned about it. While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
-When uploading a local image, the form data must include the `Content-Disposition` header. You must set its `name` parameter to "image", and the `filename` parameter can be set to any string. The contents of the form include the binary data of the image. The maximum image size you may upload is 1 MB.
-
-```
---boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
-
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
-
---boundary_1234-abcd--
-```
-
 ## Prerequisites
 
 * [Node.js](https://nodejs.org/en/download/)
@@ -63,6 +52,17 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     ```
 
 ## Construct and send the search request
+
+When uploading a local image, the form data must include the `Content-Disposition` header. You must set its `name` parameter to "image", and the `filename` parameter can be set to any string. The contents of the form include the binary data of the image. The maximum image size you may upload is 1 MB.
+
+```
+--boundary_1234-abcd
+Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+
+--boundary_1234-abcd--
+```
 
 1. Create a new **FormData** object using `FormData()`, and append your image path to it, using `fs.createReadStream()`:
     

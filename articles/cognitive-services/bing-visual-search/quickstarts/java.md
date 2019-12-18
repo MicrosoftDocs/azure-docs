@@ -17,17 +17,6 @@ ms.author: scottwhi
 
 Use this quickstart to make your first call to the Bing Visual Search API and view the results. This Java application uploads an image to the API and displays the information it returns. Though this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
 
-When you upload a local image, the form data must include the `Content-Disposition` header. You must set its `name` parameter to "image", and you can set the `filename` parameter to any string. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
-
-```
---boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
-
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
-
---boundary_1234-abcd--
-```
-
 ## Prerequisites
 
 * The [Java Development Kit (JDK) 7 or 8](https://aka.ms/azure-jdks)
@@ -65,6 +54,18 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
     static String subscriptionKey = "your-key-here";
     static String imagePath = "path-to-your-image";
+    ```
+
+    
+    When you upload a local image, the form data must include the `Content-Disposition` header. You must set its `name` parameter to "image", and you can set the `filename` parameter to any string. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
+    
+    ```
+    --boundary_1234-abcd
+    Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+    
+    ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+    
+    --boundary_1234-abcd--
     ```
 
 ## Create the JSON parser
