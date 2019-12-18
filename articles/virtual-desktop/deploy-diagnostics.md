@@ -253,7 +253,7 @@ You can also interact with users on the session host:
 
     - Threshold: Higher than 2000 ms is marked as unhealthy.
 
-# Next steps
+## Next steps
 
-- Learn how to monitor activity logs at [Use diagnostics with Log Analytics](diagnostics-log-analytics.md)
-- Read about common error scenarios and how to fix them at [Identify and diagnose issues](diagnostics-role-service.md)
+- Learn how to monitor activity logs at [Use diagnostics with Log Analytics](diagnostics-log-analytics.md).
+- Read about common error scenarios and how to fix them at [Identify and diagnose issues](diagnostics-role-service.md).
