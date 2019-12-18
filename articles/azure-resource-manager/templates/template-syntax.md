@@ -80,7 +80,7 @@ For examples of how to use parameters, see [Parameters in Azure Resource Manager
 
 ### Data types
 
-For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a template, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files-syntax.md). Resource types apply their own limits for integer properties.
+For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a template, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
 
 When specifying boolean and integer values in your template, don't surround the value with quotation marks. Start and end string values with double quotation marks.
 
@@ -88,7 +88,7 @@ Objects start with a left brace and end with a right brace. Arrays start with a 
 
 Secure strings and secure objects can't be read after resource deployment.
 
-For samples of formatting data types, see [Parameter type formats](parameter-files-syntax.md#parameter-type-formats).
+For samples of formatting data types, see [Parameter type formats](parameter-files.md#parameter-type-formats).
 
 ## Variables
 
@@ -297,9 +297,9 @@ For inline comments, you can use either `//` or `/* ... */` but this syntax does
   ],
 ```
 
-In Visual Studio Code, the [Azure Resource Manager Tools extension](./resource-manager-tools-vs-code.md#install-resource-manager-tools-extension) can automatically detect Resource Manager template and change the language mode accordingly. If you see **Azure Resource Manager Template** at the bottom right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
+In Visual Studio Code, the [Azure Resource Manager Tools extension](use-vs-code-to-create-template.md#install-resource-manager-tools-extension) can automatically detect Resource Manager template and change the language mode accordingly. If you see **Azure Resource Manager Template** at the bottom right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
 
-![Visual Studio Code Azure Resource Manager template mode](./media/resource-group-authoring-templates/resource-manager-template-editor-mode.png)
+![Visual Studio Code Azure Resource Manager template mode](./media/template-syntax/resource-manager-template-editor-mode.png)
 
 ### Metadata
 
@@ -329,7 +329,7 @@ For **parameters**, add a `metadata` object with a `description` property.
 
 When deploying the template through the portal, the text you provide in the description is automatically used as a tip for that parameter.
 
-![Show parameter tip](./media/resource-group-authoring-templates/show-parameter-tip.png)
+![Show parameter tip](./media/template-syntax/show-parameter-tip.png)
 
 For **resources**, add a `comments` element or a metadata object. The following example shows both a comments element and a metadata object.
 

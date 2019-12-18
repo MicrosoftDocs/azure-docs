@@ -9,7 +9,7 @@ ms.date: 11/26/2019
 
 Azure Resource Manager enables you to view your deployment history and examine specific operations in past deployments. You can see the resources that were deployed, and get information about any errors.
 
-For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](common-deployment-errors.md).
 
 ## Get deployments and correlation ID
 
@@ -21,15 +21,15 @@ You can view details about a deployment through the Azure portal, PowerShell, Az
 
 1. Select the link under **Deployments**.
 
-   ![Select deployment history](./media/resource-manager-deployment-operations/select-deployment-history.png)
+   ![Select deployment history](./media/deployment-history/select-deployment-history.png)
 
 1. Select one of the deployments from the deployment history.
 
-   ![Select deployment](./media/resource-manager-deployment-operations/select-details.png)
+   ![Select deployment](./media/deployment-history/select-details.png)
 
 1. A summary of the deployment is displayed, including the correlation ID. 
 
-    ![Deployment summary](./media/resource-manager-deployment-operations/show-correlation-id.png)
+    ![Deployment summary](./media/deployment-history/show-correlation-id.png)
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -111,11 +111,11 @@ Each deployment can include multiple operations. To see more details about a dep
 
 1. On the summary for a deployment, select **Operation details**.
 
-    ![Select deployment operations](./media/resource-manager-deployment-operations/get-operation-details.png)
+    ![Select deployment operations](./media/deployment-history/get-operation-details.png)
 
 1. You see the details for that step of the deployment. When an error occurs, the details include the error message.
 
-    ![Show operation details](./media/resource-manager-deployment-operations/see-operation-details.png)
+    ![Show operation details](./media/deployment-history/see-operation-details.png)
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -203,7 +203,7 @@ The response includes an error message.
 
 ## Next steps
 
-* For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* To learn about using the activity logs to monitor other types of actions, see [View activity logs to manage Azure resources](resource-group-audit.md).
+* For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](common-deployment-errors.md).
+* To learn about using the activity logs to monitor other types of actions, see [View activity logs to manage Azure resources](../management/view-activity-logs.md).
 * To validate your deployment before executing it, see [Deploy a resource group with Azure Resource Manager template](deploy-powershell.md).
 

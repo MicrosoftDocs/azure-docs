@@ -9,7 +9,7 @@ ms.author: jgao
 
 # Tutorial: Secure artifacts in Azure Resource Manager template deployments
 
-Learn how to secure the artifacts used in your Azure Resource Manager templates using Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file, that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database; it also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact is stored in an Azure storage account. Storage account key was used to access the artifact. In this tutorial, you use SAS to grant limited access to the BACPAC file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Learn how to secure the artifacts used in your Azure Resource Manager templates using Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file, that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database; it also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact is stored in an Azure storage account. Storage account key was used to access the artifact. In this tutorial, you use SAS to grant limited access to the BACPAC file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 To learn how to secure linked template, see [Tutorial: Create linked Azure Resource Manager templates](./template-tutorial-create-linked-templates.md).
 
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
 * Review [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md). The template used in this tutorial is the one developed in that tutorial. A download link of the completed template is provided in this article.
 * To increase security, use a generated password for the SQL Server administrator account. Here is a sample for generating a password:
 
@@ -142,7 +142,7 @@ In this session, you modify the template you created in [Tutorial: Import SQL BA
     },
     ```
 
-    ![Resource Manager tutorial secure artifacts parameters](./media/template-tutorial-secure-artifacts/template-tutorial-secure-artifacts-parameters.png)
+    ![Resource Manager tutorial secure artifacts parameters](./media/template-tutorial-secure-artifacts/resource-manager-tutorial-secure-artifacts-parameters.png)
 
 2. Update the value of the following three elements of the SQL extension resource:
 
@@ -191,7 +191,7 @@ For the values of _artifactsLocation, _artifactsLocationSasToken and bacpacFileN
 
 In the portal, select the SQL database from the newly deployed resource group. Select **Query editor (preview)**, and then enter the administrator credentials. You shall see two tables imported into the database:
 
-![Azure Resource Manager deploy sql extensions BACPAC](./media/template-tutorial-deploy-sql-extensions-bacpac/template-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
+![Azure Resource Manager deploy sql extensions BACPAC](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 
 ## Clean up resources
 

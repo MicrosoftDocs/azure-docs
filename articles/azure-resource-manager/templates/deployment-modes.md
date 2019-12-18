@@ -26,7 +26,7 @@ For example, if your resource group contains a DNS zone (Microsoft.Network/dnsZo
 
 For a list of how resource types handle deletion, see [Deletion of Azure resources for complete mode deployments](complete-mode-deletion.md).
 
-If the resource group is [locked](lock-resources.md), complete mode doesn't delete the resources.
+If the resource group is [locked](../management/lock-resources.md), complete mode doesn't delete the resources.
 
 > [!NOTE]
 > Only root-level templates support the complete deployment mode. For [linked or nested templates](linked-templates.md), you must use incremental mode. 

@@ -36,7 +36,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
 * To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```azurecli-interactive
@@ -81,7 +81,7 @@ Here is the procedure to make the changes:
 2. Replace the three **variables('storageAccountName')** with **parameters('storageAccountName')** in the whole template.
 3. Remove the following variable definition:
 
-    ![Resource Manager template use condition diagram](./media/template-tutorial-use-conditions/template-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Resource Manager template use condition diagram](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 4. Add the following two parameters to the template:
 
@@ -100,7 +100,7 @@ Here is the procedure to make the changes:
 
     The updated parameters definition looks like:
 
-    ![Resource Manager use condition](./media/template-tutorial-use-conditions/template-tutorial-use-condition-template-parameters.png)
+    ![Resource Manager use condition](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
 
 5. Add the following line to the beginning of the storage account definition.
 
@@ -112,7 +112,7 @@ Here is the procedure to make the changes:
 
     The updated storage account definition looks like:
 
-    ![Resource Manager use condition](./media/template-tutorial-use-conditions/template-tutorial-use-condition-template.png)
+    ![Resource Manager use condition](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 6. Update the **storageUri** property of the virtual machine resource definition with the following value:
 
     ```json
@@ -150,7 +150,7 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > The deployment fails if **newOrExisting** is **new**, but the storage account with the storage account name specified already exists.
 
-Try making another deployment with **newOrExisting** set to "existing" and specify an existing storage account. To create a storage account beforehand, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+Try making another deployment with **newOrExisting** set to "existing" and specify an existing storage account. To create a storage account beforehand, see [Create a storage account](../../storage/common/storage-quickstart-create-account.md).
 
 ## Clean up resources
 

@@ -34,13 +34,13 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
 * To increase security, use a generated password for the VM administrator account. Here's a sample for generating a password:
 
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Verify that the generated password meets the VM password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when you create a VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+    Verify that the generated password meets the VM password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when you create a VM?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
 ## Prepare a key vault
 
@@ -142,7 +142,7 @@ You don't need to make any changes to the template file.
     > [!IMPORTANT]
     > Replace the value for **id** with the resource ID of the key vault that you created in the previous procedure.
 
-    ![Integrate key vault and Resource Manager template virtual machine deployment parameters file](./media/template-tutorial-use-key-vault/template-tutorial-create-vm-parameters-file.png)
+    ![Integrate key vault and Resource Manager template virtual machine deployment parameters file](./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 
 1. Update the following values:
 

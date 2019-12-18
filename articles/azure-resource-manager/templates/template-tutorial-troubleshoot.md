@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
 
 ## Create a problematic template
 
@@ -59,7 +59,7 @@ Open a template called [Create a standard storage account](https://azure.microso
 
 ## Troubleshoot the validation error
 
-Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section to deploy the template.
+Refer to the [Deploy the template](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section to deploy the template.
 
 You shall get an error from the shell similar to:
 
@@ -73,7 +73,7 @@ Use Visual Studio Code to correct the problem by changing **apiVersion1** to **a
 
 ## Troubleshoot the deployment error
 
-Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section to deploy the template.
+Refer to the [Deploy the template](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section to deploy the template.
 
 You shall get an error from the shell similar to:
 
@@ -110,7 +110,7 @@ You can also find the error from the activity logs:
 
 Use Visual Studio Code to correct the problem, and then redeploy the template.
 
-For a list of common errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](./resource-manager-common-deployment-errors.md).
+For a list of common errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
 
 ## Clean up resources
 
@@ -123,4 +123,4 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to troubleshoot Resource Manager template deployment errors.  For more information, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](./resource-manager-common-deployment-errors.md).
+In this tutorial, you learned how to troubleshoot Resource Manager template deployment errors.  For more information, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
