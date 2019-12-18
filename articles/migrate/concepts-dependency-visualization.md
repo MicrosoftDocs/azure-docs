@@ -1,88 +1,93 @@
 ---
-title: Dependency visualization in Azure Migrate | Microsoft Docs
+title: Dependency visualization in Azure Migrate
 description: Provides an overview of assessment calculations in the Server Assessment service in Azure Migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 10/23/2019
 ms.author: hamusa
 ---
 
 # Dependency visualization
 
-Azure Migrate: Server Assessment assesses groups of on-premises machines for migration to Azure. You can use the dependency visualization functionality in Server Assessment to create groups. This article provides information about this feature.
+This article describes the dependency visualization feature in Azure Migrate: Server Assessment.
+
+Dependency visualization helps you to understand dependencies across machines that you want to assess and migrate. You typically use dependency mapping when you want to assess machines with higher levels of confidence.
+
+- In Azure Migrate: Server Assessment, you gather machines together into groups for assessment. Groups usually consist of machines that you want to migrate together, and dependency visualization helps you to cross-check machine dependencies, so that you can group machines accurately.
+- Using visualization, you can discover interdependent systems that need to migrate together. You can identify whether running systems are still in use, or whether systems can be decommissioned instead of migrated.
+- Visualizing dependencies helps ensure that nothing is left behind, and avoid surprise outages during migration.
+- This feature is especially useful if you're not completely aware of machines that are part of apps, and thus should be migrated together to Azure.
+
 
 > [!NOTE]
 > The dependency visualization functionality is not available in Azure Government.
 
-## Overview
+## Agent-based and agentless
 
-Dependency visualization in Server Assessment allows you to create high-confidence groups for migration assessments. Using dependency visualization, you can view network dependencies of machines and identify related machines that need to be migrated together to Azure. This functionality is useful in scenarios where you are not completely aware of the machines that constitute your application and need to be migrated together to Azure.
+There are two options for deploying dependency visualization:
 
-## Before you start
+- **Agentless dependency visualization**: This option is currently in preview. It doesn't require you to install any agents on machines. 
+    - It works by capturing the TCP connection data from machines for which it's enabled. [Learn more](how-to-create-group-machine-dependencies-agentless.md).
+After dependency discovery is started, the appliance gathers data from machines at a polling interval of five minutes.
+    - The following data is collected:
+        - TCP connections
+        - Names of processes that have active connections
+        - Names of installed applications that run the above processes
+        - No. of connections detected at every polling interval
+- **Agent-based dependency visualization**: To use agent-based dependency visualization, you need to download and install the following agents on each on-premises machine that you want to analyze.  
+    - [Microsoft Monitoring agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) about how to install the MMA agent.
+    - The [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) about how to install the dependency agent.
+    - In addition, if you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
 
-- Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
-- If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool.
-- Make sure you have discovered your machines in Azure Migrate; you can do this by setting up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. [Learn more](migrate-appliance.md).
+## Agent-based requirements
 
-## How does it work?
+### What do I need to deploy dependency visualization?
+
+Before you deploy dependency visualization you should have an Azure Migrate project in place, with the Azure Migrate: Server Assessment tool added to the project. You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises machines.
+
+[Learn more](how-to-assess.md) about adding the tool, and deploying an appliance for [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
+
+
+### How does it work?
 
 Azure Migrate uses the [Service Map](../operations-management-suite/operations-management-suite-service-map.md) solution in [Azure Monitor logs](../log-analytics/log-analytics-overview.md) for dependency visualization.
-- To leverage dependency visualization, you need to associate a Log Analytics workspace, either new or existing, with an Azure Migrate project.
-- You can only create or attach a workspace in the same subscription where the Azure Migrate project is created.
-- To attach a Log Analytics workspace to a project:
-    1. In the **Servers** tab, in **Azure Migrate: Server Assessment** tile, click **Overview**.
-    2. In **Overview**, click the down arrow to expand **Essentials**.
-    3. In **OMS Workspace**, click **Requires configuration**.
-    4. In **Configure workspace**, specify whether you want to create a new workspace, or use an existing one:
-    
-    ![Add workspace](./media/how-to-create-group-machine-dependencies/workspace.png)
 
-- While associating a workspace, you will get the option to create a new workspace or attach an existing one:
-  - When you create a new workspace, you need to specify a name for the workspace. You can choose the [region](https://azure.microsoft.com/global-infrastructure/regions/) in which the workspace will be created.
-  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Note that only those workspaces are listed which were created in a region where [Service Map is supported](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). To be able to attach a workspace, ensure that you have 'Reader' access to the workspace.
-
-  > [!NOTE]
-  > Once you have attached a workspace to a project, you cannot change it later.
-
-  > [!NOTE]
-  > Azure Migrate currently supports creation or association of Log Analytics workspaces that are in East US, Southeast Asia and West Europe regions. If the workspace is created outside of Azure Migrate in an unsupported region, it currently cannot be associated with an Azure Migrate project. 
-
-- The associated workspace is tagged with the key **Migration Project**, and value **Project name**, which you can use to search in the Azure portal.
-- To navigate to the workspace associated with the project, you can go to **Essentials** section of the project **Overview** page and access the workspace
+- To leverage dependency visualization, you need to associate a Log Analytics workspace (new or existing), with an Azure Migrate project.
+- The workspace must be in the same subscription as that in which you create the Azure Migrate project.
+- Azure Migrate supports workspaces residing in the East US, Southeast Asia and West Europe regions. Workspaces in other regions can't be associated with a project. Also, note that the workspace must be in a region in which [Service Map is supported](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
+- The workspace for an Azure Migrate project can't be modified after it's added.
+- In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
 
     ![Navigate Log Analytics workspace](./media/concepts-dependency-visualization/oms-workspace.png)
 
-To use dependency visualization, you need to download and install agents on each on-premises machine that you want to analyze.  
 
-- [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) about how to install the MMA agent.
-- The [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent) needs to be installed on each machine. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) about how to install the dependency agent.
-- In addition, if you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
 
-You don't need these agents on machines you want to assess unless you're using dependency visualization.
+### Do I need to pay for it?
 
-## Do I need to pay for it?
+Dependency visualization requires Service Map and an associated Log Analytics workspace. 
 
-The dependency visualization feature is available at no additional charge. Use of the dependency visualization feature in Server Assessment requires Service Map and requires you to associate a Log Analytics workspace, either new or existing, with the Azure Migrate project. The dependency visualization functionality in Server Assessment is free for the first 180 days.
-
-1. Use of any solutions other than Service Map within this Log Analytics workspace will incur [standard Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) charges.
-2. To support migration scenarios at no additional cost, the Service Map solution will not incur any charges for the first 180 days from the day of associating the Log Analytics workspace with the Azure Migrate project. After 180 days, standard Log Analytics charges will apply.
-
-When you register agents to the workspace, use the ID and the Key given by the project on the install agent steps page.
-
-When the Azure Migrate project is deleted, the workspace is not deleted along with it. Post the project deletion, the Service Map usage will not be free, and each node will be charged as per the paid tier of Log Analytics workspace.
-
-> [!NOTE]
-> The dependency visualization feature uses Service Map via a Log Analytics workspace. Since 28 February 2018, with the announcement of Azure Migrate general availability, the feature is now available at no extra charge. You will need to create a new project to make use of the free usage workspace. Existing workspaces before general availability are still chargeable, hence we recommend you to move to a new project.
+- The Service Map solution doesn't incur any charges for the first 180 days. This is from the day that you associated the Log Analytics workspace with the Azure Migrate project.
+- After 180 days, standard Log Analytics charges will apply.
+- Using any solution other than Service Map in the associated Log Analytics workspace will incur [standard Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) charges.
+- When the Azure Migrate project is deleted, the workspace is not deleted along with it. After deleting the project, Service Map usage isn't free, and each node will be charged as per the paid tier of Log Analytics workspace.
 
 Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
-## How do I manage the workspace?
+> [!NOTE]
+> If you have projects that you created before Azure Migrate general availability in 28 February 2018, you might have incurred additional Service Map charges. To ensure you only pay after 180 days, we recommend that you create a new project, since existing workspaces before general availability are still chargeable.
 
-You can use the Log Analytics workspace outside Azure Migrate. It's not deleted if you delete the Azure Migrate project in which it was created. If you no longer need the workspace, [delete it](../azure-monitor/platform/manage-access.md) manually.
 
-Don't delete the workspace created by Azure Migrate, unless you delete the Azure Migrate project. If you do, the dependency visualization functionality will not work as expected.
+
+### How do I manage the workspace?
+
+- When you register agents to the workspace, you use the ID and key provided by the Azure Migrate project.
+- You can use the Log Analytics workspace outside Azure Migrate.
+- If you delete the associated Azure Migrate project, the workspace isn't deleted automatically. You need to [delete it manually](../azure-monitor/platform/manage-access.md).
+- Don't delete the workspace created by Azure Migrate, unless you delete the Azure Migrate project. If you do, the dependency visualization functionality will not work as expected.
 
 ## Next steps
 - [Group machines using machine dependencies](how-to-create-group-machine-dependencies.md)
 - [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization) about the FAQs on dependency visualization.
+
+

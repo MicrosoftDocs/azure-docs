@@ -1,14 +1,15 @@
 ---
 title: Activity log alerts in Azure Monitor
 description: Be notified via SMS, webhook, SMS, email and more, when certain events occur in the activity log.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/17/2018
-ms.author: robb
+ms.service:  azure-monitor
 ms.subservice: alerts
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 09/17/2018
+
 ---
+
 # Alerts on activity log 
 
 ## Overview

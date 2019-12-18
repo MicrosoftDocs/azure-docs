@@ -1,18 +1,15 @@
 ﻿---
-title: Query Store in Azure Database for MariaDB
+title: Query Store - Azure Database for MariaDB
 description: Learn about the Query Store feature in Azure Database for MariaDB to help you track performance over time. 
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 12/02/2019
 ---
 # Monitor Azure Database for MariaDB performance with Query Store
 
 **Applies to:** Azure Database for MariaDB 10.2
-
-> [!IMPORTANT]
-> Query Store is in preview.
 
 The Query Store feature in Azure Database for Mariadb provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in the **mysql** schema database in the Azure Database for MariaDB instance.
 
@@ -64,6 +61,9 @@ SELECT * FROM mysql.query_store_wait_stats;
 ```
 
 ## Finding wait queries
+
+> [!NOTE]
+> Wait statistics should not be enabled during peak workload hours or be turned on indefinitely for sensitive workloads. <br>For workloads running with high CPU utilization or on servers configured with lower vCores, use caution when enabling wait statistics. It should not be turned on indefinitely. 
 
 Wait event types combine different wait events into buckets by similarity. Query Store provides the wait event type, specific wait event name, and the query in question. Being able to correlate this wait information with the query runtime statistics means you can gain a deeper understanding of what contributes to query performance characteristics.
 

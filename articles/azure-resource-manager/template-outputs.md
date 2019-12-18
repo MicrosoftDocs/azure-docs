@@ -1,11 +1,8 @@
 ---
-title: Outputs in Azure Resource Manager template
+title: Outputs in templates
 description: Describes how to define output values in an Azure Resource Manager template. 
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.author: tomfitz
 ---
 # Outputs in Azure Resource Manager template
 
@@ -98,4 +95,3 @@ The following examples demonstrate scenarios for using outputs.
 ## Next steps
 
 * To learn about the available properties for outputs, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
-* For recommendations about creating outputs, see [Best practices - outputs](template-best-practices.md#outputs).

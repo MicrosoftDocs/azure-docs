@@ -1,5 +1,6 @@
 ---
-title: Troubleshoot connections with Azure Network Watcher - Azure portal | Microsoft Docs
+title: Troubleshoot connections - Azure portal
+titleSuffix: Azure Network Watcher
 description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using the Azure portal.
 services: network-watcher
 documentationcenter: na

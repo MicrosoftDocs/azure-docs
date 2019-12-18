@@ -1,18 +1,13 @@
 ---
 title: Create a Log Analytics workspace using Azure PowerShell| Microsoft Docs
 description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments with Azure PowerShell.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 03/12/2019
-ms.author: magoedte
+
 ---
 
 # Create a Log Analytics workspace with Azure PowerShell

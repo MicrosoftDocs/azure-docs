@@ -42,8 +42,8 @@ We recommend carefully choosing different thresholds for scale-out and scale-in 
 
 We *do not recommend* autoscale settings like the examples below with the same or very similar threshold values for out and in conditions:
 
-* Increase instances by 1 count when Thread Count <= 600
-* Decrease instances by 1 count when Thread Count >= 600
+* Increase instances by 1 count when Thread Count >= 600
+* Decrease instances by 1 count when Thread Count <= 600
 
 Let's look at an example of what can lead to a behavior that may seem confusing. Consider the following sequence.
 

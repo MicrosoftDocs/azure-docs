@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Secure a Windows web server with SSL certificates in Azure | Microsoft Docs
+title: "Tutorial: Secure a Windows web server with SSL certificates in Azure"
 description: In this tutorial, you learn how to use Azure PowerShell to secure a Windows virtual machine that runs the IIS web server with SSL certificates stored in Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -30,7 +30,6 @@ To secure web servers, a Secure Sockets Layer (SSL) certificate can be used to e
 > * Create a VM and install the IIS web server
 > * Inject the certificate into the VM and configure IIS with an SSL binding
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Launch Azure Cloud Shell
 

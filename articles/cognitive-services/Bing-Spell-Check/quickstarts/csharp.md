@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Check spelling with the Bing Spell Check REST API and C#"
+title: "Quickstart: Check spelling with the REST API and C# - Bing Spell Check"
 titleSuffix: Azure Cognitive Services
 description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/11/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ---
 
@@ -41,7 +41,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     using Newtonsoft.Json;
     ```
 
-2. Create variables for the API endpoint, your subscription key, and the text to be spell checked.
+2. Create variables for the API endpoint, your subscription key, and the text to be spell checked. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     namespace SpellCheckSample
@@ -70,10 +70,10 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     ```csharp
     async static void SpellCheck()
     {
-        HttpClient client = new HttpClient();
+        var client = new HttpClient();
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
-        HttpResponseMessage response = new HttpResponseMessage();
+        HttpResponseMessage response = null;
         // add the rest of the code snippets here (except for main())...
     }
     ```
@@ -87,14 +87,11 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 3. Create a list with a `KeyValuePair` object containing your text, and use it to create a `FormUrlEncodedContent` object. Set the header information, and use `PostAsync()` to send the request.
 
     ```csharp
-    List<KeyValuePair<string, string>> values = new List<KeyValuePair<string, string>>();
-    values.Add(new KeyValuePair<string, string>("text", text));
-    
-    using (FormUrlEncodedContent content = new FormUrlEncodedContent(values))
-    {
-        content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
-        response = await client.PostAsync(uri, content);
-    }
+    var values = new Dictionary<string, string>();
+    values.Add("text", text);
+    var content = new FormUrlEncodedContent(values);
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
+    response = await client.PostAsync(uri, new FormUrlEncodedContent(values));
     ```
 
 ## Get and print the API response
@@ -134,6 +131,10 @@ static void Main(string[] args)
     Console.ReadLine();
 }
 ```
+
+## Run the application
+
+Build and run your project. If you're using Visual Studio, press **F5** to debug the file.
 
 ## Example JSON response
 

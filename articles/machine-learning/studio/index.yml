@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Machine Learning Studio documentation
-summary: Machine Learning Studio is a drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions.
+title: Azure Machine Learning Studio (classic) documentation
+summary: Machine Learning Studio (classic) is a drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions. 
 
 metadata:
-  title: Machine Learning Studio documentation - Azure
-  description: Machine Learning Studio is a drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions.
+  title: Machine Learning Studio (classic) documentation - Azure
+  description: Machine Learning Studio (classic) is a drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: studio
@@ -22,11 +22,11 @@ landingContent:
 # Start card title with a verb
 
   # GET STARTED CARD
-  - title: Get started with Studio
+  - title: Get started with Studio (classic)
     linkLists:
       - linkListType: get-started
         links:
-          - text: What is Studio?
+          - text: What is Studio (classic)?
             url: what-is-ml-studio.md
           - text: Create your first ML experiment
             url: create-experiment.md
@@ -52,7 +52,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Machine Learning service
+          - text: Azure Machine Learning
             url: /azure/machine-learning/
           - text: Data Science Virtual Machine
             url: /azure/machine-learning/data-science-virtual-machine

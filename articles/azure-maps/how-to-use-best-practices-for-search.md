@@ -22,7 +22,7 @@ Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) inc
 
 ## Prerequisites
 
-To make any calls to the Maps service APIs, you need a Maps account and key. For information on creating an account, follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to retrieve a primary subscription key for your account.
+To make any calls to the Maps service APIs, you need a Maps account and key. For information on creating an account, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) and follow the steps in  [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to retrieve a primary key (subscription) for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 > [!Tip]
 > To query the search service, you can use the [Postman app](https://www.getpostman.com/apps) to build REST calls or you can use any API development environment that you prefer.
@@ -249,7 +249,7 @@ query=1st Avenue & E 111th St, New York
  shall be encoded as:
 
 ```
-query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
+query=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 ```
 
 

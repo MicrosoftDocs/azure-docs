@@ -3,17 +3,15 @@ title: Operate devices offline - Azure IoT Edge | Microsoft Docs
 description: Understand how IoT Edge devices and modules can operate without internet connection for extended periods of time, and how IoT Edge can enable regular IoT devices to operate offline too.
 author: kgremban
 ms.author: kgremban
-ms.date: 08/04/2019
+ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Understand extended offline capabilities for IoT Edge devices, modules, and child devices
 
-Azure IoT Edge supports extended offline operations on your IoT Edge devices, and enables offline operations on non-IoT Edge child devices too. As long as an IoT Edge device has had one opportunity to connect to IoT Hub, it and any child devices can continue to function with intermittent or no internet connection. 
-
+Azure IoT Edge supports extended offline operations on your IoT Edge devices, and enables offline operations on non-IoT Edge child devices too. As long as an IoT Edge device has had one opportunity to connect to IoT Hub, that device and any child devices can continue to function with intermittent or no internet connection.
 
 ## How it works
 
@@ -35,7 +33,9 @@ The following example shows how an IoT Edge scenario operates in offline mode:
 
 4. **Reconnect and resync with IoT Hub**
 
-   Once the connection with IoT Hub is restored, the IoT Edge device syncs again. Locally stored messages are delivered in the same order in which they were stored. Any differences between the desired and reported properties of the modules and devices are reconciled. The IoT Edge device updates any changes to its set of assigned child IoT devices.
+   Once the connection with IoT Hub is restored, the IoT Edge device syncs again. Locally stored messages are delivered to the IoT Hub right away, but are dependant on the speed of the connection, IoT Hub latency, and related factors. They are delivered in the same order in which they were stored.
+
+   Any differences between the desired and reported properties of the modules and devices are reconciled. The IoT Edge device updates any changes to its set of assigned child IoT devices.
 
 ## Restrictions and limits
 
@@ -133,69 +133,7 @@ This setting is a desired property of the IoT Edge hub, which is stored in the m
 
 ### Host storage for system modules
 
-Messages and module state information are stored in the IoT Edge hub's local container filesystem by default. For improved reliability, especially when operating offline, you can also dedicate storage on the host IoT Edge device.
-
-To set up storage on the host system, create environment variables for the IoT Edge hub and IoT Edge agent that point to a storage folder in the container. Then, use the create options to bind that storage folder to a folder on the host machine. 
-
-You can configure environment variables and the create options for the IoT Edge hub module in the Azure portal in the **Configure advanced Edge Runtime settings** section. 
-
-1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **storageFolder** that points to a directory in the module.
-1. For both IoT Edge hub and IoT Edge agent, add binds to connect a local directory on the host machine to a directory in the module. For example: 
-
-   ![Add create options and environment variables for local storage](./media/offline-capabilities/offline-storage.png)
-
-Or, you can configure the local storage directly in the deployment manifest. For example: 
-
-```json
-"systemModules": {
-    "edgeAgent": {
-        "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
-                }
-            }
-        },
-        "type": "docker",
-        "env": {
-            "storageFolder": {
-                "value": "<ModuleStoragePath>"
-            }
-        }
-    },
-    "edgeHub": {
-        "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
-                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
-        },
-        "type": "docker",
-        "env": {
-            "storageFolder": {
-                "value": "<ModuleStoragePath>"
-            }
-        },
-        "status": "running",
-        "restartPolicy": "always"
-    }
-}
-```
-
-Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path. 
-
-For example, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` means the directory **/etc/iotedge/storage** on your host system is mapped to the directory **/iotedge/storage/** on the container. Or another example for Windows systems, `"Binds":["C:\\temp:C:\\contemp"]` means the directory **C:\\temp** on your host system is mapped to the directory **C:\\contemp** on the container. 
-
-On Linux devices, make sure that the IoT Edge hub's user profile, UID 1000, has read, write, and execute permissions to the host system directory. These permissions are necessary so that the IoT Edge hub can store messages in the directory and retrieve them later. (The IoT Edge agent operates as root, so doesn't need additional permissions.) There are several ways to manage directory permissions on Linux systems, including using `chown` to change the directory owner and then `chmod` to change the permissions. For example:
-
-```bash
-sudo chown 1000 <HostStoragePath>
-sudo chmod 700 <HostStoragePath>
-```
-
-You can find more details about create options from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+Messages and module state information are stored in the IoT Edge hub's local container filesystem by default. For improved reliability, especially when operating offline, you can also dedicate storage on the host IoT Edge device. For more information, see [Give modules access to a device's local storage](how-to-access-host-storage-from-module.md)
 
 ## Next steps
 

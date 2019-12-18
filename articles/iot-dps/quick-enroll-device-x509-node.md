@@ -1,13 +1,12 @@
 ---
-title: This quickstart shows you how to enroll X.509 devices to the Azure Device Provisioning Service using Node.js | Microsoft Docs
-description: This quickstart uses group enrollments. In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using the Node.js service SDK
+title: Enroll X.509 devices to Azure Device Provisioning Service using Node.js
+description: This quickstart uses group enrollments. In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service (DPS) using the Node.js service SDK
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
-manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
 ---
@@ -107,13 +106,13 @@ To use this test tooling to generate certificates, perform the following steps:
 ## Run the enrollment group sample
  
 1. To run the sample, you need the connection string for your provisioning service. 
-    1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service. 
-    2. Click **Shared access policies**, then click the access policy you want to use to open its properties. In the **Access Policy** window, copy and note down the primary key connection string. 
+    1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning service. 
+    2. Click **Shared access policies**, then select the access policy you want to use to open its properties. In the **Access Policy** window, copy and note down the primary key connection string. 
 
        ![Get provisioning service connection string from the portal](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
 
 
-3. As stated in [Prepare test certificates](quick-enroll-device-x509-node.md#prepare-test-certificates), you also need a .pem file that contains an X.509 intermediate or root CA certificate that has been previously uploaded and verified with your provisioning service. To check that your certificate has been uploaded and verified, on the Device Provisioning Service summary page in the Azure portal, click  **Certificates**. Find the certificate that you want to use for the group enrollment and ensure that its status value is *verified*.
+3. As stated in [Prepare test certificates](quick-enroll-device-x509-node.md#prepare-test-certificates), you also need a .pem file that contains an X.509 intermediate or root CA certificate that has been previously uploaded and verified with your provisioning service. To check that your certificate has been uploaded and verified, on the Device Provisioning Service summary page in the Azure portal, select **Certificates**. Find the certificate that you want to use for the group enrollment and ensure that its status value is *verified*.
 
     ![Verified certificate in the portal](./media/quick-enroll-device-x509-node/verify-certificate.png) 
 
@@ -132,14 +131,14 @@ To use this test tooling to generate certificates, perform the following steps:
     ![Enrollment properties in the portal](./media/quick-enroll-device-x509-node/verify-enrollment-portal.png) 
  
 ## Clean up resources
-If you plan to explore the Node.js service samples, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all Azure resources created by this Quickstart.
+If you plan to explore the Node.js service samples, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all Azure resources created by this quickstart.
  
 1. Close the Node.js sample output window on your machine.
-2. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Enrollment Groups** tab. Select the *Registration ID* for the enrollment entry you created using this Quickstart and click the **Delete** button at the top of the blade.  
-3. From your Device Provisioning service in the Azure portal, click **Certificates**, click the certificate you uploaded for this Quickstart, and click the **Delete** button at the top of the **Certificate Details** window.  
+2. Navigate to your Device Provisioning service in the Azure portal, select **Manage enrollments**, and then select the **Enrollment Groups** tab. Select the check box next to the *GROUP NAME* for the X.509 devices you enrolled using this quickstart, and press the **Delete** button at the top of the pane.    
+3. From your Device Provisioning service in the Azure portal, select **Certificates**, select the certificate you uploaded for this quickstart, and press the **Delete** button at the top of the **Certificate Details** window.  
  
 ## Next steps
-In this Quickstart, you created a group enrollment for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
+In this quickstart, you created a group enrollment for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
  
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)

@@ -1,20 +1,20 @@
 ---
-title: Azure SQL Database serverless (preview) | Microsoft Docs
+title: Serverless
 description: This article describes the new serverless compute tier and compares it with the existing provisioned compute tier
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: 
+ms.custom: test 
 ms.devlang: 
 ms.topic: conceptual
-author: moslake
+author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 09/06/2019
+ms.date: 12/03/2019
 ---
-# Azure SQL Database serverless (preview)
+# Azure SQL Database serverless
 
-Azure SQL Database serverless (preview) is a compute tier for single databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
+Azure SQL Database serverless is a compute tier for single databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
 
 ## Serverless compute tier
 
@@ -165,53 +165,76 @@ Creating a new database or moving an existing database into a serverless compute
 
    |Parameter|Value choices|Default value|
    |---|---|---|---|
-   |Min vCores|Depends on max vCores configured - see [resource limits](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0.5 vCores|
+   |Min vCores|Depends on max vCores configured - see [resource limits](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0.5 vCores|
    |Autopause delay|Minimum: 60 minutes (1 hour)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|60 minutes|
 
-> [!NOTE]
-> Using T-SQL to move an existing database into serverless or change its compute size is not currently supported but can be done via the Azure portal or PowerShell.
 
 ### Create new database in serverless compute tier 
+
+The following examples create a new database in the serverless compute tier. The examples explicitly specify the min vCores, max vCores, and autopause delay.
 
 #### Use Azure portal
 
 See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
 
+
 #### Use PowerShell
 
-The following example creates a new database in the serverless compute tier.  This example explicitly specifies the min vCores, max vCores, and autopause delay.
-
 ```powershell
-New-AzSqlDatabase `
-  -ResourceGroupName $resourceGroupName `
-  -ServerName $serverName `
-  -DatabaseName $databaseName `
-  -ComputeModel Serverless `
-  -Edition GeneralPurpose `
-  -ComputeGeneration Gen5 `
-  -MinVcore 0.5 `
-  -MaxVcore 2 `
-  -AutoPauseDelayInMinutes 720
+New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
+  -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
+  -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
+#### Use Azure CLI
+
+```azurecli
+az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
+  -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
+```
+
+
+#### Use Transact-SQL (T-SQL)
+
+The following example creates a new database in the serverless compute tier.
+
+```sql
+CREATE DATABASE testdb
+( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
+```
+
+For details, see [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
 
 ### Move database from provisioned compute tier into serverless compute tier
 
+The following examples move a database from the provisioned compute tier into the serverless compute tier. The examples explicitly specify the min vCores, max vCores, and autopause delay.
+
 #### Use PowerShell
 
-The following example moves a database from the provisioned compute tier into the serverless compute tier. This example explicitly specifies the min vCores, max vCores, and autopause delay.
 
 ```powershell
-Set-AzSqlDatabase `
-  -ResourceGroupName $resourceGroupName `
-  -ServerName $serverName `
-  -DatabaseName $databaseName `
-  -Edition GeneralPurpose `
-  -ComputeModel Serverless `
-  -ComputeGeneration Gen5 `
-  -MinVcore 1 `
-  -MaxVcore 4 `
-  -AutoPauseDelayInMinutes 1440
+Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
+  -Edition GeneralPurpose -ComputeModel Serverless -ComputeGeneration Gen5 `
+  -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
+
+#### Use Azure CLI
+
+```azurecli
+az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
+  --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
+```
+
+
+#### Use Transact-SQL (T-SQL)
+
+The following example moves a database from the provisioned compute tier into the serverless compute tier.
+
+```sql
+ALTER DATABASE testdb 
+MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
+```
+
+For details, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
 ### Move database from serverless compute tier into provisioned compute tier
 
@@ -219,23 +242,14 @@ A serverless database can be moved into a provisioned compute tier in the same w
 
 ## Modifying serverless configuration
 
-### Maximum vCores
+### Use PowerShell
 
-#### Use PowerShell
+Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MaxVcore`, `MinVcore`, and `AutoPauseDelayInMinutes` arguments.
 
-Modifying the max vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MaxVcore` argument.
+### Use Azure CLI
 
-### Minimum vCores
+Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [az sql db update](/cli/azure/sql/db#az-sql-db-update) command in Azure CLI using the `capacity`, `min-capacity`, and `auto-pause-delay` arguments.
 
-#### Use PowerShell
-
-Modifying the min vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MinVcore` argument.
-
-### Autopause delay
-
-#### Use PowerShell
-
-Modifying the autopause delay is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `AutoPauseDelayInMinutes` argument.
 
 ## Monitoring
 
@@ -270,19 +284,25 @@ Metrics for monitoring the resource usage of the app package and user pool of a 
 
 In the Azure portal, the database status is displayed in the overview pane of the server that lists the databases it contains. The database status is also displayed in the overview pane for the database.
 
-Using the following PowerShell command to query the pause and resume status of a database:
+Using the following commands to query the pause and resume status of a database:
+
+#### Use PowerShell
 
 ```powershell
-Get-AzSqlDatabase `
-  -ResourceGroupName $resourcegroupname `
-  -ServerName $servername `
-  -DatabaseName $databasename `
+Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename `
   | Select -ExpandProperty "Status"
 ```
 
+#### Use Azure CLI
+
+```azurecli
+az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
+```
+
+
 ## Resource limits
 
-For resource limits, see [serverless compute tier](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+For resource limits, see [serverless compute tier](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
 
 ## Billing
 
@@ -318,6 +338,10 @@ More precisely, the compute bill in this example is calculated as follows:
 
 Suppose the compute unit price is $0.000073/vCore/second.  Then the compute billed for this 24-hour period is the product of the compute unit price and vCore seconds billed: $0.000073/vCore/second * 50400 vCore seconds = $3.68
 
+### Azure Hybrid Benefit and reserved capacity
+
+Azure Hybrid Benefit (AHB) and reserved capacity discounts do not apply to the serverless compute tier.
+
 ## Available regions
 
 The serverless compute tier is available worldwide except the following regions: China East, China North, Germany Central, Germany Northeast, UK North, UK South 2, West Central US, and US Gov Central (Iowa).
@@ -325,4 +349,4 @@ The serverless compute tier is available worldwide except the following regions:
 ## Next steps
 
 - To get started, see [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
-- For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+- For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

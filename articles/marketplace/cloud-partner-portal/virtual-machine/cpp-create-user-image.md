@@ -4,6 +4,7 @@ description: Lists the steps and references required to create a user VM image.
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler

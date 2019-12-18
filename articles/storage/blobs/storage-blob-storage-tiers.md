@@ -55,7 +55,7 @@ The cool access tier has lower storage costs and higher access costs compared to
 
 ## Archive access tier
 
-The archive access tier has the lowest storage cost. But it has higher data retrieval costs compared to the hot and cool tiers. Data in the archive tier can take several hours to retrieve. Data must in the archive tier for at least 180 days or be subject to an early deletion charge.
+The archive access tier has the lowest storage cost. But it has higher data retrieval costs compared to the hot and cool tiers. Data in the archive tier can take several hours to retrieve. Data must remain in the archive tier for at least 180 days or be subject to an early deletion charge.
 
 While a blob is in archive storage, the blob data is offline and can't be read, copied, overwritten, or modified. You can't take snapshots of a blob in archive storage. However, the blob metadata remains online and available, allowing you to list the blob and its properties. For blobs in archive, the only valid operations are GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier, and DeleteBlob.
 
@@ -75,7 +75,7 @@ Changing the account access tier applies to all _access tier inferred_ objects s
 
 Blob-level tiering allows you to change the tier of your data at the object level using a single operation called [Set Blob Tier](/rest/api/storageservices/set-blob-tier). You can easily change the access tier of a blob among the hot, cool, or archive tiers as usage patterns change, without having to move data between accounts. All tier changes happen immediately. However, rehydrating a blob from archive can take several hours.
 
-The time of the last blob tier change is exposed via the **Access Tier Change Time** blob property. If a blob is in the archive tier, it can't be overwritten, so uploading the same blob isn't permitted in this scenario. When overwrite a blob in a hot or cool tier, the new blob inherits the tier of the blob that was overwritten.
+The time of the last blob tier change is exposed via the **Access Tier Change Time** blob property. If a blob is in the archive tier, it can't be overwritten, so uploading the same blob isn't permitted in this scenario. When overwriting a blob in the hot or cool tier, the newly created blob inherits the tier of the blob that was overwritten unless the new blob access tier is explicitly set on creation.
 
 > [!NOTE]
 > Archive storage and blob-level tiering only support block blobs. You also cannot currently change the tier of a block blob that has snapshots.
@@ -136,9 +136,11 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. To navigate to your storage account, select All Resources, then select your storage account.
+1. In the Azure portal, search for and select **All Resources**.
 
-1. In Settings, click **Configuration** to view and change the account configuration.
+1. Select your storage account.
+
+1. In **Settings**, select **Configuration** to view and change the account configuration.
 
 1. Select the right access tier for your needs: Set the **Access tier** to either **Cool** or **Hot**.
 
@@ -148,7 +150,9 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. To navigate to your blob in your storage account, select All Resources, select your storage account, select your container, and then select your blob.
+1. In the Azure portal, search for and select **All Resources**.
+
+1. Select your container and then select your blob.
 
 1. In the **Blob properties**, select **Change tier**.
 
@@ -188,7 +192,7 @@ Yes, you can change the default account tier by setting the **Access tier** attr
 
 **Can I set my default account access tier to archive?**
 
-No. Only hot and cool access tiers may be set as the default account access tier. Archive can only be set at the object level.
+No. Only hot and cool access tiers may be set as the default account access tier. Archive can only be set at the object level. On blob upload, You specify the access tier of your choice to be hot, cool, or archive regardless of the default account tier. This functionality allows you to write data directly into the archive tier to realize cost-savings from the moment you create data in blob storage.
 
 **In which regions are the hot, cool, and archive access tiers available in?**
 

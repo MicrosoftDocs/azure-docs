@@ -1,6 +1,6 @@
 ---
-title: Improve columnstore index performance in Azure SQL Data Warehouse | Microsoft Docs
-description: Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.
+title: Improve columnstore index performance
+description: Azure SQL Data Warehouse reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
@@ -10,6 +10,7 @@ ms.subservice: load-data
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Maximizing rowgroup quality for columnstore

@@ -1,18 +1,13 @@
 ---
 title: Enable Azure Monitor (preview) for a hybrid environment | Microsoft Docs
 description: This article describes how you enable Azure Monitor for VMs for a hybrid cloud environment that contains one or more virtual machines.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
-ms.author: magoedte
+author: bwren
+ms.author: bwren
+ms.date: 10/15/2019
+
 ---
 
 # Enable Azure Monitor for VMs (preview) for a hybrid environment
@@ -201,24 +196,6 @@ To use the Azure CLI, you first need to install and use the CLI locally. You mus
                             "product": "[Concat('OMSGallery/', 'ServiceMap')]",
                             "promotionCode": ""
                         }
-                    },
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "dependsOn": [
-                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        ],
-                        "properties": {
-                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        },
-                        "plan": {
-                            "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                            "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
-                            "promotionCode": ""
-                        }
                     }
                 ]
             }
@@ -276,7 +253,6 @@ Check the C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file (Win
 
 Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs.
  
-- To learn how to use the Health feature, see [View Azure Monitor for VMs health](vminsights-health.md).
 - To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+
 - To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM performance](vminsights-performance.md).
-- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).

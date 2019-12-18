@@ -10,5 +10,5 @@
  ms.custom: include file
 ---
 > [!div class="op_single_selector"]
-> * [Python](../articles/iot-central/howto-connect-raspberry-pi-python.md)
-> * [C#](../articles/iot-central/howto-connect-raspberry-pi-csharp.md)
+> * [Python](../articles/iot-central/core/howto-connect-raspberry-pi-python.md)
+> * [C#](../articles/iot-central/core/howto-connect-raspberry-pi-csharp.md)

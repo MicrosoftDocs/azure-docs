@@ -1,15 +1,10 @@
 ---
 title: Reactivate disabled Azure for Students subscription | Microsoft Docs
 description: Explains why your Azure for Students subscription is disabled and how to reactivate it.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: ''
 tags: billing
-
-
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -31,7 +26,7 @@ You can check your remaining credit on the [Microsoft Azure Sponsorships portal]
 
 1. Sign in using your Azure for Students account credentials.
 2. The balance page gives information about used and remaining credit. You can find your credit expiration date below the credit chart.  
-   
+
     ![Screenshot that shows credit information for Azure for Students subscription](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-balance.png)
 
 3. To check usage of services that are consuming your Azure credit, select **Usage** from the left navigation then select your Azure for Students subscription.

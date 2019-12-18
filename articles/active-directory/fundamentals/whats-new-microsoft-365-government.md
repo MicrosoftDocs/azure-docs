@@ -1,5 +1,5 @@
 ---
-title: What’s new for Azure Active Directory in Microsoft 365 Government - Azure Active Directory | Microsoft Docs
+title: What’s new for Azure AD in Microsoft 365 Government? | Microsoft Docs
 description: Learn about some changes to Azure Active Directory (Azure AD) in the Microsoft 365 Government cloud instance, which might impact you.
 services: active-directory
 author: eross-msft

@@ -45,15 +45,18 @@ The ABFS driver supports two forms of authentication so that the Hadoop applicat
 
 - **Azure Active Directory OAuth Bearer Token:** Azure AD bearer tokens are acquired and refreshed by the driver using either the identity of the end user or a configured Service Principal. Using this authentication model, all access is authorized on a per-call basis using the identity associated with the supplied token and evaluated against the assigned POSIX Access Control List (ACL).
 
+   > [!NOTE] 
+   > Azure Data Lake Storage Gen2 supports only Azure AD v1.0 endpoints.
+
 ### Configuration
 
 All configuration for the ABFS driver is stored in the <code>core-site.xml</code> configuration file. On Hadoop distributions featuring [Ambari](https://ambari.apache.org/), the configuration may also be managed using the web portal or Ambari REST API.
 
-Details of all supported configuration entries are specified in the [Official Hadoop documentation](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html).
+Details of all supported configuration entries are specified in the [Official Hadoop documentation](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html).
 
 ### Hadoop documentation
 
-The ABFS driver is fully documented in the [Official Hadoop documentation](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)
+The ABFS driver is fully documented in the [Official Hadoop documentation](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)
 
 ## Next steps
 

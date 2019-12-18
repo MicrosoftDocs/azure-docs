@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/16/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 
@@ -93,6 +93,12 @@ Users do not have the option to register their mobile app when registering for s
 
 > [!WARNING]
 > You must enable the [Converged registration for self-service password reset and Azure Multi-Factor Authentication (Public preview)](concept-registration-mfa-sspr-converged.md) before users will be able to access the new experience at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+
+> [!IMPORTANT]
+> The authenticator app cannot be selected as the only authentication method when configuring a 1-gate policy. Similarly, the authenticator app and only one additional method cannot be selected when configuring a 2-gates policy.
+> Then, when configuring SSPR policies that include the authenticator app as a method, at least an additional method should be selected when configuring a 1-gate policy, and at least two additional methods should be selected when configuring a 2-gates policy.
+> The reason for this requirement is because the current SSPR registration experience does not include the option to register the authenticator app. The option to register the authenticator app is included with the new [Converged registration for self-service password reset and Azure Multi-Factor Authentication (Public preview)](concept-registration-mfa-sspr-converged.md).
+> Allowing policies that only use the authenticator app (for 1-gate policies), or the authenticator app and only one additional method (for 2-gates policies), could lead to users being blocked from registering for  SSPR until they have been configured to use the new registration experience.
 
 ### Change authentication methods
 
@@ -211,5 +217,5 @@ The following articles provide additional information regarding password reset t
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
-[Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "Azure AD authentication methods available and quantity required"
-[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-writeback-running.png "On-premises integration password writeback configuration and troubleshooting information"
+[Authentication]: ./media/concept-sspr-howitworks/manage-authentication-methods-for-password-reset.png "Azure AD authentication methods available and quantity required"
+[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-on-premises-integration-writeback.png "On-premises integration password writeback configuration and troubleshooting information"

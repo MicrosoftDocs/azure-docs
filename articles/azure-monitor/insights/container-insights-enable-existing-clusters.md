@@ -1,18 +1,9 @@
 ---
 title: Monitor an Azure Kubernetes Service (AKS) cluster deployed | Microsoft Docs
 description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers already deployed in your subscription.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/12/2019
-ms.author: magoedte
+
 ---
 
 # Enable monitoring of Azure Kubernetes Service (AKS) cluster already deployed
@@ -48,7 +39,7 @@ provisioningState       : Succeeded
 
 If you would rather integrate with an existing workspace, perform the following steps to first identify the full resource ID of your Log Analytics workspace required for the `--workspace-resource-id` parameter, and then run the command to enable the monitoring add-on against the specified workspace.  
 
-1. List all the subscriptions which you have access using the following command:
+1. List all the subscriptions that you have access to using the following command:
 
     ```azurecli
     az account list --all -o table
@@ -81,7 +72,7 @@ If you would rather integrate with an existing workspace, perform the following 
 4. Run the following command to enable the monitoring add-on, replacing the value for the `--workspace-resource-id` parameter. The string value must be within the double quotes:
 
     ```azurecli
-    az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id  “/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>”
+    az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"
     ```
 
     The output will resemble the following:
@@ -372,4 +363,6 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 * If you experience issues while attempting to onboard the solution, review the [troubleshooting guide](container-insights-troubleshoot.md)
 
-* With monitoring enabled to capture health metrics for both the AKS cluster nodes and pods, these health metrics are available in the Azure portal. To learn how to use Azure Monitor for containers, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+* With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
+
+

@@ -1,17 +1,24 @@
 ---
-title: Migrate Azure compute resources from Azure Germany to global Azure
+title: Migrate Azure compute resource from Azure Germany to global Azure
 description: This article provides information about migrating your Azure compute resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 8/15/2018
+ms.date: 12/12/2019
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate compute resources to global Azure
+
+> [!IMPORTANT]
+> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
+>
+> Based on the evolution in customers’ needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft’s global cloud network, as well as market competitive pricing. 
+>
+> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
 
 This article has information that can help you migrate Azure compute resources from Azure Germany to global Azure.
 
@@ -68,7 +75,7 @@ A .zip file that has several files in it downloads. The PowerShell, Azure CLI, R
 
 For more information:
 
-- Refresh your knowledge by completing the [Site Recovery tutorials](https://docs.microsoft.com/azure/site-recovery/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Site Recovery tutorials](/azure/site-recovery/).
 - Get information about how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 - Learn more about [physical-to-Azure disaster recovery by using Site Recovery](../site-recovery/physical-azure-disaster-recovery.md).
 - Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
@@ -161,7 +168,7 @@ Redeploy your deployment scripts, templates, or code in the new region. Redeploy
 
 For more information:
 
-- Refresh your knowledge by completing the [Batch tutorials](https://docs.microsoft.com/azure/batch/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Batch tutorials](https://docs.microsoft.com/azure/batch/tutorial-parallel-dotnet).
 - Review the [Azure Batch overview](../batch/batch-technical-overview.md).
 
 ## Functions

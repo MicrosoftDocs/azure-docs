@@ -231,7 +231,7 @@ For offline migrations only, perform the following additional configuration task
 * **Select logins**. Create a list of logins to be migrated as shown in the following example:
 
     ```powershell
-    $selectedLogins = @(“user1”, “user2”)
+    $selectedLogins = @("user1", "user2")
     ```
 
     > [!IMPORTANT]
@@ -371,15 +371,15 @@ To monitor the migration, perform the following tasks.
     ```powershell
     if (($CheckTask.ProjectTask.Properties.State -eq "Running") -or ($CheckTask.ProjectTask.Properties.State -eq "Queued"))
     {
-      write-host "migration task running"
+      Write-Host "migration task running"
     }
-    Else if($CheckTask.ProjectTask.Properties.State -eq "Succeeded")
+    else if($CheckTask.ProjectTask.Properties.State -eq "Succeeded")
     { 
-      write-host "Migration task is completed Successfully"
+      Write-Host "Migration task is completed Successfully"
     }
-    Else if($CheckTask.ProjectTask.Properties.State -eq "Failed" -or $CheckTask.ProjectTask.Properties.State -eq "FailedInputValidation"  -or $CheckTask.ProjectTask.Properties.State -eq "Faulted")
+    else if($CheckTask.ProjectTask.Properties.State -eq "Failed" -or $CheckTask.ProjectTask.Properties.State -eq "FailedInputValidation" -or $CheckTask.ProjectTask.Properties.State -eq "Faulted")
     { 
-      write-host “Migration Task Failed”
+      Write-Host "Migration Task Failed"
     }
     ```
 

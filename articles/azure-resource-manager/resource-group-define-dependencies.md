@@ -1,23 +1,18 @@
 ---
-title: Set deployment order for Azure resources | Microsoft Docs
+title: Set deployment order for resources
 description: Describes how to set one resource as dependent on another resource during deployment to ensure resources are deployed in the correct order.
-author: tfitzmac
-
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: tomfitz
-
+ms.date: 12/03/2019
 ---
-# Define the order for deploying resources in Azure Resource Manager Templates
-For a given resource, there can be other resources that must exist before the resource is deployed. For example, a SQL server must exist before attempting to deploy a SQL database. You define this relationship by marking one resource as dependent on the other resource. You define a dependency with the **dependsOn** element, or by using the **reference** function. 
+# Define the order for deploying resources in Azure Resource Manager templates
 
-Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. You only need to define dependencies for resources that are deployed in the same template. 
+When deploying a resource, you may need to make sure other resources exist before it's deployed. For example, you need a SQL server before deploying a SQL database. You define this relationship by marking one resource as dependent on the other resource. You define a dependency with the **dependsOn** element, or by using the **reference** function.
 
-For a tutorial, see [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. You only need to define dependencies for resources that are deployed in the same template.
 
 ## dependsOn
-Within your template, the dependsOn element enables you to define one resource as a dependent on one or more resources. Its value can be a comma-separated list of resource names. 
+
+Within your template, the dependsOn element enables you to define one resource as a dependent on one or more resources. Its value is a comma-separated list of resource names. The list can include resources that are [conditionally deployed](conditional-resource-deployment.md). When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
 The following example shows a virtual machine scale set that depends on a load balancer, virtual network, and a loop that creates multiple storage accounts. These other resources aren't shown in the following example, but they would need to exist elsewhere in the template.
 
@@ -48,12 +43,13 @@ When defining dependencies, you can include the resource provider namespace and 
   "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
   "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
 ]
-``` 
+```
 
-While you may be inclined to use dependsOn to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, dependsOn isn't the right approach. You can't query which resources were defined in the dependsOn element after deployment. By using dependsOn, you potentially impact deployment time because Resource Manager doesn't deploy in parallel two resources that have a dependency. 
+While you may be inclined to use dependsOn to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, dependsOn isn't the right approach. You can't query which resources were defined in the dependsOn element after deployment. By using dependsOn, you potentially impact deployment time because Resource Manager doesn't deploy in parallel two resources that have a dependency.
 
 ## Child resources
-The resources property allows you to specify child resources that are related to the resource being defined. Child resources can only be defined five levels deep. It's important to note that an implicit deployment dependency isn't created between a child resource and the parent resource. If you need the child resource to be deployed after the parent resource, you must explicitly state that dependency with the dependsOn property. 
+
+The resources property allows you to specify child resources that are related to the resource being defined. Child resources can only be defined five levels deep. It's important to note that an implicit deployment dependency isn't created between a child resource and the parent resource. If you need the child resource to be deployed after the parent resource, you must explicitly state that dependency with the dependsOn property.
 
 Each parent resource accepts only certain resource types as child resources. The accepted resource types are specified in the [template schema](https://github.com/Azure/azure-resource-manager-schemas) of the parent resource. The name of child resource type includes the name of the parent resource type, such as **Microsoft.Web/sites/config** and **Microsoft.Web/sites/extensions** are both child resources of the **Microsoft.Web/sites**.
 
@@ -98,6 +94,7 @@ The following example shows a SQL server and SQL database. Notice that an explic
 ```
 
 ## reference and list functions
+
 The [reference function](resource-group-template-functions-resource.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. The [list* functions](resource-group-template-functions-resource.md#list) return values for a resource from a list operation.  Reference and list expressions implicitly declare that one resource depends on another, when the referenced resource is deployed in the same template and referred to by its name (not resource ID). If you pass the resource ID into the reference or list functions, an implicit reference isn't created.
 
 The general format of the reference function is:

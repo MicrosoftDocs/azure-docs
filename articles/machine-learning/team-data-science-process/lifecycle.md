@@ -1,6 +1,6 @@
 ---
 title: The Team Data Science Process lifecycle
-description: The steps needed to execute your data-science projects
+description: The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure your data-science projects. 
 services: machine-learning
 author: marktab
 manager: cgronlun

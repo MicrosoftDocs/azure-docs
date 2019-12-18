@@ -1,18 +1,15 @@
 ---
-title: Create an application gateway with a certificate - Azure CLI | Microsoft Docs
+title: HTTP to HTTPS redirection using CLI
+titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway and add a certificate for SSL termination using the Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/15/2019
 ms.author: victorh
-
 ---
+
 # Create an application gateway with HTTP to HTTPS redirection using the Azure CLI
 
 You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances.

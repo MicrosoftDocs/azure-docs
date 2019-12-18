@@ -2,28 +2,24 @@
 title: Microsoft identity platform iOS and macOS quickstart | Azure
 description: Learn how to sign in users and query Microsoft Graph in an iOS or macOS application.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev, identityplatformtop40 
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
 #Customer intent: As an application developer, I want to learn how to sign in users and call Microsoft Graph from my iOS or macOS application.
 ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app
 
-This quickstart contains a code sample that demonstrates how a native iOS or macOS application can sign in personal, work and school accounts, get an access token, and call the Microsoft Graph API.
+This quickstart contains a code sample that demonstrates how a native iOS or macOS application can use the Microsoft identity platform to sign in personal, work and school accounts, get an access token, and call the Microsoft Graph API.
 
 This quickstart applies to both iOS and macOS apps. Some steps are needed only for iOS apps. Those steps call out that they are only for iOS.
 
@@ -263,7 +259,7 @@ self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error
 > |Where: ||
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (`api://<Application ID>/access_as_user`) |
-> | `account` | The account a token is being requested for. This quickstart is a single account application, if you want to build a multi-account app you'll need to define logic to identify which account to use for token requests `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
+> | `account` | The account a token is being requested for. This quickstart is about a single account application. If you want to build a multi-account app you'll need to define logic to identify which account to use for token requests using `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
 
 ## Next steps
 

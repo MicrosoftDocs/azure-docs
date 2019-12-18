@@ -1,5 +1,6 @@
 ---
 title: Legal notices
+description: Legal notices for Azure documentation
 author: SyntaxC4
 ms.author: cfowler
 ms.service: azure

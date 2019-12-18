@@ -1,5 +1,6 @@
 ---
-title: How to use Azure API Management in Virtual Network with Application Gateway | Microsoft Docs
+title: How to use API Management in Virtual Network with Application Gateway
+titleSuffix: Azure API Management
 description: Learn how to setup and configure Azure API Management in Internal Virtual Network with Application Gateway (WAF) as FrontEnd
 services: api-management
 documentationcenter: ''
@@ -12,7 +13,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 11/04/2019
 ms.author: sasolank
 
 ---
@@ -119,7 +120,7 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 
 ## Create a Virtual Network and a subnet for the application gateway
 
-The following example shows how to create a Virtual Network using the resource manager.
+The following example shows how to create a Virtual Network using Resource Manager.
 
 ### Step 1
 
@@ -204,12 +205,15 @@ Create and set the hostname configuration objects for the proxy and for the port
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
-$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType Portal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
+$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType DeveloperPortal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
 
 $apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
 $apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
 Set-AzApiManagement -InputObject $apimService
 ```
+
+> [!NOTE]
+> To configure the legacy developer portal connectivity you need to replace `-HostnameType DeveloperPortal` with `-HostnameType Portal`.
 
 ## Create a public IP address for the front-end configuration
 

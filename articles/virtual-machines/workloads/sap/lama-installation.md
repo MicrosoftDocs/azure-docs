@@ -286,7 +286,7 @@ Within the NetApp account the capacity pool specifies the size and type of disks
 
 ![SAP LaMa NetApp capacity pool created ](media/lama/sap-lama-capacitypool-list.png)
 
-The NFS volumes can now be defined. Since there will be volumes for multiple systems in one pool, a self-explaining naming scheme should be chosen. Adding the SID helps to group related volumes together. For the ASCS and the AS instance the following mounts are needed: /sapmnt/\<SID\>, /usr/sap/\<SID\> and /home/\<sid\>adm. Optional /usr/sap/trans for the central transport directory which is at least used by all systems of one landscape.
+The NFS volumes can now be defined. Since there will be volumes for multiple systems in one pool, a self-explaining naming scheme should be chosen. Adding the SID helps to group related volumes together. For the ASCS and the AS instance the following mounts are needed: */sapmnt/\<SID\>*, */usr/sap/\<SID\>*, and */home/\<sid\>adm*. Optionally, */usr/sap/trans* is needed for the central transport directory, which is at least used by all systems of one landscape.
 
 > [!NOTE]
 > During the BETA phase the name of the volumes must be unique within the subscription.

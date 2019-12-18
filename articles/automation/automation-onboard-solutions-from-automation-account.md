@@ -2,12 +2,8 @@
 title: Learn how to onboard Update Management, Change Tracking, and Inventory solutions in Azure Automation
 description: Learn how to onboard an Azure Virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation
 services: automation
-ms.service: automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 4/11/2019
 ms.topic: conceptual
-manager: carmonm
 ms.custom: mvc
 ---
 # Onboard Update Management, Change Tracking, and Inventory solutions
@@ -142,6 +138,13 @@ If you used the Start and Stop VMs during off-hours solution, optionally you may
 * Variables
 
 Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
+
+## Clean up resources
+
+To remove a VM from Update Management:
+
+* In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
+* Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## Next steps
 

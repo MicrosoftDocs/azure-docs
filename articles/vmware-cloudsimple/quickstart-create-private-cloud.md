@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple Quickstart - Create a Private Cloud 
+title: "Quickstart: Create a Private Cloud"
+titleSuffix: Azure VMware Solution by CloudSimple 
 description: Learn how to create and configure a Private Cloud with Azure VMware Solution by CloudSimple 
 author: sharaths-cs 
 ms.author: dikamath 
@@ -36,7 +37,7 @@ Private Clouds are managed through the CloudSimple portal. They have their own v
 
 5. In the CloudSimple portal, provide a name for your Private Cloud.
 6. Select the **Location** of your Private Cloud.
-7. Select **Node type**, consistent with what you purchased on Azure.
+7. Select **Node type**, consistent with what you provisioned on Azure.
 8. Specify **Node count**.  At least three nodes are required to create a Private Cloud.
 
     ![Create Private Cloud - Basic info](media/create-private-cloud-basic-info.png)
@@ -177,9 +178,9 @@ If you set a password that doesn't meet the requirements:
 * if you use the vSphere Flash Client, it reports an error
 * If you use the HTML5 client, it doesn't report an error. The client doesn't accept the change and the old password continues to work.
 
-## Change NSX administrator password
+## Access NSX manager
 
-NSX manager is deployed with a default password.  We recommend you change the password after you create your Private Cloud.
+NSX manager is deployed with a default password. 
 
 * User name: **admin**
 * Password: **CloudSimple123!**
@@ -192,8 +193,6 @@ You can find the fully qualified domain name (FQDN) and IP address of NSX manage
 4. Use the FQDN or IP address of **NSX Manager** and connect using a web browser.
 
     ![Find NSX Manager FQDN](media/private-cloud-nsx-manager-fqdn.png)
-
-To change the password, follow the instructions in [NSX Manager Installation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html).
 
 ## Create a port group
 

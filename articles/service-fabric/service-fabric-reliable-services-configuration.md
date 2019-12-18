@@ -121,6 +121,7 @@ ReplicatorConfig
 | SharedLogPath |Fully qualified path name |"" |Specifies the fully qualified path where the shared log file for this replica will be created. Typically, services should not use this setting. However, if SharedLogPath is specified, then SharedLogId must also be specified. |
 | SlowApiMonitoringDuration |Seconds |300 |Sets the monitoring interval for managed API calls. Example: user provided backup callback function. After the interval has passed, a warning health report will be sent to the Health Manager. |
 | LogTruncationIntervalSeconds |Seconds |0 |Configurable interval at which log truncation will be initiated on each replica. It is used to ensure log is also truncated based on time instead of just log size. This setting also forces purge of deleted entries in reliable dictionary. Hence it can be used to ensure deleted items are purged in a timely manner. |
+| EnableStableReads |Boolean |False |Enabling stable reads restricts secondary replicas to returning values which have been quorum-acked. |
 
 ### Sample configuration via code
 ```csharp

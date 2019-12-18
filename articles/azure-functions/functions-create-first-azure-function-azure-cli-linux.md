@@ -1,21 +1,14 @@
 ---
 title: Create your first function on Linux in Azure 
-description: Learn how to create your first function hosted on Linux in Azure using the Azure Functions Core Tools and the Azure CLI.
-services: functions 
-keywords: 
-author: ggailey777
-ms.author: glenga
+description: Learn how to create your first function hosted on Linux in Azure using the command line tools, Azure Functions Core Tools and the Azure CLI.
 ms.date: 03/12/2019
 ms.topic: quickstart
-ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
-ms.devlang: javascript
-manager: jeconnoc
 ---
 
-# Create your first function hosted on Linux using Core Tools and the Azure CLI
+# Quickstart: Create your first function hosted on Linux using command line tools
 
-Azure Functions lets you execute your code in a [serverless](https://azure.com/serverless) Linux environment without having to first create a VM or publish a web application. Linux-hosting requires [the Functions 2.x runtime](functions-versions.md). Serverless functions run in the [Consumption plan](functions-scale.md#consumption-plan).
+Azure Functions lets you execute your code in a [serverless](https://azure.com/serverless) Linux environment without having to first create a VM or publish a web application. Linux-hosting requires [the Functions 2.x and later runtime](functions-versions.md). Serverless functions run in the [Consumption plan](functions-scale.md#consumption-plan).
 
 This quickstart article walks you through how to use the Azure CLI to create your first function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
 
@@ -25,7 +18,7 @@ The following steps are supported on a Mac, Windows, or Linux computer. This art
 
 Before running this sample, you must have the following:
 
-- Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above.
++ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above.
 
 + Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 

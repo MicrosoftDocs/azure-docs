@@ -1,13 +1,8 @@
 ---
-title: External authentication in an Azure Container Registry task
+title: External authentication from ACR task
 description: Enable a managed identity for Azure Resources in an Azure Container Registry (ACR) task to allow the task to read Docker Hub credentials stored in an Azure key vault.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
-ms.author: danlep
 ---
 
 # External authentication in an ACR task using an Azure-managed identity 

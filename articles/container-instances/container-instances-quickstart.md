@@ -1,15 +1,9 @@
 ---
-title: Quickstart - Deploy Docker container to Azure Container Instances - CLI
+title: Quickstart - Deploy Docker container to container instance - Azure CLI
 description: In this quickstart, you use the Azure CLI to quickly deploy a containerized web app that runs in an isolated Azure container instance
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
-ms.author: danlep
-ms.custom: "seodec18, mvc"
+ms.custom: [seo-python-october2019, seodec18, mvc]
 ---
 
 # Quickstart: Deploy a container instance in Azure using the Azure CLI
@@ -18,7 +12,7 @@ Use Azure Container Instances to run serverless Docker containers in Azure with 
 
 In this quickstart, you use the Azure CLI to deploy an isolated Docker container and make its application available with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the application running in the container:
 
-![App deployed to Azure Container Instances viewed in browser][aci-app-browser]
+![View an app deployed to Azure Container Instances in browser][aci-app-browser]
 
 If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
 
@@ -65,7 +59,7 @@ aci-demo.eastus.azurecontainer.io  Succeeded
 
 If the container's `ProvisioningState` is **Succeeded**, go to its FQDN in your browser. If you see a web page similar to the following, congratulations! You've successfully deployed an application running in a Docker container to Azure.
 
-![Browser screenshot showing application running in an Azure container instance][aci-app-browser]
+![View an app deployed to Azure Container Instances in browser][aci-app-browser]
 
 If at first the application isn't displayed, you might need to wait a few seconds while DNS propagates, then try refreshing your browser.
 
@@ -151,7 +145,7 @@ In this quickstart, you created an Azure container instance by using a public Mi
 To try out options for running containers in an orchestration system on Azure, see the [Azure Kubernetes Service (AKS)][container-service] quickstarts.
 
 <!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[aci-app-browser]: ./media/container-instances-quickstart/view-an-application-running-in-an-azure-container-instance.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

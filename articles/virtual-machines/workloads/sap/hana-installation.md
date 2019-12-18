@@ -98,7 +98,7 @@ Following is additional and useful SAP on SUSE-related links:
 
 The following are SAP support notes that are applicable to implementing SAP HANA on SLES 12:
 
-- [SAP support note #1944799 – SAP HANA guidelines for SLES operating system installation](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
+- [SAP support note #1944799 – SAP HANA guidelines for SLES operating system installation](http://service.sap.com/sap/support/notes/1944799)
 - [SAP support note #2205917 – SAP HANA DB recommended OS settings for SLES 12 for SAP applications](https://launchpad.support.sap.com/#/notes/2205917/E)
 - [SAP support note #1984787 – SUSE Linux Enterprise Server 12:  installation notes](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP support note #171356 – SAP software on Linux:  General information](https://launchpad.support.sap.com/#/notes/1984787)

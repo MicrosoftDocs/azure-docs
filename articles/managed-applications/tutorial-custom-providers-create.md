@@ -1,6 +1,6 @@
 ---
 title: Create and use a custom provider
-description: This tutorial goes over how to create and use a custom provider.
+description: This tutorial shows how to create and use an Azure Custom Provider. Use custom providers to change workflows on Azure.
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial

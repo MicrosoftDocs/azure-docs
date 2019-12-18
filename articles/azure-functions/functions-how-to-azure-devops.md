@@ -1,10 +1,8 @@
 ---
-title: Continuously deliver function code updates by using Azure DevOps - Azure Functions
+title: Continuously update function app code using Azure DevOps
 description: Learn how to set up an Azure DevOps pipeline that targets Azure Functions.
 author: ahmedelnably
-manager: jeconnoc
 
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
@@ -88,7 +86,7 @@ steps:
 
 #### Python
 
-You can use the following sample to create a YAML file to build a Python app. Python is supported only for Linux Azure Functions.
+You can use the following sample to create a YAML file to build a Python app. Python is supported only for Linux Azure Functions. The YAML for Python 3.7 can be built by replacing all the instances of 3.6 with 3.7 in this YAML.
 
 ```yaml
 pool:

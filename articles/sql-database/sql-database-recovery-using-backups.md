@@ -1,5 +1,5 @@
 ---
-title: Restore an Azure SQL database from a backup | Microsoft Docs
+title: Restore a database from a backup
 description: Learn about point-in-time restore, which enables you to roll back an Azure SQL database up to 35 days.
 services: sql-database
 ms.service: sql-database
@@ -14,7 +14,7 @@ ms.date: 09/26/2019
 ---
 # Recover an Azure SQL database by using automated database backups
 
-By default, Azure SQL Database backups are stored in geo-replicated blob storage. The following options are available for database recovery by using [automated database backups](sql-database-automated-backups.md). You can:
+By default, Azure SQL Database backups are stored in geo-replicated blob storage (RA-GRS storage type). The following options are available for database recovery by using [automated database backups](sql-database-automated-backups.md). You can:
 
 - Create a new database on the same SQL Database server, recovered to a specified point in time within the retention period.
 - Create a database on the same SQL Database server, recovered to the deletion time for a deleted database.
@@ -28,9 +28,6 @@ If you configured [backup long-term retention](sql-database-long-term-retention.
 
 When you're using the Standard or Premium service tiers, your database restore might incur an extra storage cost. The extra cost is incurred when the maximum size of the restored database is greater than the amount of storage included with the target database's service tier and performance level. For pricing details of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of used space is less than the amount of storage included, you can avoid this extra cost by setting the maximum database size to the included amount.
 
-> [!NOTE]
-> When you create a [database copy](sql-database-copy.md), you use [automated database backups](sql-database-automated-backups.md).
-
 ## Recovery time
 
 The recovery time to restore a database by using automated database backups is affected by several factors:
@@ -42,9 +39,9 @@ The recovery time to restore a database by using automated database backups is a
 - The network bandwidth if the restore is to a different region.
 - The number of concurrent restore requests being processed in the target region.
 
-For a large or very active database, the restore might take several hours. If there is a prolonged outage in a region, it's possible that there are large numbers of geo-restore requests being processed by other regions. When there are many requests, the recovery time can increase for databases in that region. Most database restores complete in less than 12 hours.
+For a large or very active database, the restore might take several hours. If there is a prolonged outage in a region, it's possible that a high number of geo-restore requests will be initiated for disaster recovery. When there are many requests, the recovery time for individual databases can increase. Most database restores complete in less than 12 hours.
 
-For a single subscription, there are limitations on the number of concurrent restore requests.  These limitations apply to any combination of point-in-time restores, geo restores, and restores from long-term retention backup.
+For a single subscription, there are limitations on the number of concurrent restore requests. These limitations apply to any combination of point-in-time restores, geo-restores, and restores from long-term retention backup.
 
 | | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
@@ -61,7 +58,7 @@ There isn't a built-in method to restore the entire server. For an example of ho
 
 You can restore a standalone, pooled, or instance database to an earlier point in time by using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases). The request can specify any service tier or compute size for the restored database. Ensure that you have sufficient resources on the server to which you are restoring the database. When complete, the restore creates a new database on the same server as the original database. The restored database is charged at normal rates, based on its service tier and compute size. You don't incur charges until the database restore is complete.
 
-You generally restore a database to an earlier point for recovery purposes. You can treat the restored database as a replacement for the original database, or use it as source data to update the original database.
+You generally restore a database to an earlier point for recovery purposes. You can treat the restored database as a replacement for the original database, or use it as a data source to update the original database.
 
 - **Database replacement**
 
@@ -103,13 +100,15 @@ You restore deleted databases from the Azure portal from the server and instance
 
 #### Single Azure SQL database
 
-To recover a single or pooled deleted database by using the Azure portal, open the server overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
+To recover a single or pooled deleted database to the deletion time by using the Azure portal, open the server overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
 
-  ![Screenshot of Deleted databases options](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
+  ![Screenshot of restore deleted Azure SQL database](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### Managed instance database
 
-You can't use the Azure portal to restore a deleted database on a managed instance. You can use PowerShell for this purpose. 
+To recover a managed database by using the Azure portal, open the managed instance overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
+
+  ![Screenshot of restore deleted Azure SQL instance database](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
 ### Deleted database restore by using PowerShell
 
@@ -149,7 +148,7 @@ To geo-restore a single SQL database from the Azure portal in the region and ser
 
     ![Screenshot of Create SQL Database options](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
-Complete the process of creating a new database. When you create the single Azure SQL database, it contains the restored geo-restore backup.
+Complete the process of creating a new database from the backup. When you create the single Azure SQL database, it contains the restored geo-restore backup.
 
 #### Managed instance database
 
@@ -179,7 +178,7 @@ For a PowerShell script that shows how to perform geo-restore for a managed inst
 You can't perform a point-in-time restore on a geo-secondary database. You can only do so on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Geo-restore is the most basic disaster recovery solution available in SQL Database. It relies on automatically created geo-replicated backups with recovery point objective (RPO) equal to 1 hour, and the estimated recovery time of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and is not critical to the business, geo-restore is an appropriate disaster recovery solution. For business-critical applications that use large databases and must ensure business continuity, you should use [Auto-failover groups](sql-database-auto-failover-group.md). It offers a much lower RPO and recovery time objective, and the capacity is always guaranteed. For more information on business continuity choices, see [Overview of business continuity](sql-database-business-continuity.md).
+> Geo-restore is the most basic disaster recovery solution available in SQL Database. It relies on automatically created geo-replicated backups with recovery point objective (RPO) equal to 1 hour, and the estimated recovery time of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and is not critical to the business, geo-restore is an appropriate disaster recovery solution. For business-critical applications that require large databases and must ensure business continuity, use [Auto-failover groups](sql-database-auto-failover-group.md). It offers a much lower RPO and recovery time objective, and the capacity is always guaranteed. For more information on business continuity choices, see [Overview of business continuity](sql-database-business-continuity.md).
 
 ## Programmatically performing recovery by using automated backups
 
