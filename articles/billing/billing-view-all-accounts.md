@@ -38,7 +38,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
 ### Microsoft Online Services Program
 
- ![Screenshot that shows MOSP hierarchy](./media/billing-view-all-accounts/MOSP-hierarchy.png)
+ ![Screenshot that shows MOSP hierarchy](./media/billing-view-all-accounts/mosp-hierarchy.png)
 
 |Scope  |Definition  |
 |---------|---------|
@@ -47,7 +47,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
 ### Enterprise Agreement
 
-![Screenshot that shows EA hierarchy](./media/billing-view-all-accounts/EA-hierarchy.png)
+![Screenshot that shows EA hierarchy](./media/billing-view-all-accounts/ea-hierarchy.png)
 
 |Scope  |Definition  |
 |---------|---------|
@@ -57,7 +57,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
 ### Microsoft Customer Agreement
 
-![Screenshot that shows MCA hierarchy](./media/billing-view-all-accounts/MCA-hierarchy.png)
+![Screenshot that shows MCA hierarchy](./media/billing-view-all-accounts/mca-hierarchy.png)
 
 |Scope  |Tasks  |
 |---------|---------|
@@ -67,7 +67,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
 ### Microsoft Partner Agreement
 
-![Screenshot that shows MPA hierarchy](./media/billing-view-all-accounts/MPA-hierarchy.png)
+![Screenshot that shows MPA hierarchy](./media/billing-view-all-accounts/mpa-hierarchy.png)
 
 |Scope  |Tasks  |
 |---------|---------|
@@ -86,7 +86,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
 3. In the overview page, select **Switch scope**.
 
-   ![Screenshot that shows billing scopes](./media/billing-view-all-accounts/Overview-select-scopes.png)
+   ![Screenshot that shows billing scopes](./media/billing-view-all-accounts/overview-select-scopes.png)
 
    > [!Note]
     >
@@ -94,7 +94,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
 4. Select a scope to view details.
 
-   ![Screenshot that shows billing scopes](./media/billing-view-all-accounts/List-of-scopes.png)
+   ![Screenshot that shows billing scopes](./media/billing-view-all-accounts/list-of-scopes.png)
 
 ## Check the type of your account
 [!INCLUDE [billing-check-mca](../../includes/billing-check-account-type.md)]
