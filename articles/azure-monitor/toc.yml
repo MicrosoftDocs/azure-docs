@@ -42,6 +42,8 @@
     href: learn/tutorial-logs-dashboards.md
   - name: Create alert from log query
     href: learn/tutorial-response.md
+  - name: Autoscale on performance and schedule
+    href: learn/tutorial-autoscale-performance-schedule.md
   - name: Application Insights
     items:  
     - name: Find application run-time exceptions
