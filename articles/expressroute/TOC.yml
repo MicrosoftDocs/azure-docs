@@ -157,7 +157,7 @@
       href: expressroute-monitoring-metrics-alerts.md
     - name: Configure Network Performance Monitor for ExpressRoute
       href: how-to-npm.md
-  - name: Classic deployment model articles
+  - name: Classic and legacy articles
     items:
     - name: Modify a circuit
       href: expressroute-howto-circuit-classic.md
@@ -169,6 +169,8 @@
       href: expressroute-howto-coexist-classic.md
     - name: Add a gateway to a VNet
       href: expressroute-howto-add-gateway-classic.md
+    - name: Create and modify public peering
+      href: about-public-peering.md
   - name: Best Practices
     items:
     - name: Best practices for network security and cloud services

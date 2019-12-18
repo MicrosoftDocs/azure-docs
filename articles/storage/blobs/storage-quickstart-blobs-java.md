@@ -44,13 +44,13 @@ This section walks you through preparing a project to work with the Azure Blob s
 
 Create a Java application named *blob-quickstart-v12*.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command all on a single line to create a simple "Hello world!" Java project. The command is displayed here on multiple lines for readability.
+1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command to create a simple "Hello world!" Java project.
 
    ```console
-   mvn archetype:generate -DgroupId=com.blobs.quickstart
-                          -DartifactId=blob-quickstart-v12
-                          -DarchetypeArtifactId=maven-archetype-quickstart
-                          -DarchetypeVersion=1.4
+   mvn archetype:generate -DgroupId=com.blobs.quickstart \
+                          -DartifactId=blob-quickstart-v12 \
+                          -DarchetypeArtifactId=maven-archetype-quickstart \
+                          -DarchetypeVersion=1.4 \
                           -DinteractiveMode=false
    ```
 
@@ -144,7 +144,7 @@ public class App
 }
 ```
 
-[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## Object model
 
@@ -188,11 +188,11 @@ System.out.println("Azure Blob storage v12 - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
-// running the application called CONNECT_STR. If the environment variable
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the environment variable
 // is created after the application is launched in a console or with
 // Visual Studio, the shell or application needs to be closed and reloaded
 // to take the environment variable into account.
-String connectStr = System.getenv("CONNECT_STR");
+String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
 ### Create a container
