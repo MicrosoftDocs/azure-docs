@@ -49,7 +49,7 @@ Before you enable AD Authentication for Azure Files, make sure you have complete
 
  
 
-## Overview of the workflow 
+## Workflow overview
 
 Before you enable AD DS Authentication over SMB for Azure Files, we recommend that you walk through the prerequisites to make sure you've completed all the required steps. This will validate that your AD, Azure AD and Azure Storage environments are properly configured. 
 
@@ -77,7 +77,7 @@ https://microsoft.sharepoint.com/teams/AzureStorage/Private%20Test/2016/Azure%20
 
 ## Enable AD DS authentication for your account 
 
-To enable AD DS authentication over SMB for Azure Files, you need to first register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares under the account. We strongly recommend you leverage the new `join-AzStorageAccountForAuth` cmdlet to execute the workflow for feature enablement. You can find the detailed description of the end to end workflow in the following section. 
+To enable AD DS authentication over SMB for Azure Files, you need to first register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares under the account. We strongly recommend you leverage the new `join-AzStorageAccountForAuth` cmdlet to enable the feature. You can find the detailed description of the end to end workflow in the following section. 
 
 ```PowerShell 
 #Import the latest Azure module
