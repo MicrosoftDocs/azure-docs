@@ -22,14 +22,13 @@ Azure Cognitive Search has a dependency on Cognitive Services, including [Comput
 
 ## How billing works
 
-Azure Cognitive Search uses the resource key you provide on a skillset to bill for AI processing. Billable events in an enrichment pipeline include the following operations:
++ Azure Cognitive Search uses the Cognitive Services resource key you provide on a skillset to bill for image and text enrichment. Execution of billable skills is at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-+ Calls to Cognitive Services APIs for image and text processing
-+ Image extraction from blobs and other supported data sources prior to enrichment
++ Image extraction is an Azure Cognitive Search operation that occurs when documents are cracked prior to enrichment. Image extraction is billable. For image extraction pricing, see the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
-Execution of billable skills is at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). For image extraction pricing, see the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
++ Text extraction also occurs during the document cracking phrase. It is not billable.
 
-There is no charge for text extraction from documents or for skills that do not call Cognitive Services, such as the Shaper, Text Merge, and Text Split skills.
++ Skills that do not call Cognitive Services, including Conditional, Shaper, Text Merge, and Text Split skills, are not billable.
 
 ## Same-region requirement
 
