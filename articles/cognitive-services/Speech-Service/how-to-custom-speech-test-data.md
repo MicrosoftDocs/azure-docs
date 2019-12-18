@@ -79,7 +79,7 @@ To measure the accuracy of Microsoft's speech-to-text accuracy when processing y
 | File format | RIFF (WAV) |
 | Sample rate | 8,000 Hz or 16,000 Hz |
 | Channels | 1 (mono) |
-| Maximum length per audio | 60 s |
+| Maximum length per audio | 2 hours (testing) / 60 s (training) |
 | Sample format | PCM, 16-bit |
 | Archive format | .zip |
 | Maximum zip size | 2 GB |
