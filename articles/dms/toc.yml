@@ -71,7 +71,7 @@
     - name: Troubleshoot common issues and errors
       href: known-issues-troubleshooting-dms.md
     - name: Known Issues - Online migration to Azure SQL DB single database
-      href: known-issues-azure-sql-db-mi-online.md
+      href: known-issues-azure-sql-online.md
     - name: Known Issues - Online migration to Azure SQL DB managed instance
       href: known-issues-azure-sql-db-managed-instance-online.md
     - name: Known Issues - Online migration to Azure DB for MySQL
