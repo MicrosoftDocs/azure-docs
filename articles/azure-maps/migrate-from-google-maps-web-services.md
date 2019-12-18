@@ -1,6 +1,6 @@
 ---
 title: Migrate web services from Google Maps | Microsoft Docs
-description: A tutorial on how to migrate web services from Google Maps to Azure Maps.
+description: A tutorial on how to migrate web services from Google Maps to Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
@@ -285,7 +285,9 @@ For example, in Google Maps, a red, mid-sized marker can be added to the map at 
 &markers=color:red|size:mid|45,-110
 ```
 
-![Google Maps marker](media/migrate-google-maps-web-services/google-maps-marker.png)
+<center>
+
+![Google Maps marker](media/migrate-google-maps-web-services/google-maps-marker.png)</center>
 
 **After: Azure Maps**
 
@@ -326,7 +328,9 @@ For example, in Azure Maps, adding a red (`FF0000`) default icon with the label 
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-![Azure Maps marker](media/migrate-google-maps-web-services/azure-maps-marker.png)
+<center>
+
+![Azure Maps marker](media/migrate-google-maps-web-services/azure-maps-marker.png)</center>
 
 The following example adds three pins with the label values '1', '2', and '3':
 
@@ -334,7 +338,9 @@ The following example adds three pins with the label values '1', '2', and '3':
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
 
-![Azure Maps multiple marker](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
+<center>
+
+![Azure Maps multiple marker](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)</center>
 
 ### Path URL parameter format comparison
 
@@ -363,7 +369,9 @@ For example, in Google Maps, a red line with 50% opacity and a thickness of 4 pi
 &path=color:0xFF000088|weight:4|45,-110|50,-100
 ```
 
-![Google Maps polyline](media/migrate-google-maps-web-services/google-maps-polyline.png)
+<center>
+
+![Google Maps polyline](media/migrate-google-maps-web-services/google-maps-polyline.png)</center>
 
 **After: Azure Maps**
 
@@ -390,7 +398,9 @@ For example, in Azure Maps, a red line with 50% opacity and a thickness of 4 pix
 &path=lcFF0000|la.5|lw4||-110 45|-100 50
 ```
 
-![Azure Maps polyline](media/migrate-google-maps-web-services/azure-maps-polyline.png)
+<center>
+
+![Azure Maps polyline](media/migrate-google-maps-web-services/azure-maps-polyline.png)</center>
 
 ## Calculate a distance matrix
 
@@ -465,16 +475,13 @@ The following are some additional documentation and resources on the Azure Maps 
 
 ## Next steps
 
-Learn more about the Azure Maps Web SDK.
+Learn more about the Azure Maps REST services.
 
 > [!div class="nextstepaction"]
-> [How to use the map control](how-to-use-map-control.md)
+> [Best practices for using the search service](how-to-use-best-practices-for-search.md)
 
 > [!div class="nextstepaction"]
-> [How to use the services module](how-to-use-services-module.md)
-
-> [!div class="nextstepaction"]
-> [How to use the drawing tools module](set-drawing-options.md)
+> [How to use the services module (Web SDK)](how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)

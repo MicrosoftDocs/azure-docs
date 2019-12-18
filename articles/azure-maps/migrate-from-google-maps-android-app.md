@@ -1,6 +1,6 @@
 ---
 title: Migrate an Android app | Microsoft Docs
-description: A tutorial on how to migrate an Android app from Google Maps to Azure Maps.
+description: A tutorial on how to migrate an Android app from Google Maps to Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
@@ -28,14 +28,14 @@ Loading a map in an Android app using Google or Azure Maps consists of many of t
 - Get an API or subscription key to access either platform.
 - Add some XML to an Activity to specify where the map should be rendered and how it should be laid out.
 - Forward all the life-cycle methods from the Activity containing the map view to the corresponding ones in map class. In particular, you must forward on the following methods:
-    - onCreate(Bundle)
-    - onStart()
-    - onResume()
-    - onPause()
-    - onStop()
-    - onDestroy()
-    - onSaveInstanceState(Bundle)
-    - onLowMemory()
+    - `onCreate(Bundle)`
+    - `onStart()`
+    - `onResume()`
+    - `onPause()`
+    - `onStop()`
+    - `onDestroy()`
+    - `onSaveInstanceState(Bundle)`
+    - `onLowMemory()`
 - Wait for the map to be ready before trying to access it programmatically.
 
 **Before: Google Maps**
@@ -140,7 +140,9 @@ To display a map using the Google Maps SDK for Android, the following steps woul
 
 When ran in an application, the map control will load as follows.
 
-![Simple Google Maps](media/migrate-google-maps-android-app/simple-google-maps.png)
+<center>
+
+![Simple Google Maps](media/migrate-google-maps-android-app/simple-google-maps.png)</center>
 
 **After: Azure Maps**
 
@@ -297,7 +299,9 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
 
 If you run your application, the map control will load as follows.
 
-![Simple Azure Maps](media/migrate-google-maps-android-app/simple-azure-maps.png)
+<center>
+
+![Simple Azure Maps](media/migrate-google-maps-android-app/simple-azure-maps.png)</center>
 
 Notice that the Azure Maps control supports zooming out more and provides more of a world view.
 
@@ -324,7 +328,9 @@ getBaseContext().getResources().updateConfiguration(config,
 
 Here is an example of Google Maps with the language set to "fr".
 
-![Google Maps localization](media/migrate-google-maps-android-app/google-maps-localization.png)
+<center>
+
+![Google Maps localization](media/migrate-google-maps-android-app/google-maps-localization.png)</center>
 
 **After: Azure Maps**
 
@@ -366,7 +372,9 @@ mapControl.onReady(map -> {
 
 Here is an example of Azure Maps with the language set to "fr-FR".
 
-![Azure Maps localization](media/migrate-google-maps-android-app/azure-maps-localization.png)
+<center>
+
+![Azure Maps localization](media/migrate-google-maps-android-app/azure-maps-localization.png)</center>
 
 A complete list of supported languages and regional views is documented [here](supported-languages.md).
 
@@ -391,7 +399,9 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-![Google Maps set view](media/migrate-google-maps-android-app/google-maps-set-view.png)
+<center>
+
+![Google Maps set view](media/migrate-google-maps-android-app/google-maps-set-view.png)</center>
 
 **After: Azure Maps**
 
@@ -424,7 +434,9 @@ mapControl.onReady(map -> {
 });
 ```
 
-![Azure Maps set view](media/migrate-google-maps-android-app/azure-maps-set-view.png)
+<center>
+
+![Azure Maps set view](media/migrate-google-maps-android-app/azure-maps-set-view.png)</center>
 
 **Additional resources:**
 
@@ -447,7 +459,9 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-![Google Maps marker](media/migrate-google-maps-android-app/google-maps-marker.png)
+<center>
+
+![Google Maps marker](media/migrate-google-maps-android-app/google-maps-marker.png)</center>
 
 **After: Azure Maps**
 
@@ -467,13 +481,14 @@ mapControl.onReady(map -> {
 });
 ```
 
-![Azure Maps marker](media/migrate-google-maps-android-app/azure-maps-marker.png)
+<center>
+
+![Azure Maps marker](media/migrate-google-maps-android-app/azure-maps-marker.png)</center>
 
 ## Adding a custom marker
 
 Custom images can be used to represent points on a map. The following image is used in the below examples use a custom image to display a point on the map at (latitude: 51.5, longitude: -0.2) and offsets the position of the marker so that the point of the pushpin icon aligns with the correct position on the map.
 
-<br/>
 <center>
 
 ![yellow pushpin image](media/migrate-google-maps-web-app/ylw_pushpin.png)<br/>
@@ -496,7 +511,9 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-![Google Maps custom marker](media/migrate-google-maps-android-app/google-maps-custom-marker.png)
+<center>
+
+![Google Maps custom marker](media/migrate-google-maps-android-app/google-maps-custom-marker.png)</center>
 
 **After: Azure Maps**
 
@@ -522,7 +539,9 @@ mapControl.onReady(map -> {
 });
 ```
 
-![Azure Maps custom marker](media/migrate-google-maps-android-app/azure-maps-custom-marker.png)
+<center>
+
+![Azure Maps custom marker](media/migrate-google-maps-android-app/azure-maps-custom-marker.png)</center>
 
 ## Adding a polyline
 
@@ -552,7 +571,9 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-![Google Maps polyline](media/migrate-google-maps-android-app/google-maps-polyline.png)
+<center>
+
+![Google Maps polyline](media/migrate-google-maps-android-app/google-maps-polyline.png)</center>
 
 **After: Azure Maps**
 
@@ -581,7 +602,9 @@ mapControl.onReady(map -> {
 });
 ```
 
-![Azure Maps polyline](media/migrate-google-maps-android-app/azure-maps-polyline.png)
+<center>
+
+![Azure Maps polyline](media/migrate-google-maps-android-app/azure-maps-polyline.png)</center>
 
 ## Adding a polygon
 
@@ -611,7 +634,9 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-![Google Maps polygon](media/migrate-google-maps-android-app/google-maps-polygon.png)
+<center>
+
+![Google Maps polygon](media/migrate-google-maps-android-app/google-maps-polygon.png)</center>
 
 **After: Azure Maps**
 
@@ -645,7 +670,9 @@ mapControl.onReady(map -> {
 });
 ```
 
-![Azure Maps polygon](media/migrate-google-maps-android-app/azure-maps-polygon.png)
+<center>
+
+![Azure Maps polygon](media/migrate-google-maps-android-app/azure-maps-polygon.png)</center>
 
 ## Overlay a tile layer
 
@@ -682,7 +709,9 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-![Google Maps tile layer](media/migrate-google-maps-android-app/google-maps-tile-layer.png)
+<center>
+
+![Google Maps tile layer](media/migrate-google-maps-android-app/google-maps-tile-layer.png)</center>
 
 **After: Azure Maps**
 
@@ -703,7 +732,9 @@ mapControl.onReady(map -> {
 });
 ```
 
-![Azure Maps tile layer](media/migrate-google-maps-android-app/azure-maps-tile-layer.png)
+<center>
+
+![Azure Maps tile layer](media/migrate-google-maps-android-app/azure-maps-tile-layer.png)</center>
 
 ## Show traffic
 
@@ -722,7 +753,9 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-![Google Maps traffic](media/migrate-google-maps-android-app/google-maps-traffic.png)
+<center>
+
+![Google Maps traffic](media/migrate-google-maps-android-app/google-maps-traffic.png)</center>
 
 **After: Azure Maps**
 
@@ -736,7 +769,9 @@ mapControl.onReady(map -> {
 });
 ```
 
-![Azure Maps traffic](media/migrate-google-maps-android-app/azure-maps-traffic.png)
+<center>
+
+![Azure Maps traffic](media/migrate-google-maps-android-app/azure-maps-traffic.png)</center>
 
 ## Next steps
 

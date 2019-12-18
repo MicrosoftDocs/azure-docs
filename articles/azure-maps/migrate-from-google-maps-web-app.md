@@ -1,6 +1,6 @@
 ---
 title: Migrate a web app from Google Maps | Microsoft Docs
-description: A tutorial on how to migrate a web app from Google Maps to Azure Maps.
+description: A tutorial on how to migrate a web app from Google Maps to Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
@@ -13,10 +13,10 @@ ms.custom:
 
 # Migrate a web app from Google Maps
 
-Most web apps using Google Maps are using the Google Maps V3 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript.
+Most web apps using Google Maps are using the Google Maps V3 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript.
 
-If migrating an existing web application, check to see if it is using an open source map control library such as Cesium, Leaflet, and OpenLayers. If it is and you do not want to use the Azure Maps Web SDK, another option for migrating your application is to continue using the open source map control and connect it to the Azure Maps tile services ([road tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-\| [satellite tiles](https://docs.microsoft.comrest/api/maps/render/getmapimagerytile)). The following are details on how to use Azure Maps in some commonly used open source map control libraries.
+If migrating an existing web application, check to see if it is using an open-source map control library such as Cesium, Leaflet, and OpenLayers. If it is and you do not want to use the Azure Maps Web SDK, another option for migrating your application is to continue using the open-source map control and connect it to the Azure Maps tile services ([road tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+\| [satellite tiles](https://docs.microsoft.comrest/api/maps/render/getmapimagerytile)). The following are details on how to use Azure Maps in some commonly used open-source map control libraries.
 
 - Cesium - A 3D map control for the web. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentation](https://cesiumjs.org/)
 - Leaflet – Lightweight 2D map control for the web. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentation](https://leafletjs.com/)
@@ -51,7 +51,7 @@ The following are some of the key differences between the Google Maps and Azure 
     for more information. This package also includes TypeScript definitions.
 - After creating an instance of the Map class in Azure Maps, your code should wait for the maps `ready` or `load` event to fire before interacting with the map. This will ensure that all the map resources have been loaded and are ready to be accessed.
 - Both platforms use a similar tiling system for the base maps, however the tiles in Google Maps are 256 pixels in dimension while the tiles in Azure Maps are 512 pixels in dimension. As such, to get the same map view in Azure Maps as Google Maps, a zoom level used in Google Maps needs to be subtracted by one in Azure Maps.
-- Coordinates in Google Maps are referred to as "latitude, longitude" while Azure Maps is using "longitude, latitude". This is aligned with the standard `[x, y]` which is followed by most GIS platforms.
+- Coordinates in Google Maps are referred to as "latitude, longitude" while Azure Maps uses "longitude, latitude". This is aligned with the standard `[x, y]` which is followed by most GIS platforms.
 - Shapes in the Azure Maps Web SDK are based on the GeoJSON schema. Helper classes are exposed through the [*atlas.data* namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data?view=azure-iot-typescript-latest). There is also the [*atlas.Shape*](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) class which can be used to wrap GeoJSON objects and make them easy to update and maintain in a data bindable way.
 - Coordinates in Azure Maps are defined as Position objects which can be specified as a simple number array in the format `[longitude, latitude]` or new atlas.data.Position(longitude, latitude).
     > [!TIP]
@@ -118,7 +118,9 @@ The following code is an example of how to display a Google Map centered and zoo
 
 Running this code in a browser will display a map that looks like the following image:
 
-![Simple Google Maps](media/migrate-google-maps-web-app/simple-google-map.png)
+<center>
+
+![Simple Google Maps](media/migrate-google-maps-web-app/simple-google-map.png)</center>
 
 **After: Azure Maps**
 
@@ -175,9 +177,11 @@ The following code shows how to load a map with the same view in Azure Maps alon
 
 Running this code in a browser will display a map that looks like the following image:
 
-![Simple Azure Maps](media/migrate-google-maps-web-app/simple-azure-maps.png)
+<center>
 
-Detailed documentation on how to setup and use the Azure Maps map control in a web app can be found [here](how-to-use-map-control.md).
+![Simple Azure Maps](media/migrate-google-maps-web-app/simple-azure-maps.png)</center>
+
+Detailed documentation on how to set up and use the Azure Maps map control in a web app can be found [here](how-to-use-map-control.md).
 
 > [!NOTE]
 > Unlike Google Maps, Azure Maps does not require an initial center and zoom level to be specified when loading the map. If this information is not provided when loading the map, the map will try to determine which city the user is in and will center and zoom the map there.
@@ -200,11 +204,13 @@ To localize Google Maps, language and region parameters are added to
 
 Here is an example of Google Maps with the language set to "fr-FR".
 
-![Google Maps localization](media/migrate-google-maps-web-app/google-maps-localization.png)
+<center>
+
+![Google Maps localization](media/migrate-google-maps-web-app/google-maps-localization.png)</center>
 
 **After: Azure Maps**
 
-Azure Maps provides two different ways of setting the language and regional view of the map. The first option is to is to add this information to the global *atlas* namespace which will result in all map control instances in your app defaulting to these settings. The following sets the language to French ("fr-FR") and the regional view to "auto":
+Azure Maps provides two different ways of setting the language and regional view of the map. The first option is to add this information to the global *atlas* namespace which will result in all map control instances in your app defaulting to these settings. The following sets the language to French ("fr-FR") and the regional view to "auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -230,7 +236,9 @@ map = new atlas.Map('myMap', {
 
 Here is an example of Azure Maps with the language set to "fr" and the user region set to "fr-FR".
 
-![Azure Maps localization](media/migrate-google-maps-web-app/azure-maps-localization.png)
+<center>
+
+![Azure Maps localization](media/migrate-google-maps-web-app/azure-maps-localization.png)</center>
 
 ### Setting the map view
 
@@ -251,7 +259,9 @@ map.setOptions({
 });
 ```
 
-![Google Maps set view](media/migrate-google-maps-web-app/google-maps-set-view.png)
+<center>
+
+![Google Maps set view](media/migrate-google-maps-web-app/google-maps-set-view.png)</center>
 
 **After: Azure Maps**
 
@@ -268,7 +278,9 @@ map.setStyle({
 });
 ```
 
-![Azure Maps set view](media/migrate-google-maps-web-app/azure-maps-set-view.jpeg)
+<center>
+
+![Azure Maps set view](media/migrate-google-maps-web-app/azure-maps-set-view.jpeg)</center>
 
 **Additional resources:**
 
@@ -301,11 +313,13 @@ var marker = new google.maps.Marker({
 });
 ```
 
-![Google Maps marker](media/migrate-google-maps-web-app/google-maps-marker.png)
+<center>
+
+![Google Maps marker](media/migrate-google-maps-web-app/google-maps-marker.png)</center>
 
 **After: Azure Maps using HTML Markers**
 
-In Azure Maps, HTML markers can be used to easy display a point on the map and are recommended for simply apps that only need to display a small number of points on the map. To use an HTML marker, simply create an instance of the `atlas.HtmlMarker` class, set the text and position options, and add the marker to the map using the `map.markers.add` method.
+In Azure Maps, HTML markers can be used to display a point on the map and are recommended for simply apps that only need to display a small number of points on the map. To use an HTML marker, simply create an instance of the `atlas.HtmlMarker` class, set the text and position options, and add the marker to the map using the `map.markers.add` method.
 
 ```javascript
 //Create a HTML marker and add it to the map.
@@ -315,7 +329,9 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-![Azure Maps HTML marker](media/migrate-google-maps-web-app/azure-maps-html-marker.png)
+<center>
+
+![Azure Maps HTML marker](media/migrate-google-maps-web-app/azure-maps-html-marker.png)</center>
 
 **After: Azure Maps using a Symbol Layer**
 
@@ -379,7 +395,9 @@ When using a Symbol layer, the data must be added to a data source, and the data
 </html>
 ```
 
-![Azure Maps symbol layer](media/migrate-google-maps-web-app/azure-maps-symbol-layer.png)
+<center>
+
+![Azure Maps symbol layer](media/migrate-google-maps-web-app/azure-maps-symbol-layer.png)</center>
 
 **Additional resources:**
 
@@ -398,7 +416,6 @@ When using a Symbol layer, the data must be added to a data source, and the data
 
 Custom images can be used to represent points on a map. The following image is used in the below examples use a custom image to display a point on the map at (latitude: 51.5, longitude: -0.2) and offsets the position of the marker so that the point of the pushpin icon aligns with the correct position on the map.
 
-<br/>
 <center>
 
 ![yellow pushpin image](media/migrate-google-maps-web-app/ylw_pushpin.png)<br/>
@@ -422,11 +439,13 @@ var marker = new google.maps.Marker({
 });
 ```
 
-![Google Maps custom marker](media/migrate-google-maps-web-app/google-maps-custom-marker.png)
+<center>
+
+![Google Maps custom marker](media/migrate-google-maps-web-app/google-maps-custom-marker.png)</center>
 
 **After: Azure Maps using HTML Markers**
 
-To customize an HTML marker in Azure Maps an HTML `string` or `HTMLElement` can be passed into the `htmlContent` option of the marker. In Azure Maps, an `anchor` option is used to specify the relative position of the marker relative to the position coordinate using one of nine defined reference points; "center", "top", "bottom", "left", "right", "top-left", "top-right", "bottom-left", "bottom-right". The content is anchored is set to "bottom" by default which is the bottom center of the html content. To make it easier to migrate code from Google Maps, set the `anchor` to "top-left", and then use the `pixelOffset` option with the same offset used in Google Maps. The offsets in Azure Maps move in the opposite direction of Google Maps, so multiply them by minus one.
+To customize an HTML marker in Azure Maps an HTML `string` or `HTMLElement` can be passed into the `htmlContent` option of the marker. In Azure Maps, an `anchor` option is used to specify the relative position of the marker relative to the position coordinate using one of nine defined reference points; "center", "top", "bottom", "left", "right", "top-left", "top-right", "bottom-left", "bottom-right". The content is anchored to the bottom center of the html content by default. To make it easier to migrate code from Google Maps, set the `anchor` to "top-left", and then use the `pixelOffset` option with the same offset used in Google Maps. The offsets in Azure Maps move in the opposite direction of Google Maps, so multiply them by minus one.
 
 > [!TIP]
 > Add `pointer-events:none` as a style on the html content to disable the default drag behavior in Microsoft Edge which will display an unwanted icon.
@@ -440,11 +459,13 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-![Azure Maps custom HTML marker](media/migrate-google-maps-web-app/azure-maps-custom-html-marker.png)
+<center>
+
+![Azure Maps custom HTML marker](media/migrate-google-maps-web-app/azure-maps-custom-html-marker.png)</center>
 
 **After: Azure Maps using a Symbol Layer**
 
-Symbol layers in Azure Maps support custom images as well, but the image needs to be loaded into the map resources first and assigned a unique ID. The symbol layer can then reference this ID. The symbol can be offset to align to the correct point on the image by using the icon `offset` option. In Azure Maps, an `anchor` option is used to specify the relative position of the symbol relative to the position coordinate using one of nine defined reference points; "center", "top", "bottom", "left", "right", "top-left", "top-right", "bottom-left", "bottom-right". The content is anchored is set to "bottom" by default which is the bottom center of the html content. To make it easier to migrate code from Google Maps, set the `anchor` to "top-left", and then use the `offset` option with the same offset used in Google Maps. The offsets in Azure Maps move in the opposite direction of Google Maps, so multiply them by minus one.
+Symbol layers in Azure Maps support custom images as well, but the image needs to be loaded into the map resources first and assigned a unique ID. The symbol layer can then reference this ID. The symbol can be offset to align to the correct point on the image by using the icon `offset` option. In Azure Maps, an `anchor` option is used to specify the relative position of the symbol relative to the position coordinate using one of nine defined reference points; "center", "top", "bottom", "left", "right", "top-left", "top-right", "bottom-left", "bottom-right". The content is anchored to the bottom center of the html content by default. To make it easier to migrate code from Google Maps, set the `anchor` to "top-left", and then use the `offset` option with the same offset used in Google Maps. The offsets in Azure Maps move in the opposite direction of Google Maps, so multiply them by minus one.
 
 ```html
 <!DOCTYPE html>
@@ -505,7 +526,9 @@ Symbol layers in Azure Maps support custom images as well, but the image needs t
 </html>
 ```
 
-![Azure Maps custom icon symbol layer](media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.png)
+<center>
+
+![Azure Maps custom icon symbol layer](media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.png)</center>
 
 > [!TIP]
 > To create advanced custom rendering of points, use multiple rendering layers together. For example, if you want to have multiple pushpins that have the same icon on different colored circles, instead of creating a bunch of images for each color overlay a symbol layer on top of a bubble layer and have them reference the same data source. This will be much more efficient than creating, and having the map maintain a bunch of different images.
@@ -561,7 +584,9 @@ var line = new google.maps.Polyline({
 line.setMap(map);
 ```
 
-![Google Maps polyline](media/migrate-google-maps-web-app/google-maps-polyline.png)
+<center>
+
+![Google Maps polyline](media/migrate-google-maps-web-app/google-maps-polyline.png)</center>
 
 **After: Azure Maps**
 
@@ -590,7 +615,9 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 }));
 ```
 
-![Azure Maps polyline](media/migrate-google-maps-web-app/azure-maps-polyline.png)
+<center>
+
+![Azure Maps polyline](media/migrate-google-maps-web-app/azure-maps-polyline.png)</center>
 
 **Additional resources:**
 
@@ -627,7 +654,9 @@ var polygon = new google.maps.Polygon({
 polygon.setMap(map);
 ```
 
-![Google Maps polygon](media/migrate-google-maps-web-app/google-maps-polygon.png)
+<center>
+
+![Google Maps polygon](media/migrate-google-maps-web-app/google-maps-polygon.png)</center>
 
 **After: Azure Maps**
 
@@ -661,7 +690,9 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 }));
 ```
 
-![Azure Maps polygon](media/migrate-google-maps-web-app/azure-maps-polygon.png)
+<center>
+
+![Azure Maps polygon](media/migrate-google-maps-web-app/azure-maps-polygon.png)</center>
 
 **Additional resources:**
 
@@ -701,7 +732,9 @@ marker.addListener('click', function () {
 });
 ```
 
-![Google Maps popup](media/migrate-google-maps-web-app/google-maps-popup.png)
+<center>
+
+![Google Maps popup](media/migrate-google-maps-web-app/google-maps-popup.png)</center>
 
 **After: Azure Maps**
 
@@ -730,7 +763,9 @@ map.events.add('click', marker, function () {
 });
 ```
 
-![Azure Maps popup](media/migrate-google-maps-web-app/azure-maps-popup.png)
+<center>
+
+![Azure Maps popup](media/migrate-google-maps-web-app/azure-maps-popup.png)</center>
 
 > [!NOTE]
 > To do the same thing with a symbol, bubble, line or polygon layer, simply pass the layer into the maps event code instead of a marker.
@@ -819,7 +854,9 @@ In Google Maps a single callback function can be specified in the `map.data.setS
 </html>
 ```
 
-![Google Maps GeoJSON](media/migrate-google-maps-web-app/google-maps-geojson.png)
+<center>
+
+![Google Maps GeoJSON](media/migrate-google-maps-web-app/google-maps-geojson.png)</center>
 
 **After: Azure Maps**
 
@@ -898,7 +935,9 @@ GeoJSON is the base data type in Azure Maps and can easily be imported into a da
 </html>
 ```
 
-![Azure Maps GeoJSON](media/migrate-google-maps-web-app/azure-maps-geojson.png)
+<center>
+
+![Azure Maps GeoJSON](media/migrate-google-maps-web-app/azure-maps-geojson.png)</center>
 
 **Additional resources:**
 
@@ -973,7 +1012,9 @@ In Google Maps markers can be clustered by loading in the MarkerClusterer librar
 </html>
 ```
 
-![Google Maps clustering](media/migrate-google-maps-web-app/google-maps-clustering.png)
+<center>
+
+![Google Maps clustering](media/migrate-google-maps-web-app/google-maps-clustering.png)</center>
 
 **After: Azure Maps**
 
@@ -1099,7 +1140,9 @@ GeoJSON data can be directly imported in Azure Maps using the `importDataFromUrl
 </html>
 ```
 
-![Azure Maps clustering](media/migrate-google-maps-web-app/azure-maps-clustering.png)
+<center>
+
+![Azure Maps clustering](media/migrate-google-maps-web-app/azure-maps-clustering.png)</center>
 
 **Additional resources:**
 
@@ -1179,7 +1222,9 @@ In Google Maps, to create a heat map the "visualization" library needs to be loa
 </html>
 ```
 
-![Google Maps heat map](media/migrate-google-maps-web-app/google-maps-heatmap.png)
+<center>
+
+![Google Maps heat map](media/migrate-google-maps-web-app/google-maps-heatmap.png)</center>
 
 **After: Azure Maps**
 
@@ -1243,7 +1288,9 @@ In Azure Maps, load the GeoJSON data into a data source and connect the data sou
 </html>
 ```
 
-![Azure Maps heat map](media/migrate-google-maps-web-app/azure-maps-heatmap.png)
+<center>
+
+![Azure Maps heat map](media/migrate-google-maps-web-app/azure-maps-heatmap.png)</center>
 
 **Additional resources:**
 
@@ -1272,7 +1319,9 @@ map.overlayMapTypes.insertAt(0, new google.maps.ImageMapType({
 }));
 ```
 
-![Google Maps tile layer](media/migrate-google-maps-web-app/google-maps-tile-layer.png)
+<center>
+
+![Google Maps tile layer](media/migrate-google-maps-web-app/google-maps-tile-layer.png)</center>
 
 **After: Azure Maps**
 
@@ -1290,7 +1339,9 @@ map.layers.add(new atlas.layer.TileLayer({
 }), 'labels');
 ```
 
-![Azure Maps tile layer](media/migrate-google-maps-web-app/azure-maps-tile-layer.png)
+<center>
+
+![Azure Maps tile layer](media/migrate-google-maps-web-app/azure-maps-tile-layer.png)</center>
 
 > [!TIP]
 > Tile requests can be captured using the `transformRequest` option of the map. This will allow you to modify or add headers to the request if desired.
@@ -1314,7 +1365,9 @@ var trafficLayer = new google.maps.TrafficLayer();
 trafficLayer.setMap(map);
 ```
 
-![Google Maps traffic](media/migrate-google-maps-web-app/google-maps-traffic.png)
+<center>
+
+![Google Maps traffic](media/migrate-google-maps-web-app/google-maps-traffic.png)</center>
 
 **After: Azure Maps**
 
@@ -1327,11 +1380,15 @@ map.setTraffic({
 });
 ```
 
-![Azure Maps traffic](media/migrate-google-maps-web-app/azure-maps-traffic.png)
+<center>
+
+![Azure Maps traffic](media/migrate-google-maps-web-app/azure-maps-traffic.png)</center>
 
 If you click on one of the traffic icons in Azure Maps, additional information is displayed in a popup.
 
-![Azure Maps traffic incident](media/migrate-google-maps-web-app/azure-maps-traffic-incident.png)
+<center>
+
+![Azure Maps traffic incident](media/migrate-google-maps-web-app/azure-maps-traffic-incident.png)</center>
 
 **Additional resources:**
 
@@ -1389,7 +1446,9 @@ When creating a ground overlay in Google Maps you need to specify the URL to the
 
 Running this code in a browser will display a map that looks like the following image:
 
-![Google Maps image overlay](media/migrate-google-maps-web-app/google-maps-image-overlay.png)
+<center>
+
+![Google Maps image overlay](media/migrate-google-maps-web-app/google-maps-image-overlay.png)</center>
 
 **After: Azure Maps**
 
@@ -1450,7 +1509,9 @@ In Azure Maps, georeferenced images can be overlaid using the `atlas.layer.Image
 </html>
 ```
 
-![Azure Maps image overlay](media/migrate-google-maps-web-app/azure-maps-image-overlay.png)
+<center>
+
+![Azure Maps image overlay](media/migrate-google-maps-web-app/azure-maps-image-overlay.png)</center>
 
 **Additional resources:**
 
@@ -1500,7 +1561,7 @@ The following appendix provides a cross reference mapping of the most commonly u
 | `google.maps.PolygonOptions` |[atlas.layer.PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)<br/> [atlas.PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)<br/> [atlas.layer.LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)<br/> [atlas.LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)|
 | `google.maps.Polyline` | [atlas.data.LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest)         |
 | `google.maps.PolylineOptions` | [atlas.layer.LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-maps-typescript-latest)<br/>[atlas.LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-maps-typescript-latest) |
-| `google.maps.Circle`  | See [Add a circle to the map](map-add-shape#add-a-circle-to-the-map.md)                                     |
+| `google.maps.Circle`  | See [Add a circle to the map](map-add-shape.md#add-a-circle-to-the-map)                                     |
 | `google.maps.ImageMapType`  | [atlas.TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)         |
 | `google.maps.ImageMapTypeOptions` | [atlas.TileLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions?view=azure-iot-typescript-latest) |
 | `google.maps.GroundOverlay`  | [atlas.layer.ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest)<br/>[atlas.ImageLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagelayeroptions?view=azure-iot-typescript-latest) |
@@ -1520,7 +1581,7 @@ The Azure Maps Web SDK includes a [services module](how-to-use-services-module.m
 ## Libraries
 
 Libraries add additional functionality to the map. Many of these are in
-the core SDK of Azure Maps. Here are some equivalent class to use in
+the core SDK of Azure Maps. Here are some equivalent classes to use in
 place of these Google Maps libraries
 
 | Google Maps           | Azure Maps   |
