@@ -1,5 +1,5 @@
 ---
-title: HDInsight ID Broker (preview)
+title: Use ID Broker (preview) for credential management- Azure HDInsight
 description: Learn about HDInsight ID Broker to simplify authentication for domain-joined Apache Hadoop clusters.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 12/12/2019
 ---
 
-# HDInsight ID Broker (preview)
+# Use ID Broker (preview) for credential management
 
 This article describes how to set up and use the ID Broker feature in Azure HDInsight. You can use this feature to sign in to Apache Ambari through Azure Multi-Factor Authentication and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (Azure AD DS).
 
@@ -53,8 +53,6 @@ SSH authentication requires the hash to be available in Azure AD DS. If you want
 
 ## Next steps
 
-[Configure an HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](apache-domain-joined-configure-using-azure-adds.md)
-
-[Synchronize Azure Active Directory users to an HDInsight cluster](../hdinsight-sync-aad-users-to-cluster.md)
-
-[Monitor cluster performance](../hdinsight-key-scenarios-to-monitor.md)
+* [Configure an HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](apache-domain-joined-configure-using-azure-adds.md)
+* [Synchronize Azure Active Directory users to an HDInsight cluster](../hdinsight-sync-aad-users-to-cluster.md)
+* [Monitor cluster performance](../hdinsight-key-scenarios-to-monitor.md)
