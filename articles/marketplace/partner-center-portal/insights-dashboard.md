@@ -26,7 +26,7 @@ You can view graphical representations of the following items:
 - [Call to action versus unique visitors with CTAs](#call-to-action-versus-unique-visitors-with-ctas)
 - [Page visits and call to action by offers](#page-visits-and-calls-to-action-by-offers)
 - [Call to action percentage trend](#call-to-action-percentage-trend)
-- [Page visits and calls to action by referral domains and campaigns](#page-visits-and-calls-to-action-by-referral-domains-and-campaigns)
+- [Page visits and calls to action by referral domains](#page-visits-and-calls-to-action-by-referral-domains)
 - [Marketplace Insights details table](#marketplace-insights-details-table)
 
 >[!NOTE]
@@ -112,17 +112,11 @@ The **Call to action percentage trend** presents the CTA percentage for the offe
 
 ![Partner Center Insights call to action percentage trend](./media/insights-call-to-action-percentage-trend.png)
 
-## Page visits and calls to action by referral domains and campaigns
+## Page visits and calls to action by referral domains
 
-This leader board has two tabs: **Referral domains** and **Campaigns**.
-
-When the **Referral domains** tab is selected, the top 50 referral domains are displayed. Selecting a specific referral domain shows the monthly trend of **Page visits** and **Calls to action** on the chart to the right.
-
-Selecting the **Campaign** tab displays the monthly trend of **Page visits** and **Calls to action** generated through the selected campaign.
+The graph below presents the top 50 referral domains. Selecting a specific referral domain shows the monthly trend of page visits and calls to action on the chart to the right.
 
 ![Partner Center Insights page visits and calls to action by referral domains and campaigns](./media/insights-page-visits-call-to-actions.png)
-
-For offer expansion and growth, publishers can now use **Microsoft campaigns** on Partner center. Campaigns are a newly supported feature for the marketplace that allows publishers to track the channels responsible for sending customers to the offer. For more information, see [How to make a Campaign](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/web-analytics).
 
 ## Marketplace Insights details table
 
