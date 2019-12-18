@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 11/08/2019
 ---
 
-# Known issues/migration limitations with online migrations to Azure DB for MySQL using the Azure Database Migration Service
+# Online migration issues & limitations to Azure DB for MySQL with Azure Database Migration Service
 
 Known issues and limitations associated with online migrations from MySQL to Azure Database for MySQL are described in the following sections.
 

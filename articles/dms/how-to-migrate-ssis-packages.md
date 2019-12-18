@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 06/08/2019
 ---
 
-# Redeploy SQL Server Integration Services packages to Azure SQL Database using the Azure Database Migration Service
+# Redeploy SSIS packages to Azure SQL Database with Azure Database Migration Service
 
 If you use SQL Server Integration Services (SSIS) and want to migrate your SSIS projects/packages from the source SSISDB hosted by SQL Server to the destination SSISDB hosted by Azure SQL Database, you can redeploy them using the Integration Services Deployment Wizard. You can launch the wizard from within SQL Server Management Studio (SSMS).
 

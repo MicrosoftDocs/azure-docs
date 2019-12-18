@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 04/29/2019
 ---
 
-# Migrate SQL Server on-premises to an Azure SQL Database managed instance using Azure PowerShell and  the Azure Database Migration Service
+# Migrate SQL Server to SQL Database managed instance with PowerShell & Azure Database Migration Service
 In this article, you migrate the **Adventureworks2016** database restored to an on-premises instance of SQL Server 2005 or above to an Azure SQL Database managed instance by using Microsoft Azure PowerShell. You can migrate databases from an on-premises SQL Server instance to an Azure SQL Database managed instance by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
 
 In this article, you learn how to:
