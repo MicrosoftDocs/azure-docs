@@ -144,6 +144,6 @@ Many of our partners have loading solutions. To find out more, see a list of our
 
 ## Next steps
 
-For loading guidance, see [Guidance for load data](../../sql-data-warehouse/guidance-for-loading-data.md).
+For loading guidance, see [Guidance for load data](data-loading-best-practices.md).
 
 
