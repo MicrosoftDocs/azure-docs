@@ -179,7 +179,7 @@ This command creates a `.azureml/config.json` file, which contains information n
 
 ## Create the compute target for training
 
-This example uses an Azure Machine Learning Notebook VM to train the model. To create a new Notebook VM, use the following command:
+This example uses an Azure Machine Learning Compute cluster to train the model. To create a new compute cluster, use the following command:
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu-cluster --max-nodes 4 --vm-size Standard_D2_V2
@@ -314,7 +314,7 @@ This text is logged from the training script and displays the accuracy of the mo
 
 If you inspect the training script, you'll notice that it also uses the alpha value when it stores the trained model to `outputs/sklearn_mnist_model.pkl`.
 
-The model was saved to the `./outputs` directory on the compute target where it was trained. In this case, the Azure Machine Learning Notebook VM in the Azure cloud. The training process automatically uploads the contents of the `./outputs` directory from the compute target where training occurs to your Azure Machine Learning workspace. It's stored as part of the experiment (`myexperiment` in this example).
+The model was saved to the `./outputs` directory on the compute target where it was trained. In this case, the Azure Machine Learning Compute instance in the Azure cloud. The training process automatically uploads the contents of the `./outputs` directory from the compute target where training occurs to your Azure Machine Learning workspace. It's stored as part of the experiment (`myexperiment` in this example).
 
 ## Register the model
 

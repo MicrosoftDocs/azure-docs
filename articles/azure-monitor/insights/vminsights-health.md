@@ -4,8 +4,8 @@ description: This article describes how to understand the health of virtual mach
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
 
 ---

@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ---
 
 # Service limits in Azure Cognitive Search
 
-Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Cognitive Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
+Maximum limits on storage, workloads, and quantities of indexes and other objects depend on whether you [provision Azure Cognitive Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
 
 + **Free** is a multi-tenant shared service that comes with your Azure subscription. Indexing and query requests execute on replicas and partitions that are used by other tenants.
 
@@ -61,13 +61,12 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 ## Document limits 
 
-As of October 2018, there are no longer any document limits<sup>1</sup> for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. While most regions have had unlimited document counts since November/December 2017, there were five regions that continued to impose document limits. Depending on when and where you created a search service, you might be running a service that is still subject to document limits.
+As of October 2018, there are no longer any document limits for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. While most regions have had unlimited document counts since November/December 2017, there were a few regions that continued to impose document limits after that date. Depending on when and where you created a search service, you might be running a service that is still subject to document limits.
 
-To determine whether your service has document limits, check the Usage tile in the overview page of your service. Document counts are either unlimited, or subject to a limit based on tier.
+To determine whether your service has document limits, use the [GET Service Statistics REST API](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Document limits are reflected in the response, with `null` indicating no limits.
 
-  ![Usage tile](media/search-limits-quotas-capacity/portal-usage-tile.png)
-
-<sup>1</sup> Even though there aren't any SKU specific document limits, every index is still subject to a maximum safe limit to ensure stability of the service. This limit comes from Lucene. Every Azure Cognitive Search document is internally indexed as one or more Lucene documents. The number of Lucene documents per search document depends on the total number of elements in complex collection fields. Each element is indexed as a separate Lucene document. For example, a document with 3 elements in a complex collection field, will be indexed as 4 Lucene documents - 1 for the document itself and 3 for the elements. The maximum number of Lucene documents is roughly 25 billion per index.
+> [!NOTE]
+> Even though there aren't any SKU specific document limits, every index is still subject to a maximum safe limit to ensure stability of the service. This limit comes from Lucene. Every Azure Cognitive Search document is internally indexed as one or more Lucene documents. The number of Lucene documents per search document depends on the total number of elements in complex collection fields. Each element is indexed as a separate Lucene document. For example, a document with 3 elements in a complex collection field, will be indexed as 4 Lucene documents - 1 for the document itself and 3 for the elements. The maximum number of Lucene documents is roughly 25 billion per index.
 
 ### Regions previously having document limits
 
@@ -131,7 +130,7 @@ Maximum running times exist to provide balance and stability to the service as a
 
 ## Synonym limits
 
-The maximum number of synonym maps allowed varies by pricing tier. Each rule can have up to 20 expansions, where an expansion is an equivalvent term. For example, given "cat", association with "kitty", "feline", and "felis" (the genus for cats) would count as 3 expansions.
+The maximum number of synonym maps allowed varies by pricing tier. Each rule can have up to 20 expansions, where an expansion is an equivalent term. For example, given "cat", association with "kitty", "feline", and "felis" (the genus for cats) would count as 3 expansions.
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
