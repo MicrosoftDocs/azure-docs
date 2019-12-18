@@ -1,6 +1,6 @@
 ---
-title: How to reactivate disabled Azure Access Control Service (ACS) namespaces
-description: Learn how to find and enable your Azure Access Control Service (ACS) namespaces and request an extension to keep them enabled until February 4, 2019.
+title: Reactivate disabled Azure Access Control Service (ACS) namespaces
+description: Find and enable your Azure Access Control Service (ACS) namespaces and request an extension to keep them enabled until February 4, 2019.
 services: active-directory
 author: rwike77
 manager: CelesteDG

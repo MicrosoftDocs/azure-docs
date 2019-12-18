@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 12/17/2019
 ---
 # Slow query logs in Azure Database for MySQL
 In Azure Database for MySQL, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting.
@@ -18,6 +18,8 @@ You can list and download Azure Database for MySQL slow query logs using the Azu
 In the Azure portal, select your Azure Database for MySQL server. Under the **Monitoring** heading, select the **Server Logs** page.
 
 For more information on Azure CLI, see [Configure and access slow query logs using Azure CLI](howto-configure-server-logs-in-cli.md).
+
+Similarly, you can pipe the logs to Azure Monitor using Diagnostic Logs. See [below](concepts-server-logs.md#diagnostic-logs) for more information.
 
 ## Log retention
 Logs are available for up to seven days from their creation. If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available. 
@@ -33,6 +35,7 @@ Other parameters you can adjust include:
 - **log_slow_admin_statements**: if ON includes administrative statements like ALTER_TABLE and ANALYZE_TABLE in the statements written to the slow_query_log.
 - **log_queries_not_using_indexes**: determines whether queries that do not use indexes are logged to the slow_query_log
 - **log_throttle_queries_not_using_indexes**: This parameter limits the number of non-index queries that can be written to the slow query log. This parameter takes effect when log_queries_not_using_indexes is set to ON.
+- **log_output**: if "File", allows the slow query log to be written to both the local server storage and to Azure Monitor Diagnostic Logs. If "None", the slow query log will only be written to Azure Monitor Diagnostics Logs. 
 
 > [!Note]
 > For `sql_text`, log will be truncated if it exceeds 2048 characters.

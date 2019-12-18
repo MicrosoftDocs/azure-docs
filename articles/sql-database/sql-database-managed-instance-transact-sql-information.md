@@ -402,41 +402,12 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 - Snapshot and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication, and updatable subscriptions are not supported.
 - [Transactional Replication](sql-database-managed-instance-transactional-replication.md) is available for public preview on managed instance with some constraints:
     - All types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on managed instances, but the publisher and the distributor must be either both in the cloud or both on-premises.
-    - Managed instances can communicate with the recent versions of SQL Server. See the supported versions [here](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+    - Managed instances can communicate with the recent versions of SQL Server. See the [supported versions matrix](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems) for more information.
     - Transactional Replication has some [additional networking requirements](sql-database-managed-instance-transactional-replication.md#requirements).
 
-For information about configuring replication, see the [replication tutorial](replication-with-sql-database-managed-instance.md).
-
-
-If replication is enabled on a database in a [failover group](sql-database-auto-failover-group.md), the managed instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover occurs. The following activities are needed in this scenario:
-
-1. Stop all replication jobs running on the database, if there are any.
-2. Drop subscription metadata from publisher by running the following script on publisher database:
-
-   ```sql
-   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
-   ```             
- 
-1. Drop subscription metadata from the subscriber. Run the following script in the subscription database on subscriber instance:
-
-   ```sql
-   EXEC sp_subscription_cleanup
-      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
-      @publisher_db = N'<publisher database>', 
-      @publication = N'<name of publication>'; 
-   ```                
-
-1. Forcefully drop all replication objects from publisher by running the following script in the published database:
-
-   ```sql
-   EXEC sp_removedbreplication
-   ```
-
-1. Forcefully drop old distributor from original primary instance (if failing back over to an old primary that used to have a distributor). Run the following script on the master database in old distributor managed instance:
-
-   ```sql
-   EXEC sp_dropdistributor 1,1
-   ```
+For more information about configuring transactional replication, see the following tutorials:
+- [Replication between an MI publisher and subscriber](replication-with-sql-database-managed-instance.md)
+- [Replication between an MI publisher, MI distributor, and SQL Server subscriber](sql-database-managed-instance-configure-replication-tutorial.md)
 
 ### RESTORE statement 
 
@@ -530,6 +501,26 @@ The following variables, functions, and views return different results:
 ### TEMPDB
 
 The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
+
+### MSDB
+
+The following MSDB schemas in managed instance must be owned by their respective predefined roles:
+
+- General roles
+  - TargetServersRole
+- [Fixed database roles](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+  - SQLAgentUserRole
+  - SQLAgentReaderRole
+  - SQLAgentOperatorRole
+- [DatabaseMail roles](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+  - DatabaseMailUserRole
+- [Integration services roles](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+  - db_ssisadmin
+  - db_ssisltduser
+  - db_ssisoperator
+  
+> [!IMPORTANT]
+> Changing the predefined role names, schema names and schema owners by customers will impact the normal operation of the service. Any changes made to these will be reverted back to the predefined values as soon as detected, or at the next service update at the latest to ensure normal service operation.
 
 ### Error logs
 

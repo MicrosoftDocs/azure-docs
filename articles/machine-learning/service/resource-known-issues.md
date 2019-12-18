@@ -104,7 +104,7 @@ If you don't include the leading forward slash, '/',  you'll need to prefix the 
 
 ### Fail to read Parquet file from HTTP or ADLS Gen 2
 
-There is a known issue in AzureML DataPrep SDK version 1.1.25 that causes a failure when creating a dataset by reading Parquet files from HTTP or ADLS Gen 2. It will fail with `Cannot seek once reading started.`. To fix this issue, please upgrade `azureml-dataprep` to a version higher than 1.1.26, or downgrade to a version lower than 1.1.24.
+There is a known issue in the AzureML DataPrep SDK version 1.1.25 that causes a failure when creating a dataset by reading Parquet files from HTTP or ADLS Gen 2. It will fail with `Cannot seek once reading started.`. To fix this issue, please upgrade `azureml-dataprep` to a version higher than 1.1.26, or downgrade to a version lower than 1.1.24.
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -140,7 +140,7 @@ When you use automated machine learning capabilities on Azure Databricks, to can
 
 In automated machine learning settings, if you have more than 10 iterations, set `show_output` to `False` when you submit the run.
 
-### Widget for the Azure Machine Learning SDK/automated machine learning
+### Widget for the Azure Machine Learning SDK and automated machine learning
 
 The Azure Machine Learning SDK widget isn't supported in a Databricks notebook because the notebooks can't parse HTML widgets. You can view the widget in the portal by using this Python code in your Azure Databricks notebook cell:
 
@@ -260,6 +260,16 @@ kubectl get secret/azuremlfessl -o yaml
 ## Recommendations for error fix
 Based on general observation, here are Azure ML recommendations to fix some of the common errors in Azure ML.
 
+### Metric Document is too large
+Azure Machine Learning has internal limits on the size of metric objects that can be logged at once from a training run. If you encounter "Metric Document is too large" error when logging a list-valued metric, try splitting the list into smaller chunks, for example:
+
+```python
+run.log_list("my metric name", my_metric[:N])
+run.log_list("my metric name", my_metric[N:])
+```
+
+ Internally, the run history service concatenates the blocks with same metric name into a contiguous list.
+
 ### ModuleErrors (No module named)
 If you are running into ModuleErrors while submitting experiments in Azure ML, it means that the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure ML will install the package in the environment used for your training. 
 
@@ -267,10 +277,10 @@ If you are using [Estimators](concept-azure-machine-learning-architecture.md#est
 
 Azure ML also provides framework-specific estimators for Tensorflow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
  
- Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
+Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
 Framework-specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
->[Note!]
+> [!Note]
 > If you think a particular package is common enough to be added in Azure ML maintained images and environments please raise a GitHub issue in [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
  
  ### NameError (Name not defined), AttributeError (Object has no attribute)

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Pattern roles - LUIS"
 titleSuffix: Azure Cognitive Services
-description: Patterns extract data from well-formatted template utterances. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  
+description: Patterns extract data from well-formatted template utterances in this tutorial. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/13/2019
 ms.author: diberry
-#Customer intent: As a new user, I want to understand how and why to use pattern roles. 
+#Customer intent: As a new user, I want to understand how and why to use pattern roles.
 ---
 
 # Tutorial: Extract contextually related patterns using roles
@@ -37,7 +37,7 @@ In this tutorial, use a pattern to extract data from a well-formatted template u
 
 ## Using roles in patterns
 
-The purpose of roles is to extract contextually related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city, and destination city values are related to each other and use common language to denote each location. 
+The purpose of roles is to extract contextually related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city, and destination city values are related to each other and use common language to denote each location.
 
 
 The name of the new employee, Billy Patterson, is not part of the list entity **Employee** yet. The new employee name is extracted first, in order to send the name to an external system to create the company credentials. After the company credentials are created, the employee credentials are added to the list entity **Employee**.
@@ -46,18 +46,18 @@ The new employee and family need to be moved from the current city to a city whe
 
 The role names associated with the origin and destination cities need to be unique across all entities. An easy way to make sure the roles are unique is to tie them to the containing entity through a naming strategy. The **NewEmployeeRelocation** entity is a simple entity with two roles: **NewEmployeeReloOrigin** and **NewEmployeeReloDestination**. Relo is short for relocation.
 
-Because the example utterance `Move new employee Robert Williams from Sacramento and San Francisco` has only machine-learned entities, it is important to provide enough example utterances to the intent so the entities are detected.  
+Because the example utterance `Move new employee Robert Williams from Sacramento and San Francisco` has only machine-learned entities, it is important to provide enough example utterances to the intent so the entities are detected.
 
 **While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern does not match.**
 
-If you have difficulty with simple entity detection because it is a name such as a city, consider adding a phrase list of similar values. This helps the detection of the city name by giving LUIS an additional signal about that type of word or phrase. Phrase lists only help the pattern by helping with entity detection, which is necessary for the pattern to match. 
+If you have difficulty with simple entity detection because it is a name such as a city, consider adding a phrase list of similar values. This helps the detection of the city name by giving LUIS an additional signal about that type of word or phrase. Phrase lists only help the pattern by helping with entity detection, which is necessary for the pattern to match.
 
 ## Import example app
-Continue with the app created in the last tutorial, named **HumanResources**. 
+Continue with the app created in the last tutorial, named **HumanResources**.
 
 Use the following steps:
 
-1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json?raw=true).
 
 2. Import the JSON into a new app.
 
@@ -67,7 +67,7 @@ Use the following steps:
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Select **Entities** from the left navigation. 
+2. Select **Entities** from the left navigation.
 
 3. Select **Create new entity**.
 
@@ -77,24 +77,24 @@ Use the following steps:
 
 6. In the pop-up window, enter `NewEmployeeRelocation` as a **Simple** entity.
 
-7. Select **NewEmployeeRelocation** from the list of entities. 
+7. Select **NewEmployeeRelocation** from the list of entities.
 
 8. Enter the first role as `NewEmployeeReloOrigin` and select enter.
 
 9. Enter the second role as `NewEmployeeReloDestination` and select enter.
 
 ## Create new intent
-Labeling the entities in these steps may be easier if the prebuilt keyPhrase entity is removed before beginning then added back after you are done with the steps in this section. 
+Labeling the entities in these steps may be easier if the prebuilt keyPhrase entity is removed before beginning then added back after you are done with the steps in this section.
 
 1. Select **Intents** from the left navigation.
 
-2. Select **Create new intent**. 
+2. Select **Create new intent**.
 
 3. Enter `NewEmployeeRelocationProcess` as the intent name in the pop-up dialog box.
 
-4. Enter the following example utterances, labeling the new entities. The entity and role values are in bold. Remember to switch to the **Tokens View** if you find it easier to label the text. 
+4. Enter the following example utterances, labeling the new entities. The entity and role values are in bold. Remember to switch to the **Tokens View** if you find it easier to label the text.
 
-    You don't specify the role of the entity when labeling in the intent. You do that later when creating the pattern. 
+    You don't specify the role of the entity when labeling in the intent. You do that later when creating the pattern.
 
     |Utterance|NewEmployee|NewEmployeeRelocation|
     |--|--|--|
@@ -109,9 +109,9 @@ Labeling the entities in these steps may be easier if the prebuilt keyPhrase ent
     |Move **Patti Owens** from **Bellevue** to **Rockford**|Patti Owens|Bellevue, Rockford|
     |Move **Janet Bartlet** from **Tuscan** to **Santa Fe**|Janet Bartlet|Tuscan, Santa Fe|
 
-    The employee name has a variety of prefix, word count, syntax, and suffix. This is important for LUIS to understand the variations of a new employee name. The city names also have a variety of word count and syntax. This variety is important to teach LUIS how these entities may appear in a user's utterance. 
-    
-    If either entity had been of the same word count and no other variations, you would teach LUIS that this entity only has that word count and no other variations. LUIS would not be able to correctly predict a broader set of variations because it was not shown any. 
+    The employee name has a variety of prefix, word count, syntax, and suffix. This is important for LUIS to understand the variations of a new employee name. The city names also have a variety of word count and syntax. This variety is important to teach LUIS how these entities may appear in a user's utterance.
+
+    If either entity had been of the same word count and no other variations, you would teach LUIS that this entity only has that word count and no other variations. LUIS would not be able to correctly predict a broader set of variations because it was not shown any.
 
     If you removed the keyPhrase entity, add it back to the app now.
 
@@ -125,9 +125,9 @@ Labeling the entities in these steps may be easier if the prebuilt keyPhrase ent
 
 ## Get intent and entities from endpoint
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Go to the end of the URL in the address and enter `Move Wayne Berry from Miami to Mount Vernon`. The last querystring parameter is `q`, the utterance **query**. 
+2. Go to the end of the URL in the address and enter `Move Wayne Berry from Miami to Mount Vernon`. The last querystring parameter is `q`, the utterance **query**.
 
     ```json
     {
@@ -210,14 +210,14 @@ Labeling the entities in these steps may be easier if the prebuilt keyPhrase ent
           "score": 0.638941
         }
       ]
-    }  
+    }
     ```
 
 The intent prediction score is only about 50%. If your client application requires a higher number, this needs to be fixed. The entities were not predicted either.
 
-One of the locations was extracted but the other location was not. 
+One of the locations was extracted but the other location was not.
 
-Patterns will help the prediction score, however, the entities must be correctly predicted before the pattern matches the utterance. 
+Patterns will help the prediction score, however, the entities must be correctly predicted before the pattern matches the utterance.
 
 ## Pattern with roles
 
@@ -225,16 +225,16 @@ Patterns will help the prediction score, however, the entities must be correctly
 
 2. Select **Patterns** in the left navigation.
 
-3. Select **NewEmployeeRelocationProcess** from the **Select an intent** drop-down list. 
+3. Select **NewEmployeeRelocationProcess** from the **Select an intent** drop-down list.
 
 4. Enter the following pattern: `move {NewEmployee} from {NewEmployeeRelocation:NewEmployeeReloOrigin} to {NewEmployeeRelocation:NewEmployeeReloDestination}[.]`
 
     If you train, publish, and query the endpoint, you may be disappointed to see that the entities are not found, so the pattern didn't match, therefore the prediction didn't improve. This is a consequence of not enough example utterances with labeled entities. Instead of adding more examples, add a phrase list to fix this problem.
 
 ## Cities phrase list
-Cities, like people's names are tricky in that they can be any mix of words and punctuation. The cities of the region and world are known, so LUIS needs a phrase list of cities to begin learning. 
+Cities, like people's names are tricky in that they can be any mix of words and punctuation. The cities of the region and world are known, so LUIS needs a phrase list of cities to begin learning.
 
-1. Select **Phrase list** from the **Improve app performance** section of the left menu. 
+1. Select **Phrase list** from the **Improve app performance** section of the left menu.
 
 2. Name the list `Cities` and add the following `values` for the list:
 
@@ -249,7 +249,7 @@ Cities, like people's names are tricky in that they can be any mix of words and 
     |Miami|
     |Dallas|
 
-    Do not add every city in the world or even every city in the region. LUIS needs to be able to generalize what a city is from the list. Make sure to keep **These values are interchangeable** selected. This setting means the words on the list on treated as synonyms. 
+    Do not add every city in the world or even every city in the region. LUIS needs to be able to generalize what a city is from the list. Make sure to keep **These values are interchangeable** selected. This setting means the words on the list on treated as synonyms.
 
 3. Train and publish the app.
 
@@ -257,7 +257,7 @@ Cities, like people's names are tricky in that they can be any mix of words and 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Go to the end of the URL in the address and enter `Move wayne berry from miami to mount vernon`. The last querystring parameter is `q`, the utterance **query**. 
+2. Go to the end of the URL in the address and enter `Move wayne berry from miami to mount vernon`. The last querystring parameter is `q`, the utterance **query**.
 
     ```json
     {
@@ -377,7 +377,7 @@ The intent score is now much higher and the role names are part of the entity re
 
 ## Next steps
 
-This tutorial added an entity with roles and an intent with example utterances. The first endpoint prediction using the entity correctly predicted the intent but with a low confidence score. Only one of the two entities was detected. Next, the tutorial added a pattern that used the entity roles, and a phrase list to boost the value of the city names in the utterances. The second endpoint prediction returned a high-confidence score and found both entity roles. 
+This tutorial added an entity with roles and an intent with example utterances. The first endpoint prediction using the entity correctly predicted the intent but with a low confidence score. Only one of the two entities was detected. Next, the tutorial added a pattern that used the entity roles, and a phrase list to boost the value of the city names in the utterances. The second endpoint prediction returned a high-confidence score and found both entity roles.
 
 > [!div class="nextstepaction"]
 > [Learn best practices for LUIS apps](luis-concept-best-practices.md)

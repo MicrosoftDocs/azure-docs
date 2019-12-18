@@ -7,8 +7,8 @@ author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 08/28/2019
+ms.topic: include
+ms.date: 12/09/2019
 ms.author: erhopf
 ---
 
@@ -25,7 +25,7 @@ Before you get started, make sure to:
 
 1. Open **Program.cs**, and replace all the code in it with the following.
 
-   ```CSharp
+   ```csharp
    using System;
    using System.Threading.Tasks;
    using Microsoft.CognitiveServices.Speech;
