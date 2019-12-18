@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
-* An Immersive Reader resource configured for Azure Active Directory (Azure AD) authentication. Follow [these instructions](./azure-active-directory-authentication.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Azure Active Directory (Azure AD) authentication. Follow [these instructions](./azure-active-directory-authentication.md) to get set up. you'll need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
 
 ## Create a web app project
 
@@ -66,9 +66,9 @@ Right-click on the project in the _Solution Explorer_ and choose **Manage User S
 
 ### Add the Microsoft.IdentityModel.Clients.ActiveDirectory NuGet package
 
-The following code uses objects from the **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet package so you will need to add a reference to that package in your project.
+The following code uses objects from the **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet package so you'll need to add a reference to that package in your project.
 
-Open the NuGet Package Manager Console from **Tools -> NuGet Package Manager -> Package Manager Console** and run the following:
+Open the NuGet Package Manager Console from **Tools -> NuGet Package Manager -> Package Manager Console** and run the following command:
 
 ```powershell
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.1.0
@@ -225,7 +225,7 @@ Now, we'll add sample content to this web app. Open _Views\Home\Index.cshtml_ an
 </div>
 ```
 
-Notice that all of the text has a **lang** attribute which describes the languages of the text. This helps the Immersive Reader provide relevant language and grammar features.
+Notice that all of the text has a **lang** attribute, which describes the languages of the text. This attribute helps the Immersive Reader provide relevant language and grammar features.
 
 ## Add Javascript to handle launching the Immersive Reader
 
