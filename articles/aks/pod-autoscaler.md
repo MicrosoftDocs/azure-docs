@@ -13,9 +13,11 @@ ms.author: Partha Sarathi Sarkar
 ## Overview of Horizontal Pod Autoscaler
 
 __Introduction__
+
 One of the nicer features of Kubernetes is the ability to code and configure autoscale on your running services. Without autoscaling, it’s difficult to accomodate deployment scaling . This feature is called Horizontal Pod Autoscaler (HPA) on Kubernetes clusters.
 
 __Why use Horizontal Pod Autoscaling__
+
 Using HPA, you can achieve up/down autoscaling in your deployments, based on resource use and/or custom metrics, and to accomodate deployments scale to realtime load of your services.
 
 HPA produces two direct improvements to your services:
@@ -24,12 +26,16 @@ HPA produces two direct improvements to your services:
 2. Increase/decrease performance as needed to accomplish requirements.
 
 __How HPA works__
-HPA automatically scales the number of pods (defined minimum and maximum number of pods) in a replication controller, deployment or replica set, based on observed CPU/memory utilization (resource metrics). HPA is implemented as a control loop, with a period controlled by the Kubernetes controller manager ``code--horizontal-pod-autoscaler-sync-period flag`` (default value 30s).
+
+HPA automatically scales the number of pods (defined minimum and maximum number of pods) in a replication controller, deployment or replica set, based on observed CPU/memory utilization (resource metrics). HPA is implemented as a control loop, with a period controlled by the Kubernetes controller manager `--horizontal-pod-autoscaler-sync-period flag`(default value 30s).
+
+
+
 ![The  horizontal pod autoscaler](media/autoscaler/pod-autoscaler.png)
 
 ## Before you begin
 
-This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This article requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Deploying Application to Kubernetes
 
@@ -101,7 +107,7 @@ spec:
 Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
 ```azurecli-interactive
-kubectl apply -f azure-vote-hpa.yaml
+$ kubectl apply -f azure-vote-hpa.yaml
 ```
 The following example output shows the hpa created successfully:
 
