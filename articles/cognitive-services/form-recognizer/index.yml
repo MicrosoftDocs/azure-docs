@@ -53,7 +53,7 @@ landingContent:
           - text: Build a training data set
             url: build-training-data-set.md
 
-  - title: Train using labels
+  - title: Train a custom model using labels
     linkLists:
       - linkListType: concept
         links:
