@@ -522,7 +522,7 @@ mapControl.onReady(map -> {
 });
 ```
 
-![Azure Maps custom marker](media/migrate-google-maps-android-app/zure-maps-custom-marker.png)
+![Azure Maps custom marker](media/migrate-google-maps-android-app/azure-maps-custom-marker.png)
 
 ## Adding a polyline
 

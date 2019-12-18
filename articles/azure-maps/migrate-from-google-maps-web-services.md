@@ -157,7 +157,7 @@ The following table cross-references the Google Maps API parameters with the com
 | `pagetoken`                 | `ofs` and `limit`                   |
 | `radius`                    | `radius`                            |
 | `rankby`                    | *N/A*                               |
-| `type`                      | `categorySet –` See [supported search categories](supported-search-categories) documentation.   |
+| `type`                      | `categorySet –` See [supported search categories](supported-search-categories.md) documentation.   |
 
 ## Calculate routes and directions
 

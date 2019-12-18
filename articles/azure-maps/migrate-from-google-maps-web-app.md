@@ -594,7 +594,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Additional resources:**
 
-- [Add lines to the map](map-add-shape.md#add-lines-to-the-map)
+- [Add lines to the map](map-add-line-layer.md)
 - [Line layer options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
 - [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
 
@@ -665,7 +665,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Additional resources:**
 
-- [Add a polygon to the map](map-add-shape.md#add-a-polygon-to-the-map)
+- [Add a polygon to the map](map-add-shape.md)
 - [Add a circle to the map](map-add-shape.md#add-a-circle-to-the-map)
 - [Polygon layer options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
 - [Line layer options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
