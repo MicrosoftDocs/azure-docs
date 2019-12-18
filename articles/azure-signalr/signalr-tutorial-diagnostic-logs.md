@@ -176,7 +176,7 @@ If you get 401 Unauthorized returned for client requests, check your diagnostic 
 
 #### Throttling
 
-If you find that you cannot establish SignalR client connections to Azure SignalR Service, check your diagnostic logs. If you encounter `Connection count reaches limit` in diagnostic log, you establish too many connections to SignalR Service, which reach the connection count limit. Consider scaling up your SignalR Service. If you encounter `Message count reaches limit` in diagnostic log, it means you use free tier, and you use up the quota of messages. If you want to send more messages, consider changing your SignalR Service to standard tier to send additional messages. For more details, see [Azure SignalR Service Pricing](https://azure.microsoft.com/en-us/pricing/details/signalr-service/).
+If you find that you cannot establish SignalR client connections to Azure SignalR Service, check your diagnostic logs. If you encounter `Connection count reaches limit` in diagnostic log, you establish too many connections to SignalR Service, which reach the connection count limit. Consider scaling up your SignalR Service. If you encounter `Message count reaches limit` in diagnostic log, it means you use free tier, and you use up the quota of messages. If you want to send more messages, consider changing your SignalR Service to standard tier to send additional messages. For more details, see [Azure SignalR Service Pricing](https://azure.microsoft.com/pricing/details/signalr-service/).
 
 ### Get help
 
