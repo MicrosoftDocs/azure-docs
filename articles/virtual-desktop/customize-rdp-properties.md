@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 12/18/2019
 ms.author: helohr
 ---
 # Customize Remote Desktop Protocol properties for a host pool
