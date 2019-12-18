@@ -125,7 +125,7 @@ Leverage Azure Policy to alert, audit, and enforce system configurations. Additi
 
 How to configure and manage Azure Policy:
 
-https://docs.microsoft.com/en-us/azure/governance/policy/tutorials/create-and-manage
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ## 7.8: Deploy System Configuration Management Tools for Operating Systems
 

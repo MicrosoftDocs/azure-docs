@@ -25,7 +25,7 @@ The following sections list the Azure security recommendations for Penetration T
 | 11.1 | 20.1-20.8 | Shared |
 
 Please follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies:
-https://www.microsoft.com/en-us/msrc/pentest-rules-of-engagement?rtc=1
+https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
 You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here: 
 https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e

@@ -74,13 +74,13 @@ Enable DDoS Standard protection on your Azure Virtual Networks for protections f
 Deploy Azure Firewall at each of the organization's network boundaries with Threat Intelligence enabled and configured to &quot;Alert and deny&quot; for malicious network traffic.
 
 How to configure DDoS protection:
-https://docs.microsoft.com/en-us/azure/virtual-network/manage-ddos-protection
+https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
 How to deploy Azure Firewall:
-https://docs.microsoft.com/en-us/azure/firewall/tutorial-firewall-deploy-portal
+https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
 Understand Azure Security Center Integrated Threat Intelligence:
-https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-service-layer
+https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
 ## 1.5: Record Network Packets and Flow Logs
 
