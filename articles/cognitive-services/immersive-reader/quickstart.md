@@ -219,7 +219,7 @@ Now, we'll add sample content to this web app. Open _Views\Home\Index.cshtml_ an
             Der plastische Reader ist in vielen Sprachen verfügbar.
         </p>
         <p style="text-align:right" lang="ar-eg">
-            القارئ الشامل\" في العديد من اللغات
+            يتوفر \"القارئ الشامل\" في العديد من اللغات.
         </p>
     </div>
 </div>
