@@ -39,9 +39,9 @@ For this tutorial, we'll be using the following:
 We'll be creating a vault named *saphanaVault*.
 
 ```azurecli-interactive
-az backup vault create --resource-group *saphanaResourceGroup* \
-    --name *saphanaVault* \
-    --location *westus2*
+az backup vault create --resource-group saphanaResourceGroup \
+    --name saphanaVault \
+    --location westus2
 ```
 
 By default, the Recovery Services vault is set for Geo-Redundant storage. Geo-Redundant storage ensures your backup data is replicated to a secondary Azure region that is hundreds of miles away from the primary region. If the storage redundancy setting needs to be modified, use the [az backup vault backup-properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
@@ -150,6 +150,8 @@ The output will display as follows:
 >Name | ResourceGroup
 >--- | ----
 >e0f15dae-7cac-4475-a833-f52c50e5b6c3 | saphanaResourceGroup
+
+The response will give you the job name. This job name can be used to track the job status using the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 >[!NOTE]
 >In addition to scheduling a full or differential backup, they can also be currently triggered manually. Log backups are automatically triggered and managed by SAP HANA internally.
