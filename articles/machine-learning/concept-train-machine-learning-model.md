@@ -36,7 +36,7 @@ The Azure Machine Learning SDK for Python allows you to build and run machine le
 
 * [What is the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Install/update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
-* [Configure a development environment for Azure Machine Learning](service/how-to-configure-environment.md)
+* [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md)
 
 ### Run configuration
 
@@ -62,7 +62,7 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 * [Examples: Jupyter Notebook examples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [How to: Configure automated ML experiments in Python](how-to-configure-auto-train.md)
 * [How to: Autotrain a time-series forecast model](how-to-auto-train-forecast.md)
-* [How to: Create, explore, and deploy automated machine learning experiments with [Azure Machine Learning studio](service/how-to-create-portal-experiments.md)
+* [How to: Create, explore, and deploy automated machine learning experiments with [Azure Machine Learning studio](how-to-create-portal-experiments.md)
 
 ### Estimators
 
@@ -78,7 +78,7 @@ Estimators make it easy to train models using popular ML frameworks. If you're u
 Machine learning pipelines can use the previously mentioned training methods (run configuration, estimators, and automated machine learning). Pipelines are more about creating a workflow, so they encompass more than just the training of models. In a pipeline, you can train a model using automated machine learning, estimators, or run configurations.
 
 * [What are ML pipelines in Azure Machine Learning?](concept-ml-pipelines.md)
-* [Create and run machine learning pipelines with Azure Machine Learning SDK](service/how-to-create-your-first-pipeline.md)
+* [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)
 * [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](service/tutorial-pipeline-batch-scoring-classification.md)
 * [Examples: Jupyter Notebook examples for machine learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Examples: Pipeline with automated machine learning](https://aka.ms/pl-automl)

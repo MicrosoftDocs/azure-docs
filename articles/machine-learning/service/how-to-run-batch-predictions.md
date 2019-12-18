@@ -34,7 +34,7 @@ In this article, you learn the following tasks:
 
 * For a guided quickstart, complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine. 
 
-* To manage your own environment and dependencies, see the [how-to guide](how-to-configure-environment.md) on configuring your own environment. Run `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` in your environment to download the necessary dependencies.
+* To manage your own environment and dependencies, see the [how-to guide](../how-to-configure-environment.md) on configuring your own environment. Run `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` in your environment to download the necessary dependencies.
 
 ## Set up machine learning resources
 
@@ -354,9 +354,9 @@ pipeline_run.wait_for_completion(show_output=True)
 
 To see this process working end to end, try the [batch inference notebook](https://aka.ms/batch-inference-notebooks). 
 
-For debugging and troubleshooting guidance for ParallelRunStep, see the [how-to guide](how-to-debug-batch-predictions.md).
+For debugging and troubleshooting guidance for ParallelRunStep, see the [how-to guide](../how-to-debug-batch-predictions.md).
 
-For debugging and troubleshooting guidance for pipelines, see the [how-to guide](how-to-debug-pipelines.md).
+For debugging and troubleshooting guidance for pipelines, see the [how-to guide](../how-to-debug-pipelines.md).
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

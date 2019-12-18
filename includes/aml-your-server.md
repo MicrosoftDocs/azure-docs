@@ -15,7 +15,7 @@ ms.date: 09/26/2019
 
 1. Create an [Azure Machine Learning workspace](../articles/machine-learning/service/how-to-manage-workspace.md).
 
-1. Write a  [configuration file](../articles/machine-learning/service/how-to-configure-environment.md#workspace) file (**aml_config/config.json**).
+1. Write a  [configuration file](../articles/machine-learning/how-to-configure-environment.md#workspace) file (**aml_config/config.json**).
 
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 

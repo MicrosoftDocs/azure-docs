@@ -79,7 +79,7 @@ Use the sections below to configure these compute targets:
 
 1. **Create and attach**: There's no need to create or attach a compute target to use your local computer as the training environment.  
 
-1. **Configure**:  When you use your local computer as a compute target, the training code is run in your [development environment](how-to-configure-environment.md).  If that environment already has the Python packages you need, use the user-managed environment.
+1. **Configure**:  When you use your local computer as a compute target, the training code is run in your [development environment](../how-to-configure-environment.md).  If that environment already has the Python packages you need, use the user-managed environment.
 
  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=run_local)]
 

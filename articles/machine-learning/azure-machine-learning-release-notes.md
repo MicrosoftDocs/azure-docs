@@ -519,7 +519,7 @@ The new web experience enables data scientists and data engineers to complete th
 Using this new Azure Machine Learning interface, you can now:
 + Manage your notebooks or link out to Jupyter
 + [Run automated ML experiments](service/tutorial-first-experiment-automated-ml.md)
-+ [Create datasets from local files, datastores, & web files](service/how-to-create-register-datasets.md)
++ [Create datasets from local files, datastores, & web files](how-to-create-register-datasets.md)
 + Explore & prepare datasets for model creation
 + Monitor data drift for your models 
 + View recent resources from a dashboard
@@ -1430,7 +1430,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
 ### Docs and notebooks
 + ML Pipelines
   + New and updated notebooks for getting started with pipelines, batch scoping,  and style transfer examples: https://aka.ms/aml-pipeline-notebooks
-  + Learn how to [create your first pipeline](service/how-to-create-your-first-pipeline.md)
+  + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md)
   + Learn how to [run batch predictions using pipelines](service/how-to-run-batch-predictions.md)
 + Azure Machine Learning compute target
   + [Sample notebooks](https://aka.ms/aml-notebooks) are now updated to use the new managed compute.

@@ -49,7 +49,7 @@ Using Azure Machine Learning, data drift is monitored through datasets or deploy
 
 - An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-- A workspace [configuration file](how-to-configure-environment.md#workspace).
+- A workspace [configuration file](../how-to-configure-environment.md#workspace).
 
 - Install the data drift SDK using the following command:
 
@@ -57,7 +57,7 @@ Using Azure Machine Learning, data drift is monitored through datasets or deploy
     pip install azureml-datadrift
     ```
 
-- Create a [dataset](how-to-create-register-datasets.md) from your model's training data.
+- Create a [dataset](../how-to-create-register-datasets.md) from your model's training data.
 
 - Specify the training dataset when [registering](../concept-model-management-and-deployment.md) the model. The following example demonstrates using the `datasets` parameter to specify the training dataset:
 

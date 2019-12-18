@@ -46,7 +46,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 * In your cloned **tutorials** folder, open the **img-classification-part1-training.ipynb** notebook. 
 
 
-The tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local). Run `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to install dependencies for this tutorial.
+The tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](../how-to-configure-environment.md#local). Run `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to install dependencies for this tutorial.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the notebook.  
@@ -158,7 +158,7 @@ Use Azure Open Datasets to get the raw MNIST data files. [Azure Open Datasets](h
 
 This code retrieves the data as a `FileDataset` object, which is a subclass of `Dataset`. A `FileDataset` references single or multiple files of any format in your datastores or public urls. The class provides you with the ability to download or mount the files to your compute by creating a reference to the data source location. Additionally, you register the Dataset to your workspace for easy retrieval during training.
 
-Follow the [how-to](how-to-create-register-datasets.md) to learn more about Datasets and their usage in the SDK.
+Follow the [how-to](../how-to-create-register-datasets.md) to learn more about Datasets and their usage in the SDK.
 
 ```python
 from azureml.core import Dataset

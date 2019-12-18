@@ -284,7 +284,7 @@ Here are the details:
 ## Next steps
 
 * [Secure Azure Machine Learning web services with SSL](service/how-to-secure-web-service.md)
-* [Consume a Machine Learning model deployed as a web service](service/how-to-consume-web-service.md)
+* [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [How to run batch predictions](service/how-to-run-batch-predictions.md)
 * [Monitor your Azure Machine Learning models with Application Insights](service/how-to-enable-app-insights.md)
 * [Collect data for models in production](service/how-to-enable-data-collection.md)

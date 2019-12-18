@@ -54,7 +54,7 @@ Supported Azure storage services that can be registered as datastores:
 
 ### Datasets
 
-[Create an Azure Machine Learning dataset](service/how-to-create-register-datasets.md) to interact with data in your datastores and package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
+[Create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with data in your datastores and package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
 
 Datasets can be created from local files, public urls, [Azure Open Datasets](#open), or specific file(s) in your datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file. Datasets aren't copies of your data, but are references that point to the data in your storage service, so no extra storage cost is incurred. 
 
@@ -77,9 +77,9 @@ With datasets, you can accomplish a number of machine learning tasks through sea
 
 + [Train machine learning models](service/how-to-train-with-datasets.md).
 + Consume datasets in 
-     + [automated ML experiments](service/how-to-create-portal-experiments.md)
+     + [automated ML experiments](how-to-create-portal-experiments.md)
      + the [designer](service/tutorial-designer-automobile-price-train-score.md#import-data) 
-+ Access datasets for scoring with batch inference in [machine learning pipelines](service/how-to-create-your-first-pipeline.md).
++ Access datasets for scoring with batch inference in [machine learning pipelines](how-to-create-your-first-pipeline.md).
 + Create a [data labeling project](#label).
 + Set up a dataset monitor for [data drift](#drift) detection.
 
@@ -87,7 +87,7 @@ With datasets, you can accomplish a number of machine learning tasks through sea
 
 ## Azure Open Datasets
 
-[Azure Open Datasets](service/how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Open Datasets are in the cloud on Microsoft Azure and are integrated into Azure Machine Learning. You can also access the datasets through APIs and use them in other products, such as Power BI and Azure Data Factory.
+[Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Open Datasets are in the cloud on Microsoft Azure and are integrated into Azure Machine Learning. You can also access the datasets through APIs and use them in other products, such as Power BI and Azure Data Factory.
 
 Azure Open Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. You can also share your public datasets on Azure Open Datasets.
 
@@ -99,7 +99,7 @@ Labeling large amounts of data has often been a headache in machine learning pro
 
 Azure Machine Learning gives you a central location to create, manage, and monitor labeling projects. Labeling projects help coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling tasks. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes.
 
-+ Create a [data labeling project](service/how-to-create-labeling-projects.md), and output a dataset for use in machine learning experiments.
++ Create a [data labeling project](how-to-create-labeling-projects.md), and output a dataset for use in machine learning experiments.
 
 <a name="drift"></a>
 
@@ -110,6 +110,6 @@ See the [Create a dataset monitor](service/how-to-monitor-datasets.md) article, 
 
 ## Next steps 
 
-+ Create a dataset in Azure Machine Learning studio or with the Python SDK, [use these steps.](service/how-to-create-register-datasets.md)
++ Create a dataset in Azure Machine Learning studio or with the Python SDK, [use these steps.](how-to-create-register-datasets.md)
 + Try out dataset training examples with our [sample notebooks](https://aka.ms/dataset-tutorial).
 + For data drift examples, see this [data drift tutorial](https://aka.ms/datadrift-notebook).

@@ -291,11 +291,11 @@ print(response.elapsed)
 print(response.json())
 ```
 
-For more information on how to consume the deployed service, see [Create a client](how-to-consume-web-service.md).
+For more information on how to consume the deployed service, see [Create a client](../how-to-consume-web-service.md).
 
 ## Next steps
 
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
 * [How and where to deploy models](how-to-deploy-and-where.md)
-* [How to create a client for a deployed model](how-to-consume-web-service.md)
+* [How to create a client for a deployed model](../how-to-consume-web-service.md)

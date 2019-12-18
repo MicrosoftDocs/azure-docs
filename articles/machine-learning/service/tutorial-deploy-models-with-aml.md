@@ -39,7 +39,7 @@ Container Instances is a great solution for testing and understanding the workfl
 
 To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model](tutorial-train-models-with-aml.md).   Then open the  **img-classification-part2-deploy.ipynb** notebook in your cloned **tutorials** folder.
 
-This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed `matplotlib` and `scikit-learn` in your environment. 
+This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](../how-to-configure-environment.md#local).  Make sure you have installed `matplotlib` and `scikit-learn` in your environment. 
 
 > [!Important]
 > The rest of this article contains the same content as you see in the notebook.  
@@ -383,7 +383,7 @@ service.delete()
 ## Next steps
 
 + Learn about all of the [deployment options for Azure Machine Learning](how-to-deploy-and-where.md).
-+ Learn how to [create clients for the web service](how-to-consume-web-service.md).
++ Learn how to [create clients for the web service](../how-to-consume-web-service.md).
 +  [Make predictions on large quantities of data](how-to-run-batch-predictions.md) asynchronously.
 + Monitor your Azure Machine Learning models with [Application Insights](how-to-enable-app-insights.md).
 + Try out the [automatic algorithm selection](tutorial-auto-train-models.md) tutorial. 

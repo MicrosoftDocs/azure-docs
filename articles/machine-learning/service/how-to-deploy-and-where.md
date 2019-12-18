@@ -657,7 +657,7 @@ print(response.elapsed)
 print(response.json())
 ```
 
-For more information, see [Create client applications to consume web services](how-to-consume-web-service.md).
+For more information, see [Create client applications to consume web services](../how-to-consume-web-service.md).
 
 ### Web service schema (OpenAPI specification)
 
@@ -1056,7 +1056,7 @@ resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
 ```
 
-For example clients in other programming languages, see [Consume models deployed as web services](how-to-consume-web-service.md).
+For example clients in other programming languages, see [Consume models deployed as web services](../how-to-consume-web-service.md).
 
 ### Stop the Docker container
 
@@ -1078,7 +1078,7 @@ For more information, see the documentation for [WebService.delete()](https://do
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
-* [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
+* [Consume an Azure Machine Learning model deployed as a web service](../how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
 
