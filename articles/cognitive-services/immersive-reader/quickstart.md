@@ -29,13 +29,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a web app project
 
-Create a new project in Visual Studio, using the ASP.NET Core Web Application template with built-in Model-View-Controller, and ASP.NET Core 2.1. Name the project "QuickStartSampleApp".
+Create a new project in Visual Studio, using the ASP.NET Core Web Application template with built-in Model-View-Controller, and ASP.NET Core 2.1. Name the project "QuickstartSampleWebApp".
 
-![New Project](./media/vswebapp.png)
+![New Project](./media/quickstart-csharp/1-createproject.png)
 
-![Configure New Project](./media/vswebapp2.png)
+![Configure New Project](./media/quickstart-csharp/2-configureproject.png)
 
-![New ASP.NET Core Web Application](./media/vsmvc.png)
+![New ASP.NET Core Web Application](./media/quickstart-csharp/3-createmvc.png)
 
 ## Acquire an Azure AD authentication token
 
@@ -226,12 +226,11 @@ Notice that all of the text has a **lang** attribute which describes the languag
 
 ## Add Javascript to handle launching the Immersive Reader
 
-The The Immersive Reader library provides functionality such as launching the Immersive Reader, and rendering Immersive Reader buttons. Learn more [here](https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference).
+The Immersive Reader library provides functionality such as launching the Immersive Reader, and rendering Immersive Reader buttons. Learn more [here](https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference).
 
 At the bottom of _Views\Home\Index.cshtml_, add the following code:
 
 ```html
-
 @section Scripts
 {
     <script src="https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.3.js"></script>
@@ -305,13 +304,13 @@ From the menu bar, select **Debug > Start Debugging**, or press **F5** to start 
 
 In your browser, you should see:
 
-![Sample app](./media/quickstart-result.png)
+![Sample app](./media/quickstart-csharp/4-buildapp.png)
 
 ## Launch the Immersive Reader
 
 When you click on the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
 
-![Immersive Reader](./media/quickstart-immersive-reader.png)
+![Immersive Reader](./media/quickstart-csharp/5-viewimmersivereader.png)
 
 ## Next steps
 
