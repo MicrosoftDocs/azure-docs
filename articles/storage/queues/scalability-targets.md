@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: queues
 ---
@@ -25,6 +25,10 @@ Be sure to test your application to determine whether its performance meets your
 ## Scale targets for Queue storage
 
 [!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
+
+## Scale targets for the Azure Storage resource provider
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ## See also
 
