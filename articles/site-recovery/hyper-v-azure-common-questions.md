@@ -193,14 +193,17 @@ Site Recovery doesn't explicitly install anything on Hyper-V VMs enabled for rep
 ### How do I fail over to Azure?
 
 You can run a planned or unplanned failover from on-premises Hyper-V VMs to Azure.
+
     - If you run a planned failover, then source VMs are shut down to ensure no data loss.
     - You can run an unplanned failover if your primary site isn't accessible.
     - You can fail over a single machine, or create recovery plans, to orchestrate failover of multiple machines.
-    - You run a failover. After the first stage of failover completes, you should be able to see the created replica VMs in Azure. You can assign a public IP address to the VM if required. You then commit the failover, to start accessing the workload from the replica Azure VM.
+    - Failover is in two parts:
+        - After the first stage of failover completes, you should be able to see the created replica VMs in Azure. You can assign a public IP address to the VM if required.
+        - You then commit the failover, to start accessing the workload from the replica Azure VM.
    
 
 ### How do I access Azure VMs after failover?
-After failover, you can access Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute. You'll need to prepare a number of things in order to connect. [Learn more](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+After failover, you can access Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute. You'll need to prepare a number of things in order to connect. [Learn more](failover-failback-overview.md#connect-to-after-failover).
 
 ### Is failed over data resilient?
 Azure is designed for resilience. Site Recovery is engineered for failover to a secondary Azure datacenter, in accordance with the Azure SLA. When failover occurs, we make sure your metadata and vaults remain within the same geographic region that you chose for your vault.
