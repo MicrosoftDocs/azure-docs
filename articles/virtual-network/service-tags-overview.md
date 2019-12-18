@@ -21,43 +21,41 @@ ms.reviewer: kumud
 A service tag represents a group of IP address prefixes from a given Azure service. It helps to minimize the complexity of frequent updates to network security rules. You can use service tags to define network access controls on [network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) or [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). You can use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, **ApiManagement**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
 ## Available service tags
-The following table includes all of the service tags available to be used in [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) rules.
+The following table includes all the service tags available for use in [network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) rules.
 
-The columns indicate whether the tag is:
+The columns indicate whether the tag:
 
-- Suitable for rules covering inbound or outbound traffic
-- Support [regional](https://azure.microsoft.com/regions) scope 
-- Usable in [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags) rules
+- Is suitable for rules that cover inbound or outbound traffic.
+- Supports [regional](https://azure.microsoft.com/regions) scope.
+- Is usable in [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags) rules.
 
-By default, service tags reflect the ranges for the entire cloud.  Some service tags also allow more finer-grain control by restricting the corresponding IP ranges to a specified region.  For example while the service tag **Storage** represents Azure Storage for the entire cloud,  **Storage.WestUS** narrows that to only the storage IP address ranges from the WestUS region.  The descriptions of each Service tag below indicates whether they support such regional scope.  
+By default, service tags reflect the ranges for the entire cloud. Some service tags also allow more granular control by restricting the corresponding IP ranges to a specified region. For example, the service tag **Storage** represents Azure Storage for the entire cloud, but **Storage.WestUS** narrows the range to only the storage IP address ranges from the WestUS region. The table indicates whether each service tag supports such regional scope.  
 
-
-
-| Tag | Purpose | Can use Inbound or Outbound? | Can be Regional? | Can use with Azure Firewall? |
+| Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ApiManagement** | Management traffic for APIM dedicated deployments. | Both | No | Yes |
-| **AppService**    | App Service service. This tag is recommended for outbound security rules to WebApp frontends. | Outbound | Yes | Yes |
-| **AppServiceManagement** | Management traffic for App Service Environment dedicated deployments. | Both | No | Yes |
-| **AzureActiveDirectory** | Azure Active Directory service. | Outbound | No | Yes |
-| **AzureActiveDirectoryDomainServices** | Management traffic for Azure Active Directory Domain Services dedicated deployments. | Both | No | Yes |
-| **AzureBackup** |Azure Backup service.<br/><br/>*Note:* This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
+| **ApiManagement** | Management traffic for APIM-dedicated deployments. | Both | No | Yes |
+| **AppService**    | App Service. This tag is recommended for outbound security rules to Web App front ends. | Outbound | Yes | Yes |
+| **AppServiceManagement** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
+| **AzureActiveDirectory** | Azure Active Directory. | Outbound | No | Yes |
+| **AzureActiveDirectoryDomainServices** | Management traffic for deployments dedicated to Azure Active Directory Domain Services. | Both | No | Yes |
+| **AzureBackup** |Azure Backup.<br/><br/>*Note:* This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
 | **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=41653). | Outbound | Yes | Yes |
-| **AzureConnectors** | Logic Apps connectors for probe/backend connections. | Inbound | Yes | Yes |
-| **AzureContainerRegistry** | Azure Container Registry service. | Outbound | Yes | Yes |
-| **AzureCosmosDB** | Azure Cosmos Database service. | Outbound | Yes | Yes |
-| **AzureDataLake** | Azure Data Lake service. | Outbound | No | Yes |
-| **AzureHDInsight** | Azure HDInsight service. | Inbound | Yes | No |
-| **AzureIoTHub** | Azure IoT Hub service. | Outbound | No | No |
-| **AzureKeyVault** | Azure KeyVault service.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
-| **AzureLoadBalancer** | Azure's infrastructure load balancer. The tag translates to the [Virtual IP address of the host](security-overview.md#azure-platform-considerations) (168.63.129.16) where Azure's health probes originate. If you are not using the Azure load balancer, you can override this rule. | Both | No | No |
+| **AzureConnectors** | Logic Apps connectors for probe/back-end connections. | Inbound | Yes | Yes |
+| **AzureContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |
+| **AzureCosmosDB** | Azure Cosmos DB. | Outbound | Yes | Yes |
+| **AzureDataLake** | Azure Data Lake. | Outbound | No | Yes |
+| **AzureHDInsight** | Azure HDInsight. | Inbound | Yes | No |
+| **AzureIoTHub** | Azure IoT Hub. | Outbound | No | No |
+| **AzureKeyVault** | Azure Key Vault.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
+| **AzureLoadBalancer** | The Azure infrastructure load balancer. The tag translates to the [virtual IP address of the host](security-overview.md#azure-platform-considerations) (168.63.129.16) where the Azure health probes originate. If you're not using the Azure Load Balancer, you can override this rule. | Both | No | No |
 | **AzureMachineLearning** | Azure Machine Learning. | Outbound | No | Yes |
-| **AzureMonitor** | Log Analytics, App Insights, AzMon, and custom metrics (GiG endpoints).<br/><br/>*Note:* For Log Analytics, this tag has dependency on the **Storage** tag. | Outbound | No | Yes |
-| **AzurePlatformDNS** | The basic infrastructure (default) DNS service.<br/><br>You can use this tag to disable the default DNS. Please exercise caution in using this tag. Reading [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) is recommended. Testing is recommended before using this tag. | Outbound | No | No |
-| **AzurePlatformIMDS** | IMDS, which is a basic infrastructure service.<br/><br/>You can use this tag to disable the default IMDS.  Please exercise caution in using this tag. Reading [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) is recommended. Testing is recommended before using this tag. | Outbound | No | No |
-| **AzurePlatformLKM** | Windows licensing or key management service.<br/><br/>You can use this tag to disable the defaults for licensing. Please exercise caution in using this tag.  Reading [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) is recommended. Testing is recommended before using this tag. | Outbound | No | No |
-| **AzureTrafficManaged** | Azure Traffic Manager probe IP addresses.<br/><br/>More information on Traffic Manager probe IP addresses can be found in the [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Inbound | No | Yes |  
-| **BatchNodeManagement** | Management traffic for Azure Batch dedicated deployments. | Both | No | Yes |
-| **CognitiveServicesManagement** | The address ranges for traffic for Cognitive Services | Outbound | No | No |
+| **AzureMonitor** | Log Analytics, Application Insights, AzMon, and custom metrics (GiG endpoints).<br/><br/>*Note:* For Log Analytics, this tag has a dependency on the **Storage** tag. | Outbound | No | Yes |
+| **AzurePlatformDNS** | The basic infrastructure (default) DNS service.<br/><br>You can use this tag to disable the default DNS. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |
+| **AzurePlatformIMDS** | IMDS, which is a basic infrastructure service.<br/><br/>You can use this tag to disable the default IMDS. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |
+| **AzurePlatformLKM** | Windows licensing or key management service.<br/><br/>You can use this tag to disable the defaults for licensing. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |
+| **AzureTrafficManaged** | Azure Traffic Manager probe IP addresses.<br/><br/>For more information on Traffic Manager probe IP addresses, see [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Inbound | No | Yes |  
+| **BatchNodeManagement** | Management traffic for deployments dedicated to Azure Batch. | Both | No | Yes |
+| **CognitiveServicesManagement** | The address ranges for traffic for Cognitive Services. | Outbound | No | No |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Outbound | Yes | No |
 | **EventHub** | Azure EventHub service. | Outbound | Yes | Yes |
 | **GatewayManager** | Management traffic for VPN/App Gateways dedicated deployments. | Inbound | No | No |
