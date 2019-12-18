@@ -77,22 +77,32 @@ The following table contains common problems during pipeline development, with p
 | Pipeline is rerunning unnecessarily | To ensure that steps only rerun when their underlying data or scripts change, decouple your directories for each step. If you use the same source directory for multiple steps, you may experience unnecessary reruns. Use the `source_directory` parameter on a pipeline step object to point to your isolated directory for that step, and ensure you aren't using the same `source_directory` path for multiple steps. |
 
 ## Debug and troubleshoot in Azure Machine Learning designer (preview)
-This section provide an overview of how to troubleshoot when building pipelines in the designer.
-For pipelines created in the designer, you can either find the log files in the authoring page, or in the pipeline run detail page.
-When you start to run a pipeline and stay in the authoring page, you can find the log files generated during running.
-![Authoring page module logs](./media/how-to-debug-pipelines/pipelinerun-06.png)
 
-You can also find the log files of specific run in the pipeline run detail page under **Pipelines** or **Experiments**.
-First click on a pipeline run created from the designer.
-![Pipeline run page](./media/how-to-debug-pipelines/pipelinerun-04.png)
-Then select a specific module and navigate the **Logs** tab in the right panel.
-![Pipeline run detail page](./media/how-to-debug-pipelines/pipelinerun-05.png)
+This section provides an overview of how to troubleshoot  pipelines in the designer.
+For pipelines created in the designer, you can find the **log files** on either the authoring page, or in the pipeline run detail page.
 
-Click on the log file `70_driver_log.txt` and find the problems. You can find the error code in the [exceptions and error code for the designer](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/designer-error-codes).
+### Access logs from the authoring page
 
+When you submit a pipeline run and stay in the authoring page, you can find the log files generated for each module.
+
+1. Select any module in the authoring canvas.
+1. In the properties pane, go to the  **Logs** tab.
+1. Select the log file `70_driver_log.txt`
+
+![Authoring page module logs](./media/how-to-debug-pipelines/pipelinerun-05.png)
+
+### Access logs from pipeline runs
+
+You can also find the log files of specific runs in the pipeline run detail page in either the **Pipelines** or **Experiments** sections.
+
+1. Select a pipeline run created in the designer.
+    ![Pipeline run page](./media/how-to-debug-pipelines/pipelinerun-04.png)
+1. Select any module in the preview pane.
+1. In the properties pane, go to the **Logs** tab.
+1. Select the log file `70_driver_log.txt`
 
 ## Next steps
 
 * See the SDK reference for help with the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) package.
 
-* Follow the [module reference](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference) to use different modules in the designer.
+* See the list of [designer exceptions and error codes](../algorithm-module-reference/designer-error-codes).
