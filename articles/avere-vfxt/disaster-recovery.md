@@ -99,7 +99,7 @@ To access the backup container from an Avere vFXT for Azure cluster, follow this
 1. If needed, create a new Avere vFXT for Azure cluster in an unaffected region.
 
    > [!TIP]
-   > When you create an Avere vFXT for Azure cluster, you can save a copy of its creation template and parameters. If you save this information when creating your primary cluster, you can use it to create a replacement cluster with the same properties. On the [validation and summary](avere-vfxt-deploy.md#validation-and-purchase) page, click the **Download template and parameters** link. Save the information to a file before you click the **OK** button to create the cluster.
+   > When you create an Avere vFXT for Azure cluster, you can save a copy of its creation template and parameters. If you save this information when creating your primary cluster, you can use it to create a replacement cluster with the same properties. On the [summary](avere-vfxt-deploy.md#validation-and-purchase) page, click the **Download template and parameters** link. Save the information to a file before you create the cluster.
 
 1. Add a new cloud core filer that points to the duplicate Blob container.
 
