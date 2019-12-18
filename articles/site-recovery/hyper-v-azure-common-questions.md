@@ -203,7 +203,7 @@ You can run a planned or unplanned failover from on-premises Hyper-V VMs to Azur
    
 
 ### How do I access Azure VMs after failover?
-After failover, you can access Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute. You'll need to prepare a number of things in order to connect. [Learn more](failover-failback-overview.md#connect-to-after-failover).
+After failover, you can access Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute. You'll need to prepare a number of things in order to connect. [Learn more](failover-failback-overview.md#connect-to-azure-after-failover).
 
 ### Is failed over data resilient?
 Azure is designed for resilience. Site Recovery is engineered for failover to a secondary Azure datacenter, in accordance with the Azure SLA. When failover occurs, we make sure your metadata and vaults remain within the same geographic region that you chose for your vault.
