@@ -71,7 +71,7 @@ az group delete --name ExampleResourceGroup
 
 1. Select **Delete resource group**.
 
-   ![Delete resource group](./media/resource-group-delete/delete-group.png)
+   ![Delete resource group](./media/delete-resource-group/delete-group.png)
 
 1. To confirm the deletion, type the name of the resource group
 
@@ -105,7 +105,7 @@ az resource delete \
 
 1. Select **Delete**. The following screenshot shows the management options for a virtual machine.
 
-   ![Delete resource](./media/resource-group-delete/delete-resource.png)
+   ![Delete resource](./media/delete-resource-group/delete-resource.png)
 
 1. When prompted, confirm the deletion.
 
@@ -114,5 +114,5 @@ az resource delete \
 
 ## Next steps
 
-* To understand Resource Manager concepts, see [Azure Resource Manager overview](resource-group-overview.md).
+* To understand Resource Manager concepts, see [Azure Resource Manager overview](overview.md).
 * For deletion commands, see [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete), and [REST API](/rest/api/resources/resourcegroups/delete).

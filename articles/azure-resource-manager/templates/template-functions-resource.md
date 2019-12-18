@@ -18,7 +18,7 @@ Resource Manager provides the following functions for getting resource values:
 * [subscriptionResourceId](#subscriptionresourceid)
 * [tenantResourceId](#tenantresourceid)
 
-To get values from parameters, variables, or the current deployment, see [Deployment value functions](resource-group-template-functions-deployment.md).
+To get values from parameters, variables, or the current deployment, see [Deployment value functions](template-functions-deployment.md).
 
 ## extensionResourceId
 
@@ -118,7 +118,7 @@ The syntax for this function varies by name of the list operations. Each impleme
 
 ### Valid uses
 
-The list functions can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](resource-group-create-multiple.md#property-iteration), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
+The list functions can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](create-multiple-instances.md#property-iteration), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
 
 ### Implementations
 
@@ -262,7 +262,7 @@ Other list functions have different return formats. To see the format of a funct
 
 Specify the resource by using either the resource name or the [resourceId function](#resourceid). When using a list function in the same template that deploys the referenced resource, use the resource name.
 
-If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and list with a conditionally deployed resource.
+If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and list with a conditionally deployed resource.
 
 ### List example
 
@@ -475,11 +475,11 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
 
 ### Valid uses
 
-The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](resource-group-create-multiple.md#property-iteration), you can use the reference function for `input` because the expression is assigned to the resource property. You can't use it with `count` because the count must be determined before the reference function is resolved.
+The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](create-multiple-instances.md#property-iteration), you can use the reference function for `input` because the expression is assigned to the resource property. You can't use it with `count` because the count must be determined before the reference function is resolved.
 
-You can't use the reference function in the outputs of a [nested template](resource-group-linked-templates.md#nested-template) to return a resource you've deployed in the nested template. Instead, use a [linked template](resource-group-linked-templates.md#linked-template).
+You can't use the reference function in the outputs of a [nested template](linked-templates.md#nested-template) to return a resource you've deployed in the nested template. Instead, use a [linked template](linked-templates.md#linked-template).
 
-If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
+If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
 
 ### Implicit dependency
 
@@ -678,9 +678,9 @@ A common use of the resourceGroup function is to create resources in the same lo
 }
 ```
 
-You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](resource-group-using-tags.md#apply-tags-from-resource-group).
+You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources.md#apply-tags-from-resource-group).
 
-When using nested templates to deploy to multiple resource groups, you can specify the scope for evaluating the resourceGroup function. For more information, see [Deploy Azure resources to more than one subscription or resource group](resource-manager-cross-resource-group-deployment.md).
+When using nested templates to deploy to multiple resource groups, you can specify the scope for evaluating the resourceGroup function. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-resource-group-deployment.md).
 
 ### Resource group example
 
@@ -888,7 +888,7 @@ The function returns the following format:
 
 ### Remarks
 
-When using nested templates to deploy to multiple subscriptions, you can specify the scope for evaluating the subscription function. For more information, see [Deploy Azure resources to more than one subscription or resource group](resource-manager-cross-resource-group-deployment.md).
+When using nested templates to deploy to multiple subscriptions, you can specify the scope for evaluating the subscription function. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-resource-group-deployment.md).
 
 ### Subscription example
 
@@ -1024,8 +1024,8 @@ You use this function to get the resource ID for a resource that is deployed to 
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
+* To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
+* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
+* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
 

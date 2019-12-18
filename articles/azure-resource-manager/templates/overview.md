@@ -22,7 +22,7 @@ If you're trying to decide between using Resource Manager templates and one of t
 
 * **Orchestration**: You don't have to worry about the complexities of ordering operations. Resource Manager orchestrates the deployment of interdependent resources so they're created in the correct order. When possible, Resource Manager deploys resources in parallel so your deployments finish faster than serial deployments. You deploy the template through one command, rather than through multiple imperative commands.
 
-   ![Template deployment comparison](./media/template-deployment-overview/template-processing.png)
+   ![Template deployment comparison](./media/overview/template-processing.png)
 
 * **Built-in validation**: Your template is deployed only after passing validation. Resource Manager checks the template before starting the deployment to make sure the deployment will succeed. Your deployment is less likely to stop in a half-finished state.
 
@@ -32,21 +32,21 @@ If you're trying to decide between using Resource Manager templates and one of t
 
 * **Tracked deployments**: In the Azure portal, you can review the deployment history and get information about the template deployment. You can see the template that was deployed, the parameter values passed in, and any output values. Other infrastructure as code services aren't tracked through the portal.
 
-   ![Deployment history](./media/template-deployment-overview/deployment-history.png)
+   ![Deployment history](./media/overview/deployment-history.png)
 
-* **Policy as code**: [Azure Policy](../governance/policy/overview.md) is a policy as code framework to automate governance. If you're using Azure policies, policy remediation is done on non-compliant resources when deployed through templates.
+* **Policy as code**: [Azure Policy](../../governance/policy/overview.md) is a policy as code framework to automate governance. If you're using Azure policies, policy remediation is done on non-compliant resources when deployed through templates.
 
-* **Deployment Blueprints**: You can take advantage of [Blueprints](../governance/blueprints/overview.md) provided by Microsoft to meet regulatory and compliance standards. These blueprints include pre-built templates for various architectures.
+* **Deployment Blueprints**: You can take advantage of [Blueprints](../../governance/blueprints/overview.md) provided by Microsoft to meet regulatory and compliance standards. These blueprints include pre-built templates for various architectures.
 
-* **CI/CD integration**: You can integrate templates into your continuous integration and continuous deployment (CI/CD) tools, which can automate your release pipelines for fast and reliable application and infrastructure updates. By using Azure DevOps and Resource Manager template task, you can use Azure Pipelines to continuously build and deploy Azure Resource Manager template projects. To learn more, see [VS project with pipelines](./vs-resource-groups-project-devops-pipelines.md) and [Continuous integration with Azure Pipelines](./resource-manager-tutorial-use-azure-pipelines.md).
+* **CI/CD integration**: You can integrate templates into your continuous integration and continuous deployment (CI/CD) tools, which can automate your release pipelines for fast and reliable application and infrastructure updates. By using Azure DevOps and Resource Manager template task, you can use Azure Pipelines to continuously build and deploy Azure Resource Manager template projects. To learn more, see [VS project with pipelines](add-template-to-azure-pipelines.md) and [Continuous integration with Azure Pipelines](template-tutorial-use-azure-pipelines.md).
 
 * **Exportable code**: You can get a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the [exported template](export-template-portal.md) is a helpful way to learn about the template syntax.
 
-* **Authoring tools**: You can author templates with [Visual Studio Code](resource-manager-tools-vs-code.md) and the template tool extension. You get intellisense, syntax highlighting, in-line help, and many other language functions. In addition to Visual Studio code, you can also use [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* **Authoring tools**: You can author templates with [Visual Studio Code](use-vs-code-to-create-template.md) and the template tool extension. You get intellisense, syntax highlighting, in-line help, and many other language functions. In addition to Visual Studio code, you can also use [Visual Studio](create-visual-studio-deployment-project.md).
 
 ## Template file
 
-Within your template, you can write [template expressions](template-expressions.md) that extend the capabilities of JSON. These expressions make use of the [functions](resource-group-template-functions.md) provided by Resource Manager.
+Within your template, you can write [template expressions](template-expressions.md) that extend the capabilities of JSON. These expressions make use of the [functions](template-functions.md) provided by Resource Manager.
 
 The template has the following sections:
 
@@ -56,7 +56,7 @@ The template has the following sections:
 
 * [User-defined functions](template-user-defined-functions.md) - Create customized functions that simplify your template.
 
-* [Resources](resource-group-authoring-templates.md#resources) - Specify the resources to deploy.
+* [Resources](template-syntax.md#resources) - Specify the resources to deploy.
 
 * [Outputs](template-outputs.md) - Return values from the deployed resources.
 
@@ -102,20 +102,20 @@ REQUEST BODY
 
 How you define templates and resource groups is entirely up to you and how you want to manage your solution. For example, you can deploy your three tier application through a single template to a single resource group.
 
-![three tier template](./media/template-deployment-overview/3-tier-template.png)
+![three tier template](./media/overview/3-tier-template.png)
 
 But, you don't have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily reuse these templates for different solutions. To deploy a particular solution, you create a master template that links all the required templates. The following image shows how to deploy a three tier solution through a parent template that includes three nested templates.
 
-![nested tier template](./media/template-deployment-overview/nested-tiers-template.png)
+![nested tier template](./media/overview/nested-tiers-template.png)
 
 If you envision your tiers having separate lifecycles, you can deploy your three tiers to separate resource groups. Notice the resources can still be linked to resources in other resource groups.
 
-![tier template](./media/template-deployment-overview/tier-templates.png)
+![tier template](./media/overview/tier-templates.png)
 
-For information about nested templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+For information about nested templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
 
 ## Next steps
 
 * For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first Azure Resource Manager template](template-tutorial-create-first-template.md).
-* For information about the properties in template files, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
-* To learn about exporting templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md).
+* For information about the properties in template files, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+* To learn about exporting templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](quickstart-create-templates-use-the-portal.md).

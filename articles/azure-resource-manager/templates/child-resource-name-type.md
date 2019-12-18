@@ -21,7 +21,7 @@ In a Resource Manger template, you can specify the child resource either within 
 ]
 ```
 
-The next example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](resource-group-create-multiple.md) to create more than one child resource.
+The next example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](create-multiple-instances.md) to create more than one child resource.
 
 ```json
 "resources": [
@@ -126,6 +126,6 @@ The following example shows a virtual network and subnet that are both defined a
 
 ## Next steps
 
-* To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
+* To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md). 
 
-* To learn about the format of the resource name when referencing the resource, see the [reference function](resource-group-template-functions-resource.md#reference).
+* To learn about the format of the resource name when referencing the resource, see the [reference function](template-functions-resource.md#reference).

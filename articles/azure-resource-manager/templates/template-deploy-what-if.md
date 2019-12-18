@@ -113,6 +113,6 @@ It's important to remember what-if makes no actual changes. The storage account 
 ## Next steps
 
 - If you notice incorrect results from the preview release of what-if, please report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
-- To deploy templates with Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md).
-- To deploy templates with REST, see [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md).
+- To deploy templates with Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](deploy-powershell.md).
+- To deploy templates with REST, see [Deploy resources with Resource Manager templates and Resource Manager REST API](deploy-rest.md).
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).

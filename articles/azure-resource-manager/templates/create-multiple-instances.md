@@ -31,7 +31,7 @@ When used with a variable or property, the copy object has the following format:
 ]
 ```
 
-Both uses are described in greater detail in this article. For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
+Both uses are described in greater detail in this article. For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](template-tutorial-create-multiple-instances.md).
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
@@ -166,7 +166,7 @@ For example, to serially deploy storage accounts two at a time, use:
 
 The mode property also accepts **parallel**, which is the default value.
 
-For information about using copy with nested templates, see [Using copy](resource-group-linked-templates.md#using-copy).
+For information about using copy with nested templates, see [Using copy](linked-templates.md#using-copy).
 
 ## Property iteration
 
@@ -518,8 +518,8 @@ The following examples show common scenarios for creating more than one instance
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
+* To go through a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](template-tutorial-create-multiple-instances.md).
 
-* If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
-* To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
+* If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](template-syntax.md).
+* To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](deploy-powershell.md).
 

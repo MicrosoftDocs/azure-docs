@@ -6,7 +6,7 @@ ms.date: 12/10/2019
 ---
 # Use Azure Key Vault to pass secure parameter value during deployment
 
-Instead of putting a secure value (like a password) directly in your template or parameter file, you can retrieve the value from an [Azure Key Vault](../key-vault/key-vault-overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you're deploying to.
+Instead of putting a secure value (like a password) directly in your template or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/key-vault-overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you're deploying to.
 
 ## Deploy key vaults and secrets
 
@@ -55,15 +55,15 @@ Set-AzKeyVaultAccessPolicy `
 
 For more information about creating key vaults and adding secrets, see:
 
-- [Set and retrieve a secret by using CLI](../key-vault/quick-create-cli.md)
-- [Set and retrieve a secret by using Powershell](../key-vault/quick-create-powershell.md)
-- [Set and retrieve a secret by using the portal](../key-vault/quick-create-portal.md)
-- [Set and retrieve a secret by using .NET](../key-vault/quick-create-net.md)
-- [Set and retrieve a secret by using Node.js](../key-vault/quick-create-node.md)
+- [Set and retrieve a secret by using CLI](../../key-vault/quick-create-cli.md)
+- [Set and retrieve a secret by using Powershell](../../key-vault/quick-create-powershell.md)
+- [Set and retrieve a secret by using the portal](../../key-vault/quick-create-portal.md)
+- [Set and retrieve a secret by using .NET](../../key-vault/quick-create-net.md)
+- [Set and retrieve a secret by using Node.js](../../key-vault/quick-create-node.md)
 
 ## Grant access to the secrets
 
-The user who deploys the template must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. The [Owner](../role-based-access-control/built-in-roles.md#owner) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you created the key vault, you're the owner so you have the permission.
+The user who deploys the template must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. The [Owner](../../role-based-access-control/built-in-roles.md#owner) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you created the key vault, you're the owner so you have the permission.
 
 The following procedure shows how to create a role with the minimum permission, and how to assign the user
 
@@ -107,15 +107,15 @@ The following procedure shows how to create a role with the minimum permission, 
 
     The samples assign the custom role to the user on the resource group level.  
 
-When using a Key Vault with the template for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
+When using a Key Vault with the template for a [Managed Application](../../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../../managed-applications/key-vault-access.md).
 
 ## Reference secrets with static ID
 
 With this approach, you reference the key vault in the parameter file, not the template. The following image shows how the parameter file references the secret and passes that value to the template.
 
-![Resource Manager key vault integration Static ID diagram](./media/resource-manager-keyvault-parameter/statickeyvault.png)
+![Resource Manager key vault integration Static ID diagram](./media/key-vault-parameter/statickeyvault.png)
 
-[Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md) uses this method.
+[Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./template-tutorial-use-key-vault.md) uses this method.
 
 The following template deploys a SQL server that includes an administrator password. The password parameter is set to a secure string. But, the template doesn't specify where that value comes from.
 
@@ -217,7 +217,7 @@ You can't dynamically generate the resource ID in the parameters file because te
 
 In your parent template, you add the nested template and pass in a parameter that contains the dynamically generated resource ID. The following image shows how a parameter in the linked template references the secret.
 
-![Dynamic ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
+![Dynamic ID](./media/key-vault-parameter/dynamickeyvault.png)
 
 The following template dynamically creates the key vault ID and passes it as a parameter.
 
@@ -331,5 +331,5 @@ The following template dynamically creates the key vault ID and passes it as a p
 
 ## Next steps
 
-- For general information about key vaults, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md).
+- For general information about key vaults, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md).
 - For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

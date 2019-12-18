@@ -34,7 +34,7 @@ This article documents the security controls built into Azure Resource Manager.
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| No | |
-| Control and management plane logging and audit| Yes | Activity logs expose all write operations (PUT, POST, DELETE) performed on your resources; see [View activity logs to audit actions on resources](resource-group-audit.md). |
+| Control and management plane logging and audit| Yes | Activity logs expose all write operations (PUT, POST, DELETE) performed on your resources; see [View activity logs to audit actions on resources](view-activity-logs.md). |
 | Data plane logging and audit| N/A | |
 
 ## Identity
@@ -52,4 +52,4 @@ This article documents the security controls built into Azure Resource Manager.
 
 ## Next steps
 
-- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).
+- Learn more about the [built-in security controls across Azure services](../../security/fundamentals/security-controls.md).

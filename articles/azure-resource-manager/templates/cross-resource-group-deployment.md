@@ -7,16 +7,16 @@ ms.date: 12/09/2019
 
 # Deploy Azure resources to more than one subscription or resource group
 
-Typically, you deploy all the resources in your template to a single [resource group](resource-group-overview.md). However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. For example, you may want to deploy the backup virtual machine for Azure Site Recovery to a separate resource group and location. Resource Manager enables you to use nested templates to target more than one subscription and resource group.
+Typically, you deploy all the resources in your template to a single [resource group](../management/overview.md). However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. For example, you may want to deploy the backup virtual machine for Azure Site Recovery to a separate resource group and location. Resource Manager enables you to use nested templates to target more than one subscription and resource group.
 
 > [!NOTE]
 > You can deploy to only five resource groups in a single deployment. Typically, this limitation means you can deploy to one resource group specified for the parent template, and up to four resource groups in nested or linked deployments. However, if your parent template contains only nested or linked templates and does not itself deploy any resources, then you can include up to five resource groups in nested or linked deployments.
 
 ## Specify subscription and resource group
 
-To target a different resource group or subscription, use a [nested or linked template](resource-group-linked-templates.md). The `Microsoft.Resources/deployments` resource type provides parameters for `subscriptionId` and `resourceGroup`, which enable you to specify the subscription and resource group for the nested deployment. If you don't specify the subscription ID or resource group, the subscription and resource group from the parent template is used. All the resource groups must exist before running the deployment.
+To target a different resource group or subscription, use a [nested or linked template](linked-templates.md). The `Microsoft.Resources/deployments` resource type provides parameters for `subscriptionId` and `resourceGroup`, which enable you to specify the subscription and resource group for the nested deployment. If you don't specify the subscription ID or resource group, the subscription and resource group from the parent template is used. All the resource groups must exist before running the deployment.
 
-The account you use to deploy the template must have permissions to deploy to the specified subscription ID. If the specified subscription exists in a different Azure Active Directory tenant, you must [add guest users from another directory](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
+The account you use to deploy the template must have permissions to deploy to the specified subscription ID. If the specified subscription exists in a different Azure Active Directory tenant, you must [add guest users from another directory](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
 To specify a different resource group and subscription, use:
 
@@ -200,7 +200,7 @@ az group deployment create \
 
 ## Use functions
 
-The [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) and [subscription()](resource-group-template-functions-resource.md#subscription) functions resolve differently based on how you specify the template. When you link to an external template, the functions always resolve to the scope for that template. When you nest a template within a parent template, use the `expressionEvaluationOptions` property to specify whether the functions resolve to the resource group and subscription for the parent template or the nested template. Set the property to `inner` to resolve to the scope for the nested template. Set the property to `outer` to resolve to the scope of the parent template.
+The [resourceGroup()](template-functions-resource.md#resourcegroup) and [subscription()](template-functions-resource.md#subscription) functions resolve differently based on how you specify the template. When you link to an external template, the functions always resolve to the scope for that template. When you nest a template within a parent template, use the `expressionEvaluationOptions` property to specify whether the functions resolve to the resource group and subscription for the parent template or the nested template. Set the property to `inner` to resolve to the scope for the nested template. Set the property to `outer` to resolve to the scope of the parent template.
 
 The following table shows whether the functions resolve to the parent or embedded resource group and subscription.
 
@@ -375,6 +375,6 @@ The output from the preceding example is:
 
 ## Next steps
 
-* To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
-* For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-powershell-sas-token.md).
+* To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+* For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
+* For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](secure-template-with-sas-token.md).

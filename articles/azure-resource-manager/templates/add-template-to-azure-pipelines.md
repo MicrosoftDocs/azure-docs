@@ -22,9 +22,9 @@ This article assumes your Visual Studio project and Azure DevOps organization ar
 
 * You have an Azure DevOps organization. If you don't have one, [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops). If your team already has an Azure DevOps organization, make sure you're an administrator of the Azure DevOps project that you want to use.
 
-* You've configured a [service connection](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) to your Azure subscription. The tasks in the pipeline execute under the identity of the service principal. For steps to create the connection, see [Create a DevOps project](resource-manager-tutorial-use-azure-pipelines.md#create-a-devops-project).
+* You've configured a [service connection](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) to your Azure subscription. The tasks in the pipeline execute under the identity of the service principal. For steps to create the connection, see [Create a DevOps project](template-tutorial-use-azure-pipelines.md#create-a-devops-project).
 
-* You have a Visual Studio project that was created from the **Azure Resource Group** starter template. For information about creating that type of project, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* You have a Visual Studio project that was created from the **Azure Resource Group** starter template. For information about creating that type of project, see [Creating and deploying Azure resource groups through Visual Studio](create-visual-studio-deployment-project.md).
 
 * Your Visual Studio project is [connected to an Azure DevOps project](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops).
 
@@ -32,19 +32,19 @@ This article assumes your Visual Studio project and Azure DevOps organization ar
 
 1. If you haven't added a pipeline previously, you need to create a new pipeline. From your Azure DevOps organization, select **Pipelines** and **New pipeline**.
 
-   ![Add new pipeline](./media/vs-resource-groups-project-devops-pipelines/new-pipeline.png)
+   ![Add new pipeline](./media/add-template-to-azure-pipelines/new-pipeline.png)
 
 1. Specify where your code is stored. The following image shows selecting **Azure Repos Git**.
 
-   ![Select code source](./media/vs-resource-groups-project-devops-pipelines/select-source.png)
+   ![Select code source](./media/add-template-to-azure-pipelines/select-source.png)
 
 1. From that source, select the repository that has the code for your project.
 
-   ![Select repository](./media/vs-resource-groups-project-devops-pipelines/select-repo.png)
+   ![Select repository](./media/add-template-to-azure-pipelines/select-repo.png)
 
 1. Select the type of pipeline to create. You can select **Starter pipeline**.
 
-   ![Select pipeline](./media/vs-resource-groups-project-devops-pipelines/select-pipeline.png)
+   ![Select pipeline](./media/add-template-to-azure-pipelines/select-pipeline.png)
 
 You're ready to either add an Azure PowerShell task or the copy file and deploy tasks.
 
@@ -118,13 +118,13 @@ Now, that you understand how to create the task, let's go through the steps to e
 
 1. Select **Save**.
 
-   ![Save pipeline](./media/vs-resource-groups-project-devops-pipelines/save-pipeline.png)
+   ![Save pipeline](./media/add-template-to-azure-pipelines/save-pipeline.png)
 
 1. Provide a message for the commit, and commit directly to **master**.
 
 1. When you select **Save**, the build pipeline is automatically run. Go back to the summary for your build pipeline, and watch the status.
 
-   ![View results](./media/vs-resource-groups-project-devops-pipelines/view-results.png)
+   ![View results](./media/add-template-to-azure-pipelines/view-results.png)
 
 You can select the currently running pipeline to see details about the tasks. When it finishes, you see the results for each step.
 
@@ -188,7 +188,7 @@ The following YAML shows the [Azure Resource Manager template deployment task](h
 
 There are several parts of this task to revise for your environment.
 
-- `deploymentScope`: Select the scope of deployment from the options: `Management Group`, `Subscription` and `Resource Group`. Use **Resource Group** in this walk through. To learn more about the scopes, see [Deployment scopes](./resource-group-template-deploy-rest.md#deployment-scope).
+- `deploymentScope`: Select the scope of deployment from the options: `Management Group`, `Subscription` and `Resource Group`. Use **Resource Group** in this walk through. To learn more about the scopes, see [Deployment scopes](deploy-rest.md#deployment-scope).
 
 - `ConnectedServiceName`: Provide the name of the service connection you created.
 
@@ -249,10 +249,10 @@ Now, that you understand how to create the tasks, let's go through the steps to 
 
 1. When you select **Save**, the build pipeline is automatically run. Go back to the summary for your build pipeline, and watch the status.
 
-   ![View results](./media/vs-resource-groups-project-devops-pipelines/view-results.png)
+   ![View results](./media/add-template-to-azure-pipelines/view-results.png)
 
 You can select the currently running pipeline to see details about the tasks. When it finishes, you see the results for each step.
 
 ## Next steps
 
-For step-by-step process on using Azure Pipelines with Resource Manager templates, see [Tutorial: Continuous integration of Azure Resource Manager templates with Azure Pipelines](resource-manager-tutorial-use-azure-pipelines.md).
+For step-by-step process on using Azure Pipelines with Resource Manager templates, see [Tutorial: Continuous integration of Azure Resource Manager templates with Azure Pipelines](template-tutorial-use-azure-pipelines.md).

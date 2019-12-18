@@ -35,7 +35,7 @@ The following example shows a simple parameter definition. It defines a paramete
 
 ## Use parameter
 
-In the template, you reference the value for the parameter by using the [parameters](resource-group-template-functions-deployment.md#parameters) function. In the following example, the parameter value is used to set SKU for the storage account.
+In the template, you reference the value for the parameter by using the [parameters](template-functions-deployment.md#parameters) function. In the following example, the parameter value is used to set SKU for the storage account.
 
 ```json
 "resources": [
@@ -72,7 +72,7 @@ When specifying the default value for a parameter, you can use most template fun
 }
 ```
 
-You can't use the [reference](resource-group-template-functions-resource.md#reference) function or any of the [list](resource-group-template-functions-resource.md#list) functions in the parameters section. These functions get the runtime state of a resource, and can't be executed before deployment when parameters are resolved.
+You can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions in the parameters section. These functions get the runtime state of a resource, and can't be executed before deployment when parameters are resolved.
 
 ## Objects as parameters
 
@@ -154,6 +154,6 @@ The following examples demonstrate scenarios for using parameters.
 
 ## Next steps
 
-* To learn about the available properties for parameters, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
-* To learn about passing in parameter values as a file, see [Create Resource Manager parameter file](resource-manager-parameter-files.md).
+* To learn about the available properties for parameters, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+* To learn about passing in parameter values as a file, see [Create Resource Manager parameter file](parameter-files.md).
 * For recommendations about creating parameters, see [Best practices - parameters](template-best-practices.md#parameters).

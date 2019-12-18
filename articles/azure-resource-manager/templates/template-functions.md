@@ -8,7 +8,7 @@ ms.date: 11/19/2019
 
 This article describes all the functions you can use in an Azure Resource Manager template. For information about using functions in your template, see [template syntax](template-expressions.md).
 
-To create your own functions, see [User-defined functions](resource-group-authoring-templates.md#functions).
+To create your own functions, see [User-defined functions](template-syntax.md#functions).
 
 <a id="array" aria-hidden="true" />
 <a id="coalesce" aria-hidden="true" />
@@ -31,23 +31,23 @@ To create your own functions, see [User-defined functions](resource-group-author
 ## Array and object functions
 Resource Manager provides several functions for working with arrays and objects.
 
-* [array](resource-group-template-functions-array.md#array)
-* [coalesce](resource-group-template-functions-array.md#coalesce)
-* [concat](resource-group-template-functions-array.md#concat)
-* [contains](resource-group-template-functions-array.md#contains)
-* [createArray](resource-group-template-functions-array.md#createarray)
-* [empty](resource-group-template-functions-array.md#empty)
-* [first](resource-group-template-functions-array.md#first)
-* [intersection](resource-group-template-functions-array.md#intersection)
-* [json](resource-group-template-functions-array.md#json)
-* [last](resource-group-template-functions-array.md#last)
-* [length](resource-group-template-functions-array.md#length)
-* [min](resource-group-template-functions-array.md#min)
-* [max](resource-group-template-functions-array.md#max)
-* [range](resource-group-template-functions-array.md#range)
-* [skip](resource-group-template-functions-array.md#skip)
-* [take](resource-group-template-functions-array.md#take)
-* [union](resource-group-template-functions-array.md#union)
+* [array](template-functions-array.md#array)
+* [coalesce](template-functions-array.md#coalesce)
+* [concat](template-functions-array.md#concat)
+* [contains](template-functions-array.md#contains)
+* [createArray](template-functions-array.md#createarray)
+* [empty](template-functions-array.md#empty)
+* [first](template-functions-array.md#first)
+* [intersection](template-functions-array.md#intersection)
+* [json](template-functions-array.md#json)
+* [last](template-functions-array.md#last)
+* [length](template-functions-array.md#length)
+* [min](template-functions-array.md#min)
+* [max](template-functions-array.md#max)
+* [range](template-functions-array.md#range)
+* [skip](template-functions-array.md#skip)
+* [take](template-functions-array.md#take)
+* [union](template-functions-array.md#union)
 
 <a id="equals" aria-hidden="true" />
 <a id="less" aria-hidden="true" />
@@ -58,11 +58,11 @@ Resource Manager provides several functions for working with arrays and objects.
 ## Comparison functions
 Resource Manager provides several functions for making comparisons in your templates.
 
-* [equals](resource-group-template-functions-comparison.md#equals)
-* [less](resource-group-template-functions-comparison.md#less)
-* [lessOrEquals](resource-group-template-functions-comparison.md#lessorequals)
-* [greater](resource-group-template-functions-comparison.md#greater)
-* [greaterOrEquals](resource-group-template-functions-comparison.md#greaterorequals)
+* [equals](template-functions-comparison.md#equals)
+* [less](template-functions-comparison.md#less)
+* [lessOrEquals](template-functions-comparison.md#lessorequals)
+* [greater](template-functions-comparison.md#greater)
+* [greaterOrEquals](template-functions-comparison.md#greaterorequals)
 
 <a id="deployment" aria-hidden="true" />
 <a id="parameters" aria-hidden="true" />
@@ -71,10 +71,10 @@ Resource Manager provides several functions for making comparisons in your templ
 ## Deployment value functions
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
-* [deployment](resource-group-template-functions-deployment.md#deployment)
-* [environment](resource-group-template-functions-deployment.md#environment)
-* [parameters](resource-group-template-functions-deployment.md#parameters)
-* [variables](resource-group-template-functions-deployment.md#variables)
+* [deployment](template-functions-deployment.md#deployment)
+* [environment](template-functions-deployment.md#environment)
+* [parameters](template-functions-deployment.md#parameters)
+* [variables](template-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true" />
 <a id="bool" aria-hidden="true" />
@@ -85,11 +85,11 @@ Resource Manager provides the following functions for getting values from sectio
 ## Logical functions
 Resource Manager provides the following functions for working with logical conditions:
 
-* [and](resource-group-template-functions-logical.md#and)
-* [bool](resource-group-template-functions-logical.md#bool)
-* [if](resource-group-template-functions-logical.md#if)
-* [not](resource-group-template-functions-logical.md#not)
-* [or](resource-group-template-functions-logical.md#or)
+* [and](template-functions-logical.md#and)
+* [bool](template-functions-logical.md#bool)
+* [if](template-functions-logical.md#if)
+* [not](template-functions-logical.md#not)
+* [or](template-functions-logical.md#or)
 
 <a id="add" aria-hidden="true" />
 <a id="copyindex" aria-hidden="true" />
@@ -105,16 +105,16 @@ Resource Manager provides the following functions for working with logical condi
 ## Numeric functions
 Resource Manager provides the following functions for working with integers:
 
-* [add](resource-group-template-functions-numeric.md#add)
-* [copyIndex](resource-group-template-functions-numeric.md#copyindex)
-* [div](resource-group-template-functions-numeric.md#div)
-* [float](resource-group-template-functions-numeric.md#float)
-* [int](resource-group-template-functions-numeric.md#int)
-* [min](resource-group-template-functions-numeric.md#min)
-* [max](resource-group-template-functions-numeric.md#max)
-* [mod](resource-group-template-functions-numeric.md#mod)
-* [mul](resource-group-template-functions-numeric.md#mul)
-* [sub](resource-group-template-functions-numeric.md#sub)
+* [add](template-functions-numeric.md#add)
+* [copyIndex](template-functions-numeric.md#copyindex)
+* [div](template-functions-numeric.md#div)
+* [float](template-functions-numeric.md#float)
+* [int](template-functions-numeric.md#int)
+* [min](template-functions-numeric.md#min)
+* [max](template-functions-numeric.md#max)
+* [mod](template-functions-numeric.md#mod)
+* [mul](template-functions-numeric.md#mul)
+* [sub](template-functions-numeric.md#sub)
 
 <a id="extensionResourceId" aria-hidden="true" />
 <a id="listkeys" aria-hidden="true" />
@@ -130,18 +130,18 @@ Resource Manager provides the following functions for working with integers:
 ## Resource functions
 Resource Manager provides the following functions for getting resource values:
 
-* [extensionResourceId](resource-group-template-functions-resource.md#extensionresourceid)
-* [listAccountSas](resource-group-template-functions-resource.md#list)
-* [listKeys](resource-group-template-functions-resource.md#listkeys)
-* [listSecrets](resource-group-template-functions-resource.md#list)
-* [list*](resource-group-template-functions-resource.md#list)
-* [providers](resource-group-template-functions-resource.md#providers)
-* [reference](resource-group-template-functions-resource.md#reference)
-* [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
-* [resourceId](resource-group-template-functions-resource.md#resourceid)
-* [subscription](resource-group-template-functions-resource.md#subscription)
-* [subscriptionResourceId](resource-group-template-functions-resource.md#subscriptionresourceid)
-* [tenantResourceId](resource-group-template-functions-resource.md#tenantresourceid)
+* [extensionResourceId](template-functions-resource.md#extensionresourceid)
+* [listAccountSas](template-functions-resource.md#list)
+* [listKeys](template-functions-resource.md#listkeys)
+* [listSecrets](template-functions-resource.md#list)
+* [list*](template-functions-resource.md#list)
+* [providers](template-functions-resource.md#providers)
+* [reference](template-functions-resource.md#reference)
+* [resourceGroup](template-functions-resource.md#resourcegroup)
+* [resourceId](template-functions-resource.md#resourceid)
+* [subscription](template-functions-resource.md#subscription)
+* [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
+* [tenantResourceId](template-functions-resource.md#tenantresourceid)
 
 <a id="base64" aria-hidden="true" />
 <a id="base64tojson" aria-hidden="true" />
@@ -177,43 +177,43 @@ Resource Manager provides the following functions for getting resource values:
 ## String functions
 Resource Manager provides the following functions for working with strings:
 
-* [base64](resource-group-template-functions-string.md#base64)
-* [base64ToJson](resource-group-template-functions-string.md#base64tojson)
-* [base64ToString](resource-group-template-functions-string.md#base64tostring)
-* [concat](resource-group-template-functions-string.md#concat)
-* [contains](resource-group-template-functions-string.md#contains)
-* [dataUri](resource-group-template-functions-string.md#datauri)
-* [dataUriToString](resource-group-template-functions-string.md#datauritostring)
-* [empty](resource-group-template-functions-string.md#empty)
-* [endsWith](resource-group-template-functions-string.md#endswith)
-* [first](resource-group-template-functions-string.md#first)
-* [format](resource-group-template-functions-string.md#format)
-* [guid](resource-group-template-functions-string.md#guid)
-* [indexOf](resource-group-template-functions-string.md#indexof)
-* [last](resource-group-template-functions-string.md#last)
-* [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
-* [length](resource-group-template-functions-string.md#length)
-* [newGuid](resource-group-template-functions-string.md#newguid)
-* [padLeft](resource-group-template-functions-string.md#padleft)
-* [replace](resource-group-template-functions-string.md#replace)
-* [skip](resource-group-template-functions-string.md#skip)
-* [split](resource-group-template-functions-string.md#split)
-* [startsWith](resource-group-template-functions-string.md#startswith)
-* [string](resource-group-template-functions-string.md#string)
-* [substring](resource-group-template-functions-string.md#substring)
-* [take](resource-group-template-functions-string.md#take)
-* [toLower](resource-group-template-functions-string.md#tolower)
-* [toUpper](resource-group-template-functions-string.md#toupper)
-* [trim](resource-group-template-functions-string.md#trim)
-* [uniqueString](resource-group-template-functions-string.md#uniquestring)
-* [uri](resource-group-template-functions-string.md#uri)
-* [uriComponent](resource-group-template-functions-string.md#uricomponent)
-* [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
-* [utcNow](resource-group-template-functions-string.md#utcnow)
+* [base64](template-functions-string.md#base64)
+* [base64ToJson](template-functions-string.md#base64tojson)
+* [base64ToString](template-functions-string.md#base64tostring)
+* [concat](template-functions-string.md#concat)
+* [contains](template-functions-string.md#contains)
+* [dataUri](template-functions-string.md#datauri)
+* [dataUriToString](template-functions-string.md#datauritostring)
+* [empty](template-functions-string.md#empty)
+* [endsWith](template-functions-string.md#endswith)
+* [first](template-functions-string.md#first)
+* [format](template-functions-string.md#format)
+* [guid](template-functions-string.md#guid)
+* [indexOf](template-functions-string.md#indexof)
+* [last](template-functions-string.md#last)
+* [lastIndexOf](template-functions-string.md#lastindexof)
+* [length](template-functions-string.md#length)
+* [newGuid](template-functions-string.md#newguid)
+* [padLeft](template-functions-string.md#padleft)
+* [replace](template-functions-string.md#replace)
+* [skip](template-functions-string.md#skip)
+* [split](template-functions-string.md#split)
+* [startsWith](template-functions-string.md#startswith)
+* [string](template-functions-string.md#string)
+* [substring](template-functions-string.md#substring)
+* [take](template-functions-string.md#take)
+* [toLower](template-functions-string.md#tolower)
+* [toUpper](template-functions-string.md#toupper)
+* [trim](template-functions-string.md#trim)
+* [uniqueString](template-functions-string.md#uniquestring)
+* [uri](template-functions-string.md#uri)
+* [uriComponent](template-functions-string.md#uricomponent)
+* [uriComponentToString](template-functions-string.md#uricomponenttostring)
+* [utcNow](template-functions-string.md#utcnow)
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
+* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md)
+* To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md)
+* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md)
+* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md)

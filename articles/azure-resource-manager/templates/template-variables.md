@@ -20,11 +20,11 @@ The following example shows a variable definition. It creates a string value for
 },
 ```
 
-You can't use the [reference](resource-group-template-functions-resource.md#reference) function or any of the [list](resource-group-template-functions-resource.md#list) functions in the variables section. These functions get the runtime state of a resource, and can't be executed before deployment when variables are resolved.
+You can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions in the variables section. These functions get the runtime state of a resource, and can't be executed before deployment when variables are resolved.
 
 ## Use variable
 
-In the template, you reference the value for the parameter by using the [variables](resource-group-template-functions-deployment.md#variables) function. The following example shows how to use the variable for a resource property.
+In the template, you reference the value for the parameter by using the [variables](template-functions-deployment.md#variables) function. The following example shows how to use the variable for a resource property.
 
 ```json
 "resources": [
@@ -87,5 +87,5 @@ The following examples demonstrate scenarios for using variables.
 
 ## Next steps
 
-* To learn about the available properties for variables, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+* To learn about the available properties for variables, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
 * For recommendations about creating variables, see [Best practices - variables](template-best-practices.md#variables).

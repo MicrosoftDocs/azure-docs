@@ -16,9 +16,9 @@ In complete mode, Resource Manager **deletes** resources that exist in the resou
 
 If your template includes a resource that isn't deployed because [condition](conditional-resource-deployment.md) evaluates to false, the result depends on which REST API version you use to deploy the template. If you use a version earlier than 2019-05-10, the resource **isn't deleted**. With 2019-05-10 or later, the resource **is deleted**. The latest versions of Azure PowerShell and Azure CLI delete the resource.
 
-Be careful using complete mode with [copy loops](resource-group-create-multiple.md). Any resources that aren't specified in the template after resolving the copy loop are deleted.
+Be careful using complete mode with [copy loops](create-multiple-instances.md). Any resources that aren't specified in the template after resolving the copy loop are deleted.
 
-If you deploy to [more than one resource group in a template](resource-manager-cross-resource-group-deployment.md), resources in the resource group specified in the deployment operation are eligible to be deleted. Resources in the secondary resource groups aren't deleted.
+If you deploy to [more than one resource group in a template](cross-resource-group-deployment.md), resources in the resource group specified in the deployment operation are eligible to be deleted. Resources in the secondary resource groups aren't deleted.
 
 There are some differences in how resource types handle complete mode deletions. Parent resources are automatically deleted when not in a template that's deployed in complete mode. Some child resources aren't automatically deleted when not in the template. However, these child resources are deleted if the parent resource is deleted. 
 
@@ -26,10 +26,10 @@ For example, if your resource group contains a DNS zone (Microsoft.Network/dnsZo
 
 For a list of how resource types handle deletion, see [Deletion of Azure resources for complete mode deployments](complete-mode-deletion.md).
 
-If the resource group is [locked](resource-group-lock-resources.md), complete mode doesn't delete the resources.
+If the resource group is [locked](../management/lock-resources.md), complete mode doesn't delete the resources.
 
 > [!NOTE]
-> Only root-level templates support the complete deployment mode. For [linked or nested templates](resource-group-linked-templates.md), you must use incremental mode. 
+> Only root-level templates support the complete deployment mode. For [linked or nested templates](linked-templates.md), you must use incremental mode. 
 >
 > [Subscription level deployments](deploy-to-subscription.md) don't support complete mode.
 >
@@ -112,6 +112,6 @@ The following example shows a linked template set to incremental deployment mode
 
 ## Next steps
 
-* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-* To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](template-syntax.md).
+* To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).

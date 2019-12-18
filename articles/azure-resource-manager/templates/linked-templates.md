@@ -10,7 +10,7 @@ To deploy complex solutions, you can break your template into many related templ
 
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. You can easily reuse these templates for other scenarios.
 
-For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./resource-manager-tutorial-create-linked-templates.md).
+For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](template-tutorial-create-linked-templates.md).
 
 > [!NOTE]
 > For linked or nested templates, you can only use [Incremental](deployment-modes.md) deployment mode.
@@ -88,7 +88,7 @@ The following example deploys a storage account through a nested template.
 
 ### Scope for expressions in nested templates
 
-When using a nested template, you can specify whether template expressions are evaluated within the scope of the parent template or the nested template. The scope determines how parameters, variables, and functions like [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) and [subscription](resource-group-template-functions-resource.md#subscription) are resolved.
+When using a nested template, you can specify whether template expressions are evaluated within the scope of the parent template or the nested template. The scope determines how parameters, variables, and functions like [resourceGroup](template-functions-resource.md#resourcegroup) and [subscription](template-functions-resource.md#subscription) are resolved.
 
 You set the scope through the `expressionEvaluationOptions` property. By default, the `expressionEvaluationOptions` property is set to `outer`, which means it uses the parent template scope. Set the value to `inner` to scope expressions to the nested template.
 
@@ -418,7 +418,7 @@ The following example shows how to use a base URL to create two URLs for linked 
 }
 ```
 
-You can also use [deployment()](resource-group-template-functions-deployment.md#deployment) to get the base URL for the current template, and use that to get the URL for other templates in the same location. This approach is useful if your template location changes or you want to avoid hard coding URLs in the template file. The templateLink property is only returned when linking to a remote template with a URL. If you're using a local template, that property isn't available.
+You can also use [deployment()](template-functions-deployment.md#deployment) to get the base URL for the current template, and use that to get the URL for other templates in the same location. This approach is useful if your template location changes or you want to avoid hard coding URLs in the template file. The templateLink property is only returned when linking to a remote template with a URL. If you're using a local template, that property isn't available.
 
 ```json
 "variables": {
@@ -587,7 +587,7 @@ To use the public IP address from the preceding template when deploying a load b
 
 Resource Manager processes each template as a separate deployment in the deployment history. A main template with three linked or nested templates appears in the deployment history as:
 
-![Deployment history](./media/resource-group-linked-templates/deployment-history.png)
+![Deployment history](./media/linked-templates/deployment-history.png)
 
 You can use these separate entries in the history to retrieve output values after the deployment. The following template creates a public IP address and outputs the IP address:
 
@@ -692,7 +692,7 @@ Although the linked template must be externally available, it doesn't need to be
 
 The parameter file can also be limited to access through a SAS token.
 
-Currently, you can't link to a template in a storage account that is behind an [Azure Storage firewall](../storage/common/storage-network-security.md).
+Currently, you can't link to a template in a storage account that is behind an [Azure Storage firewall](../../storage/common/storage-network-security.md).
 
 The following example shows how to pass a SAS token when linking to a template:
 
@@ -768,7 +768,7 @@ The following examples show common uses of linked templates.
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./resource-manager-tutorial-create-linked-templates.md).
-* To learn about the defining the deployment order for your resources, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
-* To learn how to define one resource but create many instances of it, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
-* For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md) or [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md).
+* To go through a tutorial, see [Tutorial: create linked Azure Resource Manager templates](template-tutorial-create-linked-templates.md).
+* To learn about the defining the deployment order for your resources, see [Defining dependencies in Azure Resource Manager templates](define-resource-dependency.md).
+* To learn how to define one resource but create many instances of it, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
+* For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](deploy-powershell.md) or [Deploy resources with Resource Manager templates and Azure CLI](deploy-cli.md).

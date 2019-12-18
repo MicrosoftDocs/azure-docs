@@ -67,7 +67,7 @@ The examples in this article use resource group deployments.
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
    ```
 
-   In the request body, provide a link to your template and parameter file. For more information about the parameter file, see [Create Resource Manager parameter file](resource-manager-parameter-files.md).
+   In the request body, provide a link to your template and parameter file. For more information about the parameter file, see [Create Resource Manager parameter file](parameter-files.md).
 
    Notice the **mode** is set to **Incremental**. To run a complete deployment, set **mode** to **Complete**. Be careful when using the complete mode as you can inadvertently delete resources that aren't in your template.
 
@@ -108,9 +108,9 @@ The examples in this article use resource group deployments.
    }
    ```
 
-    You can set up your storage account to use a shared access signature (SAS) token. For more information, see [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
+    You can set up your storage account to use a shared access signature (SAS) token. For more information, see [Delegating Access with a Shared Access Signature](/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
-    If you need to provide a sensitive value for a parameter (such as a password), add that value to a key vault. Retrieve the key vault during deployment as shown in the previous example. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md). 
+    If you need to provide a sensitive value for a parameter (such as a password), add that value to a key vault. Retrieve the key vault during deployment as shown in the previous example. For more information, see [Pass secure values during deployment](key-vault-parameter.md). 
 
 1. Instead of linking to files for the template and parameters, you can include them in the request body. The following example shows the request body with the template and parameter inline:
 
@@ -185,6 +185,6 @@ The examples in this article use resource group deployments.
 
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
 - To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
-- To learn about handling asynchronous REST operations, see [Track asynchronous Azure operations](resource-manager-async-operations.md).
-- To learn more about templates, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+- To learn about handling asynchronous REST operations, see [Track asynchronous Azure operations](../management/async-operations.md).
+- To learn more about templates, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
 

@@ -37,7 +37,7 @@ There are some important items to note about the output value you added.
 
 The type of returned value is set to **object**, which means it returns a JSON object.
 
-It uses the [reference](resource-group-template-functions-resource.md#reference) function to get the runtime state of the storage account. To get the runtime state of a resource, you pass in the name or ID of a resource. In this case, you use the same variable you used to create the name of the storage account.
+It uses the [reference](template-functions-resource.md#reference) function to get the runtime state of the storage account. To get the runtime state of a resource, you pass in the name or ID of a resource. In this case, you use the same variable you used to create the name of the storage account.
 
 Finally, it returns the **primaryEndpoints** property from the storage account
 

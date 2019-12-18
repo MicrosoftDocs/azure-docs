@@ -13,7 +13,7 @@ In this article, you learn about Azure Resource Manager and classic deployment m
 
 To simplify the deployment and management of resources, Microsoft recommends that you use Resource Manager for all new resources. If possible, Microsoft recommends that you redeploy existing resources through Resource Manager.
 
-If you are new to Resource Manager, you may want to first review the terminology defined in the [Azure Resource Manager overview](resource-group-overview.md).
+If you are new to Resource Manager, you may want to first review the terminology defined in the [Azure Resource Manager overview](overview.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -70,7 +70,7 @@ Only resources created through Resource Manager support tags. You cannot apply t
 ## Changes for compute, network, and storage
 The following diagram displays compute, network, and storage resources deployed through Resource Manager.
 
-![Resource Manager architecture](./media/resource-manager-deployment-model/arm_arch3.png)
+![Resource Manager architecture](./media/deployment-models/arm_arch3.png)
 
 Note the following relationships between the resources:
 
@@ -83,7 +83,7 @@ Note the following relationships between the resources:
 
 Here are the components and their relationships for classic deployment:
 
-![classic architecture](./media/resource-manager-deployment-model/arm_arch1.png)
+![classic architecture](./media/deployment-models/arm_arch1.png)
 
 The classic solution for hosting a virtual machine includes:
 
@@ -108,15 +108,15 @@ The following table describes changes in how Compute, Network, and Storage resou
 | DNS Name |A cloud service would get an implicit globally unique DNS Name. For example: `mycoffeeshop.cloudapp.net`. |DNS Names are optional parameters that can be specified on a Public IP Address resource. The FQDN is in the following format - `<domainlabel>.<region>.cloudapp.azure.com`. |
 | Network Interfaces |Primary and Secondary Network Interface and its properties were defined as network configuration of a Virtual machine. |Network Interface is a resource exposed by Microsoft.Network Provider. The lifecycle of the Network Interface is not tied to a Virtual Machine. It references the virtual machine's assigned IP address (required), the subnet of the virtual network for the virtual machine (required), and to a Network Security Group (optional). |
 
-To learn about connecting virtual networks from different deployment models, see [Connect virtual networks from different deployment models in the portal](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+To learn about connecting virtual networks from different deployment models, see [Connect virtual networks from different deployment models in the portal](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 ## Migrate from classic to Resource Manager
 If you are ready to migrate your resources from classic deployment to Resource Manager deployment, see:
 
-1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
-2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
-3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
-4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
+1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../../virtual-machines/windows/migration-classic-resource-manager-ps.md)
+4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](../../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## Frequently asked questions
 **Can I create a virtual machine using Resource Manager to deploy in a virtual network created using classic deployment?**
@@ -129,7 +129,7 @@ This configuration is not supported. However, you can copy the VHD files from a 
 
 **What is the impact on the quota for my subscription?**
 
-The quotas for the virtual machines, virtual networks, and storage accounts created through the Azure Resource Manager are separate from other quotas. Each subscription gets quotas to create the resources using the new APIs. You can read more about the additional quotas [here](../azure-subscription-service-limits.md).
+The quotas for the virtual machines, virtual networks, and storage accounts created through the Azure Resource Manager are separate from other quotas. Each subscription gets quotas to create the resources using the new APIs. You can read more about the additional quotas [here](../../azure-subscription-service-limits.md).
 
 **Can I continue to use my automated scripts for provisioning virtual machines, virtual networks, and storage accounts through the Resource Manager APIs?**
 
@@ -141,6 +141,5 @@ A comprehensive set of starter templates can be found on [Azure Resource Manager
 
 ## Next steps
 
-* To walk through the creation of template that defines a virtual machine, storage account, and virtual network, see [Resource Manager template walkthrough](resource-manager-template-walkthrough.md).
-* To see the commands for deploying a template, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+* To see the commands for deploying a template, see [Deploy an application with Azure Resource Manager template](../templates/deploy-powershell.md).
 

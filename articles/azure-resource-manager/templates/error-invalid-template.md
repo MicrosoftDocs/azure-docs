@@ -42,7 +42,7 @@ This error is easy to make because template expressions can be intricate. For ex
 
 If you don't provide the matching syntax, the template produces a value that is different than your intention.
 
-When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) or [Visual Studio Code](resource-manager-vs-code.md), which can warn you about syntax errors.
+When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](create-visual-studio-deployment-project.md) or [Visual Studio Code](use-vs-code-to-create-template.md), which can warn you about syntax errors.
 
 <a id="incorrect-segment-lengths" />
 
@@ -118,13 +118,13 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-Double check the allowed values in the template, and provide one during deployment. For more information about allowed parameter values, see [Parameters section of Azure Resource Manager templates](resource-group-authoring-templates.md#parameters).
+Double check the allowed values in the template, and provide one during deployment. For more information about allowed parameter values, see [Parameters section of Azure Resource Manager templates](template-syntax.md#parameters).
 
 <a id="too-many-resource-groups" />
 
 ## Solution 4 - Too many target resource groups
 
-If you specify more than five target resource groups in a single deployment, you receive this error. Consider either consolidating the number of resource groups in your deployment, or deploying some of the templates as separate deployments. For more information, see [Deploy Azure resources to more than one subscription or resource group](resource-manager-cross-resource-group-deployment.md).
+If you specify more than five target resource groups in a single deployment, you receive this error. Consider either consolidating the number of resource groups in your deployment, or deploying some of the templates as separate deployments. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-resource-group-deployment.md).
 
 <a id="circular-dependency" />
 

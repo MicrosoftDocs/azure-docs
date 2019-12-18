@@ -70,11 +70,11 @@ For the complete template, see [Azure SQL logical server](https://github.com/Azu
 
 ## Runtime functions
 
-If you use a [reference](resource-group-template-functions-resource.md#reference) or [list](resource-group-template-functions-resource.md#list) function with a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the function refers to a resource that doesn't exist.
+If you use a [reference](template-functions-resource.md#reference) or [list](template-functions-resource.md#list) function with a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the function refers to a resource that doesn't exist.
 
-Use the [if](resource-group-template-functions-logical.md#if) function to make sure the function is only evaluated for conditions when the resource is deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
+Use the [if](template-functions-logical.md#if) function to make sure the function is only evaluated for conditions when the resource is deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
 
-You set a [resource as dependent](resource-group-define-dependencies.md) on a conditional resource exactly as you would any other resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
+You set a [resource as dependent](define-resource-dependency.md) on a conditional resource exactly as you would any other resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
 ## Condition with complete mode
 
@@ -83,4 +83,4 @@ If you deploy a template with [complete mode](deployment-modes.md) and a resourc
 ## Next steps
 
 * For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).
-* To create multiple instances of a resource, see [Resource, property, or variable iteration in Azure Resource Manager templates](resource-group-create-multiple.md).
+* To create multiple instances of a resource, see [Resource, property, or variable iteration in Azure Resource Manager templates](create-multiple-instances.md).

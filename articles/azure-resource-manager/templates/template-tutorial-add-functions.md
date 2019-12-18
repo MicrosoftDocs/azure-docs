@@ -9,7 +9,7 @@ ms.author: jgao
 
 # Tutorial: Add template functions to your Resource Manager template
 
-In this tutorial, you learn how to add [template functions](resource-group-template-functions.md) to your template. You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./template-user-defined-functions.md). This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to add [template functions](template-functions.md) to your template. You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./template-user-defined-functions.md). This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -27,11 +27,11 @@ The location of the storage account is hard-coded to **East US**. However, you m
 
 ## Use function
 
-If you've completed the previous tutorial in this series, you've already used a function. When you added **"[parameters('storageName')]"**, you used the [parameters](resource-group-template-functions-deployment.md#parameters) function. The brackets indicate that the syntax inside the brackets is a [template expression](template-expressions.md). Resource Manager resolves the syntax rather than treating it as a literal value.
+If you've completed the previous tutorial in this series, you've already used a function. When you added **"[parameters('storageName')]"**, you used the [parameters](template-functions-deployment.md#parameters) function. The brackets indicate that the syntax inside the brackets is a [template expression](template-expressions.md). Resource Manager resolves the syntax rather than treating it as a literal value.
 
 Functions add flexibility to your template by dynamically getting values during deployment. In this tutorial, you use a function to get the location of the resource group you're using for deployment.
 
-The following example highlights the changes to add a parameter called **location**.  The parameter default value calls the [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function. This function returns an object with information about the resource group being used for deployment. One of the properties on the object is a location property. When you use the default value, the storage account location has the same location as the resource group. The resources inside a resource group don't have to share the same location. You can also provide a different location when needed.
+The following example highlights the changes to add a parameter called **location**.  The parameter default value calls the [resourceGroup](template-functions-resource.md#resourcegroup) function. This function returns an object with information about the resource group being used for deployment. One of the properties on the object is a location property. When you use the default value, the storage account location has the same location as the resource group. The resources inside a resource group don't have to share the same location. You can also provide a different location when needed.
 
 Copy the whole file and replace your template with its contents.
 

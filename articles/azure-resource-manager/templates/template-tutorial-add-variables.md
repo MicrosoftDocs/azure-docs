@@ -33,13 +33,13 @@ The following example highlights the changes to add a variable to your template 
 
 Notice that it includes a variable named **uniqueStorageName**. This variable uses four functions to construct a string value.
 
-You're already familiar with the [parameters](resource-group-template-functions-deployment.md#parameters) function, so we won't examine it.
+You're already familiar with the [parameters](template-functions-deployment.md#parameters) function, so we won't examine it.
 
-You're also familiar with the [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function. In this case, you get the **id** property instead of the **location** property, as shown in the previous tutorial. The **id** property returns the full identifier of the resource group, including the subscription ID and resource group name.
+You're also familiar with the [resourceGroup](template-functions-resource.md#resourcegroup) function. In this case, you get the **id** property instead of the **location** property, as shown in the previous tutorial. The **id** property returns the full identifier of the resource group, including the subscription ID and resource group name.
 
-The [uniqueString](resource-group-template-functions-string.md#uniquestring) function creates a 13 character hash value. The returned value is determined by the parameters you pass in. For this tutorial, you use the resource group ID as the input for the hash value. That means you could deploy this template to different resource groups and get a different unique string value. However, you get the same value if you deploy to the same resource group.
+The [uniqueString](template-functions-string.md#uniquestring) function creates a 13 character hash value. The returned value is determined by the parameters you pass in. For this tutorial, you use the resource group ID as the input for the hash value. That means you could deploy this template to different resource groups and get a different unique string value. However, you get the same value if you deploy to the same resource group.
 
-The [concat](resource-group-template-functions-string.md#concat) function takes values and combines them. For this variable, it takes the string from the parameter and the string from the uniqueString function, and combines them into one string.
+The [concat](template-functions-string.md#concat) function takes values and combines them. For this variable, it takes the string from the parameter and the string from the uniqueString function, and combines them into one string.
 
 The **storagePrefix** parameter enables you to pass in a prefix that helps you identify storage accounts. You can create your own naming convention that makes it easier to identify storage accounts after deployment from a long list of resources.
 

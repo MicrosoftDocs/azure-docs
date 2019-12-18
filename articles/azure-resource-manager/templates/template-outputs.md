@@ -39,7 +39,7 @@ For a simple example of conditional output, see [conditional output template](ht
 
 ## Linked templates
 
-To retrieve the output value from a linked template, use the [reference](resource-group-template-functions-resource.md#reference) function in the parent template. The syntax in the parent template is:
+To retrieve the output value from a linked template, use the [reference](template-functions-resource.md#reference) function in the parent template. The syntax in the parent template is:
 
 ```json
 "[reference('<deploymentName>').outputs.<propertyName>.value]"
@@ -55,7 +55,7 @@ The following example shows how to set the IP address on a load balancer by retr
 }
 ```
 
-You can't use the `reference` function in the outputs section of a [nested template](resource-group-linked-templates.md#nested-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
+You can't use the `reference` function in the outputs section of a [nested template](linked-templates.md#nested-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
 ## Get output values
 
@@ -94,4 +94,4 @@ The following examples demonstrate scenarios for using outputs.
 
 ## Next steps
 
-* To learn about the available properties for outputs, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+* To learn about the available properties for outputs, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).

@@ -25,12 +25,12 @@ There are some important steps to do before moving a resource. By verifying thes
    * [Azure DevOps Services move guidance](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
    * [Classic deployment model move guidance](./move-limitations/classic-model-move-limitations.md) - Classic Compute, Classic Storage, Classic Virtual Networks, and Cloud Services
    * [Networking move guidance](./move-limitations/networking-move-limitations.md)
-   * [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
+   * [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
 
-1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
+1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
-1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../active-directory/develop/quickstart-create-new-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
+1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
 
    For Azure PowerShell, use:
 
@@ -48,8 +48,8 @@ There are some important steps to do before moving a resource. By verifying thes
 
    If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:
 
-   * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
-   * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+   * [Transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md)
+   * [How to associate or add an Azure subscription to Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might see this error when moving a resource to a new subscription, but that subscription has never been used with that resource type.
 
@@ -84,7 +84,7 @@ There are some important steps to do before moving a resource. By verifying thes
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
 
-1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
 
 1. **For a move across subscriptions, the resource and its dependent resources must be located in the same resource group and they must be moved together.** For example, a VM with managed disks would require the VM and the managed disks to be moved together, along with other dependent resources.
 
@@ -96,7 +96,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
 Moving resources from one subscription to another is a three-step process:
 
-![cross-subscription move scenario](./media/resource-group-move-resources/cross-subscription-move-scenario.png)
+![cross-subscription move scenario](./media/move-resource-group-and-subscription/cross-subscription-move-scenario.png)
 
 For illustration purposes, we have only one dependent resource.
 
@@ -161,21 +161,21 @@ While the operation is still running, you continue to receive the 202 status cod
 
 To move resources, select the resource group with those resources, and then select the **Move** button.
 
-![move resources](./media/resource-group-move-resources/select-move.png)
+![move resources](./media/move-resource-group-and-subscription/select-move.png)
 
 Select whether you're moving the resources to a new resource group or a new subscription.
 
 Select the resources to move and the destination resource group. Acknowledge that you need to update scripts for these resources and select **OK**. If you selected the edit subscription icon in the previous step, you must also select the destination subscription.
 
-![select destination](./media/resource-group-move-resources/select-destination.png)
+![select destination](./media/move-resource-group-and-subscription/select-destination.png)
 
 In **Notifications**, you see that the move operation is running.
 
-![show move status](./media/resource-group-move-resources/show-status.png)
+![show move status](./media/move-resource-group-and-subscription/show-status.png)
 
 When it has completed, you're notified of the result.
 
-![show move result](./media/resource-group-move-resources/show-result.png)
+![show move result](./media/move-resource-group-and-subscription/show-result.png)
 
 If you get an error, see [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md).
 
@@ -246,7 +246,7 @@ The lock prevents you from deleting either resource group, creating a new resour
 
 The following image shows an error message from the Azure portal when a user tries to delete a resource group that is part of an ongoing move.
 
-![Move error message attempting to delete](./media/resource-group-move-resources/move-error-delete.png)
+![Move error message attempting to delete](./media/move-resource-group-and-subscription/move-error-delete.png)
 
 **Question: What does the error code "MissingMoveDependentResources" mean?**
 

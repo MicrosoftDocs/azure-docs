@@ -24,7 +24,7 @@ You're also limited to:
 * 64 output values
 * 24,576 characters in a template expression
 
-You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](resource-manager-objects-as-parameters.md).
+You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
 ## Resource group
 
@@ -146,17 +146,17 @@ The following information can be helpful when you work with [variables](template
 
 * Don't use variables for `apiVersion` on a resource. The API version determines the schema of the resource. Often, you can't change the version without changing the properties for the resource.
 
-* You can't use the [reference](resource-group-template-functions-resource.md#reference) function in the **variables** section of the template. The **reference** function derives its value from the resource's runtime state. However, variables are resolved during the initial parsing of the template. Construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
+* You can't use the [reference](template-functions-resource.md#reference) function in the **variables** section of the template. The **reference** function derives its value from the resource's runtime state. However, variables are resolved during the initial parsing of the template. Construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
 
 * Include variables for resource names that must be unique.
 
-* Use a [copy loop in variables](resource-group-create-multiple.md#variable-iteration) to create a repeated pattern of JSON objects.
+* Use a [copy loop in variables](create-multiple-instances.md#variable-iteration) to create a repeated pattern of JSON objects.
 
 * Remove unused variables.
 
 ## Resource dependencies
 
-When deciding what [dependencies](resource-group-define-dependencies.md) to set, use the following guidelines:
+When deciding what [dependencies](define-resource-dependency.md) to set, use the following guidelines:
 
 * Use the **reference** function and pass in the resource name to set an implicit dependency between resources that need to share a property. Don't add an explicit `dependsOn` element when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies.
 
@@ -170,7 +170,7 @@ When deciding what [dependencies](resource-group-define-dependencies.md) to set,
 
 ## Resources
 
-The following information can be helpful when you work with [resources](resource-group-authoring-templates.md#resources):
+The following information can be helpful when you work with [resources](template-syntax.md#resources):
 
 * To help other contributors understand the purpose of the resource, specify **comments** for each resource in the template:
    
@@ -224,11 +224,11 @@ The following information can be helpful when you work with [resources](resource
    
      For more information about connecting to virtual machines, see:
    
-   * [Run VMs for an N-tier architecture in Azure](../guidance/guidance-compute-n-tier-vm.md)
-   * [Set up WinRM access for VMs in Azure Resource Manager](../virtual-machines/windows/winrm.md)
-   * [Allow external access to your VM by using the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [Allow external access to your VM by using PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Allow external access to your Linux VM by using Azure CLI](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Run VMs for an N-tier architecture in Azure](../../guidance/guidance-compute-n-tier-vm.md)
+   * [Set up WinRM access for VMs in Azure Resource Manager](../../virtual-machines/windows/winrm.md)
+   * [Allow external access to your VM by using the Azure portal](../../virtual-machines/windows/nsg-quickstart-portal.md)
+   * [Allow external access to your VM by using PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
+   * [Allow external access to your Linux VM by using Azure CLI](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
 * The **domainNameLabel** property for public IP addresses must be unique. The **domainNameLabel** value must be between 3 and 63 characters long, and follow the rules specified by this regular expression: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Because the **uniqueString** function generates a string that is 13 characters long, the **dnsPrefixString** parameter is limited to 50 characters:
 
@@ -273,5 +273,5 @@ The following information can be helpful when you work with [resources](resource
 
 ## Next steps
 
-* For information about the structure of the Resource Manager template file, see [Understand the structure and syntax of Azure Resource Manager Templates](resource-group-authoring-templates.md).
+* For information about the structure of the Resource Manager template file, see [Understand the structure and syntax of Azure Resource Manager Templates](template-syntax.md).
 * For recommendations about how to build templates that work in all Azure cloud environments, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).

@@ -24,7 +24,7 @@ The following example shows an expression in the default value of a parameter:
 },
 ```
 
-Within the expression, the syntax `resourceGroup()` calls one of the functions that Resource Manager provides for use within a template. In this case, it's the [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. The syntax `.location` retrieves one property from the object returned by that function.
+Within the expression, the syntax `resourceGroup()` calls one of the functions that Resource Manager provides for use within a template. In this case, it's the [resourceGroup](template-functions-resource.md#resourcegroup) function. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. The syntax `.location` retrieves one property from the object returned by that function.
 
 Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function preserves the case. Certain resource types may have case requirements that are separate from how functions are evaluated.
 
@@ -62,5 +62,5 @@ To escape double quotes in an expression, such as adding a JSON object in the te
 
 ## Next steps
 
-* For the full list of template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md).
-* For more information about template files, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+* For the full list of template functions, see [Azure Resource Manager template functions](template-functions.md).
+* For more information about template files, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).

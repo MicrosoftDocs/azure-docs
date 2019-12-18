@@ -7,7 +7,7 @@ ms.date: 11/07/2019
 
 # Create resources at the management group level
 
-Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the management group level. You use management group level deployments to take actions that make sense at that level, such as assigning [role-based access control](../role-based-access-control/overview.md) or applying [policies](../governance/policy/overview.md).
+Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the management group level. You use management group level deployments to take actions that make sense at that level, such as assigning [role-based access control](../../role-based-access-control/overview.md) or applying [policies](../../governance/policy/overview.md).
 
 Currently, to deploy templates at the management group level, you must use the REST API.
 
@@ -56,16 +56,16 @@ For each deployment name, the location is immutable. You can't create a deployme
 
 For management group deployments, there are some important considerations when using template functions:
 
-* The [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) function is **not** supported.
-* The [subscription()](resource-group-template-functions-resource.md#subscription) function is **not** supported.
-* The [resourceId()](resource-group-template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at management group level deployments. For example, get the resource ID for a policy definition with `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. It returns the resource ID in the format `/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`.
-* The [reference()](resource-group-template-functions-resource.md#reference) and [list()](resource-group-template-functions-resource.md#list) functions are supported.
+* The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
+* The [subscription()](template-functions-resource.md#subscription) function is **not** supported.
+* The [resourceId()](template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at management group level deployments. For example, get the resource ID for a policy definition with `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. It returns the resource ID in the format `/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`.
+* The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
 
 ## Create policies
 
 ### Define policy
 
-The following example shows how to [define](../governance/policy/concepts/definition-structure.md) a policy at the management group level.
+The following example shows how to [define](../../governance/policy/concepts/definition-structure.md) a policy at the management group level.
 
 ```json
 {
@@ -135,7 +135,7 @@ The following example assigns an existing policy definition to the management gr
 
 ## Next steps
 
-* To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md).
+* To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 * For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
-* For a list of the available functions in a template, see [Template functions](resource-group-template-functions.md).
+* To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md). 
+* For a list of the available functions in a template, see [Template functions](template-functions.md).

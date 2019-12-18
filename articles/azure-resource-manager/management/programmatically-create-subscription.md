@@ -199,14 +199,14 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 - Only Azure Enterprise subscriptions can be created using this API.
 - There's a limit of 200 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account.
 - Users who aren't Account Owners, but were added to an enrollment account via RBAC, can't create subscriptions in the Azure portal.
-- You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+- You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 
 ## Create subscriptions for an MCA account
 
 ### Prerequisites
 
-You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. For more information, see [Subscription billing roles and tasks](../billing/billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).
+You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. For more information, see [Subscription billing roles and tasks](../../billing/billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
 The example shown below use REST APIs. Currently, PowerShell and Azure CLI are not supported.
 
@@ -339,7 +339,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 | `skuId` | Yes      | String | The sku ID that determines the type of Azure plan. |
 | `owners`      | No       | String | The Object ID of any user or service principal that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 | `costCenter` | No      | String | The cost center associated with the subscription. It shows up in the usage csv file. |
-| `managementGroupId` | No      | String | The ID of the management group to which the subscription will be added. To get the list of management groups, see [Management Groups - List API](https://docs.microsoft.com/rest/api/resources/managementgroups/list). Use the ID of a management group from the API. |
+| `managementGroupId` | No      | String | The ID of the management group to which the subscription will be added. To get the list of management groups, see [Management Groups - List API](/rest/api/resources/managementgroups/list). Use the ID of a management group from the API. |
 
 In the response, you get back a `subscriptionCreationResult` object for monitoring. When the subscription creation is finished, the `subscriptionCreationResult` object would return a `subscriptionLink` object, which has the subscription ID.
 
@@ -509,4 +509,4 @@ In the response, you get back a `subscriptionCreationResult` object for monitori
 
 * For an example on creating an Enterprise Agreement (EA) subscription using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Now that you've created a subscription, you can grant that ability to other users and service principals. For more information, see [Grant access to create Azure Enterprise subscriptions (preview)](grant-access-to-create-subscription.md).
-* To learn more about managing large numbers of subscriptions using management groups, see [Organize your resources with Azure management groups](management-groups-overview.md)
+* To learn more about managing large numbers of subscriptions using management groups, see [Organize your resources with Azure management groups](../../governance/management-groups/overview.md)
