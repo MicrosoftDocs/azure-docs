@@ -171,9 +171,9 @@ In a logic app, each action declares the preceding actions that must finish befo
 }
 ```
 
-So, an action runs only when all the actions that appear inside the `runAfter` object finish with the specified statuses. By default, an action that you add by using the Logic App Designer is set to run when the previous action is marked as `Succeeded`.
+So, an action runs only when all the preceding actions that appear inside the `runAfter` object finish with the specified statuses. By default, an action that you add by using the Logic App Designer is set to run when the preceding action is marked as `Succeeded`.
 
-If an error that happens in a preceding action but isn't caught and handled, the logic app run is marked as `Failed`. However, if a preceding action fails, but the subsequent action runs and finishes successfully, that subsequent action is marked as `Succeeded`. In most cases, if you successfully catch all the failures in a workflow, the logic app run is marked as `Succeeded`. However, if you have parallel branches, when any actions at the end of those parallel branches are skipped or when any preceding skipped actions fail, the logic app run is marked as `Failed`.
+If an error happens in a preceding action but isn't caught and handled, the logic app run is marked as `Failed`. However, if a preceding action fails, but the subsequent action runs and finishes successfully, that subsequent action is marked as `Succeeded`. In most logic apps, if you successfully catch all the failures in a workflow, the logic app run is marked as `Succeeded`. However, if your logic apps has parallel branches, if any actions at the end of those parallel branches are skipped or if any preceding skipped actions fail, the logic app run is marked as `Failed`.
 
 ### Customize runAfter behavior
 
