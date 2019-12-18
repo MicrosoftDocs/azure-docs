@@ -15,7 +15,7 @@ ms.author: aahi
 
 # How to use Named Entity Recognition in Text Analytics
 
-The Text Analytics API's `entities` feature lets you takes unstructured text and returns a list of disambiguated entities, with links to more information on the web (Wikipedia and Bing). The endpoint supports both named entity recognition (NER) and entity linking.
+The Text Analytics API lets you takes unstructured text and returns a list of disambiguated entities, with links to more information on the web (Wikipedia and Bing). The API supports both named entity recognition (NER) and entity linking.
 
 ### Entity Linking
 
@@ -33,7 +33,7 @@ The Text Analytics API offers two versions of Named Entity Recognition - v2 and 
 |-----------------------------------------------------------------|--------|--------|
 | Methods for single, and batch requests                          | X      | X      |
 | Basic entity recognition across several categories              | X      | X      |
-| Expanded classification for recognized entities                      |        | X      |
+| Expanded classification for recognized entities                 |        | X      |
 | Separate endpoints for sending entity linking and NER requests. |        | X      |
 | Model versioning                                                |        | X      |
 
@@ -43,7 +43,7 @@ Using entity linking in various languages requires using a corresponding knowled
 
 #### [Version 2](#tab/version-2)
 
-### Supported Types for Named Entity Recognition v2
+### Supported entity types for Named Entity Recognition v2
 
 > [!NOTE]
 > The following entities are supported by Named Entity Recognition(NER) version 2. NER v3 is in public preview, and greatly expands the number and depth of the entities recognized in text.   
@@ -222,7 +222,7 @@ Output is returned immediately. You can stream the results to an application tha
 
 #### [Version 3 (Public preview)](#tab/version-3)
 
-### Example v3 response
+### Example v3 responses
 
 Version 3 provides separate endpoints for NER and entity linking. The responses for both operations is below.
 
