@@ -23,15 +23,27 @@ Section titles in product-specific steps below refer directly to section titles 
 ## Before you begin
 
 The documentation of most security products assumes you have cluster-admin privileges.
-Customer admins don't have all privileges in Azure Red Hat OpenShift. Permissions to modify cluster-wide resources are limited.
+Customer admins do not possess all privileges in Azure Red Hat OpenShift. Permissions required to modify cluster-wide resources are limited.
 
-Make sure you're logged in to the cluster as a customer admin, by running
-`oc get scc`. All users in the customer admin group have permissions to view the Security Context Constraints (SCCs) on the cluster.
+First, ensure the user is logged in to the cluster as a customer admin, by running
+`oc get scc`. All users that are members of the customer admin group have permissions to view the Security Context Constraints (SCCs) on the cluster.
+
+Next, ensure that the `oc` binary version is `3.11.154`.
+```
+oc version
+oc v3.11.154
+kubernetes v1.11.0+d4cacc0
+features: Basic-Auth GSSAPI Kerberos SPNEGO
+
+Server https://openshift.aqua-test.osadev.cloud:443
+openshift v3.11.154
+kubernetes v1.11.0+d4cacc0
+```
 
 ## Product-specific steps for Aqua Security
-The base instructions we're going to modify can be found in the [Aqua Security deployment documentation](https://docs.aquasec.com/docs/deploy-openshift).
+The base instructions that are are going to be modified can be found in the [Aqua Security deployment documentation](https://docs.aquasec.com/docs/deploy-openshift). The steps here will run in conjunction to the Aqua deployment documentation.
 
-The first step is to annotate the SCCs you're editing. These annotations will prevent the Sync Pod from reverting your changes.
+The first step is to annotate the required SCCs that will be updated. These annotations prevent the cluster's Sync Pod from reverting the any changes to these SSCs.
 
 ```
 oc annotate scc hostaccess openshift.io/reconcile-protect=true
@@ -39,7 +51,7 @@ oc annotate scc privileged openshift.io/reconcile-protect=true
 ```
 
 ### Step 1: Prepare prerequisites
-Remember to log in to the cluster as a user with ARO Customer Admin privileges instead of cluster-admin.
+Remember to log in to the cluster as a user with ARO Customer Admin privileges instead of the cluster-admin.
 
 Create the project and the service account.
 ```
@@ -47,15 +59,21 @@ oc new-project aqua-security
 oc create serviceaccount aqua-account -n aqua-security
 ```
 
-Instead of assigning the cluster-reader role, assign the customer-admin-cluster role to the aqua-account.
+Instead of assigning the cluster-reader role, assign the customer-admin-cluster role to the aqua-account with the following command.
 ```
 oc adm policy add-cluster-role-to-user customer-admin-cluster system:serviceaccount:aqua-security:aqua-account
+oc adm policy add-scc-to-user privileged system:serviceaccount:aqua-security:aqua-account
+oc adm policy add-scc-to-user hostaccess system:serviceaccount:aqua-security:aqua-account
 ```
 
-Follow the remaining instructions in Step 1.
+Continue following the remaining instructions in Step 1.  This includes setting up the secret for the Aqua registry.
 
 ### Step 2: Deploy the Aqua Server, Database, and Gateway
-The only modification here is to replace the Route definition when editing the Aqua Console YAML file with the definition below
+Follow the steps provided in the Aqua documentation for installing the aqua-console.yaml.  
+
+This requires a modification to the provided `aqua-console.yaml`.  Remove the top two objects labeled, `kind: ClusterRole` and `kind: ClusterRoleBinding`.  These will fail during creation as the customer admin does not have permission at this time to modify `ClusterRole` and `ClusterRoleBinding` objects.
+
+The second modification will be to the `kind: Route` portion of the `aqua-console.yaml`.  Substitute the following yaml for the `kind: Route` object in the provided yaml.
 ```
 apiVersion: route.openshift.io/v1
 kind: Route
@@ -80,9 +98,9 @@ spec:
 Follow the remaining instructions.
 
 ### Step 3: Login to the Aqua Server
-This section isn't modified in any way.
+This section isn't modified in any way.  Follow the Aqua documentation.
 
-You can use this command to get the Aqua Console address.
+Use the following command to get the Aqua Console address.
 ```
 oc get route aqua-web -n aqua-security
 ```
@@ -110,7 +128,7 @@ You can follow the documentation until the "Install Console" section, use the Pr
 ### Install Console
 
 During `oc create -f twistlock_console.yaml` in Step 2, you'll get an Error when creating the namespace.
-You can safely ignore it, the namespace has been created with the `oc new-project` command.
+You can safely ignore it, the namespace has been created previoussly with the `oc new-project` command.
 
 ### Create an external route to Console
 
