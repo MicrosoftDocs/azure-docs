@@ -140,6 +140,20 @@ These steps help you configure your connection to connect automatically with Alw
 
     ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
+## FAQ
+
+### How do I add DNS suffixes to the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags
+
+```
+<dnssuffixes>
+      <dnssuffix>.mycorp.com</dnssuffix>
+      <dnssuffix>.xyz.com</dnssuffix>
+      <dnssuffix>.etc.net</dnssuffix>
+</dnssuffixes>
+```
+
 ## Next steps
 
 For more information, see [Create an Azure Active Directory tenant for P2S Open VPN connections that use Azure AD authentication](openvpn-azure-ad-tenant.md).
