@@ -81,14 +81,14 @@ df_cosmos.head(10)
 9	Viewed	14.00	Cape Verde	Flip Flop Shoes
 ```
 ## Upload JSON items to a container
-You can use the ``%%upload`` magic command to upload data from a JSON file to a specified Cosmos container. Use the syntax:
+You can use the ``%%upload`` magic command to upload data from a JSON file to a specified Azure Cosmos container. Use the following command to upload the items:
 
 ```bash
 %%upload --databaseName {database_id} --containerName {container_id} --url {url_location_of_file}
 ```
 
-- Replace ``{database_id}`` and ``{container_id}`` with the name of the database and container in your Cosmos account. If the ``--database`` and ``--container`` arguments are not provided, the query will be executed on the [default database and container](#set-default-database-for-queries).
-- Replace ``{url_location_of_file}`` with the location of your JSON file. The file must be an array of valid JSON objects and be accessible over public Internet.
+- Replace ``{database_id}`` and ``{container_id}`` with the name of the database and container in your Azure Cosmos account. If the ``--database`` and ``--container`` arguments are not provided, the query will be executed on the [default database and container](#set-default-database-for-queries).
+- Replace ``{url_location_of_file}`` with the location of your JSON file. The file must be an array of valid JSON objects and it should be accessible over the public Internet.
 
 For example:
 
@@ -102,7 +102,7 @@ Total number of documents imported : 2654
 Total time taken : 00:00:38.1228087 hours
 Total RUs consumed : 25022.58
 ```
-With the output statistics, you can calculate the effective RU/s of the upload. For example, if 25,000 RUs were consumed over 38 seconds, the effective RU/s is 25,000 RUs / 38 seconds = 658 RU/s.
+With the output statistics, you can calculate the effective RU/s used to upload the items. For example, if 25,000 RUs were consumed over 38 seconds, the effective RU/s is 25,000 RUs / 38 seconds = 658 RU/s.
 
 ## Set default database for queries
 You can set the default database ```%%sql``` commands will use for the notebook. Replace ```{database_id}``` with the name of your database.
