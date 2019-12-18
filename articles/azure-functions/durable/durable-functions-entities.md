@@ -246,12 +246,11 @@ module.exports = df.orchestrator(function*(context){
 
     // Two-way call to the entity which returns a value - awaits the response
     currentValue = yield context.df.callEntity(entityId, "get");
-    if (currentValue < 10) {
-        // One-way signal to the entity which updates the value - does not await a response
-        yield context.df.signalEntity(entityId, "add", 1);
-    }
 });
 ```
+
+> [!NOTE]
+> JavaScript does not currently support signaling an entity from an orchestrator. Use `callEntity` instead.
 
 Only orchestrations are capable of calling entities and getting a response, which could be either a return value or an exception. Client functions that use the [client binding](durable-functions-bindings.md#entity-client) can only signal entities.
 
