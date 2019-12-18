@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Online migration of Oracle to Azure Database for PostgreSQL"
-titleSuffix: Database Migration Service
+title: "Tutorial: Migrate Oracle online to Azure Database for PostgreSQL"
+titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from Oracle on-premises or on virtual machines to Azure Database for PostgreSQL by using Azure Database Migration Service.
 services: dms
 author: HJToland3

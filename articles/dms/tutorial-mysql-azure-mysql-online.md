@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Online migration of MySQL to Azure Database for MySQL"
-titleSuffix: Database Migration Service
+title: "Tutorial: Migrate MySQL online to Azure Database for MySQL"
+titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from MySQL on-premises to Azure Database for MySQL by using Azure Database Migration Service.
 services: dms
 author: HJToland3

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Online migration of PostgreSQL to Azure Database for PostgreSQL"
-titleSuffix: Database Migration Service
+title: "Tutorial: Migrate PostgreSQL online to Azure Database for PostgreSQL"
+titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service.
 services: dms
 author: HJToland3

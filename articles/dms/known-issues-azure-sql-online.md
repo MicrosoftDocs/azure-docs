@@ -1,5 +1,6 @@
 ﻿---
-title: "Known issues: Online migrations to Azure SQL Database"
+title: "Known issues: Online migrations to SQL Database"
+titleSuffix: Azure Database Migration Service
 description: Learn about known issues/migration limitations with online migrations to Azure SQL Database using the Azure Database Migration Service.
 services: database-migration
 author: HJToland3

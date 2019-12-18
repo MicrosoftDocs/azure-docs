@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Online migration of SQL Server to an Azure SQL Database managed instance"
-titleSuffix: Database Migration Service
+title: "Tutorial: Migrate SQL Server online to a SQL managed instance"
+titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from SQL Server on-premises to an Azure SQL Database managed instance by using Azure Database Migration Service.
 services: dms
 author: HJToland3
