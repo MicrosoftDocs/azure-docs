@@ -172,3 +172,4 @@ The following is an example of a Version based terms of use consent in a claim:
 ## Next steps
 
 - To learn how to delete and export user data, see [Manage user data](manage-user-data.md).
+- For an example custom policy that implements a terms of use prompt, see [A B2C IEF Custom Policy - Sign Up and Sign In with 'Terms of Use' prompt](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou).
