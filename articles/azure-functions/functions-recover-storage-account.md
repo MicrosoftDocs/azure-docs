@@ -83,7 +83,7 @@ If you have a Daily Execution Quota configured, your Function App will be tempor
 
 If the Web App is hosted in an External ILB ASE environment and if NSG blocks the internet traffic, then the portal will fail to load the Functions. The Azure portal makes ARM calls to fetch the list of functions and also makes http call to KUDU endpoint. 
 
-* To verify, navigate to NSG of the subnet where ASE resides and validate inbound rules to allow traffic coming over internet.[Read more about inbound rule confiogurtion here](https://docs.microsoft.com/en-us/azure/app-service/environment/network-info#network-security-groups)
+* To verify, navigate to NSG of the subnet where ASE resides and validate inbound rules to allow traffic coming over internet.[Read more about inbound rule configuration here](https://docs.microsoft.com/en-us/azure/app-service/environment/network-info#network-security-groups)
 
 ## Next Steps
 
