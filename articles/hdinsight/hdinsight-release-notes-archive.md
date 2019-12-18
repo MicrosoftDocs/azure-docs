@@ -23,9 +23,6 @@ Azure HDInsight is one of the most popular services among enterprise customers f
 
 This release applies both for HDInsight 3.6 and 4.0.
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
-
 ### New features
 
 #### HDInsight Identity Broker (HIB) (Preview)
