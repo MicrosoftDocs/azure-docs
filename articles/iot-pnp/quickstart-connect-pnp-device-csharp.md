@@ -58,7 +58,7 @@ This operation may take several minutes to complete.
 
 You use the cloned sample code to build an application simulating a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. In a local terminal window, go to the folder of your cloned repository and navigate to the **/azure-iot-samples-csharp/digitaltwin/device/sample/EnvironmentalSensorSample** folder. 
+1. In a local terminal window, go to the folder of your cloned repository and navigate to the **azure-iot-samples-csharp/digitaltwin/Samples/device/EnvironmentalSensorSample** folder. 
 
 1. Configure the _device connection string_:
 

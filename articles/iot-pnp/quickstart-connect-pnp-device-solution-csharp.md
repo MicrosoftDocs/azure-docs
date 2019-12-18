@@ -48,7 +48,7 @@ In this quickstart, you use a sample environmental sensor that's written in C# a
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp
     ```
 
-1. This terminal window will now be used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-csharp/digitaltwin/device/sample/EnvironmentalSensorSample** folder.
+1. This terminal window will now be used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-csharp/digitaltwin/Samples/device/EnvironmentalSensorSample** folder.
 
 1. Configure the _device connection string_:
 
@@ -68,7 +68,7 @@ In this quickstart, you use a sample environmental sensor that's written in C# a
 
 In this quickstart, you use a sample IoT solution in C# to interact with the sample device.
 
-1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-csharp/digitaltwin/service/sample** folder.
+1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-csharp/digitaltwin/Samples/service** folder.
 
 1. Configure the _IoT hub connection string_ and _device ID_ to allow the service to connect to both of these:
 
