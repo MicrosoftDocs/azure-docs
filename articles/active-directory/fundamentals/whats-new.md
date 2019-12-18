@@ -154,7 +154,7 @@ For more information, see [Change request and approval settings for an access pa
 
 ---
 
-### Updates to the My Apps page along with new workspaces (General Availability)
+### Updates to the My Apps page along with new workspaces (Public Preview)
 
 **Type:** New feature  
 **Service category:** My Apps  
