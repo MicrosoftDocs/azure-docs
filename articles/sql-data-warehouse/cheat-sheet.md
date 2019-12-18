@@ -18,7 +18,7 @@ This cheat sheet provides helpful tips and best practices for building Azure Syn
 
 The following graphic shows the process of designing a data warehouse:
 
-![Sketch]
+![Sketch](media/sql-data-warehouse-cheat-sheet/picture-flow.png)
 
 ## Queries and operations across tables
 
@@ -40,7 +40,7 @@ First, load your data into [Azure Data Lake Storage](https://docs.microsoft.com/
 | Partitioning | None |
 | Resource Class | largerc or xlargerc |
 
-Learn more about [data migration], [data loading], and the [Extract, Load, and Transform (ELT) process](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
+Learn more about [data migration](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [data loading](../synapse-analytics/sql-analytics/data-loading-overview.md), and the [Extract, Load, and Transform (ELT) process](../synapse-analytics/sql-analytics/data-loading-overview.md). 
 
 ## Distributed or replicated tables
 
@@ -103,7 +103,7 @@ For a large batch of updates in your historical data, consider using a [CTAS](ht
 
 You can also define the frequency of the updates. For example, you might want to update date columns, where new values might be added, on a daily basis. You gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
-Learn more about [statistics].
+Learn more about [statistics](../synapse-analytics/sql-analytics/development-tables-statistics.md).
 
 ## Resource class
 Resource groups are used as a way to allocate memory to queries. If you need more memory to improve query or loading speed, you should allocate higher resource classes. On the flip side, using larger resource classes impacts concurrency. You want to take that into consideration before moving all of your users to a large resource class.
@@ -136,11 +136,9 @@ Deploy in one click your spokes in SQL databases from SQL pool:
 </a>
 
 
-<!--Image references-->
-[Sketch]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
 
 <!--Article references-->
-[data loading]:design-elt-data-loading.md
+
 [deeper guidance]:guidance-for-loading-data.md
 [indexes]:sql-data-warehouse-tables-index.md
 [partitions]:sql-data-warehouse-tables-partition.md

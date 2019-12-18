@@ -193,10 +193,10 @@
       #   href: sql-data-warehouse-tables-temporary.md
     - name: T-SQL language elements
       items:
-      - name: Loops
-        href: sql-data-warehouse-develop-loops.md
-      - name: Stored procedures
-        href: sql-data-warehouse-develop-stored-procedures.md
+      # - name: Loops
+      #   href: sql-data-warehouse-develop-loops.md
+      # - name: Stored procedures
+      #   href: sql-data-warehouse-develop-stored-procedures.md
       # - name: Transactions
       #   href: sql-data-warehouse-develop-transactions.md
       - name: Transactions best practices
@@ -209,12 +209,12 @@
       #   href: sql-data-warehouse-develop-views.md
   - name: Querying
     items:
-    - name: Dynamic SQL
-      href: sql-data-warehouse-develop-dynamic-sql.md
-    - name: Group by options
-      href: sql-data-warehouse-develop-group-by-options.md
-    - name: Labels
-      href: sql-data-warehouse-develop-label.md
+    # - name: Dynamic SQL
+    #   href: sql-data-warehouse-develop-dynamic-sql.md
+    # - name: Group by options
+    #   href: sql-data-warehouse-develop-group-by-options.md
+    # - name: Labels
+    #   href: sql-data-warehouse-develop-label.md
   - name: Workload management
     items:
     - name: Overview
@@ -283,8 +283,8 @@
         href: load-data-wideworldimportersdw.md
   - name: Develop
     items:
-    - name: Overview
-      href: sql-data-warehouse-connect-overview.md
+    # - name: Overview
+    #   href: sql-data-warehouse-connect-overview.md
     # - name: Connection strings
     #   href: sql-data-warehouse-connection-strings.md
     - name: Change management and deployment

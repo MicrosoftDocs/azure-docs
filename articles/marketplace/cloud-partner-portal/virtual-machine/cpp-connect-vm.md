@@ -43,7 +43,7 @@ In order to connect the Linux-based VM, you need a secure shell protocol (SSH) c
 7. Click **Open** to open a PuTTY terminal.  
 8. When you are prompted, enter the account name and password of your Linux VM account. 
 
-   If you are having connection problems, refer to the documentation for your SSH client, for example [Chapter 10: Common error messages](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
+   If you are having connection problems, refer to the documentation for your SSH client, for example [Chapter 10: Common error messages](https://www.ssh.com/ssh/putty/putty-manuals).
 
 For more information, including how to add a desktop to a provisioned Linux VM, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 

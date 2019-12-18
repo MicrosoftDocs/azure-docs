@@ -48,12 +48,12 @@ landingContent:
   # Card (optional)
   - title: Load data
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Design data loading strategy
-            url: design-elt-data-loading.md
-          - text: Best practices
-            url: guidance-for-loading-data.md
+      # - linkListType: concept
+      #   links:
+          # - text: Design data loading strategy
+          #   url: design-elt-data-loading.md
+          # - text: Best practices
+          #   url: guidance-for-loading-data.md
       - linkListType: how-to-guide
         links:
           - text: Load data from Azure Data Lake Storage
@@ -68,12 +68,12 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Best practices
-            url: sql-data-warehouse-best-practices.md
+          # - text: Best practices
+          #   url: sql-data-warehouse-best-practices.md
           - text: Ordered clustered columnstore index tuning
             url: performance-tuning-ordered-cci.md
-          - text: Use materialized views for workload tuning
-            url: performance-tuning-materialized-views.md
+          # - text: Use materialized views for workload tuning
+          #   url: performance-tuning-materialized-views.md
       - linkListType: how-to-guide
         links:
           - text: Analyze your workload

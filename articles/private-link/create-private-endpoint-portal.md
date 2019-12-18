@@ -20,9 +20,6 @@ In this Quickstart, you will learn how to create a VM on an Azure Virtual Networ
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
-> [!NOTE]
-> Private endpoint(s) are not permitted in conjunction with service endpoints in the same subnet!
-
 ## Sign in to Azure
 
 Sign in to the Azure portal at https://portal.azure.com.
