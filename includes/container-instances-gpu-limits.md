@@ -2,12 +2,12 @@
 author: dlepow
 ms.service: container-instances
 ms.topic: include
-ms.date: 03/01/2019
+ms.date: 10/17/2019
 ms.author: danlep
 ---
 ### Resource availability
 
-| OS | GPU SKU | GPU count | CPU |  Memory (GB) |
+| OS | GPU SKU | GPU count | Max CPU | Max Memory (GB) |
 | --- | --- | --- | --- | --- |
 | Linux | K80 | 1 | 6 | 56 |
 | Linux | K80 | 2 | 12 | 112 |
