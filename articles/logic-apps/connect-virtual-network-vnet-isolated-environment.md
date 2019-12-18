@@ -95,7 +95,7 @@ This table describes the ports in your Azure virtual network that your ISE uses 
 
 | Purpose | Direction | Destination ports | Source service tag | Destination service tag | Notes |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
-| Intrasubnet communication | Inbound & Outbound | All | - | - | **Important**: Make sure to not block ports necessary for communication between components within the subnet |
+| Intrasubnet communication | Inbound & Outbound | * | - | - | **Important**: For communication between components within subnets, make sure that you open all the ports inside those subnets. |
 | Intersubnet communication | Inbound & Outbound | 80, 443 | VirtualNetwork | VirtualNetwork | For communication between subnets |
 | Communication from Azure Logic Apps | Outbound | 80, 443 | VirtualNetwork | Internet | The port depends on the external service with which the Logic Apps service communicates |
 | Azure Active Directory | Outbound | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
