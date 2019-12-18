@@ -27,7 +27,7 @@ Loading a map in an Android app using Google or Azure Maps consists of many of t
 
 - Get an API or subscription key to access either platform.
 - Add some XML to an Activity to specify where the map should be rendered and how it should be laid out.
-- Forward all the life cycle methods from the Activity containing the map view to the corresponding ones in map class. In particular, you must forward on the following methods:
+- Forward all the life-cycle methods from the Activity containing the map view to the corresponding ones in map class. In particular, you must forward on the following methods:
     - onCreate(Bundle)
     - onStart()
     - onResume()
@@ -63,7 +63,7 @@ To display a map using the Google Maps SDK for Android, the following steps woul
             android:layout_height="match_parent"/>
     ```
 
-1.  In the **MainActivity.java** file you will need to add imports for the Google Maps SDK. Forward all the life cycle methods from the activity containing the map view to the corresponding ones in map class. A `MapView` instance can be retrieved from the map fragment by using the `getMapAsync(OnMapReadyCallback)` method. The `MapView` automatically initializes the maps system and the view. Edit the **MainActivity.java** file as follows:
+1.  In the **MainActivity.java** file you will need to add imports for the Google Maps SDK. Forward all the life-cycle methods from the activity containing the map view to the corresponding ones in map class. A `MapView` instance can be retrieved from the map fragment by using the `getMapAsync(OnMapReadyCallback)` method. The `MapView` automatically initializes the maps system and the view. Edit the **MainActivity.java** file as follows:
 
     ```java
     import com.google.android.gms.maps.GoogleMap;
