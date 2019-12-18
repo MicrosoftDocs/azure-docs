@@ -423,13 +423,13 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 ### Error code:  ParquetJavaInvocationException
 
-- **Message**: `An error occurred when invoking java, message: %javeException;.`
+- **Message**: `An error occurred when invoking java, message: %JavaException;.`
 
 - **Cause**: When the error message contains 'java.lang.OutOfMemory', 'Java heap space' and 'doubleCapacity', usually it's a memory management issue in old version of integration runtime.
 
 - **Recommendation**:  If you are using Self-hosted Integration Runtime and the version is earlier than 3.20.7159.1, please upgrade to the latest version.
 
-- **Cause**: When the error message contains 'java.lang.OutOfMemory', the intergration runtime doesn't have enough resource to process the file(s).
+- **Cause**: When the error message contains 'java.lang.OutOfMemory', the integration runtime doesn't have enough resource to process the file(s).
 
 - **Recommendation**:  Please limit the concurrent runs on the integration runtime. For Self-hosted Integration Runtime, please scale up to a powerful machine with memory equal to or larger than 8 GB.
 
@@ -444,7 +444,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: Parquet file issue.
 
-- **Recommendation**:  please check the input is a vaild parquet file.
+- **Recommendation**:  please check the input is a valid parquet file.
 
 
 ### Error code:  ParquetNotSupportedType
@@ -460,18 +460,18 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Message**: `Decimal Precision or Scale information is not found in schema for column: %column;.`
 
-- **Cause**: Try to parse the number percision and scale, but no such information provide.
+- **Cause**: Try to parse the number precision and scale, but no such information provide.
 
-- **Recommendation**:  'Source' does not return correct Precision and scale. Please check the issue cloumn precision and scale.
+- **Recommendation**:  'Source' does not return correct Precision and scale. Please check the issue column precision and scale.
 
 
 ### Error code:  ParquetInvalidDecimalPrecisionScale
 
 - **Message**: `Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;.`
 
-- **Cause**: The schema is invaild.
+- **Cause**: The schema is invalid.
 
-- **Recommendation**:  Please check the issue cloumn precision and scale.
+- **Recommendation**:  Please check the issue column precision and scale.
 
 
 ### Error code:  ParquetColumnNotFound
@@ -535,9 +535,9 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 ### Error code:  JreNotFound
 
-- **Message**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Please make sure Jave Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
+- **Message**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Please make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
 
-- **Cause**: The self-hosted integration runtime cannot find Jave Runtime. This is required for reading paticular source.
+- **Cause**: The self-hosted integration runtime cannot find Java Runtime. This is required for reading particular source.
 
 - **Recommendation**:  Please check your integration runtime environment, the reference doc: https://docs.microsoft.com/en-us/azure/data-factory/format-parquet#using-self-hosted-integration-runtime
 
