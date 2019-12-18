@@ -132,7 +132,7 @@ Now HPA is up and running.Test by giving some load on the services which are Cre
 ## Conclusion
 We’ve seen how Kubernetes HPA can be used for autoscaling your deployments up and down. It’s a very nice and useful feature to accomodate deployments scale to real service load and to accomplish services.
 
-We’ve also seen how *horizontal-pod-autoscaler-downscale-delay* (5m by default) and *horizontal-pod-autoscaler-upscale-delay* (3m by default) could be parametrized at kube-controller to adjust the up and down scale reaction.
+We’ve also seen how `horizontal-pod-autoscaler-downscale-delay` (5m by default) and `horizontal-pod-autoscaler-upscale-delay` (3m by default) could be parametrized at kube-controller to adjust the up and down scale reaction.
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -140,4 +140,4 @@ We’ve also seen how *horizontal-pod-autoscaler-downscale-delay* (5m by default
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[install-azure-cli]: /cli/azure/install-azure-cli
+[azure-cli-install]: /cli/azure/install-azure-cli
