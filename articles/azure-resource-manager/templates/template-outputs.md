@@ -55,7 +55,7 @@ The following example shows how to set the IP address on a load balancer by retr
 }
 ```
 
-You can't use the `reference` function in the outputs section of a [nested template](resource-group-linked-templates.md#nested-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
+You can't use the `reference` function in the outputs section of a [nested template](linked-templates.md#nested-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
 ## Get output values
 

@@ -11,7 +11,7 @@ ms.author: jgao
 
 Learn how to iterate in your Azure Resource Manager template to create multiple instances of an Azure resource. In this tutorial, you modify a template to create three storage account instances.
 
-![Azure Resource Manager creates multiple instances diagram](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
+![Azure Resource Manager creates multiple instances diagram](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
 This tutorial covers the following tasks:
 
@@ -48,7 +48,7 @@ The existing template creates one storage account. You customize the template to
 
 From Visual Studio Code, make the following four changes:
 
-![Azure Resource Manager creates multiple instances](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
+![Azure Resource Manager creates multiple instances](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
 1. Add a `copy` element to the storage account resource definition. In the copy element, you specify the number of iterations and a variable for this loop. The count value must be a positive integer and can't exceed 800.
 2. The `copyIndex()` function returns the current iteration in the loop. You use the index as the name prefix. `copyIndex()` is zero-based. To offset the index value, you can pass a value in the copyIndex() function. For example, *copyIndex(1)*.
@@ -103,7 +103,7 @@ The completed template looks like:
 }
 ```
 
-For more information about creating multiple instances, see [Deploy multiple instances of a resource or property in Azure Resource Manager Templates](./resource-group-create-multiple.md)
+For more information about creating multiple instances, see [Deploy multiple instances of a resource or property in Azure Resource Manager Templates](./create-multiple-instances.md)
 
 ## Deploy the template
 
@@ -145,4 +145,4 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 In this tutorial, you learned how to create multiple storage account instances.  In the next tutorial, you develop a template with multiple resources and multiple resource types. Some of the resources have dependent resources.
 
 > [!div class="nextstepaction"]
-> [Create dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Create dependent resources](./template-tutorial-create-templates-with-dependent-resources.md)

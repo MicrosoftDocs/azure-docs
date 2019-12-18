@@ -9,7 +9,7 @@ ms.author: jgao
 
 # Tutorial: Add tags in your Resource Manager template
 
-In this tutorial, you learn how to add tags to resources in your template. [Tags](resource-group-using-tags.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
+In this tutorial, you learn how to add tags to resources in your template. [Tags](tag-resources.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
 
 ## Prerequisites
 

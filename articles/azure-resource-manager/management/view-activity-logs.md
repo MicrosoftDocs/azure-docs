@@ -130,7 +130,7 @@ Depending on the start time you specify, the previous commands can return a long
 Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
 ```
 
-You can use Resource Graph to see the change history for a resource. For more information, see [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md).
+You can use Resource Graph to see the change history for a resource. For more information, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## Azure CLI
 
@@ -187,6 +187,6 @@ The REST operations for working with the activity log are part of the [Insights 
 * Azure Activity logs can be used with Power BI to gain greater insights about the actions in your subscription. See [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * To learn about setting security policies, see [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).
 * To view more details about the changes to your applications from the infrastructure layer all the way to application deployment, see [Use Application Change Analysis in Azure Monitor](../../azure-monitor/app/change-analysis.md).
-* To learn about the commands for viewing deployment operations, see [View deployment operations](deployment-history.md).
+* To learn about the commands for viewing deployment operations, see [View deployment operations](../templates/deployment-history.md).
 * To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](lock-resources.md).
 * To see the list of operations available for each Microsoft Azure Resource Manager provider, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md)

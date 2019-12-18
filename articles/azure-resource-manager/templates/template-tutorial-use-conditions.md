@@ -11,9 +11,9 @@ ms.author: jgao
 
 Learn how to deploy Azure resources based on conditions.
 
-In the [Set resource deployment order](./resource-manager-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine, a virtual network, and some other dependent resources including a storage account. Instead of creating a new storage account every time, you let people choose between creating a new storage account and using an existing storage account. To accomplish this goal, you define an additional parameter. If the value of the parameter is "new", a new storage account is created. Otherwise, an existing storage account with the name provided is used.
+In the [Set resource deployment order](./template-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine, a virtual network, and some other dependent resources including a storage account. Instead of creating a new storage account every time, you let people choose between creating a new storage account and using an existing storage account. To accomplish this goal, you define an additional parameter. If the value of the parameter is "new", a new storage account is created. Otherwise, an existing storage account with the name provided is used.
 
-![Resource Manager template use condition diagram](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
+![Resource Manager template use condition diagram](./media/template-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
 This tutorial covers the following tasks:
 
@@ -43,7 +43,7 @@ To complete this article, you need:
     openssl rand -base64 32
     ```
 
-    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./template-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Open a Quickstart template
 
@@ -81,7 +81,7 @@ Here is the procedure to make the changes:
 2. Replace the three **variables('storageAccountName')** with **parameters('storageAccountName')** in the whole template.
 3. Remove the following variable definition:
 
-    ![Resource Manager template use condition diagram](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Resource Manager template use condition diagram](./media/template-tutorial-use-conditions/template-tutorial-use-condition-template-remove-storageaccountname.png)
 
 4. Add the following two parameters to the template:
 
@@ -100,7 +100,7 @@ Here is the procedure to make the changes:
 
     The updated parameters definition looks like:
 
-    ![Resource Manager use condition](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
+    ![Resource Manager use condition](./media/template-tutorial-use-conditions/template-tutorial-use-condition-template-parameters.png)
 
 5. Add the following line to the beginning of the storage account definition.
 
@@ -112,7 +112,7 @@ Here is the procedure to make the changes:
 
     The updated storage account definition looks like:
 
-    ![Resource Manager use condition](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+    ![Resource Manager use condition](./media/template-tutorial-use-conditions/template-tutorial-use-condition-template.png)
 6. Update the **storageUri** property of the virtual machine resource definition with the following value:
 
     ```json
@@ -125,7 +125,7 @@ Here is the procedure to make the changes:
 
 ## Deploy the template
 
-Follow the instructions in [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) to open the Cloud shell and upload the revised template, and then run the following PowerShell script to deploy the template.
+Follow the instructions in [Deploy the template](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) to open the Cloud shell and upload the revised template, and then run the following PowerShell script to deploy the template.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -166,4 +166,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 In this tutorial, you developed a template that allows users to choose between creating a new storage account and using an existing storage account. To learn how to retrieve secrets from Azure Key Vault, and use the secrets as passwords in the template deployment, see:
 
 > [!div class="nextstepaction"]
-> [Integrate Key Vault in template deployment](./resource-manager-tutorial-use-key-vault.md)
+> [Integrate Key Vault in template deployment](./template-tutorial-use-key-vault.md)

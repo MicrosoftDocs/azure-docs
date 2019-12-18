@@ -96,7 +96,7 @@ You can apply tags to resource groups and resources to logically organize your a
 
 ## Export resource groups to templates
 
-For information about exporting templates, see [Single and multi-resource export to template - Portal](export-template-portal.md).
+For information about exporting templates, see [Single and multi-resource export to template - Portal](../templates/export-template-portal.md).
 
 ## Manage access to resource groups
 

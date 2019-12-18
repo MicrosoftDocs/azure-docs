@@ -7,7 +7,7 @@ ms.date: 11/07/2019
 
 # Create resource groups and resources at the subscription level
 
-Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the subscription level. You use subscription level deployments to take actions that make sense at that level, such as creating resource groups, or assigning [role-based access control](../role-based-access-control/overview.md).
+Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the subscription level. You use subscription level deployments to take actions that make sense at that level, such as creating resource groups, or assigning [role-based access control](../../role-based-access-control/overview.md).
 
 To deploy templates at the subscription level, use Azure CLI, PowerShell, or REST API. The Azure portal doesn't support deployment in the subscription level.
 
@@ -116,7 +116,7 @@ The following template creates an empty resource group.
 }
 ```
 
-Use the [copy element](resource-group-create-multiple.md) with resource groups to create more than one resource group. 
+Use the [copy element](create-multiple-instances.md) with resource groups to create more than one resource group. 
 
 ```json
 {
@@ -151,7 +151,7 @@ Use the [copy element](resource-group-create-multiple.md) with resource groups t
 }
 ```
 
-For information about resource iteration, see [Deploy more than one instance of a resource or property in Azure Resource Manager Templates](./resource-group-create-multiple.md), and [Tutorial: Create multiple resource instances with Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
+For information about resource iteration, see [Deploy more than one instance of a resource or property in Azure Resource Manager Templates](./create-multiple-instances.md), and [Tutorial: Create multiple resource instances with Resource Manager templates](./template-tutorial-create-multiple-instances.md).
 
 ## Resource group and resources
 
@@ -292,7 +292,7 @@ New-AzDeployment `
 
 ### Define and assign policy
 
-You can [define](../governance/policy/concepts/definition-structure.md) and assign a policy in the same template.
+You can [define](../../governance/policy/concepts/definition-structure.md) and assign a policy in the same template.
 
 ```json
 {
@@ -355,7 +355,7 @@ New-AzDeployment `
 
 ## Next steps
 
-* To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md).
+* To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 * For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Sample templates can be found at [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
 * To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md). 

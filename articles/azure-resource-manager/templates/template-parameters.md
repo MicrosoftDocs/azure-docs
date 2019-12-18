@@ -155,5 +155,5 @@ The following examples demonstrate scenarios for using parameters.
 ## Next steps
 
 * To learn about the available properties for parameters, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
-* To learn about passing in parameter values as a file, see [Create Resource Manager parameter file](parameter-files-syntax.md).
+* To learn about passing in parameter values as a file, see [Create Resource Manager parameter file](parameter-files.md).
 * For recommendations about creating parameters, see [Best practices - parameters](template-best-practices.md#parameters).

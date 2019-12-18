@@ -7,7 +7,7 @@ ms.date: 11/07/2019
 
 # Create resources at the management group level
 
-Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the management group level. You use management group level deployments to take actions that make sense at that level, such as assigning [role-based access control](../role-based-access-control/overview.md) or applying [policies](../governance/policy/overview.md).
+Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the management group level. You use management group level deployments to take actions that make sense at that level, such as assigning [role-based access control](../../role-based-access-control/overview.md) or applying [policies](../../governance/policy/overview.md).
 
 Currently, to deploy templates at the management group level, you must use the REST API.
 
@@ -65,7 +65,7 @@ For management group deployments, there are some important considerations when u
 
 ### Define policy
 
-The following example shows how to [define](../governance/policy/concepts/definition-structure.md) a policy at the management group level.
+The following example shows how to [define](../../governance/policy/concepts/definition-structure.md) a policy at the management group level.
 
 ```json
 {
@@ -135,7 +135,7 @@ The following example assigns an existing policy definition to the management gr
 
 ## Next steps
 
-* To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md).
+* To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 * For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md). 
 * For a list of the available functions in a template, see [Template functions](template-functions.md).

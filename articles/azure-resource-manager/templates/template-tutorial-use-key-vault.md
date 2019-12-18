@@ -12,9 +12,9 @@ ms.custom: seodec18
 
 Learn how to retrieve secrets from an Azure key vault and pass the secrets as parameters when you deploy Azure Resource Manager. The parameter value is never exposed, because you reference only its key vault ID. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](./key-vault-parameter.md).
 
-In the [Set resource deployment order](./resource-manager-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine (VM). You need to provide the VM administrator username and password. Instead of providing the password, you can pre-store the password in an Azure key vault and then customize the template to retrieve the password from the key vault during the deployment.
+In the [Set resource deployment order](./template-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine (VM). You need to provide the VM administrator username and password. Instead of providing the password, you can pre-store the password in an Azure key vault and then customize the template to retrieve the password from the key vault during the deployment.
 
-![Diagram displaying the integration of a Resource Manager template with a key vault](./media/resource-manager-tutorial-use-key-vault/resource-manager-template-key-vault-diagram.png)
+![Diagram displaying the integration of a Resource Manager template with a key vault](./media/template-tutorial-use-key-vault/resource-manager-template-key-vault-diagram.png)
 
 This tutorial covers the following tasks:
 
@@ -102,7 +102,7 @@ Azure Quickstart Templates is a repository for Resource Manager templates. Inste
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 
-1. Select **Open** to open the file. The scenario is the same as the one that's used in [Tutorial: Create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+1. Select **Open** to open the file. The scenario is the same as the one that's used in [Tutorial: Create Azure Resource Manager templates with dependent resources](./template-tutorial-create-templates-with-dependent-resources.md).
    The template defines five resources:
 
    * `Microsoft.Storage/storageAccounts`. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
@@ -142,7 +142,7 @@ You don't need to make any changes to the template file.
     > [!IMPORTANT]
     > Replace the value for **id** with the resource ID of the key vault that you created in the previous procedure.
 
-    ![Integrate key vault and Resource Manager template virtual machine deployment parameters file](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
+    ![Integrate key vault and Resource Manager template virtual machine deployment parameters file](./media/template-tutorial-use-key-vault/template-tutorial-create-vm-parameters-file.png)
 
 1. Update the following values:
 
@@ -155,7 +155,7 @@ You don't need to make any changes to the template file.
 
 ## Deploy the template
 
-Follow the instructions in [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Upload both *azuredeploy.json* and *azuredeploy.parameters.json* to Cloud Shell, and then use the following PowerShell script to deploy the template:
+Follow the instructions in [Deploy the template](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Upload both *azuredeploy.json* and *azuredeploy.parameters.json* to Cloud Shell, and then use the following PowerShell script to deploy the template:
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
@@ -196,4 +196,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 In this tutorial, you retrieved a secret from your Azure key vault. You then used the secret in your template deployment. To learn how to create linked templates, see:
 
 > [!div class="nextstepaction"]
-> [Create linked templates](./resource-manager-tutorial-create-linked-templates.md)
+> [Create linked templates](./template-tutorial-create-linked-templates.md)

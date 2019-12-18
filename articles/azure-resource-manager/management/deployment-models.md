@@ -141,5 +141,5 @@ A comprehensive set of starter templates can be found on [Azure Resource Manager
 
 ## Next steps
 
-* To see the commands for deploying a template, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
+* To see the commands for deploying a template, see [Deploy an application with Azure Resource Manager template](../templates/deploy-powershell.md).
 

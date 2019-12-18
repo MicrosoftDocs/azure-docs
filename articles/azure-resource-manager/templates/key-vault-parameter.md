@@ -115,7 +115,7 @@ With this approach, you reference the key vault in the parameter file, not the t
 
 ![Resource Manager key vault integration Static ID diagram](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
-[Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md) uses this method.
+[Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./template-tutorial-use-key-vault.md) uses this method.
 
 The following template deploys a SQL server that includes an administrator password. The password parameter is set to a secure string. But, the template doesn't specify where that value comes from.
 

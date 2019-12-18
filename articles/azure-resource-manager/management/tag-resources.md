@@ -300,7 +300,7 @@ The following example shows a storage account with two tags (`Dept` and `Environ
 }
 ```
 
-To set a tag to a datetime value, use the [utcNow function](template-functions-string.md#utcnow).
+To set a tag to a datetime value, use the [utcNow function](../templates/template-functions-string.md#utcnow).
 
 ### Apply an object to the tag element
 
@@ -375,7 +375,7 @@ To store many values in a single tag, apply a JSON string that represents the va
 
 ### Apply tags from resource group
 
-To apply tags from a resource group to a resource, use the [resourceGroup](template-functions-resource.md#resourcegroup) function. When getting the tag value, use the `tags.[tag-name]` syntax instead of the `tags.tag-name` syntax, because some characters aren't parsed correctly in the dot notation.
+To apply tags from a resource group to a resource, use the [resourceGroup](../templates/template-functions-resource.md#resourcegroup) function. When getting the tag value, use the `tags.[tag-name]` syntax instead of the `tags.tag-name` syntax, because some characters aren't parsed correctly in the dot notation.
 
 ```json
 {

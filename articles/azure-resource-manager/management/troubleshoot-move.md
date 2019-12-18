@@ -26,7 +26,7 @@ Some services require additional considerations when moving resources. If you're
 * [Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
 * [Classic deployment model](./move-limitations/classic-model-move-limitations.md)
 * [Networking](./move-limitations/networking-move-limitations.md)
-* [Recovery Services](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
+* [Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
 * [Virtual Machines](./move-limitations/virtual-machines-move-limitations.md)
 
 ## Large requests

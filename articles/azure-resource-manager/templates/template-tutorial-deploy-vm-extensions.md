@@ -33,7 +33,7 @@ To complete this article, you need:
     openssl rand -base64 32
     ```
 
-    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md). We also recommend that you update your password every three months.
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./template-tutorial-use-key-vault.md). We also recommend that you update your password every three months.
 
 ## Prepare a PowerShell script
 
@@ -102,7 +102,7 @@ For more information about this resource definition, see the [extension referenc
 
 ## Deploy the template
 
-For the deployment procedure, see the "Deploy the template" section of [Tutorial: Create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). We recommended that you use a generated password for the virtual machine administrator account. See this article's [Prerequisites](#prerequisites) section.
+For the deployment procedure, see the "Deploy the template" section of [Tutorial: Create Azure Resource Manager templates with dependent resources](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). We recommended that you use a generated password for the virtual machine administrator account. See this article's [Prerequisites](#prerequisites) section.
 
 ## Verify the deployment
 
@@ -110,7 +110,7 @@ For the deployment procedure, see the "Deploy the template" section of [Tutorial
 1. In the VM overview, copy the IP address by selecting **Click to copy**, and then paste it in a browser tab.
    The default Internet Information Services (IIS) welcome page opens:
 
-![The Internet Information Services welcome page](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
+![The Internet Information Services welcome page](./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
 ## Clean up resources
 
@@ -127,4 +127,4 @@ When you no longer need the Azure resources you deployed, clean them up by delet
 In this tutorial, you deployed a virtual machine and a virtual machine extension. The extension installed the IIS web server on the virtual machine. To learn how to use the Azure SQL Database extension to import a BACPAC file, see:
 
 > [!div class="nextstepaction"]
-> [Deploy SQL extensions](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)
+> [Deploy SQL extensions](./template-tutorial-deploy-sql-extensions-bacpac.md)

@@ -70,11 +70,11 @@ See [Deploy resources to an existing resource group](manage-resources-cli.md#dep
 
 ## Deploy a resource group and resources
 
-You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](deploy-to-subscription.md#resource-group-and-resources).
+You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-group-and-resources).
 
 ## Redeploy when deployment fails
 
-This feature is also known as *Rollback on error*. For more information, see [Redeploy when deployment fails](rollback-on-error.md).
+This feature is also known as *Rollback on error*. For more information, see [Redeploy when deployment fails](../templates/rollback-on-error.md).
 
 ## Move to another resource group or subscription
 
@@ -135,7 +135,7 @@ The export template feature doesn't support exporting Azure Data Factory resourc
 
 To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](https://aka.ms/migrateclassicresourcetoarm).
 
-For more information, see [Single and multi-resource export to template in Azure portal](./export-template-portal.md).
+For more information, see [Single and multi-resource export to template in Azure portal](../templates/export-template-portal.md).
 
 ## Manage access to resource groups
 

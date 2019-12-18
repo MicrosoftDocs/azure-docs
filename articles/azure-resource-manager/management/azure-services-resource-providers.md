@@ -22,7 +22,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.ApiManagement | [API Management](../../api-management/index.yml) |
 | Microsoft.AppConfiguration | core |
 | Microsoft.Attestation | Azure Attestation Service |
-| Microsoft.Authorization | [Azure Resource Manager](index.yml) |
+| Microsoft.Authorization | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
 | Microsoft.AzureStack | core |
@@ -66,7 +66,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.DBforMySQL | [Azure Database for MySQL](/azure/mysql/) |
 | Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
 | Microsoft.DesktopVirtualization | [Windows Virtual Desktop](/azure/virtual-desktop/) |
-| Microsoft.DeploymentManager | [Azure Deployment Manager](deployment-manager-overview.md) |
+| Microsoft.DeploymentManager | [Azure Deployment Manager](../templates/deployment-manager-overview.md) |
 | Microsoft.Devices | [IoT Hub](/azure/iot-hub/)<br />[IoT Hub Device Provisioning Service](/azure/iot-dps/) |
 | Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/azure/dev-spaces/) |
@@ -76,7 +76,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
 | Microsoft.EventGrid | [Event Grid](/azure/event-grid/) |
 | Microsoft.EventHub | [Event Hubs](../../event-hubs/index.yml) |
-| Microsoft.Features | [Azure Resource Manager](index.yml) |
+| Microsoft.Features | [Azure Resource Manager](../index.yml) |
 | Microsoft.Genomics | [Microsoft Genomics](/azure/genomics/) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft.HanaOnAzure | [SAP HANA on Azure](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
@@ -120,7 +120,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.Relay | [Azure Relay](../../service-bus-relay/relay-what-is-it.md) |
 | Microsoft.ResourceGraph | [Azure Resource Graph](/azure/governance/resource-graph/) |
 | Microsoft.ResourceHealth | core |
-| Microsoft.Resources | [Azure Resource Manager](index.yml) |
+| Microsoft.Resources | [Azure Resource Manager](../index.yml) |
 | Microsoft.SaaS | core |
 | Microsoft.Scheduler | [Scheduler](/azure/scheduler/) |
 | Microsoft.Search | [Azure Search](../../search/index.yml) |
@@ -146,10 +146,10 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.VirtualMachineImages | [Azure Image Builder](../../virtual-machines/linux/image-builder-overview.md) |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
 | Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](/azure/vmware-cloudsimple/) |
-| Microsoft.Web | [App Service](../app-service/index.yml)<br />[Functions](../../azure-functions/index.yml) |
+| Microsoft.Web | [App Service](../../app-service/index.yml)<br />[Functions](../../azure-functions/index.yml) |
 | Microsoft.WindowsIoT | [Windows 10 IoT Core Services](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
 | Microsoft.WorkloadMonitor | [Azure Monitor](../../azure-monitor/index.yml) |
 
 ## Next steps
 
-For more information about resource providers, see [Azure resource providers and types](resource-manager-supported-services.md)
+For more information about resource providers, see [Azure resource providers and types](resource-providers-and-types.md)

@@ -91,14 +91,14 @@ The deployment error can be found from the Azure portal using the following proc
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Open the resource group by selecting **Resource groups** and then the resource group name. You shall see **1 Failed** under **Deployment**.
 
-    ![Resource Manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
+    ![Resource Manager tutorial troubleshoot](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
 3. Select **Error details**.
 
-    ![Resource Manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
+    ![Resource Manager tutorial troubleshoot](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
     The error message is the same as the one shown earlier:
 
-    ![Resource Manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
+    ![Resource Manager tutorial troubleshoot](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
 
 You can also find the error from the activity logs:
 
@@ -106,7 +106,7 @@ You can also find the error from the activity logs:
 2. Select **Monitor** > **Activity log**.
 3. Use the filters to find the log.
 
-    ![Resource Manager tutorial troubleshoot](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
+    ![Resource Manager tutorial troubleshoot](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
 
 Use Visual Studio Code to correct the problem, and then redeploy the template.
 

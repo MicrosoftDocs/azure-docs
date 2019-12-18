@@ -36,7 +36,7 @@ The rest of this guide describes the areas to consider when planning to develop 
 * Ensure the template parameters you use work in the target clouds.
 * Verify that resource-specific properties are available the target clouds.
 
-For an introduction to Azure Resource Manger templates, see [Template deployment](template-deployment-overview.md).
+For an introduction to Azure Resource Manger templates, see [Template deployment](overview.md).
 
 ## Ensure template functions work
 
@@ -565,11 +565,11 @@ In contrast, to specify a managed disk configuration in a template, remove the `
 }
 ```
 
-The same changes also apply [data disks](../virtual-machines/windows/using-managed-disks-template-deployments.md).
+The same changes also apply [data disks](../../virtual-machines/windows/using-managed-disks-template-deployments.md).
 
 ### Verify that VM extensions are available in Azure Stack
 
-Another consideration for cloud consistency is the use of [virtual machine extensions](../virtual-machines/windows/extensions-features.md) to configure the resources inside a VM. Not all VM extensions are available in Azure Stack. A template can specify the resources dedicated to the VM extension, creating dependencies and conditions within the template.
+Another consideration for cloud consistency is the use of [virtual machine extensions](../../virtual-machines/windows/extensions-features.md) to configure the resources inside a VM. Not all VM extensions are available in Azure Stack. A template can specify the resources dedicated to the VM extension, creating dependencies and conditions within the template.
 
 For example, if you want to configure a VM running Microsoft SQL Server, the VM extension can configure SQL Server as part the template deployment. Consider what happens if the deployment template also contains an application server configured to create a database on the VM running SQL Server. Besides also using a VM extension for the application servers, you can configure the dependency of the application server on the successful return of the SQL Server VM extension resource. This approach ensures the VM running SQL Server is configured and available when the application server is instructed to create the database.
 

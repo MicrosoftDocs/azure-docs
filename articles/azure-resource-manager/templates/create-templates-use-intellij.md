@@ -9,7 +9,7 @@ ms.topic: quickstart
 
 # Quickstart: Create and deploy Azure Resource Manager templates by using the IntelliJ IDEA
 
-Learn how to deploy a Resource Manager template to Azure using the IntelliJ IDEA, and the process of editing and update the template directly from the IDE. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
+Learn how to deploy a Resource Manager template to Azure using the IntelliJ IDEA, and the process of editing and update the template directly from the IDE. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
 ![Resource Manager template quickstart portal diagram](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 

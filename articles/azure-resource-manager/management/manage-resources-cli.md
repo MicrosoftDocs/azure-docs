@@ -46,11 +46,11 @@ read location &&
 az group deployment create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-For more information, see [Deploy resources with Resource Manager templates and Azure CLI](deploy-cli.md).
+For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../templates/deploy-cli.md).
 
 ## Deploy a resource group and resources
 
-You can create a resource group and deploy resources to the group. For more information, see [Create resource group and deploy resources](deploy-to-subscription.md#resource-group-and-resources).
+You can create a resource group and deploy resources to the group. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-group-and-resources).
 
 ## Deploy resources to multiple subscriptions or resource groups
 

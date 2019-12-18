@@ -9,7 +9,7 @@ ms.custom: seodec18
 
 To deploy your service across many regions and make sure it's running as expected in each region, you can use Azure Deployment Manager to coordinate a staged rollout of the service. Just as you would for any Azure deployment, you define the resources for your service in [Resource Manager templates](template-syntax.md). After creating the templates, you use Deployment Manager to describe the topology for your service and how it should be rolled out.
 
-Deployment Manager is a feature of Resource Manager. It expands your capabilities during deployment. Use Deployment Manager when you have a complex service that needs to be deployed to several regions. By staging the rollout of your service, you can find potential problems before it has been deployed to all regions. If you don't need the extra precautions of a staged rollout, use the standard [deployment options](resource-group-template-deploy-portal.md) for Resource Manager. Deployment Manager seamlessly integrates with all existing third-party tools that support Resource Manager deployments, such as continuous integration and continuous delivery (CI/CD) offerings.
+Deployment Manager is a feature of Resource Manager. It expands your capabilities during deployment. Use Deployment Manager when you have a complex service that needs to be deployed to several regions. By staging the rollout of your service, you can find potential problems before it has been deployed to all regions. If you don't need the extra precautions of a staged rollout, use the standard [deployment options](deploy-portal.md) for Resource Manager. Deployment Manager seamlessly integrates with all existing third-party tools that support Resource Manager deployments, such as continuous integration and continuous delivery (CI/CD) offerings.
 
 Azure Deployment Manager is in preview. Help us improve the feature by providing [feedback](https://aka.ms/admfeedback).
 
@@ -31,7 +31,7 @@ Additional resources:
 
 ## Identity and access
 
-With Deployment Manager, a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) performs the deployment actions. You create this identity before starting your deployment. It must have access to the subscription you're deploying the service to, and sufficient permission to complete the deployment. For information about the actions granted through roles, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
+With Deployment Manager, a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) performs the deployment actions. You create this identity before starting your deployment. It must have access to the subscription you're deploying the service to, and sufficient permission to complete the deployment. For information about the actions granted through roles, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
 The identity must reside in the same location as the rollout.
 

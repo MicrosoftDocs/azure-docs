@@ -50,19 +50,19 @@ When you see dependency problems, you need to gain insight into the order of res
 
 1. Select the deployment history for your resource group.
 
-   ![select deployment history](./media/resource-manager-not-found-errors/select-deployment.png)
+   ![select deployment history](./media/error-not-found/select-deployment.png)
 
 2. Select a deployment from the history, and select **Events**.
 
-   ![select deployment events](./media/resource-manager-not-found-errors/select-deployment-events.png)
+   ![select deployment events](./media/error-not-found/select-deployment-events.png)
 
 3. Examine the sequence of events for each resource. Pay attention to the status of each operation. For example, the following image shows three storage accounts that deployed in parallel. Notice that the three storage accounts are started at the same time.
 
-   ![parallel deployment](./media/resource-manager-not-found-errors/deployment-events-parallel.png)
+   ![parallel deployment](./media/error-not-found/deployment-events-parallel.png)
 
    The next image shows three storage accounts that aren't deployed in parallel. The second storage account depends on the first storage account, and the third storage account depends on the second storage account. The first storage account is started, accepted, and completed before the next is started.
 
-   ![sequential deployment](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
+   ![sequential deployment](./media/error-not-found/deployment-events-sequence.png)
 
 ## Solution 2 - get resource from different resource group
 
