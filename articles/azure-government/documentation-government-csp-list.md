@@ -232,7 +232,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Pitech Solutions Inc](http://www.pitechsol.com/)|
 |[Planet Technologies](https://go-planet.com)|
 |[Plexhosted LLC](https://plexhosted.com/)|
-|[Practical Solutions](http://ps4b.com/about.html)|
+|[Practical Solutions](https://ps4b.com/about.html)|
 |[ProArch IT Solutions](https://www.proarch.com/)|
 |[Project Hosts Inc.](https://www.projecthosts.com)|
 |[Protected Trust](https://www.proarch.com/)|
