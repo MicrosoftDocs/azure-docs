@@ -297,7 +297,8 @@ Before you run the pipeline, create an object that defines the Python environmen
 
 ```python
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
-from azureml.core.runconfig import CondaDependencies, RunConfiguration
+azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
 
 cd = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.13.1", "azureml-defaults"])
 
@@ -520,7 +521,7 @@ RunDetails(published_pipeline_run).show()
 
 Don't complete this section if you plan to run other Azure Machine Learning tutorials.
 
-### Stop the Notebook VM
+### Stop the compute instance
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 

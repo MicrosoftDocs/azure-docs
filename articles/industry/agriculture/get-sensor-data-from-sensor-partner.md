@@ -19,7 +19,7 @@ To start sensor data streaming, ensure the following:
 
 -  You installed FarmBeats in Azure Marketplace.
 -  You decided on the sensors and devices that you want to install on your farm.
--  If you plan on using soil moisture sensors, use the FarmBeats Soil Moisture Sensor Placement map to get a recommendation on the number of sensors and where exactly you should place them. For more information, see [Generate maps](generate-maps.md).
+-  If you plan on using soil moisture sensors, use the FarmBeats Soil Moisture Sensor Placement map to get a recommendation on the number of sensors and where exactly you should place them. For more information, see [Generate maps](generate-maps-in-azure-farmbeats.md).
 - You purchase and deploy devices or sensors from your device partner on your farm. Make sure you can access the sensor data via your device partners' solution.
 
 ## Enable device integration with FarmBeats
@@ -150,4 +150,4 @@ Follow these steps.
 
 ## Next steps
 
-You now have sensor data flowing into your Azure FarmBeats instance. Now, learn how to [generate maps](generate-maps.md#generate-maps) for your farms.
+You now have sensor data flowing into your Azure FarmBeats instance. Now, learn how to [generate maps](generate-maps-in-azure-farmbeats.md#generate-maps) for your farms.

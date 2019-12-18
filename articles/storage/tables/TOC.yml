@@ -45,11 +45,6 @@
   items:
   - name: Storage accounts
     href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    items:
-    - name: Manage a storage account
-      href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    - name: Upgrade a storage account
-      href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
   - name: Data redundancy
     items:
     - name: Azure storage replication
@@ -86,10 +81,14 @@
   items:
   - name: Create a storage account
     displayName: resource manager, resource manager template, template, ARM
-    href: /azure/storage/common/storage-quickstart-create-account  
+    href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json  
     maintainContext: true 
+  - name: Upgrade a storage account
+    href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+  - name: View and manage account keys
+    href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
   - name: How to use the storage emulator
-    href: /azure/storage/common/storage-use-emulator
+    href: /azure/storage/common/storage-use-emulator?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     maintainContext: true
   - name: Transfer data
     items:  
