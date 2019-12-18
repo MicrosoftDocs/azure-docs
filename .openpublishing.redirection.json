@@ -41429,11 +41429,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/synapse-analytics/index.yml",
-      "redirect_url": "/azure/sql-data-warehouse/",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-stack/user/index.yml",
       "redirect_url": "/azure-stack/user",
       "redirect_document_id": false
@@ -42107,11 +42102,6 @@
       "source_path": "articles/iot-central/core/tutorial-use-device-groups-pnp.md",
       "redirect_url": "/azure/iot-central/preview/tutorial-use-device-groups/",
       "redirect_document_id": false
-    },
-    {
-        "source_path": "articles/iot-central/core/overview-iot-options.md",
-        "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
-        "redirect_document_id": true
     },
     {
       "source_path": "articles/iot-central/core/tutorial-create-telemetry-rules-pnp.md",
