@@ -35,10 +35,18 @@
         href: quickstarts/python-labeled-data.md
     - name: Use prebuilt receipt model
       items:
-      - name: cURL
-        href: quickstarts/curl-receipts.md
-      - name: Python
-        href: quickstarts/python-receipts.md
+      - name: v2.0
+        items:
+        - name: cURL
+          href: quickstarts/curl-receipts.md
+        - name: Python
+          href: quickstarts/python-receipts.md
+      - name: v1.0
+        items:
+        - name: cURL
+          href: quickstarts/curl-receipts-v1.md
+        - name: Python
+          href: quickstarts/python-receipts-v1.md
     - name: Get text layout information
       items:
       - name: Python
