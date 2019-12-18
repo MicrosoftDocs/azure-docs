@@ -41,7 +41,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 | How to use and run it      | Desktop shortcut (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) in Windows, desktop shortcut or terminal (`code`) in Linux    |
 | Related tools on the DSVM      |     Visual Studio, RStudio, Juno  |
 
-## RStudio  Desktop 
+## RStudio Desktop
 
 |    |           |
 | ------------- | ------------- |
@@ -51,7 +51,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 | How to use and run it      | Desktop shortcut (`C:\Program Files\RStudio\bin\rstudio.exe`) on Windows, desktop shortcut (`/usr/bin/rstudio`) on Linux      |
 | Related tools on the DSVM      |   Visual Studio, Visual Studio Code, Juno      |
 
-## RStudio  Server 
+## RStudio Server
 
 |    |           |
 | ------------- | ------------- |
