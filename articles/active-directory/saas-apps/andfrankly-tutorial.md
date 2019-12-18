@@ -122,19 +122,10 @@ To configure Azure AD single sign-on with &frankly, perform the following steps:
 
 	![The Certificate download link](common/metadataxml.png)
 
-7. On the **Set up &frankly** section, copy the appropriate URL(s) as per your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
-
-	a. Login URL
-
-	b. Azure Ad Identifier
-
-	c. Logout URL
 
 ### Configure &frankly Single Sign-On
 
-To configure single sign-on on **&frankly** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [&frankly support team](mailto:help@andfrankly.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure finally enable single sign-on Log in to &frankly and go to **Account => User Management** and change Authentication mechanism from Default to **Enterprise Sign-on (SAML)**. Upload the **Federation Metadata XML** that you downloaded in step 6 and press Save.
 
 ### Create an Azure AD test user
 
