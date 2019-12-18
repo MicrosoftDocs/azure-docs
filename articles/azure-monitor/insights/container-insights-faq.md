@@ -11,7 +11,13 @@ This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for
 
 ## I dont see 'Image' and 'Name' fields populated for my logs in ContainerLog table
 
-Starting with the agent version ciprod12042019 (and later) these two fields are not populated for every logline, to save customer costs on log data collected. Please alter your queries to get 'Image' and 'ImageTag' fields from 'ContainerInventory' table by joining on 'ContainerID' field. You can get the 'Name' field (as it used to appear in ContainerLog table) from 'KubepodInventory' table's 'ContainerName' field by joining on 'ContainerID' field.
+Starting with the agent version ciprod12042019 (and later) , by default, these two fields are not populated for every logline, to save customer costs on log data collected. There are two options to get these field values -
+
+- option-1 
+
+Join other tables to get these field values:
+
+Please alter your queries to get 'Image' and 'ImageTag' fields from 'ContainerInventory' table by joining on 'ContainerID' field. You can get the 'Name' field (as it used to appear in ContainerLog table) from 'KubepodInventory' table's 'ContainerName' field by joining on 'ContainerID' field. This is the recommended option.
 
 The following example is a sample detailed query that explains how to get these field values with joins
 
@@ -34,6 +40,14 @@ ContainerLog
 ) on $left.ContainerID == $right.ContainerID2 | project-away ContainerID1, ContainerID2, Name, Image, ImageTag | project-rename Name = Name1, Image=Image1, ImageTag=ImageTag1 
 
 ```
+
+- option-2
+
+Re-enable collection for these fields for every container logline:
+
+If option-1 is not convenient due to query changes involved you have to change, you can re-enable collecting these fields by enabling the setting ```log_collection_settings.enrich_container_logs``` in the agent config map as described in the data collection configuration settings [here](./container-insights-agent-config.md)
+
+Note: Option-2 is not recommended for large clusters (more than 50 nodes), as it generates API server calls from every node in the cluster to do this enrichment. This option also increases data size for every log line collected.
 
 ## Can I view metrics collected in Grafana?
 
