@@ -206,7 +206,7 @@ Automated ML helps you with deploying the model without writing code:
     Compute type| Select the type of endpoint you want to deploy: *Azure Kubernetes Service (AKS)* or *Azure Container Instance (ACI)*.
     Name| *Applies to AKS only:* Select the name of the AKS cluster you wish to deploy to.
     Enable authentication | Select to allow for token-based or key-based authentication.
-    Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. [Learn more about scoring scripts](service/how-to-deploy-and-where.md#script).
+    Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. [Learn more about scoring scripts](how-to-deploy-and-where.md#script).
 
     >[!Important]
     > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.

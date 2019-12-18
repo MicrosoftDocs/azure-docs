@@ -15,7 +15,7 @@ ms.custom: seodec18
 # Set up and use compute targets for model training 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](../concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
+With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](../concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](../how-to-deploy-and-where.md).
 
 You can create and manage a compute target using the Azure Machine Learning SDK, Azure Machine Learning studio, Azure CLI or Azure Machine Learning VS Code extension. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning workspace.
  
@@ -509,6 +509,6 @@ See these notebooks for examples of training with various compute targets:
 
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
-* Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
+* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-and-where.md).
 * View the [RunConfiguration class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK reference.
 * [Use Azure Machine Learning with Azure Virtual Networks](how-to-enable-virtual-network.md)

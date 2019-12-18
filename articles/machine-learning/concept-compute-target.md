@@ -37,7 +37,7 @@ The following compute resources can be used to host your model deployment.
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
 
-Learn [where and how to deploy your model to a compute target](service/how-to-deploy-and-where.md).
+Learn [where and how to deploy your model to a compute target](how-to-deploy-and-where.md).
 
 <a name="amlcompute"></a>
 ## Azure Machine Learning compute (managed)
@@ -76,4 +76,4 @@ An unmanaged compute target is *not* managed by Azure Machine Learning. You crea
 
 Learn how to:
 * [Set up a compute target to train your model](service/how-to-set-up-training-targets.md)
-* [Deploy your model to a compute target](service/how-to-deploy-and-where.md)
+* [Deploy your model to a compute target](how-to-deploy-and-where.md)

@@ -1082,8 +1082,8 @@ Use a Notebook VM as a secure, enterprise-ready hosting environment for Jupyter
 
 ### Azure Machine Learning SDK for Python v1.0.33 released.
 
-+ Azure ML Hardware Accelerated Models on [FPGAs](service/how-to-deploy-fpga-web-service.md) is generally available.
-  + You can now [use the azureml-accel-models package](service/how-to-deploy-fpga-web-service.md) to:
++ Azure ML Hardware Accelerated Models on [FPGAs](how-to-deploy-fpga-web-service.md) is generally available.
+  + You can now [use the azureml-accel-models package](how-to-deploy-fpga-web-service.md) to:
     + Train the weights of a supported deep neural network (ResNet 50, ResNet 152, DenseNet-121, VGG-16, and SSD-VGG)
     + Use transfer learning with the supported DNN
     + Register the model with Model Management Service and containerize the model

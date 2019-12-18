@@ -499,6 +499,6 @@ For general information on how model explanations and feature importance can be 
 
 ## Next steps
 
-Learn more about [how and where to deploy a model](service/how-to-deploy-and-where.md).
+Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
 Learn more about [how to train a regression model with Automated machine learning](service/tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](service/how-to-auto-train-remote.md).

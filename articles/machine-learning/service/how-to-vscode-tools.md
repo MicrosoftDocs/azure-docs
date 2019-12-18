@@ -290,7 +290,7 @@ In Visual Studio Code, you can deploy your web service to:
 + Azure Container Instances (ACI) for testing.
 + Azure Kubernetes Service (AKS) for production.
 
-You don't need to create an ACI container to test in advance, because ACI containers are created as needed. However, you do need to configure AKS clusters in advance. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+You don't need to create an ACI container to test in advance, because ACI containers are created as needed. However, you do need to configure AKS clusters in advance. For more information, see [Deploy models with Azure Machine Learning](../how-to-deploy-and-where.md).
 
 To deploy a web service:
 

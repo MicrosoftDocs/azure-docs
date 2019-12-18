@@ -43,7 +43,7 @@ Here is a quick comparison:
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
 | Modules for drag-and-drop interface | Many | Initial set of popular [modules](../algorithm-module-reference/module-reference.md)|
 |Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute (GPU or CPU) and Notebook VMs.<br/>([Other computes supported in SDK](../concept-compute-target.md#train))|
-|Inferencing compute targets| Proprietary web service format, not customizable |  Azure Kubernetes Service and AML Compute <br/>([Other computes supported in SDK](../service/how-to-deploy-and-where.md)) |
+|Inferencing compute targets| Proprietary web service format, not customizable |  Azure Kubernetes Service and AML Compute <br/>([Other computes supported in SDK](../how-to-deploy-and-where.md)) |
 | ML Pipeline | Not supported | [Pipelines](../concept-ml-pipelines.md) supported |
 | MLOps | Basic model management and deployment | Configurable deployment - model and pipeline versioning and tracking |
 | Model format | Proprietary format, Studio only | Standard format depending on training job type |
