@@ -82,7 +82,7 @@ To address customer security and manageability requirements Managed Instance is 
 
 With service-aided subnet configuration user is in full control of data (TDS) traffic while Managed Instance takes responsibility to ensure uninterrupted flow of management traffic in order to fulfill SLA.
 
-### Network requirements with service-aided subnet configuration 
+### Network requirements 
 
 Deploy a managed instance in a dedicated subnet inside the virtual network. The subnet must have these characteristics:
 
