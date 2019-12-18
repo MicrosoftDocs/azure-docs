@@ -65,7 +65,7 @@ While useful for testing and learning, interactive authentication will not help 
 
 This process is necessary for enabling authentication that is decoupled from a specific user login, which allows you to authenticate to the Azure Machine Learning Python SDK in automated workflows. Service principal authentication will also allow you to [authenticate to the REST API](#azure-machine-learning-rest-api-auth).
 
-To set up service principal authentication, you first create an app registration in Azure Active Directory, and then grant your app role-based access to your ML workspace. The easiest way to complete this setup is through the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) in the Azure Portal. After you login to the portal, click the `>_` icon in the top right of the page near your name to open the shell.
+To set up service principal authentication, you first create an app registration in Azure Active Directory, and then grant your app role-based access to your ML workspace. The easiest way to complete this setup is through the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) in the Azure portal. After you login to the portal, click the `>_` icon in the top right of the page near your name to open the shell.
 
 If you haven't used the cloud shell before in your Azure account, you will need to create a storage account resource for storing any files that are written. In general this storage account will incur a negligible monthly cost. Additionally, install the machine learning extension if you haven't used it previously with the following command.
 
