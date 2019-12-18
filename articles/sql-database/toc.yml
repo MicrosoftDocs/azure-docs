@@ -758,8 +758,6 @@
     items:
       - name: Migrate using DMS
         href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-      - name: Transactional replication
-        href: 
       - name: Configure security
         href: sql-database-managed-instance-aad-security-tutorial.md
       - name: Add managed instance to a failover group
