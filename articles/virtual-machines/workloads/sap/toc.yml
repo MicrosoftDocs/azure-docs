@@ -104,6 +104,8 @@
       href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
     - name: SAP HANA scale-out with standby node with Azure NetApp Files on SLES
       href: sap-hana-scale-out-standby-netapp-files-suse.md
+    - name: SAP HANA scale-out with standby node with Azure NetApp Files on RHEL
+      href: sap-hana-scale-out-standby-netapp-files-rhel.md
   - name: SAP HANA backup overview
     href: sap-hana-backup-guide.md
   - name: SAP HANA file level backup
