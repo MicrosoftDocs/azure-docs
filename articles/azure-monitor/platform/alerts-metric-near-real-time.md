@@ -40,7 +40,7 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.ClassicStorage/storageAccounts/mmxclassic/blobServices|No|Yes|
 |Microsoft.ClassicStorage/storageAccounts/mmxclassic/fileServices|No|Yes|
 |Microsoft.ClassicStorage/storageAccounts/mmxclassic/queueServices|No|Yes|
-|Microsoft.ClassicStorage/storageAccounts/mmxclassic/tableServices|No|Yes|No|
+|Microsoft.ClassicStorage/storageAccounts/mmxclassic/tableServices|No|Yes| |
 |Microsoft.CognitiveServices/accounts| N/A | No | [Cognitive Services](../../azure-monitor/platform/metrics-supported.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines |Yes | Yes | [Virtual Machines](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets |N/A | Yes |[Virtual machine scale sets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
@@ -54,7 +54,7 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.DBforPostgreSQL/servers |N/A | No | [DB for PostgreSQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.Devices/IotHubs | N/A | No |[IoT Hub Metrics](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs)|
 |Microsoft.Devices/provisioningServices| Yes | No |[DPS Metrics](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesprovisioningservices)|
-|Microsoft.EventGrid/domains|No|Yes|No |
+|Microsoft.EventGrid/domains|No|Yes| |
 |Microsoft.EventGrid/topics |Yes | No |[Event Grid Topics](../../azure-monitor/platform/metrics-supported.md#microsofteventgridtopics)|
 |Microsoft.EventHub/clusters |Yes| No |[Event Hubs Clusters](../../azure-monitor/platform/metrics-supported.md#microsofteventhubclusters)|
 |Microsoft.EventHub/namespaces |Yes| No |[Event Hubs](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
