@@ -9,15 +9,15 @@ ms.date: 10/15/2019
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
-## I dont see 'Image' and 'Name' fields populated for my logs in ContainerLog table
+## I don't see Image and Name property values populated when I query the ContainerLog table.
 
-Starting with the agent version ciprod12042019 (and later) , by default, these two fields are not populated for every logline, to save customer costs on log data collected. There are two options to get these field values -
+Starting with agent version ciprod12042019 and later, by default these two properties are not populated for every log line to minimize cost incurred on log data collected. There are two options to query the table that include these properties with their values:
 
-- option-1 
+### Option-1 
 
-Join other tables to get these field values:
+Join other tables to include these property values in the results.
 
-Please alter your queries to get 'Image' and 'ImageTag' fields from 'ContainerInventory' table by joining on 'ContainerID' field. You can get the 'Name' field (as it used to appear in ContainerLog table) from 'KubepodInventory' table's 'ContainerName' field by joining on 'ContainerID' field. This is the recommended option.
+Modify your queries to include Image and ImageTag properties from the ```ContainerInventory``` table by joining on ContainerID property. You can include the Name property (as it previously appeared in the ```ContainerLog``` table) from KubepodInventory table's ContaineName field by joining on the ContainerID property.This is the recommended option.
 
 The following example is a sample detailed query that explains how to get these field values with joins
 
@@ -41,13 +41,14 @@ ContainerLog
 
 ```
 
-- option-2
+### Option-2
 
-Re-enable collection for these fields for every container logline:
+Re-enable collection for these properties for every container log line.
 
-If option-1 is not convenient due to query changes involved you have to change, you can re-enable collecting these fields by enabling the setting ```log_collection_settings.enrich_container_logs``` in the agent config map as described in the data collection configuration settings [here](./container-insights-agent-config.md)
+If the first option is not convenient due to query changes involved, you can re-enable collecting these fields by enabling the setting ```log_collection_settings.enrich_container_logs``` in the agent config map as described in the data collection configuration settings [here](./container-insights-agent-config.md)
 
-Note: Option-2 is not recommended for large clusters (more than 50 nodes), as it generates API server calls from every node in the cluster to do this enrichment. This option also increases data size for every log line collected.
+> [!NOTE]
+> The second option is not recommend with large clusters that have more than 50 nodes, as it generates API server calls from every node > in the cluster to perform this enrichment. This option also increases data size for every log line collected.
 
 ## Can I view metrics collected in Grafana?
 
