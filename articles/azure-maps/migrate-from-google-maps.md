@@ -13,7 +13,7 @@ ms.custom:
 
 # Migrate from Google Maps
 
-This provides insights on how to migrate web, mobile and server-based applications from Google Maps to the Azure Maps platform. This tutorial includes comparative code samples, migration suggestions, and best practices for migrating to Azure Maps.
+This tutorial provides insights on how to migrate web, mobile and server-based applications from Google Maps to the Microsoft Azure Maps platform. This tutorial includes comparative code samples, migration suggestions, and best practices for migrating to Azure Maps.
 
 ## Azure Maps platform overview
 
