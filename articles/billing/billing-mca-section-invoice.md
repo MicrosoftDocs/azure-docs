@@ -18,7 +18,7 @@ Your billing account for Microsoft Customer Agreement provides you flexibility t
 
 This article describes how you can use the Azure portal to organize your costs. It applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
-## Billing profile and invoice sections
+## Billing profile and invoice section
 
 In the billing account for a Microsoft Customer Agreement, you use billing profiles and invoice sections to organize your costs.
 
@@ -30,13 +30,13 @@ A billing profile represents an invoice and the related billing information such
 
 A billing profile is automatically created for your billing account. You may create additional billing profiles to set up additional monthly invoices for your account. 
 
-> [!NOTE]
-    >
-    > Creating additional billing profiles is not supported for customers who sign up through Azure.com.
+> [!IMPORTANT]
+>
+> Creating additional billing profile may impact your overall cost of Azure usage. For more information, see [Things to consider before adding new billing profiles](#things-to-consider-before-adding-new-billing-profiles).
 
-### Invoice sections 
+### Invoice section
 
-An invoice section represents a grouping of costs in your invoice. An invoice section is automatically created for each billing profile in your account. You may create additional sections to organize the cost in you invoice. 
+An invoice section represents a grouping of costs in your invoice. An invoice section is automatically created for each billing profile in your account. You may create additional sections to organize your costs. 
 
 When an invoice section is created, you give others permission to create Azure subscriptions and buy other products for the section. Charges for these Azure subscriptions and products are displayed under the section on its billing profile's invoice.
 
@@ -61,6 +61,39 @@ This section describes common scenarios for organizing costs and the correspondi
 |Fabrikam wants separate invoices for their engineering and marketing departments. For engineering department, they want to group costs by environments - productions and development.  | A billing profile each for marketing and finance departments. For marketing department, an invoice section each for production and development environment. |
 
 ![Info graphic for a simple billing scenario](./media/billing-mca-section-invoice/organize-billing-scenario3.png)
+
+## Things to consider before adding new billing profiles
+
+### Cost of Azure usage may increase
+
+In your billing account for Microsoft Customer Agreement, Azure usage is aggregated monthly for each billing profile. The prices for Azure resources with tiered pricing are determined based on the usage for each billing profile separately. The usage is not aggregated across billing profiles when calculating the price.This may impact your overall cost of Azure usage.
+
+Lets look at an example of how cost vary for two scenarios:
+
+#### You only have one billing profile.
+
+You're using Azure block blob storage. It costs USD .00184 per GB for first 50 terabyte (TB) and then .00177 per GB for next 450 terabyte (TB). You used 100 GB through subscriptions that are billed to your billing profile, here's how much you will be charged.
+
+
+|  |Price per GB  | Amount |
+|---------|---------|---------|
+|Charges for first 50 GB     | .00184        | .092   |
+|Charges for next 50 GB     |  .00177        | .0885   |
+|Total     |       | .1805  
+
+#### You have multiple billing profiles.
+
+Now, let's assume you created another billing profile and used 50 GB through subscriptions in one billing profile and 50 GB through subscriptions in another billing profile, here's how much you will be charged.
+
+|  |Price per GB  | Amount |
+|---------|---------|---------|
+|Charges for 50 GB through billing profile 1    | .00184        | .092   |
+|Charges for 50 GB through billing profile 2   |  .00177        | .092     |
+|Total     |       | .184
+
+### Azure reservation benefits aren't shared across billing profiles
+
+Azure reservations are applied to subscriptions in a specific billing profile and are not shared across billing profiles. 
 
 ## Create an invoice section in the Azure portal
 
